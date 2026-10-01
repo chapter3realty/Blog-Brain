@@ -1,0 +1,76 @@
+diff --git a/tools/mkpage.js b/tools/mkpage.js
+index 44fb96a..631733e 100644
+--- a/tools/mkpage.js
++++ b/tools/mkpage.js
+@@ -61,6 +61,13 @@ const h = {
+   /* A CTA box inside a section. `bg` is the box background, the opposite of the
+      section it sits in (ivory box on an ivory-2 section and the reverse). */
+   cta: (title, text, label, href, bg) => `<div style="border-left:3px solid var(--brass);background:var(--${bg});padding:1.2rem 1.4rem;margin:1.8rem 0;max-width:720px"><p style="color:var(--navy);font-weight:600;margin-bottom:.4rem">${title}</p><p style="color:var(--muted);line-height:1.7;margin-bottom:.8rem">${text}</p><a class="btn btn-brass" href="${href}">${label}</a></div>`,
++  /* A figure: an <img> or an inline <svg role="img" aria-label="..."> with a visible caption.
++     Answer engines and image search read the caption and the alt text; readers read the picture.
++     Build any chart from the data file at generation time (PLAYBOOK A29c), never from typed values. */
++  figure: (media, caption) => {
++    if (!/<img [^>]*alt="[^"]{12,}"|<svg [^>]*role="img"[^>]*aria-label="[^"]{12,}"/.test(media)) throw new Error(`figure needs an img with alt text or an svg with role="img" and an aria-label: ${caption}`);
++    return `<figure style="margin:1.8rem 0;max-width:760px">${media}<figcaption style="color:var(--muted);font-size:.85rem;line-height:1.6;margin-top:.6rem">${caption}</figcaption></figure>`;
++  },
+   /* Raw HTML pass-through for anything the helpers do not cover (a form). */
+   raw: (html) => html,
+ };
+@@ -91,6 +98,18 @@ function build(spec) {
+   let head = donor.slice(0, mainStart), tail = donor.slice(mainEnd);
+ 
+   const url = SITE + spec.url, iso = spec.datePublished || todayISO(), shown = longDate(iso);
++  /* Share image: the page's own card from Blog-Brain tools/ogcard.js when it exists
++     (og/<slug>.jpg), else the sitewide default. Google: "avoid using a generic image". */
++  const ogSlug = spec.url.replace(/^\/|\/$/g, "").replace(/\//g, "-");
++  const ogImage = spec.ogImage || (fs.existsSync(path.join(ROOT, "og", `${ogSlug}.jpg`)) ? `${SITE}/og/${ogSlug}.jpg` : `${SITE}/og-image.jpg`);
++  const ogAlt = spec.ogImageAlt || `${spec.h1} ${spec.h1em}`.replace(/<[^>]+>/g, "").trim();
++  /* The Article's author is the person in the byline, not the company. Formal name in
++     schema, Tim Nash as alternateName (owner instruction 2026-09-03). */
++  const PEOPLE = {
++    devin: { "@type": "Person", "@id": `${SITE}/about/#devin-day`, name: "Devin Day", jobTitle: "Operations Officer", url: `${SITE}/about/`, worksFor: { "@id": `${SITE}/#org` } },
++    tim: { "@type": "Person", "@id": `${SITE}/about/#timmy-nash`, name: "Timothy Nash", alternateName: "Tim Nash", jobTitle: "Broker-in-Charge", url: `${SITE}/about/`, worksFor: { "@id": `${SITE}/#org` } },
++  };
++  const authorPerson = PEOPLE[spec.author], reviewerPerson = PEOPLE[spec.author === "tim" ? "devin" : "tim"];
+   const hub = spec.hub || { name: "Invest", url: "/invest/" };
+ 
+   /* ---- head identity ---- */
+@@ -103,6 +122,10 @@ function build(spec) {
+   rep(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${url}">`, "og:url");
+   rep(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${esc(spec.ogTitle)}">`, "twitter:title");
+   rep(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${esc(spec.description)}">`, "twitter:description");
++  rep(/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${ogImage}">`, "og:image");
++  rep(/<meta property="og:image:alt" content="[^"]*">/, `<meta property="og:image:alt" content="${esc(ogAlt)}">`, "og:image:alt");
++  rep(/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${ogImage}">`, "twitter:image");
++  rep(/<meta name="twitter:image:alt" content="[^"]*">/, `<meta name="twitter:image:alt" content="${esc(ogAlt)}">`, "twitter:image:alt");
+ 
+   /* ---- JSON-LD: rebuild the four page-identity blocks, keep the rest ---- */
+   const ld = (o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`;
+@@ -111,14 +134,14 @@ function build(spec) {
+       { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+       { "@type": "ListItem", position: 2, name: hub.name, item: `${SITE}${hub.url}` },
+       { "@type": "ListItem", position: 3, name: spec.crumb, item: url }] }),
+-    WebPage: ld({ "@context": "https://schema.org", "@type": "WebPage", author: { "@id": `${SITE}/about/#devin-day` }, "@id": `${url}#webpage`, url, name: spec.ogTitle, description: spec.description,
++    WebPage: ld({ "@context": "https://schema.org", "@type": "WebPage", author: { "@id": authorPerson["@id"] }, "@id": `${url}#webpage`, url, name: spec.ogTitle, description: spec.description,
+       isPartOf: { "@id": `${SITE}/#website` }, about: { "@id": `${SITE}/#org` },
+-      primaryImageOfPage: { "@type": "ImageObject", url: `${SITE}/og-image.jpg`, width: 1200, height: 630 },
++      primaryImageOfPage: { "@type": "ImageObject", url: ogImage, width: 1200, height: 630 },
+       dateModified: iso, datePublished: iso, inLanguage: "en-US", breadcrumb: { "@id": `${url}#breadcrumb` },
+       speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1"] }, mainEntity: { "@id": `${url}#article` } }),
+     Article: ld({ "@context": "https://schema.org", "@type": "Article", "@id": `${url}#article`, headline: spec.ogTitle, description: spec.description, url,
+-      author: { "@id": `${SITE}/#org` }, reviewedBy: { "@type": "Person", name: "Timothy Nash", alternateName: "Tim Nash", jobTitle: "Broker-in-Charge" },
+-      publisher: { "@id": `${SITE}/#org` }, datePublished: iso, dateModified: iso, inLanguage: "en-US", image: `${SITE}/og-image.jpg`,
++      author: authorPerson, reviewedBy: reviewerPerson,
++      publisher: { "@id": `${SITE}/#org` }, datePublished: iso, dateModified: iso, inLanguage: "en-US", image: ogImage,
+       mainEntityOfPage: { "@id": url }, about: { "@type": "Thing", name: spec.about }, keywords: spec.keywords }),
+     FAQPage: ld({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: spec.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }),
+   };
+@@ -169,7 +192,7 @@ function build(spec) {
+     if (m1) throw new Error(`"${m1[0]}" - nothing maps a loan or a plan; say plan, list, or the literal action (owner rule 2026-09-07)`);
+     const m2 = txt.match(/\bcarr(?:y|ies|ied|ying)\s+(?:a |an |the |its |their |your |his |her |our |new |two |three |both |that |this |each |every |own )*(?:loan|mortgage|payment|payments|cost|costs|debt|note|rest|house|property|premium|itself|themselves)\b|\bcarrying costs?\b/i);
+     if (m2) throw new Error(`"${m2[0]}" - nothing carries a loan, a payment or a cost; say who pays what (owner rule 2026-09-07)`); }
+-  const strip = (html) => html.replace(/<main id="main">[\s\S]*<\/main>/, "").replace(/<title>[^<]*<\/title>/, "").replace(/<meta (?:name|property)="(?:description|og:title|og:description|og:url|twitter:title|twitter:description)" content="[^"]*">/g, "").replace(/<link rel="canonical" href="[^"]*">/, "").replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, (m) => { try { const t = JSON.parse(m.slice(35, -9))["@type"]; return blocks[t] ? "" : m; } catch { return m; } });
++  const strip = (html) => html.replace(/<main id="main">[\s\S]*<\/main>/, "").replace(/<title>[^<]*<\/title>/, "").replace(/<meta (?:name|property)="(?:description|og:title|og:description|og:url|twitter:title|twitter:description|og:image|og:image:alt|twitter:image|twitter:image:alt)" content="[^"]*">/g, "").replace(/<link rel="canonical" href="[^"]*">/, "").replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, (m) => { try { const t = JSON.parse(m.slice(35, -9))["@type"]; return blocks[t] ? "" : m; } catch { return m; } });
+   const donorChrome = strip(donor);
+   /* Completeness of the identity list: once the identity elements are removed
+      from the donor, nothing left may still name the donor page. If this fires,

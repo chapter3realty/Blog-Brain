@@ -1,0 +1,171 @@
+/* PILOT (Blog-Brain, 2026-10-01): restructure-only rewrite of specs/llc.js.
+ * No new facts. Every figure and claim below is already on the live page.
+ * Changes, each tied to a STANDARD.md rule:
+ *   - short answer opens with the verdict ("Yes, for most...") and is three short paragraphs (A2, A3)
+ *   - hero sub no longer contradicts the body (the body says LLC, trust or corporation)
+ *   - new table: single-member vs multi-member LLC, built from facts already in the sections (A6)
+ *   - new figure: which loan, as an accessible SVG (H4)
+ *   - link anchors that stood alone as fragments are now sentences (A8)
+ *   - paragraphs over 80 words split (H2)
+ *   - datePublished pinned so a rebuild cannot restamp the page
+ *   - removed one sentence that contradicted the reassessment section (flagged for owner)
+ *
+ * /invest/llc/ - holding a Myrtle Beach rental in a South Carolina LLC.
+ * Facts: research/invest-next/llc-facts.md; every cited source re-opened by
+ * the writer 2026-09-06 (statute chapters, SOS forms, SCDOR pages and the
+ * deed recording fee manual, the CFRE opinion, the county application, the
+ * federal due-on-sale list, IRS pages). Brokerage facts from
+ * research/invest-next/owner-answers-batch3.md (answers 19 to 25, rounds 2
+ * and 3). Owner rule 2026-09-06: the owner's name is never written on this
+ * page; loan facts carry the NMLS number only. The lender is never named.
+ * Body copy never names an investor or a rate; the servicing-guide source
+ * sits in the sources line only. Sections are ordered local first, national
+ * last. Built by tools/mkpage.js. */
+const { h } = require("../tools/mkpage.js");
+
+/* Which loan: an SVG built from two facts on this page. Drawn narrow and stacked
+   so the text stays readable when a phone scales it to 340px (about 13px type). */
+const loanFigure = () => {
+  const F = 'font-family="DM Sans, system-ui, sans-serif"';
+  const box = (y, w, t1, t2, fill, ink) => `<rect x="10" y="${y}" width="${w}" height="76" fill="${fill}" stroke="#1c2028" stroke-width="1.2"/><text x="${10 + w / 2}" y="${y + 32}" text-anchor="middle" ${F} font-size="18" font-weight="600" fill="${ink}">${t1}</text><text x="${10 + w / 2}" y="${y + 57}" text-anchor="middle" ${F} font-size="16" fill="${ink}">${t2}</text>`;
+  const label = (x, y, t) => `<text x="${x}" y="${y}" ${F} font-size="16" font-weight="700" fill="#91592b">${t}</text>`;
+  return `<svg role="img" aria-label="Which loan fits an LLC: if you will not live in the house, a business-purpose loan such as a DSCR loan closes in the LLC's name. If you will live in it, a conventional loan is made to you, and you live out the occupancy period before you rent it." viewBox="0 0 440 380" style="display:block;width:100%;height:auto;max-width:520px;background:#ede5d8">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1c2028"/></marker></defs>
+${box(10, 420, "Will you live in the house?", "Decide this before you choose the loan", "#1c2028", "#f4efe8")}
+<line x1="140" y1="86" x2="140" y2="150" stroke="#1c2028" stroke-width="1.5" marker-end="url(#ah)"/>${label(152, 124, "No")}
+${box(152, 360, "Business-purpose loan (DSCR)", "Closes in the LLC's name", "#f4efe8", "#1c2028")}
+<polyline points="400,86 400,330 372,330" fill="none" stroke="#1c2028" stroke-width="1.5" marker-end="url(#ah)"/>${label(408, 210, "Yes")}
+${box(292, 360, "Conventional loan, your name", "Live out the occupancy, then rent", "#f4efe8", "#1c2028")}
+</svg>`;
+};
+
+const RTN = "/invest/run-the-numbers/";
+const TEL = "tel:+18543332135";
+const LLCACT = "https://www.scstatehouse.gov/code/t33c044.php";
+const SOSFORMS = "https://businessfilings.sc.gov/BusinessFiling/Home/DownloadForms?pdfCategoryId=1";
+const DORFAQ = "https://dor.sc.gov/tax-index/business-income-taxes/corporate/corporate-faqs";
+const DRF = "https://dor.sc.gov/tax-index/deed-recording-fee";
+const DRFLAW = "https://www.scstatehouse.gov/code/t12c024.php";
+const DRFMAN = "https://dor.sc.gov/sites/dor/files/Documents/Policy%20Manuals/Deed%20Recording%20Fee%20Manual%202024.pdf";
+const ATI = "https://www.scstatehouse.gov/code/t12c037.php";
+const LEGRES = "https://www.scstatehouse.gov/code/t12c043.php";
+const CFRE = "https://www.sccourts.org/media/opinions/HTMLFiles/SC/27032.htm";
+const HORRYAPP = "https://www.horrycountysc.gov/media/v5ajislx/legalres-instructionspdf.pdf";
+const DOS = "https://www.law.cornell.edu/uscode/text/12/1701j-3";
+const FNMA = "https://servicing-guide.fanniemae.com/svc/d1-4.1-02/allowable-exemptions-due-type-transfer";
+const WH = "https://www.scstatehouse.gov/code/t12c008.php";
+const DORRATE = "https://dor.sc.gov/tax/individual-income";
+const I290 = "https://dor.sc.gov/sites/dor/files/forms/I290.pdf";
+const IRSSM = "https://www.irs.gov/businesses/small-businesses-self-employed/single-member-limited-liability-companies";
+const IRSLLC = "https://www.irs.gov/businesses/small-businesses-self-employed/limited-liability-company-llc";
+const IRSRENT = "https://www.irs.gov/businesses/small-businesses-self-employed/tips-on-rental-real-estate-income-deductions-and-recordkeeping";
+const DOI = "https://doi.sc.gov/DocumentCenter/View/2470/All-You-Ever-Wanted-To-Know-About-South-Carolina-Homeowners-Insurance";
+
+module.exports = {
+  url: "/invest/llc/",
+  title: "Buying a Myrtle Beach Rental in an LLC | Chapter3",
+  description: "Holding a Myrtle Beach rental in a South Carolina LLC: the loan, the deed into the LLC, reassessment, the 4 percent rate, one LLC per house, withholding at sale.",
+  ogTitle: "Buying and holding a Myrtle Beach rental in a South Carolina LLC",
+  crumb: "Buying in an LLC",
+  eyebrow: "Ownership structure",
+  h1: "Should you hold a Myrtle Beach rental in an LLC?",
+  h1em: "What it costs and what it changes.",
+  sub: "Most Chapter3 investor clients form one LLC per rental. A single-member LLC costs $110 to form and takes your deed with no recording fee or reassessment.",
+  datePublished: "2026-09-07",
+  heroCta: { label: "Send the address", href: RTN },
+  author: "devin",
+  shortAnswer: [
+    "Yes, for most Myrtle Beach rental owners. Every investor client Chapter3 works with holds title in an LLC, a trust or a corporation. About nine in ten form a new LLC for each house.",
+    "A DSCR loan closes in the LLC's name, and the lender requires it. A conventional loan is made to a person, not a company.",
+    "Deeding a rental you already own into a single-member LLC costs no recording fee and does not reset the property tax value. The state charges $110 to file. Your income tax does not change.",
+  ],
+  sections: [
+    { h2: "What is an LLC, and what does it do for a rental owner?", html:
+      h.p(`A limited liability company is a company you form by ${h.ext(LLCACT, "filing articles of organization")} with the state. It exists from the day the filing is accepted. Once you deed the rental to it, the LLC holds title, signs the leases and collects the rent. Every investor client Chapter3 works with holds title in an LLC, a trust or a corporation.`) +
+      h.p(`${h.ext(LLCACT, "The state's LLC law")} makes the company's debts and liabilities the company's alone. A member is not liable for them solely for being a member. The statute covers nothing else. A guaranty you sign is your own promise, your own negligence is your own, and a lawyer can tell you when a court disregards the company.`) +
+      h.p("An LLC does not lower your income tax and does not replace insurance. It changes who owns the rental. That changes the loan, the deed, the property tax file and the sale, in the order below.") },
+    { h2: "What changes with one member or with several?", html:
+      h.p("The number of members changes the property tax rules, the 4 percent rate and the tax return. It does not change the filing fee or the loan.") +
+      h.table(["", "Single-member LLC", "Multi-member LLC"], [
+        ["State filing fee", "$110", "$110"],
+        ["Recording fee on your deed into it", "None, when the LLC is ignored for tax", "None, when the only consideration is an interest in the company"],
+        ["Property tax value after your deed", "Not reset", "Reset, unless the contribution is tax-free under the federal partnership rule"],
+        ["4 percent rate if an owner lives there", "Yes, when the member meets every test", "Prorated to the resident's share, with two family exceptions"],
+        ["Income tax return", "Your own return, on Schedule E", "A partnership return; income passes to the members"],
+        ["Annual report to the state", "None, unless taxed as a corporation", "None, unless taxed as a corporation"],
+        ["Withholding when out-of-state members sell", "Withheld as its owner", "Top individual rate, 5.21 percent for a 2026 sale"],
+      ]) },
+    { h2: "Can you get a loan in the LLC's name?", html:
+      h.p("A conventional loan is made to a person, not a company. The rules that govern those loans allow a trust to borrow in some cases, and not an LLC. You buy in your own name, or the loan is a business-purpose loan made to the LLC.") +
+      h.p(`Every DSCR program and business-purpose loan a loan officer at our preferred lender works with closes in the name of an LLC or a corporation. The lender requires it. Read ${h.a("/invest/strategies/dscr-loans/", "how a DSCR loan qualifies on the rent")}. The lender writes its own rules on personal guaranties and on which LLC documents it wants.`) +
+      h.p(`Deeding the house to your LLC after closing on a conventional loan raises the due-on-sale question. ${h.ext(DOS, "Federal law lists the transfers")} a lender cannot call the loan for. The list names:`) +
+      h.ul(["a lease of three years or less", "a transfer to a spouse or child", "a transfer at death", "a transfer into a living trust that keeps you as the beneficiary"]) +
+      h.p(`A transfer to a company is not on it. The servicing rules for many conventional loans allow a transfer to an LLC the borrower controls, for loans the investor bought after mid-2016.`) +
+      h.p("The same rules require the deed back to a person before a refinance. Your servicer's rule governs. Ask in writing before you record the deed.") +
+      h.p("With the servicer's approval you can deed the house to your LLC, and that includes a home you live in. The problem is renting out a house you told the lender you would live in. A loan on a primary residence includes a promise to move in and stay, usually for a year.") +
+      h.p("Deeding that house to an LLC a month after closing and renting it out breaks the promise. That is mortgage fraud. Our rule: we do not help with it, and we show you the legal version, which pays as well or better. Buy with the loan that matches the plan, or live out the occupancy period, then rent.") +
+      h.figure(loanFigure(), "Which loan fits the plan. Choose the loan after you decide whether you will live in the house.") },
+    { h2: "How do you move a rental you already own into the LLC?", html: (bg) =>
+      h.p("You sign a deed from yourself to the LLC and record it with the county. Two state charges can apply to that deed: the recording fee and a property tax reassessment. Each has an exemption for a single-member LLC.") +
+      h.p(`${h.ext(DRF, "The deed recording fee")} is $1.85 for each $500 of value. ${h.ext(DRFLAW, "For a deed between an owner and their own company")}, value means market value, whatever the deed says was paid.`) +
+      h.p(`A deed from a member to a single-member LLC that is ignored for tax owes no fee, ${h.ext(DRFMAN, "under the state's fee manual")}. A multi-member LLC taxed as a partnership owes none when the only consideration is an interest in the company. A deed from a partnership or a corporation back to an owner pays the fee.`) +
+      h.p(`${h.ext(ATI, "A deed is an assessable transfer of interest")}. The county resets the taxable value to market value as of the end of that year. The 15 percent cap on increases does not apply, and the new value is taxed from the following year.`) +
+      h.p(`A deed to a single-member LLC, not taxed as a corporation, by its single member is not an assessable transfer. A deed to a multi-member LLC is exempt only when the contribution is tax-free under the federal partnership rule, which is a question for your CPA. See ${h.a("/buyers/property-taxes/", "how the reassessment changes the bill")}.`) +
+      h.p("Selling more than half of the LLC later is an assessable transfer too. The company must tell the assessor within 45 days on the state's form. The penalty for not notifying is $100 to $1,000.") +
+      h.p("In Chapter3's closings the closing attorney drafts the deed into the LLC. In our experience the county rarely questions that deed unless another part of the transfer is irregular.") +
+      h.cta("Buying in an LLC?", "Send the address and how you plan to hold it. We run the numbers, and we tell you what changes on the deed, the loan and the tax file.", "Send the address", RTN, bg) },
+    { h2: "Can an LLC-owned home get the 4 percent rate?", html:
+      h.p(`${h.ext(LEGRES, "The 4 percent legal residence rate")} goes to an owner who lives in the home as their domicile. A rental never qualifies, whoever owns it. ${h.ext(CFRE, "The state supreme court has held")} that a home owned by a single-member LLC qualifies when the member meets every test.`) +
+      h.p(`${h.ext(HORRYAPP, "Horry County's application")} asks for the operating agreement of a single-member LLC. In Chapter3's experience the assessor accepts the application when the LLC's owner lives in the house.`) +
+      h.p(`With a multi-member LLC the rate is prorated to the resident member's share of the company. ${h.ext(LEGRES, "Two exceptions restore the full rate")}. One is a resident who holds at least a quarter of the property with immediate family members. The other is an LLC whose only members are the resident and their parents, spouse, children, grandchildren or siblings, when the resident deeded the house into it.`) +
+      h.p(`The rented part of any property is taxed at 6 percent, in your name or the LLC's. See ${h.a("/buyers/property-taxes/", "how the two rates are calculated")}.`) },
+    { h2: "Should you form a new LLC for each house?", html: (bg) =>
+      h.p("Yes, for most investors. About nine in ten of Chapter3's investor clients form a new LLC for each house. The reason is the statute above: a company's debts are the company's alone. With one LLC per house, a claim that arises at one property stops at that property. With five houses in one LLC, a claim at one property can reach all five.") +
+      h.p("Form it before the contract, so the contract, the loan and the deed carry the same name. You file it on the state's website or by paper form. Ask the closing attorney to prepare the operating agreement. Each LLC costs one filing fee and keeps its own bank account and its own books.") +
+      h.cta("Want this made simple?", "Tell us what you plan to buy. We put the LLC, the loan and the closing attorney in order for you.", "Let us make it simple", "/contact/", bg) },
+    { h2: "What does it cost to form and keep a South Carolina LLC?", html:
+      h.p(`${h.ext(SOSFORMS, "The state's filing fee")} for the articles of organization is $110. An online filing shows a $15 electronic records charge on the receipt. The articles name ${h.ext(LLCACT, "a registered agent")} with a street address in South Carolina. The agent can be you, if you live in the state, or a company that does business here.`) +
+      h.p(`An LLC that is taxed as a partnership, or ignored for tax, files no annual report and pays no license fee to the state. ${h.ext(DORFAQ, "The report is required")} only from an LLC that elects to be taxed as a corporation, within 60 days of starting business.`) +
+      h.p(`Operate the LLC as a separate business:`) +
+      h.ul(["open a bank account in its name", "sign the leases in its name", "keep its money apart from yours"]) +
+      h.p(`${h.a("/invest/out-of-state/", "An owner in another state")} still needs a registered agent with a South Carolina street address.`) +
+      h.p(`Tell the insurer who holds title. ${h.ext(DOI, "The state's insurance guide")} makes insuring the building the owner's job, and the owner is now the LLC. Insurance is a commodity here: hundreds of carriers write a landlord policy with the LLC as the named insured. Our advice is to buy the cheapest policy that satisfies you and the lender.`) },
+    { h2: "What happens when the LLC sells?", html:
+      h.p(`When the LLC sells the house, the closing works like any other sale, with one difference for members who live in another state. If the members live outside South Carolina on the day of the sale, ${h.ext(WH, "the buyer withholds state income tax")} from the proceeds. A partnership, a trust and an estate are withheld at the top individual rate, ${h.ext(DORRATE, "5.21 percent for a 2026 sale")}. A corporation and any other nonresident entity are withheld at 5 percent.`) +
+      h.p(`The state's tax code classes an LLC by its tax election. A partnership-taxed LLC is a partnership, a corporation-taxed LLC is a corporation, and a disregarded LLC is its owner. Ask the closing attorney how it classes the LLC on ${h.ext(I290, "the withholding form")}.`) +
+      h.p(`The withholding applies to the gain when the seller gives the buyer a signed affidavit of gain, and to the whole price when it does not. The buyer sends it to the state by the 15th of the month after closing. The LLC allocates it to the members on their returns. Read about ${h.a("/sell/rental-property/", "selling a rental with a tenant or bookings in place")}, or use ${h.a("/sell/capital-gains/", "the gain and withholding calculator")}.`) },
+    { h2: "Does the LLC change your income tax?", html:
+      h.p(`No. ${h.ext(IRSSM, "A single-member LLC is disregarded")} for income tax unless it elects to be taxed as a corporation. The rental goes on your own return, on ${h.ext(IRSRENT, "Schedule E")}, as it did before. ${h.ext(IRSLLC, "An LLC with two or more members")} is a partnership by default and files its own return. The state follows the same classification, on ${h.ext(DORFAQ, "an SC1040 with Schedule E or an SC1065")}.`) +
+      h.p(`Depreciation, the 14-day rule and a 1031 exchange work the same inside the LLC. A disregarded LLC is the same taxpayer as its owner for the exchange. Read ${h.a("/invest/14-day-rule/", "the 14-day rule")} and ${h.a("/invest/strategies/1031-exchange/", "how a 1031 exchange runs here")}.`) },
+  ],
+  faqTitle: "LLC FAQ",
+  faq: [
+    { q: "Do I need an LLC for a DSCR loan?", a: "Yes. Every DSCR and business-purpose program closes in the name of an LLC or a corporation, according to a loan officer at our preferred lender. The lender requires it." },
+    { q: "Should I form a new LLC for each house?", a: "Most investors here do. About nine in ten Chapter3 investor clients form a new LLC for each house, so a claim at one property stops at that property. Each LLC costs $110 to file and keeps its own books." },
+    { q: "Can my LLC get a conventional mortgage?", a: "No. Conventional loans are made to people. A business-purpose loan such as a DSCR loan closes in the LLC name. Deeding a house with a conventional loan to your LLC is a question for the servicer, in writing, before you record." },
+    { q: "Can I move my house into an LLC after closing on a conventional loan?", a: "With the servicer's written approval, yes, and that includes a home you live in. Many servicers allow a transfer to an LLC the borrower controls and require the deed back before a refinance. Renting out a house you told the lender you would live in is the problem, and it is mortgage fraud." },
+    { q: "Do I pay the deed recording fee when I move my rental into my LLC?", a: "Not for a single-member LLC that is ignored for tax. A multi-member LLC taxed as a partnership owes none when the only consideration is an interest in the company. A deed from a partnership or corporation back to an owner pays the fee." },
+    { q: "Will my property taxes go up if I deed the house to my LLC?", a: "Not for a deed to a single-member LLC, not taxed as a corporation, by its single member. A deed to a multi-member LLC is exempt only when the contribution is tax-free under the federal partnership rule. Selling more than half of the LLC later triggers a reassessment." },
+    { q: "How much does it cost to form an LLC in South Carolina?", a: "The filing fee for the articles of organization is $110. An online filing adds a $15 electronic records charge. An LLC that is not taxed as a corporation files no annual report and pays no license fee." },
+    { q: "Does an LLC lower the income tax on my rental?", a: "No. A single-member LLC is disregarded and the rental stays on your Schedule E. A multi-member LLC files a partnership return and the income passes to the members." },
+    { q: "Does the state withhold tax when my LLC sells?", a: "If the members live outside South Carolina, yes. A partnership-taxed LLC is withheld at the top individual rate, 5.21 percent for a 2026 sale. A corporation-taxed LLC is withheld at 5 percent. A disregarded LLC is withheld as its owner." },
+  ],
+  sources: [
+    { name: "SC Code, Title 33, Chapter 44", href: LLCACT },
+    { name: "Secretary of State, entity forms", href: SOSFORMS },
+    { name: "SCDOR, corporate FAQs", href: DORFAQ },
+    { name: "SC Code 12-24-40", href: DRFLAW },
+    { name: "SCDOR, deed recording fee manual", href: DRFMAN },
+    { name: "SC Code 12-37-3150", href: ATI },
+    { name: "SC Code 12-43-220", href: LEGRES },
+    { name: "CFRE, LLC v. Greenville County Assessor", href: CFRE },
+    { name: "12 U.S.C. 1701j-3", href: DOS },
+    { name: "Fannie Mae Servicing Guide D1-4.1-02", href: FNMA },
+    { name: "SC Code 12-8-580", href: WH },
+    { name: "IRS, single member LLCs", href: IRSSM },
+  ],
+  sourcesNote: "Educational only, not legal or tax advice. The withholding rate follows the state's top individual rate each year.",
+  bottomCta: { h2: "Settle the title, the loan and the deed before you offer.", p: "One call. We put the LLC, the loan and the closing attorney in order for you.", label: "Call a specialized agent", href: TEL },
+  keywords: "buying rental property in an LLC South Carolina, DSCR loan LLC Myrtle Beach, one LLC per rental property, transfer rental to LLC South Carolina deed recording fee, LLC property tax reassessment South Carolina, LLC 4 percent legal residence South Carolina, South Carolina LLC filing fee",
+  about: "Holding a Myrtle Beach rental property in a South Carolina LLC",
+};

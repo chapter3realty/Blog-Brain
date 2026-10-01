@@ -1,0 +1,253 @@
+# The production line
+
+How a page goes from topic to live, fast, at the standard in `STANDARD.md`.
+
+## Why the current process is slow
+
+The website repo's own history (`research/website-process-digest.md`) shows where the time goes:
+
+- **Review rounds: 2 to 5 per batch.** This is the largest cost.
+  - Round one finds voice and business problems.
+  - Later rounds find wrong facts and missing local detail.
+- **Wrong facts.** 20 of 163 researched facts were wrong, and were caught late.
+- **Defects the gate would have caught,** found by the owner instead.
+- **Owner questions asked after the draft,** or never answered.
+
+All four have the same cause: the owner is the first real reviewer.
+
+The fix is to move every check the owner does today to **before** he sees the page:
+
+- Ask his questions first.
+- Verify facts with a second agent.
+- Run every gate and the score.
+- Have a fresh reviewer agent read the page as he would.
+
+**Target:** one owner review round per batch, not five.
+
+## Roles
+
+| Who | Does | Time per batch of 5 |
+|---|---|---|
+| Owner | Approves the topic list. Answers the batch questions (a voice memo is fine). Reads one preview. Deploys. | About 1 hour |
+| Tim Nash | Answers experience questions. Approves any quote in his name. | About 20 minutes |
+| Claude (orchestrator) | Runs the line below. Writes briefs, specs and fixes. | Most of one working session |
+| Subagents | One researcher per page. One verifier per page that never researched it. One reviewer. Prompts are in `prompts/`. | In parallel |
+
+## Lane N: a new page
+
+### 0. Pick
+
+The input is the topic backlog, ranked by:
+
+1. call intent
+2. gap in the search results
+3. whether a local fact exists
+
+The owner approves 5 at a time.
+
+Before anything else, run the website's PLAYBOOK A1. Name the closest existing page and say in one sentence how this page's job differs. If it does not differ, upgrade that page instead (Lane U).
+
+### 1. Brief
+
+About 15 minutes per page, by Claude. Fill `templates/brief.md`:
+
+- the query and the reader
+- **the verdict in one sentence**
+- the sub-questions, taken from the live search results and the "People also ask" box
+- the table plan
+- the figure plan
+- the experience slots
+- the CTAs
+
+Check the live search results for the query, and note what the top three pages lack. **No brief, no draft.**
+
+### 2. Owner and Tim questions
+
+Ask before drafting. One document per batch, in `templates/owner-questions.md`. At most 5 questions per page, most of them experience questions:
+
+- "What did you see the last time a client...?"
+- "What do you check first when...?"
+- "What number do you use for...?"
+
+The answers become the T2 sentences and settle business questions before any copy exists. Record them verbatim in the website repo's `research/.../owner-answers-batchN.md`.
+
+**While waiting, run step 3 in parallel.**
+
+### 3. Facts
+
+One researcher agent per page, in parallel, using `prompts/researcher.md`. It fills `templates/facts.md`, one row per claim:
+
+- the claim
+- the value and unit
+- the URL it opened
+- a verbatim quote
+- the as-of date
+- when it goes stale
+
+Then a **different** agent, using `prompts/verifier.md`, re-opens every URL and marks each row:
+
+- **verified**
+- **wrong**, with the correction
+- **unverifiable**
+
+**The writer may use verified rows only.** This replaces the website's A8 step ("re-open every source"), which one writer checking their own work did not hold: 20 of 163 facts were wrong.
+
+### 4. Spec
+
+Claude writes `specs/<name>.js` in the website repo from four inputs:
+
+- the brief
+- the verified facts
+- the owner answers
+- `templates/spec-skeleton.js`
+
+The rules for the spec:
+
+- Pin `datePublished`.
+- Build the table with `h.table()`.
+- Build the figure with `h.figure()`.
+- Build charts from the data file, never from typed values (the website's A29c).
+
+### 5. Gates
+
+Machine checks, looped until clean, before any person reads the page:
+
+```
+node tools/mkpage.js specs/<name>.js                                         # website repo
+node build.js audit                                                          # website repo: 0 errors
+node <blog-brain>/tools/ogcard.js chapter3realty /<url>/                     # its share card
+node tools/mkpage.js specs/<name>.js                                         # again, now it picks up the card
+node <blog-brain>/tools/score.js --site chapter3realty --only /<url>/         # 90+, no blockers
+```
+
+Fix the spec and rerun until both are clean.
+
+### 6. Reviewer agent
+
+A fresh agent, using `prompts/reviewer.md`, that did not write the page. It works through `templates/review-checklist.md`, which covers the human checks in STANDARD:
+
+- H6: the page agrees with itself
+- H7: the buyer test on every sentence
+- H8: jargon defined on first use
+- A1: the sub-questions are answered
+- A11: every number has a unit and a date
+- T5: no unapproved quote
+- T6: every number is in the verified ledger
+
+It also checks the page against every past owner edit in `owner-answers-*.md` that is not yet a `build.js` gate. That is how round two is caught in advance.
+
+Claude applies the fixes and reruns step 5.
+
+### 7. Look at it
+
+The checks from the website's PLAYBOOK Phase 8:
+
+- Browser checks at 1280 and 375 pixels wide.
+- Look at the figure and the table once at each width.
+- A phone has to be able to read the figure.
+
+### 8. Owner review
+
+One preview for the whole batch (`tools/mkpreview.js`). He sends one message with all edits.
+
+- Apply the edits to the spec.
+- Any edit that is a pattern, not a one-off, becomes a `build.js` gate in the same commit. That is what "hard code that" means.
+- Add it to the reviewer's list as well.
+
+### 9. Ship
+
+In the website repo, in order:
+
+1. `node build.js dates`
+2. `node build.js llmsfull`
+3. Add the sitemap and llms.txt entries.
+4. Add 2 or more inbound body links (S8).
+5. `node build.js preflight`, which must exit 0.
+6. Commit.
+
+The owner deploys. After the deploy:
+
+- Run `indexnow.ps1`.
+- Request indexing for the new URLs in Search Console.
+
+### 10. Follow-up
+
+| When | What |
+|---|---|
+| Day 7 | Check the URL is indexed in Search Console. |
+| Day 30 | Look at the queries it gets impressions for. Add any missing sub-question as an H2 or an FAQ entry. |
+| Every 90 days | Re-check the volatile facts on the page (T4). |
+
+## Lane U: upgrade an existing page
+
+Most of the gain on this site is in the 122 pages that already exist. The `/invest/llc/` pilot went from 75 to 99 with no new research. Run upgrades in this order, cheapest and widest first:
+
+### U0. Fix the live defects
+
+Today. See STUDY finding 1:
+
+- `%s` on two HOA pages.
+- Two FAQ schema mismatches.
+
+### U1. Sitewide head fixes
+
+About 30 minutes, no prose changes, so no dates move.
+
+1. In the website repo: `git apply <blog-brain>/website-patches/mkpage.patch`.
+2. `node <blog-brain>/tools/ogcard.js chapter3realty --all`, then look at a sample of the cards.
+3. `node <blog-brain>/tools/site-upgrade.js chapter3realty`, a dry run. Read the list.
+4. `node <blog-brain>/tools/site-upgrade.js chapter3realty --write`.
+5. `node build.js preflight`. Run it in the full clone; a shallow clone fails the dates check on every page.
+6. `git diff --stat`. Every file should change in `<head>` only.
+
+**Measured on a clean copy of the site:**
+
+- 122 cards rendered with no overflow.
+- 49 pages gained a Person author.
+- `build.js check` and `build.js audit` both passed.
+- No line inside `<main>` changed.
+- The site mean rose from 77 to 81.
+
+### U2. Rebuild the specs
+
+Make the 8 broken specs rebuild their live pages:
+
+- **6 are blocked by "sets".** Fix the wording in the spec.
+- **2 drifted.** Copy the hand edits back into the spec.
+- **Pin `datePublished` in all of them.**
+
+Then add a check to `preflight` that regenerates every spec into a temporary folder and compares it with the live page. Drift then fails the build instead of surfacing in a later edit.
+
+### U3. Answer-shape pass
+
+About 15 minutes per page:
+
+- The 6 yes or no pages: A3.
+- The 17 pages with fragment links: A8.
+
+### U4. Restructure pass, page by page
+
+Use the pilot as the pattern (`pilots/invest-llc/`). Work in score order, and once Search Console data is in hand, in impressions order.
+
+Restructure only; no new facts:
+
+- the verdict first
+- split paragraphs over 80 words
+- a table built from facts already on the page
+- a figure
+- question headings
+- sentence links instead of fragments
+
+**Target: 30 to 45 minutes per page, one owner read per batch of 10.**
+
+### U5. Experience pass
+
+Ask the owner and Tim the T2 questions for each page, 3 per page, in one batch document. This is the only upgrade step that needs new input, and it is the one competitors cannot copy.
+
+## Rules that keep the line fast
+
+- **Never hand-edit a generated page.** Edit the spec. Drift costs a revision later.
+- **One fact, one owner page.** A number used on two pages is computed on one and linked from the other (the website's A22e).
+- **A new owner ban becomes a gate the same day.** Each round he repeats is a round the line failed to learn from.
+- **The verifier is never the researcher.** The same agent re-checking its own work is how 20 of 163 slipped through.
+- **Score before anyone reads.** The owner's time is for business judgment, not for finding a 171-character meta description.

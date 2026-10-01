@@ -1,0 +1,13 @@
+{
+  "name": "blog-brain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chapter3 Realty page production system: the standard, the workflow, and the scorer.",
+  "scripts": {
+    "score": "node tools/score.js",
+    "test": "node tools/score.test.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

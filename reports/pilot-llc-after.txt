@@ -1,0 +1,41 @@
+/invest/llc/  Buying a Myrtle Beach Rental in an LLC | Chapter3
+Score 99/100   SEO 100  AEO 98  Human 100  Trust 100   (2093 words)
+
+SEO
+   ok  S12 FAQ schema matches the visible page word for word  9 entries match
+   ok  S1  Title 30-62 chars, names the topic and a place  49 chars
+   ok  S2  Meta description 110-165 chars and names the topic  161 chars
+   ok  S3  Exactly one H1, and it names a place  1 H1
+   ok  S4  Absolute https canonical  https://chapter3realty.com/invest/llc/
+   ok  S11 Topic word in the short answer (first 100 words)  "rental, property, llc" found
+   ok  S7  5+ contextual internal links to other pages  9 pages
+   ok  S5  Its own share image (not the sitewide default)  https://chapter3realty.com/og/invest-llc.jpg
+   ok  S6  Article schema: Person author, both dates, image  complete
+   ok  S8  2+ other pages link here from body copy  2 pages
+   ok  S9  Title and description unique sitewide  unique
+   ok  S10 Shares under 25% of its text with any other page  closest /sell/rental-property/ at 1%
+
+AEO
+   ok  A2  Short answer: 40-120 words, first sentence 30 words or fewer  92 words, first sentence 7 words
+   ok  A3  A yes/no question is answered yes/no in the first words  "Yes, for most Myrtle Beach rental owners."
+   ok  A4  60%+ of section headings are questions  9 of 9
+   ok  A5  Each section opens with a quotable sentence (30 words or fewer, no 'this/it/they' opener)  9 sections
+   ok  A6  At least one data table  1 table(s)
+   80% A7  4-8 FAQ entries, answers 15-90 words, each stands alone  9 entries
+   ok  A9  2+ primary sources linked inside the body  19 primary, 19 external
+   ok  A10 Names 3+ distinct Grand Strand places  myrtle beach, horry county, south carolina
+   ok  A8  No link anchor standing alone as a sentence  none
+
+Human
+   ok  H9  No template residue (%s, {{, undefined, NaN)  clean
+   ok  H1  Mean sentence 20 words or fewer, none over 40  mean 13.4, 0 over 40
+   ok  H2  No paragraph over 80 words  none over 80
+   ok  H3  A visual element (table, list, chart, image, callout) every 350 words  6 visuals for 2093 words (1 per 349): 1 tables, 2 lists, 1 charts, 0 images, 2 callouts
+   ok  H4  At least one image or chart with real alt text  0 images, 1 charts
+   ok  H5  2+ calls to action inside the article  3
+
+Trust
+   ok  T1  Visible byline with a named person and an Updated date  By Devin Day, Operations Officer · Reviewed by Tim Nash, Broker-in-Charge · Updated Septem
+   ok  T2  2+ sentences of first-hand experience  6: "Every investor client Chapter3 works with holds title in an LLC, a tru"
+   ok  T3  Sources line present  present
+   ok  T4  Modified in the last 365 days  24 days

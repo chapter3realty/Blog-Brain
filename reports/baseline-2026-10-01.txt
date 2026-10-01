@@ -1,0 +1,153 @@
+122 article pages  mean 77  (hubs and legal pages skipped)
+
+ 64  S 81 A 38 H 88 T 14  /guides/
+ 65  S 83 A 42 H 79 T 43  /buyers/condo-in-litigation/
+ 66  S 71 A 50 H 69 T 86  /buyers/retirees/  BLOCKER faq-match
+ 67  S 88 A 56 H 58 T 43  /buyers/closing-costs/
+ 67  S 88 A 46 H 69 T 43  /buyers/common-mistakes/
+ 67  S 76 A 57 H 74 T 43  /buyers/undisclosed-flooding/
+ 67  S 80 A 59 H 52 T 79  /hoa/reserves/  BLOCKER residue
+ 67  S 76 A 51 H 85 T 29  /invest/strategies/dst/
+ 67  S 85 A 54 H 65 T 43  /sell/capital-gains/
+ 68  S 83 A 60 H 67 T 43  /sell/
+ 69  S 79 A 69 H 61 T 57  /buyers/relocating/moving-checklist/
+ 69  S 92 A 49 H 70 T 43  /buyers/second-home/
+ 69  S 92 A 53 H 65 T 43  /invest/str-vs-ltr/
+ 69  S 77 A 57 H 79 T 43  /sell/home-value/
+ 69  S 85 A 48 H 79 T 43  /sell/net-proceeds/
+ 70  S 85 A 54 H 76 T 43  /buyers/new-construction/
+ 70  S 79 A 49 H 71 T 86  /buyers/relocating/
+ 70  S 88 A 54 H 73 T 43  /invest/long-term-rental/
+ 71  S 83 A 57 H 81 T 43  /buyers/cost-to-own/
+ 71  S 92 A 53 H 72 T 43  /buyers/first-time-home-buyer-myrtle-beach/
+ 71  S 83 A 64 H 67 T 57  /buyers/relocating/why-myrtle-beach/
+ 72  S 90 A 56 H 75 T 43  /buyers/va-loans/
+ 72  S 90 A 60 H 64 T 64  /invest/non-warrantable-condos/
+ 72  S 92 A 55 H 64 T 64  /invest/str-tools/
+ 72  S 83 A 50 H 75 T 86  /invest/strategies/
+ 73  S 83 A 68 H 62 T 79  /buyers/relocating/pros-and-cons/
+ 73  S 79 A 65 H 81 T 57  /hoa/hoa-vs-poa/
+ 73  S 80 A 69 H 58 T100  /hoa/special-assessments/  BLOCKER residue,faq-match
+ 73  S 90 A 53 H 82 T 43  /invest/strategies/dscr-loans/
+ 73  S 88 A 62 H 75 T 43  /market-reports/
+ 73  S 80 A 66 H 84 T 43  /sell/fsbo/
+ 73  S 90 A 74 H 69 T 29  /sell/sell-my-condo/
+ 73  S 88 A 63 H 74 T 43  /submarkets/
+ 74  S 85 A 64 H 83 T 43  /buyers/waterfront-homes/
+ 74  S 85 A 57 H 79 T 79  /hoa/benefits/
+ 74  S 83 A 48 H 80 T100  /hoa/documents/
+ 74  S 90 A 56 H 82 T 57  /hoa/liens-and-foreclosure/
+ 74  S 84 A 56 H 79 T 79  /hoa/rental-restrictions/
+ 74  S 90 A 58 H 80 T 43  /invest/condotel-financing/
+ 74  S 85 A 66 H 79 T 43  /invest/strategies/small-multifamily/
+ 74  S 92 A 57 H 75 T 43  /sell/out-of-state-buyers/
+ 74  S 75 A 77 H 82 T 43  /submarkets/myrtle-beach/
+ 74  S 83 A 53 H 77 T 86  /why-chapter-3/
+ 75  S 90 A 65 H 69 T 64  /buyers/coastal-insurance/
+ 75  S 88 A 62 H 76 T 57  /buyers/programs/
+ 75  S 88 A 72 H 67 T 57  /buyers/relocating/beaches/
+ 75  S 92 A 77 H 55 T 57  /buyers/relocating/cost-of-living/
+ 75  S 83 A 81 H 63 T 57  /buyers/relocating/from-new-jersey/
+ 75  S 83 A 84 H 62 T 57  /buyers/relocating/from-north-carolina/
+ 75  S 79 A 83 H 67 T 57  /buyers/relocating/which-town/
+ 75  S 90 A 54 H 78 T 86  /invest/condos/
+ 75  S 90 A 57 H 65 T100  /invest/llc/
+ 75  S 90 A 65 H 65 T 79  /sell/rental-property/
+ 76  S 90 A 69 H 79 T 43  /buyers/golf-communities/
+ 76  S 83 A 84 H 57 T 79  /buyers/relocating/from-new-york/
+ 76  S 83 A 88 H 60 T 57  /buyers/relocating/from-ohio/
+ 76  S 88 A 79 H 62 T 57  /buyers/relocating/hurricanes/
+ 76  S 85 A 61 H 77 T 79  /hoa/developer-control-turnover/
+ 76  S 85 A 60 H 79 T 79  /hoa/south-carolina-hoa-laws/
+ 76  S 81 A 72 H 85 T 43  /invest/airbnb-income/
+ 76  S 90 A 69 H 76 T 43  /invest/str-rules/
+ 76  S 90 A 71 H 71 T 57  /invest/strategies/1031-exchange/
+ 76  S 90 A 84 H 61 T 43  /submarkets/carolina-forest/
+ 77  S 90 A 72 H 70 T 64  /buyers/property-taxes/
+ 77  S 92 A 83 H 57 T 57  /buyers/relocating/from-massachusetts/
+ 77  S 83 A 86 H 66 T 57  /buyers/relocating/from-pennsylvania/
+ 77  S 92 A 72 H 70 T 57  /buyers/relocating/healthcare/
+ 77  S 87 A 77 H 64 T 79  /buyers/relocating/schools/
+ 77  S 90 A 79 H 71 T 43  /invest/condo-buildings/
+ 77  S 81 A 73 H 64 T100  /invest/foreclosures/
+ 77  S 77 A 83 H 85 T 43  /market-reports/july-2026/
+ 77  S 86 A 60 H 87 T 64  /sell/inherited-house/
+ 78  S 92 A 85 H 61 T 57  /buyers/relocating/from-connecticut/
+ 78  S 92 A 84 H 61 T 57  /buyers/relocating/from-virginia/
+ 78  S 90 A 72 H 73 T 64  /invest/strategies/fix-and-flip/
+ 79  S 88 A 89 H 72 T 43  /buyers/55-plus-communities/
+ 79  S 92 A 89 H 58 T 57  /buyers/relocating/from-maryland/
+ 79  S 85 A 73 H 86 T 57  /hoa/tax-deductible/
+ 79  S 81 A 67 H 88 T 79  /hoa/who-pays-for-damage/
+ 79  S 85 A 79 H 79 T 57  /invest/str-tax-treatment/
+ 79  S 90 A 66 H 75 T 86  /invest/strategies/brrrr/
+ 80  S 79 A 58 H 97 T 79  /buyers/buying-in-myrtle-beach/
+ 80  S 92 A 83 H 59 T 79  /buyers/relocating/from-florida/
+ 80  S 90 A 81 H 74 T 57  /buyers/relocating/weather/
+ 80  S 90 A 73 H 63 T100  /invest/landlord-rules/
+ 80  S 90 A 72 H 65 T100  /invest/student-rentals/
+ 80  S 92 A 78 H 81 T 43  /submarkets/murrells-inlet/
+ 81  S 88 A 80 H 63 T100  /buyers/relocating/getting-around/
+ 81  S 85 A 71 H 78 T100  /hoa/master-insurance-ho6/
+ 81  S 92 A 79 H 84 T 43  /submarkets/garden-city/
+ 81  S 92 A 78 H 84 T 43  /submarkets/pawleys-island/
+ 81  S 92 A 78 H 84 T 43  /submarkets/surfside-beach/
+ 82  S 92 A 76 H 66 T100  /buyers/relocating/jobs/
+ 82  S 85 A 71 H 81 T100  /hoa/dues-increases/
+ 82  S 90 A 71 H 85 T 79  /hoa/violations-and-fines/
+ 82  S 92 A 84 H 82 T 43  /submarkets/north-myrtle-beach/
+ 83  S 85 A 88 H 85 T 57  /invest/cash-to-close/
+ 83  S 85 A 89 H 84 T 57  /invest/out-of-state/
+ 84  S 90 A 71 H 82 T100  /hoa/estoppel-and-transfer-fees/
+ 84  S 92 A 68 H 82 T100  /hoa/
+ 84  S 90 A 85 H 85 T 57  /invest/cost-segregation/
+ 84  S 88 A 79 H 79 T100  /invest/financing-multiple-rentals/
+ 84  S 92 A 88 H 84 T 43  /submarkets/conway/
+ 84  S 92 A 89 H 85 T 43  /submarkets/little-river/
+ 85  S 90 A 89 H 85 T 57  /invest/str-setup/
+ 85  S 90 A 89 H 85 T 57  /invest/where-to-buy/
+ 86  S 90 A 85 H 85 T 79  /invest/rental-program-vs-airbnb/
+ 87  S 90 A 90 H 76 T100  /invest/14-day-rule/
+ 87  S 90 A 91 H 82 T 79  /invest/canadian-buyers/
+ 87  S 90 A 82 H 82 T100  /invest/landlord-insurance/
+ 87  S 90 A 95 H 85 T 57  /invest/mid-term-rentals/
+ 88  S 88 A 97 H 82 T 79  /invest/rental-depreciation/
+ 89  S 85 A100 H 85 T 79  /invest/accommodations-tax/
+ 89  S 90 A 96 H 85 T 79  /invest/run-the-numbers/
+ 90  S 90 A 95 H100 T 57  /invest/how-long-to-hold/
+ 90  S 90 A 95 H 88 T 79  /invest/j1-rentals/
+ 90  S 90 A 92 H 85 T100  /invest/property-management/
+ 91  S 88 A 97 H 85 T100  /invest/new-construction-rentals/
+ 91  S 85 A100 H 85 T100  /invest/section-8-rentals/
+ 91  S 90 A 95 H 94 T 79  /invest/what-is-being-built/
+ 92  S 90 A 97 H 97 T 79  /invest/rent-prices/
+ 92  S 90 A100 H100 T 57  /invest/rental-returns/
+
+Rules missed, by number of pages
+ 122  S5  Its own share image (not the sitewide default)
+ 109  H4  At least one image or chart with real alt text
+  98  T2  2+ sentences of first-hand experience
+  95  H3  A visual element (table, list, chart, image, callout) every 350 words
+  92  A4  60%+ of section headings are questions
+  92  H2  No paragraph over 80 words
+  67  A5  Each section opens with a quotable sentence (30 words or fewer, no 'this/it/they' opener)
+  64  S6  Article schema: Person author, both dates, image
+  64  A6  At least one data table
+  63  A2  Short answer: 40-120 words, first sentence 30 words or fewer
+  59  A7  4-8 FAQ entries, answers 15-90 words, each stands alone
+  46  T3  Sources line present
+  42  A10 Names 3+ distinct Grand Strand places
+  41  A9  2+ primary sources linked inside the body
+  24  S7  5+ contextual internal links to other pages
+  21  S11 Topic word in the short answer (first 100 words)
+  17  A8  No link anchor standing alone as a sentence
+  15  S1  Title 30-62 chars, names the topic and a place
+  13  S3  Exactly one H1, and it names a place
+  13  S2  Meta description 110-165 chars and names the topic
+  12  H1  Mean sentence 20 words or fewer, none over 40
+  11  H5  2+ calls to action inside the article
+  10  T1  Visible byline with a named person and an Updated date
+   6  A3  A yes/no question is answered yes/no in the first words
+   4  S8  2+ other pages link here from body copy
+   2  S12 FAQ schema matches the visible page word for word
+   2  H9  No template residue (%s, {{, undefined, NaN)
