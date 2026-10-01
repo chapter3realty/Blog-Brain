@@ -132,6 +132,8 @@ check("verdict: H1 second line 'Yes, at 90 days.' answers", credit(gold({ h1: "D
 check("verdict: a direct conditional answers", credit(gold({ short: "If the building has thin reserves, it will charge one. Most Myrtle Beach condo buildings charge a special assessment at some point, usually for a roof, an elevator or insurance." }), "verdict").credit === 1);
 check("verdict: a story opener does not answer", credit(gold({ short: "A buyer in the area was set on a specific building last spring. The minutes showed a roof vote coming, and the assessment arrived two months after closing." }), "verdict").credit === 0);
 
+check("residue: '%s' directly before a link fires", credit(gold({ body: '<p>%s<a href="/hoa/reserves/">Analyze my HOA documents</a></p>' }), "residue").credit === 0);
+
 /* Verdict rule is not applicable to a non-question headline. */
 check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special assessments in Myrtle Beach" }), "verdict").credit === null);
 

@@ -135,7 +135,8 @@ function parse(html, where) {
     description: $('meta[name="description"]').attr("content") || "",
     ogImage: $('meta[property="og:image"]').attr("content") || "",
     robots: $('meta[name="robots"]').attr("content") || "",
-    mainText: norm(main.text()) };
+    /* A space between elements, so "%s" followed by a link is not read as "%sa". */
+    mainText: norm(cheerio.load((main.html() || "").replace(/</g, " <")).text()) };
 }
 
 /* ------------------------------------------------------------- page facts */

@@ -145,9 +145,9 @@ The fix is a process fix: ask the owner and Tim the experience questions **befor
 
 ### 7. Duplicate risk across the relocation pages
 
-- The ten "moving from [state]" pages share about 19 percent of their text with each other (6-word shingles).
-- That is under the 25 percent line the site already uses, so it is not a problem today.
-- Google's AI guide warns against "excessive content variations". Keep each new state page anchored on that state's own numbers.
+- **Corrected 2026-10-01 (audit).** This section first said the pages share about 19 percent and called that safe. That figure counted paragraphs and list items only.
+- The website's own `build.js`, which counts all text including tables and headings, measures **25 to 38 percent on 44 of the 45 pairs** among the ten "moving from [state]" pages, and 29 to 33 percent between each of them and `/buyers/relocating/cost-of-living/`.
+- That is over the site's own 25 percent warning line. Google's AI guide warns against "excessive content variations". The shared tables and boilerplate need to become state-specific, or move to one page that the state pages link to. See `audit/AUDIT.md`.
 
 ### 8. The GitHub repo and the live site disagree
 
