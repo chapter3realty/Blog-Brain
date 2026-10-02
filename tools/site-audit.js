@@ -107,6 +107,53 @@ function sourceChecks(root) {
       if (el.closest("main").length && target !== url && byUrl.has(target)) { if (!inbound.has(target)) inbound.set(target, new Set()); inbound.get(target).add(url); }
     });
   }
+  /* Lead delivery. c3SendForm() silently drops any call without `consent`
+     (`if (!crm.consent) { ... return; }`), while the page shows its thank-you
+     message anyway. On 2026-10-01 four forms lost every lead that way, including
+     the property search on every page. Every call must pass consent. */
+  const pageSrc = new Map(pages.map(p => [p.url, p.html]));
+  const jsFiles = files.filter(f => /\.(?:js|html)$/.test(f));
+  for (const f of jsFiles) {
+    const src = fs.readFileSync(f, "utf8"), rel = "/" + path.relative(root, f).split(path.sep).join("/");
+    for (const m of src.matchAll(/(?<!function )c3SendForm\(\s*\{([\s\S]{0,800}?)\}\s*,\s*(['"][^'"]*['"])?/g)) {
+      if (/consent\s*:/.test(m[1])) continue;
+      const name = (m[2] || "(unnamed)").replace(/['"]/g, "");
+      /* The handler that encloses this call: the latest declared function whose body is still
+         open at the call (brace count > 0). A nested helper declared and closed before the call
+         (ltrGateSubmit() holds a small val() helper) is skipped. */
+      let fn;
+      for (const d of [...src.slice(0, m.index).matchAll(/function\s+([A-Za-z0-9_$]+)\s*\([^)]*\)\s*\{/g)].reverse()) {
+        let depth = 0, closed = false;
+        for (const ch of src.slice(d.index + d[0].length - 1, m.index)) { if (ch === "{") depth++; else if (ch === "}" && --depth === 0) { closed = true; break; } }
+        if (!closed) { fn = d[1]; break; }
+      }
+      if (!rel.startsWith("/assets/")) { add("error", "form-consent", rel.replace(/index\.html$/, ""), `c3SendForm(..., "${name}") passes no consent, so the lead is dropped after the thank-you message`); continue; }
+      /* A call in a shared bundle loses leads only on pages that load the bundle, call the
+         handler, and do not define their own version of it (a later inline definition wins). */
+      const bundle = rel.slice(1);
+      const live = [], overridden = [];
+      for (const [url, html] of pageSrc) {
+        if (!html.includes(bundle) || !fn || !new RegExp(`\\b${fn}\\s*\\(`).test(html.replace(new RegExp(`function\\s+${fn}\\s*\\(`, "g"), ""))) continue;
+        (new RegExp(`function\\s+${fn}\\s*\\(`).test(html) ? overridden : live).push(url);
+      }
+      if (live.length) add("error", "form-consent", `${live.slice(0, 3).join(" ")}${live.length > 3 ? ` (+${live.length - 3} more)` : ""}`, `${fn}() in ${rel} calls c3SendForm(..., "${name}") with no consent, so the lead is dropped after the thank-you message`);
+      else add("warn", "form-consent", rel, `${fn || "a handler"}() calls c3SendForm(..., "${name}") with no consent. No page uses it today (${overridden.length ? `overridden inline on ${overridden.join(" ")}` : "unused"}); fix or delete it before a page relies on it`);
+    }
+  }
+  /* A phone field needs the locked consent checkbox in its form block: the nearest
+     ancestor that holds a submit control (TCPA). */
+  for (const p of pages) {
+    const { $, url } = p;
+    $('input[type="tel"], input[id*="phone" i], input[name*="phone" i], input[placeholder*="phone" i]').each((_, e) => {
+      let block = $(e).parent();
+      for (let i = 0; i < 8 && block.length && !block.is("body"); i++) {
+        if (block.find('button, input[type="submit"], [onclick]').length) break;
+        block = block.parent();
+      }
+      if (!/I consent to receive calls and text messages/.test(block.text())) add("error", "phone-consent", url, `phone field #${$(e).attr("id") || $(e).attr("name") || "?"} has no consent checkbox in its form block`);
+    });
+  }
+
   for (const p of pages) {
     if (p.noindex || p.url === "/" || p.url === "/404/") continue;
     const n = (inbound.get(p.url) || new Set()).size;

@@ -75,6 +75,25 @@ for (const [checkName, file, mutate] of plants) {
   check("residue: '%s' directly before a link fires", run(files).some(f => f.check === "residue"));
 }
 
+/* Lead delivery: a c3SendForm call without consent. */
+{
+  const consentBox = '<label><input type="checkbox" id="c"><span>I consent to receive calls and text messages from Chapter 3 Realty</span></label>';
+  const send = (withConsent) => `<script>function go(){c3SendForm({name:n,phone:p${withConsent ? ",consent:c?'yes':'no'" : ""}},'Test Form');}</script>`;
+  const form = (withConsent, box = true) => `<div class="lead"><input id="phone" type="tel">${box ? consentBox : ""}<button onclick="go()">Send</button></div>${send(withConsent)}`;
+  const withPage = (body) => ({ ...clean, "b/index.html": clean["b/index.html"].replace("<h1>H</h1>", "<h1>H</h1>" + body) });
+  check("form-consent: call without consent fires", run(withPage(form(false))).some(f => f.check === "form-consent" && f.level === "error"));
+  check("form-consent: call with consent is quiet", !run(withPage(form(true))).some(f => f.check === "form-consent"));
+  check("phone-consent: phone field without a consent box fires", run(withPage(form(true, false))).some(f => f.check === "phone-consent"));
+  check("phone-consent: phone field with a consent box is quiet", !run(withPage(form(true))).some(f => f.check === "phone-consent"));
+  /* A bundle handler without consent is an error only where a page calls it and does not override it. */
+  const bundle = "function go(){ function val(id){return id;} if (x) { c3SendForm({name:val('n')},'Bundle Form'); } }";
+  const usesBundle = (inline) => ({ ...clean, "assets/s.js": bundle, "b/index.html": clean["b/index.html"].replace("<h1>H</h1>", `<h1>H</h1><script src="/assets/s.js"></script><button onclick="go()">Send</button>${inline}`) });
+  const live = run(usesBundle("")).find(f => f.check === "form-consent");
+  check("form-consent: bundle handler used by a page is an error, named by its enclosing function (not the nested helper)", live && live.level === "error" && /go\(\)/.test(live.detail));
+  const over = run(usesBundle("<script>function go(){c3SendForm({name:n,consent:'yes'},'Inline');}</script>")).find(f => f.check === "form-consent");
+  check("form-consent: bundle handler overridden inline is only a warning", over && over.level === "warn");
+}
+
 /* Sitemap and llms.txt. */
 {
   const files = { ...clean, "sitemap.xml": clean["sitemap.xml"].replace(/<url><loc>https:\/\/chapter3realty\.com\/c\/[\s\S]*?<\/url>/, "") };

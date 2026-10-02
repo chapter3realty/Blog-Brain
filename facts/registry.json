@@ -1,0 +1,254 @@
+{
+  "_comment": "One value per fact, one primary source, one owner page. Built from the 2026-10-01 fact audit (audit/evidence/facts.md): 12 facts disagreed across pages and several known traps from the website's HANDOFF had regressed. tools/facts-check.js flags (1) any sentence that matches a 'wrong' pattern, unless it also matches 'unless', and (2) any entry past its 'staleBy' date. Every 'wrong' pattern is a sentence shape found live on the site on 2026-10-01; each has a control in tools/facts-check.test.js. Add an entry whenever a fact appears on two pages or has been gotten wrong once.",
+  "facts": [
+    {
+      "id": "nmb-str-permit",
+      "fact": "North Myrtle Beach requires a business license for a short-term rental. There is no separate STR permit, inspection or local-agent rule in force.",
+      "source": "https://www.nmb.us/833/Short-term-Rentals",
+      "quote": "There is currently no special zoning or permit process required beyond standard licensing.",
+      "asOf": "2026-10-01",
+      "staleBy": "2027-01-01",
+      "ownerPage": "/invest/str-rules/",
+      "wrong": [
+        {
+          "pattern": "\\bResponsible Local Agent\\b",
+          "note": "No local-agent rule is in force in North Myrtle Beach.",
+          "unless": "\\bworkshop\\w*|\\bpropos\\w*|\\bdraft\\b|\\bconsider\\w*|\\bnot (?:been )?adopted\\b|\\bwatch\\b"
+        },
+        {
+          "pattern": "North Myrtle Beach[^.]{0,120}\\bannual (?:short-term-rental |STR )?permit\\b|\\bannual (?:short-term-rental |STR )?permit\\b[^.]{0,120}North Myrtle Beach",
+          "note": "No STR permit; business license only.",
+          "unless": "\\bworkshop\\w*|\\bpropos\\w*|\\bdraft\\b|\\bconsider\\w*|\\bnot (?:been )?adopted\\b|\\bwatch\\b"
+        }
+      ]
+    },
+    {
+      "id": "rental-vs-residence-tax",
+      "fact": "A rental's property tax bill in Horry County is about 3.3 times (unincorporated) to 4.3 times (City of Myrtle Beach) an owner-occupant's, on 2025 and 2026 millage. The 6 percent vs 4 percent ratio alone is 1.5 times; the school operating exemption on a legal residence makes the gap larger.",
+      "source": "https://www.scstatehouse.gov/code/t12c043.php",
+      "asOf": "2026-07-27",
+      "staleBy": "2027-08-01",
+      "ownerPage": "/buyers/property-taxes/",
+      "wrong": [
+        {
+          "pattern": "\\b(?:tax\\w*|6 percent|6%|assess\\w*|bill|primary residence|owner-occupant)\\b[^.]{0,200}\\b(?:close to|roughly|about|nearly|almost) double\\b|\\b(?:close to|roughly|about|nearly|almost) double\\b[^.]{0,80}\\b(?:tax\\w*|bill|owner-occupant|primary residence)\\b",
+          "note": "It is 3.3 to 4.3 times, not double. Link /buyers/property-taxes/."
+        }
+      ]
+    },
+    {
+      "id": "mb-lodging-tax",
+      "fact": "A short-term rental inside the City of Myrtle Beach collects about 13 percent in total lodging taxes: 10 percent state and local sales tax on accommodations, plus county hospitality 1.5 percent, city hospitality 1 percent and city accommodations 0.5 percent.",
+      "source": "https://dor.sc.gov/sites/dor/files/forms/ST575.pdf",
+      "asOf": "2026-10-01",
+      "staleBy": "2027-07-01",
+      "ownerPage": "/invest/str-rules/",
+      "wrong": [
+        {
+          "pattern": "\\b10 percent lodging tax\\b|\\b10% lodging tax\\b",
+          "note": "10 percent is only the state and local sales-tax layer; the total is about 13 percent."
+        }
+      ]
+    },
+    {
+      "id": "sc-transient-days",
+      "fact": "South Carolina treats a stay of fewer than 90 continuous days as transient for accommodations tax.",
+      "source": "https://www.scstatehouse.gov/code/t12c036.php",
+      "quote": "supplied to the same person for a period of ninety continuous days are not considered proceeds from transients",
+      "asOf": "2026-10-01",
+      "staleBy": "2027-10-01",
+      "ownerPage": "/invest/14-day-rule/",
+      "wrong": [
+        {
+          "pattern": "\\bstate(?:'s)? 30\\b|\\b30[- ]day state\\b",
+          "note": "The state line is 90 days, the same as the city's."
+        }
+      ]
+    },
+    {
+      "id": "pawleys-county",
+      "fact": "Pawleys Island is entirely in Georgetown County. Murrells Inlet straddles the Horry and Georgetown county line.",
+      "source": "Census place records, as recorded in the website's MISTAKES.md item 9 and research/relocating/local-facts.md; Horry County 2026 levy lists the Murrells Inlet - Garden City Fire District",
+      "asOf": "2026-10-01",
+      "staleBy": "2030-01-01",
+      "ownerPage": "/submarkets/pawleys-island/",
+      "wrong": [
+        {
+          "pattern": "Pawleys Island[^.;]{0,40}\\bstraddle|\\bstraddles?[^.;]{0,20}\\bPawleys Island",
+          "note": "Pawleys Island is entirely in Georgetown County (website MISTAKES 9)."
+        },
+        {
+          "pattern": "Murrells Inlet,[^.]{0,60}\\bare in Georgetown County\\b|Murrells Inlet (?:is )?(?:entirely )?in Georgetown County",
+          "note": "Murrells Inlet straddles the line; Horry levies a Murrells Inlet - Garden City fire district."
+        }
+      ]
+    },
+    {
+      "id": "sc-age-65-deduction",
+      "fact": "South Carolina's age-65 deduction of up to $15,000 is reduced by any retirement income deduction the same person claims. The two do not stack.",
+      "source": "https://www.scstatehouse.gov/code/t12c006.php",
+      "quote": "12-6-1170(B): reduced by any amount the taxpayer deducts",
+      "asOf": "2026-10-01",
+      "staleBy": "2027-04-15",
+      "ownerPage": "/buyers/retirees/",
+      "wrong": [
+        {
+          "pattern": "\\bplus (?:a |an )?(?:separate )?age-65 deduction\\b|\\bon top of the (?:standard|retirement) deduction\\b",
+          "note": "The age-65 deduction is reduced by the retirement deduction (website HANDOFF trap)."
+        }
+      ]
+    },
+    {
+      "id": "sc-scaid-2026",
+      "fact": "From tax year 2026 South Carolina has no standard deduction. The SC Income Adjusted Deduction is $15,000 single and $30,000 joint, phasing out to $0 at $95,000 single and $190,000 joint federal AGI.",
+      "source": "SCDOR Information Letter 26-20 (Act 110 of 2026), via https://dor.sc.gov/ ; re-open the letter itself before changing the figure",
+      "quote": "SCDOR Information Letter 26-20 (Act 110 of 2026)",
+      "asOf": "2026-08-31",
+      "staleBy": "2027-04-15",
+      "ownerPage": "/buyers/relocating/cost-of-living/",
+      "wrong": [
+        {
+          "pattern": "\\bstandard deduction\\b[^.]{0,60}\\$?(?:15,000|30,000)|\\$?(?:15,000|30,000)\\b[^.]{0,40}\\bstandard deduction\\b|\\bSouth Carolina's standard deduction\\b",
+          "note": "It is the SCIAD and it phases out; there is no SC standard deduction from 2026."
+        }
+      ]
+    },
+    {
+      "id": "hoa-48-hour-notice",
+      "fact": "South Carolina's 48-hour notice before a budget vote does not apply to an association incorporated under the SC Nonprofit Corporation Act, which most are (27-30-140(2)).",
+      "source": "https://www.scstatehouse.gov/code/t27c030.php",
+      "asOf": "2026-10-01",
+      "staleBy": "2027-07-01",
+      "ownerPage": "/hoa/dues-increases/",
+      "wrong": [
+        {
+          "pattern": "\\b48 hours\\b[^.]{0,160}\\b(?:budget|dues|assessment)\\b|\\b(?:budget|dues|assessment)\\b[^.]{0,160}\\b48 hours\\b|\\b(?:floor|as little as)\\b[^.]{0,20}\\b48 hours\\b",
+          "unless": "\\bnonprofit\\b|\\bNonprofit Corporation Act\\b|\\bexempt",
+          "note": "State the nonprofit-corporation exemption with the rule (website HANDOFF trap)."
+        }
+      ]
+    },
+    {
+      "id": "wind-pool-line",
+      "fact": "In Horry County the wind pool coastal area is east of U.S. 17 or Bypass 17, whichever is farther west (38-75-310(5)(c)). In Myrtle Beach that is the Bypass.",
+      "source": "https://www.scstatehouse.gov/code/t38c075.php",
+      "asOf": "2026-10-01",
+      "staleBy": "2027-10-01",
+      "ownerPage": "/buyers/coastal-insurance/",
+      "wrong": [
+        {
+          "pattern": "\\b(?:wind|insur\\w*|exclude\\w*|premium\\w*)\\b[^.]{0,160}\\b(?:Highway|US|U\\.S\\.) 17 Business\\b|\\b(?:Highway|US|U\\.S\\.) 17 Business\\b[^.]{0,120}\\b(?:wind|insur\\w*|price\\w*|premium\\w*)\\b",
+          "note": "The line is US 17 or Bypass 17, whichever is farther west."
+        },
+        {
+          "pattern": "wind pool[^.]{0,80}\\bIntracoastal\\b",
+          "note": "The Intracoastal line is the rule for Beaufort, Colleton and Charleston, not Horry."
+        }
+      ]
+    },
+    {
+      "id": "nonresident-withholding-duty",
+      "fact": "On a nonresident seller's South Carolina sale, the buyer is responsible for withholding. A closing attorney is not liable for collection but remits what it withholds (12-8-580).",
+      "source": "https://www.scstatehouse.gov/code/t12c008.php",
+      "asOf": "2026-10-01",
+      "staleBy": "2027-10-01",
+      "ownerPage": "/sell/capital-gains/",
+      "wrong": [
+        {
+          "pattern": "\\bclosing attorneys? (?:are|is) required to withhold\\b",
+          "note": "The statute puts the duty on the buyer."
+        }
+      ]
+    },
+    {
+      "id": "deed-fee-payer",
+      "fact": "South Carolina's deed recording fee, $3.70 per $1,000, is owed by the seller (the grantor), except on a master-in-equity or government deed (12-24-10, 12-24-20).",
+      "source": "https://www.scstatehouse.gov/code/t12c024.php",
+      "asOf": "2026-10-01",
+      "staleBy": "2027-10-01",
+      "ownerPage": "/buyers/closing-costs/",
+      "wrong": [
+        {
+          "pattern": "\\bbuyer\\w*\\b[^.]{0,80}\\bdeed stamps\\b|\\bdeed stamps\\b[^.]{0,80}\\b(?:budget|you owe|buyers? (?:pay|owe))\\b",
+          "unless": "\\bseller\\b|\\bgrantor\\b",
+          "note": "The seller owes the deed fee."
+        }
+      ]
+    },
+    {
+      "id": "buyer-agreement-source",
+      "fact": "A written buyer agreement before touring comes from the 2024 NAR settlement practice rules applied through the MLS, not from South Carolina statute.",
+      "source": "https://www.scstatehouse.gov/code/t40c057.php",
+      "asOf": "2026-10-01",
+      "staleBy": "2027-10-01",
+      "ownerPage": "/buyers/common-mistakes/",
+      "wrong": [
+        {
+          "pattern": "\\bSouth Carolina requires a written buyer\\b|\\bSC law requires a (?:written )?buyer\\b",
+          "note": "It is an MLS practice rule, not state law."
+        }
+      ]
+    },
+    {
+      "id": "conversion-overlay-date",
+      "fact": "Myrtle Beach's short-term rental conversion overlay is Ordinance 2024-69, adopted December 10, 2024.",
+      "source": "https://www.cityofmyrtlebeach.com/agenda_details_T15_R388.php",
+      "asOf": "2024-12-10",
+      "staleBy": "2030-01-01",
+      "ownerPage": "/invest/str-rules/",
+      "wrong": [
+        {
+          "pattern": "\\b2025 ordinance\\b",
+          "note": "Adopted 2024-12-10."
+        }
+      ]
+    },
+    {
+      "id": "mcleod-carolina-forest",
+      "fact": "McLeod Health Carolina Forest cut its ribbon on August 27, 2026.",
+      "source": "McLeod Health release dated 2026-09-01, recorded in the website's research/invest-next/construction-pipeline-facts.md line 73",
+      "asOf": "2026-09-01",
+      "staleBy": "2027-03-01",
+      "ownerPage": "/invest/what-is-being-built/",
+      "wrong": [
+        {
+          "pattern": "McLeod[^.]{0,120}\\b(?:on schedule to open|slated to open|in progress|will open)\\b|\\b(?:in progress|slated to open)\\b[^.]{0,80}McLeod",
+          "note": "It opened; update to the ribbon-cutting date."
+        }
+      ]
+    },
+    {
+      "id": "mortgage-rate-statements",
+      "fact": "The site never states a mortgage or interest rate (owner non-negotiable 3). This entry exists so the market report's monthly rate line is caught when it returns.",
+      "source": "owner rule, website CLAUDE.md non-negotiable 3",
+      "asOf": "2026-10-01",
+      "staleBy": "2099-01-01",
+      "ownerPage": "",
+      "wrong": [
+        {
+          "pattern": "\\b30-year fixed\\b[^.]{0,40}\\d",
+          "note": "No stated rates."
+        }
+      ]
+    }
+  ],
+  "unsourced": {
+    "_comment": "Figures that appear on the site with no primary source and disagree across pages (facts audit, section 2). Use none of them until one is sourced, then promote it to a fact above.",
+    "annual-visitors": [
+      "17 million",
+      "18.2 million",
+      "19 million",
+      "19M+"
+    ],
+    "out-of-state-buyer-share": [
+      "40 percent",
+      "60%+"
+    ],
+    "typical-home-value": [
+      "$310,000 (FHFA-scaled)",
+      "$342,000 (Zillow ZHVI, July 2026)",
+      "$329,000",
+      "$360,000 single-family median"
+    ]
+  }
+}
