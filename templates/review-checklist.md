@@ -6,6 +6,11 @@ The reviewer agent fills this in (`prompts/reviewer.md`). It never wrote the pag
 
 - [ ] `node build.js audit`: 0 errors on this page.
 - [ ] `node tools/score.js --site <site> --only <url>`: score ___, no blockers.
+- [ ] `node tools/claims-scan.js <site>/chapter3realty/<url>/index.html`: no critical or high findings (STANDARD C1-C8).
+- [ ] `node tools/facts-check.js <site>`: no WRONG line for this page, no STALE entry (A12, T7).
+- [ ] `node tools/site-audit.js <site>`: no error for this page, including `form-consent` and `phone-consent` (H12).
+- [ ] Form delivery test run: every form on the page sent exactly one captured request carrying `consent`, and invalid input sent nothing (H12).
+- [ ] axe at 1280 and 375: no serious or critical violation (H10). Chart text 11 pixels or more at 375.
 
 ## Human checks from STANDARD.md
 
@@ -16,6 +21,8 @@ The reviewer agent fills this in (`prompts/reviewer.md`). It never wrote the pag
 - [ ] **H8: jargon.** Every term a buyer might not know is defined in the sentence where it first appears.
 - [ ] **T5: quotes.** No sentence puts words in Tim Nash's mouth unless the owner-answers file shows his approval of those exact words.
 - [ ] **T6: facts.** Every number on the page appears in the fact ledger as `verified`. List any that do not.
+- [ ] **A12: one value per fact.** Every fact that also appears on another page uses the registry value and wording and links the owner page. Search the site for the same fact. List every page that states it differently.
+- [ ] **C: claims, read as a person.** The scanner catches known shapes, so read once for the meaning. Does any sentence imply Chapter3 lends, owns a lender, has history it is too young to have, rates schools or neighborhoods, or promises something the team cannot keep? Check the footer, the meta description and the calculator defaults too.
 
 ## Owner-history check
 

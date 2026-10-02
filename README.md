@@ -7,13 +7,18 @@ The system for producing chapter3realty.com pages quickly, built to rank in Goog
 | File | What it answers |
 |---|---|
 | [`STUDY.md`](STUDY.md) | How good are the 122 live articles, and what is missing? |
-| [`STANDARD.md`](STANDARD.md) | What does a finished page have? 38 rules with IDs, each with its evidence. |
+| [`audit/AUDIT.md`](audit/AUDIT.md) | **Everything wrong with the live site** (2026-10-01): 127 ranked rows, a "fix this week" list, owner questions, and the root causes. Evidence from seven reviews is in `audit/evidence/`. |
+| [`STANDARD.md`](STANDARD.md) | What does a finished page have, and what may it never claim? 51 rules with IDs, each with its evidence. |
 | [`WORKFLOW.md`](WORKFLOW.md) | How does a page go from topic to live in one owner review round instead of five? |
 | [`templates/`](templates/) | The brief, the owner questions, the fact ledger, the review checklist, and a spec skeleton. |
 | [`prompts/`](prompts/) | The fixed prompts for the researcher, verifier, writer and reviewer agents. |
 | [`tools/score.js`](tools/score.js) | Grades a page, or the whole site, against the standard. |
 | [`tools/ogcard.js`](tools/ogcard.js) | Renders each page's own 1200x630 share image. |
 | [`tools/site-upgrade.js`](tools/site-upgrade.js) | Points every page at its own share image and makes the byline person the author. It touches `<head>` only. |
+| [`tools/site-audit.js`](tools/site-audit.js) | The sitewide checks: links, anchors, markup, residue, forms that drop leads, phone fields without consent, dead sources. |
+| [`tools/claims-scan.js`](tools/claims-scan.js) and [`rules/claims.json`](rules/claims.json) | Claims Chapter3 may not make, checked on every surface, including the footer, meta tags, calculator defaults and llms.txt. |
+| [`tools/facts-check.js`](tools/facts-check.js) and [`facts/registry.json`](facts/registry.json) | One verified value per fact. Flags known-wrong versions on any page, and facts past their re-check date. |
+| [`templates/offsite-checklist.md`](templates/offsite-checklist.md) | Google Business Profile, listings, reviews and links: the work pages alone cannot do. |
 | [`website-patches/`](website-patches/) | A tested patch for the website's page generator. |
 | [`pilots/invest-llc/`](pilots/invest-llc/) | One live page restructured with no new facts: 75 to 99. |
 | [`research/`](research/) | The SEO and AEO evidence, as of 2026-10-01, and a digest of the website's process docs. |
@@ -27,10 +32,21 @@ The system for producing chapter3realty.com pages quickly, built to rank in Goog
 4. Two tools here fix the share image and the author on every page in about 30 minutes, without touching any prose. That raises the mean from 77 to 81.
 5. The rest is structure. The pilot shows a page going from 75 to 99 with no new research.
 
+## The audit in five lines (2026-10-01)
+
+1. **Four lead forms drop every lead after showing "thank you".** One of them is the property search on every page.
+2. **Pages and the footer claim Chapter3 and BrickWood are "the same company" and offer "DSCR financing".** AI answers now repeat the footer.
+3. **65 sentences on 32 pages state facts that are wrong**, including invented North Myrtle Beach rental rules and two regressions HANDOFF had recorded.
+4. **No Google Business Profile, no reviews, and Tim Nash's licence shows at another brokerage off-site.** The site ranks for 1 of 20 target queries.
+5. **Contrast fails on 130 of 132 pages, the search modal is unusable with a screen reader, and no article page reaches 90 on mobile.**
+
 ## Quick start
 
 ```
 npm install
 npm test
 node tools/score.js --site <website-repo>/chapter3realty
+node tools/site-audit.js <website-repo> --live
+node tools/claims-scan.js <website-repo>
+node tools/facts-check.js <website-repo>
 ```

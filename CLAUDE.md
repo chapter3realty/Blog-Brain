@@ -17,21 +17,26 @@ GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 -b claude/github-account-check-wutg8b 
 
 ## Read first
 
-1. `STUDY.md`: what the 122 live articles score and why.
-2. `STANDARD.md`: what a finished page has. Every rule has an ID.
-3. `WORKFLOW.md`: the production line. Lane N is a new page; Lane U is an upgrade.
-4. In the website repo, `CLAUDE.md` and `PLAYBOOK.md`. They hold the owner's rules on voice and compliance. `build.js` enforces them. This repo does not repeat them, and they win any conflict.
-5. `research/website-process-digest.md`: a summary of the website's 4,000 lines of process docs.
+1. `audit/AUDIT.md`: everything wrong with the live site on 2026-10-01, ranked, with fixes. Evidence is in `audit/evidence/`. Start here.
+2. `STUDY.md`: what the 122 live articles score and why.
+3. `STANDARD.md`: what a finished page has, and what it may never claim. Every rule has an ID.
+4. `WORKFLOW.md`: the production line. Lane N is a new page; Lane U is an upgrade; Lane O is off-site.
+5. In the website repo, `CLAUDE.md` and `PLAYBOOK.md`. They hold the owner's rules on voice and compliance. `build.js` enforces them. This repo does not repeat them, and they win any conflict.
+6. `research/website-process-digest.md`: a summary of the website's 4,000 lines of process docs.
 
 ## Commands
 
 ```
 npm install
-npm test                                                     # scorer controls; must print "all controls pass"
+npm test                                                     # all four control suites; each must print "all controls pass"
 node tools/score.js --site <site>/chapter3realty             # every article, with a leaderboard
 node tools/score.js --site <site>/chapter3realty --only /invest/llc/
 node tools/ogcard.js <site>/chapter3realty /invest/llc/      # or --all
 node tools/site-upgrade.js <site>/chapter3realty [--write]   # share image + Person author, head only
+node tools/site-audit.js <site> [--live]                     # links, anchors, markup, residue, form delivery, sources
+node tools/claims-scan.js <site>                             # banned claims on every surface (rules/claims.json)
+node tools/facts-check.js <site>                             # known-wrong facts and stale entries (facts/registry.json)
+node tools/facts-check.js --stale                            # registry entries past their staleBy date
 ```
 
 `<site>` is the website repo root. Set `SCORE_TODAY=YYYY-MM-DD` to make the freshness rule reproducible.
@@ -52,6 +57,7 @@ node tools/site-upgrade.js <site>/chapter3realty [--write]   # share image + Per
   - a "Sources" heading went unseen
   - full sentences that were links were counted as fragments
 - Rule IDs map to `STANDARD.md` through the `STD` table in `score.js`. A new rule needs a STANDARD entry and an ID.
+- A banned claim goes in `rules/claims.json`. A fact that is on two pages or has been wrong once goes in `facts/registry.json`. Each needs a firing and a quiet control in its test file, taken from real site text. Read every hit of a new pattern against the live site before trusting its count: the first versions here fired on "our preferred lender" (approved wording), "48 hours" in unrelated deadlines, and "close to double" about prices.
 - `tools/site-upgrade.js` refuses to change anything inside `<main>`. Keep that guard.
 - Patches to the website repo go in `website-patches/`. Test each one with `git apply --check` on a clean clone of the live branch.
 

@@ -15,7 +15,12 @@ The owner has sent pages back 2 to 5 times per batch. Each round you catch here 
 ```
 node build.js audit                                  # in the website repo
 node <blog-brain>/tools/score.js --site chapter3realty --only /<url>/
+node <blog-brain>/tools/claims-scan.js chapter3realty/<url>/index.html
+node <blog-brain>/tools/facts-check.js .
+node <blog-brain>/tools/site-audit.js .
 ```
+
+Then run the form delivery test from WORKFLOW step 7 on every form on the page. A thank-you with no captured request is a dropped lead.
 
 **2. Fill `templates/review-checklist.md`** for this page. Go through every item.
 

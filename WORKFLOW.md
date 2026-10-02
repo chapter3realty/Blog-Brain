@@ -92,6 +92,8 @@ Then a **different** agent, using `prompts/verifier.md`, re-opens every URL and 
 
 **The writer may use verified rows only.** This replaces the website's A8 step ("re-open every source"), which one writer checking their own work did not hold: 20 of 163 facts were wrong.
 
+**Before researching, read `facts/registry.json`.** If a fact the page needs is already registered, use its value, wording and owner page, and link the owner page. A new fact that will appear on more than one page goes into the registry with its source, owner page, `staleBy` date, and the wrong shapes to watch for (STANDARD A12).
+
 ### 4. Spec
 
 Claude writes `specs/<name>.js` in the website repo from four inputs:
@@ -118,9 +120,12 @@ node build.js audit                                                          # w
 node <blog-brain>/tools/ogcard.js chapter3realty /<url>/                     # its share card
 node tools/mkpage.js specs/<name>.js                                         # again, now it picks up the card
 node <blog-brain>/tools/score.js --site chapter3realty --only /<url>/         # 90+, no blockers
+node <blog-brain>/tools/claims-scan.js chapter3realty/<url>/index.html        # no critical or high (STANDARD C)
+node <blog-brain>/tools/facts-check.js .                                      # no WRONG on this page, no STALE (A12, T7)
+node <blog-brain>/tools/site-audit.js .                                       # no errors on this page (links, markup, forms)
 ```
 
-Fix the spec and rerun until both are clean.
+Fix the spec and rerun until all of them are clean.
 
 ### 6. Reviewer agent
 
@@ -144,7 +149,15 @@ The checks from the website's PLAYBOOK Phase 8:
 
 - Browser checks at 1280 and 375 pixels wide.
 - Look at the figure and the table once at each width.
-- A phone has to be able to read the figure.
+- A phone has to be able to read the figure. Chart text must render at 11 pixels or more at 375; measure it. On 2026-10-01 all 19 charts rendered 4 to 8 pixel text on a phone.
+- Run axe at 1280 and 375. Zero serious or critical violations (H10).
+- Run Lighthouse mobile once on the page's template (H11).
+- **Form delivery test (H12).** For every form on the page, route `**/api/forms/**` to a stub in Playwright, then:
+  - fill the form validly and submit it once;
+  - assert that exactly one request was captured, and that it carries `consent`;
+  - assert the success message appears only after that request.
+
+  Then submit "not-an-email", a 2-digit phone, and an unticked consent box, and assert that nothing is sent. A thank-you with no captured request is a dropped lead. That is exactly how four forms lost every lead until 2026-10-01.
 
 ### 8. Owner review
 
@@ -152,7 +165,9 @@ One preview for the whole batch (`tools/mkpreview.js`). He sends one message wit
 
 - Apply the edits to the spec.
 - Any edit that is a pattern, not a one-off, becomes a `build.js` gate in the same commit. That is what "hard code that" means.
+- If the pattern is a claim about the business, it also goes into `rules/claims.json` with a control. If it is a fact, it goes into `facts/registry.json`.
 - Add it to the reviewer's list as well.
+- **Update every rule file that states the old rule, in the same commit**: the website's `CLAUDE.md`, `BRAND.md`, `PLAYBOOK.md` locked strings and `HANDOFF.md`, and this repo's `STANDARD.md`. On 2026-10-01, `BRAND.md` and the PLAYBOOK identity line still named Devin Day a licensed MLO three weeks after the owner banned it. A stale rule file is how the next session puts a banned claim back.
 
 ### 9. Ship
 
@@ -176,7 +191,7 @@ The owner deploys. After the deploy:
 |---|---|
 | Day 7 | Check the URL is indexed in Search Console. |
 | Day 30 | Look at the queries it gets impressions for. Add any missing sub-question as an H2 or an FAQ entry. |
-| Every 90 days | Re-check the volatile facts on the page (T4). |
+| Every 90 days | Re-check the volatile facts on the page (T4). Run `node tools/facts-check.js --stale` and fix every entry it lists. |
 
 ## Lane U: upgrade an existing page
 
@@ -184,10 +199,22 @@ Most of the gain on this site is in the 122 pages that already exist. The `/inve
 
 ### U0. Fix the live defects
 
-Today. See STUDY finding 1:
+Today. `audit/AUDIT.md` "Fix this week" is the list, in order. The first item is the four forms that drop every lead.
 
-- `%s` on two HOA pages.
-- Two FAQ schema mismatches.
+Then run the four sitewide checks and work them to zero errors:
+
+```
+node <blog-brain>/tools/site-audit.js . --live
+node <blog-brain>/tools/claims-scan.js .
+node <blog-brain>/tools/facts-check.js .
+node <blog-brain>/tools/score.js --site chapter3realty
+```
+
+The first three found, on 2026-10-01:
+
+- 23 site errors, 6 of them lead-delivery errors;
+- 69 distinct banned-claim sentences (329 findings counting every page the footer repeats on);
+- 65 known-wrong fact sentences on 32 pages.
 
 ### U1. Sitewide head fixes
 
@@ -244,6 +271,27 @@ Restructure only; no new facts:
 
 Ask the owner and Tim the T2 questions for each page, 3 per page, in one batch document. This is the only upgrade step that needs new input, and it is the one competitors cannot copy.
 
+## Lane O: off-site (once, then monthly)
+
+A five-month-old domain with no Google Business Profile, no reviews and one inbound link will not rank on page quality alone. The 2026-10-01 audit found:
+
+- the site visible for 1 of 20 target queries;
+- about 18 of 127 pages in the indexes that could be reached.
+
+The checklist is `templates/offsite-checklist.md`. The owner or Tim does most of it, because it needs their accounts and their licence records.
+
+## Sweeps: new rules reach old pages
+
+A rule that is right for new pages is run against every page within 30 days.
+
+On 2026-10-01, 57 banned "sets" and "carry" phrasings were still live. So were two errors that HANDOFF had recorded as fixed: Pawleys Island's county, and the stacked SC deductions. In each case the rule had been applied to new pages only.
+
+Every month, in one batch:
+
+1. Run the four sitewide checks.
+2. Pick the 10 pages with the most findings.
+3. Fix them in Lane U.
+
 ## Rules that keep the line fast
 
 - **Never hand-edit a generated page.** Edit the spec. Drift costs a revision later.
@@ -251,3 +299,5 @@ Ask the owner and Tim the T2 questions for each page, 3 per page, in one batch d
 - **A new owner ban becomes a gate the same day.** Each round he repeats is a round the line failed to learn from.
 - **The verifier is never the researcher.** The same agent re-checking its own work is how 20 of 163 slipped through.
 - **Score before anyone reads.** The owner's time is for business judgment, not for finding a 171-character meta description.
+- **Scan every surface.** A claim in the footer, a meta description, a calculator default or llms.txt is published as much as one in the body. AI answers quoted the footer.
+- **A form is not done until a captured request proves it sends.**

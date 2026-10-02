@@ -62,6 +62,10 @@ The website's `build.js` gate will reject copy that breaks those rules.
 
 8. **Pin `datePublished`.**
 
+9. **Use the registry.** Read `facts/registry.json` first. A registered fact uses its value and wording and links its owner page. Never restate a fact from memory or from another page.
+
+10. **Claims on every surface.** The title, meta description, FAQ, calculator defaults and any new footer or modal text are copy too. Never pre-fill a rate or down-payment box. `rules/claims.json` lists what may not be said, and the approved wording to use instead.
+
 ## Gate loop
 
 Build and gate in a loop until clean:
@@ -70,9 +74,12 @@ Build and gate in a loop until clean:
 node tools/mkpage.js specs/<slug>.js
 node build.js audit
 node <blog-brain>/tools/score.js --site chapter3realty --only /<url>/
+node <blog-brain>/tools/claims-scan.js chapter3realty/<url>/index.html
+node <blog-brain>/tools/facts-check.js .
+node <blog-brain>/tools/site-audit.js .
 ```
 
-Stop when the audit shows 0 errors for the page and the score is 90 or more with no blockers. Then hand the page to the reviewer.
+Stop when the audit shows 0 errors for the page, the score is 90 or more with no blockers, and the claims, facts and site checks report nothing for the page. Then hand the page to the reviewer.
 
 ---
 

@@ -31,6 +31,22 @@ Audit date: 2026-10-01 to 2026-10-02.
 | Medium | A real defect with limited reach. |
 | Low | Polish. |
 
+## Totals
+
+The complete list below has **127 rows**:
+
+| Severity | Rows |
+|---|---|
+| Critical | 14 |
+| High | 43 |
+| Medium | 59 |
+| Low | 10 |
+| Info | 1 |
+
+Several Low rows group many small items. Each is listed in full in its evidence file.
+
+Some problems appear in more than one table, because one defect can be both a compliance issue and a rendering issue. The `%s` placeholder is the example.
+
 ## Fix this week
 
 In order. Every item is confirmed.
@@ -179,11 +195,11 @@ Each line gives the severity, the problem, where it is, and the fix. The ID poin
 
 | Sev | Problem | Where | Fix | Ref |
 |---|---|---|---|---|
-| Critical | North Myrtle Beach rental rules invented: permit, inspection and a local agent within 30 miles | /submarkets/north-myrtle-beach/ | Rewrite from nmb.us/833 | F |
+| Critical | North Myrtle Beach rental rules invented: permit, inspection and a local agent within 30 miles. The page also offers Chapter3 as the owner's "responsible local agent", a role that does not exist there. The same wrong rule is on /buyers/relocating/which-town/ ("requires an annual permit, a business license and a responsible party"). | /submarkets/north-myrtle-beach/, /buyers/relocating/which-town/ | Rewrite from nmb.us/833 | F, `facts-check` |
 | High | The 48-hour HOA budget notice stated without the nonprofit-corporation exemption (27-30-140(2)); the document-access right stated without its limit | /hoa/south-carolina-hoa-laws/, /hoa/benefits/, /hoa/developer-control-turnover/ | Add the exemptions. HANDOFF already lists this as a known trap. | F |
 | High | SC 2026 deduction stated as a flat $15,000 / $30,000. Under Act 110 it phases out to $0 at $95,000 AGI single and $190,000 joint. | 5 relocation pages | Rewrite | F |
 | High | **Calculator bug:** the relocation tax calculator ignores that phase-out, understating SC tax by about $995 a year for a $150,000 joint household | /buyers/relocating/cost-of-living/ and 10 state pages | Fix the calculator | F |
-| High | Age-65 and retirement deductions shown as stacking; the statute reduces one by the other | from-pennsylvania, from-maryland, from-north-carolina, from-virginia | Rewrite. A known HANDOFF trap, back again. | F |
+| High | Age-65 and retirement deductions shown as stacking; the statute reduces one by the other | from-pennsylvania, from-maryland, from-north-carolina, from-virginia, from-florida; also from-ohio and from-new-jersey (found by `facts-check.js`) | Rewrite. A known HANDOFF trap, back again. | F, `facts-check` |
 | High | Rental vs residence property tax called "close to double". It is 3.3 to 4.3 times. | /invest/, /invest/condos/, 8 submarket pages | Use the figure /buyers/property-taxes/ owns, and link to it | F, E |
 | High | Wind pool territory line misstated ("Highway 17 Business"; the Intracoastal line is the rule for other counties) | /buyers/coastal-insurance/, /submarkets/carolina-forest/ | Quote 38-75-310(5)(c) | F |
 | High | Palmetto Heroes said to raise the rate "by an average of 2 percentage points" | /buyers/va-loans/ | Remove | F |
@@ -244,8 +260,8 @@ Each line gives the severity, the problem, where it is, and the fix. The ID poin
 
 | Sev | Problem | Fix | Ref |
 |---|---|---|---|
-| Critical | Google Maps key unrestricted | Restrict it, set a quota cap and a billing alert | T1 |
-| Critical | Both repos public, with private material | Make them private | T2 |
+| High | Google Maps key unrestricted | Restrict it, set a quota cap and a billing alert | T1 |
+| High | Both repos public, with private material | Make them private | T2 |
 | Medium | 3 broken source links: the market report's source domain does not exist (`coastalcarolinas.org`; the real one is `ccarsc.org`); scstatehouse t62.php is a 404; a census.gov press kit is a 404 | Fix the URLs | T5 |
 | Medium | The repo branch is ahead of production. The undeployed homepage redesign and its stylesheet would ship with any fix. | Decide on the redesign before the next deploy | T7 |
 | Medium | GitHub `main` is from July | Merge the live branch | T8 |
@@ -272,7 +288,26 @@ Each line gives the severity, the problem, where it is, and the fix. The ID poin
 
 ### 8. Performance and accessibility
 
-See `evidence/perf-a11y.md`. Summary added below when that review completes.
+Measured on the live site with Lighthouse 13 (mobile and desktop, 13 templates) and axe-core (every page at 1280, 15 at 375). Evidence: `evidence/perf-a11y.md`.
+
+| Sev | Problem | Where | Fix | Ref |
+|---|---|---|---|---|
+| Critical | The property-search modal cannot be used with a screen reader or keyboard. It keeps `aria-hidden="true"` while open; focus never moves in (6 of 6 Tabs landed behind it); 10 controls have no name; 9 labels have no `for`. Confirmed in code: `openIdx()` only adds a class. | 131 pages | Toggle `aria-hidden`; add `aria-modal`; move, trap and restore focus; label the controls | P |
+| High | Contrast fails on 130 of 132 pages: 1,830 text nodes, 93% of them brass `#c4783a` on light grounds at 2.75 to 3.44:1. The pending stylesheet only lifts these to 3.05 to 3.30:1. | Sitewide | A brass ink for text such as `#965420` (5.12:1 on ivory); navy text on brass buttons | P, R-H3 |
+| High | The timed popup opens 10 seconds into the first page and leaves keyboard focus behind its 96% opaque cover. Nothing behind it is inert, and it covers the whole phone screen. | 131 pages | Focus the close button; set `inert` on the page; do not auto-open on mobile article pages | P |
+| High | Form fields with no programmatic label | /buyers/cost-to-own/ (9), /sell/net-proceeds/ (5), /contact/ (4), /invest/long-term-rental/ (1) | Add `for` to the labels | P, R-M2 |
+| High | No article page reaches 90 on mobile: 63 to 87, with TBT 397 to 807 ms. Desktop scores 99 to 100. | Article templates | The items below | P |
+| Medium | Layout shift from the font swap: CLS 0.379 and 0.334 | /market-reports/july-2026/, /invest/rental-returns/ | Preload the fonts; add metric-matched fallbacks | P |
+| Medium | Google Analytics forced by a 4-second timer: 174 KB and about 350 ms of CPU on every page | Sitewide | Load on first interaction | P |
+| Medium | The Cloudflare challenge script costs 421 ms of CPU on every page, and is the only reason Best Practices is 81 | Sitewide | Review Bot Fight Mode and JS detections | P, T10 |
+| Medium | Popup media: an 82 KB poster on every view; about 676 KB of video at 6 seconds; a 3.79 MB fallback video at 17.6 Mbps with an unused audio track; all cached 4 hours | Sitewide | Lazy-load; re-encode at 720p with no audio; cache longer | P, T12 |
+| Medium | Render-blocking CSS: 83.5 KB, 88% unused on an article page | Sitewide | Split the critical CSS | P |
+| Medium | /map/ loads Google Maps 3D at once: 6.6 MB and 289 requests on mobile, mobile score 31, no `<main>`, no skip link | /map/ | Click to load; add a 2D fallback and landmarks | P, R-H6 |
+| Medium | The homepage review carousel auto-advances every 5 seconds and pauses on hover only; its dots cannot be focused | Homepage | Add pause control and focusable buttons | P |
+| Medium | No visible focus indicator on some fields; links told apart by colour alone on 39 pages | /contact/, /invest/rental-returns/; sitewide | `:focus-visible` styles; underline links | P |
+| Low | The particle canvas runs under reduced motion; a fake search bar is a `div`; scrollable tables cannot be reached by keyboard; empty `<th>`; menus lack `aria-expanded`; consent text at 9.5 to 10.2 px; the /accessibility/ page claims contrast and keyboard support the site lacks | Various | See the file | P, C-M17 |
+
+**Clean:** skip link, one `<h1>`, `<main>`, `lang`, heading order, image alt, and button and link names on every page except /map/. HTML transfer is 23 to 29 KB per page. Lighthouse SEO is 100 everywhere except the intentionally noindex /map/.
 
 ## What was checked and is clean
 
@@ -317,54 +352,25 @@ See `evidence/perf-a11y.md`. Summary added below when that review completes.
 
 ## Why this happened, and what stops it next time
 
-Each root cause below has a fix in Blog-Brain. See `STANDARD.md`, `WORKFLOW.md` and `tools/`.
+Every class of defect above passed the gates that existed. Each root cause below now has a check in Blog-Brain. Each check was run against the live site and tuned until it caught the known cases and nothing else, and has controls in `npm test`.
 
-**1. The compliance gates match phrasings, not claims.**
+| Root cause | What stops it now |
+|---|---|
+| **The compliance gates matched phrasings, not claims, and only inside `<main>`.** "Under one roof" was banned; "same company", "own mortgage team" and "one team for real estate and financing" were not. The footer, meta descriptions, calculator defaults, the search modal and llms.txt were never scanned. | `tools/claims-scan.js` with `rules/claims.json` scans every surface. It holds the meaning (STANDARD C1 to C8) with approved wording for each. On the live site it finds 69 distinct banned sentences, including every Critical claim in this audit. |
+| **Forms were checked for validation, never for delivery.** | `tools/site-audit.js` errors on any `c3SendForm` call without `consent` that a page actually uses. It also errors on a phone field with no consent box. WORKFLOW step 7 adds a captured-request delivery test (STANDARD H12). On the live site it finds exactly the 4 dropping forms and the report gate. |
+| **Facts were copied between pages, and nothing re-checked them.** | `facts/registry.json` holds one value, source, owner page and `staleBy` date per fact. `tools/facts-check.js` flags every known-wrong version on every page and every stale entry (STANDARD A12, T7). On the live site it finds 65 wrong sentences on 32 pages, including 4 the fact review missed: from-ohio, from-new-jersey, the which-town North Myrtle Beach line, and /sell/ withholding. |
+| **Old pages were exempt from new rules.** | WORKFLOW "Sweeps": every new rule runs against every page within 30 days. |
+| **Templated families were built by swapping names.** | STANDARD S10 now counts all text, at the site's own 25% line, and requires local facts first. |
+| **The rule files went stale.** BRAND.md and PLAYBOOK still carry the banned MLO line. | WORKFLOW step 8: a rule change updates every rule file in the same commit. |
+| **Markup, links and residue were warnings, not errors.** | `tools/site-audit.js` errors on unbalanced `<div>`, broken internal links and anchors, template residue, and (with `--live`) dead external sources. |
+| **Accessibility and phone performance were never measured.** | STANDARD H10 and H11, and the axe and Lighthouse runs in WORKFLOW step 7. |
+| **Off-site work was never started.** | `templates/offsite-checklist.md`, done once, then monthly (WORKFLOW Lane O). |
 
-- "Under one roof" was banned. "Same company", "own mortgage team" and "one team for real estate and financing" were not, so the same claim came back in new words.
-- **Fix:** a claims ledger. Every claim about who Chapter3 is, what it does and who it works with gets one approved sentence. Any sentence about Chapter3 and a lender must match an approved sentence (STANDARD C1).
+Run all four checks:
 
-**2. The gates skip surfaces where claims live:**
-
-- meta and social descriptions
-- calculator default values
-- llms.txt
-- the footer
-- the search modal
-
-**Fix:** `tools/claims-scan.js` scans every surface, with the same banned list.
-
-**3. Forms were checked for validation, never for delivery.**
-
-- No test confirmed that a submitted form reaches the CRM.
-- **Fix:** WORKFLOW step 7 adds a delivery test. Every form's `c3SendForm` call is captured and must carry `consent`. `site-audit.js` checks this statically.
-
-**4. Facts were copied between pages.**
-
-- 12 facts now disagree across pages.
-- **Fix:** a facts registry (`facts/registry.json`). One value, source and as-of date per fact. Pages cite the registry, and a scan flags any other value (STANDARD A12).
-
-**5. Nothing re-checks facts on a schedule.**
-
-- Millage, deductions, programs and the market report all went stale within four months.
-- **Fix:** every registry entry has a "stale by" date. `site-audit.js` lists entries past it.
-
-**6. Old pages are exempt from new rules.**
-
-- 57 banned phrasings and the Pawleys and stacking errors survive on older pages.
-- **Fix:** Lane U sweeps on a schedule. A rule that is good for new pages is run against every page within 30 days.
-
-**7. Templated families were built by swapping names.**
-
-- **Fix:** STANDARD S10 now counts all text, at the site's 25% line, and is a gate for every page in a family.
-
-**8. The rule files themselves went stale.**
-
-- BRAND.md and PLAYBOOK still carry the banned MLO line, which invites the next session to reintroduce it.
-- **Fix:** update them in the same commit as the rule change (WORKFLOW).
-
-**9. Off-site work was never started.**
-
-- No profile, no reviews, wrong listings.
-- Pages alone cannot rank a five-month-old domain with no reviews.
-- **Fix:** an off-site checklist in WORKFLOW, done once and reviewed monthly.
+```
+node tools/site-audit.js <website-repo> --live
+node tools/claims-scan.js <website-repo>
+node tools/facts-check.js <website-repo>
+node tools/score.js --site <website-repo>/chapter3realty
+```
