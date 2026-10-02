@@ -20,7 +20,8 @@
           "note": "No STR permit; business license only.",
           "unless": "\\bworkshop\\w*|\\bpropos\\w*|\\bdraft\\b|\\bconsider\\w*|\\bnot (?:been )?adopted\\b|\\bwatch\\b"
         }
-      ]
+      ],
+      "severity": "critical"
     },
     {
       "id": "rental-vs-residence-tax",

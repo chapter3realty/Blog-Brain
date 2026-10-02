@@ -1,0 +1,50 @@
+diff --git a/chapter3realty/assets/app.19a7095691.css b/chapter3realty/assets/app.19a7095691.css
+index c4f19c6..ea4433c 100644
+--- a/chapter3realty/assets/app.19a7095691.css
++++ b/chapter3realty/assets/app.19a7095691.css
+@@ -154,3 +154,45 @@ body.home .hdr-callbar{display:none}
+    1,089 elements across 15 pages were measured and none sat on one. Dark
+    sections use the ivory text colours instead. */
+ body:not(.home){--ivory:#fafafa;--ivory-2:#f1f1f2;--muted:#1c2028}
++
++/* ---- Contrast fix (Blog-Brain audit 2026-10-01, STANDARD H10) ----------------------
++   Measured with axe on all 131 pages at 1280 and 375: 1,833 failing text nodes before.
++   Brass #c4783a is 2.76:1 on ivory-2 and 3.01:1 on ivory; body text needs 4.5:1.
++   Brass ink #91592b (already --brass-ink, BRAND.md) is 4.58:1 and 5.01:1 on those grounds,
++   but only 2.85:1 on navy, where brass-2 #d4894a is 5.81:1. So text colour depends on the
++   ground. Fills, borders and button backgrounds do not change: only text colour moves.
++   The attribute selectors match "color:" at the start of a style or after ";", so
++   "background-color:var(--brass)" is never caught. */
++
++/* 1. Brass text on light grounds becomes brass ink. */
++[style^="color:var(--brass)"],[style*=";color:var(--brass)"],[style*="; color:var(--brass)"],.breadcrumb a{color:var(--brass-ink)!important}
++/* Class-set brass on light cards. Specific enough to beat the page-local rules, and less
++   specific than the existing dark-card variants (e.g. .chooser-fullpage-card:last-child .cfp-label). */
++.txc-form .txc-leg,.ck-cell .ck-n,.dir-card .dir-num,.dir-card .dir-go,.cfp-inner .cfp-label,.cfp-inner .cfp-cta{color:var(--brass-ink)}
++
++/* 2. On dark grounds the text stays a light brass. brass-2 passes on every navy shade. */
++footer [style*="color:var(--brass)"],.bimb-hero-grid [style*="color:var(--brass)"],.bimb-hero-grid .breadcrumb a,
++[style*="background:var(--navy)"] [style*="color:var(--brass)"],[style*="background:var(--navy-2)"] [style*="color:var(--brass)"],
++[style*="background:#1c2028"] [style*="color:var(--brass)"],[style*="background:var(--navy)"] .breadcrumb a{color:var(--brass-2)!important}
++
++/* 3. The brass call-to-action bar: navy text (4.74:1) instead of ivory (3.30:1). */
++.path-cta-bar [style*="color:var(--ivory)"],.path-cta-bar [style*="color:rgba(244,239,232"]{color:var(--navy)!important}
++
++/* 4. Faint ivory labels on navy (0.3 to 0.5 alpha measured 2.52 to 4.12:1). */
++[style*="color:rgba(244,239,232,.3)"],[style*="color:rgba(244,239,232,.4)"],[style*="color:rgba(244,239,232,.5)"],.why-stat-lbl{color:rgba(244,239,232,.72)!important}
++/* Numbers in navy cells (/buyers/buying-in-myrtle-beach/): brass at 60% opacity measured 2.54:1.
++   Rule 2 already makes them brass-2; full opacity makes them pass. Scoped to the navy cell only:
++   the same rows have light columns, where brass-2 would fail (2.48:1, measured). */
++[style*="background:var(--navy)"] [style*="color:var(--brass)"][style*="opacity:.6"]{opacity:1!important}
++/* Ivory text on a brass fill (3.30:1) becomes navy (4.74:1). */
++[style*="background:var(--brass)"] [style*="color:var(--ivory)"]{color:var(--navy)!important}
++
++/* 5. Green figures on the market report (4.46:1). */
++[style*="color:#2e7d4f"]{color:#276a43!important}
++
++/* 6. The /sell/ step numbers 01 to 07 number real steps, so they must be readable (1.35:1 at opacity .3). */
++[style*="color:var(--brass)"][style*="opacity:.3"]{opacity:1!important}
++
++/* 7. The italic copper line in headings is large display text. WCAG asks 3:1 for large text and
++   brass passes it (3.01 to 3.45:1), so the brand copper stays where it is a headline. */
++h1 [style*="color:var(--brass)"],h2 [style*="color:var(--brass)"]{color:var(--brass)!important}
