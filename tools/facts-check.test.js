@@ -17,6 +17,13 @@ let failures = 0;
 const check = (name, cond) => { if (!cond) { failures++; console.log(`FAIL  ${name}`); } else console.log(`ok    ${name}`); };
 
 const cases = [
+  /* Gaps closed 2026-10-02: live wording the first patterns missed. */
+  ["sc-transient-days", "Myrtle Beach treats any stay under 90 days as short-term, which is stricter than South Carolina's general 30-day threshold.",
+    "Myrtle Beach treats any stay under 90 days as short-term, the same line the state uses."],
+  ["deed-fee-payer", "On a $350,000 purchase that is $1,295 in deed stamps alone, in addition to attorney fees.",
+    "A $350,000 sale = $1,295 in deed stamps."],
+  ["mcleod-carolina-forest", "Three more hospitals are in progress.",
+    "Two more hospitals are under construction."],
   ["nmb-str-permit", "The city requires an annual short-term-rental permit and a business license, a safety inspection, and a Responsible Local Agent on file.",
     "Since 2024 the city has been workshopping a responsible local agent ordinance, which has not been adopted."],
   ["nmb-str-permit", "North Myrtle Beach requires an annual permit, a business license and a responsible party.",

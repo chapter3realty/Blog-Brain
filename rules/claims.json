@@ -25,7 +25,9 @@
       "why": "'Our lender' and 'our affiliated lender' read as a lender Chapter3 owns or controls; 'Equal Housing Lender' is a lender's logo line (compliance H3). Approved wording, owner 2026-08-30 and 2026-09-07: 'our lending partner', 'our financing partner', 'a loan officer at our preferred lender'.",
       "patterns": [
         "\\bour (?:affiliated |in-house )?lender\\b(?!s? relationship)",
-        "\\bEqual Housing Lender\\b"
+        "\\bEqual Housing Lender\\b",
+        "\\baffiliated (?:preferred )?(?:mortgage )?lender\\b",
+        "\\baffiliated with BrickWood\\b"
       ],
       "fix": "'our lending partner, BrickWood Mortgage (NMLS #189497)' or 'a loan officer at our preferred lender'."
     },
@@ -38,7 +40,8 @@
         "\\b(?:with|through|get) (?:DSCR|investor|condotel|portfolio) financing\\b",
         "\\b(?:we|Chapter ?3(?: Realty)?|our team) (?:offers?|provides?|handles?|arranges?|does) (?:DSCR|investor|condotel|portfolio|bridge|fix-and-flip) (?:financing|loans)\\b",
         "\\bDSCR loan qualification\\b",
-        "\\bbrokerage that has its own lender\\b"
+        "\\bbrokerage that has its own lender\\b",
+        "\\bloans through BrickWood\\b"
       ],
       "fix": "Name what Chapter3 does: 'DSCR analysis', 'rent and coverage numbers'. The lending partner does the financing."
     },
@@ -62,7 +65,10 @@
         "\\b(?:mortgage|interest|loan) rates?\\b[^.]{0,60}?\\b\\d{1,2}(?:\\.\\d{1,3})?\\s?(?:percent|%)",
         "\\b\\d{1,2}(?:\\.\\d{1,3})?\\s?(?:percent|%)\\s(?:interest|mortgage|APR|fixed)\\b",
         "\\b30-year fixed\\b[^.]{0,40}\\d",
-        "\\braises? your (?:interest )?rate\\b"
+        "\\braises? your (?:interest )?rate\\b",
+        "\\bqualify at \\d{1,2}(?:\\.\\d{1,3})?\\s?(?:%|percent)",
+        "\\brate could be \\d{1,2}(?:\\.\\d{1,3})?\\s?(?:%|percent)",
+        "\\brates? (?:touched|dipped|fell|rose|climbed|sit|sat|hit|reached|averaged|drifted)\\b[^.]{0,40}\\b\\d\\.\\d{1,2}\\b"
       ],
       "unless": "\\b(?:no|zero|0%?) (?:interest|down)\\b|\\bcap rate|\\btax rate|\\boccupancy|\\bvacancy",
       "fix": "Write financing qualitatively: 'a higher rate than a primary-residence loan; your lender quotes the real number'."
@@ -97,7 +103,7 @@
       "severity": "high",
       "why": "Promising the public off-market listings conflicts with MLS Clear Cooperation rules (compliance H12).",
       "patterns": [
-        "\\boff-market (?:homes|listings|properties|deals)\\b[^.]{0,40}\\bbefore\\b"
+        "\\boff-market (?:homes|listings|properties|deals|sources|opportunities|inventory)\\b"
       ],
       "fix": "Remove the promise."
     },
@@ -112,7 +118,9 @@
         "\\bsuits? (?:retirees|families|young|couples)\\b",
         "\\bsafe (?:neighborhood|area|community|place)\\b",
         "\\blanding spot for families\\b",
-        "\\bquiet neighborhood\\b"
+        "\\bquiet neighborhood\\b",
+        "\\b(?:top-rated|high-performing|flagship|best|good|great|top|excellent) school (?:district|zone|system)s?\\b",
+        "\\bfamilies (?:tour|choose|pick|prefer|love|flock|gravitate)\\b"
       ],
       "allowPages": [
         "/fair-housing/",
@@ -139,7 +147,8 @@
       "why": "Pricing advice and CMAs are licensed activity (SC 40-57-30). Devin Day is not a licensee (compliance H1).",
       "patterns": [
         "\\bDevin\\b[^.]{0,80}\\b(?:pricing|price your|prices? homes|CMA|valuation)\\b",
-        "\\b(?:call|text) Devin\\b"
+        "\\b(?:call|text) Devin\\b",
+        "\\b(?:talk|speak|meet|chat)(?: strategy| pricing)? with Devin\\b"
       ],
       "fix": "Make the broker-in-charge the pricing contact."
     },

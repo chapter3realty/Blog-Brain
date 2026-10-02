@@ -79,6 +79,18 @@ function main() {
     items.push({ url: inChrome ? "*" : m.url, severity: m.severity, kind: `${m.category}`, quote: m.quote, where: "page", problem: m.problem, fix: m.replacement ? `${m.fix} Write: "${m.replacement}"` : m.fix, owner: m.needsOwner, source: m.source });
   }
 
+  /* A sentence both a scanner and a reviewer caught is listed once, with the reviewer's fix. */
+  const manualOn = items.filter(it => it.source !== undefined && it.quote);
+  const overlaps = (x, y) => { const a = squash(x.quote.replace(/\.\.\./g, "")), b = squash(y.quote.replace(/\.\.\./g, "")); return a.length > 20 && b.length > 20 && (a.includes(b) || b.includes(a)); };
+  for (let i = items.length - 1; i >= 0; i--) {
+    const it = items[i];
+    if (it.source !== undefined || !it.quote) continue;
+    const twins = manualOn.filter(m => (m.url === it.url || m.url === "*") && overlaps(m, it));
+    if (!twins.length) continue;
+    for (const m of twins) if (SEV[it.severity] < SEV[m.severity]) m.severity = it.severity;   /* keep the higher severity */
+    items.splice(i, 1);
+  }
+
   /* Shared chrome: the same sentence on more than 20 pages. */
   const bySentence = new Map();
   for (const it of items) if (it.quote) { const k = `${it.kind}|${it.quote}`; if (!bySentence.has(k)) bySentence.set(k, new Set()); bySentence.get(k).add(it.url); }

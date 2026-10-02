@@ -63,6 +63,10 @@
         {
           "pattern": "\\bstate(?:'s)? 30\\b|\\b30[- ]day state\\b",
           "note": "The state line is 90 days, the same as the city's."
+        },
+        {
+          "pattern": "\\bgeneral 30-day\\b|\\bSouth Carolina's 30-day\\b",
+          "note": "The state line is 90 days, the same as the city's."
         }
       ]
     },
@@ -173,6 +177,11 @@
           "pattern": "\\bbuyer\\w*\\b[^.]{0,80}\\bdeed stamps\\b|\\bdeed stamps\\b[^.]{0,80}\\b(?:budget|you owe|buyers? (?:pay|owe))\\b",
           "unless": "\\bseller\\b|\\bgrantor\\b",
           "note": "The seller owes the deed fee."
+        },
+        {
+          "pattern": "\\$[\\d,]+ in deed stamps\\b",
+          "unless": "\\bsellers?\\b|\\bgrantor\\b|\\bsale\\b",
+          "note": "A deed-stamp amount in a buyer's budget. The seller owes the deed fee."
         }
       ]
     },
@@ -215,6 +224,10 @@
         {
           "pattern": "McLeod[^.]{0,120}\\b(?:on schedule to open|slated to open|in progress|will open)\\b|\\b(?:in progress|slated to open)\\b[^.]{0,80}McLeod",
           "note": "It opened; update to the ribbon-cutting date."
+        },
+        {
+          "pattern": "\\b(?:three|3) more (?:hospitals )?(?:are )?(?:in progress|under construction|being built)\\b",
+          "note": "McLeod Carolina Forest was one of the three and it has opened. The count is now one fewer."
         }
       ]
     },

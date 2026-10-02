@@ -42,6 +42,17 @@ const cases = [
   ["fair-housing", { meta: "Surfside Beach: family-friendly beach home prices." }, { meta: "Surfside Beach: beach home prices and rental income." }],
   ["agent-free", { main: "<p>Your agent costs you nothing in most transactions.</p>" }, { main: "<p>That request costs you nothing and it creates a record.</p>" }],
   ["unlicensed-pricing", { main: "<p>Devin runs operations and pricing.</p>" }, { main: "<p>Tim Nash prices every listing.</p>" }],
+  /* Gaps closed 2026-10-02: each firing sentence is live text the first rules missed. */
+  ["interest-rate", { main: "<p>On a VA loan that might otherwise qualify at 6.5%, the DPA-adjusted rate could be 8.5%.</p>" }, { main: "<p>The lender decides whether you qualify at all.</p>" }],
+  ["interest-rate", { main: "<p>Rates touched about 6.30 in April, drifted back to the mid 6.5s, and sit below last July's 6.75.</p>" }, { main: "<p>Occupancy rates touched 71 percent in July.</p>" }],
+  ["lender-possessive", { main: "<p>Chapter3 works alongside an affiliated preferred lender, so your pre-approval is fast.</p>" }, { main: "<p>Chapter3 works alongside a preferred lender, BrickWood Mortgage, which is a separate company.</p>" }],
+  ["lender-possessive", { main: "<p>Chapter3 is affiliated with BrickWood Mortgage (NMLS #189497).</p>" }, { main: "<p>BrickWood Mortgage (NMLS #189497) is a separate company.</p>" }],
+  ["financing-as-service", { main: "<p>Submarket research, and DSCR, condotel and non-warrantable condo loans through BrickWood Mortgage.</p>" }, { main: "<p>Ask BrickWood Mortgage which loans fit a condotel.</p>" }],
+  ["unlicensed-pricing", { main: "<p><a href='/contact/'>Talk Strategy With Devin</a></p>" }, { main: "<p><a href='/contact/'>Talk strategy with Tim Nash</a></p>" }],
+  ["off-market-promise", { meta: "Free DSCR estimates, STR data, and off-market deals from a data-driven Grand Strand team." }, { meta: "Free STR data from a Grand Strand team." }],
+  ["off-market-promise", { main: "<p>We search the Coastal Carolinas MLS and our off-market sources and bring you a short list.</p>" }, { main: "<p>We search the Coastal Carolinas MLS and bring you a short list.</p>" }],
+  ["fair-housing", { main: "<p>A zip code may contain a top-rated school district or a golf-cart-friendly community.</p>" }, { main: "<p>Look up the school assignment on the district's own map.</p>" }],
+  ["fair-housing", { main: "<p>The town most relocating families tour first has its own guide: Carolina Forest.</p>" }, { main: "<p>The town most relocating buyers ask about has its own guide: Carolina Forest.</p>" }],
   ["template-residue", { main: "<p>%s</p><p>%s<a href='/a/'>Analyze my documents</a></p>" }, { main: "<p><span>+131%</span><span>since the 2012 low</span></p>" }],
 ];
 for (const [rule, bad, good] of cases) {
