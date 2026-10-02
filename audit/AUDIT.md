@@ -2,6 +2,11 @@
 
 Audit date: 2026-10-01 to 2026-10-02.
 
+Two files follow from this one:
+
+- `audit/FIX-LIST.md` lists every wrong sentence, page by page, with the fix.
+- `audit/SPEED-AND-CONTRAST.md` gives the tested patches for speed and contrast, with measured results.
+
 ## How the site was audited
 
 **Source.** The live site, compared with branch `claude/github-account-check-wutg8b` of the website repo, commit `511a2a5`. Its pages match production except for the undeployed stylesheet (T7).
