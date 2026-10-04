@@ -28,7 +28,7 @@ Breadcrumb
 Eyebrow
 H1: the reader's question, with a place in it              S3
     second line: the answer in five words, when it fits    A3
-Byline: By <person>, <title> · Reviewed by <person> · Updated <date>   T1
+Byline: By Chapter3 Realty · Updated <date>                         T1
 Hero sub: 8-30 words, keyword and a number or place        (website A14)
 Hero CTA
 THE SHORT ANSWER: 40-120 words, verdict first              A2, A3
@@ -53,7 +53,7 @@ Bottom CTA
 | S3 | Exactly one H1, naming a place on the Grand Strand. | OWNER, 2026-09-07: "All of our headers need to be local specific." |
 | S4 | Absolute https canonical, lowercase, trailing slash, nested under a hub. | The site's PLAYBOOK A2. |
 | S5 | The page has its own 1200x630 share image (`og/<slug>.jpg` from `tools/ogcard.js`). It is set in og:image, twitter:image, Article.image and primaryImageOfPage. | OFFICIAL: "avoid using a generic image". All 122 pages share one today. |
-| S6 | The Article `author` is the byline person (a Person with `@id` and `url`), and `reviewedBy` is the other. It carries both dates and an image. | OFFICIAL: bylines, and a Person author. 63 pages name the company today. |
+| S6 | The Article `author` is the company, `{"@id": "https://chapter3realty.com/#org"}`. No Person for Devin Day appears anywhere in the schema. A named guest contributor (the CFP on /invest/strategies/dst/) keeps the byline. The Article carries both dates and an image. | OWNER 2026-10-04: the site speaks as the company, not as an individual. Google accepts an Organization as author. |
 | S7 | 5 or more links in the body to other Chapter3 pages, in sentences, with anchors that say what the target page answers. | OFFICIAL: descriptive anchor text. Fan-out (STUDY): the engine follows sub-questions. |
 | S8 | 2 or more other pages link here from their body copy. The nav and footer do not count. | The site's orphan rule, raised to 2. |
 | S9 | Title and description unique sitewide. | OFFICIAL. |
@@ -99,8 +99,8 @@ Bottom CTA
 
 | ID | Rule | Why |
 |---|---|---|
-| T1 | A visible byline: "By <person>, <title> · Reviewed by <person>, <title> · Updated <date>". The date comes from `build.js dates`, never typed. | OFFICIAL: bylines where expected; dates that match the schema. |
-| T2 | 2 or more sentences of first-hand experience, real and attributed: "In Chapter3's files...", "An agent at Chapter3...", or "Tim Nash walks the crawlspace before a client bids." They come from the owner-questions round (see WORKFLOW), never invented. | OFFICIAL (AI guide): "a first-hand review provides a unique perspective". OWNER A11e, A20. 71 pages have none. |
+| T1 | A visible byline: "By Chapter3 Realty · Updated <date>". No person's name. The date comes from `build.js dates`, never typed. | OWNER 2026-10-04. OFFICIAL: bylines where expected; dates that match the schema. |
+| T2 | 2 or more sentences of first-hand experience, real and in the company's voice: "In Chapter3's files...", "An agent at Chapter3...", "Our broker walks the crawlspace before a client bids." No person is named. They come from the owner-questions round (see WORKFLOW), never invented. | OFFICIAL (AI guide): "a first-hand review provides a unique perspective". OWNER A11e, A20. 71 pages have none. |
 | T3 | A sources line: 3-5 short names, links only, under 90 words, with the date the sources were read. | The site's A11b. |
 | T4 | dateModified is within 365 days. Volatile pages (taxes, STR rules, insurance, market numbers) are reviewed every 90 days and re-dated only when the prose changed. | STUDY: AI-cited pages are 26 percent fresher. OFFICIAL: no fake freshness. |
 | T5 | **(human)** No quote attributed to Tim Nash ships until he has approved the exact words. | OWNER, 2026-09-03. A fabricated quote from a licensed broker is a compliance problem. |
@@ -115,13 +115,13 @@ This is not legal advice. Counsel sets the final wording. The scanner holds what
 
 | ID | Rule | Why |
 |---|---|---|
-| C1 | **Chapter3 is a brokerage, not a lender, and does not own BrickWood.** Never: "same company", "own mortgage team", "one team for real estate and financing", "under one roof", "in-house lender", "our lender", "our affiliated lender", "we underwrote", "loan menu", "Equal Housing Lender", or a service list that includes financing ("DSCR financing, STR analysis..."). Approved: "our lending partner, BrickWood Mortgage (NMLS #189497)", "a loan officer at our preferred lender", "your lender". **Blocker.** | OWNER 2026-07-30 and 2026-09-07. The audit found "same company" in 5 sentences and the footer offering "DSCR financing" on 131 pages, which AI answers now repeat. `build.js` banned "under one roof" but not the same claim in other words. |
+| C1 | **Chapter3 is a brokerage. It is affiliated with BrickWood Mortgage, but they are not the same company, and Chapter3 does no financing work at all.** Keep the affiliation and its RESPA disclosure. Never: "same company", "own mortgage team", "one team for real estate and financing", "under one roof", "in-house lender", a bare "our lender", "we underwrote", "loan menu", "Equal Housing Lender", or a service list that includes financing ("DSCR financing, STR analysis..."). Approved: "our affiliated lender, BrickWood Mortgage (NMLS #189497)", "Chapter3 is affiliated with BrickWood Mortgage, a separate company", "your lender". **Blocker.** | OWNER 2026-07-30, 2026-09-07 and 2026-10-04 ("there is an affiliation... but we are not the same company and Chapter3 does no financing work at all"). The audit found "same company" in 5 sentences and the footer offering "DSCR financing" on 131 pages, which AI answers now repeat. `build.js` banned "under one roof" but not the same claim in other words. |
 | C2 | **No licence claims for Chapter3 staff.** No "MLO", "loan originator" or NMLS number for anyone at Chapter3, including in meta descriptions. **Blocker.** | OWNER 2026-09-07. Still live in one meta description and on /about/ (audit C-C3, C-C4). |
 | C3 | **No stated interest rate, payment or (on owner-occupied pages) down payment, including calculator default values and placeholders.** A calculator box for a rate or down payment starts empty, with a visible label. | Non-negotiable 3, Reg Z trigger terms. Calculators shipped with 7 percent and 6.5 percent pre-filled; `build.js` stripped inputs before scanning. |
 | C4 | **No unsupported superlative or firm history.** No "best brokerage", "no other local brokerage", "#1". Experience belongs to the person who has it: Tim Nash's 30 years are Tim's; BrickWood's loan files are BrickWood's. A five-month-old firm does not "close in every submarket". | SC 40-57-135; FTC guidance; PLAYBOOK A11e. |
 | C5 | **Fair housing.** Describe property and geography only. No school ratings ("best schools"), no "family-friendly", no "suits retirees", no safety claims. Link the district's own assignment page instead. | 42 USC 3604(c), HUD advertising guidance. The audit found these in the relocating hub, two hubs and a submarket's meta description. |
 | C6 | **No promises the business cannot keep or may not make.** No off-market listings "before they hit the public sites"; no "your agent costs you nothing"; one response-time promise, the one the team keeps. | MLS Clear Cooperation; buyer-agency changes; the audit found response time promised five different ways. |
-| C7 | **Unlicensed people do not do licensed work on the page.** Pricing, CMAs and representation are the broker's. Devin Day is the operations contact, never the pricing contact. | SC 40-57-30. /sell/ says "Devin runs operations and pricing". |
+| C7 | **The company speaks, not an individual. Devin Day is never named, for anything:** not as author, reviewer, contact, schema employee, or in a story. Pricing, CMAs and representation are the broker's. **Blocker.** | OWNER 2026-10-04: "never name devin for anything the focus is on the company not on any individual". SC 40-57-30. On 2026-10-04 Devin is named on 127 pages. |
 | C8 | **Testimonials and reviews are real, sourced and kept on file**, or they are not shown. No review markup without real reviews. | FTC 16 CFR 465 (fake reviews rule). Five anonymous testimonials sit on the homepage. |
 
 ## What this standard deliberately leaves out

@@ -32,7 +32,7 @@ npm test                                                     # all four control 
 node tools/score.js --site <site>/chapter3realty             # every article, with a leaderboard
 node tools/score.js --site <site>/chapter3realty --only /invest/llc/
 node tools/ogcard.js <site>/chapter3realty /invest/llc/      # or --all
-node tools/site-upgrade.js <site>/chapter3realty [--write]   # share image + Person author, head only
+node tools/site-upgrade.js <site>/chapter3realty [--write]   # share image, company author, no Devin in schema; head only
 node tools/site-audit.js <site> [--live]                     # links, anchors, markup, residue, form delivery, sources
 node tools/claims-scan.js <site>                             # banned claims on every surface (rules/claims.json)
 node tools/facts-check.js <site>                             # known-wrong facts and stale entries (facts/registry.json)
@@ -47,7 +47,10 @@ node tools/facts-check.js --stale                            # registry entries 
 - **Never hand-edit a generated page.** Edit the spec.
 - **Never type a date.** `node build.js dates` sets every date.
 - **Never write a quote for Tim Nash, or a story that did not happen.** Ask in `templates/owner-questions.md` and wait for the answer.
-- **Never state an interest rate or a payment amount.** Chapter3 is not a lender.
+- **Never state an interest rate or a payment amount.** Chapter3 is not a lender and does no financing work.
+- **BrickWood Mortgage is an affiliate, not the same company.** Keep the affiliation and its disclosure; never imply ownership (owner, 2026-10-04).
+- **Never name Devin Day, for anything.** The company is the author and the voice of every page (owner, 2026-10-04).
+- **The DBA "Chapter III Realty" is registered.** The logo reads "Chapter III" (`website-patches/logo-chapter-iii.patch`).
 - **Facts come from verified rows in a fact ledger,** checked by an agent that did not research them.
 
 ## Working on the tools

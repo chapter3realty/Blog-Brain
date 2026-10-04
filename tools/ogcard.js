@@ -68,7 +68,7 @@ h1 em{display:block;font-style:italic;color:#c4783a;font-size:.62em;margin-top:1
 .mark{font-family:'Fraunces',Georgia,serif;font-size:40px;color:#f4efe8;letter-spacing:-.03em}.mark span{color:#c4783a}
 </style></head><body><div class="bar t"></div><div class="wrap">
 <p class="eyebrow">${esc(f.eyebrow)}</p><h1>${esc(f.line1)}${f.line2 ? `<em>${esc(f.line2)}</em>` : ""}</h1>
-<div class="foot"><span class="mark">Chapter<span>3</span></span><span>Myrtle Beach &middot; Grand Strand, SC</span></div>
+<div class="foot"><span class="mark">Chapter <span>III</span></span><span>Myrtle Beach &middot; Grand Strand, SC</span></div>
 </div><div class="bar b"></div></body></html>`;
 }
 

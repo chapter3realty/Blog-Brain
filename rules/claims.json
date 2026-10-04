@@ -4,7 +4,7 @@
     {
       "id": "lender-identity",
       "severity": "critical",
-      "why": "Chapter3 does not own BrickWood and is not a lender (owner 2026-07-30, 2026-09-07; compliance C1, H3, H11). Saying otherwise implies mortgage activity without a licence.",
+      "why": "Chapter3 and BrickWood are affiliated but are not the same company, and Chapter3 does no financing work at all (owner 2026-07-30, 2026-09-07, 2026-10-04). Saying otherwise implies mortgage activity without a licence.",
       "patterns": [
         "\\bsame company\\b",
         "\\bown (?:mortgage|lending|loan|financing) (?:team|company|division|arm)\\b",
@@ -14,22 +14,20 @@
         "\\bour (?:mortgage|loan|lending|financing) (?:team|officers?|department|division|menu)\\b",
         "\\bwe underwr(?:ote|ite)\\b",
         "\\bloan menu\\b",
-        "\\b(?:we|Chapter ?3(?: Realty)?) (?:offers?|provides?|arranges?|originates?) (?:financing|loans|mortgages)\\b",
+        "\\b(?:we|Chapter ?(?:3|III)(?: Realty)?) (?:offers?|provides?|arranges?|originates?) (?:financing|loans|mortgages)\\b",
         "\\bthe brokerage and the lender are\\b"
       ],
-      "fix": "Say 'our lending partner, BrickWood Mortgage (NMLS #189497)' or 'your lender'. Chapter3 analyses; BrickWood lends."
+      "fix": "Keep the affiliation, drop the ownership: \"our affiliated lender, BrickWood Mortgage (NMLS #189497), a separate company\". Chapter3 analyses; BrickWood lends."
     },
     {
       "id": "lender-possessive",
       "severity": "high",
-      "why": "'Our lender' and 'our affiliated lender' read as a lender Chapter3 owns or controls; 'Equal Housing Lender' is a lender's logo line (compliance H3). Approved wording, owner 2026-08-30 and 2026-09-07: 'our lending partner', 'our financing partner', 'a loan officer at our preferred lender'.",
+      "why": "BrickWood Mortgage is an affiliate, not part of Chapter3 (owner 2026-10-04). A bare \"our lender\" reads as ownership. \"Equal Housing Lender\" is a lender's mark, and Chapter3 does no financing work.",
       "patterns": [
-        "\\bour (?:affiliated |in-house )?lender\\b(?!s? relationship)",
-        "\\bEqual Housing Lender\\b",
-        "\\baffiliated (?:preferred )?(?:mortgage )?lender\\b",
-        "\\baffiliated with BrickWood\\b"
+        "\\bour (?:in-house )?lender\\b(?!s? relationship)",
+        "\\bEqual Housing Lender\\b"
       ],
-      "fix": "'our lending partner, BrickWood Mortgage (NMLS #189497)' or 'a loan officer at our preferred lender'."
+      "fix": "Write \"our affiliated lender, BrickWood Mortgage (NMLS #189497)\" or \"your lender\". \"Equal Housing Opportunity\" for the logo line."
     },
     {
       "id": "financing-as-service",
@@ -38,12 +36,12 @@
       "patterns": [
         "^(?:DSCR|investor|condotel|portfolio) financing, (?!explained|which|compared)",
         "\\b(?:with|through|get) (?:DSCR|investor|condotel|portfolio) financing\\b",
-        "\\b(?:we|Chapter ?3(?: Realty)?|our team) (?:offers?|provides?|handles?|arranges?|does) (?:DSCR|investor|condotel|portfolio|bridge|fix-and-flip) (?:financing|loans)\\b",
+        "\\b(?:we|Chapter ?(?:3|III)(?: Realty)?|our team) (?:offers?|provides?|handles?|arranges?|does) (?:DSCR|investor|condotel|portfolio|bridge|fix-and-flip) (?:financing|loans)\\b",
         "\\bDSCR loan qualification\\b",
         "\\bbrokerage that has its own lender\\b",
         "\\bloans through BrickWood\\b"
       ],
-      "fix": "Name what Chapter3 does: 'DSCR analysis', 'rent and coverage numbers'. The lending partner does the financing."
+      "fix": "Name what Chapter3 does: 'DSCR analysis', 'rent and coverage numbers'. BrickWood Mortgage, the affiliated lender, does the financing."
     },
     {
       "id": "licence-claim",
@@ -142,15 +140,13 @@
       "fix": "Say who pays and that it is negotiable."
     },
     {
-      "id": "unlicensed-pricing",
+      "id": "individual-named",
       "severity": "high",
-      "why": "Pricing advice and CMAs are licensed activity (SC 40-57-30). Devin Day is not a licensee (compliance H1).",
+      "why": "The site speaks as the company, not as an individual. Devin Day is never named, for anything: not as author, reviewer, contact, employee in schema, or in a story (owner 2026-10-04). He is also not a licensee, so he can never be a pricing or advice contact (SC 40-57-30).",
       "patterns": [
-        "\\bDevin\\b[^.]{0,80}\\b(?:pricing|price your|prices? homes|CMA|valuation)\\b",
-        "\\b(?:call|text) Devin\\b",
-        "\\b(?:talk|speak|meet|chat)(?: strategy| pricing)? with Devin\\b"
+        "\\bDevin\\b"
       ],
-      "fix": "Make the broker-in-charge the pricing contact."
+      "fix": "Remove the name. Write \"Chapter3\" or \"our team\". In a byline, the author is the company. In schema, the author is {\"@id\": \"https://chapter3realty.com/#org\"} and no Person for Devin is listed."
     },
     {
       "id": "template-residue",

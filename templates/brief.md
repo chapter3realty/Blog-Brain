@@ -67,7 +67,7 @@ Pick one:
 
 ## 7. Experience slots (T2)
 
-Two or more places where a sentence from Chapter3's files, or from Tim Nash, belongs. Each becomes a question in `owner-questions.md`.
+Two or more places where a sentence from Chapter3's files, or from the broker's experience in the company's voice, belongs. Each becomes a question in `owner-questions.md`.
 
 | Section | What we need | Ask whom |
 |---|---|---|

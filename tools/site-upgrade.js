@@ -6,9 +6,12 @@
  *   1. Share image (STANDARD S5). Where og/<slug>.jpg exists (made by
  *      tools/ogcard.js), point og:image, twitter:image, their alt text, and the
  *      Article/WebPage image at it. The organization's own image is untouched.
- *   2. Person author (STANDARD S6). Where the Article author is the company
- *      ("#org") and the visible byline names Devin Day or Tim Nash, make the
- *      author that Person.
+ *   2. Company author (STANDARD S6, owner 2026-10-04). The site speaks as the
+ *      company. A staff author becomes the company ("#org"); a named guest
+ *      contributor keeps the byline. Devin Day is
+ *      never named: his Person block, his reviewedBy and his entry in the
+ *      company's employee list are removed. Visible bylines are in <main> and
+ *      are not touched here; fix them in the spec or page.
  *
  *   node tools/site-upgrade.js <site-dir>            dry run: what would change
  *   node tools/site-upgrade.js <site-dir> --write    apply
@@ -27,13 +30,12 @@ const cheerio = require("cheerio");
 
 const SITE = "https://chapter3realty.com";
 const DEFAULT_OG = `${SITE}/og-image.jpg`;
-const PEOPLE = {
-  "Devin Day": { "@type": "Person", "@id": `${SITE}/about/#devin-day`, name: "Devin Day", jobTitle: "Operations Officer", url: `${SITE}/about/`, worksFor: { "@id": `${SITE}/#org` } },
-  "Tim Nash": { "@type": "Person", "@id": `${SITE}/about/#timmy-nash`, name: "Timothy Nash", alternateName: "Tim Nash", jobTitle: "Broker-in-Charge", url: `${SITE}/about/`, worksFor: { "@id": `${SITE}/#org` } },
-};
-PEOPLE["Timothy Nash"] = PEOPLE["Tim Nash"];
-
-const ORG_AUTHOR = /"author"\s*:\s*\{\s*"@id"\s*:\s*"https:\/\/chapter3realty\.com\/#org"\s*\}/;
+const ORG = { "@id": `${SITE}/#org` };
+const NEVER = /\bDevin\b/;   /* never named (owner 2026-10-04) */
+const isOrg = (a) => a && !Array.isArray(a) && a["@id"] === ORG["@id"] && Object.keys(a).length === 1;
+const names = (v) => JSON.stringify(v || "");
+/* Chapter3 staff as author. A named guest contributor (the CFP on /invest/strategies/dst/) keeps the byline. */
+const isStaff = (a) => [].concat(a).some(x => x && (String(x["@id"] || "").startsWith(`${SITE}/about/`) || /\b(?:Devin|Tim|Timothy|Timmy) (?:Day|Nash)\b/.test(String(x.name || ""))));
 const escAttr = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
 function upgrade(html, slug, site) {
@@ -41,19 +43,25 @@ function upgrade(html, slug, site) {
   const $ = cheerio.load(html);
   const mainStart = html.indexOf("<main"), mainEnd = html.indexOf("</main>");
   const main = mainStart >= 0 ? html.slice(mainStart, mainEnd) : "";
-  const byline = (main.match(/By <strong[^>]*>([^<]+)<\/strong>/) || [])[1];
-  const person = byline && PEOPLE[byline.trim()];
   const card = fs.existsSync(path.join(site, "og", `${slug}.jpg`)) ? `${SITE}/og/${slug}.jpg` : null;
   const h1 = $("h1").first();
   const alt = h1.length ? cheerio.load((h1.html() || "").replace(/<br\s*\/?>/gi, " ")).text().replace(/\s+/g, " ").trim() : "";
 
   let out = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (block, body) => {
-    let type; try { type = [].concat(JSON.parse(body)["@type"]).join(); } catch { return block; }
-    let b = body;
+    let j; try { j = JSON.parse(body); } catch { return block; }
+    const type = [].concat(j["@type"]).join();
+    if (type === "Person" && NEVER.test(names(j.name))) { changes.push("removed Person Devin Day"); return ""; }
+    let b = body, edited = false;
     if (/^(?:Article|BlogPosting)$/.test(type)) {
-      if (person && ORG_AUTHOR.test(b)) { b = b.replace(ORG_AUTHOR, `"author":${JSON.stringify(person)}`); changes.push(`author -> ${person.name}`); }
-      if (card && b.includes(DEFAULT_OG)) { b = b.split(DEFAULT_OG).join(card); changes.push("Article.image"); }
+      if (j.author && !isOrg(j.author) && isStaff(j.author)) { changes.push(`author ${names([].concat(j.author)[0].name || [].concat(j.author)[0]["@id"])} -> company`); j.author = ORG; edited = true; }
+      if (j.reviewedBy && NEVER.test(names(j.reviewedBy))) { delete j.reviewedBy; changes.push("removed reviewedBy Devin Day"); edited = true; }
     }
+    if (Array.isArray(j.employee) && j.employee.some(e => NEVER.test(names(e)))) {
+      j.employee = j.employee.filter(e => !NEVER.test(names(e))); if (!j.employee.length) delete j.employee;
+      changes.push("removed employee Devin Day"); edited = true;
+    }
+    if (edited) b = body.includes("\n") ? JSON.stringify(j, null, 2) : JSON.stringify(j);
+    if (/^(?:Article|BlogPosting)$/.test(type) && card && b.includes(DEFAULT_OG)) { b = b.split(DEFAULT_OG).join(card); changes.push("Article.image"); }
     if (type === "WebPage" && card && b.includes(DEFAULT_OG)) { b = b.split(DEFAULT_OG).join(card); changes.push("WebPage.primaryImageOfPage"); }
     if (b !== body) { try { JSON.parse(b); } catch (e) { throw new Error(`edit broke JSON-LD on ${slug}: ${e.message}`); } }
     return block.replace(body, () => b);
@@ -81,7 +89,7 @@ function main() {
   let files = 0, edits = 0;
   for (const file of walk(site)) {
     const html = fs.readFileSync(file, "utf8");
-    if (!/"@type":\s*"(?:Article|BlogPosting)"/.test(html)) continue;
+    if (!/"@type":\s*"(?:Article|BlogPosting)"/.test(html) && !/application\/ld\+json[^<]*Devin/.test(html)) continue;
     const rel = path.relative(site, path.dirname(file)).split(path.sep).join("/");
     const slug = rel.replace(/\//g, "-") || "home";
     const { out, changes } = upgrade(html, slug, site);

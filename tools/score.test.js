@@ -25,12 +25,12 @@ function gold(over = {}) {
     og: "https://chapter3realty.com/og/special-assessments.jpg",
     h1: 'Do Myrtle Beach condos charge special assessments?<br/><em>What they cost and who pays.</em>',
     short: "Yes. Most Myrtle Beach condo buildings charge a special assessment at some point, usually for a roof, an elevator or insurance. It is billed to every unit and it is not optional. You can see one coming in the board minutes and the reserve study before you make an offer.",
-    author: { "@id": "https://chapter3realty.com/about/#tim-nash" },
+    author: { "@id": "https://chapter3realty.com/#org" },
     extraMain: "", sectionLead: "A special assessment is a one-time charge an association bills to every unit.",
     faq, table: true, chart: true, body: "",
   }, over);
   const ld = [
-    { "@context": "https://schema.org", "@type": "Person", "@id": "https://chapter3realty.com/about/#tim-nash", name: "Tim Nash" },
+    { "@context": "https://schema.org", "@type": "RealEstateAgent", "@id": "https://chapter3realty.com/#org", name: "Chapter3 Realty" },
     { "@context": "https://schema.org", "@type": "Article", "@id": "x#article", headline: "h", author: o.author, datePublished: "2026-09-01", dateModified: "2026-09-20", image: o.og, keywords: "condo special assessment Myrtle Beach" },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: o.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
   ];
@@ -40,10 +40,10 @@ function gold(over = {}) {
 <link rel="canonical" href="https://chapter3realty.com/hoa/special-assessments/"><meta property="og:image" content="${o.og}">
 ${ld.map(x => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join("")}</head><body><main id="main">
 <div class="detail-hero"><div class="breadcrumb"><a href="/">Home</a></div><h1>${o.h1}</h1>
-<p>By <strong>Tim Nash</strong>, Broker-in-Charge · Updated September 20, 2026</p><p class="detail-sub">A special assessment on a Myrtle Beach condo can cost thousands per unit.</p></div>
+<p>By <strong>Chapter3 Realty</strong> · Updated September 20, 2026</p><p class="detail-sub">A special assessment on a Myrtle Beach condo can cost thousands per unit.</p></div>
 <section><div class="wrap"><p>The short answer</p><p>${o.short}</p></div></section>
 ${sec("What is a special assessment?", o.sectionLead, `${filler} In Chapter3's files, a coming assessment showed up in the minutes in most buildings we checked. See the ${'<a href="/hoa/reserves/">reserve guide</a>'} and the <a href="/hoa/documents/">document list</a>.`)}
-${sec("What triggers one in Surfside Beach and North Myrtle Beach?", "Roofs, elevators, insurance and unfunded reserves trigger most assessments in Surfside Beach and Garden City buildings.", `${filler} Tim Nash says he reads the last two years of minutes before a client offers. Compare <a href="/hoa/dues-increases/">dues increases</a> and <a href="/buyers/coastal-insurance/">coastal insurance</a>. Read <a href="https://www.scstatehouse.gov/code/t27c030.php">the state HOA act</a> and <a href="https://consumer.sc.gov/hoa">the state HOA report</a>.`)}
+${sec("What triggers one in Surfside Beach and North Myrtle Beach?", "Roofs, elevators, insurance and unfunded reserves trigger most assessments in Surfside Beach and Garden City buildings.", `${filler} Our broker reads the last two years of minutes before a client offers. Compare <a href="/hoa/dues-increases/">dues increases</a> and <a href="/buyers/coastal-insurance/">coastal insurance</a>. Read <a href="https://www.scstatehouse.gov/code/t27c030.php">the state HOA act</a> and <a href="https://consumer.sc.gov/hoa">the state HOA report</a>.`)}
 ${o.table ? `<table><tr><th>Cause</th><th>Typical</th></tr><tr><td>Roof</td><td>Thousands per unit</td></tr></table>` : ""}
 ${o.chart ? `<svg role="img" aria-label="Assessments by cause in Garden City buildings"><title>Assessments by cause</title></svg>` : ""}
 <ul><li>Board minutes</li><li>Reserve study</li><li>Budget</li></ul>
@@ -79,7 +79,7 @@ const mutations = [
   ["topic-early", { short: "Yes. Most buildings on this coast bill every owner at some point for a roof, an elevator or insurance, and owners cannot refuse it. You can see the bill coming in the minutes and the study well before you make an offer here." }],
   ["links-out", (h) => h.replace(/<a href="\/(?:hoa|buyers|sell)[^"]*">([^<]*)<\/a>/g, "$1")],
   ["og-image", { og: "https://chapter3realty.com/og-image.jpg" }],
-  ["article-schema", { author: { "@id": "https://chapter3realty.com/#org" } }],
+  ["article-schema", { author: { "@type": "Person", name: "Devin Day" } }],
   ["short-answer", { short: "Yes. " + "Most buildings charge one at some point for a roof or an elevator or insurance and it is billed to every unit. ".repeat(8) }],
   ["verdict", { short: "A special assessment is a charge the association bills to every unit when it needs money it does not have, usually for a roof, an elevator or insurance. You can see one coming in the minutes before you offer." }],
   ["question-h2", (h) => h.replace("What is a special assessment?", "Special assessments defined").replace("Who pays it when the unit sells?", "The seller and the buyer")],
@@ -95,7 +95,8 @@ const mutations = [
   ["image", { chart: false }],
   ["ctas", (h) => h.replace(/<a class="btn btn-brass" href="#lead-form">[^<]*<\/a>/g, "")],
   ["byline", (h) => h.replace(/ · Updated September 20, 2026/, "")],
-  ["experience", (h) => h.replace("In Chapter3's files, a coming assessment showed up in the minutes in most buildings we checked.", "").replace("Tim Nash says he reads the last two years of minutes before a client offers.", "")],
+  ["byline", (h) => h.replace("By <strong>Chapter3 Realty</strong>", "By <strong>Devin Day</strong>, Operations Officer")],
+  ["experience", (h) => h.replace("In Chapter3's files, a coming assessment showed up in the minutes in most buildings we checked.", "").replace("Our broker reads the last two years of minutes before a client offers.", "")],
   ["sources-line", (h) => h.replace("<strong>Sources:</strong>", "<strong>Reading:</strong>")],
   ["fresh", (h) => h.replace('"dateModified":"2026-09-20"', '"dateModified":"2025-01-01"')],
 ];

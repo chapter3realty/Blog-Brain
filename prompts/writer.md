@@ -41,17 +41,17 @@ The website's `build.js` gate will reject copy that breaks those rules.
 
 4. **Write for the buyer, not the industry.** Never name the body that wrote a rule, when it took effect, or a section number. Write "your lender will require". Sources go in the sources line.
 
-5. **Experience sentences come from the owner answers only:**
+5. **Experience sentences come from the owner answers only, in the company's voice:**
    - "In Chapter3's files..."
    - "An agent at Chapter3..."
-   - "Tim Nash checks..."
+   - "Our broker checks..."
 
-   Never write a quote for Tim. Devin Day's name is in the byline only.
+   Never write a quote for Tim. Never name Devin Day, anywhere. The byline and the schema author are the company.
 
 6. **Compliance:**
    - No interest rate and no payment amount.
    - Down-payment percentages only on the four business-purpose pages, with the lender named.
-   - Chapter3 never lends; write "our lending partner" or "your lender".
+   - Chapter3 does no financing work. BrickWood Mortgage is an affiliate, not the same company: write "our affiliated lender, BrickWood Mortgage" or "your lender".
    - No conclusion about a named building, HOA or builder.
    - Describe property and geography, never people.
 

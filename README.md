@@ -16,12 +16,12 @@ The system for producing chapter3realty.com pages quickly, built to rank in Goog
 | [`prompts/`](prompts/) | The fixed prompts for the researcher, verifier, writer and reviewer agents. |
 | [`tools/score.js`](tools/score.js) | Grades a page, or the whole site, against the standard. |
 | [`tools/ogcard.js`](tools/ogcard.js) | Renders each page's own 1200x630 share image. |
-| [`tools/site-upgrade.js`](tools/site-upgrade.js) | Points every page at its own share image and makes the byline person the author. It touches `<head>` only. |
+| [`tools/site-upgrade.js`](tools/site-upgrade.js) | Points every page at its own share image, makes the company the author, and removes Devin from every page's schema. It touches `<head>` only. |
 | [`tools/site-audit.js`](tools/site-audit.js) | The sitewide checks: links, anchors, markup, residue, forms that drop leads, phone fields without consent, dead sources. |
 | [`tools/claims-scan.js`](tools/claims-scan.js) and [`rules/claims.json`](rules/claims.json) | Claims Chapter3 may not make, checked on every surface, including the footer, meta tags, calculator defaults and llms.txt. |
 | [`tools/facts-check.js`](tools/facts-check.js) and [`facts/registry.json`](facts/registry.json) | One verified value per fact. Flags known-wrong versions on any page, and facts past their re-check date. |
 | [`templates/offsite-checklist.md`](templates/offsite-checklist.md) | Google Business Profile, listings, reviews and links: the work pages alone cannot do. |
-| [`website-patches/`](website-patches/) | Tested patches for the website: the page generator, contrast, and speed. Each applies to the live branch with `git apply`. |
+| [`website-patches/`](website-patches/) | Tested patches for the website: the page generator, the Chapter III logo, contrast, and speed. Each applies to the live branch with `git apply`. |
 | [`pilots/invest-llc/`](pilots/invest-llc/) | One live page restructured with no new facts: 75 to 99. |
 | [`research/`](research/) | The SEO and AEO evidence, as of 2026-10-01, and a digest of the website's process docs. |
 | [`reports/`](reports/) | The baseline score of every live article, and the pilot's before and after. |

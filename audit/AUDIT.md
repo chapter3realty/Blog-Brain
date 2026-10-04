@@ -7,6 +7,15 @@ Two files follow from this one:
 - `audit/FIX-LIST.md` lists every wrong sentence, page by page, with the fix.
 - `audit/SPEED-AND-CONTRAST.md` gives the tested patches for speed and contrast, with measured results.
 
+## Owner decisions of 2026-10-04
+
+These change several rows below. Each changed row says so.
+
+1. **Chapter3 and BrickWood Mortgage are affiliated.** Keep the affiliation and the RESPA affiliated-business disclosure. "Affiliated" wording is correct.
+2. **They are not the same company, and Chapter3 does no financing work at all.** "Same company", "own mortgage team", "in-house lender" and any offer of financing stay wrong.
+3. **Never name Devin Day, for anything.** The site speaks as the company: the company is the author and the byline.
+4. **"Chapter III" is registered as a DBA.** The logo changes to "Chapter III" (`website-patches/logo-chapter-iii.patch`).
+
 ## How the site was audited
 
 **Source.** The live site, compared with branch `claude/github-account-check-wutg8b` of the website repo, commit `511a2a5`. Its pages match production except for the undeployed stylesheet (T7).
@@ -38,13 +47,13 @@ Two files follow from this one:
 
 ## Totals
 
-The complete list below has **127 rows**:
+The complete list below has **127 rows**. Two critical rows became medium after the owner's decisions of 2026-10-04:
 
 | Severity | Rows |
 |---|---|
-| Critical | 14 |
+| Critical | 12 |
 | High | 43 |
-| Medium | 59 |
+| Medium | 61 |
 | Low | 10 |
 | Info | 1 |
 
@@ -66,7 +75,7 @@ In order. Every item is confirmed.
 
    **Fix:** pass `consent: box.checked ? 'yes' : 'no'` in each call, and add the locked consent checkbox to the report gate. Then test that each form reaches the CRM. (Render R-C1, R-C2.)
 
-2. **"Same company" and "own mortgage team".** These pages say the brokerage and BrickWood are one business, which the owner says is false and called illegal:
+2. **"Same company" and "own mortgage team".** These pages say the brokerage and BrickWood are one business. The owner says they are affiliated but are not the same company, and Chapter3 does no financing work (2026-10-04):
    - `/buyers/relocating/`, four sentences.
    - `/buyers/va-loans/`, one sentence.
    - `/buyers/`: "We are a brokerage with our own mortgage team".
@@ -77,9 +86,7 @@ In order. Every item is confirmed.
 
    **Fix:** rewrite each line. Change the footer to "DSCR analysis". (Compliance C1, H3, H11; Editorial; Off-site 3.)
 
-3. **The referral-benefit disclosure.** The footer says a BrickWood referral "may provide Chapter3 Realty a financial or other benefit". Without common ownership, the compliance review reads that as a possible RESPA Section 8 problem and possible unlicensed mortgage brokering under SC 37-22.
-
-   **Fix:** ask counsel this week. Answer owner question D1 (does anyone receive anything of value from BrickWood?) first. (Compliance C2.)
+3. **The referral-benefit disclosure. Changed 2026-10-04:** the owner confirms the affiliation, so the footer's RESPA affiliated-business disclosure stays. The remaining step is for counsel to confirm that the full written disclosure is given to the client at each referral, not only in the footer. (Compliance C2.)
 
 4. **Banned licence claims still live.**
    - The meta and social descriptions of `/invest/non-warrantable-condos/` say "From a licensed agent and MLO."
@@ -167,14 +174,14 @@ Each line gives the severity, the problem, where it is, and the fix. The ID poin
 
 | Sev | Problem | Where | Fix | Ref |
 |---|---|---|---|---|
-| Critical | "Same company" and "own mortgage team" claims | /buyers/relocating/, /buyers/va-loans/, /buyers/, /why-chapter-3/, /invest/, /buyers/condo-in-litigation/ | Rewrite. Add a `build.js` gate for the meaning, not the phrasing. | C-C1, E |
-| Critical | The referral-benefit disclosure may describe an illegal referral payment | Footer, all pages; /about/ | Counsel | C-C2 |
+| Critical | "Same company" and "own mortgage team" claims. The affiliation is real and stays; the ownership claim is wrong (owner 2026-10-04). | /buyers/relocating/, /buyers/va-loans/, /buyers/, /why-chapter-3/, /invest/, /buyers/condo-in-litigation/ | Rewrite. Add a `build.js` gate for the meaning, not the phrasing. | C-C1, E |
+| Medium | **Changed 2026-10-04.** The footer sentence is the RESPA affiliated-business disclosure, and the affiliation is real, so it stays. Counsel should confirm the full written disclosure is also given to the client when a referral is made, as RESPA requires, not only in the footer. | Footer, all pages; /about/; /buyers/programs/#afba | Counsel confirms the referral process | C-C2 |
 | Critical | "licensed agent and MLO" in meta and social descriptions | /invest/non-warrantable-condos/ | Remove. Scan the meta tags too. | C-C3 |
 | Critical | Tim's loan-originator licence advertised | /about/ | Remove; counsel on the dual role | C-C4 |
-| Critical | "Chapter III Realty" cannot be used until registered with the Real Estate Commission, and "Chapter3 Realty Corp" must still appear on every page (SC 40-57-135) | Rename plan | Register first. See the brand section. | C-C5 |
-| High | Devin, who is not licensed, is the pricing contact for sellers ("Devin runs operations and pricing") | /sell/ | Make the broker the pricing contact | C-H1 |
+| Medium | **Changed 2026-10-04: the DBA is registered.** Confirm it is on file with the SC Real Estate Commission (LLR), not only with the Secretary of State, before ads use it alone. The footer's legal line keeps "Chapter3 Realty Corp". | Logo, then titles and schema | Logo patch ready; decide whether titles, schema and copy change too | C-C5 |
+| High | **Widened 2026-10-04.** Devin is named on 127 pages: bylines, "Devin Day wrote this page" on 22 pages, personal stories, the /sell/ pricing contact, and the company schema's employee list. The owner's rule: never name him. | 127 pages | Bylines and copy: the company. Schema: `tools/site-upgrade.js --write` removes him from every page head. `claims-scan` rule `individual-named` finds the rest. | C-H1 |
 | High | Five anonymous testimonials | Homepage | Source each, or remove (16 CFR 465) | C-H2 |
-| High | "Equal Housing Lender" and "our lender" wording | /buyers/programs/ and others | "Equal Housing Opportunity"; "our lending partner" | C-H3 |
+| High | "Equal Housing Lender" and a bare "our lender" (write "our affiliated lender") | /buyers/programs/ and others | "Equal Housing Opportunity"; "our lending partner" | C-H3 |
 | High | Reg Z trigger terms in calculator defaults and copy. The `build.js` gate strips calculator inputs before it scans. | /buyers/cost-to-own/, /buyers/closing-costs/, /buyers/programs/, /buyers/va-loans/ | Empty the defaults; make the gate scan input values | C-H4 |
 | High | The privacy policy does not match what the site does | /privacy/ | Rewrite | C-H5 |
 | High | Experience and client statistics a five-month-old firm cannot support: "We have closed in every submarket"; "nine in ten of Chapter3's investor clients"; about 25 "in Chapter3's files" statistics; "18 years of loan files" (BrickWood's) | /about/, /invest/llc/ and others | Attribute each to Tim's career or to BrickWood, or cut it. Owner question D7. | C-H7, E |
@@ -288,7 +295,7 @@ Each line gives the severity, the problem, where it is, and the fix. The ID poin
 | Medium | `sameAs`: Facebook and Instagram could not be verified; YouTube has 10 subscribers, no description and no link back | Fix the profiles; add the CCAR URL | O-9 |
 | Medium | Schema geo about 5.5 km off; the header says "Myrtle Beach, SC" for a Murrells Inlet office | Fix both | O-10, O-11 |
 | Medium | Stale index snippets: "a brokerage that has its own lender and 18 years of local loan data" | Request reindexing after the copy fix | O |
-| Medium | Brand: "Chapter III Realty" matches nothing, and chapteriiirealty.com appears unregistered | Register the domains now, and decide the name | O-12 |
+| Medium | Brand: "Chapter III Realty" matches nothing online yet, and chapteriiirealty.com appeared unregistered on 2026-10-02 | Register the domain; list the DBA on the Google Business Profile once it exists | O-12 |
 | Low | No LinkedIn company page | Create one | O-14 |
 
 ### 8. Performance and accessibility
@@ -343,12 +350,12 @@ Measured on the live site with Lighthouse 13 (mobile and desktop, 13 templates) 
 
 ## Questions only the owner (and counsel) can answer
 
-1. Does Chapter3, Tim or any employee receive anything of value from BrickWood? This decides the footer disclosure (C-C2).
+1. ~~Does Chapter3 receive anything of value from BrickWood?~~ Answered 2026-10-04: there is an affiliation; the disclosure stays. Counsel confirms the referral process (C-C2).
 2. Is NMLS 252563 active, and who sponsors it? (C-C4)
 3. Where did each homepage testimonial come from? (C-H2)
 4. How many licensees work under the broker-in-charge? (C-M15)
 5. Is Chapter3 a CCAR MLS participant and a REALTOR member? (C-H12, O)
-6. Has "Chapter III Realty" been registered with the Real Estate Commission? Is the name final? (C-C5, O-12)
+6. "Chapter III" is registered as a DBA (answered 2026-10-04). Is it on file with the Real Estate Commission, and should titles, schema and copy change to it, or only the logo? (C-C5, O-12)
 7. Where do the "in Chapter3's files" statistics come from: Tim's career, BrickWood, or this firm? (C-H7)
 8. Is Tim's licence transferred to Chapter3? How many years should the site state? (O-2, O-5)
 9. May a page name an official rule or form once, where people search for it by name (ITIN, W-8ECI, the 15% reserve rule)? (E)

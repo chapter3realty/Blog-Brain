@@ -1,5 +1,5 @@
 diff --git a/tools/mkpage.js b/tools/mkpage.js
-index 44fb96a..631733e 100644
+index 44fb96a..c052ffa 100644
 --- a/tools/mkpage.js
 +++ b/tools/mkpage.js
 @@ -61,6 +61,13 @@ const h = {
@@ -16,7 +16,17 @@ index 44fb96a..631733e 100644
    /* Raw HTML pass-through for anything the helpers do not cover (a form). */
    raw: (html) => html,
  };
-@@ -91,6 +98,18 @@ function build(spec) {
+@@ -81,7 +88,8 @@ function build(spec) {
+   const subWords = words(spec.sub);
+   if (subWords < 8 || subWords > 30) throw new Error(`hero sub is ${subWords} words (8-30)`);
+   if (/\?\s*$/.test(spec.sub)) throw new Error("hero sub must not be a question");
+-  if (!["tim", "devin"].includes(spec.author)) throw new Error("author must be tim or devin");
++  /* Owner rule 2026-10-04: the company is the author of every page. Older specs say "tim" or "devin"; the value is ignored. */
++  if (spec.author && spec.author !== "company") console.warn(`${spec.slug || "spec"}: author "${spec.author}" ignored; the company is the author (owner rule 2026-10-04)`);
+   if (!Array.isArray(spec.faq) || spec.faq.length < 3) throw new Error("at least three FAQ entries");
+   for (const f of spec.faq) if (/[<>&]/.test(f.q + f.a)) throw new Error(`FAQ text must be plain characters, no tags or entities: ${f.q}`);
+ 
+@@ -91,6 +99,13 @@ function build(spec) {
    let head = donor.slice(0, mainStart), tail = donor.slice(mainEnd);
  
    const url = SITE + spec.url, iso = spec.datePublished || todayISO(), shown = longDate(iso);
@@ -25,17 +35,12 @@ index 44fb96a..631733e 100644
 +  const ogSlug = spec.url.replace(/^\/|\/$/g, "").replace(/\//g, "-");
 +  const ogImage = spec.ogImage || (fs.existsSync(path.join(ROOT, "og", `${ogSlug}.jpg`)) ? `${SITE}/og/${ogSlug}.jpg` : `${SITE}/og-image.jpg`);
 +  const ogAlt = spec.ogImageAlt || `${spec.h1} ${spec.h1em}`.replace(/<[^>]+>/g, "").trim();
-+  /* The Article's author is the person in the byline, not the company. Formal name in
-+     schema, Tim Nash as alternateName (owner instruction 2026-09-03). */
-+  const PEOPLE = {
-+    devin: { "@type": "Person", "@id": `${SITE}/about/#devin-day`, name: "Devin Day", jobTitle: "Operations Officer", url: `${SITE}/about/`, worksFor: { "@id": `${SITE}/#org` } },
-+    tim: { "@type": "Person", "@id": `${SITE}/about/#timmy-nash`, name: "Timothy Nash", alternateName: "Tim Nash", jobTitle: "Broker-in-Charge", url: `${SITE}/about/`, worksFor: { "@id": `${SITE}/#org` } },
-+  };
-+  const authorPerson = PEOPLE[spec.author], reviewerPerson = PEOPLE[spec.author === "tim" ? "devin" : "tim"];
++  /* The company is the author, in schema and in the byline (owner rule 2026-10-04). */
++  const ORG_REF = { "@id": `${SITE}/#org` };
    const hub = spec.hub || { name: "Invest", url: "/invest/" };
  
    /* ---- head identity ---- */
-@@ -103,6 +122,10 @@ function build(spec) {
+@@ -103,6 +118,10 @@ function build(spec) {
    rep(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${url}">`, "og:url");
    rep(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${esc(spec.ogTitle)}">`, "twitter:title");
    rep(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${esc(spec.description)}">`, "twitter:description");
@@ -46,12 +51,12 @@ index 44fb96a..631733e 100644
  
    /* ---- JSON-LD: rebuild the four page-identity blocks, keep the rest ---- */
    const ld = (o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`;
-@@ -111,14 +134,14 @@ function build(spec) {
+@@ -111,14 +130,14 @@ function build(spec) {
        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
        { "@type": "ListItem", position: 2, name: hub.name, item: `${SITE}${hub.url}` },
        { "@type": "ListItem", position: 3, name: spec.crumb, item: url }] }),
 -    WebPage: ld({ "@context": "https://schema.org", "@type": "WebPage", author: { "@id": `${SITE}/about/#devin-day` }, "@id": `${url}#webpage`, url, name: spec.ogTitle, description: spec.description,
-+    WebPage: ld({ "@context": "https://schema.org", "@type": "WebPage", author: { "@id": authorPerson["@id"] }, "@id": `${url}#webpage`, url, name: spec.ogTitle, description: spec.description,
++    WebPage: ld({ "@context": "https://schema.org", "@type": "WebPage", author: ORG_REF, "@id": `${url}#webpage`, url, name: spec.ogTitle, description: spec.description,
        isPartOf: { "@id": `${SITE}/#website` }, about: { "@id": `${SITE}/#org` },
 -      primaryImageOfPage: { "@type": "ImageObject", url: `${SITE}/og-image.jpg`, width: 1200, height: 630 },
 +      primaryImageOfPage: { "@type": "ImageObject", url: ogImage, width: 1200, height: 630 },
@@ -60,12 +65,37 @@ index 44fb96a..631733e 100644
      Article: ld({ "@context": "https://schema.org", "@type": "Article", "@id": `${url}#article`, headline: spec.ogTitle, description: spec.description, url,
 -      author: { "@id": `${SITE}/#org` }, reviewedBy: { "@type": "Person", name: "Timothy Nash", alternateName: "Tim Nash", jobTitle: "Broker-in-Charge" },
 -      publisher: { "@id": `${SITE}/#org` }, datePublished: iso, dateModified: iso, inLanguage: "en-US", image: `${SITE}/og-image.jpg`,
-+      author: authorPerson, reviewedBy: reviewerPerson,
++      author: ORG_REF, reviewedBy: { "@type": "Person", name: "Timothy Nash", alternateName: "Tim Nash", jobTitle: "Broker-in-Charge" },
 +      publisher: { "@id": `${SITE}/#org` }, datePublished: iso, dateModified: iso, inLanguage: "en-US", image: ogImage,
        mainEntityOfPage: { "@id": url }, about: { "@type": "Thing", name: spec.about }, keywords: spec.keywords }),
      FAQPage: ld({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: spec.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }),
    };
-@@ -169,7 +192,7 @@ function build(spec) {
+@@ -131,13 +150,9 @@ function build(spec) {
+   if (seen !== 4) throw new Error(`replaced ${seen} identity JSON-LD blocks, expected 4`);
+ 
+   /* ---- main ---- */
+-  /* Owner rules: his name is in the byline only, with the title Operations Officer and
+-   * nothing after it; never his NMLS number, never a licensed-loan-originator claim
+-   * (2026-09-06, 2026-09-07; PLAYBOOK A17, A20a). */
++  /* The byline names the company, never a person (owner rule 2026-10-04). */
+   const NAME = (n) => `<strong style="color:var(--navy);font-weight:600">${n}</strong>`;
+-  const byline = spec.author === "devin"
+-    ? `By ${NAME("Devin Day")}, Operations Officer &middot; Reviewed by ${NAME("Tim Nash")}, Broker-in-Charge &middot; <span style="white-space:nowrap">Updated ${shown}</span>`
+-    : `By ${NAME("Tim Nash")}, Broker-in-Charge, 30+ years on the Grand Strand &middot; Reviewed by ${NAME("Devin Day")}, Operations Officer &middot; <span style="white-space:nowrap">Updated ${shown}</span>`;
++  const byline = `By ${NAME("Chapter3 Realty")} &middot; <span style="white-space:nowrap">Updated ${shown}</span>`;
+   const bgs = ["ivory", "ivory-2"];
+   let i = 0; const nextBg = () => bgs[i++ % 2];
+   const parts = [];
+@@ -158,7 +173,7 @@ function build(spec) {
+   /* ---- self-checks ---- */
+   for (const t of DONOR_TOKENS) if (out.includes(t)) throw new Error(`donor identity survived: "${t}"`);
+   /* Owner rules 2026-09-06: his name is never in page copy, and nothing "sets" anything. */
+-  if (/\bDevin\b/.test(main.replace(byline, "") + spec.title + spec.description)) throw new Error("the Operations Officer's name is in the page copy outside the byline - a story from his files is \"in Chapter3's files\" (owner rule 2026-09-06, PLAYBOOK A20a)");
++  if (/\bDevin\b/.test(out)) throw new Error("Devin is never named, anywhere on the page or in its schema; a story from his files is \"in Chapter3's files\" (owner rule 2026-10-04)");
+   if (/\b2721275\b/.test(out) || /Licensed Mortgage Loan Originator/.test(out) || /\bDevin(?: Day)?\b[^.<"]{0,120}\b(?:MLO|loan originator|loan officer|NMLS)\b|\b(?:MLO|loan originator|loan officer|NMLS)\b[^.<"]{0,120}\bDevin\b|Chapter3(?:'s|&#39;s|&#x27;s|\u2019s)?\s+(?:own\s+)?licensed\s+(?:mortgage\s+)?loan\s+(?:originator|officer)|\bour licensed (?:mortgage )?loan (?:originator|officer)\b/i.test(out))
+     throw new Error("licence claim: never his NMLS number, never a licensed-loan-originator claim tied to him or to Chapter3; a loan fact that needs a source says \"according to a loan officer at our preferred lender\" (owner rule 2026-09-07, PLAYBOOK A17)");
+   { const hit = (main + " " + spec.title + " " + spec.description).replace(/<[^>]+>/g, " ").match(/\b(?:sets(?!\s+of\b)|set by)\b/i);
+@@ -169,7 +184,7 @@ function build(spec) {
      if (m1) throw new Error(`"${m1[0]}" - nothing maps a loan or a plan; say plan, list, or the literal action (owner rule 2026-09-07)`);
      const m2 = txt.match(/\bcarr(?:y|ies|ied|ying)\s+(?:a |an |the |its |their |your |his |her |our |new |two |three |both |that |this |each |every |own )*(?:loan|mortgage|payment|payments|cost|costs|debt|note|rest|house|property|premium|itself|themselves)\b|\bcarrying costs?\b/i);
      if (m2) throw new Error(`"${m2[0]}" - nothing carries a loan, a payment or a cost; say who pays what (owner rule 2026-09-07)`); }

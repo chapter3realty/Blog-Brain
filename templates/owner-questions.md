@@ -18,7 +18,7 @@ Record the answers in the website repo at `research/<cluster>/owner-answers-batc
 | Shape | Example | What it becomes on the page |
 |---|---|---|
 | Last time | "What happened the last time a client bought a condo with a special assessment pending?" | A "Chapter3's files" sentence (T2) |
-| First check | "What is the first thing you look at in the board minutes?" | "Tim Nash reads ... before a client offers." (T2) |
+| First check | "What is the first thing you look at in the board minutes?" | "Our broker reads ... before a client offers." (T2) |
 | Number | "What do dues run in an oceanfront building built before 1990, in your experience? From which files?" | A sourced figure, or a "Chapter3's files" range |
 | Mistake | "What do out-of-state buyers get wrong most often on this?" | A section, or an FAQ entry |
 | Business | "Do we help with X? If a reader asks for Y, what do we say?" | A CTA, and the scope of the page |

@@ -2,11 +2,11 @@
   {
     "url": "/",
     "quote": "Because of this relationship, this referral may provide Chapter3 Realty a financial or other benefit.",
-    "problem": "The footer AfBA line on 131 pages admits a referral benefit from BrickWood. The owner says Chapter3 does not own BrickWood, so no AfBA exemption applies and a benefit for referrals may be a RESPA section 8 referral fee.",
-    "fix": "Owner and counsel answer in writing whether Chapter3 or its people receive anything of value from BrickWood; if not, replace the footer line on every page with the separate-companies statement.",
-    "replacement": "Chapter3 Realty Corp and BrickWood Mortgage are separate companies. Chapter3 receives no payment for referring you. You are not required to use BrickWood Mortgage.",
+    "problem": "The affiliation is real (owner 2026-10-04), so the RESPA affiliated-business disclosure is correct and stays. RESPA also requires the written disclosure to be given to the client at each referral; counsel confirms that step.",
+    "fix": "Keep the sentence. Counsel confirms the referral-time disclosure.",
+    "replacement": "",
     "category": "compliance",
-    "severity": "critical",
+    "severity": "low",
     "source": "compliance.md C2",
     "needsOwner": true
   },
@@ -58,8 +58,8 @@
     "url": "/",
     "quote": "30+ years On the Grand Strand",
     "problem": "The stat block under \"Why Chapter3 on the Grand Strand?\" presents 30 years as the firm's history; the firm opened in May 2026 and the 30 years are Tim Nash's.",
-    "fix": "Attribute the figure to Tim Nash.",
-    "replacement": "Tim Nash has sold real estate on the Grand Strand for over 30 years.",
+    "fix": "Attribute the figure to the broker, in the company's voice (owner 2026-10-04: no individual is the focus).",
+    "replacement": "Our broker has sold real estate on the Grand Strand for over 30 years.",
     "category": "claim",
     "severity": "high",
     "source": "compliance.md H7",
@@ -101,8 +101,8 @@
   {
     "url": "/",
     "quote": "There are frequently other providers available. You are free to shop around.",
-    "problem": "The footer shortens the required capitalized Appendix D sentence and omits the relationship, ownership share and charges, so it does not meet the AfBA format.",
-    "fix": "Decide C2 first. If an AfBA exists, use the Appendix D text verbatim on /buyers/programs/#afba and keep a pointer in the footer; if not, use the separate-companies statement.",
+    "problem": "The affiliation is real (owner 2026-10-04), so the full affiliated-business disclosure applies. The footer shortens the required Appendix D wording and omits the relationship and charges.",
+    "fix": "Use the Appendix D text verbatim on /buyers/programs/#afba and keep the footer as the short pointer. Counsel confirms.",
     "replacement": "",
     "category": "compliance",
     "severity": "medium",
@@ -124,7 +124,7 @@
     "url": "/",
     "quote": "Devin runs the day-to-day operations of Chapter3 Realty and builds the tools on this site for you to use.",
     "problem": "Devin's role is described three different ways: here, on /about/ (\"marketing specialists\") and on /sell/ (\"runs operations and pricing\").",
-    "fix": "Write one role line for Devin and use it on every page.",
+    "fix": "Remove Devin from the page. The owner's rule (2026-10-04): never name him, for anything.",
     "replacement": "",
     "category": "consistency",
     "severity": "low",
@@ -184,17 +184,6 @@
     "category": "consistency",
     "severity": "low",
     "source": "compliance.md L6",
-    "needsOwner": true
-  },
-  {
-    "url": "/about/",
-    "quote": "Because of this relationship, a referral may provide Chapter3 Realty a financial or other benefit.",
-    "problem": "Admits a referral benefit from a lender Chapter3 does not own; without an ownership link the AfBA exemption does not apply.",
-    "fix": "Owner and counsel confirm whether anything of value is received; if not, replace with the separate-companies statement.",
-    "replacement": "Chapter3 Realty Corp and BrickWood Mortgage are separate companies. Chapter3 receives no payment for referring you. You are not required to use BrickWood Mortgage.",
-    "category": "compliance",
-    "severity": "critical",
-    "source": "compliance.md C2",
     "needsOwner": true
   },
   {
@@ -354,11 +343,11 @@
   {
     "url": "/buyers/buying-in-myrtle-beach/",
     "quote": "Chapter3 is affiliated with BrickWood Mortgage (NMLS #189497), a Grand Strand lender that has been providing mortgages locally for over 18 years and knows every building, every HOA warrantability issue, and every financing quirk in this market.",
-    "problem": "\"Affiliated\" asserts an ownership link the owner says does not exist, and \"knows every building\" is an unsupported absolute.",
-    "fix": "Replace \"affiliated\" with the separate-company wording and drop the absolute claim.",
-    "replacement": "BrickWood Mortgage (NMLS #189497) is a separate Grand Strand lender we work with. You can use any lender.",
+    "problem": "The affiliation is correct (owner 2026-10-04). \"Knows every building\" is an unsupported absolute.",
+    "fix": "Keep the affiliation; drop the absolute and say it is a separate company.",
+    "replacement": "Chapter3 is affiliated with BrickWood Mortgage (NMLS #189497), a separate Grand Strand lender. You can use any lender.",
     "category": "compliance",
-    "severity": "high",
+    "severity": "medium",
     "source": "compliance.md H3; facts.md section 8",
     "needsOwner": true
   },
@@ -695,9 +684,9 @@
   {
     "url": "/buyers/first-time-home-buyer-myrtle-beach/",
     "quote": "Chapter3 works alongside an affiliated preferred lender, so your pre-approval, your offer, and your closing are handled by one team that talks to each other.",
-    "problem": "\"Affiliated\" asserts an ownership link, and \"one team\" reads as an in-house lender.",
-    "fix": "Describe BrickWood as a separate lender.",
-    "replacement": "We work with a preferred lender, BrickWood Mortgage, which is a separate company. You can use any lender.",
+    "problem": "\"Handled by one team\" reads as one company. The affiliation is correct, but Chapter3 and BrickWood are separate companies and Chapter3 does no financing work (owner 2026-10-04).",
+    "fix": "Keep the affiliation; drop \"one team\".",
+    "replacement": "Chapter3 works alongside its affiliated lender, BrickWood Mortgage, a separate company. You can use any lender.",
     "category": "compliance",
     "severity": "high",
     "source": "compliance.md H3; editorial.md Part 3I",
@@ -793,17 +782,6 @@
   },
   {
     "url": "/buyers/new-construction/",
-    "quote": "Because of this relationship, this referral may provide Chapter3 Realty a financial or other benefit. You are never required to use BrickWood.",
-    "problem": "The inline AfBA admits a referral benefit from a lender Chapter3 does not own.",
-    "fix": "Decide C2 with counsel; then use the separate-companies statement or the full disclosure.",
-    "replacement": "",
-    "category": "compliance",
-    "severity": "critical",
-    "source": "compliance.md C2",
-    "needsOwner": true
-  },
-  {
-    "url": "/buyers/new-construction/",
     "quote": "Do I need a realtor to buy new construction?",
     "problem": "REALTOR is a NAR membership mark and should not be used as a generic word.",
     "fix": "Use \"real estate agent\".",
@@ -812,17 +790,6 @@
     "severity": "low",
     "source": "compliance.md L5",
     "needsOwner": false
-  },
-  {
-    "url": "/buyers/programs/",
-    "quote": "Because of this relationship, referrals to BrickWood Mortgage may provide Chapter3 Realty a financial or other benefit.",
-    "problem": "The AfBA section admits a referral benefit from a lender Chapter3 does not own.",
-    "fix": "Decide C2 with counsel; then use the Appendix D text verbatim or the separate-companies statement.",
-    "replacement": "",
-    "category": "compliance",
-    "severity": "critical",
-    "source": "compliance.md C2, M1",
-    "needsOwner": true
   },
   {
     "url": "/buyers/programs/",
@@ -1078,17 +1045,6 @@
     "needsOwner": false
   },
   {
-    "url": "/buyers/relocating/from-north-carolina/",
-    "quote": "Chapter 3 Realty has a business relationship with BrickWood Mortgage.",
-    "problem": "An inline AfBA pointer tied to a referral-benefit disclosure that may not be allowed (no ownership link).",
-    "fix": "Decide C2 with counsel; then use one approved disclosure wording.",
-    "replacement": "",
-    "category": "compliance",
-    "severity": "high",
-    "source": "compliance.md C2",
-    "needsOwner": true
-  },
-  {
     "url": "/buyers/relocating/from-pennsylvania/",
     "quote": "Most of our Pennsylvania buyers are retirees.",
     "problem": "A client statistic from a firm that opened in May 2026, with no count behind it.",
@@ -1109,17 +1065,6 @@
     "severity": "low",
     "source": "facts.md E19",
     "needsOwner": false
-  },
-  {
-    "url": "/buyers/relocating/jobs/",
-    "quote": "Chapter 3 Realty has a business relationship with BrickWood Mortgage.",
-    "problem": "An inline AfBA pointer tied to a referral-benefit disclosure that may not be allowed (no ownership link).",
-    "fix": "Decide C2 with counsel; then use one approved disclosure wording.",
-    "replacement": "",
-    "category": "compliance",
-    "severity": "high",
-    "source": "compliance.md C2",
-    "needsOwner": true
   },
   {
     "url": "/buyers/relocating/moving-checklist/",
@@ -2862,9 +2807,9 @@
   {
     "url": "/privacy/",
     "quote": "We also work with an affiliated mortgage lender; if your request involves financing, we may share your information with them so they can help",
-    "problem": "Lead data may go to BrickWood under a consent that names only Chapter 3 Realty, and \"affiliated\" asserts an ownership link.",
-    "fix": "Do not pass phone numbers to BrickWood; remove or condition the sentence and drop \"affiliated\".",
-    "replacement": "If you ask for a lender, we will give you BrickWood Mortgage's contact details. We do not share your phone number with a lender.",
+    "problem": "Lead data may go to BrickWood under a consent that names only Chapter 3 Realty. The affiliation wording itself is correct (owner 2026-10-04).",
+    "fix": "Share contact details with BrickWood only when the visitor asks for a lender, and say so in the consent text.",
+    "replacement": "We work with our affiliated lender, BrickWood Mortgage, a separate company. If you ask us for a lender, we will share your contact details with BrickWood only with your permission.",
     "category": "compliance",
     "severity": "high",
     "source": "compliance.md H6, H3",
@@ -3215,7 +3160,7 @@
     "url": "/sell/out-of-state-buyers/",
     "quote": "Talk Strategy With Devin",
     "problem": "A seller CTA names Devin Day, who is not a real estate licensee; advising sellers is brokerage activity. The scanner matches only \"call or text Devin\".",
-    "fix": "Name Tim Nash or \"a licensed agent\" in the CTA.",
+    "fix": "Never name Devin (owner 2026-10-04). Name the company or a licensed agent.",
     "replacement": "Talk strategy with a licensed agent",
     "category": "compliance",
     "severity": "high",
@@ -3567,8 +3512,8 @@
     "url": "/why-chapter-3/",
     "quote": "Chapter3 Realty has a business relationship with BrickWood Mortgage. A referral can mean faster timelines and coordinated closings.",
     "problem": "Turns the required AfBA disclosure into a sales point and drops the benefit sentence.",
-    "fix": "Remove the \"faster timelines\" version; use the separate-companies statement or the full disclosure decided under C2.",
-    "replacement": "Chapter3 Realty Corp and BrickWood Mortgage are separate companies. You are not required to use BrickWood Mortgage.",
+    "fix": "Remove the \"faster timelines\" sales line and use the full disclosure.",
+    "replacement": "Chapter3 Realty Corp has a business relationship with BrickWood Mortgage (NMLS #189497). You are not required to use BrickWood Mortgage. There are frequently other providers available. You are free to shop around.",
     "category": "compliance",
     "severity": "medium",
     "source": "compliance.md M1",
@@ -3600,7 +3545,7 @@
     "url": "/why-chapter-3/",
     "quote": "We are a young, ambitious team building the brokerage we wanted as buyers, and the tools we wished existed.",
     "problem": "Contradicts the same page's \"30+ Years of Grand Strand expertise\" tile.",
-    "fix": "Attribute the 30 years to Tim Nash and keep \"young team\" for the firm, so the two lines agree.",
+    "fix": "Attribute the 30 years to the broker and keep \"young team\" for the firm, so the two lines agree.",
     "replacement": "",
     "category": "contradiction",
     "severity": "low",

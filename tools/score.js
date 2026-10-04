@@ -42,7 +42,7 @@ const GENERIC = new Set(("myrtle beach grand strand south carolina sc horry coun
 
 /* First-hand experience: sentences where the brokerage or a named agent did or saw something.
    Shapes allowed by the owner's attribution rules (PLAYBOOK A11e, A20, A20a). */
-const EXPERIENCE_RE = /\b(?:in Chapter3(?:'|&#39;|’)s (?:files|experience|closings|sales|tracking)|Chapter3(?:'|’)s (?:investor )?clients|(?:every|most|many|some) (?:investor )?clients? (?:Chapter3|we) work|an agent at Chapter3|one of our agents|our agents (?:have|see|own|walk|check|read)|our (?:investor |own )?clients|Tim Nash (?:says|walks|has|tells|checks|recommends|sold|asks|reads|sees|saw|found)|Tim (?:says|walks|has seen|tells|checks|recommends|asks)|we have seen|we(?:'|’)ve seen|we see|we saw|in our experience|our (?:own )?(?:sales )?tracking|in our files|we (?:closed|walked|read|checked|tracked|sold|listed) )/i;
+const EXPERIENCE_RE = /\b(?:in Chapter ?(?:3|III)(?:'|&#39;|’)s (?:files|experience|closings|sales|tracking)|Chapter ?(?:3|III)(?:'|’)s (?:investor )?clients|(?:every|most|many|some) (?:investor )?clients? (?:Chapter ?(?:3|III)|we) work|an agent at Chapter ?(?:3|III)|one of our agents|our agents (?:have|see|own|walk|check|read)|our (?:investor |own )?clients|our broker (?:checks|reads|walks|asks|has seen|sees)|we have seen|we(?:'|’)ve seen|we see|we saw|in our experience|our (?:own )?(?:sales )?tracking|in our files|we (?:closed|walked|read|checked|tracked|sold|listed) )/i;
 
 /* Template residue. Any of these in rendered text means a substitution failed. */
 const RESIDUE_RE = /(?:(?<![0-9])%[sd]\b|\{\{|\}\}|\$\{|\bundefined\b|\bNaN\b|\[object Object\]|lorem ipsum|\bTODO\b|\bTKTK\b|\bXXX\b)/;
@@ -204,15 +204,16 @@ function facts(p) {
   const places = new Set((prose.join(" ").match(PLACE_RE) || []).map(s => s.toLowerCase().replace(/\s+/g, " ")));
   const experience = sents.filter(s => EXPERIENCE_RE.test(s));
 
+  /* The company is the author (owner 2026-10-04): the site speaks as Chapter3, not as a person. */
   const author = p.article && p.article.author ? [].concat(p.article.author)[0] : null;
-  const authorNode = author && author["@id"] ? p.byId.get(author["@id"]) : author;
-  const authorIsPerson = !!authorNode && p.types(authorNode).includes("Person");
+  const authorNode = author && author["@id"] ? (p.byId.get(author["@id"]) || author) : author;
+  const authorIsOrg = !!author && (author["@id"] === "https://chapter3realty.com/#org" || (!!authorNode && p.types(authorNode).some(t => /Organization|RealEstateAgent|LocalBusiness/.test(t))));
 
   const modified = p.article && p.article.dateModified ? new Date(p.article.dateModified) : null;
   const ageDays = modified ? Math.round((TODAY - modified) / 864e5) : null;
 
   return { kw, topicTokens, hasTopic, prose, sents, sentLens, words, faqQs, contentH2, leads, fragments, internal, external, primary,
-    ctas, visuals, visualCount, places, experience, authorNode, authorIsPerson, ageDays };
+    ctas, visuals, visualCount, places, experience, authorNode, authorIsOrg, ageDays };
 }
 
 /* ------------------------------------------------------------------ rules */
@@ -276,11 +277,11 @@ rule("og-image", "SEO", 2, "Its own share image (not the sitewide default)", (p)
   return DEFAULT_OG.test(p.ogImage) ? fail("uses the sitewide /og-image.jpg") : pass(p.ogImage);
 }, { applies: isArticle });
 
-rule("article-schema", "SEO", 2, "Article schema: Person author, both dates, image", (p, f) => {
+rule("article-schema", "SEO", 2, "Article schema: the company as author, both dates, image", (p, f) => {
   const a = p.article; if (!a) return fail("no Article schema");
-  const checks = { "Person author": f.authorIsPerson, datePublished: !!a.datePublished, dateModified: !!a.dateModified, image: !!a.image };
+  const checks = { "company author": f.authorIsOrg, datePublished: !!a.datePublished, dateModified: !!a.dateModified, image: !!a.image };
   const bad = Object.keys(checks).filter(k => !checks[k]);
-  return part(1 - bad.length / 4, bad.length ? `missing: ${bad.join(", ")}${!f.authorIsPerson && f.authorNode ? ` (author is ${[].concat(f.authorNode["@type"]).join("/")})` : ""}` : "complete");
+  return part(1 - bad.length / 4, bad.length ? `missing: ${bad.join(", ")}${!f.authorIsOrg && f.authorNode ? ` (author is ${f.authorNode.name || [].concat(f.authorNode["@type"]).join("/")})` : ""}` : "complete");
 }, { applies: isArticle });
 
 /* No word-count rule. Google: "There's no ideal page length" (AI optimization guide,
@@ -372,8 +373,8 @@ rule("image", "Human", 2, "At least one image or chart with real alt text", (p, 
 rule("ctas", "Human", 2, "2+ calls to action inside the article", (p, f) => f.ctas >= 2 ? pass(`${f.ctas}`) : part(f.ctas / 2, `${f.ctas}`), { applies: isArticle });
 
 /* --- Trust (E-E-A-T) ----------------------------------------------------- */
-rule("byline", "Trust", 2, "Visible byline with a named person and an Updated date", (p) => {
-  const b = p.byline || "", named = /^By\s+[A-Z][a-z]+\s+[A-Z]/.test(b), dated = /Updated\s+[A-Z][a-z]+\s+\d{1,2},\s+\d{4}/.test(b);
+rule("byline", "Trust", 2, "Visible byline naming the company, with an Updated date", (p) => {
+  const b = p.byline || "", named = /^By\s+(?:the\s+)?Chapter ?(?:3|III)\b/.test(b) && !/\bDevin\b/.test(b), dated = /Updated\s+[A-Z][a-z]+\s+\d{1,2},\s+\d{4}/.test(b);
   return part((named ? .5 : 0) + (dated ? .5 : 0), b ? b.slice(0, 90) : "no byline");
 }, { applies: isArticle });
 

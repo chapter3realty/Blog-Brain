@@ -73,7 +73,7 @@ module.exports = {
   sub: "Most Chapter3 investor clients form one LLC per rental. A single-member LLC costs $110 to form and takes your deed with no recording fee or reassessment.",
   datePublished: "2026-09-07",
   heroCta: { label: "Send the address", href: RTN },
-  author: "devin",
+  author: "company",
   shortAnswer: [
     "Yes, for most Myrtle Beach rental owners. Every investor client Chapter3 works with holds title in an LLC, a trust or a corporation. About nine in ten form a new LLC for each house.",
     "A DSCR loan closes in the LLC's name, and the lender requires it. A conventional loan is made to a person, not a company.",
