@@ -2,7 +2,7 @@
 
 Decided 2026-10-05 by the owner: "make the pages about 55+ communities and have 1 page per major community". The five topics proposed earlier (HOA fees, oceanfront vs second row, flood zone, due diligence, home inspection) move to the backlog at the end of this file.
 
-## The six pages
+## The five pages
 
 "Major" means the age rule is recorded in the deed and the community has about 400 homes or more. Sizes are the hub page's figures until the ledgers verify them.
 
@@ -12,8 +12,9 @@ Decided 2026-10-05 by the owner: "make the pages about 55+ communities and have 
 | 2 | Del Webb at Grande Dunes | Myrtle Beach | 524 | /buyers/55-plus-communities/del-webb-grande-dunes/ |
 | 3 | Myrtle Trace | Conway | 518 | /buyers/55-plus-communities/myrtle-trace/ |
 | 4 | Seasons at Prince Creek West | Murrells Inlet | 460 | /buyers/55-plus-communities/seasons-at-prince-creek-west/ |
-| 5 | Cypress Village | Little River | 404 | /buyers/55-plus-communities/cypress-village/ |
-| 6 | Cresswind Myrtle Beach | Market Common, Myrtle Beach | 400 | /buyers/55-plus-communities/cresswind-myrtle-beach/ |
+| 5 | Cresswind Myrtle Beach | Market Common, Myrtle Beach | 400 | /buyers/55-plus-communities/cresswind-myrtle-beach/ |
+
+**Cypress Village, Little River, is held out (2026-10-05).** The researcher found no age rule in its recorded declaration (2015), its first amendment (2016) or its bylaws, and the builder, Mungo Homes, described it in 2020 as "a unique place to live for people of all ages". Two recorded rule sets could not be read online: the 2019 Regulations (Book 4172, Page 3232) and the Rules and Regulations recorded 2026-09-24 (Book 5130, Page 293, 59 pages). The live hub lists it as a 55+ community. Until a recorded age rule is found, no page may call it 55+, and the hub listing is a fix-list item. Ledger: `facts/cypress-village-facts.md`.
 
 Not in this batch: age-targeted communities with no recorded age rule (Heather Glen, Bridgewater, Blackmoor). Smaller age-restricted communities for a second batch: Woodlake Village, Spring Forest, Lakeside Crossing (land lease), Carillon at Tuscany, Hidden Lakes Village, Rivergate. Continuing-care campuses (Brightwater, The Lakes at Litchfield, Covenant Towers) work on a different contract and get their own page later.
 
@@ -66,6 +67,7 @@ Resale price range, median price, days on market and price per square foot for e
 
 ## Owner questions
 
+2. **Cypress Village.** Can someone ask Coastal Association Management (843-663-2040, per its site) whether any recorded document makes Cypress Village age-restricted, or pull Book 5130, Page 293 at the Register of Deeds public viewing area, 1301 Second Avenue, Conway? Until then it stays off the 55+ pages.
 1. The hub says "Clients of ours made exactly this move": a couple sold in Blackmoor and bought in Seasons at Prince Creek West. No file records where that story came from. Did it happen? If yes, it goes in the story bank and on the Seasons page. If no, it comes off the hub.
 
 ## Backlog (proposed 2026-10-05, moved here)
