@@ -58,12 +58,12 @@ Resale price range, median price, days on market and price per square foot for e
 
 | Step | Who | Status |
 |---|---|---|
-| Fact ledgers, one per community | Three researcher agents | Running |
-| Verify every row | A fourth agent that did no research | Next |
-| Draft four specs | Writer agent, reading `voice/RULES.md` and the ledgers | After verification |
+| Fact ledgers, one per community | Three researcher agents | Done: 266 facts |
+| Verify every row | Separate agents that did no research | Done: 227 verified, 21 wrong, 18 unverifiable |
+| Draft four specs | Writer agent, reading `voice/RULES.md` and the ledgers | Done: score 100 on all four |
 | Gates: mkpage, build.js audit, scorer, claims, facts, near-duplicates | Machine | After drafts |
-| Review pass: `voice/REVIEW-PASS.md` on each page | Reviewer agent | After gates |
-| Owner reads four pages, one sitting | Owner | Then |
+| Review pass: `voice/REVIEW-PASS.md` on each page | Reviewer agent | Done: 75 fixes, all applied (`REVIEW.md`) |
+| Owner reads four pages, one sitting | Owner | Waiting: https://claude.ai/artifact/1cLs6mnrzK2GaVWkX9gYh2 |
 | Record his edits, update the memory, ship | Machine, then the owner's AI deploys | Last |
 
 ## Owner questions
