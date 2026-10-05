@@ -1,0 +1,26 @@
+{
+  "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); 'ledger' names the rows. Change a cell here, then rebuild all four pages.",
+  "head": ["Community", "Mailing town", "Inside city limits", "Declaration recorded", "Minimum lease", "Other residents"],
+  "rows": [
+    {
+      "url": "/buyers/55-plus-communities/del-webb-north-myrtle-beach/",
+      "cells": ["Del Webb North Myrtle Beach", "North Myrtle Beach", "Yes", "July 2021", "Ask AAM", "Ask AAM"],
+      "ledger": "del-webb-north-myrtle-beach-facts.md rows 5 and 13"
+    },
+    {
+      "url": "/buyers/55-plus-communities/del-webb-grande-dunes/",
+      "cells": ["Del Webb at Grande Dunes", "Myrtle Beach", "Yes", "February 2018", "12 months, one lease a year", "19 or older"],
+      "ledger": "del-webb-grande-dunes-facts.md rows 3, 12, 14 and 50"
+    },
+    {
+      "url": "/buyers/55-plus-communities/myrtle-trace/",
+      "cells": ["Myrtle Trace", "Conway", "No", "November 1983", "One year", "No minimum age in the HOA's posted copy"],
+      "ledger": "myrtle-trace-facts.md rows 3, 6, 15 and 51"
+    },
+    {
+      "url": "/buyers/55-plus-communities/seasons-at-prince-creek-west/",
+      "cells": ["Seasons at Prince Creek West", "Murrells Inlet", "No", "December 2006 (charter)", "One year, in writing", "18 or older"],
+      "ledger": "seasons-at-prince-creek-west-facts.md rows 1, 7, 16 and 42"
+    }
+  ]
+}
