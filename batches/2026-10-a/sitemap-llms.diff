@@ -1,0 +1,30 @@
+diff --git a/chapter3realty/llms.txt b/chapter3realty/llms.txt
+index dafe8de..be52118 100644
+--- a/chapter3realty/llms.txt
++++ b/chapter3realty/llms.txt
+@@ -105,6 +105,10 @@ Full plain-text site content for language models: https://chapter3realty.com/llm
+ - [Coastal Home Insurance Costs](https://chapter3realty.com/buyers/coastal-insurance/): The three policies coastal owners carry, hurricane deductibles in dollars, flood zone myths, and how to pay less.
+ - [SC Closing Costs Calculator](https://chapter3realty.com/buyers/closing-costs/): Buyer and seller closing costs in South Carolina: deed stamps ($1.85/$500), attorney-state fees, title rates, Horry County escrow math, VA fee rules, with an interactive calculator.
+ - [55+ Communities in Myrtle Beach](https://chapter3realty.com/buyers/55-plus-communities/): Nine verified communities compared: prices from $190k, HOA fees $43-$384/mo, the land-lease model, CCRCs, and SC retiree tax breaks.
++- [Del Webb North Myrtle Beach](https://chapter3realty.com/buyers/55-plus-communities/del-webb-north-myrtle-beach/): Pulte's October 2026 prices, the city's 55+ rule, the HOA documents to read, the 2025 tax, flood zone and drive distances.
++- [Del Webb at Grande Dunes](https://chapter3realty.com/buyers/55-plus-communities/del-webb-grande-dunes/): The 12-month lease rule, the recorded 55+ rule, the resale working capital charge, taxes, flood zone and villa upkeep.
++- [Myrtle Trace](https://chapter3realty.com/buyers/55-plus-communities/myrtle-trace/): $95 monthly HOA dues in 2026, the $1,450 capital contribution, the 55+ and one-year lease rules, taxes and flood zone.
++- [Seasons at Prince Creek West](https://chapter3realty.com/buyers/55-plus-communities/seasons-at-prince-creek-west/): The charter's 55+ rule, the under-18 limit, one-year leases, closing fees, flood zones and the tax.
+ - [Golf Course Communities in Myrtle Beach](https://chapter3realty.com/buyers/golf-communities/): 14 communities compared: membership required vs optional vs public, HOA fees from $35/mo, Barefoot's $2,750 transfer fee, and flood-zone cautions.
+ 
+ ## Sellers
+diff --git a/chapter3realty/sitemap.xml b/chapter3realty/sitemap.xml
+index 26ea88f..7ab8063 100644
+--- a/chapter3realty/sitemap.xml
++++ b/chapter3realty/sitemap.xml
+@@ -355,6 +355,10 @@
+ <url><loc>https://chapter3realty.com/invest/condo-buildings/</loc><lastmod>2026-09-07</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+ <url><loc>https://chapter3realty.com/submarkets/carolina-forest/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+ <url><loc>https://chapter3realty.com/buyers/55-plus-communities/</loc><lastmod>2026-09-07</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
++<url><loc>https://chapter3realty.com/buyers/55-plus-communities/del-webb-north-myrtle-beach/</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
++<url><loc>https://chapter3realty.com/buyers/55-plus-communities/del-webb-grande-dunes/</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
++<url><loc>https://chapter3realty.com/buyers/55-plus-communities/myrtle-trace/</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
++<url><loc>https://chapter3realty.com/buyers/55-plus-communities/seasons-at-prince-creek-west/</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+ <url><loc>https://chapter3realty.com/buyers/golf-communities/</loc><lastmod>2026-09-07</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+ <url><loc>https://chapter3realty.com/buyers/closing-costs/</loc><lastmod>2026-09-07</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+ <url><loc>https://chapter3realty.com/sell/sell-my-condo/</loc><lastmod>2026-09-07</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
