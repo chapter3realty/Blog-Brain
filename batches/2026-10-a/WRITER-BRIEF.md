@@ -29,6 +29,7 @@ Cypress Village and Cresswind Myrtle Beach are held out: no recorded age rule ha
 - **H1:** the buyer's question, naming the community and the town. Example shape: "What does it cost to live in Del Webb at Grande Dunes in Myrtle Beach?" The second line answers in five words or fewer.
 - **Short answer:** 40 to 120 words, the answer first, with numbers. A sentence that would be true on another page is not the answer.
 - **Question headings,** each answered in its first sentence, 30 words or fewer. The first heading defines the community: builder, years, homes, place.
+- **Name the version of every rule you quote.** At Del Webb at Grande Dunes the posted rules are revised January 2019, and rules recorded 2025-01-09 have not been read: write "the association's posted rules, revised January 2019". Never present an older rule as the current one without its date.
 - **The age rule in the community's own recorded or posted words,** quoted and linked. The federal 80 percent rule is explained on the hub; link it, do not repeat it.
 - **One table** of key facts and **one figure** (`h.figure`, an SVG chart or diagram built from verified numbers, with a label of 12 characters or more).
 - **A worked example:** starts with "**Example:**", then a person and a situation told like a real story (a name, where they come from, a budget, a choice). Every number comes from a verified row or from the website's own tax data file, and the arithmetic is shown. Never say they are clients, never say they are not, never "our client" or "we helped".
