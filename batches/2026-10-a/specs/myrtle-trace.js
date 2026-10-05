@@ -95,7 +95,7 @@ module.exports = {
   eyebrow: "Conway, 55+",
   h1: "What does it cost to live in Myrtle Trace in Conway?",
   h1em: "$95 a month in dues.",
-  sub: "Myrtle Trace's HOA dues are $95 a month in 2026, and a resale buyer pays the HOA $1,550 in one-time fees at closing.",
+  sub: "Myrtle Trace's HOA dues are $95 a month in 2026. A resale buyer pays the HOA $1,550 in one-time fees at closing.",
   heroCta: { label: "Let us make it simple", href: "/contact/" },
   author: "devin",
   shortAnswer: [
@@ -188,7 +188,7 @@ module.exports = {
         "<strong>Mills on a legal residence:</strong> 201.0 − 109.1 = 91.9.",
         "<strong>2025 property tax:</strong> $12,000 × 91.9 ÷ 1,000 = $1,102.80 a year.",
       ]) +
-      h.p("After her first full calendar year here, Diane applies for the homestead exemption. The assessed value drops to ($300,000 − $50,000) × 4 percent = $10,000, and the 2025 tax is $10,000 × 91.9 ÷ 1,000 = $919 a year.") +
+      h.p("After her first full calendar year here, Diane applies for the homestead exemption. The assessed value drops to ($300,000 − $50,000) × 4 percent = $10,000. The 2025 tax is $10,000 × 91.9 ÷ 1,000 = $919 a year.") +
       h.p("Diane's 2026 bill will use the county's newly certified 2026 rates.") +
       h.p(`See ${h.a("/buyers/property-taxes/", "how a legal residence and a rental are taxed in Horry County")}.`) },
 

@@ -235,7 +235,7 @@ module.exports = {
     { name: "Charter, posted 2017 copy", href: CHARTER },
     { name: "Horry County deed index", href: DEEDS },
     { name: "FEMA Flood Map Service Center", href: FEMA },
-    { name: "Medicare Care Compare, Tidelands Waccamaw", href: CMS },
+    { name: "Tidelands Waccamaw on Medicare Care Compare", href: CMS },
     { name: "SC Code 56-2-90", href: GOLFLAW },
   ],
   sourcesNote: "For education, not legal advice. Rules recorded after 2017 were not online when read. Distances by road are OpenStreetMap estimates.",
