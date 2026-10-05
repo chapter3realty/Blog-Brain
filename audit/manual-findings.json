@@ -3628,5 +3628,126 @@
     "severity": "medium",
     "source": "story bank check 2026-10-05",
     "needsOwner": false
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": true,
+    "quote": "404 homes, single-family and attached",
+    "category": "compliance",
+    "severity": "high",
+    "problem": "Cypress Village sits in the 55+ comparison table, but its recorded declaration (2015), first amendment (2016) and bylaws contain no age rule, and the builder described it in 2020 as \"a unique place to live for people of all ages\" (cypress-village-facts.md rows 1 to 6, verified). Listing an all-ages community as 55+ advertises an age preference the Fair Housing Act forbids (42 USC 3604(c)).",
+    "fix": "Take Cypress Village out of the 55+ table, or mark it \"age rule not confirmed\", until a recorded age rule is read. Two recorded rule sets are still unread: Book 4172, Page 3232 (2019) and Book 5130, Page 293 (2026-09-24). Counsel decides the wording."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": true,
+    "quote": "400 homes, built 2013-2022 by Kolter; golf-cart distance to Market Common",
+    "category": "compliance",
+    "severity": "high",
+    "problem": "No source that could be opened shows a recorded age rule for Cresswind Myrtle Beach. The declaration (Book 3678, Page 31) is not online; the developer's page says \"for active 55+ adults\" (marketing) and the association's public pages say \"active adult\" (cresswind-myrtle-beach-facts.md, verifier summary). If the declaration has no age rule, the 55+ listing is a fair-housing advertising risk.",
+    "fix": "Have a closing attorney or title company pull Book 3678, Page 31. Until it is read, mark Cresswind \"age rule not confirmed\" or take it off the 55+ table."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "$95 a month from January 1, 2026",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": false,
+    "quote": "About $90/mo: pool, clubhouse, lakes",
+    "category": "stale",
+    "severity": "medium",
+    "problem": "Myrtle Trace dues are $95 a month from January 1, 2026; $90 was the 2025 figure (myrtle-trace-facts.md rows 30 and 31, verified).",
+    "fix": "Change the dues figure and date it."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "518 homes, added in eight phases recorded from 1984 to 1994",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": false,
+    "quote": "518 homes, 1980-2005; the established value option",
+    "category": "fact",
+    "severity": "medium",
+    "problem": "No source supports 1980 to 2005: the recorded supplements that added Myrtle Trace's eight phases run from 1984 to 1994 (myrtle-trace-facts.md row 22, verified). \"The established value option\" is a conclusion about a named community, which the site's rules forbid (website CLAUDE.md rule 5).",
+    "fix": "State the dated fact and drop the judgment."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": false,
+    "quote": "Myrtle Trace, Woodlake Village, and Cypress Village are the value options, with fees under $170 a month.",
+    "category": "compliance",
+    "severity": "medium",
+    "problem": "\"The value options\" is a conclusion about named communities (website CLAUDE.md rule 5), and the sentence lists Cypress Village, whose 55+ status is not confirmed.",
+    "fix": "State each community's dated dues instead of a label, and leave Cypress Village out until its age rule is confirmed."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": false,
+    "quote": "Del Webb at Grande Dunes and Cresswind at Market Common are the premium end.",
+    "category": "compliance",
+    "severity": "medium",
+    "problem": "\"The premium end\" is a conclusion about named communities (website CLAUDE.md rule 5). The developer and the association call the second one \"Cresswind Myrtle Beach\", not \"Cresswind at Market Common\".",
+    "fix": "Remove the sentence, or replace it with dated price facts from verified rows."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "Pulte's starting prices on October 5, 2026 ran from $585,990 to $704,590",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": false,
+    "quote": "New builds from about $475,000 to $764,900",
+    "category": "stale",
+    "severity": "medium",
+    "problem": "Pulte's starting prices on 2026-10-05 were $585,990 (Stardom), $699,965 (Stellar) and $704,590 (Renown) (del-webb-north-myrtle-beach-facts.md row 24, verified).",
+    "fix": "Use the builder's current starting prices with the date."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "497 home lots platted; the city's agreement allows 480 to 535",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": false,
+    "quote": "The only large 55+ community still building: 535 homes planned",
+    "category": "fact",
+    "severity": "medium",
+    "problem": "535 is the city's maximum, not the plan: the city agreement allows 480 to 535 lots, and the county shows 497 home lots platted (del-webb-north-myrtle-beach-facts.md rows 17 and 20, verified). \"The only large 55+ community still building\" could not be verified.",
+    "fix": "State the platted count and the city's range; drop \"the only\"."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "444 home lots; the charter lets the association run entry gates",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": false,
+    "quote": "460 homes; controlled-access gate, one of the few gated 55+ options",
+    "category": "fact",
+    "severity": "medium",
+    "problem": "The county maps 444 home lots in Seasons at Prince Creek West (seasons-at-prince-creek-west-facts.md row 19, verified). The gate is documented only by the builder in 2013 and by the charter's permission to run gates (rows 50 and 52); whether it operates today, and \"one of the few gated\", could not be verified.",
+    "fix": "Use the county's lot count and state the gate only with its date and source."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": false,
+    "quote": "Sold out; resale only. Houses and villas, gated",
+    "category": "fact",
+    "severity": "low",
+    "problem": "No primary source confirms that Del Webb at Grande Dunes is gated today. The association's hurricane guide mentions gate arms without saying where they are (del-webb-grande-dunes-facts.md row 59).",
+    "fix": "Drop \"gated\" until the association confirms it."
+  },
+  {
+    "url": "/buyers/55-plus-communities/",
+    "replacement": "",
+    "source": "55+ ledgers, verified 2026-10-05 (batches/2026-10-a/facts/)",
+    "needsOwner": true,
+    "quote": "Clients of ours made exactly this move.",
+    "category": "claim",
+    "severity": "medium",
+    "problem": "No file records where the Blackmoor-to-Seasons client story came from. A client story must be real (STANDARD T2; website non-negotiable: never a story that did not happen).",
+    "fix": "Owner confirms the story happened. If not, rewrite it as a labelled worked example or remove it."
   }
 ]
