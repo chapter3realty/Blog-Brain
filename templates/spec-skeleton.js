@@ -35,7 +35,7 @@ module.exports = {
   h1em: "TODO the answer in five words.",                  // A3: "Yes, at 90 days."
   sub: "TODO 8-30 words with the keyword and a number or a place. Not a question. No we.",
   heroCta: { label: "Talk to a specialized agent", href: "/contact/" },
-  author: "company",                                       // always the company (owner 2026-10-04); never a person
+  author: "devin",                                         // "devin" or "tim"; the other reviews
   shortAnswer: [                                           // A2: 40-120 words, verdict first
     "TODO Yes, for most ... The number.",
     "TODO the second fact the reader needs.",

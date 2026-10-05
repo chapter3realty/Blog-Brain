@@ -204,16 +204,16 @@ function facts(p) {
   const places = new Set((prose.join(" ").match(PLACE_RE) || []).map(s => s.toLowerCase().replace(/\s+/g, " ")));
   const experience = sents.filter(s => EXPERIENCE_RE.test(s));
 
-  /* The company is the author (owner 2026-10-04): the site speaks as Chapter3, not as a person. */
+  /* The author is the byline person or the company (owner 2026-10-05: Devin Day may be the visible author). */
   const author = p.article && p.article.author ? [].concat(p.article.author)[0] : null;
   const authorNode = author && author["@id"] ? (p.byId.get(author["@id"]) || author) : author;
-  const authorIsOrg = !!author && (author["@id"] === "https://chapter3realty.com/#org" || (!!authorNode && p.types(authorNode).some(t => /Organization|RealEstateAgent|LocalBusiness/.test(t))));
+  const authorNamed = !!author && (author["@id"] === "https://chapter3realty.com/#org" || (!!authorNode && p.types(authorNode).some(t => /Organization|RealEstateAgent|LocalBusiness|Person/.test(t))));
 
   const modified = p.article && p.article.dateModified ? new Date(p.article.dateModified) : null;
   const ageDays = modified ? Math.round((TODAY - modified) / 864e5) : null;
 
   return { kw, topicTokens, hasTopic, prose, sents, sentLens, words, faqQs, contentH2, leads, fragments, internal, external, primary,
-    ctas, visuals, visualCount, places, experience, authorNode, authorIsOrg, ageDays };
+    ctas, visuals, visualCount, places, experience, authorNode, authorNamed, ageDays };
 }
 
 /* ------------------------------------------------------------------ rules */
@@ -277,11 +277,11 @@ rule("og-image", "SEO", 2, "Its own share image (not the sitewide default)", (p)
   return DEFAULT_OG.test(p.ogImage) ? fail("uses the sitewide /og-image.jpg") : pass(p.ogImage);
 }, { applies: isArticle });
 
-rule("article-schema", "SEO", 2, "Article schema: the company as author, both dates, image", (p, f) => {
+rule("article-schema", "SEO", 2, "Article schema: a named author (person or company), both dates, image", (p, f) => {
   const a = p.article; if (!a) return fail("no Article schema");
-  const checks = { "company author": f.authorIsOrg, datePublished: !!a.datePublished, dateModified: !!a.dateModified, image: !!a.image };
+  const checks = { "named author": f.authorNamed, datePublished: !!a.datePublished, dateModified: !!a.dateModified, image: !!a.image };
   const bad = Object.keys(checks).filter(k => !checks[k]);
-  return part(1 - bad.length / 4, bad.length ? `missing: ${bad.join(", ")}${!f.authorIsOrg && f.authorNode ? ` (author is ${f.authorNode.name || [].concat(f.authorNode["@type"]).join("/")})` : ""}` : "complete");
+  return part(1 - bad.length / 4, bad.length ? `missing: ${bad.join(", ")}${!f.authorNamed && f.authorNode ? ` (author is ${f.authorNode.name || [].concat(f.authorNode["@type"]).join("/")})` : ""}` : "complete");
 }, { applies: isArticle });
 
 /* No word-count rule. Google: "There's no ideal page length" (AI optimization guide,
@@ -373,8 +373,8 @@ rule("image", "Human", 2, "At least one image or chart with real alt text", (p, 
 rule("ctas", "Human", 2, "2+ calls to action inside the article", (p, f) => f.ctas >= 2 ? pass(`${f.ctas}`) : part(f.ctas / 2, `${f.ctas}`), { applies: isArticle });
 
 /* --- Trust (E-E-A-T) ----------------------------------------------------- */
-rule("byline", "Trust", 2, "Visible byline naming the company, with an Updated date", (p) => {
-  const b = p.byline || "", named = /^By\s+(?:the\s+)?Chapter ?(?:3|III)\b/.test(b) && !/\bDevin\b/.test(b), dated = /Updated\s+[A-Z][a-z]+\s+\d{1,2},\s+\d{4}/.test(b);
+rule("byline", "Trust", 2, "Visible byline naming the author, with an Updated date", (p) => {
+  const b = p.byline || "", named = /^By\s+(?:the\s+)?(?:Chapter ?(?:3|III)\b|[A-Z][a-z]+\s+[A-Z])/.test(b) && !/\bPaul\b/.test(b), dated = /Updated\s+[A-Z][a-z]+\s+\d{1,2},\s+\d{4}/.test(b);
   return part((named ? .5 : 0) + (dated ? .5 : 0), b ? b.slice(0, 90) : "no byline");
 }, { applies: isArticle });
 

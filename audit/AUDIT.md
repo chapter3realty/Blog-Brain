@@ -14,7 +14,9 @@ These change several rows below. Each changed row says so.
 1. **Chapter3 and BrickWood Mortgage are affiliated.** Keep the affiliation and the RESPA affiliated-business disclosure. "Affiliated" wording is correct.
 2. **They are not the same company, and Chapter3 does no financing work at all.** "Same company", "own mortgage team", "in-house lender" and any offer of financing stay wrong.
 3. **Never name Devin Day, for anything.** The site speaks as the company: the company is the author and the byline.
-4. **"Chapter III" is registered as a DBA.** The logo changes to "Chapter III" (`website-patches/logo-chapter-iii.patch`).
+4. **"Chapter III" is registered as a DBA.** The owner will supply the new logo.
+
+**Revised 2026-10-05:** Devin Day may be the visible author (byline, author note, schema author). His name stays out of the copy, stories and CTAs. Paul is not named on the site yet.
 
 ## How the site was audited
 
@@ -179,7 +181,7 @@ Each line gives the severity, the problem, where it is, and the fix. The ID poin
 | Critical | "licensed agent and MLO" in meta and social descriptions | /invest/non-warrantable-condos/ | Remove. Scan the meta tags too. | C-C3 |
 | Critical | Tim's loan-originator licence advertised | /about/ | Remove; counsel on the dual role | C-C4 |
 | Medium | **Changed 2026-10-04: the DBA is registered.** Confirm it is on file with the SC Real Estate Commission (LLR), not only with the Secretary of State, before ads use it alone. The footer's legal line keeps "Chapter3 Realty Corp". | Logo, then titles and schema | Logo patch ready; decide whether titles, schema and copy change too | C-C5 |
-| High | **Widened 2026-10-04.** Devin is named on 127 pages: bylines, "Devin Day wrote this page" on 22 pages, personal stories, the /sell/ pricing contact, and the company schema's employee list. The owner's rule: never name him. | 127 pages | Bylines and copy: the company. Schema: `tools/site-upgrade.js --write` removes him from every page head. `claims-scan` rule `individual-named` finds the rest. | C-H1 |
+| High | **Revised 2026-10-05.** Devin may be the visible author, so bylines, the author note and schema stay. His name in the copy must go: the personal stories (his dog, his motorcycle, his commute, "what surprised Devin"), "Talk to Devin Directly", and the /sell/ pricing contact ("Devin runs operations and pricing"). | About 15 pages | `claims-scan` rule `individual-named` lists each sentence | C-H1 |
 | High | Five anonymous testimonials | Homepage | Source each, or remove (16 CFR 465) | C-H2 |
 | High | "Equal Housing Lender" and a bare "our lender" (write "our affiliated lender") | /buyers/programs/ and others | "Equal Housing Opportunity"; "our lending partner" | C-H3 |
 | High | Reg Z trigger terms in calculator defaults and copy. The `build.js` gate strips calculator inputs before it scans. | /buyers/cost-to-own/, /buyers/closing-costs/, /buyers/programs/, /buyers/va-loans/ | Empty the defaults; make the gate scan input values | C-H4 |

@@ -24,7 +24,7 @@ const fs = require("fs"), path = require("path");
 const cheerio = require("cheerio");
 
 const RULES = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "rules", "claims.json"), "utf8"));
-const compiled = RULES.rules.map(r => ({ ...r, res: r.patterns.map(p => new RegExp(p, "i")), unlessRe: r.unless ? new RegExp(r.unless, "i") : null, requiresRe: r.requires ? new RegExp(r.requires, "i") : null }));
+const compiled = RULES.rules.map(r => ({ ...r, res: r.patterns.map(p => new RegExp(p, "i")), unlessRe: r.unless ? new RegExp(r.unless, "i") : null, requiresRe: r.requires ? new RegExp(r.requires, "i") : null, ignoreRe: r.ignore ? new RegExp(r.ignore, "gi") : null }));
 const inp = RULES.inputDefaults;
 const fieldRe = new RegExp(inp.fieldPattern, "i"), notFieldRe = new RegExp(inp.notFieldPattern, "i");
 
@@ -57,7 +57,10 @@ function scanText(url, surface, text, findings) {
   for (const s of sentences(text)) {
     for (const r of compiled) {
       if (r.allowPages && r.allowPages.includes(url)) continue;
-      const hit = r.res.map(re => s.match(re)).find(Boolean);
+      if (r.skipSurfaces && r.skipSurfaces.some(x => surface.startsWith(x))) continue;
+      /* 'ignore': words removed before matching, e.g. the byline that may name the author. */
+      const t = r.ignoreRe ? s.replace(r.ignoreRe, " ") : s;
+      const hit = r.res.map(re => t.match(re)).find(Boolean);
       if (!hit) continue;
       if (r.unlessRe && r.unlessRe.test(s)) continue;
       /* 'requires': the sentence must also be about Chapter3 (we, our, Chapter3), unless it sits on a

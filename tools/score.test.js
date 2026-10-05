@@ -79,7 +79,7 @@ const mutations = [
   ["topic-early", { short: "Yes. Most buildings on this coast bill every owner at some point for a roof, an elevator or insurance, and owners cannot refuse it. You can see the bill coming in the minutes and the study well before you make an offer here." }],
   ["links-out", (h) => h.replace(/<a href="\/(?:hoa|buyers|sell)[^"]*">([^<]*)<\/a>/g, "$1")],
   ["og-image", { og: "https://chapter3realty.com/og-image.jpg" }],
-  ["article-schema", { author: { "@type": "Person", name: "Devin Day" } }],
+  ["article-schema", { author: null }],
   ["short-answer", { short: "Yes. " + "Most buildings charge one at some point for a roof or an elevator or insurance and it is billed to every unit. ".repeat(8) }],
   ["verdict", { short: "A special assessment is a charge the association bills to every unit when it needs money it does not have, usually for a roof, an elevator or insurance. You can see one coming in the minutes before you offer." }],
   ["question-h2", (h) => h.replace("What is a special assessment?", "Special assessments defined").replace("Who pays it when the unit sells?", "The seller and the buyer")],
@@ -95,7 +95,7 @@ const mutations = [
   ["image", { chart: false }],
   ["ctas", (h) => h.replace(/<a class="btn btn-brass" href="#lead-form">[^<]*<\/a>/g, "")],
   ["byline", (h) => h.replace(/ · Updated September 20, 2026/, "")],
-  ["byline", (h) => h.replace("By <strong>Chapter3 Realty</strong>", "By <strong>Devin Day</strong>, Operations Officer")],
+  ["byline", (h) => h.replace("By <strong>Chapter3 Realty</strong>", "By <strong>our team</strong>")],
   ["experience", (h) => h.replace("In Chapter3's files, a coming assessment showed up in the minutes in most buildings we checked.", "").replace("Our broker reads the last two years of minutes before a client offers.", "")],
   ["sources-line", (h) => h.replace("<strong>Sources:</strong>", "<strong>Reading:</strong>")],
   ["fresh", (h) => h.replace('"dateModified":"2026-09-20"', '"dateModified":"2025-01-01"')],
@@ -108,6 +108,10 @@ for (const [id, m] of mutations) {
   const r = credit(html, id);
   check(`${id}: fires`, r.credit !== null && r.credit < 1, `(${r.credit}: ${r.detail})`);
 }
+
+/* A person may be the visible author (owner 2026-10-05). */
+check("byline: a person's byline passes", credit(base.replace("By <strong>Chapter3 Realty</strong>", "By <strong>Devin Day</strong>, Operations Officer"), "byline").credit === 1);
+check("article-schema: a Person author passes", credit(gold({ author: { "@type": "Person", name: "Devin Day", url: "https://chapter3realty.com/about/" } }), "article-schema").credit === 1);
 
 /* visual-rhythm needs a long page to fire; give it one with no visuals. */
 {

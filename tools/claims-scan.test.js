@@ -42,8 +42,10 @@ const cases = [
   ["fair-housing", { meta: "Surfside Beach: family-friendly beach home prices." }, { meta: "Surfside Beach: beach home prices and rental income." }],
   ["agent-free", { main: "<p>Your agent costs you nothing in most transactions.</p>" }, { main: "<p>That request costs you nothing and it creates a record.</p>" }],
   ["individual-named", { main: "<p>Devin runs operations and pricing.</p>" }, { main: "<p>Our broker prices every listing.</p>" }],
-  ["individual-named", { main: "<p>By Devin Day, Operations Officer · Updated September 2, 2026</p>" }, { main: "<p>By Chapter3 Realty · Updated September 2, 2026</p>" }],
-  ["individual-named", { head: '<script type="application/ld+json">{"@type":"Article","author":{"@type":"Person","name":"Devin Day"}}</script>' }, { head: '<script type="application/ld+json">{"@type":"Article","author":{"@id":"https://chapter3realty.com/#org"}}</script>' }],
+  /* The author may be named (owner 2026-10-05): byline, author note and schema author are quiet; the copy is not. */
+  ["individual-named", { main: "<p>One concrete commute, Devin's: US 17 from Murrells Inlet to Surfside Beach at 7 a.m. is wide open.</p>" }, { main: "<p>By Devin Day, Operations Officer · Reviewed by Tim Nash, Broker-in-Charge · Updated September 2, 2026</p>" }],
+  ["individual-named", { main: "<p>Ask Paul about the listing.</p>" }, { main: "<p>Devin Day wrote this page. He is our Operations Officer and a relocator himself, from Ohio.</p>" }],
+  ["individual-named", { main: "<p>Talk to Devin Directly. Questions before you commit?</p>" }, { head: '<script type="application/ld+json">{"@type":"Article","author":{"@type":"Person","name":"Devin Day"}}</script>' }],
   ["individual-named", { main: "<p>The dog table above is personal for us: Devin brings his dog to the sand.</p>" }, { main: "<p>The dog table lists the beaches that allow dogs, and the months.</p>" }],
   /* Gaps closed 2026-10-02: each firing sentence is live text the first rules missed. */
   ["interest-rate", { main: "<p>On a VA loan that might otherwise qualify at 6.5%, the DPA-adjusted rate could be 8.5%.</p>" }, { main: "<p>The lender decides whether you qualify at all.</p>" }],

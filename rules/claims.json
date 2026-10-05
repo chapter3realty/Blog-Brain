@@ -142,11 +142,16 @@
     {
       "id": "individual-named",
       "severity": "high",
-      "why": "The site speaks as the company, not as an individual. Devin Day is never named, for anything: not as author, reviewer, contact, employee in schema, or in a story (owner 2026-10-04). He is also not a licensee, so he can never be a pricing or advice contact (SC 40-57-30).",
+      "why": "Devin Day may appear only as the page's author: the byline, the author note and the schema author (owner 2026-10-05). Never in the copy, a story, a CTA or as a contact; he is not a licensee, so never a pricing or advice contact (SC 40-57-30). Paul is never named on the site yet (owner 2026-10-05).",
       "patterns": [
-        "\\bDevin\\b"
+        "\\bDevin\\b",
+        "\\bPaul\\b"
       ],
-      "fix": "Remove the name. Write \"Chapter3\" or \"our team\". In a byline, the author is the company. In schema, the author is {\"@id\": \"https://chapter3realty.com/#org\"} and no Person for Devin is listed."
+      "fix": "Keep the name in the byline or author note only. In the copy write \"Chapter3\", \"our team\" or \"one of our agents\". Remove Paul's name.",
+      "ignore": "\\b(?:By|Reviewed by)\\s+Devin Day\\b|\\bDevin Day wrote this page\\b",
+      "skipSurfaces": [
+        "json-ld"
+      ]
     },
     {
       "id": "template-residue",

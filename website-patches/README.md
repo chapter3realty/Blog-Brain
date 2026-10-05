@@ -23,31 +23,20 @@ It changes three things in `tools/mkpage.js`.
 - A spec can also set `ogImage` and `ogImageAlt` directly.
 - The chrome-identity self-check now treats the image metas as page identity.
 
-**2. Company author (S6, T1; owner rule 2026-10-04).**
+**2. Person author (S6).**
 
-- The byline reads "By Chapter3 Realty · Updated <date>". No person is named.
-- The Article and WebPage `author` is the company, `{"@id": "https://chapter3realty.com/#org"}`.
-- `spec.author` is no longer needed. An old spec that says "tim" or "devin" still builds, with a warning, and gets the company byline.
-- The generator refuses any page that names Devin anywhere, in the copy or the schema.
-- Run `node <blog-brain>/tools/site-upgrade.js chapter3realty --write` first. The generator copies the live page's head, and until that runs the head still lists Devin in its schema.
+- The Article `author` is the byline person, as a Person with `@id`, `name`, `jobTitle`, `url` and `worksFor`. `reviewedBy` is the other person.
+- Tim's schema name is "Timothy Nash", with `alternateName` "Tim Nash", per the owner's 2026-09-03 instruction.
+- Devin's job title is "Operations Officer" and nothing else, per the 2026-09-07 rule.
 
 **3. `h.figure(media, caption)` (H4).**
 
 - Wraps an `<img>` with alt text, or an `<svg role="img" aria-label="...">`, in a `<figure>` with a visible caption.
 - It throws if the alt or label is missing or shorter than 12 characters.
 
-## `logo-chapter-iii.patch`: the logo reads "Chapter III"
+## `logo-chapter-iii.patch`: on hold
 
-```
-git apply <blog-brain>/website-patches/logo-chapter-iii.patch
-node build.js stitch
-node build.js check
-```
-
-- Changes the logo in `partials/header.html` and `partials/footer.html` from "Chapter3" to "Chapter III", with "III" in copper as the "3" was.
-- Adds `aria-label="Chapter III Realty, home"`, so a screen reader says the name instead of "I I I".
-- `stitch` copies it to every page. Screenshots: `audit/evidence/shots/logo-before-1280.png`, `logo-after-1280.png`, and the 390-pixel phone versions.
-- It changes only the logo. Page titles, schema, the footer's legal line ("Chapter3 Realty Corp") and the copy still say Chapter3.
+The owner will supply the logo (2026-10-05). This text-only version, "Chapter" plus a copper "III", is kept for reference and should not be applied.
 
 ## `speed.patch` and `contrast.patch`
 
@@ -55,11 +44,10 @@ See `audit/SPEED-AND-CONTRAST.md`.
 
 ## How `mkpage.patch` was tested
 
-**Regenerating `specs/llc.js` after `site-upgrade.js --write` (2026-10-04):**
+**Regenerating `specs/llc.js` unchanged:**
 
-- The byline is "By Chapter3 Realty · Updated <date>", the page names Devin nowhere, and `build.js check` and `audit` pass after `node build.js dates`.
-- The scorer passes the byline rule (T1).
-- `<main>` differs by the byline, the generation date, and one hand-added link the live page has and the spec lacks. That link drift predates the patch; see STUDY finding 1.
+- The only head and schema differences are the image fields, the alt text and the Person author.
+- `<main>` differs only by the generation date, plus one hand-added link the live page has and the spec lacks. That drift predates the patch; see STUDY finding 1.
 
 **The pilot spec:**
 

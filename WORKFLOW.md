@@ -230,7 +230,7 @@ About 30 minutes, no prose changes, so no dates move.
 **Measured on a clean copy of the site:**
 
 - 122 cards rendered with no overflow.
-- 49 pages gained a Person author. (Superseded 2026-10-04: the tool now makes the company the author on 71 pages and removes Devin from the schema on 127.)
+- 49 pages gained a Person author.
 - `build.js check` and `build.js audit` both passed.
 - No line inside `<main>` changed.
 - The site mean rose from 77 to 81.

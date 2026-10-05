@@ -46,7 +46,9 @@ The website's `build.js` gate will reject copy that breaks those rules.
    - "An agent at Chapter3..."
    - "Our broker checks..."
 
-   Never write a quote for Tim. Never name Devin Day, anywhere. The byline and the schema author are the company.
+   Never write a quote for Tim. Devin Day's name is in the byline and author note only. Never name Paul.
+
+   Where no real story fits, write a worked example instead: label it "Example:", build it only from verified fact rows, and show the arithmetic. It never claims to be a client.
 
 6. **Compliance:**
    - No interest rate and no payment amount.
