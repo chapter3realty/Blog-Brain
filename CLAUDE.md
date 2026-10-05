@@ -23,12 +23,13 @@ GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 -b claude/github-account-check-wutg8b 
 4. `WORKFLOW.md`: the production line. Lane N is a new page; Lane U is an upgrade; Lane O is off-site.
 5. In the website repo, `CLAUDE.md` and `PLAYBOOK.md`. They hold the owner's rules on voice and compliance. `build.js` enforces them. This repo does not repeat them, and they win any conflict.
 6. `research/website-process-digest.md`: a summary of the website's 4,000 lines of process docs.
+7. Before writing any page: `voice/RULES.md` (the owner's corrections by class) and `stories/stories.json` (real stories; never add a detail). The reviewer answers `voice/REVIEW-PASS.md`.
 
 ## Commands
 
 ```
 npm install
-npm test                                                     # all four control suites; each must print "all controls pass"
+npm test                                                     # all five control suites; each must print "all controls pass"
 node tools/score.js --site <site>/chapter3realty             # every article, with a leaderboard
 node tools/score.js --site <site>/chapter3realty --only /invest/llc/
 node tools/ogcard.js <site>/chapter3realty /invest/llc/      # or --all
@@ -37,6 +38,7 @@ node tools/site-audit.js <site> [--live]                     # links, anchors, m
 node tools/claims-scan.js <site>                             # banned claims on every surface (rules/claims.json)
 node tools/facts-check.js <site>                             # known-wrong facts and stale entries (facts/registry.json)
 node tools/facts-check.js --stale                            # registry entries past their staleBy date
+node tools/record-edit.js draft.txt edited.txt --page /url/  # add the owner's edits to voice/edits.jsonl
 ```
 
 `<site>` is the website repo root. Set `SCORE_TODAY=YYYY-MM-DD` to make the freshness rule reproducible.

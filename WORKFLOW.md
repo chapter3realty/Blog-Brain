@@ -63,13 +63,15 @@ Check the live search results for the query, and note what the top three pages l
 
 ### 2. Owner and Tim questions
 
-Ask before drafting. One document per batch, in `templates/owner-questions.md`. At most 5 questions per page, most of them experience questions:
+Ask before drafting. One document per batch, in `templates/owner-questions.md`.
+
+**Search `stories/stories.json` first.** A story already in the bank is never asked for again. Where no story fits, the page uses a worked example (STANDARD T2), and no question is needed. Ask only for what neither covers, at most 3 questions per batch where possible, most of them experience questions:
 
 - "What did you see the last time a client...?"
 - "What do you check first when...?"
 - "What number do you use for...?"
 
-The answers become the T2 sentences and settle business questions before any copy exists. Record them verbatim in the website repo's `research/.../owner-answers-batchN.md`.
+The answers become the T2 sentences and settle business questions before any copy exists. Record them verbatim in the website repo's `research/.../owner-answers-batchN.md`, and add each new story to `stories/stories.json` with its source line, so it can be reused.
 
 **While waiting, run step 3 in parallel.**
 
@@ -163,6 +165,8 @@ The checks from the website's PLAYBOOK Phase 8:
 
 One preview for the whole batch (`tools/mkpreview.js`). He sends one message with all edits.
 
+- Record the edits first: `node tools/record-edit.js draft.txt edited.txt --page /url/ --note "<his words>"`. Each changed sentence goes into `voice/edits.jsonl`.
+- The reviewer agent gives each record a class. When a class appears twice, it becomes a rule in `voice/RULES.md` and a question in `voice/REVIEW-PASS.md`. The next batch is written against it.
 - Apply the edits to the spec.
 - Any edit that is a pattern, not a one-off, becomes a `build.js` gate in the same commit. That is what "hard code that" means.
 - If the pattern is a claim about the business, it also goes into `rules/claims.json` with a control. If it is a fact, it goes into `facts/registry.json`.

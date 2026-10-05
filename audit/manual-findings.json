@@ -3617,5 +3617,16 @@
     "severity": "low",
     "source": "editorial.md /why-chapter-3/",
     "needsOwner": false
+  },
+  {
+    "url": "/buyers/relocating/from-ohio/",
+    "quote": "His own bills are quoted, labelled as one household's, on the cost of living page",
+    "problem": "The cost of living page carries no single household's bills, so the link promises something the reader will not find. The sentence also tells a story about a named staff member in the copy.",
+    "fix": "Remove the sentence, or add the bills to the cost of living page from the owner's own figures and refer to them without a name.",
+    "replacement": "",
+    "category": "contradiction",
+    "severity": "medium",
+    "source": "story bank check 2026-10-05",
+    "needsOwner": false
   }
 ]

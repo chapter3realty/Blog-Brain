@@ -22,7 +22,7 @@ node <blog-brain>/tools/site-audit.js .
 
 Then run the form delivery test from WORKFLOW step 7 on every form on the page. A thank-you with no captured request is a dropped lead.
 
-**2. Fill `templates/review-checklist.md`** for this page. Go through every item.
+**2. Fill `templates/review-checklist.md`** for this page, then answer every question in `voice/REVIEW-PASS.md`. Go through every item. Those questions are the owner's past corrections, ordered by how often he made them.
 
 For each "no", give:
 

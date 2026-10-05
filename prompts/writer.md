@@ -15,6 +15,8 @@ You are writing `specs/<slug>.js` for chapter3realty.com from four inputs:
 
 Read these files:
 
+- `voice/RULES.md`, the owner's corrections by class. Read the "read this first" list twice. A phrase on no list can still break a class.
+- `stories/stories.json`. Search it by topic. Use a story's `summary` and obey its `limits`. Never add a detail the entry does not have. Skip any entry marked `do-not-use`.
 - `STANDARD.md`
 - The website repo's `CLAUDE.md`
 - The website repo's PLAYBOOK, sections A11 through A22.
@@ -48,7 +50,7 @@ The website's `build.js` gate will reject copy that breaks those rules.
 
    Never write a quote for Tim. Devin Day's name is in the byline and author note only. Never name Paul.
 
-   Where no real story fits, write a worked example instead: label it "Example:", build it only from verified fact rows, and show the arithmetic. It never claims to be a client.
+   Where no real story fits, write a worked example. Start it with "Example:" in bold. Then tell it like a real person and a real situation: names, a hometown, a budget, a decision. Build every number from verified fact rows and show the arithmetic. Never say the people are clients, and never say they are not. Never write "our client", "we helped" or "Chapter3 found them". Keep Chapter3 out of the example's events; the lesson after it can say what Chapter3 checks.
 
 6. **Compliance:**
    - No interest rate and no payment amount.

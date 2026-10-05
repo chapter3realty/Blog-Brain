@@ -1,0 +1,3090 @@
+[
+  {
+    "id": "household-utility-bills",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:8-13",
+    "verbatim": "| Summer electric | about $130 / month | Use, labelled as one household's bill | | Water | about $50 / month | Use, same label |",
+    "summary": "The owner's own bills on a 1,400 square foot two-storey house: summer electric about $130 a month, water about $50 a month.",
+    "places": [],
+    "propertyType": "single-family house",
+    "numbers": {
+      "summer electric": "about $130 / month",
+      "water": "about $50 / month",
+      "house size": "1,400 sq ft two-storey"
+    },
+    "lesson": "One real household's utility bills, to set expectations next to a sourced average.",
+    "topics": [
+      "relocating",
+      "cost of living",
+      "utilities"
+    ],
+    "checked": "Earlier AI: \"Use, labelled as one household's bill.\" Not checked against any other source. Live gap: /buyers/relocating/from-ohio/ says \"His own bills are quoted, labelled as one household's, on the cost of living page\", but the cost of living page does not carry them (checked 2026-10-05).",
+    "status": "usable-with-limits",
+    "limits": "Label it as one household's bill, never an area average. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks. Do not name Devin in the copy; tell it as \"one of our team\" or keep it to the author note (owner, 2026-10-05).",
+    "publishedOn": []
+  },
+  {
+    "id": "car-insurance-anecdote",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:15",
+    "verbatim": "| Car insurance | full coverage $145 / month; a friend pays $145 for liability only | Use as anecdote only; pair with a sourced state average |",
+    "summary": "The owner pays $145 a month for full-coverage car insurance. A friend pays $145 a month for liability only.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "owner, full coverage": "$145 / month",
+      "friend, liability only": "$145"
+    },
+    "lesson": "Car insurance varies a lot from person to person here.",
+    "topics": [
+      "relocating",
+      "cost of living",
+      "insurance"
+    ],
+    "checked": "Earlier AI: \"Use as anecdote only; pair with a sourced state average.\"",
+    "status": "usable-with-limits",
+    "limits": "Anecdote only. Put a sourced South Carolina average next to it. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks. Do not name Devin in the copy; tell it as \"one of our team\" or keep it to the author note (owner, 2026-10-05).",
+    "publishedOn": []
+  },
+  {
+    "id": "gas-cheaper",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:16, 133-136",
+    "verbatim": "| Gas | 50 to 75 cents a gallon cheaper than where transplants came from | Verify with AAA state averages | [...] cheaper gas his favorite change",
+    "summary": "The owner says gas here is 50 to 75 cents a gallon cheaper than where transplants come from. Cheaper gas was his favorite change after moving from Ohio.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "gas difference": "50 to 75 cents a gallon cheaper"
+    },
+    "lesson": "Gas is one of the costs that drops for many movers.",
+    "topics": [
+      "relocating",
+      "cost of living"
+    ],
+    "checked": "Earlier AI: \"Verify with AAA state averages.\" The cents figure was not verified in the source.",
+    "status": "usable-with-limits",
+    "limits": "Do not state the 50 to 75 cent figure without a current AAA state comparison. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks. Do not name Devin in the copy; tell it as \"one of our team\" or keep it to the author note (owner, 2026-10-05).",
+    "publishedOn": [
+      "/buyers/relocating/cost-of-living/"
+    ]
+  },
+  {
+    "id": "taxes-utilities-cheaper",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:17, 18",
+    "verbatim": "| Taxes | \"got a lot cheaper\" | Quantify from the state-tax table, do not leave as a vibe | | Utilities | \"got a lot cheaper\" (co-worker from Maryland and Texas) | BEA utilities index says MB is BELOW national (88.0 in 2024) but above some regions; state precisely |",
+    "summary": "The owner says his taxes \"got a lot cheaper\" after the move. A co-worker who lived in Maryland and Texas says utilities got a lot cheaper.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Movers feel the drop in taxes and utilities, but the page has to show the real numbers.",
+    "topics": [
+      "relocating",
+      "cost of living",
+      "taxes",
+      "utilities"
+    ],
+    "checked": "Earlier AI: taxes must be quantified from the state tax table, \"do not leave as a vibe\"; BEA utilities index puts Myrtle Beach below national (88.0 in 2024) but above some regions; \"state precisely\".",
+    "status": "usable-with-limits",
+    "limits": "Never use alone. Give the sourced tax and utility figures; the feeling is only colour beside them.",
+    "publishedOn": []
+  },
+  {
+    "id": "beach-parking-resident-pass",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:20-25",
+    "verbatim": "After getting an SC licence, go to the parking office at 914 N. Kings Highway (or online) for a resident pass: free parking at city-owned street meters, public beach accesses and street ends. **Verify** who qualifies (city vs county resident), cost, and the office name before publishing.",
+    "summary": "After getting a South Carolina licence, a resident can get a parking pass from the city parking office at 914 N. Kings Highway or online. The pass gives free parking at city meters, beach accesses and street ends.",
+    "places": [
+      "Myrtle Beach"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "office address": "914 N. Kings Highway"
+    },
+    "lesson": "New residents can stop paying for city beach parking.",
+    "topics": [
+      "relocating",
+      "beaches",
+      "getting around"
+    ],
+    "checked": "Earlier AI: \"Verify who qualifies (city vs county resident), cost, and the office name before publishing.\" Devin also \"found the parking decal in year two\" (line 135-136).",
+    "status": "usable-with-limits",
+    "limits": "Verify who qualifies, the cost and the office at the City of Myrtle Beach before stating them.",
+    "publishedOn": [
+      "/buyers/relocating/moving-checklist/"
+    ]
+  },
+  {
+    "id": "golf-cart-community",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:34-36",
+    "verbatim": "\"We are a golf cart community, not a walking community like a bigger city.\"",
+    "summary": "The area is not walkable. The owner calls it a golf cart community. He tells buyers to check whether a neighbourhood is golf-cart legal before buying.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "cart roads": "35 mph roads"
+    },
+    "lesson": "Check golf cart rules for the street before you buy if you want to drive a cart.",
+    "topics": [
+      "relocating",
+      "getting around",
+      "lifestyle"
+    ],
+    "checked": "Not checked. The 35 mph limit and permit rules are the AI's action note.",
+    "status": "usable-with-limits",
+    "limits": "The quote holds a comparison with \"like\"; the site's figurative gate may fire. Quote it as his words or restate it literally (\"Most trips here need a car or a golf cart\"). Verify cart rules at the town before stating them.",
+    "publishedOn": [
+      "/buyers/relocating/pros-and-cons/"
+    ]
+  },
+  {
+    "id": "not-a-party-city",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:37-38, 169-171, 194-195",
+    "verbatim": "- **Not a party city.** Do NOT mention police complaint volume (owner asked us not to, legal).",
+    "summary": "The owner says Myrtle Beach is not the party city people expect. The misconception is corrected on the site with geography and the county's 65 and over share.",
+    "places": [
+      "Myrtle Beach"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "The party reputation belongs to a small part of the Grand Strand.",
+    "topics": [
+      "relocating",
+      "lifestyle"
+    ],
+    "checked": "Earlier AI: the police complaint volume must never be mentioned (owner asked, legal). \"Party city\" wording was not used on the Pennsylvania page.",
+    "status": "usable-with-limits",
+    "limits": "Never mention police complaints or crime. Correct the idea with geography and sourced figures only, never by describing who lives where. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/which-town/"
+    ]
+  },
+  {
+    "id": "making-friends-seasonal",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:39-43, 136-138",
+    "verbatim": "- **Making friends is harder than expected** because many people around the city core are tourists or seasonal workers who leave. Owner's fix: buy outside the city of Myrtle Beach proper and be a regular at places tourists do not go (gyms, clubs, bars). Use, phrased as seasonal population, no visa categories.",
+    "summary": "Making friends is harder than movers expect, because many people near the city core are tourists or seasonal workers who leave. The owner's advice: buy outside the city of Myrtle Beach and be a regular at places tourists do not go, such as gyms and clubs.",
+    "places": [
+      "Myrtle Beach"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Pick a home base and a routine away from the tourist core to build friendships.",
+    "topics": [
+      "relocating",
+      "lifestyle"
+    ],
+    "checked": "Earlier AI: use, phrased as seasonal population, no visa categories. J-1 students cut from relocator pages (line 136-138).",
+    "status": "usable-with-limits",
+    "limits": "Say \"seasonal population\". Never name visa categories on a relocator page. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": []
+  },
+  {
+    "id": "business-owners-lower-prices",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:44, 45",
+    "verbatim": "- **Business owners** who relocate report they cannot charge as much for services as they did up north. Use: real con for self-employed movers.",
+    "summary": "Business owners who move here report that they cannot charge as much for their services as they did up north.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Self-employed movers should price their services for this market.",
+    "topics": [
+      "relocating",
+      "jobs",
+      "cost of living"
+    ],
+    "checked": "Not checked. Earlier AI: \"Use: real con for self-employed movers.\"",
+    "status": "usable-with-limits",
+    "limits": "Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/pros-and-cons/"
+    ]
+  },
+  {
+    "id": "northerners-adjusting",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:46-50",
+    "verbatim": "- **Northerners arrive suspicious of everyone, or trust everyone instantly because they heard about southern hospitality; Ohio movers feel people are the same as home.** About people. Do not use as written. At most: \"the pace is slower and people talk to strangers; some transplants find that takes adjusting.\"",
+    "summary": "The owner described how northerners react to people here. Only a softened line is usable: the pace is slower, people talk to strangers, and some transplants take time to adjust.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "The pace is slower, and some movers need time to adjust.",
+    "topics": [
+      "relocating",
+      "lifestyle"
+    ],
+    "checked": "Earlier AI: \"About people. Do not use as written.\"",
+    "status": "usable-with-limits",
+    "limits": "Use only this: \"the pace is slower and people talk to strangers; some transplants find that takes adjusting.\" Never describe people from any state or place.",
+    "publishedOn": []
+  },
+  {
+    "id": "traffic-timing",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:51-54",
+    "verbatim": "- **Traffic.** Summer traffic \"is not very bad.\" Most delay is waiting for geese to cross. Rush hour adds 5 to 10 minutes. Leaving for work 5 to 8 am has few stops. Workaround: take the interstate (SC-31 / SC-22) because US-17 has many stop lights. Use.",
+    "summary": "Summer traffic is \"not very bad\". Rush hour adds 5 to 10 minutes, and leaving for work between 5 and 8 am has few stops. The owner takes SC-31 or SC-22 because US-17 has many stop lights.",
+    "places": [
+      "SC-31",
+      "SC-22",
+      "US-17"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "rush hour delay": "5 to 10 minutes",
+      "early commute window": "5 to 8 am"
+    },
+    "lesson": "Use SC-31 or SC-22 instead of US-17 to avoid the lights.",
+    "topics": [
+      "relocating",
+      "getting around"
+    ],
+    "checked": "Not checked. Earlier AI: \"Use.\"",
+    "status": "usable-with-limits",
+    "limits": "Label it as the owner's experience. The geese line is a joke; do not state it as a cause of delay. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/getting-around/",
+      "/buyers/relocating/pros-and-cons/",
+      "/buyers/relocating/which-town/"
+    ]
+  },
+  {
+    "id": "off-season-open",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:55-57",
+    "verbatim": "- **Off season.** Nothing closes except tourist attractions and water parks. Boardwalk stays open, possibly reduced hours. Winter feels \"more open\" because fewer people. Use.",
+    "summary": "In the off season nothing closes except tourist attractions and water parks. The boardwalk stays open, possibly with shorter hours. Winter feels more open because there are fewer people.",
+    "places": [
+      "Myrtle Beach"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "The off season is quieter, not closed.",
+    "topics": [
+      "relocating",
+      "lifestyle",
+      "beaches"
+    ],
+    "checked": "Not checked. Earlier AI: \"Use.\"",
+    "status": "usable-with-limits",
+    "limits": "Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/pros-and-cons/"
+    ]
+  },
+  {
+    "id": "mosquitoes",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:58, 59",
+    "verbatim": "- **Mosquitoes** are more noticeable than in a big city because it is more rural. Use.",
+    "summary": "Mosquitoes are more noticeable here than in a big city, because the area is more rural.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Expect more mosquitoes than in a dense city.",
+    "topics": [
+      "relocating",
+      "lifestyle"
+    ],
+    "checked": "Not checked. Earlier AI: \"Use.\"",
+    "status": "usable-with-limits",
+    "limits": "Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/pros-and-cons/"
+    ]
+  },
+  {
+    "id": "heat-and-humidity",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:60, 61",
+    "verbatim": "- **Heat and humidity.** First summer felt like a sauna; acclimatised within a short period and now likes being outside. Use (as one person's experience).",
+    "summary": "The owner's first summer was hot and humid. He adjusted within a short time and now likes being outside.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Most people adjust to the summer heat after the first season.",
+    "topics": [
+      "relocating",
+      "weather",
+      "lifestyle"
+    ],
+    "checked": "Earlier AI: \"Use (as one person's experience).\"",
+    "status": "usable-with-limits",
+    "limits": "One person's experience. Do not use \"sauna\" or any comparison; say hot and humid. Do not name Devin in the copy; tell it as \"one of our team\" or keep it to the author note (owner, 2026-10-05).",
+    "publishedOn": []
+  },
+  {
+    "id": "sunglasses",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:62, 63",
+    "verbatim": "- **Brightness.** Never needed sunglasses before; needs them here in summer; got used to it. Use.",
+    "summary": "The owner never needed sunglasses before he moved. He needs them here in summer.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "The summer light is brighter than most northern movers expect.",
+    "topics": [
+      "relocating",
+      "weather",
+      "lifestyle"
+    ],
+    "checked": "Not checked. Earlier AI: \"Use.\"",
+    "status": "usable-with-limits",
+    "limits": "Do not name Devin in the copy; tell it as \"one of our team\" or keep it to the author note (owner, 2026-10-05). Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/from-ohio/"
+    ]
+  },
+  {
+    "id": "roads-better-paved",
+    "type": "observation",
+    "teller": "unknown",
+    "source": "research/relocating/owner-answers.md:64, 65",
+    "verbatim": "- **Roads** are better paved than New York, Maryland or Texas (co-worker's observation). Use as anecdote.",
+    "summary": "A co-worker of the owner who lived in New York, Maryland and Texas says the roads here are better paved.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Road surfaces here compare well with several northern states, in one mover's view.",
+    "topics": [
+      "relocating",
+      "getting around"
+    ],
+    "checked": "Earlier AI: \"Use as anecdote.\"",
+    "status": "usable-with-limits",
+    "limits": "Anecdote only, from a co-worker whose role is not recorded. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": []
+  },
+  {
+    "id": "housing-types-mix",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:66-70",
+    "verbatim": "- **Housing types mix within short distances.** Owner phrased it as rich and poor living two blocks apart. Do NOT publish as written (about people). The property version is usable on a buying page: zoning here mixes housing types more than the Northeast does; look at what is within two blocks of any home you are considering.",
+    "summary": "Zoning here mixes housing types within short distances, more than in the Northeast. Buyers should look at what is within two blocks of any home they consider.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "distance": "two blocks"
+    },
+    "lesson": "Walk two blocks in every direction before you buy.",
+    "topics": [
+      "relocating",
+      "buying"
+    ],
+    "checked": "Earlier AI: \"Do NOT publish as written (about people). The property version is usable on a buying page.\"",
+    "status": "usable-with-limits",
+    "limits": "Use only the property version about housing types. Never describe residents by income or any other trait.",
+    "publishedOn": []
+  },
+  {
+    "id": "homeless-observations",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:71",
+    "verbatim": "- **Homeless observations.** Do not use anywhere (safety / who lives where).",
+    "summary": "The owner gave observations about homeless people. The words are not recorded.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "compliance"
+    ],
+    "checked": "Earlier AI: \"Do not use anywhere (safety / who lives where).\"",
+    "status": "do-not-use",
+    "limits": "Never use on any page. Fair housing: safety and who lives where.",
+    "publishedOn": []
+  },
+  {
+    "id": "dollar-stores",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:72",
+    "verbatim": "- **Dollar stores are dense** compared to Maryland and Texas. Marginal; skip.",
+    "summary": "The owner and a co-worker see more dollar stores here than in Maryland and Texas.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "relocating",
+      "cost of living"
+    ],
+    "checked": "Earlier AI: \"Marginal; skip.\" No count was checked.",
+    "status": "usable-with-limits",
+    "limits": "The earlier pass judged it marginal and skipped it. No store count was verified. Do not use it to describe a neighbourhood.",
+    "publishedOn": []
+  },
+  {
+    "id": "new-hospital-nearby",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:73-75, 186-190",
+    "verbatim": "- **New hospital under construction; homes nearby \"will probably appreciate.\"** Publish the fact (which hospital, where, when) only. Never publish the appreciation prediction (A19, no forecasts). [...] - **Healthcare.** South-strand communities sit across from the rising South Strand Hospital site (shipped as fact + we-measure-drives offer). CUT:",
+    "summary": "A new hospital is under construction, and south-strand communities sit across from the South Strand Hospital site. The owner believes homes nearby \"will probably appreciate\".",
+    "places": [
+      "South Strand"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Check what is being built near a house, including hospitals.",
+    "topics": [
+      "relocating",
+      "healthcare",
+      "appreciation"
+    ],
+    "checked": "Earlier AI: publish the fact (which hospital, where, when) only. The appreciation prediction is never published (A19, no forecasts).",
+    "status": "usable-with-limits",
+    "limits": "State the hospital facts from a source. Never say nearby homes will appreciate.",
+    "publishedOn": [
+      "/buyers/relocating/healthcare/",
+      "/invest/what-is-being-built/"
+    ]
+  },
+  {
+    "id": "client-origins",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:86-90",
+    "verbatim": "Most clients are from **New York** and **North Carolina**, a few from **Ohio**. No state-specific client stories on file. Origin page order: NY, NC, OH, then",
+    "summary": "Most of the brokerage's relocating clients come from New York and North Carolina, and a few from Ohio. There were no state-specific client stories on file in August 2026.",
+    "places": [
+      "New York",
+      "North Carolina",
+      "Ohio"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "The site leads with the states most clients come from.",
+    "topics": [
+      "relocating"
+    ],
+    "checked": "Not checked. The owner's own client mix.",
+    "status": "usable-with-limits",
+    "limits": "State it as our clients' mix as of August 2026, not a market statistic. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/"
+    ]
+  },
+  {
+    "id": "name-and-founding",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:117-120",
+    "verbatim": "\"Chapter 3\" has no story (\"just sounded cool\"), and the brokerage is new. Owner said not to discuss founding. Neither appears on any page.",
+    "summary": "The name \"Chapter 3\" has no story, and the brokerage is new. The owner said not to discuss the founding.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "team and history"
+    ],
+    "checked": "Earlier AI: neither the name story nor the founding appears on any page.",
+    "status": "do-not-use",
+    "limits": "Owner instruction: do not discuss the founding or the name.",
+    "publishedOn": []
+  },
+  {
+    "id": "fred-nash-boulevard",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:121-126, 157-159",
+    "verbatim": "Tim's father, Fred Nash, sold real estate here before him. Fred Nash BOULEVARD (not Drive) is real: Horry County/SCDOT project by the airport, opened 2026-02. The claim that it is named FOR him is family knowledge, not independently verified, so the pages say the road \"carries the family name\", which is true under any resolution. If Tim produces the naming record, upgrade the sentence. [...] - **Fred Nash Boulevard naming CONFIRMED by owner:** named for Tim's father, who also sold real estate here. Author block upgraded from \"carries the family name\" to \"is named for him\" on every relocator page.",
+    "summary": "Tim Nash's father, Fred Nash, sold real estate here before him. Fred Nash Boulevard, by the airport, is named for him; the owner confirmed the naming on 2026-08-24.",
+    "places": [
+      "Myrtle Beach International Airport",
+      "Fred Nash Boulevard"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "road opened": "2026-02"
+    },
+    "lesson": "The broker's family has sold real estate in this market for two generations.",
+    "topics": [
+      "team and history"
+    ],
+    "checked": "Road verified as a Horry County/SCDOT project by the airport, opened 2026-02. The naming was family knowledge, then confirmed by the owner (line 157-159). Boulevard, not Drive.",
+    "status": "usable",
+    "limits": "Say Boulevard, not Drive.",
+    "publishedOn": [
+      "/about/",
+      "/buyers/relocating/beaches/",
+      "/buyers/relocating/cost-of-living/",
+      "/buyers/relocating/from-connecticut/",
+      "/buyers/relocating/from-florida/",
+      "/buyers/relocating/from-maryland/",
+      "/buyers/relocating/from-massachusetts/",
+      "/buyers/relocating/from-new-jersey/",
+      "/buyers/relocating/from-new-york/",
+      "/buyers/relocating/from-north-carolina/",
+      "/buyers/relocating/from-ohio/",
+      "/buyers/relocating/from-pennsylvania/",
+      "/buyers/relocating/from-virginia/",
+      "/buyers/relocating/getting-around/",
+      "/buyers/relocating/healthcare/",
+      "/buyers/relocating/hurricanes/",
+      "/buyers/relocating/jobs/",
+      "/buyers/relocating/moving-checklist/",
+      "/buyers/relocating/pros-and-cons/",
+      "/buyers/relocating/schools/",
+      "/buyers/relocating/weather/",
+      "/buyers/relocating/which-town/",
+      "/buyers/relocating/why-myrtle-beach/"
+    ]
+  },
+  {
+    "id": "nash-three-generations",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:980-986, 1033-1035",
+    "verbatim": "Q21 three generations: grandfather owned farms, restaurants and rental properties in Myrtle Beach; father a lifelong local agent; Tim 30+ years, plus an LO license held over a decade, two years in a real estate attorney&#39;s office, his own investments. \"theres none of this time spent in new york or colorodo... if it&#39;s impossible for anyone to know 100% about the myrtle beach and grand strand market than Chapter3 Realty is at 99% closer than any competitor in the area.\"",
+    "summary": "Tim Nash's grandfather owned farms, restaurants and rental properties in Myrtle Beach. His father was a lifelong local agent. Tim has 30+ years here, held a loan originator licence for over a decade, worked two years in a real estate attorney's office, and has his own investments.",
+    "places": [
+      "Myrtle Beach"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "Tim's years": "30+",
+      "loan originator licence": "over a decade",
+      "attorney's office": "two years"
+    },
+    "lesson": "The broker's experience is all in this one market.",
+    "topics": [
+      "team and history",
+      "brokerage service"
+    ],
+    "checked": "Earlier AI: the \"99% closer than any competitor\" line stays off the site (unsupportable superlative). The defensible version, every year of experience in this one market, is on /about/.",
+    "status": "usable-with-limits",
+    "limits": "Never use \"99% closer than any competitor\" or any superlative. Do not imply that Chapter3 lends because Tim held a loan licence. Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/about/",
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "tim-first-ten-minutes",
+    "type": "observation",
+    "teller": "Tim Nash",
+    "source": "research/relocating/owner-answers.md:92-95, 127-128",
+    "verbatim": "- **Tim's first ten minutes.** Shipped as a quote on pros-and-cons, with \"heaven on earth\" paraphrased out (metaphor rule).",
+    "summary": "Tim Nash told the owner what he says to every relocation client in the first ten minutes. It is published as a quote on the pros-and-cons page.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Tell buyers honestly whether what they want is here.",
+    "topics": [
+      "relocating",
+      "brokerage service"
+    ],
+    "checked": "Earlier AI: shipped as a quote, with \"heaven on earth\" paraphrased out (metaphor rule). Tim's original words are not in this file.",
+    "status": "usable-with-limits",
+    "limits": "Reuse only the wording already published on /buyers/relocating/pros-and-cons/. Do not rewrite it as a new Tim quote.",
+    "publishedOn": [
+      "/buyers/relocating/pros-and-cons/"
+    ]
+  },
+  {
+    "id": "ny-buyer-rules-fit",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:129-132",
+    "verbatim": "- **Biggest NY-buyer mistake.** As told, it was culture/personality matching with soccer moms and retirees as examples. NOT PUBLISHABLE, steering. Shipped as the rules-fit version (HOA covenants, boats, carts, rentals, pool), which the owner's own words also support.",
+    "summary": "The owner named the biggest mistake New York buyers make. The publishable version: check that the community's rules fit how you live, such as HOA covenants on boats, golf carts, rentals and pools.",
+    "places": [
+      "New York"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Read the HOA rules for boats, carts, rentals and pools before you buy.",
+    "topics": [
+      "relocating",
+      "HOA",
+      "buying"
+    ],
+    "checked": "Earlier AI: as told, it was about matching culture and personality. \"NOT PUBLISHABLE, steering.\" Shipped as the rules-fit version.",
+    "status": "usable-with-limits",
+    "limits": "Use only the rules-fit version. Never describe the people in a community.",
+    "publishedOn": [
+      "/buyers/relocating/from-new-york/"
+    ]
+  },
+  {
+    "id": "ohio-move",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:133-136, 154-156",
+    "verbatim": "- **Devin's move.** Ohio, three years ago. Shocked by the annual vehicle tax (cars, boats, campers confirmed at Horry Auditor pages and now cited), cheaper gas his favorite change, missed the 45-day license window, found the parking decal in year two. All shipped, labelled as his. [...] - **Devin origin:** Pleasant City, Guernsey County, Ohio, village of about 400 (population verified against census sources). First SC vehicle bill $325 plus the $250 one-time fee and $50 road fee. Shipped on from-ohio, labelled his.",
+    "summary": "The owner moved from Pleasant City, a village of about 400 in Guernsey County, Ohio, about three years before August 2026. The yearly vehicle tax surprised him: his first bill was $325 plus the $250 one-time fee and the $50 road fee. He missed the 45-day licence window and found the parking decal in his second year.",
+    "places": [
+      "Pleasant City, Ohio",
+      "Guernsey County, Ohio"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "first vehicle bill": "$325",
+      "one-time fee": "$250",
+      "road fee": "$50",
+      "licence window": "45 days",
+      "village population": "about 400"
+    },
+    "lesson": "Register the car and get the licence inside 45 days, and expect a yearly vehicle tax bill.",
+    "topics": [
+      "relocating",
+      "taxes",
+      "cost of living"
+    ],
+    "checked": "Vehicle tax on cars, boats and campers confirmed at Horry County Auditor pages. Village population verified against census sources. The $325 bill is his own.",
+    "status": "usable-with-limits",
+    "limits": "Do not name Devin in the copy; tell it as \"one of our team\" or keep it to the author note (owner, 2026-10-05). \"Three years ago\" was true in August 2026; let the build set any date. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/cost-of-living/",
+      "/buyers/relocating/from-ohio/",
+      "/buyers/relocating/moving-checklist/"
+    ]
+  },
+  {
+    "id": "ny-client-tax-drop",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:139-143",
+    "verbatim": "- **NY client tax story.** $1M house, $20k+ tax -> $700k house, ~$3,200 tax. Shipped on from-new-york, rounded, labelled one household, \"not a promise\". The \"also saved on insurance\" clause was CUT: it contradicts the site's own verified warning that coastal insurance usually goes UP, and one household cannot carry that claim.",
+    "summary": "A New York client household sold a $1M house with $20k+ a year in property tax and bought a $700k house here with about $3,200 in tax.",
+    "places": [
+      "New York"
+    ],
+    "propertyType": "single-family house",
+    "numbers": {
+      "old house": "$1M",
+      "old tax": "$20k+",
+      "new house": "$700k",
+      "new tax": "~$3,200"
+    },
+    "lesson": "Property tax on a main home here can be a small fraction of a New York bill.",
+    "topics": [
+      "relocating",
+      "taxes"
+    ],
+    "checked": "Shipped on from-new-york, rounded, labelled one household, \"not a promise\". The \"also saved on insurance\" clause was cut: it contradicts the site's verified warning that coastal insurance usually goes up.",
+    "status": "usable-with-limits",
+    "limits": "Round the numbers, label them one household and not a promise. Never say they saved on insurance.",
+    "publishedOn": [
+      "/buyers/relocating/from-new-york/"
+    ]
+  },
+  {
+    "id": "ny-client-boat",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:196-198",
+    "verbatim": "NY clients bought North Myrtle Beach beachfront near the waterway for their boat (shipped on from-new-york and referenced).",
+    "summary": "New York clients bought beachfront in North Myrtle Beach near the waterway, so they could finally use their boat.",
+    "places": [
+      "North Myrtle Beach",
+      "Intracoastal Waterway"
+    ],
+    "propertyType": "beachfront house",
+    "numbers": {},
+    "lesson": "Buyers with a boat should look near the waterway.",
+    "topics": [
+      "relocating",
+      "lifestyle",
+      "buying"
+    ],
+    "checked": "Not checked. Shipped on from-new-york. The source does not say whether this is the same household as the tax story.",
+    "status": "usable-with-limits",
+    "limits": "No names. Do not merge it with the tax story unless the owner confirms it is the same household. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/from-new-york/",
+      "/buyers/relocating/which-town/"
+    ]
+  },
+  {
+    "id": "schools-zone-edge-family",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:147-149",
+    "verbatim": "- **Schools story.** CCU family, zone-edge houses, address-by-address lookup with no opinions. Shipped on schools as told; it is the compliant process working, which is the page's whole argument.",
+    "summary": "A family moved here because their oldest child was starting at Coastal Carolina University and the younger child still needed a school. The houses they liked sat near a zone edge. The agents checked each address against the district lookup and gave no opinion on any school.",
+    "places": [
+      "Coastal Carolina University"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Confirm the school zone for the exact address; the brokerage gives no school opinions.",
+    "topics": [
+      "relocating",
+      "schools"
+    ],
+    "checked": "Shipped on the schools page \"as told\"; the earlier AI notes it is the compliant process at work.",
+    "status": "usable",
+    "limits": "Never rate a school or say which zone to want.",
+    "publishedOn": [
+      "/buyers/relocating/schools/"
+    ]
+  },
+  {
+    "id": "nc-client-build-longs",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:162-165, 196-197",
+    "verbatim": "- **NC client story shipped** (construction build, land + builder + BrickWood financing, cleaning business expansion). BrickWood is named, so the page carries an inline RESPA AfBA pointer in addition to the footer disclosure. No builder named. \"Cheaper build costs\" NOT stated as fact. [...] NC build clients bought in LONGS (shipped, also added to the NC story);",
+    "summary": "North Carolina clients built a new house: they bought land in Longs, used a builder and BrickWood financing, and expanded their cleaning business here.",
+    "places": [
+      "Longs"
+    ],
+    "propertyType": "new construction",
+    "numbers": {},
+    "lesson": "Buying land and building is a real path for movers who want a house to their own plan.",
+    "topics": [
+      "relocating",
+      "new construction",
+      "jobs"
+    ],
+    "checked": "Shipped on from-north-carolina with an inline RESPA AfBA pointer. No builder named. \"Cheaper build costs\" not stated as fact.",
+    "status": "usable-with-limits",
+    "limits": "No builder named. Never claim build costs are cheaper. BrickWood Mortgage is named only with the inline RESPA AfBA disclosure; otherwise say \"our preferred lender\".",
+    "publishedOn": [
+      "/buyers/relocating/from-north-carolina/"
+    ]
+  },
+  {
+    "id": "nj-holdback",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:166-168",
+    "verbatim": "- **NJ 2% holdback claim VERIFIED at the owner's request:** it is an estimated prepayment reconciled and refunded on the nonresident return, per the state bulletin already cited on the page. Experience line added.",
+    "summary": "The owner said New Jersey holds back 2% when a nonresident sells. It is an estimated prepayment that is reconciled and refunded on the nonresident return.",
+    "places": [
+      "New Jersey"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "holdback": "2%"
+    },
+    "lesson": "New Jersey sellers get the holdback back through the nonresident return.",
+    "topics": [
+      "relocating",
+      "taxes",
+      "selling"
+    ],
+    "checked": "Verified by the earlier AI against the state bulletin cited on the page.",
+    "status": "usable",
+    "limits": "Cite the New Jersey bulletin with it.",
+    "publishedOn": [
+      "/buyers/relocating/from-new-jersey/"
+    ]
+  },
+  {
+    "id": "pa-buyers-retirees",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:169-171",
+    "verbatim": "- **PA:** most PA buyers are retirees (owner-stated mix, shipped); job-hunt help for arriving clients shipped. \"Party city\" and price comparisons to unnamed competitor towns NOT used.",
+    "summary": "Most of the brokerage's Pennsylvania buyers are retirees. The team also helps arriving clients look for work.",
+    "places": [
+      "Pennsylvania"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "relocating",
+      "jobs"
+    ],
+    "checked": "Shipped as the owner-stated mix. \"Party city\" and price comparisons to unnamed competitor towns were not used.",
+    "status": "usable-with-limits",
+    "limits": "State it as our buyers' mix only. Never use it to point anyone to or away from an area. No competitor-town comparisons. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/from-pennsylvania/"
+    ]
+  },
+  {
+    "id": "nicer-culture",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:172",
+    "verbatim": "- **CUT:** \"nicer culture\" (people-characterization, same rule as always).",
+    "summary": "The owner said the culture here is nicer.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "compliance"
+    ],
+    "checked": "Earlier AI: cut, people characterization.",
+    "status": "do-not-use",
+    "limits": "Never describe people or culture as better or worse.",
+    "publishedOn": []
+  },
+  {
+    "id": "jobs-within-two-months",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:176-180",
+    "verbatim": "Most buyers arrive and find work in a month or two (shipped, labelled our-clients experience, not a promise). Fields seen: child protective services, stores, welding; split-year north/south work; remote.",
+    "summary": "Most of the brokerage's buyers arrive and find work within a month or two. Fields seen: child protective services, stores, welding, split-year work north and south, and remote work.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "time to find work": "a month or two"
+    },
+    "lesson": "Most movers in our files found work fast.",
+    "topics": [
+      "relocating",
+      "jobs"
+    ],
+    "checked": "Shipped labelled as our clients' experience, not a promise. \"Lots of jobs\" was replaced with QCEW growth 9.1% vs 5.1% and a Census rank.",
+    "status": "usable-with-limits",
+    "limits": "Label it our clients' experience, not a promise. Do not say \"lots of jobs\" without the sourced statistics. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/jobs/"
+    ]
+  },
+  {
+    "id": "cps-client-hired",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:181-183",
+    "verbatim": "the child-protective-services client hired a month after applying during a visit (BrickWood financed, so the jobs page carries the inline AfBA pointer)",
+    "summary": "A client applied for a child protective services job during a visit and was hired a month later. Their purchase was financed through BrickWood.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "time to hire": "a month after applying"
+    },
+    "lesson": "Applying for jobs during a house-hunting visit can shorten the move.",
+    "topics": [
+      "relocating",
+      "jobs"
+    ],
+    "checked": "Shipped on the jobs page with the inline AfBA pointer.",
+    "status": "usable-with-limits",
+    "limits": "No name. BrickWood Mortgage is named only with the inline RESPA AfBA disclosure; otherwise say \"our preferred lender\". Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/jobs/"
+    ]
+  },
+  {
+    "id": "veteran-alternating-weeks",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:183-184",
+    "verbatim": "the veteran working alternating weeks in New York.",
+    "summary": "A veteran client lives here and works his New York job in alternating weeks.",
+    "places": [
+      "New York"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Some buyers keep a northern job and commute by air in alternating weeks.",
+    "topics": [
+      "relocating",
+      "jobs",
+      "getting around"
+    ],
+    "checked": "Shipped on the jobs page.",
+    "status": "usable-with-limits",
+    "limits": "No name. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/getting-around/",
+      "/buyers/relocating/jobs/"
+    ]
+  },
+  {
+    "id": "family-business-income-history",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:184-185",
+    "verbatim": "Devin's MLO note on family-business hires needing up to two years of income history shipped, phrased qualitatively.",
+    "summary": "Someone hired by a family business may need up to two years of income history before a lender will count the income.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "income history": "up to two years"
+    },
+    "lesson": "A job with a family business can delay a mortgage approval.",
+    "topics": [
+      "relocating",
+      "jobs",
+      "financing"
+    ],
+    "checked": "Shipped phrased qualitatively.",
+    "status": "usable-with-limits",
+    "limits": "Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page. Keep it qualitative as published.",
+    "publishedOn": [
+      "/buyers/relocating/jobs/"
+    ]
+  },
+  {
+    "id": "health-framing-cut",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:188-190",
+    "verbatim": "CUT: \"people with medical issues love this area\" framing (health condition is disability-adjacent; service-offer framing used instead) and the \"7-10 minutes\" NMB figure (unverified, garbled in the note).",
+    "summary": "The owner said people with medical issues love this area, and gave a 7 to 10 minute North Myrtle Beach drive figure.",
+    "places": [
+      "North Myrtle Beach"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "drive time": "7-10 minutes"
+    },
+    "lesson": "",
+    "topics": [
+      "compliance",
+      "healthcare"
+    ],
+    "checked": "Earlier AI: the framing is disability-adjacent and was cut; the 7-10 minute figure was \"unverified, garbled in the note\".",
+    "status": "do-not-use",
+    "limits": "Never market to health conditions. Never use the 7 to 10 minute figure.",
+    "publishedOn": []
+  },
+  {
+    "id": "murrells-inlet-team-choice",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:191-194",
+    "verbatim": "Devin and Abdulla both chose Murrells Inlet; Devin's routine (office, Market Common, Barnes & Noble, Fitness Edge MMA in Carolina Forest) and Abdulla's (Crunch by the mall) shipped as the authors-chose-their-own-town section.",
+    "summary": "Two members of the team both chose to live in Murrells Inlet. One works out of the office, Market Common, Barnes & Noble and Fitness Edge MMA in Carolina Forest; the other goes to Crunch by the mall.",
+    "places": [
+      "Murrells Inlet",
+      "Market Common",
+      "Carolina Forest"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "People who could live anywhere here picked Murrells Inlet.",
+    "topics": [
+      "relocating",
+      "lifestyle",
+      "team and history"
+    ],
+    "checked": "Shipped on which-town as the authors-chose-their-own-town section.",
+    "status": "usable-with-limits",
+    "limits": "Do not name Devin in the copy; tell it as \"one of our team\" or keep it to the author note (owner, 2026-10-05). Ask the owner before naming Abdulla in a story. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/which-town/"
+    ]
+  },
+  {
+    "id": "age-areas-cut",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:199-202, 207-208",
+    "verbatim": "CUT: \"no shortage of younger people near the college/gyms\" and any young-areas/old-areas mapping — that is demographic steering; the legal county-wide stat carries the correction instead. Owner asked if the age line was legal: answered in chat, no. [...] stats. CUT: his observation that ages mix in Maryland but separate here (same steering rule as above).",
+    "summary": "The owner said there is no shortage of younger people near the college and gyms, and a colleague said ages mix in Maryland but separate here.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "compliance"
+    ],
+    "checked": "Earlier AI: demographic steering, cut. The owner asked if the age line was legal; answered no.",
+    "status": "do-not-use",
+    "limits": "Never map ages, families or any group to areas.",
+    "publishedOn": []
+  },
+  {
+    "id": "maryland-transplant",
+    "type": "observation",
+    "teller": "unknown",
+    "source": "research/relocating/owner-answers.md:203-206",
+    "verbatim": "- **Maryland.** Colleague moved from Clarksville and Columbia (Howard County). Shipped as his labelled observations: farm stands and butchers fill the organic gap the stores leave; many more motorcycles in summer (Devin rides too, shipped); construction everywhere, tied to the growth",
+    "summary": "A colleague who moved from Clarksville and Columbia in Howard County, Maryland says farm stands and butchers fill the organic gap the stores leave, there are many more motorcycles in summer, and construction is everywhere. The owner rides a motorcycle too.",
+    "places": [
+      "Clarksville, Maryland",
+      "Columbia, Maryland",
+      "Howard County, Maryland"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Movers find organic food at farm stands and butchers rather than in stores.",
+    "topics": [
+      "relocating",
+      "lifestyle",
+      "cost of living"
+    ],
+    "checked": "Shipped on from-maryland as his labelled observations. His line about ages was cut.",
+    "status": "usable-with-limits",
+    "limits": "Label it as one transplant's observations. The colleague's role and name are not recorded. Never use the age comparison. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/from-maryland/",
+      "/buyers/relocating/weather/",
+      "/buyers/relocating/why-myrtle-beach/"
+    ]
+  },
+  {
+    "id": "tim-hurricane-hugo",
+    "type": "story",
+    "teller": "Tim Nash",
+    "source": "research/relocating/owner-answers.md:212-239",
+    "verbatim": "- Family evacuated to Augusta, GA, leaving ~3-4 p.m., about 5 hours ahead of the outer bands. Eye hit McClellanville ~midnight. Waited in a hotel; returned at checkout time. - Socastee bridge: National Guard turning people back; father was EMS, let through. - Home: power, water, telephone all out. Father had filled bathtubs + two 50-gallon barrels before leaving. Power out ~2 weeks; daily water pickup at town hall about as long. - Dirt bike ride up the beach 5 miles north to grandmother's oceanfront house, south end Myrtle Beach: houses and pier pieces strung down the beach, dead fish everywhere, campers piled in her front yard; house stood, flood water had filled and drained. National Guard sent him home.",
+    "summary": "In September 1989 Tim Nash's family evacuated to Augusta, Georgia ahead of Hurricane Hugo. On return, power was out about two weeks and water was picked up daily at town hall. He rode a dirt bike five miles up the beach to his grandmother's oceanfront house at the south end of Myrtle Beach; it stood, but flood water had filled and drained it.",
+    "places": [
+      "Augusta, Georgia",
+      "McClellanville",
+      "Socastee",
+      "Myrtle Beach"
+    ],
+    "propertyType": "oceanfront house",
+    "numbers": {
+      "left": "~3-4 p.m., about 5 hours ahead of the outer bands",
+      "power out": "~2 weeks",
+      "barrels": "two 50-gallon barrels",
+      "ride": "5 miles north"
+    },
+    "lesson": "Even a near miss leaves weeks without power and water, so plan for it.",
+    "topics": [
+      "relocating",
+      "hurricanes",
+      "team and history"
+    ],
+    "checked": "Record check at weather.gov: landfall near Sullivan's Island, 140 mph; Myrtle Beach about 52 mph sustained / 76 mph gusts. His wind numbers (18+ ft, 135 mph, \"not much worse than 100\") are NOT published; the NWS figures are used instead. Open item: Tim to confirm which town hall and the five-miles-north geography.",
+    "status": "usable-with-limits",
+    "limits": "Never use his wind or surge figures; use the NWS record. No similes (\"war zone\", \"toothpicks\"). The one cleared direct quote: \"We were lucky. One shift north of 50 miles and nothing would have been left here.\" Label it his recollection.",
+    "publishedOn": [
+      "/buyers/relocating/hurricanes/"
+    ]
+  },
+  {
+    "id": "virginia-beach-comparison",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:246-249",
+    "verbatim": "- VA: Virginia Beach client comparison (\"much bigger... entertainment scene many times ours\" — his \"10x\" softened to \"many times,\" unverified ratio), respect-for- Virginia/military-careers framing, growing-quickly/money-goes-further, \"Nobody here parties like Miami... enjoying their money\" as attributed client line.",
+    "summary": "Clients from Virginia compare Virginia Beach as much bigger, with an entertainment scene many times this one. One client line: nobody here parties like Miami, but people here are enjoying their money.",
+    "places": [
+      "Virginia Beach",
+      "Virginia"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Movers from Virginia trade a bigger city scene for a quieter, cheaper one.",
+    "topics": [
+      "relocating",
+      "lifestyle"
+    ],
+    "checked": "His \"10x\" was softened to \"many times\" (unverified ratio).",
+    "status": "usable-with-limits",
+    "limits": "Never say \"10x\". Attribute the Miami line to a client. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/from-virginia/",
+      "/buyers/relocating/why-myrtle-beach/"
+    ]
+  },
+  {
+    "id": "connecticut-movers",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:250-252, 387-388",
+    "verbatim": "- CT: praise-what-they-leave (historic towns kept, \"safe\" CUT), winters, \"prices they describe as getting out of hand\" (attributed), more beach/more room; the landing-strip friends (acreage + pilot licenses) with Longs/Conway pointer.",
+    "summary": "Connecticut movers praise the historic towns they leave, mention the winters, describe prices \"getting out of hand\", and want more beach and more room. Two friends with acreage and pilot licences were pointed to Longs and Conway.",
+    "places": [
+      "Connecticut",
+      "Longs",
+      "Conway"
+    ],
+    "propertyType": "acreage",
+    "numbers": {},
+    "lesson": "Movers from Connecticut want room and beach without losing what they liked about home.",
+    "topics": [
+      "relocating",
+      "lifestyle"
+    ],
+    "checked": "\"Safe\" was cut. The landing-strip paragraph was later deleted from the Connecticut page (line 387); the reason is not recorded.",
+    "status": "usable-with-limits",
+    "limits": "Never call any place safe. Attribute the price line to movers. Ask the owner before reusing the landing-strip friends.",
+    "publishedOn": [
+      "/buyers/relocating/from-connecticut/"
+    ]
+  },
+  {
+    "id": "boston-hotel-manager",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:253-259, 280-283, 299-301",
+    "verbatim": "$100k saved / $450k sale / 3 condos in one unnamed oceanfront building / $120k gross, ~half profit, LABELED \"his numbers... not a promise, not advice, not a typical result,\" [...] - MA story: emotional rewrite, \"his real numbers, from a real story... not a promise\" (owner cut the longer disclaimer), \"helps manage fourteen units\" (owner-approved phrasing; \"helps\" retained for the licensing question).",
+    "summary": "A friend who ran a Boston hotel retired with about $100,000 saved, sold his Massachusetts house for about $450,000, and bought three condos in one oceanfront building. They gross about $120,000, roughly half of it profit. He now helps manage fourteen units.",
+    "places": [
+      "Boston",
+      "Massachusetts"
+    ],
+    "propertyType": "oceanfront condo",
+    "numbers": {
+      "savings": "$100k",
+      "house sale": "$450k",
+      "condos bought": "3",
+      "gross": "$120k",
+      "profit": "~half",
+      "units he helps manage": "fourteen"
+    },
+    "lesson": "A northern home sale can fund several income condos here.",
+    "topics": [
+      "relocating",
+      "short-term rentals",
+      "condos"
+    ],
+    "checked": "Hotel brand withheld for privacy. The 14-condo scale was cut over a SC property management licensing question; the owner later approved \"helps manage fourteen units\". Open item: confirm he is properly licensed before adding scale numbers.",
+    "status": "usable-with-limits",
+    "limits": "Never name the hotel brand or the building. Say \"helps manage fourteen units\" and nothing larger. Label \"his real numbers, from a real story, not a promise\".",
+    "publishedOn": [
+      "/buyers/relocating/from-massachusetts/",
+      "/buyers/relocating/why-myrtle-beach/"
+    ]
+  },
+  {
+    "id": "beach-character",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:260-263",
+    "verbatim": "- Beaches: downtown-social ( ~$10 all-day parking, volleyball, boardwalk), Cherry Grove quiet (free-ish parking, Heritage Shores preserve trails + the point walk), Surfside via the TOWN'S OWN \"Family Beach\" branding, Devin's dog passage, licensed chair/umbrella stands note, September month.",
+    "summary": "Downtown Myrtle Beach is the social beach, with about $10 all-day parking, volleyball and the boardwalk. Cherry Grove is quieter, with cheaper parking, Heritage Shores preserve trails and the point walk. Surfside uses its own \"Family Beach\" branding.",
+    "places": [
+      "Myrtle Beach",
+      "Cherry Grove",
+      "Surfside Beach"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "downtown all-day parking": "~$10"
+    },
+    "lesson": "Each beach town has a different pace and parking cost.",
+    "topics": [
+      "relocating",
+      "beaches",
+      "lifestyle"
+    ],
+    "checked": "Surfside \"just families / nicest people / mainly locals\" was cut; the town's own registered Family Beach branding is used instead. Rule: \"describe the sand, never the demographic.\"",
+    "status": "usable-with-limits",
+    "limits": "Describe the beach, never who is on it. Check the parking price before stating it. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/beaches/"
+    ]
+  },
+  {
+    "id": "surfside-families-cut",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:274-277",
+    "verbatim": "4. Surfside \"just families and their kids / nicest people / mainly locals\" — familial-status steering risk; replaced with the town's own registered Family Beach branding + activity/pace description. Rule: describe the sand, never the demographic.",
+    "summary": "The owner described Surfside as just families and their kids, the nicest people, mainly locals.",
+    "places": [
+      "Surfside Beach"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "compliance",
+      "beaches"
+    ],
+    "checked": "Earlier AI: familial-status steering risk, cut.",
+    "status": "do-not-use",
+    "limits": "Never describe who lives in or visits a place.",
+    "publishedOn": []
+  },
+  {
+    "id": "safer-cleaner-healthier-cut",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:270-279, 284",
+    "verbatim": "1. \"South Carolina is safer\" — safety/crime characterization = fair-housing steering exposure on a brokerage site. NEVER publish comparative safety. 2. CT \"safe... cities\" — same family; historic/beautiful kept. 3. \"beaches with less pollution\" — unverifiable comparative disparagement. [...] 5. \"sunnier weather makes people feel healthier\" — health claim; kept as \"want more of the year outdoors.\" [...] 7. DoubleTree fiber-convention memory — unverifiable, fails buyer test.",
+    "summary": "The owner said South Carolina is safer, Connecticut cities are safe, the beaches have less pollution, sunnier weather makes people feel healthier, and recalled a DoubleTree fiber convention.",
+    "places": [
+      "South Carolina",
+      "Connecticut"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "compliance"
+    ],
+    "checked": "Earlier AI: safety comparisons are fair-housing steering exposure; pollution is unverifiable comparative disparagement; the health line is a health claim; the convention memory is unverifiable.",
+    "status": "do-not-use",
+    "limits": "Never compare safety or pollution, never make a health claim, never use the convention memory.",
+    "publishedOn": []
+  },
+  {
+    "id": "remote-workers-half",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:264-267",
+    "verbatim": "- Jobs remote: \"about half of the buyers who come to us from the northern states arrive with a remote job\" (his stat, attributed to our buyers), Starlink availability, fiber building push (qualitative), team-carriers-no-problems + \"Devin's phone held through Debby\" (carrier name Cricket withheld — no need).",
+    "summary": "About half of the buyers who come to the brokerage from the northern states arrive with a remote job. The team has had no problems on several carriers, and the owner's phone held through Tropical Storm Debby.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "buyers with a remote job": "about half of northern buyers"
+    },
+    "lesson": "Many movers bring their job with them, and mobile service here holds up.",
+    "topics": [
+      "relocating",
+      "jobs",
+      "hurricanes"
+    ],
+    "checked": "His statistic, attributed to our buyers. Carrier name withheld.",
+    "status": "usable-with-limits",
+    "limits": "Attribute it to our buyers. Do not name the carrier. Do not name Devin in the copy; tell it as \"one of our team\" or keep it to the author note (owner, 2026-10-05).",
+    "publishedOn": [
+      "/buyers/relocating/jobs/"
+    ]
+  },
+  {
+    "id": "garden-city-winter-cart",
+    "type": "story",
+    "teller": "unknown",
+    "source": "research/relocating/owner-answers.md:347-356",
+    "verbatim": "The winter cart season is now told as a story instead: cooler and buckets in the cart, down onto the sand at Garden City, empty beach, sandcastles, lunch, an hour watching the waves. All the rules that were in the figure stay in the paragraph above it (permit, licensed driver, November 1 to February 28, county beaches only, cities never).",
+    "summary": "In the winter cart season a family loads a cooler and buckets into a golf cart, drives onto the sand at Garden City, and spends the day on an empty beach. Carts are allowed on county beaches from November 1 to February 28 with a permit and a licensed driver; never in the cities.",
+    "places": [
+      "Garden City"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "season": "November 1 to February 28"
+    },
+    "lesson": "In winter you can drive a permitted golf cart onto county beaches.",
+    "topics": [
+      "relocating",
+      "beaches",
+      "lifestyle"
+    ],
+    "checked": "The rules were in the earlier figure and are on the page. The source does not say whether the scene happened or who told it.",
+    "status": "usable-with-limits",
+    "limits": "Treat it as an illustration, not a client story, unless the owner says it happened. Verify the permit rules each season.",
+    "publishedOn": [
+      "/buyers/relocating/beaches/"
+    ]
+  },
+  {
+    "id": "northern-pay-higher-end",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:357-361",
+    "verbatim": "Replaced with the plain statement he dictated: hold northern pay and live here and you are earning at the higher end of wages in this market.",
+    "summary": "If you keep northern pay and live here, you earn at the higher end of wages in this market.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Remote workers with northern salaries earn near the top of the local scale.",
+    "topics": [
+      "relocating",
+      "jobs",
+      "cost of living"
+    ],
+    "checked": "Owner-dictated replacement for an index comparison.",
+    "status": "usable-with-limits",
+    "limits": "No index math beside it. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/buyers/relocating/jobs/"
+    ]
+  },
+  {
+    "id": "same-house-for-less",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:467-478, 513-520",
+    "verbatim": "- \"Plus you can get the same house for less money here, that's a lower mortgage and insurance.\" Half of that is published as he said it; half is not, and [...] \"Plus lower gas and groceries and insurance. What do you think?\"",
+    "summary": "The owner says buyers get the same house for less here, so the loan is smaller. He also said gas, groceries and insurance are lower.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "The same house costs less here, so you borrow less.",
+    "topics": [
+      "relocating",
+      "cost of living",
+      "insurance",
+      "financing"
+    ],
+    "checked": "Earlier AI: \"borrow less\" is published (loan size, allowed). \"Insurance is not claimed as lower\": the site's coastal insurance page puts Myrtle Beach among the highest in the state. Gas and groceries are claimed per state only where the data supports it; Connecticut gets neither.",
+    "status": "usable-with-limits",
+    "limits": "Never say insurance is lower. No payment amount. Claim lower gas or groceries only for states where the data shows it.",
+    "publishedOn": [
+      "/buyers/relocating/from-florida/"
+    ]
+  },
+  {
+    "id": "insurance-quote-before-offer",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:887-892",
+    "verbatim": "*\"just talk about the averages ... on average is the insurance cheaper here than in Florida and by how much ... don't mention on this page that we wont promise lower insurance just give them the numbers for a point of reference and say that we can get them a insurance quote before they make an offer on a house if they use Chapter3 Realty.\"*",
+    "summary": "The owner wants buyers told that Chapter3 can get them an insurance quote before they make an offer on a house.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Get the insurance quote before you write the offer.",
+    "topics": [
+      "insurance",
+      "buying",
+      "brokerage service"
+    ],
+    "checked": "Shipped on from-florida. The batch 4 insurance page carries the same offer (batch4 line 394).",
+    "status": "usable",
+    "limits": "Do not name an insurance agent or company (no AfBA).",
+    "publishedOn": [
+      "/buyers/relocating/from-new-york/",
+      "/invest/landlord-insurance/"
+    ]
+  },
+  {
+    "id": "client-200-properties-1031",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:951, 1024-1025",
+    "verbatim": "one gentleman we work with owns over 200 properties after one of his properties no longer deliver on depreciation he sells it and uses the proceeds to upgrade using a 10-31 exchange. [...] Q24: the 200-property client is New York based, longtime Tim customer, mostly condos.",
+    "summary": "A New York based investor, a longtime customer of Tim Nash, owns over 200 properties, mostly condos. When a property no longer gives him depreciation, he sells it and uses a 1031 exchange to upgrade.",
+    "places": [
+      "New York"
+    ],
+    "propertyType": "condo",
+    "numbers": {
+      "properties owned": "over 200"
+    },
+    "lesson": "Investors use 1031 exchanges to move out of properties whose depreciation has run out.",
+    "topics": [
+      "1031 exchange",
+      "condos",
+      "rentals"
+    ],
+    "checked": "Depreciation trigger verified against IRS Pub 527 (27.5 years, carried basis). Q24 answered the state and the client type.",
+    "status": "usable-with-limits",
+    "limits": "No name. He is Tim's customer from before Chapter3, so tell it as Tim's client, not \"we\" (PLAYBOOK A11e).",
+    "publishedOn": [
+      "/invest/strategies/1031-exchange/"
+    ]
+  },
+  {
+    "id": "strategy-mix",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:951, 1005-1006",
+    "verbatim": "Many investors sell in expensive markets and buy in high-growth, lower-cost states. Myrtle beach fits this profile perfectly and so 10-31 is one of the biggest types of investors that we work with [...] Q2: all six happen; DSCR and 1031 most common; BRRRR scarcest (specific property is rare). Q3: northern investors buying high-appreciation areas and",
+    "summary": "Many investors sell in expensive markets and buy in lower-cost, high-growth states, and 1031 buyers are one of the biggest groups the brokerage works with. All six strategies happen here; DSCR and 1031 are the most common, and BRRRR is the scarcest because the right property is rare.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "DSCR and 1031 buyers are the most common investors here; BRRRR deals are rare.",
+    "topics": [
+      "1031 exchange",
+      "DSCR",
+      "BRRRR",
+      "rentals"
+    ],
+    "checked": "Softened to \"1031 replacement buyers are one of the largest groups of investors we work with\" (superlatives need support).",
+    "status": "usable-with-limits",
+    "limits": "Never say \"best brokerage\" or \"better than any brokerage\".",
+    "publishedOn": [
+      "/invest/strategies/1031-exchange/",
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "1031-team-speed",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:951",
+    "verbatim": "The team of real estate agents lending partners insurance and close knit legal partners allow us to move very quickly and avoid being late on the 180 or 45 day rule this is important because the IRS almost never grants extensions, except in declared federal disasters",
+    "summary": "The brokerage's agents, lending partners, insurance and legal partners let a 1031 buyer move quickly and avoid missing the 45-day and 180-day deadlines. The IRS almost never grants extensions except in declared federal disasters.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "deadlines": "45 and 180 days"
+    },
+    "lesson": "Start the replacement search early, because the 45-day deadline is the tight one.",
+    "topics": [
+      "1031 exchange",
+      "brokerage service"
+    ],
+    "checked": "The extension point matches the IRS fact sheet \"in nearly the same words\", cited on the page.",
+    "status": "usable-with-limits",
+    "limits": "Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page. Do not name the partners.",
+    "publishedOn": [
+      "/invest/strategies/1031-exchange/"
+    ]
+  },
+  {
+    "id": "cap-rate-not-finishes",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:951",
+    "verbatim": "Most companies train agents to find like kind properties by identifying expensive floors or counters rather than the cap rate and tenant history. We understand better than any brokerage in the area that this is not your primary residence and is an investment and needs expert knowledge and analysis.",
+    "summary": "The owner says a replacement property should be judged on cap rate and tenant history, not on floors and counters, because it is an investment, not a home.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Judge a rental by cap rate and tenant history, not finishes.",
+    "topics": [
+      "1031 exchange",
+      "rentals"
+    ],
+    "checked": "Softened: the swipe at other companies' training became what we do, with no competitor mentioned.",
+    "status": "usable-with-limits",
+    "limits": "Never mention other companies. No \"better than any brokerage\".",
+    "publishedOn": [
+      "/invest/strategies/1031-exchange/"
+    ]
+  },
+  {
+    "id": "reo-discount-observation",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:953, 1022-1024, 1205-1206",
+    "verbatim": "one of the best places to find eligible BRRRR properties is from bank owned properties where you can take advantage of an average 17.34% below market value discounts Myrtle beach's Real estate owned average discount is lower than the average because the amount of foreclosures is less than average and competition is consistent.",
+    "summary": "Bank-owned homes are one of the best sources for BRRRR. The owner gives an average discount of 17.34% below market value, and says the Myrtle Beach bank-owned discount is lower than that average because foreclosures are fewer and competition is steady.",
+    "places": [
+      "Myrtle Beach"
+    ],
+    "propertyType": "bank-owned home",
+    "numbers": {
+      "average bank-owned discount": "17.34%"
+    },
+    "lesson": "Bank-owned homes are a source of discounted rentals, but the local discount is thinner.",
+    "topics": [
+      "BRRRR",
+      "foreclosures",
+      "rentals"
+    ],
+    "checked": "No public source found. Q22: the 17.34% and 22.32% figures are \"our own observation\" and were published with that attribution. The owner later had the \"gap here is usually thinner\" sentence deleted from the BRRRR page (line 1205).",
+    "status": "usable-with-limits",
+    "limits": "Attribute it as Chapter3's own observation. Do not restate the \"thinner here\" sentence the owner deleted.",
+    "publishedOn": [
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "distressed-condo-discount",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:953, 988-991, 1024",
+    "verbatim": "condo units that are in a stable building but with a distressed owner the condo building distressed purchases averaging a discount of 22.32% given the larger supply of condos and half of investors not wanting to purchase in a condo building. These ocean front condos are a gem the its easier to pass the 70% rule when you already have a discount before ARV. [...] Q23 condo BRRRR: \"just because the previous owner lost their house or trashed their house doesn&#39;t mean its not warrantable these condos are still warrantable but that individual unit was mismanaged which gives you that market value discount.\"",
+    "summary": "Distressed-owner condos in stable buildings average a 22.32% discount, because condo supply is large and half of investors do not want to buy in a condo building. The building stays warrantable; only the one unit was mismanaged.",
+    "places": [
+      "Myrtle Beach"
+    ],
+    "propertyType": "oceanfront condo",
+    "numbers": {
+      "average distressed condo discount": "22.32%",
+      "investors avoiding condos": "half"
+    },
+    "lesson": "A distressed owner in a sound building can give a discount without a financing problem.",
+    "topics": [
+      "BRRRR",
+      "condos",
+      "foreclosures"
+    ],
+    "checked": "Q22: his own observation, published with that attribution. Q23 answered the refinance concern.",
+    "status": "usable-with-limits",
+    "limits": "Attribute 22.32% as Chapter3's own observation. Do not use \"gem\". Do not state \"half of investors\" as a statistic.",
+    "publishedOn": [
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "brrrr-target-areas",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:953",
+    "verbatim": "Most top BRRRR contenders are either lower value homes inland towards longs or little river and or condo units that are in a stable building but with a distressed owner",
+    "summary": "Most good BRRRR candidates are lower-value homes inland toward Longs or Little River, or condo units in a stable building with a distressed owner.",
+    "places": [
+      "Longs",
+      "Little River"
+    ],
+    "propertyType": "single-family house; condo",
+    "numbers": {},
+    "lesson": "For BRRRR, look inland toward Longs and Little River, or at distressed condo owners.",
+    "topics": [
+      "BRRRR",
+      "where to buy"
+    ],
+    "checked": "Used as sent: Longs and Little River as the wider target map.",
+    "status": "usable",
+    "limits": "",
+    "publishedOn": [
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "foreclosure-connections-tech",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:953",
+    "verbatim": "we have the decades in the local market and connections that allow us to identify and be told about new foreclosures much faster than the average real estate agent our tech team is growing rapidly with a focus towards using AI and technology to find high cash flow properties on mass faster than any other local brokerage. We supply our tech team with unlimited monster energy, Celsius and Claude tokens these in combination with agents who have 30 years of experience turns our real estate company into A bridge between eras able to capitalize on the connections a family who has been involved in the local real estate market for over 3 generations made along with the innovative idea's of a group of 21 year old's with ambition.",
+    "summary": "The owner says the team's decades in the market and its connections let it hear about new foreclosures faster. A growing tech team uses AI to find high cash flow properties. Agents with 30 years of experience work beside a younger team.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "agent experience": "30 years"
+    },
+    "lesson": "Local connections bring foreclosure leads before they are widely known.",
+    "topics": [
+      "foreclosures",
+      "brokerage service",
+      "team and history"
+    ],
+    "checked": "Softened: \"bridge between eras\" and the energy-drink line became the literal facts. Superlatives need support (MISTAKES 51).",
+    "status": "usable-with-limits",
+    "limits": "No \"faster than any other brokerage\", no energy-drink line, no \"bridge between eras\", no ages of staff, no \"three generations\" unless with the Nash family detail.",
+    "publishedOn": [
+      "/invest/strategies/brrrr/",
+      "/invest/strategies/fix-and-flip/"
+    ]
+  },
+  {
+    "id": "dscr-zillow-links",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:955",
+    "verbatim": "we have a buyer who has spent the last year scrolling zillow and sending his agent zillow links asking if they think its a good purchase and they got the same yes its in an up and coming neighborhood answer every single time for over a year",
+    "summary": "A buyer spent a year sending Zillow links to his agent and was told each time that it was a good buy in an up and coming neighborhood. He came to Chapter3 after that.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "time": "over a year"
+    },
+    "lesson": "An agent should bring the investor deals, not approve every link.",
+    "topics": [
+      "DSCR",
+      "brokerage service",
+      "rentals"
+    ],
+    "checked": "Used as sent.",
+    "status": "usable-with-limits",
+    "limits": "Never name or describe the other agent or company.",
+    "publishedOn": [
+      "/invest/strategies/dscr-loans/"
+    ]
+  },
+  {
+    "id": "active-not-passive-agent",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:955, 1191-1192",
+    "verbatim": "many agents in the industry are passive agents waiting for you to bring them a deal but an agents purpose is for us to bring you the deal of your lifetime we are one of the only companies that actively market towards investors because working with investors is hard we have to do alot of work and have alot of knowledge to find properties which will cash flow enough to make a DSCR loan worth it and we can outwordly say that we are great at finding those cash flowing deals. [...] \"finding the property is the hard part that agents tend to leave up to you\"",
+    "summary": "The owner says many agents wait for the client to bring a deal. Chapter3 actively markets to investors and searches for properties that cash flow enough for a DSCR loan. Finding the property is the hard part that agents tend to leave to the buyer.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Ask an agent to find the cash-flowing deal, not only to check yours.",
+    "topics": [
+      "DSCR",
+      "brokerage service"
+    ],
+    "checked": "Used as sent as \"the active-search positioning\".",
+    "status": "usable-with-limits",
+    "limits": "No superlatives. Do not attack other agents by name or company.",
+    "publishedOn": [
+      "/invest/strategies/dscr-loans/"
+    ]
+  },
+  {
+    "id": "quiet-sale-condo",
+    "type": "story",
+    "teller": "an agent at Chapter3",
+    "source": "research/relocating/owner-answers.md:993-999, 1027-1035, 1042-1044",
+    "verbatim": "met a New York consultant at a networking event, became friends, introduced him around; he stretched thin, fell behind on a condo, credit dropped, \"he called us asking if we would quietly sell his property so that his other clients didn&#39;t hear about it,\" sold at a 20 percent discount to an investor who now collects steady monthly profit.",
+    "summary": "An agent befriended a consultant he met at a networking event. When the consultant fell behind on a condo and his credit dropped, he asked the agent to sell it quietly. The unit went to an investor on the buyer list without being listed, at about 20 percent under market.",
+    "places": [],
+    "propertyType": "condo",
+    "numbers": {
+      "discount": "about 20 percent"
+    },
+    "lesson": "Relationships bring off-market deals that ads cannot.",
+    "topics": [
+      "off-market",
+      "condos",
+      "brokerage service"
+    ],
+    "checked": "First held back for confidentiality. The owner overrode the hold on 2026-09-01; published on the strategies hub in vague form (PLAYBOOK A11e amended: no state, no business, no building type, no unit count).",
+    "status": "usable-with-limits",
+    "limits": "Only the vague form: no New York, no consulting business, no oceanfront building, no unit count. Do not tell it on any page beyond the hub without asking.",
+    "publishedOn": [
+      "/invest/strategies/"
+    ]
+  },
+  {
+    "id": "relationships-not-ads",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:997-999",
+    "verbatim": "\"any new company can outspend us on facebook ads... but they cant create multi year long friendships.\"",
+    "summary": "The owner says a new company can outspend Chapter3 on Facebook ads, but it cannot create friendships that last years.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Long local relationships produce deals that ads do not.",
+    "topics": [
+      "brokerage service",
+      "off-market"
+    ],
+    "checked": "Live on the site without the client, per the earlier AI.",
+    "status": "usable",
+    "limits": "",
+    "publishedOn": [
+      "/invest/strategies/"
+    ]
+  },
+  {
+    "id": "investors-near-hospitals",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1006-1007",
+    "verbatim": "Q3: northern investors buying high-appreciation areas and near new hospitals; area undervalued for a coastal city in our opinion.",
+    "summary": "Northern investors buy in high-appreciation areas and near new hospitals. In the owner's opinion the area is undervalued for a coastal city.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Northern investors look at growth areas and new hospitals.",
+    "topics": [
+      "rentals",
+      "appreciation",
+      "healthcare"
+    ],
+    "checked": "Not checked.",
+    "status": "usable-with-limits",
+    "limits": "No forecast (A19). Do not say the area is undervalued or will appreciate. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/invest/strategies/"
+    ]
+  },
+  {
+    "id": "low-appraisal-reconsideration",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1008-1009",
+    "verbatim": "Q5: rare low appraisals; MLS comps + reconsideration of value; one changed, borrower brought less to closing.",
+    "summary": "Low appraisals are rare here. When one comes in low, the agents send MLS comparables with a reconsideration of value. Once the value changed and the borrower brought less to closing.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "A low appraisal can be challenged with comparable sales.",
+    "topics": [
+      "buying",
+      "financing",
+      "brokerage service"
+    ],
+    "checked": "Not checked.",
+    "status": "usable-with-limits",
+    "limits": "No amounts were given; do not add any. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "woodlawn-rehab",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1009-1011",
+    "verbatim": "Q6: Woodlawn Drive rehab $90,317.80, value $180k to $384k, BrickWood financed no money down, ~3 months, held as STR.",
+    "summary": "A house on Woodlawn Drive took $90,317.80 of rehab. Its value went from $180k to $384k. It was financed through BrickWood, took about three months, and is held as a short-term rental.",
+    "places": [
+      "Woodlawn Drive"
+    ],
+    "propertyType": "single-family house",
+    "numbers": {
+      "rehab cost": "$90,317.80",
+      "value before": "$180k",
+      "value after": "$384k",
+      "time": "~3 months"
+    },
+    "lesson": "A full rehab can more than double a house's value.",
+    "topics": [
+      "BRRRR",
+      "fix and flip",
+      "short-term rentals"
+    ],
+    "checked": "Not checked. Published on the BRRRR page.",
+    "status": "usable-with-limits",
+    "limits": "Never say \"no money down\" (Reg Z trigger term). BrickWood Mortgage is named only with the inline RESPA AfBA disclosure; otherwise say \"our preferred lender\". Ask the owner before naming the street again; it can identify the owner. Label the figures as his numbers, not a promise.",
+    "publishedOn": [
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "inherited-house-flip",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1011-1014, 1138-1144",
+    "verbatim": "Q8: inherited house, 2.5-month rehab, advertised during construction, under contract a week before completion, sold cash at $335k the day work ended, netted $224,300, bought two more homes same month via BrickWood. [...] \"It was three hundred and ninety thousand dollars, not three hundred and thirty five... one real example that's sold for a hundred and thirty thousand dollars profit the day construction ended.\"",
+    "summary": "An inherited house was rehabbed in about 2.5 months and advertised during the work. It went under contract a week before completion and sold for cash the day the work ended. The owner bought two more homes the same month.",
+    "places": [],
+    "propertyType": "single-family house",
+    "numbers": {
+      "rehab time": "2.5 months",
+      "sale price (written answer)": "$335k",
+      "net (written answer)": "$224,300",
+      "sale price (later, spoken)": "$390,000",
+      "profit (later, spoken)": "$130,000"
+    },
+    "lesson": "Marketing a flip during the work can sell it the day it is finished.",
+    "topics": [
+      "fix and flip",
+      "selling"
+    ],
+    "checked": "UNRESOLVED: the 2026-09-01 written answer said $335,000 and netted $224,300; on 2026-09-02 he said $390,000 and about $130,000 profit. The earlier AI asked which is right. The live flip page still states $335,000 and $224,300.",
+    "status": "usable-with-limits",
+    "limits": "Do not state the sale price or the profit until the owner says which figures are right. BrickWood Mortgage is named only with the inline RESPA AfBA disclosure; otherwise say \"our preferred lender\".",
+    "publishedOn": [
+      "/invest/strategies/fix-and-flip/"
+    ]
+  },
+  {
+    "id": "flip-buyers-and-wholesale",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1013-1017",
+    "verbatim": "Q9: buyers are relocators and retirees; several thousand dollars a month of ads at relocating buyers; rental-buyer list takes lighter flips. Q11: \"wholesale assignment contracts are banned in SC basically\" (verified: 2024 license law, Article 9).",
+    "summary": "Flipped houses here sell to relocators and retirees. The brokerage spends several thousand dollars a month on ads aimed at relocating buyers, and its rental-buyer list takes the lighter flips. The owner says wholesale assignment contracts are basically banned in South Carolina.",
+    "places": [
+      "South Carolina"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "ad spend": "several thousand dollars a month"
+    },
+    "lesson": "Know who buys the finished flip before you buy the house.",
+    "topics": [
+      "fix and flip",
+      "selling",
+      "brokerage service"
+    ],
+    "checked": "Wholesaling verified: 2024 license law, Article 9.",
+    "status": "usable-with-limits",
+    "limits": "Describe the buyers by their plans, never by age. Do not say \"retirees\" as a target market on a selling page without the owner. Cite the 2024 licence law for the wholesale line.",
+    "publishedOn": [
+      "/invest/strategies/fix-and-flip/"
+    ]
+  },
+  {
+    "id": "multifamily-listings",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1017",
+    "verbatim": "Q12: usually fewer than 100 multifamily listings, $225k to $13M+.",
+    "summary": "There are usually fewer than 100 multifamily listings here, priced from $225k to over $13M.",
+    "places": [],
+    "propertyType": "multifamily",
+    "numbers": {
+      "listings": "fewer than 100",
+      "price range": "$225k to $13M+"
+    },
+    "lesson": "Multifamily supply here is small.",
+    "topics": [
+      "multifamily",
+      "rentals"
+    ],
+    "checked": "Not checked. As of 2026-09-01.",
+    "status": "usable-with-limits",
+    "limits": "Date it (September 2026) or check the MLS count again before using.",
+    "publishedOn": [
+      "/invest/strategies/small-multifamily/"
+    ]
+  },
+  {
+    "id": "j1-multifamily-audience",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1018-1019",
+    "verbatim": "Q14: J-1 students biggest multifamily audience, $500-700 per person, \"J-1 rental is a page we should make\" (built).",
+    "summary": "J-1 students are the biggest audience for multifamily rentals here, paying $500 to $700 per person.",
+    "places": [],
+    "propertyType": "multifamily",
+    "numbers": {
+      "rent per person": "$500-700"
+    },
+    "lesson": "Seasonal student workers drive multifamily demand.",
+    "topics": [
+      "J-1 housing",
+      "multifamily",
+      "rentals"
+    ],
+    "checked": "Not checked in this file. The J-1 rental page was built.",
+    "status": "usable-with-limits",
+    "limits": "Investor pages only. Never name visa categories on a relocator page. Check the per-person rent against current listings.",
+    "publishedOn": [
+      "/invest/j1-rentals/"
+    ]
+  },
+  {
+    "id": "str-cheapest-cleaner",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1019-1021",
+    "verbatim": "Q15: worst STR mistake is self-managing with the cheapest cleaner; theft and damage seen. Q16: top STRs pick one niche (college, golf, family, workers, relocators) and stay filled.",
+    "summary": "The worst short-term rental mistake the owner sees is self-managing with the cheapest cleaner; theft and damage followed. The top short-term rentals pick one niche, such as college, golf, family, workers or relocators, and stay filled.",
+    "places": [],
+    "propertyType": "short-term rental",
+    "numbers": {},
+    "lesson": "Pick one guest niche and pay for reliable cleaning.",
+    "topics": [
+      "short-term rentals"
+    ],
+    "checked": "Not checked.",
+    "status": "usable-with-limits",
+    "limits": "Chapter3 does no property management; do not imply it does. Not a direct quote: the source records the earlier AI's note of what was said. Do not put it in quotation marks.",
+    "publishedOn": [
+      "/invest/str-tools/"
+    ]
+  },
+  {
+    "id": "investor-common-question",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1022-1023",
+    "verbatim": "Q19: the most common investor question is \"send me properties with analytics to prove it\" (now the CTA test line cluster-wide).",
+    "summary": "The most common investor question is \"send me properties with analytics to prove it\".",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Investors want numbers with every property.",
+    "topics": [
+      "rentals",
+      "brokerage service"
+    ],
+    "checked": "Used as the CTA test line across the investor pages.",
+    "status": "usable",
+    "limits": "",
+    "publishedOn": []
+  },
+  {
+    "id": "builder-brrrr",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1106-1112",
+    "verbatim": "\"We have a builder who builds houses for X amount of money when he is finished building the house appraises for more immediately after construction is finished he also rents it for more because its new construction he also has renters lined up before construction is finished 90% of the time because we work with him to find renters moving to the area around the time construction will be finished... One property in the past took 260k of capital to build half of it was financed and it was recently appraised for 390k.\"",
+    "summary": "A builder the brokerage works with builds houses that appraise for more than cost right after completion and rent for more because they are new. About 90% of the time a renter moving to the area is lined up before the house is finished. One house took $260k of capital to build, half of it financed, and appraised at $390k.",
+    "places": [],
+    "propertyType": "new construction",
+    "numbers": {
+      "capital to build": "260k",
+      "financed": "half",
+      "appraisal": "390k",
+      "renter lined up before finish": "90% of the time"
+    },
+    "lesson": "Building can give the same equity jump as BRRRR without a distressed seller.",
+    "topics": [
+      "BRRRR",
+      "new construction",
+      "rentals"
+    ],
+    "checked": "Not checked. Published on the BRRRR page as \"his numbers, not a promise\".",
+    "status": "usable-with-limits",
+    "limits": "No builder name. Label the figures as his numbers, not a promise. Finding a renter is not property management; do not say Chapter3 manages the rental.",
+    "publishedOn": [
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "unwarrantable-condo-ltv",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1118-1123",
+    "verbatim": "\"If its unwarrentable it would require a 25% Loan to value meaning and extra 5% of the homes value is trapped and unable to be used for the next purchase can we mention down payments if we do what does reg Z require because i would like to use exact down payment percentages and then say that info is from BrickWood Mortgage. We could make it more vague or a range as well.\"",
+    "summary": "An unwarrantable condo needs about 25% down, against 20% in a warrantable building, so an extra 5% of the value stays tied up in that unit and cannot fund the next purchase.",
+    "places": [],
+    "propertyType": "condo",
+    "numbers": {
+      "unwarrantable down payment": "25%",
+      "trapped": "extra 5% of value"
+    },
+    "lesson": "A non-warrantable building ties up more of your cash.",
+    "topics": [
+      "condos",
+      "BRRRR",
+      "financing"
+    ],
+    "checked": "Answered in chat and hard-coded as PLAYBOOK A17.",
+    "status": "usable-with-limits",
+    "limits": "No down payment percentage, rate or payment amount (Reg Z, and the site rule on rates and payments). Percentages only on the business-purpose pages allowed by A17, attributed to the lender. Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "dscr-lender-figures",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1131-1133, 1187-1189",
+    "verbatim": "DSCR figures, from him as a licensed MLO: 15 to 25 percent down on a purchase, more on a condotel; only 75 percent of a short-term rental estimate counts; our preferred lender starts writing DSCR loans at a 0.75 ratio. [...] \"lenders subtract appraisal estimates for short term rentals by 25%\"",
+    "summary": "From the owner's loan work: DSCR purchases take 15 to 25 percent down, more on a condotel. Lenders count only 75 percent of a short-term rental estimate. The preferred lender starts writing DSCR loans at a 0.75 ratio.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "down payment": "15 to 25 percent",
+      "STR income counted": "75 percent",
+      "minimum DSCR": "0.75"
+    },
+    "lesson": "DSCR lenders discount short-term rental income, so run the numbers at 75 percent.",
+    "topics": [
+      "DSCR",
+      "financing",
+      "short-term rentals"
+    ],
+    "checked": "Not checked against a lender guideline in this file.",
+    "status": "usable-with-limits",
+    "limits": "No down payment percentage, rate or payment amount (Reg Z, and the site rule on rates and payments). Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/invest/strategies/dscr-loans/"
+    ]
+  },
+  {
+    "id": "off-market-financed-offer",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1125-1128, 1173-1176, 1214-1217",
+    "verbatim": "\"No it doesn't bro nothing beats a cash offer say how Chapter3 can help you negotiate on off market deals so that the seller will accept an offer that would require financing.\" [...] \"if you need to finance the investment let us know we can still find off market properties from friends of ours and negotiate a way to allow for financing. This happens alot more than you'd think.\"",
+    "summary": "Nothing beats a cash offer, but the agents can find off-market properties through friends and negotiate a deal that allows financing. The owner says this happens more than people think. Bank-owned and off-market are the first places they look.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "You can still win off-market deals with a loan if the agent negotiates for it.",
+    "topics": [
+      "off-market",
+      "fix and flip",
+      "BRRRR",
+      "financing"
+    ],
+    "checked": "Published identically on the flip and BRRRR pages at the owner's request.",
+    "status": "usable",
+    "limits": "",
+    "publishedOn": [
+      "/invest/strategies/brrrr/",
+      "/invest/strategies/fix-and-flip/"
+    ]
+  },
+  {
+    "id": "flip-steps-and-costs",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1156-1170",
+    "verbatim": "\"First step's not buy. Buy below market is not good. How to fix and flip works first step. Buy below market. Work with chapter three to find homes in distress and below market price... Step three should be monitor holding costs. Work with chapter three to sell the repaired product.\" [...] \"Replace confirm they exist before the walls are closed up with confirm with your contractor all permits have been applied for and gotten.\"",
+    "summary": "The owner's flip steps: buy below market with the agents' help finding distressed homes, do the work, watch holding costs, and sell with the agents. The costs are permits, the loan, holding costs and closing costs. Confirm with your contractor that all permits were applied for and granted.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "A flip has four costs: permits, the loan, holding and closing.",
+    "topics": [
+      "fix and flip"
+    ],
+    "checked": "Built on the flip page as four costs.",
+    "status": "usable",
+    "limits": "",
+    "publishedOn": [
+      "/invest/strategies/fix-and-flip/"
+    ]
+  },
+  {
+    "id": "brrrr-needs-rental-market",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/relocating/owner-answers.md:1102-1104",
+    "verbatim": "\"the thing that makes BRRRR harder to find is on top of finding a distressed house you need to find a distressed home inside of a rental market since that strategy relies on getting high rent rolls.\"",
+    "summary": "BRRRR is hard to find because the distressed house must also sit in a strong rental market, since the strategy depends on high rents.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "A cheap distressed house only works for BRRRR where rents are strong.",
+    "topics": [
+      "BRRRR",
+      "rentals"
+    ],
+    "checked": "Not checked.",
+    "status": "usable",
+    "limits": "",
+    "publishedOn": [
+      "/invest/strategies/brrrr/"
+    ]
+  },
+  {
+    "id": "tenant-occupied-buyer-pool",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:10-23, 192-193",
+    "verbatim": "\"we will list a tenant occupied property but what it looks lie and whether you get the same sale price depends on what type of tenant you have and what ype of lease you have if you still have more than 3-4 months on the lease than its basically impossible to sell it to someone looking to move into the house because fHA and VA require someone to move into the house after 60 days. So then we have to look at selling it to an investor or wait or buy out the tenant. the house may cashflow at the price you purchased it for and the taxes you're assessed at but will it still work with the appreciated market value? lets look at if the tenant has destroyed the house does the new owner need to come in and fix parts of the house because if its bad enough than we can't sell it to one of our turn key investors who look for a house to buy and immediately be good to rent instead we have to sell it to someone who wants instant equity and is willing to buy the property fix it and then rent it. You may have a house that is no longer depreciating or you want to enter a new market or you want to cash out but its a house that will continue to appreciate and in that case we have plenty of investors who are happy to take a house that is in a high appreciating area and cash flows a bit\" [...] Instruction on occupancy: \"just say most lenders will require 60 day's to move in for VA and FHA and USDA loans.\"",
+    "summary": "With more than 3 to 4 months left on a lease, a tenant-occupied house is very hard to sell to someone who will live in it, because FHA, VA and USDA loans require the buyer to move in within 60 days. The options are an investor buyer, waiting, or buying out the tenant. Damage decides whether it goes to turnkey investors or to buyers who want to fix it.",
+    "places": [],
+    "propertyType": "single-family rental",
+    "numbers": {
+      "lease left that blocks owner-occupants": "more than 3-4 months",
+      "move-in requirement": "60 days"
+    },
+    "lesson": "The lease length decides who can buy your rental.",
+    "topics": [
+      "selling",
+      "rentals",
+      "tenants"
+    ],
+    "checked": "Not in a fact-check section. Owner instruction: say \"most lenders will require 60 days to move in for VA and FHA and USDA loans.\"",
+    "status": "usable-with-limits",
+    "limits": "Use his 60-day wording. Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/sell/rental-property/"
+    ]
+  },
+  {
+    "id": "tenant-showing-legal-risk",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:25-37",
+    "verbatim": "We also cant control how good of condition the house is in when we go to show the house and unless you have great cause evicting a tenant at the time youre hiring a real estate agent or trying to sell the house in any way theres a good chance you get held up in legal troubles if the tenant sues. but you do the research Claude\"  3. \"the tenant is usually not compensated for the showing unless the owner wants to or is required by law but sometimes we have to buy the tenant out of their contract. sometimes its a month by month lease and this is the worst case for the tenant and best for the owner you can wait the 30 days and end the lease quickly if the owner wanted to\"",
+    "summary": "The agent cannot control the condition of the house at a showing. Evicting a tenant without good cause while selling risks legal trouble. Tenants are usually not paid for showings; sometimes the owner buys them out, and a month-to-month lease can be ended with 30 days.",
+    "places": [],
+    "propertyType": "single-family rental",
+    "numbers": {
+      "month-to-month notice": "30 days"
+    },
+    "lesson": "Plan the sale around the lease, not against the tenant.",
+    "topics": [
+      "selling",
+      "tenants",
+      "landlord rules"
+    ],
+    "checked": "Not checked in this file. The owner asked the AI to research the law (\"i could get things wrong\").",
+    "status": "usable-with-limits",
+    "limits": "Verify the notice rules against the SC Residential Landlord and Tenant Act before stating them. No legal advice.",
+    "publishedOn": [
+      "/invest/landlord-rules/",
+      "/sell/rental-property/"
+    ]
+  },
+  {
+    "id": "rental-program-buildings",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:41-47",
+    "verbatim": "\"usually the rental programs here are inside of ocean front Short term rental units and usually there are some sort of HOA transfer fees generally they want you to pay a few months of escrow for the HOA fees and a transfer fee and so on this is also common in any HOA whether it has a rental program or not also buildings with a rental program are usually non warrantable because there's too many investors inside of the building but there being that many investors in a building is a good sign that its working and being ran specifically for what you want even if you need to have a higher rate or so on on that unit.\"",
+    "summary": "Rental programs here are usually in oceanfront short-term rental buildings. Buyers pay HOA transfer fees and often a few months of HOA dues in escrow. Buildings with a rental program are usually non-warrantable because so many owners are investors, which also shows the building is run for renting.",
+    "places": [],
+    "propertyType": "oceanfront condo",
+    "numbers": {
+      "escrow": "a few months of HOA fees"
+    },
+    "lesson": "A non-warrantable rental-program building can still be the right building for a rental.",
+    "topics": [
+      "condos",
+      "short-term rentals",
+      "HOA",
+      "selling"
+    ],
+    "checked": "May-not-go list: \"higher rate\" on a non-warrantable unit stays qualitative, no rate.",
+    "status": "usable-with-limits",
+    "limits": "No rate. Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/sell/rental-property/"
+    ]
+  },
+  {
+    "id": "no-vendor-names",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:49-50, 105-106, 130-132",
+    "verbatim": "6. \"i dont want to say a specific attorney because we dont have an AFBA with any attorney but we do work with plenty of attorneys who can help with those things.\" [...] 18. \"i dont want to mention a specific comapny because we dont have an AFBA with them but we work with a few companies who we could recommend once we are working with a customer\" [...] 24. \"oh there's 100's that will insurance is a commodity we recommend to find the cheapest policy that satisfies your and the lenders concern we have great deals with agents who we refer alot of work to but there's plenty of insurance companies that will do basically whatever you need.\"",
+    "summary": "The brokerage works with attorneys, management companies and insurance agents it can recommend once it is working with a customer. Insurance is a commodity: find the cheapest policy that satisfies you and the lender.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Buy the cheapest insurance that meets your and the lender's needs.",
+    "topics": [
+      "insurance",
+      "brokerage service",
+      "compliance"
+    ],
+    "checked": "May-not-go list: no attorney, screening company or insurance agent by name; no AfBA exists.",
+    "status": "usable-with-limits",
+    "limits": "Never name an attorney, manager or insurance agent. Do not mention referral volume (\"great deals with agents who we refer alot of work to\") (RESPA).",
+    "publishedOn": [
+      "/invest/llc/"
+    ]
+  },
+  {
+    "id": "student-tenant-pools",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:54-56, 318, 332-334",
+    "verbatim": "\"students are usually looking for a cheap property to rent while in class but at the same time families who are moving the whole family closer to the college they are happy to spend a premium to be close to the college in a nice house.\" [...] Parents often buy the house, rent the other rooms no they dont parents either buy a house to move their family into or the student just rents 3/4 times with a parent as a co signer",
+    "summary": "Students near Coastal Carolina want the cheapest house that fits their group. Families moving to be near the college pay a premium for a nice house close to campus. Parents do not usually buy a house for the student; they move the family, or the student rents with a parent as co-signer.",
+    "places": [
+      "Conway",
+      "Coastal Carolina University"
+    ],
+    "propertyType": "single-family house",
+    "numbers": {},
+    "lesson": "Near the college there are two kinds of renter, and they want different houses.",
+    "topics": [
+      "student rentals",
+      "rentals"
+    ],
+    "checked": "Owner corrected the AI's draft: parents rarely buy for the student (line 318, 332-334).",
+    "status": "usable-with-limits",
+    "limits": "Describe renters by what they want, never by family status. Do not say parents buy houses for students.",
+    "publishedOn": [
+      "/invest/student-rentals/"
+    ]
+  },
+  {
+    "id": "student-cosigners-premium",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:58-67",
+    "verbatim": "\"the vast majority of college students get a parent to co sign about 75% of them most college students can not qualify on themselves because we recommend to find tenants who make 3-5 times what the rent payment is if a student is not signing a full 12 month lease than that's a good opportunity to charge a slight premium for the less than 12 month lease that fits their class schedule which can make close to the college rentals very profitable but also lets be honest these are college students what did you do during college how do you imagine college students behave that's probably what will be in the house that you own so if you're okay with the possibility of parties and so on then its a great location to invest maybe that premium or adult co signer helps you or maybe a larger security deposit or live nearby your rental or get a multi unit and have a super live in the property\"",
+    "summary": "About 75% of college student tenants have a parent co-sign, because most cannot qualify alone at 3 to 5 times the rent in income. A lease shorter than 12 months can carry a small premium. Owners should expect student behaviour and protect themselves with a co-signer, a larger deposit, living nearby, or a multi-unit with a live-in super.",
+    "places": [
+      "Conway"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "students with a parent co-signer": "about 75%",
+      "income screen": "3-5 times the rent"
+    },
+    "lesson": "Ask for a parent co-signer and price the short lease higher.",
+    "topics": [
+      "student rentals",
+      "rentals",
+      "tenants"
+    ],
+    "checked": "Not checked. His estimate.",
+    "status": "usable-with-limits",
+    "limits": "State 75% as Chapter3's experience, not a statistic. Keep the tone literal; no jokes about students.",
+    "publishedOn": [
+      "/invest/student-rentals/"
+    ]
+  },
+  {
+    "id": "hoa-rental-bans-filtered",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:80-83",
+    "verbatim": "\"theres plenty of communities that ban renting the house out at all but we filter those out when we are lookin for properties for you and we also review the HOA documents to make sure theres no rules thata re going to screw up your rental strategy we have alot of experience doing this which is a massive value add that we give to our investors\"",
+    "summary": "Many communities ban renting the house out at all. The agents filter those out of a search and read the HOA documents for rules that would block the buyer's rental plan.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Read the HOA documents before you buy a rental in a community.",
+    "topics": [
+      "HOA",
+      "rentals",
+      "brokerage service"
+    ],
+    "checked": "Legality later checked: a recorded rule that bans renting is enforceable in SC (Code 27-30-130) (batch4 line 162-165).",
+    "status": "usable-with-limits",
+    "limits": "Drop \"massive value add\" (salesy). ",
+    "publishedOn": [
+      "/invest/student-rentals/"
+    ]
+  },
+  {
+    "id": "eviction-timeline",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:87-89",
+    "verbatim": "\"it can take up to 3 weeks for it to get approved but once its approved its required to happen within 24 hours if you have a strong case than it can happen in just a few days. list the things that a real estate agent could do to help you with this and say we will do them.\"",
+    "summary": "An eviction can take up to 3 weeks to be approved. Once approved it must happen within 24 hours. With a strong case it can take only a few days.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "approval": "up to 3 weeks",
+      "after approval": "24 hours"
+    },
+    "lesson": "A strong, documented case is the fastest eviction.",
+    "topics": [
+      "landlord rules",
+      "evictions",
+      "tenants"
+    ],
+    "checked": "Not checked in this file. The live page states \"the tenant has 24 hours\".",
+    "status": "usable-with-limits",
+    "limits": "Verify the steps against SC law before stating times. Chapter3 does no property management and does not run evictions.",
+    "publishedOn": [
+      "/invest/landlord-rules/"
+    ]
+  },
+  {
+    "id": "pm-eviction-fees",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:99-103",
+    "verbatim": "17. \"alot of property managaers will do your evictions for you but at the end of the day it depends how involved they are in that unit if they are an all inclusive company then yes but if you are only payingt hem for some services then no most times they charge you just a % of revenue no matter what work they do and sometimes they charge you hourly meaning you pay extra when they need to evict someone.\"",
+    "summary": "Many property managers handle evictions, depending on the service level. Most charge a percentage of revenue whatever the work; some charge hourly, so an eviction costs extra.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Read the management contract for who pays for an eviction.",
+    "topics": [
+      "landlord rules",
+      "evictions",
+      "rentals"
+    ],
+    "checked": "Not checked.",
+    "status": "usable-with-limits",
+    "limits": "Chapter3 does no property management. Never name a manager.",
+    "publishedOn": [
+      "/invest/landlord-rules/"
+    ]
+  },
+  {
+    "id": "llc-occupancy-fraud",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:110-117, 227-229",
+    "verbatim": "\"do you mean can the borrower put the house in an LLC post closing? if thats the case its rare for them to be recalled but if you financed a house as a primary home and a month later its inside of an LLC and being rented out lets be honest its a very cut and dry case of mortgage fraud its not BrickWood or our job to hunt you down but we don't help you do anything illegal [...] LLC clarification (for /invest/llc/): \"a customer is fully allowed to move their house into an LLC with the lenders approval they can even do it as a owner occupied home but the problem happens when they are renting the home out when they said it was going to be owner occupied\"",
+    "summary": "A buyer may move a home into an LLC with the lender's approval, even an owner-occupied one. The problem is renting out a house financed as a primary home; that is mortgage fraud. The agents help investors reach the same goal legally.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Never rent out a house you financed as your home; buy it as a rental instead.",
+    "topics": [
+      "LLC",
+      "financing",
+      "rentals"
+    ],
+    "checked": "May-not-go list: \"save 250 dollars a month on interest\" is a payment amount tied to interest. BrickWood not named without AfBA.",
+    "status": "usable-with-limits",
+    "limits": "Never use the $250 a month figure. BrickWood Mortgage is named only with the inline RESPA AfBA disclosure; otherwise say \"our preferred lender\".",
+    "publishedOn": [
+      "/invest/llc/"
+    ]
+  },
+  {
+    "id": "llc-practice",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:119, 121-122, 126-128, 260",
+    "verbatim": "20. \"all DSCR programs and business purpose loans close inside of an LLC or Corporation\"  21. \"the attorney drafts the deed into the LLC and no the county rarely gets involved unless there's something suspicious happening\" [...] 23. \"every investor has their property in an LLC or a trust or an Corp wether its single or multi member doesnt change anything but if its an investment property it makes more sense for it to be in an LLC and its required by the lender.\" [...] talk about the benefit of having a new LLC for each house which is what 90% of our customers do.",
+    "summary": "All DSCR and business-purpose loans close in an LLC or corporation. The attorney drafts the deed into the LLC, and the county rarely gets involved. About 90% of the brokerage's investor customers form a new LLC for each house.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "customers with a new LLC per house": "90%"
+    },
+    "lesson": "Form the LLC before the contract if the loan is a DSCR loan.",
+    "topics": [
+      "LLC",
+      "DSCR",
+      "financing"
+    ],
+    "checked": "Published on the LLC page as \"about nine in ten\". \"Every investor\" is his wording.",
+    "status": "usable-with-limits",
+    "limits": "Say \"investor clients we work with\", not \"every investor\". State 90% as Chapter3's experience. Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/invest/llc/"
+    ]
+  },
+  {
+    "id": "llc-owner-occupied-multi-member",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:134-136",
+    "verbatim": "25. \"if the owner of the LLC was actually living in it then yes they would accept it but if you dont live in it than no its a multi member LLC than usually you'll be denied or given less tax benefits because the owner whos living in the unit doesnt own all of the house.\"",
+    "summary": "If the LLC's owner lives in the house, it can be accepted. If it is a multi-member LLC, the buyer is usually denied or gets fewer tax benefits, because the person living there does not own all of the house.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "A multi-member LLC can cost the owner-occupant tax benefits.",
+    "topics": [
+      "LLC",
+      "taxes"
+    ],
+    "checked": "Not checked.",
+    "status": "usable-with-limits",
+    "limits": "Verify against the county assessor rules before stating it.",
+    "publishedOn": [
+      "/invest/llc/"
+    ]
+  },
+  {
+    "id": "master-in-equity-experience",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:140-141",
+    "verbatim": "26. \"yes he bought many some being his own private investments and some for customers but we are incredibly experienced in master in equity sales such as foreclosures and so on.\"",
+    "summary": "The owner says one person bought many foreclosures, some as his own investments and some for customers, and that the team is experienced in master-in-equity sales. The live foreclosures page names him as Tim Nash.",
+    "places": [
+      "Conway"
+    ],
+    "propertyType": "foreclosure",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "foreclosures",
+      "team and history"
+    ],
+    "checked": "Not checked. The source does not name who \"he\" is; the earlier AI wrote it as Tim Nash on /invest/foreclosures/.",
+    "status": "usable-with-limits",
+    "limits": "Confirm with the owner that \"he\" is Tim. No \"incredibly experienced\" or \"master\" claims. Purchases from before Chapter3 are Tim's, not the company's (PLAYBOOK A11e).",
+    "publishedOn": [
+      "/invest/foreclosures/"
+    ]
+  },
+  {
+    "id": "tax-sale-sister-notice",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:143-155",
+    "verbatim": "\"there was a situation once when they bought at a tax sale and with a tax sale you put down your deposit and wait 12 months for the owner to pay their taxes if they dont pay their taxes then you own the house if they do then it goes back to them as the owner on top of that clsoe family members can also pay the taxes and take ownership before you (check if thats true) one time the 12 months went by and on the day that the client was supposed to take control of the house the sister of the home owner called the county and said that they weren tgiven proper notice well legally she hadn't so the time restarted she paid the taxes and our customer got his money back plus interest on it but still tax sales have the most upside but its going to be difficult to actually buy one because the law desperately wants to let the owner keep the house i mean think of it would you want the government to quietly and quickly sell your house the upside is you'll either get interest on the money at pretty decent rates or you'll own a house for a few thousand dollars so it is a win win for the investor. however after the tax sale the deed may not be in proper condition (talk about that process and cons)\"",
+    "summary": "A client bought at a tax sale and waited the 12-month redemption period. On the day he was to take the house, the owner's sister told the county the owner had not been given proper notice; the period restarted, she paid the taxes, and the client got his money back with interest.",
+    "places": [
+      "Horry County"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "redemption wait": "12 months"
+    },
+    "lesson": "At a tax sale you either get your money back with interest or, rarely, the house.",
+    "topics": [
+      "tax sales",
+      "foreclosures"
+    ],
+    "checked": "May-not-go list: the tax-sale interest schedule stays off the page. His aside that family members can pay and take ownership was marked \"(check if thats true)\"; the live page corrects it: \"A relative who pays the taxes does not take the house; the owner keeps it.\" Published on /invest/foreclosures/ as \"a Chapter3 client\".",
+    "status": "usable-with-limits",
+    "limits": "No interest percentages. Do not say family members can take ownership. No names. Verify notice rules before stating them.",
+    "publishedOn": [
+      "/invest/foreclosures/"
+    ]
+  },
+  {
+    "id": "bank-owned-45-days",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:167",
+    "verbatim": "31. \"yes and it can be a longer timeline around a 45 day process depending case by case\"",
+    "summary": "A financed purchase of a bank-owned home takes about 45 days, longer than an ordinary purchase, depending on the case.",
+    "places": [],
+    "propertyType": "bank-owned home",
+    "numbers": {
+      "closing time": "around 45 days"
+    },
+    "lesson": "Allow about 45 days to close a financed bank-owned purchase.",
+    "topics": [
+      "foreclosures",
+      "financing"
+    ],
+    "checked": "Published on the foreclosures page as \"in Chapter3's files\". May-not-go list: never say whether Chapter3 is HUD-registered.",
+    "status": "usable-with-limits",
+    "limits": "Never say Chapter3 is or is not a HUD-registered broker.",
+    "publishedOn": [
+      "/invest/foreclosures/"
+    ]
+  },
+  {
+    "id": "hoa-lien-flip",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:169-174",
+    "verbatim": "32. \"yes the lien is usually put on that property and taken out of the profit to the seller but if there is no profit than the HOA could chase down the new buyer for their fees or waive them so its something we look at and make sure we know about before closing so that you dont get stuck in a precarious situation after closing if you do need to pay the HOA fees we need to see if the investment still makes sense maybe its a flip and there's 7k of HOA fees now you might not have any profit left after the flip and its a dead deal.\"",
+    "summary": "Unpaid HOA fees are usually a lien paid from the seller's proceeds. If there is no profit, the HOA may chase the new buyer or waive them. On a flip with $7k of HOA fees owed, the profit can disappear.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "example HOA arrears": "7k (his example)"
+    },
+    "lesson": "Check for unpaid HOA fees before you close on a distressed house.",
+    "topics": [
+      "foreclosures",
+      "HOA",
+      "fix and flip"
+    ],
+    "checked": "Not checked.",
+    "status": "usable-with-limits",
+    "limits": "The $7k is his hypothetical example, not a real case.",
+    "publishedOn": [
+      "/invest/foreclosures/"
+    ]
+  },
+  {
+    "id": "tenant-occupied-sale-13-days",
+    "type": "story",
+    "teller": "an agent at Chapter3",
+    "source": "research/invest-next/owner-answers-batch3.md:195-208",
+    "verbatim": "\"our agent had a sale once we were helping a guy sell his tenant occupied home he had bought 15 years prior his tenant was 8 months away from renewing a lease but he had to move to new york to be with his sister and did not want such a big financial investment to be that far away from him he didn't feel comfortable managing from a far or having anyone else manage the property so he decided to sell we didnt want to offer the tenant a buyout unless we had a hard time finding an investor buyer in which case we would have offered the buy out to widen our buyer pool to a bigger array of investors along with owner occupied buyers the property was in good shape and had been appreciating well his current cashflow was over 1,200 but the next investor wasnt going to get that same cashflow because they would be paying higher monthly taxes than he was and a higher loan amount than he had in total the next investor would only make about half given the current cashflow of 600 dollars but again the home was in a great location and was appreciating so we started to market to our list of investors who like modest cashflow and high appreciating homes the agent found him a cash buyer who closed within 13 days of the day he listed.\"",
+    "summary": "An agent sold a tenant-occupied house for a man who had owned it 15 years and was moving to New York to be with his sister. His cash flow was over $1,200 a month; a new investor would make about $600 because of higher taxes and a bigger loan. The agent marketed it to investors who accept modest cash flow in an appreciating area, and a cash buyer closed 13 days after listing.",
+    "places": [
+      "New York"
+    ],
+    "propertyType": "single-family rental",
+    "numbers": {
+      "years owned": "15",
+      "months to lease renewal": "8",
+      "seller's cash flow": "over 1,200",
+      "next investor's cash flow": "about 600",
+      "days to close": "13"
+    },
+    "lesson": "A rental in an appreciating area sells to investors even when the cash flow drops for the next owner.",
+    "topics": [
+      "selling",
+      "rentals",
+      "tenants"
+    ],
+    "checked": "Not checked. Published on /sell/rental-property/.",
+    "status": "usable",
+    "limits": "No name. Label the figures as his numbers, not a promise.",
+    "publishedOn": [
+      "/sell/rental-property/"
+    ]
+  },
+  {
+    "id": "august-turnover",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:210-214",
+    "verbatim": "\"we havnt had any problem with august turnover because that's when new students are coming to the area and need a home to rent. August is the month that we have found to be best to have 0 vacancy when finding a new tenant close to the college especially if you begin marketing your rental 1 month before the lease is up. I guess you should take this advice and replace my dep3nds on your strategy fro a more concrete answer.\"",
+    "summary": "Near the college, August turnover has been no problem, because new students arrive and need housing. August is the best month for zero vacancy, especially if you start marketing a month before the lease ends.",
+    "places": [
+      "Conway",
+      "Coastal Carolina University"
+    ],
+    "propertyType": "",
+    "numbers": {
+      "marketing lead time": "1 month"
+    },
+    "lesson": "End student leases in August and start marketing a month before.",
+    "topics": [
+      "student rentals",
+      "rentals"
+    ],
+    "checked": "Not checked.",
+    "status": "usable",
+    "limits": "",
+    "publishedOn": [
+      "/invest/student-rentals/"
+    ]
+  },
+  {
+    "id": "fastest-eviction-police",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch3.md:216-225",
+    "verbatim": "\"the fastest evictions we ever saw was a lady who had a boyfriend and one day they got into a fight and the lady slapped and scratched her boyfriends face well after that the police got involved and immediately they had to settle with the landlord and the police on if she was allowed to be back on the property the police decided she is not allowed to be back at the property in which case the boyfriend wanted her off the lease but she didn't want off the lease because of the legal complication the landlord could have had if she wasn't taken off he decided to evict her off of the lease and the total turnaround time was only a few days with a few police escorted trip to take her things from the house. the fastest you can evict someone is when the police are involved and something illegal has occurred in the house.\"",
+    "summary": "The fastest eviction in the brokerage's files took a few days. After a fight between two tenants, police barred one tenant from the property; the landlord evicted that tenant from the lease, and police escorted a few trips to collect belongings.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "time": "a few days"
+    },
+    "lesson": "Evictions are fastest when police are involved and a crime occurred in the unit.",
+    "topics": [
+      "landlord rules",
+      "evictions",
+      "tenants"
+    ],
+    "checked": "Not checked. Published on /invest/landlord-rules/ without genders or relationship.",
+    "status": "usable-with-limits",
+    "limits": "Tell it as published: no genders, no relationship, no injury details. Domestic violence victims have legal protections; do not suggest evicting a victim.",
+    "publishedOn": [
+      "/invest/landlord-rules/"
+    ]
+  },
+  {
+    "id": "courthouse-sale-porch",
+    "type": "story",
+    "teller": "an agent at Chapter3",
+    "source": "research/invest-next/owner-answers-batch3.md:235-251",
+    "verbatim": "\"an agent that works with us now got a call from a guy who wanted to bid on a foreclosed house at the courthouse sale, and instead of just cheering him on, he drove out to look at it first. Brick ranch on an acre off a two-lane road, tarped roof, and a car in the carport with a current plate, which told him everything. He knocked. An older woman answered, the sister of the man who used to own the place, still living there and getting nowhere with the bank because her name was never on the loan. Most people would have walked back to the car. He sat on the porch steps with her for an hour, then spent the next two weeks digging: pulled the old records, found that the little mobile home behind the main house had never been signed over with the land, which meant it was hers outright and nobody could touch it. He brought that to his buyer before the sale, not after, so the man knew exactly what he was bidding on and could plan around it. Then he got the two of them at the same kitchen table and worked out the deal himself, a written lease on that back corner of the lot, fair to both, signed in an afternoon. His buyer got a renovation with someone already on site watching it. She got her home on paper for the first time in years. The agent got the listing that summer, sold it in eleven days to a couple from Ohio, and the only reason any of it worked is that he was the one person in the whole thing who bothered to knock on the door.",
+    "summary": "Before a buyer bid at a courthouse foreclosure sale, an agent visited the house: a brick ranch on an acre with a tarped roof. The previous owner's sister still lived there, and the agent found the mobile home behind it had never been signed over, so it was hers. He arranged a written lease on that corner of the lot before the sale; later he listed the renovated house and sold it in eleven days to a couple from Ohio.",
+    "places": [],
+    "propertyType": "brick ranch on an acre",
+    "numbers": {
+      "days to sell": "eleven",
+      "research time": "two weeks"
+    },
+    "lesson": "Visit and research a foreclosure before you bid.",
+    "topics": [
+      "foreclosures",
+      "brokerage service"
+    ],
+    "checked": "Not checked. The owner said it may be shortened. \"An agent that works with us now\": it may predate the agent joining Chapter3.",
+    "status": "usable-with-limits",
+    "limits": "Tell it as \"an agent now on our team\", not as Chapter3's deal (A11e). No names, no road, no town. Do not describe the woman's age.",
+    "publishedOn": [
+      "/invest/foreclosures/"
+    ]
+  },
+  {
+    "id": "maryland-voucher-developer",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:11, 47-47, 99-99, 149-152",
+    "verbatim": "one buyer we have worked with in the past is a developer from maryland who started to invest down here looking for fixer uppers that are 3 to 4 bedrooms his goal was to get the voucher for the property which pays you more depending on the amount of bedrooms there are. look up the numbers but his fix and flip that he purchased and fixed for 220k now worth 280k and rented at the 4 bedroom rate is insane profit margin per month",
+    "summary": "A developer from Maryland bought 3 to 4 bedroom fixer-uppers here to rent to voucher holders, because the voucher pays more for more bedrooms. One house he bought and fixed for $220k is now worth about $280k and rents at the four-bedroom rate.",
+    "places": [
+      "Horry County"
+    ],
+    "propertyType": "3-4 bedroom fixer-upper",
+    "numbers": {
+      "cost in": "220k",
+      "value now": "280k",
+      "rent": "four-bedroom voucher rate"
+    },
+    "lesson": "Bedroom count drives voucher rent, but only up to the family's voucher size.",
+    "topics": [
+      "vouchers",
+      "rentals",
+      "fix and flip"
+    ],
+    "checked": "Bedroom logic TRUE with a condition: the payment standard is the lower of the voucher's and the unit's bedroom count. On the page as \"in Chapter3's files\", no name, no state beyond \"from Maryland\". Owner asked if \"which houses work best\" was only this investor's pattern; the page now says \"One client's pattern, not a rule.\"",
+    "status": "usable-with-limits",
+    "limits": "No name. Say \"one client's pattern, not a rule\". Do not say \"insane profit\". Explain that the family's voucher size caps the rate.",
+    "publishedOn": [
+      "/invest/section-8-rentals/"
+    ]
+  },
+  {
+    "id": "voucher-never-again-claim",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:11, 35, 44",
+    "verbatim": "the benifit of renting to people on vouchers is if they end up destroying the house if you report that to the HUD then they can never get another voucher ever which incentivizes most people to never damage your property",
+    "summary": "The owner said a voucher tenant who damages the house and is reported to HUD can never get another voucher.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "vouchers",
+      "compliance"
+    ],
+    "checked": "OVERSTATED. The local authority may terminate for damage, must terminate after an eviction for a serious lease violation, and may deny a new voucher for five years after an eviction or while the family owes money. The report goes to the local authority, not HUD.",
+    "status": "do-not-use",
+    "limits": "Never say \"never\" or \"ever\". The corrected version is on /invest/section-8-rentals/: the family \"can lose\" the voucher; \"five years\" after an eviction; \"while they owe\".",
+    "publishedOn": []
+  },
+  {
+    "id": "voucher-pays-on-time",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:11, 36, 45",
+    "verbatim": "you also don't need to worry about your rent being late the government pays you on time each month.",
+    "summary": "The owner said landlords do not need to worry about late rent on a voucher, because the government pays on time each month.",
+    "places": [
+      "Horry County"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "The housing authority's share arrives on time; the family's share is ordinary rent.",
+    "topics": [
+      "vouchers",
+      "rentals"
+    ],
+    "checked": "TRUE for the authority's share only. The family's share can be late. No payment before the HAP contract; retroactive up to 60 days.",
+    "status": "usable-with-limits",
+    "limits": "Say the authority's share is paid on time; the tenant's share can be late. Heading wording the owner chose: \"Does Horry County pay on time?\"",
+    "publishedOn": [
+      "/invest/section-8-rentals/"
+    ]
+  },
+  {
+    "id": "new-community-rent-caps",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:15, 50",
+    "verbatim": "newly built communities when it comes to rent caps its hard to say what the pattern is because this area has so many unqiue locations such as close to the ocean west of highway 17 near the college into the rural areas of longs and then retiree communities and close to entertainment areas. The pattern changes on all of these and we have to look at each newly built community on a case by case situation.",
+    "summary": "There is no single pattern for rental caps in new communities, because locations vary: near the ocean, west of Highway 17, near the college, rural Longs, retiree communities, and near entertainment. Each new community is checked case by case.",
+    "places": [
+      "Highway 17",
+      "Longs"
+    ],
+    "propertyType": "new construction",
+    "numbers": {},
+    "lesson": "Check each new community's recorded rental rules yourself.",
+    "topics": [
+      "new construction",
+      "HOA",
+      "rentals"
+    ],
+    "checked": "On the page as Chapter3's experience.",
+    "status": "usable-with-limits",
+    "limits": "Do not describe communities by who lives there (\"retiree communities\" only as a community type with a recorded age rule).",
+    "publishedOn": [
+      "/invest/new-construction-rentals/"
+    ]
+  },
+  {
+    "id": "little-river-townhouses",
+    "type": "story",
+    "teller": "an agent at Chapter3",
+    "source": "research/invest-next/owner-answers-batch4.md:17, 51",
+    "verbatim": "yeah an agent that now works for us helped buy like 8 units in a new community in little river the houses were all basically the same and were townhouses and they all rented for a bit over 2k but as he kept selling houses the price of the houses went up slightly more and more so the cash flow opportunity slowly went away the rents did not raise with the the price is first sale in that area was at 230k and the last one was at 292k over the course of 1.5 years.",
+    "summary": "An agent now on the team helped buyers purchase about eight nearly identical townhouses in a new community in Little River. Each rented for a little over $2,000. Sale prices rose from $230k to $292k over about 18 months while rents stayed flat, so the cash flow went away for later buyers.",
+    "places": [
+      "Little River"
+    ],
+    "propertyType": "townhouse",
+    "numbers": {
+      "units": "about 8",
+      "rent": "a bit over 2k",
+      "first sale": "230k",
+      "last sale": "292k",
+      "period": "1.5 years"
+    },
+    "lesson": "In a new community, early buyers get the cash flow; later buyers pay more for the same rent.",
+    "topics": [
+      "new construction",
+      "rentals",
+      "appreciation"
+    ],
+    "checked": "On the page anonymized, no community name.",
+    "status": "usable-with-limits",
+    "limits": "No community name, no builder. Tell it as an agent now on our team (A11e).",
+    "publishedOn": [
+      "/invest/new-construction-rentals/"
+    ]
+  },
+  {
+    "id": "buy-new-community-early",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:17",
+    "verbatim": "New communities can be a great investment if you buy that community early for the appreciation because if they build 80 homes the first ones they need sales to recoup their investment by the 75th home the amount of homes available is scarce now so the value goes up in alot of scenarios. There is alot of new communities being built here right now",
+    "summary": "New communities can be a good investment if you buy early. A builder of 80 homes needs early sales to recoup costs; by the 75th home supply is scarce and prices tend to rise.",
+    "places": [],
+    "propertyType": "new construction",
+    "numbers": {
+      "example community size": "80 homes",
+      "scarcity point": "75th home"
+    },
+    "lesson": "Early buyers in a new community get lower prices.",
+    "topics": [
+      "new construction",
+      "appreciation"
+    ],
+    "checked": "Not checked. The 80 and 75 figures are his example.",
+    "status": "usable-with-limits",
+    "limits": "No forecast that prices will rise (A19). The 80 and 75 are an example, not a real community.",
+    "publishedOn": [
+      "/invest/new-construction-rentals/"
+    ]
+  },
+  {
+    "id": "nine-house-holder",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:17, 51",
+    "verbatim": "one guy in the community that agent helped sell 8 homes in there was another guy separate from our company but he bought 9 homes and never did anything with them he just holds them and plans to sell them at 300k",
+    "summary": "In the same Little River community, another buyer who was not a Chapter3 client bought nine homes, rents none of them, and plans to sell them at about $300k.",
+    "places": [
+      "Little River"
+    ],
+    "propertyType": "townhouse",
+    "numbers": {
+      "homes": "9",
+      "planned sale price": "300k"
+    },
+    "lesson": "Some buyers in new communities buy to hold, not to rent.",
+    "topics": [
+      "new construction",
+      "appreciation"
+    ],
+    "checked": "On the page anonymized.",
+    "status": "usable-with-limits",
+    "limits": "Say he was not our client. No names.",
+    "publishedOn": [
+      "/invest/new-construction-rentals/"
+    ]
+  },
+  {
+    "id": "builder-incentives-rare-investors",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:19, 52",
+    "verbatim": "Most builders in the area offer incentives to FHA VA and conventional home builders however its very very rare for a builder in the area to offer any incentives for investors such as for DSCR loans",
+    "summary": "Most builders here offer incentives to FHA, VA and conventional buyers, but it is very rare for a builder to offer incentives to investors using DSCR loans.",
+    "places": [],
+    "propertyType": "new construction",
+    "numbers": {},
+    "lesson": "Do not count on builder incentives when buying new construction as a rental.",
+    "topics": [
+      "new construction",
+      "DSCR",
+      "financing"
+    ],
+    "checked": "On the page as Chapter3's experience.",
+    "status": "usable",
+    "limits": "",
+    "publishedOn": [
+      "/invest/new-construction-rentals/"
+    ]
+  },
+  {
+    "id": "first-rental-hardest",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:21, 57, 58, 190",
+    "verbatim": "so the first rental is always the hardest property to get when you are buying a rental property or a fix in flip one common condition is to prove that you have prior experience and if you don't some lenders will give you a worse deal or even deny you. BrickWood does have programs that will offer loans to first time investors.",
+    "summary": "The first rental is the hardest to finance. Lenders often want proof of prior experience and may give a worse deal or deny a new investor. The preferred lender has programs for first-time investors.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Ask about first-time investor programs before your first rental.",
+    "topics": [
+      "financing",
+      "rentals"
+    ],
+    "checked": "Checked TRUE: standard rules count rental income only with 12 months of management experience. But on 2026-09-07 the owner deleted the \"first rental is the hardest\" section: \"none of the information is correct or good.\"",
+    "status": "usable-with-limits",
+    "limits": "The owner deleted this section from the second-rental page. Ask before reusing. Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page. Say \"our preferred lender\", not BrickWood.",
+    "publishedOn": []
+  },
+  {
+    "id": "equity-for-next-rental",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:21, 59, 346, 352",
+    "verbatim": "After you get a a few properties you can also begin to do 0 dollars down investments buy using the equity you own in other properties for your down payment in the new property you buy. If your properties cashflow at 75 or 80% LTV and you happen to have a 60% LTV on one property than you can add 20% and use it to buy another property that also cashflows.",
+    "summary": "After a few properties, an investor can fund the next down payment from the equity in properties they own, through a cash-out refinance or a line of credit, so the purchase takes no new cash from savings.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Equity in one rental can fund the down payment on the next.",
+    "topics": [
+      "financing",
+      "rentals"
+    ],
+    "checked": "MECHANISM TRUE. The percentages are not on the page; cash-out caps on rentals are lower than his example suggests.",
+    "status": "usable-with-limits",
+    "limits": "Never say \"$0 down\", \"nothing down\" or any LTV percentage. Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/invest/financing-multiple-rentals/"
+    ]
+  },
+  {
+    "id": "second-rental-paperwork",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:23, 202",
+    "verbatim": "the common second rental mistake that people make is assuming that the second loan process will be the same as the first its common for people to get into their own way by saying \"my last guy didnt ask for blank\" it's possible the second lender and us as a real estate brokerage hounds you for too many documents but compared to the last guy but i promise that we do try to ask for the least amount of documents needed but sometimes the underwriters or even sellers require more or less documents than your last purchase.",
+    "summary": "A common second-rental mistake is expecting the same loan process as the first. Each lender and underwriter asks for its own documents.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Expect a different document list on each loan.",
+    "topics": [
+      "financing",
+      "rentals"
+    ],
+    "checked": "His; on the page softened as he asked (\"Dont make this sound too harsh\").",
+    "status": "usable-with-limits",
+    "limits": "Keep it mild. Do not use \"We ask for the least the file needs\" or \"A seller can ask for more\" (owner deleted both).",
+    "publishedOn": [
+      "/invest/financing-multiple-rentals/"
+    ]
+  },
+  {
+    "id": "reserve-story",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:23, 204",
+    "verbatim": "another common mistake is not paying attention to the worst case scenerio you are doubling your profits but you also double your liabilities so look closely at what you would do in the worst case scenario and talk to us to build defenses so that its unlikely you get put into that worst case scenario but if you do find yourself in it you also have a plan to keep yourself protected. by using all the money you have in your bank account you put yourself into a vulnerable position we had a buyer once who wanted to fix a house he owned and rent it then sell a few other houses and buy more but by fixing that house the guy would be broke so we brought that risk to his attention and he found it would be a safer idea to sell a few houses then fix that house and buy less houses then originally planned to in order to keep a healthy and safe reserve. [...] Spending the reserve. mention how it took him a bit longer but he did it safer and can successfully grow now\"",
+    "summary": "A buyer wanted to fix a house he owned, rent it, then sell a few others and buy more, but fixing the house would have left him broke. After the agents raised the risk, he sold a few houses first, then fixed that one and bought fewer. It took longer, but he kept a reserve and can keep buying.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Keep a cash reserve when you grow from one rental to several.",
+    "topics": [
+      "rentals",
+      "financing"
+    ],
+    "checked": "His; on the page softened.",
+    "status": "usable",
+    "limits": "No name.",
+    "publishedOn": [
+      "/invest/financing-multiple-rentals/"
+    ]
+  },
+  {
+    "id": "landlord-insurance-premium",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:25, 64, 333-345",
+    "verbatim": "the insurance cost when it comes to an investment property and a primary home is not as bad as you would expect. Flood insurance is about 3 times more regular insurance is only about 15-20% more expensive.",
+    "summary": "Insurance on a rental is not as much more than on a home as people expect. In the brokerage's files a landlord policy costs 15 to 20 percent more than a homeowner policy.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "landlord vs homeowner policy": "15-20% more"
+    },
+    "lesson": "A landlord policy costs somewhat more than a homeowner policy on the same house.",
+    "topics": [
+      "insurance",
+      "rentals"
+    ],
+    "checked": "\"His files\"; the trade body says about 25 percent (iii.org). Both on the page, each attributed. The owner later asked for context: the page now states the dollar range ($1,700 to $4,400 a year).",
+    "status": "usable-with-limits",
+    "limits": "Say \"15 to 20 percent more than a homeowner policy on the same house, in Chapter3's files\", with the sourced 25 percent beside it. Never state the bare percentage without saying more than what.",
+    "publishedOn": [
+      "/invest/landlord-insurance/"
+    ]
+  },
+  {
+    "id": "flood-insurance-rental",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:25, 65",
+    "verbatim": "Flood insurance is about 3 times more",
+    "summary": "The owner says flood insurance on a rental is about three times more than on a primary home.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "flood on a rental": "about 3 times more"
+    },
+    "lesson": "Flood insurance on a rental costs more than on your own home.",
+    "topics": [
+      "insurance",
+      "rentals",
+      "flood"
+    ],
+    "checked": "The federal program prices the building's risk the same; a rental pays a $250 yearly surcharge instead of $25, and subsidies phase out faster. The page says the surcharge and \"in Chapter3's files about three times\", not a flat 3x.",
+    "status": "usable-with-limits",
+    "limits": "Never a flat \"3x\". Say \"in Chapter3's files about three times\" and give the $250 surcharge with the FEMA source.",
+    "publishedOn": [
+      "/invest/landlord-insurance/"
+    ]
+  },
+  {
+    "id": "property-tax-rental",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:25, 66",
+    "verbatim": "but usually taxes kill more deals than insurance [...] the taxes are about 3x more than a primary home here.",
+    "summary": "Taxes stop more rental deals than insurance does. The owner says property tax on a rental is about three times that on a primary home here.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "rental vs primary tax": "about 3x"
+    },
+    "lesson": "Property tax, not insurance, is the cost that most often ruins rental numbers here.",
+    "topics": [
+      "taxes",
+      "rentals"
+    ],
+    "checked": "The site's tax page, from certified 2025 millage: about 3.3 times unincorporated, about 4.3 times in the city of Myrtle Beach. Page says three to four times.",
+    "status": "usable-with-limits",
+    "limits": "Say \"three to four times\" and link the tax calculator. Say \"stop more deals\", not \"kill\".",
+    "publishedOn": [
+      "/invest/landlord-insurance/"
+    ]
+  },
+  {
+    "id": "dscr-priced-like-conventional",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:25, 67",
+    "verbatim": "the rates on DSCR are basically the same as a conventional loan on a good credit score and 1.25-1.5 DSCR property and the insurance is about the same",
+    "summary": "With good credit and a 1.25 to 1.5 DSCR, a DSCR loan prices about the same as a conventional loan.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "DSCR range": "1.25-1.5"
+    },
+    "lesson": "A strong DSCR deal does not have to cost more to finance.",
+    "topics": [
+      "DSCR",
+      "financing"
+    ],
+    "checked": "No rate on the page; \"prices about the same\", attributed to the loan officer.",
+    "status": "usable-with-limits",
+    "limits": "No rate. Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/invest/landlord-insurance/"
+    ]
+  },
+  {
+    "id": "builder-warranty-visit",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:181, 247-254",
+    "verbatim": "mention how much builders have a warranty and alot of them within the first 12 months will have their maintenance guy come and fix defects and spot paint once in the year",
+    "summary": "Many builders here send their maintenance person within the first 12 months to fix defects and touch up paint.",
+    "places": [],
+    "propertyType": "new construction",
+    "numbers": {
+      "visit window": "first 12 months"
+    },
+    "lesson": "Ask for the builder's warranty booklet and the first-year repair visit.",
+    "topics": [
+      "new construction"
+    ],
+    "checked": "Common practice but not in any warranty standard; stated as Chapter3's experience. The 1-2-10 structure was verified separately.",
+    "status": "usable-with-limits",
+    "limits": "State it as Chapter3's experience and tell the reader to ask for the warranty booklet.",
+    "publishedOn": [
+      "/invest/new-construction-rentals/"
+    ]
+  },
+  {
+    "id": "ten-property-rule-rare",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch4.md:188, 302, 208-217",
+    "verbatim": "also are you sure about the 10 home rule i havn't had any issue with this doing loans in the past. [...] its a very very very small side note that applies to almost nobody.",
+    "summary": "The owner has not hit the ten financed property limit in his loan work. It is real, but it applies to almost nobody, because investors who reach ten use DSCR or portfolio loans.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "limit": "10 financed properties"
+    },
+    "lesson": "The ten-property limit rarely matters to a small investor.",
+    "topics": [
+      "financing",
+      "rentals"
+    ],
+    "checked": "The ten-property rule is real (Selling Guide B2-2-03); DSCR and portfolio loans are outside it.",
+    "status": "usable-with-limits",
+    "limits": "Keep it a short side note. Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/invest/financing-multiple-rentals/"
+    ]
+  },
+  {
+    "id": "growth-interstate-hospitals-houses",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch5.md:8, 30-32",
+    "verbatim": "there's a new interstate 3 hospitals and 7k houses",
+    "summary": "The owner sums up the growth as a new interstate, three hospitals and 7,000 houses.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "hospitals": "3",
+      "houses": "7k"
+    },
+    "lesson": "The area is growing in roads, hospitals and housing at once.",
+    "topics": [
+      "appreciation",
+      "new construction",
+      "healthcare"
+    ],
+    "checked": "Every fact on those pages comes from re-opened primary sources. Permits: 7,152 in 2024 and 6,898 in 2025 (batch4 line 53).",
+    "status": "usable-with-limits",
+    "limits": "State the sourced figures, not his round ones. He said he does not follow what is being built.",
+    "publishedOn": [
+      "/buyers/relocating/jobs/",
+      "/invest/strategies/",
+      "/invest/what-is-being-built/"
+    ]
+  },
+  {
+    "id": "overcrowded-j1-house",
+    "type": "story",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch5.md:14, 33-37",
+    "verbatim": "okay so we sold one and the landlord told us the profits it was 40 people in a 2500 square foot they each paid 700 a month he then had a detached garage with 20 more people in there",
+    "summary": "The brokerage sold a house whose landlord said he had 40 people in a 2,500 square foot house, each paying $700 a month, and 20 more in a detached garage.",
+    "places": [],
+    "propertyType": "single-family house with detached garage",
+    "numbers": {
+      "people in house": "40",
+      "house size": "2500 square foot",
+      "rent per person": "700 a month",
+      "people in garage": "20"
+    },
+    "lesson": "Packing a house with workers is illegal overcrowding, not a return.",
+    "topics": [
+      "J-1 housing",
+      "rentals",
+      "compliance"
+    ],
+    "checked": "Earlier AI: a cautionary story, not a plan; it is the overcrowding the City of Myrtle Beach fines and condemns. Live wording differs from the source: /invest/j1-rentals/ says \"We have walked through a house here with more than 60 J-1 students living in it.\" The source says the brokerage sold the house and the landlord reported 40 people plus 20 in the garage; it does not say the team walked through it or that all were J-1 students.",
+    "status": "usable-with-limits",
+    "limits": "Only as a warning, next to the occupancy rule. Never present it as income or a return. No address. Keep to the source: the landlord reported the count; do not say \"we walked through\" unless the owner confirms.",
+    "publishedOn": [
+      "/invest/j1-rentals/"
+    ]
+  },
+  {
+    "id": "canadian-buyers-loans",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch5.md:20, 38-40",
+    "verbatim": "canadians have to do a DSCR loan unless they get their social security card and US credit or until they get one of the EAD cards that let them get mortgages here in the states and they need either a US SS number or a TIN number. the easiest way for a Canadian investor is to buy cash but we have had a few who were investors who got U.S loans.",
+    "summary": "Canadians usually need a DSCR loan unless they have a Social Security number and US credit, or an EAD card. They need a US Social Security number or a TIN. The easiest way is to buy with cash, but a few Canadian investors the brokerage worked with got US loans.",
+    "places": [
+      "Canada"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "Canadian buyers should plan on cash or a DSCR loan.",
+    "topics": [
+      "Canadian buyers",
+      "DSCR",
+      "financing"
+    ],
+    "checked": "Checked against the conventional guide's non-citizen rule and a foreign-national lender's public guideline. No loan is described as ours (A17, A17b). Published on /invest/canadian-buyers/ as \"A few of our Canadian investors have closed with a U.S. loan.\"",
+    "status": "usable-with-limits",
+    "limits": "Never write that Chapter3 lends or finances. Attribute loan facts to \"a loan officer at our preferred lender\". Never give Devin's NMLS number or call him a loan originator on the page.",
+    "publishedOn": [
+      "/invest/canadian-buyers/"
+    ]
+  },
+  {
+    "id": "canadian-withholding",
+    "type": "observation",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch5.md:22",
+    "verbatim": "8. i have not had a withholding issue",
+    "summary": "The owner has not had a withholding issue with Canadian buyers.",
+    "places": [
+      "Canada"
+    ],
+    "propertyType": "",
+    "numbers": {},
+    "lesson": "",
+    "topics": [
+      "Canadian buyers",
+      "taxes"
+    ],
+    "checked": "Not checked. The question it answers is not recorded in this file.",
+    "status": "usable-with-limits",
+    "limits": "Too thin to state alone. Use only next to the sourced withholding rules.",
+    "publishedOn": []
+  },
+  {
+    "id": "appreciation-10-5",
+    "type": "number",
+    "teller": "Devin Day (owner)",
+    "source": "research/invest-next/owner-answers-batch5.md:26, 41-44",
+    "verbatim": "10.5 may have been older numbers but you got those numbers 10.5 is some areas not every one of them now",
+    "summary": "The 10.5 percent appreciation figure on the hub was older numbers and only true in some areas.",
+    "places": [],
+    "propertyType": "",
+    "numbers": {
+      "old appreciation figure": "10.5%"
+    },
+    "lesson": "",
+    "topics": [
+      "appreciation"
+    ],
+    "checked": "Replaced by a sourced, dated Zillow home value index figure by area.",
+    "status": "do-not-use",
+    "limits": "Never use 10.5 percent. Use the dated by-area table on /invest/how-long-to-hold/. Live gap: /buyers/buying-in-myrtle-beach/ still says \"Prices are still appreciating year-over-year at around 10.5%\" (checked 2026-10-05).",
+    "publishedOn": [
+      "/buyers/buying-in-myrtle-beach/"
+    ]
+  }
+]

@@ -12,6 +12,9 @@ The system for producing chapter3realty.com pages quickly, built to rank in Goog
 | [`audit/SPEED-AND-CONTRAST.md`](audit/SPEED-AND-CONTRAST.md) | How to make the site faster on phones and readable for everyone: two tested patches, with before and after measurements. |
 | [`STANDARD.md`](STANDARD.md) | What does a finished page have, and what may it never claim? 51 rules with IDs, each with its evidence. |
 | [`WORKFLOW.md`](WORKFLOW.md) | How does a page go from topic to live in one owner review round instead of five? |
+| [`voice/`](voice/) | **The edit memory.** `RULES.md`: 69 rules from the owner's corrections, grouped by class, each with his words and a bad and good example. `REVIEW-PASS.md`: 62 questions the reviewer answers before he sees a page. `edits.jsonl`: 248 recorded corrections, growing with every batch. |
+| [`stories/`](stories/) | **The story bank.** 124 stories, observations and numbers from the owner's answers, each with its source line, its limits and the pages that already use it. |
+| [`batches/`](batches/) | One folder per batch of five pages: the plan, then the briefs and drafts. |
 | [`templates/`](templates/) | The brief, the owner questions, the fact ledger, the review checklist, and a spec skeleton. |
 | [`prompts/`](prompts/) | The fixed prompts for the researcher, verifier, writer and reviewer agents. |
 | [`tools/score.js`](tools/score.js) | Grades a page, or the whole site, against the standard. |
