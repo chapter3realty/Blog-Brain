@@ -11,15 +11,15 @@
  * Rules:  charter terms come from the association's posted 2017 copy. The short
  *         answer and the 55+ section name that copy; elsewhere the page says
  *         "the charter" (review S18). Rules recorded since 2017 have not been read.
- * Tax:    the calculator on /buyers/property-taxes/ lists 207.3 mills for
- *         Murrells Inlet and Garden City and 201.0 for other unincorporated areas
- *         (tax year 2025). No verified row ties district 610 to either option,
- *         so the example shows both (review ruling (a), interim). Use the one
- *         levy once the 2025 bill for PIN 46802030007 is a verified row (S1, S5).
+ * Tax:    district 610's 2025 levy, 207.3 mills, from the Treasurer's 2025 bill for
+ *         the association's Common Area 1 parcel, PIN 46802030007 (row 68, review
+ *         S1 and S5), and data/relocating/tax-engine.js. Stormwater fee: the
+ *         county's utility-fee page, a county-wide fee (Myrtle Trace ledger row 73).
  * Story:  stories.json "hoa-rental-bans-filtered", "insurance-quote-before-offer".
  * Review: batches/2026-10-a/REVIEW.md, fixes S1 to S22 and the shared comparison
- *         table (data/55-plus-communities.json). S2's spouse and board-exception
- *         lines and S8's parking rules wait for verified rows.
+ *         table (data/55-plus-communities.json). S8's parking regulations rest on
+ *         row 69 (the index entry only). S2's spouse and board-exception lines
+ *         wait for a verified row.
  */
 const { h } = require("../tools/mkpage.js");
 
@@ -47,6 +47,8 @@ const FEMA = "https://msc.fema.gov/portal/search?AddressQuery=130%20Grand%20Cypr
 const CMS = "https://www.medicare.gov/care-compare/details/hospital/420098/";
 const GOLFLAW = "https://www.scstatehouse.gov/code/t56c002.php";
 const WINDLAW = "https://www.scstatehouse.gov/code/t38c075.php";
+/* The county's own stormwater fee page (Myrtle Trace ledger row 73). */
+const STORMWATER = "https://www.horrycountysc.gov/departments/stormwater/major-initiatives/utility-fee/";
 
 /* Builder deeds naming a Seasons lot, by year recorded (rows 21 and 23):
    [year, Levitt and Sons of Horry County LLC, MBSC Seasons LLC]. */
@@ -87,7 +89,7 @@ const FACTS = [
   ["Road and park transfer fee", "0.25 percent of the price, up to an adjusted cap"],
   ["Flood zone", "Every lot center in Zone X; 45 lots touch Zone AE"],
   ["Wind pool coastal area", "Outside it, more than 2 miles west of Bypass 17"],
-  ["Tax district", "610"],
+  ["Tax district", "610, at 207.3 mills in 2025"],
   ["Nearest hospital", "Tidelands Waccamaw Community Hospital, about 4.0 miles by road"],
   ["Nearest public beach access", "Atlantic Avenue boardwalk access in Garden City, about 6.0 miles by road"],
   ["Myrtle Beach International Airport", "About 15.7 miles by road"],
@@ -178,23 +180,23 @@ module.exports = {
         "Fences need approval from the Architectural Control Board, and every fence must be uniform throughout the community.",
         "Golf carts must be parked in an enclosed garage, not on a street.",
       ]) +
+      h.p("The county deed index lists parking regulations the association recorded in 2022. The index does not show what they say. Ask the association for them if you keep a golf cart.") +
       h.p(`On a public road, a golf cart needs a ${h.ext(GOLFLAW, "DMV permit decal and registration")} under state law. Unless a local ordinance says otherwise, a cart can be driven only in daylight, on secondary roads posted 35 mph or less. The cart must also stay within four miles of the address on its registration, or of a gated community's entrance.`) },
 
     { h2: "What will the property tax be on a Seasons at Prince Creek West home?", html:
-      h.p("On a $450,000 primary residence in Seasons, the 2025 property tax is about $1,654 to $1,768 a year.") +
+      h.p("On a $450,000 primary residence in Seasons, the 2025 property tax is about $1,768 a year.") +
       h.p("Horry County's term for an approved primary residence is a legal residence. Assessed value is 4 percent of value for a legal residence and 6 percent for a second home. A mill equals $1 of tax for every $1,000 of assessed value.") +
-      h.p("County records list all 464 Seasons parcels in tax district 610, in unincorporated Horry County. For 2025, Horry County's rate was 207.3 mills for Murrells Inlet and Garden City and 201.0 for other unincorporated areas. The county's tax bill for the home shows which of the two applies to district 610.") +
+      h.p("County records list all 464 Seasons parcels in tax district 610, in unincorporated Horry County. The county Treasurer's 2025 bill for the association's Common Area 1 parcel shows a district 610 levy of 207.3 mills and no city levy.") +
+      h.p(`Each owner in unincorporated Horry County also pays a county stormwater fee with the property tax. For a single-family home, the county's ${h.ext(STORMWATER, "utility-fee page")} lists $89.40 a year.`) +
       h.p("A legal residence is not charged the 109.1 school operating mills. The homestead exemption applies to an owner 65 or older after one full calendar year of South Carolina residency. Under it, the county taxes the home's value minus $50,000.") +
       h.p("<strong>Example:</strong> Joan and Walt are moving from Richmond, Virginia, with up to $450,000 to spend. Joan is 70, Walt is 64, and they plan to live in Seasons all year. They buy a resale home for $450,000 and apply for the 4 percent rate.") +
       h.ul([
         "<strong>Assessed value:</strong> $450,000 × 4 percent = $18,000.",
-        "<strong>At 207.3 mills:</strong> $18,000 × (207.3 − 109.1) ÷ 1,000 = $1,767.60 a year.",
-        "<strong>At 201.0 mills:</strong> $18,000 × (201.0 − 109.1) ÷ 1,000 = $1,654.20 a year.",
+        "<strong>2025 tax:</strong> $18,000 × (207.3 − 109.1) ÷ 1,000 = $1,767.60 a year.",
         "<strong>Road and park transfer fee:</strong> 0.25 percent × $450,000 = $1,125, or the cap if that is lower. The charter names a $480 cap, adjusted under the road and park declaration.",
         "<strong>Working capital:</strong> two months of dues.",
       ]) +
-      h.p("After a full calendar year here, Joan applies for the homestead exemption. The assessed value drops to ($450,000 − $50,000) × 4 percent = $16,000.") +
-      h.p("At 207.3 mills, the 2025 tax is $16,000 × (207.3 − 109.1) ÷ 1,000 = $1,571.20 a year. At 201.0 mills, it is $16,000 × (201.0 − 109.1) ÷ 1,000 = $1,470.40 a year.") +
+      h.p("After a full calendar year here, Joan applies for the homestead exemption. The assessed value drops to ($450,000 − $50,000) × 4 percent = $16,000. The 2025 tax is $16,000 × (207.3 − 109.1) ÷ 1,000 = $1,571.20 a year.") +
       h.p("Tax bills for 2026 in Seasons use the newly certified 2026 millage.") +
       h.p(`Try your own price in the ${h.a("/buyers/property-taxes/", "Horry County property tax calculator")}.`) },
 

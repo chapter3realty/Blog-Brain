@@ -10,16 +10,15 @@
  * Rules:  the age rule is quoted from the HOA's posted OCR copy of the declaration
  *         and attributed to it as "the HOA's posted copy of the declaration"
  *         (review M1). Each HOA policy is named with its date.
- * Tax:    the "Unincorporated Horry" option in the calculator on /buyers/property-taxes/
- *         (201.0 mills, tax year 2025) and data/relocating/tax-engine.js.
- *         Tax district 100 is from the ledger; which levies district 100 carries
- *         is not established, so the page names the calculator as its source
- *         (review ruling (a), interim wording). Use the district 100 levy once
- *         the 2025 bill for PIN 40003010085 is a verified row (M4, M16).
+ * Tax:    district 100's 2025 levy, 201 mills, from the Treasurer's 2025 bill for
+ *         the HOA's recreational parcel, PIN 40003010085 (row 72, review M4), and
+ *         data/relocating/tax-engine.js (4 percent ratio, 109.1 school operating
+ *         mills, $50,000 homestead). Stormwater fee: the county's utility-fee page,
+ *         $7.45 a month or $89.40 a year for a single-family home (row 73, M5).
  * Story:  stories.json "hoa-rental-bans-filtered", "insurance-quote-before-offer".
  * Review: batches/2026-10-a/REVIEW.md, fixes M1 to M18 and the shared comparison
- *         table (data/55-plus-communities.json). M5 (stormwater fee) and the
- *         second half of M2 and M3 wait for verified rows.
+ *         table (data/55-plus-communities.json). The second halves of M2 and M3
+ *         wait for a verified row on the HOA's closing form (row 36 is wrong).
  */
 const { h } = require("../tools/mkpage.js");
 
@@ -43,6 +42,9 @@ const CAPITAL = "https://myrtletracesc.org/wp-content/uploads/MTHOA-Policies-202
    can read. The NFHL queries the verifier ran stay in the ledger (row 60). */
 const FEMA = "https://msc.fema.gov/portal/search?AddressQuery=101%20Myrtle%20Trace%20Drive%2C%20Conway%2C%20SC%2029526";
 const WINDLAW = "https://www.scstatehouse.gov/code/t38c075.php";
+/* The county's own stormwater fee page (row 73). The codified ordinance still
+   shows the 2018 rate, so the page cites this page, not the code. */
+const STORMWATER = "https://www.horrycountysc.gov/departments/stormwater/major-initiatives/utility-fee/";
 
 /* What a resale buyer pays the HOA in the first 12 months, 2026 amounts (rows 30, 35). */
 const FIRST12 = [
@@ -78,7 +80,8 @@ const FACTS = [
   ["Roads", "Private, owned by the HOA"],
   ["Flood zone", "Zone X"],
   ["Wind pool coastal area", "Outside it, about 6.4 miles from Bypass 17"],
-  ["Tax district", "100, for all but one parcel"],
+  ["Tax district", "100, for all but one parcel; 201 mills in 2025"],
+  ["County stormwater fee", "$89.40 a year for a single-family home"],
   ["Conway Medical Center", "About 0.8 miles by car"],
   ["Myrtle Beach International Airport", "About 10.4 miles by car"],
   ["Nearest public beach access", "About 9.8 miles by car"],
@@ -175,17 +178,17 @@ module.exports = {
       h.p("The HOA also records its guidelines and policies with the county. The latest set was recorded in January 2026. Ask the HOA for it before you offer.") },
 
     { h2: "What will the property tax be on a Myrtle Trace home?", html:
-      h.p("On a $300,000 primary residence in Myrtle Trace, the 2025 property tax is about $1,103 a year.") +
+      h.p(`On a $300,000 primary residence in Myrtle Trace, the 2025 property tax is about $1,103 a year. Owners here also pay the county's stormwater fee on the same bill. The county's ${h.ext(STORMWATER, "utility-fee page")} lists $7.45 a month, or $89.40 a year, for a single-family home.`) +
       h.p("The county calls an approved primary residence a legal residence. The county taxes 4 percent of a legal residence's value and 6 percent of a second home's value. That share is the assessed value.") +
-      h.p(`For each $1,000 of assessed value, one mill is $1 of tax. ${h.a("/buyers/property-taxes/", "Chapter3's tax calculator")} uses 201.0 mills for unincorporated Horry County in 2025. School operating millage, 109.1 mills, does not apply to a legal residence.`) +
-      h.p("County records list all but one Myrtle Trace parcel in tax district 100. Myrtle Trace is outside Conway city limits, so its owners pay no Conway city levy.") +
+      h.p("For each $1,000 of assessed value, one mill is $1 of tax. School operating millage, 109.1 mills, does not apply to a legal residence.") +
+      h.p("County records list all but one Myrtle Trace parcel in tax district 100. The county Treasurer's 2025 bill for the HOA's recreational parcel shows a district 100 levy of 201 mills. Myrtle Trace is outside Conway city limits, so its owners pay no Conway city levy.") +
       h.p("At 65, after living in South Carolina one full calendar year, an owner can apply for the homestead exemption. The exemption applies to the first $50,000 of the home's value.") +
       h.p("<strong>Example:</strong> Diane, 68, is moving from Charlotte with $300,000 to spend. She buys a resale home in Myrtle Trace for $300,000 and makes it her legal residence.") +
       h.ul([
         "<strong>One-time fees to the HOA at closing:</strong> $1,450 + $100 = $1,550.",
         "<strong>Dues for the first 12 months:</strong> $95 × 12 = $1,140.",
         "<strong>Assessed value:</strong> $300,000 × 4 percent = $12,000.",
-        "<strong>Mills on a legal residence:</strong> 201.0 − 109.1 = 91.9.",
+        "<strong>Mills on a legal residence:</strong> 201 − 109.1 = 91.9.",
         "<strong>2025 property tax:</strong> $12,000 × 91.9 ÷ 1,000 = $1,102.80 a year.",
       ]) +
       h.p("After her first full calendar year here, Diane applies for the homestead exemption. The assessed value drops to ($300,000 − $50,000) × 4 percent = $10,000. The 2025 tax is $10,000 × 91.9 ÷ 1,000 = $919 a year.") +
