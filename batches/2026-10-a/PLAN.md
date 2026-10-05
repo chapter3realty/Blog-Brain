@@ -1,63 +1,81 @@
-# Batch 2026-10-a: the next five pages
+# Batch 2026-10-a: one page per major 55+ community
 
-Proposed 2026-10-05. Each topic is a question buyers search that no Chapter3 page answers. Each was checked against the 132 live pages and against what ranks today.
+Decided 2026-10-05 by the owner: "make the pages about 55+ communities and have 1 page per major community". The five topics proposed earlier (HOA fees, oceanfront vs second row, flood zone, due diligence, home inspection) move to the backlog at the end of this file.
 
-## The five
+## The six pages
 
-| # | H1 (the question) | URL | Hub |
-|---|---|---|---|
-| 1 | How much are HOA fees in Myrtle Beach? | /hoa/fees/ | HOA |
-| 2 | Oceanfront, oceanview or second row: what is the difference in a Myrtle Beach condo? | /buyers/oceanfront-vs-second-row/ | Buyers |
-| 3 | How do you check a Myrtle Beach house's flood zone before you make an offer? | /buyers/flood-zone/ | Buyers |
-| 4 | How does the due diligence period work when you buy a house in South Carolina? | /buyers/due-diligence/ | Buyers |
-| 5 | What does a home inspection check on a Myrtle Beach house, and what is a CL-100? | /buyers/home-inspection/ | Buyers |
+"Major" means the age rule is recorded in the deed and the community has about 400 homes or more. Sizes are the hub page's figures until the ledgers verify them.
 
-Runners-up: golf cart rules by town (North Myrtle Beach, Surfside Beach, Myrtle Beach), and the September market report, which the site promised monthly.
+| # | Community | Town | Homes | URL |
+|---|---|---|---|---|
+| 1 | Del Webb North Myrtle Beach | North Myrtle Beach | 535 planned, still building | /buyers/55-plus-communities/del-webb-north-myrtle-beach/ |
+| 2 | Del Webb at Grande Dunes | Myrtle Beach | 524 | /buyers/55-plus-communities/del-webb-grande-dunes/ |
+| 3 | Myrtle Trace | Conway | 518 | /buyers/55-plus-communities/myrtle-trace/ |
+| 4 | Seasons at Prince Creek West | Murrells Inlet | 460 | /buyers/55-plus-communities/seasons-at-prince-creek-west/ |
+| 5 | Cypress Village | Little River | 404 | /buyers/55-plus-communities/cypress-village/ |
+| 6 | Cresswind Myrtle Beach | Market Common, Myrtle Beach | 400 | /buyers/55-plus-communities/cresswind-myrtle-beach/ |
 
-## Why each one
+Not in this batch: age-targeted communities with no recorded age rule (Heather Glen, Bridgewater, Blackmoor). Smaller age-restricted communities for a second batch: Woodlake Village, Spring Forest, Lakeside Crossing (land lease), Carillon at Tuscany, Hidden Lakes Village, Rivergate. Continuing-care campuses (Brightwater, The Lakes at Litchfield, Covenant Towers) work on a different contract and get their own page later.
 
-**1. HOA fees.**
-- Demand: "myrtle beach hoa fees" is one of the 20 target queries in the audit. Chapter3 does not rank.
-- Who ranks: five agent blogs (dreamlifemyrtlebeach.com, myrtlebeachhomesblog.com, northmyrtlebeachrealestate.net, coastalbeachhomessc.com, gregharrelson.com). Their ranges disagree: $50 to $600, $200 to $1,500, $400 to $1,200.
-- Our own site disagrees too: /invest/airbnb-income/ says oceanfront towers are "$400 to $1,200 a month"; /buyers/common-mistakes/ says "$300 to $900". This page would own one checked figure, registered in `facts/registry.json`, and both pages would link to it.
-- Fits the 19-page HOA cluster, which has no page on what the fees cost.
-- Angle: ranges by property type from MLS data, what the fee pays for (master insurance, reserves, amenities), and why oceanfront towers rose.
-- Stories: `rental-program-buildings` (transfer fees and dues held in escrow), `hoa-rental-bans-filtered`, `ny-buyer-rules-fit`.
-- Example: a couple comparing an oceanfront tower condo with a Carolina Forest house, with the monthly fee and what each fee covers.
+## Why per-community pages
 
-**2. Oceanfront, oceanview, second row.**
-- Who ranks: homeguidemyrtlebeach.com and coastalbeachhomessc.com. They define the terms. Neither gives prices.
-- Angle: the definitions as a listing uses them, then what each costs to buy and to insure, and what it rents for. Numbers from the same MLS export as topic 1.
-- Stories: `boston-hotel-manager` (three condos in one oceanfront building), `rental-program-buildings`.
-- Example: a buyer choosing between an oceanfront unit and a second-row unit two streets apart, with price, dues and rent side by side.
+- A buyer searches the community by name: "Del Webb Myrtle Beach HOA fees", "Can you rent in Cresswind Myrtle Beach", "Is Seasons at Prince Creek gated". The hub answers none of these for one community.
+- What ranks today is builder pages (one community, sales copy) and directory pages (55places, agent sites) with a paragraph each. None gives the recorded age rule, the flood zone, the tax, and the one-time fees on one page.
+- The hub, /buyers/55-plus-communities/, links to each page, and each page links back. That builds the cluster search engines read as expertise.
 
-**3. Flood zone.**
-- Who ranks: the City of Myrtle Beach flood page and scanned elevation certificates on the county site. No buyer guide.
-- Angle: the four steps a buyer takes before an offer. The FEMA map, the county GIS flood layer, the elevation certificate, and the seller's disclosure. Then what the zone means for insurance.
-- Primary sources to open: FEMA Map Service Center; Horry County GIS flood viewer; City of Myrtle Beach flood protection page (new homes three feet above base flood elevation); the SC residential disclosure form.
-- Links: /buyers/undisclosed-flooding/, /buyers/coastal-insurance/, /buyers/relocating/hurricanes/.
-- Stories: `flood-insurance-rental` (about three times more on a rental).
-- Example: a house in an AE zone with its elevation certificate read line by line.
+## What every page answers
 
-**4. Due diligence period.**
-- Who ranks: agents in Charleston, Summerville, Greenville and Lexington. No Myrtle Beach page.
-- Angle: what to do on each day of the period on a Grand Strand purchase. Inspection, CL-100, HOA documents, insurance quote, survey, and how to end the contract.
-- Facts to verify: South Carolina REALTORS Form 310 and the Form 311 due diligence addendum. Search summaries say South Carolina uses a non-refundable "due diligence fee". That may be a Charleston form practice and not true here. It goes on the page only after the form itself is read.
-- Example: a day-by-day calendar for a 14-day period on a Surfside Beach house.
+Question headings, each answered in the first sentence (STANDARD A2, A4):
 
-**5. Home inspection and CL-100.**
-- Who ranks: pest control companies. No brokerage.
-- Angle: what an inspector checks on a coastal house (crawl space moisture, roof, wind straps, stucco and siding), what the CL-100 is, who orders it, and how close to closing it must be dated.
-- Primary sources to open: the official SC wood infestation report form and its rules (Clemson Department of Pesticide Regulation); the SC home inspector licence (LLR); the lender requirement.
-- Links: topic 4, /buyers/closing-costs/, /buyers/common-mistakes/.
-- Example: a 1990s house in Surfside Beach with a crawl space, the findings, and the repair request that follows.
+1. What is it? Builder, years, size, where. Defined in one sentence.
+2. What does the 55+ rule require here? The community's own recorded wording. The federal 80 percent rule is explained once, on the hub, and linked.
+3. What do homes cost? New-home base prices from the builder, dated. Resale prices wait for MLS (see below).
+4. What are the HOA dues, what do they cover, and what is paid once at purchase?
+5. What amenities does it have?
+6. Can you rent the home out?
+7. What will the property tax be? A worked example with the right tax district.
+8. Is it in a flood zone, and which side of the wind pool line is it on?
+9. How far is it from the beach, the hospital and the airport? A table, with the method.
+10. How does it compare with the other five? A table of verified figures, linking each page.
 
-## What the owner gives
+One table of key facts, one chart (dues across the six communities, from verified rows), an FAQ, a sources line.
 
-| Ask | For | Time |
+## Rules for this batch
+
+- **Facts only about a named community, builder or HOA.** No "premium", "value option", "well run". Website CLAUDE.md rule 5.
+- **Fair housing.** Property, rules and geography. Never who lives there or who it suits.
+- **No sentence on two pages.** Six pages from one outline will drift into shared sentences, as the 8 town pages did (audit: 30 identical sentences). Each page's prose is written from its own ledger. Shared explanations live on the hub and are linked. The website's near-duplicate check runs across the six before review.
+- **Worked example on each page.** Labelled "Example", told like a real person, every number from a verified row (STANDARD T2). No real story in the bank fits a named community yet.
+- **Devin Day is the byline author.** No name in the copy.
+
+## Waiting for MLS (about a week)
+
+Resale price range, median price, days on market and price per square foot for each community. The pages ship without them, with builder prices dated where the builder still sells. When the MLS export arrives, one pass adds the resale numbers to all six pages and registers them in `facts/registry.json` with a 30-day stale date.
+
+## Steps and who does them
+
+| Step | Who | Status |
 |---|---|---|
-| One MLS export of sold condos and houses from the last 12 months with these fields: price, HOA fee, property type, oceanfront/oceanview/second-row flag, town | Topics 1 and 2 | 10 minutes |
-| Which contract form Grand Strand agents use (Form 310 with 311, or a CCAR form), and how many days of due diligence buyers usually ask for here | Topic 4 | 2 minutes |
-| Optional: what inspectors find most often on houses here | Topic 5 | 2 minutes |
+| Fact ledgers, one per community | Three researcher agents | Running |
+| Verify every row | A fourth agent that did no research | Next |
+| Draft six specs | Writer agent, reading `voice/RULES.md` and the ledgers | After verification |
+| Gates: mkpage, build.js audit, scorer, claims, facts, near-duplicates | Machine | After drafts |
+| Review pass: `voice/REVIEW-PASS.md` on each page | Reviewer agent | After gates |
+| Owner reads six pages, one sitting | Owner | Then |
+| Record his edits, update the memory, ship | Machine, then the owner's AI deploys | Last |
 
-Everything else comes from primary sources and the story bank.
+## Owner questions
+
+1. The hub says "Clients of ours made exactly this move": a couple sold in Blackmoor and bought in Seasons at Prince Creek West. No file records where that story came from. Did it happen? If yes, it goes in the story bank and on the Seasons page. If no, it comes off the hub.
+
+## Backlog (proposed 2026-10-05, moved here)
+
+| Topic | Needs |
+|---|---|
+| How much are HOA fees in Myrtle Beach? | MLS export |
+| Oceanfront, oceanview or second row in a Myrtle Beach condo | MLS export |
+| How to check a Myrtle Beach house's flood zone before you offer | Nothing |
+| The due diligence period on a South Carolina purchase | Tim: which contract form and how many days |
+| Home inspection and the CL-100 in Myrtle Beach | Nothing |
+| Golf cart rules by town | Nothing |
+| The monthly market report | MLS export |
