@@ -37,21 +37,21 @@ Question headings, each answered in the first sentence (STANDARD A2, A4):
 7. What will the property tax be? A worked example with the right tax district.
 8. Is it in a flood zone, and which side of the wind pool line is it on?
 9. How far is it from the beach, the hospital and the airport? A table, with the method.
-10. How does it compare with the other five? A table of verified figures, linking each page.
+10. How does it compare with the other four? A table of verified figures, linking each page.
 
-One table of key facts, one chart (dues across the six communities, from verified rows), an FAQ, a sources line.
+One table of key facts, one chart (dues across the five communities, from verified rows), an FAQ, a sources line.
 
 ## Rules for this batch
 
 - **Facts only about a named community, builder or HOA.** No "premium", "value option", "well run". Website CLAUDE.md rule 5.
 - **Fair housing.** Property, rules and geography. Never who lives there or who it suits.
-- **No sentence on two pages.** Six pages from one outline will drift into shared sentences, as the 8 town pages did (audit: 30 identical sentences). Each page's prose is written from its own ledger. Shared explanations live on the hub and are linked. The website's near-duplicate check runs across the six before review.
+- **No sentence on two pages.** Five pages from one outline will drift into shared sentences, as the 8 town pages did (audit: 30 identical sentences). Each page's prose is written from its own ledger. Shared explanations live on the hub and are linked. The website's near-duplicate check runs across the five before review.
 - **Worked example on each page.** Labelled "Example", told like a real person, every number from a verified row (STANDARD T2). No real story in the bank fits a named community yet.
 - **Devin Day is the byline author.** No name in the copy.
 
 ## Waiting for MLS (about a week)
 
-Resale price range, median price, days on market and price per square foot for each community. The pages ship without them, with builder prices dated where the builder still sells. When the MLS export arrives, one pass adds the resale numbers to all six pages and registers them in `facts/registry.json` with a 30-day stale date.
+Resale price range, median price, days on market and price per square foot for each community. The pages ship without them, with builder prices dated where the builder still sells. When the MLS export arrives, one pass adds the resale numbers to all five pages and registers them in `facts/registry.json` with a 30-day stale date.
 
 ## Steps and who does them
 
@@ -59,10 +59,10 @@ Resale price range, median price, days on market and price per square foot for e
 |---|---|---|
 | Fact ledgers, one per community | Three researcher agents | Running |
 | Verify every row | A fourth agent that did no research | Next |
-| Draft six specs | Writer agent, reading `voice/RULES.md` and the ledgers | After verification |
+| Draft five specs | Writer agent, reading `voice/RULES.md` and the ledgers | After verification |
 | Gates: mkpage, build.js audit, scorer, claims, facts, near-duplicates | Machine | After drafts |
 | Review pass: `voice/REVIEW-PASS.md` on each page | Reviewer agent | After gates |
-| Owner reads six pages, one sitting | Owner | Then |
+| Owner reads five pages, one sitting | Owner | Then |
 | Record his edits, update the memory, ship | Machine, then the owner's AI deploys | Last |
 
 ## Owner questions
