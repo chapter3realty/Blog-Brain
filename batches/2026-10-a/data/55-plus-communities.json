@@ -1,26 +1,26 @@
 {
-  "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); 'ledger' names the rows. Change a cell here, then rebuild all four pages.",
-  "head": ["Community", "Mailing town", "Inside city limits", "Declaration recorded", "Minimum lease", "Other residents"],
+  "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); 'ledger' names the rows. Plain words only (voice/RULES.md BUYER-2). Change a cell here, then rebuild all four pages.",
+  "head": ["Community", "Town", "Homes", "Hospital by car", "Shortest lease", "Youngest other resident"],
   "rows": [
     {
       "url": "/buyers/55-plus-communities/del-webb-north-myrtle-beach/",
-      "cells": ["Del Webb North Myrtle Beach", "North Myrtle Beach", "Yes", "July 2021", "Ask Associated Asset Management (AAM)", "Ask AAM"],
-      "ledger": "del-webb-north-myrtle-beach-facts.md rows 5, 13 and 31 (31: AAM is Associated Asset Management)"
+      "cells": ["Del Webb North Myrtle Beach", "North Myrtle Beach", "About 500 homesites, about 408 built (October 2026)", "McLeod Health Seacoast, 5.6 miles", "Ask the management company", "Ask the management company"],
+      "ledger": "del-webb-north-myrtle-beach-facts.md rows 13, 20, 21 and 43; no row for the lease or age terms (the HOA's documents are not online)"
     },
     {
       "url": "/buyers/55-plus-communities/del-webb-grande-dunes/",
-      "cells": ["Del Webb at Grande Dunes", "Myrtle Beach", "Yes", "February 2018", "12 months, one lease a year", "19 or older"],
-      "ledger": "del-webb-grande-dunes-facts.md rows 3, 12, 14 and 50"
+      "cells": ["Del Webb at Grande Dunes", "Myrtle Beach", "524 planned in 2017", "Grand Strand Medical Center, 2.3 miles", "12 months, once a year", "19"],
+      "ledger": "del-webb-grande-dunes-facts.md rows 14, 20, 66, 50 and 3"
     },
     {
       "url": "/buyers/55-plus-communities/myrtle-trace/",
-      "cells": ["Myrtle Trace", "Conway", "No", "November 1983", "One year", "No minimum age in the HOA's posted copy"],
-      "ledger": "myrtle-trace-facts.md rows 3, 6, 15 and 51"
+      "cells": ["Myrtle Trace", "Conway", "518", "Conway Medical Center, 0.8 miles", "One year", "No minimum in the HOA's rules"],
+      "ledger": "myrtle-trace-facts.md rows 15, 31, 65, 51 and 6"
     },
     {
       "url": "/buyers/55-plus-communities/seasons-at-prince-creek-west/",
-      "cells": ["Seasons at Prince Creek West", "Murrells Inlet", "No", "December 2006 (charter)", "One year, in writing", "18 or older"],
-      "ledger": "seasons-at-prince-creek-west-facts.md rows 1, 7, 16 and 42"
+      "cells": ["Seasons at Prince Creek West", "Murrells Inlet", "444", "Tidelands Waccamaw Community Hospital, 4.0 miles", "One year", "18"],
+      "ledger": "seasons-at-prince-creek-west-facts.md rows 17, 19, 65, 42 and 7"
     }
   ]
 }
