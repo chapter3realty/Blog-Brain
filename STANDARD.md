@@ -44,6 +44,22 @@ Sources line: 3-5 links, under 90 words                    T3
 Bottom CTA
 ```
 
+
+## Buyer first (owner, 2026-10-06)
+
+These outrank the structure rules below when they conflict. The detail, with his words, is class BUYER in `voice/RULES.md`.
+
+| ID | Rule |
+|---|---|
+| B1 | Lead with what the target buyer wants most, good news first, then the drawbacks. Never lead with records, history or method. |
+| B2 | No industry terms. Use the words a buyer with no research uses. Replace a term; do not define it. |
+| B3 | Speak as the expert. State the fact with its date. No "records show", "according to", "per <company>" in running text; a few source links through the page and the sources line. |
+| B4 | Say what a fact means for the buyer, not why or how it works. Link the explainer page. |
+| B5 | Answer the next question each section raises (a flood zone raises flood insurance cost). |
+| B6 | Warm and plain, like a good agent: "408 homes are already built", in literal words. |
+| B7 | Community pages say what life there is like: events and clubs, what is nearby, pets, guests. |
+| B8 | Simple beats complete. Cut what the buyer would skip. |
+
 ## S. Search
 
 | ID | Rule | Why |
@@ -100,7 +116,7 @@ Bottom CTA
 | ID | Rule | Why |
 |---|---|---|
 | T1 | A visible byline: "By <author>, <title> · Reviewed by <person>, <title> · Updated <date>". The date comes from `build.js dates`, never typed. | OFFICIAL: bylines where expected; dates that match the schema. |
-| T2 | 2 or more sentences that show what Chapter3 knows, in the company's voice. Either a real experience ("In Chapter3's files...", "An agent at Chapter3...", "Our broker walks the crawlspace before a client bids."), taken from the story bank or the owner's answers and never invented; or a **worked example**: labelled "Example" where it starts, then told like a real person and a real situation ("Example: Mark and Lisa are moving from Ohio with $400,000 to spend..."). Every number comes from a verified fact row and the arithmetic is shown. It never says the people are clients and never says they are not; it never says "our client", "we helped" or "Chapter3 found them". OWNER 2026-10-05: "just make it example and then talk like its a real person and story". | OFFICIAL (AI guide): "a first-hand review provides a unique perspective". OWNER A11e, A20. 71 pages have none. |
+| T2 | 2 or more sentences that show what Chapter3 knows, in the company's voice. Either a real experience ("In Chapter3's files...", "An agent at Chapter3...", "Our broker walks the crawlspace before a client bids."), taken from the story bank or the owner's answers and never invented; or a **worked example**: labelled "Example" where it starts, then told like a real person and a real situation ("Example: Mark and Lisa are moving from Ohio with $400,000 to spend..."). Every number comes from a verified fact row. It gives the results; one line of arithmetic only where it helps the buyer trust the number. It never says the people are clients and never says they are not; it never says "our client", "we helped" or "Chapter3 found them". OWNER 2026-10-05: "just make it example and then talk like its a real person and story". | OFFICIAL (AI guide): "a first-hand review provides a unique perspective". OWNER A11e, A20. 71 pages have none. |
 | T3 | A sources line: 3-5 short names, links only, under 90 words, with the date the sources were read. | The site's A11b. |
 | T4 | dateModified is within 365 days. Volatile pages (taxes, STR rules, insurance, market numbers) are reviewed every 90 days and re-dated only when the prose changed. | STUDY: AI-cited pages are 26 percent fresher. OFFICIAL: no fake freshness. |
 | T5 | **(human)** No quote attributed to Tim Nash ships until he has approved the exact words. | OWNER, 2026-09-03. A fabricated quote from a licensed broker is a compliance problem. |

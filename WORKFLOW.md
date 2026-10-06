@@ -129,6 +129,10 @@ node <blog-brain>/tools/site-audit.js .                                       # 
 
 Fix the spec and rerun until all of them are clean.
 
+### 5b. Buyer reader
+
+A fresh agent reads each built page as a first-time buyer, with `prompts/buyer-reader.md`. It lists every word it did not know, every sentence that explained how instead of what it means, every paragraph it skipped, and the questions it still has. The writer fixes these before the reviewer reads. (Added 2026-10-06, after the owner found four pages that scored 100 too technical.)
+
 ### 6. Reviewer agent
 
 A fresh agent, using `prompts/reviewer.md`, that did not write the page. It works through `templates/review-checklist.md`, which covers the human checks in STANDARD:

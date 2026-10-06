@@ -6,6 +6,15 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 
 ## Read this first
 
+**Buyer first (owner, 2026-10-06). These come before every other rule.**
+
+- A. Lead with what the buyer of this page wants most, good news first, then the drawbacks. Never lead with records, history or method.
+- B. Use the words a buyer who has done no research uses. No industry terms: "plans", "platted", "assessed value", "declaration", "development agreement", a company's initials.
+- C. Speak as the expert the buyer trusts. State the fact. Do not write "records show", "according to", "per Pulte". Put a few source links through the page and the rest in the sources line.
+- D. Tell the buyer what a fact means for them, not why or how it works. The explainer lives on another page; link it.
+- E. Answer the next question the page makes them ask: a flood zone makes them ask what flood insurance costs.
+- F. Keep it simple and warm, the way a good agent talks: "408 homes are already built", not "408 parcels carry a building value".
+
 1. Say the thing itself: subject, verb, object. No metaphor, idiom or figure of speech of any kind.
 2. Only people act. A number, law, lease, house or tax never sets, carries, maps, decides, wins, sits, runs, catches or does anything for anyone.
 3. One idea per sentence. 28 words at most, 16 on average. No asides, no And/So openers, no teasers, no hedges.
@@ -26,9 +35,59 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 
 Paths are in the website repo (`chapter3realty/Chapter3-Website`, branch `claude/github-account-check-wutg8b`) unless they start with `Blog-Brain/`. `RL` is `research/relocating/owner-answers.md`. `B3`, `B4` and `B5` are `research/invest-next/owner-answers-batch3.md`, `-batch4.md` and `-batch5.md`. The full record of each correction is in `edits.jsonl` in this folder.
 
-Rule counts: FIG 7, SHAPE 10, WORD 5, STRUCT 9, BIZ 8, FACT 9, LOCAL 5, STORY 7, CTA 4, OWNER 5. Total 69.
+Rule counts: BUYER 8, FIG 7, SHAPE 10, WORD 5, STRUCT 9, BIZ 8, FACT 9, LOCAL 5, STORY 7, CTA 4, OWNER 5. Total 77. When BUYER conflicts with another rule, BUYER wins, except the legal rules in BIZ and FACT.
 
 ---
+
+## BUYER. Write for the buyer (owner, 2026-10-06, after the first 55+ batch)
+
+He read four pages that passed every check and scored 100. His verdict: "I think you did very well at writing these blogs but i think you don't lead with the most valuable information to the target buyer of that page and i think that a huge portion of the content is technical knowledge that the customer wouldn't really care to learn about." These rules are the class behind that, not fixes to those pages. They outrank STRUCT-2 and STORY-3 where those asked for definitions and arithmetic.
+
+### BUYER-1. Lead with what the target buyer of this page wants most. Good news first, then the drawbacks.
+- Owner: "i think you are leading with too much technical information lead with what a buyer would want to know rather than how many acres were annexed by the city and also give is a bit of a nice realtor feel like the community has 408 homes to choose from currently built. we don't need to lead with records show and so on with that sort of information worst case just source it." (Blog-Brain session, 2026-10-06). "and of course we always lead with the good then bad."
+- Bad: "The city of North Myrtle Beach annexed the 171.24 acres in October 2020." (second paragraph of the Del Webb North Myrtle Beach draft)
+- Good (suggested): "Del Webb North Myrtle Beach has about 408 homes built and new ones still for sale, a mile from the beach."
+- Enforced by: reading pass, and the buyer reader (`Blog-Brain/prompts/buyer-reader.md`).
+
+### BUYER-2. No industry terms. Use the words a buyer who has done no research uses.
+- Owner: "i think you are using some industry terminology with Pulte and its three \"plans\", AAM and so on these industry terms are just words that a normal buyer who hasn't done much research wouldn't know." (Blog-Brain session, 2026-10-06)
+- Bad: "Pulte lists three Del Webb plans"; "Ask AAM"; "497 home lots platted"; "assessed value"; "legal residence"; "development agreement".
+- Good (suggested): "three home designs"; "ask the management company"; "about 500 homesites"; "your primary home".
+- Do not define a term to make it usable. Replace it. Keep a term only when the buyer will see it on a form they sign, and then say it once, in plain words.
+- Enforced by: reading pass, and the buyer reader.
+
+### BUYER-3. Speak as the expert. State the fact; source it lightly.
+- Owner: "i think you present a lot of stuff a little too formally such as according to the records and so on when we are the experts we are the people they go to and they trust so we should just present the facts to them with a few sources thorough the page." (Blog-Brain session, 2026-10-06)
+- Bad: "County records show 497 home lots platted in five phases." "Pulte lists lawn care and a TV package."
+- Good (suggested): "About 500 homes are planned, and about 408 are built." "Your dues include lawn care and a TV package."
+- A price or a fee still carries its date ("in October 2026"). Facts about a named builder or HOA stay dated and observable (BIZ, website CLAUDE.md rule 5). The date stays; the attribution goes to the sources line.
+- Enforced by: reading pass.
+
+### BUYER-4. Say what it means for the buyer, not why or how it works.
+- Owner: "they just want to know what does it mean for them without any explanation on why or how or where it came from" (Blog-Brain session, 2026-10-06). "think about how a regular buyer needs a simple easy to read page that maybe doesnt dive deeper into how everything works because they want to learn"
+- Bad: the tax section that explains assessment ratios, mills and the school operating levy before giving the bill.
+- Good (suggested): "On a $700,000 home you live in, expect about $3,000 a year in property tax. At 65 you can lower it." Then link /buyers/property-taxes/ for how it is worked out.
+- A worked example gives the results. Arithmetic appears only where one line of it helps the buyer trust the number.
+- Enforced by: reading pass, and the buyer reader.
+
+### BUYER-5. Answer the next question the page makes the buyer ask.
+- Owner: "is there a question that a regular buyer would ask based on information they learned about in our page for example i feel like they would ask about the flood insurance cost after the del webb north myrtle beach in a flood zone? section." (Blog-Brain session, 2026-10-06)
+- Every section ends by asking: what will they ask now? If the answer is a fact, add it (verified). If it is a service, offer it in a CTA.
+- Enforced by: the buyer reader lists the questions it still has.
+
+### BUYER-6. A good agent's warmth, in literal words.
+- Owner: "give is a bit of a nice realtor feel like the community has 408 homes to choose from currently built" (Blog-Brain session, 2026-10-06).
+- Frame a fact as what the buyer gets: homes to choose from, a clubhouse to use, the beach a mile away. Still no metaphors (FIG), no superlatives, no judgment about a named builder or HOA (BIZ).
+- Enforced by: reading pass.
+
+### BUYER-7. Research what buyers ask about an HOA community's life, not only its rules.
+- Owner: "something in my experience people like to know about for HOA's is how many events do they hold for the community." (Blog-Brain session, 2026-10-06)
+- For any community page: events and clubs (how many a month, from a public calendar or newsletter), what is in walking distance, pets, guests, golf carts. Rules and records come after.
+- Enforced by: the research brief template (`Blog-Brain/templates/research-brief.md`).
+
+### BUYER-8. Simple and easy to read beats complete.
+- A page a buyer finishes beats a page that covers everything. Cut what the buyer would not miss. Detail lives on the explainer pages; link them.
+- Enforced by: the buyer reader marks every paragraph it would skip.
 
 ## FIG. Figurative language (42 recorded corrections)
 
@@ -205,7 +264,7 @@ The most frequent correction is one word: "Delete." 44 recorded corrections were
 - Good (recorded): three facts and nothing else: what a Horry County rental costs, the return with a manager and without one, and appreciation over five and ten years (HANDOFF.md:2137-2139). Short paragraphs; the last one gives a reason to read on.
 - Enforced by: reading pass. No check measures whether a summary is a summary.
 
-### STRUCT-2. Say what the subject is before you say anything about it. Define every term in its own sentence before you use it.
+### STRUCT-2. Say what the subject is before you say anything about it. Prefer the plain word to the term (BUYER-2); define a term only when the buyer will meet it on a form.
 - Owner: "The page is assuming I know." (2026-09-05, PLAYBOOK.md:415). "Explain what the master deed is and make sure all 5 pages are giving proper context before explaining something like why do we care about the master deed it feels random here" (2026-09-07, B3:306)
 - Bad: "What does the master's deed carry?" (/invest/foreclosures/). Also: "The City of Conway counts a household as no more than three unrelated people" with no context.
 - Good (recorded order): the section now defines the master-in-equity and the deed before the warranty point (HANDOFF.md:1550-1551).
@@ -413,7 +472,7 @@ The most frequent correction is one word: "Delete." 44 recorded corrections were
 - Good (recorded): the sentence addresses the reader instead.
 - Enforced by: reading pass.
 
-### STORY-3. Where no real story fits, write a worked example. Label it "Example" where it starts. Write it like a real person and situation. Every number comes from a verified fact row, and the arithmetic is shown. Never say the people are clients, never say they are not, never write "our client" or "we helped".
+### STORY-3. Where no real story fits, write a worked example. Label it "Example" where it starts. Write it like a real person and situation. Every number comes from a verified fact row. Give the results; show arithmetic only where one line helps the buyer trust the number (BUYER-4). Never say the people are clients, never say they are not, never write "our client" or "we helped".
 - Owner: "just make it example and then talk like its a real person and story" (2026-10-05, Blog-Brain/STANDARD.md:103). Earlier: "i dont understand this question but go ahead and make an illustrative story for it" (2026-09-06, B3:78). "Example with round numbers. Can you make this example interactable as well and let them change the numbers to test their own deals." (2026-09-03, RL:1228-1229)
 - Bad: no recorded instance yet.
 - Good (the pattern in Blog-Brain/STANDARD.md:103): "Example: Mark and Lisa are moving from Ohio with $400,000 to spend..." Every figure after that line comes from the fact ledger.

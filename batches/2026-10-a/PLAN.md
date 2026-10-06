@@ -83,3 +83,15 @@ Resale price range, median price, days on market and price per square foot for e
 | Home inspection and the CL-100 in Myrtle Beach | Nothing |
 | Golf cart rules by town | Nothing |
 | The monthly market report | MLS export |
+
+## Owner answers, 2026-10-06
+
+1. Cypress Village and Cresswind: "im not worried about the pages that talk about Cresswind and cypress google says their 55+ its enough protection to me." They stay on the hub. They are still not in this batch, because no recorded age rule was read.
+2. Hub figures: "yeah lets update the figures." Apply `hub-corrections.diff`.
+3. Blackmoor story: "yeah you can use the blackmoor story." In the story bank as `blackmoor-to-seasons`; use it on the Seasons page.
+4. Reading HOA documents: "if a buyer needs us to read the HOA we will so keep it." The CTAs stay.
+5. Seasons gate: "i dont know if the gate operates." Leave it out.
+6. A sentence from Tim: "no tims busy." The A20 warning stays.
+7. Example prices: "you should be able to price check houses pretty easy with zillow." Zillow blocks automated access from here (audit, offsite evidence). Example budgets wait for MLS, or the owner pastes a few current listings.
+
+Overall lessons (class BUYER in `voice/RULES.md`): lead with what the buyer wants, good then bad; no industry terms; speak as the expert, source lightly; what it means, not how it works; answer the next question (flood insurance after the flood zone); warmth; events and community life. The four drafts are rewritten against these.

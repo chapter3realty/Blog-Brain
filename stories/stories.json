@@ -3086,5 +3086,33 @@
     "publishedOn": [
       "/buyers/buying-in-myrtle-beach/"
     ]
+  },
+  {
+    "id": "blackmoor-to-seasons",
+    "type": "story",
+    "teller": "Chapter3 (owner confirmed 2026-10-06)",
+    "source": "chapter3realty/buyers/55-plus-communities/index.html (live hub); owner confirmation in the Blog-Brain session, 2026-10-06: \"yeah you can use the blackmoor story\"",
+    "verbatim": "Clients of ours made exactly this move. They owned a single-family home in Blackmoor, the Gary Player golf community in Murrells Inlet, and sold it to buy in Seasons at Prince Creek West, the nearest true 55+ community, a few minutes up the road.",
+    "summary": "A couple who owned a single-family home in Blackmoor, a golf community in Murrells Inlet with no age restriction, sold it and bought in Seasons at Prince Creek West, an age-restricted community a few minutes away.",
+    "places": [
+      "Murrells Inlet",
+      "Blackmoor",
+      "Seasons at Prince Creek West"
+    ],
+    "propertyType": "single-family home",
+    "numbers": {},
+    "lesson": "A buyer may move a few miles to a community built for how they live now.",
+    "topics": [
+      "55+ communities",
+      "Seasons at Prince Creek West",
+      "Murrells Inlet",
+      "moving up"
+    ],
+    "checked": "Owner confirmed the story happened, 2026-10-06. No names or dates recorded.",
+    "status": "usable-with-limits",
+    "limits": "No names. Describe Blackmoor by its property facts only. Do not add reasons or details the hub text does not give.",
+    "publishedOn": [
+      "/buyers/55-plus-communities/"
+    ]
   }
 ]

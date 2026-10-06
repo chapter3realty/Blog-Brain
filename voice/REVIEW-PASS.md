@@ -6,6 +6,18 @@ Each line is a yes/no question. The answer the page needs is in brackets, then t
 
 The order is how often the owner caught the problem, counted from `edits.jsonl` (248 records). The count is in each heading. A record can count under more than one heading. Sections 12 and 14 are low in count, but each of those mistakes cost a full rewrite of a page.
 
+
+## 0. Buyer first (owner, 2026-10-06; answer these before everything else)
+
+B1. Does the first screen give the target buyer what they want most (what they get, what it costs, whether they can), good news first? [yes] BUYER-1
+B2. Is there any word a buyer with no real estate experience would not know: "plans", "platted", "assessed value", "declaration", initials of a company? [no] BUYER-2
+B3. Does any sentence open with "records show", "according to", "per <company>", or cite a source in running text where a plain statement would do? [no] BUYER-3
+B4. Does any section explain why or how something works when the buyer only needs what it means for them? [no; give the result and link the explainer] BUYER-4
+B5. After each section, what would the buyer ask next? Is it answered or offered? List any that are not. [all answered] BUYER-5
+B6. Does the page read like a knowledgeable agent talking to a buyer, warm and plain, rather than a report? [yes] BUYER-6
+B7. On a community page, does it say what life there is like: events, clubs, what is nearby, pets, guests? [yes, where a source exists] BUYER-7
+B8. Is there a paragraph the buyer would skip? [no; cut it or move it to an explainer page] BUYER-8
+
 ## 1. Sentences that should not be there (48)
 
 1. Can any sentence be deleted without the reader losing a fact they need? [no] SHAPE-8

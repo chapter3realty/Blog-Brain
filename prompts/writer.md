@@ -15,7 +15,7 @@ You are writing `specs/<slug>.js` for chapter3realty.com from four inputs:
 
 Read these files:
 
-- `voice/RULES.md`, the owner's corrections by class. Read the "read this first" list twice. A phrase on no list can still break a class.
+- `voice/RULES.md`, the owner's corrections by class. Read the "read this first" list twice, starting with the buyer-first rules A to F. A phrase on no list can still break a class.
 - `stories/stories.json`. Search it by topic. Use a story's `summary` and obey its `limits`. Never add a detail the entry does not have. Skip any entry marked `do-not-use`.
 - `STANDARD.md`
 - The website repo's `CLAUDE.md`
