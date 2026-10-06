@@ -23,6 +23,7 @@ For a topic page, write the buyer's questions the same way: what they get, what 
 - Find a live source. web.archive.org cannot be reached by the verifier, so an archived-only fact ends up unusable.
 - For property tax, pull the county Treasurer's bill for one parcel in the right tax district. It settles the millage in one row.
 - For a 55+ community, read the recorded age rule first. If it cannot be read, say so before researching the rest.
+- **Monthly HOA dues are the buyer's first money question** (buyer reads, 2026-10-06: three of four pages failed for lack of them). A per-home amount is rarely online for a builder-run HOA: builders say only that payments "do not include" dues, and association sites keep budgets behind a login. Look first. If no primary source gives the amount by the end of day one, put it on the owner question list at once (MLS listings, a call to the manager, or a closing file), so the answer is back before the draft.
 - Observable, dated facts only about a named builder, HOA or building. Describe property, rules and places, never the people who live there.
 
 ## Also record

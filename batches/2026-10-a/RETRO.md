@@ -35,3 +35,25 @@ These go into the writer brief for the next batch.
 - **Archived pages:** web.archive.org cannot be reached from the verification environment. A fact whose only source is an archived page will end up unverifiable, so researchers should find a live primary source or skip it.
 - **Age rules first:** read the recorded age rule before researching the rest of a 55+ community. Two of six communities failed at that step after a full research pass.
 - **Cost:** about 7 million agent tokens for four pages, most of it research and verification. Running the verifiers on a smaller model worked. The next 55+ batch reuses this batch's method and links, so it should cost less.
+
+## Rewrite round, 2026-10-06
+
+The owner read the four pages and said they led with technical information and read like records. Rules: class BUYER in `voice/RULES.md`. The four specs were rewritten against them, then read by four buyer-reader agents (`prompts/buyer-reader.md`) and one reviewer at the same time.
+
+| Step | Result |
+|---|---|
+| Flood insurance and events research | FEMA cost for each ZIP code and zone; Myrtle Trace's calendar counts |
+| Verification | All FEMA rows verified; 1 events row wrong (Myrtle Trace 77) |
+| Rewrite | All gates pass; score 100 on all four |
+| Buyer reads | Same top gap on three of four pages: no monthly HOA dues |
+| Dues research | No per-home figure from a primary source for three communities |
+| Review | 4 high, 25 medium, 34 low |
+
+What the buyer readers caught that no gate and no reviewer had:
+
+1. **The money answer.** A buyer wants the monthly cost before anything else. The ledgers had what the dues include but not the amount. This is now a day-one research item with an owner fallback (`templates/research-brief.md`).
+2. **Method notes.** "Policies that began from June 2025 to May 2026 in the whole ZIP code" reads as a report. The number and what it means go in the copy; the method goes in the sources note.
+3. **Words a gate passes.** Homestead exemption, homesite, transfer fee, Zone X, wind pool. None is banned, and each stopped a reader.
+4. **Reference points.** Distances "from 1285 Possum Trot Road" mean nothing to a buyer. Name the place: the main entrance, the clubhouse.
+
+What the reviewer caught that the readers did not: facts stated as current from an older rules copy, a sentence a verifier had said not to use, and figures that said more than their row. The two passes find different things. Both stay.
