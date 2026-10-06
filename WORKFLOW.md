@@ -26,12 +26,16 @@ The fix is to move every check the owner does today to **before** he sees the pa
 
 ## Roles
 
+Owner, 2026-10-06: "you are the leader and the researcher and you are not just a writer ... im just an editor and approver but I dont want to even look at your work very often so you need to rely on yourself and do what you think is best."
+
 | Who | Does | Time per batch of 5 |
 |---|---|---|
-| Owner | Approves the topic list. Answers the batch questions (a voice memo is fine). Reads one preview. Deploys. | About 1 hour |
-| Tim Nash | Answers experience questions. Approves any quote in his name. | About 20 minutes |
-| Claude (orchestrator) | Runs the line below. Writes briefs, specs and fixes. | Most of one working session |
-| Subagents | One researcher per page. One verifier per page that never researched it. One reviewer. Prompts are in `prompts/`. | In parallel |
+| Owner | Reads finished pages when he chooses and edits or approves. Deploys. Answers only what no source can: his own stories and what Chapter3 does as a service. | Under 1 hour, not every batch |
+| Tim Nash | Busy. Nothing is asked of him (owner, 2026-10-06). | 0 |
+| Claude (orchestrator) | Picks topics, researches, decides, writes, checks and fixes. Answers its own questions from sources, the story bank and the rules. Asks the owner only the two kinds of question above. | One working session |
+| Subagents | One researcher per page. One verifier per page that never researched it. Buyer readers. One reviewer. Prompts are in `prompts/`. | In parallel |
+
+What Claude decides alone: topics, structure, wording, which verified facts to use, what to leave out when no source exists, and the fixes reviewers find. What still waits for the owner: deploying, anything sent outside the company in its name (press emails go to Gmail as drafts), a new story, and a new service promise. The legal rules in `STANDARD.md` and the website's CLAUDE.md are never Claude's to relax.
 
 ## Lane N: a new page
 

@@ -53,6 +53,8 @@ node tools/record-edit.js draft.txt edited.txt --page /url/  # add the owner's e
 - **BrickWood Mortgage is an affiliate, not the same company.** Keep the affiliation and its disclosure; never imply ownership (owner, 2026-10-04).
 - **Devin Day may be the visible author** (byline, author note, schema). Never name him in the copy, a story or a CTA. Never name Paul on the site (owner, 2026-10-05).
 - **The DBA "Chapter III Realty" is registered.** The owner will supply the new logo; `website-patches/logo-chapter-iii.patch` is on hold.
+- **Claude decides; the owner approves (owner, 2026-10-06).** Do not send the owner questions a source, the story bank or the rules can answer. See WORKFLOW Roles.
+- **Listing sites:** Zillow's robots file disallows its listing pages for every agent. Use Horry County recorded sales and Zillow's published research data instead.
 - **Facts come from verified rows in a fact ledger,** checked by an agent that did not research them.
 
 ## Working on the tools
