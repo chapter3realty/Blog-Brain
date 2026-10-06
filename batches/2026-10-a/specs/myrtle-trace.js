@@ -71,14 +71,14 @@ const firstYearChart = () => {
 };
 
 const FACTS = [
-  ["Homes", "518 single-family homes and a few townhouses"],
+  ["Homes", "518 homes: single-family houses and a few townhouses"],
+  ["Who can live there", "At least one member of each household 55 or older"],
+  ["Things to do", "Pool, clubhouse, bingo, game nights, bocce and shuffleboard leagues"],
   ["HOA dues", "$95 a month in 2026"],
   ["Paid to the HOA at a resale closing", "$1,550"],
-  ["Activities", "About 70 calendar entries a month in fall 2026"],
-  ["Who can live there", "At least one member of each household 55 or older"],
-  ["Shortest lease", "One year"],
+  ["Shortest rental allowed", "One year"],
   ["Where", "Outside Conway city limits, so no city tax"],
-  ["Flood zone", "Zone X"],
+  ["Flood zone", "Zone X, low flood risk"],
   ["Conway Medical Center", "About 0.8 miles by car"],
 ];
 
@@ -86,37 +86,38 @@ module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
-  title: "Myrtle Trace in Conway: 55+ Dues, Fees and Life | Chapter3",
-  description: "Myrtle Trace in Conway: $95 monthly HOA dues in 2026, about 70 activities a month, the $1,550 paid at closing, the 55+ and lease rules, taxes and flood insurance.",
-  ogTitle: "Myrtle Trace, Conway: dues, activities, closing fees and the 55+ rule",
+  title: "Myrtle Trace in Conway: 55+ Life, Dues and Rules | Chapter3",
+  description: "Myrtle Trace in Conway: who can live there, the pool, clubhouse and activities, $95 monthly HOA dues in 2026, closing fees, rental rules, taxes and flood insurance.",
+  ogTitle: "Myrtle Trace, Conway: life, dues, closing fees and the 55+ rule",
   crumb: "Myrtle Trace",
   eyebrow: "Conway, 55+",
-  h1: "What does it cost to live in Myrtle Trace in Conway?",
-  h1em: "$95 a month in dues.",
-  sub: "Myrtle Trace has 518 homes, a clubhouse and pool, and HOA dues of $95 a month in 2026.",
+  h1: "What is life like in Myrtle Trace in Conway?",
+  h1em: "Pool, clubhouse, $95 monthly dues.",
+  sub: "Myrtle Trace has 518 homes near Conway, a clubhouse and pool, and HOA dues of $95 a month in 2026.",
   heroCta: { label: "Let us make it simple", href: "/contact/" },
   author: "devin",
   shortAnswer: [
-    "Myrtle Trace's HOA dues are $95 a month in 2026. They pay for the pool, the clubhouse, the roads and the ponds.",
-    "A resale buyer pays the HOA $1,550 in one-time fees at closing. The HOA's activities calendar listed about 70 entries a month in fall 2026.",
-    "On a $300,000 home you live in, the property tax is about $1,103 a year, plus an $89.40 county stormwater fee. You maintain your own roof, exterior and lawn.",
+    "Yes, you can buy a home in Myrtle Trace if at least one person in your household is 55 or older.",
+    "Owners share a clubhouse, a pool in season and 15 ponds for fishing. The HOA has bingo, game nights, a coffee klatch and bocce and shuffleboard leagues.",
+    "Dues are $95 a month in 2026, and a resale buyer pays the HOA $1,550 at closing. Property tax on a $300,000 home you live in is about $1,103 a year on 2025 bills.",
   ],
   sections: [
     { h2: "What is there to do in Myrtle Trace?", html:
       h.p(`The Myrtle Trace ${h.ext(CAL, "activities calendar")} listed about 67 entries in September 2026 and about 71 in October.`) +
       h.p("The September calendar had a Labor Day picnic, music at the pool and a talk on avoiding falls at home. The October calendar lists a Myrtle Trace craft fair on Saturday, October 17.") +
       h.p("The HOA's activities committee has standing groups for bingo, game nights, line dancing, a coffee klatch and dining out. Bocce and shuffleboard each have a league with two divisions.") +
-      h.p("The pool is open 8 a.m. to 9 p.m. every day. You and your house guests can fish from the HOA's land around 15 ponds, and every fish must be released.") +
-      h.p("Thirteen walkways between homes lead to the common land. The streets have no sidewalks. Some lots back onto Burning Ridge Golf Club, a private course that is not part of the HOA.") +
+      h.p("In season, the pool is open 8 a.m. to 9 p.m. every day. In 2025 it closed for the year on October 1.") +
+      h.p("You and your house guests can fish in the 15 ponds from the HOA's land. Every fish must be released. The ponds are stormwater ponds, and swimming and boats are not allowed on them.") +
+      h.p("Thirteen walkways, each 15 feet wide, run between homes, and every resident may use them. The streets have no sidewalks. Some lots back onto Burning Ridge Golf Club, a private course that is not part of the HOA.") +
       h.table(["Fact", "Myrtle Trace"], FACTS) },
 
     { h2: "What do the Myrtle Trace HOA dues pay for?", html: (bg) =>
-      h.p("Your $95 a month pays for the pool, the clubhouse, the gate, the roads, the common land and the ponds.") +
+      h.p("Your homeowners association (HOA) dues of $95 a month pay for the pool, the clubhouse, the gate, the roads, the common land and the ponds.") +
       h.p("Dues went up from $90 in January 2026. The board added the $5 to its savings for pond and road work.") +
       h.p("Dues are due on the first of each month, and the HOA sends no bill unless you are behind. A $7 late fee is added for each month that is not paid.") +
-      h.p("The HOA manages itself and has no management company. You maintain your own home and lot, including the roof, the outside of the house and the grass.") +
+      h.p("Owners run the HOA, mostly as volunteers. It has no management company. You maintain your own home and lot, including the roof, the outside of the house and the grass.") +
       h.p("The board can raise the yearly limit on dues by up to 10 percent a year without an owner vote. The HOA's 2023 history paper says it has never charged owners a one-time special fee.") +
-      h.cta("Looking at a home in Myrtle Trace?", "Tell us the address. One of our agents will read the HOA's rules and policies with you before you offer.", "Have us read the Myrtle Trace HOA papers with you", "/contact/", bg) },
+      h.cta("Looking at a home in Myrtle Trace?", "Tell us which home you like. One of our agents will read the HOA's rules and policies with you before you offer.", "Have us read the Myrtle Trace HOA papers with you", "/contact/", bg) },
 
     { h2: "What does a buyer pay the Myrtle Trace HOA at closing?", html:
       h.p(`A resale buyer pays the HOA $1,550 at closing. That is a $1,450 one-time fee, which the HOA calls a ${h.ext(CAPITAL, "capital contribution")}, and a $100 certificate fee.`) +
@@ -127,8 +128,7 @@ module.exports = {
 
     { h2: "Who can live in Myrtle Trace?", html:
       h.p("At least one member of every household in Myrtle Trace must be 55 or older. The HOA's rules have no minimum age for anyone else in the home.") +
-      h.p(`The rule is in the ${h.ext(COV, "HOA's online copy of its rules")}. It reads: "no family may occupy a Living Unit unless at least one member thereof has attained the age of Fifty Five (55) years."`) +
-      h.p("The HOA says that online copy is not a legal document. Get the original from the county Register of Deeds if you need the exact wording.") +
+      h.p(`This is the rule in the ${h.ext(COV, "HOA's posted copy of its rules")}, which the HOA says is not the legal original.`) +
       h.p(`Read ${h.a(HUB, "how a recorded age rule changes who can buy the home later")}.`) },
 
     { h2: "Can you rent out a home in Myrtle Trace?", html:
@@ -152,24 +152,23 @@ module.exports = {
       h.p("The HOA recorded its latest guidelines in January 2026. Ask the HOA for the current set before you offer.") },
 
     { h2: "What will the property tax be on a Myrtle Trace home?", html:
-      h.p("On a $300,000 home you live in, the 2025 property tax in Myrtle Trace is about $1,103 a year.") +
-      h.p(`Owners here also pay the county's stormwater fee on the same bill. The county's ${h.ext(STORMWATER, "utility-fee page")} lists $7.45 a month, or $89.40 a year, for a single-family home.`) +
-      h.p("Myrtle Trace is outside Conway city limits, so you pay no Conway city tax. At 65, after a full year living in South Carolina, the homestead exemption saves about $184 a year on this home.") +
+      h.p("On a $300,000 home you live in, the property tax in Myrtle Trace is about $1,103 a year on 2025 bills.") +
+      h.p(`Owners here also pay the ${h.ext(STORMWATER, "county's stormwater fee")} on the same bill. That fee is $7.45 a month, or $89.40 a year, for a single-family home.`) +
+      h.p("Myrtle Trace is outside Conway city limits, so you pay no Conway city tax. At 65, after a full year living in South Carolina, you can claim the homestead exemption, a tax break for the home you live in.") +
       h.p("<strong>Example:</strong> Diane, 68, is moving from Charlotte with $300,000 to spend. She buys a resale home in Myrtle Trace for $300,000 and makes it her main home.") +
       h.p("Diane pays the HOA $1,550 at closing and $1,140 in dues for her first year. Her property tax is about $1,103 a year.") +
-      h.p("After a full year here, she applies for the homestead exemption, and her tax drops to about $919. As a second home, the same house would owe about $3,618 a year.") +
+      h.p("After a full year here, she claims the homestead exemption, and her tax drops to about $919, a saving of about $184. As a second home, the same house would owe about $3,618 a year.") +
       h.p(`See ${h.a("/buyers/property-taxes/", "how a main home and a rental are taxed in Horry County")}.`) },
 
     { h2: "Is Myrtle Trace in a flood zone?", html: (bg) =>
-      h.p("Myrtle Trace is in FEMA flood Zone X, the area of minimal flood hazard. The homes on Berry Tree Lane, the closest to a mapped flood area, are also in Zone X.") +
-      h.p("In ZIP code 29526, single-family flood policies for Zone X homes cost a median of $561 a year, fees included. Half cost between $432 and $725.") +
-      h.p(`Those numbers include policies that began from June 2025 to May 2026 in the whole ZIP code, not Myrtle Trace alone. Check the home you like on ${h.ext(FEMA, "FEMA's flood map")}.`) +
+      h.p("Myrtle Trace is in FEMA flood Zone X, an area of low flood risk. The homes on Berry Tree Lane, the closest to a mapped flood area, are also in Zone X.") +
+      h.p(`In ZIP code 29526, the middle single-family flood policy for a Zone X home cost $561 a year, fees included. Half cost between $432 and $725. Check the home you like on ${h.ext(FEMA, "FEMA's flood map")}.`) +
       h.p(`Read ${h.a("/buyers/coastal-insurance/", "what a flood policy costs on a Zone X home")}.`) +
-      h.p(`Myrtle Trace is west of both US 17 and Bypass 17. It is outside the coastal area where the ${h.ext(WINDLAW, "state's wind and hail insurance pool")} sells coverage.`) +
+      h.p(`Myrtle Trace is west of both US 17 and Bypass 17. It is outside the coastal area served by the ${h.ext(WINDLAW, "state's wind insurance plan")} for homes near the coast.`) +
       h.cta("Want to know the insurance cost first?", "Ask us for a homeowners quote on the Myrtle Trace home you like, before you write the offer.", "Have us get you a homeowners quote", "/contact/", bg) },
 
     { h2: "How far is Myrtle Trace from the hospital, the airport and the beach?", html:
-      h.p("Conway Medical Center is about 0.8 miles by car from the HOA's address at 101 Myrtle Trace Drive.") +
+      h.p("Conway Medical Center is about 0.8 miles by car from the HOA office in Myrtle Trace.") +
       h.ul([
         "Myrtle Beach International Airport is about 10.4 miles by car.",
         "The nearest public beach access by car is a City of Myrtle Beach access about 9.8 miles away.",
@@ -184,7 +183,7 @@ module.exports = {
   faq: [
     { q: "How much are the HOA dues in Myrtle Trace?", a: "$95 a month in 2026, up from $90 in 2025. Dues are due on the first of each month. The HOA adds a $7 late fee for any month not paid." },
     { q: "Is Myrtle Trace a 55+ community?", a: "Yes, at least one member of every household must be 55 or older. A rented home must have at least one tenant 55 or older who lives there full time." },
-    { q: "What activities does Myrtle Trace have?", a: "The HOA's activities calendar listed about 71 entries for October 2026, including a craft fair. Standing groups meet for bingo and game nights, and bocce and shuffleboard each have a league." },
+    { q: "What activities does Myrtle Trace have?", a: "The HOA's activities committee has standing groups for bingo, game nights, line dancing and dining out. Bocce and shuffleboard each have a league, and the pool is open daily in season." },
     { q: "Is Myrtle Trace inside Conway city limits?", a: "No, Myrtle Trace is in unincorporated Horry County, outside Conway city limits. Its mailing city is Conway, and its owners pay no Conway city tax." },
     { q: "Does Myrtle Trace have a gate?", a: "The back entrance on Myrtle Ridge Road has gates, and the front entrance on Burning Ridge Road has none. The HOA says the back gates are there to stop cut-through traffic on Myrtle Trace Drive." },
     { q: "Who maintains the yard in Myrtle Trace?", a: "Each owner does. You maintain your lot and your home, including the roof, the outside of the house and the grass. The dues pay for the HOA's own land." },
@@ -192,11 +191,11 @@ module.exports = {
   sources: [
     { name: "Myrtle Trace HOA home page", href: HOA },
     { name: "HOA activities calendars, 2026", href: CAL },
-    { name: "HOA's online copy of its rules", href: COV },
+    { name: "HOA's posted copy of its rules", href: COV },
     { name: "Capital contribution resolution", href: CAPITAL },
     { name: "FEMA Flood Map Service Center", href: FEMA },
   ],
-  sourcesNote: "Not legal or tax advice. The HOA's online copy of its rules is not the recorded original. Flood insurance figures: FEMA policy data. Distances by car are OpenStreetMap estimates.",
+  sourcesNote: "Not legal or tax advice. The HOA's online copy of its rules is not the recorded original. Flood costs come from FEMA policy data for June 2025 to May 2026; distances by car are OpenStreetMap estimates.",
   bottomCta: { h2: "Know the Myrtle Trace costs and rules before you offer.", p: "Call about the home you like. One of our agents will read the HOA's rules and rental policy with you.", label: "Call about Myrtle Trace", href: TEL },
   keywords: "Myrtle Trace Conway, Myrtle Trace HOA dues, Myrtle Trace 55 community, Myrtle Trace activities, Myrtle Trace rental rules",
   about: "Myrtle Trace, a 55+ community in unincorporated Horry County near Conway, South Carolina",

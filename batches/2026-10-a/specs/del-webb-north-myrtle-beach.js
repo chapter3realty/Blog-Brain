@@ -13,14 +13,15 @@
  *         (verified rows only; rows 22, 33 and 42 are wrong and not used).
  *         Flood insurance: rows 54 to 56, FEMA policy data for ZIP code 29582
  *         and Zone X, not the community alone. Lifestyle: row 57.
- * Tax:    the "North Myrtle Beach" option in the calculator on /buyers/property-taxes/
- *         (tax year 2025) and data/relocating/tax-engine.js. Results only:
- *         $2,998.65 a year on $699,965 as a primary home, $2,784.45 with the
- *         homestead exemption, $9,079.95 as a second home, +$140 for the 2026
- *         city levy (rows 49 to 52).
+ * Tax:    2026 levies, the newest year verified for every part of the bill
+ *         (row 50: 171.2 county and school mills, 50.0 city mills; row 52: the
+ *         109.1 school operating mills a home you live in does not pay) and
+ *         data/relocating/tax-engine.js (4 and 6 percent, $50,000 homestead).
+ *         Results only: $3,138.60 on $699,965 as a main home, $2,914.40 with the
+ *         homestead exemption, $9,289.94 as a second home (review 2, item 7).
  * Story:  stories.json "rental-program-buildings", "new-community-rent-caps",
  *         "insurance-quote-before-offer". The example is labelled "Example".
- * Distances start at 1285 Possum Trot Road (the HOA's onsite office) and are
+ * Distances start at the clubhouse, 1285 Possum Trot Road (the HOA's onsite office), and are
  * OSRM estimates on OpenStreetMap roads (rows 41, 43 to 45, 53).
  */
 const { h } = require("../tools/mkpage.js");
@@ -81,102 +82,101 @@ module.exports = {
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
   title: "Del Webb North Myrtle Beach: Prices, Dues and Life | Chapter3",
-  description: "Del Webb North Myrtle Beach: new homes from $585,990 in October 2026, what the HOA dues include, the clubhouse, the 55+ rule, taxes, flood zone and the beach.",
+  description: "Del Webb North Myrtle Beach: new homes from $585,990 in October 2026, what the HOA dues include, the clubhouse, the 55+ rule, taxes, flood insurance and the beach.",
   ogTitle: "Del Webb North Myrtle Beach: new home prices, dues, the clubhouse and taxes",
   crumb: "Del Webb North Myrtle Beach",
   eyebrow: "North Myrtle Beach, 55+",
   h1: "What does a new home in Del Webb North Myrtle Beach cost?",
   h1em: "From $585,990 in October 2026.",
   sub: "About 408 Del Webb homes are built in North Myrtle Beach. New ones are still for sale, and the beach is about a mile away.",
-  heroCta: { label: "Talk to a specialized agent", href: "/contact/" },
+  heroCta: { label: "Talk to an agent about Del Webb", href: "/contact/" },
   author: "devin",
   shortAnswer: [
-    "New homes in Del Webb North Myrtle Beach started at $585,990 in October 2026. The three home designs went up to $704,590.",
+    "New homes in Del Webb North Myrtle Beach started at $585,990 in October 2026. The highest starting price was $704,590.",
     "The clubhouse is open and about 408 homes are built. The 14th Avenue South beach access is about a mile away by car.",
-    "Your HOA dues include lawn care and a 175-channel TV package. On a $699,965 home you live in, the property tax is about $3,000 a year.",
+    "Your homeowners association (HOA) dues include lawn care and a 175-channel TV package. On a $699,965 home you live in, the property tax is about $3,139 a year on 2026 bills.",
   ],
   sections: [
     { h2: "What do new homes in Del Webb North Myrtle Beach cost?", html: (bg) =>
-      h.p("In October 2026, Pulte's three home designs started at $585,990 for the Stardom, $699,965 for the Stellar and $704,590 for the Renown.") +
+      h.p("In October 2026, the three Del Webb home designs here started at $585,990 for the Stardom, $699,965 for the Stellar and $704,590 for the Renown. The builder, Pulte, sells them under its Del Webb name.") +
       h.table(["Home design", "Starting price", "From sq ft", "Bedrooms", "Baths", "Garage"], DESIGNS) +
-      h.p("Some homesites, upgrades and options cost extra. The homes range from 2,179 to 3,728 square feet.") +
+      h.p("Some lots, upgrades and options can cost more than the starting price. The builder says the homes range from 2,179 to 3,728 square feet.") +
+      h.p("About 408 of the community's roughly 500 lots had a house on them in October 2026. Homes finished in the last few months may not be counted yet.") +
       h.p("Two homes were due to be finished in October 2026, each with 3 bedrooms and 3.5 baths:") +
       h.ul(["a 2,240-square-foot Stellar at $699,965, down from $767,965", "a 2,712-square-foot Renown at $704,590, down from $799,590"]) +
-      h.p("Each home comes with storm fabric for the windows and natural gas service. The 10-year warranty on the structure passes to the next owner if you sell.") +
-      h.p(`See the current homes on ${h.ext(PULTE, "Pulte's Del Webb North Myrtle Beach page")}.`) +
-      h.cta("Buying a new Del Webb home in North Myrtle Beach?", "Tell us the home design and the homesite you want. One of our agents can read the HOA documents with you before you sign Pulte's contract.", "Have us read the HOA documents with you", "/contact/", bg) },
+      h.p("Each home comes with hurricane fabric panels for the windows and natural gas service. The builder says its 10-year warranty on the structure can pass to the next owner if you sell.") +
+      h.p(`See the current homes on the ${h.ext(PULTE, "Del Webb North Myrtle Beach website")}.`) +
+      h.cta("Buying a new Del Webb home in North Myrtle Beach?", "Tell us the home design and the lot you want. One of our agents can read the HOA documents with you before you sign the builder's contract.", "Have us read the HOA documents with you", "/contact/", bg) },
 
     { h2: "What is there to do in Del Webb North Myrtle Beach?", html:
       h.p("The 12,000-square-foot clubhouse is open, with a pool, an indoor lap pool, a fitness center and an arts and crafts room.") +
       h.p("A full-time lifestyle director works in the community, and residents have clubs and activity groups to join.") +
-      h.p("The clubhouse also has a gathering room with sliding glass doors to an outdoor courtyard. The city's J. Bryan Floyd Community Center is beside the community, with an indoor gym for basketball and pickleball.") +
-      h.p("About 408 of the community's roughly 500 homesites had a house on them in October 2026. Homes finished in the last few months may not be counted yet.") },
+      h.p("The clubhouse also has a gathering room with sliding glass doors to an outdoor courtyard. The builder says the city's J. Bryan Floyd Community Center is beside the community, with an indoor gym for basketball and pickleball.") },
 
     { h2: "What do the HOA dues include in Del Webb North Myrtle Beach?", html:
-      h.p("Your dues include lawn care and a 175-channel TV package. The community also has a fiber network for internet, but Pulte does not say whether the dues pay for it.") +
-      h.p("Ask the management company, Associated Asset Management, for the monthly amount before you sign. Ask for the HOA's budget and every charge due at closing at the same time.") +
-      h.p("In Chapter3's experience, HOAs here commonly charge a buyer a transfer fee and a few months of dues in advance at closing.") +
+      h.p("Your dues include lawn care and a 175-channel TV package. The community also has a fiber network for internet, but the builder does not say whether the dues pay for it.") +
+      h.p("One of our agents gets you the current monthly dues, the HOA's budget and the charges due at closing before you sign.") +
+      h.p("In Chapter3's experience, HOAs here commonly charge a buyer a few months of dues in advance at closing, plus a transfer fee. A transfer fee is a one-time fee paid to the HOA when a home is sold.") +
       h.p(`Read ${h.a("/hoa/estoppel-and-transfer-fees/", "what an HOA can charge a buyer at closing in South Carolina")}.`) },
 
     { h2: "Who can live in Del Webb North Myrtle Beach?", html:
-      h.p("Each household must include at least one person who is 55 or older.") +
-      h.p(`That rule is in the city's ${h.ext(AGREEMENT, "2020 agreement with Pulte")}. The agreement states: "at least one member of the household must be at least 55 years of age."`) +
-      h.p("The HOA's own rules also apply to guests, younger residents, leasing, pets, fences and golf carts. They are not online, so ask the management company for them before you sign.") +
+      h.p(`Each household must include at least one person who is 55 or older. That rule comes from the city's ${h.ext(AGREEMENT, "2020 agreement with the builder")}.`) +
+      h.p("The HOA's rules on guests, younger residents, renting, pets, fences and golf carts are recorded with the county but not online. Get them before you sign.") +
       h.p(`Read ${h.a(HUB, "how an age-restricted community differs from an age-targeted one")}.`) },
 
     { h2: "Can you rent out a home in Del Webb North Myrtle Beach?", html:
-      h.p("Any limit on renting is in the HOA's rules, which are not public. Get them before you sign if you may rent the home later.") +
+      h.p("Any limit on renting is in the HOA's recorded rules, which are not online. Read them before you sign if you may rent the home later.") +
       h.p("In Chapter3's experience, rental limits differ from one new community to the next, so our agents read each set of documents.") +
       h.p(`Read ${h.a("/hoa/rental-restrictions/", "whether an HOA can stop you renting your home")}.`) },
 
     { h2: "What will the property tax be on a Del Webb North Myrtle Beach home?", html:
-      h.p("On a $699,965 home you live in, the 2025 property tax is about $3,000 a year.") +
-      h.p("At 65, after a full year living in South Carolina, you can apply for the homestead exemption. On this home it saves about $214 a year.") +
-      h.p("The city raised its tax rate for 2026, which adds about $140 a year on this home. As a second home, the same house would owe about $9,080 a year.") +
+      h.p("On a $699,965 home you live in, the property tax is about $3,139 a year on 2026 bills. The community is inside North Myrtle Beach city limits, so that includes the city tax.") +
+      h.p("At 65, after a full year living in South Carolina, you can apply for the homestead exemption, a tax break for the home you live in. On this home it saves about $224 a year.") +
+      h.p("As a second home, the same house would owe about $9,290 a year.") +
       h.p("<strong>Example:</strong> Linda and Ray are moving from Columbus, Ohio, with $700,000 to spend. Linda is 67 and Ray is 61. They buy the Stellar at $699,965 and make it their main home.") +
-      h.p("Their first tax bill at 2025 rates is about $2,999. After a full year here, Linda applies for the homestead exemption, and their bill drops to about $2,784.") +
+      h.p("Their property tax is about $3,139 a year. After a full year here, Linda applies for the homestead exemption, and their tax drops to about $2,914.") +
       h.p(`See ${h.a("/buyers/property-taxes/", "how Horry County works out the tax on a home you live in")}.`) },
 
     { h2: "Is Del Webb North Myrtle Beach in a flood zone?", html: (bg) =>
-      h.p(`Every homesite in Del Webb North Myrtle Beach is in FEMA flood Zone X, the area of minimal flood hazard. ${h.ext(FEMA, "FEMA's flood map")} for the community took effect in December 2021.`) +
-      h.p("In ZIP code 29582, single-family flood policies for Zone X homes cost a median of $602 a year, fees included.") +
-      h.p("Half of those policies cost between $460 and $798 a year. They are policies that began from June 2025 to May 2026, and the price of any one home can differ.") +
+      h.p(`Every lot in Del Webb North Myrtle Beach is in FEMA flood Zone X, an area of low flood risk. ${h.ext(FEMA, "FEMA's flood map")} for the community took effect in December 2021.`) +
+      h.p("In ZIP code 29582, the middle single-family flood policy for a Zone X home cost $602 a year, fees included. Half of those policies cost between $460 and $798.") +
+      h.p("A quote on the home you pick can come in higher or lower.") +
       h.p(`Read ${h.a("/buyers/coastal-insurance/", "why Zone X does not mean no flood risk")}.`) +
-      h.p(`Every home is west of US 17, outside the coastal area where the ${h.ext(WINDLAW, "state's wind and hail insurance pool")} sells coverage. From the HOA's office, US 17 is about 0.75 miles east.`) +
-      h.cta("Want the insurance cost before you sign?", "Tell us the home design and the homesite. One of our agents gets you a homeowners and flood quote first.", "We help get insurance quotes if you need them.", "/contact/", bg) },
+      h.p(`Every home is west of US 17, outside the coastal area served by the ${h.ext(WINDLAW, "state's wind insurance plan")} for homes near the coast.`) +
+      h.cta("Want the insurance cost before you sign?", "Tell us the home design and the lot. One of our agents helps you get a homeowners and flood quote before you sign.", "We help get insurance quotes if you need them.", "/contact/", bg) },
 
     { h2: "How far is Del Webb North Myrtle Beach from the beach, the hospitals and the airport?", html:
-      h.p("The 14th Avenue South beach access is about 1.0 mile by car from the HOA's office at 1285 Possum Trot Road.") +
-      h.figure(driveChart(), "Miles by car from 1285 Possum Trot Road, the HOA's onsite office, with no traffic.") +
+      h.p("The 14th Avenue South beach access is about 1.0 mile by car from the clubhouse.") +
+      h.figure(driveChart(), "Miles by car from the Del Webb North Myrtle Beach clubhouse, with no traffic.") +
       h.ul([
-        "North Strand ER, at 806 Hwy 17 S, is an emergency room open 24 hours, about 1.4 miles away.",
-        "McLeod Health Seacoast in Little River, with 155 patient beds, is about 5.6 miles away.",
-        "Grand Strand Medical Center, a 403-bed hospital in Myrtle Beach, is about 8.9 miles away.",
-        "Myrtle Beach International Airport is about 19.3 miles away, or 35 minutes with no traffic.",
+        "North Strand ER, at 806 Hwy 17 S, is a freestanding emergency room open 24 hours, about 1.4 miles away.",
+        "McLeod Health Seacoast in Little River is the nearest hospital, about 5.6 miles away.",
+        "Grand Strand Medical Center in Myrtle Beach is about 8.9 miles away.",
+        "Myrtle Beach International Airport is about 19.3 miles away.",
       ]) +
       h.p(`Read ${h.a("/buyers/relocating/healthcare/", "which hospitals serve the Grand Strand")} and what each one offers.`) },
 
     { h2: "How does Del Webb North Myrtle Beach compare with three other 55+ communities?", html:
-      h.p("Del Webb North Myrtle Beach is the one of these four where Pulte still sells new homes.") +
+      h.p("Del Webb North Myrtle Beach is the newest of these four, and its builder still sells new homes there.") +
       compareTable() },
   ],
   faqTitle: "Del Webb North Myrtle Beach FAQ",
   faq: [
-    { q: "Is Del Webb North Myrtle Beach a 55+ community?", a: "Yes, Pulte sells it as a 55+ community. The city's 2020 agreement with Pulte requires at least one member of each household to be 55 or older." },
-    { q: "How much are the HOA dues in Del Webb North Myrtle Beach?", a: "Ask the management company, Associated Asset Management, for the current monthly dues before you sign. The dues include lawn care and a 175-channel TV package." },
+    { q: "Is Del Webb North Myrtle Beach a 55+ community?", a: "Yes, each household must include at least one person who is 55 or older, under the city's 2020 agreement with the builder." },
+    { q: "Does Del Webb North Myrtle Beach have a lifestyle director?", a: "Yes, a full-time lifestyle director works in the community, and there are clubs and activity groups. The clubhouse has a pool, an indoor lap pool and a fitness center." },
     { q: "Is Del Webb North Myrtle Beach inside the city limits?", a: "Yes, the community is inside North Myrtle Beach city limits. The city annexed the land in October 2020, so owners pay the city tax as well as the county and school tax." },
-    { q: "How far is Del Webb North Myrtle Beach from the beach?", a: "About 1.0 mile by car from the HOA's office at 1285 Possum Trot Road to the 14th Avenue South beach access. US 17 is between the community and the ocean." },
-    { q: "Who builds the homes in Del Webb North Myrtle Beach?", a: "Pulte Home Company builds them under its Del Webb name. In October 2026 it sold three home designs from $585,990 to $704,590: the Stardom, the Stellar and the Renown." },
+    { q: "How far is Del Webb North Myrtle Beach from the beach?", a: "About 1.0 mile by car from the clubhouse to the 14th Avenue South beach access. US 17 is between the community and the ocean." },
+    { q: "Who builds the homes in Del Webb North Myrtle Beach?", a: "Pulte Home Company builds them under its Del Webb name. In October 2026 its three home designs started at $585,990 to $704,590: the Stardom, the Stellar and the Renown." },
   ],
   sources: [
-    { name: "Pulte, Del Webb North Myrtle Beach", href: PULTE },
-    { name: "City agreement with Pulte, 2020", href: AGREEMENT },
+    { name: "Del Webb North Myrtle Beach website", href: PULTE },
+    { name: "City agreement with the builder, 2020", href: AGREEMENT },
     { name: "FEMA Flood Map Service Center", href: FEMA },
     { name: "Horry County 2026 tax levies", href: LEVY },
     { name: "SC Code 38-75-310", href: WINDLAW },
   ],
-  sourcesNote: "Educational only, not legal or tax advice. Builder prices change. Flood insurance figures are from FEMA's policy data. Drive distances are OpenStreetMap estimates.",
-  bottomCta: { h2: "Know the dues and the HOA rules before you sign with Pulte.", p: "Call about the home design and the homesite you want. One of our agents will read the HOA documents with you.", label: "Call a specialized agent", href: TEL },
+  sourcesNote: "Educational only, not legal or tax advice. Builder prices change. Flood costs are FEMA policy data for June 2025 to May 2026, and drive distances are OpenStreetMap estimates.",
+  bottomCta: { h2: "Know the dues and the HOA rules before you sign with the builder.", p: "Call about the home design and the lot you want. One of our agents will read the HOA documents with you.", label: "Call about Del Webb North Myrtle Beach", href: TEL },
   keywords: "Del Webb North Myrtle Beach, Del Webb North Myrtle Beach prices, Del Webb North Myrtle Beach HOA dues, Del Webb North Myrtle Beach clubhouse, 55 plus community North Myrtle Beach",
   about: "Del Webb North Myrtle Beach, a 55+ community by Pulte in North Myrtle Beach, South Carolina",
 };
