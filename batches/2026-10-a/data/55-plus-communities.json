@@ -1,9 +1,10 @@
 {
-  "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); 'ledger' names the rows. Plain words only (voice/RULES.md BUYER-2). Change a cell here, then rebuild all four pages.",
+  "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); 'ledger' names the rows. Plain words only (voice/RULES.md BUYER-2). Sale prices are October 2025 to September 2026, from Horry County deed records. Change a cell here, then rebuild all four pages.",
   "head": [
     "Community",
     "Town",
     "Homes",
+    "Typical sale price, last 12 months",
     "Hospital by car",
     "Shortest rental allowed",
     "Youngest person who can live there with an owner 55+"
@@ -15,11 +16,12 @@
         "Del Webb North Myrtle Beach",
         "North Myrtle Beach",
         "About 500 lots, about 408 built (October 2026)",
+        "$534,900 (19 resales)",
         "McLeod Health Seacoast, 5.6 miles",
         "In the HOA's rules, which are not online",
         "In the HOA's rules, which are not online"
       ],
-      "ledger": "del-webb-north-myrtle-beach-facts.md rows 13, 20, 21 and 43; rows 5 and 7 (the HOA's recorded rules are not online)"
+      "ledger": "del-webb-north-myrtle-beach-facts.md rows 13, 20, 21 and 43; rows 5 and 7 (the HOA's recorded rules are not online); row 58 for the typical resale price"
     },
     {
       "url": "/buyers/55-plus-communities/del-webb-grande-dunes/",
@@ -27,11 +29,12 @@
         "Del Webb at Grande Dunes",
         "Myrtle Beach",
         "655 lots sold by the end of 2022",
+        "About $630,000 (43 resales)",
         "Grand Strand Medical Center, 2.3 miles",
         "12 months, once a year",
         "19"
       ],
-      "ledger": "del-webb-grande-dunes-facts.md rows 14, 21, 66, 50 and 3"
+      "ledger": "del-webb-grande-dunes-facts.md rows 14, 21, 66, 50 and 3; rows 79 and 80 for the typical price, without the sale on an unclear parcel (4999/1319)"
     },
     {
       "url": "/buyers/55-plus-communities/myrtle-trace/",
@@ -39,11 +42,12 @@
         "Myrtle Trace",
         "Conway",
         "518",
+        "$300,000 (35 sales)",
         "Conway Medical Center, 0.8 miles",
         "One year",
         "No minimum in the HOA's rules"
       ],
-      "ledger": "myrtle-trace-facts.md rows 15, 31, 65, 51 and 6"
+      "ledger": "myrtle-trace-facts.md rows 15, 31, 65, 51 and 6; row 81 for the typical price"
     },
     {
       "url": "/buyers/55-plus-communities/seasons-at-prince-creek-west/",
@@ -51,11 +55,12 @@
         "Seasons at Prince Creek West",
         "Murrells Inlet",
         "444",
+        "$499,000 (19 sales)",
         "Tidelands Waccamaw Community Hospital, 4.0 miles",
         "One year",
         "18"
       ],
-      "ledger": "seasons-at-prince-creek-west-facts.md rows 17, 19, 65, 42 and 7"
+      "ledger": "seasons-at-prince-creek-west-facts.md rows 17, 19, 65, 42 and 7; row 73 for the typical price"
     }
   ]
 }

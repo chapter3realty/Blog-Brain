@@ -22,8 +22,12 @@
  * Tax:    2025 bills, the newest year verified for every part (the 2026 city credit
  *         is not verified). The "City of Myrtle Beach" option in the calculator on /buyers/property-taxes/
  *         (tax year 2025, city credit 0.6745) and data/relocating/tax-engine.js.
- *         Results only: $1,784.93 on $500,000 as a primary home, $1,606.44 with
- *         the homestead exemption, $7,638 as a second home (rows 68 to 71).
+ *         Results only, on the typical sale of about $630,000 (rows 79, 80):
+ *         $2,249.02 as a main home, $2,070.52 with the homestead exemption,
+ *         $9,623.88 as a second home (rows 68 to 71).
+ * Prices: rows 79 and 80 without the one sale on an unclear parcel (4999/1319),
+ *         coordinator's decision: 43 resales, about $630,000 typical, half
+ *         between about $449,000 and $703,000. Life: rows 77 and 78.
  * Story:  stories.json "hoa-rental-bans-filtered", "insurance-quote-before-offer".
  */
 const { h } = require("../tools/mkpage.js");
@@ -43,17 +47,20 @@ const compareTable = () => h.table(COMPARE.head, COMPARE.rows.map(r =>
 const DECL = "https://www.delwebbatgrandedunes.com/ResourceCenter/Download/48372~3083079";
 const RULES = "https://www.delwebbatgrandedunes.com/ResourceCenter/Download/48372~3083089";
 const FIN = "https://www.delwebbatgrandedunes.com/ResourceCenter/Download/48372~3384081";
+const OCEANCLUB = "https://www.grandedunesoceanclub.com/homeownership";
 /* FEMA's Flood Map Service Center search for the Welcome Center's address: a page
    a person can read. The NFHL queries the verifier ran stay in the ledger (row 60). */
 const FEMA = "https://msc.fema.gov/portal/search?AddressQuery=6201%20Marina%20Parkway%2C%20Myrtle%20Beach%2C%20SC%2029572";
 const WINDLAW = "https://www.scstatehouse.gov/code/t38c075.php";
+/* Horry County deed index, the source of the sale prices. */
+const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
-/* Yearly property tax on a $500,000 home at 2025 rates, from the website's
+/* Yearly property tax on a $630,000 home at 2025 rates, from the website's
    calculator data (rows 68 to 71). */
 const TAX = [
-  ["Your main home", 1785],
-  ["Your main home, owner 65 or older", 1606],
-  ["A second home", 7638],
+  ["Your main home", 2249],
+  ["Your main home, owner 65 or older", 2071],
+  ["A second home", 9624],
 ];
 const usd = (n) => "$" + n.toLocaleString("en-US");
 
@@ -66,7 +73,7 @@ const taxChart = () => {
       + `<rect x="12" y="${y + 27}" width="${w}" height="20" fill="#1c2028"/>`
       + `<text x="${12 + w + 8}" y="${y + 43}" ${F} font-size="16" font-weight="700" fill="#91592b">${usd(v)}</text>`;
   }).join("");
-  const label = "Yearly property tax on a $500,000 home in Del Webb at Grande Dunes on 2025 bills: " + TAX.map(([n, v]) => `${n} ${usd(v)}`).join(", ") + ".";
+  const label = "Yearly property tax on a $630,000 home in Del Webb at Grande Dunes on 2025 bills: " + TAX.map(([n, v]) => `${n} ${usd(v)}`).join(", ") + ".";
   return `<svg role="img" aria-label="${label}" viewBox="0 0 440 ${top + TAX.length * rowH}" style="display:block;width:100%;height:auto;max-width:520px;background:#ede5d8">${rows}</svg>`;
 };
 
@@ -98,17 +105,24 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Every owner in Del Webb at Grande Dunes pays for the Grande Dunes beach club. The community also has its own amenity center with pools and a day dock on the Intracoastal Waterway.",
-    "Owners pay the association for basic lawn care. Grand Strand Medical Center is about 2.3 miles away by car.",
+    "Resale homes sold for a typical price of about $630,000 from October 2025 to September 2026. Grand Strand Medical Center is about 2.3 miles away by car.",
     "At least one resident must be 55 or older. You can rent the home out for 12 months or more, once a year.",
   ],
   sections: [
     { h2: "What comes with a home in Del Webb at Grande Dunes?", html:
       h.p("A home in Del Webb at Grande Dunes comes with the Grande Dunes beach club and the community's own amenity center.") +
       h.p("Every owner pays a beach club fee to the Grande Dunes Master Association, the association for all of Grande Dunes. That fee is on top of the Del Webb dues.") +
+      h.p(`The ${h.ext(OCEANCLUB, "Grande Dunes Ocean Club")} is the beach club that fee pays for. It lists clubs such as Mexican Train, mahjong, knitting and women's clubs, plus holiday events, happy hours, wine tastings and dinners.`) +
+      h.p("The Del Webb association also budgets for its own lifestyle program and for fitness and wellness.") +
       h.p(`Under the association's ${h.ext(RULES, "posted rules, revised January 2019")}, the amenity center is open 7 a.m. to 9 p.m. on weekdays. Weekend hours are 8 a.m. to 8 p.m., with staff on site.`) +
       h.p("The same rules say the pools have no lifeguards. The day dock on the Intracoastal Waterway is open to owners and their guests from dawn to dusk. There is no overnight docking and no boat ramp.") +
       h.p("Each household gets two resident cards for the amenities at no charge, plus two guest cards. A newer set of rules was recorded in January 2025, and our agents read it with you before you offer.") +
       h.table(["Fact", "Del Webb at Grande Dunes"], FACTS) },
+
+    { h2: "What do homes in Del Webb at Grande Dunes sell for?", html:
+      h.p("From October 2025 to September 2026, 43 resale homes in Del Webb at Grande Dunes sold for a typical price of about $630,000. Half sold for between about $449,000 and $703,000.") +
+      h.p("The 14 villas that sold in the Villas at Heel Tract went for a typical $432,500. In the same months, the builder sold 7 new homes for about $697,000 to $916,000.") +
+      h.p(`Read ${h.a("/hoa/documents/", "what to ask an HOA for before you buy a resale home")}.`) },
 
     { h2: "What do the dues cover in Del Webb at Grande Dunes?", html:
       h.p("Owners pay the association for basic lawn care. Ask whether it is in the monthly dues or billed as its own charge. You still water and care for your own plants.") +
@@ -118,7 +132,7 @@ module.exports = {
 
     { h2: "What does a buyer pay at closing in Del Webb at Grande Dunes?", html:
       h.p("On a resale, the buyer pays the association a one-time fee, called working capital, at closing. It is the larger of one year's dues or 0.5 percent of the price.") +
-      h.p("On a $500,000 home, that is at least $2,500, and more if a year's dues is higher. The board can change the amount.") +
+      h.p("On a $630,000 home, that is at least $3,150, and more if a year's dues is higher. The board can change the amount.") +
       h.p("Before closing, get the association's letter stating what is owed on the home.") +
       h.p(`Read ${h.a("/hoa/estoppel-and-transfer-fees/", "who pays the HOA's closing letter and transfer fees")} in South Carolina.`) },
 
@@ -154,14 +168,14 @@ module.exports = {
       ]) },
 
     { h2: "What will the property tax be on a Del Webb at Grande Dunes home?", html:
-      h.p("On a $500,000 home you live in, the property tax is about $1,785 a year on 2025 bills.") +
+      h.p("On a $630,000 home you live in, the property tax is about $2,249 a year on 2025 bills.") +
       h.p("Inside Myrtle Beach, a home you live in gets a city tax credit. The city lowered that credit for 2026, so the next bill will be a little higher.") +
       h.p("Once you are 65 and have lived in South Carolina a full year, you can claim the homestead exemption. This tax break for the home you live in saves about $178 a year here.") +
-      h.figure(taxChart(), "Yearly property tax on a $500,000 home, as a main home, with the homestead exemption at 65, and as a second home.") +
+      h.figure(taxChart(), "Yearly property tax on a $630,000 home, as a main home, with the homestead exemption at 65, and as a second home.") +
       h.p("The community's ponds are in a city improvement district, and the city may charge homes in it a special fee. Ask the seller whether the home has been charged one.") +
-      h.p("<strong>Example:</strong> Carol and Jim are moving from Pittsburgh with up to $500,000 to spend on a resale house. Carol is 66 and Jim is 58, so their household meets the age rule.") +
-      h.p("They buy a $500,000 house and make it their main home. They pay at least $2,500 in working capital at closing, and about $1,785 in property tax a year.") +
-      h.p("After a full year here, Carol applies for the homestead exemption, and their tax drops to about $1,606 a year. As a second home, the same house would owe about $7,638.") +
+      h.p("<strong>Example:</strong> Carol and Jim are moving from Pittsburgh with up to $650,000 to spend on a resale house. Carol is 66 and Jim is 58, so their household meets the age rule.") +
+      h.p("They buy a $630,000 house and make it their main home. They pay at least $3,150 in working capital at closing, and about $2,249 in property tax a year.") +
+      h.p("After a full year here, Carol applies for the homestead exemption, and their tax drops to about $2,071 a year. As a second home, the same house would owe about $9,624.") +
       h.p(`See ${h.a("/buyers/property-taxes/", "how Horry County taxes a main home and a second home")}.`) },
 
     { h2: "Is Del Webb at Grande Dunes in a flood zone?", html: (bg) =>
@@ -193,7 +207,7 @@ module.exports = {
     { name: "Posted rules, revised January 2019", href: RULES },
     { name: "Financial report, September 2025", href: FIN },
     { name: "FEMA Flood Map Service Center", href: FEMA },
-    { name: "SC Code 38-75-310", href: WINDLAW },
+    { name: "Horry County deed records", href: DEEDS },
   ],
   sourcesNote: "Not legal advice. The rules recorded in January 2025 were not online when read. FEMA policy data from June 2025 to May 2026 gives the flood costs, and the drive distance is an OpenStreetMap estimate.",
   bottomCta: { h2: "See a Del Webb at Grande Dunes home with an agent who knows the rules.", p: "Call about the house or villa you like. An agent at Chapter3 will read the lease and age rules with you.", label: "Call to learn more", href: TEL },

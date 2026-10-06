@@ -20,8 +20,10 @@
  * Rules:  the age, lease and pet terms come from the association's posted 2017
  *         copy of its charter; rules recorded since 2017 are not online.
  * Tax:    district 610's 2025 levy, 207.3 mills (row 68), and data/relocating/tax-engine.js.
- *         Results only: $1,767.60 on $450,000 as a primary home, $1,571.20 with
- *         the homestead exemption, $5,597.10 as a second home. Stormwater fee:
+ *         Results only, on the typical sale (row 73): $1,964 on $500,000 as a
+ *         main home, $1,767.60 with the homestead exemption, $6,219 as a second home.
+ * Prices: row 73 (deed records, October 2025 to September 2026; 19 sales of 18 homes).
+ *         Stormwater fee:
  *         the county's utility-fee page (Myrtle Trace ledger row 73).
  * Story:  stories.json "blackmoor-to-seasons" (owner confirmed 2026-10-06; no
  *         names, Blackmoor by its property facts only, no added reasons),
@@ -50,6 +52,8 @@ const CHARTER = "https://www.seasons55.com/editor_upload/File/Community%20Manage
 const FEMA = "https://msc.fema.gov/portal/search?AddressQuery=130%20Grand%20Cypress%20Way%2C%20Murrells%20Inlet%2C%20SC%2029576";
 const CMS = "https://www.medicare.gov/care-compare/details/hospital/420098/";
 const WINDLAW = "https://www.scstatehouse.gov/code/t38c075.php";
+/* Horry County deed index, the source of the sale prices. */
+const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 /* The county's own stormwater fee page (Myrtle Trace ledger row 73). */
 const STORMWATER = "https://www.horrycountysc.gov/departments/stormwater/major-initiatives/utility-fee/";
 
@@ -103,8 +107,8 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Owners in Seasons at Prince Creek West share a clubhouse, indoor and outdoor pools, a fitness center, tennis and bocce.",
-    "The beach in Garden City is about 6 miles away by road, and Tidelands Waccamaw Community Hospital is about 4 miles.",
-    "Every occupied home must have a permanent resident 55 or older, and no one under 18 can live there. On a $450,000 home you live in, the property tax is about $1,768 a year on 2025 bills.",
+    "The beach in Garden City is about 6 miles away by road, and Tidelands Waccamaw Community Hospital is about 4 miles. Homes sold for a typical $499,000 from October 2025 to September 2026.",
+    "Every occupied home must have a permanent resident 55 or older, and no one under 18 can live there. On a $500,000 home you live in, the property tax is about $1,964 a year on 2025 bills.",
   ],
   sections: [
     { h2: "Is Seasons at Prince Creek West a 55+ community?", html:
@@ -115,6 +119,10 @@ module.exports = {
       ]) +
       h.p(`These rules are from the association's ${h.ext(CHARTER, "posted 2017 copy")}. It has recorded newer rules since, the latest in December 2025. They are not online, so ask for them before you offer.`) +
       h.p(`See ${h.a(HUB, "how 55+ communities on the Grand Strand differ from age-targeted ones")}.`) },
+
+    { h2: "What do homes in Seasons at Prince Creek West sell for?", html:
+      h.p("From October 2025 to September 2026, homes in Seasons sold 19 times for $380,000 to $580,000. The typical price was about $499,000.") +
+      h.p("Half of those sales were between $455,000 and $532,500.") },
 
     { h2: "What is life like in Seasons at Prince Creek West?", html: (bg) =>
       h.p("Owners share a clubhouse, indoor and outdoor pools, a fitness center, tennis and bocce. The community has 444 home lots near Murrells Inlet.") +
@@ -152,12 +160,12 @@ module.exports = {
       h.p("The association recorded parking regulations in 2022. Their text is not online, so ask for them if you own a golf cart.") },
 
     { h2: "What will the property tax be on a Seasons at Prince Creek West home?", html:
-      h.p("On a $450,000 home you live in, the property tax in Seasons is about $1,768 a year on 2025 bills.") +
+      h.p("On a $500,000 home you live in, the property tax in Seasons is about $1,964 a year on 2025 bills.") +
       h.p("Seasons is outside any city, so there is no city tax. At 65, after a full year living in South Carolina, you can claim the homestead exemption. That tax break for the home you live in saves about $196 a year here.") +
       h.p(`Each owner in unincorporated Horry County also pays a ${h.ext(STORMWATER, "county stormwater fee")} with the property tax. For a single-family home, it is $89.40 a year.`) +
-      h.p("<strong>Example:</strong> Joan and Walt are moving from Richmond, Virginia, with up to $450,000 to spend. Joan is 70, Walt is 64, and they plan to live in Seasons all year.") +
-      h.p("They buy a resale home for $450,000. At closing they pay two months of dues. The road and park transfer fee would be $1,125 at 0.25 percent, but it has a cap, so they ask the association for today's figure.") +
-      h.p("Their property tax is about $1,768 a year, and about $1,571 once Joan claims the homestead exemption. As a second home, the same house would owe about $5,597.") +
+      h.p("<strong>Example:</strong> Joan and Walt are moving from Richmond, Virginia, with up to $500,000 to spend. Joan is 70, Walt is 64, and they plan to live in Seasons all year.") +
+      h.p("They buy a resale home for $500,000. At closing they pay two months of dues. The road and park transfer fee would be $1,250 at 0.25 percent, but it has a cap, so they ask the association for today's figure.") +
+      h.p("Their property tax is about $1,964 a year, and about $1,768 once Joan claims the homestead exemption. As a second home, the same house would owe about $6,219.") +
       h.p(`Try your own price in the ${h.a("/buyers/property-taxes/", "Horry County property tax calculator")}.`) },
 
     { h2: "Is Seasons at Prince Creek West in a flood zone?", html: (bg) =>
@@ -197,7 +205,7 @@ module.exports = {
     { name: "FEMA Flood Map Service Center", href: FEMA },
     { name: "Tidelands Waccamaw on Medicare Care Compare", href: CMS },
     { name: "Horry County stormwater fee", href: STORMWATER },
-    { name: "SC Code 38-75-310", href: WINDLAW },
+    { name: "Horry County deed records", href: DEEDS },
   ],
   sourcesNote: "For education, not legal advice. Rules recorded after 2017 were not online when read. FEMA policy data for June 2025 to May 2026 gives the flood costs; road distances are OpenStreetMap estimates.",
   bottomCta: { h2: "Read the Seasons rules before you offer.", p: "Call about the Seasons home you like. An agent at Chapter3 will read the age, lease and pet rules with you.", label: "Call about Seasons", href: TEL },

@@ -17,6 +17,7 @@
  *         FEMA policy data for ZIP code 29526 and Zone X, not Myrtle Trace alone.
  * Rules:  the age rule is quoted from the HOA's online copy, which the HOA says
  *         is not a legal document (rows 1, 2).
+ * Prices: rows 81 and 82 (deed records, October 2025 to September 2026).
  * Tax:    district 100's 2025 levy, 201 mills (row 72), and data/relocating/tax-engine.js.
  *         Results only: $1,102.80 on $300,000 as a primary home, $919 with the
  *         homestead exemption, $3,618 as a second home. Stormwater fee: row 73.
@@ -44,6 +45,8 @@ const CAPITAL = "https://myrtletracesc.org/wp-content/uploads/MTHOA-Policies-202
    can read. The NFHL queries the verifier ran stay in the ledger (row 60). */
 const FEMA = "https://msc.fema.gov/portal/search?AddressQuery=101%20Myrtle%20Trace%20Drive%2C%20Conway%2C%20SC%2029526";
 const WINDLAW = "https://www.scstatehouse.gov/code/t38c075.php";
+/* Horry County deed index, the source of the sale prices. */
+const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 /* The county's own stormwater fee page (row 73). The codified ordinance still
    shows the 2018 rate, so the page cites this page, not the code. */
 const STORMWATER = "https://www.horrycountysc.gov/departments/stormwater/major-initiatives/utility-fee/";
@@ -98,7 +101,7 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Yes, you can buy a home in Myrtle Trace if at least one person in your household is 55 or older.",
-    "Owners share a clubhouse, a pool in season and 15 ponds for fishing. The HOA has bingo, game nights, a coffee klatch and bocce and shuffleboard leagues.",
+    "Homes here sold for a typical $300,000 from October 2025 to September 2026. Owners share a clubhouse, a pool in season and 15 ponds for fishing. The HOA has bingo, game nights, a coffee klatch and bocce and shuffleboard leagues.",
     "Dues are $95 a month in 2026, and a resale buyer pays the HOA $1,550 at closing. Property tax on a $300,000 home you live in is about $1,103 a year on 2025 bills.",
   ],
   sections: [
@@ -108,14 +111,18 @@ module.exports = {
       h.p("The HOA's activities committee has standing groups for bingo, game nights, line dancing, a coffee klatch and dining out. Bocce and shuffleboard each have a league with two divisions.") +
       h.p("In season, the pool is open 8 a.m. to 9 p.m. every day. In 2025 it closed for the year on October 1.") +
       h.p("You and your house guests can fish in the 15 ponds from the HOA's land. Every fish must be released. The ponds are stormwater ponds, and swimming and boats are not allowed on them.") +
-      h.p("Thirteen walkways, each 15 feet wide, run between homes, and every resident may use them. The streets have no sidewalks. Some lots back onto Burning Ridge Golf Club, a private course that is not part of the HOA.") +
+      h.p("Thirteen walkways, each 15 feet wide, lie between homes, and every resident may use them. The streets have no sidewalks. Some lots back onto Burning Ridge Golf Club, a private course that is not part of the HOA.") +
       h.table(["Fact", "Myrtle Trace"], FACTS) },
+
+    { h2: "What do homes in Myrtle Trace sell for?", html:
+      h.p("From October 2025 to September 2026, 35 homes in Myrtle Trace sold for $160,000 to $394,900. The typical price was about $300,000.") +
+      h.p("The 8 homes that sold in Phases I and II went for less, at a typical price of about $234,500.") },
 
     { h2: "What do the Myrtle Trace HOA dues pay for?", html: (bg) =>
       h.p("Your homeowners association (HOA) dues of $95 a month pay for the pool, the clubhouse, the gate, the roads, the common land and the ponds.") +
       h.p("Dues went up from $90 in January 2026. The board added the $5 to its savings for pond and road work.") +
       h.p("Dues are due on the first of each month, and the HOA sends no bill unless you are behind. A $7 late fee is added for each month that is not paid.") +
-      h.p("Owners run the HOA, mostly as volunteers. It has no management company. You maintain your own home and lot, including the roof, the outside of the house and the grass.") +
+      h.p("Owners manage the HOA, mostly as volunteers. It has no management company. You maintain your own home and lot, including the roof, the outside of the house and the grass.") +
       h.p("The board can raise the yearly limit on dues by up to 10 percent a year without an owner vote. The HOA's 2023 history paper says it has never charged owners a one-time special fee.") +
       h.cta("Looking at a home in Myrtle Trace?", "Tell us which home you like. One of our agents will read the HOA's rules and policies with you before you offer.", "Have us read the Myrtle Trace HOA papers with you", "/contact/", bg) },
 
@@ -190,7 +197,7 @@ module.exports = {
   ],
   sources: [
     { name: "Myrtle Trace HOA home page", href: HOA },
-    { name: "HOA activities calendars, 2026", href: CAL },
+    { name: "Horry County deed records", href: DEEDS },
     { name: "HOA's posted copy of its rules", href: COV },
     { name: "Capital contribution resolution", href: CAPITAL },
     { name: "FEMA Flood Map Service Center", href: FEMA },

@@ -13,6 +13,8 @@
  *         (verified rows only; rows 22, 33 and 42 are wrong and not used).
  *         Flood insurance: rows 54 to 56, FEMA policy data for ZIP code 29582
  *         and Zone X, not the community alone. Lifestyle: row 57.
+ * Prices: rows 58 and 59 (deed records, October 2025 to September 2026). Row 59's
+ *         verifier: closed prices only, nothing on lot premiums or contract dates.
  * Tax:    2026 levies, the newest year verified for every part of the bill
  *         (row 50: 171.2 county and school mills, 50.0 city mills; row 52: the
  *         109.1 school operating mills a home you live in does not pay) and
@@ -45,6 +47,8 @@ const PULTE = "https://www.delwebb.com/homes/south-carolina/myrtle-beach/north-m
 const FEMA = "https://msc.fema.gov/portal/search?AddressQuery=1285%20Possum%20Trot%20Road%2C%20North%20Myrtle%20Beach%2C%20SC%2029582";
 const LEVY = "https://www.horrycountysc.gov/media/kufln4qp/tax-levy-2026_2.pdf";
 const WINDLAW = "https://www.scstatehouse.gov/code/t38c075.php";
+/* Horry County deed index, the source of the sale prices. */
+const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
 /* Pulte's three home designs, read 2026-10-05 (rows 24 and 25). */
 const DESIGNS = [
@@ -93,7 +97,7 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "New homes in Del Webb North Myrtle Beach started at $585,990 in October 2026. The highest starting price was $704,590.",
-    "The clubhouse is open and about 408 homes are built. The 14th Avenue South beach access is about a mile away by car.",
+    "The typical resale home sold for $534,900 from October 2025 to September 2026. The clubhouse is open, and the beach is about a mile away by car.",
     "Your homeowners association (HOA) dues include lawn care and a 175-channel TV package. On a $699,965 home you live in, the property tax is about $3,139 a year on 2026 bills.",
   ],
   sections: [
@@ -102,6 +106,8 @@ module.exports = {
       h.table(["Home design", "Starting price", "From sq ft", "Bedrooms", "Baths", "Garage"], DESIGNS) +
       h.p("Some lots, upgrades and options can cost more than the starting price. The builder says the homes range from 2,179 to 3,728 square feet.") +
       h.p("About 408 of the community's roughly 500 lots had a house on them in October 2026. Homes finished in the last few months may not be counted yet.") +
+      h.p("From October 2025 to September 2026, 19 resale homes here sold for $430,000 to $875,000. The typical resale price was $534,900.") +
+      h.p("In the same months, the builder closed on 121 new homes for $398,890 to $958,140. Those are the prices buyers paid at closing, not today's starting prices.") +
       h.p("Two homes were due to be finished in October 2026, each with 3 bedrooms and 3.5 baths:") +
       h.ul(["a 2,240-square-foot Stellar at $699,965, down from $767,965", "a 2,712-square-foot Renown at $704,590, down from $799,590"]) +
       h.p("Each home comes with hurricane fabric panels for the windows and natural gas service. The builder says its 10-year warranty on the structure can pass to the next owner if you sell.") +
@@ -173,7 +179,7 @@ module.exports = {
     { name: "City agreement with the builder, 2020", href: AGREEMENT },
     { name: "FEMA Flood Map Service Center", href: FEMA },
     { name: "Horry County 2026 tax levies", href: LEVY },
-    { name: "SC Code 38-75-310", href: WINDLAW },
+    { name: "Horry County deed records", href: DEEDS },
   ],
   sourcesNote: "Educational only, not legal or tax advice. Builder prices change. Flood costs are FEMA policy data for June 2025 to May 2026, and drive distances are OpenStreetMap estimates.",
   bottomCta: { h2: "Know the dues and the HOA rules before you sign with the builder.", p: "Call about the home design and the lot you want. One of our agents will read the HOA documents with you.", label: "Call about Del Webb North Myrtle Beach", href: TEL },
