@@ -63,7 +63,7 @@ Resale price range, median price, days on market and price per square foot for e
 | Draft four specs | Writer agent, reading `voice/RULES.md` and the ledgers | Done: score 100 on all four |
 | Gates: mkpage, build.js audit, scorer, claims, facts, near-duplicates | Machine | After drafts |
 | Review pass: `voice/REVIEW-PASS.md` on each page | Reviewer agent | Done: 75 fixes, all applied (`REVIEW.md`) |
-| Owner reads four pages, one sitting | Owner | Version 1 read 2026-10-06; version 4 (buyer stories in the examples) waiting at https://claude.ai/artifact/1cLs6mnrzK2GaVWkX9gYh2 |
+| Owner reads four pages, one sitting | Owner | Version 1 read 2026-10-06; version 5 (simple first: map, icons, photos, round numbers) waiting at https://claude.ai/artifact/1cLs6mnrzK2GaVWkX9gYh2 |
 | Record his edits, update the memory, ship | Machine, then the owner's AI deploys | Last |
 
 ## Owner questions
