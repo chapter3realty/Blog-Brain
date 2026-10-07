@@ -60,6 +60,21 @@ These outrank the structure rules below when they conflict. The detail, with his
 | B7 | Community pages say what life there is like: events and clubs, what is nearby, pets, guests. |
 | B8 | Simple beats complete. Cut what the buyer would skip. |
 
+## P. Plain (owner, 2026-10-07)
+
+Simple enough for anyone. These come before every other rule, on every page. The detail, with his words, is class PLAIN in `voice/RULES.md`. `score.js` checks the rules below that a pattern can catch. It reads the body copy only: no tables, byline, credit lines or sources line. P4 and P8 are blockers. A reading pass still checks PLAIN-1, PLAIN-3 and PLAIN-8, which no pattern can catch.
+
+| ID | Rule | Why |
+|---|---|---|
+| P1 | Round dollar amounts. At most one exact amount of $10,000 or more in prose ("$534,900"). Say "about $535,000". A table may hold exact amounts. | OWNER (PLAIN-2): "numbers are exact". 10 live pages have two or more on 2026-10-07. |
+| P2 | Few numbers. 3.5 or fewer numbers per 100 words of prose. A phone number, the 55 in "55+" and the digits in a name ("Chapter3", "HO-6", "I-95") do not count. | OWNER (PLAIN-2): "there's too many numbers". Set so the densest fifth of the live site fails: on 2026-10-07 the 122 articles had a median of 1.6, 80th percentile 3.7, highest 8.2. |
+| P3 | Say the date once. At most 2 mentions of a month with a year ("October 2026") or a year after "in", "for", "since" and the like, counting this year and last year. The byline carries the date. An older year (history) or a later year (a deadline) does not count. | OWNER (PLAIN-6): "you also are mentioning the date so much". 35 live pages fail. |
+| P4 | No price in the headline. The H1 and its second line carry no $ amount, on every page outside `/invest/`. **Blocker.** | OWNER (PLAIN-7): "leading with prices would scare people away and even in the headline it does it." |
+| P5 | Every question heading is answered. The first sentence under a heading that ends in "?" does not start with Ask, Check, Read, Call, Contact, Request or See, and does not say "ask the" or "check with". A "How do I find out" question may be answered with the steps. A call-to-action block (a phone link, button or form under the heading) is not checked. | OWNER (PLAIN-5): "the answer is just go find out by reading stuff." |
+| P6 | No industry terms. No term from `rules/plain-words.json` in prose; each has the plain words to use. A page whose title or H1 names the term is about it and is not checked for it. Investor terms (DSCR, cap rate, NOI, warrantable) are allowed under `/invest/`. | OWNER (PLAIN-1, PLAIN-3): "people who arent in insurance dont klnow what flood zone X means". |
+| P7 | Show it. A page with 800 or more words of prose has 2 or more pictures: a figure, an image, or a chart with `role="img"`. | OWNER (PLAIN-4): "it needs more images and photos". 102 of the 105 long live articles have fewer than 2. |
+| P8 | A 55+ community, submarket or neighborhood page shows a map: an embedded Google map, or a picture whose caption, label or alt text says map, satellite or aerial. **Blocker.** | OWNER (PLAIN-4): "people out of state don't know roads or anything about the city at all including where this community is". |
+
 ## S. Search
 
 | ID | Rule | Why |

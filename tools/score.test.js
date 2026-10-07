@@ -13,7 +13,7 @@ process.env.SCORE_TODAY = "2026-10-01";
 
 const faq = [
   ["How much does a special assessment cost in Myrtle Beach?", "A special assessment on a Grand Strand condo building usually costs a few thousand dollars per unit, and a roof or structural repair can cost more. The board divides the bill by the ownership share in the declaration."],
-  ["Who pays a special assessment when a condo sells?", "The seller pays an assessment charged before closing, and the buyer pays one charged after. Write the split into the contract and get an estoppel letter from the association."],
+  ["Who pays a special assessment when a condo sells?", "The seller pays an assessment charged before closing, and the buyer pays one charged after. Write the split into the contract and get a letter from the association that says what is owed."],
   ["Can a special assessment stop a condo loan?", "Yes. A lender can refuse a loan in a building with an unpaid assessment for structural repair, because the lender reviews the building as well as the buyer."],
   ["How do I find out about a special assessment before I buy?", "Read twelve to twenty-four months of board minutes, the reserve study and the budget. A coming assessment is discussed in the minutes for months before anyone is billed."],
 ];
@@ -49,7 +49,7 @@ ${o.chart ? `<svg role="img" aria-label="Assessments by cause in Garden City bui
 <ul><li>Board minutes</li><li>Reserve study</li><li>Budget</li></ul>
 <div style="border-left:3px solid var(--brass)"><p>Worried about a building?</p><a class="btn btn-brass" href="#lead-form">Check a building</a></div>
 ${sec("Who pays it when the unit sells?", "The seller pays an assessment charged before closing.", `${filler} <a href="/sell/sell-my-condo/">Selling a condo</a> covers the seller side.`)}
-<ul><li>Contract term</li><li>Estoppel letter</li><li>Closing statement</li></ul>
+<ul><li>Contract term</li><li>Letter of what is owed</li><li>Closing statement</li></ul>
 <div style="border-left:3px solid var(--brass)"><p>Want us to read the minutes?</p><a class="btn btn-brass" href="#lead-form">Send the building</a></div>
 ${o.body}
 <section><div class="wrap"><p>Common questions</p><h2>Special assessment FAQ</h2>${o.faq.map(([q, a]) => `<h3>${q}</h3><p>${a}</p>`).join("")}
@@ -70,7 +70,7 @@ check("gold has no blockers", g.blockers.length === 0, g.blockers.join(","));
 const mutations = [
   ["residue", { extraMain: "<p>%s</p>" }],
   ["residue", { extraMain: "<p>The total is NaN dollars.</p>" }],
-  ["faq-match", (h) => h.replace("get an estoppel letter from the association.</p>", "get a letter.</p>")],
+  ["faq-match", (h) => h.replace("get a letter from the association that says what is owed.</p>", "get a letter.</p>")],
   ["title", { title: "Special Assessments | Chapter3" }],
   ["title", { title: "Condo Special Assessments in Myrtle Beach, What They Cost and Who Pays | Chapter3" }],
   ["description", { desc: "Short." }],
@@ -158,8 +158,79 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   check("inbound: counts body links from other pages (a and c both link to /hoa/reserves/)", /^2 pages/.test(inb.detail), inb.detail);
 }
 
+/* Plain language (STANDARD P1-P8, voice/RULES.md class PLAIN). Firing text is taken from the
+   2026-10 drafts and the live site; quiet text is the owner's own "good" wording or real site text. */
+{
+  const fires = (name, html, id) => { check(`${id}: mutation landed (${name})`, html !== base); const r = credit(html, id); check(`${id}: fires on ${name}`, r.credit !== null && r.credit < 1, `(${r.credit}: ${r.detail})`); };
+  const quiet = (name, html, id) => { const r = credit(html, id); check(`${id}: quiet on ${name}`, r.credit === null || r.credit === 1, `(${r.credit}: ${r.detail})`); };
+
+  /* P1 exact amounts. Draft Del Webb North Myrtle Beach, version 4. */
+  fires("two exact prices in prose", gold({ body: "<p>In October 2026, the three Del Webb home designs here started at $585,990 for the Stardom, $699,965 for the Stellar and $704,590 for the Renown.</p>" }), "exact-amounts");
+  quiet("one exact price", gold({ body: "<p>The typical resale home sold for $534,900.</p>" }), "exact-amounts");
+  quiet("round prices", gold({ body: "<p>New homes here start at about $600,000. Resale homes sell for about $300,000 to $400,000.</p>" }), "exact-amounts");
+  quiet("exact prices in a table", gold({ body: "<table><tr><th>Design</th><th>From</th></tr><tr><td>Stardom</td><td>$585,990</td></tr><tr><td>Stellar</td><td>$699,965</td></tr><tr><td>Renown</td><td>$704,590</td></tr></table>" }), "exact-amounts");
+  quiet("the same exact amount twice", gold({ body: "<p>The median sale price was $359,945.</p><p>At $359,945, the median was flat.</p>" }), "exact-amounts");
+
+  /* P2 number density. Draft Myrtle Trace, version 4: 13 numbers in 60 words. */
+  const dense = "<p>In ZIP code 29526, the middle single-family flood policy for a Zone X home cost $561 a year, fees included. Half cost between $432 and $725.</p>" +
+    "<p>From October 2025 to September 2026, 35 homes in Myrtle Trace sold for $160,000 to $394,900.</p><p>On a $300,000 home you live in, the property tax is about $1,103 a year on 2025 bills.</p>";
+  fires("dense numbers", gold({ body: dense.repeat(3) }), "number-density");
+  quiet("a few round numbers", gold({ body: "<p>Flood insurance here usually costs about $600 a year.</p>" }), "number-density");
+  {
+    const { facts } = require("./score.js");
+    const n0 = facts(parse(gold())).plain.numbers.length;
+    const n1 = facts(parse(gold({ body: "<p>Call Chapter3 at 843-555-0100. Ask for the HO-6 quote on a 55+ home near I-95.</p>" }))).plain.numbers.length;
+    check("number-density: a phone number, Chapter3, HO-6, I-95 and 55+ are not counted", n1 === n0, `(${n0} before, ${n1} after)`);
+  }
+
+  /* P3 dates. Draft Myrtle Trace and Del Webb North Myrtle Beach, version 4. */
+  fires("three dates in body copy", gold({ body: "<p>In October 2026, new homes started at about $600,000.</p><p>From October 2025 to September 2026, 35 homes in Myrtle Trace sold.</p>" }), "date-mentions");
+  fires("\"in 2026\" mentions", gold({ body: "<p>Dues were raised in 2026.</p><p>The pool reopened in 2025.</p><p>Fees rose in 2026.</p>" }), "date-mentions");
+  quiet("the date once and a byline", gold({ body: "<p>In October 2026, new homes started at about $600,000.</p>" }), "date-mentions");
+  quiet("history and a deadline", gold({ body: "<p>Hurricane Hugo came ashore in 1989.</p><p>The rule applies to sales in 1999.</p><p>The new standard applies from January 1, 2027.</p><p>Myrtle Trace dates from 1983.</p>" }), "date-mentions");
+
+  /* P4 price in the headline. Draft Del Webb North Myrtle Beach and Myrtle Trace, version 4. */
+  fires("a starting price in the H1 second line", gold({ h1: "What does a new home in Del Webb North Myrtle Beach cost?<br/><em>From $585,990 in October 2026.</em>" }), "price-headline");
+  fires("dues in the H1", gold({ h1: "What is life like in Myrtle Trace in Conway?<br/><em>Pool, clubhouse, $95 monthly dues.</em>" }), "price-headline");
+  quiet("the owner's suggested headline", gold({ h1: "What is it like to live in Del Webb North Myrtle Beach?" }), "price-headline");
+  check("price-headline: an investor page may lead with price", credit(gold({ h1: "What does a Myrtle Beach rental cost?<br/><em>From $250,000.</em>" }).replace("/hoa/special-assessments/", "/invest/rentals/"), "price-headline").credit === null);
+  check("price-headline: is a blocker", grade(parse(gold({ h1: "Myrtle Beach condos<br/><em>From $250,000.</em>" }))).blockers.includes("price-headline"));
+
+  /* P5 deflection. The owner's example (RULES PLAIN-5) and live /invest/rental-program-vs-airbnb/. */
+  fires("\"Ask the management company\"", gold({ body: "<h2>What do the HOA dues include in Myrtle Beach?</h2><p>Ask the management company for the budget.</p>" }), "deflection");
+  fires("\"Check the exclusivity clause\"", gold({ body: "<h3>Can I use Airbnb while I am in the program?</h3><p>Check the exclusivity clause. Some agreements allow outside bookings with notice and some do not.</p>" }), "deflection");
+  quiet("an answer", gold({ body: "<h2>What do the HOA dues include?</h2><p>Your dues include lawn care and a 175-channel TV package.</p>" }), "deflection");
+  quiet("a how-to question answered with the steps (gold FAQ)", base, "deflection");
+  quiet("a call-to-action block (live /sell/)", gold({ body: '<section><div><h2>Questions before you commit to anything?</h2><p>Call or text us directly.</p><div><a href="tel:8543332135">Call</a></div></div></section>' }), "deflection");
+
+  /* P6 plain words. Drafts version 4 and live /buyers/property-taxes/. */
+  fires("Zone X", gold({ body: "<p>Myrtle Trace is in FEMA flood Zone X, an area of low flood risk.</p>" }), "plain-words");
+  fires("millage and the homestead exemption", gold({ body: "<p>All figures are estimates from certified 2025 millage, before the 65-plus Homestead Exemption.</p>" }), "plain-words");
+  fires("a capital contribution", gold({ body: "<p>That is a $1,450 one-time fee, which the HOA calls a capital contribution.</p>" }), "plain-words");
+  quiet("the owner's plain version", gold({ body: "<p>Homes here are not in a flood zone, so your lender will not require flood insurance.</p>" }), "plain-words");
+  quiet("a page about the term itself", gold({ title: "HOA Estoppel Letters in Myrtle Beach | Chapter3", body: "<p>An estoppel letter says what the seller still owes the HOA.</p>" }), "plain-words");
+  quiet("roof grant recipients and plates", gold({ body: "<p>Grantees of the roof program report premium cuts. The platform shows a license plate.</p>" }), "plain-words");
+  check("plain-words: an investor page may say DSCR", credit(gold({ body: "<p>A DSCR loan qualifies on the property's rent.</p>" }).replace("/hoa/special-assessments/", "/invest/dscr/"), "plain-words").credit === 1);
+
+  /* P7 pictures and P8 map. A long page (800+ words) with one chart. */
+  const longBody = `<p>${"Owners pay the bill in installments. ".repeat(140)}</p>`;
+  const fig = '<figure><img src="/x.jpg" alt="The clubhouse pool at Myrtle Trace"><figcaption>The clubhouse pool</figcaption></figure>';
+  fires("a long page with one chart", gold({ body: longBody }), "pictures");
+  quiet("a long page with a chart and a photo", gold({ body: longBody + fig }), "pictures");
+  quiet("a short page with one chart", base, "pictures");
+  const place = (h) => h.replace("/hoa/special-assessments/", "/buyers/55-plus-communities/myrtle-trace/");
+  fires("a 55+ community page with no map", place(gold()), "place-map");
+  fires("a submarket page with only a bar chart", gold().replace("/hoa/special-assessments/", "/submarkets/conway/"), "place-map");
+  quiet("an embedded Google map", place(gold({ body: '<iframe src="https://www.google.com/maps/embed?pb=x" title="Myrtle Trace"></iframe>' })), "place-map");
+  quiet("a figure captioned as a map", place(gold({ body: '<figure><svg role="img" aria-label="Myrtle Trace, the beach and Conway"></svg><figcaption>Map: where Myrtle Trace is</figcaption></figure>' })), "place-map");
+  quiet("a satellite view (live /invest/rental-returns/)", place(gold({ body: '<img src="/a.jpg" alt="Satellite view of the Grand Strand from Little River south to Pawleys Island, with the eight areas outlined.">' })), "place-map");
+  quiet("a page that is not a place page", base, "place-map");
+  check("place-map: is a blocker", grade(parse(place(gold()))).blockers.includes("place-map"));
+}
+
 /* Every rule id appears in at least one mutation, so no rule is untested. */
-const tested = new Set(mutations.map(m => m[0]).concat(["visual-rhythm", "verdict"]));
+const tested = new Set(mutations.map(m => m[0]).concat(["visual-rhythm", "verdict", "exact-amounts", "number-density", "date-mentions",
+  "price-headline", "deflection", "plain-words", "pictures", "place-map"]));
 for (const r of RULES) check(`rule ${r.id} has a control`, tested.has(r.id));
 
 /* Every rule maps to a STANDARD.md id. */

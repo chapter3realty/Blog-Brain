@@ -61,6 +61,30 @@ const CONDITIONAL_ANSWER = /^if\b[^.]{3,80},\s*(?:the|it|you|they|an?|your)\b[^.
 const YESNO_Q = /^\s*(?:should|is|are|can|do|does|will|must|could|would|has|have)\b[^?]*\?/i;
 const VERDICT = /^\s*(?:yes|no|usually|mostly|most|for most|on average|in most cases|only|not|rarely|sometimes|almost|never|always|it depends on)\b/i;
 
+/* --- Plain language (voice/RULES.md class PLAIN, owner 2026-10-07) ---------- */
+/* Terms a buyer does not know, each with a plain replacement. */
+const PLAIN_WORDS = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "rules", "plain-words.json"), "utf8")).terms
+  .map(t => ({ ...t, re: new RegExp(t.pattern, `g${t.flags || ""}`) }));
+/* A line that credits a source or an image, not prose a reader reads. */
+const CREDIT_LINE = /^(?:(?:data |image |photo |map )?sources?|imagery|photo|credit|data)\s*:/i;
+/* A number a reader has to process. Not the 3 in "Chapter3", the 6 in "HO-6" or the 95 in "I-95",
+   and not a phone number or the "55+" that names a kind of community. */
+const PHONE_RE = /\(?\b\d{3}\)?[-.\s]\d{3}[-.]\d{4}\b/g;
+const NUMBER_RE = /(?<![A-Za-z0-9.,$\-])\$?\d(?:[\d,]*\d)?(?:\.\d+)?/g;
+const FIFTY_FIVE = /\b55(?:\s?\+|-plus\b|\s+and\s+(?:over|older)\b)/gi;
+/* A dollar amount of $10,000 or more that is not round to the thousand: "$534,900". */
+const EXACT_AMOUNT_RE = /\$\s?(\d{1,3}(?:,\d{3})+|\d{5,})(?:\.\d+)?(?![\d,]*\d)/g;
+/* Dates in body copy: a month with a year, or "in 2026"-style year mentions. */
+const MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sept?|Oct|Nov|Dec";
+const MONTH_YEAR_RE = new RegExp(`\\b(?:${MONTHS})\\.?(?:\\s+\\d{1,2},?)?\\s+((?:19|20)\\d\\d)\\b`, "g");
+const PREP_YEAR_RE = /\b(?:in|during|since|through|until|by|for|of|from|as of)\s+(?:early\s+|late\s+|mid-)?((?:19|20)\d\d)\b/gi;
+/* An answer that sends the reader somewhere else (PLAIN-5). */
+const DEFLECT_RE = /^(?:ask|check|read|call|contact|request|see)\b|\bask the\b|\bcheck with\b/i;
+const HOW_TO_Q = /^(?:how|where) (?:do|can|should|would|could) (?:i|you|we|buyers?|owners?|sellers?)\b/i;
+const CTA_SEL = 'a.btn, a[href^="tel:"], form';
+/* Pages that must show a map: a 55+ community, a submarket, a neighborhood. */
+const PLACE_PAGE = /^\/(?:buyers\/55-plus-communities\/[^/]+|submarkets(?:\/[^/]+)?|neighborhoods(?:\/[^/]+)?)\/$/;
+
 /* ----------------------------------------------------------------- parsing */
 
 const norm = (s) => String(s || "").replace(/&#39;|&#x27;|’/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ").trim();
@@ -209,11 +233,60 @@ function facts(p) {
   const authorNode = author && author["@id"] ? (p.byId.get(author["@id"]) || author) : author;
   const authorNamed = !!author && (author["@id"] === "https://chapter3realty.com/#org" || (!!authorNode && p.types(authorNode).some(t => /Organization|RealEstateAgent|LocalBusiness|Person/.test(t))));
 
+  /* Plain-language facts (PLAIN). Body copy only: the prose blocks, the hero sub included,
+     without tables, the byline, credit lines and the sources line. A list number is not counted. */
+  const plainProse = p.bodyBlocks.filter(b => !b.el.closest("table").length && !/^By\s+[A-Z]/.test(b.text) && !CREDIT_LINE.test(b.text))
+    .map(b => b.text.replace(/^\d{1,2}[.)]\s+/, ""));
+  const plainText = plainProse.join(" ");
+  const plainWords = wc(plainText);
+  const numbers = (plainText.replace(PHONE_RE, " ").replace(FIFTY_FIVE, " ").match(NUMBER_RE) || []);
+  const exactAmounts = [];
+  for (const t of plainProse) for (const m of t.matchAll(EXACT_AMOUNT_RE)) {
+    const v = Number(m[1].replace(/,/g, ""));
+    if (v >= 10000 && v % 1000 !== 0 && !exactAmounts.includes(m[0].trim())) exactAmounts.push(m[0].trim());
+  }
+  const year = (process.env.SCORE_TODAY ? new Date(process.env.SCORE_TODAY) : new Date()).getFullYear();
+  /* This year and last year: the "as of" date. An older year is history, and a later one is a deadline the reader acts on. */
+  const recent = (y) => +y >= year - 1 && +y <= year;
+  const dateMentions = [];
+  for (const t of plainProse) {
+    let rest = t;
+    for (const m of t.matchAll(MONTH_YEAR_RE)) if (recent(m[1])) { dateMentions.push(m[0]); rest = rest.replace(m[0], " "); }
+    for (const m of rest.matchAll(PREP_YEAR_RE)) if (recent(m[1])) dateMentions.push(m[0]);
+  }
+  const plainHits = [];
+  const about = `${p.title} ${p.h1s.join(" ")}`;
+  for (const w of PLAIN_WORDS) {
+    if ((w.skip || []).some(pre => p.url.startsWith(pre))) continue;
+    w.re.lastIndex = 0; if (w.re.test(about)) continue;
+    for (const t of plainProse) for (const m of t.matchAll(w.re)) plainHits.push({ term: w.term, plain: w.plain, text: m[0] });
+  }
+  /* A question heading whose answer sends the reader elsewhere. Two shapes are not deflections:
+     a "how do I find out" question, which an instruction answers, and a call-to-action block
+     ("Questions? Call us.") with a phone link, button or form under the heading. */
+  const deflections = [];
+  main.find("h2, h3").each((_, e) => {
+    const q = norm($(e).text());
+    if (!/\?$/.test(q) || HOW_TO_Q.test(q)) return;
+    if ($(e).nextAll().filter((_, n) => $(n).is(CTA_SEL) || $(n).find(CTA_SEL).length > 0).length) return;
+    const next = $(e).nextAll().filter((_, n) => !!norm($(n).text())).first();
+    const first = next.length && !next.is("h2, h3, table") ? (sentences(norm(next.text()))[0] || "") : "";
+    if (first && DEFLECT_RE.test(first)) deflections.push({ q, a: first });
+  });
+  /* Pictures: a figure, or an image or labelled chart outside one. A map is an embedded Google map,
+     or a picture whose caption, label or alt text says map, satellite or aerial. */
+  const pics = main.find("figure").toArray().concat(main.find('img, svg[role="img"]').filter((_, e) => !$(e).closest("figure").length).toArray());
+  const picLabel = (e) => norm([$(e).find("figcaption").text(), $(e).attr("aria-label"), $(e).attr("alt"),
+    $(e).find("[aria-label]").map((_, x) => $(x).attr("aria-label")).get().join(" "), $(e).find("img[alt]").map((_, x) => $(x).attr("alt")).get().join(" ")].join(" "));
+  const maps = pics.filter(e => /\bmaps?\b|\bsatellite\b|\baerial\b/i.test(picLabel(e))).length
+    + main.find("iframe").filter((_, e) => /google\.[a-z.]+\/maps|maps\.google\./i.test($(e).attr("src") || "")).length;
+  const plain = { prose: plainProse, words: plainWords, numbers, exactAmounts, dateMentions, plainHits, deflections, pictures: pics.length, maps };
+
   const modified = p.article && p.article.dateModified ? new Date(p.article.dateModified) : null;
   const ageDays = modified ? Math.round((TODAY - modified) / 864e5) : null;
 
   return { kw, topicTokens, hasTopic, prose, sents, sentLens, words, faqQs, contentH2, leads, fragments, internal, external, primary,
-    ctas, visuals, visualCount, places, experience, authorNode, authorNamed, ageDays };
+    ctas, visuals, visualCount, places, experience, authorNode, authorNamed, ageDays, plain };
 }
 
 /* ------------------------------------------------------------------ rules */
@@ -372,6 +445,57 @@ rule("image", "Human", 2, "At least one image or chart with real alt text", (p, 
 
 rule("ctas", "Human", 2, "2+ calls to action inside the article", (p, f) => f.ctas >= 2 ? pass(`${f.ctas}`) : part(f.ctas / 2, `${f.ctas}`), { applies: isArticle });
 
+/* --- Plain language (voice/RULES.md class PLAIN, owner 2026-10-07) -------- */
+/* "it is a very hard read because numbers are exact and there's too many numbers you also are
+   mentioning the date so much". Counted on body copy: no tables, byline, credit or sources line. */
+const NUMBER_DENSITY_MAX = 3.5;
+
+rule("exact-amounts", "Human", 2, "Round dollar amounts: at most one exact amount of $10,000+ in prose", (p, f) => {
+  const x = f.plain.exactAmounts;
+  return x.length <= 1 ? pass(x.length ? `1: ${x[0]}` : "none") : part(Math.max(0, 1 - (x.length - 1) / 4), `${x.length}: ${x.slice(0, 4).join(", ")}`);
+});
+
+rule("number-density", "Human", 2, `Few numbers: ${NUMBER_DENSITY_MAX} or fewer per 100 words of prose`, (p, f) => {
+  if (f.plain.words < 100) return na("under 100 words of prose");
+  const d = 100 * f.plain.numbers.length / f.plain.words;
+  const detail = `${d.toFixed(1)} per 100 words (${f.plain.numbers.length} numbers in ${f.plain.words} words)`;
+  return d <= NUMBER_DENSITY_MAX ? pass(detail) : part(Math.max(0, 1 - (d - NUMBER_DENSITY_MAX) / NUMBER_DENSITY_MAX), detail);
+});
+
+rule("date-mentions", "Human", 2, "Date said once: 2 or fewer month-and-year or \"in 2026\" mentions in body copy", (p, f) => {
+  const x = f.plain.dateMentions;
+  return x.length <= 2 ? pass(`${x.length}`) : part(Math.max(0, 1 - (x.length - 2) / 6), `${x.length}: "${x.slice(0, 4).join('", "')}"`);
+});
+
+rule("price-headline", "Human", 3, "No price in the headline (pages outside /invest/)", (p) => {
+  if (/^\/invest\//.test(p.url)) return na("investor page");
+  const h = p.h1s.join(" "), m = h.match(/\$\s?\d[\d,.]*(?:\s?(?:k|K|million|M)\b)?/);
+  return m ? fail(`H1 shows ${m[0]}: "${h.slice(0, 90)}"`) : pass("no price");
+}, { blocker: true });
+
+rule("deflection", "Human", 2, "Every question heading is answered, not sent elsewhere (\"Ask the manager\")", (p, f) => {
+  const x = f.plain.deflections;
+  return x.length ? part(Math.max(0, 1 - x.length / 3), `${x.length}: "${x[0].q}" answered "${x[0].a.slice(0, 70)}"`) : pass("none");
+});
+
+rule("plain-words", "Human", 2, "No industry terms from rules/plain-words.json in prose", (p, f) => {
+  const x = f.plain.plainHits;
+  if (!x.length) return pass("none");
+  const terms = [...new Set(x.map(h => h.term))];
+  return part(Math.max(0, 1 - terms.length / 4), `${x.length} uses of ${terms.length} terms: ${terms.slice(0, 5).map(t => `"${t}" (say: ${x.find(h => h.term === t).plain})`).join("; ")}`);
+});
+
+rule("pictures", "Human", 2, "800+ words of prose have 2+ pictures (figure, image or labelled chart)", (p, f) => {
+  if (f.words < 800) return na(`${f.words} words`);
+  const n = f.plain.pictures;
+  return n >= 2 ? pass(`${n}`) : part(n / 2, `${n} for ${f.words} words`);
+}, { applies: isArticle });
+
+rule("place-map", "Human", 3, "A community, submarket or neighborhood page shows a map", (p, f) => {
+  if (!PLACE_PAGE.test(p.url)) return na("not a place page");
+  return f.plain.maps ? pass(`${f.plain.maps} map(s)`) : fail("no map: no Google map embed and no figure labelled map");
+}, { blocker: true });
+
 /* --- Trust (E-E-A-T) ----------------------------------------------------- */
 rule("byline", "Trust", 2, "Visible byline naming the author, with an Updated date", (p) => {
   const b = p.byline || "", named = /^By\s+(?:the\s+)?(?:Chapter ?(?:3|III)\b|[A-Z][a-z]+\s+[A-Z])/.test(b) && !/\bPaul\b/.test(b), dated = /Updated\s+[A-Z][a-z]+\s+\d{1,2},\s+\d{4}/.test(b);
@@ -421,6 +545,8 @@ const STD = {
   "primary-sources": "A9", "local-entities": "A10",
   "sentence-length": "H1", paragraphs: "H2", "visual-rhythm": "H3", image: "H4", ctas: "H5", residue: "H9",
   byline: "T1", experience: "T2", "sources-line": "T3", fresh: "T4",
+  "exact-amounts": "P1", "number-density": "P2", "date-mentions": "P3", "price-headline": "P4", deflection: "P5", "plain-words": "P6",
+  pictures: "P7", "place-map": "P8",
 };
 
 /* ---------------------------------------------------------------- scoring */
