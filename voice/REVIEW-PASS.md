@@ -7,6 +7,17 @@ Each line is a yes/no question. The answer the page needs is in brackets, then t
 The order is how often the owner caught the problem, counted from `edits.jsonl` (248 records). The count is in each heading. A record can count under more than one heading. Sections 12 and 14 are low in count, but each of those mistakes cost a full rewrite of a page.
 
 
+## 00. Simple first (owner, 2026-10-07; answer these before everything, on every page)
+
+- P1. Could a reader who has never been here, and knows no real estate words, follow every sentence? Quote each word or place they would not know.
+- P2. Count the numbers in each section. More than three in prose? Any exact figure where a round one would do ("$534,900" for "about $535,000")?
+- P3. Does any sentence say what a thing is (a zone, a law, a fee's name) instead of what it means for the reader? Quote it and write the "means for you" version.
+- P4. Is there a map of where the place is, and a picture or icon row in the first screen? Is anything named that the reader cannot picture, like a builder's model name?
+- P5. Does every question heading get answered in its first sentence? Is any answer "ask", "check" or "read"? Cut the question or answer it.
+- P6. How many times is a date or month-year in the body? More than once outside the top line and a deadline is a fail.
+- P7. On a page for a home to live in: does the headline or the first screen lead with price? It must lead with the home and the area.
+- P8. Which sentences would the reader not miss? Cut them.
+
 ## 0. Buyer first (owner, 2026-10-06; answer these before everything else)
 
 B1. Does the first screen give the target buyer what they want most (what they get, what it costs, whether they can), good news first? [yes] BUYER-1

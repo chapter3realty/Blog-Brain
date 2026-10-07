@@ -6,7 +6,18 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 
 ## Read this first
 
-**Buyer first (owner, 2026-10-06). These come before every other rule.**
+**Simple first (owner, 2026-10-07). These come before every other rule, on every page and every piece of writing.** The owner: "please please please do not take what im telling you as a lesson for this one type of thing or this one blog understand that in everything you do you need to make it as easy to understand as possible ... blogs need to be simple enough to understand a baby could read it and figure everything out".
+
+- P1. Write for a reader who knows nothing: not the town, not the roads, not the words. If a child could not follow it, rewrite it.
+- P2. Few numbers, and round ones. "About $300,000", never "$299,965". Two or three numbers in a section, not ten.
+- P3. Say what it means for the reader, never what the thing is. "You probably will not need flood insurance", not "the home is in FEMA Zone X".
+- P4. Show it. A map of where the place is, photos, and icons beat paragraphs. Never name a thing the reader cannot picture (a builder's model name, a road); show it or leave it out.
+- P5. Every question the page asks, the page answers. "Ask the manager" or "read the rules" is not an answer.
+- P6. Say the date once, at the top. Not in every section.
+- P7. On a page for people buying a home to live in, lead with the home, what it offers, and the area around it. Price comes later and softly. Never in the headline. Cost-first is for investor pages.
+- P8. Leave out details that only show how much we know. If the reader would not miss it, cut it.
+
+**Buyer first (owner, 2026-10-06).**
 
 - A. Lead with what the buyer of this page wants most, good news first, then the drawbacks. Never lead with records, history or method.
 - B. Use the words a buyer who has done no research uses. No industry terms: "plans", "platted", "assessed value", "declaration", "development agreement", a company's initials.
@@ -20,11 +31,11 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 3. One idea per sentence. 28 words at most, 16 on average. No asides, no And/So openers, no teasers, no hedges.
 4. Write about the house, the money and the rule. Never about the page, the writing or what the reader is thinking.
 5. The short answer is the answer, with the number. If a sentence would be true on another page, it is not the answer.
-6. Define every term in its own sentence before you use it. Section headings are plain questions that say what the section answers.
+6. Replace every term with the plain word (P1, P3). Section headings are plain questions that say what the section answers, and the section answers them (P5).
 7. Chapter3 is a brokerage. It lends nothing, manages nothing, and no headline offers a loan. Devin Day is the author only. Paul is never named.
 8. Every H1 names the place. Every investor page says, in specific facts, why to use Chapter3 here.
 9. Every number comes from a source you opened. A ratio's two sides describe the same things. The brokerage's own published number beats your arithmetic.
-10. A story is real and anonymous, or it is labelled "Example" with every number sourced and the arithmetic shown. Never write a quote for anyone.
+10. A story is real and anonymous, or it is labelled "Example" with every number sourced, rounded, and no arithmetic (P2). Never write a quote for anyone.
 
 ## How to read a rule
 
@@ -35,9 +46,60 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 
 Paths are in the website repo (`chapter3realty/Chapter3-Website`, branch `claude/github-account-check-wutg8b`) unless they start with `Blog-Brain/`. `RL` is `research/relocating/owner-answers.md`. `B3`, `B4` and `B5` are `research/invest-next/owner-answers-batch3.md`, `-batch4.md` and `-batch5.md`. The full record of each correction is in `edits.jsonl` in this folder.
 
-Rule counts: BUYER 8, FIG 7, SHAPE 10, WORD 5, STRUCT 9, BIZ 8, FACT 9, LOCAL 5, STORY 7, CTA 4, OWNER 5. Total 77. When BUYER conflicts with another rule, BUYER wins, except the legal rules in BIZ and FACT.
+Rule counts: PLAIN 8, BUYER 8, FIG 7, SHAPE 10, WORD 5, STRUCT 9, BIZ 8, FACT 9, LOCAL 5, STORY 7, CTA 4, OWNER 5. Total 85. When PLAIN or BUYER conflicts with another rule, PLAIN wins, then BUYER, except the legal rules in BIZ and FACT.
 
 ---
+
+## PLAIN. Simple enough for anyone (owner, 2026-10-07, after version 4 of the 55+ batch)
+
+He had a third-party reader go through version 4. Verdict, verbatim: "it is a very hard read because numbers are exact and there's too many numbers you also are mentioning the date so much". These rules are the class behind that, for every page, not fixes to those pages.
+
+### PLAIN-1. Write for a reader who knows nothing.
+- Owner: "youre still assuming people know things that are industry or community specific ... people out of state don't know roads or anything about the city at all including where this community is".
+- Bad: "Myrtle Trace is west of both US 17 and Bypass 17." "The Stardom, the Stellar and the Renown."
+- Good (suggested): a map with the community, the beach and the towns, and "about 20 minutes from the beach by car".
+- Enforced by: buyer reader; `score.js` plain-words list.
+
+### PLAIN-2. Few numbers, and round ones.
+- Owner: "numbers are exact and there's too many numbers".
+- Bad: "the middle single-family flood policy for a Zone X home cost $561 a year, fees included. Half cost between $432 and $725."
+- Good (suggested): "Flood insurance here usually costs about $600 a year."
+- Exact figures stay in the fact ledger. On the page: round to what a person would say out loud. A table may hold a few more numbers than prose.
+- Enforced by: `score.js` number density and exact-amount checks.
+
+### PLAIN-3. Say what it means for the reader, not what the thing is.
+- Owner: "people who arent in insurance dont klnow what flood zone X means just talk about what something means for a customer ... nobody knows what a yellow zone is but they know if you said something like \"the house requires flood insurance because it sits in a flood zone\" ... notice how i only mentioned the thing that impacted the reader".
+- Bad: "Myrtle Trace is in FEMA flood Zone X, an area of low flood risk."
+- Good (suggested): "Homes here are not in a flood zone, so your lender will not require flood insurance."
+- Enforced by: reading pass, buyer reader.
+
+### PLAIN-4. Show it: a map, photos, icons.
+- Owner: "to make it an easier read you could use more images and icons ... the names of houses is something nobody knows at all so photos are going to be easier to understand ... it needs more images and photos ... one good image would be showing them in a dynamic picture".
+- Every place page has a map showing where the place is and what is near it. Every page has a picture or icon row in the first screen. A thing the reader cannot picture is shown or left out.
+- Photos must be ours or licensed for reuse with credit. Never a builder's or a listing's photo, and never a made-up photo presented as the real place.
+- Enforced by: `score.js` visuals check.
+
+### PLAIN-5. Every question the page asks, the page answers.
+- Owner: "theres a few times where you propose a question and then dont answer it or the answer is just go find out by reading stuff."
+- Bad: a heading "What do the HOA dues include?" answered with "Ask the management company for the budget."
+- If no source gives the answer, do not ask the question. Put the offer to find out in a CTA, not in an answer.
+- Enforced by: `score.js` deflection check; buyer reader.
+
+### PLAIN-6. Say the date once.
+- Owner: "you also are mentioning the date so much".
+- The page carries its updated date at the top. Body copy says "this year", "last year" or nothing. A date stays only where the reader needs it to act (a deadline).
+- Enforced by: `score.js` date-mention count.
+
+### PLAIN-7. On a page for people buying a home to live in, lead with the home and the area. Price later, softly, never in the headline.
+- Owner: "youre focusing too much on what stuff cost and what a logical investor would care about which would be great for investor pages but for these pages people buying ahouse care more about the house and what it offers and the area around it rather than th price also leading with prices would scare people away and even in the headline it does it."
+- Bad: H1 "What does a new home in Del Webb North Myrtle Beach cost? From $585,990".
+- Good (suggested): "What is it like to live in Del Webb North Myrtle Beach?"
+- Enforced by: `score.js` price-in-headline check on non-investor pages.
+
+### PLAIN-8. Leave out what only shows how much we know.
+- Owner: "talking about all the details and exact things just sound like you're flexing your smarts."
+- Test: would the reader miss this sentence? If not, cut it.
+- Enforced by: reading pass.
 
 ## BUYER. Write for the buyer (owner, 2026-10-06, after the first 55+ batch)
 
