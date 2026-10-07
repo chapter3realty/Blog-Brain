@@ -242,6 +242,7 @@ function nearestCoast(home, geo) {
   return { point: best, km: bd };
 }
 
+const mins = (n) => `${n} minute${n === 1 ? "" : "s"}`;
 function describe(spec, geo) {
   const home = spec.home;
   const towns = geo.towns.filter((t) => t.main);
@@ -252,13 +253,13 @@ function describe(spec, geo) {
   const beach = (spec.landmarks || []).find((l) => resolveKind(l.kind) === "beach" && l.minutes);
   let sea;
   if (coast.km < 1.2) sea = "close to the beach";
-  else if (beach) sea = `about ${beach.minutes} minutes ${coast.km > 3 ? "inland " : ""}from the beach by car`;
+  else if (beach) sea = `about ${mins(beach.minutes)} ${coast.km > 3 ? "inland " : ""}from the beach by car`;
   else sea = `${roundMiles(coast.km / 1.609)} inland from the ocean`;
   const mb = geo.towns.find((t) => t.name === "Myrtle Beach");
   let rel = "";
   if (mb && km(home, mb) > 5 && !/Myrtle Beach$/.test(home.town || "")) rel = `, ${direction(mb, home)} of Myrtle Beach`;
   let s = `${home.name} ${where}, ${sea}${rel}.`;
-  const shown = (spec.landmarks || []).filter((l) => l !== beach).map((l) => l.minutes ? `${l.name}, about ${l.minutes} minutes away` : l.name);
+  const shown = (spec.landmarks || []).filter((l) => l !== beach).map((l) => l.minutes ? `${l.name}, about ${mins(l.minutes)} away` : l.name);
   if (shown.length) s += ` The map also shows ${shown.length > 1 ? shown.slice(0, -1).join("; ") + "; and " + shown.at(-1) : shown[0]}.`;
   return s;
 }
@@ -528,6 +529,7 @@ function areaMap(spec, opts = {}) {
     svg, alt, width: W, height: H, bytes, credit: CREDIT,
     caption: `${spec.caption ? spec.caption.trim() + " " : ""}${CREDIT}`,
     frame: { west: tl.lon, north: tl.lat, east: br.lon, south: br.lat },
+    boxes: L.boxes.map((b) => ({ kind: b.kind, owner: b.owner, x0: b.x0, y0: b.y0, x1: b.x1, y1: b.y1 })),
     labels: { home: !!hc, towns: townLabels.map((t) => t.t.name), water: waterLabels.map((w) => w.text), ocean: !!oceanLabel },
   };
 }
@@ -558,7 +560,7 @@ function liveMapHtml(o) {
   const pin = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${iconInner("pin")}</svg>`;
   const iframe = `<iframe src="${esc(src)}" title="${esc(title)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>`;
   const load = "var w=this.parentNode;w.innerHTML=w.querySelector('template').innerHTML";
-  const box = `<div class="c3-live" style="position:relative;max-width:760px;aspect-ratio:${ratio};max-height:440px;background:var(--ivory-2);border:1px solid var(--rule)">`
+  const box = `<div class="c3-live" style="position:relative;width:100%;max-width:760px;aspect-ratio:${ratio};max-height:440px;background:var(--ivory-2);border:1px solid var(--rule)">`
     + `<template>${iframe}</template>`
     + `<button type="button" onclick="${load}" style="position:absolute;inset:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:1rem;background:transparent;border:0;cursor:pointer;color:var(--navy);font:inherit;text-align:center">`
     + `<span style="color:var(--brass-ink)">${pin}</span>`
