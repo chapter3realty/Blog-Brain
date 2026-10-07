@@ -38,15 +38,11 @@ function mapBlock(slug, picks, caption) {
   });
   const m = areaMap({ home: { name: c.name, lat: c.lat, lon: c.lon, town: c.town }, landmarks });
   if (!caption.includes(CREDIT)) caption = `${caption} ${CREDIT}`;
-  /* The live map's button label is brass with navy text, inline. The website's audit reads
-     an inline brass ground as dark and fails navy text on it ("invisible text"), though the
-     site's own .btn-brass is the same pair. Use the site's class so the audit sees no inline
-     ground. (Reported for tools/area-map.js.) */
+  /* tools/area-map.js now draws the button label with the site's .btn-brass class. An inline
+     brass ground with navy text fails the website audit ("invisible text"), so refuse it. */
   const live = liveMapHtml({ name: c.name, lat: c.lat, lon: c.lon, svg: m.svg, caption });
-  const fixed = live.replace(/<span style="[^"]*background:var\(--brass\);color:var\(--navy\);[^"]*">Show the live map<\/span>/,
-    '<span class="btn btn-brass" style="pointer-events:none">Show the live map</span>');
-  if (fixed === live) throw new Error("live map button markup changed; recheck the audit workaround");
-  return fixed;
+  if (/background:var\(--brass\);color:var\(--navy\)/.test(live)) throw new Error("live map button uses an inline brass ground; the website audit fails it");
+  return live;
 }
 
 /* Image sizes of the WebP files in images/55-plus/ (1200 px wide). */
@@ -79,8 +75,27 @@ function photo(file, alt, words) {
   return h.figure(img, `${words} ${linked}`);
 }
 
-/* The comparison table: the four communities, each linked except this page. */
-const compareTable = (self) => h.table(COMPARE.head, COMPARE.rows.map((r) =>
-  [r.url === self ? r.cells[0] : h.a(r.url, r.cells[0]), ...r.cells.slice(1)]));
+/* The comparison table: the four communities, each linked except this page.
+   A real <table> (STANDARD A6), with the site's table styles. Under 600 px wide each row
+   becomes a card: the community's name on top, then its other facts, each with its column
+   name in front. Without this, a 360 px phone cut off the price column (review 3). */
+const TH = 'style="padding:.55rem .8rem;border-bottom:2px solid var(--navy);color:var(--navy);text-align:left;font-family:var(--sans);font-size:.8rem;letter-spacing:.04em;text-transform:uppercase"';
+const TD = 'style="padding:.55rem .8rem;border-bottom:1px solid var(--rule);color:var(--muted)"';
+const CMP_CSS = "<style>@media (max-width:599px){"
+  + ".c3-cmp table,.c3-cmp tbody,.c3-cmp tr,.c3-cmp td{display:block;width:100%}"
+  + ".c3-cmp thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}"
+  + ".c3-cmp tr{background:var(--ivory-2);border-top:3px solid var(--brass);margin:0 0 .75rem;padding:.4rem 0}"
+  + ".c3-cmp td{border:0!important;padding:.25rem .9rem!important}"
+  + ".c3-cmp td:first-child{color:var(--navy)!important;font-weight:500;font-size:1rem}"
+  + ".c3-cmp td[data-label]:not(:first-child)::before{content:attr(data-label) \": \";color:var(--navy)}"
+  + "}</style>";
+const compareTable = (self) => {
+  const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+  const rows = COMPARE.rows.map((r) => {
+    const cells = [r.url === self ? r.cells[0] : h.a(r.url, r.cells[0]), ...r.cells.slice(1)];
+    return `<tr>${cells.map((c, i) => `<td data-label="${esc(COMPARE.head[i])}" ${TD}>${c}</td>`).join("")}</tr>`;
+  }).join("");
+  return `${CMP_CSS}<div class="c3-cmp" style="overflow-x:auto;margin:1.2rem 0;max-width:760px"><table style="width:100%;border-collapse:collapse;font-size:.92rem"><thead><tr>${COMPARE.head.map((c) => `<th ${TH}>${c}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`;
+};
 
 module.exports = { mapBlock, photo, compareTable, atAGlance, icon, CREDIT };
