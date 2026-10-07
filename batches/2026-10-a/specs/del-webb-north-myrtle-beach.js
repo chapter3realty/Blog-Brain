@@ -13,7 +13,8 @@
  *   Homes:   rows 21 (about 408 built), 25 (2 to 4 bedrooms, 2- or 3-car garages, smallest
  *            from 2,179 sq ft), 30 (storm fabric: "fabric hurricane covers").
  *            Pulte's facts are given as the builder's ("the builder says").
- *   Life:    rows 32 (clubhouse rooms; one "resort-style" pool not said to be outdoors),
+ *   Life:    rows 32 (clubhouse rooms), 69 (the builder lists indoor and outdoor pools;
+ *            no count, no saying which is which),
  *            35 (city community center next door with an indoor gym, Pulte's words), 57 (lifestyle director, clubs). Row 33 (pickleball, trails) is wrong
  *            as worded and is not used.
  *   Fee:     rows 27 and 28 (lawn care, irrigation and a TV package in the HOA fee, the
@@ -65,14 +66,14 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Del Webb North Myrtle Beach has about 400 homes built so far, and the builder is still selling new ones. At least one person in each household must be 55 or older.",
-    "Owners share a clubhouse with two pools, one of them an indoor lap pool, and a fitness room. The builder says the homeowners association (HOA) fee includes lawn care, so you do not mow your own grass.",
+    "Owners share a clubhouse with a fitness room, and the builder lists an indoor pool and an outdoor pool. The builder says the homeowners association (HOA) fee includes lawn care, so you do not mow your own grass.",
   ],
   sections: [
     { html: (bg) => atAGlance([
         { icon: "beach", label: "Beach", text: "About 4 minutes by car" },
         { icon: "grocery", label: "Groceries", text: "Kroger, about 6 minutes away" },
         { icon: "hospital", label: "Hospital", text: "McLeod Health Seacoast, about 10 minutes away" },
-        { icon: "pool", label: "Pools", text: "Two pools, one an indoor lap pool" },
+        { icon: "pool", label: "Pools", text: "The builder lists an indoor pool and an outdoor pool" },
         { icon: "lawn", label: "Lawn care", text: "Included in the HOA fee" },
         { icon: "calendar", label: "Clubs", text: "A full-time lifestyle director and activity groups" },
       ], { title: "Del Webb North Myrtle Beach at a glance", bg }) },

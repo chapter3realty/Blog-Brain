@@ -9,15 +9,15 @@
  * Facts:  batches/2026-10-a/facts/seasons-at-prince-creek-west-facts.md, verified rows only.
  *   Place:   rows 16 and 17 (outside any town, Murrells Inlet address), 68 (no city levy),
  *            76 and 78 to 81 (drives: beach 10, hospital 8, airport 25, MarshWalk 10).
- *            Row 77 is wrong on the Publix street name only; the store is at Highway 707
- *            and its 5 minutes stand (verifier), so the map uses it, labelled "Publix".
+ *            Row 85 (verified 2026-10-07) replaces row 77: Publix on Highway 707, about
+ *            5 minutes. The page does not call it the closest store.
  *   Life:    row 56 (clubhouse, indoor and outdoor pools, fitness center, tennis, bocce),
  *            row 37 (one bill covers the larger Prince Creek West associations). The 43-acre
  *            park (row 30) is cut: no row says owners may use it (review 3).
- *   Homes:   no verified row describes the houses (row 31 "one-story" is wrong; rows 32
- *            to 34 are unverifiable), so the page asks no question about them. Row 19
- *            (444 lots) is "room for about 440 homes". The coordinator holds the homes
- *            section until re-filed rows are verified.
+ *   Homes:   rows 83 (the builder's 2013 release: open, one-story floor plans; past
+ *            tense, not a fact about every home today) and 84 (the builder's 2016 site:
+ *            10 floor plans, some with an optional bonus room). Row 19 (444 lots) is
+ *            "room for about 440 homes".
  *   Rules:   the association's posted 2017 copy of its rules: rows 5 to 7 (age), 42 and 43
  *            (leases), 45 (pets), 46 (fences), 47 (golf carts). Rules recorded since are
  *            not online (row 12).
@@ -72,7 +72,7 @@ module.exports = {
   sections: [
     { html: (bg) => atAGlance([
         { icon: "beach", label: "Beach", text: "A drive of about 10 minutes" },
-        { icon: "grocery", label: "Groceries", text: "Publix, about 5 minutes away" },
+        { icon: "grocery", label: "Groceries", text: "Publix on Highway 707, about 5 minutes away" },
         { icon: "hospital", label: "Hospital", text: "Tidelands Waccamaw, about 8 minutes away" },
         { icon: "pool", label: "Pools", text: "One indoor and one outdoor" },
         { icon: "clubhouse", label: "Clubhouse", text: "With a fitness center" },
@@ -91,6 +91,11 @@ module.exports = {
       h.p("The Murrells Inlet MarshWalk, a boardwalk along the marsh, is about 10 minutes away. The drive to the Myrtle Beach airport takes about 25 minutes.") +
       h.p("Seasons has a Murrells Inlet address but is not inside any city, so there is no city tax.") },
 
+    { h2: "What are the homes like in Seasons at Prince Creek West?", html: (bg) =>
+      h.p("When the builder was selling homes here, it described open, one-story floor plans.") +
+      h.p("In 2016, the builder's website listed 10 floor plans, some with an optional extra room. The homes for sale today vary in size and layout.") +
+      h.cta("Want a home in Seasons at Prince Creek West?", "Tell us what you need in a home. One of our agents will read the homeowners association (HOA) rules with you before you offer.", "Talk to a specialized agent", "/contact/", bg) },
+
     { h2: "What is there to do in Seasons at Prince Creek West?", html: (bg) =>
       h.p("In a normal week you can swim indoors or outside, play tennis or bocce, and work out at the fitness center.") +
       atAGlance([
@@ -98,8 +103,7 @@ module.exports = {
         { icon: "fitness", label: "Fitness center", text: "Work out close to home" },
         { icon: "tennis", label: "Tennis", text: "Play without leaving the neighborhood" },
         { icon: "bocce", label: "Bocce", text: "A lawn game to play with your neighbors" },
-      ], { bg }) +
-      h.cta("Want a home in Seasons at Prince Creek West?", "Tell us what you need in a home. One of our agents will read the HOA's rules with you before you offer.", "Talk to a specialized agent", "/contact/", bg) },
+      ], { bg }) },
 
     { h2: "What is the area around Seasons at Prince Creek West like?", html:
       h.p("Murrells Inlet is a waterfront community on a salt marsh, with fishing boats, marinas and a boardwalk along the water. Huntington Beach State Park is just south of it. The photos show the area nearby, not Seasons.") +
@@ -111,7 +115,7 @@ module.exports = {
     { h2: "Who can live in Seasons at Prince Creek West?", html:
       h.p("Every home in Seasons where someone lives must have a resident 55 or older. That resident must live there at least six months of each year.") +
       h.p("No one under 18 can live there, but younger visitors, such as grandchildren, can stay up to 60 days a year.") +
-      h.p(`The ${h.ext(CHARTER, "copy of the rules")} we could read is from 2017. The homeowners association (HOA) has newer rules that are not online, and we read them with you before you buy.`) },
+      h.p(`The ${h.ext(CHARTER, "copy of the rules")} we could read is from 2017. The HOA has newer rules that are not online, and we read them with you before you buy.`) },
 
     { h2: "How much does it cost to live in Seasons at Prince Creek West?", html:
       h.p("Seasons homes usually sell for about $500,000.") +

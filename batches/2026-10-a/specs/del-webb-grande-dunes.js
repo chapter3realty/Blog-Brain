@@ -16,9 +16,12 @@
  *            No verified row gives home sizes (row 24 is unverifiable).
  *   Life:    rows 32 (Ocean Club fee every owner pays), 43 to 46 (clubhouse hours,
  *            no lifeguards, day dock, two guest passes), 78 (what the Ocean Club lists).
- *            No verified row says what the Ocean Club fee gives a Del Webb owner, so the
- *            page does not say owners may use the club or join its clubs (row 36 is
- *            unverifiable; a researcher is checking). Row 77's budget lines are not used.
+ *            Rows 91 to 93 (verified 2026-10-07): the master association's site says each
+ *            Grande Dunes homeowner gets a household membership to the Ocean Club and lists
+ *            Del Webb as a neighborhood; the club's pool, hot tub, private beach access,
+ *            classes, clubs, dining and events; some events are paid; golf is a separate
+ *            membership. Never "free" (rows 32 and 33: owners pay through the HOA bill).
+ *            Row 77's budget lines are not used.
  *            Rows 43 to 49, 53 to 56 are from the posted rules, revised January 2019; the
  *            page says the year once, where those rules first appear.
  *   Rules:   rows 1 to 3 (age), 50 and 51 (leases), 48, 49, 53, 54, 56.
@@ -47,6 +50,7 @@ const TEL = "tel:+18543332135";
 const DECL = "https://www.delwebbatgrandedunes.com/ResourceCenter/Download/48372~3083079";
 const RULES = "https://www.delwebbatgrandedunes.com/ResourceCenter/Download/48372~3083089";
 const FIN = "https://www.delwebbatgrandedunes.com/ResourceCenter/Download/48372~3384081";
+const MASTER = "https://grandedunescommunities.sites.townsq.io/2";
 const OCEANCLUB = "https://www.grandedunesoceanclub.com/homeownership";
 const FEMA = "https://msc.fema.gov/portal/search?AddressQuery=6201%20Marina%20Parkway%2C%20Myrtle%20Beach%2C%20SC%2029572";
 const LAW = "https://www.law.cornell.edu/uscode/text/42/4012a";
@@ -62,13 +66,13 @@ module.exports = {
   crumb: "Del Webb at Grande Dunes",
   eyebrow: "Myrtle Beach, 55+",
   h1: "What is it like to live in Del Webb at Grande Dunes in Myrtle Beach?",
-  h1em: "A 55+ neighborhood near the beach.",
+  h1em: "A 55+ neighborhood with a beach club.",
   sub: "Del Webb at Grande Dunes is a 55+ neighborhood in Myrtle Beach, about 4 minutes from the beach by car.",
   heroCta: { label: "Speak to an expert", href: "/contact/" },
   author: "devin",
   shortAnswer: [
     "Del Webb at Grande Dunes is a neighborhood of houses and villas in Myrtle Beach. It is beside the Intracoastal Waterway, a channel for boats along the coast.",
-    "Owners share pools and a boat dock on the waterway. Every owner also pays a fee for the Grande Dunes Ocean Club, a beach club that lists clubs, dinners and holiday events.",
+    "Owners share pools and a boat dock on the waterway. Each household also gets a membership to the Grande Dunes Ocean Club, a beach club with a big pool, classes and clubs.",
   ],
   sections: [
     { html: (bg) => atAGlance([
@@ -77,7 +81,7 @@ module.exports = {
         { icon: "hospital", label: "Hospital", text: "Grand Strand Medical Center, about 6 minutes away" },
         { icon: "pool", label: "Pools", text: "At the neighborhood clubhouse" },
         { icon: "dock", label: "Boat dock", text: "A day dock on the waterway" },
-        { icon: "airport", label: "Airport", text: "About 20 minutes by car" },
+        { icon: "calendar", label: "Beach club", text: "A household membership to the Grande Dunes Ocean Club" },
       ], { title: "Del Webb at Grande Dunes at a glance", bg }) },
 
     { h2: "Where is Del Webb at Grande Dunes?", html:
@@ -97,16 +101,18 @@ module.exports = {
       h.cta("Looking at a house or villa in Grande Dunes?", "Tell us the house or villa you have in mind. One of our agents will read the neighborhood's rules with you and tell you which villas the HOA's upkeep covers.", "Speak to an expert", "/contact/", bg) },
 
     { h2: "What is there to do in Del Webb at Grande Dunes?", html: (bg) =>
-      h.p("In a normal week you can swim at the neighborhood's pools and tie up your boat at the day dock.") +
+      h.p("In a normal week you can swim, tie up your boat at the dock and join a club at the beach club.") +
       h.p(`The rules we could read are from 2019. The HOA has newer ones that are not online; we read them with you before you buy.`) +
       atAGlance([
         { icon: "clubhouse", label: "Clubhouse", text: "Open every day, with staff on site" },
         { icon: "dock", label: "Day dock", text: "Open from dawn to dusk" },
         { icon: "key", label: "Guest passes", text: "Two passes for guests per home" },
-        { icon: "calendar", label: "Ocean Club events", text: "The club lists dinners, happy hours and holiday events" },
+        { icon: "beach", label: "Beach access", text: "Private beach access at the Ocean Club" },
       ], { bg }) +
       h.p(`Under the ${h.ext(RULES, "posted rules")}, boats may not stay overnight at the dock, and there is no boat ramp. The pools have no lifeguards.`) +
-      h.p(`${h.ext(OCEANCLUB, "The Grande Dunes Ocean Club")} lists clubs for mahjong, knitting and a dominoes game called Mexican Train.`) },
+      h.p(`Each Grande Dunes homeowner gets a household membership to the Grande Dunes Ocean Club, says the ${h.ext(MASTER, "master association's site")}. It lists Del Webb as one of the Grande Dunes neighborhoods.`) +
+      h.p("The club has a large outdoor pool, a hot tub, private beach access, and classes, clubs, dinners and events. Some events cost extra.") +
+      h.p(`${h.ext(OCEANCLUB, "The Ocean Club")} lists clubs for mahjong, knitting and a dominoes game called Mexican Train. Golf at Grande Dunes is a separate private membership with its own price.`) },
 
     { h2: "What is the area around Del Webb at Grande Dunes like?", html:
       h.p("Myrtle Beach has a long sand beach and a Boardwalk with a big Ferris wheel, about 15 minutes away by car. Broadway at the Beach has shops and rides. The photos show the area nearby, not the neighborhood.") +
@@ -148,7 +154,7 @@ module.exports = {
     { h2: "What does a move to Del Webb at Grande Dunes look like?", html:
       h.p("<strong>Example:</strong> Carol is 66 and Jim is 52, and they are moving from Pittsburgh. Carol's age meets the 55+ rule, so Jim can live there too.") +
       h.p("They want a pool, a boat dock and a golf cart. Before they offer, an agent at Chapter3 reads the golf cart and pet rules with them.") +
-      h.p("Their surprise is the one-time fee to the HOA when they buy: at least $3,000. They decide on a house, and Jim drives the golf cart to the pool.") },
+      h.p("Their surprise is the one-time fee to the HOA when they buy: at least $3,000. They decide on a house. Jim drives the golf cart to the pool, and Carol joins a mahjong club at the beach club.") },
 
     { h2: "How does Del Webb at Grande Dunes compare with other 55+ neighborhoods?", html:
       h.p("Del Webb at Grande Dunes is the only one of these four inside Myrtle Beach city limits.") +
@@ -157,7 +163,7 @@ module.exports = {
   faqTitle: "Del Webb at Grande Dunes FAQ",
   faq: [
     { q: "Is Del Webb at Grande Dunes a 55+ community?", a: "Yes. Every lived-in home must have at least one resident 55 or older. Everyone else living there must be 19 or older." },
-    { q: "Do owners in Del Webb at Grande Dunes pay for a beach club?", a: "Yes. Every owner pays a fee for the Grande Dunes Ocean Club. That fee is on top of the Del Webb HOA fee." },
+    { q: "Do owners in Del Webb at Grande Dunes get a beach club?", a: "Yes. The Grande Dunes Master Association says each Grande Dunes homeowner gets a household membership to the Grande Dunes Ocean Club. Del Webb owners pay for it through their HOA bills." },
     { q: "Can you rent out a home in Del Webb at Grande Dunes?", a: "Yes, for 12 months or more, and only once a year. Under the posted rules, the whole home must be rented, with a written lease." },
     { q: "Can you drive a golf cart in Del Webb at Grande Dunes?", a: "Yes. Under the posted rules, golf carts may use the streets with a licensed driver, but not the sidewalks." },
     { q: "Is there a boat dock at Del Webb at Grande Dunes?", a: "Yes, a day dock on the Intracoastal Waterway for owners and their guests, open from dawn to dusk. Boats may not stay overnight, and there is no boat ramp." },
@@ -165,7 +171,7 @@ module.exports = {
   sources: [
     { name: "Neighborhood rules, 2018", href: DECL },
     { name: "Posted rules, revised January 2019", href: RULES },
-    { name: "HOA financial report", href: FIN },
+    { name: "Grande Dunes Master Association", href: MASTER },
     { name: "Horry County deed records", href: DEEDS },
     { name: "FEMA flood map", href: FEMA },
   ],
