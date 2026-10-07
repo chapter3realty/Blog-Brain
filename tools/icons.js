@@ -97,18 +97,24 @@ function icon(name, opts = {}) {
 
 /*
  * "At a glance": a grid of cards, each an icon, a short label and one plain line.
- * Items: [{ icon, label, text }]. Options: title (an h3 above the grid), min (card min width, default "8.5rem").
- * On a 360 px phone it shows two cards a row; at 760 px, four or five.
- * The cards have a border and no fill, so they read on both section backgrounds (ivory and ivory-2).
+ * Items: [{ icon, label, text }].
+ * Options:
+ *   title  an h3 above the grid (plain text).
+ *   bg     the card fill, "ivory-2" (default) or "ivory". Use the opposite of the section
+ *          the grid sits in, as h.cta does (BRAND: Ivory 2 is the card fill).
+ *   min    the card's least width, default "8.5rem". On a 360 px phone that gives two cards
+ *          a row; at 760 px, four or five.
+ * Weights stay at 400 and 500: the site self-hosts DM Sans 300 to 500 only.
  */
 function atAGlance(items, opts = {}) {
   if (!Array.isArray(items) || !items.length) throw new Error("atAGlance needs a list of { icon, label, text }");
-  const min = opts.min || "8.5rem";
+  const bg = opts.bg === "ivory" ? "ivory" : "ivory-2", dot = bg === "ivory" ? "ivory-2" : "ivory";
+  const min = /^[0-9.]+(rem|px|em)$/.test(opts.min || "") ? opts.min : "8.5rem";
   const cards = items.map((it) => {
-    if (!it.label) throw new Error("atAGlance item needs a label");
-    return `<li style="border:1px solid var(--rule);border-top:3px solid var(--brass);padding:.9rem .85rem 1rem;margin:0">`
-      + `<span style="display:flex;width:2.5rem;height:2.5rem;border-radius:50%;background:var(--ivory-2);color:var(--brass-ink);align-items:center;justify-content:center;margin-bottom:.6rem">${icon(it.icon, { size: 24 })}</span>`
-      + `<strong style="display:block;color:var(--navy);font-size:.98rem;font-weight:600;line-height:1.3;margin-bottom:.25rem">${esc(it.label)}</strong>`
+    if (!it || !it.label) throw new Error("atAGlance item needs a label");
+    return `<li style="background:var(--${bg});border-top:3px solid var(--brass);padding:.9rem .85rem 1rem;margin:0">`
+      + `<span style="display:flex;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--${dot});color:var(--brass-ink);align-items:center;justify-content:center;margin-bottom:.6rem">${icon(it.icon, { size: 24 })}</span>`
+      + `<strong style="display:block;color:var(--navy);font-size:1rem;font-weight:500;line-height:1.3;margin-bottom:.25rem">${esc(it.label)}</strong>`
       + (it.text ? `<span style="display:block;color:var(--muted);font-size:.9rem;line-height:1.5">${esc(it.text)}</span>` : "")
       + `</li>`;
   }).join("");
