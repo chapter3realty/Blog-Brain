@@ -2680,3 +2680,10 @@ Fix once in `partials/` and run `node build.js stitch`.
   - Why: A fee claim about the lender's costs (Regulation N), and "finances" conflicts with "arranges through wholesale lenders" elsewhere.
   - Fix: Get BrickWood's written confirmation or remove the fee claim; use "arranges".
 
+## Manual findings no longer found on their page
+
+Fixed, or the page changed. Remove them from `audit/manual-findings.json`.
+
+- (every page: footer): "investor-focused brokerage"
+- (every page: byline, tools/mkpage.js): "Reviewed by Tim Nash, Broker-in-Charge"
+
