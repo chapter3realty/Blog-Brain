@@ -201,7 +201,7 @@
           "query": "https://router.project-osrm.org/route/v1/driving/-79.07094,33.586369;-79.000967,33.578363?overview=false"
         },
         {
-          "to": "Publix, 11920 TPC Boulevard (Prince Creek Village), Murrells Inlet",
+          "to": "Publix, 11920 Highway 707 (Prince Creek Village Center) (Prince Creek Village), Murrells Inlet",
           "to_id": "groc_spcw",
           "kind": "grocery",
           "minutes": 5,
@@ -468,7 +468,7 @@
     },
     {
       "id": "groc_spcw",
-      "name": "Publix, 11920 TPC Boulevard (Prince Creek Village), Murrells Inlet",
+      "name": "Publix, 11920 Highway 707 (Prince Creek Village Center) (Prince Creek Village), Murrells Inlet",
       "kind": "grocery",
       "nearest_for": [
         "seasons-at-prince-creek-west"
