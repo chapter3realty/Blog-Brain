@@ -173,9 +173,9 @@ module.exports = {
       h.p("Once you are 65 and have lived in South Carolina a full year, you can claim the homestead exemption. This tax break for the home you live in saves about $178 a year here.") +
       h.figure(taxChart(), "Yearly property tax on a $630,000 home, as a main home, with the homestead exemption at 65, and as a second home.") +
       h.p("The community's ponds are in a city improvement district, and the city may charge homes in it a special fee. Ask the seller whether the home has been charged one.") +
-      h.p("<strong>Example:</strong> Carol and Jim are moving from Pittsburgh with up to $650,000 to spend on a resale house. Carol is 66 and Jim is 58, so their household meets the age rule.") +
-      h.p("They buy a $630,000 house and make it their main home. They pay at least $3,150 in working capital at closing, and about $2,249 in property tax a year.") +
-      h.p("After a full year here, Carol applies for the homestead exemption, and their tax drops to about $2,071 a year. As a second home, the same house would owe about $9,624.") +
+      h.p("<strong>Example:</strong> Carol, 66, and Jim, 58, are moving from Pittsburgh, and Carol's age meets the community's 55+ rule. They want a beach club, a pool and a golf cart, with up to $650,000 to spend.") +
+      h.p("They compare a villa in the Villas at Heel Tract, where the typical sale was $432,500, with a house near the community's typical price. An agent at Chapter3 tells them to check the golf cart rules before they buy and reads the posted rules with them. Carts may use the streets with a licensed driver.") +
+      h.p("Their surprise is the second-home tax: about $9,624 a year, against about $2,249 for the same house as their main home. They buy a $630,000 house and pay at least $3,150 in working capital at closing. Once Carol claims the 65+ tax break, their tax drops to about $2,071 a year.") +
       h.p(`See ${h.a("/buyers/property-taxes/", "how Horry County taxes a main home and a second home")}.`) },
 
     { h2: "Is Del Webb at Grande Dunes in a flood zone?", html: (bg) =>

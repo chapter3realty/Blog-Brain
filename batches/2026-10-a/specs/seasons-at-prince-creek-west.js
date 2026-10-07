@@ -163,9 +163,9 @@ module.exports = {
       h.p("On a $500,000 home you live in, the property tax in Seasons is about $1,964 a year on 2025 bills.") +
       h.p("Seasons is outside any city, so there is no city tax. At 65, after a full year living in South Carolina, you can claim the homestead exemption. That tax break for the home you live in saves about $196 a year here.") +
       h.p(`Each owner in unincorporated Horry County also pays a ${h.ext(STORMWATER, "county stormwater fee")} with the property tax. For a single-family home, it is $89.40 a year.`) +
-      h.p("<strong>Example:</strong> Joan and Walt are moving from Richmond, Virginia, with up to $500,000 to spend. Joan is 70, Walt is 64, and they plan to live in Seasons all year.") +
-      h.p("They buy a resale home for $500,000. At closing they pay two months of dues. The road and park transfer fee would be $1,250 at 0.25 percent, but it has a cap, so they ask the association for today's figure.") +
-      h.p("Their property tax is about $1,964 a year, and about $1,768 once Joan claims the homestead exemption. As a second home, the same house would owe about $6,219.") +
+      h.p("<strong>Example:</strong> Joan, 70, and Walt, 64, are moving from Richmond, Virginia, with up to $500,000 to spend. They want an indoor pool for winter swimming, tennis, and room for grandchildren, who can visit up to 60 days in any 12 months.") +
+      h.p("Their first pick is on lot 110, one of the 45 lots with a corner in the higher-risk flood zone. Before they offer, an agent at Chapter3 gets them an insurance quote on that home. They buy a $500,000 home.") +
+      h.p("Their surprise is the road and park transfer fee. At 0.25 percent it would be $1,250, but it has a cap, so they ask the association for today's figure. Their property tax is about $1,964 a year, and about $1,768 once Joan claims the 65+ tax break.") +
       h.p(`Try your own price in the ${h.a("/buyers/property-taxes/", "Horry County property tax calculator")}.`) },
 
     { h2: "Is Seasons at Prince Creek West in a flood zone?", html: (bg) =>

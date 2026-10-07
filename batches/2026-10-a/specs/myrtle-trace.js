@@ -162,9 +162,9 @@ module.exports = {
       h.p("On a $300,000 home you live in, the property tax in Myrtle Trace is about $1,103 a year on 2025 bills.") +
       h.p(`Owners here also pay the ${h.ext(STORMWATER, "county's stormwater fee")} on the same bill. That fee is $7.45 a month, or $89.40 a year, for a single-family home.`) +
       h.p("Myrtle Trace is outside Conway city limits, so you pay no Conway city tax. At 65, after a full year living in South Carolina, you can claim the homestead exemption, a tax break for the home you live in.") +
-      h.p("<strong>Example:</strong> Diane, 68, is moving from Charlotte with $300,000 to spend. She buys a resale home in Myrtle Trace for $300,000 and makes it her main home.") +
-      h.p("Diane pays the HOA $1,550 at closing and $1,140 in dues for her first year. Her property tax is about $1,103 a year.") +
-      h.p("After a full year here, she claims the homestead exemption, and her tax drops to about $919, a saving of about $184. As a second home, the same house would owe about $3,618 a year.") +
+      h.p("<strong>Example:</strong> Diane, 68, is moving from Charlotte with $300,000 to spend. She wants a pool, bingo and line dancing close to home, and a short drive to a hospital.") +
+      h.p("She looks at homes in Phases I and II, where the typical sale was about $234,500, and in the later phases, where it was $320,000. An agent at Chapter3 has her look at what is within two blocks of each home before she chooses. She buys a $300,000 home in a later phase.") +
+      h.p("Her surprise is the upkeep: the dues do not pay for her roof, the outside of the house or the grass. She pays the HOA $1,550 at closing and $1,140 in dues for her first year. Her property tax is about $1,103 a year, and about $919 once she claims the 65+ tax break.") +
       h.p(`See ${h.a("/buyers/property-taxes/", "how a main home and a rental are taxed in Horry County")}.`) },
 
     { h2: "Is Myrtle Trace in a flood zone?", html: (bg) =>

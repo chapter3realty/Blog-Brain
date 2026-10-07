@@ -139,8 +139,10 @@ module.exports = {
       h.p("On a $699,965 home you live in, the property tax is about $3,139 a year on 2026 bills. The community is inside North Myrtle Beach city limits, so that includes the city tax.") +
       h.p("At 65, after a full year living in South Carolina, you can apply for the homestead exemption, a tax break for the home you live in. On this home it saves about $224 a year.") +
       h.p("As a second home, the same house would owe about $9,290 a year.") +
-      h.p("<strong>Example:</strong> Linda and Ray are moving from Columbus, Ohio, with $700,000 to spend. Linda is 67 and Ray is 61. They buy the Stellar at $699,965 and make it their main home.") +
-      h.p("Their property tax is about $3,139 a year. After a full year here, Linda applies for the homestead exemption, and their tax drops to about $2,914.") +
+      h.p("<strong>Example:</strong> Linda, 67, and Ray, 61, are moving from Columbus, Ohio, to live near the beach, with $700,000 to spend. They want a pool, room for visiting grandchildren and no more lawn to mow.") +
+      h.p("They tour the Stardom and the Stellar and choose the Stellar at its $699,965 starting price. The dues include lawn care, and the clubhouse has a pool and an indoor lap pool. Before they sign the builder's contract, an agent at Chapter3 reads the HOA's rules on guests and pets with them.") +
+      h.p("Their surprise is flood insurance: in their ZIP code, the middle Zone X policy on a single-family home cost $602 a year. They budget about $3,139 a year in property tax, and about $2,914 once Linda claims the 65+ tax break.") +
+      h.p("A New York household we worked with sold a $1 million house that had more than $20,000 a year in property tax. They bought a $700,000 house here and pay about $3,200 a year. That is one household's result, not a promise.") +
       h.p(`See ${h.a("/buyers/property-taxes/", "how Horry County works out the tax on a home you live in")}.`) },
 
     { h2: "Is Del Webb North Myrtle Beach in a flood zone?", html: (bg) =>
