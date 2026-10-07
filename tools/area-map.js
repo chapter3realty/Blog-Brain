@@ -564,7 +564,7 @@ function liveMapHtml(o) {
     + `<template>${iframe}</template>`
     + `<button type="button" onclick="${load}" style="position:absolute;inset:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:1rem;background:transparent;border:0;cursor:pointer;color:var(--navy);font:inherit;text-align:center">`
     + `<span style="color:var(--brass-ink)">${pin}</span>`
-    + `<span style="font-family:var(--sans);font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;background:var(--brass);color:var(--navy);padding:.75rem 1.25rem">Show the live map</span>`
+    + `<span class="btn btn-brass">Show the live map</span>`
     + `<span style="color:var(--muted);font-size:.85rem;line-height:1.5;max-width:22rem">Opens Google Maps here. Zoom in, or drag to look around ${esc(name)}.</span>`
     + `</button></div>`;
   const view = o.load === "view"

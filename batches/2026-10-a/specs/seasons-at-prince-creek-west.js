@@ -1,214 +1,170 @@
-/* /buyers/55-plus-communities/seasons-at-prince-creek-west/ - whether Seasons at
- * Prince Creek West is a 55+ community, what life there offers, and the fees,
- * tax, flood zones, flood insurance and distances that go with it.
+/* /buyers/55-plus-communities/seasons-at-prince-creek-west/ - what it is like to live
+ * in Seasons at Prince Creek West, a 55+ neighborhood near Murrells Inlet.
  *
- * Rewritten 2026-10-06 for the owner's buyer-first lessons (voice/RULES.md,
- * class BUYER): the answer and the good news first, plain words (no "charter",
- * "founder", "assessment", "legal residence"), sources in a few links and the
- * sources line, and results instead of tax arithmetic. The gate is left out
- * (owner, 2026-10-06: "i dont know if the gate operates").
+ * Version 5, rewritten from the top 2026-10-07 for the owner's PLAIN rules
+ * (voice/RULES.md class PLAIN, batches/2026-10-a/REWRITE-PLAIN.md): the life and the
+ * place first, a map and icons in the first screens, round numbers, the date once (in
+ * the byline), plain words, every question answered, price later and softly.
  *
- * Brief:  Blog-Brain/batches/2026-10-a/WRITER-BRIEF.md, PLAN.md (owner answers)
- * Facts:  Blog-Brain/batches/2026-10-a/facts/seasons-at-prince-creek-west-facts.md
- *         (verified rows only; wrong rows 22, 27, 31, 35, 36, 48 and unverifiable
- *         rows 9, 24, 32 to 34, 51, 55 are not used: no manager named, no
- *         "one-story", no lawn care by the association, no "$480" as today's
- *         cap, no "33 parking spaces", no gatehouse). Golf cart state law is left
- *         out (the old permit statute was repealed in 2025; NMB ledger row 48).
- *         Flood insurance: rows 70 to 72, FEMA policy data for ZIP code 29576
- *         and Zone X, not Seasons alone.
- * Rules:  the age, lease and pet terms come from the association's posted 2017
- *         copy of its charter; rules recorded since 2017 are not online.
- * Tax:    district 610's 2025 levy, 207.3 mills (row 68), and data/relocating/tax-engine.js.
- *         Results only, on the typical sale (row 73): $1,964 on $500,000 as a
- *         main home, $1,767.60 with the homestead exemption, $6,219 as a second home.
- * Prices: row 73 (deed records, October 2025 to September 2026; 19 sales of 18 homes).
- *         Stormwater fee:
- *         the county's utility-fee page (Myrtle Trace ledger row 73).
- * Story:  stories.json "blackmoor-to-seasons" (owner confirmed 2026-10-06; no
- *         names, Blackmoor by its property facts only, no added reasons),
- *         "hoa-rental-bans-filtered", "insurance-quote-before-offer".
+ * Facts:  batches/2026-10-a/facts/seasons-at-prince-creek-west-facts.md, verified rows only.
+ *   Place:   rows 16 and 17 (outside any town, Murrells Inlet address), 68 (no city levy),
+ *            76 and 78 to 81 (drives: beach 10, hospital 8, airport 25, MarshWalk 10).
+ *            Row 77 is wrong on the Publix street name only; the store is at Highway 707
+ *            and its 5 minutes stand (verifier), so the map uses it, labelled "Publix".
+ *   Life:    row 56 (clubhouse, indoor and outdoor pools, fitness center, tennis, bocce),
+ *            rows 29, 30 and 37 (one bill; the road and park association owns a 43-acre park).
+ *   Homes:   no verified row describes the houses (row 31 "one-story" is wrong; rows 32
+ *            to 34 are unverifiable), so the page asks no question about them. Row 19
+ *            (444 lots) is used for the size.
+ *   Rules:   the association's posted 2017 copy of its rules: rows 5 to 7 (age), 42 and 43
+ *            (leases), 45 (pets), 46 (fences), 47 (golf carts). Rules recorded since are
+ *            not online (row 12).
+ *   Money:   row 73 (middle sale $499,000; "about $500,000"), rows 39 and 40 (two months
+ *            of dues; road and park transfer fee), v4 tax result ($1,964 on $500,000 as a
+ *            main home, 2025 bills, row 68; "about $2,000"). No dues amount is verified.
+ *   Flood:   row 59 (every lot center outside the high-risk zone; 45 lots touch it at a
+ *            corner), row 71 (middle ZIP code policy $574 with fees; "about $600"),
+ *            row 82 (federal purchase rule, PENDING verification: the one unverified
+ *            sentence on the page).
+ * Photos: data/photos.json (Murrells Inlet boats, Huntington Beach State Park).
+ * Story:  stories.json "blackmoor-to-seasons" (no names, Blackmoor by its property facts,
+ *         no added reasons), "hoa-rental-bans-filtered", "insurance-quote-before-offer".
+ *         The example (Joan and Walt) is version 4's, with three numbers.
  */
 const { h } = require("../tools/mkpage.js");
+const { mapBlock, photo, compareTable, atAGlance } = require("./_55-plus-kit.js");
 
 const HUB = "/buyers/55-plus-communities/";
 const SELF = "/buyers/55-plus-communities/seasons-at-prince-creek-west/";
 const TEL = "tel:+18543332135";
 
-/* The comparison table shared by the four 55+ pages. One data file feeds all
-   four, so each cell has one source; the file names the ledger rows. Each page
-   links the other three in the first column. */
-const COMPARE = require("../data/55-plus-communities.json");
-const compareTable = () => h.table(COMPARE.head, COMPARE.rows.map(r =>
-  [r.url === SELF ? r.cells[0] : h.a(r.url, r.cells[0]), ...r.cells.slice(1)]));
-
 /* Primary sources, opened by the researcher and re-opened by the verifier. The
    charter is the association's posted replica, the same file the verifier read. */
 const CHARTER = "https://www.seasons55.com/editor_upload/File/Community%20Management/Policies%20%26%20Rules/communitycharter2.pdf";
-/* Pages a person can read: FEMA's Flood Map Service Center search for the amenity
-   parcel's address, and Medicare's Care Compare page for Tidelands Waccamaw
-   (CMS 420098). The NFHL and CMS queries the verifier ran stay in the ledger
-   (rows 58 to 60 and 65). */
 const FEMA = "https://msc.fema.gov/portal/search?AddressQuery=130%20Grand%20Cypress%20Way%2C%20Murrells%20Inlet%2C%20SC%2029576";
 const CMS = "https://www.medicare.gov/care-compare/details/hospital/420098/";
-const WINDLAW = "https://www.scstatehouse.gov/code/t38c075.php";
-/* Horry County deed index, the source of the sale prices. */
+const LAW = "https://www.law.cornell.edu/uscode/text/42/4012a";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
-/* The county's own stormwater fee page (Myrtle Trace ledger row 73). */
-const STORMWATER = "https://www.horrycountysc.gov/departments/stormwater/major-initiatives/utility-fee/";
-
-/* Miles by road from 130 Grand Cypress Way, on the amenity parcel (rows 64 to 67). */
-const DRIVES = [
-  ["Tidelands Waccamaw Community Hospital", 4.0],
-  ["Atlantic Avenue beach access, Garden City", 6.0],
-  ["Myrtle Beach International Airport", 15.7],
-  ["Grand Strand Medical Center", 21.0],
-];
-
-const driveChart = () => {
-  const F = 'font-family="DM Sans, system-ui, sans-serif"';
-  const top = 14, rowH = 62, barMax = 300, max = Math.max(...DRIVES.map(d => d[1]));
-  const rows = DRIVES.map(([name, mi], i) => {
-    const y = top + i * rowH, w = Math.max(4, Math.round(mi / max * barMax));
-    return `<text x="12" y="${y + 18}" ${F} font-size="16" fill="#1c2028">${name}</text>`
-      + `<rect x="12" y="${y + 27}" width="${w}" height="20" fill="#1c2028"/>`
-      + `<text x="${12 + w + 8}" y="${y + 43}" ${F} font-size="16" font-weight="700" fill="#91592b">${mi.toFixed(1)} mi</text>`;
-  }).join("");
-  const label = "Miles by road from the clubhouse grounds at 130 Grand Cypress Way in Seasons at Prince Creek West: " + DRIVES.map(([n, mi]) => `${n} ${mi.toFixed(1)}`).join(", ") + ".";
-  return `<svg role="img" aria-label="${label}" viewBox="0 0 440 ${top + DRIVES.length * rowH}" style="display:block;width:100%;height:auto;max-width:520px;background:#ede5d8">${rows}</svg>`;
-};
-
-const FACTS = [
-  ["Amenities", "Clubhouse, indoor and outdoor pools, fitness center, tennis and bocce (2024)"],
-  ["Home lots", "444"],
-  ["Where", "Unincorporated Horry County, with a Murrells Inlet mailing address"],
-  ["Who can live there", "One permanent resident 55 or older in each occupied home; no one under 18"],
-  ["Visitors under 18", "Up to 60 days in any 12 months"],
-  ["Shortest rental allowed", "One year, in writing"],
-  ["Pets", "Two per home"],
-  ["One-time fees at closing", "Two months of dues, plus the road and park transfer fee"],
-  ["Flood zone", "Zone X, low flood risk, at the center of every lot; 45 lots touch Zone AE"],
-  ["Tidelands Waccamaw Community Hospital", "About 4.0 miles by road"],
-];
 
 module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
   title: "Seasons at Prince Creek West, Murrells Inlet 55+ | Chapter3",
-  description: "Seasons at Prince Creek West near Murrells Inlet: the clubhouse and pools, the beach and hospital nearby, the 55+ rule, leases, fees, taxes and flood insurance.",
-  ogTitle: "Seasons at Prince Creek West, Murrells Inlet: amenities, the 55+ rule, fees and flood zones",
+  description: "What life is like in Seasons at Prince Creek West near Murrells Inlet: the clubhouse and pools, where it is on a map, the 55+ rule, pets, renting and the costs.",
+  ogTitle: "Living in Seasons at Prince Creek West, Murrells Inlet: pools, tennis and the 55+ rule",
   crumb: "Seasons at Prince Creek West",
   eyebrow: "Murrells Inlet, 55+",
-  h1: "What do you get in Seasons at Prince Creek West in Murrells Inlet?",
-  h1em: "Clubhouse, pools, tennis and bocce.",
-  sub: "Seasons at Prince Creek West has 444 home lots near Murrells Inlet, a clubhouse, and indoor and outdoor pools, about 4 miles from a hospital.",
+  h1: "What is it like to live in Seasons at Prince Creek West in Murrells Inlet?",
+  h1em: "A 55+ neighborhood with two pools.",
+  sub: "Seasons at Prince Creek West is a 55+ neighborhood near Murrells Inlet, about 10 minutes from the beach by car.",
   heroCta: { label: "Talk to an agent about Seasons", href: "/contact/" },
   author: "devin",
   shortAnswer: [
-    "Owners in Seasons at Prince Creek West share a clubhouse, indoor and outdoor pools, a fitness center, tennis and bocce.",
-    "The beach in Garden City is about 6 miles away by road, and Tidelands Waccamaw Community Hospital is about 4 miles. Homes sold for a typical $499,000 from October 2025 to September 2026.",
-    "Every occupied home must have a permanent resident 55 or older, and no one under 18 can live there. On a $500,000 home you live in, the property tax is about $1,964 a year on 2025 bills.",
+    "Seasons at Prince Creek West is a neighborhood of about 440 home lots near Murrells Inlet, south of Myrtle Beach. Every home where someone lives must have a resident 55 or older.",
+    "Owners share a clubhouse, an indoor pool, an outdoor pool, a fitness center, tennis and bocce. The beach in Garden City is about 10 minutes away by car.",
   ],
   sections: [
-    { h2: "Is Seasons at Prince Creek West a 55+ community?", html:
-      h.p("Yes, every occupied home in Seasons at Prince Creek West must have at least one permanent resident who is 55 or older. A permanent resident lives in the home at least six months of every year and treats it as their main home.") +
-      h.ul([
-        "No one under 18 can live in a home.",
-        "A visitor under 18 can stay up to 60 days in any 12 months.",
-      ]) +
-      h.p(`These rules are from the association's ${h.ext(CHARTER, "posted 2017 copy")}. It has recorded newer rules since, the latest in December 2025. They are not online, so ask for them before you offer.`) +
-      h.p(`See ${h.a(HUB, "how 55+ communities on the Grand Strand differ from age-targeted ones")}.`) },
+    { html: (bg) => atAGlance([
+        { icon: "beach", label: "Beach", text: "A drive of about 10 minutes" },
+        { icon: "grocery", label: "Groceries", text: "Publix, about 5 minutes away" },
+        { icon: "hospital", label: "Hospital", text: "Tidelands Waccamaw, about 8 minutes away" },
+        { icon: "pool", label: "Pools", text: "One indoor and one outdoor" },
+        { icon: "clubhouse", label: "Clubhouse", text: "With a fitness center" },
+        { icon: "tennis", label: "Tennis and bocce", text: "Play both in the neighborhood" },
+      ], { title: "Seasons at Prince Creek West at a glance", bg }) },
 
-    { h2: "What do homes in Seasons at Prince Creek West sell for?", html:
-      h.p("From October 2025 to September 2026, homes in Seasons sold 19 times for $380,000 to $580,000. The typical price was about $499,000.") +
-      h.p("Half of those sales were between $455,000 and $532,500.") },
+    { h2: "Where is Seasons at Prince Creek West?", html:
+      h.p("Seasons at Prince Creek West is just outside Murrells Inlet, about 10 minutes inland from the beach by car.") +
+      mapBlock("seasons-at-prince-creek-west", [
+        { id: "beach_spcw", label: "Beach", kind: "beach" },
+        { id: "groc_spcw", label: "Publix", kind: "grocery" },
+        { id: "hosp_tidelands", label: "Hospital", kind: "hospital" },
+        { id: "airport", label: "Airport", kind: "airport" },
+        { id: "marshwalk", label: "MarshWalk", kind: "dock" },
+      ], "Map of Seasons at Prince Creek West near Murrells Inlet, with how long each drive takes.") +
+      h.p("The Murrells Inlet MarshWalk, a boardwalk along the marsh, is about 10 minutes away. The drive to the Myrtle Beach airport takes about 25 minutes.") +
+      h.p("Seasons has a Murrells Inlet address but is not inside any town, so there is no city tax.") },
 
-    { h2: "What is life like in Seasons at Prince Creek West?", html: (bg) =>
-      h.p("Owners share a clubhouse, indoor and outdoor pools, a fitness center, tennis and bocce. The community has 444 home lots near Murrells Inlet.") +
-      h.p("Owners can sign in to the association's website for its lifestyle office and ambassadors section.") +
-      h.p("In 2013, the builder listed a full-time activities director for the community. Its 2013 list also named a ballroom, a card room, an art studio, a billiards room and shuffleboard.") +
-      h.p("Seasons is part of the larger Prince Creek West neighborhood. Your dues include the share for the road and park association there, which owns a 43-acre park.") +
-      h.p("Clients of ours owned a single-family home in Blackmoor, the Gary Player golf community in Murrells Inlet, which has no age rule. They sold it and bought in Seasons, a few minutes up the road.") +
-      h.p("A buyer may move a few miles to a community built for how they live now.") +
-      h.table(["Fact", "Seasons at Prince Creek West"], FACTS) +
-      h.cta("Want a home in Seasons at Prince Creek West?", "Tell us what you need in a home. One of our agents will read the association's rules with you before you offer.", "Have us read the Seasons rules with you", "/contact/", bg) },
+    { h2: "What is there to do in Seasons at Prince Creek West?", html: (bg) =>
+      h.p("Seasons at Prince Creek West has a clubhouse, two pools, a fitness center, tennis and bocce for its owners.") +
+      atAGlance([
+        { icon: "indoor-pool", label: "Indoor pool", text: "Swim when it is too cold outside" },
+        { icon: "fitness", label: "Fitness center", text: "Work out close to home" },
+        { icon: "tennis", label: "Tennis", text: "Play without leaving the neighborhood" },
+        { icon: "bocce", label: "Bocce", text: "A lawn game to play with your neighbors" },
+      ], { bg }) +
+      h.p("In a normal week you can swim indoors or outside, play tennis or bocce, and work out at the fitness center.") +
+      h.p("Seasons is part of Prince Creek West, a larger group of neighborhoods. Part of your homeowners association (HOA) bill goes to the group that owns its 43-acre park.") +
+      h.cta("Want a home in Seasons at Prince Creek West?", "Tell us what you need in a home. One of our agents will read the association's rules with you before you offer.", "Talk to a specialized agent", "/contact/", bg) },
 
-    { h2: "What do the Seasons at Prince Creek West dues include?", html:
-      h.p("You pay the dues of Seasons and three other associations in one bill. They are the Prince Creek master association, the road and park association and the Highway 17 connector road association.") +
-      h.p("The board can add, change or cancel shared services such as cable, internet and home monitoring. One of our agents gets you the current monthly dues and the 2026 budget before you offer.") },
-
-    { h2: "What does a buyer pay at closing in Seasons at Prince Creek West?", html:
-      h.p("At closing, a buyer pays the association two months of dues as a one-time fee, which the board can change.") +
-      h.p("The road and park association also charges a transfer fee, a one-time fee of 0.25 percent of the price on each resale. The seller and the buyer are both responsible for it.") +
-      h.p("The 2017 rules copy names a $480 cap on that fee, adjusted over time. The Seasons board can also add its own transfer fee.") +
-      h.p("Ask the association for its written statement of the dues, fees and any balance owed before you sign.") +
-      h.p(`Read ${h.a("/hoa/estoppel-and-transfer-fees/", "whether South Carolina allows HOA transfer fees")}.`) },
-
-    { h2: "Can you rent out a home in Seasons at Prince Creek West?", html:
-      h.p("Yes, with a written lease of at least one year. Each lease must state, in prominent type, that the homes are for people 55 or older.") +
-      h.p("If the tenants break the age rule, they have broken the lease. Timesharing a home is not allowed unless the board and the developer approve it.") +
-      h.p("Our agents read the HOA documents for any rule against a buyer's plan to rent.") +
-      h.p(`Read ${h.a("/hoa/rental-restrictions/", "when an HOA can stop an owner from renting")}.`) },
-
-    { h2: "What other rules apply in Seasons at Prince Creek West?", html:
-      h.p("You can have up to two household pets, on a leash outside unless they are in a fenced area.") +
-      h.ul([
-        "Fences need the architectural board's approval and must be uniform throughout the community.",
-        "Golf carts must be parked in an enclosed garage, not on the street.",
-      ]) +
-      h.p("The association recorded parking regulations in 2022. Their text is not online, so ask for them if you own a golf cart.") },
-
-    { h2: "What will the property tax be on a Seasons at Prince Creek West home?", html:
-      h.p("On a $500,000 home you live in, the property tax in Seasons is about $1,964 a year on 2025 bills.") +
-      h.p("Seasons is outside any city, so there is no city tax. At 65, after a full year living in South Carolina, you can claim the homestead exemption. That tax break for the home you live in saves about $196 a year here.") +
-      h.p(`Each owner in unincorporated Horry County also pays a ${h.ext(STORMWATER, "county stormwater fee")} with the property tax. For a single-family home, it is $89.40 a year.`) +
-      h.p("<strong>Example:</strong> Joan, 70, and Walt, 64, are moving from Richmond, Virginia, with up to $500,000 to spend. They want an indoor pool for winter swimming, tennis, and room for grandchildren, who can visit up to 60 days in any 12 months.") +
-      h.p("Their first pick is on lot 110, one of the 45 lots with a corner in the higher-risk flood zone. Before they offer, an agent at Chapter3 gets them an insurance quote on that home. They buy a $500,000 home.") +
-      h.p("Their surprise is the road and park transfer fee. At 0.25 percent it would be $1,250, but it has a cap, so they ask the association for today's figure. Their property tax is about $1,964 a year, and about $1,768 once Joan claims the 65+ tax break.") +
-      h.p(`Try your own price in the ${h.a("/buyers/property-taxes/", "Horry County property tax calculator")}.`) },
-
-    { h2: "Is Seasons at Prince Creek West in a flood zone?", html: (bg) =>
-      h.p(`The center of every Seasons lot is in FEMA flood Zone X, an area of low flood risk. ${h.ext(FEMA, "FEMA's map")} for Seasons took effect in December 2021.`) +
-      h.p("At least one corner of 45 lots is inside Zone AE, a higher-risk flood zone. Those lots are 16 to 20, 22, 23, 25 to 28, 101 to 121, 201, 307 to 315, 318, 319 and 386.") +
-      h.p("FEMA's records list a 2011 letter about Phase 2 lots 306 to 314. If the home is on one of those lots, ask the seller for that letter and the home's elevation certificate.") +
-      h.p("In ZIP code 29576, the middle flood policy on a single-family Zone X home cost $574 a year, fees included. Half cost between $497 and $732.") +
-      h.p("Get a flood insurance quote before you offer on any of the 45 lots.") +
-      h.p(`Read ${h.a("/buyers/coastal-insurance/", "what Myrtle Beach flood zones mean for insurance")}.`) +
-      h.p(`Every lot is more than 2 miles west of Bypass 17. Seasons is outside the coastal area served by the ${h.ext(WINDLAW, "state's wind insurance plan")} for homes near the ocean.`) +
-      h.cta("Want the flood and wind costs before you offer?", "Tell us the home you are looking at. One of our agents can help you get an insurance quote on it before you offer.", "Have us get you an insurance quote", "/contact/", bg) },
-
-    { h2: "How far is Seasons at Prince Creek West from the beach, the hospital and the airport?", html:
-      h.p("The nearest public beach access is Horry County's Atlantic Avenue boardwalk access in Garden City, about 6.0 miles by road from the clubhouse grounds.") +
-      h.figure(driveChart(), "Miles by road from the Seasons clubhouse grounds, with no traffic.") +
-      h.ul([
-        `${h.ext(CMS, "Tidelands Waccamaw Community Hospital")}, at 4070 Hwy 17 in Murrells Inlet, is about 4.0 miles away.`,
-        "Grand Strand Medical Center, at 809 82nd Parkway in Myrtle Beach, is about 21 miles away.",
-        "Myrtle Beach International Airport, at 1100 Jetport Road, is about 15.7 miles away.",
-      ]) +
+    { h2: "What is the area around Seasons at Prince Creek West like?", html:
+      h.p("Murrells Inlet is a town on a salt marsh, with fishing boats, marinas and a boardwalk along the water. Huntington Beach State Park is just south of it.") +
+      photo("murrells-inlet-boats.webp", "Fishing boats tied up at a marina on the water in Murrells Inlet, South Carolina",
+        "Fishing boats at a marina in Murrells Inlet. The photo is of the town near Seasons, not of the neighborhood.") +
+      photo("huntington-beach-state-park-sunset.webp", "Sunset over the salt marsh at Huntington Beach State Park, south of Murrells Inlet",
+        "Sunset over the marsh at Huntington Beach State Park, south of Murrells Inlet. Seasons is not in this picture.") +
       h.p(`Read ${h.a("/buyers/relocating/healthcare/", "which hospital serves each part of the Grand Strand")}.`) },
 
-    { h2: "How does Seasons at Prince Creek West compare with three other 55+ communities?", html:
-      h.p("Seasons at Prince Creek West and Myrtle Trace are in unincorporated Horry County, and both Del Webb communities are inside city limits.") +
-      compareTable() },
+    { h2: "Who can live in Seasons at Prince Creek West?", html:
+      h.p(`At least one permanent resident of every lived-in home in Seasons must be 55 or older. The ${h.ext(CHARTER, "2017 posted copy of the rules")} says so.`) +
+      h.p("A permanent resident lives in the home at least six months of each year. No one under 18 can live there.") +
+      h.p("Grandchildren and other visitors under 18 can stay up to 60 days a year.") +
+      h.p(`See ${h.a(HUB, "how 55+ communities on the Grand Strand differ from age-targeted ones")}.`) },
+
+    { h2: "How much does it cost to live in Seasons at Prince Creek West?", html:
+      h.p("Seasons homes usually sell for about $500,000.") +
+      h.p("Your HOA bill also pays your share to the larger Prince Creek associations. You get one bill instead of several.") +
+      h.p("When you buy, you pay the HOA two months of dues as a one-time fee. The road and park association also charges a one-time transfer fee on each sale.") +
+      h.p("On a $500,000 home you live in, property tax is about $2,000 a year.") +
+      h.p(`Try your own price in the ${h.a("/buyers/property-taxes/", "Horry County property tax calculator")}.`) },
+
+    { h2: "Do you need flood insurance in Seasons at Prince Creek West?", html: (bg) =>
+      h.p("Usually not, because the middle of every lot in Seasons is outside the high-risk flood zone.") +
+      h.p(`The ${h.ext(LAW, "federal flood insurance law")} makes a lender require flood insurance only when the home itself is in that zone.`) +
+      h.p("A corner of 45 lots touches the high-risk zone. If you like a home on one of them, get a flood quote before you offer.") +
+      h.p("A flood policy on a house in the Murrells Inlet area usually costs about $600 a year.") +
+      h.p(`Look up the home on ${h.ext(FEMA, "FEMA's flood map")}, and read ${h.a("/buyers/coastal-insurance/", "what Myrtle Beach flood zones mean for insurance")}.`) +
+      h.cta("Want the flood cost before you offer?", "Tell us the home you are looking at. One of our agents can help you get an insurance quote on it before you offer.", "We help get insurance quotes if you need them.", "/contact/", bg) },
+
+    { h2: "Can you have pets, a golf cart or a fence in Seasons at Prince Creek West?", html: (bg) =>
+      h.p("Yes to pets, golf carts, fences and renting, each with a rule, under the 2017 posted copy of the rules.") +
+      atAGlance([
+        { icon: "pets", label: "Pets", text: "Yes, up to two. Keep them on a leash outside unless they are in a fenced yard." },
+        { icon: "golf-cart", label: "Golf carts", text: "Yes. Park them in your garage, never on the street." },
+        { icon: "gate", label: "Fences", text: "Yes, if the architectural board approves it and it matches the neighborhood's style." },
+        { icon: "key", label: "Renting it out", text: "Yes, with a written lease of at least a year." },
+      ], { bg }) +
+      h.p("Many HOAs on the Grand Strand do not allow renting a house at all. Our agents read each HOA's documents for that rule.") +
+      h.p("The association has recorded newer rules since 2017 that are not online. One of our agents reads them with you before you buy.") },
+
+    { h2: "What do moves to Seasons at Prince Creek West look like?", html:
+      h.p("Clients of ours owned a house in Blackmoor, a golf neighborhood in Murrells Inlet with no age rule. They sold it and bought in Seasons, a few minutes away.") +
+      h.p("<strong>Example:</strong> Joan is 70 and Walt is 64. They are moving from Richmond, Virginia, with up to $500,000 to spend.") +
+      h.p("They want an indoor pool for winter swimming, tennis, and room for the grandchildren to visit. Their first pick is on one of the lots that touch the high-risk flood zone.") +
+      h.p("Before they offer, an agent at Chapter3 gets them an insurance quote on that home. They buy it knowing what the insurance will cost.") },
+
+    { h2: "How does Seasons at Prince Creek West compare with other 55+ neighborhoods?", html:
+      h.p("Seasons at Prince Creek West and Myrtle Trace are both outside any town, and both Del Webb neighborhoods are inside a city.") +
+      compareTable(SELF) },
   ],
   faqTitle: "Seasons at Prince Creek West FAQ",
   faq: [
-    { q: "Can someone under 55 live in Seasons at Prince Creek West?", a: "Yes, if a permanent resident 55 or older also lives in the home. No one under 18 can live there, and a visitor under 18 can stay up to 60 days in any 12 months." },
-    { q: "What amenities does Seasons at Prince Creek West have?", a: "In 2024 the management company listed a clubhouse, indoor and outdoor pools, a fitness center, tennis and bocce. Owners also pay toward a 43-acre park owned by the road and park association." },
-    { q: "Can you rent out a home in Seasons at Prince Creek West?", a: "Yes, with a written lease of at least one year. Each lease must state that the homes are for people 55 or older." },
-    { q: "How many homes are in Seasons at Prince Creek West?", a: "There are 444 home lots in Seasons at Prince Creek West, near Murrells Inlet in unincorporated Horry County." },
-    { q: "What hospital is closest to Seasons at Prince Creek West?", a: "Tidelands Waccamaw Community Hospital, at 4070 Hwy 17 in Murrells Inlet. The drive is about 4.0 miles from the clubhouse grounds." },
+    { q: "Can someone under 55 live in Seasons at Prince Creek West?", a: "Yes, if a permanent resident 55 or older also lives in the home. No one under 18 can live there." },
+    { q: "What amenities does Seasons at Prince Creek West have?", a: "A clubhouse, an indoor pool, an outdoor pool, a fitness center, tennis and bocce. Part of each HOA bill also goes to the group that owns a 43-acre park in Prince Creek West." },
+    { q: "Can you rent out a home in Seasons at Prince Creek West?", a: "Yes, with a written lease of at least one year. Each lease must say that the homes are for people 55 or older." },
+    { q: "What hospital is closest to Seasons at Prince Creek West?", a: "Tidelands Waccamaw Community Hospital in Murrells Inlet, about 8 minutes away by car from the clubhouse." },
+    { q: "How many homes are in Seasons at Prince Creek West?", a: "There are 444 home lots in Seasons at Prince Creek West, near Murrells Inlet in Horry County." },
   ],
   sources: [
     { name: "Posted 2017 copy of the rules", href: CHARTER },
-    { name: "FEMA Flood Map Service Center", href: FEMA },
     { name: "Tidelands Waccamaw on Medicare Care Compare", href: CMS },
-    { name: "Horry County stormwater fee", href: STORMWATER },
     { name: "Horry County deed records", href: DEEDS },
+    { name: "FEMA flood map", href: FEMA },
+    { name: "Federal flood insurance law", href: LAW },
   ],
-  sourcesNote: "For education, not legal advice. Rules recorded after 2017 were not online when read. FEMA policy data for June 2025 to May 2026 gives the flood costs; road distances are OpenStreetMap estimates.",
+  sourcesNote: "For education, not legal advice. Drive times are no-traffic estimates from OpenStreetMap. The flood cost is the middle FEMA policy price in ZIP code 29576.",
   bottomCta: { h2: "Read the Seasons rules before you offer.", p: "Call about the Seasons home you like. An agent at Chapter3 will read the age, lease and pet rules with you.", label: "Call about Seasons", href: TEL },
-  keywords: "Seasons at Prince Creek West, Seasons at Prince Creek West 55, Seasons at Prince Creek West HOA, Seasons at Prince Creek West amenities, Seasons Murrells Inlet 55 plus",
+  keywords: "Seasons at Prince Creek West, living in Seasons at Prince Creek West, Seasons at Prince Creek West 55, Seasons at Prince Creek West amenities, Seasons Murrells Inlet 55 plus",
   about: "Seasons at Prince Creek West, a 55+ community in unincorporated Horry County near Murrells Inlet, South Carolina",
 };
