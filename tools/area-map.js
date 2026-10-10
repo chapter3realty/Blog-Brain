@@ -536,9 +536,992 @@ function areaMap(spec, opts = {}) {
 
 const areaMapSvg = (spec, opts) => areaMap(spec, opts).svg;
 
+/* ================================================================
+ * Map version 2: a region map ("where it is") and a close-up ("inside the neighborhood").
+ * Data: tools/geo/grand-strand-v2.json, built by tools/geo/build-geo.py.
+ * ================================================================ */
+
+const GEO2_FILE = path.join(__dirname, "geo", "grand-strand-v2.json");
+const CREDIT2 = "Map data: U.S. Census Bureau TIGER/Line; Horry County GIS.";
+const INLINE_MAX = 60 * 1024, FILE_MAX = 150 * 1024;
+
+/* Site palette (BRAND.md) plus map tints. Water is the version 1 water, a touch deeper. */
+const C2 = {
+  land: "#f7f3ec", water: "#c9dde6", waterEdge: "#a3c1cf", waterInk: "#3f6275", sand: "#ead4ae",
+  park: "#dce8cf", parkEdge: "#c3d6b3", parkInk: "#4a6640", golf: "#e4ecd8", golfEdge: "#cddbbf",
+  airport: "#ebe5da", airportEdge: "#d3c9ba",
+  street: "#ffffff", streetCase: "#d8cdbd", major: "#ffffff", majorCase: "#a2927f", fwy: "#f3d6ad", fwyCase: "#b8834f",
+  navy: "#1c2028", brass: "#c4783a", brassInk: "#91592b", slate: "#5c6b78", streetInk: "#3e4752", white: "#ffffff",
+  rule: "rgba(28,32,40,.15)", state: "#7d8792",
+};
+
+const decode = (flat, scale) => { const out = []; let x = 0, y = 0; for (let i = 0; i < flat.length; i += 2) { x += flat[i]; y += flat[i + 1]; out.push([x / scale - 80, y / scale + 33]); } return out; };
+const bbOf = (rings) => { let a = Infinity, b = Infinity, c = -Infinity, d = -Infinity; for (const r of rings) for (const [x, y] of r) { if (x < a) a = x; if (y < b) b = y; if (x > c) c = x; if (y > d) d = y; } return [a, b, c, d]; };
+
+let GEO2 = null;
+function loadGeo2() {
+  if (GEO2) return GEO2;
+  const raw = JSON.parse(fs.readFileSync(GEO2_FILE, "utf8"));
+  const d4 = (f) => decode(f, 1e4), d5 = (f) => decode(f, 1e5), R = raw.region;
+  const withBB = (o, rings) => Object.assign(o, { bb: bbOf(rings) });
+  GEO2 = {
+    raw, sources: raw.sources, credit: raw.credit, bbox: raw.bbox, built: raw.built,
+    coast: d4(R.coast),
+    water: R.water.map((w) => { const rings = w.r.map(d4); return withBB({ a: w.a, rings }, rings); }),
+    waterlines: R.waterlines.map((w) => { const pts = d4(w.p); return withBB({ name: w.n, pts }, [pts]); }),
+    roads: R.roads.map((r) => { const pts = d4(r.p); return withBB({ tier: r.t, route: r.r || "", pts }, [pts]); }),
+    parks: R.parks.map((p) => { const polys = p.r.map((rings) => rings.map(d4)); return withBB({ name: p.n, kind: p.k, polys }, polys.flat()); }),
+    airport: (() => { const rings = R.airport.r.map(d4); return withBB({ name: R.airport.n, rings }, rings); })(),
+    towns: R.towns.map((t) => { const [lon, lat] = decode(t.at, 1e4)[0]; return { name: t.n, rank: t.rank, kind: t.kind, lat, lon, outline: t.o.map(d4) }; }),
+    stateline: R.stateline.map(d4),
+    areas: Object.fromEntries(Object.entries(raw.areas).map(([slugKey, a]) => [slugKey, {
+      slug: slugKey, name: a.name, box: a.box, amenity: a.amenity, entrance: a.entrance, note: a.entrance_note || "",
+      outline: a.outline.map(d5),
+      streets: a.streets.map((s) => { const pts = d5(s.p); return withBB({ name: s.n || "", cls: s.c, pts }, [pts]); }),
+      water: a.water.map((w) => { const rings = w.r.map(d5); return withBB({ name: w.n || "", rings }, rings); }),
+      golf: a.golf.map((g) => { const rings = g.r.map(d5); return withBB({ rings }, rings); }),
+    }])),
+  };
+  return GEO2;
+}
+
+/* ---------------- frame and drawing helpers ---------------- */
+
+/* A frame that holds every point, with margins in svg units for labels, at least minSpanKm
+   wide and tall, and an aspect (height / width) between rMin and rMax. */
+function frame2(points, o) {
+  const lats = points.map((p) => p.lat), lons = points.map((p) => p.lon);
+  const lat0 = (Math.min(...lats) + Math.max(...lats)) / 2, lon0 = (Math.min(...lons) + Math.max(...lons)) / 2;
+  const kx = 111.32 * Math.cos(lat0 * Math.PI / 180), ky = 110.57;
+  const toKm = (lon, lat) => [(lon - lon0) * kx, (lat0 - lat) * ky];
+  const pk = points.map((p) => toKm(p.lon, p.lat));
+  let bx0 = Math.min(...pk.map((p) => p[0])), bx1 = Math.max(...pk.map((p) => p[0]));
+  let by0 = Math.min(...pk.map((p) => p[1])), by1 = Math.max(...pk.map((p) => p[1]));
+  const pad = Math.max(o.padKm || 0, (o.padFrac || 0) * Math.max(bx1 - bx0, by1 - by0));
+  bx0 -= pad; bx1 += pad; by0 -= pad; by1 += pad;
+  const W = o.W, M = o.M;
+  let spanX = (bx1 - bx0) / (1 - (M.l + M.r) / W);
+  let spanY = (by1 - by0) + (M.t + M.b) * spanX / W;
+  spanX = Math.max(spanX, o.minSpanKm); spanY = Math.max(spanY, o.minSpanKm * o.rMin);
+  if (spanY / spanX < o.rMin) spanY = spanX * o.rMin;
+  if (spanY / spanX > o.rMax) spanX = spanY / o.rMax;
+  const cx = (bx0 + bx1) / 2 + (M.l - M.r) / 2 * spanX / W, cy = (by0 + by1) / 2 - (M.t - M.b) / 2 * spanX / W;
+  const fx0 = cx - spanX / 2, fy0 = cy - spanY / 2, s = W / spanX, H = Math.round(spanY * s);
+  const P = (lon, lat) => { const [x, y] = toKm(lon, lat); return [(x - fx0) * s, (y - fy0) * s]; };
+  const unP = (x, y) => ({ lon: lon0 + (x / s + fx0) / kx, lat: lat0 - (y / s + fy0) / ky });
+  const tl = unP(0, 0), br = unP(W, H);
+  return { W, H, s, P, unP, spanX, spanY, view: [tl.lon, br.lat, br.lon, tl.lat], frame: { west: tl.lon, north: tl.lat, east: br.lon, south: br.lat } };
+}
+const bbHits = (bb, v, m = 0.01) => !(bb[2] < v[0] - m || bb[0] > v[2] + m || bb[3] < v[1] - m || bb[1] > v[3] + m);
+
+/* Path data with one decimal, relative moves after the first point. */
+function pathRel(pts, close) {
+  const tok = (v) => String(v / 10).replace(/^(-?)0\./, "$1.");
+  let d = "", px = 0, py = 0, n = 0;
+  for (const [x, y] of pts) {
+    const rx = Math.round(x * 10), ry = Math.round(y * 10);
+    if (n === 0) d += "M" + tok(rx) + (ry < 0 ? "" : " ") + tok(ry);
+    else {
+      const dx = rx - px, dy = ry - py;
+      if (!dx && !dy) continue;
+      const a = tok(dx), b = tok(dy);
+      d += (n === 1 ? "l" : (dx < 0 ? "" : " ")) + a + (dy < 0 ? "" : " ") + b;
+    }
+    px = rx; py = ry; n++;
+  }
+  return n > 1 ? d + (close ? "z" : "") : "";
+}
+const ringArea = (r) => { let a = 0; for (let i = 0, j = r.length - 1; i < r.length; j = i++) a += (r[j][0] + r[i][0]) * (r[j][1] - r[i][1]); return a / 2; };
+
+function polyD(F, rings, tol = 0.45, minArea = 1.5, pad = 8) {
+  let d = "";
+  for (const ring of rings) {
+    let px = clipPolygon(ring.map(([lo, la]) => F.P(lo, la)), -pad, -pad, F.W + pad, F.H + pad);
+    if (px.length < 3) continue;
+    px = simplify(px.concat([px[0]]), tol); px.pop();
+    if (px.length < 3 || Math.abs(ringArea(px)) < minArea) continue;
+    d += pathRel(px, true);
+  }
+  return d;
+}
+function linePieces(F, pts, tol = 0.35, pad = 8) {
+  return clipLine(pts.map(([lo, la]) => F.P(lo, la)), -pad, -pad, F.W + pad, F.H + pad).map((l) => simplify(l, tol)).filter((l) => l.length > 1);
+}
+
+/* ---------------- label layout with turned boxes ---------------- */
+
+function rect2(cx, cy, w, h, ang = 0) {
+  const c = Math.cos(ang), s = Math.sin(ang), hw = w / 2, hh = h / 2;
+  const pts = [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]].map(([x, y]) => [cx + x * c - y * s, cy + x * s + y * c]);
+  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+  return { cx, cy, w, h, ang, pts, x0: Math.min(...xs), y0: Math.min(...ys), x1: Math.max(...xs), y1: Math.max(...ys) };
+}
+const rectXY = (x0, y0, x1, y1) => rect2((x0 + x1) / 2, (y0 + y1) / 2, x1 - x0, y1 - y0, 0);
+const inflate = (b, p) => rect2(b.cx, b.cy, b.w + 2 * p, b.h + 2 * p, b.ang);
+function satOverlap(a, b) {
+  if (a.x1 <= b.x0 || b.x1 <= a.x0 || a.y1 <= b.y0 || b.y1 <= a.y0) return false;
+  for (const P of [a.pts, b.pts]) for (let i = 0; i < P.length; i++) {
+    const [x1, y1] = P[i], [x2, y2] = P[(i + 1) % P.length], nx = y2 - y1, ny = x1 - x2;
+    let amin = Infinity, amax = -Infinity, bmin = Infinity, bmax = -Infinity;
+    for (const [x, y] of a.pts) { const v = x * nx + y * ny; if (v < amin) amin = v; if (v > amax) amax = v; }
+    for (const [x, y] of b.pts) { const v = x * nx + y * ny; if (v < bmin) bmin = v; if (v > bmax) bmax = v; }
+    if (amax <= bmin || bmax <= amin) return false;
+  }
+  return true;
+}
+class Layout2 {
+  constructor(W, H) { this.W = W; this.H = H; this.items = []; }
+  inside(b, m = 3) { return b.x0 >= m && b.y0 >= m && b.x1 <= this.W - m && b.y1 <= this.H - m; }
+  hit(b, pad = 2, ignore) { const bb = pad ? inflate(b, pad) : b; return this.items.find((o) => !(ignore && ignore(o)) && satOverlap(bb, o)); }
+  fits(b, pad = 2, ignore, m = 3) { return this.inside(b, m) && !this.hit(b, pad, ignore); }
+  cost(b) { let c = this.inside(b) ? 0 : 1e6; for (const o of this.items) if (satOverlap(b, o)) c += (Math.min(b.x1, o.x1) - Math.max(b.x0, o.x0)) * (Math.min(b.y1, o.y1) - Math.max(b.y0, o.y0)) * (o.kind === "marker" ? 3 : 1); return c; }
+  add(b, kind, owner) { const o = Object.assign({}, b, { kind, owner }); this.items.push(o); return o; }
+}
+
+/* The best spot for a label of w x h along a set of pixel lines, turned to follow the line.
+   offsets: distances from the line to try (0 = on the line). score(x, y) adds a preference. */
+function alongLine(L, pieces, w, h, o = {}) {
+  const offsets = o.offsets || [0], pad = o.pad == null ? 2 : o.pad, bendMax = o.bendMax || 2.5;
+  let best = null;
+  for (const pts of pieces) {
+    const cum = [0]; for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+    const total = cum.at(-1); if (total < w + 8) continue;
+    const at = (d) => { let i = 1; while (i < cum.length - 1 && cum[i] < d) i++; const t = (d - cum[i - 1]) / ((cum[i] - cum[i - 1]) || 1); return [pts[i - 1][0] + t * (pts[i][0] - pts[i - 1][0]), pts[i - 1][1] + t * (pts[i][1] - pts[i - 1][1])]; };
+    const step = o.step || Math.max(6, Math.min(14, total / 30));
+    for (let d = w / 2 + 4; d <= total - w / 2 - 4; d += step) {
+      const a1 = at(d - w / 2), a2 = at(d + w / 2), mid = at(d);
+      let bend = 0; for (const f of [0.25, 0.5, 0.75]) bend = Math.max(bend, distToLine(at(d - w / 2 + f * w), [a1, a2]));
+      if (bend > bendMax) continue;
+      let ang = Math.atan2(a2[1] - a1[1], a2[0] - a1[0]);
+      if (ang > Math.PI / 2) ang -= Math.PI; if (ang < -Math.PI / 2) ang += Math.PI;
+      if (o.maxAngle && Math.abs(ang) > o.maxAngle) continue;
+      const nx = -Math.sin(ang), ny = Math.cos(ang);
+      for (const off of offsets) {
+        const cx = mid[0] + nx * off, cy = mid[1] + ny * off, b = rect2(cx, cy, w, h, ang);
+        if (!L.fits(b, pad, o.ignore, o.margin)) continue;
+        if (o.accept && !o.accept(b, off)) continue;
+        const score = -Math.abs(ang) * 8 - bend * 3 - Math.abs(off) * 0.2 + (o.score ? o.score(cx, cy, d, total) : -Math.abs(d - total / 2) * 0.05);
+        if (!best || score > best.score) best = { b, x: cx, y: cy, ang, score, off };
+      }
+    }
+  }
+  return best;
+}
+
+/* Points every `step` units along a polyline. */
+function resample(pts, step) {
+  const out = [pts[0].slice()];
+  let carry = 0;
+  for (let i = 1; i < pts.length; i++) {
+    const [ax, ay] = pts[i - 1], [bx, by] = pts[i], L = Math.hypot(bx - ax, by - ay);
+    let d = step - carry;
+    while (d <= L) { out.push([ax + (bx - ax) * d / L, ay + (by - ay) * d / L]); d += step; }
+    carry = L - (d - step);
+  }
+  return out;
+}
+const angDiff = (a, b) => { let d = b - a; while (d > Math.PI) d -= 2 * Math.PI; while (d < -Math.PI) d += 2 * Math.PI; return d; };
+
+/* A label that bends with its street (an svg textPath). The text reads left to right, its
+   centre on the line. Its room is a row of small turned boxes along the curve, so a curved
+   name never covers another label. Returns { d, boxes, x, y } or null. */
+function curvedLabel(L, pieces, text, size, o = {}) {
+  const w = textWidth(text, size) + 3, h = size + 2.5, step = 2, pad = o.pad == null ? 2.5 : o.pad;
+  let best = null;
+  for (const raw of pieces) {
+    let pts = resample(raw, step);
+    if (pts.length * step < w + 10) continue;
+    pts = pts.map((p, i) => { const a = pts[Math.max(0, i - 2)], b = pts[Math.min(pts.length - 1, i + 2)]; return [(a[0] + p[0] * 2 + b[0]) / 4, (a[1] + p[1] * 2 + b[1]) / 4]; });
+    const half = Math.ceil(w / 2 / step), ext = Math.ceil(w * 0.12 / step);
+    for (let c = half + 1; c < pts.length - half - 1; c += o.stride || 3) {
+      let seg = pts.slice(c - half, c + half + 1);
+      let turn = 0, sharp = 0;
+      for (let i = 4; i < seg.length; i += 2) {
+        const a1 = Math.atan2(seg[i - 2][1] - seg[i - 4][1], seg[i - 2][0] - seg[i - 4][0]), a2 = Math.atan2(seg[i][1] - seg[i - 2][1], seg[i][0] - seg[i - 2][0]);
+        const d = angDiff(a1, a2); turn += d; sharp = Math.max(sharp, Math.abs(d));
+      }
+      if (sharp > 0.32 || Math.abs(turn) > 1.1) continue;
+      const lo = Math.max(0, c - half - ext), hi = Math.min(pts.length - 1, c + half + ext);
+      let full = pts.slice(lo, hi + 1);
+      const dir = Math.atan2(seg.at(-1)[1] - seg[0][1], seg.at(-1)[0] - seg[0][0]);
+      if (Math.cos(dir) < -0.05 || (Math.abs(Math.cos(dir)) <= 0.05 && Math.sin(dir) > 0)) { seg = seg.slice().reverse(); full = full.slice().reverse(); }
+      const k = Math.max(1, Math.round(w / 11)), boxes = [];
+      for (let j = 0; j < k; j++) {
+        const a = seg[Math.floor(j * (seg.length - 1) / k)], b = seg[Math.floor((j + 1) * (seg.length - 1) / k)];
+        boxes.push(rect2((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, Math.hypot(b[0] - a[0], b[1] - a[1]) + 1.5, h, Math.atan2(b[1] - a[1], b[0] - a[0])));
+      }
+      if (!boxes.every((b) => L.fits(b, pad, null, 2))) continue;
+      const mid = seg[Math.floor(seg.length / 2)];
+      const score = -Math.abs(turn) * 6 - sharp * 10 - Math.abs(Math.sin(dir)) * 1.5 + (o.score ? o.score(mid[0], mid[1]) : 0);
+      if (!best || score > best.score) {
+        /* The baseline sits a little below the line, so the letters centre on it. */
+        const off = size * 0.34, base = full.map((p, i) => {
+          const a = full[Math.max(0, i - 1)], b = full[Math.min(full.length - 1, i + 1)], an = Math.atan2(b[1] - a[1], b[0] - a[0]);
+          return [p[0] - Math.sin(an) * off, p[1] + Math.cos(an) * off];
+        });
+        best = { score, boxes, d: pathRel(base), x: mid[0], y: mid[1] };
+      }
+    }
+  }
+  return best;
+}
+
+/* ---------------- shared marks ---------------- */
+
+const KIND_WORD2 = { beach: "the beach", airport: "the airport", hospital: "the hospital", grocery: "a grocery store", shopping: "shopping", golf: "a golf course" };
+const mins2 = (n) => `${n} minute${n === 1 ? "" : "s"}`;
+const fmtMiles = (mi) => ({ 0.1: "0.1", 0.25: "¼", 0.5: "½" }[mi] || String(mi));
+
+/* Wrap a name into at most two lines of about max characters. */
+function wrap2(s, max) {
+  const words = String(s).split(/\s+/);
+  if (String(s).length <= max || words.length < 2) return [String(s)];
+  let best = null;
+  for (let i = 1; i < words.length; i++) {
+    const a = words.slice(0, i).join(" "), b = words.slice(i).join(" "), m = Math.max(a.length, b.length);
+    if (!best || m < best.m) best = { m, lines: [a, b] };
+  }
+  return best.lines;
+}
+
+/* Brass pin, tip on (0,0), with a white icon. */
+const pinSvg = (icon, k = 1) => `<g transform="scale(${k})"><ellipse cx="0" cy="1" rx="7" ry="2.4" fill="${C2.navy}" opacity=".18"/>`
+  + `<path d="M0 0C-3-6-13-14-13-26a13 13 0 1 1 26 0c0 12-10 20-13 26z" fill="${C2.brass}" stroke="${C2.navy}" stroke-width="1.5"/>`
+  + icon(-8.5, -34.5, 17, C2.white) + `</g>`;
+
+/* Nudge landmark markers off each other and off the pin; returns [{ lm, kind, tx, ty, x, y, moved }]. */
+function placeMarkers(L, F, lms, R, prefix) {
+  return lms.map((lm, i) => {
+    const kind = resolveKind(lm.kind);
+    const [tx, ty] = F.P(lm.lon, lm.lat);
+    let x = Math.max(R + 4, Math.min(F.W - R - 4, tx)), y = Math.max(R + 4, Math.min(F.H - R - 4, ty));
+    const box = () => rectXY(x - R - 1, y - R - 1, x + R + 1, y + R + 1);
+    for (let step = 0; step < 120; step++) {
+      const hit = L.items.find((o) => o.kind !== "furniture" && satOverlap(inflate(box(), 2), o));
+      if (!hit) break;
+      let vx = x - hit.cx, vy = y - hit.cy;
+      if (Math.hypot(vx, vy) < 0.5) { vx = 1; vy = 0.6; }
+      const n = Math.hypot(vx, vy); x += 3 * vx / n; y += 3 * vy / n;
+      x = Math.max(R + 4, Math.min(F.W - R - 4, x)); y = Math.max(R + 4, Math.min(F.H - R - 4, y));
+    }
+    L.add(box(), "marker", prefix + i);
+    return { lm, kind, tx, ty, x, y, moved: Math.hypot(x - tx, y - ty) > 3 };
+  });
+}
+
+/* Label beside a marker: name (one or two lines) and "about N min". */
+function labelMarkers(L, marks, R, prefix, o = {}) {
+  const NS = o.nameSize || 12.5, MS = o.minSize || 11.5, LH = NS + 2.5;
+  return marks.map((m, i) => {
+    const name = m.lm.short || m.lm.name;
+    const lines = wrap2(name, o.wrap || 16), mins = m.lm.minutes ? `about ${m.lm.minutes} min` : "";
+    const w = Math.max(...lines.map((l) => textWidth(l, NS)), mins ? textWidth(mins, MS) : 0) + 4;
+    const h = lines.length * LH + (mins ? MS + 2.5 : 0) + 2;
+    const own = (it) => it.owner === prefix + i;
+    let c = null;
+    for (const cand of besideCandidates(w, h, R, [0, 6, 14, 24, 36])) {
+      const b = boxOf(m.x, m.y, cand, w, h), bb = rectXY(b.x0, b.y0, b.x1, b.y1);
+      if (L.fits(bb, 2, own)) { c = cand; break; }
+    }
+    if (!c && o.required !== false) c = besideCandidates(w, h, R).sort((a, b) => L.cost(rectXY(...Object.values(boxOf(m.x, m.y, a, w, h)))) - L.cost(rectXY(...Object.values(boxOf(m.x, m.y, b, w, h)))))[0];
+    if (!c) return null;
+    const b = boxOf(m.x, m.y, c, w, h);
+    L.add(rectXY(b.x0, b.y0, b.x1, b.y1), "label", prefix + i);
+    return { m, c, w, h, lines, mins, NS, MS, LH };
+  });
+}
+
+function markerSvg(lab, R, sym, g, txt) {
+  const { m, c, lines, mins, LH, MS } = lab;
+  let inner = `<circle r="${R}" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/>` + sym(m.kind, -R * 0.67, -R * 0.67, R * 1.34, C2.navy);
+  const y = c.y + LH - 2.5;
+  inner += txt("l", c.x, y, c.anchor, lines.map((l, i) => `<tspan x="${r1(c.x)}"${i ? ` dy="${LH}"` : ""}>${esc(l)}</tspan>`).join(""));
+  if (mins) inner += txt("m", c.x, y + (lines.length - 1) * LH + MS + 2.5, c.anchor, esc(mins));
+  return g(m.x, m.y, inner);
+}
+
+const leaderSvg = (m) => `<path d="M${r1(m.tx)} ${r1(m.ty)}L${r1(m.x)} ${r1(m.y)}" stroke="${C2.navy}" stroke-width="1.1"/><circle cx="${r1(m.tx)}" cy="${r1(m.ty)}" r="2.4" fill="${C2.navy}"/>`;
+
+/* Scale bar (bottom left) and north arrow (top right). Reserves their room in the layout. */
+function furniture2(L, F, choices) {
+  const pxPerMile = F.s * 1.609;
+  const miles = choices.filter((m) => m * pxPerMile <= F.W * 0.28).pop() || choices[0];
+  const bar = miles * pxPerMile, y = F.H - 11;
+  const label = `${fmtMiles(miles)} ${miles === 1 ? "MILE" : "MILES"}`.replace(/^(¼|½) MILES$/, "$1 MILE");
+  L.add(rectXY(5, y - 20, 14 + Math.max(bar, textWidth(label, 9.5, 0.1)) + 2, F.H - 3), "furniture", "scale");
+  L.add(rectXY(F.W - 28, 5, F.W - 6, 40), "furniture", "north");
+  return `<path d="M11 ${r1(y - 4)}V${r1(y)}H${r1(11 + bar)}V${r1(y - 4)}" fill="none" stroke="${C2.navy}" stroke-width="1.4"/>`
+    + `<g transform="translate(11 ${r1(y - 8)})"><g class="k"><text class="f">${label}</text></g></g>`
+    + `<g transform="translate(${F.W - 17} 21)"><g class="k"><path d="M0-12 5 2 0-1-5 2z" fill="${C2.navy}"/><text class="f" y="15" text-anchor="middle">N</text></g></g>`;
+}
+
+function svgShell(id, F, alt, css, body) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" id="${id}" viewBox="0 0 ${F.W} ${F.H}" width="${F.W}" height="${F.H}" role="img" aria-label="${esc(alt)}" style="display:block;width:100%;height:auto;max-width:760px;background:${C2.land};border:1px solid ${C2.rule}">`
+    + `<style>${css}</style>${body}</svg>`;
+}
+
+/* Text styles. .k groups shrink around their anchor on wider screens, so labels stay about
+   the same size at 360 and 760 px while the map grows. */
+function css2(id, extra = "", strokes = {}) {
+  const t = `#${id} text`;
+  const sw = (k) => Object.entries(strokes).map(([c, w]) => `#${id} .${c}{stroke-width:${r1(w * k * 100) / 100}px}`).join("");
+  return `${t}{font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;paint-order:stroke;stroke:${C2.land};stroke-width:3px;stroke-linejoin:round;fill:${C2.navy}}`
+    + `#${id} .h{font:500 16px 'Fraunces',Georgia,serif}#${id} .l{font-size:12.5px;font-weight:500}#${id} .m{font-size:11.5px;font-weight:500;fill:${C2.brassInk}}`
+    + `#${id} .t{font-size:10px;font-weight:500;letter-spacing:.12em;fill:${C2.slate}}#${id} .T{font-size:11px;font-weight:500;letter-spacing:.12em;fill:#3b4450}`
+    + `#${id} .w{font:italic 400 11px 'Fraunces',Georgia,serif;fill:${C2.waterInk}}#${id} .o{font:italic 400 13px 'Fraunces',Georgia,serif;letter-spacing:.06em;fill:${C2.waterInk};stroke:${C2.water}}`
+    + `#${id} .p{font-size:10px;font-weight:500;fill:${C2.parkInk}}#${id} .f{font-size:9.5px;font-weight:500;letter-spacing:.1em;fill:${C2.navy}}`
+    + `#${id} .r{font-size:9.5px;font-weight:500;stroke:none;fill:${C2.navy}}#${id} .q{font-size:7px;letter-spacing:.04em}`
+    + extra + sw(1)
+    + `@media(min-width:600px){#${id} .k{transform:scale(.8)}${sw(0.8)}${strokes.s ? "" : ""}}@media(min-width:900px){#${id} .k{transform:scale(.64)}${sw(0.64)}}`;
+}
+
+/* An svg that is 60 KB or less is returned inline. A larger one is written to opts.dir and an
+   <img> tag is returned. Over 150 KB is an error. */
+function emit2(m, opts, kind) {
+  const bytes = Buffer.byteLength(m.svg);
+  m.bytes = bytes;
+  if (bytes > FILE_MAX) throw new Error(`area-map: ${kind} map is ${bytes} bytes, over the ${FILE_MAX} byte cap`);
+  const inlineMax = opts.inlineMax == null ? INLINE_MAX : opts.inlineMax;
+  if (bytes <= inlineMax) { m.inline = true; m.html = m.svg; return m; }
+  if (!opts.dir) throw new Error(`area-map: ${kind} map is ${bytes} bytes, over the ${inlineMax} byte inline cap. Pass opts.dir (and opts.src) to write it as a file.`);
+  const file = path.join(opts.dir, opts.file || `${slug(opts.slug || m.name)}-${kind}.svg`);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, `<?xml version="1.0" encoding="UTF-8"?>\n${m.svg}\n`);
+  const src = opts.src ? opts.src.replace(/\/?$/, "/") + path.basename(file) : path.basename(file);
+  m.inline = false; m.file = file;
+  m.html = `<img src="${esc(src)}" width="${m.width}" height="${m.height}" alt="${esc(m.alt)}" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;max-width:760px;border:1px solid ${C2.rule}">`;
+  return m;
+}
+
+/* ---------------- words ---------------- */
+
+function distToPolyline(p, pts) { // km, p {lat, lon}
+  const kx = 111.32 * Math.cos(p.lat * Math.PI / 180), ky = 110.57;
+  const xy = pts.map(([lo, la]) => [(lo - p.lon) * kx, (la - p.lat) * ky]);
+  let best = Infinity, bp = null;
+  for (let i = 1; i < xy.length; i++) {
+    const [ax, ay] = xy[i - 1], [bx, by] = xy[i], dx = bx - ax, dy = by - ay, L2 = dx * dx + dy * dy;
+    const t = L2 ? Math.max(0, Math.min(1, -(ax * dx + ay * dy) / L2)) : 0;
+    const d = Math.hypot(ax + t * dx, ay + t * dy);
+    if (d < best) { best = d; bp = { lon: p.lon + (ax + t * dx) / kx, lat: p.lat + (ay + t * dy) / ky }; }
+  }
+  return { km: best, point: bp };
+}
+const nearestCoast2 = (home, geo) => distToPolyline(home, geo.coast);
+
+/* "in Conway", "just outside Conway" or "near Conway", from the town's outline. */
+function townWords(home, geo) {
+  const name = home.town;
+  const t = name && geo.towns.find((x) => x.name === name);
+  if (name && !t) return `in ${name}`;
+  const cand = t ? [t] : geo.towns.filter((x) => x.rank === 1);
+  let best = null;
+  for (const tw of cand) {
+    const inside = tw.outline.some((r) => inPoly([home.lon, home.lat], r));
+    const d = inside ? 0 : Math.min(...tw.outline.map((r) => distToPolyline(home, r.concat([r[0]])).km));
+    if (!best || d < best.d) best = { tw, d, inside };
+  }
+  if (!best) return "on the Grand Strand";
+  if (best.inside) return `in ${best.tw.name}`;
+  if (best.d < 6) return `just outside ${best.tw.name}`;
+  return `near ${best.tw.name}`;
+}
+
+function describeRegion(spec, geo, shown) {
+  const home = spec.home;
+  const coast = nearestCoast2(home, geo);
+  const beach = (spec.landmarks || []).find((l) => resolveKind(l.kind) === "beach" && l.minutes);
+  let sea;
+  if (coast.km < 1.2) sea = "close to the beach";
+  else if (beach) sea = `about ${mins2(beach.minutes)} ${coast.km > 3 ? "inland " : ""}from the beach`;
+  else sea = `${roundMiles(coast.km / 1.609)} inland from the ocean`;
+  const mb = geo.towns.find((t) => t.name === "Myrtle Beach");
+  let rel = "";
+  if (mb && km(home, mb) > 6 && !/^Myrtle Beach$/.test(home.town || "")) rel = `, ${direction(mb, home)} of Myrtle Beach`;
+  let s = `${home.name} is ${townWords(home, geo)}, ${sea}${rel}.`;
+  const rest = shown.filter((l) => l !== beach).map((l) => l.minutes ? `${l.name}, about ${mins2(l.minutes)} away` : l.name);
+  if (rest.length) s += ` The map also shows ${rest.length > 1 ? rest.slice(0, -1).join("; ") + "; and " + rest.at(-1) : rest[0]}.`;
+  return s;
+}
+
+function findArea(home, geo, required) {
+  if (home.area) {
+    const a = geo.areas[home.area];
+    if (!a && required) throw new Error(`area-map: no close-up data for "${home.area}" in ${path.relative(process.cwd(), GEO2_FILE)}. Add it to AREAS in tools/geo/build-geo.py and rebuild.`);
+    return a || null;
+  }
+  let best = null;
+  for (const a of Object.values(geo.areas)) {
+    const inside = a.outline.some((r) => inPoly([home.lon, home.lat], r));
+    const d = inside ? 0 : Math.min(...a.outline.map((r) => distToPolyline(home, r.concat([r[0]])).km));
+    if (d < 0.4 && (!best || d < best.d)) best = { a, d };
+  }
+  if (!best && required) throw new Error(`area-map: ${home.name} (${home.lat}, ${home.lon}) has no close-up data in ${path.relative(process.cwd(), GEO2_FILE)}. Add the community to AREAS in tools/geo/build-geo.py, rebuild, or pass home.area.`);
+  return best ? best.a : null;
+}
+
+function validate2(spec) {
+  validate(spec);
+  for (const k of ["amenity", "entrance"]) {
+    const p = spec[k];
+    if (p && (typeof p.lat !== "number" || typeof p.lon !== "number")) throw new Error(`area-map: ${k} needs lat and lon`);
+  }
+}
+
+/* ---------------- region map: where it is ---------------- */
+
+const ROUTE_ORDER = ["US 17", "US 17 BYP", "US 17 BUS", "SC 31", "US 501", "SC 22", "SC 544", "SC 707", "SC 9", "SC 90"];
+
+function shieldParts(route) {
+  const [type, num, suf] = route.split(" ");
+  const w = Math.max(17, textWidth(num, 9.5) * 1.1 + (suf ? textWidth(suf, 7, 0.04) + 2.5 : 0) + 8), h = 14.5;
+  return { type, num, suf: suf || "", w, h };
+}
+function shieldSvg(sp) {
+  const hw = sp.w / 2, hh = sp.h / 2;
+  const shape = sp.type === "US"
+    ? `<path d="M${r1(-hw)} ${r1(-hh)}H${r1(hw)}V${r1(hh * 0.15)}C${r1(hw)} ${r1(hh * 0.8)} ${r1(hw * 0.45)} ${r1(hh)} 0 ${r1(hh + 1.6)}C${r1(-hw * 0.45)} ${r1(hh)} ${r1(-hw)} ${r1(hh * 0.8)} ${r1(-hw)} ${r1(hh * 0.15)}z" fill="${C2.white}" stroke="${C2.navy}" stroke-width="1.1"/>`
+    : `<rect x="${r1(-hw)}" y="${r1(-hh)}" width="${r1(sp.w)}" height="${r1(sp.h)}" rx="3" fill="${C2.white}" stroke="${C2.navy}" stroke-width="1.1"/>`;
+  return shape + `<text class="r" y="${sp.type === "US" ? 2.6 : 3.4}" text-anchor="middle">${sp.num}${sp.suf ? `<tspan class="q" dx="2">${sp.suf}</tspan>` : ""}</text>`;
+}
+
+function regionMap(spec, opts = {}) {
+  validate2(spec);
+  const geo = loadGeo2();
+  const W = opts.width || 360;
+  const home = spec.home;
+  const lms = (spec.landmarks || []).filter((l) => l.map !== "close");
+  const area = findArea(home, geo, false);
+  const homeTown = home.town && geo.towns.find((t) => t.name === home.town);
+
+  /* Frame: home, every landmark, the nearest beach, the home town (if near), the outline. */
+  const pts = [home, ...lms];
+  const coastNear = nearestCoast2(home, geo);
+  if (spec.coast !== false && coastNear.km < 30) {
+    /* The nearest beach, and a point out at sea beyond it, so the ocean reads as ocean. */
+    const c = coastNear.point, kx = 111.32 * Math.cos(c.lat * Math.PI / 180), ky = 110.57;
+    let dx = (c.lon - home.lon) * kx, dy = (c.lat - home.lat) * ky, n = Math.hypot(dx, dy);
+    if (n < 0.5) { dx = 0.8; dy = -0.6; n = 1; }
+    const out = Math.max(1.6, Math.min(3, 0.12 * Math.max(n, 12)));
+    pts.push(c, { lon: c.lon + dx / n * out / kx, lat: c.lat + dy / n * out / ky });
+  }
+  if (homeTown && km(home, homeTown) < 15) pts.push(homeTown);
+  if (area) { const [a, b, c, d] = bbOf(area.outline); pts.push({ lon: a, lat: b }, { lon: c, lat: d }); }
+  const F = frame2(pts, { W, padFrac: 0.07, padKm: 1, minSpanKm: spec.minSpanKm || 12, M: { l: 24, r: 24, t: 46, b: 30 }, rMin: 0.8, rMax: 1.2 });
+  const { H, P } = F, view = F.view;
+  const id = opts.id || "c3r-" + slug(home.name);
+  const L = new Layout2(W, F.H);
+  const geom = [];
+
+  /* Parks and the airport. */
+  const parksIn = geo.parks.filter((p) => bbHits(p.bb, view));
+  const parkD = parksIn.map((p) => p.polys.map((rings) => polyD(F, rings)).join("")).join("");
+  if (parkD) geom.push(`<path d="${parkD}" fill="${C2.park}" stroke="${C2.parkEdge}" stroke-width=".6"/>`);
+  if (bbHits(geo.airport.bb, view)) { const d = polyD(F, geo.airport.rings); if (d) geom.push(`<path d="${d}" fill="${C2.airport}" stroke="${C2.airportEdge}" stroke-width=".6"/>`); }
+
+  /* Water: lakes, rivers, the waterway and the inlets, widened a little so a river shows. */
+  const wD = geo.water.filter((w) => bbHits(w.bb, view)).map((w) => polyD(F, w.rings, 0.4, 1)).join("");
+  /* The ocean: the coastline (land on its left) closed out at sea. */
+  const sea = [...geo.coast, [-77.9, geo.coast.at(-1)[1]], [-77.9, 32.9], [-79.5, 32.9]];
+  const pad = 10;
+  let oceanPx = clipPolygon(sea.map(([lo, la]) => P(lo, la)), -pad, -pad, W + pad, H + pad);
+  oceanPx = oceanPx.length > 2 ? simplify(oceanPx.concat([oceanPx[0]]), 0.4).slice(0, -1) : [];
+  const coastPx = linePieces(F, geo.coast, 0.4, pad);
+  const coastD = coastPx.map((l) => pathRel(l)).join("");
+  if (coastD) geom.push(`<path d="${coastD}" fill="none" stroke="${C2.sand}" stroke-width="5" stroke-linejoin="round"/>`);
+  if (wD) geom.push(`<path d="${wD}" fill="${C2.water}" stroke="${C2.water}" stroke-width="1.1" stroke-linejoin="round"/>`);
+  if (oceanPx.length > 2) geom.push(`<path d="${pathRel(oceanPx, true)}" fill="${C2.water}"/>`);
+  if (coastD) geom.push(`<path d="${coastD}" fill="none" stroke="${C2.waterEdge}" stroke-width=".6"/>`);
+
+  /* The state line. */
+  const slPieces = geo.stateline.flatMap((l) => linePieces(F, l));
+  if (slPieces.length) geom.push(`<path d="${slPieces.map((l) => pathRel(l)).join("")}" fill="none" stroke="${C2.state}" stroke-width="1" stroke-dasharray="5 3"/>`);
+
+  /* The community, drawn as its outline. */
+  let outlineD = "";
+  if (area) { outlineD = polyD(F, area.outline, 0.3, 0.5); if (outlineD) geom.push(`<path class="outline" d="${outlineD}" fill="${C2.brass}" fill-opacity=".3" stroke="${C2.brassInk}" stroke-width="1.3" stroke-linejoin="round"/>`); }
+
+  /* Roads: casings first, then fills, so crossings read as joins. */
+  const roadsIn = geo.roads.filter((r) => bbHits(r.bb, view));
+  const routePieces = {};
+  const tierD = { 1: [], 2: [], 3: [] };
+  for (const r of roadsIn) {
+    const pcs = linePieces(F, r.pts, 0.35);
+    if (!pcs.length) continue;
+    tierD[r.tier].push(...pcs.map((l) => pathRel(l)));
+    if (r.route) (routePieces[r.route] = routePieces[r.route] || []).push(...pcs);
+  }
+  const RS = { 3: [C2.streetCase, 2.6, C2.street, 1.3], 2: [C2.majorCase, 4.2, C2.major, 2.6], 1: [C2.fwyCase, 5, C2.fwy, 3.2] };
+  const strokes = {};
+  const roadG = [];
+  for (const t of [3, 2, 1]) if (tierD[t].length) { roadG.push(`<path class="c${t}" d="${tierD[t].join("")}" stroke="${RS[t][0]}"/>`); strokes["c" + t] = RS[t][1]; }
+  for (const t of [3, 2, 1]) if (tierD[t].length) { roadG.push(`<path class="f${t}" d="${tierD[t].join("")}" stroke="${RS[t][2]}"/>`); strokes["f" + t] = RS[t][3]; }
+  if (roadG.length) geom.push(`<g fill="none" stroke-linecap="round" stroke-linejoin="round">${roadG.join("")}</g>`);
+
+  /* ---------- labels ---------- */
+  const furn = furniture2(L, F, [1, 2, 3, 5, 10]);
+  const [hx, hy] = P(home.lon, home.lat);
+  const PK = 0.9; // pin scale
+  L.add(rect2(hx, hy - 19 * PK, 28 * PK, 42 * PK), "marker", "home");
+  const R = 11;
+  const marks = placeMarkers(L, F, lms, R, "lm");
+
+  /* Home label: the name, beside the pin, one or two lines. */
+  const homeLines = wrap2(home.label || home.name, 17), HS = 16, HLH = 18.5;
+  const hw = Math.max(...homeLines.map((l) => textWidth(l, HS) * 1.04)) + 4, hh = homeLines.length * HLH + 2;
+  const homeCands = [
+    { anchor: "start", x: 15, y: -24 * PK - hh / 2 }, { anchor: "end", x: -15, y: -24 * PK - hh / 2 },
+    { anchor: "middle", x: 0, y: -42 * PK - hh }, { anchor: "middle", x: 0, y: 5 },
+    { anchor: "start", x: 15, y: -6 }, { anchor: "end", x: -15, y: -6 },
+    { anchor: "start", x: 15, y: -44 * PK }, { anchor: "end", x: -15, y: -44 * PK },
+    { anchor: "start", x: 24, y: -24 * PK - hh / 2 }, { anchor: "end", x: -24, y: -24 * PK - hh / 2 },
+  ];
+  const ownHome = (o) => o.owner === "home";
+  const hbox = (c) => { const b = boxOf(hx, hy, c, hw, hh); return rectXY(b.x0, b.y0, b.x1, b.y1); };
+  let hc = homeCands.find((c) => L.fits(hbox(c), 2, ownHome));
+  if (!hc) hc = homeCands.slice().sort((a, b) => L.cost(hbox(a)) - L.cost(hbox(b)))[0];
+  L.add(hbox(hc), "label", "home");
+
+  const lmLabels = labelMarkers(L, marks, R, "lm");
+
+  /* Ocean polygon test for town labels. */
+  const onLand = (b) => !(oceanPx.length > 2 && b.pts.concat([[b.cx, b.cy]]).some((p) => inPoly(p, oceanPx)));
+
+  const townLabels = [];
+  const homeIn = (t) => t.outline.some((r) => inPoly([home.lon, home.lat], r));
+  const placeTown = (t, big) => {
+    if (lms.some((l) => l.name === t.name) || townLabels.some((x) => x.t === t)) return;
+    /* A small place the home sits in, when the page names another town, would only confuse. */
+    if (t.rank > 1 && t !== homeTown && homeIn(t)) return;
+    const [x, y] = P(t.lon, t.lat);
+    if (x < 0 || x > W || y < 0 || y > H) return;
+    const size = big ? 11 : 10, text = t.name.toUpperCase();
+    for (const lines of text.length > 12 ? [[text], wrap2(text, 12)] : [[text]]) {
+      const w = Math.max(...lines.map((l) => textWidth(l, size, 0.12))) + 4, h = lines.length * (size + 2.5) + 1;
+      const offs = [[0, 0]];
+      for (const r of [8, 16, 24, 34]) for (let a = 0; a < 8; a++) offs.push([Math.cos(a * Math.PI / 4) * (w / 2 + r) * 0.8, Math.sin(a * Math.PI / 4) * (h / 2 + r)]);
+      for (const [dx, dy] of offs) {
+        const b = rect2(x + dx, y + dy, w, h);
+        if (L.fits(b, 3) && onLand(b)) { L.add(b, "town", t.name); townLabels.push({ t, b, lines, size, big }); return; }
+      }
+    }
+  };
+  if (homeTown) placeTown(homeTown, homeTown.rank === 1);
+
+  /* Ocean label: in the ocean, clear of the coast. */
+  let oceanLabel = null;
+  if (oceanPx.length > 2) {
+    const text = "Atlantic Ocean", w = textWidth(text, 13, 0.06) + 6, h = 17;
+    let best = null;
+    for (let y = 12; y < H - 12; y += 7) for (let x = 12; x < W - 12; x += 7) {
+      const b = rect2(x, y, w, h);
+      if (!L.fits(b, 4) || !b.pts.concat([[x, y]]).every((p) => inPoly(p, oceanPx))) continue;
+      const d = Math.min(...coastPx.map((c) => distToLine([x, y], c)));
+      if (d < 12) continue;
+      const score = Math.min(d, 36) - 0.05 * Math.hypot(x - W / 2, y - H / 2);
+      if (!best || score > best.score) best = { x, y, b, score };
+    }
+    if (best) { L.add(best.b, "water", "ocean"); oceanLabel = { x: best.x, y: best.y, text }; }
+  }
+
+  /* Route markers: the routes a newcomer drives, near the home first. */
+  const shields = [];
+  const routeList = Object.keys(routePieces).sort((a, b) => {
+    const ia = ROUTE_ORDER.indexOf(a), ib = ROUTE_ORDER.indexOf(b);
+    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+  });
+  const nearHome = (pcs) => Math.min(...pcs.flat().map(([x, y]) => Math.hypot(x - hx, y - hy)));
+  routeList.sort((a, b) => {
+    const pa = ROUTE_ORDER.includes(a) ? 0 : 1, pb = ROUTE_ORDER.includes(b) ? 0 : 1;
+    return pa - pb || nearHome(routePieces[a]) - nearHome(routePieces[b]);
+  });
+  const visLen = (pcs) => pcs.reduce((s, l) => s + l.slice(1).reduce((t, p, i) => t + Math.hypot(p[0] - l[i][0], p[1] - l[i][1]), 0), 0);
+  for (const route of routeList) {
+    const pcs = routePieces[route].map((l) => clipLine(l, 0, 0, W, H)).flat().filter((l) => l.length > 1);
+    const len = visLen(pcs);
+    if (len < 40) continue;
+    const listed = ROUTE_ORDER.includes(route);
+    if (shields.length >= (listed ? 9 : 6)) continue;
+    const sp = shieldParts(route);
+    const want = listed && len > 330 && shields.length < 6 ? 2 : 1;
+    const placed = [];
+    for (let k = 0; k < want; k++) {
+      let best = null;
+      for (const l of pcs) {
+        const cum = [0]; for (let i = 1; i < l.length; i++) cum.push(cum[i - 1] + Math.hypot(l[i][0] - l[i - 1][0], l[i][1] - l[i - 1][1]));
+        for (let d = 0; d <= cum.at(-1); d += 8) {
+          let i = 1; while (i < cum.length - 1 && cum[i] < d) i++;
+          const t = (d - cum[i - 1]) / ((cum[i] - cum[i - 1]) || 1), x = l[i - 1][0] + t * (l[i][0] - l[i - 1][0]), y = l[i - 1][1] + t * (l[i][1] - l[i - 1][1]);
+          const b = rect2(x, y, sp.w + 2, sp.h + 3);
+          if (!L.fits(b, 2, null, 6)) continue;
+          if (placed.some((p) => Math.hypot(p.x - x, p.y - y) < 150)) continue;
+          if (shields.some((s) => s.route === route && Math.hypot(s.x - x, s.y - y) < 150)) continue;
+          const dh = Math.hypot(x - hx, y - hy);
+          const score = k === 0 ? -Math.abs(dh - 55) * 0.6 : dh * 0.2;
+          if (!best || score > best.score) best = { x, y, b, score };
+        }
+      }
+      if (!best) break;
+      L.add(best.b, "shield", route + "#" + k);
+      placed.push(best); shields.push({ route, sp, x: best.x, y: best.y });
+    }
+  }
+
+  /* Water labels along the river and the waterway. */
+  const waterLabels = [];
+  const wlByName = {};
+  for (const wl of geo.waterlines) if (bbHits(wl.bb, view)) (wlByName[wl.name] = wlByName[wl.name] || []).push(...linePieces(F, wl.pts, 0.8, 0));
+  for (const [name, pcs] of Object.entries(wlByName)) {
+    const w = textWidth(name, 11) * 1.02 + 4, h = 13;
+    const best = alongLine(L, pcs, w, h, { offsets: [7, -7, 0], bendMax: 4, pad: 2, score: (x, y) => -Math.hypot(x - hx, y - hy) * 0.02 });
+    if (best) { L.add(best.b, "water", name); waterLabels.push({ text: name, ...best }); }
+  }
+
+  /* The other main towns, nearest first. */
+  geo.towns.filter((t) => t.rank === 1 && t !== homeTown).sort((a, b) => km(home, a) - km(home, b)).forEach((t) => placeTown(t, ["Myrtle Beach", "North Myrtle Beach", "Conway"].includes(t.name)));
+
+  /* Park labels: inside the park when it is big enough, else beside it. */
+  const parkLabels = [];
+  for (const p of parksIn) {
+    if (p.kind !== "state park" && p.kind !== "garden") continue;
+    const big = p.polys.map((rings) => rings[0].map(([lo, la]) => P(lo, la))).sort((a, b) => Math.abs(ringArea(b)) - Math.abs(ringArea(a)))[0];
+    if (!big) continue;
+    const cx = big.reduce((s, q) => s + q[0], 0) / big.length, cy = big.reduce((s, q) => s + q[1], 0) / big.length;
+    if (cx < 0 || cx > W || cy < 0 || cy > H) continue;
+    const lines = wrap2(p.name, 14), w = Math.max(...lines.map((l) => textWidth(l, 10))) + 4, h = lines.length * 12 + 1;
+    const offs = [[0, 0], [w / 2 + 8, 0], [-w / 2 - 8, 0], [0, -h / 2 - 8], [0, h / 2 + 8], [w / 2 + 8, h / 2], [-w / 2 - 8, h / 2]];
+    for (const [dx, dy] of offs) {
+      const b = rect2(cx + dx, cy + dy, w, h);
+      if (L.fits(b, 3) && onLand(b)) { L.add(b, "label", p.name); parkLabels.push({ p, b, lines }); break; }
+    }
+  }
+
+  /* Airport area, when no landmark already names it. */
+  let airportLabel = null;
+  if (!lms.some((l) => resolveKind(l.kind) === "airport") && bbHits(geo.airport.bb, view)) {
+    const ring = geo.airport.rings[0].map(([lo, la]) => P(lo, la));
+    const cx = ring.reduce((s, q) => s + q[0], 0) / ring.length, cy = ring.reduce((s, q) => s + q[1], 0) / ring.length;
+    const w = textWidth("Airport", 10) + 4, b = rect2(cx, cy, w, 13);
+    if (L.fits(b, 3)) { L.add(b, "label", "airport"); airportLabel = { x: cx, y: cy }; }
+  }
+
+  /* Smaller towns and the state names, when there is room. */
+  geo.towns.filter((t) => t.rank === 2).sort((a, b) => km(home, a) - km(home, b)).forEach((t) => placeTown(t, false));
+  const stateLabels = [];
+  if (slPieces.length) {
+    /* Offsets: a label turned to follow the line sits north of it at a negative offset. */
+    for (const [text, off] of [["NORTH CAROLINA", -9], ["SOUTH CAROLINA", 9]]) {
+      const w = textWidth(text, 9, 0.12) + 4;
+      const best = alongLine(L, slPieces.map((l) => clipLine(l, 0, 0, W, H)).flat().filter((l) => l.length > 1), w, 12, { offsets: [off], bendMax: 4, accept: (b) => onLand(b) });
+      if (best) { L.add(best.b, "label", text); stateLabels.push({ text, ...best }); }
+    }
+  }
+
+  /* ---------- write the svg ---------- */
+  const used = new Set(["home", ...marks.map((m) => m.kind)]);
+  const defs = [...used].map((k) => `<symbol id="${id}-${k}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${iconInner(k)}</symbol>`).join("");
+  const sym = (k, x, y, size, color) => `<use href="#${id}-${k}" x="${r1(x)}" y="${r1(y)}" width="${r1(size)}" height="${r1(size)}" color="${color}"/>`;
+  const g = (x, y, inner) => `<g transform="translate(${r1(x)} ${r1(y)})"><g class="k">${inner}</g></g>`;
+  const gr = (x, y, ang, inner) => `<g transform="translate(${r1(x)} ${r1(y)}) rotate(${r1(ang * 180 / Math.PI)})"><g class="k">${inner}</g></g>`;
+  const txt = (cls, x, y, anchor, body) => `<text class="${cls}" x="${r1(x)}" y="${r1(y)}"${anchor !== "start" ? ` text-anchor="${anchor}"` : ""}>${body}</text>`;
+  const lab = [];
+  for (const tl of townLabels) {
+    const lh = tl.size + 2.5, y0 = -(tl.lines.length * lh) / 2 + tl.size * 0.85;
+    lab.push(g(tl.b.cx, tl.b.cy, txt(tl.big ? "T" : "t", 0, y0, "middle", tl.lines.map((l, i) => `<tspan x="0"${i ? ` dy="${lh}"` : ""}>${esc(l)}</tspan>`).join(""))));
+  }
+  for (const pl of parkLabels) lab.push(g(pl.b.cx, pl.b.cy, txt("p", 0, -(pl.lines.length * 12) / 2 + 9, "middle", pl.lines.map((l, i) => `<tspan x="0"${i ? ` dy="12"` : ""}>${esc(l)}</tspan>`).join(""))));
+  if (airportLabel) lab.push(g(airportLabel.x, airportLabel.y, txt("p", 0, 3.5, "middle", "Airport").replace('class="p"', 'class="p" style="fill:#6b6153"')));
+  for (const wl of waterLabels) lab.push(gr(wl.x, wl.y, wl.ang, txt("w", 0, 3.8, "middle", esc(wl.text))));
+  for (const sl of stateLabels) lab.push(gr(sl.x, sl.y, sl.ang, txt("t", 0, 3.2, "middle", sl.text).replace('class="t"', 'class="t" style="font-size:9px;fill:#6f7984"')));
+  if (oceanLabel) lab.push(g(oceanLabel.x, oceanLabel.y, txt("o", 0, 4.5, "middle", esc(oceanLabel.text))));
+  for (const s of shields) lab.push(g(s.x, s.y, shieldSvg(s.sp)));
+  const mk = [];
+  for (const m of marks) if (m.moved) mk.push(leaderSvg(m));
+  for (const l of lmLabels) if (l) mk.push(markerSvg(l, R, sym, g, txt));
+  {
+    const y = hc.y + HLH - 4;
+    const body = homeLines.map((l, i) => `<tspan x="${r1(hc.x)}"${i ? ` dy="${HLH}"` : ""}>${esc(l)}</tspan>`).join("");
+    mk.push(g(hx, hy, pinSvg((x, y2, size, color) => sym("home", x, y2, size, color), PK) + txt("h", hc.x, y, hc.anchor, body)));
+  }
+
+  const shown = lms;
+  const alt = spec.alt || describeRegion(spec, geo, shown);
+  const css = css2(id, "", strokes);
+  const body = `<defs>${defs}</defs>${geom.join("")}${furn}${lab.join("")}<g>${mk.join("")}</g>`;
+  const m = {
+    kind: "region", name: home.name, svg: svgShell(id, F, alt, css, body), alt, width: W, height: H,
+    credit: CREDIT2, caption: `${spec.caption ? spec.caption.trim() + " " : ""}${CREDIT2}`,
+    frame: F.frame, outline: !!outlineD,
+    boxes: L.items.map((b) => ({ kind: b.kind, owner: b.owner, pts: b.pts, x0: b.x0, y0: b.y0, x1: b.x1, y1: b.y1 })),
+    labels: { home: true, towns: townLabels.map((t) => t.t.name), routes: shields.map((s) => s.route), water: waterLabels.map((w) => w.text), parks: parkLabels.map((p) => p.p.name), ocean: !!oceanLabel, landmarks: lmLabels.filter(Boolean).map((l) => l.m.lm.name) },
+  };
+  return emit2(m, Object.assign({ slug: home.area || home.name }, opts), "region");
+}
+
+/* ---------------- close-up: inside the neighborhood ---------------- */
+
+/* Street names as a driver reads them on a sign: "US 17 Bypass", "SC 707", "TPC Blvd".
+   A state road number with no name ("State Rd S-26-1043") is not labelled. */
+function cleanStreet(n) {
+  let s = String(n || "").trim().replace(/\s+/g, " ");
+  if (!s || /^(State Rd|State Rte|Co Rd|Pvt Rd|Private Rd) S?-?\d/i.test(s) || /^S-\d/.test(s)) return "";
+  s = s.replace(/^[NSEW] (?=(US|State) Hwy )/, "");
+  s = s.replace(/^US Hwy (\d+) Byp( [NSEW])?$/, "US $1 Bypass").replace(/^US Hwy (\d+) Bus( [NSEW])?$/, "US $1 Business")
+    .replace(/^US Hwy (\d+)( [NSEW])?$/, "US $1").replace(/^State Hwy (\d+)( [NSEW])?$/, "SC $1").replace(/^[NSEW] Hwy (\d+)$/, "Highway $1");
+  return s.replace(/\bTpc\b/g, "TPC");
+}
+
+function closeMap(spec, opts = {}) {
+  validate2(spec);
+  const geo = loadGeo2();
+  const W = opts.width || 360;
+  const home = spec.home;
+  const area = findArea(home, geo, true);
+  const amenity = spec.amenity || area.amenity || { label: "Amenity center", lat: home.lat, lon: home.lon };
+  const ent = spec.entrance === false ? null : (spec.entrance || area.entrance);
+  const box = area.box; // west, south, east, north of the cached data
+
+  /* Frame: the outline, the amenity and the entrance; then a nearby grocery or hospital when
+     taking it in at most doubles the frame and stays inside the cached data. */
+  const ob = bbOf(area.outline);
+  const base = [{ lon: ob[0], lat: ob[1] }, { lon: ob[2], lat: ob[3] }, amenity, ...(ent ? [ent] : [])];
+  const fo = { W, padFrac: 0.12, padKm: 0.18, minSpanKm: 1.1, M: { l: 12, r: 12, t: 34, b: 28 }, rMin: 0.8, rMax: 1.3 };
+  let F = frame2(base, fo);
+  const inBox = (p) => p.lon > box[0] && p.lon < box[2] && p.lat > box[1] && p.lat < box[3];
+  const inFrame = (Fr, p) => { const [x, y] = Fr.P(p.lon, p.lat); return x > 34 && x < Fr.W - 34 && y > 40 && y < Fr.H - 34; };
+  const cands = (spec.landmarks || []).filter((l) => l.map === "close" || l.map === "both" || (l.map !== "region" && ["grocery", "hospital"].includes(resolveKind(l.kind))));
+  const shownLms = [];
+  let fpts = base.slice();
+  for (const lm of cands) {
+    if (!inBox(lm)) continue;
+    if (inFrame(F, lm)) { shownLms.push(lm); continue; }
+    const F2 = frame2([...fpts, lm], fo);
+    if (F2.spanX * F2.spanY <= F.spanX * F.spanY * 2 && [[F2.frame.west, F2.frame.south], [F2.frame.east, F2.frame.north]].every(([lo, la]) => lo >= box[0] - 0.002 && lo <= box[2] + 0.002 && la >= box[1] - 0.002 && la <= box[3] + 0.002)) {
+      F = F2; fpts.push(lm); shownLms.push(lm);
+    }
+  }
+  for (const lm of cands) if (!shownLms.includes(lm) && inFrame(F, lm)) shownLms.push(lm);
+  shownLms.sort((a, b) => cands.indexOf(a) - cands.indexOf(b));
+  const { H, P } = F, view = F.view;
+  const mPerUnit = 1000 / F.s;
+  const id = opts.id || "c3c-" + slug(home.name);
+  const L = new Layout2(W, H);
+  const geom = [];
+
+  /* Golf course land and water. */
+  const golfD = area.golf.filter((gf) => bbHits(gf.bb, view)).map((gf) => polyD(F, gf.rings, 0.4, 4)).join("");
+  if (golfD) geom.push(`<path d="${golfD}" fill="${C2.golf}" stroke="${C2.golfEdge}" stroke-width=".6" fill-rule="evenodd"/>`);
+  const waterIn = area.water.filter((w) => bbHits(w.bb, view));
+  const wD = waterIn.map((w) => polyD(F, w.rings, 0.35, 1.5)).join("");
+  if (wD) geom.push(`<path d="${wD}" fill="${C2.water}" stroke="${C2.waterEdge}" stroke-width=".6" fill-rule="evenodd"/>`);
+
+  /* Streets. Width follows the scale, within limits. */
+  const lw = Math.max(2.1, Math.min(4, 11 / mPerUnit)), mw = lw * 1.7;
+  const streetsIn = area.streets.filter((s) => bbHits(s.bb, view));
+  const byCls = { 1: [], 2: [], 3: [] };
+  const named = {};
+  for (const s of streetsIn) {
+    const pcs = linePieces(F, s.pts, 0.3);
+    if (!pcs.length) continue;
+    byCls[s.cls].push(...pcs.map((l) => pathRel(l)));
+    const nm = cleanStreet(s.name);
+    if (nm) (named[nm] = named[nm] || { name: nm, cls: s.cls, pcs: [] }).pcs.push(...pcs);
+    if (nm && s.cls < named[nm].cls) named[nm].cls = s.cls;
+  }
+  const sw = { 3: [lw + 1.4, lw], 2: [lw * 1.3 + 1.4, lw * 1.3], 1: [mw + 1.6, mw] };
+  const sc = { 3: [C2.streetCase, C2.street], 2: [C2.majorCase, C2.major], 1: [C2.majorCase, C2.major] };
+  const sG = [], strokes = {};
+  for (const c of [3, 2, 1]) if (byCls[c].length) { sG.push(`<path class="c${c}" d="${byCls[c].join("")}" stroke="${sc[c][0]}"/>`); strokes["c" + c] = sw[c][0]; }
+  for (const c of [3, 2, 1]) if (byCls[c].length) { sG.push(`<path class="f${c}" d="${byCls[c].join("")}" stroke="${sc[c][1]}"/>`); strokes["f" + c] = sw[c][1]; }
+  if (sG.length) geom.push(`<g fill="none" stroke-linecap="round" stroke-linejoin="round">${sG.join("")}</g>`);
+
+  /* Fade what is outside the community, then draw its outline. */
+  const outlinePx = area.outline.map((r) => r.map(([lo, la]) => P(lo, la)));
+  const outlineD = polyD(F, area.outline, 0.25, 1, 4);
+  geom.push(`<path d="M-4-4H${W + 4}V${H + 4}H-4z${outlineD}" fill="${C2.land}" fill-opacity=".5" fill-rule="evenodd"/>`);
+  geom.push(`<path class="outline" d="${outlineD}" fill="none" stroke="${C2.brass}" stroke-width="2.2" stroke-linejoin="round"/>`);
+  const inOutline = (p) => outlinePx.some((r) => inPoly(p, r));
+
+  /* ---------- labels ---------- */
+  const furn = furniture2(L, F, [0.1, 0.25, 0.5, 1]);
+  const [ax, ay] = P(amenity.lon, amenity.lat);
+  const PK = 0.85;
+  L.add(rect2(ax, ay - 19 * PK, 28 * PK, 42 * PK), "marker", "amenity");
+  let entPt = null;
+  if (ent) {
+    const [ex, ey] = P(ent.lon, ent.lat);
+    entPt = { x: ex, y: ey };
+    L.add(rect2(ex, ey, 17, 17), "marker", "entrance");
+  }
+  const R = 10;
+  const marks = placeMarkers(L, F, shownLms, R, "lm");
+
+  /* The amenity label and the entrance label first: they are what the reader looks for. */
+  const placeBeside = (x, y, lines, size, owner, r, extraCands = []) => {
+    const lh = size + 2.5, w = Math.max(...lines.map((l) => textWidth(l, size))) + 4, h = lines.length * lh + 1;
+    const cs = [...extraCands, ...besideCandidates(w, h, r, [0, 5, 12, 22])];
+    const own = (o) => o.owner === owner;
+    for (const c of cs) { const b = boxOf(x, y, c, w, h), bb = rectXY(b.x0, b.y0, b.x1, b.y1); if (L.fits(bb, 2, own)) { L.add(bb, "label", owner); return { c, w, h, lh, lines }; } }
+    return null;
+  };
+  const amLines = [amenity.label || "Amenity center"];
+  const amLab = placeBeside(ax, ay, amLines, 12.5, "amenity", 13, [
+    { anchor: "start", x: 13, y: -22 * PK - 8 }, { anchor: "end", x: -13, y: -22 * PK - 8 }, { anchor: "middle", x: 0, y: -40 * PK - 17 }, { anchor: "middle", x: 0, y: 4 }]);
+  const entLab = ent ? placeBeside(entPt.x, entPt.y, [ent.label || "Entrance"], 11.5, "entrance", 9) : null;
+  const lmLabels = labelMarkers(L, marks, R, "lm", { nameSize: 12, minSize: 11 });
+
+  /* The community's name, inside its outline where there is room. */
+  const nameText = (home.label || home.name).toUpperCase();
+  const NSZ = 12;
+  let nameLab = null;
+  for (const lines of [[nameText], wrap2(nameText, 14)]) {
+    const w = Math.max(...lines.map((l) => textWidth(l, NSZ, 0.14))) + 6, h = lines.length * (NSZ + 3) + 2;
+    let best = null;
+    const [ox0, oy0, ox1, oy1] = [Math.min(...outlinePx.flat().map((p) => p[0])), Math.min(...outlinePx.flat().map((p) => p[1])), Math.max(...outlinePx.flat().map((p) => p[0])), Math.max(...outlinePx.flat().map((p) => p[1]))];
+    const ocx = (ox0 + ox1) / 2, ocy = (oy0 + oy1) / 2;
+    for (let y = oy0; y <= oy1; y += 4) for (let x = ox0; x <= ox1; x += 4) {
+      const b = rect2(x, y, w, h);
+      if (!b.pts.every((p) => inOutline(p)) || !L.fits(b, 3)) continue;
+      const score = -Math.hypot(x - ocx, y - ocy);
+      if (!best || score > best.score) best = { b, score };
+    }
+    if (best) { L.add(best.b, "label", "name"); nameLab = { b: best.b, lines, inside: true }; break; }
+  }
+  if (!nameLab) {
+    const lines = wrap2(nameText, 18), w = Math.max(...lines.map((l) => textWidth(l, NSZ, 0.14))) + 6, h = lines.length * (NSZ + 3) + 2;
+    let best = null;
+    for (let y = h / 2 + 4; y < H - h / 2 - 4; y += 4) for (let x = w / 2 + 4; x < W - w / 2 - 4; x += 4) {
+      const b = rect2(x, y, w, h);
+      if (!L.fits(b, 3)) continue;
+      const d = Math.min(...outlinePx.map((r) => distToLine([x, y], r.concat([r[0]]))));
+      const score = -d;
+      if (!best || score > best.score) best = { b, score };
+    }
+    if (best) { L.add(best.b, "label", "name"); nameLab = { b: best.b, lines, inside: false }; }
+  }
+
+  /* Street names: the entrance road and the main streets inside first, then the roads around. */
+  const insideLen = (st) => st.pcs.reduce((s, l) => s + l.slice(1).reduce((t, p, i) => t + (inOutline(p) && inOutline(l[i]) ? Math.hypot(p[0] - l[i][0], p[1] - l[i][1]) : 0), 0), 0);
+  const totalLen = (st) => st.pcs.reduce((s, l) => s + l.slice(1).reduce((t, p, i) => t + Math.hypot(p[0] - l[i][0], p[1] - l[i][1]), 0), 0);
+  const entRoads = new Set();
+  if (entPt) for (const st of Object.values(named)) if (Math.min(...st.pcs.map((l) => distToLine([entPt.x, entPt.y], l))) < 6) entRoads.add(st.name);
+  const amRoad = Object.values(named).sort((a, b) => Math.min(...a.pcs.map((l) => distToLine([ax, ay], l))) - Math.min(...b.pcs.map((l) => distToLine([ax, ay], l))))[0];
+  const streetOrder = Object.values(named).map((st) => {
+    const inL = insideLen(st), tot = totalLen(st);
+    let pri = inL > 0 ? 2 : 4;
+    if (entRoads.has(st.name) || st === amRoad) pri = 1;
+    if (st.cls === 1 && pri > 2) pri = 3;
+    return { st, pri, len: inL > 0 ? inL : tot };
+  }).sort((a, b) => a.pri - b.pri || b.len - a.len);
+  const streetLabels = [];
+  const SS = 10.5;
+  let insideCount = 0, outsideCount = 0;
+  for (const { st, pri, len } of streetOrder) {
+    if (len < 40) continue;
+    if (pri === 2 && insideCount >= 7) continue;
+    if (pri >= 3 && outsideCount >= 5) continue;
+    const text = cleanStreet(st.name), w = textWidth(text, SS) + 4, h = SS + 3;
+    const vis = st.pcs.map((l) => clipLine(l, 0, 0, W, H)).flat().filter((l) => l.length > 1);
+    const best = alongLine(L, vis, w, h, { offsets: [0], bendMax: 1.8, pad: 2.5, step: 5, score: (x, y) => (pri === 2 && inOutline([x, y]) ? 20 : 0) - Math.hypot(x - ax, y - ay) * 0.01 });
+    if (!best) continue;
+    L.add(best.b, "street", st.name); streetLabels.push({ text, ...best });
+    if (pri === 2) insideCount++; else if (pri >= 3) outsideCount++;
+  }
+
+  /* Named water (the waterway) and golf course land. */
+  const waterLabels = [];
+  for (const wl of geo.waterlines) {
+    if (!bbHits(wl.bb, view) || waterLabels.some((x) => x.text === wl.name)) continue;
+    const pcs = linePieces(F, wl.pts, 0.8, 0);
+    const w = textWidth(wl.name, 11) * 1.02 + 4;
+    const best = alongLine(L, pcs, w, 13, { offsets: [0], bendMax: 3, pad: 2 });
+    if (best) { L.add(best.b, "water", wl.name); waterLabels.push({ text: wl.name, ...best }); }
+  }
+  let golfLabel = null;
+  if (golfD) {
+    const text = "Golf course", w = textWidth(text, 10) + 4, h = 13;
+    const polys = area.golf.flatMap((gf) => gf.rings.slice(0, 1)).map((r) => clipPolygon(r.map(([lo, la]) => P(lo, la)), 0, 0, W, H)).filter((r) => r.length > 2).sort((a, b) => Math.abs(ringArea(b)) - Math.abs(ringArea(a)));
+    for (const ring of polys.slice(0, 3)) {
+      if (golfLabel) break;
+      const xs = ring.map((p) => p[0]), ys = ring.map((p) => p[1]);
+      let best = null;
+      for (let y = Math.min(...ys); y <= Math.max(...ys); y += 4) for (let x = Math.min(...xs); x <= Math.max(...xs); x += 4) {
+        const b = rect2(x, y, w, h);
+        if (!b.pts.every((p) => inPoly(p, ring)) || inOutline([x, y]) || !L.fits(b, 3)) continue;
+        const d = Math.min(...[ring].map((r) => distToLine([x, y], r.concat([r[0]]))));
+        if (!best || d > best.d) best = { b, d };
+      }
+      if (best) { L.add(best.b, "label", "golf"); golfLabel = best; }
+    }
+  }
+
+  /* ---------- write the svg ---------- */
+  const used = new Set(["clubhouse", ...marks.map((m) => m.kind)]);
+  const defs = [...used].map((k) => `<symbol id="${id}-${k}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${iconInner(k)}</symbol>`).join("");
+  const sym = (k, x, y, size, color) => `<use href="#${id}-${k}" x="${r1(x)}" y="${r1(y)}" width="${r1(size)}" height="${r1(size)}" color="${color}"/>`;
+  const g = (x, y, inner) => `<g transform="translate(${r1(x)} ${r1(y)})"><g class="k">${inner}</g></g>`;
+  const gr = (x, y, ang, inner) => `<g transform="translate(${r1(x)} ${r1(y)}) rotate(${r1(ang * 180 / Math.PI)})"><g class="k">${inner}</g></g>`;
+  const txt = (cls, x, y, anchor, body) => `<text class="${cls}" x="${r1(x)}" y="${r1(y)}"${anchor !== "start" ? ` text-anchor="${anchor}"` : ""}>${body}</text>`;
+  const lab = [];
+  for (const sl of streetLabels) lab.push(gr(sl.x, sl.y, sl.ang, txt("s", 0, 3.6, "middle", esc(sl.text))));
+  for (const wl of waterLabels) lab.push(gr(wl.x, wl.y, wl.ang, txt("w", 0, 3.8, "middle", esc(wl.text))));
+  if (golfLabel) lab.push(g(golfLabel.b.cx, golfLabel.b.cy, txt("p", 0, 3.5, "middle", "Golf course")));
+  if (nameLab) {
+    const lh = NSZ + 3, y0 = -(nameLab.lines.length * lh) / 2 + NSZ * 0.85 + 1;
+    lab.push(g(nameLab.b.cx, nameLab.b.cy, txt("c", 0, y0, "middle", nameLab.lines.map((l, i) => `<tspan x="0"${i ? ` dy="${lh}"` : ""}>${esc(l)}</tspan>`).join(""))));
+  }
+  const mk = [];
+  for (const m of marks) if (m.moved) mk.push(leaderSvg(m));
+  for (const l of lmLabels) if (l) mk.push(markerSvg(l, R, sym, g, txt));
+  if (entPt) {
+    const ang = Math.atan2(ay - entPt.y, ax - entPt.x) * 180 / Math.PI;
+    let inner = `<circle r="7.5" fill="${C2.navy}" stroke="${C2.white}" stroke-width="1.5"/><path d="M-3.6 0H3.4M.6-3 3.6 0 .6 3" fill="none" stroke="${C2.white}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="rotate(${r1(ang)})"/>`;
+    if (entLab) inner += txt("e", entLab.c.x, entLab.c.y + entLab.lh - 2.5, entLab.c.anchor, esc(entLab.lines[0]));
+    mk.push(g(entPt.x, entPt.y, inner));
+  }
+  {
+    let inner = pinSvg((x, y, size, color) => sym("clubhouse", x, y, size, color), PK);
+    if (amLab) inner += txt("a", amLab.c.x, amLab.c.y + amLab.lh - 2.5, amLab.c.anchor, esc(amLab.lines[0]));
+    mk.push(g(ax, ay, inner));
+  }
+
+  const ponds = waterIn.length;
+  const golfNear = !!golfD;
+  const parts = ["its streets"];
+  if (ponds) parts.push("the ponds");
+  if (golfNear) parts.push("golf course land next to it");
+  parts.push(`the ${(amenity.label || "amenity center").toLowerCase()}`);
+  if (ent) parts.push(`the ${(ent.label || "entrance").toLowerCase()}${ent.on ? ` on ${ent.on}` : ""}`);
+  let alt = spec.closeAlt || `A close-up map of ${home.name}, with ${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}.`;
+  if (!spec.closeAlt && shownLms.length) alt += " " + shownLms.map((l) => `${l.name} is ${l.minutes ? `about ${mins2(l.minutes)} away by car` : "nearby"}.`).join(" ");
+  const css = css2(id, `#${id} .s{font-size:${SS}px;font-weight:500;fill:${C2.streetInk};stroke:${C2.white};stroke-width:2.6px}#${id} .c{font:500 ${NSZ}px 'DM Sans',system-ui,sans-serif;letter-spacing:.14em;fill:${C2.brassInk}}#${id} .a{font-size:12.5px;font-weight:500}#${id} .e{font-size:11.5px;font-weight:500}`);
+  const body = `<defs>${defs}</defs>${geom.join("")}${furn}${lab.join("")}<g>${mk.join("")}</g>`;
+  const m = {
+    kind: "close", name: home.name, svg: svgShell(id, F, alt, css, body), alt, width: W, height: H,
+    credit: CREDIT2, caption: `${spec.closeCaption ? spec.closeCaption.trim() + " " : ""}${CREDIT2}`,
+    frame: F.frame, area: area.slug, outline: !!outlineD, amenity, entrance: ent, landmarks: shownLms.map((l) => l.name),
+    boxes: L.items.map((b) => ({ kind: b.kind, owner: b.owner, pts: b.pts, x0: b.x0, y0: b.y0, x1: b.x1, y1: b.y1 })),
+    labels: { name: !!nameLab, amenity: !!amLab, entrance: !!entLab, streets: streetLabels.map((s) => s.text), water: waterLabels.map((w) => w.text), golf: !!golfLabel },
+  };
+  return emit2(m, Object.assign({ slug: area.slug }, opts), "close");
+}
+
+/* Both maps for one community. Landmarks the close-up shows that sit within 2 km of home are
+   left off the region map, where they would only crowd the pin. */
+function communityMaps(spec, opts = {}) {
+  const close = closeMap(spec, opts.close || opts);
+  const nearShown = new Set((spec.landmarks || []).filter((l) => close.landmarks.includes(l.name) && km(spec.home, l) < 2 && l.map !== "both").map((l) => l.name));
+  const region = regionMap(Object.assign({}, spec, { landmarks: (spec.landmarks || []).filter((l) => !nearShown.has(l.name)) }), opts.region || opts);
+  return { region, close, links: mapLinksHtml({ name: spec.home.name, lat: spec.home.lat, lon: spec.home.lon }) };
+}
+
 /* ---------------- live map ---------------- */
 
 /*
+ * DEPRECATED (2026-10-10). Use mapLinksHtml. The keyless embed URL redirects with
+ * X-Frame-Options SAMEORIGIN, so the frame stays blank in previews and in some browsers.
+ * Kept so older specs still build.
+ *
  * A Google Maps embed (no API key) that loads only when the reader taps it, or, with
  * load: "view", when it scrolls into view. Until then the page loads nothing from Google.
  * Tap is the default: the speed audit (audit/SPEED-AND-CONTRAST.md, /map/) found a map that
@@ -575,6 +1558,24 @@ function liveMapHtml(o) {
   if (!o.svg) return `<div style="margin:1.2rem 0;max-width:760px">${live}</div>`;
   const cap = o.caption ? `<figcaption style="color:var(--muted);font-size:.85rem;line-height:1.6;margin-top:.6rem">${o.caption}</figcaption>` : "";
   return `<figure style="margin:1.8rem 0 1rem;max-width:760px">${o.svg}${cap}</figure><div style="margin:0 0 1.8rem;max-width:760px">${live}</div>`;
+}
+
+/*
+ * Two buttons under the maps: "Open in Google Maps" (brass) and "Get directions" (outline).
+ * Plain links in the site's button classes. Nothing loads from Google until the reader taps.
+ * Options: lat, lon (required), name (used in the link title).
+ */
+function mapLinksHtml(o) {
+  if (!o || typeof o.lat !== "number" || typeof o.lon !== "number" || !Number.isFinite(o.lat) || !Number.isFinite(o.lon)) throw new Error("mapLinksHtml needs lat and lon");
+  const q = `${o.lat.toFixed(6)},${o.lon.toFixed(6)}`;
+  const open = `https://www.google.com/maps/search/?api=1&query=${q}`;
+  const dir = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
+  const name = o.name ? esc(o.name) : "this place";
+  const a = (cls, href, text, title) => `<a class="btn ${cls}" href="${esc(href)}" title="${title}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+  return `<p class="c3-map-links" style="display:flex;flex-wrap:wrap;gap:.6rem;margin:.9rem 0 1.8rem;max-width:760px">`
+    + a("btn-brass", open, "Open in Google Maps", `${name} in Google Maps`)
+    + a("btn-outline", dir, "Get directions", `Directions to ${name} in Google Maps`)
+    + `</p>`;
 }
 
 /* ---------------- refresh the cached geodata ---------------- */
@@ -684,20 +1685,35 @@ function refreshGeo(rawDir) {
   console.error(`wrote ${path.relative(process.cwd(), GEO_FILE)}: ${fs.statSync(GEO_FILE).size} bytes, ${geo.coast.length / 2} coast points, ${geo.towns.length} towns`);
 }
 
-module.exports = { areaMap, areaMapSvg, liveMapHtml, describe, CREDIT, GEO_FILE, DATA_BBOX, MAX_BYTES, loadGeo, buildGeo, simplify, clipPolygon, clipLine, textWidth };
+module.exports = {
+  /* version 2 */
+  regionMap, closeMap, communityMaps, mapLinksHtml, loadGeo2, describeRegion, CREDIT2, GEO2_FILE, INLINE_MAX, FILE_MAX, satOverlap,
+  /* version 1, kept for older specs */
+  areaMap, areaMapSvg, liveMapHtml, describe, CREDIT, GEO_FILE, DATA_BBOX, MAX_BYTES, loadGeo, buildGeo,
+  simplify, clipPolygon, clipLine, textWidth,
+};
 
 if (require.main === module) {
   const args = process.argv.slice(2);
+  const val = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : undefined; };
   if (args.includes("--refresh-geo")) {
-    const i = args.indexOf("--raw");
-    refreshGeo(i >= 0 ? args[i + 1] : null);
+    refreshGeo(val("--raw") || null);
   } else if (args[0] && !args[0].startsWith("--")) {
     const spec = JSON.parse(fs.readFileSync(args[0], "utf8"));
-    const m = areaMap(spec);
-    process.stdout.write(args.includes("--live") ? liveMapHtml({ name: spec.home.name, lat: spec.home.lat, lon: spec.home.lon, svg: m.svg, caption: m.caption }) + "\n" : m.svg + "\n");
-    console.error(`${m.bytes} bytes, ${m.width} x ${m.height}. aria-label: ${m.alt}`);
+    if (args.includes("--v1")) {
+      const m = areaMap(spec);
+      process.stdout.write(args.includes("--live") ? liveMapHtml({ name: spec.home.name, lat: spec.home.lat, lon: spec.home.lon, svg: m.svg, caption: m.caption }) + "\n" : m.svg + "\n");
+      console.error(`${m.bytes} bytes, ${m.width} x ${m.height}. aria-label: ${m.alt}`);
+    } else if (args.includes("--links")) {
+      process.stdout.write(mapLinksHtml({ name: spec.home.name, lat: spec.home.lat, lon: spec.home.lon }) + "\n");
+    } else {
+      const opts = { dir: val("--dir"), src: val("--src") };
+      const m = args.includes("--close") ? closeMap(spec, opts) : regionMap(spec, opts);
+      process.stdout.write(m.html + "\n");
+      console.error(`${m.kind}: ${m.bytes} bytes, ${m.width} x ${m.height}, ${m.inline ? "inline" : "file " + m.file}. aria-label: ${m.alt}`);
+    }
   } else {
-    console.error("usage: node tools/area-map.js places.json [--live] | --refresh-geo [--raw <dir>]");
+    console.error("usage: node tools/area-map.js places.json [--close] [--dir <dir> --src <url path>] | --links | --v1 [--live] | --refresh-geo [--raw <dir>]");
     process.exit(1);
   }
 }
