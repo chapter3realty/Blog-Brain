@@ -304,6 +304,20 @@ Every month, in one batch:
 2. Pick the 10 pages with the most findings.
 3. Fix them in Lane U.
 
+## Cadence: how many pages, how fast
+
+Decided 2026-10-10 from the research in `research_notes/Short stories for retiree buyers/legal_and_search.md` and Google's own guidance.
+
+- Google does not reward publishing often. It does penalize many pages made mainly to rank (spam policy on scaled content abuse, March 2024), and it uses some sitewide signals, so weak pages can pull down good ones.
+- The Grand Strand has about 500 to 800 questions worth a page: about 20 55+ communities, a few hundred neighborhoods and condo buildings, a dozen towns, and about 100 topic guides. Each needs facts no other site has.
+- Updates count as much as new pages. Answer engines favor current pages.
+
+The pace:
+
+1. First 2 to 3 months: 1 new page each weekday, and about 5 updates of existing pages a week.
+2. Then check Search Console. If most new pages are indexed and showing in results within about 4 weeks, go to 2 new pages a weekday. If not, slow down and fix quality first.
+3. Never more than every page can carry: verified facts, a map or pictures, a real story or a labelled example, and a buyer read.
+
 ## Rules that keep the line fast
 
 - **Never hand-edit a generated page.** Edit the spec. Drift costs a revision later.
