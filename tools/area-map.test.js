@@ -16,7 +16,7 @@ const fs = require("fs"), os = require("os"), path = require("path");
 const A = require("./area-map.js");
 const { areaMap, liveMapHtml, CREDIT, MAX_BYTES, loadGeo, clipPolygon, simplify } = A;
 const { regionMap, closeMap, communityMaps, mapLinksHtml, loadGeo2, cleanStreet, CREDIT2, INLINE_MAX, FILE_MAX, GEO2_FILE } = A;
-const { satOverlap } = A.internals;
+const { satOverlap, tw2, SZ, EDGE } = A.internals;
 let failures = 0;
 const check = (name, cond, extra = "") => { if (!cond) { failures++; console.log(`FAIL  ${name} ${extra}`); } else console.log(`ok    ${name}`); };
 const throws = (fn) => { try { fn(); return false; } catch { return true; } };
@@ -25,18 +25,33 @@ const throws = (fn) => { try { fn(); return false; } catch { return true; } };
 const FIGURE = /<img [^>]*alt="[^"]{12,}"|<svg [^>]*role="img"[^>]*aria-label="[^"]{12,}"/;
 
 /* Two boxes of different owners must not touch. A label and its own mark share an owner.
-   A "dot" only keeps labels off a landmark's true spot; a mark or another dot may sit on it. */
+   A "dot" only keeps labels off a landmark's true spot, and an "area" keeps them off the
+   community's outline; a mark, a dot or an area may sit on either. */
 function overlaps(m) {
   const bs = m.boxes;
+  const soft = (k) => k === "dot" || k === "area";
   for (let i = 0; i < bs.length; i++) for (let j = i + 1; j < bs.length; j++) {
     const a = bs[i], b = bs[j];
     if (a.owner === b.owner) continue;
-    if ([a.kind, b.kind].includes("dot") && [a.kind, b.kind].every((k) => k === "dot" || k === "marker")) continue;
+    if ((soft(a.kind) || soft(b.kind)) && [a.kind, b.kind].every((k) => soft(k) || k === "marker")) continue;
     if (satOverlap(a, b)) return `${a.kind}:${a.owner} / ${b.kind}:${b.owner}`;
   }
   return "";
 }
 const inFrame = (f, p) => p.lon > f.west && p.lon < f.east && p.lat > f.south && p.lat < f.north;
+
+/* Buyer reads v6 (batch 2026-10-a): readers in their sixties on a phone found the labels "too
+   much tiny print", and one saw "Beach about 15 min" cut off at the right edge. A map shows
+   342 px wide on a 390 px phone (measured on the page), so a size in svg units times 342/360
+   is the size the reader sees. */
+const PHONE = 342 / 360;
+const cssSize = (svg, cls) => { const m = svg.match(new RegExp(`#[\\w-]+ \\.${cls}\\{(?:font-size:|font:[^;}]*? )([\\d.]+)px`)); return m ? +m[1] : NaN; };
+/* Every label box sits EDGE - 2 units or more inside the frame (a curved name's small boxes may
+   come 2 units nearer; every other label keeps EDGE). */
+function edgeHits(m) {
+  const lab = new Set(["label", "town", "street", "water", "shield"]);
+  return m.boxes.filter((b) => lab.has(b.kind) && (b.x0 < EDGE - 2 || b.y0 < EDGE - 2 || b.x1 > m.width - EDGE + 2 || b.y1 > m.height - EDGE + 2)).map((b) => `${b.kind}:${b.owner}`).join(", ");
+}
 const noExternal = (svg) => !/(?:href|src)="(?:https?:)?\/\//.test(svg.replace(/xmlns="http:\/\/www\.w3\.org\/2000\/svg"/, ""));
 
 /* ================= version 2 ================= */
@@ -62,7 +77,9 @@ check("region: the ocean is drawn and labelled", r.labels.ocean && />Atlantic Oc
 check("region: route markers for the roads a newcomer drives", r.labels.routes.includes("US 501") && r.labels.routes.length >= 4, JSON.stringify(r.labels.routes));
 check("region: Conway is labelled", r.labels.towns.includes("Conway"), JSON.stringify(r.labels.towns));
 check("region: landmark minutes are printed", />about 20 min</.test(r.svg) && />about 15 min</.test(r.svg));
-check("region: short names are used on the map", />Airport</.test(r.svg) && !/>the airport</.test(r.svg));
+check("region: short names are used on the map", />Boardwalk</.test(r.svg) && !/>the beach at the Myrtle Beach Boardwalk</.test(r.svg));
+check("region: the airport is named for its town ('Myrtle Beach airport'), not 'Airport'", />Myrtle Beach<\/tspan><tspan [^>]*>airport<\/tspan>/.test(r.svg) && !/>Airport</.test(r.svg) && r.labels.airport);
+check("region: the aria-label names the airport too", /the Myrtle Beach airport, about 20 minutes away/.test(r.alt), r.alt);
 check("region: no two labels overlap", !overlaps(r), overlaps(r));
 check(`region: inline and under ${INLINE_MAX} bytes (${r.bytes})`, r.inline && r.bytes <= INLINE_MAX && r.html === r.svg);
 check("region: framing holds home and every landmark", [MT.home, ...MT.landmarks].every((p) => inFrame(r.frame, p)), JSON.stringify(r.frame));
@@ -76,8 +93,9 @@ check("close: renders one svg with a viewBox", /^<svg [^>]*viewBox="0 0 \d+ \d+"
 check("close: passes the mkpage figure test", FIGURE.test(c.html));
 check("close: the outline is drawn", /<path class="outline" d="M/.test(c.svg) && c.area === "myrtle-trace");
 check("close: the clubhouse pin and the main entrance are labelled", />Clubhouse</.test(c.svg) && />Main entrance</.test(c.svg) && c.labels.amenity && c.labels.entrance);
-check("close: the community name is drawn", c.labels.name && />MYRTLE</.test(c.svg));
-check("close: street names bend with the street", /<textPath href="#c3c-myrtle-trace-s\d+"/.test(c.svg) && c.labels.streets.includes("Burning Ridge Rd"), JSON.stringify(c.labels.streets));
+check("close: the community name is drawn", c.labels.name && /<text class="c"[^>]*>(?:<tspan[^>]*>)?MYRTLE/.test(c.svg));
+check("close: street names bend with the street", /<textPath href="#c3c-myrtle-trace-s\d+"/.test(c.svg) && c.labels.streets.length >= 2, JSON.stringify(c.labels.streets));
+check("close: the entrance road is named, on the street or under 'Main entrance'", c.labels.streets.includes("Burning Ridge Rd") || />on Burning Ridge Road</.test(c.svg), JSON.stringify(c.labels.streets));
 check("close: ponds and golf course land are drawn", /fill="#c9dde6"/.test(c.svg) && c.labels.golf);
 check("close: a scale bar in miles and a north arrow", /MILE<\/text>/.test(c.svg) && />N<\/text>/.test(c.svg));
 check("close: the grocery and the hospital in frame are shown with minutes", c.landmarks.includes("Walmart Supercenter") && c.landmarks.includes("Conway Medical Center") && />about 3 min</.test(c.svg), JSON.stringify(c.landmarks));

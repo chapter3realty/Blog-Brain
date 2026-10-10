@@ -13,7 +13,8 @@
  *   P.gallery([
  *     { photo: rec("conway-main-street"), alt: "Old brick shops on Main Street in Conway", caption: "Main Street, downtown Conway" },
  *     { photo: rec("conway-city-hall"),   alt: "Conway City Hall, a white building with a clock", caption: "City Hall" },
- *   ])
+ *   ])                                                          // a phone shows one photo under the other
+ *   P.gallery([...], { layout: "row" })                         // a swipe row, with "Swipe for more photos" and dots
  *   P.featureCards([
  *     { illustration: "indoor-pool", label: "Indoor pool", text: "Open all year" },
  *     { photo: rec("murrells-inlet-boats"), alt: "Fishing boats at a marina", label: "Boating", text: "A marina about 10 minutes away" },
@@ -29,7 +30,16 @@
  *   - Alt text. It is required: a missing or one-word alt throws.
  *   - loading="lazy", except the hero, which gets fetchpriority="high" because it may be
  *     the largest thing the phone paints.
- *   - A credit: a tiny line on the photo itself, and the full line in creditsList.
+ *   - A credit: a tiny "Photo: <author>" on the photo itself, linked to the license, and
+ *     the full line in creditsList.
+ *
+ * What the readers asked for (buyer reads v6, batch 2026-10-a, 62-year-olds on a phone):
+ *   - Three of four missed photos in a sideways row: it was cut off and nothing said it
+ *     swipes. So a gallery is a plain stack on a phone, one photo under the other, each
+ *     with its caption. The swipe row is an option, and it says "Swipe for more photos".
+ *   - The credits "read like file names" ("Prices Swamp Run", "(13 May 2023) 11", "Jun 10").
+ *     So a credit names the photo by what it shows (the record's caption, else its alt),
+ *     never by its Commons file title, and carries no date.
  *
  * The guard (checkRecord) throws before any markup is made when a record has:
  *   - no source, author, license or credit line, or (for a licensed photo) no license URL;
@@ -144,14 +154,48 @@ const srcName = (rec) => rec.source_name || (/wikimedia\.org/.test(rec.source ||
    The full name is in creditsList. */
 const shortAuthor = (a) => String(a).replace(/\s*\([^)]*\)/g, "").trim() || String(a).trim();
 
-/* The short credit on the photo: "Photo: Author, CC BY-SA 4.0" with the license linked.
-   On a small card it is "Photo: Author"; the license is in creditsList. */
-function overlay(rec, kind, small) {
-  const ext = 'target="_blank" rel="noopener noreferrer"';
-  const author = esc(shortAuthor(rec.author));
-  const lic = rec.license_url ? `<a href="${esc(rec.license_url)}" ${ext}>${esc(licText(rec, kind))}</a>` : esc(licText(rec, kind));
-  const body = kind === "illustration" ? "Drawing: Chapter3 Realty" : kind === "own" || small ? `Photo: ${author}` : `Photo: ${author}, ${lic}`;
-  return `<span class="c3ph-cr">${body}</span>`;
+const EXT = 'target="_blank" rel="noopener noreferrer"';
+
+/* The short credit on the photo: "Photo: Author", nothing else, and the words link to the
+   license. The license name, the source and the note of changes are in creditsList. */
+function overlay(rec, kind) {
+  if (kind === "illustration") return `<span class="c3ph-cr">Drawing: Chapter3 Realty</span>`;
+  const body = `Photo: ${esc(shortAuthor(rec.author))}`;
+  if (kind === "own" || !rec.license_url) return `<span class="c3ph-cr">${body}</span>`;
+  const lic = esc(licText(rec, kind));
+  return `<span class="c3ph-cr"><a href="${esc(rec.license_url)}" ${EXT} aria-label="${body}. License: ${lic}" title="License: ${lic}">${body}</a></span>`;
+}
+
+/* A date in plain words or numbers: "2018", "Jun 10", "13 May 2023", "late November".
+   A credit never carries one (the readers took them for mistakes). */
+const MONTH = "(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sept?(?:ember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)";
+const DATE = new RegExp(`\\b(?:1[89]|20)\\d\\d\\b|\\b${MONTH}\\.? \\d{1,2}\\b|\\b\\d{1,2} ${MONTH}\\b|\\b(?:early|mid|late|in) ${MONTH}\\b|\\b(?:Thanksgiving|Christmas|Easter)\\b`);
+const hasDate = (s) => DATE.test(String(s));
+
+/* The caption and alt each photo was last shown with on a page (heroPhoto, gallery,
+   featureCards), so the credits can name it in the same words the reader saw. */
+const SHOWN = new WeakMap();
+const shown = (rec, caption, alt) => {
+  const first = String(caption || "").trim().split(/(?<=[.!?])\s+(?=[A-Z])/)[0];
+  SHOWN.set(rec, { caption: first, alt });
+};
+
+/*
+ * What the photo shows, in plain words, for the credits. The first of: the caption passed to
+ * creditsList, the caption it was shown with on the page (a hero's first sentence), the
+ * record's caption, the alt it was shown with, the record's alt, the record's "what". Never
+ * the Commons file title. A trailing date clause (", in late November") is cut; a text that
+ * still has a date, or that talks about "photos" rather than what is in one, is skipped.
+ */
+function whatItShows(rec, given) {
+  const tidy = (s) => String(s || "").trim().replace(/\s+/g, " ").replace(new RegExp(`,? (?:in|on) (?:(?:early|mid|late) )?${MONTH}(?: \\d{4})?\\.?$`), "").replace(/[.\s]+$/, "");
+  const seen = SHOWN.get(rec) || {};
+  for (const t of [given, seen.caption, rec.caption, seen.alt, rec.alt, rec.what].map(tidy)) {
+    if (!t || hasDate(t) || /\bphotos?\b/i.test(t)) continue;
+    if (rec.title && t === String(rec.title).trim()) continue;
+    return t;
+  }
+  throw new Error(`photos.js: ${label(rec)} needs a caption or alt with no date, to name it in the credits`);
 }
 
 /* ---------------------------------------------------------------------------- */
@@ -168,12 +212,27 @@ const CSS = {
     + ".c3ph-hero img{aspect-ratio:4/3}"
     + "@media (min-width:700px){.c3ph-hero img{aspect-ratio:16/9}}"
     + ".c3ph-hero figcaption{color:var(--muted);font-size:.85rem;line-height:1.5;margin-top:.55rem}",
-  gallery: ".c3ph-gal{display:flex;gap:.75rem;margin:1.6rem 0;padding:0 0 .4rem;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;list-style:none}.c3ph-gal::-webkit-scrollbar{display:none}"
-    + ".c3ph-gal>figure{flex:0 0 82%;margin:0;scroll-snap-align:start}"
-    + "@media (max-width:699px){.c3ph-gal{margin-left:calc(-1*var(--c3ph-bleed,1.4rem));margin-right:calc(-1*var(--c3ph-bleed,1.4rem));padding-left:var(--c3ph-bleed,1.4rem);padding-right:var(--c3ph-bleed,1.4rem);scroll-padding:0 var(--c3ph-bleed,1.4rem)}}"
+  /* A phone shows the photos one under the other, full width, each with its caption. From
+     700 px they sit in a row of 2 or 3. */
+  gallery: ".c3ph-gal{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;margin:1.6rem 0;padding:0;list-style:none}"
+    + ".c3ph-gal>figure{margin:0;min-width:0}"
     + ".c3ph-gal img{aspect-ratio:var(--c3ph-r,4/3)}"
     + ".c3ph-gal figcaption{color:var(--muted);font-size:.85rem;line-height:1.45;margin-top:.5rem}"
     + "@media (min-width:700px){.c3ph-gal{display:grid;grid-template-columns:repeat(var(--c3ph-n,3),minmax(0,1fr));gap:1rem;overflow:visible;padding:0}.c3ph-gal>figure{min-width:0}}",
+  /* layout "row": on a phone the row scrolls sideways and snaps, the next photo shows at the
+     edge, and a line under it says "Swipe for more photos" beside one dot per photo. Where the
+     browser can tie an animation to the scroll, the dot of the photo in view fills in; elsewhere
+     the first dot is filled. From 700 px it is the same grid as the stack. */
+  row: "@media (max-width:699px){.c3ph-gal.c3ph-row{display:flex;gap:.75rem;padding:0 var(--c3ph-bleed,1.4rem) .4rem;margin:1.6rem calc(-1*var(--c3ph-bleed,1.4rem)) 0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--c3ph-bleed,1.4rem);-webkit-overflow-scrolling:touch;scrollbar-width:none}"
+    + ".c3ph-row::-webkit-scrollbar{display:none}.c3ph-row>figure{flex:0 0 82%;scroll-snap-align:start}}"
+    + ".c3ph-swipe{display:flex;align-items:center;gap:.75rem;margin:.5rem 0 1.6rem;color:var(--navy);font:500 .95rem/1.3 var(--sans)}"
+    + ".c3ph-dots{display:inline-flex;gap:.45rem}.c3ph-dots i{display:block;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--navy);box-sizing:border-box}"
+    + ".c3ph-dots i:first-child{background:var(--navy)}"
+    + "@supports (animation-timeline:view()){.c3ph-rowbox{timeline-scope:--c3ph-p1,--c3ph-p2,--c3ph-p3}"
+    + ".c3ph-row>figure:nth-child(1){view-timeline:--c3ph-p1 inline}.c3ph-row>figure:nth-child(2){view-timeline:--c3ph-p2 inline}.c3ph-row>figure:nth-child(3){view-timeline:--c3ph-p3 inline}"
+    + ".c3ph-dots i{animation:c3ph-dot linear both;animation-range:cover}.c3ph-dots i:nth-child(1){animation-timeline:--c3ph-p1}.c3ph-dots i:nth-child(2){animation-timeline:--c3ph-p2}.c3ph-dots i:nth-child(3){animation-timeline:--c3ph-p3}"
+    + "@keyframes c3ph-dot{0%,36%{background:transparent}42%,60%{background:var(--navy)}66%,100%{background:transparent}}}"
+    + "@media (min-width:700px){.c3ph-swipe{display:none}}",
   cards: ".c3ph-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:1.4rem 0 1.8rem;padding:0;list-style:none}"
     + "@media (min-width:700px){.c3ph-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}}"
     + "@media (min-width:1000px){.c3ph-cards.c3ph-4{grid-template-columns:repeat(4,minmax(0,1fr))}}"
@@ -183,8 +242,9 @@ const CSS = {
     + ".c3ph-card .c3ph-cr{font-size:.56rem;padding:1.2rem .45rem .25rem 1.6rem}"
     + ".c3ph-card strong{display:block;color:var(--navy);font-size:.98rem;font-weight:500;line-height:1.3;padding:.7rem .8rem 0}"
     + ".c3ph-card span.c3ph-t{display:block;color:var(--muted);font-size:.86rem;line-height:1.45;padding:.2rem .8rem .85rem}",
+  /* Small print: the title is the same small size as the lines, only a little darker. */
   credits: ".c3ph-credits{margin:2rem 0 1rem;padding:1rem 0 0;border-top:1px solid var(--rule);color:var(--muted);font-size:.8rem;line-height:1.55;max-width:760px}"
-    + ".c3ph-credits .c3ph-h{font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin:0 0 .5rem}"
+    + ".c3ph-credits .c3ph-h{font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--navy);margin:0 0 .4rem}"
     + ".c3ph-credits [role=listitem]{margin:0 0 .3rem}"
     + ".c3ph-credits a{color:inherit;text-decoration:underline;text-decoration-color:rgba(28,32,40,.3);text-underline-offset:2px}",
 };
@@ -208,29 +268,39 @@ function heroPhoto(rec, opts = {}) {
   const sizes = opts.sizes || "(max-width: 1200px) 100vw, 1136px";
   const mw = /^[0-9.]+(?:px|rem|em|%)$/.test(opts.maxWidth || "") ? `max-width:${opts.maxWidth};` : "";
   const cap = opts.caption ? `<figcaption>${esc(opts.caption)}</figcaption>` : "";
+  shown(rec, opts.caption, opts.alt);
   return `${style(["base", "hero"], opts)}<figure class="c3ph-hero" style="${mw}"><div class="c3ph-f">${img(rec, alt, { base: opts.base || "/", sizes, hero: true })}${overlay(rec, kind)}</div>${cap}</figure>`;
 }
 
 /*
- * Two or three photos in a row. On a phone the row scrolls sideways and snaps, with
- * the next photo showing at the edge; from 700 px wide it is a grid.
+ * Two or three photos. On a phone they stand one under the other, full width, each with its
+ * caption under it; from 700 px wide they sit side by side in a grid.
  * items: [{ photo: rec, alt, caption }] (or records with .alt and .caption set).
- * Options: ratio ("4/3" default, "3/2", "1/1", "16/9"), base, css.
+ * Options: layout ("stack", the default, or "row": on a phone a sideways row that snaps,
+ * with "Swipe for more photos" and a dot per photo under it), ratio ("4/3" default, "3/2",
+ * "1/1", "16/9"), label (for screen readers, default "Photos"), base, sizes, css.
  */
 function gallery(items, opts = {}) {
   if (!Array.isArray(items) || items.length < 2 || items.length > 3) throw new Error("photos.js: gallery takes 2 or 3 photos");
+  if (opts.layout != null && !["stack", "row"].includes(opts.layout)) throw new Error(`photos.js: gallery layout is "stack" (the default) or "row", not "${opts.layout}"`);
+  const row = opts.layout === "row";
   const ratio = ["4/3", "3/2", "1/1", "16/9"].includes(opts.ratio) ? opts.ratio : "4/3";
   const n = items.length;
-  const sizes = opts.sizes || (n === 2 ? "(max-width: 699px) 82vw, 380px" : "(max-width: 699px) 82vw, 250px");
+  const sizes = opts.sizes || `(max-width: 699px) ${row ? "82vw" : "100vw"}, ${n === 2 ? "380px" : "250px"}`;
   const figs = items.map((it) => {
     const rec = it && it.photo ? it.photo : it;
     const kind = checkRecord(rec);
     const alt = altFor(it, rec);
     const caption = String((it && it.caption) || "").trim();
     if (!caption) throw new Error(`photos.js: gallery photo ${label(rec)} needs a caption (a few plain words under the photo)`);
+    shown(rec, caption, it && it.alt);
     return `<figure><div class="c3ph-f">${img(rec, alt, { base: opts.base || "/", sizes })}${overlay(rec, kind)}</div><figcaption>${esc(caption)}</figcaption></figure>`;
   }).join("");
-  return `${style(["base", "gallery"], opts)}<div class="c3ph-gal" role="group" aria-label="${esc(opts.label || "Photos")}" style="--c3ph-n:${n};--c3ph-r:${ratio}">${figs}</div>`;
+  const gal = `<div class="c3ph-gal${row ? " c3ph-row" : ""}" role="group" aria-label="${esc(opts.label || "Photos")}" style="--c3ph-n:${n};--c3ph-r:${ratio}">${figs}</div>`;
+  if (!row) return `${style(["base", "gallery"], opts)}${gal}`;
+  /* The hint is for the eye only: a screen reader already reads every photo in the group. */
+  const hint = `<div class="c3ph-swipe" aria-hidden="true"><span class="c3ph-dots">${"<i></i>".repeat(n)}</span><span>Swipe for more photos &#8594;</span></div>`;
+  return `${style(["base", "gallery", "row"], opts)}<div class="c3ph-rowbox">${gal}${hint}</div>`;
 }
 
 /*
@@ -250,7 +320,8 @@ function featureCards(items, opts = {}) {
     let pic;
     if (it.photo) {
       const kind = checkRecord(it.photo);
-      pic = `<div class="c3ph-f">${img(it.photo, altFor(it, it.photo), { base: opts.base || "/", sizes: "(max-width: 699px) 46vw, 260px" })}${overlay(it.photo, kind, true)}</div>`;
+      shown(it.photo, "", it.alt);
+      pic = `<div class="c3ph-f">${img(it.photo, altFor(it, it.photo), { base: opts.base || "/", sizes: "(max-width: 699px) 46vw, 260px" })}${overlay(it.photo, kind)}</div>`;
     } else {
       pic = illustration(it.illustration, it.alt ? { alt: it.alt } : { decorative: true });
     }
@@ -261,30 +332,35 @@ function featureCards(items, opts = {}) {
 }
 
 /*
- * "Photo credits" for the end of the page: what each photo is (linked to where it came
- * from), who took it, and the license (linked to its deed). Each photo once.
- * Built from divs with list roles, so the scorer does not read it as body copy.
- * Options: title ("Photo credits"), css.
+ * "Photo credits" for the end of the page, in small type. One line per photo, each photo
+ * once: what it shows, in plain words (see whatItShows), then "Photo: <author>", the license
+ * linked to its deed, and "via Wikimedia Commons" linked to the photo's own page. Then one
+ * line on what Chapter3 changed. No file titles and no dates: the readers took them for
+ * mistakes. That is everything CC BY and CC BY-SA ask for: the author, the license and a
+ * link to it, a link to the source, and a note of changes.
+ * recs: the photo records used on the page, or { photo, caption } to name a photo in your
+ * own words. Built from divs with list roles, so the scorer does not read it as body copy.
+ * Options: title ("Photo credits"), id, css.
  */
 function creditsList(recs, opts = {}) {
   if (!Array.isArray(recs) || !recs.length) throw new Error("photos.js: creditsList needs the photo records used on the page");
-  const ext = 'target="_blank" rel="noopener noreferrer"';
   const seen = new Set();
   let sa = false;
-  const rows = recs.filter((r) => { const k = label(r); if (seen.has(k)) return false; seen.add(k); return true; }).map((rec) => {
+  const items = recs.map((r) => (r && r.photo ? { rec: r.photo, caption: r.caption } : { rec: r }));
+  const rows = items.filter(({ rec }) => { const k = label(rec); if (seen.has(k)) return false; seen.add(k); return true; }).map(({ rec, caption }) => {
     const kind = checkRecord(rec);
     if (kind === "by-sa") sa = true;
+    const what = esc(whatItShows(rec, caption));
+    if (kind === "own") return `<div role="listitem">${what}. Photo: ${esc(rec.author)}, Chapter3 Realty.</div>`;
+    if (kind === "illustration") return `<div role="listitem">${what}. Drawing: Chapter3 Realty.</div>`;
     const src = rec.source || rec.commons_page;
-    const title = String(rec.title || rec.what || "Photo").trim().replace(/\.$/, "");
-    if (kind === "own") return `<div role="listitem">${esc(title)}. Photo: ${esc(rec.author)}, Chapter3 Realty.</div>`;
-    if (kind === "illustration") return `<div role="listitem">${esc(title)}. Drawing: Chapter3 Realty.</div>`;
-    const where = srcName(rec);
-    const t = /^https:/.test(src) ? `<a href="${esc(src)}" ${ext}>${esc(title)}</a>` : esc(title);
-    const lic = `<a href="${esc(rec.license_url)}" ${ext}>${esc(licText(rec, kind))}</a>`;
-    return `<div role="listitem">${t}, by ${esc(rec.author)}, ${lic}${where ? `, via ${esc(where)}` : ""}.</div>`;
+    const where = srcName(rec) || new URL(src).hostname.replace(/^www\./, "");
+    const lic = `<a href="${esc(rec.license_url)}" ${EXT}>${esc(licText(rec, kind))}</a>`;
+    return `<div role="listitem">${what}. Photo: ${esc(rec.author)}, ${lic}, via <a href="${esc(src)}" ${EXT}>${esc(where)}</a>.</div>`;
   }).join("");
-  const note = `<div role="listitem">Chapter3 Realty resized these photos, and some are shown cropped.${sa ? " A cropped CC BY-SA photo is shared under the same license." : ""}</div>`;
-  return `${style(["credits"], opts)}<div class="c3ph-credits"><div class="c3ph-h" id="${esc(opts.id || "photo-credits")}">${esc(opts.title || "Photo credits")}</div><div role="list" aria-labelledby="${esc(opts.id || "photo-credits")}">${rows}${note}</div></div>`;
+  const note = `<div role="listitem">Chapter3 Realty resized these photos and cropped some of them.${sa ? " Each photo keeps the license listed with it." : ""}</div>`;
+  const id = esc(opts.id || "photo-credits");
+  return `${style(["credits"], opts)}<div class="c3ph-credits"><div class="c3ph-h" id="${id}">${esc(opts.title || "Photo credits")}</div><div role="list" aria-labelledby="${id}">${rows}${note}</div></div>`;
 }
 
 /* ---------------------------------------------------------------------------- */
@@ -330,7 +406,7 @@ function checkFile(jsonPath, root) {
   return out;
 }
 
-module.exports = { heroPhoto, gallery, featureCards, creditsList, photoCss, checkRecord, findPhoto, imageSet, makeVariants, checkFile, LICENSES, esc };
+module.exports = { heroPhoto, gallery, featureCards, creditsList, photoCss, checkRecord, findPhoto, imageSet, makeVariants, checkFile, whatItShows, hasDate, LICENSES, esc };
 
 if (require.main === module) {
   const [cmd, a, b] = process.argv.slice(2);
