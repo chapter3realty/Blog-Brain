@@ -17,6 +17,7 @@ GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 -b claude/github-account-check-wutg8b 
 
 ## Read first
 
+0. `CRAFT.md`: the skill of making a page, in one place. You are learning a skill, not filling a template (owner, 2026-10-10).
 1. `audit/AUDIT.md`: everything wrong with the live site on 2026-10-01, ranked, with fixes. Evidence is in `audit/evidence/`. Start here.
 2. `STUDY.md`: what the 122 live articles score and why.
 3. `STANDARD.md`: what a finished page has, and what it may never claim. Every rule has an ID.

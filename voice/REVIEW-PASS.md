@@ -17,6 +17,8 @@ The order is how often the owner caught the problem, counted from `edits.jsonl` 
 - P6. How many times is a date or month-year in the body? More than once outside the top line and a deadline is a fail.
 - P7. On a page for a home to live in: does the headline or the first screen lead with price? It must lead with the home and the area.
 - P8. Which sentences would the reader not miss? Cut them.
+- P9. Does the page say a source is old, or date a rule ("the 2019 rules")? Remove the date. Then judge the fact: still true and low risk, keep it plainly; could cost the reader if wrong and you cannot judge it, cut it.
+- Skill. Does this page's shape fit its subject, or does it copy another page's sections? Would a different order serve this reader better?
 
 ## 0. Buyer first (owner, 2026-10-06; answer these before everything else)
 

@@ -6,6 +6,8 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 
 ## Read this first
 
+**A skill, not a template (owner, 2026-10-10).** "please remember you arent learning templates you are learning a skill and you are in charge im just a teacher or an editor". Every rule below is the reason behind a correction. Learn the reason, then decide what this page and this reader need. Two pages on different subjects should not share a shape just because a brief listed sections. `CRAFT.md` holds the skill in one place.
+
 **Simple first (owner, 2026-10-07). These come before every other rule, on every page and every piece of writing.** The owner: "please please please do not take what im telling you as a lesson for this one type of thing or this one blog understand that in everything you do you need to make it as easy to understand as possible ... blogs need to be simple enough to understand a baby could read it and figure everything out".
 
 - P1. Write for a reader who knows nothing: not the town, not the roads, not the words. If a child could not follow it, rewrite it.
@@ -16,6 +18,7 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 - P6. Say the date once, at the top. Not in every section.
 - P7. On a page for people buying a home to live in, lead with the home, what it offers, and the area around it. Price comes later and softly. Never in the headline. Cost-first is for investor pages.
 - P8. Leave out details that only show how much we know. If the reader would not miss it, cut it.
+- P9. Old data: if a fact rarely changes and being wrong could not hurt the reader, state it plainly with no date. If it changes and a reader could act on it (a fee, a rental rule, a pet limit), use it only if you judge it is still true and low risk; otherwise leave it out. Never write "this is outdated". If there is no good data on a topic, do not mention the topic.
 
 **Buyer first (owner, 2026-10-06).**
 
@@ -46,7 +49,7 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 
 Paths are in the website repo (`chapter3realty/Chapter3-Website`, branch `claude/github-account-check-wutg8b`) unless they start with `Blog-Brain/`. `RL` is `research/relocating/owner-answers.md`. `B3`, `B4` and `B5` are `research/invest-next/owner-answers-batch3.md`, `-batch4.md` and `-batch5.md`. The full record of each correction is in `edits.jsonl` in this folder.
 
-Rule counts: PLAIN 8, BUYER 8, FIG 7, SHAPE 10, WORD 5, STRUCT 9, BIZ 8, FACT 9, LOCAL 5, STORY 7, CTA 4, OWNER 5. Total 85. When PLAIN or BUYER conflicts with another rule, PLAIN wins, then BUYER, except the legal rules in BIZ and FACT.
+Rule counts: PLAIN 9, BUYER 8, FIG 7, SHAPE 10, WORD 5, STRUCT 9, BIZ 8, FACT 9, LOCAL 5, STORY 7, CTA 4, OWNER 5. Total 86. When PLAIN or BUYER conflicts with another rule, PLAIN wins, then BUYER, except the legal rules in BIZ and FACT.
 
 ---
 
@@ -99,6 +102,15 @@ He had a third-party reader go through version 4. Verdict, verbatim: "it is a ve
 ### PLAIN-8. Leave out what only shows how much we know.
 - Owner: "talking about all the details and exact things just sound like you're flexing your smarts."
 - Test: would the reader miss this sentence? If not, cut it.
+- Enforced by: reading pass.
+
+### PLAIN-9. Old data: use judgment, never announce it.
+- Owner: "if the only data you have is outdated use what you think would still be true or you think doesnt have an realistic chance of actuqlly getting us in trouble and then dont mention its outdated if there is no data thats good on a topic then just diont mention it." (Blog-Brain session, 2026-10-10)
+- Bad: "The rules we could read are from 2019. The HOA has newer ones that are not online." "Under the 2017 posted copy of the rules..."
+- Good (suggested): "Dogs are welcome on a leash." (a rule that rarely changes and costs the reader nothing if it has).
+- The test, in order: (1) Does this kind of fact change often? (2) If it changed, could a reader lose money or break a rule by trusting us? If both answers are no, state it plainly. If either is yes, state it only if you judge it is still true; if you cannot judge, leave it out and let the call to action offer to check it.
+- The ledger keeps the date and the source. The page does not. Sale prices, tax and dues stay current-year facts, so they are never old in this sense.
+- This replaces the BUYER-3 note that a price or fee "carries its date" in body copy (PLAIN-6 already moved the date to the byline).
 - Enforced by: reading pass.
 
 ## BUYER. Write for the buyer (owner, 2026-10-06, after the first 55+ batch)
