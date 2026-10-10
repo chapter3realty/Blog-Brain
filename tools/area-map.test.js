@@ -147,10 +147,11 @@ check("street names: routes, bypass, odd numbers", cleanStreet("US Hwy 17 Byp N"
 
 /* The two buttons. */
 const links = mapLinksHtml({ name: "Myrtle Trace", lat: 33.778502, lon: -78.996618 });
-check("links: brass button opens the place in Google Maps", /<a class="btn btn-brass" href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&amp;query=33\.778502,-78\.996618"[^>]*>Open in Google Maps<\/a>/.test(links), links);
-check("links: outline button gets directions", /<a class="btn btn-outline" href="https:\/\/www\.google\.com\/maps\/dir\/\?api=1&amp;destination=33\.778502,-78\.996618"[^>]*>Get directions<\/a>/.test(links));
+check("links: a plain link opens the place in Google Maps", /<a class="c3-map-link open" href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&amp;query=33\.778502,-78\.996618"[^>]*>(?:<svg[\s\S]*?<\/svg>)?Open in Google Maps<\/a>/.test(links), links);
+check("links: a plain link gets directions", /<a class="c3-map-link directions" href="https:\/\/www\.google\.com\/maps\/dir\/\?api=1&amp;destination=33\.778502,-78\.996618"[^>]*>(?:<svg[\s\S]*?<\/svg>)?Get directions<\/a>/.test(links));
 check("links: open in a new tab, safely", (links.match(/target="_blank" rel="noopener noreferrer"/g) || []).length === 2);
 check("links: no frame, no script, no inline brass ground", !/<iframe|<script|background:var\(--brass\)/.test(links));
+check("links: no button classes (the website audit allows buttons only for contact, phone or tools)", !/class="btn/.test(links));
 check("links: names are escaped and lat/lon are required", !/<b>/.test(mapLinksHtml({ name: "<b>x", lat: 33.7, lon: -78.9 })) && throws(() => mapLinksHtml({ name: "x" })));
 check("liveMapHtml is still exported and marked deprecated", typeof liveMapHtml === "function" && /DEPRECATED[^\n]*Use mapLinksHtml/.test(fs.readFileSync(path.join(__dirname, "area-map.js"), "utf8")));
 

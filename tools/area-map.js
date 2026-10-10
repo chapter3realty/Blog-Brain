@@ -1712,10 +1712,12 @@ function mapLinksHtml(o) {
   const open = `https://www.google.com/maps/search/?api=1&query=${q}`;
   const dir = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
   const name = o.name ? esc(o.name) : "this place";
-  const a = (cls, href, text, title) => `<a class="btn ${cls}" href="${esc(href)}" title="${title}" target="_blank" rel="noopener noreferrer">${text}</a>`;
-  return `<p class="c3-map-links" style="display:flex;flex-wrap:wrap;gap:.6rem;margin:.9rem 0 1.8rem;max-width:760px">`
-    + a("btn-brass", open, "Open in Google Maps", `${name} in Google Maps`)
-    + a("btn-outline", dir, "Get directions", `Directions to ${name} in Google Maps`)
+  /* Plain text links, not buttons: the website audit allows a button only for /contact/, a phone number or a tool. */
+  const pin = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="vertical-align:-3px;margin-right:.35rem"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>`;
+  const a = (cls, href, text, title) => `<a class="c3-map-link ${cls}" href="${esc(href)}" title="${title}" target="_blank" rel="noopener noreferrer" style="color:var(--navy);font-weight:500;text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:3px">${pin}${text}</a>`;
+  return `<p class="c3-map-links" style="display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin:.9rem 0 1.8rem;max-width:760px">`
+    + a("open", open, "Open in Google Maps", `${name} in Google Maps`)
+    + a("directions", dir, "Get directions", `Directions to ${name} in Google Maps`)
     + `</p>`;
 }
 
