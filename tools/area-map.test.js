@@ -127,6 +127,68 @@ for (const home of FOUR) {
 }
 check("aria-label: a home inside its town says 'in'", /^Del Webb at Grande Dunes is in Myrtle Beach/.test(communityMaps({ home: FOUR[1] }).region.alt));
 
+/* ================= reading on a phone (buyer reads v6) ================= */
+
+/* Sizes: place names 13 px or more, drive times 12 px or more, on a 390 px phone. */
+for (const [k, m, classes] of [["region", r, ["l", "T", "t", "p", "o", "wc"]], ["close", c, ["l", "a", "e", "c", "p", "wc"]]]) {
+  const small = classes.filter((cls) => !(cssSize(m.svg, cls) * PHONE >= 13));
+  check(`${k}: place names are 13 px or more on a 390 px phone`, !small.length, small.map((cls) => `.${cls} ${cssSize(m.svg, cls)}`).join(", "));
+  check(`${k}: drive times are 12 px or more on a 390 px phone`, cssSize(m.svg, "m") * PHONE >= 12, String(cssSize(m.svg, "m")));
+}
+check("close: street names are 11.5 px or more (they were 9.5)", cssSize(c.svg, "s") * PHONE >= 11.5, String(cssSize(c.svg, "s")));
+check("wider screens still shrink the labels around their marks", /@media\(min-width:600px\)\{#c3r-myrtle-trace \.k\{transform:scale\(\.8\)\}/.test(r.svg));
+
+/* Room: a label box is wider than its DM Sans text (widths of DM Sans 500 at 14 px, measured in
+   Chromium on 2026-10-10), so a label is never cut at the frame's edge. */
+const DM14 = { "about 15 min": 86, "about 20 min": 90, "about 3 min": 80, "Myrtle Beach airport": 136, "Broadway at the Beach": 155, "on Grand Cypress Way": 152, "Main entrance": 95, "Del Webb": 64, "Walmart": 56 };
+const tight = Object.entries(DM14).filter(([t, w]) => !(tw2(t, 14) >= w * 1.02));
+check("label boxes are 2 percent or more wider than the DM Sans text", !tight.length, tight.map(([t, w]) => `${t}: ${tw2(t, 14).toFixed(1)} < ${w}`).join("; "));
+check("region: no label within the edge margin (the cut-off 'Beach about 15 min')", !edgeHits(r), edgeHits(r));
+check("close: no label within the edge margin", !edgeHits(c), edgeHits(c));
+
+/* The four pages' maps, as the batch 2026-10-a kit draws them (the specs' own picks), with the
+   amenity named as each page names it. */
+const PLACES = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "batches", "2026-10-a", "data", "places.json"), "utf8"));
+const LM = Object.fromEntries(PLACES.landmarks.map((l) => [l.id, l]));
+const PICKS = {
+  "del-webb-grande-dunes": [["beach_dwgd", "Beach", "beach"], ["hosp_gsmc", "Hospital", "hospital"], ["groc_dwgd", "Food Lion", "grocery"], ["broadway", "Broadway at the Beach", "shopping"], ["airport", "Airport", "airport"]],
+  "del-webb-north-myrtle-beach": [["beach_dwnmb", "Beach", "beach"], ["hosp_mcleod", "Hospital", "hospital"], ["groc_dwnmb", "Kroger", "grocery", "region"], ["barefoot", "Barefoot Landing", "shopping"]],
+  "myrtle-trace": [["hosp_cmc", "Hospital", "hospital"], ["groc_mt", "Walmart", "grocery"], ["beach_mt", "Beach", "beach"], ["airport", "Airport", "airport"]],
+  "seasons-at-prince-creek-west": [["beach_spcw", "Beach", "beach"], ["hosp_tidelands", "Hospital", "hospital"], ["groc_spcw", "Publix", "grocery"], ["marshwalk", "MarshWalk", "dock"], ["airport", "Airport", "airport"]],
+};
+const LABEL = { "del-webb-grande-dunes": "Del Webb", "del-webb-north-myrtle-beach": "Del Webb", "seasons-at-prince-creek-west": "Seasons" };
+for (const cmty of PLACES.communities) {
+  const mins = Object.fromEntries(cmty.drives.map((d) => [d.to_id, d.minutes]));
+  const landmarks = PICKS[cmty.slug].map(([id, short, kind, map]) => Object.assign({ name: LM[id].name, short, kind, lat: LM[id].lat, lon: LM[id].lon, minutes: mins[id] }, map ? { map } : {}));
+  const home = { name: cmty.name, lat: cmty.lat, lon: cmty.lon, town: cmty.town, area: cmty.slug, label: LABEL[cmty.slug] };
+  const pm = communityMaps({ home, landmarks, amenity: "Clubhouse" });
+  for (const k of ["region", "close"]) {
+    const x = pm[k];
+    check(`page ${cmty.slug} ${k}: no overlaps, no label within the edge margin, nothing dropped`, !overlaps(x) && !edgeHits(x) && !x.dropped.length, overlaps(x) || edgeHits(x) || JSON.stringify(x.dropped));
+  }
+  check(`page ${cmty.slug} close: the pin says "Clubhouse", as the page does`, />Clubhouse</.test(pm.close.svg) && !/Amenity center/.test(pm.close.svg));
+  check(`page ${cmty.slug} close: six street names at most (there were up to ten)`, pm.close.labels.streets.length <= 6, JSON.stringify(pm.close.labels.streets));
+  check(`page ${cmty.slug} region: four route markers at most, one a route`, pm.region.labels.routes.length <= 4 && new Set(pm.region.labels.routes).size === pm.region.labels.routes.length, JSON.stringify(pm.region.labels.routes));
+  check(`page ${cmty.slug} region: no small place a reader does not know (Carolina Forest, Forestbrook, Socastee)`, !pm.region.labels.towns.some((t) => ["Carolina Forest", "Forestbrook", "Socastee"].includes(t)), JSON.stringify(pm.region.labels.towns));
+  if (PICKS[cmty.slug].some((p) => p[0] === "airport")) check(`page ${cmty.slug} region: the airport shows as "Myrtle Beach airport"`, />Myrtle Beach<\/tspan><tspan [^>]*>airport<\/tspan>/.test(pm.region.svg) && !/>Airport</.test(pm.region.svg));
+}
+
+/* The airport: named for its town only when the landmark is at that airport. */
+const gsa = regionMap({ home: FOUR[0], landmarks: [{ name: "Grand Strand Airport", short: "Airport", kind: "airport", lat: 33.8117, lon: -78.7239, minutes: 5 }] });
+check("airport: another airport keeps the caller's label", />Airport</.test(gsa.svg) && !/Myrtle Beach<\/tspan><tspan[^>]*>airport/.test(gsa.svg));
+const noAir = regionMap({ home: MT.home, landmarks: [MT.landmarks[0]] });
+check("airport: the airport ground, with no airport landmark, says 'Myrtle Beach airport'", noAir.labels.airport && /Myrtle Beach<\/tspan><tspan[^>]*>airport</.test(noAir.svg) && !/>Airport</.test(noAir.svg));
+
+/* The amenity pin: the caller names it as the page does; the point stays the cached one. */
+const nmbArea = loadGeo2().areas["del-webb-north-myrtle-beach"].amenity;
+const am1 = closeMap({ home: FOUR[0], amenity: "Clubhouse" });
+check("amenity: a label alone names the pin and keeps the cached point and street", />Clubhouse</.test(am1.svg) && !/Amenity center/.test(am1.svg) && am1.amenity.lat === nmbArea.lat && am1.amenity.lon === nmbArea.lon && am1.amenity.street === nmbArea.street, JSON.stringify(am1.amenity));
+check("amenity: the aria-label uses the same word", /and the clubhouse/.test(am1.alt) || /the clubhouse/.test(am1.alt), am1.alt);
+check("amenity: { label } is the same as the label alone", closeMap({ home: FOUR[0], amenity: { label: "Clubhouse" } }).svg === am1.svg);
+check("amenity: no label keeps the cached one", />Amenity center</.test(closeMap({ home: FOUR[0] }).svg));
+check("amenity: a new point drops the cached street", !("street" in closeMap({ home: FOUR[0], amenity: { label: "Clubhouse", lat: nmbArea.lat + 0.001, lon: nmbArea.lon } }).amenity));
+check("amenity: lat without lon, or a long label, throws", throws(() => closeMap({ home: FOUR[0], amenity: { label: "Clubhouse", lat: 33.82 } })) && throws(() => closeMap({ home: FOUR[0], amenity: "The clubhouse, the pools and the fitness center" })));
+
 /* communityMaps: a grocery stays off the region map; the links come with it. */
 const cm = communityMaps(MT);
 check("communityMaps: the grocery is on the close-up, not the region map", cm.close.landmarks.includes("Walmart Supercenter") && !/>Walmart</.test(cm.region.svg));

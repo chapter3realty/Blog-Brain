@@ -38,8 +38,8 @@
  *     swipes. So a gallery is a plain stack on a phone, one photo under the other, each
  *     with its caption. The swipe row is an option, and it says "Swipe for more photos".
  *   - The credits "read like file names" ("Prices Swamp Run", "(13 May 2023) 11", "Jun 10").
- *     So a credit names the photo by what it shows (the record's caption, else its alt),
- *     never by its Commons file title, and carries no date.
+ *     So a credit names the photo by what it shows (the caption it was shown with, else
+ *     the record's caption or alt), never by its Commons file title, and carries no date.
  *
  * The guard (checkRecord) throws before any markup is made when a record has:
  *   - no source, author, license or credit line, or (for a licensed photo) no license URL;

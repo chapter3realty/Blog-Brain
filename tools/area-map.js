@@ -48,7 +48,11 @@
  *               tools/icons.js. minutes is the drive time from a fact ledger row, never a guess.
  *               map: "region", "close" or "both". By default a grocery or hospital goes on the
  *               close-up when it fits there; communityMaps keeps a grocery off the region map.
- *   amenity     optional { label, lat, lon, street? } for the close-up pin; default from the cache.
+ *   amenity     optional: the close-up pin's name as the page says it ("Clubhouse"), or
+ *               { label, lat, lon, street? }. The point and street default to the cache; a
+ *               new point drops the cached street. Name it as the page does: a reader saw
+ *               "Amenity center" on the map and "clubhouse" in the text and could not tell
+ *               if they were one place.
  *   entrance    optional { label, lat, lon, on? }, or false for none; default from the cache.
  *   alt, closeAlt, caption, closeCaption, minSpanKm, coast: optional overrides.
  *
@@ -69,8 +73,18 @@
  *   - No external request, no script. Text is DM Sans and Fraunces, as on the site.
  *   - Labels never overlap: each one has a box (turned boxes for names that bend with a
  *     street), and a label with no clear spot is dropped, low priority first.
- *   - Phone first: labels are about 10 to 12 px on a 360 px phone. On wider screens a style
- *     block shrinks labels, markers and road widths, so the map reads the same at 760 px.
+ *   - Phone first, for readers in their sixties (buyer reads v6, batch 2026-10-a): on a 390 px
+ *     phone, where a map shows 342 px wide, place names are 13 px or more, drive times 12 px
+ *     or more, street names about 12 px (SZ). On wider screens a style block shrinks labels,
+ *     markers and road widths, so the map reads the same at 760 px.
+ *   - No label is cut at the edge: each label box is a little wider than its text (tw2) and
+ *     keeps EDGE units from the frame.
+ *   - Less small print: four route markers at most, one a route; a small place ("Carolina
+ *     Forest") only when a landmark on the map is in it; six street names at most on the
+ *     close-up, the entrance road first. No label sits on the community's outline on the
+ *     region map, and a landmark outside it keeps its name outside it on the close-up.
+ *   - The airport is "Myrtle Beach airport", not "Airport", when the landmark is at that
+ *     airport (or the airport ground shows with no landmark for it).
  *
  * Version 1 (kept so older specs build; do not use for new pages):
  *   areaMap(places), areaMapSvg(places): the first drawn map (OpenStreetMap coast, ODbL,
@@ -883,34 +897,35 @@ function placeCallouts(L, F, lms, R, prefix, o = {}) {
     const h = lines.length * LH + (mins ? MS + 2.5 : 0) + 2;
     const own = (it) => it.owner === prefix + i;
     const x0 = Math.max(R + 4, Math.min(F.W - R - 4, tx)), y0 = Math.max(R + 4, Math.min(F.H - R - 4, ty));
-    let found = null;
-    /* o.prefer(labelBox, lm): a spot it accepts wins when one is found with the marker on or
-       near its true spot; otherwise any clear spot. */
-    for (const pass of o.prefer ? [true, false] : [false]) {
-    if (found) break;
-    outer: for (const r of pass ? [0, 7, 14] : [0, 7, 14, 21, 28, 36, 45, 56]) {
-      const n = r === 0 ? 1 : Math.max(8, Math.round(2 * Math.PI * r / 8));
-      for (let k = 0; k < n; k++) {
-        const a = k * 2 * Math.PI / n, x = x0 + r * Math.cos(a), y = y0 + r * Math.sin(a);
-        if (x < R + 4 || x > F.W - R - 4 || y < R + 4 || y > F.H - R - 4) continue;
-        const mb = rectXY(x - R - 1, y - R - 1, x + R + 1, y + R + 1);
-        /* A marker may sit on the community's area; its label may not. */
-        if (!L.fits(mb, 2, (it) => own(it) || it.kind === "area")) continue;
-        const moved = Math.hypot(x - tx, y - ty) > 3, seg = segBox([tx, ty], [x, y]);
-        if (moved && L.items.some((it) => !own(it) && !["dot", "furniture", "area"].includes(it.kind) && satOverlap(seg, it))) continue;
-        for (const cand of besideCandidates(w, h, R, [0, 5, 10])) {
-          const b = boxOf(x, y, cand, w, h), lb = rectXY(b.x0, b.y0, b.x1, b.y1);
-          if (!L.fits(lb, 2, own) || (moved && satOverlap(lb, seg))) continue;
-          /* The label must sit nearer its own marker than any other, so it is never read as
-             another mark's name. */
-          const dOwn = boxDist(lb, x, y);
-          if (L.items.some((it) => (it.kind === "marker" || it.kind === "dot") && !own(it) && boxDist(lb, it.cx, it.cy) < dOwn + 6)) continue;
-          if (pass && !o.prefer(lb, lm)) continue;
-          found = { x, y, c: cand, lb, mb, moved }; break outer;
+    /* The nearest clear spot for the marker and its label. With o.prefer(labelBox, lm), a spot
+       it accepts wins when one is found with the marker on or near its true spot; otherwise
+       any clear spot. */
+    const search = (radii, prefer) => {
+      for (const r of radii) {
+        const n = r === 0 ? 1 : Math.max(8, Math.round(2 * Math.PI * r / 8));
+        for (let k = 0; k < n; k++) {
+          const a = k * 2 * Math.PI / n, x = x0 + r * Math.cos(a), y = y0 + r * Math.sin(a);
+          if (x < R + 4 || x > F.W - R - 4 || y < R + 4 || y > F.H - R - 4) continue;
+          const mb = rectXY(x - R - 1, y - R - 1, x + R + 1, y + R + 1);
+          /* A marker may sit on the community's area; its label may not. */
+          if (!L.fits(mb, 2, (it) => own(it) || it.kind === "area")) continue;
+          const moved = Math.hypot(x - tx, y - ty) > 3, seg = segBox([tx, ty], [x, y]);
+          if (moved && L.items.some((it) => !own(it) && !["dot", "furniture", "area"].includes(it.kind) && satOverlap(seg, it))) continue;
+          for (const cand of besideCandidates(w, h, R, [0, 5, 10])) {
+            const b = boxOf(x, y, cand, w, h), lb = rectXY(b.x0, b.y0, b.x1, b.y1);
+            if (!L.fits(lb, 2, own) || (moved && satOverlap(lb, seg))) continue;
+            /* The label must sit nearer its own marker than any other, so it is never read as
+               another mark's name. */
+            const dOwn = boxDist(lb, x, y);
+            if (L.items.some((it) => (it.kind === "marker" || it.kind === "dot") && !own(it) && boxDist(lb, it.cx, it.cy) < dOwn + 6)) continue;
+            if (prefer && !prefer(lb, lm)) continue;
+            return { x, y, c: cand, lb, mb, moved };
+          }
         }
       }
-    }
-    }
+      return null;
+    };
+    const found = (o.prefer && search([0, 7, 14], o.prefer)) || search([0, 7, 14, 21, 28, 36, 45, 56], null);
     if (!found) { dropped.push(lm); return; }
     L.add(found.mb, "marker", prefix + i); L.add(found.lb, "label", prefix + i);
     labels.push({ m: { lm, kind, tx, ty, x: found.x, y: found.y, moved: found.moved }, c: found.c, w, h, lines, mins, NS, MS, LH });
@@ -1224,7 +1239,7 @@ function regionMap(spec, opts = {}) {
      Marks may sit on it (kind "area", like a landmark's dot). */
   if (area) {
     const op = area.outline.flat().map(([lo, la]) => P(lo, la));
-    L.add(rectXY(Math.min(...op.map((p) => p[0])), Math.min(...op.map((p) => p[1])), Math.max(...op.map((p) => p[0])), Math.max(...op.map((p) => p[1]))), "area", "outline");
+    L.add(rectXY(Math.min(...op.map((p) => p[0])), Math.min(...op.map((p) => p[1])), Math.max(...op.map((p) => p[0])), Math.max(...op.map((p) => p[1]))), "area", "home");
   }
 
   /* Ocean polygon test for town labels. */
@@ -1542,24 +1557,32 @@ function closeMap(spec, opts = {}) {
     const SL = SZ.sub + 2.5, lh = size + 2.5, w = Math.max(tw2(main, size), sub ? tw2(sub, SZ.sub) : 0) + 4, h = lh + (sub ? SL : 0) + 1;
     const cs = [...extraCands.map((c) => Object.assign({}, c, { y: c.y - (sub && c.y < 0 ? SL : 0) })), ...besideCandidates(w, h, r, [0, 5, 12, 22])];
     const own = (o) => o.owner === owner;
-    for (const c of cs) { const b = boxOf(x, y, c, w, h), bb = rectXY(b.x0, b.y0, b.x1, b.y1); if (L.fits(bb, 2, own)) { L.add(bb, "label", owner); return { c, w, h, lh, main, sub }; } }
+    /* A spot outside the outline first, when there is one beside the mark: the inside is kept
+       for the community's name. */
+    for (const outside of [true, false]) for (const c of cs) {
+      const b = boxOf(x, y, c, w, h), bb = rectXY(b.x0, b.y0, b.x1, b.y1);
+      if (outside && inOutline([bb.cx, bb.cy])) continue;
+      if (L.fits(bb, 2, own)) { L.add(bb, "label", owner); return { c, w, h, lh, main, sub }; }
+    }
     return null;
   };
 
-  /* Labels in order: the road the entrance and the amenity are on, the labels beside the marks,
-     the community's name, named water, the longest streets inside, golf course land, then the
-     roads around it. Street names bend with the street. A name with no clear spot is left off. */
+  /* Labels in order: the pin's name and "Entrance" beside their marks, the roads they are on,
+     the landmarks, the community's name, named water, the longest streets inside, golf course
+     land, then the roads around it; six street names at most. Street names bend with the
+     street. A name with no clear spot is left off. */
   const SS = SZ.street, MAX_STREETS = 6;
   const insideLen = (st) => st.pcs.reduce((s, l) => s + l.slice(1).reduce((t, p, i) => t + (inOutline(p) && inOutline(l[i]) ? Math.hypot(p[0] - l[i][0], p[1] - l[i][1]) : 0), 0), 0);
   const totalLen = (st) => st.pcs.reduce((s, l) => s + l.slice(1).reduce((t, p, i) => t + Math.hypot(p[0] - l[i][0], p[1] - l[i][1]), 0), 0);
   const nearest = (x, y) => Object.values(named).map((st) => ({ st, d: Math.min(...st.pcs.map((l) => distToLine([x, y], l))) })).sort((a, b) => a.d - b.d);
   const key = new Set();
-  /* The entrance's road (ent.on), else the street nearest the entrance. Other streets come after
-     the labels beside the marks, so a street name does not push "Entrance" away from its mark. */
-  const stemOf = (n) => String(n).split(" ").slice(0, -1).join(" ").toLowerCase();
+  /* The key roads: the entrance's road (ent.on), else the street nearest the entrance, and the
+     amenity's street. Their names come after the labels beside the marks, so a street name
+     does not push "Entrance" away from its mark. */
+  const stem = (n) => String(n).split(" ").slice(0, -1).join(" ").toLowerCase();
   if (entPt) {
     const near = nearest(entPt.x, entPt.y).filter((n) => n.d < 6);
-    const on = ent.on && near.find((n) => stemOf(n.st.name) === stemOf(ent.on));
+    const on = ent.on && near.find((n) => stem(n.st.name) === stem(ent.on));
     if (on || near[0]) key.add((on || near[0]).st);
   }
   /* The amenity's street comes from its address (the cached area or spec.amenity.street), never
@@ -1579,21 +1602,28 @@ function closeMap(spec, opts = {}) {
   };
   const centre = (x, y) => -Math.hypot(x - W / 2, y - H / 2) * 0.01;
 
+  /* The pin's name and "Entrance" first, right beside their marks (a reader looks for "where do
+     I turn in"). Then the road they are on. When that road's name finds no room, its name goes
+     under the label instead ("on Burning Ridge Road"), if there is room; else the label stays
+     as it was. */
+  const amCands = [{ anchor: "start", x: 13, y: -22 * PK - 8 }, { anchor: "end", x: -13, y: -22 * PK - 8 }, { anchor: "middle", x: 0, y: -40 * PK - 17 }, { anchor: "middle", x: 0, y: 4 }];
+  let amLab = placeBeside(ax, ay, amenity.label || "Amenity center", "", SZ.amenity, "amenity", 13, amCands);
+  let entLab = ent ? placeBeside(entPt.x, entPt.y, ent.label || "Entrance", "", SZ.place, "entrance", 9) : null;
   for (const st of key) placeStreet(st, (x, y) => -Math.hypot(x - ax, y - ay) * 0.03);
-
-
-  /* Then the amenity, the entrance and the landmarks, beside their marks. */
   const labelled = (name) => streetLabels.some((x) => x.text === name);
-  const stem = (n) => String(n).split(" ").slice(0, -1).join(" ").toLowerCase();
+  const withSub = (lab, x, y, sub, size, owner, r, extra) => {
+    if (!lab || !sub) return lab;
+    L.items = L.items.filter((it) => !(it.owner === owner && it.kind === "label"));
+    return placeBeside(x, y, lab.main, sub, size, owner, r, extra) || placeBeside(x, y, lab.main, "", size, owner, r, extra);
+  };
   const amSub = amenity.street && !labelled(cleanStreet(amenity.street)) ? `on ${cleanStreet(amenity.street)}` : "";
-  const amLab = placeBeside(ax, ay, amenity.label || "Amenity center", amSub, SZ.amenity, "amenity", 13, [
-    { anchor: "start", x: 13, y: -22 * PK - 8 }, { anchor: "end", x: -13, y: -22 * PK - 8 }, { anchor: "middle", x: 0, y: -40 * PK - 17 }, { anchor: "middle", x: 0, y: 4 }]);
+  amLab = withSub(amLab, ax, ay, amSub, SZ.amenity, "amenity", 13, amCands);
   const entSub = ent && ent.on && !streetLabels.some((x) => stem(x.text) === stem(ent.on)) ? `on ${ent.on}` : "";
-  const entLab = ent ? placeBeside(entPt.x, entPt.y, ent.label || "Entrance", entSub, SZ.place, "entrance", 9) : null;
+  if (ent) entLab = withSub(entLab, entPt.x, entPt.y, entSub, SZ.place, "entrance", 9);
   /* A landmark outside the community keeps its name outside the outline when it can, so the
      inside is left for the community's own name. */
-  const crossesO = (b) => outlinePx.some((r) => r.some((a, i) => { const c = r[(i + 1) % r.length]; return satOverlap(b, { pts: [a, c], x0: Math.min(a[0], c[0]), y0: Math.min(a[1], c[1]), x1: Math.max(a[0], c[0]), y1: Math.max(a[1], c[1]) }); }));
-  const sameSide = (lb, lm) => !crossesO(lb) && inOutline([lb.cx, lb.cy]) === inOutline(P(lm.lon, lm.lat));
+  const crossesOutline = (b) => outlinePx.some((r) => r.some((a, i) => { const c = r[(i + 1) % r.length]; return satOverlap(b, { pts: [a, c], x0: Math.min(a[0], c[0]), y0: Math.min(a[1], c[1]), x1: Math.max(a[0], c[0]), y1: Math.max(a[1], c[1]) }); }));
+  const sameSide = (lb, lm) => !crossesOutline(lb) && inOutline([lb.cx, lb.cy]) === inOutline(P(lm.lon, lm.lat));
   const { labels: lmLabels, dropped } = placeCallouts(L, F, shownLms, R, "lm", { prefer: sameSide });
   const marks = lmLabels.map((l) => l.m);
 
@@ -1602,7 +1632,6 @@ function closeMap(spec, opts = {}) {
   const nameText = (home.label || home.name).toUpperCase();
   const NSZ = SZ.name;
   let nameLab = null;
-  const crossesOutline = (b) => outlinePx.some((r) => r.some((a, i) => { const c = r[(i + 1) % r.length]; return satOverlap(b, { pts: [a, c], x0: Math.min(a[0], c[0]), y0: Math.min(a[1], c[1]), x1: Math.max(a[0], c[0]), y1: Math.max(a[1], c[1]) }); }));
   const [ox0, oy0, ox1, oy1] = [Math.min(...outlinePx.flat().map((p) => p[0])), Math.min(...outlinePx.flat().map((p) => p[1])), Math.max(...outlinePx.flat().map((p) => p[0])), Math.max(...outlinePx.flat().map((p) => p[1]))];
   /* The outline's long axis, for a long thin community. */
   const allO = outlinePx.flat(), mx = allO.reduce((t, p) => t + p[0], 0) / allO.length, my = allO.reduce((t, p) => t + p[1], 0) / allO.length;

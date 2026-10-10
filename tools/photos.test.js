@@ -7,6 +7,10 @@
  * The guard (license record), alt text, srcset and sizes, lazy loading, the four blocks,
  * and the real batch file: every photo in batches/2026-10-a/data/photos.json passes the
  * guard and has its 600w and 1200w WebP files.
+ *
+ * Buyer reads v6 (batch 2026-10-a, readers in their sixties on a phone): three of four missed
+ * photos in a sideways row, and the credits "read like file names". The gallery and credits
+ * controls below hold the fixes.
  */
 "use strict";
 const fs = require("fs"), path = require("path"), os = require("os");
@@ -64,7 +68,9 @@ check("hero has sizes, width and height", /sizes="[^"]+"/.test(heroImg) && /widt
 check("hero is not lazy and is fetched first", !/loading=/.test(heroImg) && /fetchpriority="high"/.test(heroImg));
 check("hero is 4:3 on a phone and 16:9 from 700 px", /\.c3ph-hero img\{aspect-ratio:4\/3\}/.test(hero) && /@media \(min-width:700px\)\{\.c3ph-hero img\{aspect-ratio:16\/9\}\}/.test(hero) && /object-fit:cover/.test(hero));
 check("hero has rounded corners", /\.c3ph-hero \.c3ph-f\{border-radius:8px\}/.test(hero));
-check("hero carries the credit on the photo, license linked", /<span class="c3ph-cr">Photo: Jane Doe, <a href="https:\/\/creativecommons\.org\/licenses\/by-sa\/4\.0\/"[^>]*>CC BY-SA 4\.0<\/a><\/span>/.test(hero));
+check("hero credit on the photo reads 'Photo: <author>', linked to the license, nothing else", /<span class="c3ph-cr"><a href="https:\/\/creativecommons\.org\/licenses\/by-sa\/4\.0\/" target="_blank" rel="noopener noreferrer"[^>]*>Photo: Jane Doe<\/a><\/span>/.test(hero));
+check("hero credit: the license name is for screen readers and hover only, not printed", /aria-label="Photo: Jane Doe\. License: CC BY-SA 4\.0"/.test(hero) && !/>[^<]*CC BY-SA[^<]*</.test(hero.match(/<span class="c3ph-cr">.*?<\/span>/)[0]));
+check("credit on the photo drops the '(English Wikipedia)' tail", />Photo: Pollinator<\/a>/.test(P.heroPhoto(rec({ author: "Pollinator (English Wikipedia)" }))));
 check("credit overlay is tiny text on a soft gradient", /\.c3ph-cr\{[^}]*font:400 \.625rem[^}]*gradient/.test(hero));
 check("hero caption is escaped", /<figcaption>The beach &lt;at&gt; &quot;dawn&quot;<\/figcaption>/.test(hero));
 check("base option changes the path", /src="https:\/\/cdn\.example\/images\/t\/beach-1200w\.webp"/.test(P.heroPhoto(rec(), { base: "https://cdn.example/" })));
@@ -79,8 +85,18 @@ const gal = P.gallery([{ photo: rec(), caption: "The beach" }, { photo: g2, alt:
 const galImgs = gal.match(/<img [^>]+>/g) || [];
 check("gallery renders each photo with a caption", galImgs.length === 3 && (gal.match(/<figcaption>/g) || []).length === 3);
 check("gallery images are lazy with srcset, sizes, width and height", galImgs.every((i) => /loading="lazy"/.test(i) && /srcset="[^"]*600w, [^"]*1200w"/.test(i) && /sizes="/.test(i) && /width="\d+" height="\d+"/.test(i)));
-check("gallery scrolls and snaps on a phone", /\.c3ph-gal\{display:flex;[^}]*overflow-x:auto;scroll-snap-type:x mandatory/.test(gal) && /scroll-snap-align:start/.test(gal));
+check("gallery on a phone: one photo under the other, full width, nothing to swipe", /\.c3ph-gal\{display:grid;grid-template-columns:minmax\(0,1fr\);gap:1\.5rem/.test(gal) && !/overflow-x|scroll-snap/.test(gal) && !/c3ph-row|Swipe/.test(gal));
+check("gallery on a phone: each photo keeps its caption under it", /<figure><div class="c3ph-f"><img [^>]+>.*?<\/div><figcaption>The beach<\/figcaption><\/figure>/.test(gal));
+check("gallery on a phone: images are sized for the full width", galImgs.every((i) => /sizes="\(max-width: 699px\) 100vw, 250px"/.test(i)));
 check("gallery is a grid from 700 px", /@media \(min-width:700px\)\{\.c3ph-gal\{display:grid;grid-template-columns:repeat\(var\(--c3ph-n,3\)/.test(gal) && /--c3ph-n:3/.test(gal));
+const row = P.gallery([{ photo: rec(), caption: "The beach" }, { photo: g2, alt: "A long wooden pier over the ocean", caption: "The pier" }, Object.assign(rec(), { caption: "Again" })], { layout: "row" });
+check("row layout: a sideways row that snaps, on a phone only", /@media \(max-width:699px\)\{\.c3ph-gal\.c3ph-row\{display:flex;[^}]*overflow-x:auto;scroll-snap-type:x mandatory/.test(row) && /\.c3ph-row>figure\{flex:0 0 82%;scroll-snap-align:start\}/.test(row) && /class="c3ph-gal c3ph-row"/.test(row));
+check("row layout: says 'Swipe for more photos' under the row", /<\/div><div class="c3ph-swipe" aria-hidden="true">.*Swipe for more photos/.test(row));
+check("row layout: one dot per photo, the first filled", (row.match(/<i><\/i>/g) || []).length === 3 && /\.c3ph-dots i:first-child\{background:var\(--navy\)\}/.test(row));
+check("row layout: where the browser can, the dot follows the photo in view (no script)", /@supports \(animation-timeline:view\(\)\)/.test(row) && /view-timeline:--c3ph-p2 inline/.test(row) && /animation-timeline:--c3ph-p2/.test(row) && !/<script/.test(row));
+check("row layout: the hint is hidden from 700 px, where the photos sit in a grid", /@media \(min-width:700px\)\{\.c3ph-swipe\{display:none\}\}/.test(row));
+check("row layout: sized for 82vw on a phone", /sizes="\(max-width: 699px\) 82vw, 250px"/.test(row));
+check("gallery layout must be 'stack' or 'row'", throws(() => P.gallery([{ photo: rec(), caption: "a" }, { photo: rec(), caption: "b" }], { layout: "carousel" }), /stack.*row/) && /c3ph-gal"/.test(P.gallery([{ photo: rec(), caption: "a" }, { photo: rec(), caption: "b" }], { layout: "stack" })));
 check("gallery photos share one aspect ratio", /--c3ph-r:4\/3/.test(gal) && /aspect-ratio:var\(--c3ph-r,4\/3\)/.test(gal));
 check("gallery carries a credit on each photo", (gal.match(/class="c3ph-cr"/g) || []).length === 3);
 check("gallery takes 2 or 3 photos only", throws(() => P.gallery([{ photo: rec(), caption: "x" }]), /2 or 3/) && throws(() => P.gallery([1, 2, 3, 4].map(() => ({ photo: rec(), caption: "x" }))), /2 or 3/));
@@ -96,6 +112,7 @@ const cards = P.featureCards([
 check("cards: one card per item", (cards.match(/<li class="c3ph-card">/g) || []).length === 3);
 check("cards: drawings are inline SVG, decorative (the label says the same)", (cards.match(/<svg [^>]*aria-hidden="true"/g) || []).length === 2);
 check("cards: a photo card is a lazy srcset image", /<li class="c3ph-card"><div class="c3ph-f"><img [^>]*srcset="[^"]*600w[^"]*1200w"[^>]*loading="lazy"/.test(cards));
+check("cards: the credit on a card photo is 'Photo: <author>', linked to the license", /<span class="c3ph-cr"><a href="https:\/\/creativecommons\.org\/licenses\/by-sa\/4\.0\/"[^>]*>Photo: Jane Doe<\/a><\/span>/.test(cards));
 check("cards: two a row on a phone, three from 700 px, four from 1000 px", /\.c3ph-cards\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/.test(cards) && /min-width:700px\)\{\.c3ph-cards\{grid-template-columns:repeat\(3/.test(cards) && /min-width:1000px\)\{\.c3ph-cards\.c3ph-4\{grid-template-columns:repeat\(4/.test(cards) && /class="c3ph-cards c3ph-4"/.test(cards));
 check("cards: label and line are escaped text", /<strong>Beach &lt;nearby&gt;<\/strong><span class="c3ph-t">About 15 minutes by car<\/span>/.test(cards));
 check("cards: a drawing with alt is announced", /role="img" aria-label="An indoor pool with tall windows"/.test(P.featureCards([{ illustration: "indoor-pool", alt: "An indoor pool with tall windows", label: "Pool" }])));
@@ -106,24 +123,47 @@ check("cards: an unknown drawing throws", throws(() => P.featureCards([{ label: 
 check("cards: the guard runs on card photos", throws(() => P.featureCards([{ label: "Pool", photo: rec({ license: "CC BY-NC 4.0" }) }]), /Allowed/));
 
 /* ---- credits ---- */
-const cc0 = rec({ title: "Sunrise", file: "images/t/sun.webp", license: "CC0", license_url: "https://creativecommons.org/publicdomain/zero/1.0/", author: "Sam Roe", source: "https://commons.wikimedia.org/wiki/File:Sun.jpg" });
-const cr = P.creditsList([rec(), cc0, rec(), own]);
-check("credits: each photo once", (cr.match(/role="listitem"/g) || []).length === 4);
-check("credits: title linked to the source, author, license linked to its deed", /<a href="https:\/\/commons\.wikimedia\.org\/wiki\/File:Beach\.jpg"[^>]*>Beach at sunrise<\/a>, by Jane Doe, <a href="https:\/\/creativecommons\.org\/licenses\/by-sa\/4\.0\/"[^>]*>CC BY-SA 4\.0<\/a>, via Wikimedia Commons\./.test(cr));
-check("credits: CC0 photo is credited too", /Sunrise<\/a>, by Sam Roe, <a [^>]*>CC0<\/a>/.test(cr));
+/* Each photo is named by what it shows (the caption it was shown with, else the record's
+   caption, else its alt), never by its Commons file title, and with no date. */
+const titled = (o) => rec(Object.assign({ file: `images/t/${o.title.replace(/\W+/g, "-")}.webp` }, o));
+const cc0 = titled({ title: "Sunrise 2019-04-02", alt: "The sun coming up over calm water", license: "CC0", license_url: "https://creativecommons.org/publicdomain/zero/1.0/", author: "Sam Roe", source: "https://commons.wikimedia.org/wiki/File:Sun.jpg" });
+const fileTitle = titled({ title: "Prices Swamp Run (December 2022)", alt: "A calm lake with shops along the far shore", source: "https://commons.wikimedia.org/wiki/File:Prices_Swamp_Run_(December_2022).jpg" });
+const dated = titled({ title: "Beach Thanksgiving 2018", alt: "The beach and ocean seen from a high floor, in late November" });
+const cr = P.creditsList([rec(), cc0, rec(), own, fileTitle, dated]);
+const row0 = (cr.match(/<div role="listitem">[^]*?<\/div>/g) || []);
+check("credits: each photo once, then the note", row0.length === 6, String(row0.length));
+check("credits: what it shows, 'Photo: <author>', license linked to its deed, 'via Wikimedia Commons' linked to the file page", /<div role="listitem">Sand, sea oats and small waves at sunrise\. Photo: Jane Doe, <a href="https:\/\/creativecommons\.org\/licenses\/by-sa\/4\.0\/" target="_blank" rel="noopener noreferrer">CC BY-SA 4\.0<\/a>, via <a href="https:\/\/commons\.wikimedia\.org\/wiki\/File:Beach\.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons<\/a>\.<\/div>/.test(cr), row0[0]);
+check("credits: no Commons file title ('Prices Swamp Run', 'Beach.jpg', 'Sunrise 2019')", !/Prices Swamp|Beach\.jpg<|Sunrise 2019|Thanksgiving/.test(cr.replace(/href="[^"]*"/g, "")) && /A calm lake with shops along the far shore\. Photo:/.test(cr));
+check("credits: no date in the text ('2018', 'late November')", !/\b(?:19|20)\d\d\b|November/.test(cr.replace(/href="[^"]*"/g, "")) && /The beach and ocean seen from a high floor\. Photo:/.test(cr));
+check("credits: CC0 photo is credited too", /The sun coming up over calm water\. Photo: Sam Roe, <a [^>]*>CC0<\/a>/.test(cr));
 check("credits: our own photo says Chapter3 Realty", /Photo: A\. Agent, Chapter3 Realty\./.test(cr));
-check("credits: says we resized and cropped, and the BY-SA terms", /resized these photos, and some are shown cropped\. A cropped CC BY-SA photo is shared under the same license\./.test(cr));
-check("credits: no BY-SA sentence when there is no BY-SA photo", !/same license/.test(P.creditsList([cc0])));
-check("credits: links open safely in a new tab", (cr.match(/<a /g) || []).every(() => true) && !/<a (?![^>]*rel="noopener noreferrer")/.test(cr));
+check("credits: the note of changes, and that a BY-SA photo keeps its license", /Chapter3 Realty resized these photos and cropped some of them\. Each photo keeps the license listed with it\./.test(cr));
+check("credits: no BY-SA sentence when there is no BY-SA photo", !/keeps the license/.test(P.creditsList([cc0])));
+check("credits: links open safely in a new tab", !/<a (?![^>]*rel="noopener noreferrer")/.test(cr));
 check("credits: not read as body copy (no p or li)", !/<p[ >]|<li[ >]/.test(cr));
+check("credits: titled 'Photo credits' in small type, not capitals", /<div class="c3ph-h" id="photo-credits">Photo credits<\/div>/.test(cr) && /\.c3ph-credits \.c3ph-h\{font-family:var\(--sans\);font-size:\.8rem;/.test(cr) && !/\.c3ph-h\{[^}]*uppercase/.test(cr) && /\.c3ph-credits\{[^}]*font-size:\.8rem/.test(cr));
 check("credits: the guard runs here too", throws(() => P.creditsList([rec({ license: "" })]), /license record/));
 check("credits: an empty list throws", throws(() => P.creditsList([])));
+{
+  /* The words the reader saw under the photo come first. */
+  const a = titled({ title: "Conway Downtown Historic District Jun 10", alt: "Main Street in downtown Conway, lined with old brick shop buildings" });
+  const b = titled({ title: "Murrells inlet2473", alt: "Fishing boats tied up at a marina" });
+  const h = titled({ title: "Thorofare Island (Horry County, SC)", alt: "Cypress trees along dark water" });
+  P.gallery([{ photo: a, caption: "Main Street, downtown Conway" }, { photo: b, caption: "Fishing boats in Murrells Inlet" }]);
+  P.heroPhoto(h, { caption: "Cypress trees on the Waccamaw River near Conway. Every photo on this page shows the Conway area, not the neighborhood itself." });
+  const c2 = P.creditsList([h, a, b]);
+  check("credits: a gallery photo is named by its caption", /Main Street, downtown Conway\. Photo:/.test(c2) && /Fishing boats in Murrells Inlet\. Photo:/.test(c2) && !/Jun 10|inlet2473/.test(c2.replace(/href="[^"]*"/g, "")));
+  check("credits: a hero is named by its caption's first sentence", /Cypress trees on the Waccamaw River near Conway\. Photo:/.test(c2) && !/Every photo/.test(c2));
+  check("credits: { photo, caption } names a photo in the caller's words", /The fishing fleet\. Photo:/.test(P.creditsList([{ photo: b, caption: "The fishing fleet" }])));
+  check("credits: a caption that talks about 'photos' is skipped for the alt", /Cypress trees along dark water\. Photo:/.test(P.creditsList([{ photo: titled({ title: "X 1", alt: "Cypress trees along dark water" }), caption: "None of these photos show the neighborhood" }])));
+  check("credits: a photo with only dated words throws, asking for a caption", throws(() => P.creditsList([titled({ title: "Y 2", alt: "Taken on Jun 10, 2019 at noon", what: "Thanksgiving 2018" })]), /caption or alt with no date/));
+}
 
 /* ---- names and files ---- */
 const list = [rec(), g2];
 check("findPhoto finds by name with or without .webp or -600w", P.findPhoto(list, "pier") === g2 && P.findPhoto(list, "pier.webp") === g2 && P.findPhoto(list, "pier-600w.webp") === g2);
 check("findPhoto throws on a typo", throws(() => P.findPhoto(list, "beech")));
-check("no em dash in any output", !/\u2014/.test(hero + gal + cards + cr + P.photoCss()));
+check("no em dash in any output", !/\u2014/.test(hero + gal + row + cards + cr + P.photoCss()));
 
 let im = true;
 try { require("child_process").execFileSync("convert", ["-version"]); } catch { im = false; }
@@ -152,6 +192,17 @@ check("batch 2026-10-a: every 600w and 1200w file is in the repo", !missingFiles
 const tooBig = live.filter((p) => p.variants && fs.existsSync(inRepo(p.variants["1200"])) && fs.statSync(inRepo(p.variants["1200"])).size > 220 * 1024).map((p) => p.file);
 check("batch 2026-10-a: every 1200w file is under 220 KB (fast on a phone)", !tooBig.length, tooBig.join(", "));
 check("batch 2026-10-a: the Alabama Theatre sign is on hold and refused", throws(() => P.heroPhoto(P.findPhoto(data.photos, "alabama-theatre-barefoot-landing")), /on hold/));
+{
+  /* The credits for every batch photo: no file title and no date, the things readers flagged. */
+  const all = P.creditsList(live).replace(/href="[^"]*"/g, "");
+  const lines = all.match(/<div role="listitem">[^]*?<\/div>/g) || [];
+  const flagged = ["Prices Swamp Run", "(13 May 2023)", "Jun 10", "Thanksgiving", "18 November 2006", "inlet2473", "panoramio"].filter((t) => all.includes(t));
+  check("batch 2026-10-a: no credit carries a flagged file title or date", !flagged.length, flagged.join(", "));
+  const titles = live.filter((p) => all.includes(`>${p.title}.`) || all.includes(`">${p.title}`)).map((p) => p.title);
+  check("batch 2026-10-a: no credit is named by its Commons title", !titles.length, titles.join("; "));
+  check("batch 2026-10-a: every credit line has no year or dated month", lines.every((l) => !P.hasDate(l.replace(/<[^>]+>/g, ""))), lines.filter((l) => P.hasDate(l.replace(/<[^>]+>/g, ""))).join(" | "));
+  check("batch 2026-10-a: one line per photo, each 'via Wikimedia Commons'", lines.length === live.length + 1 && (all.match(/via <a [^>]*>Wikimedia Commons<\/a>/g) || []).length === live.length);
+}
 
 console.log(failures ? `\n${failures} control(s) failed` : "\nall controls pass");
 process.exitCode = failures ? 1 : 0;
