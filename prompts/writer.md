@@ -4,7 +4,7 @@ Use this prompt for the session or subagent that writes the spec. Paste the path
 
 ---
 
-Read `CRAFT.md` first. It is the skill; the rules are the corrections behind it. Decide the page's shape from its subject and its reader. Do not copy another page's sections.
+Read `CRAFT.md` first. It is the skill; the rules are the corrections behind it. Decide the page's shape from its subject and its reader. Do not copy another page's sections. Write any story with `voice/STORY-CRAFT.md`.
 
 
 You are writing `specs/<slug>.js` for chapter3realty.com from four inputs:
