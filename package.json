@@ -9,7 +9,8 @@
     "claims": "node tools/claims-scan.js",
     "facts": "node tools/facts-check.js",
     "map": "node tools/area-map.js",
-    "test": "node tools/score.test.js && node tools/site-audit.test.js && node tools/claims-scan.test.js && node tools/facts-check.test.js && node tools/record-edit.test.js && node tools/area-map.test.js && node tools/icons.test.js"
+    "test": "node tools/score.test.js && node tools/site-audit.test.js && node tools/claims-scan.test.js && node tools/facts-check.test.js && node tools/record-edit.test.js && node tools/area-map.test.js && node tools/icons.test.js && node tools/photos.test.js && node tools/illustrations.test.js",
+    "photos": "node tools/photos.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0"

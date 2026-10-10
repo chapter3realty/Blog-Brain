@@ -62,7 +62,7 @@ check("decorative: aria-hidden, no role, no label", /aria-hidden="true"/.test(de
 check("alt option replaces the label, escaped", /aria-label="Pool &lt;b&gt; &quot;here&quot;"/.test(illustration("indoor-pool", { alt: 'Pool <b> "here"' })));
 check("width option keeps 4:3", /width="320" height="240"/.test(illustration("dock", { width: 320 })));
 check("aliases resolve", illustration("pond") === illustration("fishing-pond") && illustration("boat") === illustration("dock"));
-check("no em dash", !/—/.test(all.map(([, s]) => s).join("") + ILLUSTRATION_NAMES.map(illustrationAlt).join("")));
+check("no em dash", !/\u2014/.test(all.map(([, s]) => s).join("") + ILLUSTRATION_NAMES.map(illustrationAlt).join("")));
 
 /* Render each drawing to pixels and make sure it is not blank. Needs Playwright. */
 async function render() {

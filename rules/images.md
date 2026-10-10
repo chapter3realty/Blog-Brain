@@ -11,7 +11,7 @@ The owner asked on 2026-10-10: "Are we making sure we cant get trademarked or su
 3. **CC BY and CC BY-SA photos.** Any version (2.0, 2.5, 3.0, 4.0). We must credit them as the license says (below).
 4. **Our drawings.** The spot drawings in `tools/illustrations.js` were made for Chapter3. They show a kind of place, never a real one.
 
-Where a photo may come from: Wikimedia Commons, and only when the person who uploaded it took it ("Own work"), or the source is a government agency or an institution that holds the rights. A photo copied to Commons from Flickr or Panoramio passed a license check, but the uploader is not the author. Do not add more of those. Never take a photo from a website, a search result or a social post.
+Where a photo may come from: Wikimedia Commons, and only when the person who uploaded it took it ("Own work"), or the source is a government agency or an institution that holds the rights. A photo copied to Commons from Flickr or Panoramio passed a license check, but the uploader is not the author. Do not add more of those. Four photos found on 2026-10-07 came that way; their `provenance` in `photos.json` says so. Replace them when a better photo exists. Never take a photo from a website, a search result or a social post.
 
 Every photo is at least 1200 pixels wide, so it stays sharp on a phone.
 
@@ -22,7 +22,7 @@ Every photo is at least 1200 pixels wide, so it stays sharp on a phone.
 - A news photo.
 - Google Maps, Street View or Google Earth images, or any screenshot of them.
 - A stock photo with a person in it, unless the license page shows a model release.
-- A photo whose subject is a logo, a brand sign, a storefront name or a product.
+- A photo whose subject is a logo, a brand sign, a storefront name or a product. The Alabama Theatre road sign photo is on hold for this reason.
 - A photo whose subject is a person who could be recognized.
 - A photo whose subject is a statue, a mural or other artwork (see "Buildings and art" below).
 - An AI image that looks like a real place or a real person. A made-up picture is never shown as the real place (PLAIN-4).
@@ -32,11 +32,11 @@ Every photo is at least 1200 pixels wide, so it stays sharp on a phone.
 
 ## How to credit
 
-Every photo has a full record in `photos.json`: source page, author, license, license link, credit line, and the title of the photo. `photos.js` throws if any of these is missing.
+Every photo has a full record in `photos.json`: source page, author, license, license link, credit line, the title of the photo, and alt text. `photos.js` throws if the source, author, license, license link or credit line is missing, or if a photo has no alt text. Our own photos need no license link.
 
 On the page, each photo gets two credits:
 
-1. A tiny line on the photo itself: "Photo: Author, CC BY-SA 4.0", with the license linked.
+1. A tiny line on the photo itself: "Photo: Author, CC BY-SA 4.0", with the license linked. On a small card it is "Photo: Author".
 2. A line in the "Photo credits" block at the end of the page: the photo's title linked to its source page, the author, the license linked to its deed, and "via Wikimedia Commons".
 
 The credits block ends with: "Chapter3 Realty resized these photos, and some are shown cropped." The 4.0 licenses require us to say when we change a photo ([CC BY 4.0, section 3(a)](https://creativecommons.org/licenses/by/4.0/legalcode.en#s3a)). The Creative Commons FAQ names cropping as a change to note ([FAQ: how to attribute](https://creativecommons.org/faq/#how-do-i-properly-attribute-material-offered-under-a-creative-commons-license)). The same section allows the credit "in any reasonable manner based on the medium", so a credits block at the end of the page is enough.

@@ -140,12 +140,17 @@ function img(rec, alt, o) {
 const licText = (rec, kind) => (kind === "pd" ? "Public domain" : kind === "own" || kind === "illustration" ? "Chapter3 Realty" : String(rec.license).trim());
 const srcName = (rec) => rec.source_name || (/wikimedia\.org/.test(rec.source || rec.commons_page || "") ? "Wikimedia Commons" : "");
 
-/* The short credit on the photo: "Photo: Author, CC BY-SA 4.0" with the license linked. */
-function overlay(rec, kind) {
+/* The author as the photo itself shows it: no "(English Wikipedia)" or "(Flickr: x)" tail.
+   The full name is in creditsList. */
+const shortAuthor = (a) => String(a).replace(/\s*\([^)]*\)/g, "").trim() || String(a).trim();
+
+/* The short credit on the photo: "Photo: Author, CC BY-SA 4.0" with the license linked.
+   On a small card it is "Photo: Author"; the license is in creditsList. */
+function overlay(rec, kind, small) {
   const ext = 'target="_blank" rel="noopener noreferrer"';
-  const author = String(rec.author).trim();
+  const author = esc(shortAuthor(rec.author));
   const lic = rec.license_url ? `<a href="${esc(rec.license_url)}" ${ext}>${esc(licText(rec, kind))}</a>` : esc(licText(rec, kind));
-  const body = kind === "own" ? `Photo: ${esc(author)}` : kind === "illustration" ? "Drawing: Chapter3 Realty" : `Photo: ${esc(author)}, ${lic}`;
+  const body = kind === "illustration" ? "Drawing: Chapter3 Realty" : kind === "own" || small ? `Photo: ${author}` : `Photo: ${author}, ${lic}`;
   return `<span class="c3ph-cr">${body}</span>`;
 }
 
@@ -163,8 +168,9 @@ const CSS = {
     + ".c3ph-hero img{aspect-ratio:4/3}"
     + "@media (min-width:700px){.c3ph-hero img{aspect-ratio:16/9}}"
     + ".c3ph-hero figcaption{color:var(--muted);font-size:.85rem;line-height:1.5;margin-top:.55rem}",
-  gallery: ".c3ph-gal{display:flex;gap:.75rem;margin:1.6rem 0;padding:0 0 .4rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0;-webkit-overflow-scrolling:touch;scrollbar-width:thin;list-style:none}"
+  gallery: ".c3ph-gal{display:flex;gap:.75rem;margin:1.6rem 0;padding:0 0 .4rem;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;list-style:none}.c3ph-gal::-webkit-scrollbar{display:none}"
     + ".c3ph-gal>figure{flex:0 0 82%;margin:0;scroll-snap-align:start}"
+    + "@media (max-width:699px){.c3ph-gal{margin-left:calc(-1*var(--c3ph-bleed,1.4rem));margin-right:calc(-1*var(--c3ph-bleed,1.4rem));padding-left:var(--c3ph-bleed,1.4rem);padding-right:var(--c3ph-bleed,1.4rem);scroll-padding:0 var(--c3ph-bleed,1.4rem)}}"
     + ".c3ph-gal img{aspect-ratio:var(--c3ph-r,4/3)}"
     + ".c3ph-gal figcaption{color:var(--muted);font-size:.85rem;line-height:1.45;margin-top:.5rem}"
     + "@media (min-width:700px){.c3ph-gal{display:grid;grid-template-columns:repeat(var(--c3ph-n,3),minmax(0,1fr));gap:1rem;overflow:visible;padding:0}.c3ph-gal>figure{min-width:0}}",
@@ -180,7 +186,7 @@ const CSS = {
   credits: ".c3ph-credits{margin:2rem 0 1rem;padding:1rem 0 0;border-top:1px solid var(--rule);color:var(--muted);font-size:.8rem;line-height:1.55;max-width:760px}"
     + ".c3ph-credits .c3ph-h{font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin:0 0 .5rem}"
     + ".c3ph-credits [role=listitem]{margin:0 0 .3rem}"
-    + ".c3ph-credits a{color:var(--navy);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:2px}",
+    + ".c3ph-credits a{color:inherit;text-decoration:underline;text-decoration-color:rgba(28,32,40,.3);text-underline-offset:2px}",
 };
 const style = (keys, opts) => (opts && opts.css === false ? "" : `<style>${keys.map((k) => CSS[k]).join("")}</style>`);
 
@@ -244,7 +250,7 @@ function featureCards(items, opts = {}) {
     let pic;
     if (it.photo) {
       const kind = checkRecord(it.photo);
-      pic = `<div class="c3ph-f">${img(it.photo, altFor(it, it.photo), { base: opts.base || "/", sizes: "(max-width: 699px) 46vw, 260px" })}${overlay(it.photo, kind)}</div>`;
+      pic = `<div class="c3ph-f">${img(it.photo, altFor(it, it.photo), { base: opts.base || "/", sizes: "(max-width: 699px) 46vw, 260px" })}${overlay(it.photo, kind, true)}</div>`;
     } else {
       pic = illustration(it.illustration, it.alt ? { alt: it.alt } : { decorative: true });
     }
@@ -294,10 +300,15 @@ function makeVariants(src, outBase, o = {}) {
   const [w] = execFileSync("identify", ["-format", "%w %h", `${src}[0]`]).toString().trim().split(" ").map(Number);
   if (!(w >= 1200)) throw new Error(`photos.js: ${src} is ${w} px wide; a photo must be at least 1200 px wide`);
   fs.mkdirSync(path.dirname(outBase), { recursive: true });
+  /* Each file has a byte budget: 200 KB for 1200w, 64 KB for 600w. Most photos fit at the
+     encoder's normal quality. A leafy photo that does not is encoded again to the budget
+     (webp:target-size; this ImageMagick build ignores -quality for WebP). */
   const files = {};
-  for (const [size, q] of [[1200, o.q1200 || 74], [600, o.q600 || 72]]) {
+  for (const [size, budget] of [[1200, o.max1200 || 200 * 1024], [600, o.max600 || 64 * 1024]]) {
     const out = `${outBase}-${size}w.webp`;
-    execFileSync("convert", [`${src}[0]`, "-auto-orient", "-colorspace", "sRGB", "-resize", `${size}x>`, "-strip", "-quality", String(q), "-define", "webp:method=6", out]);
+    const enc = (extra) => execFileSync("convert", [`${src}[0]`, "-auto-orient", "-colorspace", "sRGB", "-resize", `${size}x>`, "-strip", "-define", "webp:method=6", ...extra, out]);
+    enc([]);
+    if (fs.statSync(out).size > budget) enc(["-define", `webp:target-size=${Math.round(budget * 0.96)}`, "-define", "webp:pass=6"]);
     files[size] = out;
   }
   const [W, H] = execFileSync("identify", ["-format", "%w %h", files[1200]]).toString().trim().split(" ").map(Number);
