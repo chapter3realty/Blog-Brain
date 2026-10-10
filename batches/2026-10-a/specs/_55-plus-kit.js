@@ -50,6 +50,7 @@ const NOT_USED = ["alabama-theatre-barefoot-landing", "broadway-at-the-beach-nig
  *   picks: [{ id, name, short, kind, map? }]. id is a landmark id in places.json; the
  *          minutes come from that community's drives (verified ledger rows only).
  *   o.label         a shorter name for the map pin.
+ *   o.amenity       the name the page uses for the amenity pin on the close-up ("Clubhouse").
  *   o.regionCaption the words under the "where it is" map; it must say "map".
  *   o.closeCaption  the words under the close-up.
  * Returns { region, close, links }: two h.figure blocks and the button row.
@@ -67,6 +68,7 @@ function maps(slug, picks, o = {}) {
   });
   const spec = { home: { name: c.name, lat: c.lat, lon: c.lon, town: c.town, area: slug }, landmarks };
   if (o.label) spec.home.label = o.label;
+  if (o.amenity) spec.amenity = o.amenity;
   const m = communityMaps(spec, { dir: MAP_DIR, src: MAP_SRC });
   const cap = (words, credit) => {
     if (!/\bmap\b/i.test(words)) throw new Error(`${slug}: a map caption must say "map": ${words}`);
@@ -101,15 +103,41 @@ function maps(slug, picks, o = {}) {
  * the card (voice/STORY-CRAFT.md). paras: the story's paragraphs; the first must open with
  * the bold "Example:" label. bg: the card fill, the opposite of the section (as h.cta).
  */
-function story(paras, meaning, bg) {
+function story(paras, meaning, bg, offer) {
   if (!/^<strong>Example:<\/strong> /.test(paras[0] || "")) throw new Error("a story opens with <strong>Example:</strong>");
   if (/\b(?:our client|we helped|Chapter ?3 (?:found|helped))\b/i.test(paras.join(" "))) throw new Error("an example never says the people are clients");
-  const n = (paras.join(" ").replace(/<[^>]+>/g, "").match(/\bChapter ?3\b/g) || []).length;
-  if (n > 1) throw new Error(`Chapter3 appears ${n} times in the story; once at most`);
+  /* Chapter3 never acts inside a labelled example: quoted alone, the sentence reads as a real
+     client (STORY-CRAFT, STANDARD T2, review 4). The service goes in the line after, as an offer. */
+  if (/\b(?:Chapter ?3|Chapter III|our agents?|an agent)\b/i.test(paras.join(" ").replace(/<[^>]+>/g, ""))) throw new Error("Chapter3 or an agent appears inside the example; put the service in the line after it, as an offer");
   const P = 'style="color:var(--muted);line-height:1.75;max-width:640px;margin:0 0 .9rem"';
   return `<div class="c3-story" style="background:var(--${bg === "ivory" ? "ivory" : "ivory-2"});border-top:3px solid var(--brass);padding:1.5rem 1.5rem .7rem;margin:1.4rem 0 1.4rem;max-width:720px">`
     + paras.map((t) => `<p ${P}>${t}</p>`).join("") + `</div>`
-    + `<p style="color:var(--navy);font-weight:500;line-height:1.7;max-width:720px;margin-bottom:1rem">${meaning}</p>`;
+    + `<p style="color:var(--navy);font-weight:500;line-height:1.7;max-width:720px;margin-bottom:${offer ? ".4rem" : "1rem"}">${meaning}</p>`
+    + (offer ? `<p style="color:var(--muted);line-height:1.7;max-width:720px;margin-bottom:1rem">${offer}</p>` : "");
+}
+
+/* ---------------------------------------------------------------------------- */
+/* The icon row in the hero                                                       */
+
+/*
+ * A compact row of icons with a word and a time each, for spec.heroMedia (website patch
+ * mkpage-hero-media.patch). One row at every width: on a phone each item stands as a small
+ * column (icon on top, then the words), so all the icons sit in the first screen; from
+ * 700 px each item is a chip with the icon at the left. Plain text, escaped; icons are
+ * decoration. items: [{ icon, label, text }].
+ */
+function glance(items) {
+  if (!Array.isArray(items) || items.length < 2 || items.length > 4) throw new Error("glance takes 2 to 4 items");
+  const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const css = "<style>.c3-glance{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:.75rem;max-width:760px}"
+    + ".c3-glance li{display:flex;align-items:center;gap:.55rem;margin:0;padding:.5rem .6rem;background:rgba(255,255,255,.55);border:1px solid var(--rule);border-radius:6px;line-height:1.25}"
+    + ".c3-glance .i{flex:0 0 auto;display:flex;width:2rem;height:2rem;border-radius:50%;background:var(--ivory-2);color:var(--brass-ink);align-items:center;justify-content:center}"
+    + ".c3-glance strong{display:block;color:var(--navy);font-size:.9rem;font-weight:500}"
+    + ".c3-glance span.t{display:block;color:var(--muted);font-size:.82rem}"
+    + "@media (max-width:699px){.c3-glance{gap:.4rem}.c3-glance li{flex-direction:column;justify-content:flex-start;text-align:center;gap:.3rem;padding:.5rem .2rem}"
+    + ".c3-glance .i{width:1.8rem;height:1.8rem}.c3-glance strong{font-size:.82rem}.c3-glance span.t{font-size:.78rem}}</style>";
+  return css + `<ul role="list" class="c3-glance" style="--n:${items.length}">` + items.map((it) =>
+    `<li><span class="i">${icon(it.icon, { size: 20 })}</span><span><strong>${esc(it.label)}</strong>${it.text ? `<span class="t">${esc(it.text)}</span>` : ""}</span></li>`).join("") + "</ul>";
 }
 
 /* ---------------------------------------------------------------------------- */
@@ -197,4 +225,4 @@ const compareTable = (self) => {
   return `${CMP_CSS}<div class="c3-cmp" style="overflow-x:auto;margin:1.2rem 0;max-width:760px"><table style="width:100%;border-collapse:collapse;font-size:.92rem"><thead><tr>${COMPARE.head.map((c) => `<th ${TH}>${c}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`;
 };
 
-module.exports = { h, maps, story, photoSet, compareTable, atAGlance, icon, CREDIT2 };
+module.exports = { h, maps, story, glance, photoSet, compareTable, atAGlance, icon, CREDIT2 };

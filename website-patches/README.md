@@ -44,10 +44,11 @@ git apply <blog-brain>/website-patches/mkpage.patch
 git apply <blog-brain>/website-patches/mkpage-hero-media.patch
 ```
 
-- A spec may set `heroMedia`: plain HTML placed in the hero, under the sub line and above the hero button.
+- A spec may set `heroMedia`: plain HTML placed in the hero, right under the H1 and above the byline.
+- It sits under the H1, not under the sub line. On a 390 x 844 phone screen, a row under the sub line started 787 to 885 pixels down, so on two of the four 55+ pages it was below the first screen. Under the H1 it ends by 774 pixels on all four.
 - Pages without it are unchanged.
 - The 55+ pages of batch 2026-10-a use it for a small icon row (beach, hospital, groceries), so a phone's first screen shows a picture (STANDARD P7, review 4).
-- Tested with `git apply --check` on a clean copy of the live branch after `mkpage.patch` (2026-10-10).
+- Tested with `git apply --check` on a copy of the live branch after `mkpage.patch` (2026-10-10). With both applied, `tools/mkpage.js` matches the draft that built the batch.
 
 ## `logo-chapter-iii.patch`: on hold
 
