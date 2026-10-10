@@ -26,7 +26,7 @@ One buyer or one couple, first names only. Five to eight sentences.
 3. **Therefore:** one small moment where they decide or act. That act is the point.
 4. **After:** one concrete outcome the reader can picture: a date on a calendar, a card in a wallet, a spare bed made up. Stop there.
 
-Then, outside the story, one plain sentence on what it means for the reader.
+Then, outside the story, one plain sentence on what it means for the reader. If Chapter3 does something that helps, offer it there.
 
 Write the ending first, then open on its opposite.
 
@@ -36,7 +36,8 @@ Write the ending first, then open on its opposite.
 - One detail the reader can picture.
 - No named feelings ("nervous", "thrilled", "love it"). Show the act that proves it.
 - Three numbers or fewer, rounded, about the people (an age, years in a house). Prices, taxes and fees go outside the story, from a verified row. Never a rate or a payment.
-- Chapter3 appears once at most, as an agent doing a service the story bank records.
+- Chapter3 never appears inside a labelled example. Quoted alone, "an agent at Chapter3 read the rules with them" reads as a real client. Put the service in the line after the story, as an offer: "An agent at Chapter3 can read the visitor rules with you before you offer." (Review 4, 2026-10-10.)
+- Never reuse this page's model examples, or the report's, with new names. Write a new story from the page's own worry.
 - Nothing about who lives somewhere or who a home suits. No "adult community", "active adults", "empty nesters", "people like you" (24 CFR 100.75, 100.306).
 - No promise: no "never worry", no savings, no value gain.
 - Every detail fits the place and the season.
