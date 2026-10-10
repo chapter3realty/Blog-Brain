@@ -34,6 +34,21 @@ It changes three things in `tools/mkpage.js`.
 - Wraps an `<img>` with alt text, or an `<svg role="img" aria-label="...">`, in a `<figure>` with a visible caption.
 - It throws if the alt or label is missing or shorter than 12 characters.
 
+## `mkpage-hero-media.patch`: a picture in the first screen
+
+Apply it after `mkpage.patch`:
+
+```
+cd <website-repo>
+git apply <blog-brain>/website-patches/mkpage.patch
+git apply <blog-brain>/website-patches/mkpage-hero-media.patch
+```
+
+- A spec may set `heroMedia`: plain HTML placed in the hero, under the sub line and above the hero button.
+- Pages without it are unchanged.
+- The 55+ pages of batch 2026-10-a use it for a small icon row (beach, hospital, groceries), so a phone's first screen shows a picture (STANDARD P7, review 4).
+- Tested with `git apply --check` on a clean copy of the live branch after `mkpage.patch` (2026-10-10).
+
 ## `logo-chapter-iii.patch`: on hold
 
 The owner will supply the logo (2026-10-05). This text-only version, "Chapter" plus a copper "III", is kept for reference and should not be applied.

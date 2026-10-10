@@ -49,7 +49,8 @@
       "provenance": "Flickr, copied to Commons by another user; a Commons reviewer checked the license. The uploader is not the author: replace when a photo that meets the own-work rule is found.",
       "taken": "2009-12-20",
       "original_size": "4500x3000",
-      "share_alike": true
+      "share_alike": true,
+      "hold": "On hold 2026-10-10: copied to Commons from Flickr by another user, so the uploader is not the author (rules/images.md). Not used in batch 2026-10-a."
     },
     {
       "slug": "del-webb-north-myrtle-beach",
@@ -194,7 +195,8 @@
       "provenance": "Flickr, copied to Commons by another user; a Commons reviewer checked the license. The uploader is not the author: replace when a photo that meets the own-work rule is found.",
       "taken": "2014-08-28",
       "original_size": "4927x2997",
-      "share_alike": false
+      "share_alike": false,
+      "hold": "On hold 2026-10-10: copied to Commons from Flickr by another user, so the uploader is not the author (rules/images.md). Not used in batch 2026-10-a."
     },
     {
       "slug": "del-webb-grande-dunes",
@@ -338,7 +340,8 @@
       "provenance": "Flickr, copied to Commons by another user; a Commons reviewer checked the license. The uploader is not the author: replace when a photo that meets the own-work rule is found.",
       "taken": "2014-09-30",
       "original_size": "5809x3872",
-      "share_alike": true
+      "share_alike": true,
+      "hold": "On hold 2026-10-10: copied to Commons from Flickr by another user, so the uploader is not the author (rules/images.md). Replaced by huntington-beach-state-park-lake-sunset."
     },
     {
       "slug": "seasons-at-prince-creek-west",
@@ -362,7 +365,8 @@
       "provenance": "Panoramio, copied to Commons by another user; a Commons reviewer checked the license. The uploader is not the author: replace when a photo that meets the own-work rule is found.",
       "taken": "2015-06-12",
       "original_size": "3456x2304",
-      "share_alike": false
+      "share_alike": false,
+      "hold": "On hold 2026-10-10: copied to Commons from Panoramio by another user, so the uploader is not the author (rules/images.md). Not used in batch 2026-10-a."
     },
     {
       "slug": "seasons-at-prince-creek-west",

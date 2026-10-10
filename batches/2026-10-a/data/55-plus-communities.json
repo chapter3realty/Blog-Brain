@@ -1,10 +1,10 @@
 {
-  "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); ledger names the rows. Plain words and round numbers only (voice/RULES.md PLAIN; REWRITE-PLAIN.md: Community, Town, Minutes to the beach, Homes usually sell for). Minutes are drive times by car from the community reference point to its nearest public beach access. Prices are the middle sale in the 12 months from October 2025 to September 2026, from Horry County deed records, rounded to the thousand. Change a cell here, then rebuild all four pages.",
+  "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); ledger names the rows. Plain words and round numbers only (voice/RULES.md PLAIN; REWRITE-PLAIN.md). Review 4 and buyer read v6 (2026-10-10): the town column became 'In or near', because two of the four are outside any town, and the price column says resale, because every price here is a resale price. Minutes are drive times by car from the community reference point to its nearest public beach access. Prices are the middle sale in the 12 months from October 2025 to September 2026, from Horry County deed records, rounded to the thousand. Change a cell here, then rebuild all four pages.",
   "head": [
     "Community",
-    "Town",
+    "In or near",
     "Minutes to the beach by car",
-    "Homes usually sell for"
+    "Resale homes usually sell for"
   ],
   "rows": [
     {
