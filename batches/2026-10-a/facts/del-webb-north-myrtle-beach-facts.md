@@ -335,3 +335,13 @@ Scope: the five new photo records in batches/2026-10-a/data/photos.json (four "-
 Commons file page, read 2026-10-11. Description date 7 October 2008 (the record says taken 2008-10-07). Original upload log: 2008-10-14 19:31, Festiva76, 3264x2448, 1,372,306 bytes, "I created this work entirely by myself". Current version: 4 May 2014, "Transferred from en.wikipedia" by Rcbutcher, same dimensions, 1.31 MB. Not a Flickr copy: the uploader of the original is the author. All of this matches the record's provenance.
 
 NOAA checks for the four aerials. The EO files and frames are in NOAA's public bucket noaa-eri-pds, group EC2601a. The Registry of Open Data page quotes NOAA: "open to the public and can be used as desired", attribution requested, never imply endorsement or that modified data is original. InPort item 67562 says "Access Constraints: None". The photos.json provenance for the four aerials names raw/0122026_RGB_1_Oblique_EO.txt, but frames ending RGB2 are listed in raw/0122026_RGB_2_Oblique_EO.txt (the file ledger row 103 cites). Same flight day, 12 Jan 2026. Fix the file name in the records.
+
+## Coordinator decision on row 75 (2026-10-11)
+
+The page may say plainly: "Renters here must stay at least 30 days." Reasons:
+- The 30 days is a condition of the city's zoning approval for the neighborhood (the PDD text requires the covenants to provide it), not only a builder promise.
+- If the recorded rule is stricter, "at least 30 days" is still true. If it were somehow looser, the only harm is that a buyer plans one long renter instead of weekly renters. That is low risk (RULES PLAIN-9).
+- The offer under the answer says an agent reads the HOA documents with the buyer before they sign, so no one relies on the page alone.
+- "The city's plan" is a phrase the reader has to look up (STORY-SIMPLE 7). The source stays in the sources line.
+Reopen this if the recorded covenants (Book 4442 Page 1382) or the 2026 rules (Book 5032 Page 1405) say otherwise.
+
