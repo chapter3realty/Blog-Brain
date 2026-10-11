@@ -159,7 +159,7 @@ module.exports = {
       story([
         "<strong>Example:</strong> Pat is moving from Erie, Pennsylvania, with her dog, Max, and she wants a fenced back yard where he can run. She likes a house in Myrtle Trace that backs onto the golf course.",
         "Before she makes an offer, her Chapter3 agent reads the neighborhood's rules with her. A house on the golf course cannot have a fence around its back yard.",
-        "The agent shows her that a dog run is allowed once the HOA approves it. Pat makes her offer, with a plan for Max's dog run beside the patio.",
+        "The agent shows her that a dog run, a small pen beside the house, is allowed once the HOA approves it. Pat makes her offer, with a plan for Max's dog run beside the patio.",
       ], "", bg,
       `An agent at Chapter3 can ${h.a("/contact/", "read the HOA's rules with you")} before you make an offer.`) },
   ],

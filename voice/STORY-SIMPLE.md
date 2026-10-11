@@ -44,11 +44,12 @@ The researcher's drafts were checked and tightened before they went on the pages
 
 - A rule never acts ("the rules say", "the rules only let"). A person or a fact does (RULES 1, the kit's check).
 - Vague is not simple. "The rules only let a grandchild stay part of the year" leaves the reader asking how long. One plain number the reader does nothing with ("up to 90 nights a year") and one plain comparison ("about two weeks too long") is simpler than a guess.
+- A cold reader (2026-10-11) stopped at "their plan is about two weeks too long" ("Too long for what?") and counted in their head. The fix puts the limit in its own sentence and the comparison in the next: "A grandchild can stay up to 90 nights a year. Their plan is about two weeks more than that." The same reader did not know what a dog run is; the story now says "a small pen beside the house".
 - Every claim must be true as written. "All summer plus Christmas is too long" is not certain for a short summer. "Their plan is about two weeks too long" is true because the story sets the plan.
 
 ### Del Webb at Grande Dunes
 
-**Example:** Bill and Nancy are moving from Ohio. They want their two grandsons to stay with them all summer and again at Christmas. They like a villa in Del Webb at Grande Dunes. Before they make an offer, their Chapter3 agent reads the neighborhood's rules with them. A grandchild can stay up to 90 nights a year, and their plan is about two weeks too long. Bill and Nancy cut two weeks from the summer visit and make their offer.
+**Example:** Bill and Nancy are moving from Ohio, and they want their two grandsons to stay with them all summer and again at Christmas. They like a villa in Del Webb at Grande Dunes. Before they make an offer, their Chapter3 agent reads the neighborhood's rules with them. A grandchild can stay up to 90 nights a year. Their plan is about two weeks more than that. Bill and Nancy cut two weeks from the summer visit and make their offer.
 
 Retell: Bill and Nancy wanted the grandsons all summer and at Christmas, but that is longer than a grandchild may stay, so the agent caught it and they cut the summer visit before the offer.
 
@@ -64,7 +65,7 @@ Child sentence: Renters have to stay a whole month, not one week.
 
 ### Myrtle Trace
 
-**Example:** Pat is moving from Erie, Pennsylvania, with her dog, Max, and she wants a fenced back yard where he can run. She likes a house in Myrtle Trace that backs onto the golf course. Before she makes an offer, her Chapter3 agent reads the neighborhood's rules with her. A house on the golf course cannot have a fence around its back yard. The agent shows her that a dog run is allowed once the HOA approves it. Pat makes her offer, with a plan for Max's dog run beside the patio.
+**Example:** Pat is moving from Erie, Pennsylvania, with her dog, Max, and she wants a fenced back yard where he can run. She likes a house in Myrtle Trace that backs onto the golf course. Before she makes an offer, her Chapter3 agent reads the neighborhood's rules with her. A house on the golf course cannot have a fence around its back yard. The agent shows her that a dog run, a small pen beside the house, is allowed once the HOA approves it. Pat makes her offer, with a plan for Max's dog run beside the patio.
 
 Retell: Pat wanted a fence for her dog, but that house cannot have one, so the agent found that a dog run is allowed and she made her offer.
 
