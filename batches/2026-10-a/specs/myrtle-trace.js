@@ -1,6 +1,13 @@
 /* /buyers/55-plus-communities/myrtle-trace/ - what it is like to live in Myrtle Trace,
  * a 55+ neighborhood just outside Conway.
  *
+ * Version 11, 2026-10-11: the v10 owner's-eye review (OWNER-EYE-v10-myrtle-trace.md): short
+ * question headings, the full fence answer above the story (row 54 and its note: perimeter fences
+ * only on lots backing onto roads or future development, never golf course or pond lots), people
+ * act in every sentence, no "the HOA says", the month section folded into its cards, the homes
+ * sentence in two (row 92's middle range: "about 1,500 to 2,100"), "In our experience" as on the
+ * other pages, one line under the story (the offer), the bottom offer about rules and costs.
+ * The drive to downtown Conway waits for the researcher's verified row (coordinator).
  * Version 10, 2026-10-11: the owner's-eye review of version 9
  * (batches/2026-10-a/OWNER-EYE-myrtle-trace.md) and the coordinator's decisions.
  * Shape: what is close (one map, one link), a normal month, the homes (one-story first, the
@@ -82,29 +89,29 @@ module.exports = {
   heroCta: { label: "Talk to an agent", href: "/contact/" },
   author: "devin",
   shortAnswer: [
-    "Myrtle Trace is a neighborhood of about 500 homes just outside Conway. At least one person in each home must be 55 or older. The homeowners association (HOA) fee is $95 a month.",
+    "Myrtle Trace has about 500 homes, and at least one person in each home must be 55 or older. The homeowners association (HOA) fee is $95 a month.",
     "Conway Medical Center and a Walmart Supercenter are each about 3 minutes away by car. Owners share a clubhouse, a pool and ponds for fishing. The neighborhood calendar lists about 70 events and club meetings a month.",
   ],
   sections: [
-    { h2: "What is close to Myrtle Trace?", html:
+    { h2: "What is close by?", html:
       ph.css() +
-      h.p("The beach by the Myrtle Beach Boardwalk is about 15 minutes away by car without traffic, and the airport is about 20. In our experience, rush hour adds 5 to 10 minutes.") +
+      h.p("The closest beach by car is the one by the Myrtle Beach Boardwalk. In our experience, rush hour adds 5 to 10 minutes to the drive.") +
       M.where },
 
-    { h2: "What does a month here look like?", html:
-      h.p(`In a normal month you can play bingo, swim, fish and join a league, all on the ${h.ext(CAL, "neighborhood's calendar")}.`) +
+    { h2: "What is a month like?", html:
+      h.p(`In a normal month in Myrtle Trace you can play bingo, swim, fish and join a league, all on the ${h.ext(CAL, "neighborhood's calendar")}.`) +
       ph.cards([
         { illustration: "card-table", label: "Bingo and game nights", text: "Bingo two Friday nights a month, and a game night on Sundays" },
-        { illustration: "outdoor-pool", label: "The pool", text: "Open every day from 8 a.m. to 9 p.m., in season" },
+        { illustration: "outdoor-pool", label: "The pool", text: "Open every day 8 a.m. to 9 p.m., until the start of October" },
         { illustration: "bocce", label: "Bocce and shuffleboard", text: "Leagues, each with its own schedule" },
-        { illustration: "fishing-pond", label: "Fishing", text: "Ponds where you fish and let the fish go" },
+        { illustration: "fishing-pond", label: "Fishing", text: "Ponds where you and your guests fish and let the fish go" },
       ], { cols: 4 }) +
-      h.p("There is also line dancing, a coffee group and a craft fair, and wide walkways run between the houses.") +
-      h.p("Your house guests can fish too. The ponds collect rainwater, so swimming and boating are not allowed in them. The pool closes for the season at the start of October.") },
+      h.p("There is also line dancing, a coffee group and a craft fair. There are wide walkways between the houses.") +
+      h.p("You cannot swim or take a boat in the ponds.") },
 
     { h2: "What are the homes like?", html: (bg) =>
-      h.p("Most homes in Myrtle Trace are one-story houses with their own yards, and a few are townhouses. Most were built in the 1980s and 1990s, with about 1,000 to 2,900 square feet and 3 bedrooms, some with 2.") +
-      h.p("The houses are on curving streets among tall pines and ponds, with Burning Ridge Golf Club next door.") +
+      h.p("Most homes in Myrtle Trace are one-story houses with their own yards, and a few are townhouses. Most were built in the 1980s and 1990s.") +
+      h.p("Most have 3 bedrooms and about 1,500 to 2,100 square feet. The houses are on curving streets among tall pines and ponds, with Burning Ridge Golf Club next door.") +
       OVER +
       STREET +
       h.p("Some homes look out on the golf course, which is privately owned. Golf balls from the course can land in those yards.") +
@@ -117,48 +124,48 @@ module.exports = {
       h.p("Downtown, Main Street is lined with old brick buildings with shops and places to eat.") +
       MAIN },
 
-    { h2: "What does it cost to live here?", html: (bg) =>
-      h.p("Homes in Myrtle Trace usually sell for about $300,000. On a home at that price that you live in, plan for these costs:") +
+    { h2: "What does it cost?", html: (bg) =>
+      h.p("Homes in Myrtle Trace usually sell for about $300,000. If you live in the home, plan for these costs:") +
       atAGlance([
         { icon: "dollar", label: "HOA fee", text: "$95 a month" },
         { icon: "tax", label: "Property tax", text: "About $1,200 a year" },
         { icon: "key", label: "When you buy", text: "A one-time fee to the HOA of a little over $1,500" },
       ], { bg, min: "13rem" }) +
-      h.p("The HOA fee pays to keep up the pool, the clubhouse, the gates, the roads the HOA owns, the ponds and the shared land. Myrtle Trace has a Conway address but is outside the city limits, so you pay no Conway city tax.") +
-      h.p(`You probably will not need flood insurance, because no home here is in a high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}. If you want it, a policy here usually costs about $550 a year. Read ${h.a("/buyers/coastal-insurance/", "what home and flood insurance cost near Myrtle Beach")}.`) +
-      h.cta("Get an insurance quote before you offer.", "Pick the Myrtle Trace home you like. An agent at Chapter3 gets you a homeowners insurance quote before you write the offer.", "Get a quote", "/contact/", bg) },
+      h.p("The HOA uses the fee to keep up the pool, the clubhouse, the gates, the roads it owns, the ponds and the shared land. Myrtle Trace has a Conway address but is outside the city limits, so you pay no Conway city tax.") +
+      h.p(`You probably will not need flood insurance, because no home here is in a high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}. If you want it, a policy here usually costs about $550 a year.`) +
+      h.cta("Get an insurance quote before you offer.", `Pick the Myrtle Trace home you like. An agent at Chapter3 gets you a homeowners ${h.a("/buyers/coastal-insurance/", "insurance")} quote before you write the offer.`, "Get a quote", "/contact/", bg) },
 
-    { h2: "Who can live here, and what are the house rules?", html: (bg) =>
-      h.p(`At least one person in every home must be 55 or older, under the ${h.ext(COV, "HOA's rules")}. The others in the home can be any age, and grandchildren can visit.`) +
+    { h2: "Who can live here?", html: (bg) =>
+      h.p(`At least one person in every home in Myrtle Trace must be 55 or older, under the ${h.ext(COV, "HOA's rules")}. The others in the home can be any age, and grandchildren can visit.`) +
       atAGlance([
         { icon: "pets", label: "Pets", text: "Yes. Keep them on a leash outside your yard, and out of the clubhouse and pool area." },
         { icon: "key", label: "Renting it out", text: "Yes, for a year or longer. One tenant must be 55 or older and live there." },
         { icon: "home", label: "Sheds and pools", text: "No free-standing sheds, gazebos or private swimming pools." },
         { icon: "dock", label: "Trucks and boats", text: "Trucks go in the garage. Campers, boats and RVs can park at the clubhouse lot with a permit." },
-      ], { bg }) +
-      h.p("In Chapter3's experience, many HOAs here do not allow renting at all. Myrtle Trace does.") },
+      ], { bg, min: "18rem" }) +
+      h.p("In our experience, many HOAs here do not allow renting at all. Myrtle Trace does.") },
 
-    { h2: "How does Myrtle Trace compare with other 55+ neighborhoods near Myrtle Beach?", html: () =>
-      h.p("Myrtle Trace has the lowest HOA fee of these four, $95 a month, and its homes usually sell for the least. The beach is about 15 minutes away.") +
+    { h2: "How does it compare?", html: () =>
+      h.p("Myrtle Trace has the lowest HOA fee of these four 55+ neighborhoods, $95 a month, and its homes usually sell for the least. The beach is about 15 minutes away.") +
       compareTable(SELF) },
 
-    { h2: "Can you fence a yard for a dog in Myrtle Trace?", html: (bg) =>
-      h.p("Not with a fence between yards or across the front. A dog run is allowed once the HOA approves it.") +
+    { h2: "Can you fence a yard?", html: (bg) =>
+      h.p("Usually not in Myrtle Trace. Fences between yards and across the front are not allowed, and most lots cannot have a fence around the back yard either. A dog run is allowed once the HOA approves it.") +
       story([
         "<strong>Example:</strong> Pat is moving from Erie with her dog, Max, and she plans to fence the back yard for him. She likes a house in Myrtle Trace whose back yard looks out on the golf course next door.",
-        "Before she makes an offer, her Chapter3 agent reads the HOA's design rules for that lot with her. The agent finds that no fence around the yard is allowed on a lot that backs onto the golf course or a pond.",
-        "The agent also finds that a dog run is allowed once the HOA approves where it goes and how it is built. Pat makes her offer with a sketch of a dog run beside the patio, ready to send to the HOA.",
-      ], "If you have a dog, ask what you can build in the yard before you choose a house.", bg,
+        "Before she makes an offer, her Chapter3 agent reads the HOA's rules for yards on that lot with her. The agent finds that no fence around the yard is allowed on a lot that backs onto the golf course or a pond.",
+        "The agent shows her that a dog run is allowed once the HOA approves where it goes and how it is built. Pat makes her offer on the golf course house, with a plan for a dog run beside the patio.",
+      ], "", bg,
       `An agent at Chapter3 can ${h.a("/contact/", "read the HOA's rules with you")} before you make an offer.`) },
   ],
   faqTitle: "Myrtle Trace FAQ",
   faq: [
-    { q: "Is Myrtle Trace a gated community?", a: "Only in part. The back entrance has gates, and the front entrance is always open. The HOA says the back gates stop drivers from using the neighborhood as a shortcut." },
-    { q: "How much is the HOA fee in Myrtle Trace?", a: "The HOA fee is $95 a month. It pays to keep up the pool, the clubhouse, the roads the HOA owns, the ponds and the shared land." },
-    { q: "Who runs the Myrtle Trace HOA?", a: "The owners run it themselves with volunteers, and the HOA says it has no management company." },
+    { q: "Is Myrtle Trace a gated community?", a: "Only in part. The front entrance is always open. The HOA put gates on the back entrance so drivers do not cut through the neighborhood." },
+    { q: "How much is the HOA fee in Myrtle Trace?", a: "The HOA fee is $95 a month. The HOA uses it to keep up the pool, the clubhouse, the roads it owns, the ponds and the shared land." },
+    { q: "Who runs the Myrtle Trace HOA?", a: "The owners run the Myrtle Trace HOA themselves, with volunteers. There is no management company." },
     { q: "Is the golf course part of Myrtle Trace?", a: "No. Burning Ridge Golf Club, next door, is privately owned and is not part of the HOA. Some Myrtle Trace homes back onto it." },
     { q: "Can you fish in the Myrtle Trace ponds?", a: "Yes. Residents and their house guests can fish from the shared land around the 15 ponds. Every fish goes back in the water." },
-    { q: "Do you need flood insurance in Myrtle Trace?", a: "Probably not. No Myrtle Trace home is in a high-risk flood zone, though a lender may still ask for a policy." },
+    { q: "Do you need flood insurance in Myrtle Trace?", a: "Probably not. No home here is in a high-risk flood zone. If you want a policy, it usually costs about $550 a year." },
     { q: "Is Myrtle Trace inside Conway city limits?", a: "No. Myrtle Trace has a Conway mailing address but is outside the city, so owners there pay no Conway city tax." },
   ],
   sources: [
@@ -170,7 +177,7 @@ module.exports = {
   sourcesNote: "Not legal or tax advice. The home sizes are from recent MLS listings. Drive times are OpenStreetMap estimates with no traffic. The flood cost is FEMA's middle policy price for this ZIP code.",
   /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
   afterSources: () => ph.credits(),
-  bottomCta: { h2: "Talk to us about a home in Myrtle Trace.", p: "Call about the home you like. One of our agents will go over the HOA's rules and rental policy with you. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call an agent", href: TEL },
+  bottomCta: { h2: "Talk to us about a home in Myrtle Trace.", p: "Call about the home you like. One of our agents will go over the HOA's rules and the costs with you. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call an agent", href: TEL },
   keywords: "Myrtle Trace Conway, Myrtle Trace 55 community, living in Myrtle Trace, Myrtle Trace HOA fee, Myrtle Trace homes, Myrtle Trace activities",
   about: "Myrtle Trace, a 55+ community in unincorporated Horry County near Conway, South Carolina",
 };

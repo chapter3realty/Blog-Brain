@@ -132,7 +132,8 @@ function story(paras, meaning, bg, offer) {
     + paras.map((t) => `<p ${P}>${t}</p>`).join("") + `</div>`
     /* The lesson is set at the reading size, like the line after it (it was 17px beside a
        19.5px offer line on a desktop, 2026-10-11). */
-    + `<p style="color:var(--navy);font-weight:500;font-size:var(--read,1rem);line-height:1.6;max-width:34em;margin-bottom:${offer ? ".4rem" : "1rem"}">${meaning}</p>`
+    /* meaning may be empty: on the version 11 pages the offer box under the story says it. */
+    + (meaning ? `<p style="color:var(--navy);font-weight:500;font-size:var(--read,1rem);line-height:1.6;max-width:34em;margin-bottom:${offer ? ".4rem" : "1rem"}">${meaning}</p>` : "")
     + (offer ? `<p style="color:var(--muted);line-height:1.7;max-width:720px;margin-bottom:1rem">${offer}</p>` : "");
 }
 
@@ -261,7 +262,9 @@ function photoSet() {
          appears (owner, 2026-10-11: the date once at the top; photo years only in the credits). */
       let html = P.creditsList(used, { css: false });
       for (const r of used) if (/^USDA Farm Service Agency, NAIP$/.test(r.author || "") && r.taken) {
-        html = html.split("Photo: USDA Farm Service Agency, NAIP, ").join(`Photo: USDA Farm Service Agency, NAIP ${String(r.taken).slice(0, 4)}, `);
+        /* Plain words for a buyer (owner's eye, v10: nobody knows "NAIP"). */
+        html = html.split("Photo: USDA Farm Service Agency, NAIP, ").join(`U.S. government aerial photo, ${String(r.taken).slice(0, 4)}, by the USDA Farm Service Agency, `)
+          .split("from the NAIP export").join("from the aerial photo");
         break;
       }
       return html + P.imageSchema(used);
@@ -283,7 +286,9 @@ function photoSet() {
    the price column (review 3). */
 const TH = 'style="padding:.55rem .8rem;border-bottom:2px solid var(--navy);color:var(--navy);text-align:left;font-family:var(--sans);font-size:.8rem;letter-spacing:.04em;text-transform:uppercase"';
 const TD = 'style="padding:.55rem .8rem;border-bottom:1px solid var(--rule);color:var(--muted)"';
-const CMP_CSS = "<style>@media (max-width:599px){"
+const CMP_CSS = "<style>.c3-cmp tr.c3-self td{background:#fff;font-weight:600;color:var(--navy)!important}"
+  + "@media (max-width:599px){.c3-cmp tr.c3-self{background:#fff;border:2px solid var(--brass)}.c3-cmp tr.c3-self td{background:transparent}}"
+  + "@media (max-width:599px){"
   + ".c3-cmp table,.c3-cmp tbody,.c3-cmp tr,.c3-cmp td{display:block;width:100%}"
   + ".c3-cmp thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}"
   + ".c3-cmp tr{background:var(--ivory-2);border-top:3px solid var(--brass);margin:0 0 .75rem;padding:.4rem 0}"
@@ -297,7 +302,8 @@ const compareTable = (self) => {
   const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
   const rows = COMPARE.rows.map((r) => {
     const cells = [r.url === self ? `<strong style="color:var(--navy);font-weight:500">${r.cells[0]}</strong>` : h.a(r.url, r.cells[0]), ...r.cells.slice(1)];
-    return `<tr>${cells.map((c, i) => `<td data-label="${esc(COMPARE.head[i])}" ${TD}>${c}</td>`).join("")}</tr>`;
+    /* This page's own row stands out: bold, shaded, with a brass frame on a phone card. */
+    return `<tr${r.url === self ? ' class="c3-self"' : ""}>${cells.map((c, i) => `<td data-label="${esc(COMPARE.head[i])}" ${TD}>${c}</td>`).join("")}</tr>`;
   }).join("");
   return `${CMP_CSS}<div class="c3-cmp" style="overflow-x:auto;margin:1.2rem 0;max-width:760px"><table style="width:100%;border-collapse:collapse;font-size:.92rem"><thead><tr>${COMPARE.head.map((c) => `<th ${TH}>${c}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`;
 };
