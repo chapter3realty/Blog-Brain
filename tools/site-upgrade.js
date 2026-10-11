@@ -59,7 +59,11 @@ function upgrade(html, slug, site) {
     return block.replace(body, () => b);
   });
 
-  if (card) {
+  /* A page that already shares its own photo (mkpage-photos.patch) keeps it:
+     Google advises against text-on-image pictures, and the card is text. */
+  const curOg = (html.match(/<meta property="og:image" content="([^"]*)">/) || [])[1] || "";
+  const sharesPhoto = curOg && curOg !== DEFAULT_OG && !curOg.includes("/og/");
+  if (card && !sharesPhoto) {
     const metas = [
       [/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${card}">`],
       [/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${card}">`],
