@@ -1,5 +1,5 @@
 {
-  "_comment": "Photos for the four 55+ community pages, batch 2026-10-a. Found on Wikimedia Commons: 18 on 2026-10-07, 19 more on 2026-10-10. Only CC0, public domain, CC BY and CC BY-SA. None shows a community itself: Commons has no photo of any of the four. Each photo shows the area around it; the 'what' line says where. Each record has a 600w and a 1200w WebP file (variants, made with tools/photos.js from the Commons 1920 or 1280 px thumbnail; resized, nothing else changed), width and height of the 1200w file, default alt text, the photo's Commons title, and how it reached Commons (provenance). 'file' is the older single 1200 px file that the 2026-10-07 specs use; the 2026-10-10 photos have only the variants. A photo with 'hold' may not be used; tools/photos.js refuses it. Use tools/photos.js (heroPhoto, gallery, featureCards, creditsList), which links the license and the source. Rules: rules/images.md. CC BY-SA: if a photo is cropped or edited, the edited version carries the same license. Each record also has 'place' (IPTC Location Shown and schema contentLocation; the state is South Carolina). The four heroes have 'crops' (1x1, 4x3, 16x9) for Article.image. Every file holds its credit, license and alt text as embedded IPTC/XMP metadata (tools/photos.js embed; rules/image-metadata.md). On 2026-10-11, 6 aerial photos of the communities themselves were added: USDA NAIP 2023 (public domain) from the USGS National Map, with the outline and labels drawn by Chapter3 Realty ('changes'; digital_source_type 'composite'). Each record keeps the exact export request (source_request) and the NAIP tiles under it. Version 10 (2026-10-11): 4 close aerial views of a street of homes, one per community (scratchpad aerial/scripts/build10.js), no drawing, colors adjusted.",
+  "_comment": "Photos for the four 55+ community pages, batch 2026-10-a. Found on Wikimedia Commons: 18 on 2026-10-07, 19 more on 2026-10-10. Only CC0, public domain, CC BY and CC BY-SA. None shows a community itself: Commons has no photo of any of the four. Each photo shows the area around it; the 'what' line says where. Each record has a 600w and a 1200w WebP file (variants, made with tools/photos.js from the Commons 1920 or 1280 px thumbnail; resized, nothing else changed), width and height of the 1200w file, default alt text, the photo's Commons title, and how it reached Commons (provenance). 'file' is the older single 1200 px file that the 2026-10-07 specs use; the 2026-10-10 photos have only the variants. A photo with 'hold' may not be used; tools/photos.js refuses it. Use tools/photos.js (heroPhoto, gallery, featureCards, creditsList), which links the license and the source. Rules: rules/images.md. CC BY-SA: if a photo is cropped or edited, the edited version carries the same license. Each record also has 'place' (IPTC Location Shown and schema contentLocation; the state is South Carolina). The four heroes have 'crops' (1x1, 4x3, 16x9) for Article.image. Every file holds its credit, license and alt text as embedded IPTC/XMP metadata (tools/photos.js embed; rules/image-metadata.md). On 2026-10-11, 6 aerial photos of the communities themselves were added: USDA NAIP 2023 (public domain) from the USGS National Map, with the outline and labels drawn by Chapter3 Realty ('changes'; digital_source_type 'composite'). Each record keeps the exact export request (source_request) and the NAIP tiles under it. Version 10 (2026-10-11): 4 close aerial views of a street of homes, one per community (scratchpad aerial/scripts/build10.js), no drawing, colors adjusted. Version 11 (2026-10-11): the Del Webb North Myrtle Beach street view cut tighter to the houses; the Grande Dunes street view labelled Houses, and a new labelled villas view (scratchpad aerial/scripts/build11.js).",
   "as_of": "2026-10-07",
   "image_root": "/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/draft/chapter3realty/",
   "photos": [
@@ -1528,123 +1528,6 @@
       "original_size": "2400x1800 (NAIP export at 2x, drawn on, then resized)"
     },
     {
-      "slug": "del-webb-north-myrtle-beach",
-      "file": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above.webp",
-      "variants": {
-        "600": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-600w.webp",
-        "1200": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-1200w.webp"
-      },
-      "title": "Homes in Del Webb North Myrtle Beach, NAIP 2023 aerial",
-      "what": "Two rows of finished one-story homes with driveways on a street in Del Webb North Myrtle Beach, seen from above on April 10, 2023, with a pond and a putting green behind them.",
-      "caption": "A street of homes in Del Webb North Myrtle Beach, from above.",
-      "alt": "Two rows of one-story homes with gray roofs and driveways along a street in Del Webb North Myrtle Beach, seen from above, with a pond and a walking path behind them",
-      "place": {
-        "city": "North Myrtle Beach",
-        "sublocation": "Del Webb North Myrtle Beach"
-      },
-      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-      "source_name": "The National Map (USGS)",
-      "author": "USDA Farm Service Agency, NAIP",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
-      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
-      "terms_urls": [
-        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-        "https://www.fsa.usda.gov/help/policies-and-links/",
-        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
-      ],
-      "taken": "2023-04-10",
-      "digital_source_type": "composite",
-      "changes": "Chapter3 Realty cut a close view of one street from the NAIP export and adjusted the colors",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8761063.680244299%2C4004639.776444633%2C-8760859.054742536%2C4004793.245570957&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
-      "naip_tiles": [
-        "m_3307811_nw_17_060_20230410"
-      ],
-      "frame": {
-        "bbox_wgs84": [
-          -78.701974,
-          33.819864,
-          -78.700136,
-          33.82101
-        ],
-        "ground_m_per_px_1200w": 0.14
-      },
-      "width": 1200,
-      "height": 900,
-      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)",
-      "crops": {
-        "1x1": {
-          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-1x1.webp",
-          "width": 1200,
-          "height": 1200
-        },
-        "4x3": {
-          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-4x3.webp",
-          "width": 1200,
-          "height": 900
-        },
-        "16x9": {
-          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-16x9.webp",
-          "width": 1200,
-          "height": 675
-        }
-      },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own NAIP 2023 export of the same street, 1200 px wide, colors adjusted."
-    },
-    {
-      "slug": "del-webb-grande-dunes",
-      "file": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-homes-from-above.webp",
-      "variants": {
-        "600": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-homes-from-above-600w.webp",
-        "1200": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-homes-from-above-1200w.webp"
-      },
-      "title": "Homes in Del Webb at Grande Dunes, NAIP 2023 aerial",
-      "what": "Curving streets of homes with small yards and driveways in Del Webb at Grande Dunes, seen from above on April 10, 2023.",
-      "caption": "Streets of homes in Del Webb at Grande Dunes, from above.",
-      "alt": "Curving streets lined with homes with gray roofs, small yards and driveways in Del Webb at Grande Dunes, seen from above",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "Del Webb at Grande Dunes"
-      },
-      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-      "source_name": "The National Map (USGS)",
-      "author": "USDA Farm Service Agency, NAIP",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
-      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
-      "terms_urls": [
-        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-        "https://www.fsa.usda.gov/help/policies-and-links/",
-        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
-      ],
-      "taken": "2023-04-10",
-      "digital_source_type": "composite",
-      "changes": "Chapter3 Realty cut a close view of one street from the NAIP export and adjusted the colors",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8777063.005105766%2C3994827.2894526953%2C-8776750.314964542%2C3995061.8070586114&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
-      "naip_tiles": [
-        "m_3307810_sw_17_060_20230410",
-        "m_3307818_nw_17_060_20230410"
-      ],
-      "frame": {
-        "bbox_wgs84": [
-          -78.845698,
-          33.746601,
-          -78.84289,
-          33.748353
-        ],
-        "ground_m_per_px_1200w": 0.22
-      },
-      "width": 1200,
-      "height": 900,
-      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)"
-    },
-    {
       "slug": "myrtle-trace",
       "file": "images/55-plus/myrtle-trace/myrtle-trace-homes-from-above.webp",
       "variants": {
@@ -1738,6 +1621,178 @@
           33.597641
         ],
         "ground_m_per_px_1200w": 0.23
+      },
+      "width": 1200,
+      "height": 900,
+      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)"
+    },
+    {
+      "slug": "del-webb-north-myrtle-beach",
+      "file": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-600w.webp",
+        "1200": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-1200w.webp"
+      },
+      "title": "Homes in Del Webb North Myrtle Beach, NAIP 2023 aerial",
+      "what": "Two rows of finished one-story homes with driveways on a street in Del Webb North Myrtle Beach, seen from above on April 10, 2023.",
+      "caption": "A street of homes in Del Webb North Myrtle Beach, from above.",
+      "alt": "Two rows of one-story homes with gray roofs and driveways along a street in Del Webb North Myrtle Beach, seen from above",
+      "place": {
+        "city": "North Myrtle Beach",
+        "sublocation": "Del Webb North Myrtle Beach"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty cut a close view of one street from the NAIP export and adjusted the colors",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8761051.643221015%2C4004619.727772249%2C-8760871.09176582%2C4004755.141363643&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "naip_tiles": [
+        "m_3307811_nw_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -78.701866,
+          33.819715,
+          -78.700244,
+          33.820725
+        ],
+        "ground_m_per_px_1200w": 0.13
+      },
+      "width": 1200,
+      "height": 900,
+      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)",
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own NAIP 2023 export of the same street, 1200 px wide, colors adjusted."
+    },
+    {
+      "slug": "del-webb-grande-dunes",
+      "file": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-homes-from-above.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-homes-from-above-600w.webp",
+        "1200": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-homes-from-above-1200w.webp"
+      },
+      "title": "Houses in Del Webb at Grande Dunes, NAIP 2023 aerial",
+      "what": "Curving streets of single-family houses with small yards and driveways in Del Webb at Grande Dunes, seen from above on April 10, 2023, labelled Houses.",
+      "caption": "Houses in Del Webb at Grande Dunes, from above.",
+      "alt": "Curving streets lined with single-family houses with gray roofs, small yards and driveways in Del Webb at Grande Dunes, seen from above, with the label Houses",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Del Webb at Grande Dunes"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty cut a close view of one street from the aerial photo, added one label and adjusted the colors",
+      "annotation_sources": {
+        "label": "Horry County GIS parcels layer 24: the lots in this frame are recorded as Villas at Heel Tract (villas) or Marina Tract P-2 (houses)"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8777063.005105766%2C3994827.2894526953%2C-8776750.314964542%2C3995061.8070586114&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "naip_tiles": [
+        "m_3307810_sw_17_060_20230410",
+        "m_3307818_nw_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -78.845698,
+          33.746601,
+          -78.84289,
+          33.748353
+        ],
+        "ground_m_per_px_1200w": 0.22
+      },
+      "width": 1200,
+      "height": 900,
+      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)"
+    },
+    {
+      "slug": "del-webb-grande-dunes",
+      "file": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-villas-from-above.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-villas-from-above-600w.webp",
+        "1200": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-villas-from-above-1200w.webp"
+      },
+      "title": "Villas in Del Webb at Grande Dunes, NAIP 2023 aerial",
+      "what": "Streets of villas, each building two homes that share a wall, in Del Webb at Grande Dunes, seen from above on April 10, 2023, labelled Villas. Horry County parcel records name these lots Villas at Heel Tract.",
+      "caption": "Villas in Del Webb at Grande Dunes, from above.",
+      "alt": "Streets of villas in Del Webb at Grande Dunes, each building two homes joined by a shared wall, seen from above, with the label Villas",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Del Webb at Grande Dunes"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty cut a close view of one street from the aerial photo, added one label and adjusted the colors",
+      "annotation_sources": {
+        "label": "Horry County GIS parcels layer 24: the lots in this frame are recorded as Villas at Heel Tract (villas) or Marina Tract P-2 (houses)"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8777197.250984665%2C3994428.7430318543%2C-8776884.571697436%2C3994663.2524972735&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "naip_tiles": [
+        "m_3307818_nw_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -78.846904,
+          33.743624,
+          -78.844096,
+          33.745376
+        ],
+        "ground_m_per_px_1200w": 0.22
       },
       "width": 1200,
       "height": 900,

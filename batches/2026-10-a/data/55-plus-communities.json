@@ -2,7 +2,7 @@
   "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); ledger names the rows. Plain words and round numbers only (voice/RULES.md PLAIN; REWRITE-PLAIN.md). Review 4 and buyer read v6 (2026-10-10): the town column became 'In or near', because two of the four are outside any town, and the price column says resale, because every price here is a resale price. Minutes are drive times by car from the community reference point to its nearest public beach access. Prices are the middle sale in the 12 months from October 2025 to September 2026, from Horry County deed records, rounded to the thousand. Change a cell here, then rebuild all four pages. 2026-10-11: the Grande Dunes price cell shows houses and villas apart, the same two figures as its page body (grader: $665,000 in the body beside $630,000 in the table read as a contradiction). 2026-10-11 (version 9): an 'HOA fee a month' column. Three cells are the fee sellers entered on listings (the orchestrator allows listings for the HOA fee only, until MLS data arrives), so each says '(listings)'; Myrtle Trace's $95 is the HOA's own figure. Version 10 (2026-10-11): the HOA fee is stated plainly with no '(listings)' (coordinator's decision; the pages' sources lines name recent MLS listings), and each box holds one number: Grande Dunes shows the house figures, and its page body gives the villa figures.",
   "head": [
     "Community",
-    "In or near",
+    "Near",
     "Minutes to the beach by car",
     "HOA fee a month",
     "Resale homes usually sell for"
