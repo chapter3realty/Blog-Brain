@@ -84,6 +84,10 @@ const HOW_TO_Q = /^(?:how|where) (?:do|can|should|would|could) (?:i|you|we|buyer
 const CTA_SEL = 'a.btn, a[href^="tel:"], form';
 /* Pages that must show a map: a 55+ community, a submarket, a neighborhood. */
 const PLACE_PAGE = /^\/(?:buyers\/55-plus-communities\/[^/]+|submarkets(?:\/[^/]+)?|neighborhoods(?:\/[^/]+)?)\/$/;
+/* A heading over the FAQ: "Special assessment FAQ", "Frequently asked questions", "Every question sellers ask us." */
+const FAQ_HEAD = /\bFAQs?\b|common questions|frequently asked|^every question\b/i;
+/* A card that holds an icon: the live "why-stat" tiles, and the cards tools/icons.js builds (in an li). */
+const ICON_BOX = /(?:^|[\s_-])(?:card|stat|tile|glance|fact|feature)s?(?:$|[\s_-])/i;
 
 /* ----------------------------------------------------------------- parsing */
 
@@ -280,13 +284,85 @@ function facts(p) {
     $(e).find("[aria-label]").map((_, x) => $(x).attr("aria-label")).get().join(" "), $(e).find("img[alt]").map((_, x) => $(x).attr("alt")).get().join(" ")].join(" "));
   const maps = pics.filter(e => /\bmaps?\b|\bsatellite\b|\baerial\b/i.test(picLabel(e))).length
     + main.find("iframe").filter((_, e) => /google\.[a-z.]+\/maps|maps\.google\./i.test($(e).attr("src") || "")).length;
-  const plain = { prose: plainProse, words: plainWords, numbers, exactAmounts, dateMentions, plainHits, deflections, pictures: pics.length, maps };
+  /* A Google map iframe in the HTML loads on arrival. A map behind a click sits in a <template>
+     (tools/area-map.js), which parse() removes, so only an on-arrival map is counted here (P8). */
+  const liveMaps = main.find("iframe").filter((_, e) => /google\.[a-z.]+\/maps|maps\.google\./i.test($(e).attr("src") || "")).length;
+  const plain = { prose: plainProse, words: plainWords, numbers, exactAmounts, dateMentions, plainHits, deflections, pictures: pics.length, maps, liveMaps };
+
+  /* --- Page design (reports/Page design for readers and search.md, 2026-10-11) --- */
+  const headText = (el) => norm(cheerio.load((el.html() || "").replace(/<br\s*\/?>/gi, " ")).text());
+
+  /* The FAQ as a reader sees it: the questions under each FAQ heading, in an h3, h4, <summary> or <dt>.
+     Calibrated on the live site (2026-10-11): it finds the same entries as the FAQPage schema on 117
+     of 122 articles; on the other 5 the schema also holds questions that sit in other sections. */
+  const faqHeads = p.h2s.filter(h => FAQ_HEAD.test(h.text) || /^(?:common questions|.*\bFAQs?)$/i.test(norm(h.el.prevAll("p").first().text())));
+  const faqSeen = new Map();
+  for (const h of faqHeads) {
+    const region = h.el.closest("section").length ? h.el.closest("section") : h.el.parent();
+    region.find("h3, h4, summary, dt").each((_, e) => {
+      const q = norm($(e).text());
+      if (!/\?$/.test(q) || faqSeen.has(q)) return;
+      let a = "";
+      if (e.tagName === "summary") a = norm($(e).parent().clone().children("summary").remove().end().text());
+      else if (e.tagName === "dt") a = norm($(e).next("dd").text());
+      else a = $(e).nextUntil("h2, h3, h4").filter("p, ul, ol").map((_, x) => norm($(x).text())).get().filter(t => !/^sources?\s*:/i.test(t)).join(" ");
+      faqSeen.set(q, a);
+    });
+  }
+  const visibleFaq = [...faqSeen].map(([name, text]) => ({ name, text }));
+
+  /* Closed accordions in the body (A13): a <details> without `open` that holds text beyond its summary. */
+  const closed = main.find("details").filter((_, e) => $(e).attr("open") === undefined && !$(e).closest("form, nav, header, footer").length
+    && wc($(e).clone().children("summary").remove().end().text()) >= 3)
+    .map((_, e) => norm($(e).children("summary").text()) || "(no summary)").get();
+
+  /* "On this page" lists (H14): a nav or list of in-page links, named "On this page" (or "Contents",
+     "In this guide", "Jump to"), or whose every link points at a heading. Each label must be the
+     heading text exactly. The live site has none (2026-10-11). */
+  const ids = new Map();
+  main.find("[id]").each((_, e) => { if (!ids.has($(e).attr("id"))) ids.set($(e).attr("id"), $(e)); });
+  const targetHead = (href) => {
+    let id = href.slice(1); try { id = decodeURIComponent(id); } catch { /* keep raw */ }
+    const t = ids.get(id); if (!t) return null;
+    const h = t.is("h2, h3") ? t : t.find("h2, h3").first();
+    return h.length ? h : null;
+  };
+  const TOC_NAME = /^(?:on this page|in this (?:guide|article|page)|contents|table of contents|jump to(?: a section)?)\s*:?$/i;
+  const tocs = [];
+  main.find("nav, ul, ol").each((_, e) => {
+    const el = $(e);
+    if (el.is("ul, ol") && el.parents("nav").length) return;
+    if (el.closest("header, footer, form, .breadcrumb").length) return;
+    const links = el.find('a[href^="#"]').filter((_, a) => ($(a).attr("href") || "").length > 1).toArray().map(a => $(a));
+    if (links.length < 2) return;
+    const near = [el.attr("aria-label"), el.find("h2, h3, h4, p, strong").first().text(), el.prev().text()].map(norm).filter(t => t && wc(t) <= 5);
+    const named = near.some(t => TOC_NAME.test(t));
+    const toHead = links.filter(a => targetHead(a.attr("href")));
+    if (!named && toHead.length < links.length) return;
+    tocs.push(links.map(a => { const h = targetHead(a.attr("href")); return { label: norm(a.text()), href: a.attr("href"), head: h ? headText(h) : null, el: h }; }));
+  });
+
+  /* Icons with no word beside them (H15): a decorative svg (aria-hidden) in a list item or card
+     whose visible text, the icon removed, is empty. */
+  const bareIcons = [];
+  let iconCount = 0;
+  main.find('svg[aria-hidden="true"]').each((_, e) => {
+    const s = $(e);
+    if (s.closest("nav, header, footer, form, button, .breadcrumb, figure").length) return;
+    let box = s.closest("li");
+    if (!box.length) box = s.parents().filter((_, x) => ICON_BOX.test($(x).attr("class") || "")).first();
+    if (!box.length) return;
+    iconCount++;
+    const c = box.clone(); c.find("svg, [aria-hidden='true'], .sr-only, .visually-hidden").remove();
+    if (!norm(c.text())) bareIcons.push((box.attr("class") || box.get(0).tagName).slice(0, 40));
+  });
+  const design = { visibleFaq, closed, tocs, iconCount, bareIcons };
 
   const modified = p.article && p.article.dateModified ? new Date(p.article.dateModified) : null;
   const ageDays = modified ? Math.round((TODAY - modified) / 864e5) : null;
 
   return { kw, topicTokens, hasTopic, prose, sents, sentLens, words, faqQs, contentH2, leads, fragments, internal, external, primary,
-    ctas, visuals, visualCount, places, experience, authorNode, authorNamed, ageDays, plain };
+    ctas, visuals, visualCount, places, experience, authorNode, authorNamed, ageDays, plain, design };
 }
 
 /* ------------------------------------------------------------------ rules */
@@ -399,14 +475,24 @@ rule("section-leads", "AEO", 3, "Each section opens with a quotable sentence (30
 
 rule("table", "AEO", 2, "At least one data table", (p, f) => f.visuals.tables ? pass(`${f.visuals.tables} table(s)`) : fail("no table"), { applies: (p) => isArticle(p) });
 
+/* The FAQ is for readers and Bing. Google stopped showing FAQ rich results on 2026-05-07, so the
+   visible FAQ is what counts here and FAQPage schema is optional. The schema is read only when no
+   visible FAQ is found; S12 (faq-match) still blocks a schema that differs from the page. */
 rule("faq", "AEO", 2, "4-8 FAQ entries, answers 15-90 words, each stands alone", (p, f) => {
-  const n = f.faqQs.length; if (!n) return fail("no FAQ");
-  const ans = f.faqQs.map(q => norm(q.acceptedAnswer && q.acceptedAnswer.text));
+  const vis = f.design.visibleFaq, from = vis.length ? "visible" : "FAQPage schema";
+  const ans = vis.length ? vis.map(q => q.text) : f.faqQs.map(q => norm(q.acceptedAnswer && q.acceptedAnswer.text));
+  const n = ans.length; if (!n) return fail("no FAQ");
   const badLen = ans.filter(a => wc(a) < 15 || wc(a) > 90).length;
   const badOpen = ans.filter(a => /^(?:this|that|these|it|they|see above|as above)\b/i.test(a)).length;
   let c = (n >= 4 && n <= 8 ? .4 : n >= 3 ? .2 : 0) + .3 * (1 - badLen / n) + .3 * (1 - badOpen / n);
-  return part(c, `${n} entries${badLen ? `, ${badLen} outside 15-90 words` : ""}${badOpen ? `, ${badOpen} open with a pronoun` : ""}`);
+  return part(c, `${n} entries (${from})${badLen ? `, ${badLen} outside 15-90 words` : ""}${badOpen ? `, ${badOpen} open with a pronoun` : ""}`);
 }, { applies: isArticle });
+
+rule("open-answers", "AEO", 2, "FAQ answers and main content are open, not in a closed accordion", (p, f) => {
+  const x = f.design.closed;
+  if (!p.main.find("details").length) return na("no accordion");
+  return x.length ? fail(`${x.length} closed <details>, e.g. "${x[0].slice(0, 70)}"`) : pass("every <details> is open");
+});
 
 rule("primary-sources", "AEO", 2, "2+ primary sources linked inside the body", (p, f) => {
   const n = new Set(f.primary).size;
@@ -491,10 +577,32 @@ rule("pictures", "Human", 2, "800+ words of prose have 2+ pictures (figure, imag
   return n >= 2 ? pass(`${n}`) : part(n / 2, `${n} for ${f.words} words`);
 }, { applies: isArticle });
 
-rule("place-map", "Human", 3, "A community, submarket or neighborhood page shows a map", (p, f) => {
+rule("place-map", "Human", 3, "A community, submarket or neighborhood page shows a map (our static map; a live map only on a click)", (p, f) => {
   if (!PLACE_PAGE.test(p.url)) return na("not a place page");
-  return f.plain.maps ? pass(`${f.plain.maps} map(s)`) : fail("no map: no Google map embed and no figure labelled map");
+  const { maps, liveMaps } = f.plain;
+  if (liveMaps) return part(maps > liveMaps ? .5 : .25, `${liveMaps} Google map${liveMaps > 1 ? "s" : ""} load on arrival: use the static map from tools/area-map.js and load a live map only on a click`);
+  return maps ? pass(`${maps} map(s)`) : fail("no map: no figure labelled map (tools/area-map.js)");
 }, { blocker: true });
+
+/* --- Page design (reports/Page design for readers and search.md, 2026-10-11) --- */
+rule("toc", "Human", 2, "\"On this page\" labels match the headings they point to, and every section is listed", (p, f) => {
+  const tocs = f.design.tocs;
+  if (!tocs.length) return na("no \"On this page\" list");
+  const links = tocs.flat(), bad = links.filter(l => l.head === null || l.label !== l.head);
+  const listed = new Set(links.filter(l => l.el).map(l => l.el.get(0)));
+  const sections = p.h2s.filter(h => !/\.\s*$/.test(h.text) && !/navy/.test(h.el.closest("section").attr("style") || "") && !/^sources?$/i.test(h.text) && !h.el.closest("form").length);
+  const missing = sections.filter(h => !listed.has(h.el.get(0)));
+  const c = Math.min(1 - bad.length / links.length, sections.length ? 1 - missing.length / sections.length : 1);
+  const d = [bad.length ? `${bad.length} of ${links.length} labels differ, e.g. "${bad[0].label}" ${bad[0].head === null ? `points at no heading (${bad[0].href})` : `for "${bad[0].head}"`}` : `${links.length} labels match`,
+    missing.length ? `${missing.length} section${missing.length > 1 ? "s" : ""} not listed, e.g. "${missing[0].text}"` : ""].filter(Boolean).join("; ");
+  return part(c, d);
+});
+
+rule("icon-labels", "Human", 2, "Every icon in a card or list has a visible word beside it", (p, f) => {
+  const { iconCount, bareIcons } = f.design;
+  if (!iconCount) return na("no icons in cards or lists");
+  return bareIcons.length ? part(Math.max(0, 1 - bareIcons.length / iconCount), `${bareIcons.length} of ${iconCount} icons have no visible word, e.g. in "${bareIcons[0]}"`) : pass(`${iconCount} icons, each with a word`);
+});
 
 /* --- Trust (E-E-A-T) ----------------------------------------------------- */
 rule("byline", "Trust", 2, "Visible byline naming the author, with an Updated date", (p) => {
@@ -547,6 +655,7 @@ const STD = {
   byline: "T1", experience: "T2", "sources-line": "T3", fresh: "T4",
   "exact-amounts": "P1", "number-density": "P2", "date-mentions": "P3", "price-headline": "P4", deflection: "P5", "plain-words": "P6",
   pictures: "P7", "place-map": "P8",
+  "open-answers": "A13", toc: "H14", "icon-labels": "H15",
 };
 
 /* ---------------------------------------------------------------- scoring */

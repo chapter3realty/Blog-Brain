@@ -221,16 +221,73 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   const place = (h) => h.replace("/hoa/special-assessments/", "/buyers/55-plus-communities/myrtle-trace/");
   fires("a 55+ community page with no map", place(gold()), "place-map");
   fires("a submarket page with only a bar chart", gold().replace("/hoa/special-assessments/", "/submarkets/conway/"), "place-map");
-  quiet("an embedded Google map", place(gold({ body: '<iframe src="https://www.google.com/maps/embed?pb=x" title="Myrtle Trace"></iframe>' })), "place-map");
+  /* P8 prefers our static map; a live map loads only on a click (design report, 2026-10-11). */
+  fires("a Google map that loads on arrival", place(gold({ body: '<iframe src="https://www.google.com/maps/embed?pb=x" title="Myrtle Trace"></iframe>' })), "place-map");
+  fires("a static map plus a Google map that loads on arrival", place(gold({ body: '<figure><svg role="img" aria-label="Myrtle Trace, the beach and Conway"></svg><figcaption>Map: where Myrtle Trace is</figcaption></figure><iframe src="https://www.google.com/maps/embed?pb=x" title="Myrtle Trace"></iframe>' })), "place-map");
+  {
+    const { liveMapHtml } = require("./area-map.js");
+    const facade = liveMapHtml({ lat: 33.8361, lon: -79.0478, name: "Myrtle Trace", svg: '<svg role="img" aria-label="Myrtle Trace, the beach and Conway"></svg>', caption: "Map: where Myrtle Trace is" });
+    check("place-map: the facade holds its iframe in a template", /<template><iframe/.test(facade));
+    quiet("our static map with a live map behind a click (tools/area-map.js)", place(gold({ body: facade })), "place-map");
+  }
   quiet("a figure captioned as a map", place(gold({ body: '<figure><svg role="img" aria-label="Myrtle Trace, the beach and Conway"></svg><figcaption>Map: where Myrtle Trace is</figcaption></figure>' })), "place-map");
   quiet("a satellite view (live /invest/rental-returns/)", place(gold({ body: '<img src="/a.jpg" alt="Satellite view of the Grand Strand from Little River south to Pawleys Island, with the eight areas outlined.">' })), "place-map");
   quiet("a page that is not a place page", base, "place-map");
   check("place-map: is a blocker", grade(parse(place(gold()))).blockers.includes("place-map"));
 }
 
+/* Page design (STANDARD A7, A13, H14, H15; reports/Page design for readers and search.md, 2026-10-11).
+   Firing text is live site markup, or a live heading with the short label the live page puts over it. */
+{
+  const fires = (name, html, id) => { check(`${id}: mutation landed (${name})`, html !== base); const r = credit(html, id); check(`${id}: fires on ${name}`, r.credit !== null && r.credit < 1, `(${r.credit}: ${r.detail})`); };
+  const quiet = (name, html, id) => { const r = credit(html, id); check(`${id}: quiet on ${name}`, r.credit === null || r.credit === 1, `(${r.credit}: ${r.detail})`); };
+  /* Passes, and was read: a control that is only "not applicable" cannot show the check sees the markup. */
+  const passes = (name, html, id) => { const r = credit(html, id); check(`${id}: passes ${name}`, r.credit === 1, `(${r.credit}: ${r.detail})`); };
+
+  /* A7: the FAQ is for readers. FAQPage schema is optional since Google dropped FAQ rich results (2026-05-07). */
+  const noSchema = base.replace(/<script type="application\/ld\+json">\{[^<]*"FAQPage"[^<]*<\/script>/, "");
+  check("faq: schema removed", noSchema !== base && !/FAQPage/.test(noSchema));
+  passes("a visible FAQ with no FAQPage schema", noSchema, "faq");
+  check("faq-match: not applicable with no FAQPage schema", credit(noSchema, "faq-match").credit === null);
+  fires("no FAQ at all", noSchema.replace(/<h3>[^<]*\?<\/h3><p>[^<]*<\/p>/g, ""), "faq");
+
+  /* A13: answers stay open. Live /buyers/buying-in-myrtle-beach/ holds its FAQ in closed accordions. */
+  const live = '<section><div class="wrap"><h2>Every question out-of-state buyers ask us.</h2><details class="accordion-item"><summary class="accordion-q">Do I need to visit before making an offer?</summary><div class="accordion-a"><p>Not necessarily. We facilitate remote purchases routinely: 3D virtual tours, cinematic listing video, neighborhood context walkthroughs over video call, and remote online notarization for closing documents. Most out-of-state buyers we work with visit once for the inspection, then close remotely.</p></div></details></div></section>';
+  fires("a closed <details> FAQ (live /buyers/buying-in-myrtle-beach/)", gold({ body: live }), "open-answers");
+  fires("a closed mistakes list (live /buyers/common-mistakes/)", gold({ body: '<details class="accordion-item"><summary class="accordion-q">Skipping the insurance quote until after the inspection period</summary><div class="accordion-a"><p>Most buyers get a general home inspection and fall in love with the property before they price the insurance.</p></div></details>' }), "open-answers");
+  passes("the same FAQ open", gold({ body: live.replace('<details class="accordion-item">', '<details class="accordion-item" open>') }), "open-answers");
+  quiet("open headings and paragraphs (gold)", base, "open-answers");
+  check("faq: reads an answer inside <details>", require("./score.js").facts(parse(gold({ body: live }))).design.visibleFaq.some(q => /^Not necessarily\./.test(q.text)));
+
+  /* H14: "On this page" labels are the headings, word for word, and every section is listed. */
+  const ids = (h) => h.replace("<h2>What is a special assessment?</h2>", '<h2 id="what">What is a special assessment?</h2>')
+    .replace("<h2>What triggers one in Surfside Beach and North Myrtle Beach?</h2>", '<h2 id="triggers">What triggers one in Surfside Beach and North Myrtle Beach?</h2>')
+    .replace("<h2>Who pays it when the unit sells?</h2>", '<h2 id="who-pays">Who pays it when the unit sells?</h2>')
+    .replace("<h2>Special assessment FAQ</h2>", '<h2 id="faq">Special assessment FAQ</h2>');
+  const toc = (items) => `<nav aria-label="On this page"><p>On this page</p><ul>${items.map(([id, t]) => `<li><a href="#${id}">${t}</a></li>`).join("")}</ul></nav>`;
+  const all = [["what", "What is a special assessment?"], ["triggers", "What triggers one in Surfside Beach and North Myrtle Beach?"], ["who-pays", "Who pays it when the unit sells?"], ["faq", "Special assessment FAQ"]];
+  const withToc = (items, extra = "") => ids(base).replace("<section><div class=\"wrap\"><h2", `${toc(items)}${extra}<section><div class="wrap"><h2`);
+  check("toc: ids landed", (ids(base).match(/<h2 id=/g) || []).length === 4);
+  passes("labels identical to the headings", withToc(all), "toc");
+  quiet("a page with no list", base, "toc");
+  /* Live /buyers/waterfront-homes/ heads this section "Docks and dock permits, the part that decides value" under the label "Docks". */
+  fires("a short label for a long heading (live /buyers/waterfront-homes/)", withToc(all.concat([["docks", "Docks"]]), '<section><div class="wrap"><h2 id="docks">Docks and dock permits, the part that decides value</h2><p>A private dock needs a permit.</p></div></section>'), "toc");
+  fires("a section left out", withToc(all.slice(0, 3)), "toc");
+  fires("a link to no heading", withToc(all.concat([["costs", "What does it cost?"]])), "toc");
+  quiet("a list after a legal notice that says \"on this page\" is not a contents list", gold({ body: '<p>Nothing on this page is legal advice.</p><ul><li><a href="#lead-form">Ask a question</a></li><li><a href="#main">Back to the top</a></li></ul>' }), "toc");
+
+  /* H15: every icon has a word. Live homepage "why-stat" card, with and without its words. */
+  const stat = '<div class="why-stats"><div class="why-stat"><div class="why-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="6"></circle></svg></div><div><div class="stat-kpi">Specialized agents</div><div class="stat-label">For investors, home buyers, and sellers</div></div></div></div>';
+  passes("a card with its words (live homepage)", gold({ body: stat }), "icon-labels");
+  fires("the same card with the words removed", gold({ body: stat.replace(/<div><div class="stat-kpi">[\s\S]*?<\/div><\/div><\/div>/, "</div>") }), "icon-labels");
+  fires("an icon list item with only a hidden title", gold({ body: '<ul><li><svg aria-hidden="true"><title>Pool</title><path d="M0 0"/></svg></li><li><svg aria-hidden="true"><path d="M0 0"/></svg> Clubhouse</li></ul>' }), "icon-labels");
+  passes("tools/icons.js atAGlance cards", gold({ body: require("./icons.js").atAGlance([{ icon: "beach", label: "Beach", text: "About 20 minutes by car" }, { icon: "pets", label: "Pets", text: "Dogs welcome on a leash" }]) }), "icon-labels");
+  quiet("an icon in a button (live cost-of-living caret)", gold({ body: '<ul><li><button type="button" aria-label="Show all areas"><svg aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></li></ul>' }), "icon-labels");
+}
+
 /* Every rule id appears in at least one mutation, so no rule is untested. */
 const tested = new Set(mutations.map(m => m[0]).concat(["visual-rhythm", "verdict", "exact-amounts", "number-density", "date-mentions",
-  "price-headline", "deflection", "plain-words", "pictures", "place-map"]));
+  "price-headline", "deflection", "plain-words", "pictures", "place-map", "open-answers", "toc", "icon-labels"]));
 for (const r of RULES) check(`rule ${r.id} has a control`, tested.has(r.id));
 
 /* Every rule maps to a STANDARD.md id. */

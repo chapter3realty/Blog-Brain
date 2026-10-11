@@ -23,7 +23,7 @@ Every photo is at least 1200 pixels wide, so it stays sharp on a phone.
 - Google Maps, Street View or Google Earth images, or any screenshot of them.
 - A stock photo with a person in it, unless the license page shows a model release.
 - A photo whose subject is a logo, a brand sign, a storefront name or a product. The Alabama Theatre road sign photo is on hold for this reason.
-- A photo whose subject is a person who could be recognized.
+- A photo whose subject is a person who could be recognized. The one exception is the author's headshot in the author note (below).
 - A photo whose subject is a statue, a mural or other artwork (see "Buildings and art" below).
 - An AI image that looks like a real place or a real person. A made-up picture is never shown as the real place (PLAIN-4).
 - Anything licensed NC (non-commercial) or ND (no derivatives). A real estate page is commercial. NC is never allowed.
@@ -36,7 +36,7 @@ Every photo has a full record in `photos.json`: source page, author, license, li
 
 On the page, each photo gets two credits:
 
-1. A tiny line on the photo itself: "Photo: Author, CC BY-SA 4.0", with the license linked. On a small card it is "Photo: Author".
+1. A small line on the photo itself: "Photo: Author, CC BY-SA 4.0", with the license linked. On a small card it is "Photo: Author". The line sits on a solid backing and its text is 4.5:1 or better against it (STANDARD H10). Text straight on a photo often fails.
 2. A line in the "Photo credits" block at the end of the page: the photo's title linked to its source page, the author, the license linked to its deed, and "via Wikimedia Commons".
 
 The credits block ends with: "Chapter3 Realty resized these photos, and some are shown cropped." The 4.0 licenses require us to say when we change a photo ([CC BY 4.0, section 3(a)](https://creativecommons.org/licenses/by/4.0/legalcode.en#s3a)). The Creative Commons FAQ names cropping as a change to note ([FAQ: how to attribute](https://creativecommons.org/faq/#how-do-i-properly-attribute-material-offered-under-a-creative-commons-license)). The same section allows the credit "in any reasonable manner based on the medium", so a credits block at the end of the page is enough.
@@ -80,6 +80,19 @@ So we show places, not people.
 - A 55+ community may say it is for people 55 and older. That is allowed for qualified housing for older persons ([24 CFR 100.304](https://www.law.cornell.edu/cfr/text/24/100.304)). It still may not signal any other preference.
 
 A person who can be recognized also has rights in their own image. One more reason to leave people out.
+
+## The author's headshot
+
+Decided 2026-10-11, from the design report (`reports/Page design for readers and search.md`). A real photo of the person who wrote the page builds trust. Readers spent more time on real staff photos than on long biographies (NN/g 2010).
+
+- The author note may show one headshot of the page's byline author, when that author is Chapter3 staff.
+- Use only the photo already on the site's team pages (the website's `team/` folder). Those photos are used with the person's consent. Do not take a new one or pull one from a social profile.
+- The headshot goes in the author note and on the author's own page, and may be the image in the author's schema. It never goes in the body, a story, a call to action or a share image.
+- Never Paul. Never anyone who is not the page's byline author.
+- Never a stock photo of a person, even with a model release, and never an AI image of a person.
+- Record it in `photos.json` as `"license": "own"`, with the team page as the source and the person's name as the subject.
+
+The headshot shows who wrote the page, the same photo on every page that person writes. It does not show who lives in a place or who is welcome there. Place photos keep the rule above: no person is the subject.
 
 ## If someone asks us to take a photo down
 

@@ -36,12 +36,20 @@ Two pages about different places should feel different, because the places are d
 
 People understand pictures before words. Use one wherever it helps:
 
-- **A map** for any place: where it is, what is near, how many minutes by car (`tools/area-map.js`).
+- **A map** for any place: where it is, what is near, how many minutes by car (`tools/area-map.js`). Our own static map, with a link to Google Maps. A live map only when the reader clicks. Put the drive times in the text too.
 - **Photos** of the real place or the area nearby, ours or properly licensed (`rules/images.md`, `tools/photos.js`).
 - **Small images or illustrations** to show a feature instead of describing it (`tools/illustrations.js`).
-- **Icons** for quick facts the eye can scan (`tools/icons.js`).
+- **Icons** for quick facts the eye can scan (`tools/icons.js`). Every icon has a word beside it. The fact is in the words, not the icon.
 
 Never name something the reader cannot picture. Show it, or leave it out.
+
+How it looks matters as much as what it shows. The design report (`reports/Page design for readers and search.md`) has the evidence and a checklist. In short:
+
+- The answer comes first. On a phone, the first screen shows the H1, the byline and the first sentence of the short answer. No big photo above it.
+- Large, dark text: 18 px or more on a phone, lines of about 65 characters. Links are underlined.
+- Hide nothing. FAQ answers are open text, never in a closed accordion. Nothing rotates or pops up.
+- A page with 4 or more sections gets an "On this page" list. Each label is the heading, word for word.
+- Each photo shows a fact, and its caption says the fact. Cut a photo that only decorates.
 
 ## 5. Write it
 
@@ -63,6 +71,7 @@ Before anyone else sees it:
 - Read it as the 62-year-old from Ohio who knows nothing. Where did you stop? Where did you want a picture?
 - Count the numbers and the dates.
 - Ask every heading: is it answered in the first sentence?
+- Open it on a phone at 375 px wide, once with the largest text setting. Can you see the answer without scrolling? Is anything cut off, hidden or too small?
 - Ask every sentence: would the reader miss it?
 - Run the gates (`npm test`, `score.js`, `claims-scan.js`, `facts-check.js`, the website's `build.js audit`), then the buyer readers and the reviewer.
 
