@@ -1,80 +1,206 @@
-# The craft: how to make a page a reader trusts and remembers
+# The craft: how to make a page a reader trusts, understands and acts on
 
-This is the skill, not a template. The owner, 2026-10-10: "you arent learning templates you are learning a skill and you are in charge". The rules in `voice/RULES.md` are the corrections this skill came from. Read this first, then the rules, then decide.
+This is the skill, not a template. It works for any page on any subject: a neighborhood, an LLC, a tax rule, a closing, a market report. Read it first, then decide.
 
-## 1. Know the reader before you write a word
+The owner, 2026-10-10: "you arent learning templates you are learning a skill and you are in charge". And 2026-10-07: "please please please do not take what im telling you as a lesson for this one type of thing or this one blog understand that in everything you do you need to make it as easy to understand as possible".
 
-Picture one real person who searched for this page's question. Know four things about them:
+Version 2, 2026-10-11. Rebuilt from 65 lessons of batch 2026-10-a (`research_notes/lessons-2026-10-a.md`, with the evidence for every line) and the page shape research (`reports/Page shapes by kind of page.md`). Each rule below gives its reason and a test question. When a rule and the reader disagree, the reader wins.
 
-- **What they want first.** A retiree looking at a 55+ neighborhood wants to know what life is like there: the homes, the pool, the beach, the things to do. An investor wants the numbers. A seller wants to know what they will walk away with. Lead with that.
-- **What they already know.** Assume nothing: not the towns, not the roads, not one real estate word. If they would need to look something up, show it or say it another way.
-- **What they are worried about.** Moving away from family, making friends, money lasting, storms, being taken advantage of. A good page answers the worry before they say it.
-- **What they will ask next.** After every section, ask: what question did this just raise? Answer it, or cut what raised it.
+## The one test
 
-## 2. Decide what goes on the page
+After any change, ask: **is the page now easier for this reader to understand and act on?** If not, undo it, even if a rule asked for it. Every rule in this repo is a floor, written for the common case. Applied past its reason, a rule makes the page worse. In batch 2026-10-a:
+- "show it" became a decorative photo;
+- "round numbers" hid the exact $95 fee people search for;
+- "no jargon" removed words readers type;
+- "simple" became vague.
 
-Start from everything the research found. Keep a fact only if it passes all three:
+---
 
-1. The reader would miss it if it were gone.
-2. You can say what it means for them in one plain sentence.
-3. It is true, or old but still true and harmless if it changed (RULES PLAIN-9).
+## 1. Know the reader and what they came for
 
-Everything else stays in the fact ledger. A short page that answers the reader beats a long page that proves we did research.
+**Start from what people ask, not from what is easy to find.** Before any research, write the page's must-answer list from real demand:
+- search suggestions (type the subject into Google and read the suggestions);
+- "People also ask";
+- Search Console queries for the site;
+- the questions the owner hears from customers (`stories/stories.json`).
 
-## 3. Choose the shape for this subject
+Rank them. The top few are the page's must-answers. Research those first. Do not draft until each has an answer or a dated owner question. Test: *If this reader read only the first screen, would they get what they typed in?*
 
-There is no fixed list of sections. Choose the order a good agent would use if the reader were sitting across the desk:
+Batch 2026-10-a planned ten records questions and missed the one every reader asked: the monthly fee. Every search suggestion offered it.
 
-- The good news and the thing they came for, first.
-- Then what they need to picture it: where it is, what it looks like, what a normal week is like.
-- Then what it costs and what could go wrong, plainly, without alarm.
-- Then the next step.
+**Picture one real person who searched this.** Know four things:
+- what they want first;
+- what they already know (assume nothing: no place names, no roads, no trade words);
+- what they are worried about;
+- what they will ask next.
 
-Two pages about different places should feel different, because the places are different. A beachfront neighborhood leads with the beach. An inland one with a hospital three minutes away leads with the calm and the convenience. A page with one big drawback says so early, kindly, and says what to do about it.
+After every section, ask what question it just raised. Answer it, or cut what raised it.
+
+**Use the reader's words, including the words they search.** "No jargon" means no word the reader does not use. If readers type "amenity center", "HOA fees" or "pros and cons", the page says those words once, in plain context: "the clubhouse, which the builder calls the amenity center."
+
+**Define the word the reader thinks they already know.** Strange words get flagged. The trap is an ordinary word with a local meaning: "villa", "plan", a place name that is both a district and a neighborhood. Say what it means here the first time.
+
+**Serve the intent of a request, not its literal wording.** When the owner asks for "more X", write one line: "you want the reader to ___." Then choose the form. "More detailed examples" meant human detail, not more numbers. If the method named is blocked, reach the same result another lawful way the same day.
+
+## 2. Find the facts
+
+**Run the deciding test first.** Every page has one fact without which the page cannot be written as planned. Examples: the recorded rule that makes a community 55+, the law that makes a strategy legal, the price that makes a topic worth a page. Check that fact before researching anything else.
+
+**Research the reader's life, not only the records.** A researcher sent to records brings back records, and the writer then writes a records report. Give the researcher the reader's questions. Records answer them from behind. What is a normal week like? What does it cost all in? What can go wrong? The owner, 2026-10-06: "lead with what a buyer would want to know rather than how many acres were annexed by the city".
+
+**A sentence may not say more than its source.** Check every claim for four kinds of stretch:
+- **Group:** does the number describe the same set the sentence names (houses, or houses and villas)?
+- **Time:** is an old description stated as true today?
+- **Completeness:** did "including" become a full list?
+- **Firmness:** did an estimate become a decision, or an announcement date a start date?
+
+Researchers make the same mistakes over and over: a range from two samples instead of all cases, a geocoder's road label used as an address, an amended paragraph read as current, an impossible number. `prompts/researcher.md` lists them. Facts come only from verified ledger rows, checked by an agent that did not research them.
+
+**When the obvious source is closed, find a lawful one.** Respect robots files and site terms. Look for a public record, a second publisher or our own files. Use two independent sources for any figure that is not primary.
+
+**Old data.** If a fact rarely changes and being wrong could not hurt the reader, state it plainly with no date. If it changes and the reader could act on it, use it only if you judge it still true and low risk. Otherwise leave it out. Never write "outdated". If there is no good data, leave the topic out.
+
+**Give real-world numbers, not best-case ones.** A drive time without traffic, a "from" price and a fee without the extras are each true and misleading. Say what the reader will meet, or say when it is more.
+
+**When one page comes out weaker, fix the input first.** A short or vague page usually had fewer verified facts or a weak picture source. Add rows, not words.
+
+## 3. Choose the shape
+
+**The reader's job chooses the shape.** There is no fixed list of sections. Name the job in one verb, find the main relation in the content, and pick the one shape that shows it. Full guidance for 13 kinds of page is in `reports/Page shapes by kind of page.md`. In short:
+
+| The reader came to | Kind of page | Lead with | The visual that does the work |
+|---|---|---|---|
+| Picture living there | Area or community guide | What daily life is like, with a key-facts row | A map, then captioned photos of the place |
+| Know the total | Cost or fee breakdown | The typical total in one sentence | An itemized table with a total row |
+| Follow the steps | How-to or process | How many steps and how long | Numbered steps; a timeline when deadlines matter |
+| Choose one | Comparison | The verdict for each situation | A table of 2 to 5 options, cards on a phone |
+| Know if a rule applies | Law or rule explainer | The rule in one sentence | Who, what, when and the exceptions |
+| See the direction | Market data | The latest number, its change and period | A line chart and its table of values |
+| Not miss anything | Checklist | How many items and when to use it | The list, grouped by stage |
+| Get their own number | Calculator | The tool | The tool, plus a worked example in text |
+| Decide | Decision guide | "Usually yes" or "No, unless", with the conditions | A decision table |
+| Learn what is true | Myth vs fact | The fact in the heading, never the myth | Fact, myth once, why, fact again |
+| Know what changed | News or update | What changed, when and for whom | A before and after table |
+
+For a subject that fits no kind, find the main relation in the content: place, amount, sequence, date, trend, options, condition, claim or change. Then:
+1. Pick one dominant shape for that relation.
+2. Test the first screen.
+3. Test that the answer reads alone.
+4. Ask the wrong-shape questions in the report.
+
+**Two pages on different subjects should differ all the way down,** not only in their opening. A topic that is one plain answer on this page (no flood risk here) is one line in the FAQ, not a section written four ways so no sentence repeats.
+
+**Order inside the shape:**
+- What the reader came for, first.
+- Good news before bad, inside every section too. Lead with what the reader will use every day, not with what is most unusual.
+- What they need to picture it.
+- What it costs and what could go wrong, plainly.
+- The next step.
+
+**Name the drawbacks, kindly, in their own place.** Readers trust a page that says what is hard. They also search for it ("reviews", "pros and cons", "is it worth it"). Give a short plain list of the good and the hard, each from a verified fact, each hard point with what to do about it. Facts only: never a verdict on a named company, and never anything about who lives somewhere.
+
+**One clear offer, tied to the page's gap.** The call to action offers the one thing the reader cannot easily get alone, ideally what the page could not fully answer. Keep one label. Several vague calls read as sales.
 
 ## 4. Show it
 
-People understand pictures before words. Use one wherever it helps:
+**People understand pictures before words.** Use one wherever it carries a fact. Use a map for any place, our own static map with a Google Maps link and drive minutes (`tools/area-map.js`). Use real photos of the subject itself (`tools/photos.js`; `rules/images.md` for what is allowed). Use a drawing to show a feature (`tools/illustrations.js`). Use icons with words for quick facts (`tools/icons.js`). Use a table when the reader compares. Use a chart when the reader needs a trend. Use steps when there is an order.
 
-- **A map** for any place: where it is, what is near, how many minutes by car (`tools/area-map.js`). Our own static map, with a link to Google Maps. A live map only when the reader clicks. Put the drive times in the text too.
-- **Photos** of the real place or the area nearby, ours or properly licensed (`rules/images.md`, `tools/photos.js`).
-- **Small images or illustrations** to show a feature instead of describing it (`tools/illustrations.js`).
-- **Icons** for quick facts the eye can scan (`tools/icons.js`). Every icon has a word beside it. The fact is in the words, not the icon.
+**A picture is a claim.** It says something is true. A golf flag on a golf cart card says there is golf. A photo of a beach on a page about a neighborhood says the beach is the neighborhood. Every image must show the fact in the sentence beside it, and its caption says that fact. Cut an image that only decorates.
 
-Never name something the reader cannot picture. Show it, or leave it out.
+**Look at every picture full size and at phone width before you describe it or approve it.** An aerial with no labels reads as gray texture on a phone. Label what the reader must find, placed from real coordinates, never guessed. Use the sharpest lawful source; newer government imagery may exist.
 
-How it looks matters as much as what it shows. The design report (`reports/Page design for readers and search.md`) has the evidence and a checklist. In short:
+**One picture at a time, each under its sentence.** Never stack images. Never put a big photo above the answer.
 
-- The answer comes first. On a phone, the first screen shows the H1, the byline and the first sentence of the short answer. No big photo above it.
-- Large, dark text: 18 px or more on a phone, lines of about 65 characters. Links are underlined.
-- Hide nothing. FAQ answers are open text, never in a closed accordion. Nothing rotates or pops up.
-- A page with 4 or more sections gets an "On this page" list. Each label is the heading, word for word, or a short label the heading declares (owner, 2026-10-11: local headings keep the place name; the list keeps short labels).
-- Each photo shows a fact, and its caption says the fact. Cut a photo that only decorates.
+**First-hand evidence beats everything.** A photo we took, a visit, a real story, a number from our files. No one else has these, and search engines reward them. Ask for them at the start of a batch with a short shot list (`templates/photo-shot-list.md`).
+
+**Every image has a license record before it touches a page.** Use only our own images, CC0, public domain (including U.S. government aerials), and CC BY or CC BY-SA with credit. Never a builder's, a listing's, a news or a map provider's image, a logo or a person as the subject, or an AI image of a real place.
+
+**Design for the reader's eyes.** The evidence and the checklist are in `reports/Page design for readers and search.md`.
+- The first screen on a phone holds the H1, the byline and the first sentence of the answer. A small row of key facts with words can share it.
+- Text is large and dark: 18 px or more on a phone, lines of about 65 characters. Links are underlined.
+- Everything a reader must read is that size too: card labels, map labels, captions, table headers.
+- Hide nothing. FAQ answers are open text. Nothing rotates or pops up.
+- A page with 4 or more sections gets an "On this page" list with short labels.
+
+**The page's surroundings are part of the page.** The header, footer and site-wide boxes either speak to this reader or cost trust. An investor footer on a retiree page made readers doubt the company. File a mismatch in the frame as a site fix with the page's release.
 
 ## 5. Write it
 
-- Short sentences. One idea each. Plain words.
-- Round numbers, few of them. "About $300,000." Three numbers in a paragraph at most.
-- Say what it means, not what it is: "You probably will not need flood insurance," not "Zone X".
-- Speak as the expert the reader trusts. No "records show", no "according to". Sources go in the sources line.
-- Warm and literal. "About 400 homes are already built" is warm. A metaphor is not.
-- Never date a fact in the body. The date is in the byline.
+- **Short sentences, one idea each, plain words.** A stranger decides what is plain, not the writer.
+- **Round to help, not by reflex.** Round what a person would not say aloud: "about $535,000", "about $600 a year". Keep a short exact figure when it is the answer itself or what others print: "$95 a month". Three numbers in a paragraph at most.
+- **Give a number the reader can plan with.** "More than $2,000", "at least $3,000" and "ask the manager" are true and useless. Give the rounded figure for the reader's case, or leave the question off the page and put the offer to find out in a call to action.
+- **Say what it means, not what it is.** "You probably will not need flood insurance," not "Zone X".
+- **Speak as the expert.** No "records show", "according to" or "the builder says". Method and attribution go in the sources line. If a verifier allows a fact only with attribution, find a stronger source, state the part fully supported, or cut it. Never paste the hedge.
+- **State it or cut it.** A half-hedge in one sentence, while another sentence states the fact, protects no one.
+- **Say each fact once, where it belongs.** A map, a chip and a sentence that all say "10 minutes" are three statements of one fact.
+- **Each sentence must be safe if quoted alone.** Search engines and AI tools lift single sentences. Name the subject. No "It is" openers. Keep a figure with its group.
+- **Name places by what the reader knows.** Use the main entrance, the beach or the hospital. Not a street address or a road number.
+- **Dates: one, in the byline, set by machine.** No dates in body copy or captions. When two figures are compared, they come from the same year or rule set, or the page says so.
+- **Warm and literal.** No metaphors. "About 400 homes are already built" is warm.
 
-## 6. Tell one story
+## 6. Tell one story, when it helps
 
-A short story makes a page memorable and shows we know the place. See `voice/STORY-CRAFT.md` for how to write one (built from research, 2026-10-10). The legal limits never move: a real story is real and comes from the story bank; anything else is labelled "Example" and never claims to be a client.
+A short story makes a page memorable and shows we know the subject. It is not required. A checklist or a calculator may not need one.
 
-## 7. Check it like a stranger would
+- **A real story first** (`stories/stories.json`), told exactly as recorded, adding no detail. A true local story was the most persuasive thing on any page in batch 2026-10-a.
+- **Otherwise a labelled example** that carries a fact the reader needs. It has one want, one problem and one fix. It shows a real problem from a verified row, caught by a service we really offer, in the present tense.
+- **It must pass the simple story test** (`voice/STORY-SIMPLE.md`): a stranger can retell it after one read. No counting, no "if", 4 to 6 short sentences, no word to look up. `tools/story-check.js` checks the parts a machine can.
+- **Write the one-sentence retell before the story.**
+- **Stories in a set must not share one shape,** or the template shows.
+- The legal limits never move (`voice/STORY-CRAFT.md`).
 
-Before anyone else sees it:
+## 7. Make it findable and quotable
 
-- Read it as the 62-year-old from Ohio who knows nothing. Where did you stop? Where did you want a picture?
-- Count the numbers and the dates.
-- Ask every heading: is it answered in the first sentence?
-- Open it on a phone at 375 px wide, once with the largest text setting. Can you see the answer without scrolling? Is anything cut off, hidden or too small?
-- Ask every sentence: would the reader miss it?
-- Run the gates (`npm test`, `score.js`, `claims-scan.js`, `facts-check.js`, the website's `build.js audit`), then the buyer readers and the reviewer.
+- **The title tag carries what people search;** the H1 can be the warmer human question. Both promise only what the page gives. Put the search words in the title and description: the subject's name, "fees", "rules", "pros and cons", "55+".
+- **One fact has one value on every surface of the site:** the page, the hub, older pages, schema, captions, `llms.txt` and `llms-full.txt`. Register the fact (`facts/registry.json`). Before release, scan the site for the old value.
+- **Link in sentences, both ways.** The page links up to its hub and across to what the reader needs next, with words that say what the target answers. Older pages that name the subject get a link to it.
+- **Structured data names the subject as a thing** (a place, a law, a product). Every trust field is true: the reviewer reviewed, the author's listed expertise fits the page, every anchor exists.
+- **A trust signal must be true.** "Reviewed by", "verified", "our client", a visit date: if it did not happen, remove it until it does.
+- **Source links go to pages a person can read,** not raw data queries.
+- **Answer engines lift the first sentence under each heading.** Make it the answer, with the subject named.
 
-## 8. Learn from every edit
+## 8. Check it like a stranger, then like a machine
 
-When the owner changes a sentence, the change is a lesson about a class of sentences, not one sentence. Record it (`tools/record-edit.js`), name the class in `voice/RULES.md`, and apply it to everything after.
+In this order:
+
+1. **Read it as the reader, before any gate.** A perfect score measures rules, not value. Version 1 of batch 2026-10-a scored 100 on every gate and was sent back.
+2. **A cold reader who has never seen the page** reads it and lists what stopped them and what they came for but did not find (`prompts/buyer-reader.md`, with the reader chosen for this page). A gap the cold reader names is a blocker that day, not a note.
+3. **Never grade your own work.** Use a fresh reader for every judgment that gates a release, and a new one after each round of fixes. Every self-grade in batch 2026-10-a came in higher than the independent grade after it.
+4. **Compare sibling pages side by side.** List words, pictures of the subject itself, must-answers covered, phone screens and the longest section for each. A page that passes alone can be plainly the weakest of the set.
+5. **Look at the served page, freshly built,** at 375 px wide, after a slow scroll so every image loads, with the largest text setting once. Check that screenshots are newer than the build.
+6. **Run the gates:**
+   - `npm test`
+   - `score.js`
+   - `claims-scan.js`
+   - `facts-check.js`
+   - `image-meta.js`
+   - the website's `build.js audit`
+7. **The owner's eye** (`prompts/owner-eye.md`), run by an agent that did not write the page, grades it as the owner would. Below 9, it does not go to the owner. A stand-in can stretch the owner's words, so a cold reader checks its pet fixes too.
+8. **Stop by rule.** Release when no high or medium findings remain. Low findings go to a list. They never start a new version.
+9. **When two reviewers disagree,** write down what each one protects and find one design that serves both before building. If you must choose, choose by the reader, and log the reversal in `WORKFLOW.md`.
+
+Test an outside service or a site component in the real page, under the site's own rules, before building on it.
+
+## 9. Learn from every correction
+
+The owner is the teacher. A correction teaches a reason, not a phrase.
+
+1. **Write down the exact words.**
+2. **Name the reader's loss.** What did the reader fail to get, understand, picture or trust?
+3. **Check the rules you already have.** If one already covered it, the problem is that no one applied it, or a check measured the wrong thing, or a brief said the opposite. Fix that. In batch 2026-10-a, 8 of the owner's 12 corrections were already covered.
+4. **Find three more instances:** on this page, on the sibling pages, and on a page of a different kind.
+5. **Write the rule as a reason and a test question.** Merge it into the rule it belongs under. Add a new rule only if no reason holds it.
+6. **Sweep every page in flight the same day.** Update every file that carries the old rule in the same commit, including the prompts, templates and model examples. A stale example teaches the old mistake.
+7. **Record it** in `voice/VERDICTS.md`: the date, the quote, the class and what changed. **Record praise the same way,** so the next page keeps what worked. Sentence edits go through `tools/record-edit.js` into `voice/edits.jsonl`.
+8. **Test it on the next page of a different kind** before you trust it.
+
+**General or one-off?** A lesson about what the reader knows, needs first, can picture or trusts is general. A fact about one subject, a business policy, or a word list with no reason is not. If you can state a reason that holds for a different subject, it is general.
+
+**Put a general check where every page passes through it** (the scorer, a shared tool, the reviewer prompts), never inside one batch's files.
+
+## 10. Ship
+
+- **Freeze the scope of a batch.** New tools and research run on their own track and reach the next batch.
+- **Decide on day one how the page reaches the live site** (`tools/package-batch.js`, WORKFLOW "Uploading a batch"). A batch is done when it is live.
+- **Record cost and time per stage.** If a batch runs over budget, say so in one line.
+- **Ask the owner only what nothing else can answer,** once, with your proposed answer. Decide the rest.

@@ -35,8 +35,8 @@ The website's `build.js` gate will reject copy that breaks those rules.
    - The short answer gives the verdict in the first words.
    - Question H2s. The first one defines the subject.
    - Each section opens with a sentence of 30 words or fewer that answers its heading.
-   - One table and one figure.
-   - Two CTAs inside the article.
+   - The visuals the shape needs, and only those (CRAFT 3 and 4): a map for a place, a table to compare, steps for a process, a chart for a trend. No fixed count.
+   - One clear offer tied to what the page could not fully answer, with one label (CRAFT 3).
 
 3. **Register: the owner's own.** "If Airbnb or VRBO take the payment, they are responsible for the taxes. If you take the payment, you are responsible for the taxes."
    - One idea per sentence.
@@ -53,7 +53,7 @@ The website's `build.js` gate will reject copy that breaks those rules.
 
    Never write a quote for Tim. Devin Day's name is in the byline and author note only. Never name Paul.
 
-   Where no real story fits, write a worked example. Start it with "Example:" in bold. Then tell it like a real person and a real situation: names, a hometown, a budget, a decision. Build every number from verified fact rows and show the arithmetic. Never say the people are clients, and never say they are not. Never write "our client", "we helped" or "Chapter3 found them". Keep Chapter3 out of the example's events; the lesson after it can say what Chapter3 checks.
+   Where no real story fits and a story helps this page, write a labelled example by `voice/STORY-CRAFT.md` and `voice/STORY-SIMPLE.md`. Start it with "Example:" in bold. One want, one problem, one fix. A Chapter3 agent acts in the present tense with a service on record. At most one number, no arithmetic, no "if". Write the one-sentence retell first. Never say the people are clients, and never say they are not. Never write "our client" or "we helped". `tools/story-check.js` refuses a story that breaks the machine-checkable parts.
 
 6. **Compliance:**
    - No interest rate and no payment amount.

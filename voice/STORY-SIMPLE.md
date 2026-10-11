@@ -2,7 +2,7 @@
 
 A reader should understand a story in one read on a phone. The owner read the Del Webb at Grande Dunes example and called it "impossible to understand" (2026-10-11). It asked the reader to hold a three-part rule, two visits and a count of nights. This page is the test that would have caught it. The research is in `research_notes/Short stories for retiree buyers/simple_stories.md`.
 
-Use it with `STORY-CRAFT.md`. All of STORY-CRAFT's legal limits still apply. When a story turns on a rule or a check, keep it to 4 to 6 sentences, shorter than STORY-CRAFT's 5 to 8.
+Use it with `STORY-CRAFT.md`. All of STORY-CRAFT's legal limits still apply. Every story runs 4 to 6 sentences.
 
 ## The test
 
@@ -16,9 +16,9 @@ A story passes only if every answer is yes.
 ### On the draft
 
 3. **One want, one problem, one fix.** One buyer or one couple. Other family appear only as part of the want.
-4. **No counting.** The reader never adds, subtracts, or compares two dates or two numbers. At most one number tied to the problem, and the reader does nothing with it.
+4. **No counting.** The reader never adds, subtracts, or compares two dates or two numbers. At most one number tied to the problem, and the reader does nothing with it. A small count of people ("two grandsons") may sit beside it. If the story must compare, give the comparison in words ("about two weeks more than that"), never as two figures to subtract.
 5. **No "if".** No "if", "unless", "except", "would have" or "could have". The rule's conditions and exceptions stay in the FAQ above the story.
-6. **One timeline, moving forward.** No second visit or second deadline to hold beside the first. No flashback. No second check or re-count.
+6. **One timeline, moving forward.** No second deadline to hold beside the first. No flashback. No second check or re-count. A want may name one plan with two parts ("all summer and again at Christmas") as long as the reader never adds them up; the story gives the total in words.
 7. **No word to look up.** No "covenant", "PUD", "Zone AE", "the city's plan", "under 19", "any 12 months in a row". Say what the rule does to them.
 8. **One thing to picture.** A dog, a calendar, a patio, a contract on the table.
 9. **Short.** 4 to 6 sentences. Most under 20 words; none over 25. Nothing the reader must scroll back to check.
@@ -57,7 +57,7 @@ Child sentence: Grandkids can only stay about three months a year.
 
 ### Del Webb North Myrtle Beach
 
-**Example:** Frank and Joyce plan to spend summers near their son in Michigan. While they are away, they want to rent their new house to vacationers by the week. They choose a house plan in Del Webb North Myrtle Beach and are ready to sign the builder's contract. Before they sign, their Chapter3 agent reads the city's renting rules for the neighborhood with them. Every renter there must stay at least 30 days, so they cannot rent by the week. Frank and Joyce plan on one renter for the whole summer, and they sign the contract.
+**Example:** Frank and Joyce plan to spend summers near their son in Michigan. While they are away, they want to rent their new house to vacationers by the week. They pick out a new house in Del Webb North Myrtle Beach and are ready to sign the builder's contract. Before they sign, their Chapter3 agent reads the renting rules for the neighborhood with them. Every renter there must stay at least 30 days, so they cannot rent by the week. Frank and Joyce plan on one renter for the whole summer, and they sign the contract.
 
 Retell: Frank and Joyce wanted weekly renters, but renters there must stay a month, so the agent caught it before they signed and they planned on one summer renter.
 
@@ -81,7 +81,7 @@ Child sentence: The house needs flood insurance they did not know about.
 
 ## The machine checks
 
-`batches/2026-10-a/specs/_55-plus-kit.js` `story()` refuses a story that breaks tests 4, 5 and 9: more than one number, any "if", "unless", "except", "would have" or "could have", fewer than 4 or more than 6 sentences, or a sentence over 25 words. Tests 1, 2, 3, 6, 7, 8, 11 and 12 need a reader.
+`tools/story-check.js` refuses a story that breaks tests 4, 5 and 9: more than two different numbers (digits or words), a price, any "if", "unless", "except", "would have" or "could have", fewer than 4 or more than 6 sentences, or a sentence over 25 words. `score.js` runs it on every page with a story (STANDARD T8), and the batch kit runs it when it builds a story. Tests 1, 2, 3, 6, 7, 8, 11 and 12 need a reader.
 
 ## Notes for the checker
 

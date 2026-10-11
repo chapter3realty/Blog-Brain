@@ -125,7 +125,7 @@ B8. Is there a paragraph the buyer would skip? [no; cut it or move it to an expl
 
 55. Is every story something that happened, told about "an agent at Chapter3" or "in Chapter3's files", with no client identifiable? [yes] STORY-1
 56. Is there any quote from Tim Nash or anyone else that the person has not approved word for word? [no] STORY-2
-57. Is every invented situation labelled "Example" where it starts, with every number from the fact ledger and the arithmetic shown? [yes] STORY-3
+57. Is every invented situation labelled "Example" where it starts, with any number from the fact ledger and no arithmetic (STANDARD T8)? [yes] STORY-3
 58. Does any example say "our client", "we helped", or say the people are or are not clients? [no] STORY-3
 59. Does every story end with what happened, in plain words, and show how Chapter3 helped? [yes] STORY-5, STORY-6
 59a. Read once and covered, can the story be told back in one sentence (want, problem, fix) with no counting and no "if"? [yes] STORY-SIMPLE

@@ -17,14 +17,14 @@ GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 -b claude/github-account-check-wutg8b 
 
 ## Read first
 
-0. `CRAFT.md`: the skill of making a page, in one place. You are learning a skill, not filling a template (owner, 2026-10-10).
+0. `CRAFT.md`: the skill of making a page, any page, in one place. You are learning a skill, not filling a template (owner, 2026-10-10). Version 2 (2026-10-11) is built from 65 lessons (`research_notes/lessons-2026-10-a.md`) and the page shape research (`reports/Page shapes by kind of page.md`). The `make-page` skill in `.claude/skills/` loads it.
 1. `audit/AUDIT.md`: everything wrong with the live site on 2026-10-01, ranked, with fixes. Evidence is in `audit/evidence/`. Start here.
 2. `STUDY.md`: what the 122 live articles score and why.
 3. `STANDARD.md`: what a finished page has, and what it may never claim. Every rule has an ID.
 4. `WORKFLOW.md`: the production line. Lane N is a new page; Lane U is an upgrade; Lane O is off-site.
 5. In the website repo, `CLAUDE.md` and `PLAYBOOK.md`. They hold the owner's rules on voice and compliance. `build.js` enforces them. This repo does not repeat them, and they win any conflict.
 6. `research/website-process-digest.md`: a summary of the website's 4,000 lines of process docs.
-7. Before writing any page: `voice/RULES.md` (the owner's corrections by class) and `stories/stories.json` (real stories; never add a detail). The reviewer answers `voice/REVIEW-PASS.md`.
+7. Before writing any page: `voice/RULES.md` (the owner's corrections by class) and `stories/stories.json` (real stories; never add a detail). The reviewer answers `voice/REVIEW-PASS.md`. What the owner said about past pages, including what he praised, is in `voice/VERDICTS.md`.
 
 ## Commands
 

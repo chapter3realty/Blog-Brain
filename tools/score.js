@@ -606,6 +606,17 @@ rule("icon-labels", "Human", 2, "Every icon in a card or list has a visible word
   return bareIcons.length ? part(Math.max(0, 1 - bareIcons.length / iconCount), `${bareIcons.length} of ${iconCount} icons have no visible word, e.g. in "${bareIcons[0]}"`) : pass(`${iconCount} icons, each with a word`);
 });
 
+/* A story a stranger can retell after one read (voice/STORY-SIMPLE.md; owner, 2026-10-11: "impossible to
+   understand"). The card the 55+ kit builds is one story; otherwise each paragraph that opens "Example:". */
+rule("story-simple", "Human", 2, "Each story passes the machine part of the simple story test (4 to 6 short sentences, no condition, no counting, no price)", (p) => {
+  const stories = [];
+  p.main.find(".c3-story").each((_, e) => stories.push(norm(p.$(e).find("p").map((__, q) => p.$(q).text()).get().join(" ") || p.$(e).text())));
+  if (!stories.length) p.main.find("p").each((_, e) => { const t = norm(p.$(e).text()); if (/^Example:/.test(t)) stories.push(t); });
+  if (!stories.length) return na("no story");
+  const bad = stories.map(t => [t, require("./story-check.js").check(t)]).filter(([, pr]) => pr.length);
+  return bad.length ? part(1 - bad.length / stories.length, `${bad.length} of ${stories.length}: ${bad[0][1][0]} ("${bad[0][0].slice(0, 60)}")`) : pass(`${stories.length} stor${stories.length === 1 ? "y" : "ies"}, each simple`);
+}, { applies: isArticle });
+
 /* --- Trust (E-E-A-T) ----------------------------------------------------- */
 rule("byline", "Trust", 2, "Visible byline naming the author, with an Updated date", (p) => {
   const b = p.byline || "", named = /^By\s+(?:the\s+)?(?:Chapter ?(?:3|III)\b|[A-Z][a-z]+\s+[A-Z])/.test(b) && !/\bPaul\b/.test(b), dated = /Updated\s+[A-Z][a-z]+\s+\d{1,2},\s+\d{4}/.test(b);
@@ -657,7 +668,7 @@ const STD = {
   byline: "T1", experience: "T2", "sources-line": "T3", fresh: "T4",
   "exact-amounts": "P1", "number-density": "P2", "date-mentions": "P3", "price-headline": "P4", deflection: "P5", "plain-words": "P6",
   pictures: "P7", "place-map": "P8",
-  "open-answers": "A13", toc: "H14", "icon-labels": "H15",
+  "open-answers": "A13", toc: "H14", "icon-labels": "H15", "story-simple": "T8",
 };
 
 /* ---------------------------------------------------------------- scoring */

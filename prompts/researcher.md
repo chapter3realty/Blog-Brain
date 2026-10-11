@@ -33,6 +33,17 @@ You are researching facts for one page on chapter3realty.com. Chapter3 is a real
    | Statutes | quarterly |
    | Insurance and program limits | twice a year |
 
+4b. **The four stretches.** Before you save a row, check that the sentence says no more than the source:
+   - **Group:** the number describes the same set the claim names (houses, or houses and villas; plans sold now, or every home built).
+   - **Time:** an old description is not stated as true today.
+   - **Completeness:** "including" is not turned into a full list.
+   - **Firmness:** an estimate is not a decision, and an announcement date is not a start date.
+   Also check: a range covers every case, not two samples; a geocoder's road label is not an address; the paragraph is the current version, not one amended later; the number is possible (a 400-acre claim in a 159-acre place). About 8 percent of first-pass rows in batch 2026-10-a were wrong in these ways.
+
+4c. **The deciding fact first.** Before anything else, check the one fact without which the page cannot be written as planned (the recorded rule that makes a community 55+, the law that makes a strategy legal). Report it before you go on.
+
+4d. **The reader's questions first.** Research the page's must-answer list before anything else, in its order. The records answer the reader's questions; they do not replace them.
+
 5. **Local first.** Prefer the Horry County, Georgetown County or City of Myrtle Beach figure over the state figure. Prefer the state figure over the national one. Say which geography each number covers.
 
 6. **Name both sides of a ratio.** Say what the numerator and the denominator describe, and check they describe the same population.

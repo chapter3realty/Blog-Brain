@@ -11,20 +11,20 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 **Simple first (owner, 2026-10-07). These come before every other rule, on every page and every piece of writing.** The owner: "please please please do not take what im telling you as a lesson for this one type of thing or this one blog understand that in everything you do you need to make it as easy to understand as possible ... blogs need to be simple enough to understand a baby could read it and figure everything out".
 
 - P1. Write for a reader who knows nothing: not the town, not the roads, not the words. If a child could not follow it, rewrite it.
-- P2. Few numbers, and round ones. "About $300,000", never "$299,965". Two or three numbers in a section, not ten.
+- P2. Few numbers, and round ones. "About $300,000", never "$299,965". Two or three numbers in a section, not ten. Round what a person would not say aloud. Keep a short exact figure when it is the answer itself or what other sources print: "$95 a month", not "about $100" (2026-10-11: rounding the verified $95 made the page look less exact than its sources).
 - P3. Say what it means for the reader, never what the thing is. "You probably will not need flood insurance", not "the home is in FEMA Zone X".
 - P4. Show it. A map of where the place is, photos, and icons beat paragraphs. Never name a thing the reader cannot picture (a builder's model name, a road); show it or leave it out.
 - P5. Every question the page asks, the page answers. "Ask the manager" or "read the rules" is not an answer.
 - P6. Say the date once, at the top. Not in every section.
-- P7. On a page for people buying a home to live in, lead with the home, what it offers, and the area around it. Price comes later and softly. Never in the headline. Cost-first is for investor pages.
+- P7. Lead with what this reader came for. On a page for people buying a home to live in, that is the home, what it offers and the area around it; price comes later and softly, never in the headline. Cost-first is for investor pages and cost pages.
 - P8. Leave out details that only show how much we know. If the reader would not miss it, cut it.
-- P10. Every photo shows what its section is about (owner, 2026-10-11: "the photos should be of the topic we are talking about in the blog"). No decorative photo at the top. A photo of the area goes only beside the sentence about that place.
 - P9. Old data: if a fact rarely changes and being wrong could not hurt the reader, state it plainly with no date. If it changes and a reader could act on it (a fee, a rental rule, a pet limit), use it only if you judge it is still true and low risk; otherwise leave it out. Never write "this is outdated". If there is no good data on a topic, do not mention the topic.
+- P10. Every photo shows what its section is about (owner, 2026-10-11: "the photos should be of the topic we are talking about in the blog"). No decorative photo at the top. A photo of the area goes only beside the sentence about that place.
 
 **Buyer first (owner, 2026-10-06).**
 
 - A. Lead with what the buyer of this page wants most, good news first, then the drawbacks. Never lead with records, history or method.
-- B. Use the words a buyer who has done no research uses. No industry terms: "plans", "platted", "assessed value", "declaration", "development agreement", a company's initials.
+- B. Use the words a buyer who has done no research uses. No industry terms: "plans", "platted", "assessed value", "declaration", "development agreement", a company's initials. One exception: a word readers type into search ("amenity center", "HOA fees") is used once, in plain context (2026-10-11).
 - C. Speak as the expert the buyer trusts. State the fact. Do not write "records show", "according to", "per Pulte". Put a few source links through the page and the rest in the sources line.
 - D. Tell the buyer what a fact means for them, not why or how it works. The explainer lives on another page; link it.
 - E. Answer the next question the page makes them ask: a flood zone makes them ask what flood insurance costs.
@@ -50,7 +50,7 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 
 Paths are in the website repo (`chapter3realty/Chapter3-Website`, branch `claude/github-account-check-wutg8b`) unless they start with `Blog-Brain/`. `RL` is `research/relocating/owner-answers.md`. `B3`, `B4` and `B5` are `research/invest-next/owner-answers-batch3.md`, `-batch4.md` and `-batch5.md`. The full record of each correction is in `edits.jsonl` in this folder.
 
-Rule counts: PLAIN 9, BUYER 8, FIG 7, SHAPE 10, WORD 5, STRUCT 9, BIZ 8, FACT 9, LOCAL 5, STORY 7, CTA 4, OWNER 5. Total 86. When PLAIN or BUYER conflicts with another rule, PLAIN wins, then BUYER, except the legal rules in BIZ and FACT.
+Rule counts: PLAIN 9 (plus P10 in the summary), BUYER 8, FIG 7, SHAPE 10, WORD 5, STRUCT 9, BIZ 8, FACT 9, LOCAL 5, STORY 7, CTA 4, OWNER 5. Total 86. When PLAIN or BUYER conflicts with another rule, PLAIN wins, then BUYER, except the legal rules in BIZ and FACT.
 
 ---
 
@@ -69,6 +69,7 @@ He had a third-party reader go through version 4. Verdict, verbatim: "it is a ve
 - Bad: "the middle single-family flood policy for a Zone X home cost $561 a year, fees included. Half cost between $432 and $725."
 - Good (suggested): "Flood insurance here usually costs about $600 a year."
 - Exact figures stay in the fact ledger. On the page: round to what a person would say out loud. A table may hold a few more numbers than prose.
+- Do not round a short exact figure that is the answer itself or the figure other sources print ("$95 a month"). Rounding it makes the page look less exact and gives answer engines a second value (2026-10-11, SEO grader).
 - Enforced by: `score.js` number density and exact-amount checks.
 
 ### PLAIN-3. Say what it means for the reader, not what the thing is.
@@ -129,6 +130,7 @@ He read four pages that passed every check and scored 100. His verdict: "I think
 - Bad: "Pulte lists three Del Webb plans"; "Ask AAM"; "497 home lots platted"; "assessed value"; "legal residence"; "development agreement".
 - Good (suggested): "three home designs"; "ask the management company"; "about 500 homesites"; "your primary home".
 - Do not define a term to make it usable. Replace it. Keep a term only when the buyer will see it on a form they sign, and then say it once, in plain words.
+- Exception: a word readers type into search. If the search suggestions show "amenity center" or "HOA fees", the page uses that word once, in plain context: "the clubhouse, which the builder calls the amenity center" (2026-10-11, SEO grader; CRAFT 1).
 - Enforced by: reading pass, and the buyer reader.
 
 ### BUYER-3. Speak as the expert. State the fact; source it lightly.
@@ -547,7 +549,7 @@ The most frequent correction is one word: "Delete." 44 recorded corrections were
 - Good (recorded): the sentence addresses the reader instead.
 - Enforced by: reading pass.
 
-### STORY-3. Where no real story fits, write a worked example. Label it "Example" where it starts. Write it like a real person and situation. Every number comes from a verified fact row. Give the results; show arithmetic only where one line helps the buyer trust the number (BUYER-4). Never say the people are clients, never say they are not, never write "our client" or "we helped".
+### STORY-3. Where no real story fits, write a worked example. Label it "Example" where it starts. Write it like a real person and situation. Every number comes from a verified fact row. Give the result in words, with no arithmetic, and pass the simple story test (`voice/STORY-SIMPLE.md`, STANDARD T8; owner 2026-10-11: "impossible to understand"). Never say the people are clients, never say they are not, never write "our client" or "we helped".
 - Owner: "just make it example and then talk like its a real person and story" (2026-10-05, Blog-Brain/STANDARD.md:103). Earlier: "i dont understand this question but go ahead and make an illustrative story for it" (2026-09-06, B3:78). "Example with round numbers. Can you make this example interactable as well and let them change the numbers to test their own deals." (2026-09-03, RL:1228-1229)
 - Bad: no recorded instance yet.
 - Good (the pattern in Blog-Brain/STANDARD.md:103): "Example: Mark and Lisa are moving from Ohio with $400,000 to spend..." Every figure after that line comes from the fact ledger.

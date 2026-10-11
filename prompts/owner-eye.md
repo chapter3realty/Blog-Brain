@@ -12,15 +12,18 @@ Read, in this order:
 1. Every owner quote in `voice/RULES.md` (the lines that start "Owner:"), newest first.
 2. `voice/edits.jsonl`, the last 50 records: what he changed and how.
 3. The model page, if one is approved (`batches/*/MODEL.md` names it).
-4. The page: look at the phone screenshots in order, then the text.
+4. The page: look at the phone screenshots in order, then the text. Take your own screenshots of the freshly built page at 390 and 1280 px, after a slow scroll so every image loads. Open every picture full size before you say what it shows.
+5. The sibling pages made in the same batch. Before grading, fill this table for every page in the set: words, pictures, pictures of the subject itself, must-answer items covered (`templates/must-answer.md`), phone screens, longest section. A page that is plainly the weakest of the set does not reach 9, even if it reads well alone (owner, 2026-10-11: "the first page about del webb seems less good than the other ones").
 
 Then answer, as him, in his words:
 - What would you send back? Quote each sentence, picture or placement, and say what you want instead.
 - Is anything awkward to look at? (A photo that does not belong, a story in the wrong place, too much in one screen, an icon or card that says nothing.)
 - Does every photo show what its section is about?
-- Is there a story near the end with tension, showing Chapter3's skill?
+- If the page has a story: is it near the end, with real tension, showing Chapter3's skill? A page does not need a story if one would not help the reader (a checklist, a calculator).
 - Read the story once, out loud, without rereading. Cover it and tell it in one sentence: who wanted what, what stood in the way, what the agent did. If you could not, or you had to count or reread, the page scores below 9 (owner, 2026-10-11: the Grande Dunes story was "impossible to understand"; `voice/STORY-SIMPLE.md`).
 - What did the page forget that a buyer types into Google about this subject?
 - Grade it 1 to 10. Below 9, it does not go to the owner.
+
+Guard against stretching his words. You know his quotes, not his judgment. Before you ask for a change, apply his own test: is it simpler for the reader? On 2026-10-11 an earlier stand-in turned "show Chapter3's skill" into a story about counting nights, graded it 9, and the owner called it "impossible to understand".
 
 Write to `<batch>/OWNER-EYE-<slug>.md`. Do not edit the page.

@@ -290,9 +290,21 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   quiet("an icon in a button (live cost-of-living caret)", gold({ body: '<ul><li><button type="button" aria-label="Show all areas"><svg aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></li></ul>' }), "icon-labels");
 }
 
+/* T8: a story a stranger can retell (tools/story-check.js has the full controls). Firing text is the
+   version 12 Grande Dunes story the owner called "impossible to understand"; passing text is version 13. */
+{
+  const fires = (name, html, id) => { check(`${id}: mutation landed (${name})`, html !== base); const r = credit(html, id); check(`${id}: fires on ${name}`, r.credit !== null && r.credit < 1, `(${r.credit}: ${r.detail})`); };
+  const passes = (name, html, id) => { const r = credit(html, id); check(`${id}: passes ${name}`, r.credit === 1, `(${r.credit}: ${r.detail})`); };
+  const card = (ps) => `<div class="c3-story">${ps.map(t => `<p>${t}</p>`).join("")}</div>`;
+  fires("the version 12 Grande Dunes story", gold({ body: card(["<strong>Example:</strong> Bill and Nancy are moving from Columbus, Ohio, and they like a villa in Del Webb at Grande Dunes. Their grandsons plan to come for Christmas and then for the whole summer after it.", "Before the offer, their Chapter3 agent asks for the dates and counts the nights on a calendar with them. The agent counts Christmas and the next summer together, because they fall inside the same 12 months.", "The nights add up to more than 90. Nancy moves the boys' summer arrival to the first week of July, and the agent counts again.", "Bill and Nancy make their offer knowing the boys' visits fit the rule. If the visits had not fit, they could have looked at a different neighborhood before they signed anything."]) }), "story-simple");
+  passes("the version 13 Grande Dunes story", gold({ body: card(["<strong>Example:</strong> Bill and Nancy are moving from Ohio, and they want their two grandsons to stay with them all summer and again at Christmas. They like a villa in Del Webb at Grande Dunes.", "Before they make an offer, their Chapter3 agent reads the neighborhood's rules with them. A grandchild can stay up to 90 nights a year. Their plan is about two weeks more than that.", "Bill and Nancy cut two weeks from the summer visit and make their offer."]) }), "story-simple");
+  fires("a one-paragraph example with arithmetic (the live worked-example shape)", gold({ body: "<p>Example: Mark and Lisa are moving from Ohio with $400,000 to spend. A $350,000 house with a $5,000 deposit leaves $45,000. Their agent adds the fees. They buy.</p>" }), "story-simple");
+  check("story-simple: not applicable with no story", credit(base, "story-simple").credit === null);
+}
+
 /* Every rule id appears in at least one mutation, so no rule is untested. */
 const tested = new Set(mutations.map(m => m[0]).concat(["visual-rhythm", "verdict", "exact-amounts", "number-density", "date-mentions",
-  "price-headline", "deflection", "plain-words", "pictures", "place-map", "open-answers", "toc", "icon-labels"]));
+  "price-headline", "deflection", "plain-words", "pictures", "place-map", "open-answers", "toc", "icon-labels", "story-simple"]));
 for (const r of RULES) check(`rule ${r.id} has a control`, tested.has(r.id));
 
 /* Every rule maps to a STANDARD.md id. */
