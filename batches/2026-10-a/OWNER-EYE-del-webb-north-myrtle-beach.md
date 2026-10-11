@@ -89,7 +89,7 @@ Not yet. There is a labelled example, and it is in the present tense with the ag
 - **Pets and fences.** Both come from the recorded rules too.
 - **One-time fees when you buy.** The ledger has none. Leave it out until a closing file or the HOA gives a number.
 - **Events.** I asked how many events the HOA holds. The researcher found no count the HOA or the builder publishes, so leaving a number out is right. "A full-time lifestyle director" on the card is enough until we get the HOA calendar.
-- **"Is there a golf course?"** The street map labels a golf course next door, and the text never mentions it. One sentence on what it is and whether residents can use it, if we have a source. If we have no source, take the label off the map.
+- **"Is there a golf course?"** The street map labels a golf course beside the neighborhood, and the text never mentions it. One sentence on what it is and whether residents can use it, if we have a source. If we have no source, take the label off the map.
 
 ## Grade
 
