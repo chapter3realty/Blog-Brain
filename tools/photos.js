@@ -173,11 +173,13 @@ const DATE = new RegExp(`\\b(?:1[89]|20)\\d\\d\\b|\\b${MONTH}\\.? \\d{1,2}\\b|\\
 const hasDate = (s) => DATE.test(String(s));
 
 /* The caption and alt each photo was last shown with on a page (heroPhoto, gallery,
-   featureCards), so the credits can name it in the same words the reader saw. */
+   featureCards), so the credits can name it in the same words the reader saw, and the
+   schema can repeat the visible caption (full) and the alt text. */
 const SHOWN = new WeakMap();
-const shown = (rec, caption, alt) => {
-  const first = String(caption || "").trim().split(/(?<=[.!?])\s+(?=[A-Z])/)[0];
-  SHOWN.set(rec, { caption: first, alt });
+const shown = (rec, caption, alt, extra = {}) => {
+  const full = String(caption || "").trim();
+  const first = full.split(/(?<=[.!?])\s+(?=[A-Z])/)[0];
+  SHOWN.set(rec, Object.assign({ caption: first, full, alt }, extra));
 };
 
 /*
@@ -268,7 +270,7 @@ function heroPhoto(rec, opts = {}) {
   const sizes = opts.sizes || "(max-width: 1200px) 100vw, 1136px";
   const mw = /^[0-9.]+(?:px|rem|em|%)$/.test(opts.maxWidth || "") ? `max-width:${opts.maxWidth};` : "";
   const cap = opts.caption ? `<figcaption>${esc(opts.caption)}</figcaption>` : "";
-  shown(rec, opts.caption, opts.alt);
+  shown(rec, opts.caption, alt, { hero: true });
   return `${style(["base", "hero"], opts)}<figure class="c3ph-hero" style="${mw}"><div class="c3ph-f">${img(rec, alt, { base: opts.base || "/", sizes, hero: true })}${overlay(rec, kind)}</div>${cap}</figure>`;
 }
 
@@ -293,7 +295,7 @@ function gallery(items, opts = {}) {
     const alt = altFor(it, rec);
     const caption = String((it && it.caption) || "").trim();
     if (!caption) throw new Error(`photos.js: gallery photo ${label(rec)} needs a caption (a few plain words under the photo)`);
-    shown(rec, caption, it && it.alt);
+    shown(rec, caption, alt);
     return `<figure><div class="c3ph-f">${img(rec, alt, { base: opts.base || "/", sizes })}${overlay(rec, kind)}</div><figcaption>${esc(caption)}</figcaption></figure>`;
   }).join("");
   const gal = `<div class="c3ph-gal${row ? " c3ph-row" : ""}" role="group" aria-label="${esc(opts.label || "Photos")}" style="--c3ph-n:${n};--c3ph-r:${ratio}">${figs}</div>`;
@@ -320,8 +322,9 @@ function featureCards(items, opts = {}) {
     let pic;
     if (it.photo) {
       const kind = checkRecord(it.photo);
-      shown(it.photo, "", it.alt);
-      pic = `<div class="c3ph-f">${img(it.photo, altFor(it, it.photo), { base: opts.base || "/", sizes: "(max-width: 699px) 46vw, 260px" })}${overlay(it.photo, kind)}</div>`;
+      const alt = altFor(it, it.photo);
+      shown(it.photo, "", alt, { card: [it.label, it.text].filter(Boolean).join(". ") });
+      pic = `<div class="c3ph-f">${img(it.photo, alt, { base: opts.base || "/", sizes: "(max-width: 699px) 46vw, 260px" })}${overlay(it.photo, kind)}</div>`;
     } else {
       pic = illustration(it.illustration, it.alt ? { alt: it.alt } : { decorative: true });
     }
@@ -388,11 +391,290 @@ function makeVariants(src, outBase, o = {}) {
     files[size] = out;
   }
   const [W, H] = execFileSync("identify", ["-format", "%w %h", files[1200]]).toString().trim().split(" ").map(Number);
+  /* -strip removed every credit and license field. With o.rec they go back in at once. */
+  if (o.rec) for (const f of Object.values(files)) embedMetadata(o.rec, f);
   return { width: W, height: H, files };
 }
 
-/* Checks every record in a photos.json and, with a root, that its files exist. Returns problems. */
-function checkFile(jsonPath, root) {
+/*
+ * The three crops Google asks for in Article.image ("multiple high-resolution images ...
+ * 16x9, 4x3, and 1x1"), each 1200 px wide, so the 16x9 and 4x3 files also meet Discover's
+ * "at least 1200 px wide". Writes <outBase>-1x1.webp, -4x3.webp and -16x9.webp from the
+ * center of the source. The source must be at least 1200 px on its short side (download the
+ * original from its source page; the 1200w file is too small for a 1200 x 1200 square).
+ * A crop is cut from the file, so a CC BY-SA crop is adapted material: it keeps BY-SA and the
+ * record says so (rules/images.md). With o.rec, the metadata is embedded (adapted).
+ * Returns { "1x1": { file, width, height }, "4x3": ..., "16x9": ... }.
+ */
+const CROPS = { "1x1": 1, "4x3": 4 / 3, "16x9": 16 / 9 };
+function makeCrops(src, outBase, o = {}) {
+  const { execFileSync } = require("child_process");
+  const [w, h] = execFileSync("identify", ["-format", "%w %h", `${src}[0]`]).toString().trim().split(" ").map(Number);
+  if (!(Math.min(w, h) >= 1200)) throw new Error(`photos.js: ${src} is ${w} x ${h}; a crop source must be at least 1200 px on its short side`);
+  fs.mkdirSync(path.dirname(outBase), { recursive: true });
+  const budget = o.max || 200 * 1024;
+  const out = {};
+  for (const [name, r] of Object.entries(CROPS)) {
+    const cw = w / h > r ? Math.round(h * r) : w, ch = w / h > r ? h : Math.round(w / r);
+    const file = `${outBase}-${name}.webp`;
+    const enc = (extra) => execFileSync("convert", [`${src}[0]`, "-auto-orient", "-colorspace", "sRGB", "-gravity", o.gravity || "center", "-crop", `${cw}x${ch}+0+0`, "+repage",
+      "-resize", "1200x>", "-strip", "-define", "webp:method=6", ...extra, file]);
+    enc([]);
+    if (fs.statSync(file).size > budget) enc(["-define", `webp:target-size=${Math.round(budget * 0.96)}`, "-define", "webp:pass=6"]);
+    const [W, H] = execFileSync("identify", ["-format", "%w %h", file]).toString().trim().split(" ").map(Number);
+    if (W < 1200 || W * H < 50000) throw new Error(`photos.js: crop ${file} is ${W} x ${H}; it must be 1200 px wide`);
+    if (o.rec) embedMetadata(o.rec, file, { adapted: true });
+    out[name] = { file, width: W, height: H };
+  }
+  return out;
+}
+
+/* ---------------------------------------------------------------------------- */
+/* Metadata: what search engines read in the file and in the page                */
+/*
+ * rules/image-metadata.md says what each field is for and where each rule comes from.
+ *
+ * In the file: the IPTC Photo Metadata fields Google reads, written as XMP with exiftool
+ * (a JPG also gets the older IPTC block, and every file gets EXIF Artist, Copyright and
+ * ImageDescription): Creator, Credit Line, Copyright Notice, Web Statement of Rights (the
+ * license URL), Licensor URL (where to get a license), Description, Title, Alt Text
+ * (Accessibility), Digital Source Type, Location Shown, Date Created and Source, plus the
+ * Creative Commons fields (cc:license, cc:attributionName, cc:attributionURL).
+ * ImageMagick strips all of it (makeVariants, makeCrops use -strip), so embed after every
+ * resize or crop: pass { rec } to those two, or run "node tools/photos.js embed".
+ *
+ * In the page: one ImageObject per photo shown (imageSchema), with the same rights fields.
+ * Google: "If you use both methods and they conflict, Google will use the structured data."
+ * metaFor() builds both from the one record, so they cannot disagree.
+ *
+ *   P.metaFor(rec)                       the fields, as plain values
+ *   P.embedMetadata(rec, file, { adapted })  writes them into a WebP, JPG or PNG
+ *   P.readEmbedded(file)                 what the file holds (exiftool JSON, -G1 -struct)
+ *   P.checkEmbedded(rec, file, { adapted })  [] when the file holds every field, with the record's values
+ *   P.imageObject(rec, { base })         one schema.org ImageObject for a photo on the page
+ *   P.imageSchema(recs, { base })        <script type="application/ld+json"> with one per photo
+ *   P.pageImages(rec, { base })          the 1x1, 4x3 and 16x9 crops, for Article.image
+ */
+const SITE = "https://chapter3realty.com";
+const DST = "http://cv.iptc.org/newscodes/digitalsourcetype/";
+/* IPTC Digital Source Type (https://cv.iptc.org/newscodes/digitalsourcetype/) by kind:
+   photo         digitalCapture: "captured from a real-life source using a digital camera".
+   map           dataDrivenMedia: "Digital media representation of data via human programming
+                 or creativity" (area-map.js draws streets and water from map data).
+   illustration  trainedAlgorithmicMedia ("Created using Generative AI"): the drawings in
+                 illustrations.js were written as SVG code by Claude, a generative AI model.
+                 A drawing a person makes takes "digital_source_type": "digitalCreation".
+   A record may set digital_source_type itself (an old photo scanned from a print: "print"). */
+const DST_KIND = { photo: "digitalCapture", map: "dataDrivenMedia", illustration: "trainedAlgorithmicMedia" };
+const DST_TERMS = ["digitalCapture", "computationalCapture", "negativeFilm", "positiveFilm", "print", "humanEdits", "digitalCreation", "dataDrivenMedia",
+  "trainedAlgorithmicMedia", "compositeWithTrainedAlgorithmicMedia", "compositeSynthetic", "composite", "compositeCapture", "algorithmicMedia", "algorithmicallyEnhanced", "screenCapture"];
+const STATE = "South Carolina", COUNTRY = "United States", COUNTRY_CODE = "US";
+
+/*
+ * The metadata for one record. The file and the page both take it from here.
+ * o.adapted: the file was cut from the original (a crop). A CC BY-SA crop says it keeps BY-SA.
+ */
+function metaFor(rec, o = {}) {
+  const kind = checkRecord(rec);
+  const own = kind === "own" || kind === "illustration";
+  const source = String(rec.source || rec.commons_page || "").trim();
+  const author = String(rec.author).trim();
+  const lic = String(rec.license).trim();
+  const alt = String(rec.alt || "").trim();
+  if (words(alt) < 3) throw new Error(`photos.js: ${label(rec)} needs a default alt of 3 or more words; it goes in the file as Alt Text (Accessibility)`);
+  const dst = rec.digital_source_type || DST_KIND[rec.kind || (kind === "illustration" ? "illustration" : "photo")];
+  if (!DST_TERMS.includes(dst)) throw new Error(`photos.js: ${label(rec)} digital_source_type "${dst}" is not an IPTC term`);
+  const pl = rec.place || {};
+  const changed = o.adapted ? "Cropped and resized by Chapter3 Realty from the original" : "Resized by Chapter3 Realty from the original";
+  return {
+    kind,
+    creator: kind === "illustration" ? "Chapter3 Realty" : author,
+    creatorType: kind === "illustration" || rec.author_type === "Organization" ? "Organization" : "Person",
+    /* The record's credit line without "Photo: " and without a note after it
+       ("Credit not required; give it anyway." is for us, not for the reader). */
+    credit: String(rec.credit).replace(/^(?:Photo|Drawing|Map):\s*/i, "").split(/\.\s+(?=[A-Z])/)[0].replace(/\.$/, "").trim(),
+    copyright: own ? "© Chapter3 Realty" : kind === "pd" ? `Public domain (${author})` : kind === "cc0" ? `${author}, CC0 1.0 (no rights reserved)` : `© ${author}, ${lic}`,
+    license: own ? `${SITE}/terms/` : rec.license_url,
+    acquire: own ? `${SITE}/contact/` : source,
+    licensor: own ? "Chapter3 Realty" : author,
+    usage: own ? "© Chapter3 Realty. Ask Chapter3 Realty before using this picture." : kind === "pd" ? "Public domain. No permission needed." : `${lic}. ${rec.license_url}`,
+    marked: !(kind === "pd" || kind === "cc0"),
+    description: String(rec.what || alt).trim(),
+    title: alt,
+    alt,
+    dst,
+    date: /^\d{4}-\d{2}-\d{2}$/.test(String(rec.taken || "")) ? rec.taken : "",
+    source: own ? SITE : source,
+    place: { sublocation: pl.sublocation || "", city: pl.city || "", state: pl.state || STATE, country: COUNTRY, code: COUNTRY_CODE },
+    note: own ? "Made by Chapter3 Realty." : `${changed}. ${kind === "by-sa" && o.adapted ? `This crop is shared under the same license, ${lic}.` : `License: ${lic}.`}`,
+    cc: kind === "by" || kind === "by-sa" || kind === "cc0",
+  };
+}
+
+const EXIFTOOL = process.env.EXIFTOOL || "exiftool";
+const hasExiftool = () => { try { require("child_process").execFileSync(EXIFTOOL, ["-ver"], { stdio: "pipe" }); return true; } catch { return false; } };
+const needExiftool = () => { if (!hasExiftool()) throw new Error("photos.js: exiftool is not installed (apt-get install libimage-exiftool-perl, or https://exiftool.org)"); };
+/* A value inside an exiftool structure: , | { } [ ] = are escaped with | */
+const sv = (v) => String(v).replace(/[|,{}[\]=]/g, (c) => `|${c}`);
+
+/* Writes every field into the file, replacing what was there. WebP, JPG and PNG. */
+function embedMetadata(rec, file, o = {}) {
+  needExiftool();
+  const m = metaFor(rec, o);
+  const ext = path.extname(file).toLowerCase();
+  if (![".webp", ".jpg", ".jpeg", ".png"].includes(ext)) throw new Error(`photos.js: embedMetadata takes WebP, JPG or PNG, not ${file}`);
+  const loc = [["Sublocation", m.place.sublocation], ["City", m.place.city], ["ProvinceState", m.place.state], ["CountryName", m.place.country], ["CountryCode", m.place.code]]
+    .filter(([, v]) => v).map(([k, v]) => `${k}=${sv(v)}`).join(",");
+  const args = ["-overwrite_original", "-m", "-q", "-XMP:all=", "-EXIF:all=",
+    `-XMP-dc:Creator=${m.creator}`,
+    `-XMP-dc:Rights=${m.copyright}`,
+    `-XMP-dc:Description=${m.description}`,
+    `-XMP-dc:Title=${m.title}`,
+    `-XMP-photoshop:Credit=${m.credit}`,
+    `-XMP-photoshop:Source=${m.source}`,
+    `-XMP-photoshop:Instructions=${m.note}`,
+    `-XMP-xmpRights:WebStatement=${m.license}`,
+    `-XMP-xmpRights:Marked=${m.marked ? "True" : "False"}`,
+    `-XMP-xmpRights:UsageTerms=${m.usage}`,
+    `-XMP-plus:Licensor={LicensorName=${sv(m.licensor)},LicensorURL=${sv(m.acquire)}}`,
+    `-XMP-iptcCore:AltTextAccessibility=${m.alt}`,
+    `-XMP-iptcExt:DigitalSourceType=${DST}${m.dst}`,
+    `-XMP-iptcExt:LocationShown={${loc}}`,
+    `-EXIF:Artist=${m.creator}`,
+    `-EXIF:Copyright=${m.copyright}`,
+    `-EXIF:ImageDescription=${m.description}`,
+    "-EXIF:XResolution=72", "-EXIF:YResolution=72", "-EXIF:ResolutionUnit=inches"];
+  if (m.date) args.push(`-XMP-photoshop:DateCreated=${m.date}`);
+  if (m.cc) args.push(`-XMP-cc:License=${m.license}`, `-XMP-cc:AttributionName=${m.creator}`, `-XMP-cc:AttributionURL=${m.source}`);
+  if (ext === ".jpg" || ext === ".jpeg") {
+    /* The old IPTC block caps Credit at 32 bytes and Object Name at 64; XMP holds the full text. */
+    args.push("-IPTC:all=", "-IPTC:CodedCharacterSet=UTF8", `-IPTC:By-line=${m.creator.slice(0, 32)}`, `-IPTC:Credit=${(m.credit.length <= 32 ? m.credit : m.creator).slice(0, 32)}`,
+      `-IPTC:CopyrightNotice=${m.copyright.slice(0, 128)}`, `-IPTC:Caption-Abstract=${m.description}`, `-IPTC:ObjectName=${m.title.slice(0, 64)}`);
+    if (m.place.city) args.push(`-IPTC:City=${m.place.city}`);
+    if (m.place.sublocation) args.push(`-IPTC:Sub-location=${m.place.sublocation}`);
+    args.push(`-IPTC:Province-State=${m.place.state}`, `-IPTC:Country-PrimaryLocationName=${m.place.country}`);
+  }
+  require("child_process").execFileSync(EXIFTOOL, [...args, file], { stdio: "pipe" });
+  return m;
+}
+
+/* What the file holds, as exiftool's JSON with group names ("XMP-dc:Creator"). */
+function readEmbedded(file) {
+  needExiftool();
+  const out = require("child_process").execFileSync(EXIFTOOL, ["-j", "-struct", "-G1", "-XMP:all", "-EXIF:Artist", "-EXIF:Copyright", "-ImageWidth", "-ImageHeight", file], { stdio: "pipe" });
+  return JSON.parse(out.toString())[0] || {};
+}
+
+/* The fields a file must hold, by the name a person reads in the report. */
+const one = (v) => (Array.isArray(v) ? v[0] : v);
+const EMBEDDED = [
+  ["Creator", (e) => one(e["XMP-dc:Creator"]), (m) => m.creator],
+  ["Credit Line", (e) => e["XMP-photoshop:Credit"], (m) => m.credit],
+  ["Copyright Notice", (e) => e["XMP-dc:Rights"], (m) => m.copyright],
+  ["Web Statement of Rights", (e) => e["XMP-xmpRights:WebStatement"], (m) => m.license],
+  ["Licensor URL", (e) => (one(e["XMP-plus:Licensor"]) || {}).LicensorURL, (m) => m.acquire],
+  ["Description", (e) => e["XMP-dc:Description"], (m) => m.description],
+  ["Alt Text (Accessibility)", (e) => e["XMP-iptcCore:AltTextAccessibility"], (m) => m.alt],
+  ["Digital Source Type", (e) => e["XMP-iptcExt:DigitalSourceType"], (m) => DST + m.dst],
+];
+
+/*
+ * [] when the file holds every field with the record's value; otherwise one line per field
+ * that is missing or stale. With no record, only checks each field is present.
+ */
+function checkEmbedded(rec, file, o = {}) {
+  const e = readEmbedded(file);
+  const m = rec ? metaFor(rec, o) : null;
+  const out = [];
+  for (const [name, get, want] of EMBEDDED) {
+    const v = get(e);
+    if (v === undefined || v === null || String(v).trim() === "") out.push(`no ${name}`);
+    else if (m && String(v) !== String(want(m))) out.push(`${name} is "${v}", the record says "${want(m)}"`);
+  }
+  return out;
+}
+
+/* Every file a record names (the original, the 600w and 1200w, the crops), with "adapted". */
+function recordFiles(rec) {
+  const v = rec.variants || {};
+  const list = [rec.file, v["600"], v["1200"]].filter(Boolean).map((p) => ({ path: p, adapted: false }));
+  for (const c of Object.values(rec.crops || {})) list.push({ path: c.path, adapted: true });
+  return list;
+}
+/* A record path under an image root: the site keeps images/55-plus/<slug>/, a batch keeps images/<slug>/. */
+function resolveImage(root, p) {
+  for (const f of [path.join(root, p), path.join(root, String(p).replace(/^images\/55-plus\//, "images/"))]) if (fs.existsSync(f)) return f;
+  return null;
+}
+
+/* ---- the page ---- */
+
+const absUrl = (base, p) => (/^https?:\/\//.test(p) ? p : String(base || SITE + "/").replace(/\/?$/, "/") + String(p).replace(/^\//, ""));
+const placeName = (m) => [m.place.sublocation, m.place.city, m.place.state].filter(Boolean).join(", ");
+
+/* The rights fields every ImageObject carries (Google, image license metadata). */
+function rights(m) {
+  const o = { creator: { "@type": m.creatorType, name: m.creator }, creditText: m.credit, copyrightNotice: m.copyright, license: m.license, acquireLicensePage: m.acquire };
+  if (/^https:\/\//.test(m.source) && m.source !== SITE) o.isBasedOn = m.source;
+  return o;
+}
+
+/*
+ * One ImageObject for a photo on the page: the 1200w file (the <img> src), its size, the
+ * visible caption (or the card's label and line), the alt text it was shown with as the
+ * description, what it shows as the name, the rights fields and the place. The hero is
+ * representativeOfPage. Bing: "Structured data must accurately represent visible content",
+ * so nothing here is text the reader cannot see, except the rights the credits link to.
+ * o.base: the site root for absolute URLs (default https://chapter3realty.com/).
+ */
+function imageObject(rec, o = {}) {
+  const m = metaFor(rec);
+  const s = imageSet(rec, o.base || SITE + "/");
+  const seen = SHOWN.get(rec) || {};
+  const io = { "@type": "ImageObject", contentUrl: s.src, url: s.src, width: s.width, height: s.height, encodingFormat: "image/webp", name: whatItShows(rec) };
+  const caption = seen.full || seen.card || "";
+  if (caption) io.caption = caption;
+  io.description = seen.alt || m.alt;
+  Object.assign(io, rights(m));
+  if (placeName(m) !== m.place.state) io.contentLocation = { "@type": "Place", name: placeName(m) };
+  if (seen.hero || o.representative) io.representativeOfPage = true;
+  return io;
+}
+
+/*
+ * The JSON-LD for the photos on a page: one <script type="application/ld+json"> holding an
+ * @graph of ImageObjects, each photo once. recs: the records shown (photoSet().used()).
+ * It may sit in <main>: Google and Bing read JSON-LD anywhere in the page.
+ */
+function imageSchema(recs, o = {}) {
+  if (!Array.isArray(recs) || !recs.length) throw new Error("photos.js: imageSchema needs the photo records shown on the page");
+  const seen = new Set();
+  const graph = recs.filter((r) => { const k = label(r); if (seen.has(k)) return false; seen.add(k); return true; }).map((r) => imageObject(r, o));
+  const json = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
+  return `<script type="application/ld+json">${json}</script>`;
+}
+
+/*
+ * Article.image for a page whose hero is this photo: the 1x1, 4x3 and 16x9 crops, each an
+ * ImageObject with its size and the rights fields (a crop is adapted: its note says so).
+ * Google, Article: "provide multiple high-resolution images (minimum of 50K pixels when
+ * multiplying width and height) with the following aspect ratios: 16x9, 4x3, and 1x1."
+ * Throws when the record has no crops (node tools/photos.js crops).
+ */
+function pageImages(rec, o = {}) {
+  const c = rec.crops || {};
+  const miss = Object.keys(CROPS).filter((k) => !c[k] || !c[k].path || !(c[k].width >= 1200) || !(c[k].height > 0));
+  if (miss.length) throw new Error(`photos.js: ${label(rec)} has no ${miss.join(", ")} crop (node tools/photos.js crops <source> <out base>)`);
+  const m = metaFor(rec, { adapted: true });
+  return Object.keys(CROPS).map((k) => {
+    const u = absUrl(o.base, c[k].path);
+    return Object.assign({ "@type": "ImageObject", contentUrl: u, url: u, width: c[k].width, height: c[k].height, encodingFormat: "image/webp" }, rights(m));
+  });
+}
+
+/* Checks every record in a photos.json and, with a root, that its files exist. With
+   o.meta, also that every file holds its embedded metadata. Returns problems. */
+function checkFile(jsonPath, root, o = {}) {
   const data = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
   const out = [];
   for (const rec of data.photos || []) {
@@ -400,18 +682,41 @@ function checkFile(jsonPath, root) {
       if (rec.hold) { out.push(`hold  ${rec.file}: ${rec.hold}`); continue; }
       checkRecord(rec); imageSet(rec);
       if (!rec.alt) out.push(`warn  ${rec.file}: no default alt (each call must pass alt)`);
-      if (root) for (const p of [rec.variants["600"], rec.variants["1200"]]) if (!fs.existsSync(path.join(root, p))) out.push(`FAIL  ${rec.file}: missing ${p}`);
+      if (root) for (const p of [rec.variants["600"], rec.variants["1200"]]) if (!resolveImage(root, p)) out.push(`FAIL  ${rec.file}: missing ${p}`);
+      if (root && o.meta) for (const f of recordFiles(rec)) {
+        const at = resolveImage(root, f.path);
+        if (!at) { if (f.adapted) out.push(`FAIL  ${rec.file}: missing crop ${f.path}`); continue; }
+        const bad = checkEmbedded(rec, at, { adapted: f.adapted });
+        if (bad.length) out.push(`FAIL  ${f.path}: ${bad.join("; ")}`);
+      }
     } catch (e) { out.push(`FAIL  ${rec.file}: ${e.message}`); }
   }
   return out;
 }
 
-module.exports = { heroPhoto, gallery, featureCards, creditsList, photoCss, checkRecord, findPhoto, imageSet, makeVariants, checkFile, whatItShows, hasDate, LICENSES, esc };
+/* Embeds the metadata in every file of every record (not on hold) under each root. */
+function embedFile(jsonPath, roots) {
+  const data = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+  const out = [];
+  for (const rec of data.photos || []) {
+    if (rec.hold) { out.push(`hold  ${rec.file}`); continue; }
+    for (const root of roots) for (const f of recordFiles(rec)) {
+      const at = resolveImage(root, f.path);
+      if (!at) continue;
+      embedMetadata(rec, at, { adapted: f.adapted });
+      out.push(`ok    ${at}`);
+    }
+  }
+  return out;
+}
+
+module.exports = { heroPhoto, gallery, featureCards, creditsList, photoCss, checkRecord, findPhoto, imageSet, makeVariants, makeCrops, checkFile, whatItShows, hasDate, LICENSES, esc,
+  metaFor, embedMetadata, readEmbedded, checkEmbedded, imageObject, imageSchema, pageImages, recordFiles, resolveImage, embedFile, hasExiftool, SHOWN, SITE, DST, CROPS };
 
 if (require.main === module) {
-  const [cmd, a, b] = process.argv.slice(2);
+  const [cmd, a, b, ...rest] = process.argv.slice(2);
   if (cmd === "check" && a) {
-    const out = checkFile(a, b);
+    const out = checkFile(a, b, { meta: !!b && hasExiftool() });
     for (const l of out) console.log(l);
     const fails = out.filter((l) => l.startsWith("FAIL")).length;
     console.log(fails ? `\n${fails} problem(s)` : "\nall photo records pass");
@@ -419,7 +724,20 @@ if (require.main === module) {
   } else if (cmd === "variants" && a && b) {
     const r = makeVariants(a, b);
     console.log(`${r.files[600]}\n${r.files[1200]}  (${r.width}x${r.height})`);
+  } else if (cmd === "embed" && a && b) {
+    const out = embedFile(a, [b, ...rest]);
+    for (const l of out) console.log(l);
+    console.log(`\n${out.filter((l) => l.startsWith("ok")).length} file(s) written`);
+  } else if (cmd === "meta" && a) {
+    console.log(JSON.stringify(readEmbedded(a), null, 1));
+  } else if (cmd === "crops" && a && b) {
+    const r = makeCrops(a, b);
+    console.log(JSON.stringify(Object.fromEntries(Object.entries(r).map(([k, v]) => [k, { path: v.file, width: v.width, height: v.height }])), null, 1));
   } else {
-    console.log("node tools/photos.js check <photos.json> [image root]\nnode tools/photos.js variants <source image> <out base>");
+    console.log(["node tools/photos.js check <photos.json> [image root]      records pass; files exist; with exiftool, files hold their metadata",
+      "node tools/photos.js variants <source image> <out base>",
+      "node tools/photos.js crops <source image> <out base>          1x1, 4x3, 16x9 at 1200 px wide, for Article.image",
+      "node tools/photos.js embed <photos.json> <image root> [...]   writes the metadata into every file of every record",
+      "node tools/photos.js meta <file>                              prints what a file holds"].join("\n"));
   }
 }

@@ -1,5 +1,5 @@
 {
-  "_comment": "Photos for the four 55+ community pages, batch 2026-10-a. Found on Wikimedia Commons: 18 on 2026-10-07, 19 more on 2026-10-10. Only CC0, public domain, CC BY and CC BY-SA. None shows a community itself: Commons has no photo of any of the four. Each photo shows the area around it; the 'what' line says where. Each record has a 600w and a 1200w WebP file (variants, made with tools/photos.js from the Commons 1920 or 1280 px thumbnail; resized, nothing else changed), width and height of the 1200w file, default alt text, the photo's Commons title, and how it reached Commons (provenance). 'file' is the older single 1200 px file that the 2026-10-07 specs use; the 2026-10-10 photos have only the variants. A photo with 'hold' may not be used; tools/photos.js refuses it. Use tools/photos.js (heroPhoto, gallery, featureCards, creditsList), which links the license and the source. Rules: rules/images.md. CC BY-SA: if a photo is cropped or edited, the edited version carries the same license.",
+  "_comment": "Photos for the four 55+ community pages, batch 2026-10-a. Found on Wikimedia Commons: 18 on 2026-10-07, 19 more on 2026-10-10. Only CC0, public domain, CC BY and CC BY-SA. None shows a community itself: Commons has no photo of any of the four. Each photo shows the area around it; the 'what' line says where. Each record has a 600w and a 1200w WebP file (variants, made with tools/photos.js from the Commons 1920 or 1280 px thumbnail; resized, nothing else changed), width and height of the 1200w file, default alt text, the photo's Commons title, and how it reached Commons (provenance). 'file' is the older single 1200 px file that the 2026-10-07 specs use; the 2026-10-10 photos have only the variants. A photo with 'hold' may not be used; tools/photos.js refuses it. Use tools/photos.js (heroPhoto, gallery, featureCards, creditsList), which links the license and the source. Rules: rules/images.md. CC BY-SA: if a photo is cropped or edited, the edited version carries the same license. Each record also has 'place' (IPTC Location Shown and schema contentLocation; the state is South Carolina). The four heroes have 'crops' (1x1, 4x3, 16x9) for Article.image. Every file holds its credit, license and alt text as embedded IPTC/XMP metadata (tools/photos.js embed; rules/image-metadata.md).",
   "as_of": "2026-10-07",
   "image_root": "/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/draft/chapter3realty/",
   "photos": [
@@ -14,7 +14,10 @@
       "height": 800,
       "title": "North Myrtle Beach, SC",
       "what": "Rows of beach chairs and umbrellas on the wide sand beach in North Myrtle Beach.",
-      "alt": "Rows of beach chairs and umbrellas on the wide sand beach in North Myrtle Beach",
+      "alt": "Rows of beach chairs and blue, green and yellow umbrellas on the wide sand beach in North Myrtle Beach",
+      "place": {
+        "city": "North Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:North_Myrtle_Beach,_SC.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:North_Myrtle_Beach,_SC.jpg",
@@ -25,7 +28,25 @@
       "provenance": "own work",
       "taken": "2016-08-11",
       "original_size": "6000x4000",
-      "share_alike": true
+      "share_alike": true,
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/north-myrtle-beach-beach-umbrellas-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/north-myrtle-beach-beach-umbrellas-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/north-myrtle-beach-beach-umbrellas-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "The hero of its page. For Article.image (Google: 16x9, 4x3 and 1x1), Chapter3 cut a center crop in each ratio, 1200 px wide, from the Commons 1920 px thumbnail (tools/photos.js makeCrops). A cut file is adapted material, so each crop is shared under the photo's own license, CC BY-SA 4.0 (rules/images.md)."
     },
     {
       "slug": "del-webb-north-myrtle-beach",
@@ -39,6 +60,9 @@
       "title": "Double sun fs - Flickr - SteveWPhotos",
       "what": "Sea oats and a sand fence on the dunes in North Myrtle Beach, with the sun low over the ocean.",
       "alt": "Sea oats and a sand fence on the dunes in North Myrtle Beach at sunrise",
+      "place": {
+        "city": "North Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Double_sun_fs_-_Flickr_-_SteveWPhotos.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Double_sun_fs_-_Flickr_-_SteveWPhotos.jpg",
@@ -64,6 +88,10 @@
       "title": "Cherry Grove Pier",
       "what": "The beach, beach houses and Cherry Grove Pier in North Myrtle Beach, seen from high above.",
       "alt": "The beach, beach houses and Cherry Grove Pier in North Myrtle Beach, seen from high above",
+      "place": {
+        "sublocation": "Cherry Grove Pier",
+        "city": "North Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Cherry_Grove_Pier.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Cherry_Grove_Pier.jpg",
@@ -88,6 +116,10 @@
       "title": "The Alabama Theatre",
       "what": "The road sign for the Alabama Theatre, a show theater at Barefoot Landing in North Myrtle Beach, at dusk.",
       "alt": "The road sign for the Alabama Theatre at Barefoot Landing at dusk",
+      "place": {
+        "sublocation": "Barefoot Landing",
+        "city": "North Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:The_Alabama_Theatre.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:The_Alabama_Theatre.jpg",
@@ -112,7 +144,10 @@
       "height": 900,
       "title": "Myrtle Beach, South Carolina, Thanksgiving 2018",
       "what": "The beach and ocean in Myrtle Beach, seen from a high floor, in late November.",
-      "alt": "The beach and ocean in Myrtle Beach, seen from a high floor",
+      "alt": "The wide sand beach, the dunes and the ocean in Myrtle Beach, seen from a high floor",
+      "place": {
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach,_South_Carolina,_Thanksgiving_2018.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach,_South_Carolina,_Thanksgiving_2018.jpg",
@@ -123,7 +158,25 @@
       "provenance": "own work",
       "taken": "2018-11-22",
       "original_size": "3264x2448",
-      "share_alike": true
+      "share_alike": true,
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/del-webb-grande-dunes/myrtle-beach-beach-from-above-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/del-webb-grande-dunes/myrtle-beach-beach-from-above-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/del-webb-grande-dunes/myrtle-beach-beach-from-above-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "The hero of its page. For Article.image (Google: 16x9, 4x3 and 1x1), Chapter3 cut a center crop in each ratio, 1200 px wide, from the Commons 1920 px thumbnail (tools/photos.js makeCrops). A cut file is adapted material, so each crop is shared under the photo's own license, CC BY-SA 4.0 (rules/images.md)."
     },
     {
       "slug": "del-webb-grande-dunes",
@@ -137,6 +190,9 @@
       "title": "Myrtle Beach Ocean Front",
       "what": "The sun coming up over the ocean in Myrtle Beach, seen from the sand.",
       "alt": "The sun coming up over the ocean in Myrtle Beach, seen from the sand",
+      "place": {
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_Ocean_Front.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_Ocean_Front.jpg",
@@ -161,6 +217,10 @@
       "title": "SkyWheel Myrtle Beach in August 2022",
       "what": "The SkyWheel, the big Ferris wheel on the Myrtle Beach Boardwalk, seen from the beach.",
       "alt": "The SkyWheel, the big Ferris wheel on the Myrtle Beach Boardwalk, seen from the beach",
+      "place": {
+        "sublocation": "Myrtle Beach Boardwalk",
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:SkyWheel_Myrtle_Beach_in_August_2022.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:SkyWheel_Myrtle_Beach_in_August_2022.jpg",
@@ -185,6 +245,10 @@
       "title": "Broadway at the Beach in Myrtle Beach, S. Carolina",
       "what": "Lit-up rides at Broadway at the Beach, a shopping, dining and entertainment area in Myrtle Beach, at night.",
       "alt": "Lit-up rides at Broadway at the Beach, a shopping, dining and entertainment area in Myrtle Beach, at night",
+      "place": {
+        "sublocation": "Broadway at the Beach",
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Broadway_at_the_Beach_in_Myrtle_Beach,_S._Carolina.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Broadway_at_the_Beach_in_Myrtle_Beach,_S._Carolina.jpg",
@@ -210,6 +274,10 @@
       "title": "The Market Common, Myrtle Beach (13 May 2023) 35",
       "what": "The lake and lawn at The Market Common, a shopping and dining district in Myrtle Beach, in the evening.",
       "alt": "The lake and lawn at The Market Common in Myrtle Beach in the evening",
+      "place": {
+        "sublocation": "The Market Common",
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:The_Market_Common,_Myrtle_Beach_(13_May_2023)_35.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:The_Market_Common,_Myrtle_Beach_(13_May_2023)_35.jpg",
@@ -234,6 +302,10 @@
       "title": "Conway Marina",
       "what": "The riverwalk boardwalk and boat docks on the Waccamaw River in downtown Conway, seen from the bridge.",
       "alt": "The riverwalk boardwalk and boat docks on the Waccamaw River in downtown Conway",
+      "place": {
+        "sublocation": "Waccamaw River",
+        "city": "Conway"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Conway_Marina.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Conway_Marina.jpg",
@@ -258,6 +330,10 @@
       "title": "Conway Downtown Historic District Jun 10",
       "what": "Main Street in downtown Conway, with old brick shop buildings.",
       "alt": "Main Street in downtown Conway, South Carolina, lined with old brick shop buildings",
+      "place": {
+        "sublocation": "Main Street",
+        "city": "Conway"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Conway_Downtown_Historic_District_Jun_10.JPG",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Conway_Downtown_Historic_District_Jun_10.JPG",
@@ -282,6 +358,10 @@
       "title": "Conway city hall 0782",
       "what": "Conway City Hall, a white building with columns and a clock, in downtown Conway.",
       "alt": "Conway City Hall, a white building with columns and a clock",
+      "place": {
+        "sublocation": "Conway City Hall",
+        "city": "Conway"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Conway_city_hall_0782.JPG",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Conway_city_hall_0782.JPG",
@@ -306,6 +386,10 @@
       "title": "Home in the historic district, Conway, South Carolina (18 November 2006)",
       "what": "A white house under large oak trees in Conway's historic district.",
       "alt": "A white house under large oak trees in Conway's historic district",
+      "place": {
+        "sublocation": "Historic district",
+        "city": "Conway"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Home_in_the_historic_district,_Conway,_South_Carolina_(18_November_2006).jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Home_in_the_historic_district,_Conway,_South_Carolina_(18_November_2006).jpg",
@@ -330,6 +414,9 @@
       "title": "A Multitude of Evening Colors - Flickr - fran.trudeau",
       "what": "Sunset over the marsh at Huntington Beach State Park, south of Murrells Inlet.",
       "alt": "Sunset over the salt marsh at Huntington Beach State Park, south of Murrells Inlet",
+      "place": {
+        "sublocation": "Huntington Beach State Park"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:A_Multitude_of_Evening_Colors_-_Flickr_-_fran.trudeau.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:A_Multitude_of_Evening_Colors_-_Flickr_-_fran.trudeau.jpg",
@@ -355,6 +442,9 @@
       "title": "Houses by the marsh - panoramio",
       "what": "Salt marsh and homes along a creek near the Huntington Beach State Park causeway, south of Murrells Inlet.",
       "alt": "Salt marsh and homes along a creek near the Huntington Beach State Park causeway",
+      "place": {
+        "sublocation": "Huntington Beach State Park causeway"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Houses_by_the_marsh_-_panoramio.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Houses_by_the_marsh_-_panoramio.jpg",
@@ -380,6 +470,9 @@
       "title": "Surfside Beach Shoreline",
       "what": "The sand beach and beach houses at Surfside Beach, a few miles north of Garden City.",
       "alt": "The sand beach and beach houses at Surfside Beach",
+      "place": {
+        "city": "Surfside Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Surfside_Beach_Shoreline.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Surfside_Beach_Shoreline.jpg",
@@ -403,7 +496,10 @@
       "height": 759,
       "title": "Murrells inlet2473",
       "what": "Fishing boats tied up at a marina on the water in Murrells Inlet.",
-      "alt": "Fishing boats tied up at a marina on the water in Murrells Inlet, South Carolina",
+      "alt": "White fishing boats tied up at a marina on calm water in Murrells Inlet, South Carolina",
+      "place": {
+        "city": "Murrells Inlet"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Murrells_inlet2473.JPG",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Murrells_inlet2473.JPG",
@@ -428,6 +524,9 @@
       "title": "Myrtle Beach Clouds @ Murrells Inlet",
       "what": "Boats at a marina in Murrells Inlet under a pink evening sky.",
       "alt": "Boats at a marina in Murrells Inlet under a pink evening sky",
+      "place": {
+        "city": "Murrells Inlet"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_Clouds_@_Murrells_Inlet.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_Clouds_@_Murrells_Inlet.jpg",
@@ -451,7 +550,10 @@
       "height": 900,
       "title": "Prices Swamp Run (December 2022)",
       "what": "A calm lake in North Myrtle Beach on a cloudy winter day, with restaurants and shops along the far shore.",
-      "alt": "A calm lake reflecting the clouds, with restaurants and shops along the far shore",
+      "alt": "A calm lake reflecting the clouds, with restaurants and shops along the far shore in North Myrtle Beach",
+      "place": {
+        "city": "North Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Prices_Swamp_Run_(December_2022).jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Prices_Swamp_Run_(December_2022).jpg",
@@ -475,7 +577,11 @@
       "height": 800,
       "title": "Intracoastal Waterway in North Myrtle Beach",
       "what": "The Intracoastal Waterway in North Myrtle Beach, lined with homes and docks, seen from a bridge on a cloudy day.",
-      "alt": "The Intracoastal Waterway lined with homes and docks, under a gray sky",
+      "alt": "The Intracoastal Waterway in North Myrtle Beach, lined with homes and docks, under a gray sky",
+      "place": {
+        "sublocation": "Intracoastal Waterway",
+        "city": "North Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Intracoastal_Waterway_in_North_Myrtle_Beach.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Intracoastal_Waterway_in_North_Myrtle_Beach.jpg",
@@ -500,6 +606,9 @@
       "title": "Incoming Tide",
       "what": "Waves coming in over the sand at Myrtle Beach in the evening.",
       "alt": "Small waves rolling in over smooth sand at Myrtle Beach in the evening",
+      "place": {
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Incoming_Tide.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Incoming_Tide.jpg",
@@ -524,6 +633,9 @@
       "title": "Sea oats at Myrtle Beach, SC IMG 4499",
       "what": "Sea oats and a sand fence on the beach at Myrtle Beach.",
       "alt": "Tall sea oats and a wooden sand fence on the beach at Myrtle Beach",
+      "place": {
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Sea_oats_at_Myrtle_Beach,_SC_IMG_4499.JPG",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Sea_oats_at_Myrtle_Beach,_SC_IMG_4499.JPG",
@@ -547,7 +659,10 @@
       "height": 900,
       "title": "Myrtle Beach Pier in August 2022",
       "what": "The beach, the dunes and a fishing pier in Myrtle Beach, seen from a high balcony.",
-      "alt": "A long fishing pier over the ocean, with the beach and palm trees below",
+      "alt": "A long fishing pier over the ocean in Myrtle Beach, with the beach and palm trees below",
+      "place": {
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_Pier_in_August_2022.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_Pier_in_August_2022.jpg",
@@ -571,7 +686,10 @@
       "height": 853,
       "title": "Ocean at Myrtle Beach, August 2022",
       "what": "The ocean at Myrtle Beach under a sky full of clouds.",
-      "alt": "Blue ocean and small waves under a wide sky of clouds",
+      "alt": "Blue ocean and small waves at Myrtle Beach under a wide sky of clouds",
+      "place": {
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Ocean_at_Myrtle_Beach,_August_2022.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Ocean_at_Myrtle_Beach,_August_2022.jpg",
@@ -595,7 +713,11 @@
       "height": 800,
       "title": "The Market Common, Myrtle Beach (13 May 2023) 11",
       "what": "A fountain in front of shops at The Market Common, a shopping and dining district in Myrtle Beach.",
-      "alt": "A fountain in a round pool in front of shops and palm trees at The Market Common",
+      "alt": "A fountain in a round pool in front of shops and palm trees at The Market Common in Myrtle Beach",
+      "place": {
+        "sublocation": "The Market Common",
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:The_Market_Common,_Myrtle_Beach_(13_May_2023)_11.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:The_Market_Common,_Myrtle_Beach_(13_May_2023)_11.jpg",
@@ -619,7 +741,11 @@
       "height": 800,
       "title": "The Market Common, Myrtle Beach (13 May 2023) 03",
       "what": "A shaded walkway with small palms and a table at The Market Common in Myrtle Beach.",
-      "alt": "A shaded sidewalk with small palms, trees and a table at The Market Common",
+      "alt": "A shaded sidewalk with small palms, trees and a table at The Market Common in Myrtle Beach",
+      "place": {
+        "sublocation": "The Market Common",
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:The_Market_Common,_Myrtle_Beach_(13_May_2023)_03.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:The_Market_Common,_Myrtle_Beach_(13_May_2023)_03.jpg",
@@ -643,7 +769,10 @@
       "height": 558,
       "title": "The Wizard Golf Club No 17",
       "what": "A golf hole with its green on an island in a pond, at a golf course in Myrtle Beach.",
-      "alt": "A golf green on an island in a pond, with pine trees behind",
+      "alt": "A golf green on an island in a pond, with pine trees behind, at a golf course in Myrtle Beach",
+      "place": {
+        "city": "Myrtle Beach"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:The_Wizard_Golf_Club_No_17.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:The_Wizard_Golf_Club_No_17.jpg",
@@ -667,7 +796,10 @@
       "height": 900,
       "title": "Thorofare Island (Horry County, SC)",
       "what": "Cypress trees along the Waccamaw River near Conway, in early November.",
-      "alt": "Cypress trees in fall colors along the dark water of the Waccamaw River",
+      "alt": "Cypress trees in fall colors along the dark water of the Waccamaw River near Conway",
+      "place": {
+        "sublocation": "Waccamaw River, near Conway"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Thorofare_Island_(Horry_County,_SC).jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Thorofare_Island_(Horry_County,_SC).jpg",
@@ -678,7 +810,25 @@
       "provenance": "own work",
       "taken": "2020-11-08",
       "original_size": "4032x3024",
-      "share_alike": true
+      "share_alike": true,
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/myrtle-trace/waccamaw-river-cypress-near-conway-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/myrtle-trace/waccamaw-river-cypress-near-conway-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/myrtle-trace/waccamaw-river-cypress-near-conway-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "The hero of its page. For Article.image (Google: 16x9, 4x3 and 1x1), Chapter3 cut a center crop in each ratio, 1200 px wide, from the Commons 1920 px thumbnail (tools/photos.js makeCrops). A cut file is adapted material, so each crop is shared under the photo's own license, CC BY-SA 4.0 (rules/images.md)."
     },
     {
       "slug": "myrtle-trace",
@@ -691,7 +841,11 @@
       "height": 900,
       "title": "Waccamaw River Warehouse Historic District Jun 10",
       "what": "A shaded boardwalk in Conway's old riverfront warehouse district, on the Waccamaw River.",
-      "alt": "A wooden boardwalk with a black railing, shaded by trees, beside old wooden buildings",
+      "alt": "A wooden boardwalk with a black railing, shaded by trees, beside old wooden buildings in Conway",
+      "place": {
+        "sublocation": "Waccamaw River Warehouse Historic District",
+        "city": "Conway"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Waccamaw_River_Warehouse_Historic_District_Jun_10.JPG",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Waccamaw_River_Warehouse_Historic_District_Jun_10.JPG",
@@ -715,7 +869,11 @@
       "height": 900,
       "title": "Kimbel Library",
       "what": "A large oak tree in front of Kimbel Library at Coastal Carolina University in Conway.",
-      "alt": "A large oak tree spreading over a red brick library building",
+      "alt": "A large oak tree spreading over Kimbel Library, a red brick building at Coastal Carolina University in Conway",
+      "place": {
+        "sublocation": "Kimbel Library, Coastal Carolina University",
+        "city": "Conway"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Kimbel_Library.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Kimbel_Library.jpg",
@@ -739,7 +897,11 @@
       "height": 850,
       "title": "Arbor in the historic district, Conway, South Carolina (18 November 2006)",
       "what": "A white garden arbor in front of a house in Conway's historic district.",
-      "alt": "A white wooden arbor with flowering bushes in front of a house",
+      "alt": "A white wooden arbor with flowering bushes in front of a house in Conway's historic district",
+      "place": {
+        "sublocation": "Historic district",
+        "city": "Conway"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Arbor_in_the_historic_district,_Conway,_South_Carolina_(18_November_2006).jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Arbor_in_the_historic_district,_Conway,_South_Carolina_(18_November_2006).jpg",
@@ -763,7 +925,10 @@
       "height": 797,
       "title": "HBSP at sunset 2",
       "what": "The sun setting over still water at Huntington Beach State Park, south of Murrells Inlet.",
-      "alt": "The setting sun and clouds reflected in still water, with a dark line of trees",
+      "alt": "The setting sun and clouds reflected in still water, with a dark line of trees, at Huntington Beach State Park",
+      "place": {
+        "sublocation": "Huntington Beach State Park"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:HBSP_at_sunset_2.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:HBSP_at_sunset_2.jpg",
@@ -787,7 +952,10 @@
       "height": 900,
       "title": "Atalaya1",
       "what": "Atalaya, the old Spanish-style house at Huntington Beach State Park, with palmetto trees.",
-      "alt": "Palmetto trees in front of a long stucco building with barred windows",
+      "alt": "Palmetto trees in front of Atalaya, a long stucco house with barred windows at Huntington Beach State Park",
+      "place": {
+        "sublocation": "Atalaya, Huntington Beach State Park"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Atalaya1.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Atalaya1.jpg",
@@ -811,7 +979,10 @@
       "height": 800,
       "title": "Driftwood at the Huntington Beach State Park beach 1",
       "what": "A driftwood log on the wide sand beach at Huntington Beach State Park.",
-      "alt": "A driftwood log lying on soft sand, with waves behind it",
+      "alt": "A driftwood log lying on soft sand, with waves behind it, on the beach at Huntington Beach State Park",
+      "place": {
+        "sublocation": "Huntington Beach State Park"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Driftwood_at_the_Huntington_Beach_State_Park_beach_1.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Driftwood_at_the_Huntington_Beach_State_Park_beach_1.jpg",
@@ -835,7 +1006,10 @@
       "height": 474,
       "title": "Ghost Crab1",
       "what": "A ghost crab on the sand at Huntington Beach State Park.",
-      "alt": "A pale ghost crab with raised claws on the sand",
+      "alt": "A pale ghost crab with raised claws on the sand at Huntington Beach State Park",
+      "place": {
+        "sublocation": "Huntington Beach State Park"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Ghost_Crab1.JPG",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Ghost_Crab1.JPG",
@@ -859,7 +1033,10 @@
       "height": 900,
       "title": "Pawleys beach walkway",
       "what": "A wooden walkway over the dunes to the beach on Pawleys Island, south of Murrells Inlet.",
-      "alt": "A wooden walkway over green dunes leading to the ocean",
+      "alt": "A wooden walkway over green dunes leading to the ocean on Pawleys Island",
+      "place": {
+        "city": "Pawleys Island"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Pawleys_beach_walkway.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Pawleys_beach_walkway.jpg",
@@ -870,7 +1047,25 @@
       "provenance": "own work",
       "taken": "2019-07-28",
       "original_size": "4032x3024",
-      "share_alike": true
+      "share_alike": true,
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/seasons-at-prince-creek-west/pawleys-island-beach-walkway-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/seasons-at-prince-creek-west/pawleys-island-beach-walkway-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/seasons-at-prince-creek-west/pawleys-island-beach-walkway-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "The hero of its page. For Article.image (Google: 16x9, 4x3 and 1x1), Chapter3 cut a center crop in each ratio, 1200 px wide, from the Commons 1920 px thumbnail (tools/photos.js makeCrops). A cut file is adapted material, so each crop is shared under the photo's own license, CC BY-SA 4.0 (rules/images.md)."
     },
     {
       "slug": "seasons-at-prince-creek-west",
@@ -883,7 +1078,10 @@
       "height": 626,
       "title": "Pathway in Brookgreen Gardens",
       "what": "Live oaks hung with Spanish moss, a bench and a path at Brookgreen Gardens, near Murrells Inlet.",
-      "alt": "Old oak trees hung with Spanish moss, with a bench and a wooden path",
+      "alt": "Old oak trees hung with Spanish moss, with a bench and a wooden path, at Brookgreen Gardens",
+      "place": {
+        "sublocation": "Brookgreen Gardens"
+      },
       "source": "https://commons.wikimedia.org/wiki/File:Pathway_in_Brookgreen_Gardens.jpg",
       "source_name": "Wikimedia Commons",
       "commons_page": "https://commons.wikimedia.org/wiki/File:Pathway_in_Brookgreen_Gardens.jpg",
