@@ -19,7 +19,7 @@ For a topic page, write the buyer's questions the same way: what they get, what 
 
 ## Rules
 
-- Primary sources only (`templates/facts.md`). A listing site or search summary finds a source; it is never one.
+- Primary sources only (`templates/facts.md`). A listing site or search summary finds a source; it is never one. **One exception (2026-10-11):** when no primary source gives a community's monthly HOA fee, a range from current listings is allowed, from at least two independent listing sites whose robots.txt allows reading, each listing recorded, verified by a second agent, and replaced when MLS data arrives. The page says "listings show".
 - Find a live source. web.archive.org cannot be reached by the verifier, so an archived-only fact ends up unusable.
 - **Sale prices without MLS (2026-10-06):** the Horry County Register of Deeds index (AcclaimWeb) lists every recorded deed with its parcel number, book and page, and CONSIDERATION (the price). Search Document Type DEED (001) by recording date for the last 12 months, keep the deeds whose parcel is in the community (the county open parcel layer, HorryCountyGISApp layer 24, gives the parcels by subdivision), drop deeds under $10,000, corrective deeds and builder sales (report those apart). Give count, median and range, or the middle half when one sale sits far out. Each sale opens at `acclaimweb.horrycounty.org/AcclaimWeb/details/JumpToBookPage/1/<book>/<page>`. ZIP-level context: Zillow Research data (allowed by its robots file) and the Redfin Data Center download. Never Zillow or Redfin listing pages.
 - For property tax, pull the county Treasurer's bill for one parcel in the right tax district. It settles the millage in one row.
