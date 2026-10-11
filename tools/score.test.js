@@ -228,6 +228,24 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   quiet("what the HOA says is owed (live)", gold({ body: "<ul><li>Anything else the HOA says is owed. On the same statement, not in a side email.</li></ul>" }), "plain-voice");
   quiet("a person quoted on the page (live)", gold({ body: "<p>As Scott says above: talk to a financial professional before implementing one.</p>" }), "plain-voice");
 
+  /* P10 only people act (voice/RULES.md rule 2, FIG-2 to FIG-4). Firing text: the five lines independent reviewers
+     caught in batch 2026-10-a version 14b after every gate passed (OWNER-EYE-v14b.md), and live lines. Quiet text: the
+     version 14b fixes as rewritten in the drafts, the uses the owner accepts (FIG-3: "the law requires", "the lease
+     allows"; a fee or policy "covers"), and the live false positives of the first draft of the pattern. */
+  fires("\"The car route ... runs\" (v14b, Del Webb NMB)", gold({ body: "<p>The car route to the nearest city beach parking lot runs a short way along US 17, where golf carts may only cross. Plan to take your car to the beach.</p>" }), "people-act");
+  fires("\"its rules limit leases\" (v14b, Grande Dunes)", gold({ body: "<ul><li>Del Webb at Grande Dunes is close to the beach, a grocery store and a hospital, and its rules limit leases, fences and sheds.</li></ul>" }), "people-act");
+  fires("\"Dues are $95 a month and keep up the pool\" (v14b, Myrtle Trace)", gold({ body: "<ul><li>Dues are $95 a month and keep up the pool, clubhouse, gates, roads and ponds.</li></ul>" }), "people-act");
+  fires("\"Your HOA bill pays for your membership\" (v14b, Grande Dunes)", gold({ body: "<p>Your HOA bill pays for your membership.</p>" }), "people-act");
+  fires("\"The homes sit on\" (v14b, Del Webb NMB)", gold({ body: "<p>The homes sit on short streets around ponds, with the clubhouse, pools and courts in the middle of the neighborhood.</p>" }), "people-act");
+  fires("\"the law sets\", \"carries a premium\", \"tax runs\" (live)", gold({ body: "<p>No. State law sets no cap on HOA fines.</p><p>That wait and that cost are why a home with an existing permitted dock carries a premium.</p><p>Total lodging tax runs 11 to 13 percent depending on jurisdiction.</p>" }), "people-act");
+  fires("\"rules do not let you\" and \"a house can sit\" (live)", gold({ body: "<p>The rules do not let you hold title to both at once.</p><p>A house can sit in Zone X and still have flooded before.</p>" }), "people-act");
+  quiet("the v14b fixes (drafts)", gold({ body: "<p>To reach the nearest city beach parking lot, you drive a short way along US 17. Golf carts may only cross US 17, so plan to take your car to the beach.</p><ul><li>Grande Dunes is close to the beach, a grocery store and a hospital, and owners there follow rules on leases, fences and sheds.</li><li>The HOA fee is $95 a month. The HOA uses it to keep up the pool, clubhouse, gates, roads and ponds.</li></ul><p>Your HOA fee includes your membership. The homes are on short streets around ponds, with the clubhouse, pools and courts in the middle of the neighborhood.</p>" }), "people-act");
+  quiet("plain verbs (drafts and live)", gold({ body: "<p>A lease must be at least 12 months, and you can sign only one a year. The typical home has more than doubled since its 2012 to 2013 low. If your home is in one, a lender will require flood insurance.</p>" }), "people-act");
+  quiet("a law requires, rules allow, a policy covers (live)", gold({ body: "<p>State law requires an attorney-supervised closing.</p><ul><li>Zoning and the recorded building rules allow nightly rental at that address.</li></ul><p>No homeowners policy covers flood, anywhere, at any price. Regular dues cover the running of the property. A special assessment is what the board bills when they do not.</p>" }), "people-act");
+  quiet("nouns that are not the subject (live false positives)", gold({ body: "<p>An owner who plans to sell and cash out in three or four years should run the recapture numbers before ordering a study.</p><p>Dividing the same rent by the typical value of every home in the area gives a much lower number.</p><p>In a condo regime the association carries a master policy on the building and owners carry an individual policy for the interior.</p><p>Program availability, income limits, purchase price limits, and rates are subject to change without notice.</p><p>Our page on South Carolina HOA laws covers the rest.</p><p>Hurricane season is long, and days on market near 162 give buyers room to negotiate.</p>" }), "people-act");
+  quiet("a heading, the sources line and a quote", gold({ body: "<h2>What the rules let you do</h2><p>Sources: the HOA's rules. The budget sets the dues, per the minutes.</p><blockquote><p>The market runs on fear.</p></blockquote><p>The owner wrote: \"the lease never sets anything\".</p>" }), "people-act");
+  check("people-act: is not a blocker", !grade(parse(gold({ body: "<p>Your HOA bill pays for your membership. The homes sit on short streets.</p>" }))).blockers.includes("people-act"));
+
   /* P7 pictures and P8 map. A long page (800+ words) with one chart. */
   const longBody = `<p>${"Owners pay the bill in installments. ".repeat(140)}</p>`;
   const fig = '<figure><img src="/x.jpg" alt="The clubhouse pool at Myrtle Trace"><figcaption>The clubhouse pool</figcaption></figure>';
@@ -320,7 +338,7 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
 
 /* Every rule id appears in at least one mutation, so no rule is untested. */
 const tested = new Set(mutations.map(m => m[0]).concat(["visual-rhythm", "verdict", "exact-amounts", "number-density", "date-mentions",
-  "price-headline", "deflection", "plain-words", "plain-voice", "pictures", "place-map", "open-answers", "toc", "icon-labels", "story-simple"]));
+  "price-headline", "deflection", "plain-words", "plain-voice", "people-act", "pictures", "place-map", "open-answers", "toc", "icon-labels", "story-simple"]));
 for (const r of RULES) check(`rule ${r.id} has a control`, tested.has(r.id));
 
 /* Every rule maps to a STANDARD.md id. */

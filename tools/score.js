@@ -598,6 +598,67 @@ rule("plain-voice", "Human", 2, "Plain voice: no attribution in the body (\"list
   return part(Math.max(0, 1 - hits.length / 4), `${hits.length} attribution${hits.length > 1 ? "s" : ""} in the body: ${[...new Set(hits)].slice(0, 5).map(h => `"${h}"`).join(", ")}; state it as the expert and leave the source to the sources line`);
 });
 
+/* P10 only people act. voice/RULES.md rule 2 and FIG-2 to FIG-4: "Only people act. A number, law, lease, house or
+   tax never sets, carries, maps, decides, wins, sits, runs, catches or does anything for anyone." The owner, 2026-09-07:
+   "a law never does anything for you why are we personifying a law? its against the rules." Batch 2026-10-a version 14b
+   passed every gate with "The car route ... runs a short way along US 17", "its rules limit leases", "Dues are $95 a
+   month and keep up the pool", "Your HOA bill pays for your membership" and "The homes sit on"; independent reviewers
+   caught them. The pattern: a thing as the subject, then an action verb, with an optional phrase between ("to the
+   nearest city beach parking lot"), a "that" ("homes that sit"), an adverb or a modal ("can sit").
+   Accepted, after reading every hit on the live site (2026-10-11):
+   - A law, rule, lease, declaration, covenant or policy "requires", "allows" or "says" (FIG-3, PLAYBOOK A22b: "the law
+     requires" and "the lease allows" pass). 49 live uses.
+   - A fee, dues, bill or insurance policy "covers" (the buyer's own question: "what does the HOA fee cover?";
+     "No homeowners policy covers flood"). 11 live uses. The owner never corrected it; his recorded "covers" fix is
+     for a housing authority (FIG-4: "serves"). "Pays for" and "keeps up" are still caught: the owner pays, the HOA
+     keeps it up.
+   - Verbs not on the list: "the fee includes", "the home has", "a lease must be", "your lender will require".
+   Not read as a subject, each a live false positive of the first draft: a noun after a preposition ("the value of
+   every home in the area gives", "days on market near 162 give"), a verb after a pronoun or "who" ("an owner who plans
+   to sell ... should run"), a phrase that holds a new clause ("the policy on the building and owners carry", "the
+   house from the lender after the lender wins", "the units its zoning allows"), a noun use of the verb ("purchase
+   price limits, and", "a tax limit either way": the verb must agree with the subject and take an object), a link
+   to "our page on South Carolina HOA laws covers". Body copy only: no headings, no sources line, no all-caps label,
+   nothing in a blockquote or inside quotation marks (a person quoted on the page).
+   On 2026-10-11 it found 105 uses on 55 of the 122 live articles. Each was read; each is a thing acting. */
+const ACT_SUBJ = "rules?|laws?|leases?|fees?|bills?|dues|tax(?:es)?|routes?|roads?|highways?|maps?|plans?|polic(?:y|ies)|declarations?|covenants?|budgets?|prices?|markets?|houses?|homes?";
+const ACT_VERB = "runs?|sits?|keeps? up|limits?|pays? for|sets|carr(?:y|ies)|decides?|catch(?:es)?|maps|wins?|tells?|says?|lets?|allows?|requires?|gives?|covers?|protects?";
+const ACT_ADV = "(?:also|only|still|usually|often|generally|typically|normally|then|now|already|even|just|each|all|both|mostly|largely|always|never|not)";
+const ACT_MODAL = "(?:will|can|may|must|should|would|could|might|cannot|can't|won't|does not|do not|did not|doesn't|don't)";
+const ACT_STOP = `(?:and|or|but|nor|who|whom|which|that|where|when|while|because|if|so|after|before|until|unless|since|than|as|then|its|their|his|her|our|your|it|they|we|you|he|she|I|is|are|was|were|be|been|has|have|had|${ACT_SUBJ})`;
+const ACT_BRIDGE = `(?:\\s(?:to|of|from|in|on|at|near|along|for|with|inside|outside|across|between)(?:\\s(?!${ACT_STOP}\\b)[\\w$%'’-]+(?:[.,]\\d+)*){1,7}?)?`;
+const ACT_NOT_OBJECT = "(?<!\\b(?:[Oo]f|[Oo]n|[Ii]n|[Aa]t|[Ff]or|[Ff]rom|[Ww]ith|[Bb]y|[Tt]o|than|about|under|over|into|per)\\s(?:(?:the|a|an|every|each|its|their|your|our|this|that|these|those|any|all|some|no)\\s)?(?:[\\w'’-]+\\s){0,2})";
+const ACT_NOT_VERB = "(?<!\\b(?:who|which|you|we|they|I|he|she|it|to|will|can|should|must|may|might|would|could|do|does|did|not|never)\\s)";
+const ACT_TAIL = "(?!\\s*[,.;:!?)]|\\s+(?:and|or)\\b)";
+const PEOPLE_ACT_RE = new RegExp(`${ACT_NOT_OBJECT}${ACT_NOT_VERB}(?<![Pp]ages? (?:on|about) (?:[\\w'’-]+\\s){0,4})\\b(${ACT_SUBJ})\\b${ACT_BRIDGE}`
+  + `(?:\\s(?:that|which))?(?:\\s${ACT_ADV})?(?:\\s(${ACT_MODAL}))?\\s(${ACT_VERB})\\b${ACT_TAIL}`, "gi");
+const PEOPLE_ACT_AND_RE = new RegExp(`${ACT_NOT_OBJECT}${ACT_NOT_VERB}\\b(${ACT_SUBJ})\\s(?:is|are|was|were)\\s[^,.;:!?]{1,40}?\\sand(?:\\s${ACT_ADV})?()\\s(${ACT_VERB})\\b${ACT_TAIL}`, "gi");
+const ACT_DOC = /^(?:rules?|laws?|leases?|declarations?|covenants?|polic(?:y|ies))$/i;
+const ACT_PAYS = /^(?:fees?|bills?|dues|polic(?:y|ies))$/i;
+function peopleAct(text) {
+  const t = text.replace(/“[^”]*”|"[^"]*"/g, " ");
+  const hits = [];
+  for (const re of [PEOPLE_ACT_RE, PEOPLE_ACT_AND_RE]) for (const m of t.matchAll(re)) {
+    const subj = m[1].toLowerCase(), modal = m[2], verb = m[3].toLowerCase(), v1 = verb.split(" ")[0];
+    const plural = subj === "dues" || /s$/.test(subj), sForm = /s$/.test(v1);
+    if (modal ? sForm : plural === sForm) continue;                       // "a tax limit", "rules that decides": not this subject's verb
+    if (ACT_DOC.test(subj) && /^(?:requires?|allows?|says?)$/.test(verb)) continue;
+    if (ACT_PAYS.test(subj) && /^covers?$/.test(verb)) continue;
+    hits.push(m[0].replace(/\s+/g, " ").trim());
+  }
+  return hits;
+}
+
+rule("people-act", "Human", 2, "Only people act: no rule, fee, bill, road, route, map, plan, tax or house runs, sits, sets, carries, pays for or keeps up anything", (p) => {
+  const hits = [];
+  for (const b of p.bodyBlocks) {
+    if (b.el.closest("table, blockquote, q, figcaption").length || /^By\s+[A-Z]/.test(b.text) || CREDIT_LINE.test(b.text) || !/[a-z]/.test(b.text)) continue;
+    hits.push(...peopleAct(b.text));
+  }
+  if (!hits.length) return pass("none");
+  return part(Math.max(0, 1 - hits.length / 4), `${hits.length} thing${hits.length > 1 ? "s" : ""} acting: ${[...new Set(hits)].slice(0, 5).map(h => `"${h}"`).join(", ")}; say who does it, or use a plain verb (is, has, includes, costs)`);
+});
+
 rule("pictures", "Human", 2, "800+ words of prose have 2+ pictures (figure, image or labelled chart)", (p, f) => {
   if (f.words < 800) return na(`${f.words} words`);
   const n = f.plain.pictures;
@@ -691,7 +752,7 @@ const STD = {
   "primary-sources": "A9", "local-entities": "A10",
   "sentence-length": "H1", paragraphs: "H2", "visual-rhythm": "H3", image: "H4", ctas: "H5", residue: "H9",
   byline: "T1", experience: "T2", "sources-line": "T3", fresh: "T4",
-  "exact-amounts": "P1", "number-density": "P2", "date-mentions": "P3", "price-headline": "P4", deflection: "P5", "plain-words": "P6", "plain-voice": "P9",
+  "exact-amounts": "P1", "number-density": "P2", "date-mentions": "P3", "price-headline": "P4", deflection: "P5", "plain-words": "P6", "plain-voice": "P9", "people-act": "P10",
   pictures: "P7", "place-map": "P8",
   "open-answers": "A13", toc: "H14", "icon-labels": "H15", "story-simple": "T8",
 };
@@ -812,5 +873,5 @@ async function main() {
   process.exitCode = worst >= 90 ? 0 : 1;
 }
 
-module.exports = { parse, grade, facts, siteContext, sentences, RULES: R, SITE_RULES, STD };
+module.exports = { parse, grade, facts, siteContext, sentences, peopleAct, RULES: R, SITE_RULES, STD };
 if (require.main === module) main().catch(e => { console.error(e.message); process.exit(2); });
