@@ -1883,7 +1883,8 @@
           "height": 675
         }
       },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own frame cut from the NOAA 2026 mosaic, 1200 px wide, colors adjusted."
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own frame cut from the NOAA 2026 mosaic, 1200 px wide, colors adjusted.",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "del-webb-north-myrtle-beach",
@@ -1955,7 +1956,8 @@
           "height": 675
         }
       },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own frame cut from the NOAA 2026 mosaic, 1200 px wide, colors adjusted."
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own frame cut from the NOAA 2026 mosaic, 1200 px wide, colors adjusted.",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "del-webb-north-myrtle-beach",
@@ -2005,7 +2007,8 @@
       },
       "original_size": "11160x6278 pixels of the raw frame, resized to 2400 wide, colors adjusted (eri/scripts/rawcrop.py)",
       "width": 1200,
-      "height": 675
+      "height": 675,
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "del-webb-north-myrtle-beach",
@@ -2056,7 +2059,8 @@
       },
       "original_size": "7360x5520 pixels of the raw frame, resized to 2400 wide, colors adjusted (eri/scripts/rawcrop.py)",
       "width": 1200,
-      "height": 900
+      "height": 900,
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "del-webb-north-myrtle-beach",
