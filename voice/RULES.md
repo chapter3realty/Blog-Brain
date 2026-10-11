@@ -18,6 +18,7 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 - P6. Say the date once, at the top. Not in every section.
 - P7. On a page for people buying a home to live in, lead with the home, what it offers, and the area around it. Price comes later and softly. Never in the headline. Cost-first is for investor pages.
 - P8. Leave out details that only show how much we know. If the reader would not miss it, cut it.
+- P10. Every photo shows what its section is about (owner, 2026-10-11: "the photos should be of the topic we are talking about in the blog"). No decorative photo at the top. A photo of the area goes only beside the sentence about that place.
 - P9. Old data: if a fact rarely changes and being wrong could not hurt the reader, state it plainly with no date. If it changes and a reader could act on it (a fee, a rental rule, a pet limit), use it only if you judge it is still true and low risk; otherwise leave it out. Never write "this is outdated". If there is no good data on a topic, do not mention the topic.
 
 **Buyer first (owner, 2026-10-06).**

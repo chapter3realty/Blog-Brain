@@ -26,7 +26,9 @@ One buyer or one couple, first names only. Five to eight sentences.
 3. **Therefore:** one small moment where they decide or act. That act is the point.
 4. **After:** one concrete outcome the reader can picture: a date on a calendar, a card in a wallet, a spare bed made up. Stop there.
 
-Then, outside the story, one plain sentence on what it means for the reader. If Chapter3 does something that helps, offer it there.
+Then, outside the story, one plain sentence on what it means for the reader, and the offer.
+
+Where it goes: near the end of the page, after the facts it draws on (owner, 2026-10-11: "i think the story should be one of the last things in the page"). The reader meets the place first, then sees how an expert handles it.
 
 Write the ending first, then open on its opposite.
 
@@ -36,7 +38,8 @@ Write the ending first, then open on its opposite.
 - One detail the reader can picture.
 - No named feelings ("nervous", "thrilled", "love it"). Show the act that proves it.
 - Three numbers or fewer, rounded, about the people (an age, years in a house). Prices, taxes and fees go outside the story, from a verified row. Never a rate or a payment.
-- Chapter3 never appears inside a labelled example. Quoted alone, "an agent at Chapter3 read the rules with them" reads as a real client. Put the service in the line after the story, as an offer: "An agent at Chapter3 can read the visitor rules with you before you offer." (Review 4, 2026-10-10.)
+- Show Chapter3's skill, with tension (owner, 2026-10-11: "the story should also be showing Chapter3's skill and have some tension involved somewhere"). In a labelled example, write it as how an agent works, in the present tense, so no sentence claims a past client: "**Example:** Here is how a Chapter3 agent handles it. A couple from Akron wants... The agent reads the visitor rules and finds a 60-day limit... The agent finds a house where... " The problem must be real for this place (from a verified row), the agent's act must be a service the story bank or an owner answer records, and the ending is what the buyer can now do, never a promise or a saving. Past tense "a Chapter3 agent helped them" stays out of examples; it belongs only to real stories from the bank.
+- Tension: something the buyer did not see coming, found before it cost them (a rule, a flood line, a fee, a limit), and the moment the agent's skill turns it.
 - Never reuse this page's model examples, or the report's, with new names. Write a new story from the page's own worry.
 - Nothing about who lives somewhere or who a home suits. No "adult community", "active adults", "empty nesters", "people like you" (24 CFR 100.75, 100.306).
 - No promise: no "never worry", no savings, no value gain.
