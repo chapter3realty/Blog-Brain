@@ -21,8 +21,25 @@
  *   ])
  *   P.creditsList([rec("conway-riverwalk"), rec("conway-main-street"), rec("conway-city-hall")])
  *
- *   node tools/photos.js check <photos.json> [image root]     // every record passes the guard; files exist
+ *   P.imageSchema([rec("conway-riverwalk"), rec("conway-main-street")])   // JSON-LD: one ImageObject per photo shown
+ *   P.pageImages(rec("conway-riverwalk"))                     // Article.image: the hero's 1x1, 4x3 and 16x9 crops
+ *   P.embedMetadata(rec("conway-riverwalk"), file)            // IPTC/XMP credit, license and alt text into the file
+ *
+ *   node tools/photos.js check <photos.json> [image root]     // every record passes the guard; files exist and
+ *                                                             // (with exiftool) hold their metadata
  *   node tools/photos.js variants <source image> <out base>   // writes <out base>-600w.webp and -1200w.webp
+ *   node tools/photos.js crops <source image> <out base>      // -1x1, -4x3 and -16x9.webp, 1200 px wide
+ *   node tools/photos.js embed <photos.json> <image root> ... // writes the metadata into every file of every record
+ *   node tools/photos.js meta <file>                          // prints what a file holds
+ *
+ * Metadata (rules/image-metadata.md, STANDARD S13; tools/image-meta.js checks a page):
+ *   - In each file: Creator, Credit Line, Copyright Notice, Web Statement of Rights (license
+ *     URL), Licensor URL, Description, Title, Alt Text (Accessibility), Digital Source Type,
+ *     Location Shown, Date Created and Source, as XMP (and the old IPTC block in a JPG).
+ *     ImageMagick strips it all, so variants and crops are embedded again after.
+ *   - In the page: an ImageObject per photo, with the same fields, from the same record.
+ *   - A record's "place" ({ city, sublocation }) names where the photo was taken; "crops"
+ *     holds the hero's 1x1, 4x3 and 16x9 files for Article.image.
  *
  * What every image gets:
  *   - WebP, a 600w and a 1200w file in srcset, a sizes attribute, and width and height,

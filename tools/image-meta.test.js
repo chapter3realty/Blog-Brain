@@ -140,24 +140,29 @@ if (tools) {
   const article = (image) => ({ "@context": "https://schema.org", "@type": "Article", headline: "t", image });
   const mapSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" role="img" aria-label="Myrtle Trace is just outside Conway, about 15 minutes inland from the beach, northwest of Myrtle Beach."></svg>';
   const icon = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1 1"/></svg>';
-  const good = page(heroHtml + mapSvg + icon + P.imageSchema([r]), [article(P.pageImages(r)), { "@context": "https://schema.org", "@type": "WebPage", primaryImageOfPage: P.pageImages(r)[1] }]);
+  const webpage = (pi) => ({ "@context": "https://schema.org", "@type": "WebPage", primaryImageOfPage: pi });
+  const schema = P.imageSchema([r]);
+  const build = (o = {}) => page((o.hero || heroHtml) + mapSvg + (o.icon || icon) + (o.schema === undefined ? schema : o.schema),
+    [article(o.image || P.pageImages(r)), webpage(o.primary || P.pageImages(r)[1])]);
+  const good = build();
+  fs.copyFileSync(path.join(site, r.variants[600]), path.join(site, "images/t/IMG_1234.webp"));
   const run = (html) => M.checkPage(html, site);
   const quiet = run(good);
   check("page: a photos.js page with schema, metadata, a labelled map and a hidden icon passes (quiet)", quiet.length === 0, JSON.stringify(quiet));
   const fires = (name, html, kind, re) => { const p = run(html); check(`page fires: ${name}`, p.some((x) => x.check === kind && (!re || re.test(x.detail))), JSON.stringify(p)); };
   fires("an <img> with no alt", good.replace(/ alt="[^"]*"/, ""), "alt", /no alt/);
   fires("an alt that starts 'Photo of'", good.replace(/ alt="[^"]*"/, ' alt="Photo of the beach at dawn"'), "alt", /starts with/);
-  fires("no ImageObject for the photo", good.replace(/<script type="application\/ld\+json">\{"@context":"https:\/\/schema.org","@graph"[\s\S]*?<\/script>/, ""), "schema", /no ImageObject/);
-  fires("an ImageObject with no license", good.replace(/,"license":"https:\/\/creativecommons.org\/licenses\/by-sa\/4.0\/","acquireLicensePage"/, ',"acquireLicensePage"'), "schema", /license/);
+  fires("no ImageObject for the photo", build({ schema: "" }), "schema", /no ImageObject/);
+  fires("an ImageObject with no license", build({ schema: schema.replace(/,"license":"[^"]*"/, "") }), "schema", /no license/);
   fires("a photo file with no embedded metadata", good.split("beach-600w.webp").join("bare.webp"), "embedded", /no Creator/);
   fires("a photo file that is not there", good.split("beach-600w.webp").join("gone-600w.webp"), "file", /not found/);
   fires("a generic file name", good.split("beach-600w.webp").join("IMG_1234.webp"), "file-name");
-  fires("an inline svg with no label and no aria-hidden", good.replace(icon, '<svg viewBox="0 0 24 24"><path d="M1 1"/></svg>'), "svg", /no role/);
+  fires("an inline svg with no label and no aria-hidden (the old site's decorative icons)", build({ icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7"></circle></svg>' }), "svg", /no role/);
   fires("a map svg with a label under 12 characters", good.replace(/aria-label="Myrtle Trace[^"]*"/, 'aria-label="Map"'), "svg", /under 12/);
-  fires("Article.image is the share card with text", good.replace(/"image":\[[^\]]*\]/, `"image":"${SITE}/og/buyers-x.jpg"`), "article-image", /share card/);
-  fires("Article.image has no 1x1", good.replace(/"image":\[\{[^}]*?"width":1200,"height":1200[^}]*\}\},/, '"image":['), "article-image", /no 1x1/);
-  fires("primaryImageOfPage is the share card", good.replace(/"primaryImageOfPage":\{[^}]*\}\}/, `"primaryImageOfPage":{"@type":"ImageObject","url":"${SITE}/og-image.jpg","width":1200,"height":630}`), "article-image", /primaryImageOfPage/);
-  fires("a schema size that does not match the crop file", good.replace('"width":1200,"height":675', '"width":1200,"height":680'), "article-image");
+  fires("Article.image is the share card with text (the mkpage default)", build({ image: `${SITE}/og/buyers-55-plus-communities-myrtle-trace.jpg` }), "article-image", /share card/);
+  fires("Article.image has no 1x1", build({ image: P.pageImages(r).slice(1) }), "article-image", /no 1x1/);
+  fires("primaryImageOfPage is the share card (the mkpage default)", build({ primary: { "@type": "ImageObject", url: `${SITE}/og/buyers-55-plus-communities-myrtle-trace.jpg`, width: 1200, height: 630 } }), "article-image", /primaryImageOfPage/);
+  fires("a schema size that does not match the crop file", build({ image: P.pageImages(r).map((x) => (x.height === 675 ? Object.assign({}, x, { height: 680 }) : x)) }), "article-image");
   fs.rmSync(dir, { recursive: true, force: true });
 
   /* the real batch: every file of every photo in use holds its record's metadata */
@@ -178,7 +183,7 @@ if (tools) {
 /* ---- the findings file ---- */
 {
   const md = fs.readFileSync(path.join(__dirname, "..", "rules", "image-metadata.md"), "utf8");
-  check("rules/image-metadata.md has no em dash", !/—/.test(md));
+  check("rules/image-metadata.md has no em dash", !/\u2014/.test(md));
   const rules = md.split("\n").filter((l) => /^\d+\. /.test(l));
   check("rules/image-metadata.md: every numbered rule links its source", rules.length >= 10 && rules.every((l) => /\]\(https:\/\//.test(l)), rules.filter((l) => !/\]\(https:\/\//.test(l)).join(" | "));
 }

@@ -50,10 +50,10 @@ function altProblem(alt) {
   if (alt === undefined) return "no alt attribute";
   const a = String(alt).trim();
   if (!a) return "empty alt on a content image";
+  if (/\.(?:jpe?g|png|webp|gif|avif|svg)\b/i.test(a) || /^[\w-]+$/.test(a) && /[-_]/.test(a)) return `alt "${a}" is a file name`;
   if (a.split(/\s+/).length < 3) return `alt "${a}" is under 3 words; say what the picture shows and where`;
   if (a.length > 250) return `alt is ${a.length} characters; IPTC and screen readers want 250 or fewer`;
   if (/^(?:an? )?(?:image|photo|photograph|picture|graphic) of\b/i.test(a)) return `alt "${a.slice(0, 40)}" starts with "${a.split(" ").slice(0, 2).join(" ")}"; a screen reader already says it is an image`;
-  if (/\.(?:jpe?g|png|webp|gif|avif|svg)\b/i.test(a) || /^[\w-]+$/.test(a)) return `alt "${a}" is a file name`;
   return "";
 }
 const GENERIC_NAME = /^(?:img|image|photo|pic|picture|dsc|dscn|dcim|pxl|screenshot|untitled|file)[-_ ]?\d*(?:[-_]\d+w)?$/i;
@@ -104,12 +104,11 @@ function checkPage(html, root, o = {}) {
   main.find("img").each((_, e) => {
     const el = $(e);
     const src = el.attr("src") || "";
-    const name = path.basename(src.split(/[?#]/)[0]).replace(/\.[a-z0-9]+$/i, "");
     const ap = altProblem(el.attr("alt"));
     if (ap) add("alt", `${src}: ${ap}`);
-    if (GENERIC_NAME.test(name)) add("file-name", `${src}: name the file for what it shows (Google: "short, but descriptive")`);
     const files = [src, ...String(el.attr("srcset") || "").split(",").map((s) => s.trim().split(/\s+/)[0]).filter(Boolean)];
     for (const f of [...new Set(files)]) {
+      if (GENERIC_NAME.test(path.basename(f.split(/[?#]/)[0]).replace(/\.[a-z0-9]+$/i, ""))) add("file-name", `${f}: name the file for what it shows (Google: "short, but descriptive")`);
       const at = onDisk(root, f);
       if (!at || !fs.existsSync(at)) { add("file", `${f}: not found under the site folder`); continue; }
       const bad = embeddedProblems(at, cache);

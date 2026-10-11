@@ -104,7 +104,8 @@ The headshot shows who wrote the page, the same photo on every page that person 
 
 ## Where the rules live
 
-- `tools/photos.js`: the guard (license, source, author, credit, alt text), and the markup.
+- `tools/photos.js`: the guard (license, source, author, credit, alt text), the markup, and the metadata each photo carries in its file and in the page (`rules/image-metadata.md`).
+- `tools/image-meta.js`: the page check for that metadata (STANDARD S13).
 - `tools/illustrations.js`: the drawings, with the rules they keep.
 - `batches/<batch>/data/photos.json`: one record per photo.
 - `templates/photo-shot-list.md`: what our team photographs, and how.

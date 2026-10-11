@@ -50,6 +50,28 @@ git apply <blog-brain>/website-patches/mkpage-hero-media.patch
 - The 55+ pages of batch 2026-10-a use it for a small icon row (beach, hospital, groceries), so a phone's first screen shows a picture (STANDARD P7, review 4).
 - Tested with `git apply --check` on a copy of the live branch after `mkpage.patch` (2026-10-10). With both applied, `tools/mkpage.js` matches the draft that built the batch.
 
+## `mkpage-page-images.patch`: the hero photo in Article.image
+
+Apply it after the two patches above:
+
+```
+cd <website-repo>
+git apply <blog-brain>/website-patches/mkpage.patch
+git apply <blog-brain>/website-patches/mkpage-hero-media.patch
+git apply <blog-brain>/website-patches/mkpage-page-images.patch
+```
+
+- A spec may set `pageImages`: a list of ImageObjects, or a function that returns one. mkpage calls the function after the sections are built.
+- They go in `Article.image`. The 4x3 one goes in `WebPage.primaryImageOfPage`. `og:image` and `twitter:image` keep the share card.
+- Why: Google says to avoid "an image with text in the schema.org markup", and the share card is text. Google's Article guide asks for images in 16x9, 4x3 and 1x1. See `rules/image-metadata.md`.
+- mkpage refuses an entry that is not an ImageObject on chapter3realty.com of 50,000 pixels or more.
+- The 55+ pages of batch 2026-10-a set `pageImages: () => ph.pageImages()` (the kit's hero crops).
+- Pages without it are unchanged.
+
+**Tested 2026-10-11** on a clean clone of the live branch at 54703db: `mkpage.patch`, then `mkpage-hero-media.patch`, then this one, each passes `git apply --check`. The result matches the draft that built the batch, apart from the live branch's own datePublished rule.
+
+`mkpage.patch` was refreshed the same day: the live branch had changed the line that sets the page date (a spec's datePublished, else the page on disk, else today), and the old patch no longer applied. The refreshed patch makes the same three changes.
+
 ## `logo-chapter-iii.patch`: on hold
 
 The owner will supply the logo (2026-10-05). This text-only version, "Chapter" plus a copper "III", is kept for reference and should not be applied.
