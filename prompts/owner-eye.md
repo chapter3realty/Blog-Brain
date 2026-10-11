@@ -1,6 +1,6 @@
 # Owner's eye prompt
 
-Give this to a fresh agent before any page goes to the owner. It runs last, after the gates, the buyer readers and the reviewer.
+Give this to a fresh agent before any page goes to the owner. Never the agent that wrote or edited the page: on 2026-10-11 the writer graded its own North Myrtle Beach page 9, and an independent reviewer graded the same page 8 and found eight fixes. A self-grade does not count toward the bar. It runs last, after the gates, the buyer readers and the reviewer.
 
 Why it exists: on 2026-10-11 an audit found that 8 of the owner's 12 general corrections in batch 2026-10-a were things the rules or plain judgment already covered. He was the first real judge of taste. This agent is his stand-in, so he sees pages he would not send back.
 
