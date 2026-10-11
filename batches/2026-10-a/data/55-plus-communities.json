@@ -1,5 +1,5 @@
 {
-  "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); ledger names the rows. Plain words and round numbers only (voice/RULES.md PLAIN; REWRITE-PLAIN.md). Review 4 and buyer read v6 (2026-10-10): the town column became 'In or near', because two of the four are outside any town, and the price column says resale, because every price here is a resale price. Minutes are drive times by car from the community reference point to its nearest public beach access. Prices are the middle sale in the 12 months from October 2025 to September 2026, from Horry County deed records, rounded to the thousand. Change a cell here, then rebuild all four pages.",
+  "_comment": "The comparison table on the four 55+ community pages. All four specs require this file, so each cell has one source. Every cell comes from a verified row in the Blog-Brain batch 2026-10-a ledgers (batches/2026-10-a/facts/); ledger names the rows. Plain words and round numbers only (voice/RULES.md PLAIN; REWRITE-PLAIN.md). Review 4 and buyer read v6 (2026-10-10): the town column became 'In or near', because two of the four are outside any town, and the price column says resale, because every price here is a resale price. Minutes are drive times by car from the community reference point to its nearest public beach access. Prices are the middle sale in the 12 months from October 2025 to September 2026, from Horry County deed records, rounded to the thousand. Change a cell here, then rebuild all four pages. 2026-10-11: the Grande Dunes price cell shows houses and villas apart, the same two figures as its page body (grader: $665,000 in the body beside $630,000 in the table read as a contradiction).",
   "head": [
     "Community",
     "In or near",
@@ -23,9 +23,9 @@
         "Del Webb at Grande Dunes",
         "Myrtle Beach",
         "About 4",
-        "About $630,000"
+        "Houses about $665,000; villas about $430,000"
       ],
-      "ledger": "del-webb-grande-dunes-facts.md row 84 (beach drive), rows 79 and 80 without the sale on an unclear parcel (4999/1319): 43 resales, middle $630,000"
+      "ledger": "del-webb-grande-dunes-facts.md row 84 (beach drive); row 80 split by county tract name, without the sale on an unclear parcel (4999/1319): houses, 29 resales, middle $665,000; Villas at Heel Tract, 14 resales, middle $432,500. Shown apart (grader, 2026-10-11) so the cell matches the page body, which gives the same two figures."
     },
     {
       "url": "/buyers/55-plus-communities/myrtle-trace/",
