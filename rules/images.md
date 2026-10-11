@@ -109,3 +109,14 @@ The headshot shows who wrote the page, the same photo on every page that person 
 - `tools/illustrations.js`: the drawings, with the rules they keep.
 - `batches/<batch>/data/photos.json`: one record per photo.
 - `templates/photo-shot-list.md`: what our team photographs, and how.
+
+## US government aerial photos (added 2026-10-11)
+
+USDA NAIP aerial photos are public domain (USDA Farm Service Agency: FSA information "is considered public domain"). They show the actual neighborhood from above, which is the best picture of a community we can publish without our own photos. Rules:
+
+- Source: the USGS National Map NAIP image service or another official copy. Record the year, the flight date, the request URL and the tiles.
+- Credit: "USDA Farm Service Agency, NAIP, via The National Map (USGS)", with the year in the caption.
+- Labels we draw (outline, clubhouse, entrance, pool) come from county data, never guesses. The caption says the photo year, so a reader knows newer homes may be missing.
+- Digital source type in the file: "composite" (a real capture with our drawn labels).
+- Never county imagery that needs a login or has no published license.
+

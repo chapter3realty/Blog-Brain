@@ -72,3 +72,5 @@ Maps and drawings on the page:
 - The image sitemap entries are in `batches/2026-10-a/image-sitemap.diff`, not applied. The photos are already found through their `<img>` tags; the crops appear only in the schema, which is the case rule 12 describes.
 - A map over 60 KB becomes an `<img>` of an `.svg` file. exiftool cannot write into SVG, so such a map would carry its alt text but no file metadata. None of the four 55+ maps is over 60 KB.
 - The older pages have no licensed photos yet. `node tools/image-meta.js <site>/chapter3realty --all` lists them: the team photos have no metadata or schema, and several pages have decorative icons that are not `aria-hidden`.
+
+- **Aerial photo with our labels:** digital source type "composite" (IPTC: a mix of a capture and other elements). Not "compositeCapture" (all elements captured) and not any generative AI type.
