@@ -1818,8 +1818,8 @@
       },
       "title": "Del Webb North Myrtle Beach, NOAA aerial, January 2026",
       "what": "Del Webb North Myrtle Beach from above on January 12, 2026, with its outline and the clubhouse marked. Homes line the curving streets around the ponds. The clubhouse, pools and courts sit in the middle, by Possum Trot Road.",
-      "caption": "Del Webb North Myrtle Beach from above in January 2026. The orange line is the edge of the neighborhood.",
-      "alt": "Del Webb North Myrtle Beach from above in winter, with its edge drawn in orange: curving streets of one-story homes around ponds, and the clubhouse with its pools and courts marked in the middle",
+      "caption": "Del Webb North Myrtle Beach from above. The orange line is the edge of the neighborhood.",
+      "alt": "Del Webb North Myrtle Beach from above in winter, with its edge drawn in orange: curving streets of homes around ponds, and the clubhouse with its pools and courts marked in the middle",
       "place": {
         "city": "North Myrtle Beach",
         "sublocation": "Del Webb North Myrtle Beach"
@@ -1831,7 +1831,7 @@
       "license": "Public domain",
       "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
       "credit": "Photo: NOAA National Geodetic Survey, public domain. Outline and label by Chapter3 Realty.",
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_1_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_2_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
       "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
       "terms_urls": [
         "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
@@ -1894,8 +1894,8 @@
       },
       "title": "Homes in Del Webb North Myrtle Beach, NOAA aerial, January 2026",
       "what": "Two rows of one-story homes with driveways on a street in Del Webb North Myrtle Beach, a pond with a walking path behind them, seen from above on January 12, 2026.",
-      "caption": "A street of homes in Del Webb North Myrtle Beach, from above, January 2026.",
-      "alt": "Two rows of one-story homes with gray roofs and short driveways along a curving street in Del Webb North Myrtle Beach, with a pond and a paved walking path behind them, seen from above",
+      "caption": "A street of homes in Del Webb North Myrtle Beach, from above.",
+      "alt": "Two rows of homes with gray roofs and short driveways along a straight street in Del Webb North Myrtle Beach, with a pond and a paved walking path behind them, seen from above",
       "place": {
         "city": "North Myrtle Beach",
         "sublocation": "Del Webb North Myrtle Beach"
@@ -1907,7 +1907,7 @@
       "license": "Public domain",
       "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
       "credit": "Photo: NOAA National Geodetic Survey, public domain.",
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_1_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_2_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
       "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
       "terms_urls": [
         "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
@@ -1966,7 +1966,7 @@
       },
       "title": "North Myrtle Beach from the air, NOAA, January 2026",
       "what": "North Myrtle Beach from the air on January 12, 2026. The ocean and the beach are at the left, US 17 runs down the middle, and Del Webb North Myrtle Beach, with its ponds, is at the right.",
-      "caption": "From the air, January 2026: the beach at the left, US 17 in the middle, Del Webb North Myrtle Beach at the right.",
+      "caption": "From the air: the beach at the left, US 17 in the middle, Del Webb North Myrtle Beach at the right.",
       "alt": "North Myrtle Beach from the air: the ocean and beach at the left, blocks of beach houses, US 17 down the middle, ball fields, and the curving streets and ponds of Del Webb North Myrtle Beach at the right",
       "place": {
         "city": "North Myrtle Beach"
@@ -1978,7 +1978,7 @@
       "license": "Public domain",
       "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
       "credit": "Photo: NOAA National Geodetic Survey, public domain.",
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_1_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_2_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
       "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
       "terms_urls": [
         "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
@@ -2016,8 +2016,8 @@
       },
       "title": "Cherry Grove from the air, NOAA, January 2026",
       "what": "Cherry Grove in North Myrtle Beach from the air on January 12, 2026: the beach and the Cherry Grove Pier at the left, homes along canals, and the salt marsh and its creeks behind them.",
-      "caption": "Cherry Grove from the air, January 2026: the beach and pier, canal homes and the salt marsh.",
-      "alt": "Cherry Grove in North Myrtle Beach from the air: the beach and a fishing pier at the left, rows of homes on canals, and a wide salt marsh with winding creeks",
+      "caption": "Cherry Grove from the air: the beach and part of the pier, canal homes and the salt marsh.",
+      "alt": "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of homes on canals, and a wide salt marsh with winding creeks",
       "place": {
         "city": "North Myrtle Beach",
         "sublocation": "Cherry Grove"
@@ -2029,7 +2029,7 @@
       "license": "Public domain",
       "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
       "credit": "Photo: NOAA National Geodetic Survey, public domain.",
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_1_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_2_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
       "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
       "terms_urls": [
         "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
