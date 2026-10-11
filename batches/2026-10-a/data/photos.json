@@ -1,5 +1,5 @@
 {
-  "_comment": "Photos for the four 55+ community pages, batch 2026-10-a. Found on Wikimedia Commons: 18 on 2026-10-07, 19 more on 2026-10-10. Only CC0, public domain, CC BY and CC BY-SA. None shows a community itself: Commons has no photo of any of the four. Each photo shows the area around it; the 'what' line says where. Each record has a 600w and a 1200w WebP file (variants, made with tools/photos.js from the Commons 1920 or 1280 px thumbnail; resized, nothing else changed), width and height of the 1200w file, default alt text, the photo's Commons title, and how it reached Commons (provenance). 'file' is the older single 1200 px file that the 2026-10-07 specs use; the 2026-10-10 photos have only the variants. A photo with 'hold' may not be used; tools/photos.js refuses it. Use tools/photos.js (heroPhoto, gallery, featureCards, creditsList), which links the license and the source. Rules: rules/images.md. CC BY-SA: if a photo is cropped or edited, the edited version carries the same license. Each record also has 'place' (IPTC Location Shown and schema contentLocation; the state is South Carolina). The four heroes have 'crops' (1x1, 4x3, 16x9) for Article.image. Every file holds its credit, license and alt text as embedded IPTC/XMP metadata (tools/photos.js embed; rules/image-metadata.md). On 2026-10-11, 6 aerial photos of the communities themselves were added: USDA NAIP 2023 (public domain) from the USGS National Map, with the outline and labels drawn by Chapter3 Realty ('changes'; digital_source_type 'composite'). Each record keeps the exact export request (source_request) and the NAIP tiles under it. Version 10 (2026-10-11): 4 close aerial views of a street of homes, one per community (scratchpad aerial/scripts/build10.js), no drawing, colors adjusted. Version 11 (2026-10-11): the Del Webb North Myrtle Beach street view cut tighter to the houses; the Grande Dunes street view labelled Houses, and a new labelled villas view (scratchpad aerial/scripts/build11.js).",
+  "_comment": "Photos for the four 55+ community pages, batch 2026-10-a. Found on Wikimedia Commons: 18 on 2026-10-07, 19 more on 2026-10-10. Only CC0, public domain, CC BY and CC BY-SA. None shows a community itself: Commons has no photo of any of the four. Each photo shows the area around it; the 'what' line says where. Each record has a 600w and a 1200w WebP file (variants, made with tools/photos.js from the Commons 1920 or 1280 px thumbnail; resized, nothing else changed), width and height of the 1200w file, default alt text, the photo's Commons title, and how it reached Commons (provenance). 'file' is the older single 1200 px file that the 2026-10-07 specs use; the 2026-10-10 photos have only the variants. A photo with 'hold' may not be used; tools/photos.js refuses it. Use tools/photos.js (heroPhoto, gallery, featureCards, creditsList), which links the license and the source. Rules: rules/images.md. CC BY-SA: if a photo is cropped or edited, the edited version carries the same license. Each record also has 'place' (IPTC Location Shown and schema contentLocation; the state is South Carolina). The four heroes have 'crops' (1x1, 4x3, 16x9) for Article.image. Every file holds its credit, license and alt text as embedded IPTC/XMP metadata (tools/photos.js embed; rules/image-metadata.md). On 2026-10-11, 6 aerial photos of the communities themselves were added: USDA NAIP 2023 (public domain) from the USGS National Map, with the outline and labels drawn by Chapter3 Realty ('changes'; digital_source_type 'composite'). Each record keeps the exact export request (source_request) and the NAIP tiles under it. Version 10 (2026-10-11): 4 close aerial views of a street of homes, one per community (scratchpad aerial/scripts/build10.js), no drawing, colors adjusted. Version 11 (2026-10-11): the Del Webb North Myrtle Beach street view cut tighter to the houses; the Grande Dunes street view labelled Houses, and a new labelled villas view (scratchpad aerial/scripts/build11.js). Version 12 (2026-10-11): Del Webb North Myrtle Beach from NOAA's 2026 pre-event aerial photos (public domain, flown 2026-01-12, about 0.25 to 0.30 m a pixel against NAIP's 0.6 m, every street built): a labelled overview, a street view, a view from the community to the beach, and Cherry Grove's marsh; plus the Cherry Grove Pier from the ocean (Commons, public domain). The NAIP 2023 records stay for the other pages' history; the 2026 ones replace them on this page (scratchpad eri/scripts/build12.js).",
   "as_of": "2026-10-07",
   "image_root": "/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/draft/chapter3realty/",
   "photos": [
@@ -1808,7 +1808,285 @@
       "height": 900,
       "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)",
       "display_credit": "U.S. government aerial photo"
+    },
+    {
+      "slug": "del-webb-north-myrtle-beach",
+      "file": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-2026.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-2026-600w.webp",
+        "1200": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-2026-1200w.webp"
+      },
+      "title": "Del Webb North Myrtle Beach, NOAA aerial, January 2026",
+      "what": "Del Webb North Myrtle Beach from above on January 12, 2026, with its outline and the clubhouse marked. Homes line the curving streets around the ponds. The clubhouse, pools and courts sit in the middle, by Possum Trot Road.",
+      "caption": "Del Webb North Myrtle Beach from above in January 2026. The orange line is the edge of the neighborhood.",
+      "alt": "Del Webb North Myrtle Beach from above in winter, with its edge drawn in orange: curving streets of one-story homes around ponds, and the clubhouse with its pools and courts marked in the middle",
+      "place": {
+        "city": "North Myrtle Beach",
+        "sublocation": "Del Webb North Myrtle Beach"
+      },
+      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+      "source_name": "NOAA Emergency Response Imagery",
+      "author": "NOAA National Geodetic Survey",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+      "credit": "Photo: NOAA National Geodetic Survey, public domain. Outline and label by Chapter3 Realty.",
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_1_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
+      "terms_urls": [
+        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+        "https://registry.opendata.aws/noaa-eri/",
+        "https://www.fisheries.noaa.gov/inport/item/67562"
+      ],
+      "taken": "2026-01-12",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty joined four NOAA map tiles, drew the outline from Horry County GIS parcels, added one label and adjusted the colors",
+      "annotation_sources": {
+        "outline": "Horry County GIS parcels layer 24, the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json)",
+        "clubhouse": "Horry County GIS building footprints layer 27 (largest Commercial / Public building on the HOA's amenity parcel), https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27"
+      },
+      "source_files": [
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784200w334845n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784200w334930n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784200w335015n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784245w334845n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784245w334930n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784245w335015n.tif"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -78.70855,
+          33.8164,
+          -78.690138,
+          33.827872
+        ],
+        "ground_m_per_px_1200w": 1.42
+      },
+      "original_size": "2400x1800 (cut from the four NOAA tiles, Web Mercator, Lanczos, colors adjusted, then resized)",
+      "method": "scratchpad eri/scripts/mosaic.py (tiles joined at their GeoTIFF tie points) and eri_fetch.py (frame in Web Mercator), drawn by eri/scripts/render_eri.py (aerial/scripts/render.py reading the NOAA mosaic in place of NAIP)",
+      "width": 1200,
+      "height": 900,
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-2026-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-2026-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-2026-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own frame cut from the NOAA 2026 mosaic, 1200 px wide, colors adjusted."
+    },
+    {
+      "slug": "del-webb-north-myrtle-beach",
+      "file": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-2026.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-2026-600w.webp",
+        "1200": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-2026-1200w.webp"
+      },
+      "title": "Homes in Del Webb North Myrtle Beach, NOAA aerial, January 2026",
+      "what": "Two rows of one-story homes with driveways on a street in Del Webb North Myrtle Beach, a pond with a walking path behind them, seen from above on January 12, 2026.",
+      "caption": "A street of homes in Del Webb North Myrtle Beach, from above, January 2026.",
+      "alt": "Two rows of one-story homes with gray roofs and short driveways along a curving street in Del Webb North Myrtle Beach, with a pond and a paved walking path behind them, seen from above",
+      "place": {
+        "city": "North Myrtle Beach",
+        "sublocation": "Del Webb North Myrtle Beach"
+      },
+      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+      "source_name": "NOAA Emergency Response Imagery",
+      "author": "NOAA National Geodetic Survey",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_1_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
+      "terms_urls": [
+        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+        "https://registry.opendata.aws/noaa-eri/",
+        "https://www.fisheries.noaa.gov/inport/item/67562"
+      ],
+      "taken": "2026-01-12",
+      "digital_source_type": "compositeCapture",
+      "changes": "Chapter3 Realty joined four NOAA map tiles, cut a close view of one street and adjusted the colors",
+      "source_files": [
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784200w334845n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784200w334930n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784200w335015n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784245w334845n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784245w334930n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0784245w335015n.tif"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -78.702353,
+          33.819629,
+          -78.699757,
+          33.821245
+        ],
+        "ground_m_per_px_1200w": 0.2
+      },
+      "original_size": "2400x1800 (cut from the four NOAA tiles, Web Mercator, Lanczos, colors adjusted, then resized)",
+      "method": "scratchpad eri/scripts/mosaic.py (tiles joined at their GeoTIFF tie points) and eri_fetch.py (frame in Web Mercator), drawn by eri/scripts/render_eri.py (aerial/scripts/render.py reading the NOAA mosaic in place of NAIP)",
+      "width": 1200,
+      "height": 900,
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-2026-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-2026-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-homes-from-above-2026-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own frame cut from the NOAA 2026 mosaic, 1200 px wide, colors adjusted."
+    },
+    {
+      "slug": "del-webb-north-myrtle-beach",
+      "file": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-to-the-beach-2026.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-to-the-beach-2026-600w.webp",
+        "1200": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-to-the-beach-2026-1200w.webp"
+      },
+      "title": "North Myrtle Beach from the air, NOAA, January 2026",
+      "what": "North Myrtle Beach from the air on January 12, 2026. The ocean and the beach are at the left, US 17 runs down the middle, and Del Webb North Myrtle Beach, with its ponds, is at the right.",
+      "caption": "From the air, January 2026: the beach at the left, US 17 in the middle, Del Webb North Myrtle Beach at the right.",
+      "alt": "North Myrtle Beach from the air: the ocean and beach at the left, blocks of beach houses, US 17 down the middle, ball fields, and the curving streets and ponds of Del Webb North Myrtle Beach at the right",
+      "place": {
+        "city": "North Myrtle Beach"
+      },
+      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+      "source_name": "NOAA Emergency Response Imagery",
+      "author": "NOAA National Geodetic Survey",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_1_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
+      "terms_urls": [
+        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+        "https://registry.opendata.aws/noaa-eri/",
+        "https://www.fisheries.noaa.gov/inport/item/67562"
+      ],
+      "taken": "2026-01-12",
+      "digital_source_type": "digitalCapture",
+      "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it and adjusted the colors",
+      "source_files": [
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185102_0112261646125_037_RGB2.jpg",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185102_0112261646125_037_RGB2.geom"
+      ],
+      "frame": {
+        "raw_pixels": [
+          2537,
+          1725,
+          13697,
+          8003
+        ],
+        "raw_size": "14204x10652",
+        "ground_m_per_px_raw_center": 0.195,
+        "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the left, north is up and to the right"
+      },
+      "original_size": "11160x6278 pixels of the raw frame, resized to 2400 wide, colors adjusted (eri/scripts/rawcrop.py)",
+      "width": 1200,
+      "height": 675
+    },
+    {
+      "slug": "del-webb-north-myrtle-beach",
+      "file": "images/55-plus/del-webb-north-myrtle-beach/cherry-grove-marsh-from-above-2026.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-north-myrtle-beach/cherry-grove-marsh-from-above-2026-600w.webp",
+        "1200": "images/55-plus/del-webb-north-myrtle-beach/cherry-grove-marsh-from-above-2026-1200w.webp"
+      },
+      "title": "Cherry Grove from the air, NOAA, January 2026",
+      "what": "Cherry Grove in North Myrtle Beach from the air on January 12, 2026: the beach and the Cherry Grove Pier at the left, homes along canals, and the salt marsh and its creeks behind them.",
+      "caption": "Cherry Grove from the air, January 2026: the beach and pier, canal homes and the salt marsh.",
+      "alt": "Cherry Grove in North Myrtle Beach from the air: the beach and a fishing pier at the left, rows of homes on canals, and a wide salt marsh with winding creeks",
+      "place": {
+        "city": "North Myrtle Beach",
+        "sublocation": "Cherry Grove"
+      },
+      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+      "source_name": "NOAA Emergency Response Imagery",
+      "author": "NOAA National Geodetic Survey",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_1_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
+      "terms_urls": [
+        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+        "https://registry.opendata.aws/noaa-eri/",
+        "https://www.fisheries.noaa.gov/inport/item/67562"
+      ],
+      "taken": "2026-01-12",
+      "digital_source_type": "digitalCapture",
+      "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it and adjusted the colors",
+      "source_files": [
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.jpg",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.geom"
+      ],
+      "frame": {
+        "raw_pixels": [
+          0,
+          0,
+          7360,
+          5520
+        ],
+        "raw_size": "14204x10652",
+        "ground_m_per_px_raw_center": 0.195,
+        "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the left, north is up and to the right"
+      },
+      "original_size": "7360x5520 pixels of the raw frame, resized to 2400 wide, colors adjusted (eri/scripts/rawcrop.py)",
+      "width": 1200,
+      "height": 900
+    },
+    {
+      "slug": "del-webb-north-myrtle-beach",
+      "file": "images/55-plus/del-webb-north-myrtle-beach/cherry-grove-pier-from-the-ocean.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-north-myrtle-beach/cherry-grove-pier-from-the-ocean-600w.webp",
+        "1200": "images/55-plus/del-webb-north-myrtle-beach/cherry-grove-pier-from-the-ocean-1200w.webp"
+      },
+      "title": "Cherrygrovepier",
+      "what": "The Cherry Grove Pier in North Myrtle Beach, seen from the ocean, with beach houses and a water tower behind it.",
+      "caption": "The Cherry Grove Pier, seen from the ocean.",
+      "alt": "The long wooden Cherry Grove Pier reaching into the ocean in North Myrtle Beach, with beach houses, a water tower and a tall hotel behind it",
+      "place": {
+        "sublocation": "Cherry Grove Pier",
+        "city": "North Myrtle Beach"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:Cherrygrovepier.jpg",
+      "source_name": "Wikimedia Commons",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Cherrygrovepier.jpg",
+      "author": "Festiva76",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/Template:PD-user-w",
+      "credit": "Photo: Festiva76, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+      "provenance": "own work, uploaded by its author to the English Wikipedia on 2008-10-14 (\"I created this work entirely by myself\", 3264x2448, 1,372,306 bytes) and released into the public domain (PD-user-w: \"released into the public domain by its author, Festiva76, at the English Wikipedia project\"). Moved to Commons on 2014-05-04 by Rcbutcher (\"Transferred from en.wikipedia\"). The file downloaded on 2026-10-11 is 1,372,306 bytes, the same size as the author's upload. Not a Flickr copy: the uploader of the original is the author.",
+      "taken": "2008-10-07",
+      "original_size": "3264x2448",
+      "share_alike": false,
+      "width": 1200,
+      "height": 900
     }
   ],
-  "updated": "2026-10-10"
+  "updated": "2026-10-11"
 }

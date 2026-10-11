@@ -120,3 +120,10 @@ USDA NAIP aerial photos are public domain (USDA Farm Service Agency: FSA informa
 - Digital source type in the file: "composite" (a real capture with our drawn labels).
 - Never county imagery that needs a login or has no published license.
 
+NOAA Emergency Response Imagery (added 2026-10-11) is also public domain: a work of the U.S. government (17 U.S.C. 105). NOAA's terms ask for credit. The 2026 "pre-event" flights over the Grand Strand are about twice as sharp as NAIP and newer. Prefer the newest, sharpest public-domain aerial for a community.
+
+- Source: the NOAA ERI public bucket (noaa-eri-pds) or its map tiles. Record the flight name, the date and the frames or tiles.
+- Credit: "NOAA National Geodetic Survey, public domain". The page's visible credit can say "U.S. government aerial photo".
+- Digital source type: "composite" when we draw on it, "compositeCapture" for a stitched mosaic with nothing drawn, "digitalCapture" for one raw frame.
+- South Carolina's statewide 6-inch imagery is not used: the state says it is not for download and gives no license.
+
