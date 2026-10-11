@@ -109,10 +109,10 @@ module.exports = {
         { illustration: "card-table", label: "Bingo and game nights", text: "Bingo two Friday nights a month, and a game night on Sundays" },
         { illustration: "outdoor-pool", label: "The pool", text: "Open every day 8 a.m. to 9 p.m., until the start of October" },
         { illustration: "bocce", label: "Bocce and shuffleboard", text: "A bocce league and a shuffleboard league you can join" },
-        { illustration: "fishing-pond", label: "Fishing", text: "Ponds where you and your guests fish and let the fish go" },
+        { illustration: "fishing-pond", label: "Fishing", text: "Ponds where you and your guests fish and let the fish go. You cannot swim or take a boat in the ponds." },
       ], { cols: 4 }) +
       h.p("There is also line dancing, a coffee group and a craft fair.") +
-      h.p("You cannot swim or take a boat in the ponds.") },
+      "" },
 
     { h2: "What are the homes like in Myrtle Trace?", toc: "The homes", html: (bg) =>
       h.p("Most homes in Myrtle Trace are one-story houses with their own yards, and a few are townhouses. Most were built in the 1980s and 1990s.") +

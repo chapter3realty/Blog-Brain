@@ -197,6 +197,10 @@ const KIT_CSS = "<style>"
   /* An aerial is shown whole: its own shape, no crop (kit ph.aerial). */
   + ".c3-aerial .c3ph-hero{max-width:900px;margin:1.4rem 0 1.6rem}.c3-aerial .c3ph-hero img{aspect-ratio:auto!important;height:auto}"
   + ".c3-aerial-close .c3ph-hero{max-width:640px}"
+  /* o.creditTop: the photo credit sits in the top corner when a label lies under the bottom one. */
+  + ".c3-aerial-ctop .c3ph-cr{top:0;bottom:auto;padding:.35rem .6rem 1.6rem 2.6rem;background:radial-gradient(farthest-side at 100% 0%,rgba(28,32,40,.72),rgba(28,32,40,.4) 55%,rgba(28,32,40,0))}"
+  /* A last card alone in its row on a phone takes the whole row, so no empty space sits beside it. */
+  + "@media (max-width:699px){.c3ph-cards>:last-child:nth-child(odd){grid-column:1/-1}}"
   /* The two maps side by side on a wide screen. */
   + ".c3-maps{display:grid;gap:0 1.5rem;max-width:1136px}"
   + "@media (min-width:900px){.c3-maps{grid-template-columns:1fr 1fr;align-items:start}}"
@@ -244,7 +248,7 @@ function photoSet() {
       let html = P.heroPhoto(r, { alt: o.alt || r.alt, caption, css: false });
       if (o.closeUp) { const seen = P.SHOWN.get(r); if (seen) seen.hero = false; }
       html = html.replace(' fetchpriority="high" decoding="async"', ' loading="lazy" decoding="async"');
-      return `<div class="c3-aerial${o.closeUp ? " c3-aerial-close" : ""}">${html}</div>`;
+      return `<div class="c3-aerial${o.closeUp ? " c3-aerial-close" : ""}${o.creditTop ? " c3-aerial-ctop" : ""}">${html}</div>`;
     },
     gallery(items, o = {}) {
       return P.gallery(items.map((it) => ({ photo: rec(it.name), alt: it.alt, caption: it.caption })), { css: false, label: o.label, ratio: o.ratio });

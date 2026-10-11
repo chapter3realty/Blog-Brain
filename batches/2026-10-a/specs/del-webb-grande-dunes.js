@@ -147,12 +147,12 @@ module.exports = {
       h.p("The nearest hospital is Grand Strand Medical Center, and the nearest grocery store is a Food Lion. The Boardwalk, with its big Ferris wheel, is about 15 minutes away.") },
 
     { h2: "What are the homes like in Del Webb at Grande Dunes?", toc: "The homes", html: (bg) =>
-      h.p("The homes were built from 2018 to 2026, so every home here is a resale now, and the builder has finished.") +
+      h.p("The homes were built from 2018 to 2026. The builder has finished, so every home here is a resale now.") +
       OVER +
       h.p("The neighborhood has houses and villas. A villa here is a home that shares one wall with another home, and villas usually sell for less than houses.") +
       STREET +
       h.p("Most homes are on one level, with 2 or 3 bedrooms and about 1,500 to 2,900 square feet.") +
-      h.p("For the villas in the section called the Heel Tract, the HOA takes care of the roofs, gutters and outside paint. Those villa owners pay a little more for it.") +
+      h.p("For some villas, the HOA takes care of the roofs, gutters and outside paint. Those villa owners pay a little more for it.") +
       h.cta("Ask what the HOA takes care of on the home you like.", "Tell us the house or villa you like. One of our agents finds out what the HOA keeps up on that home.", "Ask an agent", "/contact/", bg) },
 
     { h2: "Who can live in Del Webb at Grande Dunes?", toc: "Who can live here", html: (bg) =>

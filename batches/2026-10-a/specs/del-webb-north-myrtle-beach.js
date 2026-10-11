@@ -146,13 +146,12 @@ module.exports = {
 
     { h2: "Can you rent out a home in Del Webb North Myrtle Beach?", toc: "Renting", html: (bg) =>
       h.p(`Under ${h.ext(AGREEMENT, "the city's plan for the neighborhood")}, renters must stay at least 30 days.`) +
-      h.p("Only the builder may let people who are thinking of buying stay for 2 to 10 nights.") +
       story([
         "<strong>Example:</strong> Frank and Joyce plan to spend summers near their son in Michigan and rent their new house to vacation renters by the week while they are gone. They pick a design in Del Webb North Myrtle Beach and are ready to sign the builder's contract that week.",
         "Their Chapter3 agent reads the city's plan for the neighborhood and finds that renters there must stay at least 30 days. A week-by-week rental would not fit.",
         "Frank and Joyce change their plan to one renter for the whole summer, and they sign the contract.",
       ], "", bg) +
-      h.cta("Tell us how you plan to use the home.", "An agent gets the HOA documents and reads them with you before you sign the builder's contract.", "Talk to an agent", "/contact/", bg) },
+      h.cta("Tell us how you plan to use the home.", "An agent gets the HOA documents and reads the rental rules with you before you sign the builder's contract.", "Talk to an agent", "/contact/", bg) },
   ],
   faqTitle: "Del Webb North Myrtle Beach FAQ",
   faq: [

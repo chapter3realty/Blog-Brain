@@ -64,7 +64,7 @@ const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 const ph = photoSet();
 const CLUB = ph.aerial("seasons-at-prince-creek-west-clubhouse-from-above", "The clubhouse from above.", { closeUp: true });
 const BOATS = ph.aerial("murrells-inlet-boats", "Fishing boats at a marina in Murrells Inlet.", { closeUp: true, alt: "White fishing boats tied up at a marina on calm water in Murrells Inlet, South Carolina" });
-const OVER = ph.aerial("seasons-at-prince-creek-west-from-above", "Seasons at Prince Creek West from above. The orange line is the edge of the neighborhood.");
+const OVER = ph.aerial("seasons-at-prince-creek-west-from-above", "Seasons at Prince Creek West from above. The orange line is the edge of the neighborhood.", { creditTop: true });
 const STREET = ph.aerial("seasons-at-prince-creek-west-homes-from-above", "Homes around a pond in Seasons at Prince Creek West, from above.", { closeUp: true });
 const M = maps("seasons-at-prince-creek-west", [
   { id: "beach_spcw", name: "the beach in Garden City", short: "Beach", kind: "beach" },
@@ -108,9 +108,9 @@ module.exports = {
   sections: [
     { h2: "What is there to do in Seasons at Prince Creek West?", toc: "Things to do", html:
       ph.css() +
-      h.p("The Seasons clubhouse has the fitness center, with the outdoor pool and the tennis courts right beside it.") +
+      h.p("The Seasons clubhouse has a fitness center, with the outdoor pool and the tennis courts right beside it.") +
       atAGlance([
-        { icon: "pool", label: "Indoor pool" },
+        { icon: "clubhouse", label: "Indoor pool" },
         { icon: "pool", label: "Outdoor pool" },
         { icon: "tennis", label: "Tennis courts" },
         { icon: "bocce", label: "Bocce" },
@@ -130,14 +130,14 @@ module.exports = {
       STREET },
 
     { h2: "Can you live in Seasons part of the year?", toc: "Living here part-time", html: (bg) =>
-      h.p(`Yes, if you live in Seasons at least six months a year. Under the ${h.ext(CHARTER, "homeowners association (HOA) rules")}, one person in the home must be 55 or older.`) +
+      h.p(`Yes, as long as the person who is 55 or older lives in Seasons at least six months a year, under the ${h.ext(CHARTER, "homeowners association (HOA) rules")}.`) +
       h.p("You cannot rent the home out for the months you are away. A lease here must be at least a year.") +
       h.cta("Read the Seasons age rules with an agent.", "An agent at Chapter3 can read the age and visitor rules with you before you offer.", "Talk to an agent", "/contact/", bg) },
 
     { h2: "What does it cost to live in Seasons?", toc: "Costs", html:
       h.p("Seasons homes usually sell for about $500,000. The HOA fee is about $340 a month, and it includes internet, weekly trash pickup and lawn care.") +
       h.ul([
-        "<strong>One bill.</strong> You pay one HOA bill. It includes the fees for the larger Prince Creek West area around Seasons.",
+        "<strong>One bill.</strong> The fees for the larger Prince Creek West area around Seasons come on your Seasons HOA bill, so there is no second bill.",
         "<strong>When you buy,</strong> you pay the HOA two months of dues, about $700, as a one-time fee. There is also a small transfer fee.",
         "<strong>Property tax.</strong> If you live in the home, the tax on a home at that price is about $2,000 a year. Seasons is outside any city limits, so there is no city tax.",
       ]) +
@@ -168,7 +168,7 @@ module.exports = {
         "Before they do, the agent pulls up that lot on the federal flood map. The back of the house sits inside the high-risk flood zone, so their lender will require flood insurance. That is a yearly cost they had not planned for.",
         "The agent gets them a flood insurance quote on that exact house the same afternoon. Carol and Jim write their offer knowing what flood insurance on that house will cost each year.",
       ], "", bg) +
-      h.cta("Get a flood quote on the lot you like.", `Tell us the home you are looking at. One of our agents can help you get an ${h.a("/buyers/coastal-insurance/", "insurance")} quote on it before you offer.`, "Get a flood quote", "/contact/", bg) },
+      h.cta("Get a flood insurance quote on the lot you like.", `Tell us the home you are looking at. One of our agents can help you get a flood ${h.a("/buyers/coastal-insurance/", "insurance")} quote on it before you offer.`, "Get a flood quote", "/contact/", bg) },
   ],
   faqTitle: "Seasons at Prince Creek West FAQ",
   faq: [
