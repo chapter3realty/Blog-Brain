@@ -50,5 +50,5 @@ Only someone at Chapter3 can do these. None blocks publishing; each makes a page
    - Del Webb North Myrtle Beach: Book 4442, Page 1382 and Book 5032, Page 1405.
    - Del Webb at Grande Dunes: the 2025 rules (recorded January 2025).
 3. **Seasons at Prince Creek West:** is the gate staffed or working in 2026? Is there an activities director, and about how many events a month?
-4. **Myrtle Trace:** can residents play the Burning Ridge golf course next door, and on what terms?
+4. **Golf:** can Myrtle Trace residents play the Burning Ridge course next door, and on what terms? Is there any golf in or next to Seasons at Prince Creek West?
 5. **Tim Nash:** does he read pages before they publish? Every page says "Reviewed by Tim Nash".
