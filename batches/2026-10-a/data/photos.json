@@ -1,5 +1,5 @@
 {
-  "_comment": "Photos for the four 55+ community pages, batch 2026-10-a. Found on Wikimedia Commons: 18 on 2026-10-07, 19 more on 2026-10-10. Only CC0, public domain, CC BY and CC BY-SA. None shows a community itself: Commons has no photo of any of the four. Each photo shows the area around it; the 'what' line says where. Each record has a 600w and a 1200w WebP file (variants, made with tools/photos.js from the Commons 1920 or 1280 px thumbnail; resized, nothing else changed), width and height of the 1200w file, default alt text, the photo's Commons title, and how it reached Commons (provenance). 'file' is the older single 1200 px file that the 2026-10-07 specs use; the 2026-10-10 photos have only the variants. A photo with 'hold' may not be used; tools/photos.js refuses it. Use tools/photos.js (heroPhoto, gallery, featureCards, creditsList), which links the license and the source. Rules: rules/images.md. CC BY-SA: if a photo is cropped or edited, the edited version carries the same license. Each record also has 'place' (IPTC Location Shown and schema contentLocation; the state is South Carolina). The four heroes have 'crops' (1x1, 4x3, 16x9) for Article.image. Every file holds its credit, license and alt text as embedded IPTC/XMP metadata (tools/photos.js embed; rules/image-metadata.md).",
+  "_comment": "Photos for the four 55+ community pages, batch 2026-10-a. Found on Wikimedia Commons: 18 on 2026-10-07, 19 more on 2026-10-10. Only CC0, public domain, CC BY and CC BY-SA. None shows a community itself: Commons has no photo of any of the four. Each photo shows the area around it; the 'what' line says where. Each record has a 600w and a 1200w WebP file (variants, made with tools/photos.js from the Commons 1920 or 1280 px thumbnail; resized, nothing else changed), width and height of the 1200w file, default alt text, the photo's Commons title, and how it reached Commons (provenance). 'file' is the older single 1200 px file that the 2026-10-07 specs use; the 2026-10-10 photos have only the variants. A photo with 'hold' may not be used; tools/photos.js refuses it. Use tools/photos.js (heroPhoto, gallery, featureCards, creditsList), which links the license and the source. Rules: rules/images.md. CC BY-SA: if a photo is cropped or edited, the edited version carries the same license. Each record also has 'place' (IPTC Location Shown and schema contentLocation; the state is South Carolina). The four heroes have 'crops' (1x1, 4x3, 16x9) for Article.image. Every file holds its credit, license and alt text as embedded IPTC/XMP metadata (tools/photos.js embed; rules/image-metadata.md). On 2026-10-11, 6 aerial photos of the communities themselves were added: USDA NAIP 2023 (public domain) from the USGS National Map, with the outline and labels drawn by Chapter3 Realty ('changes'; digital_source_type 'composite'). Each record keeps the exact export request (source_request) and the NAIP tiles under it.",
   "as_of": "2026-10-07",
   "image_root": "/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/draft/chapter3realty/",
   "photos": [
@@ -1093,6 +1093,439 @@
       "taken": "2022-06-05",
       "original_size": "6053x3157",
       "share_alike": true
+    },
+    {
+      "slug": "del-webb-north-myrtle-beach",
+      "file": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-600w.webp",
+        "1200": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-1200w.webp"
+      },
+      "title": "Del Webb North Myrtle Beach, NAIP 2023 aerial",
+      "what": "Del Webb North Myrtle Beach from above on April 10, 2023, with its outline and the clubhouse marked. Homes and ponds fill the west side. The east side was still graded land, being made ready for streets and homes.",
+      "caption": "Del Webb North Myrtle Beach from above in April 2023. The orange line is the edge of the neighborhood. The east side was still being built.",
+      "alt": "Del Webb North Myrtle Beach from above, with its edge drawn in orange: rows of new homes and ponds on the west side, graded land on the east side, and the clubhouse marked",
+      "place": {
+        "city": "North Myrtle Beach",
+        "sublocation": "Del Webb North Myrtle Beach"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty drew the outline from Horry County GIS parcels, added the labels and adjusted the colors",
+      "annotation_sources": {
+        "outline": "Horry County GIS parcels layer 24, the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json)",
+        "clubhouse": "Horry County GIS building footprints layer 27 (largest Commercial / Public building on the HOA's amenity parcel), https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+        "entrance": "tools/geo/grand-strand-v2.json entrance point (Horry County roads layer 18)",
+        "pool": "read from the photo: the blue pool beside the clubhouse, on the pool deck the county maps as a patio (layer 27)"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8762043.504263418%2C4004289.967281299%2C-8759546.385445945%2C4005694.5966161275&bboxSR=3857&imageSR=3857&size=2400%2C1350&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "naip_tiles": [
+        "m_3307811_ne_17_060_20230410",
+        "m_3307811_nw_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -78.710776,
+          33.817254,
+          -78.688344,
+          33.827736
+        ],
+        "ground_m_per_px_1200w": 1.73
+      },
+      "labels": [
+        "Clubhouse"
+      ],
+      "width": 1200,
+      "height": 675,
+      "original_size": "2400x1350 (NAIP export at 2x, drawn on, then resized)",
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/del-webb-north-myrtle-beach/del-webb-north-myrtle-beach-from-above-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen."
+    },
+    {
+      "slug": "del-webb-grande-dunes",
+      "file": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-from-above.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-from-above-600w.webp",
+        "1200": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-from-above-1200w.webp"
+      },
+      "title": "Del Webb at Grande Dunes, NAIP 2023 aerial",
+      "what": "Del Webb at Grande Dunes from above on April 10, 2023, with its outline, the clubhouse and the Intracoastal Waterway marked. A few streets at the north-east end were still being built.",
+      "caption": "Del Webb at Grande Dunes from above in April 2023, beside the Intracoastal Waterway. The orange line is the edge of the neighborhood.",
+      "alt": "Del Webb at Grande Dunes from above, with its edge drawn in orange beside the Intracoastal Waterway, streets of homes around ponds, and the clubhouse marked",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Del Webb at Grande Dunes"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty drew the outline from Horry County GIS parcels, added the labels and adjusted the colors",
+      "annotation_sources": {
+        "outline": "Horry County GIS parcels layer 24, the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json)",
+        "clubhouse": "Horry County GIS building footprints layer 27 (largest Commercial / Public building on the HOA's amenity parcel), https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+        "entrance": "tools/geo/grand-strand-v2.json entrance point (Horry County roads layer 18)",
+        "pool": "read from the photo: the blue pool beside the clubhouse, on the pool deck the county maps as a patio (layer 27)"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8778601.006692627%2C3993777.2961958577%2C-8774082.64318511%2C3996318.875668839&bboxSR=3857&imageSR=3857&size=2400%2C1350&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "naip_tiles": [
+        "m_3307810_sw_17_060_20230410",
+        "m_3307818_nw_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -78.859515,
+          33.738758,
+          -78.818925,
+          33.757742
+        ],
+        "ground_m_per_px_1200w": 3.13
+      },
+      "labels": [
+        "Clubhouse",
+        "Intracoastal Waterway"
+      ],
+      "width": 1200,
+      "height": 675,
+      "original_size": "2400x1350 (NAIP export at 2x, drawn on, then resized)",
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-from-above-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-from-above-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-from-above-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen."
+    },
+    {
+      "slug": "del-webb-grande-dunes",
+      "file": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above.webp",
+      "variants": {
+        "600": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above-600w.webp",
+        "1200": "images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above-1200w.webp"
+      },
+      "title": "Del Webb at Grande Dunes clubhouse, NAIP 2023 aerial",
+      "what": "The clubhouse at Del Webb at Grande Dunes from above on April 10, 2023: the building, its outdoor pool, the parking circle, the courts, a pond, and the entrance on Marina Parkway.",
+      "caption": "The clubhouse and its outdoor pool from above, April 2023.",
+      "alt": "The Del Webb at Grande Dunes clubhouse from above, with its large outdoor pool, parking, courts and a pond beside it, and the entrance marked",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Del Webb at Grande Dunes"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty drew the outline from Horry County GIS parcels, added the labels and adjusted the colors",
+      "annotation_sources": {
+        "outline": "Horry County GIS parcels layer 24, the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json)",
+        "clubhouse": "Horry County GIS building footprints layer 27 (largest Commercial / Public building on the HOA's amenity parcel), https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+        "entrance": "tools/geo/grand-strand-v2.json entrance point (Horry County roads layer 18)",
+        "pool": "read from the photo: the blue pool beside the clubhouse, on the pool deck the county maps as a patio (layer 27)"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8777060.599378439%2C3995047.7381337327%2C-8776531.417544173%2C3995444.6245094296&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "naip_tiles": [
+        "m_3307810_sw_17_060_20230410",
+        "m_3307818_nw_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -78.845677,
+          33.748248,
+          -78.840923,
+          33.751212
+        ],
+        "ground_m_per_px_1200w": 0.37
+      },
+      "labels": [
+        "Clubhouse",
+        "Outdoor pool",
+        "Entrance"
+      ],
+      "width": 1200,
+      "height": 900,
+      "original_size": "2400x1800 (NAIP export at 2x, drawn on, then resized)"
+    },
+    {
+      "slug": "myrtle-trace",
+      "file": "images/55-plus/myrtle-trace/myrtle-trace-from-above.webp",
+      "variants": {
+        "600": "images/55-plus/myrtle-trace/myrtle-trace-from-above-600w.webp",
+        "1200": "images/55-plus/myrtle-trace/myrtle-trace-from-above-1200w.webp"
+      },
+      "title": "Myrtle Trace, NAIP 2023 aerial",
+      "what": "Myrtle Trace from above on April 10, 2023, with its outline, the clubhouse, the main entrance on Burning Ridge Road and the golf course next door marked. The houses sit among tall pines and ponds.",
+      "caption": "Myrtle Trace from above in April 2023. The orange line is the edge of the neighborhood. The golf course next door is not part of it.",
+      "alt": "Myrtle Trace from above, with its edge drawn in orange: houses among tall pines and ponds, the clubhouse and main entrance marked, and the golf course next door",
+      "place": {
+        "city": "Conway",
+        "sublocation": "Myrtle Trace"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty drew the outline from Horry County GIS parcels, added the labels and adjusted the colors",
+      "annotation_sources": {
+        "outline": "Horry County GIS parcels layer 24, the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json)",
+        "clubhouse": "Horry County GIS building footprints layer 27 (largest Commercial / Public building on the HOA's amenity parcel), https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+        "entrance": "tools/geo/grand-strand-v2.json entrance point (Horry County roads layer 18)",
+        "pool": "read from the photo: the blue pool beside the clubhouse, on the pool deck the county maps as a patio (layer 27)"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8795568.287429636%2C3997866.543820924%2C-8791796.949804747%2C3999987.9212349243&bboxSR=3857&imageSR=3857&size=2400%2C1350&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "naip_tiles": [
+        "m_3307809_sw_17_060_20230410",
+        "m_3307916_se_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -79.011934,
+          33.7693,
+          -78.978056,
+          33.78514
+        ],
+        "ground_m_per_px_1200w": 2.61
+      },
+      "labels": [
+        "Clubhouse",
+        "Main entrance",
+        "Golf course next door"
+      ],
+      "width": 1200,
+      "height": 675,
+      "original_size": "2400x1350 (NAIP export at 2x, drawn on, then resized)",
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/myrtle-trace/myrtle-trace-from-above-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/myrtle-trace/myrtle-trace-from-above-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/myrtle-trace/myrtle-trace-from-above-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen."
+    },
+    {
+      "slug": "seasons-at-prince-creek-west",
+      "file": "images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-from-above.webp",
+      "variants": {
+        "600": "images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-from-above-600w.webp",
+        "1200": "images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-from-above-1200w.webp"
+      },
+      "title": "Seasons at Prince Creek West, NAIP 2023 aerial",
+      "what": "Seasons at Prince Creek West from above on April 10, 2023, with its outline, the clubhouse and the entrance on TPC Boulevard marked. Curving streets of homes surround ponds, with woods along the east side.",
+      "caption": "Seasons at Prince Creek West from above in April 2023. The orange line is the edge of the neighborhood.",
+      "alt": "Seasons at Prince Creek West from above, with its long, narrow edge drawn in orange, curving streets of homes around ponds, woods on the east side, and the clubhouse and entrance marked",
+      "place": {
+        "city": "Murrells Inlet",
+        "sublocation": "Seasons at Prince Creek West"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty drew the outline from Horry County GIS parcels, added the labels and adjusted the colors",
+      "annotation_sources": {
+        "outline": "Horry County GIS parcels layer 24, the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json)",
+        "clubhouse": "Horry County GIS building footprints layer 27 (largest Commercial / Public building on the HOA's amenity parcel), https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+        "entrance": "tools/geo/grand-strand-v2.json entrance point (Horry County roads layer 18)",
+        "pool": "read from the photo: the blue pool beside the clubhouse, on the pool deck the county maps as a patio (layer 27)"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8804569.819574144%2C3972933.026090655%2C-8799654.75454088%2C3975697.750171868&bboxSR=3857&imageSR=3857&size=2400%2C1350&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "naip_tiles": [
+        "m_3307932_ne_17_060_20230410",
+        "m_3307932_nw_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -79.092796,
+          33.582906,
+          -79.048644,
+          33.603594
+        ],
+        "ground_m_per_px_1200w": 3.41
+      },
+      "labels": [
+        "Clubhouse",
+        "Entrance"
+      ],
+      "width": 1200,
+      "height": 675,
+      "original_size": "2400x1350 (NAIP export at 2x, drawn on, then resized)",
+      "crops": {
+        "1x1": {
+          "path": "images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-from-above-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-from-above-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-from-above-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen."
+    },
+    {
+      "slug": "seasons-at-prince-creek-west",
+      "file": "images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-clubhouse-from-above.webp",
+      "variants": {
+        "600": "images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-clubhouse-from-above-600w.webp",
+        "1200": "images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-clubhouse-from-above-1200w.webp"
+      },
+      "title": "Seasons at Prince Creek West clubhouse, NAIP 2023 aerial",
+      "what": "The clubhouse at Seasons at Prince Creek West from above on April 10, 2023: the building, its outdoor pool, the parking lot, the tennis courts, two ponds and the entrance road from TPC Boulevard.",
+      "caption": "The clubhouse, its outdoor pool and the tennis courts from above, April 2023.",
+      "alt": "The Seasons at Prince Creek West clubhouse from above, with its outdoor pool, parking lot and tennis courts among the trees, and the entrance road marked",
+      "place": {
+        "city": "Murrells Inlet",
+        "sublocation": "Seasons at Prince Creek West"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty drew the outline from Horry County GIS parcels, added the labels and adjusted the colors",
+      "annotation_sources": {
+        "outline": "Horry County GIS parcels layer 24, the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json)",
+        "clubhouse": "Horry County GIS building footprints layer 27 (largest Commercial / Public building on the HOA's amenity parcel), https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+        "entrance": "tools/geo/grand-strand-v2.json entrance point (Horry County roads layer 18)",
+        "pool": "read from the photo: the blue pool beside the clubhouse, on the pool deck the county maps as a patio (layer 27)"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8802474.335500883%2C3973128.378764009%2C-8801946.16091794%2C3973524.509701219&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "naip_tiles": [
+        "m_3307932_nw_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -79.073972,
+          33.584368,
+          -79.069228,
+          33.587332
+        ],
+        "ground_m_per_px_1200w": 0.37
+      },
+      "labels": [
+        "Clubhouse",
+        "Outdoor pool",
+        "Entrance"
+      ],
+      "width": 1200,
+      "height": 900,
+      "original_size": "2400x1800 (NAIP export at 2x, drawn on, then resized)"
     }
   ],
   "updated": "2026-10-10"

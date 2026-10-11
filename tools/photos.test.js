@@ -222,7 +222,11 @@ check("batch 2026-10-a: the Alabama Theatre sign is on hold and refused", throws
   const titles = live.filter((p) => all.includes(`>${p.title}.`) || all.includes(`">${p.title}`)).map((p) => p.title);
   check("batch 2026-10-a: no credit is named by its Commons title", !titles.length, titles.join("; "));
   check("batch 2026-10-a: every credit line has no year or dated month", lines.every((l) => !P.hasDate(l.replace(/<[^>]+>/g, ""))), lines.filter((l) => P.hasDate(l.replace(/<[^>]+>/g, ""))).join(" | "));
-  check("batch 2026-10-a: one line per photo, each 'via Wikimedia Commons'", lines.length === live.length + 1 && (all.match(/via <a [^>]*>Wikimedia Commons<\/a>/g) || []).length === live.length);
+  /* Commons photos say "via Wikimedia Commons"; the NAIP aerials (2026-10-11) say "via The National Map (USGS)". */
+  const commons = live.filter((p) => /wikimedia\.org/.test(p.source || p.commons_page || "")).length;
+  const naip = live.filter((p) => p.source_name === "The National Map (USGS)").length;
+  check("batch 2026-10-a: one line per photo, each 'via' its source", lines.length === live.length + 1 && commons + naip === live.length && naip > 0
+    && (all.match(/via <a [^>]*>Wikimedia Commons<\/a>/g) || []).length === commons && (all.match(/via <a [^>]*>The National Map \(USGS\)<\/a>/g) || []).length === naip);
 }
 
 console.log(failures ? `\n${failures} control(s) failed` : "\nall controls pass");

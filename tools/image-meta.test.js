@@ -182,7 +182,8 @@ if (tools) {
   }
   check("batch 2026-10-a: every image file holds its record's metadata (node tools/photos.js embed)", !stale.length, stale.slice(0, 5).join("; "));
   const heroes = data.photos.filter((p) => p.crops);
-  check("batch 2026-10-a: the four heroes have their 1x1, 4x3 and 16x9 crops", heroes.length === 4 && heroes.every((p) => P.pageImages(p).length === 3));
+  /* Each page has at least one photo that can be its hero: the 2026-10-10 Commons heroes, and since 2026-10-11 the NAIP aerial of each community. */
+  check("batch 2026-10-a: every hero candidate has its 1x1, 4x3 and 16x9 crops, and each of the four pages has one", heroes.length >= 4 && new Set(heroes.map((p) => p.slug)).size === 4 && heroes.every((p) => P.pageImages(p).length === 3));
 } else console.log("skip  file controls (ImageMagick or exiftool not installed here: apt-get install imagemagick libimage-exiftool-perl)");
 
 /* ---- the findings file ---- */
