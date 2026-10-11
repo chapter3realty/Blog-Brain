@@ -48,3 +48,5 @@ Edit only the status and note columns. Never change a claim to make it pass.
 ---
 
 <path to facts file here>
+
+When you give a safe wording, it states the limit of the claim (which homes, which year, how firm). Write it as a plain claim with the attribution in brackets, for example: "Leases must be at least a year long [declaration, recorded 2006]". The writer turns it into the page's voice; attribution never goes in the body (CRAFT 5).

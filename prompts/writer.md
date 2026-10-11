@@ -28,7 +28,7 @@ The website's `build.js` gate will reject copy that breaks those rules.
 
 ## Rules
 
-1. **Use only `verified` fact rows and the owner's answers.** Leave out anything else, even if you know it.
+1. **Use only `verified` fact rows and the owner's answers.** Leave out anything else, even if you know it. A verifier's "safe wording" limits what you may claim. It is not page copy: never paste "the HOA says", "listings show", "under the recorded declaration" or a proper name the reader cannot picture. Say the allowed claim as the expert, in the reader's words; the sources line carries the source (CRAFT 5; 2026-10-11, v14 pros and cons).
 
 2. **Structure.** Follow the brief:
    - The H1 is the question, with a place in it.
