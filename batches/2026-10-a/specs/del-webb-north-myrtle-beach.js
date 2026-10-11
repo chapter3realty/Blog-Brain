@@ -1,49 +1,37 @@
 /* /buyers/55-plus-communities/del-webb-north-myrtle-beach/ - what it is like to live
  * in Del Webb North Myrtle Beach, a newer 55+ neighborhood in North Myrtle Beach.
  *
- * Final build, 2026-10-10, with the review 4 and buyer read v6 fixes (CRAFT.md,
- * voice/STORY-CRAFT.md, PLAIN-1 to PLAIN-9, STANDARD T2 as changed in 52d07ac).
- * Shape: the newest of the four, with a builder still selling, a mile from the beach. A
- * buyer here weighs a new house against a resale, so the price comes right after the
- * homes. Then who keeps up the yard (the story), the clubhouse, and the place and the
- * town in one section, where the one drawback, the drive to the airport, is said. Flood
- * is one line there and one FAQ: every lot is outside the high-risk zone.
+ * Version 8, 2026-10-11, after the owner's notes on version 7 (no photo at the top; the story
+ * near the end, with tension and Chapter3's skill; photos of the topic) and the grader's list
+ * (batches/2026-10-a/GRADE-pages.md).
+ * Shape: the newest of the four, with a builder still selling, a mile from the beach. The
+ * homes, then the price (a buyer weighs new against resale), the clubhouse, then where it is
+ * with the town and its beach photos beside the beach sentence (RULES P10), who can live
+ * there, then the example: how an agent handles the HOA rules on a new home, which are not
+ * posted online. The comparison table and the FAQ close it. The yard section is cut: lawn
+ * care is in the short answer, the builder's list and the FAQ (grader: one fact once).
  *
  * Facts:  batches/2026-10-a/facts/del-webb-north-myrtle-beach-facts.md, verified rows only.
- *   Place:   rows 13 (inside city limits), 40 (west of US 17), 41 (beach access about a
- *            mile), 49 and 50 (city levy), 53 (North Strand ER, about 1.4 miles, open 24
- *            hours), 62 to 65 (drives: beach 4, Kroger 6, McLeod Health Seacoast 10,
- *            Myrtle Beach International Airport 35).
- *   Builder: rows 25 (2 to 4 bedrooms, garages, smallest from 2,179 sq ft), 30 (storm
- *            fabric), 36 (10-year structural warranty that transfers), 27 and 28 (lawn care,
- *            sprinklers and a TV package in the HOA fee), 32 and 69 (clubhouse rooms, indoor
- *            and outdoor pools, no count), 57 (lifestyle director, clubs and activity
- *            groups). All of these are the builder's own list. The page says so once, in
- *            the list in the homes section ("the builder lists"), and states them plainly
- *            after that (coordinator, fix round: "the builder says/lists" once a page).
- *            Row 33 is wrong as worded and is not used; row 35 (the city's center "next
- *            door") is the builder's word and is not used.
- *   Not used: no verified dues amount, closing fee, pet, golf cart, fence, guest or rental
- *            rule: the HOA's recorded rules are not online (rows 5, 7). The bottom CTA
- *            offers the current HOA fee.
- *   Money:   rows 58 (resale middle sale $534,900), 59 (new homes closed, middle $634,500;
- *            closed prices, with the lot and options each buyer chose). Tax on $635,000 as
- *            a main home at the 2026 levies (rows 50 to 52): 635,000 x 4% x (52.1 + 10.0 +
- *            50.0 mills) = $2,847, "a little under $3,000" (review 4 NMB 2; the verifier
- *            should add this line to the ledger).
- *   Rule:    row 2 (city agreement: one household member 55 or older). Review 4 NMB 1: only
- *            a younger husband or wife is said; the HOA's own age rule is unread.
- *   Flood:   row 37 (every lot outside the high-risk zone), row 55 (middle ZIP code policy
- *            $602 with fees; "about $600"), row 68 (the law requires it only inside the
- *            zone; a lender may still ask).
- * Photos: data/photos.json. Hero: beach umbrellas in North Myrtle Beach. Gallery: Cherry
- *         Grove Pier from above, a lake with shops.
- * Maps:   four landmarks; the airport (35 minutes) is in the text, not on the map. Kroger is
- *         on the region map only. The amenity pin is "Clubhouse", as the text says it.
- *         Hero: an icon row (mkpage heroMedia).
- * Story:  an Example (Gary and Lynn): the yard work, ending in Del Webb North Myrtle Beach.
- *         Chapter3 is not in it; the service (reading the HOA documents, stories.json
- *         "hoa-rental-bans-filtered") is the CTA box right after the meaning line.
+ *   Place:   rows 13, 40, 41, 49 and 50, 53, 62 to 65. Rush hour: stories.json "traffic-timing".
+ *   Builder: rows 23 and 25 (Pulte's three current plans, the smallest from 2,179 sq ft: "the
+ *            designs it sells now start at about 2,200 square feet", grader: older homes here
+ *            are smaller, so the size is the current designs only), 30, 36, 27 and 28, 32 and
+ *            69, 57. The page says "the builder lists" once.
+ *   Rules:   row 2 (city agreement: one household member 55 or older). Rows 5 and 7: the
+ *            declaration and the 2026 rules are recorded but their text is not online; the
+ *            page says so, and the example turns on it.
+ *   Money:   rows 58 and 59; tax on $635,000 as a main home at the 2026 levies (rows 50 to 52):
+ *            "a little under $3,000".
+ *   Flood:   rows 37, 55 ("about $600"), 68.
+ * Photos: data/photos.json, beside the beach sentence: beach umbrellas in North Myrtle Beach
+ *         (the share image, its crops) and Cherry Grove Pier from above. The lake photo is cut
+ *         (no sentence is about it). An aerial of the neighborhood, when photos.json has one,
+ *         goes in the "where" section.
+ * Maps:   four landmarks; the airport is in the text. Amenity pin "Clubhouse".
+ * Story:  an Example (Frank and Joyce): a rental plan and HOA rules that are not online, found
+ *         by an agent who gets and reads the HOA documents (stories.json
+ *         "hoa-rental-bans-filtered": many communities ban renting; the agents read the HOA
+ *         documents). Present tense, no numbers, no prices, no rule stated that no row holds.
  */
 const { h, maps, story, glance, photoSet, compareTable } = require("./_55-plus-kit.js");
 
@@ -59,7 +47,8 @@ const LAW = "https://www.law.cornell.edu/uscode/text/42/4012a";
 const LEVY = "https://www.horrycountysc.gov/media/kufln4qp/tax-levy-2026_2.pdf";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
-const ph = photoSet();
+const ph = photoSet().share("north-myrtle-beach-beach-umbrellas");
+const AERIAL = ph.aerial("del-webb-north-myrtle-beach", "Del Webb North Myrtle Beach from the air.");
 const M = maps("del-webb-north-myrtle-beach", [
   { id: "beach_dwnmb", name: "the beach at 14th Avenue South", short: "Beach", kind: "beach" },
   { id: "hosp_mcleod", name: "McLeod Health Seacoast", short: "Hospital", kind: "hospital" },
@@ -76,7 +65,7 @@ module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
-  /* The hero photo in 1x1, 4x3 and 16x9 for Article.image (rules/image-metadata.md). */
+  /* The share photo (or the aerial) in 1x1, 4x3 and 16x9 for Article.image (rules/image-metadata.md). */
   pageImages: () => ph.pageImages(),
   title: "Living in Del Webb North Myrtle Beach (55+) | Chapter3",
   description: "What life is like in Del Webb North Myrtle Beach: new homes a mile from the beach, lawn care, the clubhouse and pools, the 55+ rule and the costs.",
@@ -85,7 +74,7 @@ module.exports = {
   eyebrow: "North Myrtle Beach, 55+",
   h1: "What is it like to live in Del Webb North Myrtle Beach?",
   h1em: "New 55+ homes a mile from the beach.",
-  sub: "Del Webb North Myrtle Beach is a newer 55+ neighborhood of houses, about 4 minutes by car from the beach.",
+  sub: "Del Webb North Myrtle Beach is a newer 55+ neighborhood of houses, about 4 minutes by car from the beach without traffic.",
   heroMedia: glance([
     { icon: "beach", label: "Beach", text: "About 4 minutes" },
     { icon: "grocery", label: "Groceries", text: "About 6 minutes" },
@@ -99,38 +88,25 @@ module.exports = {
     "Lawn care is part of the homeowners association (HOA) fee, so you do not mow your own grass. Owners share a clubhouse with indoor and outdoor pools.",
   ],
   sections: [
-    { id: "c3-photo", html: ph.css() + ph.hero("north-myrtle-beach-beach-umbrellas", {
-        alt: "Rows of beach chairs and blue, green and yellow umbrellas on the wide sand beach in North Myrtle Beach",
-        caption: "Beach chairs and umbrellas in North Myrtle Beach. These photos show the town around Del Webb, not the Del Webb homes.",
-      }) },
-
     { h2: "What are the new homes like in Del Webb North Myrtle Beach?", html:
-      h.p("The builder, Pulte, sells new houses here under its Del Webb name. Each design has 2 to 4 bedrooms and a garage.") +
+      ph.css() +
+      h.p("The builder, Pulte, sells new houses here under its Del Webb name. Each design it sells now has 2 to 4 bedrooms and a garage.") +
       h.p("The builder lists these for its houses here:") +
       h.ul([
-        "About 2,200 square feet in the smallest design",
+        "Current designs from about 2,200 square feet",
         "Fabric hurricane covers for the windows",
         "A warranty on the structure for 10 years, which a later owner keeps",
         "Lawn care, sprinklers in every yard and a TV package, all in the HOA fee",
         "A clubhouse with indoor and outdoor pools and a fitness center",
       ]) },
 
-    { h2: "What does a home in Del Webb North Myrtle Beach cost?", html:
+    { h2: "What does a home here cost?", html:
       h.p("In the last year, new homes from the builder usually sold for about $635,000. Homes resold by their owners sold for about $535,000.") +
       h.p("The new-home figure is what buyers paid in the end, with the lot and the extras each one picked.") +
       h.p(`If you live in a new home at that price, the property tax is a little under $3,000 a year. That includes the city tax. See ${h.a("/buyers/property-taxes/", "how a home you live in is taxed in North Myrtle Beach")}.`) +
       h.p(`Read ${h.a("/buyers/coastal-insurance/", "what home and wind insurance cost near the coast")}.`) },
 
-    { h2: "Who takes care of the yard in Del Webb North Myrtle Beach?", html: (bg) =>
-      h.p("The HOA does. Lawn care is part of the HOA fee, and the sprinklers are already in the ground.") +
-      story([
-        "<strong>Example:</strong> For 31 years, Gary mowed the same big yard in Dayton every Saturday morning. He and Lynn wanted to retire near the ocean, and he did not want to spend his Saturdays on a lawn again.",
-        "Lynn did not want a condo, because she wanted a garage for his tools and a patio for her flower pots. They agreed on one rule for the search: a house, with someone else paid to cut the grass.",
-        "They bought a new house in Del Webb North Myrtle Beach. On their first Saturday there, Gary took his coffee to the beach at seven.",
-      ], "If yard work is why you want to move, put lawn care on your list before you look at floor plans.", bg) +
-      h.cta("Pick a new Del Webb home with an agent.", "Tell us which design you like. An agent at Chapter3 can read the HOA documents with you before you sign the builder's contract.", "Talk to a specialized agent", "/contact/", bg) },
-
-    { h2: "What is in the Del Webb North Myrtle Beach clubhouse?", html:
+    { h2: "What is in the clubhouse?", html:
       h.p("The clubhouse has an indoor lap pool, a fitness center, a crafts room and a room for gatherings. There is an outdoor pool too.") +
       ph.cards([
         { illustration: "indoor-pool", label: "Indoor lap pool", text: "Swim laps when it is cold out" },
@@ -139,22 +115,34 @@ module.exports = {
         { illustration: "card-table", label: "Clubs", text: "Activity groups, and a full-time lifestyle director" },
       ], { cols: 4 }) },
 
-    { h2: "Where is Del Webb North Myrtle Beach, and what is the town like?", html: (bg) =>
+    { h2: "Where is the neighborhood, and what is the town like?", html: (bg) =>
       h.p("It is inside the city of North Myrtle Beach, about a mile from the ocean. US 17 runs between it and the beach.") +
+      h.p("The beach is about 4 minutes away by car without traffic. In our experience, rush hour adds 5 to 10 minutes.") +
+      AERIAL +
       M.pair +
       h.p("Grand Strand Health's North Strand ER, an emergency room open day and night, is about a mile and a half away. McLeod Health Seacoast, the nearest hospital, is about 10 minutes away.") +
       h.p("Myrtle Beach International Airport is the long drive, about 35 minutes.") +
-      h.p(`Every lot here is outside the high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}.`) +
+      h.p(`Every lot here is outside the high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}, so ${h.ext(LAW, "federal law")} does not make a lender require flood insurance. A flood policy in North Myrtle Beach usually costs about $600 a year.`) +
       h.cta("Get the HOA fee and an insurance quote before you sign.", "Pick the home you like. One of our agents gets the current HOA fee and helps with a homeowners and flood quote before you sign.", "We help get insurance quotes if you need them.", "/contact/", bg) +
       h.p("North Myrtle Beach has a wide sand beach lined with beach houses, and a fishing pier at Cherry Grove.") +
       ph.gallery([
+        { name: "north-myrtle-beach-beach-umbrellas", alt: "Rows of beach chairs and blue, green and yellow umbrellas on the wide sand beach in North Myrtle Beach", caption: "Beach chairs and umbrellas in North Myrtle Beach" },
         { name: "cherry-grove-pier", alt: "The beach, beach houses and Cherry Grove Pier in North Myrtle Beach, seen from high above", caption: "Cherry Grove Pier and the beach, from high above" },
-        { name: "north-myrtle-beach-lake-shops", alt: "A calm lake reflecting the clouds, with restaurants and shops along the far shore in North Myrtle Beach", caption: "A lake in North Myrtle Beach, with shops on the far shore" },
       ], { label: "Photos of North Myrtle Beach" }) },
 
-    { h2: "Who can live in Del Webb North Myrtle Beach?", html:
+    { h2: "Who can live here?", html:
       h.p(`Each household must include at least one person who is 55 or older, under the city's ${h.ext(AGREEMENT, "agreement with the builder")}.`) +
-      h.p("A younger husband or wife can live there too.") },
+      h.p("A younger husband or wife can live there too.") +
+      h.p("The HOA's full rules are recorded with the county, but they are not posted online.") },
+
+    { h2: "How does a Chapter3 agent check the HOA rules on a new home?", html: (bg) =>
+      h.p("A Chapter3 agent gets the HOA documents and reads them with you before you sign the builder's contract.") +
+      story([
+        "<strong>Example:</strong> Frank and Joyce plan to spend summers near their son in Michigan and rent their new house out while they are gone. They pick a design in Del Webb North Myrtle Beach and are ready to sign the builder's contract that week.",
+        "The HOA's own rules are not posted online, and many HOAs here do not allow renting at all. If this HOA is one of them, they would find out only after they sign.",
+        "Before they sign, their Chapter3 agent gets a copy of the HOA's recorded rules and reads the rental rule with them. Frank and Joyce now decide on the builder's contract with the rental rule in front of them.",
+      ], "On a new home, read the HOA's rules for your own plans before you sign the builder's contract.", bg,
+      `An agent at Chapter3 can ${h.a("/contact/", "get the HOA documents and read them with you")}.`) },
 
     { h2: "How does Del Webb North Myrtle Beach compare with other 55+ neighborhoods?", html: () =>
       h.p("Del Webb North Myrtle Beach is the newest of these four neighborhoods.") +
@@ -164,9 +152,9 @@ module.exports = {
   faq: [
     { q: "Is Del Webb North Myrtle Beach finished?", a: "Not yet. About 400 homes are built, and the builder is still selling new houses there." },
     { q: "Does the HOA fee in Del Webb North Myrtle Beach include lawn care?", a: "Yes. Lawn care and a TV package are part of the HOA fee, and every yard has sprinklers." },
-    { q: "Do you need flood insurance in Del Webb North Myrtle Beach?", a: "No law requires it, because every lot is outside the high-risk flood zone. A lender may still ask for it. A flood policy in North Myrtle Beach usually costs about $600 a year." },
+    { q: "Do you need flood insurance in Del Webb North Myrtle Beach?", a: "No law requires it, because every lot is outside the high-risk flood zone. A lender may still ask for it." },
     { q: "Is Del Webb North Myrtle Beach inside the city limits?", a: "Yes. It is inside North Myrtle Beach, so owners pay a city tax on top of the county and school tax." },
-    { q: "Who builds the homes in Del Webb North Myrtle Beach?", a: "Pulte builds them and sells them under its Del Webb name. Its new houses have 2 to 4 bedrooms and a garage." },
+    { q: "Who builds the homes in Del Webb North Myrtle Beach?", a: "Pulte builds them and sells them under its Del Webb name. The designs it sells now have 2 to 4 bedrooms and a garage." },
   ],
   sources: [
     { name: "Del Webb North Myrtle Beach website", href: PULTE },

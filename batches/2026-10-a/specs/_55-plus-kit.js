@@ -99,16 +99,26 @@ function maps(slug, picks, o = {}) {
 /* The example story                                                              */
 
 /*
- * The labelled example in a card, then the one plain sentence on what it means, outside
- * the card (voice/STORY-CRAFT.md). paras: the story's paragraphs; the first must open with
- * the bold "Example:" label. bg: the card fill, the opposite of the section (as h.cta).
+ * The labelled example in a card, then the one plain sentence on what it means and the offer,
+ * outside the card (voice/STORY-CRAFT.md, STANDARD T2, owner 2026-10-11). paras: the story's
+ * paragraphs. The first opens with the bold "Example:" label, and a Chapter3 agent acts in the
+ * story: the example shows how an agent works, in the present tense, so no sentence claims a
+ * past client. (STORY-CRAFT's model opener "Here is how a Chapter3 agent handles it" fails the
+ * website's build audit, which bans "here is how" teasers and "But"/"So" openers; the website's
+ * rules win, so the agent enters the story by name instead.) bg: the card fill, the opposite of the section (as h.cta). offer: optional
+ * plain line after the meaning.
  */
 function story(paras, meaning, bg, offer) {
   if (!/^<strong>Example:<\/strong> /.test(paras[0] || "")) throw new Error("a story opens with <strong>Example:</strong>");
-  if (/\b(?:our client|we helped|Chapter ?3 (?:found|helped))\b/i.test(paras.join(" "))) throw new Error("an example never says the people are clients");
-  /* Chapter3 never acts inside a labelled example: quoted alone, the sentence reads as a real
-     client (STORY-CRAFT, STANDARD T2, review 4). The service goes in the line after, as an offer. */
-  if (/\b(?:Chapter ?3|Chapter III|our agents?|an agent)\b/i.test(paras.join(" ").replace(/<[^>]+>/g, ""))) throw new Error("Chapter3 or an agent appears inside the example; put the service in the line after it, as an offer");
+  const text = paras.join(" ").replace(/<[^>]+>/g, "");
+  if (!/\bChapter3 agent\b/.test(text)) throw new Error("a Chapter3 agent acts in the example (owner, 2026-10-11)");
+  if (/(?:^|[.!?]\s+)(?:And|So|But|Or|Yet)\b/.test(text.replace(/^Example:\s*/, ""))) throw new Error("no And, So, But, Or or Yet sentence openers (website build.js)");
+  if (/\b(?:our clients?|we helped|Chapter ?3 (?:found|helped)|clients?)\b/i.test(text)) throw new Error("an example never says the people are clients");
+  /* Present tense only: an agent who "helped", "found" or "got" reads as a real past client. */
+  if (/\bagent (?:helped|found|got|read|checked|showed|saw|walked|told|knew|made|gave)\b/i.test(text)) throw new Error("the agent acts in the present tense inside an example");
+  const n = text.split(/(?<=[.!?])\s+/).filter(Boolean).length;
+  if (n < 5 || n > 8) throw new Error(`an example runs 5 to 8 sentences, not ${n}`);
+  if (/\$\s?\d/.test(text)) throw new Error("no prices inside an example");
   const P = 'style="color:var(--muted);line-height:1.75;max-width:640px;margin:0 0 .9rem"';
   return `<div class="c3-story" style="background:var(--${bg === "ivory" ? "ivory" : "ivory-2"});border-top:3px solid var(--brass);padding:1.5rem 1.5rem .7rem;margin:1.4rem 0 1.4rem;max-width:720px">`
     + paras.map((t) => `<p ${P}>${t}</p>`).join("") + `</div>`
@@ -135,9 +145,9 @@ function glance(items) {
     + ".c3-glance li{display:flex;align-items:center;gap:.55rem;margin:0;padding:.5rem .6rem;background:rgba(255,255,255,.55);border:1px solid var(--rule);border-radius:6px;line-height:1.25}"
     + ".c3-glance .i{flex:0 0 auto;display:flex;width:2rem;height:2rem;border-radius:50%;background:var(--ivory-2);color:var(--brass-ink);align-items:center;justify-content:center}"
     + ".c3-glance strong{display:block;color:var(--navy);font-size:.9rem;font-weight:500}"
-    + ".c3-glance span.t{display:block;color:var(--muted);font-size:.82rem}"
+    + ".c3-glance span.t{display:block;color:var(--muted);font-size:1rem}"
     + "@media (max-width:699px){.c3-glance{gap:.3rem}.c3-glance li{flex-direction:column;justify-content:flex-start;text-align:center;gap:.2rem;padding:.4rem .1rem}"
-    + ".c3-glance .i{width:1.6rem;height:1.6rem}.c3-glance strong{font-size:.82rem}.c3-glance span.t{font-size:.78rem}}</style>";
+    + ".c3-glance .i{width:1.6rem;height:1.6rem}.c3-glance strong{font-size:.875rem}.c3-glance span.t{font-size:1rem;line-height:1.2}}</style>";
   return css + `<ul role="list" class="c3-glance" style="--n:${items.length}">` + items.map((it) =>
     `<li><span class="i">${icon(it.icon, { size: 20 })}</span><span><strong>${esc(it.label)}</strong>${it.text ? `<span class="t">${esc(it.text)}</span>` : ""}</span></li>`).join("") + "</ul>";
 }
@@ -167,6 +177,10 @@ const KIT_CSS = "<style>"
   + "section[style*=\"background:var(--ivory)\"] .c3ph-card{background:var(--ivory-2)}"
   + ".c3ph-cards{max-width:920px}"
   + ".c3ph-card strong{font-family:var(--sans)}"
+  /* Card and icon-row text at 16 px, labels at 14 px or more (grader, 2026-10-11: 13 to 14 px
+     card text was too small for a reader of 62 on a phone). */
+  + ".c3ph-card span.c3ph-t{font-size:1rem!important}.c3ph-card strong{font-size:1rem!important}"
+  + "ul[role=list] li span[style*=\"font-size:.9rem\"]{font-size:1rem!important}"
   /* The hero photo continues the short answer: one band, the photo under the answer. */
   + "section#c3-photo{padding-top:0}"
   + "section:has(+section#c3-photo){background:var(--ivory-2)!important;padding-bottom:2rem}"
@@ -185,7 +199,7 @@ const KIT_CSS = "<style>"
 
 function photoSet() {
   const used = [];
-  let heroRec = null;
+  let heroRec = null, shareRec = null;
   const rec = (name) => {
     if (NOT_USED.includes(String(name).replace(/\.webp$/, ""))) throw new Error(`photo ${name} is not used in this batch (see NOT_USED)`);
     const r = P.findPhoto(PHOTOS, name);
@@ -203,7 +217,18 @@ function photoSet() {
     hero(name, o = {}) {
       if (heroRec) throw new Error("one hero photo per page");
       heroRec = rec(name);
-      return P.heroPhoto(heroRec, { alt: o.alt, caption: o.caption, css: false });
+      return P.heroPhoto(heroRec, { alt: o.alt, caption: o.caption, css: false, maxWidth: o.maxWidth });
+    },
+    /* An aerial photo of the neighborhood itself, if one is in photos.json for this slug
+       (a record with aerial: true, or "aerial" in its file name). Returns "" when there is
+       none, so a page builds without it. Owner, 2026-10-11 (RULES P10): the photo shows what
+       the section is about, so it sits in the "where" or homes section with a plain caption. */
+    aerial(slug, caption) {
+      const r = PHOTOS.find((x) => x.slug === slug && !x.hold && (x.aerial === true || /aerial/i.test(JSON.stringify(x.variants || x.file || ""))));
+      if (!r) return "";
+      const name = String((r.variants && r.variants["1200"]) || r.file).split("/").pop().replace(/-1200w\.webp$|\.webp$/, "");
+      heroRec = heroRec || rec(name);
+      return P.heroPhoto(r, { alt: r.alt, caption: caption || r.what, css: false, maxWidth: "760px" });
     },
     gallery(items, o = {}) {
       return P.gallery(items.map((it) => ({ photo: rec(it.name), alt: it.alt, caption: it.caption })), { css: false, label: o.label, ratio: o.ratio });
@@ -211,13 +236,17 @@ function photoSet() {
     cards(items, o = {}) {
       return P.featureCards(items.map((it) => it.name ? { photo: rec(it.name), alt: it.alt, label: it.label, text: it.text } : it), { css: false, cols: o.cols, ratio: o.ratio });
     },
+    /* The photo the page shares (og:image) and puts in Article.image: the aerial when it has
+       crops, else the named photo, which must also be shown on the page (credits() checks). */
+    share(name) { shareRec = P.findPhoto(PHOTOS, name); return this; },
     credits() {
       if (!used.length) throw new Error("no photos shown, so no credits");
+      if (shareRec && !used.includes(shareRec)) throw new Error("the share photo is not shown on the page");
       return P.creditsList(used, { css: false }) + P.imageSchema(used);
     },
     pageImages() {
-      if (!heroRec) throw new Error("no hero photo on this page, so no page images");
-      return P.pageImages(heroRec);
+      const r = (heroRec && heroRec.crops) ? heroRec : shareRec;
+      return r ? P.pageImages(r) : undefined;
     },
     used: () => used.slice(),
   };

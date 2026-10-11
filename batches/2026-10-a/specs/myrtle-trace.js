@@ -1,46 +1,37 @@
 /* /buyers/55-plus-communities/myrtle-trace/ - what it is like to live in Myrtle Trace,
  * a 55+ neighborhood just outside Conway.
  *
- * Final build, 2026-10-10, with the review 4 and buyer read v6 fixes (CRAFT.md,
- * voice/STORY-CRAFT.md, PLAIN-1 to PLAIN-9, STANDARD T2 as changed in 52d07ac).
+ * Version 8, 2026-10-11, after the owner's notes on version 7 (no photo at the top; the story
+ * near the end, with tension and Chapter3's skill; photos of the topic) and the grader's list
+ * (batches/2026-10-a/GRADE-pages.md).
  * Shape: an inland neighborhood with a hospital three minutes away, so the page leads with
- * the calm and the convenience (what is close, with the hospital story), then a normal
- * month, the homes and the town, then money, which is good news here, with the flood
- * answer inside it (no home is in a high-risk zone, so it is one plain paragraph, not a
- * section), then the rules.
+ * what is close, then a normal month, the homes and the town (its photos beside the Conway
+ * sentence, RULES P10), the money with the flood answer, the rules, then the example: how
+ * an agent handles a buyer with a dog and the fence rules. The comparison table and the FAQ
+ * close it. Headings use the name in the H1, the first H2 and the comparison (grader).
  *
  * Facts:  batches/2026-10-a/facts/myrtle-trace-facts.md, verified rows only.
- *   Place:   rows 15 (outside Conway city limits), 72 (no city levy), 85 to 89 (drives:
- *            beach 15, Walmart 3, Conway Medical Center 3, airport 20 minutes).
- *            Row 90 (Riverwalk drive) is unverifiable and not used.
- *   Life:    rows 25 (15 ponds), 43 (pool hours, seasonal), 44 (retention ponds, no
- *            swimming or recreational boats), 45 (fishing), 46 (walkways), 78 and 79 (about
- *            70 calendar entries a month), 80 (bingo, line dance, game nights, coffee,
- *            dining out; bocce and shuffleboard leagues with their own schedules).
- *   Homes:   rows 26, 28 (the original designs, 2 or 3 bedrooms), 47 and 48 (privately
- *            owned golf course next door, not an HOA facility), 59 (owner keeps up the house
- *            and yard), 22 (laid out in eight sections, 1984 to 1994).
- *   Rules:   rows 1 (age), 8 and 51 (leases), 54 (fences), 55 (pets), 56 (free-standing
- *            sheds, private pools), 16 (gates), 38 (run by volunteers). PLAIN-9: these are
- *            the covenants and the policies on the HOA's own site, which rarely change;
- *            stated plainly, with no date (review 4 agrees).
- *   Money:   row 81 (middle sale $300,000), rows 30 and 34 ($95 a month and what it goes
- *            to; "about $100"), row 35 ($1,450 + $100; "a little over $1,500"), row 72 and
- *            v4's tax result ($1,103 on $300,000 as a main home) plus row 73's stormwater
- *            fee ($89.40 a year): "about $1,200 a year". The county and school levies did
- *            not change for 2026 (Grande Dunes ledger row 69).
- *   Flood:   rows 60 and 61 (core: no home in a mapped high-risk area), row 75 (middle
- *            ZIP code policy $561 with fees; "about $550"), row 91 (federal purchase rule).
+ *   Place:   rows 15, 72, 85 to 89 (drives: beach 15, Walmart 3, Conway Medical Center 3,
+ *            airport 20 minutes). Rush hour: stories.json "traffic-timing".
+ *   Life:    rows 25, 43, 44, 45, 46, 78 and 79, 80.
+ *   Homes:   rows 26, 28, 47 and 48 (golf course next door, privately owned; the course's
+ *            easement for play), 59, 22.
+ *   Rules:   rows 1, 8 and 51, 54 (no fences between yards or across the front; approved dog
+ *            runs), 47 (b) (no perimeter fence on lots backing onto the golf course or lakes;
+ *            the page says "ponds", as it does everywhere), 55, 56, 16, 38.
+ *   Money:   row 81, rows 30 and 34, row 35, row 72 and v4's tax result plus row 73.
+ *   Flood:   rows 60 and 61, 75, 91.
  *   Review 4 MT 5: "about 500 homes" (row 23), the flood core (row 61) and the bingo and
  *            game-night days (rows 77 and 80) rest on the supported part of rows marked
  *            wrong; re-file them as new rows before publish.
- * Photos: data/photos.json. Hero: the Waccamaw River near Conway. Gallery: the riverwalk,
- *         Main Street and a house in the historic district. None shows Myrtle Trace.
- * Maps:   tools/area-map.js communityMaps (region and close-up, the amenity pin named
- *         "Clubhouse", as the text says). Hero: an icon row (mkpage heroMedia).
- * Story:  an Example (Ruth): the hospital and the budget, ending in Myrtle Trace. Chapter3
- *         is not in it; the service (reading the HOA's rules, stories.json
- *         "hoa-rental-bans-filtered", STANDARD T2) is the offer in the line after it.
+ * Photos: data/photos.json, beside the Conway sentence: cypress trees on the Waccamaw River
+ *         near Conway (the share image, its crops), the riverwalk and Main Street. The house
+ *         in the historic district is cut (no sentence is about it). An aerial of Myrtle
+ *         Trace, when photos.json has one, goes in "What is close".
+ * Maps:   communityMaps, amenity pin "Clubhouse".
+ * Story:  an Example (Pat and her dog): the fence rules (rows 54 and 47 (b)), found by an
+ *         agent reading the HOA's rules with the buyer (stories.json "hoa-rental-bans-
+ *         filtered", "ny-buyer-rules-fit"). Present tense, no numbers, no prices.
  *         Chapter3's experience line on renting: "hoa-rental-bans-filtered".
  */
 const { h, maps, story, glance, photoSet, compareTable, atAGlance } = require("./_55-plus-kit.js");
@@ -57,7 +48,8 @@ const FEMA = "https://msc.fema.gov/portal/search?AddressQuery=101%20Myrtle%20Tra
 const LAW = "https://www.law.cornell.edu/uscode/text/42/4012a";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
-const ph = photoSet();
+const ph = photoSet().share("waccamaw-river-cypress-near-conway");
+const AERIAL = ph.aerial("myrtle-trace", "Myrtle Trace from the air.");
 const M = maps("myrtle-trace", [
   { id: "hosp_cmc", name: "Conway Medical Center", short: "Hospital", kind: "hospital" },
   { id: "groc_mt", name: "Walmart Supercenter", short: "Walmart", kind: "grocery" },
@@ -73,7 +65,7 @@ module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
-  /* The hero photo in 1x1, 4x3 and 16x9 for Article.image (rules/image-metadata.md). */
+  /* The share photo (or the aerial) in 1x1, 4x3 and 16x9 for Article.image (rules/image-metadata.md). */
   pageImages: () => ph.pageImages(),
   title: "Living in Myrtle Trace, a 55+ Community in Conway | Chapter3",
   description: "What life is like in Myrtle Trace near Conway: a hospital minutes away, the pool, ponds and clubs, the homes, the 55+ rule and the costs.",
@@ -93,26 +85,17 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Myrtle Trace is a neighborhood of about 500 homes just outside Conway. At least one person in each home must be 55 or older.",
-    "Conway Medical Center and a Walmart Supercenter are each about 3 minutes away by car. Owners share a clubhouse, a pool and ponds for fishing. The neighborhood calendar lists about 70 events and club meetings a month.",
+    "Conway Medical Center and a Walmart Supercenter are each about 3 minutes away by car without traffic. Owners share a clubhouse, a pool and ponds for fishing. The neighborhood calendar lists about 70 events and club meetings a month.",
   ],
   sections: [
-    { id: "c3-photo", html: ph.css() + ph.hero("waccamaw-river-cypress-near-conway", {
-        alt: "Cypress trees in fall colors along the dark water of the Waccamaw River near Conway",
-        caption: "Cypress trees on the Waccamaw River near Conway. Every photo on this page shows the Conway area, not the neighborhood itself.",
-      }) },
-
-    { h2: "What is close to Myrtle Trace?", html: (bg) =>
-      h.p("The beach by the Myrtle Beach Boardwalk is about 15 minutes away by car, and Myrtle Beach International Airport is about 20.") +
+    { h2: "What is close to Myrtle Trace?", html:
+      ph.css() +
+      h.p("The beach by the Myrtle Beach Boardwalk is about 15 minutes away by car without traffic, and Myrtle Beach International Airport is about 20. In our experience, rush hour adds 5 to 10 minutes.") +
+      AERIAL +
       M.pair +
-      h.p("Myrtle Trace has a Conway address, but it is outside the city limits, so you pay no Conway city tax.") +
-      story([
-        "<strong>Example:</strong> For 30 years, Ruth worked as a nurse in Erie and lived a few blocks from her hospital. She wanted to retire near the ocean, with a hospital that close again.",
-        "The houses she toured by the ocean cost more than she had saved. On her next trip, she drew a circle around a hospital on a paper map and looked only at houses inside it.",
-        "She bought a house in Myrtle Trace, inside the circle. On Sunday mornings she drives to the beach with a folding chair and is home before lunch.",
-      ], "Decide how close you need to be to a hospital, then look at every house inside that distance, inland ones too.", bg,
-      "An agent at Chapter3 can read the homeowners association (HOA) rules with you before you make an offer.") },
+      h.p("Myrtle Trace has a Conway address, but it is outside the city limits, so you pay no Conway city tax.") },
 
-    { h2: "What does a month in Myrtle Trace look like?", html:
+    { h2: "What does a month here look like?", html:
       h.p(`The neighborhood's ${h.ext(CAL, "activities calendar")} lists about 70 events and club meetings each month.`) +
       ph.cards([
         { illustration: "card-table", label: "Bingo and game nights", text: "Bingo two Friday nights a month, and a game night on Sundays" },
@@ -125,7 +108,7 @@ module.exports = {
       h.p("Your house guests can fish too. The ponds collect rainwater, and swimming and boating are not allowed in them.") +
       h.p("The pool closes for the season at the start of October.") },
 
-    { h2: "What are the homes like in Myrtle Trace?", html: (bg) =>
+    { h2: "What are the homes like?", html: (bg) =>
       h.p("Most homes in Myrtle Trace are single-family houses with their own yards, and a few are townhouses.") +
       h.p("Myrtle Trace was laid out in eight sections from 1984 to 1994. The builder's original designs had 2 or 3 bedrooms.") +
       h.p("Each owner takes care of the house and the yard, including the roof and the grass.") +
@@ -135,12 +118,12 @@ module.exports = {
     { h2: "What is Conway like?", html:
       h.p("Conway is the town next to Myrtle Trace, with a riverwalk on the Waccamaw River and old brick shops on Main Street.") +
       ph.gallery([
+        { name: "waccamaw-river-cypress-near-conway", alt: "Cypress trees in fall colors along the dark water of the Waccamaw River near Conway", caption: "Cypress trees on the Waccamaw River near Conway" },
         { name: "conway-riverwalk-boardwalk", alt: "A wooden boardwalk with a black railing, shaded by trees, beside old wooden buildings in Conway", caption: "The riverwalk in downtown Conway" },
         { name: "conway-main-street", alt: "Main Street in downtown Conway, South Carolina, lined with old brick shop buildings", caption: "Main Street, downtown Conway" },
-        { name: "conway-historic-home", alt: "A white house under large oak trees in Conway's historic district", caption: "A house in Conway's historic district" },
       ], { label: "Photos of Conway" }) },
 
-    { h2: "What does it cost to live in Myrtle Trace?", html: (bg) =>
+    { h2: "What does it cost to live here?", html: (bg) =>
       h.p("Homes in Myrtle Trace usually sell for about $300,000. On a home at that price that you live in, plan for these costs:") +
       atAGlance([
         { icon: "dollar", label: "HOA fee", text: "About $100 a month" },
@@ -153,16 +136,25 @@ module.exports = {
       h.cta("Get an insurance quote before you offer.", "Pick the Myrtle Trace home you like. An agent at Chapter3 gets you a homeowners insurance quote before you write the offer.", "We help get insurance quotes if you need them.", "/contact/", bg) +
       h.p(`Read ${h.a("/buyers/coastal-insurance/", "what home and flood insurance cost near Myrtle Beach")}.`) },
 
-    { h2: "Who can live in Myrtle Trace, and what are the house rules?", html: (bg) =>
+    { h2: "Who can live here, and what are the house rules?", html: (bg) =>
       h.p(`At least one person in every home in Myrtle Trace must be 55 or older, under the ${h.ext(COV, "HOA's rules")}.`) +
       h.p("A younger husband or wife can live with you, and grandchildren can visit.") +
       atAGlance([
         { icon: "pets", label: "Pets", text: "Yes. Keep them on a leash outside your yard, and out of the clubhouse and pool area." },
         { icon: "key", label: "Renting it out", text: "Yes, for a year or longer. One tenant must be 55 or older and live there." },
-        { icon: "gate", label: "Fences", text: "No fences between yards or across the front. An approved dog run is allowed." },
+        { icon: "gate", label: "Fences", text: "None between yards or across the front, and none on lots that back onto the golf course or a pond. An approved dog run is allowed." },
         { icon: "home", label: "Sheds and pools", text: "No free-standing sheds, gazebos or private swimming pools." },
       ], { bg }) +
       h.p("In Chapter3's experience, many HOAs here do not allow renting a house at all.") },
+
+    { h2: "How does a Chapter3 agent check the fence rules for a buyer with a dog?", html: (bg) =>
+      h.p("A Chapter3 agent reads the HOA's rules with you before you make an offer, so you know what you can build in the yard.") +
+      story([
+        "<strong>Example:</strong> Pat is moving from Erie with her dog, Max, and she plans to fence the back yard for him. She likes a house in Myrtle Trace that backs onto the golf course next door.",
+        "Her Chapter3 agent reads the HOA's rules with her and finds that no fence is allowed on a lot that backs onto the golf course or a pond. The rules also allow no fence between yards or across the front of any lot.",
+        "They do allow a dog run, once the HOA approves where it goes and how it is built. Pat now tours each house with a tape measure, looking for a spot by the back door for Max's dog run.",
+      ], "If you have a dog, read the fence and dog run rules before you choose a house.", bg,
+      `An agent at Chapter3 can ${h.a("/contact/", "read the HOA's rules with you")} before you make an offer.`) },
 
     { h2: "How does Myrtle Trace compare with other 55+ neighborhoods near Myrtle Beach?", html: () =>
       h.p("Myrtle Trace is the farthest of these four from the beach, and its homes usually sell for the least.") +
@@ -174,7 +166,7 @@ module.exports = {
     { q: "Who runs the Myrtle Trace HOA?", a: "The owners run it themselves with volunteers, and the HOA says it has no management company." },
     { q: "Is the golf course part of Myrtle Trace?", a: "No. Burning Ridge Golf Club, next door, is privately owned and is not part of the HOA. Some Myrtle Trace homes back onto it." },
     { q: "Can you fish in the Myrtle Trace ponds?", a: "Yes. Residents and their house guests can fish from the shared land around the 15 ponds. Every fish goes back in the water." },
-    { q: "Do you need flood insurance in Myrtle Trace?", a: "Not by law, because no Myrtle Trace home is in a high-risk flood zone. A lender may still ask for a policy, which usually costs about $550 a year." },
+    { q: "Do you need flood insurance in Myrtle Trace?", a: "Not by law, because no Myrtle Trace home is in a high-risk flood zone. A lender may still ask for a policy." },
     { q: "Is Myrtle Trace inside Conway city limits?", a: "No. Myrtle Trace has a Conway mailing address but is outside the city, so owners there pay no Conway city tax." },
   ],
   sources: [
