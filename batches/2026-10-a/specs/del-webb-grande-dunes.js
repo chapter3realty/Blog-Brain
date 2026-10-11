@@ -182,7 +182,7 @@ module.exports = {
       compareTable(SELF) },
 
     { h2: "How long can grandchildren stay in Del Webb at Grande Dunes?", toc: "Grandchildren's stays", html: (bg) =>
-      h.p("Grandchildren and other guests under 19 can stay up to 90 nights in any 12 months in a row.") +
+      h.p("Grandchildren and other guests younger than 19 can stay up to 90 nights in any 12 months.") +
       story([
         "<strong>Example:</strong> Bill and Nancy are moving from Ohio, and they want their two grandsons to stay with them all summer and again at Christmas.",
         "They like a villa in Del Webb at Grande Dunes. Before they make an offer, their Chapter3 agent reads the neighborhood's rules with them.",

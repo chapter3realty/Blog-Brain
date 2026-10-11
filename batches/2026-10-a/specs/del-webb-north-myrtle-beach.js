@@ -165,14 +165,14 @@ module.exports = {
       ph.cards([
         { illustration: "indoor-pool", label: "Indoor lap pool", text: "Swim laps all year" },
         { illustration: "outdoor-pool", label: "Outdoor pool", text: "With a beach-style walk-in entry" },
-        { illustration: "pickleball", label: "Pickleball and bocce", text: "Courts beside the clubhouse" },
+        { illustration: "pickleball", label: "Pickleball", text: "Courts beside the clubhouse" },
         { illustration: "walking-path", label: "Walking trails", text: "Paths through the neighborhood" },
       ], { cols: 4 }) +
       h.p("The city's community center is about a minute away by car. On weekdays you can play indoor pickleball there for a few dollars a day. Behind it are outdoor pickleball courts that are free and always open.") +
       h.p("The center also has fitness classes, such as gentle yoga, that you pay for by the class. The city's recreation department runs trips for adults too, such as a monthly day trip around the Carolinas and bus tours.") },
 
     { h2: "Where is Del Webb North Myrtle Beach?", toc: "Where it is", html:
-      h.p("Del Webb North Myrtle Beach is inside the city of North Myrtle Beach, about a mile from the ocean. To reach the beach, you drive across US 17, the main highway.") +
+      h.p("Del Webb North Myrtle Beach is inside the city of North Myrtle Beach, about a mile from the ocean. The beach is on the other side of US 17, the main highway.") +
       TOBEACH +
       h.p("In our experience, rush hour adds 5 to 10 minutes to the drive times on the map.") +
       M.where +
@@ -187,7 +187,7 @@ module.exports = {
         { icon: "pets", label: "Dogs on the beach", text: "Always on a leash. From mid-May to Labor Day, no dogs on the beach from 10 a.m. to 4 p.m." },
       ], { bg, min: "18rem" }) +
       h.p("To reach the nearest beach path, you drive a short way along US 17. Golf carts may only cross US 17, so plan to take your car to the beach.") +
-      h.p("These places in town are close by car, nearest first.") +
+      h.p("These places in town are close by car.") +
       atAGlance([
         { icon: "tennis", label: "Central Park", text: "A city park with a paved walking path and tennis courts. About 2 minutes." },
         { icon: "trail", label: "Ingram Dunes", text: "A city trail through an old seaside forest with tall dunes. About 4 minutes." },
@@ -196,7 +196,6 @@ module.exports = {
         { icon: "pond", label: "Cherry Grove Pier", text: "Walk out over the ocean or fish from it. About 15 minutes." },
         { icon: "dock", label: "Heritage Shores", text: "City boardwalks and docks over the salt marsh. About 20 minutes." },
       ], { bg, min: "9rem" }) +
-      h.p("The Cherry Grove Pier reaches far out into the ocean.") +
       PIER },
 
     { h2: "What does a home in Del Webb North Myrtle Beach cost?", toc: "Costs", html:
