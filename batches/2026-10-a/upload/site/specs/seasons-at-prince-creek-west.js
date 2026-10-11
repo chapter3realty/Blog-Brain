@@ -1,6 +1,14 @@
 /* /buyers/55-plus-communities/seasons-at-prince-creek-west/ - what it is like to live
  * in Seasons at Prince Creek West, a 55+ neighborhood near Murrells Inlet.
  *
+ * Version 14c, 2026-10-11: the v14b owner's-eye review (OWNER-EYE-v14b.md) and a cold reader of the pros and
+ *            cons: nothing acts (no bill pays, no rule limits, no route runs, no home sits); the plain
+ *            word first ("the clubhouse, also called the amenity center", rows 106 and 108); the place
+ *            named in each section's first sentence; repeats cut; a "homes for sale" offer to the
+ *            contact form, as Myrtle Trace has (the site has no listing search to link).
+ *            Seasons: the transfer-fee con replaced by the flood item (row 59, the flood section's
+ *            words; the act is the service the story shows); the gate in the FAQ (rows 92, 93). The title
+ *            keeps Murrells Inlet: "Seasons at Prince Creek West 55+: Pros and Cons" fails S1 (no place).
  * Version 14b, 2026-10-11: the pros and cons rewritten in the expert's voice (the owner, BUYER-3: "according
  *            to the records and so on when we are the experts"; CRAFT 5; lessons L21 and L34): no
  *            attribution, no names the reader cannot picture, no method, about 15 words each. The rows
@@ -153,14 +161,15 @@ module.exports = {
       h.p("You cannot rent the home out for the months you are away. A lease here must be at least a year.") +
       h.cta("Read the Seasons age rules with an agent.", "An agent at Chapter3 can read the age and visitor rules with you before you offer.", "Talk to an agent", "/contact/", bg) },
 
-    { h2: "What does it cost to live in Seasons?", toc: "Costs", html:
+    { h2: "What does it cost to live in Seasons?", toc: "Costs", html: (bg) =>
       h.p("Seasons homes usually sell for about $500,000. The HOA fee is about $340 a month, and it includes internet, weekly trash pickup and lawn care.") +
       h.ul([
         "<strong>One bill.</strong> The fees for the larger Prince Creek West area around Seasons come on your Seasons HOA bill, so there is no second bill.",
         "<strong>When you buy,</strong> you pay the HOA two months of dues, about $700, as a one-time fee. There is also a small transfer fee.",
         "<strong>Property tax.</strong> If you live in the home, the tax on a home at that price is about $2,000 a year. Seasons is outside any city limits, so there is no city tax.",
       ]) +
-      h.p(`See ${h.a("/buyers/property-taxes/", "how Horry County works out the tax on a home near Murrells Inlet")}.`) },
+      h.p(`See ${h.a("/buyers/property-taxes/", "how Horry County works out the tax on a home near Murrells Inlet")}.`) +
+      h.cta("Get the list of Seasons homes for sale.", "Tell us what you are looking for, and one of our agents will send you the homes for sale now.", "Get the list", "/contact/", bg) },
 
     { h2: "What are the house rules in Seasons?", toc: "House rules", html: (bg) =>
       h.p("In Seasons, pets, fences, renting and golf carts are allowed, each with a rule.") +
@@ -180,7 +189,7 @@ module.exports = {
       `</div>` },
 
     { h2: "What are the pros and cons of living in Seasons at Prince Creek West?", toc: "Pros and cons", html: (bg) =>
-      h.p("Seasons at Prince Creek West has a gate, two pools and stores close by, and the beach is a drive.") +
+      h.p("Seasons at Prince Creek West has a gate, two pools and stores close by.") +
       prosCons([
         "There is a gate at the main entrance, with a call box for visitors.",
         "Publix and the hospital are each less than 10 minutes away by car.",
@@ -188,7 +197,7 @@ module.exports = {
       ], [
         { text: "The beach is a drive, not a walk. The nearest beach access is in Garden City." },
         { text: "Golf carts must be parked in the garage, not on the street." },
-        { text: "When you buy, there is a transfer fee of a quarter of one percent of the price, up to a cap.", act: "Ask for the resale certificate." },
+        { text: "On some lots, one corner touches the high-risk flood zone.", act: "An agent checks the flood map for the house you like before you offer." },
       ], { bg }) },
 
     { h2: "Will a Seasons lot need flood insurance?", toc: "Flood insurance", html: (bg) =>
@@ -203,6 +212,7 @@ module.exports = {
   ],
   faqTitle: "Seasons at Prince Creek West FAQ",
   faq: [
+    { q: "Is Seasons at Prince Creek West a gated community?", a: "Yes. There is a gate at the main entrance, with a call box for visitors." },
     { q: "How much is the HOA fee in Seasons at Prince Creek West?", a: "The HOA fee is about $340 a month. It includes internet, weekly trash pickup and lawn care." },
     { q: "Are there new homes for sale in Seasons at Prince Creek West?", a: "No. The builder has finished, so every home for sale in Seasons is a resale." },
     { q: "Can someone under 55 live in Seasons at Prince Creek West?", a: "Yes, if a resident 55 or older also lives in the home. No one under 18 can live there." },

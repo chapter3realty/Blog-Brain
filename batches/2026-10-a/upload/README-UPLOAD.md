@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-11 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain d77fd98 (with uncommitted changes to its sources), against the live branch `claude/github-account-check-wutg8b` at commit 54703db ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
+Built 2026-10-11 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain 0ffaf76, against the live branch `claude/github-account-check-wutg8b` at commit 54703db ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -178,25 +178,25 @@ Seasons at Prince Creek West: hub row has $340, $500,000
 ### PASS: node tools/mkpage.js specs/del-webb-north-myrtle-beach.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (162189 bytes, hero sub 19 words, main 2621 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (162629 bytes, hero sub 19 words, main 2682 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/del-webb-grande-dunes.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (153106 bytes, hero sub 21 words, main 2390 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (152881 bytes, hero sub 21 words, main 2429 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/myrtle-trace.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (160518 bytes, hero sub 22 words, main 2227 words)
+wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (159733 bytes, hero sub 22 words, main 2211 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/seasons-at-prince-creek-west.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (146834 bytes, hero sub 17 words, main 2140 words)
+wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (147349 bytes, hero sub 17 words, main 2188 words)
 ```
 
 ### PASS: specs/_story-check.js in the package is Blog-Brain tools/story-check.js, as it is today
@@ -244,7 +244,7 @@ llms-full.txt carries the header date - run 'node build.js llmsfull' if page tex
 ### PASS: node build.js llmsfull
 
 ```
-llms-full.txt regenerated: 131 pages, 1412KB, dated 2026-10-11.
+llms-full.txt regenerated: 131 pages, 1413KB, dated 2026-10-11.
 ```
 
 ### PASS: node build.js check
@@ -292,7 +292,7 @@ OK - all 131 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 136 pages from commit 121d343 on claude/github-account-check-wutg8b.
+OK - deploying 136 pages from commit 623d6c0 on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
@@ -300,28 +300,28 @@ OK - deploying 136 pages from commit 121d343 on claude/github-account-check-wutg
 
 ```
 /buyers/55-plus-communities/del-webb-north-myrtle-beach/  Del Webb North Myrtle Beach 55+: Pros and Cons | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1096 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1153 words)
 ```
 
 ### PASS: score.js --only /buyers/55-plus-communities/del-webb-grande-dunes/
 
 ```
-/buyers/55-plus-communities/del-webb-grande-dunes/  Del Webb at Grande Dunes 55+: Pros and Cons | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1109 words)
+/buyers/55-plus-communities/del-webb-grande-dunes/  Del Webb Grande Dunes 55+: HOA Fees, Pros and Cons | Chapter3
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1147 words)
 ```
 
 ### PASS: score.js --only /buyers/55-plus-communities/myrtle-trace/
 
 ```
 /buyers/55-plus-communities/myrtle-trace/  Myrtle Trace 55+, Conway: HOA Fee, Pros and Cons | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1181 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1164 words)
 ```
 
 ### PASS: score.js --only /buyers/55-plus-communities/seasons-at-prince-creek-west/
 
 ```
 /buyers/55-plus-communities/seasons-at-prince-creek-west/  Seasons at Prince Creek West, Murrells Inlet 55+ | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (966 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1001 words)
 ```
 
 ### PASS: claims-scan.js: no new banned claim on any surface
@@ -342,7 +342,7 @@ already live sitewide (shared chrome or older copy, not from this batch): 8
 ### PASS: facts-check.js: no new known-wrong fact (pages, llms.txt, llms-full.txt)
 
 ```
-live branch: 36; after the package: 9; new: 0; fixed: 27
+live branch: 35; after the package: 9; new: 0; fixed: 26
   fixed del-webb-grande-dunes-hoa-fee /buyers/55-plus-communities/ "Nine 55+ communities in Myrtle Beach compared: prices from $190K, HOA fees $43 to $384 a month, the land-lease catch, an"
   fixed myrtle-trace-hoa-fee /buyers/55-plus-communities/ "... fee-simple ownership, Woodlake Village in Murrells Inlet runs $260,000 to $379,000 with an HOA around $43 a month, a"
   fixed seasons-gate /buyers/55-plus-communities/ "Verified gated: Seasons at Prince Creek West in Murrells Inlet, with controlled access, and Del Webb at Grande Dunes."
