@@ -1,6 +1,14 @@
 /* /buyers/55-plus-communities/del-webb-grande-dunes/ - what it is like to live in
  * Del Webb at Grande Dunes, a 55+ neighborhood of houses and villas in Myrtle Beach.
  *
+ * Version 14c, 2026-10-11: the v14b owner's-eye review (OWNER-EYE-v14b.md) and a cold reader of the pros and
+ *            cons: nothing acts (no bill pays, no rule limits, no route runs, no home sits); the plain
+ *            word first ("the clubhouse, also called the amenity center", rows 106 and 108); the place
+ *            named in each section's first sentence; repeats cut; a "homes for sale" offer to the
+ *            contact form, as Myrtle Trace has (the site has no listing search to link).
+ *            GD: the Ocean Club section answers first; the homes section opens with the homes; the title
+ *            drops "at" to fit "HOA Fees" ("Grande Dunes" is a place for the scorer); the Ocean Club pro
+ *            per the coordinator's decision under the ledger (rows 32, 33, 76, 91).
  * Version 14b, 2026-10-11: the pros and cons rewritten in the expert's voice (the owner, BUYER-3: "according
  *            to the records and so on when we are the experts"; CRAFT 5; lessons L21 and L34): no
  *            attribution, no names the reader cannot picture, no method, about 15 words each. The rows
@@ -120,7 +128,7 @@ module.exports = {
      the day it is first built for the live site; build.js dates never moves it. */
   /* The overview aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
-  title: "Del Webb at Grande Dunes 55+: Pros and Cons | Chapter3",
+  title: "Del Webb Grande Dunes 55+: HOA Fees, Pros and Cons | Chapter3",
   description: "Del Webb at Grande Dunes 55+ in Myrtle Beach: the pros and cons, HOA fees for houses and villas, the amenity center, the Ocean Club, and the lease and guest rules.",
   ogTitle: "Living in Del Webb at Grande Dunes: pools, pickleball, a beach club and a dock on the waterway",
   crumb: "Del Webb at Grande Dunes",
@@ -143,7 +151,7 @@ module.exports = {
   sections: [
     { h2: "What is there to do in Del Webb at Grande Dunes?", toc: "Things to do", html:
       ph.css() +
-      h.p("The amenity center (the clubhouse) in Del Webb at Grande Dunes has an indoor pool, an outdoor pool, a fitness center and an arts and crafts room. Staff are there every day, and your mailbox is there too.") +
+      h.p("The clubhouse in Del Webb at Grande Dunes is also called the amenity center. The clubhouse has an indoor pool, an outdoor pool, a fitness center and an arts and crafts room. Staff are there every day, and your mailbox is there too.") +
       ph.cards([
         { illustration: "outdoor-pool", label: "Indoor and outdoor pools", text: "Swim all year" },
         { illustration: "pickleball", label: "Tennis and pickleball", text: "Courts beside the clubhouse, with bocce too" },
@@ -153,8 +161,8 @@ module.exports = {
       CLUB },
 
     { h2: "What is the Grande Dunes Ocean Club?", toc: "The Ocean Club", html:
+      h.p(`The ${h.ext(OCEANCLUB, "Grande Dunes Ocean Club")} is the beach club for all of Grande Dunes, about 8 minutes by car from the Del Webb clubhouse. Your HOA fee includes your membership.`) +
       h.p("Grande Dunes is a large area of neighborhoods and golf courses in Myrtle Beach. Del Webb is one neighborhood inside it.") +
-      h.p(`The ${h.ext(OCEANCLUB, "Grande Dunes Ocean Club")} is the beach club for all of Grande Dunes, about 8 minutes by car from the Del Webb clubhouse. Your HOA bill pays for your membership.`) +
       h.p("Its clubs include mahjong, knitting and Mexican Train, a dominoes game.") +
       atAGlance([
         { icon: "beach", label: "Private beach access", text: "A members-only way onto the sand" },
@@ -168,13 +176,13 @@ module.exports = {
       h.p("The nearest hospital is Grand Strand Medical Center, and the nearest grocery store is a Food Lion. The Boardwalk, with its big Ferris wheel, is about 15 minutes away.") },
 
     { h2: "What are the homes like in Del Webb at Grande Dunes?", toc: "The homes", html: (bg) =>
+      h.p("Most homes in Del Webb at Grande Dunes are on one level, with 2 or 3 bedrooms and about 1,500 to 2,900 square feet.") +
       h.p("The homes were built from 2018 to 2026. The builder has finished, so every home here is a resale now.") +
       OVER +
       h.p("The neighborhood has houses and villas. A villa here is a home that shares one wall with another home, and villas usually sell for less than houses.") +
       STREET +
-      h.p("Most homes are on one level, with 2 or 3 bedrooms and about 1,500 to 2,900 square feet.") +
       h.p("For some villas, the HOA takes care of the roofs, gutters and outside paint. Those villa owners pay a little more for it.") +
-      h.cta("Ask what the HOA takes care of on the home you like.", "Tell us the house or villa you like. One of our agents finds out what the HOA keeps up on that home.", "Ask an agent", "/contact/", bg) },
+      h.cta("Get the list of Del Webb at Grande Dunes homes for sale.", "Tell us what you are looking for. One of our agents sends you the houses and villas for sale now, and finds out what the HOA takes care of on the one you like.", "Get the list", "/contact/", bg) },
 
     { h2: "Who can live in Del Webb at Grande Dunes?", toc: "Who can live here", html: (bg) =>
       h.p(`At least one person living in each home must be 55 or older, under ${h.ext(DECL, "the neighborhood's rules")}. Everyone else who lives there must be 19 or older.`) +
@@ -187,7 +195,7 @@ module.exports = {
       ], { bg, min: "18rem" }) },
 
     { h2: "What does it cost to live in Del Webb at Grande Dunes?", toc: "Costs", html: (bg) =>
-      h.p("A house usually sells for about $665,000, and a villa for about $430,000. The HOA fee is about $400 a month for a house and about $445 for a villa.") +
+      h.p("A house in Del Webb at Grande Dunes usually sells for about $665,000, and a villa for about $430,000. The HOA fee is about $400 a month for a house and about $445 for a villa.") +
       h.p("Your HOA bill includes basic lawn care and the beach club.") +
       h.table(["Other costs", "About"], [
         ["One-time fee to the HOA when you buy", "About one year of HOA dues"],
@@ -203,9 +211,9 @@ module.exports = {
       compareTable(SELF) },
 
     { h2: "What are the pros and cons of living in Del Webb at Grande Dunes?", toc: "Pros and cons", html: (bg) =>
-      h.p("Del Webb at Grande Dunes is close to the beach, a grocery store and a hospital, and its rules limit leases, fences and sheds.") +
+      h.p("Del Webb at Grande Dunes is close to the beach, a grocery store and a hospital, and owners there follow rules on leases, fences and sheds.") +
       prosCons([
-        "Groceries and the beach are about 4 minutes away by car. The hospital is about 6.",
+        "Groceries and the beach are about 4 minutes away by car. The hospital is about 6 minutes away.",
         "Your HOA bill includes membership in the Grande Dunes Ocean Club, the beach club.",
         "Owners can tie up a boat at the neighborhood's day dock during the day.",
       ], [
@@ -215,7 +223,7 @@ module.exports = {
       ], { bg }) },
 
     { h2: "How long can grandchildren stay in Del Webb at Grande Dunes?", toc: "Grandchildren's stays", html: (bg) =>
-      h.p("Grandchildren and other guests younger than 19 can stay up to 90 nights in any 12 months.") +
+      h.p("Grandchildren and other guests younger than 19 can stay in Del Webb at Grande Dunes up to 90 nights in any 12 months.") +
       story([
         "<strong>Example:</strong> Bill and Nancy are moving from Ohio, and they want their two grandsons to stay with them all summer and again at Christmas.",
         "They like a villa in Del Webb at Grande Dunes. Before they make an offer, their Chapter3 agent reads the neighborhood's rules with them.",

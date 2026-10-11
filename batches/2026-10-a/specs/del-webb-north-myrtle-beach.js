@@ -1,6 +1,13 @@
 /* /buyers/55-plus-communities/del-webb-north-myrtle-beach/ - what it is like to live
  * in Del Webb North Myrtle Beach, a newer 55+ neighborhood in North Myrtle Beach.
  *
+ * Version 14c, 2026-10-11: the v14b owner's-eye review (OWNER-EYE-v14b.md) and a cold reader of the pros and
+ *            cons: nothing acts (no bill pays, no rule limits, no route runs, no home sits); the plain
+ *            word first ("the clubhouse, also called the amenity center", rows 106 and 108); the place
+ *            named in each section's first sentence; repeats cut; a "homes for sale" offer to the
+ *            contact form, as Myrtle Trace has (the site has no listing search to link).
+ *            NMB: the beach sentence says "you drive" (v13's form, with the parking lot); the cons no longer
+ *            repeat "plan to take your car"; the warranty pro in plain words (row 36: "transferrable").
  * Version 14b, 2026-10-11: the pros and cons rewritten in the expert's voice (the owner, BUYER-3: "according
  *            to the records and so on when we are the experts"; CRAFT 5; lessons L21 and L34): no
  *            attribution, no names the reader cannot picture, no method, about 15 words each. The rows
@@ -143,7 +150,7 @@ module.exports = {
   /* The 2026 overview's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
   title: "Del Webb North Myrtle Beach 55+: Pros and Cons | Chapter3",
-  description: "Del Webb North Myrtle Beach 55+: the pros and cons, the HOA fee and what it covers, new one-story homes, the amenity center, the drive to the beach and renting.",
+  description: "Del Webb North Myrtle Beach 55+: the pros and cons, the HOA fee and what it includes, new one-story homes, the amenity center, the drive to the beach and renting.",
   ogTitle: "Living in Del Webb North Myrtle Beach: new homes, lawn care and a clubhouse near the beach",
   crumb: "Del Webb North Myrtle Beach",
   eyebrow: "North Myrtle Beach, 55+",
@@ -167,7 +174,7 @@ module.exports = {
       ph.css() +
       h.p("Most homes in Del Webb North Myrtle Beach are one story, so there are no stairs. They have two or three bedrooms and a garage, and most are about 1,400 to 2,700 square feet.") +
       STREET +
-      h.p("The homes sit on short streets around ponds, with the clubhouse, pools and courts in the middle of the neighborhood.") +
+      h.p("The homes are on short streets around ponds, with the clubhouse, pools and courts in the middle of the neighborhood.") +
       OVER +
       h.p("New homes come with:") +
       h.ul([
@@ -177,7 +184,7 @@ module.exports = {
       ]) },
 
     { h2: "What is there to do in Del Webb North Myrtle Beach?", toc: "Things to do", html:
-      h.p("The amenity center (the clubhouse) has a gathering room, an arts and crafts room and a fitness center.") +
+      h.p("The clubhouse in Del Webb North Myrtle Beach, also called the amenity center, has a gathering room, an arts and crafts room and a fitness center.") +
       CLUB +
       ph.cards([
         { illustration: "indoor-pool", label: "Indoor lap pool", text: "Swim laps all year" },
@@ -203,7 +210,7 @@ module.exports = {
         { icon: "golf-cart", label: "Golf carts", text: "Allowed with a state permit sticker, on roads of 35 mph or less, from sunrise to sunset." },
         { icon: "pets", label: "Dogs on the beach", text: "Always on a leash. From mid-May to Labor Day, no dogs on the beach from 10 a.m. to 4 p.m." },
       ], { bg, min: "18rem" }) +
-      h.p("The car route to the nearest city beach parking lot runs a short way along US 17, where golf carts may only cross. Plan to take your car to the beach.") +
+      h.p("To reach the nearest city beach parking lot, you drive a short way along US 17. Golf carts may only cross US 17, so plan to take your car to the beach.") +
       h.p("These places in town are close by car.") +
       atAGlance([
         { icon: "tennis", label: "Central Park", text: "A city park with a paved walking path and tennis courts. About 2 minutes." },
@@ -215,13 +222,14 @@ module.exports = {
       ], { bg, min: "9rem" }) +
       PIER },
 
-    { h2: "What does a home in Del Webb North Myrtle Beach cost?", toc: "Costs", html:
-      h.p("In the last year, new homes from the builder usually sold for about $635,000. Homes resold by their owners sold for about $535,000.") +
+    { h2: "What does a home in Del Webb North Myrtle Beach cost?", toc: "Costs", html: (bg) =>
+      h.p("In the last year, new homes from the builder in Del Webb North Myrtle Beach usually sold for about $635,000. Homes resold by their owners sold for about $535,000.") +
       h.p("The homeowners association (HOA) fee is about $315 a month, and it includes lawn care, internet and a TV package.") +
-      h.p(`If you live in a new home at that price, the property tax is a little under $3,000 a year, city tax included. See ${h.a("/buyers/property-taxes/", "how a home you live in is taxed in North Myrtle Beach")}.`) },
+      h.p(`If you live in a new home at that price, the property tax is a little under $3,000 a year, city tax included. See ${h.a("/buyers/property-taxes/", "how a home you live in is taxed in North Myrtle Beach")}.`) +
+      h.cta("Get the list of Del Webb North Myrtle Beach homes for sale.", "Tell us what you are looking for, and one of our agents will send you the homes for sale now.", "Get the list", "/contact/", bg) },
 
     { h2: "Do you need flood insurance in Del Webb North Myrtle Beach?", toc: "Flood insurance", html: (bg) =>
-      h.p(`You probably will not need flood insurance here, because every lot is outside the high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}. If you want a policy, it usually costs about $600 a year.`) +
+      h.p(`You probably will not need flood insurance in Del Webb North Myrtle Beach, because every lot is outside the high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}. If you want a policy, it usually costs about $600 a year.`) +
       h.cta("Get an insurance quote on the home you like.", `Pick the home you like. One of our agents helps you get a homeowners and flood ${h.a("/buyers/coastal-insurance/", "insurance")} quote on it before you sign.`, "Get a quote", "/contact/", bg) },
 
     { h2: "How does Del Webb North Myrtle Beach compare with other 55+ neighborhoods?", toc: "Compare", html: () =>
@@ -229,19 +237,20 @@ module.exports = {
       compareTable(SELF) },
 
     { h2: "What are the pros and cons of living in Del Webb North Myrtle Beach?", toc: "Pros and cons", html: (bg) =>
-      h.p("Del Webb North Myrtle Beach has new homes about a mile from the ocean, and the builder is still building.") +
+      h.p("Del Webb North Myrtle Beach has new homes about a mile from the ocean, and the builder is still selling new homes.") +
       prosCons([
         "The beach is about 4 minutes away by car.",
-        "The homes are new, built since 2022, with a structure warranty a later owner keeps.",
+        "The homes are new, built since 2022.",
+        "The builder's warranty on the home's structure stays with the house when it sells.",
         "The city's community center, with indoor pickleball, is about a minute away by car.",
       ], [
         { text: "The builder is still building here.", act: "Ask which streets are finished before you choose a lot." },
-        { text: "Golf carts may cross US 17 but not drive along it.", act: "Plan to take your car to the beach." },
+        { text: "Golf carts may cross US 17 but not drive along it." },
         { text: "The airport is about 35 minutes away by car." },
       ], { bg }) },
 
     { h2: "Can you rent out a home in Del Webb North Myrtle Beach?", toc: "Renting", html: (bg) =>
-      h.p(`Not by the week. Renters here must stay ${h.ext(AGREEMENT, "at least 30 days")}.`) +
+      h.p(`Not by the week. Renters in Del Webb North Myrtle Beach must stay ${h.ext(AGREEMENT, "at least 30 days")}.`) +
       story([
         "<strong>Example:</strong> Frank and Joyce plan to spend summers near their son in Michigan. While they are away, they want to rent their new house to vacationers by the week.",
         "They pick out a new house in Del Webb North Myrtle Beach and are ready to sign the builder's contract. Before they sign, their Chapter3 agent reads the renting rules for the neighborhood with them.",

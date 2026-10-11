@@ -257,7 +257,7 @@
         {
           "pattern": "\\bSeasons\\b[^.]{0,120}\\bgated\\b|\\bgated\\b[^.]{0,60}\\bSeasons\\b",
           "note": "Only a gate at the main entrance with a call box is verified (listings, rows 92 and 93). Do not call Seasons gated or verified gated.",
-          "unless": "\\b2013\\b|\\bcharter\\b"
+          "unless": "\\b2013\\b|\\bcharter\\b|\\?"
         },
         {
           "pattern": "(?:\\bSeasons\\b|\\bTPC\\b|\\bPrince Creek\\b)[^.]{0,160}\\b(?:staffed|manned|attended|guard(?:ed|house| house| gate| booth)?|security guard)\\b|\\b(?:staffed|manned|attended|guard(?:ed|house| house| gate| booth)?|security guard)\\b[^.]{0,160}(?:\\bSeasons\\b|\\bTPC\\b|\\bPrince Creek\\b)",

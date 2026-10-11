@@ -78,6 +78,9 @@ const cases = [
     "Please use the call box if no guard is on duty."],
   ["seasons-gate", "Verified gated: Seasons at Prince Creek West in Murrells Inlet, with controlled access, and Del Webb at Grande Dunes.",
     "Listings show a gate at the main entrance on TPC Boulevard, with a call box for visitors."],
+  /* Version 14c: the Seasons FAQ asks the searched question; a question claims nothing. */
+  ["seasons-gate", "Seasons is deed-restricted, gated, and built around single-level plans and a full amenity program.",
+    "Is Seasons at Prince Creek West a gated community?"],
   ["del-webb-grande-dunes-gate", "Del Webb at Grande Dunes is the most established active adult community with resort-level amenities, gated access, and an on-site lifestyle director.",
     "Grande Dunes and Barefoot are gated only in certain villages, and value communities like Blackmoor and Wild Wing are open."],
   ["del-webb-grande-dunes-gate", "Verified gated: Seasons at Prince Creek West in Murrells Inlet, with controlled access, and Del Webb at Grande Dunes.",

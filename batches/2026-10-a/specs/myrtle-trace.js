@@ -1,6 +1,13 @@
 /* /buyers/55-plus-communities/myrtle-trace/ - what it is like to live in Myrtle Trace,
  * a 55+ neighborhood just outside Conway.
  *
+ * Version 14c, 2026-10-11: the v14b owner's-eye review (OWNER-EYE-v14b.md) and a cold reader of the pros and
+ *            cons: nothing acts (no bill pays, no rule limits, no route runs, no home sits); the plain
+ *            word first ("the clubhouse, also called the amenity center", rows 106 and 108); the place
+ *            named in each section's first sentence; repeats cut; a "homes for sale" offer to the
+ *            contact form, as Myrtle Trace has (the site has no listing search to link).
+ *            MT: the first pro in the costs section's form; $95 once in the comparison and pros; the
+ *            house-and-yard con cut (the homes section says it).
  * Version 14b, 2026-10-11: the pros and cons rewritten in the expert's voice (the owner, BUYER-3: "according
  *            to the records and so on when we are the experts"; CRAFT 5; lessons L21 and L34): no
  *            attribution, no names the reader cannot picture, no method, about 15 words each. The rows
@@ -94,7 +101,7 @@ module.exports = {
   /* The overview aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
   title: "Myrtle Trace 55+, Conway: HOA Fee, Pros and Cons | Chapter3",
-  description: "Myrtle Trace 55+ in Conway: the pros and cons, the $95 HOA fee and what it pays for, a hospital minutes away, the pool and clubs, the homes and the fence rules.",
+  description: "Myrtle Trace 55+ in Conway: the pros and cons, the $95 HOA fee and what it includes, a hospital minutes away, the pool and clubs, the homes and the fence rules.",
   ogTitle: "Living in Myrtle Trace, Conway: close to the hospital, with a pool, ponds and clubs",
   crumb: "Myrtle Trace",
   eyebrow: "Conway, 55+",
@@ -116,11 +123,11 @@ module.exports = {
   sections: [
     { h2: "What is close to Myrtle Trace?", toc: "What is close", html:
       ph.css() +
-      h.p("The closest beach by car is the one by the Myrtle Beach Boardwalk. In our experience, rush hour adds 5 to 10 minutes to the drive.") +
+      h.p("The closest beach to Myrtle Trace by car is the one by the Myrtle Beach Boardwalk. In our experience, rush hour adds 5 to 10 minutes to the drive.") +
       M.where },
 
     { h2: "What is a month like in Myrtle Trace?", toc: "A normal month", html:
-      h.p(`In a normal month you can play bingo, swim, fish and play in a league. The rest is on the ${h.ext(CAL, "neighborhood's calendar")}.`) +
+      h.p(`In a normal month in Myrtle Trace, you can play bingo, swim, fish and play in a league. The rest is on the ${h.ext(CAL, "neighborhood's calendar")}.`) +
       ph.cards([
         { illustration: "card-table", label: "Bingo and game nights", text: "Bingo two Friday nights a month, and a game night on Sundays" },
         { illustration: "outdoor-pool", label: "The pool", text: "Open every day 8 a.m. to 9 p.m., until the start of October" },
@@ -167,20 +174,19 @@ module.exports = {
       h.p("In our experience, many HOAs here do not allow renting at all. Myrtle Trace does.") },
 
     { h2: "How does Myrtle Trace compare with other 55+ neighborhoods?", toc: "Compare", html: () =>
-      h.p("Myrtle Trace has the lowest HOA fee of these four 55+ neighborhoods, $95 a month, and its homes usually sell for the least. The beach is about 15 minutes away.") +
+      h.p("Myrtle Trace has the lowest HOA fee of these four 55+ neighborhoods, and its homes usually sell for the least.") +
       compareTable(SELF) },
 
     { h2: "What are the pros and cons of living in Myrtle Trace?", toc: "Pros and cons", html: (bg) =>
-      h.p("Myrtle Trace is minutes from the hospital and has a $95 HOA fee, and its owners keep up their own homes and yards.") +
+      h.p("Myrtle Trace is minutes from the hospital and has a busy club calendar, and its homes are older.") +
       prosCons([
-        "Dues are $95 a month and keep up the pool, clubhouse, gates, roads and ponds.",
+        "The HOA fee is $95 a month. The HOA uses it to keep up the pool, clubhouse, gates, roads and ponds.",
         "The hospital and a Walmart Supercenter are each about 3 minutes away by car.",
         "Bingo, game nights, a Labor Day picnic and a craft fair are on the calendar.",
       ], [
         { text: "The beach is about 15 minutes away by car." },
         { text: "Most homes were built in the 1980s and 1990s.", act: "Ask how old the roof is before you make an offer." },
         { text: "There are no sidewalks." },
-        { text: "Owners keep up their own house and yard, including the roof and the grass." },
       ], { bg }) },
 
     { h2: "Can you fence a yard in Myrtle Trace?", toc: "Fences", html: (bg) =>
