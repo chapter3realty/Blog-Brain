@@ -1,6 +1,23 @@
 /* /buyers/55-plus-communities/del-webb-north-myrtle-beach/ - what it is like to live
  * in Del Webb North Myrtle Beach, a newer 55+ neighborhood in North Myrtle Beach.
  *
+ * Version 13, 2026-10-11: the owner: "the first page about del webb seems less good than the other
+ *            ones the maps photo above is low quality and theres only the one and its alot shorter".
+ *            Pictures: the sharper NOAA aerials of January 2026 (row 103): the overview with its
+ *            outline and clubhouse label in the homes section (its crops are the share image), a
+ *            street of homes, and the view from the neighborhood to the beach beside the US 17
+ *            sentence; the Cherry Grove Pier from the ocean and the Cherry Grove marsh from the air
+ *            in the new town section. The 2023 NAIP aerials are dropped from this page.
+ *            Rows used: 76 (Pulte lists courts, trails, clubs; no "outdoors"), 79 to 83 (the city's
+ *            Floyd Community Center: about a minute by car, indoor pickleball for a few dollars a
+ *            day, free outdoor courts, classes paid by the class; never "next door"), 84 (day trips
+ *            and bus tours), 86 and 88 (Central Park, Ingram Dunes), 89 (Heritage Shores in the
+ *            Cherry Grove marsh), 91 and 92 (beach accesses, free parking hours, residents
+ *            register; no cost), 93 to 95 (golf carts: permit, 35 mph roads, sunrise to sunset,
+ *            US 17 only to cross; the route to the nearest access runs along it, so plan to drive;
+ *            no word on the builder's claim), 96 (dogs on the beach), 97 and 98 (Music on Main,
+ *            about 7 minutes), 99 and 100 (the pier, about 15 minutes; no prices or hours), 101
+ *            (Barefoot Landing about 10 minutes; counts rounded to "dozens").
  * Version 12, 2026-10-11: the v11 owner's-eye review (OWNER-EYE-v11-del-webb-north-myrtle-beach.md) and
  *            the coordinator's decisions: headings with the place name and short contents labels;
  *            the town merged into the "where" section (no verified row says what Barefoot Landing
@@ -46,7 +63,7 @@
  *         minimum before they sign, and gets the recorded HOA rules to check it (stories.json
  *         "hoa-rental-bans-filtered": the agents read the HOA documents for a rental plan).
  */
-const { h, maps, story, glance, photoSet, compareTable } = require("./_55-plus-kit.js");
+const { h, maps, story, glance, photoSet, compareTable, atAGlance } = require("./_55-plus-kit.js");
 
 const HUB = "/buyers/55-plus-communities/";
 const SELF = "/buyers/55-plus-communities/del-webb-north-myrtle-beach/";
@@ -61,7 +78,12 @@ const LEVY = "https://www.horrycountysc.gov/media/kufln4qp/tax-levy-2026_2.pdf";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
 const ph = photoSet();
-const STREET = ph.aerial("del-webb-north-myrtle-beach-homes-from-above", "A street of homes in Del Webb North Myrtle Beach, from above.");
+const OVER = ph.aerial("del-webb-north-myrtle-beach-from-above-2026", "Del Webb North Myrtle Beach from above. The orange line is the edge of the neighborhood.");
+const STREET = ph.aerial("del-webb-north-myrtle-beach-homes-from-above-2026", "A street of homes in Del Webb North Myrtle Beach, with a pond and a walking path behind them.", { closeUp: true });
+const TOBEACH = ph.aerial("del-webb-north-myrtle-beach-to-the-beach-2026", "From the air: the beach at the left, US 17 in the middle, Del Webb North Myrtle Beach at the right.");
+const UMBRELLAS = ph.aerial("north-myrtle-beach-beach-umbrellas", "Beach chairs and umbrellas on the beach in North Myrtle Beach.", { closeUp: true, alt: "Rows of beach chairs and blue, green and yellow umbrellas on the wide sand beach in North Myrtle Beach" });
+const PIER = ph.aerial("cherry-grove-pier-from-the-ocean", "The Cherry Grove Pier, seen from the ocean.", { closeUp: true });
+const MARSH = ph.aerial("cherry-grove-marsh-from-above-2026", "Cherry Grove from the air: the beach and part of the pier, canal homes and the salt marsh.", { closeUp: true });
 const M = maps("del-webb-north-myrtle-beach", [
   { id: "beach_dwnmb", name: "the beach at 14th Avenue South", short: "Beach", kind: "beach" },
   { id: "hosp_mcleod", name: "McLeod Health Seacoast", short: "Hospital", kind: "hospital" },
@@ -77,7 +99,7 @@ module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
-  /* The street aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
+  /* The 2026 overview's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
   title: "Living in Del Webb North Myrtle Beach (55+) | Chapter3",
   description: "What life is like in Del Webb North Myrtle Beach: new one-story homes, lawn care, the clubhouse and pools, renting, the 55+ rule and the costs.",
@@ -103,6 +125,8 @@ module.exports = {
     { h2: "What are the homes like in Del Webb North Myrtle Beach?", toc: "The homes", html:
       ph.css() +
       h.p("Most homes in Del Webb North Myrtle Beach are one story, so there are no stairs. They have 2 or 3 bedrooms and a garage, and most are about 1,400 to 2,700 square feet.") +
+      h.p("The homes sit on short streets around ponds, with the clubhouse, pools and courts in the middle of the neighborhood.") +
+      OVER +
       STREET +
       h.p("New homes come with:") +
       h.ul([
@@ -116,20 +140,36 @@ module.exports = {
       ph.cards([
         { illustration: "indoor-pool", label: "Indoor lap pool", text: "Swim laps all year" },
         { illustration: "outdoor-pool", label: "Outdoor pool", text: "With a beach-style walk-in entry" },
-        { illustration: "pickleball", label: "Pickleball and bocce", text: "Sports courts for owners" },
-        { illustration: "walking-path", label: "Walking trails", text: "Paths around the ponds" },
+        { illustration: "pickleball", label: "Pickleball and bocce", text: "Sports courts in the neighborhood" },
+        { illustration: "walking-path", label: "Walking trails", text: "Paths for a walk close to home" },
       ], { cols: 4 }) +
-      h.p("There are clubs and activity groups for owners. The city's J. Bryan Floyd Community Center is about a quarter mile away.") },
+      h.p("Pulte also lists clubs and activity groups for owners.") +
+      h.p("The city's J. Bryan Floyd Community Center is about a minute away by car. On weekdays you can play indoor pickleball there for a few dollars a day. Behind it are outdoor pickleball courts that are free and always open.") +
+      h.p("The center also has fitness classes, such as gentle yoga, that you pay for by the class. The city's recreation department runs trips for adults too, such as a monthly day trip around the Carolinas and bus tours.") },
 
     { h2: "Where is Del Webb North Myrtle Beach?", toc: "Where it is", html:
-      h.p("Del Webb North Myrtle Beach is inside the city of North Myrtle Beach, about a mile from the ocean. To reach the beach, you drive across US 17, the main highway. In our experience, rush hour adds 5 to 10 minutes to the drive times below.") +
+      h.p("Del Webb North Myrtle Beach is inside the city of North Myrtle Beach, about a mile from the ocean. To reach the beach, you drive across US 17, the main highway.") +
+      TOBEACH +
+      h.p("The map shows the drive times by car. In our experience, rush hour adds 5 to 10 minutes.") +
       M.where +
-      h.p("Grand Strand Health's North Strand ER, an emergency room open day and night, is about a mile and a half away. The airport is about 35 minutes away by car.") +
-      h.p("North Myrtle Beach has a wide sand beach lined with beach houses, and a fishing pier at Cherry Grove.") +
-      ph.gallery([
-        { name: "north-myrtle-beach-beach-umbrellas", alt: "Rows of beach chairs and blue, green and yellow umbrellas on the wide sand beach in North Myrtle Beach", caption: "Beach chairs and umbrellas in North Myrtle Beach" },
-        { name: "cherry-grove-pier", alt: "The beach, beach houses and Cherry Grove Pier in North Myrtle Beach, seen from high above", caption: "Cherry Grove Pier and the beach, from high above" },
-      ], { label: "Photos of North Myrtle Beach" }) },
+      h.p("Grand Strand Health's North Strand ER, an emergency room open day and night, is about a mile and a half away. The airport is about 35 minutes away by car.") },
+
+    { h2: "What is North Myrtle Beach like?", toc: "The town", html: (bg) =>
+      h.p("North Myrtle Beach has a wide sand beach lined with beach houses. The city keeps more than 240 paths to the beach and dozens of public parking spots, so you can find a place near the sand.") +
+      UMBRELLAS +
+      atAGlance([
+        { icon: "dollar", label: "Beach parking", text: "Free early in the morning, in the evening and all winter. City residents register each year, and the car's license plate is the pass." },
+        { icon: "golf-cart", label: "Golf carts", text: "Allowed with a state permit sticker, on roads of 35 mph or less, from sunrise to sunset." },
+        { icon: "pets", label: "Dogs on the beach", text: "Always on a leash. From mid-May to Labor Day, no dogs on the beach from 10 a.m. to 4 p.m." },
+      ], { bg, min: "18rem" }) +
+      h.p("The way to the nearest beach path runs along a short stretch of US 17, where golf carts may only cross. Plan to drive to the beach.") +
+      h.p("Main Street, about 7 minutes away, has shops and places to eat. Each summer the city holds free Music on Main concerts there on Thursday evenings.") +
+      h.p("The Cherry Grove Pier, about 15 minutes away, reaches far out into the ocean, and you can walk it or fish from it.") +
+      PIER +
+      h.p("Behind Cherry Grove is a salt marsh, where the city's Heritage Shores Nature Preserve has boardwalks and docks over the water.") +
+      MARSH +
+      h.p("Barefoot Landing, about 10 minutes away, has dozens of shops and restaurants beside the Intracoastal Waterway.") +
+      h.p("Two city parks are close. Central Park, about 2 minutes away, has a paved walking path and tennis and pickleball courts. Ingram Dunes Nature Preserve, about 4 minutes away, has a trail through an old seaside forest with tall dunes.") },
 
     { h2: "What does a home in Del Webb North Myrtle Beach cost?", toc: "Costs", html:
       h.p("In the last year, new homes from the builder usually sold for about $635,000. Homes resold by their owners sold for about $535,000.") +
