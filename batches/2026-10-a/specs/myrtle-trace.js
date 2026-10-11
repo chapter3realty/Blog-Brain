@@ -1,6 +1,7 @@
 /* /buyers/55-plus-communities/myrtle-trace/ - what it is like to live in Myrtle Trace,
  * a 55+ neighborhood just outside Conway.
  *
+ * Version 11b, 2026-10-11: row 93 (to 300 Main Street in Conway, about 10 minutes by car).
  * Version 11, 2026-10-11: the v10 owner's-eye review (OWNER-EYE-v10-myrtle-trace.md): short
  * question headings, the full fence answer above the story (row 54 and its note: perimeter fences
  * only on lots backing onto roads or future development, never golf course or pond lots), people
@@ -53,8 +54,8 @@ const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 const ph = photoSet();
 const OVER = ph.aerial("myrtle-trace-from-above", "Myrtle Trace from above, with the golf course next door. The orange line is the edge of the neighborhood.");
 const STREET = ph.aerial("myrtle-trace-homes-from-above", "Houses along two streets and a pond in Myrtle Trace, from above.", { closeUp: true });
-const RIVER = ph.aerial("conway-riverwalk-boardwalk", "The riverwalk in downtown Conway.", { closeUp: true, alt: "A wooden boardwalk with a black railing, shaded by trees, beside old wooden buildings in Conway" });
-const MAIN = ph.aerial("conway-main-street", "Main Street in downtown Conway.", { closeUp: true, alt: "Main Street in downtown Conway, South Carolina, lined with old brick shop buildings" });
+const RIVER = ph.aerial("conway-riverwalk-boardwalk", "The riverwalk in Conway.", { closeUp: true, alt: "A wooden boardwalk with a black railing, shaded by trees, beside old wooden buildings in Conway" });
+const MAIN = ph.aerial("conway-main-street", "Main Street in Conway.", { closeUp: true, alt: "Main Street in downtown Conway, South Carolina, lined with old brick shop buildings" });
 const M = maps("myrtle-trace", [
   { id: "hosp_cmc", name: "Conway Medical Center", short: "Hospital", kind: "hospital" },
   { id: "groc_mt", name: "Walmart Supercenter", short: "Walmart", kind: "grocery" },
@@ -119,9 +120,9 @@ module.exports = {
       h.cta("Get the list of Myrtle Trace homes for sale.", "Tell us what you are looking for, and one of our agents will send you the homes for sale now.", "Get the list", "/contact/", bg) },
 
     { h2: "What is Conway like?", html:
-      h.p("Conway is the town next to Myrtle Trace, on the Waccamaw River. Its riverwalk is a wooden boardwalk along the water, shaded by trees.") +
+      h.p("Conway is the town next to Myrtle Trace, on the Waccamaw River. Main Street in Conway is about 10 minutes away by car. Its riverwalk is a wooden boardwalk along the water, shaded by trees.") +
       RIVER +
-      h.p("Downtown, Main Street is lined with old brick buildings with shops and places to eat.") +
+      h.p("Main Street is lined with old brick buildings with shops and places to eat.") +
       MAIN },
 
     { h2: "What does it cost?", html: (bg) =>

@@ -1,6 +1,10 @@
 /* /buyers/55-plus-communities/del-webb-grande-dunes/ - what it is like to live in
  * Del Webb at Grande Dunes, a 55+ neighborhood of houses and villas in Myrtle Beach.
  *
+ * Version 11b, 2026-10-11: final rows placed: row 105 (property tax, about $2,700 a year on a house and
+ *            about $1,700 on a villa you live in, city tax included; the bill uses the county's
+ *            appraised value; no homestead mention), row 106 (Ocean Club about 8 minutes by car).
+ *            Row 107 (home count) is wrong on scope: no total is published.
  * Version 11, 2026-10-11: the v10 owner's-eye review (OWNER-EYE-v10-del-webb-grande-dunes.md):
  * short question headings, the 55 rule first in its section, a villa explained once (row 98:
  * MLS semi-detached, a home that shares a wall), labelled Houses and Villas aerials (county
@@ -122,7 +126,7 @@ module.exports = {
 
     { h2: "What is the Ocean Club?", html:
       h.p("Grande Dunes is a large area of neighborhoods and golf courses in Myrtle Beach. Del Webb is one neighborhood inside it.") +
-      h.p(`The ${h.ext(OCEANCLUB, "Grande Dunes Ocean Club")} is the beach club for all of Grande Dunes. Its clubs include mahjong, knitting and a dominoes game called Mexican Train.`) +
+      h.p(`The ${h.ext(OCEANCLUB, "Grande Dunes Ocean Club")} is the beach club for all of Grande Dunes, about 8 minutes by car from the Del Webb clubhouse. Its clubs include mahjong, knitting and a dominoes game called Mexican Train.`) +
       atAGlance([
         { icon: "beach", label: "Private beach access", text: "A members-only way onto the sand" },
         { icon: "pool", label: "Pool and hot tub", text: "A large outdoor pool at the beach club" },
@@ -156,9 +160,10 @@ module.exports = {
     { h2: "What does it cost?", html: (bg) =>
       h.p("A house usually sells for about $665,000, and a villa for about $430,000. The HOA fee is about $400 a month for a house and about $445 for a villa.") +
       h.p("Your HOA bill includes basic lawn care and the beach club.") +
-      h.table(["Other costs on a home you live in", "About"], [
+      h.table(["Other costs", "About"], [
         ["One-time fee to the HOA when you buy", "At least one year of HOA dues"],
-        ["Property tax, city tax included", "More than $2,000 a year"],
+        ["Property tax on a house you live in, city tax included", "About $2,700 a year"],
+        ["Property tax on a villa you live in, city tax included", "About $1,700 a year"],
       ]) +
       h.p(`See ${h.a("/buyers/property-taxes/", "how Horry County taxes a main home and a second home")}.`) +
       h.p("You probably will not need flood insurance, because the homes are outside the high-risk flood zone. If you want it, a policy here usually costs about $550 a year.") +
