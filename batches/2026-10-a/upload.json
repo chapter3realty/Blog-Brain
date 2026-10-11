@@ -1,0 +1,50 @@
+{
+  "_comment": "What tools/package-batch.js puts in this batch's upload package (batches/2026-10-a/upload/). Order matters: website patches first, then the batch diffs. The sitemap and llms.txt entries are not kept here as diffs; the script makes them from the built pages, so they always match the current specs.",
+  "batch": "2026-10-a",
+  "branch": "claude/github-account-check-wutg8b",
+  "websitePatches": [
+    "mkpage.patch",
+    "mkpage-hero-media.patch",
+    "mkpage-page-images.patch",
+    "readability.patch",
+    "mkpage-reading.patch",
+    "mkpage-photos.patch"
+  ],
+  "notApplied": {
+    "logo-chapter-iii.patch": "On hold: the owner will supply the logo (2026-10-05).",
+    "speed.patch": "Already on the live branch (deployed 2026-10-05, in its own revised form).",
+    "contrast.patch": "Already on the live branch (deployed 2026-10-05, in its own revised form)."
+  },
+  "batchDiffs": [
+    "hub-links.diff",
+    "hub-corrections.diff",
+    "other-pages.diff"
+  ],
+  "specs": "specs",
+  "data": "data",
+  "images": { "from": "images", "to": "chapter3realty/images/55-plus" },
+  "blogBrainTools": {
+    "to": "tools/blog-brain",
+    "files": [
+      "tools/area-map.js",
+      "tools/icons.js",
+      "tools/photos.js",
+      "tools/illustrations.js",
+      "tools/geo/grand-strand.json",
+      "tools/geo/grand-strand-v2.json"
+    ]
+  },
+  "pages": [
+    { "spec": "del-webb-north-myrtle-beach.js", "name": "Del Webb North Myrtle Beach" },
+    { "spec": "del-webb-grande-dunes.js", "name": "Del Webb at Grande Dunes" },
+    { "spec": "myrtle-trace.js", "name": "Myrtle Trace" },
+    { "spec": "seasons-at-prince-creek-west.js", "name": "Seasons at Prince Creek West" }
+  ],
+  "listAfter": "/buyers/55-plus-communities/",
+  "sitemap": { "changefreq": "monthly", "priority": "0.75" },
+  "checkPages": [
+    "/buyers/55-plus-communities/",
+    "/buyers/retirees/",
+    "/buyers/golf-communities/"
+  ]
+}
