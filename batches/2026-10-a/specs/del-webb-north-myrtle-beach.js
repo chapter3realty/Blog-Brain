@@ -1,6 +1,16 @@
 /* /buyers/55-plus-communities/del-webb-north-myrtle-beach/ - what it is like to live
  * in Del Webb North Myrtle Beach, a newer 55+ neighborhood in North Myrtle Beach.
  *
+ * Version 13c, 2026-10-11: the second independent review (OWNER-EYE-v13c-del-webb-north-myrtle-beach.md,
+ *            8 of 10) and the coordinator's decision on row 75 (end of the ledger): "homeowners
+ *            association (HOA)" at first use; the short-answer sentence split; "Not by the week.
+ *            Renters here must stay at least 30 days." with no "city's plan"; the marsh sentence
+ *            and aerial cut; the place cards nearest first, two to a row on a phone; the parking
+ *            pass sentence cut; pickleball cut from Central Park; the clubhouse cards say where
+ *            (courts beside the clubhouse: county parcel and footprints, row 105, needs
+ *            verification; trails "through the neighborhood": no row names the ponds); the ER
+ *            "closer than the hospital"; "you drive"; "the city's community center"; the pier
+ *            cropped around the pier; the "Beach" dot on the sand; every picture one width.
  * Version 13b, 2026-10-11: the independent owner's-eye review (OWNER-EYE-v13b-del-webb-north-myrtle-beach.md,
  *            8 of 10) and the coordinator's fixes: the Pulte clubs line cut; the rental section
  *            answers its question first ("Not by the week."), still in row 75's words (the 2020
@@ -66,11 +76,15 @@
  *            package: the items Pulte and the listings name), tax at the 2026 levies (rows 50 to
  *            52): "a little under $3,000".
  *   Flood:   rows 37, 55, 68.
- *   Rental:  row 75 (the 2020 plan: renters stay at least 30 days; the builder's 2 to 10 day
- *            visits for people thinking of buying). It is the plan, not the recorded rule, and
- *            the page says so; the recorded rules (rows 5 and 7) are not online.
- * Story:  an Example (Frank and Joyce): the agent reads the city's 2020 plan, finds the 30-day
- *         minimum before they sign, and gets the recorded HOA rules to check it (stories.json
+ *   Rental:  row 75 and the coordinator's decision under the ledger (2026-10-11): the page says
+ *            plainly "Renters here must stay at least 30 days." The 30 days is a condition of the
+ *            city's 2020 zoning approval; "at least" stays true if the recorded rule is stricter;
+ *            the offer below sends an agent to read the HOA documents before the contract. The
+ *            builder's 2 to 10 day visits for buyers stay out (a buyer cannot use them). The
+ *            source link stays on "at least 30 days" and in the sources line. Reopen if the
+ *            recorded covenants or the 2026 rules say otherwise.
+ * Story:  an Example (Frank and Joyce): the agent reads the renting rules with them before they
+ *         sign the builder's contract and finds the 30-day minimum (stories.json
  *         "hoa-rental-bans-filtered": the agents read the HOA documents for a rental plan).
  */
 const { h, maps, story, glance, photoSet, compareTable, atAGlance } = require("./_55-plus-kit.js");
@@ -87,14 +101,13 @@ const LAW = "https://www.law.cornell.edu/uscode/text/42/4012a";
 const LEVY = "https://www.horrycountysc.gov/media/kufln4qp/tax-levy-2026_2.pdf";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
-const ph = photoSet();
+const ph = photoSet({ aerialWidth: "760px" });
 const OVER = ph.aerial("del-webb-north-myrtle-beach-from-above-2026", "Del Webb North Myrtle Beach from above. The orange line is the edge of the neighborhood.");
 const STREET = ph.aerial("del-webb-north-myrtle-beach-homes-from-above-2026", "A street of homes in Del Webb North Myrtle Beach, with a pond and a walking path behind them.", { closeUp: true });
 const TOBEACH = ph.aerial("del-webb-north-myrtle-beach-to-the-beach-2026", "From the air: the beach, US 17 and Del Webb North Myrtle Beach.");
 const CLUB = ph.aerial("del-webb-north-myrtle-beach-clubhouse-from-above-2026", "The clubhouse, the outdoor pool and the courts, from above.", { closeUp: true });
 const UMBRELLAS = ph.aerial("north-myrtle-beach-beach-umbrellas", "Beach chairs and umbrellas on the beach in North Myrtle Beach.", { closeUp: true, alt: "Rows of beach chairs and blue, green and yellow umbrellas on the wide sand beach in North Myrtle Beach" });
 const PIER = ph.aerial("cherry-grove-pier-from-the-ocean", "The Cherry Grove Pier, seen from the ocean.", { closeUp: true });
-const MARSH = ph.aerial("cherry-grove-marsh-from-above-2026", "Cherry Grove from the air: the beach and part of the pier, canal homes and the salt marsh.", { closeUp: true });
 const M = maps("del-webb-north-myrtle-beach", [
   { id: "beach_dwnmb", name: "the beach at 14th Avenue South", short: "Beach", kind: "beach" },
   { id: "hosp_mcleod", name: "McLeod Health Seacoast", short: "Hospital", kind: "hospital" },
@@ -130,7 +143,7 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Del Webb North Myrtle Beach has about 400 homes built so far, and its builder is still selling new ones. At least one person in each household must be 55 or older.",
-    "Owners share a clubhouse with an indoor lap pool, an outdoor pool and a fitness center, plus courts for pickleball and bocce and walking trails.",
+    "Owners share a clubhouse with an indoor lap pool, an outdoor pool and a fitness center. There are also courts for pickleball and bocce, and walking trails.",
   ],
   sections: [
     { h2: "What are the homes like in Del Webb North Myrtle Beach?", toc: "The homes", html:
@@ -152,10 +165,10 @@ module.exports = {
       ph.cards([
         { illustration: "indoor-pool", label: "Indoor lap pool", text: "Swim laps all year" },
         { illustration: "outdoor-pool", label: "Outdoor pool", text: "With a beach-style walk-in entry" },
-        { illustration: "pickleball", label: "Pickleball and bocce", text: "Sports courts in the neighborhood" },
-        { illustration: "walking-path", label: "Walking trails", text: "Paths for a walk close to home" },
+        { illustration: "pickleball", label: "Pickleball and bocce", text: "Courts beside the clubhouse" },
+        { illustration: "walking-path", label: "Walking trails", text: "Paths through the neighborhood" },
       ], { cols: 4 }) +
-      h.p("The city's J. Bryan Floyd Community Center is about a minute away by car. On weekdays you can play indoor pickleball there for a few dollars a day. Behind it are outdoor pickleball courts that are free and always open.") +
+      h.p("The city's community center is about a minute away by car. On weekdays you can play indoor pickleball there for a few dollars a day. Behind it are outdoor pickleball courts that are free and always open.") +
       h.p("The center also has fitness classes, such as gentle yoga, that you pay for by the class. The city's recreation department runs trips for adults too, such as a monthly day trip around the Carolinas and bus tours.") },
 
     { h2: "Where is Del Webb North Myrtle Beach?", toc: "Where it is", html:
@@ -163,34 +176,32 @@ module.exports = {
       TOBEACH +
       h.p("In our experience, rush hour adds 5 to 10 minutes to the drive times on the map.") +
       M.where +
-      h.p("For an emergency, North Strand ER is closer, about 5 minutes by car. It is open day and night. The airport is about 35 minutes away by car.") },
+      h.p("For an emergency, the North Strand emergency room is closer than the hospital, about 5 minutes by car. It is open day and night. The airport is about 35 minutes away by car.") },
 
     { h2: "What is North Myrtle Beach like?", toc: "The town", html: (bg) =>
       h.p("North Myrtle Beach has a wide sand beach lined with beach houses. The city keeps hundreds of paths to the beach and dozens of public parking lots, so you can find a place near the sand.") +
       UMBRELLAS +
       atAGlance([
-        { icon: "dollar", label: "Beach parking", text: "Free early in the morning, in the evening and all winter. City residents register each year, and the car's license plate is the pass." },
+        { icon: "dollar", label: "Beach parking", text: "Free early in the morning, in the evening and all winter." },
         { icon: "golf-cart", label: "Golf carts", text: "Allowed with a state permit sticker, on roads of 35 mph or less, from sunrise to sunset." },
         { icon: "pets", label: "Dogs on the beach", text: "Always on a leash. From mid-May to Labor Day, no dogs on the beach from 10 a.m. to 4 p.m." },
       ], { bg, min: "18rem" }) +
-      h.p("To reach the nearest beach path, you would drive a short way along US 17. Golf carts may only cross US 17, so plan to take your car to the beach.") +
-      h.p("These places in town are a short drive away.") +
+      h.p("To reach the nearest beach path, you drive a short way along US 17. Golf carts may only cross US 17, so plan to take your car to the beach.") +
+      h.p("These places in town are close by car, nearest first.") +
       atAGlance([
-        { icon: "town", label: "Main Street", text: "Shops, places to eat and free concerts on summer Thursdays. About 7 minutes." },
-        { icon: "pond", label: "Cherry Grove Pier", text: "Walk out over the ocean or fish from it. About 15 minutes." },
-        { icon: "shopping", label: "Barefoot Landing", text: "Dozens of shops and restaurants by the Intracoastal Waterway. About 10 minutes." },
-        { icon: "pickleball", label: "Central Park", text: "A city park with a paved walking path and tennis and pickleball courts. About 2 minutes." },
+        { icon: "tennis", label: "Central Park", text: "A city park with a paved walking path and tennis courts. About 2 minutes." },
         { icon: "trail", label: "Ingram Dunes", text: "A city trail through an old seaside forest with tall dunes. About 4 minutes." },
+        { icon: "town", label: "Main Street", text: "Shops, places to eat and free concerts on summer Thursdays. About 7 minutes." },
+        { icon: "shopping", label: "Barefoot Landing", text: "Dozens of shops and restaurants by the Intracoastal Waterway. About 10 minutes." },
+        { icon: "pond", label: "Cherry Grove Pier", text: "Walk out over the ocean or fish from it. About 15 minutes." },
         { icon: "dock", label: "Heritage Shores", text: "City boardwalks and docks over the salt marsh. About 20 minutes." },
-      ], { bg, min: "13rem" }) +
+      ], { bg, min: "9rem" }) +
       h.p("The Cherry Grove Pier reaches far out into the ocean.") +
-      PIER +
-      h.p("Behind Cherry Grove is a wide salt marsh, with creeks winding through it.") +
-      MARSH },
+      PIER },
 
     { h2: "What does a home in Del Webb North Myrtle Beach cost?", toc: "Costs", html:
       h.p("In the last year, new homes from the builder usually sold for about $635,000. Homes resold by their owners sold for about $535,000.") +
-      h.p("The HOA fee is about $315 a month, and it includes lawn care, internet and a TV package.") +
+      h.p("The homeowners association (HOA) fee is about $315 a month, and it includes lawn care, internet and a TV package.") +
       h.p(`If you live in a new home at that price, the property tax is a little under $3,000 a year, city tax included. See ${h.a("/buyers/property-taxes/", "how a home you live in is taxed in North Myrtle Beach")}.`) },
 
     { h2: "Do you need flood insurance in Del Webb North Myrtle Beach?", toc: "Flood insurance", html: (bg) =>
@@ -202,7 +213,7 @@ module.exports = {
       compareTable(SELF) },
 
     { h2: "Can you rent out a home in Del Webb North Myrtle Beach?", toc: "Renting", html: (bg) =>
-      h.p(`Not by the week. Under ${h.ext(AGREEMENT, "the city's plan for this neighborhood")}, renters must stay at least 30 days.`) +
+      h.p(`Not by the week. Renters here must stay ${h.ext(AGREEMENT, "at least 30 days")}.`) +
       story([
         "<strong>Example:</strong> Frank and Joyce plan to spend summers near their son in Michigan. While they are away, they want to rent their new house to vacationers by the week.",
         "They pick out a new house in Del Webb North Myrtle Beach and are ready to sign the builder's contract. Before they sign, their Chapter3 agent reads the renting rules for the neighborhood with them.",

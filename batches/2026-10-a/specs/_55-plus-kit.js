@@ -218,7 +218,10 @@ const KIT_CSS = "<style>"
   + "ul[role=list][style*=\"minmax(13rem,1fr)\"]{grid-template-columns:repeat(auto-fill,minmax(min(13rem,100%),1fr))!important}"
   + "</style>";
 
-function photoSet() {
+/* o.aerialWidth (say "760px"): every aerial and photo placed with ph.aerial shows at this one
+   width on a wide screen, close views too (the v13c review: two widths on one page looked uneven). */
+function photoSet(o = {}) {
+  if (o.aerialWidth && !/^[0-9]+px$/.test(o.aerialWidth)) throw new Error("photoSet aerialWidth must be like 760px");
   const used = [];
   let heroRec = null, shareRec = null;
   const rec = (name) => {
@@ -233,7 +236,7 @@ function photoSet() {
     css() {
       if (cssDone) throw new Error("photo CSS emitted twice on one page");
       cssDone = true;
-      return P.photoCss() + KIT_CSS;
+      return P.photoCss() + KIT_CSS + (o.aerialWidth ? `<style>.c3-aerial .c3ph-hero,.c3-aerial-close .c3ph-hero{max-width:${o.aerialWidth}}</style>` : "");
     },
     hero(name, o = {}) {
       if (heroRec) throw new Error("one hero photo per page");
