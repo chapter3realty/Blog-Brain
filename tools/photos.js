@@ -173,6 +173,12 @@ const shortAuthor = (a) => String(a).replace(/\s*\([^)]*\)/g, "").trim() || Stri
 
 const EXT = 'target="_blank" rel="noopener noreferrer"';
 
+/* What Chapter3 did to a photo beyond resizing and cropping, from the record's "changes"
+   (an aerial with an outline and labels drawn on it: "Chapter3 Realty drew the outline and
+   the labels and adjusted the colors"). It is said in the credits row and in the file's
+   Instructions field, in place of "Resized by Chapter3 Realty from the original". */
+const changesOf = (rec) => String((rec && rec.changes) || "").trim().replace(/\.$/, "");
+
 /* The short credit on the photo: "Photo: Author", nothing else, and the words link to the
    license. The license name, the source and the note of changes are in creditsList. */
 function overlay(rec, kind) {
@@ -378,7 +384,8 @@ function creditsList(recs, opts = {}) {
     const src = rec.source || rec.commons_page;
     const where = srcName(rec) || new URL(src).hostname.replace(/^www\./, "");
     const lic = `<a href="${esc(rec.license_url)}" ${EXT}>${esc(licText(rec, kind))}</a>`;
-    return `<div role="listitem">${what}. Photo: ${esc(rec.author)}, ${lic}, via <a href="${esc(src)}" ${EXT}>${esc(where)}</a>.</div>`;
+    const chg = changesOf(rec) ? ` ${esc(changesOf(rec))}.` : "";
+    return `<div role="listitem">${what}. Photo: ${esc(rec.author)}, ${lic}, via <a href="${esc(src)}" ${EXT}>${esc(where)}</a>.${chg}</div>`;
   }).join("");
   const note = `<div role="listitem">Chapter3 Realty resized these photos and cropped some of them.${sa ? " Each photo keeps the license listed with it." : ""}</div>`;
   const id = esc(opts.id || "photo-credits");
@@ -483,7 +490,12 @@ const DST = "http://cv.iptc.org/newscodes/digitalsourcetype/";
    illustration  trainedAlgorithmicMedia ("Created using Generative AI"): the drawings in
                  illustrations.js were written as SVG code by Claude, a generative AI model.
                  A drawing a person makes takes "digital_source_type": "digitalCreation".
-   A record may set digital_source_type itself (an old photo scanned from a print: "print"). */
+   A record may set digital_source_type itself (an old photo scanned from a print: "print").
+   An aerial photo with an outline and labels drawn on it by code takes "composite" ("Mix or
+   composite of several elements"): the photo is a capture and the drawing is not, so
+   "compositeCapture" ("all captures of real life") would be wrong, and no generative AI
+   touched it, so "compositeWithTrainedAlgorithmicMedia" would be wrong too. Its "changes"
+   says what was drawn. */
 const DST_KIND = { photo: "digitalCapture", map: "dataDrivenMedia", illustration: "trainedAlgorithmicMedia" };
 const DST_TERMS = ["digitalCapture", "computationalCapture", "negativeFilm", "positiveFilm", "print", "humanEdits", "digitalCreation", "dataDrivenMedia",
   "trainedAlgorithmicMedia", "compositeWithTrainedAlgorithmicMedia", "compositeSynthetic", "composite", "compositeCapture", "algorithmicMedia", "algorithmicallyEnhanced", "screenCapture"];
@@ -504,7 +516,7 @@ function metaFor(rec, o = {}) {
   const dst = rec.digital_source_type || DST_KIND[rec.kind || (kind === "illustration" ? "illustration" : "photo")];
   if (!DST_TERMS.includes(dst)) throw new Error(`photos.js: ${label(rec)} digital_source_type "${dst}" is not an IPTC term`);
   const pl = rec.place || {};
-  const changed = o.adapted ? "Cropped and resized by Chapter3 Realty from the original" : "Resized by Chapter3 Realty from the original";
+  const changed = changesOf(rec) || (o.adapted ? "Cropped and resized by Chapter3 Realty from the original" : "Resized by Chapter3 Realty from the original");
   return {
     kind,
     creator: kind === "illustration" ? "Chapter3 Realty" : author,

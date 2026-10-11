@@ -48,6 +48,9 @@ const rec = (o = {}) => Object.assign({
   const ill = P.metaFor(rec({ license: "illustration", license_url: undefined, author: "Chapter3 Realty", credit: "Drawing: Chapter3 Realty", source: "tools/illustrations.js" }));
   check("metaFor: a drawing is by Chapter3 Realty, an Organization, made with generative AI", ill.creator === "Chapter3 Realty" && ill.creatorType === "Organization" && ill.dst === "trainedAlgorithmicMedia");
   check("metaFor: a map is dataDrivenMedia", P.metaFor(rec({ kind: "map" })).dst === "dataDrivenMedia");
+  const aerial = P.metaFor(rec({ digital_source_type: "composite", changes: "Chapter3 Realty drew the outline and the labels and adjusted the colors." }));
+  check("metaFor: an aerial with drawn labels is a composite and says what was drawn, not 'Resized'", aerial.dst === "composite" && /^Chapter3 Realty drew the outline and the labels and adjusted the colors\. License:/.test(aerial.note) && !/Resized/.test(aerial.note));
+  check("metaFor: a record with no changes keeps the resize note", /^Resized by Chapter3 Realty from the original\. License:/.test(m.note));
   check("metaFor: a made-up digital source type throws", throws(() => P.metaFor(rec({ digital_source_type: "camera" })), /not an IPTC term/));
   check("metaFor: a record with a one-word alt throws", throws(() => P.metaFor(rec({ alt: "Beach" })), /3 or more words/));
   check("metaFor: a photo on hold throws", throws(() => P.metaFor(rec({ hold: "brand sign" })), /on hold/));

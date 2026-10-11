@@ -150,6 +150,15 @@ check("credits: no date in the text ('2018', 'late November')", !/\b(?:19|20)\d\
 check("credits: CC0 photo is credited too", /The sun coming up over calm water\. Photo: Sam Roe, <a [^>]*>CC0<\/a>/.test(cr));
 check("credits: our own photo says Chapter3 Realty", /Photo: A\. Agent, Chapter3 Realty\./.test(cr));
 check("credits: the note of changes, and that a BY-SA photo keeps its license", /Chapter3 Realty resized these photos and cropped some of them\. Each photo keeps the license listed with it\./.test(cr));
+{
+  /* An aerial with an outline and labels drawn on it says so in its row (the batch 2026-10-a NAIP records). */
+  const naip = rec({ file: "images/t/aerial.webp", alt: "Del Webb at Grande Dunes from above, with its outline drawn on", author: "USDA Farm Service Agency, NAIP", license: "Public domain",
+    license_url: "https://www.fsa.usda.gov/help/policies-and-links/", source: "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer", source_name: "The National Map (USGS)",
+    credit: "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS)", changes: "Chapter3 Realty drew the outline and the labels and adjusted the colors." });
+  const c2 = P.creditsList([naip, cc0]);
+  check("credits: a record's changes are said in its own row", /Photo: USDA Farm Service Agency, NAIP, <a [^>]*>Public domain<\/a>, via <a [^>]*>The National Map \(USGS\)<\/a>\. Chapter3 Realty drew the outline and the labels and adjusted the colors\.<\/div>/.test(c2));
+  check("credits: a record with no changes has no changes sentence", !/drew the outline/.test(P.creditsList([cc0])) && (c2.match(/drew the outline/g) || []).length === 1);
+}
 check("credits: no BY-SA sentence when there is no BY-SA photo", !/keeps the license/.test(P.creditsList([cc0])));
 check("credits: links open safely in a new tab", !/<a (?![^>]*rel="noopener noreferrer")/.test(cr));
 check("credits: not read as body copy (no p or li)", !/<p[ >]|<li[ >]/.test(cr));
