@@ -1,0 +1,43 @@
+diff --git a/tools/mkpage.js b/tools/mkpage.js
+--- a/tools/mkpage.js
++++ b/tools/mkpage.js
+@@ -110,6 +110,24 @@
+     tim: { "@type": "Person", "@id": `${SITE}/about/#timmy-nash`, name: "Timothy Nash", alternateName: "Tim Nash", jobTitle: "Broker-in-Charge", url: `${SITE}/about/`, worksFor: { "@id": `${SITE}/#org` } },
+   };
+   const authorPerson = PEOPLE[spec.author], reviewerPerson = PEOPLE[spec.author === "tim" ? "devin" : "tim"];
++  /* Optional spec.pageImages: the page's own hero photo as ImageObjects in 1x1, 4x3 and 16x9
++     (Blog-Brain tools/photos.js pageImages), or a function that returns them, called here,
++     after the sections are built. Google, Article: "provide multiple high-resolution images
++     ... 16x9, 4x3, and 1x1". Google Images: avoid "an image with text in the schema.org
++     markup", which the share card is. They go in Article.image, and the 4x3 one in
++     WebPage.primaryImageOfPage. og:image and twitter:image keep the share card. */
++  const pageImages = typeof spec.pageImages === "function" ? spec.pageImages() : spec.pageImages;
++  if (pageImages !== undefined) {
++    if (!Array.isArray(pageImages) || !pageImages.length) throw new Error("pageImages must be a list of ImageObjects");
++    for (const im of pageImages) {
++      const u = im && (im.contentUrl || im.url);
++      if (!im || im["@type"] !== "ImageObject" || !String(u || "").startsWith(`${SITE}/`) || !(im.width * im.height >= 50000))
++        throw new Error(`pageImages: each entry is an ImageObject on ${SITE} with width and height (50,000 pixels or more): ${JSON.stringify(im).slice(0, 120)}`);
++    }
++  }
++  const primaryImage = pageImages
++    ? (({ "@type": t, contentUrl, url: u, width, height }) => ({ "@type": t, url: u || contentUrl, contentUrl: contentUrl || u, width, height }))(pageImages.find((im) => Math.abs(im.width / im.height - 4 / 3) < 0.01) || pageImages[0])
++    : { "@type": "ImageObject", url: ogImage, width: 1200, height: 630 };
+   const hub = spec.hub || { name: "Invest", url: "/invest/" };
+ 
+   /* ---- head identity ---- */
+@@ -136,12 +154,12 @@
+       { "@type": "ListItem", position: 3, name: spec.crumb, item: url }] }),
+     WebPage: ld({ "@context": "https://schema.org", "@type": "WebPage", author: { "@id": authorPerson["@id"] }, "@id": `${url}#webpage`, url, name: spec.ogTitle, description: spec.description,
+       isPartOf: { "@id": `${SITE}/#website` }, about: { "@id": `${SITE}/#org` },
+-      primaryImageOfPage: { "@type": "ImageObject", url: ogImage, width: 1200, height: 630 },
++      primaryImageOfPage: primaryImage,
+       dateModified: iso, datePublished: iso, inLanguage: "en-US", breadcrumb: { "@id": `${url}#breadcrumb` },
+       speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1"] }, mainEntity: { "@id": `${url}#article` } }),
+     Article: ld({ "@context": "https://schema.org", "@type": "Article", "@id": `${url}#article`, headline: spec.ogTitle, description: spec.description, url,
+       author: authorPerson, reviewedBy: reviewerPerson,
+-      publisher: { "@id": `${SITE}/#org` }, datePublished: iso, dateModified: iso, inLanguage: "en-US", image: ogImage,
++      publisher: { "@id": `${SITE}/#org` }, datePublished: iso, dateModified: iso, inLanguage: "en-US", image: pageImages || ogImage,
+       mainEntityOfPage: { "@id": url }, about: { "@type": "Thing", name: spec.about }, keywords: spec.keywords }),
+     FAQPage: ld({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: spec.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }),
+   };

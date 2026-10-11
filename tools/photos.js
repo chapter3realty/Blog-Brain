@@ -525,7 +525,8 @@ function embedMetadata(rec, file, o = {}) {
   if (![".webp", ".jpg", ".jpeg", ".png"].includes(ext)) throw new Error(`photos.js: embedMetadata takes WebP, JPG or PNG, not ${file}`);
   const loc = [["Sublocation", m.place.sublocation], ["City", m.place.city], ["ProvinceState", m.place.state], ["CountryName", m.place.country], ["CountryCode", m.place.code]]
     .filter(([, v]) => v).map(([k, v]) => `${k}=${sv(v)}`).join(",");
-  const args = ["-overwrite_original", "-m", "-q", "-XMP:all=", "-EXIF:all=",
+  /* No padding and no indent: the XMP packet is about 3 KB instead of 6 KB on every file. */
+  const args = ["-overwrite_original", "-m", "-q", "-api", "Compact=NoPadding,NoIndent", "-XMP:all=", "-EXIF:all=",
     `-XMP-dc:Creator=${m.creator}`,
     `-XMP-dc:Rights=${m.copyright}`,
     `-XMP-dc:Description=${m.description}`,

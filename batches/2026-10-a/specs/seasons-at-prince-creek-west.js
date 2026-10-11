@@ -78,6 +78,8 @@ module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
+  /* The hero photo in 1x1, 4x3 and 16x9 for Article.image (rules/image-metadata.md). */
+  pageImages: () => ph.pageImages(),
   title: "Seasons at Prince Creek West, Murrells Inlet 55+ | Chapter3",
   description: "What life is like in Seasons at Prince Creek West near Murrells Inlet: two pools, visits from grandchildren, the homes, the 55+ rule and the costs.",
   ogTitle: "Living in Seasons at Prince Creek West, Murrells Inlet: two pools, family visits and the 55+ rule",

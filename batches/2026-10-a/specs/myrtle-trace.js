@@ -73,6 +73,8 @@ module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
+  /* The hero photo in 1x1, 4x3 and 16x9 for Article.image (rules/image-metadata.md). */
+  pageImages: () => ph.pageImages(),
   title: "Living in Myrtle Trace, a 55+ Community in Conway | Chapter3",
   description: "What life is like in Myrtle Trace near Conway: a hospital minutes away, the pool, ponds and clubs, the homes, the 55+ rule and the costs.",
   ogTitle: "Living in Myrtle Trace, Conway: close to the hospital, with a pool, ponds and clubs",

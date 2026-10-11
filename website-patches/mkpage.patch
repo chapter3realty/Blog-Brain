@@ -1,5 +1,5 @@
 diff --git a/tools/mkpage.js b/tools/mkpage.js
-index 44fb96a..631733e 100644
+index 5e3b936..e57c268 100644
 --- a/tools/mkpage.js
 +++ b/tools/mkpage.js
 @@ -61,6 +61,13 @@ const h = {
@@ -16,10 +16,10 @@ index 44fb96a..631733e 100644
    /* Raw HTML pass-through for anything the helpers do not cover (a form). */
    raw: (html) => html,
  };
-@@ -91,6 +98,18 @@ function build(spec) {
-   let head = donor.slice(0, mainStart), tail = donor.slice(mainEnd);
- 
-   const url = SITE + spec.url, iso = spec.datePublished || todayISO(), shown = longDate(iso);
+@@ -96,6 +103,18 @@ function build(spec) {
+   const onDisk = path.join(ROOT, ...spec.url.split("/").filter(Boolean), "index.html");
+   const prevPub = fs.existsSync(onDisk) ? (fs.readFileSync(onDisk, "utf8").match(/"datePublished":\s*"(\d{4}-\d{2}-\d{2})"/) || [])[1] : null;
+   const url = SITE + spec.url, iso = spec.datePublished || prevPub || todayISO(), shown = longDate(iso);
 +  /* Share image: the page's own card from Blog-Brain tools/ogcard.js when it exists
 +     (og/<slug>.jpg), else the sitewide default. Google: "avoid using a generic image". */
 +  const ogSlug = spec.url.replace(/^\/|\/$/g, "").replace(/\//g, "-");
@@ -35,7 +35,7 @@ index 44fb96a..631733e 100644
    const hub = spec.hub || { name: "Invest", url: "/invest/" };
  
    /* ---- head identity ---- */
-@@ -103,6 +122,10 @@ function build(spec) {
+@@ -108,6 +127,10 @@ function build(spec) {
    rep(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${url}">`, "og:url");
    rep(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${esc(spec.ogTitle)}">`, "twitter:title");
    rep(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${esc(spec.description)}">`, "twitter:description");
@@ -46,7 +46,7 @@ index 44fb96a..631733e 100644
  
    /* ---- JSON-LD: rebuild the four page-identity blocks, keep the rest ---- */
    const ld = (o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`;
-@@ -111,14 +134,14 @@ function build(spec) {
+@@ -116,14 +139,14 @@ function build(spec) {
        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
        { "@type": "ListItem", position: 2, name: hub.name, item: `${SITE}${hub.url}` },
        { "@type": "ListItem", position: 3, name: spec.crumb, item: url }] }),
@@ -65,7 +65,7 @@ index 44fb96a..631733e 100644
        mainEntityOfPage: { "@id": url }, about: { "@type": "Thing", name: spec.about }, keywords: spec.keywords }),
      FAQPage: ld({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: spec.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }),
    };
-@@ -169,7 +192,7 @@ function build(spec) {
+@@ -174,7 +197,7 @@ function build(spec) {
      if (m1) throw new Error(`"${m1[0]}" - nothing maps a loan or a plan; say plan, list, or the literal action (owner rule 2026-09-07)`);
      const m2 = txt.match(/\bcarr(?:y|ies|ied|ying)\s+(?:a |an |the |its |their |your |his |her |our |new |two |three |both |that |this |each |every |own )*(?:loan|mortgage|payment|payments|cost|costs|debt|note|rest|house|property|premium|itself|themselves)\b|\bcarrying costs?\b/i);
      if (m2) throw new Error(`"${m2[0]}" - nothing carries a loan, a payment or a cost; say who pays what (owner rule 2026-09-07)`); }

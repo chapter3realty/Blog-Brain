@@ -150,7 +150,15 @@ function glance(items) {
  *   ph.hero(name, opts)      heroPhoto. opts: alt, caption.
  *   ph.gallery(items, opts)  gallery of 2 or 3: [{ name, alt, caption }].
  *   ph.cards(items, opts)    featureCards: [{ illustration | name, label, text, alt }].
- *   ph.credits()             creditsList of every photo shown.
+ *   ph.credits()             creditsList of every photo shown, then the JSON-LD for them: one
+ *                            schema.org ImageObject per photo, with the visible caption, the alt
+ *                            text, the creator, credit, copyright notice, license and source page
+ *                            (photos.js imageSchema; rules/image-metadata.md). Google and Bing read
+ *                            JSON-LD anywhere in the page, so it sits at the end of <main>.
+ *   ph.pageImages()          the hero's 1x1, 4x3 and 16x9 crops as ImageObjects, for the spec's
+ *                            pageImages field: mkpage puts them in Article.image and the 4x3 in
+ *                            WebPage.primaryImageOfPage (website patch mkpage-page-images.patch).
+ *                            Each spec sets  pageImages: () => ph.pageImages().
  */
 const KIT_CSS = "<style>"
   /* Cards are ivory; on an ivory section they take the second ivory, as h.cta does. */
@@ -170,6 +178,7 @@ const KIT_CSS = "<style>"
 
 function photoSet() {
   const used = [];
+  let heroRec = null;
   const rec = (name) => {
     if (NOT_USED.includes(String(name).replace(/\.webp$/, ""))) throw new Error(`photo ${name} is not used in this batch (see NOT_USED)`);
     const r = P.findPhoto(PHOTOS, name);
@@ -184,7 +193,11 @@ function photoSet() {
       cssDone = true;
       return P.photoCss() + KIT_CSS;
     },
-    hero(name, o = {}) { return P.heroPhoto(rec(name), { alt: o.alt, caption: o.caption, css: false }); },
+    hero(name, o = {}) {
+      if (heroRec) throw new Error("one hero photo per page");
+      heroRec = rec(name);
+      return P.heroPhoto(heroRec, { alt: o.alt, caption: o.caption, css: false });
+    },
     gallery(items, o = {}) {
       return P.gallery(items.map((it) => ({ photo: rec(it.name), alt: it.alt, caption: it.caption })), { css: false, label: o.label, ratio: o.ratio });
     },
@@ -193,7 +206,11 @@ function photoSet() {
     },
     credits() {
       if (!used.length) throw new Error("no photos shown, so no credits");
-      return P.creditsList(used, { css: false });
+      return P.creditsList(used, { css: false }) + P.imageSchema(used);
+    },
+    pageImages() {
+      if (!heroRec) throw new Error("no hero photo on this page, so no page images");
+      return P.pageImages(heroRec);
     },
     used: () => used.slice(),
   };

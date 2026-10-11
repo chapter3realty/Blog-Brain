@@ -85,6 +85,8 @@ module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
+  /* The hero photo in 1x1, 4x3 and 16x9 for Article.image (rules/image-metadata.md). */
+  pageImages: () => ph.pageImages(),
   title: "Living in Del Webb at Grande Dunes, Myrtle Beach | Chapter3",
   description: "What life is like in Del Webb at Grande Dunes, Myrtle Beach: the Ocean Club and its clubs, the houses and villas, the 55+ rule and the costs.",
   ogTitle: "Living in Del Webb at Grande Dunes: a beach club, clubs to join and a dock on the waterway",

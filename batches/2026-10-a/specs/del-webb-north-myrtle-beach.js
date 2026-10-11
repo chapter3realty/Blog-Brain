@@ -76,6 +76,8 @@ module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
   datePublished: "2026-10-05",
+  /* The hero photo in 1x1, 4x3 and 16x9 for Article.image (rules/image-metadata.md). */
+  pageImages: () => ph.pageImages(),
   title: "Living in Del Webb North Myrtle Beach (55+) | Chapter3",
   description: "What life is like in Del Webb North Myrtle Beach: new homes a mile from the beach, lawn care, the clubhouse and pools, the 55+ rule and the costs.",
   ogTitle: "Living in Del Webb North Myrtle Beach: new homes, lawn care and a clubhouse near the beach",
