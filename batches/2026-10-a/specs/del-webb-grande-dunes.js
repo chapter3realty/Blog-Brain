@@ -1,6 +1,14 @@
 /* /buyers/55-plus-communities/del-webb-grande-dunes/ - what it is like to live in
  * Del Webb at Grande Dunes, a 55+ neighborhood of houses and villas in Myrtle Beach.
  *
+ * Version 14b, 2026-10-11: the pros and cons rewritten in the expert's voice (the owner, BUYER-3: "according
+ *            to the records and so on when we are the experts"; CRAFT 5; lessons L21 and L34): no
+ *            attribution, no names the reader cannot picture, no method, about 15 words each. The rows
+ *            behind each item are the same as in version 14; no item claims more than its row.
+ *            The Ocean Club pro uses the page's own words ("Your HOA bill pays for your membership");
+ *            row 91 asks for attribution, and the page already states it plainly in two places.
+ *            Title: "and", not "&"; "HOA Fees" no longer fits in 62 characters with the full name,
+ *            so it stays in the description.
  * Version 14, 2026-10-11: the SEO gaps (coordinator). A pros and cons section after the comparison and
  *            before the grandchildren story, in the verifier's wording (PROS-CONS-candidates.md,
  *            "Verifier check"): pros P2 (rows 84 to 86: from the clubhouse, groceries and the beach
@@ -112,7 +120,7 @@ module.exports = {
      the day it is first built for the live site; build.js dates never moves it. */
   /* The overview aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
-  title: "Del Webb at Grande Dunes 55+: HOA Fees, Pros & Cons | Chapter3",
+  title: "Del Webb at Grande Dunes 55+: Pros and Cons | Chapter3",
   description: "Del Webb at Grande Dunes 55+ in Myrtle Beach: the pros and cons, HOA fees for houses and villas, the amenity center, the Ocean Club, and the lease and guest rules.",
   ogTitle: "Living in Del Webb at Grande Dunes: pools, pickleball, a beach club and a dock on the waterway",
   crumb: "Del Webb at Grande Dunes",
@@ -197,13 +205,13 @@ module.exports = {
     { h2: "What are the pros and cons of living in Del Webb at Grande Dunes?", toc: "Pros and cons", html: (bg) =>
       h.p("Del Webb at Grande Dunes is close to the beach, a grocery store and a hospital, and its rules limit leases, fences and sheds.") +
       prosCons([
-        "From the clubhouse, a grocery store and the beach are about 4 minutes away by car, and Grand Strand Medical Center is about 6 minutes.",
-        "The Grande Dunes master association says each Grande Dunes homeowner gets a household membership to the Grande Dunes Ocean Club.",
-        "The association's posted rules describe a day dock for owners and guests, dawn to dusk, with no overnight docking and no boat ramp.",
+        "Groceries and the beach are about 4 minutes away by car. The hospital is about 6.",
+        "Your HOA bill includes membership in the Grande Dunes Ocean Club, the beach club.",
+        "Owners can tie up a boat at the neighborhood's day dock during the day.",
       ], [
-        { text: "Under the recorded declaration, a lease must run at least 12 months, one time per year, or on other terms in the association's rules." },
-        { text: "The association's posted rules require yard fences to be 4-foot black aluminum and approved first, and bar sheds and dog runs.", act: "Ask an agent to read the rules with you before you make an offer." },
-        { text: "The beach club is a drive. The Grande Dunes Ocean Club is about 8 minutes by car from the clubhouse." },
+        { text: "Leases must be at least a year long." },
+        { text: "Yard fences must be short black metal and approved first. Sheds and dog runs are not allowed.", act: "Ask an agent to read the rules with you before you make an offer." },
+        { text: "The Ocean Club is a short drive, about 8 minutes, not a walk." },
       ], { bg }) },
 
     { h2: "How long can grandchildren stay in Del Webb at Grande Dunes?", toc: "Grandchildren's stays", html: (bg) =>

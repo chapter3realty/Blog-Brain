@@ -1,6 +1,10 @@
 /* /buyers/55-plus-communities/del-webb-north-myrtle-beach/ - what it is like to live
  * in Del Webb North Myrtle Beach, a newer 55+ neighborhood in North Myrtle Beach.
  *
+ * Version 14b, 2026-10-11: the pros and cons rewritten in the expert's voice (the owner, BUYER-3: "according
+ *            to the records and so on when we are the experts"; CRAFT 5; lessons L21 and L34): no
+ *            attribution, no names the reader cannot picture, no method, about 15 words each. The rows
+ *            behind each item are the same as in version 14; no item claims more than its row.
  * Version 14, 2026-10-11: the SEO gaps (coordinator). A pros and cons section after the comparison and
  *            before the renting story, in the verifier's wording (PROS-CONS-candidates.md, "Verifier
  *            check"): pros P1 (rows 41, 62: from the HOA office, the nearest city beach parking lot),
@@ -227,13 +231,13 @@ module.exports = {
     { h2: "What are the pros and cons of living in Del Webb North Myrtle Beach?", toc: "Pros and cons", html: (bg) =>
       h.p("Del Webb North Myrtle Beach has new homes about a mile from the ocean, and the builder is still building.") +
       prosCons([
-        "From the HOA office, the nearest city beach parking lot is about 1 mile, about 4 minutes by car.",
-        "Listings show detached houses built since 2022. Pulte says its structural warranty is transferable.",
-        "A city-run community center with indoor pickleball is about a quarter mile from the HOA office in a straight line.",
+        "The beach is about 4 minutes away by car.",
+        "The homes are new, built since 2022, with a structure warranty a later owner keeps.",
+        "The city's community center, with indoor pickleball, is about a minute away by car.",
       ], [
-        { text: "Pulte is still building and selling new homes here.", act: "Ask which streets are finished before you choose a lot." },
-        { text: "US 17 lies between the homes and the beach. The city says a golf cart may cross the highway but may not drive along it." },
-        { text: "The airport is about 35 minutes from the HOA office by car." },
+        { text: "The builder is still building here.", act: "Ask which streets are finished before you choose a lot." },
+        { text: "Golf carts may cross US 17 but not drive along it.", act: "Plan to take your car to the beach." },
+        { text: "The airport is about 35 minutes away by car." },
       ], { bg }) },
 
     { h2: "Can you rent out a home in Del Webb North Myrtle Beach?", toc: "Renting", html: (bg) =>

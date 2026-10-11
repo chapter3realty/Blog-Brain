@@ -1,4 +1,4 @@
-Upload package for batch 2026-10-a. Built 2026-10-11 from Blog-Brain 4dc9ebf (with uncommitted changes to its sources) against the live branch at 54703db.
+Upload package for batch 2026-10-a. Built 2026-10-11 from Blog-Brain d77fd98 (with uncommitted changes to its sources) against the live branch at 54703db.
 size  sha256  path
 263141  23c85e4c51f29d00a84687fbe1759d490a04853354c804f55ec43653ef213ec5  batch-2026-10-a.patch
 147332  2cbbc170a72ec2c5ed4ded7668293502c328d1299a93818814d8d2f85bc8960a  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above-1200w.webp
@@ -54,10 +54,10 @@ size  sha256  path
 22356  906bfbc455364d05ad59544b7caec08fda002a4e7d9d65f3de4753113f4ba3bd  site/data/places.json
 26343  60106ef4317ebb1dfdd844994f9301d6d3151a26113d9b169e683054299ac61a  site/specs/_55-plus-kit.js
 3411  da4cc24577a0af333ec828134730b20b09618385425fa02dc91caac034d9ae2a  site/specs/_story-check.js
-20831  0415601c70c9dbc64fdeee0e3d482a25aa82b38e36763e24f554f0ed509328a2  site/specs/del-webb-grande-dunes.js
-23420  183402b2f483df4ee37a9eb91e03d626120cb077914bd785b4bb1f3dbf8b03ae  site/specs/del-webb-north-myrtle-beach.js
-18334  e2dab86140872e229431357770eed4ac4387ecb7a4e4b0e5d87511c6bf1b7180  site/specs/myrtle-trace.js
-18605  3591c72648ea04c2988a6483469ba8029a8baa5dbd50d86c412ae03adca5ac59  site/specs/seasons-at-prince-creek-west.js
+21249  56e19d5cb0368c2882dc6999640f9777775f89bff488dedf017505b9d30aacf0  site/specs/del-webb-grande-dunes.js
+23671  d6255ac6e783f63fd5df1484945ebc57126807bf54061de8cab7104ad17e16e6  site/specs/del-webb-north-myrtle-beach.js
+18524  f0b2586ea97c831e0b43808edbe68ae27fa4a92a87bc83e5aa634696e72533bd  site/specs/myrtle-trace.js
+18702  0e9a18001970ba3eba3ac20d90ba3da876841ab455e7f420b0e530d71db9de7f  site/specs/seasons-at-prince-creek-west.js
 125672  1bcb55fc43ce10d3cf83a11ce133aec0f560d0f730a81936b215fb01a1175645  site/tools/blog-brain/tools/area-map.js
 223955  1c8acdd4d2ae811b578a9d57ef6de5a2791ac4505e2b31ce73f4215b22dfcc9e  site/tools/blog-brain/tools/geo/grand-strand-v2.json
 11334  b1b7aef0cc78648c818a682f24981e027ec4641a12d70c5cb717ee3b3a170d54  site/tools/blog-brain/tools/geo/grand-strand.json

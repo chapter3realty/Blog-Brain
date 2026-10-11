@@ -1,6 +1,10 @@
 /* /buyers/55-plus-communities/myrtle-trace/ - what it is like to live in Myrtle Trace,
  * a 55+ neighborhood just outside Conway.
  *
+ * Version 14b, 2026-10-11: the pros and cons rewritten in the expert's voice (the owner, BUYER-3: "according
+ *            to the records and so on when we are the experts"; CRAFT 5; lessons L21 and L34): no
+ *            attribution, no names the reader cannot picture, no method, about 15 words each. The rows
+ *            behind each item are the same as in version 14; no item claims more than its row.
  * Version 14, 2026-10-11: the SEO gaps (coordinator). A pros and cons section after the comparison and
  *            before the fence story, in the verifier's wording (PROS-CONS-candidates.md, "Verifier
  *            check"): pros P1 (rows 30, 34: $95 a month; the HOA says dues pay for the maintenance and
@@ -169,14 +173,14 @@ module.exports = {
     { h2: "What are the pros and cons of living in Myrtle Trace?", toc: "Pros and cons", html: (bg) =>
       h.p("Myrtle Trace is minutes from the hospital and has a $95 HOA fee, and its owners keep up their own homes and yards.") +
       prosCons([
-        "HOA dues are $95 a month. The HOA says dues pay for the maintenance and improvement of the pool, clubhouse, gate, roads, common areas and lakes.",
-        "From the HOA's address, the hospital is about 3 minutes away by car, and so is a Walmart Supercenter.",
-        "The HOA's calendar has standing committees for bingo and game nights, and events such as a Labor Day picnic and a craft fair.",
+        "Dues are $95 a month and keep up the pool, clubhouse, gates, roads and ponds.",
+        "The hospital and a Walmart Supercenter are each about 3 minutes away by car.",
+        "Bingo, game nights, a Labor Day picnic and a craft fair are on the calendar.",
       ], [
-        { text: "The beach is a drive, about 15 minutes from the HOA's address." },
-        { text: "Most homes in the listings were built from 1984 to 1998.", act: "Ask how old the roof is before you make an offer." },
-        { text: "The HOA says there are no sidewalks." },
-        { text: "The HOA's rules say each owner keeps up the lot and the home, including the roof, the outside and the grass." },
+        { text: "The beach is about 15 minutes away by car." },
+        { text: "Most homes were built in the 1980s and 1990s.", act: "Ask how old the roof is before you make an offer." },
+        { text: "There are no sidewalks." },
+        { text: "Owners keep up their own house and yard, including the roof and the grass." },
       ], { bg }) },
 
     { h2: "Can you fence a yard in Myrtle Trace?", toc: "Fences", html: (bg) =>

@@ -212,6 +212,22 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   quiet("roof grant recipients and plates", gold({ body: "<p>Grantees of the roof program report premium cuts. The platform shows a license plate.</p>" }), "plain-words");
   check("plain-words: an investor page may say DSCR", credit(gold({ body: "<p>A DSCR loan qualifies on the property's rent.</p>" }).replace("/hoa/special-assessments/", "/invest/dscr/"), "plain-words").credit === 1);
 
+  /* P9 plain voice. Firing text: the version 14 pros and cons of batch 2026-10-a, which pasted the verifier's
+     hedges (the owner, BUYER-3: "according to the records and so on when we are the experts"). Quiet text:
+     the sources line, a heading, the owner's required loan wording (PLAYBOOK A17), and the two live false
+     positives of the first draft (/hoa/estoppel-and-transfer-fees/, /invest/strategies/dst/). */
+  fires("\"Listings show\" and \"Pulte says\"", gold({ body: "<ul><li>Listings show detached houses built from 2022 to 2026. Pulte says its 10-year structural warranty is transferable.</li></ul>" }), "plain-voice");
+  fires("\"Under the recorded declaration\"", gold({ body: "<ul><li>Under the recorded declaration, a lease must run at least 12 months, one time per year, or on other terms in the association's rules.</li></ul>" }), "plain-voice");
+  fires("\"posted rules describe\"", gold({ body: "<ul><li>The association's posted rules describe a day dock for owners and guests, dawn to dusk, with no overnight docking and no boat ramp.</li></ul>" }), "plain-voice");
+  fires("\"The HOA says\"", gold({ body: "<ul><li>The HOA says there are no sidewalks.</li></ul>" }), "plain-voice");
+  fires("\"per Redfin\" (live /submarkets/north-myrtle-beach/)", gold({ body: "<p>Recent single-family medians are about $418,000 per Redfin's mid-2026 snapshot.</p>" }), "plain-voice");
+  quiet("the plain version", gold({ body: "<ul><li>There are no sidewalks.</li><li>Leases must be at least a year long.</li></ul>" }), "plain-voice");
+  quiet("the sources line", gold({ body: "<p>Sources: Pulte community page, Horry County deed records. The HOA fee and home sizes are from recent home listings, and listings show the build years.</p>" }), "plain-voice");
+  quiet("a heading", gold({ body: "<h2>What the rules say</h2><p>Fences must be short black metal and approved first.</p>" }), "plain-voice");
+  quiet("the owner's loan wording", gold({ body: "<p>Closing costs run about 2 to 5 percent of the loan, according to a loan officer at our preferred lender.</p>" }), "plain-voice");
+  quiet("what the HOA says is owed (live)", gold({ body: "<ul><li>Anything else the HOA says is owed. On the same statement, not in a side email.</li></ul>" }), "plain-voice");
+  quiet("a person quoted on the page (live)", gold({ body: "<p>As Scott says above: talk to a financial professional before implementing one.</p>" }), "plain-voice");
+
   /* P7 pictures and P8 map. A long page (800+ words) with one chart. */
   const longBody = `<p>${"Owners pay the bill in installments. ".repeat(140)}</p>`;
   const fig = '<figure><img src="/x.jpg" alt="The clubhouse pool at Myrtle Trace"><figcaption>The clubhouse pool</figcaption></figure>';
@@ -304,7 +320,7 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
 
 /* Every rule id appears in at least one mutation, so no rule is untested. */
 const tested = new Set(mutations.map(m => m[0]).concat(["visual-rhythm", "verdict", "exact-amounts", "number-density", "date-mentions",
-  "price-headline", "deflection", "plain-words", "pictures", "place-map", "open-answers", "toc", "icon-labels", "story-simple"]));
+  "price-headline", "deflection", "plain-words", "plain-voice", "pictures", "place-map", "open-answers", "toc", "icon-labels", "story-simple"]));
 for (const r of RULES) check(`rule ${r.id} has a control`, tested.has(r.id));
 
 /* Every rule maps to a STANDARD.md id. */

@@ -1,6 +1,10 @@
 /* /buyers/55-plus-communities/seasons-at-prince-creek-west/ - what it is like to live
  * in Seasons at Prince Creek West, a 55+ neighborhood near Murrells Inlet.
  *
+ * Version 14b, 2026-10-11: the pros and cons rewritten in the expert's voice (the owner, BUYER-3: "according
+ *            to the records and so on when we are the experts"; CRAFT 5; lessons L21 and L34): no
+ *            attribution, no names the reader cannot picture, no method, about 15 words each. The rows
+ *            behind each item are the same as in version 14; no item claims more than its row.
  * Version 14, 2026-10-11: the SEO gaps (coordinator). A pros and cons section after the comparison and
  *            before the flood story, in the verifier's wording (PROS-CONS-candidates.md, "Verifier
  *            check"): pros P1 (rows 92, 93: a gate at the main entrance on TPC Boulevard, with a call box
@@ -178,13 +182,13 @@ module.exports = {
     { h2: "What are the pros and cons of living in Seasons at Prince Creek West?", toc: "Pros and cons", html: (bg) =>
       h.p("Seasons at Prince Creek West has a gate, two pools and stores close by, and the beach is a drive.") +
       prosCons([
-        "There is a gate at the main entrance on TPC Boulevard, with a call box for visitors.",
-        "From the clubhouse, Publix is about 5 minutes away by car and the hospital about 8.",
-        "The Murrells Inlet MarshWalk is about 10 minutes from the clubhouse by car.",
+        "There is a gate at the main entrance, with a call box for visitors.",
+        "Publix and the hospital are each less than 10 minutes away by car.",
+        "The Murrells Inlet MarshWalk is about 10 minutes away by car.",
       ], [
-        { text: "The beach is a drive. The nearest public beach access by road is the county's Atlantic Avenue boardwalk access in Garden City, which lists no parking.", act: "Plan where to park before you go." },
-        { text: "The association's posted rules bar parking vehicles on the streets and list golf carts among vehicles allowed only in enclosed garages." },
-        { text: "Under the association's posted rules, the road and park association charges a transfer fee of 0.25 percent of the price, capped at an amount the declaration adjusts.", act: "Ask for the resale certificate." },
+        { text: "The beach is a drive, not a walk. The nearest beach access is in Garden City." },
+        { text: "Golf carts must be parked in the garage, not on the street." },
+        { text: "When you buy, there is a transfer fee of a quarter of one percent of the price, up to a cap.", act: "Ask for the resale certificate." },
       ], { bg }) },
 
     { h2: "Will a Seasons lot need flood insurance?", toc: "Flood insurance", html: (bg) =>

@@ -573,6 +573,31 @@ rule("plain-words", "Human", 2, "No industry terms from rules/plain-words.json i
   return part(Math.max(0, 1 - terms.length / 4), `${x.length} uses of ${terms.length} terms: ${terms.slice(0, 5).map(t => `"${t}" (say: ${x.find(h => h.term === t).plain})`).join("; ")}`);
 });
 
+/* P9 plain voice. The owner, 2026-10-06 (BUYER-3): "i think you present a lot of stuff a little too formally
+   such as according to the records and so on when we are the experts". A verifier's wording limits what a page
+   claims, never how it says it (CRAFT 5, lessons L21 and L34). Body copy only: the sources line, which carries
+   the sources, and the headings are not checked. The one attribution the owner requires is exempt: a loan fact
+   said "according to a loan officer at our preferred lender" (PLAYBOOK A17). */
+const ATTRIBUTION_RE = new RegExp([
+  "\\b(?:listings|records|deeds|county records) show\\b",
+  "\\baccording to\\b(?! (?:a|our) loan officer)",
+  "\\bthe (?:HOA|builder|association|developer|city|county|management company|seller)(?:'s rules)? says\\b(?! (?:is|are|was|were)\\b)",
+  "\\bunder the recorded\\b",
+  "\\bposted rules (?:describe|say|set|require|put|list)\\b",
+].join("|"), "gi");
+/* Case matters here: a company or agency by name ("Pulte says", "per FEMA"), not "it says" or "per year".
+   A word that starts a sentence is capitalized too, so a pronoun or "The" is excluded. Not counted: "the HOA
+   says" (the pattern above has it), "what the HOA says is owed" (a claim the reader checks, not a source),
+   and "As Scott says above" (a person quoted on the page, which PLAYBOOK A20 asks for). Both were live
+   false positives on 2026-10-11 (/hoa/estoppel-and-transfer-fees/, /invest/strategies/dst/). */
+const NAME_SAYS_RE = /(?<![Tt]he |\b[Aa]s )\b(?!(?:As|It|He|She|They|This|That|The|Each|Every|One|Which|What|Who)\b)[A-Z][A-Za-z]+(?: [A-Z][A-Za-z]+)* says\b(?! (?:is|are|was|were)\b)|\bper [A-Z][A-Za-z]+/g;
+rule("plain-voice", "Human", 2, "Plain voice: no attribution in the body (\"listings show\", \"according to\", \"the HOA says\"); the sources line carries the sources", (p, f) => {
+  const hits = [];
+  for (const t of f.plain.prose) for (const re of [ATTRIBUTION_RE, NAME_SAYS_RE]) for (const m of t.matchAll(re)) hits.push(m[0]);
+  if (!hits.length) return pass("none");
+  return part(Math.max(0, 1 - hits.length / 4), `${hits.length} attribution${hits.length > 1 ? "s" : ""} in the body: ${[...new Set(hits)].slice(0, 5).map(h => `"${h}"`).join(", ")}; state it as the expert and leave the source to the sources line`);
+});
+
 rule("pictures", "Human", 2, "800+ words of prose have 2+ pictures (figure, image or labelled chart)", (p, f) => {
   if (f.words < 800) return na(`${f.words} words`);
   const n = f.plain.pictures;
@@ -666,7 +691,7 @@ const STD = {
   "primary-sources": "A9", "local-entities": "A10",
   "sentence-length": "H1", paragraphs: "H2", "visual-rhythm": "H3", image: "H4", ctas: "H5", residue: "H9",
   byline: "T1", experience: "T2", "sources-line": "T3", fresh: "T4",
-  "exact-amounts": "P1", "number-density": "P2", "date-mentions": "P3", "price-headline": "P4", deflection: "P5", "plain-words": "P6",
+  "exact-amounts": "P1", "number-density": "P2", "date-mentions": "P3", "price-headline": "P4", deflection: "P5", "plain-words": "P6", "plain-voice": "P9",
   pictures: "P7", "place-map": "P8",
   "open-answers": "A13", toc: "H14", "icon-labels": "H15", "story-simple": "T8",
 };
