@@ -197,6 +197,8 @@ The owner deploys. After the deploy:
 - Run `indexnow.ps1`.
 - Request indexing for the new URLs in Search Console.
 
+This session cannot push to the website repo, so a batch ships as an upload package. See "Uploading a batch" below.
+
 ### 10. Follow-up
 
 | When | What |
@@ -204,6 +206,22 @@ The owner deploys. After the deploy:
 | Day 7 | Check the URL is indexed in Search Console. |
 | Day 30 | Look at the queries it gets impressions for. Add any missing sub-question as an H2 or an FAQ entry. |
 | Every 90 days | Re-check the volatile facts on the page (T4). Run `node tools/facts-check.js --stale` and fix every entry it lists. |
+
+## Uploading a batch
+
+A batch reaches the site as one package that the owner, or the website's AI, applies on a clean copy of the live branch. One command builds it from the current Blog-Brain files and tests it:
+
+```
+node tools/package-batch.js batches/<batch> --site <clean clone of the live branch>
+```
+
+- What goes in is listed in `batches/<batch>/upload.json`: the website patches in order, the patches on hold, the batch diffs (hub and other pages), the specs, the data files, the photos, and the Blog-Brain tools the specs load.
+- It writes `batches/<batch>/upload/`: `site/` (files to copy in), one patch for the files the site already has, `MANIFEST.txt`, `README-UPLOAD.md` (PowerShell and bash commands, and the test results) and `CHECKLIST-AFTER-DEPLOY.md`.
+- The sitemap and llms.txt entries are made from the built pages, so they always match the specs. Only the photos the pages use are shipped.
+- It then tests the package on a second fresh clone, exactly as the README says: apply, mkpage each spec, `build.js rehash`, `dates`, `llmsfull`, `check`, `audit`, a local commit and `preflight`, then `score.js` on each page and `claims-scan.js`, `facts-check.js` and `site-audit.js` against the live branch. It checks that the hub agrees with the batch's data file (one fact, one value). It exits 1 if anything fails.
+- It never changes the clone it is given, never pushes and never deploys.
+
+Rebuild the package whenever a spec, a data file, a photo or a batch diff changes, and commit the new `upload/` folder. Never edit the package by hand. If `git apply --check` fails for the owner, the live branch has moved: rebuild on a fresh clone.
 
 ## Lane U: upgrade an existing page
 

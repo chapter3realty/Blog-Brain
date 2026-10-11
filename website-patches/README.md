@@ -74,6 +74,8 @@ git apply <blog-brain>/website-patches/mkpage-page-images.patch
 
 ## Order
 
+For a batch, use the upload package instead of these steps: `node tools/package-batch.js batches/<batch> --site <clone>` applies these patches in this order, adds the batch, tests it and writes the commands (WORKFLOW, "Uploading a batch").
+
 Apply in this order, on a clean copy of the live branch:
 
 ```
@@ -192,6 +194,8 @@ Pages without either field are unchanged.
 ## `logo-chapter-iii.patch`: on hold
 
 The owner will supply the logo (2026-10-05). This text-only version, "Chapter" plus a copper "III", is kept for reference and should not be applied.
+
+On 2026-10-11 it no longer applies to the live branch at 54703db (`partials/footer.html` changed). When the logo arrives, make the patch again on a fresh clone.
 
 ## `speed.patch` and `contrast.patch`
 

@@ -69,7 +69,7 @@ Maps and drawings on the page:
 
 - `og:image` and `twitter:image` are still the text card from `tools/ogcard.js`. Rule 5 says to avoid an image with text there too. Switching them to the 16x9 hero crop also means changing `og:image:width` and `og:image:height`, which mkpage copies from the donor page. The owner should decide, because the card is what Facebook and LinkedIn show.
 - No C2PA records. Google shows them only when they are signed with a certificate on the C2PA Trust List (rule 9).
-- The image sitemap entries are in `batches/2026-10-a/image-sitemap.diff`, not applied. The photos are already found through their `<img>` tags; the crops appear only in the schema, which is the case rule 12 describes.
+- The image sitemap entries are made by `tools/package-batch.js` from the built pages (each photo at its largest width, then the hero crops) and go in the upload package's patch. The photos are also found through their `<img>` tags; the crops appear only in the schema, which is the case rule 12 describes.
 - A map over 60 KB becomes an `<img>` of an `.svg` file. exiftool cannot write into SVG, so such a map would carry its alt text but no file metadata. None of the four 55+ maps is over 60 KB.
 - The older pages have no licensed photos yet. `node tools/image-meta.js <site>/chapter3realty --all` lists them: the team photos have no metadata or schema, and several pages have decorative icons that are not `aria-hidden`.
 

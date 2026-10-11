@@ -1,0 +1,5 @@
+# Keep upload packages and patches byte for byte on Windows clones (core.autocrlf=true
+# would turn LF into CRLF, and git apply then refuses the patch).
+batches/*/upload/** -text
+website-patches/*.patch -text
+batches/*/*.diff -text

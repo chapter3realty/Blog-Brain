@@ -198,6 +198,13 @@ const copies = [];
 for (const f of walk(path.join(BATCH, M.specs))) if (f.endsWith(".js")) copies.push([path.join(BATCH, M.specs, f), `specs/${f}`]);
 for (const f of walk(path.join(BATCH, M.data))) copies.push([path.join(BATCH, M.data, f), `data/${f}`]);
 for (const f of M.blogBrainTools.files) copies.push([path.join(BB, f), `${M.blogBrainTools.to}/${f}`]);
+/* Blog-Brain files the specs load under another name (copyAs), always from the current Blog-Brain.
+   They replace a file of the same name in the batch folder. */
+for (const c of M.copyAs || []) {
+  const i = copies.findIndex(([, to]) => to === c.to);
+  if (i >= 0) copies.splice(i, 1);
+  copies.push([path.join(BB, c.from), c.to]);
+}
 for (const [from, to] of copies) copyFile(from, path.join(A, to));
 for (const f of walk(path.join(BATCH, M.images.from))) copyFile(path.join(BATCH, M.images.from, f), path.join(A, M.images.to, f));
 
@@ -241,6 +248,24 @@ for (const f of extra) shipped.push(f);
 try { addListings(A, report.pages); step("sitemap.xml and llms.txt entries made from the built pages", true); }
 catch (e) { step("sitemap.xml and llms.txt entries", false, e.message); }
 
+/* One fact, one value: each dollar figure in a data row must be in the hub row that links to that page. */
+if (M.agree) {
+  const rows = JSON.parse(fs.readFileSync(path.join(A, M.agree.data), "utf8")).rows || [];
+  const hub = fs.readFileSync(pageFile(A, M.agree.page), "utf8");
+  const lines = [];
+  let ok = rows.length > 0;
+  for (const r of rows) {
+    const tr = (hub.match(new RegExp(`<tr>(?:(?!</tr>)[\\s\\S])*href="${r.url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"(?:(?!</tr>)[\\s\\S])*</tr>`)) || [""])[0];
+    const want = r.cells.join(" ").match(/\$[\d,]+/g) || [];
+    const text = tr.replace(/<[^>]+>/g, " ");
+    const absent = want.filter((v) => !text.split(v).slice(1).some((after) => !/^(?:\d|,\d)/.test(after)));
+    if (!tr || absent.length) ok = false;
+    lines.push(`${r.cells[0]}: ${!tr ? `no row in ${M.agree.page} links to ${r.url}` : absent.length ? `missing on the hub: ${absent.join(", ")} (data: ${want.join(", ")})` : `hub row has ${want.join(", ")}`}`);
+  }
+  report.tests.push({ name: `${M.agree.page} agrees with ${M.agree.data} (every dollar figure in each row)`, ok, out: lines.join("\n") });
+  step(`${M.agree.page} agrees with ${M.agree.data}`, ok, ok ? "" : lines.join("\n"));
+}
+
 /* The patch: every change to a file the site already tracks. New files ship as files. */
 const patch = git(A, "diff", "--binary") + "\n";
 const touched = git(A, "diff", "--name-only").split("\n").filter(Boolean);
@@ -268,6 +293,10 @@ T(`git apply --check ${PATCH_NAME}`, run("git", ["apply", "--check", path.join(O
 for (const f of walk(path.join(OUT, "site"))) copyFile(path.join(OUT, "site", f), path.join(B, f));
 T(`git apply ${PATCH_NAME}`, run("git", ["apply", path.join(OUT, PATCH_NAME)], B));
 for (const pg of M.pages) T(`node tools/mkpage.js specs/${pg.spec}`, run(process.execPath, ["tools/mkpage.js", `specs/${pg.spec}`], B, buildEnv), undefined, 2);
+for (const c of M.copyAs || []) {
+  const sameFile = fs.readFileSync(path.join(B, c.to)).equals(fs.readFileSync(path.join(BB, c.from)));
+  T(`${c.to} in the package is Blog-Brain ${c.from}, as it is today`, { code: sameFile ? 0 : 1, out: sameFile ? `identical (sha256 ${sha256(path.join(B, c.to)).slice(0, 12)})` : "different" });
+}
 const same = report.pages.every((p) => fs.existsSync(pageFile(B, p.url)) && fs.readFileSync(pageFile(B, p.url), "utf8") === p.html);
 T("the pages built from the package match the first build byte for byte", { code: same ? 0 : 1, out: same ? "identical" : "different" });
 T("node build.js rehash", run(process.execPath, ["build.js", "rehash"], B), undefined, 6);
@@ -363,7 +392,13 @@ fs.writeFileSync(path.join(OUT, "MANIFEST.txt"),
   `Upload package for batch ${M.batch}. Built ${TODAY} from Blog-Brain ${bbHead()} against the live branch at ${liveHead}.\nsize  sha256  path\n` +
   manifestFiles.map((f) => `${sizeOf(f)}  ${sha256(path.join(OUT, f))}  ${f}`).join("\n") + "\n");
 
-function bbHead() { try { return git(BB, "rev-parse", "--short", "HEAD") + (git(BB, "status", "--porcelain") ? " (with uncommitted changes)" : ""); } catch { return "(unknown)"; } }
+/* The Blog-Brain commit, and whether any file the package is made from differs from it. */
+function bbHead() {
+  const used = [M.specs, M.data, M.images.from, ...M.batchDiffs, "upload.json"].map((f) => path.join(BATCH, f))
+    .concat(M.blogBrainTools.files.map((f) => path.join(BB, f)), (M.copyAs || []).map((c) => path.join(BB, c.from)), path.join(BB, "website-patches"))
+    .map((f) => path.relative(BB, f));
+  try { return git(BB, "rev-parse", "--short", "HEAD") + (git(BB, "status", "--porcelain", "--", ...used) ? " (with uncommitted changes to its sources)" : ""); } catch { return "(unknown)"; }
+}
 
 const passed = !failures.length;
 const specCmds = M.pages.map((p) => `node tools/mkpage.js specs/${p.spec}`);
@@ -387,19 +422,14 @@ ${pageList}
 
 It also changes pages the site already has:
 
-- \`/buyers/55-plus-communities/\` (the hub): links to the four pages, and its figures for the four communities now match the pages (prices, HOA fees, home counts). The gate claims for Seasons at Prince Creek West and Del Webb at Grande Dunes are gone; no 2026 source confirms either gate.
-- \`/buyers/retirees/\` and \`/buyers/golf-communities/\`: the same gate claims, removed. The Blackmoor story on the golf page now says only what the story bank records.
-- \`sitemap.xml\`: the four pages, with their photos (Google image sitemap).
-- \`llms.txt\`: the four pages, with their descriptions; the hub's fee range now reads "from $43/mo".
-- \`llms-full.txt\`: regenerated by \`node build.js llmsfull\`, so it carries the four pages' text.
-- \`tools/mkpage.js\` and the stylesheets: the six website patches (see Blog-Brain \`website-patches/README.md\`).
+${(M.changes || []).map((c) => `- ${c}`).join("\n")}
 
 ## What is in this folder
 
 | Path | What |
 |---|---|
 | \`${PATCH_NAME}\` | One patch for the files the site already has (${report.files.touched.length} files). Text only. |
-| \`site/specs/\` | The four page specs and the shared kit, \`_55-plus-kit.js\`. |
+| \`site/specs/\` | The page specs, the shared kit \`_55-plus-kit.js\`, and \`_story-check.js\` (a copy of Blog-Brain \`tools/story-check.js\`, which the kit runs on every example). |
 | \`site/data/\` | \`55-plus-communities.json\`, \`photos.json\`, \`places.json\`. The specs read them. |
 | \`site/tools/blog-brain/\` | The Blog-Brain tools the kit uses to draw maps, icons and photo blocks, with the map data. The kit looks here first. |
 | \`site/${M.images.to}/\` | ${imgCount} photos (${(imgBytes / 1048576).toFixed(1)} MB, WebP), only those the four pages use. Binary files, copied as they are; they are not in the patch. |
@@ -436,6 +466,7 @@ $U = "C:\\Blog-Brain\\batches\\${M.batch}\\upload"
 
 git apply --check "$U\\${PATCH_NAME}"      # no output means it will apply
 Copy-Item -Path "$U\\site\\*" -Destination . -Recurse -Force
+Test-Path specs\\_55-plus-kit.js, specs\\_story-check.js, data\\photos.json, tools\\blog-brain\\tools\\photos.js, ${M.images.to.replace(/\//g, "\\")}   # five times True
 git apply "$U\\${PATCH_NAME}"
 
 ${specCmds.join("\n")}
@@ -466,6 +497,7 @@ U=<Blog-Brain>/batches/${M.batch}/upload
 
 git apply --check "$U/${PATCH_NAME}"
 cp -R "$U/site/." .
+ls specs/_55-plus-kit.js specs/_story-check.js data/photos.json tools/blog-brain/tools/photos.js ${M.images.to}
 git apply "$U/${PATCH_NAME}"
 
 ${specCmds.join("\n")}
@@ -519,9 +551,7 @@ ${report.pages.map((p) => `### ${p.name}\n\n${SITE_URL}${p.url}\n\n- [ ] The pag
 
 ## Pages that changed
 
-- [ ] ${SITE_URL}${M.listAfter}: the table links to the four pages, and its figures for them match the pages (Del Webb at Grande Dunes about $665,000 for a house and about $400 a month; Del Webb North Myrtle Beach about $535,000 resale and about $315 a month; Myrtle Trace about $300,000 and $95 a month; Seasons about $500,000 and about $340 a month). No sentence says Seasons or Del Webb at Grande Dunes is gated.
-- [ ] ${SITE_URL}/buyers/retirees/: the first FAQ answer says Del Webb at Grande Dunes has indoor and outdoor pools, a lifestyle director and a beach club in the HOA dues, and does not say "gated".
-- [ ] ${SITE_URL}/buyers/golf-communities/: no sentence says Seasons is gated.
+${(M.afterDeploy || []).map((c) => `- [ ] ${c.replace(/\{site\}/g, SITE_URL)}`).join("\n")}
 
 ## Files for search engines and AI
 
