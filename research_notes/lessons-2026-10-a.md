@@ -4,7 +4,7 @@ Written 2026-10-11 for the owner and for every agent that makes a page. It answe
 
 Each lesson is written so it applies to a page on any subject: a neighborhood, an LLC, a tax rule, a market report. The 55+ pages are the evidence, not the subject.
 
-Sources read: the owner's own messages in the session transcript (all 20 of them, 2026-10-01 to 2026-10-11), `batches/2026-10-a/` (PLAN, RETRO, REWRITE-PLAIN, WRITER-BRIEF, REVIEW 1 to 4, all 12 BUYER-READ files, all 21 OWNER-EYE files, the three GRADE files, both STORY-RETELL files), the version notes at the top of each spec, the 30 "wrong" rows in the fact ledgers and their verifier notes, `voice/edits.jsonl`, the git log (150 commits), `reports/`, `research_notes/`, and the current `CRAFT.md`, `voice/`, `STANDARD.md`, `WORKFLOW.md`, `prompts/` and `templates/`.
+Sources read: the owner's own messages in the session transcript (all 20 of them, 2026-10-01 to 2026-10-11), `batches/2026-10-a/` (PLAN, RETRO, REWRITE-PLAIN, WRITER-BRIEF, REVIEW 1 to 4, all 12 BUYER-READ files, all 21 OWNER-EYE files, the three GRADE files, both STORY-RETELL files), the version notes at the top of each spec, the 29 "wrong" rows in the fact ledgers and their verifier notes, `voice/edits.jsonl`, the git log (150 commits), `reports/`, `research_notes/`, and the current `CRAFT.md`, `voice/`, `STANDARD.md`, `WORKFLOW.md`, `prompts/` and `templates/`.
 
 ---
 
@@ -37,7 +37,7 @@ Sources read: the owner's own messages in the session transcript (all 20 of them
 - About 10 of 13 versions were avoidable. The table is in Part 2.
 - No gate, reviewer or proxy caught any of the owner's taste corrections first. The buyer readers caught three of them earlier, and those findings were fixed one sentence at a time instead of as a class.
 - Self-review overrated the work 7 times on record.
-- 9 rules were written too narrowly and let the next case through.
+- 12 rules were written too narrowly and let the next case through.
 
 **The meta-lesson.** A correction teaches a reason, not a phrase. Ask what the reader lost, whether a rule already said it, and where else it happens. Then change as few rules as possible, and test the change on a page of a different kind. A lesson that names a place, a page type or a word list is probably a one-off. A lesson about what the reader knows, needs first or can picture is general.
 
@@ -187,11 +187,11 @@ Sources read: the owner's own messages in the session transcript (all 20 of them
 ### L15. A sentence may not say more than its source.
 
 - **Lesson:** Check each claim against its source for four kinds of stretch. Group: does the number describe the same set the sentence names (houses, or houses and villas; the plans sold now, or every home built)? Time: is a 2013 description stated as true today? Completeness: does "including" become "the facilities are"? Firmness: does an officer's estimate become a board decision, or an announcement date a start date? A sentence that is true for part of the set is false for the reader who is in the other part.
-- **Evidence:** 30 ledger rows were marked wrong across the six ledgers. Patterns in the verifier notes: three FEMA panels from three sample points when there were four; drive ranges computed from two extreme lots instead of all 497; "the homes have one-story floor plans" from a 2013 press release; "began managing on January 31, 2024" from a press release date; "the HOA's facilities are" from "including (but not limited to)"; "the board said" from an officer's "it will probably be"; a 2006 paragraph replaced in 2013; "400 acres" when the parcels total 159 acres; a street name from a geocoder's road label. On the pages: "A house ... usually sells for about $630,000" mixed houses and villas (Review 4 high); "about 2,200 square feet in the smallest design" was true only of the plans sold today, when homes start near 1,340 (page grader); "Grande Dunes has a private 18-hole golf course" when it has two courses, one public. Reviewer fact findings ran 34, 22, then 10.
+- **Evidence:** 29 ledger rows are marked wrong across the six ledgers. Patterns in the verifier notes: three FEMA panels from three sample points when there were four; drive ranges computed from two extreme lots instead of all 497; "the homes have one-story floor plans" from a 2013 press release; "began managing on January 31, 2024" from a press release date; "the HOA's facilities are" from "including (but not limited to)"; "the board said" from an officer's "it will probably be"; a 2006 paragraph replaced in 2013; "400 acres" when the parcels total 159 acres; a street name from a geocoder's road label. On the pages: "A house ... usually sells for about $630,000" mixed houses and villas (Review 4 high); "about 2,200 square feet in the smallest design" was true only of the plans sold today, when homes start near 1,340 (page grader); "Grande Dunes has a private 18-hole golf course" when it has two courses, one public. Reviewer fact findings ran 34, 22, then 10.
 - **Caught by / earlier:** Separate verifiers (strong), reviewers, graders. Earlier: the verifier prompt names these four stretches; the writer tags each figure with its row in the spec.
 - **In the skill now?** In part. `RULES.md` FACT-1, FACT-2 (same population in a ratio) and FACT-8 cover pieces. The four kinds of stretch are not written as one test, and `CRAFT.md` section 2 says only "It is true".
 - **Class:** facts and truth.
-- **Saved:** about 30 findings over three review rounds; two quotable errors that reached the graders.
+- **Saved:** about 66 fact findings over three review rounds; two quotable errors that reached the graders.
 
 ### L16. Run the deciding test first.
 
@@ -520,7 +520,7 @@ Sources read: the owner's own messages in the session transcript (all 20 of them
 ### L52. Know the verifier's common catches, and avoid them when researching.
 
 - **Lesson:** Researchers repeat the same mistakes. Before saving a row, check: Is a range computed over every case, or only two samples? Is a marketing description from years ago stated as today? Is an announcement date a start date? Is "including" a full list? Is a person's estimate a decision? Is the paragraph the current version, or amended later? Is a geocoder's road label the real address? Is a source's number possible (400 acres in a 159-acre place)?
-- **Evidence:** The 30 wrong rows' verifier notes (see L15). About 8 percent of first-pass rows were wrong (`RETRO.md`: 21 of 266).
+- **Evidence:** The 29 wrong rows' verifier notes (see L15). About 8 percent of first-pass rows were wrong (`RETRO.md`: 21 of 266).
 - **Caught by / earlier:** Separate verifiers, every time. That part works.
 - **In the skill now?** No as a checklist for researchers. `prompts/researcher.md` does not list these patterns.
 - **Class:** facts and truth.
@@ -846,4 +846,4 @@ The guard is the same test every time: after applying the rule, is the page easi
 | L64 Delivery path first | WORKFLOW audit 10 | Partial; path open |
 | L65 Weakness has an upstream cause | none | Missing |
 
-Missing entirely: 12 lessons (L12, L13, L22, L24, L32, L33, L34, L37, L46, L52, L58, L65). Written only narrowly or in part: about 30. Written as a general skill: about 23.
+Of the 65 lessons: 19 are written as a general skill, 23 are written in part, 11 are written only narrowly, and 12 are missing (L12, L13, L22, L24, L32, L33, L34, L37, L46, L52, L58, L65).
