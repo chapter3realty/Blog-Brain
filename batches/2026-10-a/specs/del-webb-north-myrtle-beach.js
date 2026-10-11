@@ -237,11 +237,11 @@ module.exports = {
       compareTable(SELF) },
 
     { h2: "What are the pros and cons of living in Del Webb North Myrtle Beach?", toc: "Pros and cons", html: (bg) =>
-      h.p("Del Webb North Myrtle Beach has new homes about a mile from the ocean, and the builder is still selling new homes.") +
+      h.p("Del Webb North Myrtle Beach has new homes about a mile from the ocean, and the builder is still selling them.") +
       prosCons([
         "The beach is about 4 minutes away by car.",
         "The homes are new, built since 2022.",
-        "The builder's warranty on the home's structure stays with the house when it sells.",
+        "If you sell, the next owner keeps the builder's warranty on the structure.",
         "The city's community center, with indoor pickleball, is about a minute away by car.",
       ], [
         { text: "The builder is still building here.", act: "Ask which streets are finished before you choose a lot." },

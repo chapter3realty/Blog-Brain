@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-11 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain 0ffaf76, against the live branch `claude/github-account-check-wutg8b` at commit 54703db ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
+Built 2026-10-11 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain 1e7e966 (with uncommitted changes to its sources), against the live branch `claude/github-account-check-wutg8b` at commit 54703db5 ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -129,7 +129,7 @@ git push origin claude/github-account-check-wutg8b
 
 ## If a step fails
 
-- **`git apply --check` fails.** The live branch changed after this package was built (it was built on 54703db). Nothing has been changed yet. In Blog-Brain, rebuild the package on a fresh clone: `node tools/package-batch.js batches/2026-10-a --site <fresh clone>`. Do not edit the patch.
+- **`git apply --check` fails.** The live branch changed after this package was built (it was built on 54703db5). Nothing has been changed yet. In Blog-Brain, rebuild the package on a fresh clone: `node tools/package-batch.js batches/2026-10-a --site <fresh clone>`. Do not edit the patch.
 - **`mkpage` says "Blog-Brain tools not found".** `site\tools\blog-brain` was not copied. Run the Copy-Item line again.
 - **`check`, `audit` or `preflight` fails.** Do not push. `git reset --hard` and `git clean -fd` put the clone back as it was; send the output to Blog-Brain.
 
@@ -152,7 +152,7 @@ The site-wide scans also list older findings on other pages; the test below comp
 
 ## Test results
 
-On a second fresh clone of `claude/github-account-check-wutg8b` at 54703db, with exactly the steps above (bash), on 2026-10-11 (`SCORE_TODAY=2026-10-11`). The commit was local and was not pushed.
+On a second fresh clone of `claude/github-account-check-wutg8b` at 54703db5, with exactly the steps above (bash), on 2026-10-11 (`SCORE_TODAY=2026-10-11`). The commit was local and was not pushed.
 
 ### PASS: /buyers/55-plus-communities/ agrees with data/55-plus-communities.json (every dollar figure in each row)
 
@@ -178,25 +178,25 @@ Seasons at Prince Creek West: hub row has $340, $500,000
 ### PASS: node tools/mkpage.js specs/del-webb-north-myrtle-beach.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (162629 bytes, hero sub 19 words, main 2682 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (162610 bytes, hero sub 19 words, main 2679 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/del-webb-grande-dunes.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (152881 bytes, hero sub 21 words, main 2429 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (152873 bytes, hero sub 21 words, main 2430 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/myrtle-trace.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (159733 bytes, hero sub 22 words, main 2211 words)
+wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (159727 bytes, hero sub 22 words, main 2210 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/seasons-at-prince-creek-west.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (147349 bytes, hero sub 17 words, main 2188 words)
+wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (147343 bytes, hero sub 17 words, main 2187 words)
 ```
 
 ### PASS: specs/_story-check.js in the package is Blog-Brain tools/story-check.js, as it is today
@@ -223,21 +223,13 @@ Updated references in 136 page(s). Run 'node build.js check', then deploy.
 ### PASS: node build.js dates
 
 ```
-  /buyers/closing-costs/  2026-10-04 -> 2026-10-05  (first published)
-  /sell/sell-my-condo/  2026-09-07 -> 2026-10-05  (first published)
-  /sell/capital-gains/  2026-10-04 -> 2026-10-05  (first published)
-  /guides/  2026-10-04 -> 2026-10-05  (first published)
-  /hoa/master-insurance-ho6/  2026-09-05 -> 2026-10-05  (first published)
-  /hoa/who-pays-for-damage/  2026-09-16 -> 2026-10-05  (first published)
-  /hoa/benefits/  2026-10-04 -> 2026-10-05  (first published)
-  /hoa/violations-and-fines/  2026-09-16 -> 2026-10-05  (first published)
-  /hoa/estoppel-and-transfer-fees/  2026-09-02 -> 2026-10-05  (first published)
-  /hoa/developer-control-turnover/  2026-10-04 -> 2026-10-05  (first published)
-  /hoa/tax-deductible/  2026-09-02 -> 2026-10-05  (first published)
-  /hoa/dues-increases/  2026-09-05 -> 2026-10-05  (first published)
+Corrected 4:
+  /buyers/retirees/  2026-10-04 -> 2026-10-11  (uncommitted content change)
+  /buyers/55-plus-communities/  2026-09-07 -> 2026-10-11  (uncommitted content change)
+  /buyers/golf-communities/  2026-09-07 -> 2026-10-11  (uncommitted content change)
   llms.txt  2026-10-05 -> 2026-10-11
 
-126 page dates moved, 5 left alone.
+3 page dates moved, 128 left alone.
 llms-full.txt carries the header date - run 'node build.js llmsfull' if page text changed.
 ```
 
@@ -292,7 +284,7 @@ OK - all 131 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 136 pages from commit 623d6c0 on claude/github-account-check-wutg8b.
+OK - deploying 136 pages from commit 05815cb4 on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
@@ -300,14 +292,14 @@ OK - deploying 136 pages from commit 623d6c0 on claude/github-account-check-wutg
 
 ```
 /buyers/55-plus-communities/del-webb-north-myrtle-beach/  Del Webb North Myrtle Beach 55+: Pros and Cons | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1153 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1151 words)
 ```
 
 ### PASS: score.js --only /buyers/55-plus-communities/del-webb-grande-dunes/
 
 ```
 /buyers/55-plus-communities/del-webb-grande-dunes/  Del Webb Grande Dunes 55+: HOA Fees, Pros and Cons | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1147 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1149 words)
 ```
 
 ### PASS: score.js --only /buyers/55-plus-communities/myrtle-trace/

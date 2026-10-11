@@ -151,7 +151,7 @@ module.exports = {
   sections: [
     { h2: "What is there to do in Del Webb at Grande Dunes?", toc: "Things to do", html:
       ph.css() +
-      h.p("The clubhouse in Del Webb at Grande Dunes is also called the amenity center. The clubhouse has an indoor pool, an outdoor pool, a fitness center and an arts and crafts room. Staff are there every day, and your mailbox is there too.") +
+      h.p("The clubhouse in Del Webb at Grande Dunes has an indoor pool, an outdoor pool, a fitness center and an arts and crafts room. It is also called the amenity center. Staff are there every day, and your mailbox is there too.") +
       ph.cards([
         { illustration: "outdoor-pool", label: "Indoor and outdoor pools", text: "Swim all year" },
         { illustration: "pickleball", label: "Tennis and pickleball", text: "Courts beside the clubhouse, with bocce too" },
@@ -163,7 +163,7 @@ module.exports = {
     { h2: "What is the Grande Dunes Ocean Club?", toc: "The Ocean Club", html:
       h.p(`The ${h.ext(OCEANCLUB, "Grande Dunes Ocean Club")} is the beach club for all of Grande Dunes, about 8 minutes by car from the Del Webb clubhouse. Your HOA fee includes your membership.`) +
       h.p("Grande Dunes is a large area of neighborhoods and golf courses in Myrtle Beach. Del Webb is one neighborhood inside it.") +
-      h.p("Its clubs include mahjong, knitting and Mexican Train, a dominoes game.") +
+      h.p("The Ocean Club has clubs for mahjong, knitting and Mexican Train, a dominoes game.") +
       atAGlance([
         { icon: "beach", label: "Private beach access", text: "A members-only way onto the sand" },
         { icon: "pool", label: "Pool and hot tub", text: "A large outdoor pool at the beach club" },
@@ -196,9 +196,9 @@ module.exports = {
 
     { h2: "What does it cost to live in Del Webb at Grande Dunes?", toc: "Costs", html: (bg) =>
       h.p("A house in Del Webb at Grande Dunes usually sells for about $665,000, and a villa for about $430,000. The HOA fee is about $400 a month for a house and about $445 for a villa.") +
-      h.p("Your HOA bill includes basic lawn care and the beach club.") +
+      h.p("Your HOA fee includes basic lawn care and the beach club.") +
       h.table(["Other costs", "About"], [
-        ["One-time fee to the HOA when you buy", "About one year of HOA dues"],
+        ["One-time fee to the HOA when you buy", "About one year of HOA fees"],
         ["Property tax on a house you live in, city tax included", "About $2,700 a year"],
         ["Property tax on a villa you live in, city tax included", "About $1,700 a year"],
       ]) +
@@ -214,7 +214,7 @@ module.exports = {
       h.p("Del Webb at Grande Dunes is close to the beach, a grocery store and a hospital, and owners there follow rules on leases, fences and sheds.") +
       prosCons([
         "Groceries and the beach are about 4 minutes away by car. The hospital is about 6 minutes away.",
-        "Your HOA bill includes membership in the Grande Dunes Ocean Club, the beach club.",
+        "Your HOA fee includes membership in the Grande Dunes Ocean Club, the beach club.",
         "Owners can tie up a boat at the neighborhood's day dock during the day.",
       ], [
         { text: "Leases must be at least a year long." },

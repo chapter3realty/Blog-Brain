@@ -1,6 +1,6 @@
-Upload package for batch 2026-10-a. Built 2026-10-11 from Blog-Brain 0ffaf76 against the live branch at 54703db.
+Upload package for batch 2026-10-a. Built 2026-10-11 from Blog-Brain 1e7e966 (with uncommitted changes to its sources) against the live branch at 54703db5.
 size  sha256  path
-263143  9431c0e56e92eed24aaa59835967db46352f02d35c47b6bd8259b25976565c2e  batch-2026-10-a.patch
+263173  7ad67bf8dc8bf1a29e702682b5a9a27687490885c267faf19ce21ff7cd0b955b  batch-2026-10-a.patch
 147332  2cbbc170a72ec2c5ed4ded7668293502c328d1299a93818814d8d2f85bc8960a  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above-1200w.webp
 64780  ea41daece6e5477596551c78081b7ccab07def1caca09754041dbb77e2edcb2d  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above-600w.webp
 186702  74e6810cde1873f17310978ae97ada9157b1fb8e1bbbdfaa02c1d2e7c7cfdbcb  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-from-above-1200w.webp
@@ -49,13 +49,13 @@ size  sha256  path
 64346  5c86817b010f78c1f7f033d2b6eb61431aef77b4b5884fdd5f5bc7458da675c5  site/chapter3realty/images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-from-above-600w.webp
 85788  cf293020a6324d0b506696320130025128d9e0f36f8a18e34df4b0415769ef42  site/chapter3realty/images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-homes-from-above-1200w.webp
 40966  d8225677b29ef1c2cfe9e8c725daa7ccd4d60940ae4f7731b6b6834735d96cca  site/chapter3realty/images/55-plus/seasons-at-prince-creek-west/seasons-at-prince-creek-west-homes-from-above-600w.webp
-3869  dcad6eb63a69eb35f432b4c2331a880671153ee896ec5d63db8c2f8b900b0d42  site/data/55-plus-communities.json
+3863  a6ecf8d16fb2e00d2b1365ad56cab02a6efe955938976590ad352a87a30eebe3  site/data/55-plus-communities.json
 140079  f1922aa85aa80f5276e703c2a9f6e8598903e0cbbbe260e161ea32121fa37621  site/data/photos.json
 22356  906bfbc455364d05ad59544b7caec08fda002a4e7d9d65f3de4753113f4ba3bd  site/data/places.json
 26569  e2c8bd0aeb47de2524a7f5481cbf3a71ebfbe77e9cccd2a9b0679801535e1209  site/specs/_55-plus-kit.js
 3411  da4cc24577a0af333ec828134730b20b09618385425fa02dc91caac034d9ae2a  site/specs/_story-check.js
-22260  7c5bcdf9e375fb4bbf2088515048d80fb246213e1bb072551572806791239aa9  site/specs/del-webb-grande-dunes.js
-24749  41122c1886b5adc76ff09fd540702d3cce982cc8cc591138e8d4d06b026ef435  site/specs/del-webb-north-myrtle-beach.js
+22258  127dd385f3ce5ba2d69f33643172ac7a477298d3849ad6257b4aafd4c3a080cc  site/specs/del-webb-grande-dunes.js
+24736  21279d1dc8612eb9470d6a8a6461cab5703e070792e832b89b363ccaa11900a0  site/specs/del-webb-north-myrtle-beach.js
 19091  1537c601f5b5caed38c3f3da47f8cc0377abc4da1d6b66df4f1dfc36bc4928b9  site/specs/myrtle-trace.js
 19841  ed562eba8ae653191af324e358a24194cfb54633192a6093948fccd50b617d25  site/specs/seasons-at-prince-creek-west.js
 125672  1bcb55fc43ce10d3cf83a11ce133aec0f560d0f730a81936b215fb01a1175645  site/tools/blog-brain/tools/area-map.js
