@@ -94,7 +94,7 @@ module.exports = {
   eyebrow: "Myrtle Beach, 55+",
   h1: "What is it like to live in Del Webb at Grande Dunes in Myrtle Beach?",
   h1em: "A 55+ neighborhood with a beach club.",
-  sub: "Del Webb at Grande Dunes is a 55+ neighborhood of houses and villas in Myrtle Beach, a 4-minute drive from the beach.",
+  sub: "Del Webb at Grande Dunes is a 55+ neighborhood of houses and villas, a 4-minute drive from the beach.",
   heroMedia: glance([
     { icon: "beach", label: "Beach", text: "About 4 minutes" },
     { icon: "hospital", label: "Hospital", text: "About 6 minutes" },
@@ -174,8 +174,7 @@ module.exports = {
 
     { h2: "How does Del Webb at Grande Dunes compare with other 55+ neighborhoods?", html: () =>
       h.p("Del Webb at Grande Dunes is the only one of these four inside Myrtle Beach city limits. Owners there pay a city tax too.") +
-      compareTable(SELF) +
-      ph.credits() },
+      compareTable(SELF) },
   ],
   faqTitle: "Del Webb at Grande Dunes FAQ",
   faq: [
@@ -194,7 +193,9 @@ module.exports = {
     { name: "Federal flood insurance law", href: LAW },
   ],
   sourcesNote: "This is not legal advice. OpenStreetMap gave the drive times, without traffic. The flood cost is the typical FEMA policy price in ZIP code 29572.",
-  bottomCta: { h2: "See a Del Webb at Grande Dunes home with an agent who knows the rules.", p: "Call about the house or villa you like. An agent at Chapter3 will read the HOA's age and pet rules with you.", label: "Call to learn more", href: TEL },
+  /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
+  afterSources: () => ph.credits(),
+  bottomCta: { h2: "See a Del Webb at Grande Dunes home with an agent who knows the rules.", p: "Call about the house or villa you like. An agent at Chapter3 will read the HOA's age and pet rules with you. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call to learn more", href: TEL },
   keywords: "Del Webb at Grande Dunes, living in Del Webb Grande Dunes, Del Webb Grande Dunes Ocean Club, Del Webb Grande Dunes HOA, Del Webb at Grande Dunes villas",
   about: "Del Webb at Grande Dunes, a 55+ community by Pulte in Myrtle Beach, South Carolina",
 };

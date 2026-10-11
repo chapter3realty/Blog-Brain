@@ -158,8 +158,7 @@ module.exports = {
 
     { h2: "How does Del Webb North Myrtle Beach compare with other 55+ neighborhoods?", html: () =>
       h.p("Del Webb North Myrtle Beach is the newest of these four neighborhoods.") +
-      compareTable(SELF) +
-      ph.credits() },
+      compareTable(SELF) },
   ],
   faqTitle: "Del Webb North Myrtle Beach FAQ",
   faq: [
@@ -178,7 +177,9 @@ module.exports = {
     { name: "Federal flood insurance law", href: LAW },
   ],
   sourcesNote: "This is not legal or tax advice, and builder prices change. Drive times come from OpenStreetMap and leave out traffic. The flood cost is the middle FEMA price for policies in ZIP code 29582.",
-  bottomCta: { h2: "Get the current HOA fee before you choose a design.", p: "Call about the home you want. One of our agents gets the HOA fee and reads the HOA documents with you.", label: "Call to learn more", href: TEL },
+  /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
+  afterSources: () => ph.credits(),
+  bottomCta: { h2: "Get the current HOA fee before you choose a design.", p: "Call about the home you want. One of our agents gets the HOA fee and reads the HOA documents with you. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call to learn more", href: TEL },
   keywords: "Del Webb North Myrtle Beach, living in Del Webb North Myrtle Beach, Del Webb North Myrtle Beach clubhouse, Del Webb North Myrtle Beach HOA, 55 plus community North Myrtle Beach",
   about: "Del Webb North Myrtle Beach, a 55+ community by Pulte in North Myrtle Beach, South Carolina",
 };

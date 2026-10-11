@@ -130,7 +130,7 @@ module.exports = {
         "Mary did not know if a neighborhood with a 55+ rule would let them be gone for whole summers. Before they toured any houses, she read each neighborhood's age rule for how many months a year they had to live there.",
         "They made an offer in Seasons at Prince Creek West. The keys to the Seasons house and the Akron house now hang on one ring by the door.",
       ], "If you will keep a home up north, check how many months a year the age rule requires before you offer.", bg) +
-      h.cta("Read the Seasons age rules with an agent.", "An agent at Chapter3 can read the age and visitor rules with you before you offer.", "Talk to a specialized agent", "/contact/", bg) },
+      h.cta("Read the Seasons age rules with an agent.", "An agent at Chapter3 can read the age and visitor rules with you before you offer.", "Speak to an expert", "/contact/", bg) },
 
     { h2: "What are the homes like in Seasons at Prince Creek West?", html:
       h.p("The builder described its designs here as open, one-story floor plans. Some designs had an optional extra room.") +
@@ -168,12 +168,11 @@ module.exports = {
         { icon: "pets", label: "Pets", text: "Up to two. Keep them on a leash outside unless they are in a fenced yard." },
         { icon: "key", label: "Renting it out", text: "Yes, with a written lease of at least a year." },
         { icon: "gate", label: "Fences", text: "Yes, once the neighborhood's design board approves it. It must line up with the sides of the house." },
-      ], { bg }) },
+      ], { bg, min: "13rem" }) },
 
     { h2: "How does Seasons at Prince Creek West compare with other 55+ neighborhoods?", html: () =>
       h.p("Seasons at Prince Creek West and Myrtle Trace are outside any city, so owners in both pay no city tax.") +
-      compareTable(SELF) +
-      ph.credits() },
+      compareTable(SELF) },
   ],
   faqTitle: "Seasons at Prince Creek West FAQ",
   faq: [
@@ -191,7 +190,9 @@ module.exports = {
     { name: "Federal flood insurance law", href: LAW },
   ],
   sourcesNote: "For education, not legal advice. Drive times are no-traffic estimates from OpenStreetMap. The flood cost is the middle FEMA policy price in ZIP code 29576.",
-  bottomCta: { h2: "Know the Seasons rules before you make an offer.", p: "Call about the Seasons home you like. An agent at Chapter3 gets the current HOA fee and reads the age, lease and pet rules with you.", label: "Call to learn more", href: TEL },
+  /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
+  afterSources: () => ph.credits(),
+  bottomCta: { h2: "Know the Seasons rules before you make an offer.", p: "Call about the Seasons home you like. An agent at Chapter3 gets the current HOA fee and reads the age, lease and pet rules with you. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call to learn more", href: TEL },
   keywords: "Seasons at Prince Creek West, living in Seasons at Prince Creek West, Seasons at Prince Creek West 55, Seasons at Prince Creek West amenities, Seasons Murrells Inlet 55 plus",
   about: "Seasons at Prince Creek West, a 55+ community in unincorporated Horry County near Murrells Inlet, South Carolina",
 };

@@ -130,7 +130,7 @@ module.exports = {
       h.p("Myrtle Trace was laid out in eight sections from 1984 to 1994. The builder's original designs had 2 or 3 bedrooms.") +
       h.p("Each owner takes care of the house and the yard, including the roof and the grass.") +
       h.p("Some homes back onto Burning Ridge Golf Club, a privately owned course next door. Owners of those homes accept golf balls and noise from the course.") +
-      h.cta("See a Myrtle Trace home with an agent.", "Tell us which home you like, and one of our agents will set up a showing.", "Talk to a specialized agent", "/contact/", bg) },
+      h.cta("See a Myrtle Trace home with an agent.", "Tell us which home you like, and one of our agents will set up a showing.", "Speak to an expert", "/contact/", bg) },
 
     { h2: "What is Conway like?", html:
       h.p("Conway is the town next to Myrtle Trace, with a riverwalk on the Waccamaw River and old brick shops on Main Street.") +
@@ -166,8 +166,7 @@ module.exports = {
 
     { h2: "How does Myrtle Trace compare with other 55+ neighborhoods near Myrtle Beach?", html: () =>
       h.p("Myrtle Trace is the farthest of these four from the beach, and its homes usually sell for the least.") +
-      compareTable(SELF) +
-      ph.credits() },
+      compareTable(SELF) },
   ],
   faqTitle: "Myrtle Trace FAQ",
   faq: [
@@ -186,7 +185,9 @@ module.exports = {
     { name: "Federal flood insurance law", href: LAW },
   ],
   sourcesNote: "Not legal or tax advice. Drive times are OpenStreetMap estimates with no traffic. The flood cost is FEMA's middle policy price for this ZIP code.",
-  bottomCta: { h2: "Talk to us about a home in Myrtle Trace.", p: "Call about the home you like. One of our agents will go over the HOA's rules and rental policy with you.", label: "Call a specialized agent", href: TEL },
+  /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
+  afterSources: () => ph.credits(),
+  bottomCta: { h2: "Talk to us about a home in Myrtle Trace.", p: "Call about the home you like. One of our agents will go over the HOA's rules and rental policy with you. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call a specialized agent", href: TEL },
   keywords: "Myrtle Trace Conway, Myrtle Trace 55 community, living in Myrtle Trace, Myrtle Trace HOA, Myrtle Trace activities",
   about: "Myrtle Trace, a 55+ community in unincorporated Horry County near Conway, South Carolina",
 };

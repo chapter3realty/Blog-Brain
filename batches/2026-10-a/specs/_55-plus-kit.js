@@ -112,7 +112,9 @@ function story(paras, meaning, bg, offer) {
   const P = 'style="color:var(--muted);line-height:1.75;max-width:640px;margin:0 0 .9rem"';
   return `<div class="c3-story" style="background:var(--${bg === "ivory" ? "ivory" : "ivory-2"});border-top:3px solid var(--brass);padding:1.5rem 1.5rem .7rem;margin:1.4rem 0 1.4rem;max-width:720px">`
     + paras.map((t) => `<p ${P}>${t}</p>`).join("") + `</div>`
-    + `<p style="color:var(--navy);font-weight:500;line-height:1.7;max-width:720px;margin-bottom:${offer ? ".4rem" : "1rem"}">${meaning}</p>`
+    /* The lesson is set at the reading size, like the line after it (it was 17px beside a
+       19.5px offer line on a desktop, 2026-10-11). */
+    + `<p style="color:var(--navy);font-weight:500;font-size:var(--read,1rem);line-height:1.6;max-width:34em;margin-bottom:${offer ? ".4rem" : "1rem"}">${meaning}</p>`
     + (offer ? `<p style="color:var(--muted);line-height:1.7;max-width:720px;margin-bottom:1rem">${offer}</p>` : "");
 }
 
@@ -134,8 +136,8 @@ function glance(items) {
     + ".c3-glance .i{flex:0 0 auto;display:flex;width:2rem;height:2rem;border-radius:50%;background:var(--ivory-2);color:var(--brass-ink);align-items:center;justify-content:center}"
     + ".c3-glance strong{display:block;color:var(--navy);font-size:.9rem;font-weight:500}"
     + ".c3-glance span.t{display:block;color:var(--muted);font-size:.82rem}"
-    + "@media (max-width:699px){.c3-glance{gap:.4rem}.c3-glance li{flex-direction:column;justify-content:flex-start;text-align:center;gap:.3rem;padding:.5rem .2rem}"
-    + ".c3-glance .i{width:1.8rem;height:1.8rem}.c3-glance strong{font-size:.82rem}.c3-glance span.t{font-size:.78rem}}</style>";
+    + "@media (max-width:699px){.c3-glance{gap:.3rem}.c3-glance li{flex-direction:column;justify-content:flex-start;text-align:center;gap:.2rem;padding:.4rem .1rem}"
+    + ".c3-glance .i{width:1.6rem;height:1.6rem}.c3-glance strong{font-size:.82rem}.c3-glance span.t{font-size:.78rem}}</style>";
   return css + `<ul role="list" class="c3-glance" style="--n:${items.length}">` + items.map((it) =>
     `<li><span class="i">${icon(it.icon, { size: 20 })}</span><span><strong>${esc(it.label)}</strong>${it.text ? `<span class="t">${esc(it.text)}</span>` : ""}</span></li>`).join("") + "</ul>";
 }
@@ -174,6 +176,11 @@ const KIT_CSS = "<style>"
   + "@media (min-width:900px){.c3-maps{grid-template-columns:1fr 1fr;align-items:start}}"
   + ".c3-maps figure{max-width:none!important;margin:1.4rem 0 .4rem!important}"
   + ".c3-maps svg,.c3-maps img{display:block;width:100%;height:auto}"
+  /* The two Google Maps links are 44 px rows on a phone (they were 26 px). */
+  + ".c3-map-links{row-gap:0!important}.c3-map-links a{padding:.55rem 0}"
+  /* An atAGlance row with a 13rem minimum stays inside the column at the largest text
+     setting (at 200% text, 13rem is wider than a phone). */
+  + "ul[role=list][style*=\"minmax(13rem,1fr)\"]{grid-template-columns:repeat(auto-fill,minmax(min(13rem,100%),1fr))!important}"
   + "</style>";
 
 function photoSet() {
@@ -232,6 +239,8 @@ const CMP_CSS = "<style>@media (max-width:599px){"
   + ".c3-cmp td{border:0!important;padding:.25rem .9rem!important}"
   + ".c3-cmp td:first-child{color:var(--navy)!important;font-weight:500;font-size:1rem}"
   + ".c3-cmp td[data-label]:not(:first-child)::before{content:attr(data-label) \": \";color:var(--navy)}"
+  /* The name links on the cards: a 44 px tap area that does not move the line (was 22 px). */
+  + ".c3-cmp td a{padding:11px 0}"
   + "}</style>";
 const compareTable = (self) => {
   const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/"/g, "&quot;");

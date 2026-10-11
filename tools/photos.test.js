@@ -72,6 +72,18 @@ check("hero credit on the photo reads 'Photo: <author>', linked to the license, 
 check("hero credit: the license name is for screen readers and hover only, not printed", /aria-label="Photo: Jane Doe\. License: CC BY-SA 4\.0"/.test(hero) && !/>[^<]*CC BY-SA[^<]*</.test(hero.match(/<span class="c3ph-cr">.*?<\/span>/)[0]));
 check("credit on the photo drops the '(English Wikipedia)' tail", />Photo: Pollinator<\/a>/.test(P.heroPhoto(rec({ author: "Pollinator (English Wikipedia)" }))));
 check("credit overlay is tiny text on a soft gradient", /\.c3ph-cr\{[^}]*font:400 \.625rem[^}]*gradient/.test(hero));
+{
+  /* WCAG 2.5.8: the credit link's tap area is 24 px or taller. Line box (font size x 1.3 at
+     17 px to the rem) plus the link's vertical padding, clipped by the overlay's own bottom
+     padding (overflow:hidden). Hero credit and the smaller card credit. Before: 14 px. */
+  const css = P.photoCss();
+  const pad = (css.match(/\.c3ph-cr a\{[^}]*padding:(\d+)px 0 (\d+)px/) || []).slice(1).map(Number);
+  const tap = (fontRem, bottomPadRem) => fontRem * 17 * 1.3 + (pad[0] || 0) + Math.min(pad[1] || 0, bottomPadRem * 17);
+  check("credit link tap area is 24 px or taller on a hero photo", pad.length === 2 && tap(0.625, 0.35) >= 24, `${tap(0.625, 0.35).toFixed(1)} px`);
+  check("credit link tap area is 24 px or taller on a card photo", pad.length === 2 && tap(0.56, 0.25) >= 24, `${tap(0.56, 0.25).toFixed(1)} px`);
+  check("credit tap area: the same sum fires on the old link, with no padding (14 px)", 0.625 * 17 * 1.3 < 24);
+  check("credit overlay keeps its size: padding on the link only", /\.c3ph-cr\{[^}]*padding:1\.6rem \.6rem \.35rem 2\.6rem/.test(css) && /\.c3ph-card \.c3ph-cr\{font-size:\.56rem;padding:1\.2rem \.45rem \.25rem 1\.6rem\}/.test(css));
+}
 check("hero caption is escaped", /<figcaption>The beach &lt;at&gt; &quot;dawn&quot;<\/figcaption>/.test(hero));
 check("base option changes the path", /src="https:\/\/cdn\.example\/images\/t\/beach-1200w\.webp"/.test(P.heroPhoto(rec(), { base: "https://cdn.example/" })));
 check("css:false leaves the style block out", !/<style>/.test(P.heroPhoto(rec(), { css: false })) && /c3ph-hero/.test(P.photoCss()));

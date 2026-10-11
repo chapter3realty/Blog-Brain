@@ -225,7 +225,9 @@ const CSS = {
     + ".c3ph-f img{display:block;width:100%;height:auto;object-fit:cover}"
     + ".c3ph-cr{position:absolute;right:0;bottom:0;max-width:100%;padding:1.6rem .6rem .35rem 2.6rem;font:400 .625rem/1.3 var(--sans);letter-spacing:.01em;color:#fff;text-align:right;"
     + "background:radial-gradient(farthest-side at 100% 100%,rgba(28,32,40,.72),rgba(28,32,40,.4) 55%,rgba(28,32,40,0));white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}"
-    + ".c3ph-cr a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:2px;pointer-events:auto}",
+    /* The link's tap area is at least 24 px tall (WCAG 2.5.8) with no change to the overlay:
+       vertical padding on an inline link does not move the line. Measured 14 px before. */
+    + ".c3ph-cr a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:2px;pointer-events:auto;padding:10px 0 6px}",
   hero: ".c3ph-hero{margin:1.6rem 0 2rem}"
     + ".c3ph-hero .c3ph-f{border-radius:8px}"
     + ".c3ph-hero img{aspect-ratio:4/3}"
@@ -684,9 +686,12 @@ function pageImages(rec, o = {}) {
   const miss = Object.keys(CROPS).filter((k) => !c[k] || !c[k].path || !(c[k].width >= 1200) || !(c[k].height > 0));
   if (miss.length) throw new Error(`photos.js: ${label(rec)} has no ${miss.join(", ")} crop (node tools/photos.js crops <source> <out base>)`);
   const m = metaFor(rec, { adapted: true });
+  /* description: the alt text the hero was shown with (else the record's), so a page that
+     shares the 16x9 crop in og:image has its og:image:alt (website mkpage-photos.patch). */
+  const alt = (SHOWN.get(rec) || {}).alt || m.alt;
   return Object.keys(CROPS).map((k) => {
     const u = absUrl(o.base, c[k].path);
-    return Object.assign({ "@type": "ImageObject", contentUrl: u, url: u, width: c[k].width, height: c[k].height, encodingFormat: "image/webp" }, rights(m));
+    return Object.assign({ "@type": "ImageObject", contentUrl: u, url: u, width: c[k].width, height: c[k].height, encodingFormat: "image/webp" }, alt ? { description: alt } : {}, rights(m));
   });
 }
 

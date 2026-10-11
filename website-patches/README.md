@@ -62,7 +62,7 @@ git apply <blog-brain>/website-patches/mkpage-page-images.patch
 ```
 
 - A spec may set `pageImages`: a list of ImageObjects, or a function that returns one. mkpage calls the function after the sections are built.
-- They go in `Article.image`. The 4x3 one goes in `WebPage.primaryImageOfPage`. `og:image` and `twitter:image` keep the share card.
+- They go in `Article.image`. The 4x3 one goes in `WebPage.primaryImageOfPage`. With this patch alone, `og:image` and `twitter:image` keep the share card; `mkpage-photos.patch` puts the 16x9 crop there.
 - Why: Google says to avoid "an image with text in the schema.org markup", and the share card is text. Google's Article guide asks for images in 16x9, 4x3 and 1x1. See `rules/image-metadata.md`.
 - mkpage refuses an entry that is not an ImageObject on chapter3realty.com of 50,000 pixels or more.
 - The 55+ pages of batch 2026-10-a set `pageImages: () => ph.pageImages()` (the kit's hero crops).
@@ -83,6 +83,7 @@ git apply <blog-brain>/website-patches/mkpage-hero-media.patch
 git apply <blog-brain>/website-patches/mkpage-page-images.patch
 git apply <blog-brain>/website-patches/readability.patch
 git apply <blog-brain>/website-patches/mkpage-reading.patch
+git apply <blog-brain>/website-patches/mkpage-photos.patch
 node tools/mkpage.js specs/<slug>.js     # once for every spec page
 node build.js rehash                     # new cache names for the two changed stylesheets
 node build.js dates
@@ -92,9 +93,10 @@ node build.js audit
 
 - `readability.patch` touches only the stylesheets and eight hand-built pages. It applies alone, before or after the mkpage patches.
 - `mkpage-reading.patch` touches only `tools/mkpage.js`. It applies after `mkpage.patch` and `mkpage-hero-media.patch`, with or without `mkpage-page-images.patch`.
+- `mkpage-photos.patch` touches only `tools/mkpage.js`. It applies last, after the four mkpage patches.
 - `speed.patch` and `contrast.patch` are not in the list. Both are already on the live branch (deployed 2026-10-05, in its own revised form), and neither applies to it any more.
 
-**Tested 2026-10-11** on a clean clone of the live branch at commit 54703db. All five patches pass `git apply --check` in the order above. After them, three spec pages were regenerated, then `rehash`, `check` and `audit` all passed. (`dates --check` cannot be tested on a one-commit clone: it flags every page there, with or without these patches.)
+**Tested 2026-10-11** on a clean clone of the live branch at commit 54703db. All six patches pass `git apply --check` in the order above. Then the batch 2026-10-a files were added (the four specs and the kit from `batches/2026-10-a/specs/`, the three data files, the photos, the hub diffs), the four 55+ pages were built, and `rehash`, `check` and `audit` all passed. The site folder that came out is byte for byte the draft the batch was reviewed on. `specs/llc.js`, a page with no photo, still shares its card at 1200 x 630. (`dates --check` cannot be tested on a one-commit clone: it flags every page there, with or without these patches.)
 
 ## `readability.patch`: reading size, links, open FAQ answers, tap targets, fonts
 
@@ -113,6 +115,8 @@ This puts the page design report (`reports/Page design for readers and search.md
 | FAQ answers on 8 hand-built pages | 79 answers in closed `<details>` | open text under H3 question headings |
 | Tap targets under 44px on a phone, 390 wide | 43 to 55 per page | 1 on article pages; 10 to 13 on the 55+ pages and tool pages (see below) |
 | Font swap | `font-display: swap` | `font-display: optional` |
+| Breadcrumb "/" on navy heroes, 27 pages | 1.82:1 to 2.15:1 | 4.58:1 |
+| Short answer on a phone, 390 x 844, the four 55+ pages | starts 1,188 to 1,335px down | first line ends 791 to 829px down, in the first screen |
 
 How it works:
 
@@ -122,6 +126,8 @@ How it works:
 - **FAQ.** The eight pages are /buyers/buying-in-myrtle-beach/, /buyers/common-mistakes/, /buyers/relocating/, /buyers/retirees/, /buyers/second-home/, /buyers/va-loans/, /sell/ and /sell/out-of-state-buyers/. Only tags change, so `build.js dates` does not move their dates. The calculator rows on /buyers/relocating/cost-of-living/ are not an FAQ and keep their `<details>`.
 - **FAQPage JSON-LD stays.** Google stopped showing FAQ rich results on 7 May 2026, so it earns nothing there. It does no harm, Bing and other engines can still read it, and the website's PLAYBOOK (A25) and `tools/mkpage.js` already check that it matches the visible answers word for word. Removing it would mean changing that rule for no gain.
 - **Tap targets.** Buttons are at least 44px tall. On phones and touch screens, the header's phone icon and menu button are 44 by 44, the call bar under the header is 44px tall, footer links are 44px rows, and breadcrumb links get a 45px hit area that does not move the line. Footer links sit in two columns below 600px wide, so the footer does not get longer.
+- **Breadcrumb separators.** On a navy hero the "/" is ivory at 20% or 25%. It is now ivory at 50%: 4.58:1 or more on all 27 pages, so it passes the 3:1 for marks and the 4.5:1 for text.
+- **A compact hero on phones (under 600px wide).** Top padding 20px (was 85px), bottom 20px (was 68px), the short answer's own top padding 20px. The breadcrumb is one line: the links never shrink, and the page's own name, which the H1 repeats, ends in "..." when it does not fit; at the largest text sizes it moves to a second line. The H1 is 34px (was 42.5px) and its second, italic line is three quarters of that. The sub line is the reading size, 18px (was 21px). The icon row stays. Desktop is unchanged. No breadcrumb is wider than its column at 320 or 360 wide, on all 99 pages with this hero.
 - **Fonts.** The 21 faces in `assets/fonts.5be9fb17b5.css` change from `swap` to `optional`. The three fonts every page uses are already preloaded by the `Link` header in `_headers`, so in the normal case the web font is ready before the first paint and nothing changes. When a font is late, the page keeps the size-matched fallback (from the speed work) instead of swapping, so the text cannot move.
 
 Layout shift (CLS), measured with Playwright on a cold load, 390 wide, slow 4G (150 ms, 1.6 Mbps) and a 4x slower CPU, three runs each:
@@ -135,15 +141,16 @@ The trade-off: on a first visit where the font arrives late, that page shows the
 
 What is still under 44px on a phone, and why it is not in this patch:
 
-- The photo credits on the 55+ pages ("Photo: name", 14px tall). They come from the batch kit's own CSS (`specs/_55-plus-kit.js`), so the fix belongs there.
+- The photo credits on the 55+ pages ("Photo: name"). Their CSS is Blog-Brain `tools/photos.js`: the link now has 10px of padding above and 6px below, so its tap area is 30px (WCAG 2.5.8 asks 24px; it was 14px). The overlay is the same size as before.
 - Calculator inputs (40 to 41px), the consent checkboxes (15px) on forms, the persona tabs on /sell/ (36px) and the review dots on the homepage (24px). Each changes a tool or the homepage layout, so each needs its own look.
 - Links inside a sentence (WCAG exempts them).
 
 Found and not changed:
 
-- The "/" separators in the breadcrumb on the navy heroes (/buyers/retirees/, /buyers/va-loans/) are `--muted`, which is now the ink, on navy: 1.82:1.
 - Small print with its own font-size (sources lines, legal notices, a few intro paragraphs on /sell/) still runs past 75 characters a line on a desktop.
-- On a phone the short answer still starts below the first screen (1,012 to 1,286 pixels down at 390 x 844). Moving the button gains 78 pixels. The rest is the hero: 85px of top padding, the breadcrumb, the eyebrow, a 4 to 7 line H1 and a 30-word sub.
+- At 375 x 667, the playbook's smallest screen, the short answer still starts below the first screen (790 to 828px down). The header and call bar take 133px of it.
+- On a desktop, 1280 x 900, the short answer starts about 960px down: the H1 is 76px and the hero keeps its padding.
+- At 200% text on a phone, the header's menu button, the "Updated" date in the byline and a few long buttons run past the right edge. Each is the site's own chrome or button style.
 
 ## `mkpage-reading.patch`: the button under the short answer, and "On this page"
 
@@ -163,6 +170,22 @@ It changes `tools/mkpage.js` only.
 **3. FAQ.** Nothing changes. mkpage already writes each question as an H3 and each answer as an open paragraph.
 
 Rebuilt and checked on 2026-10-11, with all five patches applied to 54703db: the four 55+ pages (Del Webb North Myrtle Beach, Del Webb at Grande Dunes, Myrtle Trace, Seasons at Prince Creek West), /invest/llc/ (topic guide), /invest/what-is-being-built/ (data page with charts) and /sell/rental-property/ (seller guide). On each, every list label equals its H2, every link resolves, no id repeats, and `build.js audit` passes. No page scrolls sideways at 320, 390 or 1280.
+
+## `mkpage-photos.patch`: the hero photo as the share image, and the credits with the sources
+
+It changes `tools/mkpage.js` only, and applies after the other four mkpage patches.
+
+**1. Share image.** A page with `pageImages` now shares its hero photo. `og:image` and `twitter:image` are the 16x9 crop, 1200 x 675, with `og:image:width` and `og:image:height` to match. `og:image:alt` and `twitter:image:alt` are the alt text the hero photo is shown with (Blog-Brain `tools/photos.js` `pageImages` gives each crop that alt as `description`). Google Images: avoid "an image with text in the schema.org markup or og:image meta tag", and the share card is text.
+
+- A page without photos keeps its card from `og/<slug>.jpg`, else `og-image.jpg`, at 1200 x 630.
+- A spec's own `ogImage` still wins.
+- mkpage refuses `pageImages` with no 16x9 image 1200px wide.
+- The crops are WebP. Facebook, X and Google read WebP. If a network shows no picture, add a JPEG copy of the crop and set `ogImage`.
+- Blog-Brain `tools/site-upgrade.js --write` puts the card back in `og:image` on any page that has an `og/<slug>.jpg`. Do not run it on the four 55+ pages, or delete their cards, until it learns to skip a page that shares a photo.
+
+**2. `spec.afterSources`.** HTML, or a function that returns it, placed right after the sources line at the end of the FAQ section. The 55+ pages put the photo credits there (`afterSources: () => ph.credits()`). Before, the credits sat between the comparison table and the FAQ (playbook component 19: sources, credits and author note go together at the end).
+
+Pages without either field are unchanged.
 
 ## `logo-chapter-iii.patch`: on hold
 

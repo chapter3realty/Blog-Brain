@@ -78,6 +78,8 @@ const rec = (o = {}) => Object.assign({
   const pi = P.pageImages(r);
   check("pageImages: 1x1, 4x3 and 16x9, 1200 px wide, absolute, with the rights", pi.length === 3 && pi.map((x) => `${x.width}x${x.height}`).join(",") === "1200x1200,1200x900,1200x675"
     && pi.every((x) => x.contentUrl.startsWith(`${SITE}/images/t/`) && x.license && x.creator && x.copyrightNotice));
+  check("pageImages: each crop's description is the alt the hero was shown with (for og:image:alt)", pi.every((x) => x.description === "Sand and sea oats at sunrise on the beach in Myrtle Beach"));
+  check("pageImages: a photo not yet shown falls back to the record's alt", P.pageImages(rec()).every((x) => x.description === "Sand, sea oats and small waves at sunrise in Myrtle Beach"));
   check("pageImages: a record without crops throws", throws(() => P.pageImages(rec({ crops: undefined })), /no 1x1, 4x3, 16x9 crop/));
   check("pageImages: a crop under 1200 px wide throws", throws(() => P.pageImages(rec({ crops: Object.assign({}, rec().crops, { "1x1": { path: "images/t/x.webp", width: 900, height: 900 } }) })), /no 1x1 crop/));
 }
