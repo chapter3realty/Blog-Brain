@@ -1,6 +1,16 @@
 /* /buyers/55-plus-communities/del-webb-north-myrtle-beach/ - what it is like to live
  * in Del Webb North Myrtle Beach, a newer 55+ neighborhood in North Myrtle Beach.
  *
+ * Version 13b, 2026-10-11: the independent owner's-eye review (OWNER-EYE-v13b-del-webb-north-myrtle-beach.md,
+ *            8 of 10) and the coordinator's fixes: the Pulte clubs line cut; the rental section
+ *            answers its question first ("Not by the week."), still in row 75's words (the 2020
+ *            plan, never a rule in force); the story says "pick out a new house" and "the renting
+ *            rules for the neighborhood"; the town section says "hundreds of paths" and moves the
+ *            places and their drive times (rows 86, 88, 89, 98, 99, 101) into a card grid; no two
+ *            aerials in a row; the beach view labelled "Beach", "US 17" and "Del Webb North Myrtle
+ *            Beach" from county geometry; a labelled close aerial of the clubhouse, outdoor pool
+ *            and courts (county footprints; rows 32, 69 and 76); the ER in minutes (row 104,
+ *            needs verification: about 5 minutes by OSRM); the pier photo cropped to 16:9.
  * Version 13, 2026-10-11: the owner: "the first page about del webb seems less good than the other
  *            ones the maps photo above is low quality and theres only the one and its alot shorter".
  *            Pictures: the sharper NOAA aerials of January 2026 (row 103): the overview with its
@@ -80,7 +90,8 @@ const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 const ph = photoSet();
 const OVER = ph.aerial("del-webb-north-myrtle-beach-from-above-2026", "Del Webb North Myrtle Beach from above. The orange line is the edge of the neighborhood.");
 const STREET = ph.aerial("del-webb-north-myrtle-beach-homes-from-above-2026", "A street of homes in Del Webb North Myrtle Beach, with a pond and a walking path behind them.", { closeUp: true });
-const TOBEACH = ph.aerial("del-webb-north-myrtle-beach-to-the-beach-2026", "From the air: the beach at the left, US 17 in the middle, Del Webb North Myrtle Beach at the right.");
+const TOBEACH = ph.aerial("del-webb-north-myrtle-beach-to-the-beach-2026", "From the air: the beach, US 17 and Del Webb North Myrtle Beach.");
+const CLUB = ph.aerial("del-webb-north-myrtle-beach-clubhouse-from-above-2026", "The clubhouse, the outdoor pool and the courts, from above.", { closeUp: true });
 const UMBRELLAS = ph.aerial("north-myrtle-beach-beach-umbrellas", "Beach chairs and umbrellas on the beach in North Myrtle Beach.", { closeUp: true, alt: "Rows of beach chairs and blue, green and yellow umbrellas on the wide sand beach in North Myrtle Beach" });
 const PIER = ph.aerial("cherry-grove-pier-from-the-ocean", "The Cherry Grove Pier, seen from the ocean.", { closeUp: true });
 const MARSH = ph.aerial("cherry-grove-marsh-from-above-2026", "Cherry Grove from the air: the beach and part of the pier, canal homes and the salt marsh.", { closeUp: true });
@@ -124,10 +135,10 @@ module.exports = {
   sections: [
     { h2: "What are the homes like in Del Webb North Myrtle Beach?", toc: "The homes", html:
       ph.css() +
-      h.p("Most homes in Del Webb North Myrtle Beach are one story, so there are no stairs. They have 2 or 3 bedrooms and a garage, and most are about 1,400 to 2,700 square feet.") +
+      h.p("Most homes in Del Webb North Myrtle Beach are one story, so there are no stairs. They have two or three bedrooms and a garage, and most are about 1,400 to 2,700 square feet.") +
+      STREET +
       h.p("The homes sit on short streets around ponds, with the clubhouse, pools and courts in the middle of the neighborhood.") +
       OVER +
-      STREET +
       h.p("New homes come with:") +
       h.ul([
         "Fabric hurricane covers for the windows",
@@ -137,39 +148,45 @@ module.exports = {
 
     { h2: "What is there to do in Del Webb North Myrtle Beach?", toc: "Things to do", html:
       h.p("The clubhouse has a gathering room, an arts and crafts room and a fitness center.") +
+      CLUB +
       ph.cards([
         { illustration: "indoor-pool", label: "Indoor lap pool", text: "Swim laps all year" },
         { illustration: "outdoor-pool", label: "Outdoor pool", text: "With a beach-style walk-in entry" },
         { illustration: "pickleball", label: "Pickleball and bocce", text: "Sports courts in the neighborhood" },
         { illustration: "walking-path", label: "Walking trails", text: "Paths for a walk close to home" },
       ], { cols: 4 }) +
-      h.p("Pulte also lists clubs and activity groups for owners.") +
       h.p("The city's J. Bryan Floyd Community Center is about a minute away by car. On weekdays you can play indoor pickleball there for a few dollars a day. Behind it are outdoor pickleball courts that are free and always open.") +
       h.p("The center also has fitness classes, such as gentle yoga, that you pay for by the class. The city's recreation department runs trips for adults too, such as a monthly day trip around the Carolinas and bus tours.") },
 
     { h2: "Where is Del Webb North Myrtle Beach?", toc: "Where it is", html:
       h.p("Del Webb North Myrtle Beach is inside the city of North Myrtle Beach, about a mile from the ocean. To reach the beach, you drive across US 17, the main highway.") +
       TOBEACH +
-      h.p("The map shows the drive times by car. In our experience, rush hour adds 5 to 10 minutes.") +
+      h.p("In our experience, rush hour adds 5 to 10 minutes to the drive times on the map.") +
       M.where +
-      h.p("Grand Strand Health's North Strand ER, an emergency room open day and night, is about a mile and a half away. The airport is about 35 minutes away by car.") },
+      h.p("For an emergency, North Strand ER is closer, about 5 minutes by car. It is open day and night. The airport is about 35 minutes away by car.") },
 
     { h2: "What is North Myrtle Beach like?", toc: "The town", html: (bg) =>
-      h.p("North Myrtle Beach has a wide sand beach lined with beach houses. The city keeps more than 240 paths to the beach and dozens of public parking spots, so you can find a place near the sand.") +
+      h.p("North Myrtle Beach has a wide sand beach lined with beach houses. The city keeps hundreds of paths to the beach and dozens of public parking lots, so you can find a place near the sand.") +
       UMBRELLAS +
       atAGlance([
         { icon: "dollar", label: "Beach parking", text: "Free early in the morning, in the evening and all winter. City residents register each year, and the car's license plate is the pass." },
         { icon: "golf-cart", label: "Golf carts", text: "Allowed with a state permit sticker, on roads of 35 mph or less, from sunrise to sunset." },
         { icon: "pets", label: "Dogs on the beach", text: "Always on a leash. From mid-May to Labor Day, no dogs on the beach from 10 a.m. to 4 p.m." },
       ], { bg, min: "18rem" }) +
-      h.p("The way to the nearest beach path runs along a short stretch of US 17, where golf carts may only cross. Plan to drive to the beach.") +
-      h.p("Main Street, about 7 minutes away, has shops and places to eat. Each summer the city holds free Music on Main concerts there on Thursday evenings.") +
-      h.p("The Cherry Grove Pier, about 15 minutes away, reaches far out into the ocean, and you can walk it or fish from it.") +
+      h.p("To reach the nearest beach path, you would drive a short way along US 17. Golf carts may only cross US 17, so plan to take your car to the beach.") +
+      h.p("These places in town are a short drive away.") +
+      atAGlance([
+        { icon: "town", label: "Main Street", text: "Shops, places to eat and free concerts on summer Thursdays. About 7 minutes." },
+        { icon: "pond", label: "Cherry Grove Pier", text: "Walk out over the ocean or fish from it. About 15 minutes." },
+        { icon: "shopping", label: "Barefoot Landing", text: "Dozens of shops and restaurants by the Intracoastal Waterway. About 10 minutes." },
+        { icon: "pickleball", label: "Central Park", text: "A city park with a paved walking path and tennis and pickleball courts. About 2 minutes." },
+        { icon: "trail", label: "Ingram Dunes", text: "A city trail through an old seaside forest with tall dunes. About 4 minutes." },
+        { icon: "dock", label: "Heritage Shores", text: "City boardwalks and docks over the salt marsh. About 20 minutes." },
+      ], { bg, min: "13rem" }) +
+      h.p("The Cherry Grove Pier reaches far out into the ocean.") +
       PIER +
-      h.p("Behind Cherry Grove is a salt marsh, where the city's Heritage Shores Nature Preserve has boardwalks and docks over the water.") +
-      MARSH +
-      h.p("Barefoot Landing, about 10 minutes away, has dozens of shops and restaurants beside the Intracoastal Waterway.") +
-      h.p("Two city parks are close. Central Park, about 2 minutes away, has a paved walking path and tennis and pickleball courts. Ingram Dunes Nature Preserve, about 4 minutes away, has a trail through an old seaside forest with tall dunes.") },
+      h.p("Behind Cherry Grove is a wide salt marsh, with creeks winding through it.") +
+      MARSH },
 
     { h2: "What does a home in Del Webb North Myrtle Beach cost?", toc: "Costs", html:
       h.p("In the last year, new homes from the builder usually sold for about $635,000. Homes resold by their owners sold for about $535,000.") +
@@ -185,10 +202,10 @@ module.exports = {
       compareTable(SELF) },
 
     { h2: "Can you rent out a home in Del Webb North Myrtle Beach?", toc: "Renting", html: (bg) =>
-      h.p(`Under ${h.ext(AGREEMENT, "the city's plan for the neighborhood")}, renters must stay at least 30 days.`) +
+      h.p(`Not by the week. Under ${h.ext(AGREEMENT, "the city's plan for this neighborhood")}, renters must stay at least 30 days.`) +
       story([
         "<strong>Example:</strong> Frank and Joyce plan to spend summers near their son in Michigan. While they are away, they want to rent their new house to vacationers by the week.",
-        "They choose a house plan in Del Webb North Myrtle Beach and are ready to sign the builder's contract. Before they sign, their Chapter3 agent reads the city's renting rules for the neighborhood with them.",
+        "They pick out a new house in Del Webb North Myrtle Beach and are ready to sign the builder's contract. Before they sign, their Chapter3 agent reads the renting rules for the neighborhood with them.",
         "Every renter there must stay at least 30 days, so they cannot rent by the week. Frank and Joyce plan on one renter for the whole summer, and they sign the contract.",
       ], "", bg) +
       h.cta("Tell us how you plan to use the home.", "An agent gets the HOA documents and reads the rental rules with you before you sign the builder's contract.", "Talk to an agent", "/contact/", bg) },

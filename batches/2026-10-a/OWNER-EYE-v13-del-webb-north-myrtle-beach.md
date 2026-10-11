@@ -16,7 +16,7 @@ This review was written by the agent that wrote the page, not by a fresh agent. 
 
 ## What he asked for, and what the page does now
 
-- **"The maps photo above is low quality."** The blurry 2023 picture is gone. The homes section now opens with the sharper 2026 aerial of the whole neighborhood, with its edge and the clubhouse marked. It also shares the page on social media. Under it is a 2026 close view of one street of finished homes, a pond and the walking path. No bare dirt shows in either.
+- **"The maps photo above is low quality."** The blurry 2023 picture is gone. The homes section now opens with the sharper 2026 aerial of the whole neighborhood, with its edge and the clubhouse marked. It also shares the page on social media. Under it is a 2026 close view of one street of finished homes, a pond and the walking path. ~~No bare dirt shows in either.~~ Correction (v13b): that was wrong. The photos were taken in January, so the lawns are brown in both, and the northeast corner of the overview shows graded lots with no houses yet.
 - **"There's only the one."** The page now has six pictures, each beside the sentence it shows:
   - the overview, beside "the homes sit on short streets around ponds";
   - the street, in the homes section;
