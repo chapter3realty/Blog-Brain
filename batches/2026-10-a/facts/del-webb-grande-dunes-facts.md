@@ -294,3 +294,7 @@ What a buyer asks that none of them answers: the recorded age rule (one resident
 4. Does a Del Webb at Grande Dunes tax bill carry a Marina Tract South Improvement District charge? A 2025 bill from a closing file would show it.
 5. Owner decision: remove "premium end" and "Verified gated" for this community from the hub.
 6. Homes for sale link: the site has no listing search to link (Not verified, item 23). Same choice as the other three pages. When the MLS export arrives, check the $401 house and $445 villa fees (row 95) against 2026 closings, and ask AAM whether they include the Ocean Club and Master Association charges.
+
+## Coordinator decision on the Ocean Club pro (2026-10-11, v14b)
+
+The page may say plainly: "Your HOA bill includes membership in the Grande Dunes Ocean Club, the beach club." The recorded declaration (row 32) makes the Ocean Club charge an assessment every owner pays. The association's budget (rows 33 and 76) collects it from owners and pays it to the Ocean Club. Row 91 says a Grande Dunes homeowner gets a household membership. Together these support the sentence without attribution. The page never says "free" and never says the terms match other Grande Dunes neighborhoods.
