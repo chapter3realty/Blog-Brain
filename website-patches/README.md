@@ -100,6 +100,8 @@ node build.js audit
 
 ## `readability.patch`: reading size, links, open FAQ answers, tap targets, fonts
 
+**2026-10-11, later.** The "On this page" list is two columns on a phone (under 700 px), with 15px type and 44px tap rows, so it fills about half a screen. Labels stay word for word the H2s (STANDARD H14). Regenerated on a clean clone of 54703db; all six patches pass `git apply --check` in the order above.
+
 This puts the page design report (`reports/Page design for readers and search.md`) into the stylesheet. Every rule is in one commented block at the end of `assets/app.8e7fe83324.css`, after the contrast rules. Type and link rules are scoped to `body:not(.home)`, so the homepage keeps its own type.
 
 | What | Before (live, measured) | After |

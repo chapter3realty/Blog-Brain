@@ -86,8 +86,14 @@ function maps(slug, picks, o = {}) {
   const links = `<p class="c3-map-links" style="display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.5rem;margin:.6rem 0 1.6rem;max-width:760px;font-size:.95rem">`
     + `<span style="display:inline-flex;align-items:center;gap:.4rem"><span style="color:var(--brass-ink);display:inline-flex">${icon("pin", { size: 20 })}</span><a href="${hrefs[0]}" ${A}>Open ${c.name} in Google Maps</a></span>`
     + `<a href="${hrefs[1]}" ${A}>Get directions</a></p>`;
+  /* Version 10 (owner's eye, 2026-10-11): the "where it is" map and one link only. The close-up
+     street map is dropped (the aerial shows the same place, and road names mean nothing to a
+     buyer from out of state); "Get directions" is dropped (it opens the same place). */
+  const one = `<p class="c3-map-links" style="display:flex;align-items:center;gap:.4rem;margin:.6rem 0 1.6rem;max-width:760px;font-size:.95rem">`
+    + `<span style="color:var(--brass-ink);display:inline-flex">${icon("pin", { size: 20 })}</span><a href="${hrefs[0]}" ${A}>Open ${c.name} in Google Maps</a></p>`;
   return {
     region, close, links,
+    where: region + one,
     /* Both maps side by side from 900 px wide ("where it is" left, "inside" right), stacked
        on a phone, with the Google Maps buttons under them. */
     pair: `<div class="c3-maps">${region}${close}</div>${links}`,
@@ -119,6 +125,8 @@ function story(paras, meaning, bg, offer) {
   const n = text.split(/(?<=[.!?])\s+/).filter(Boolean).length;
   if (n < 5 || n > 8) throw new Error(`an example runs 5 to 8 sentences, not ${n}`);
   if (/\$\s?\d/.test(text)) throw new Error("no prices inside an example");
+  /* Only people act; no figure of speech (RULES 1 and 2; owner's eye, 2026-10-11). */
+  if (/\b(?:rules?|law|plan|map|quote) (?:allows?|says?|lets?|makes?|requires?)\b|in front of them/i.test(text)) throw new Error("a rule or paper acts, or a figure of speech inside the example");
   const P = 'style="color:var(--muted);line-height:1.75;max-width:640px;margin:0 0 .9rem"';
   return `<div class="c3-story" style="background:var(--${bg === "ivory" ? "ivory" : "ivory-2"});border-top:3px solid var(--brass);padding:1.5rem 1.5rem .7rem;margin:1.4rem 0 1.4rem;max-width:720px">`
     + paras.map((t) => `<p ${P}>${t}</p>`).join("") + `</div>`
@@ -249,7 +257,14 @@ function photoSet() {
     credits() {
       if (!used.length) throw new Error("no photos shown, so no credits");
       if (shareRec && !used.includes(shareRec)) throw new Error("the share photo is not shown on the page");
-      return P.creditsList(used, { css: false }) + P.imageSchema(used);
+      /* The year of a government aerial goes in its credit line, the one place a photo's date
+         appears (owner, 2026-10-11: the date once at the top; photo years only in the credits). */
+      let html = P.creditsList(used, { css: false });
+      for (const r of used) if (/^USDA Farm Service Agency, NAIP$/.test(r.author || "") && r.taken) {
+        html = html.split("Photo: USDA Farm Service Agency, NAIP, ").join(`Photo: USDA Farm Service Agency, NAIP ${String(r.taken).slice(0, 4)}, `);
+        break;
+      }
+      return html + P.imageSchema(used);
     },
     pageImages() {
       const r = (heroRec && heroRec.crops) ? heroRec : shareRec;
