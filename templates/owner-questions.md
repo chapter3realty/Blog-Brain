@@ -40,3 +40,15 @@ Record the answers in the website repo at `research/<cluster>/owner-answers-batc
 ## Open from earlier batches
 
 Carry every unanswered question forward here. Do not let them age silently. The batch 1 and batch 2 lists in the website repo were never answered.
+
+### Batch 2026-10-a (55+ communities), open 2026-10-11
+
+Only someone at Chapter3 can do these. None blocks publishing; each makes a page stronger.
+
+1. **Street photos** of each community: entrance sign, clubhouse front, pool (no people), one street of homes, one house front with its garage. Shot list: `templates/photo-shot-list.md`. Every buyer reader and the owner's-eye review asked for these.
+2. **Recorded HOA rules at the Register of Deeds, 1301 Second Avenue, Conway** (public viewing area), so the pages can state the real rental, pet and fence rules:
+   - Del Webb North Myrtle Beach: Book 4442, Page 1382 and Book 5032, Page 1405.
+   - Del Webb at Grande Dunes: the 2025 rules (recorded January 2025).
+3. **Seasons at Prince Creek West:** is the gate staffed or working in 2026? Is there an activities director, and about how many events a month?
+4. **Myrtle Trace:** can residents play the Burning Ridge golf course next door, and on what terms?
+5. **Tim Nash:** does he read pages before they publish? Every page says "Reviewed by Tim Nash".
