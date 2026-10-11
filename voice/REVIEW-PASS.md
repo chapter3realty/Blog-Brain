@@ -128,6 +128,7 @@ B8. Is there a paragraph the buyer would skip? [no; cut it or move it to an expl
 57. Is every invented situation labelled "Example" where it starts, with every number from the fact ledger and the arithmetic shown? [yes] STORY-3
 58. Does any example say "our client", "we helped", or say the people are or are not clients? [no] STORY-3
 59. Does every story end with what happened, in plain words, and show how Chapter3 helped? [yes] STORY-5, STORY-6
+59a. Read once and covered, can the story be told back in one sentence (want, problem, fix) with no counting and no "if"? [yes] STORY-SIMPLE
 
 ## 14. Defining terms (5)
 

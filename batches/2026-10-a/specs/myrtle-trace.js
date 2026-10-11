@@ -157,9 +157,9 @@ module.exports = {
     { h2: "Can you fence a yard in Myrtle Trace?", toc: "Fences", html: (bg) =>
       h.p("Usually not in Myrtle Trace. Fences between yards and across the front are not allowed, and most lots cannot have a fence around the back yard either. A dog run is allowed once the HOA approves it.") +
       story([
-        "<strong>Example:</strong> Pat is moving from Erie with her dog, Max, and she plans to fence the back yard for him. She likes a house in Myrtle Trace whose back yard looks out on the golf course next door.",
-        "Before she makes an offer, her Chapter3 agent reads the HOA's rules for yards on that lot with her. The agent finds that no fence around the yard is allowed on a lot that backs onto the golf course or a pond.",
-        "The agent shows her that a dog run is allowed once the HOA approves where it goes and how it is built. Pat makes her offer on the golf course house, with a plan for a dog run beside the patio.",
+        "<strong>Example:</strong> Pat is moving from Erie, Pennsylvania, with her dog, Max, and she wants a fenced back yard where he can run. She likes a house in Myrtle Trace that backs onto the golf course.",
+        "Before she makes an offer, her Chapter3 agent reads the neighborhood's rules with her. A house on the golf course cannot have a fence around its back yard.",
+        "The agent shows her that a dog run is allowed once the HOA approves it. Pat makes her offer, with a plan for Max's dog run beside the patio.",
       ], "", bg,
       `An agent at Chapter3 can ${h.a("/contact/", "read the HOA's rules with you")} before you make an offer.`) },
   ],

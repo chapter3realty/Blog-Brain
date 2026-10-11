@@ -164,9 +164,9 @@ module.exports = {
       h.p(`Most Seasons lots will not. On 45 of the lots, one corner touches the high-risk flood zone on ${h.ext(FEMA, "the federal flood map")}.`) +
       h.p("If the house itself is in the zone, your lender will require flood insurance. Outside the zone, flood insurance is your choice. A policy here usually costs about $600 a year.") +
       story([
-        "<strong>Example:</strong> Carol and Jim are moving from Buffalo. A Chapter3 agent is helping them find a house in Seasons that backs onto the woods. They find one they like and plan to make an offer that night.",
-        "Before they do, the agent pulls up that lot on the federal flood map. The back of the house sits inside the high-risk flood zone, so their lender will require flood insurance. That is a yearly cost they had not planned for.",
-        "The agent gets them a flood insurance quote on that exact house the same afternoon. Carol and Jim write their offer knowing what flood insurance on that house will cost each year.",
+        "<strong>Example:</strong> Carol and Jim are moving from Buffalo, and they want a house in Seasons that backs onto the woods. They find one they like and plan to make an offer that night.",
+        "First, their Chapter3 agent checks the government's flood map for that house. The back of the house is in the high-risk flood area, so their lender will require flood insurance.",
+        "That is a yearly bill Carol and Jim had not planned on. The agent gets them a quote that afternoon, and they make their offer that night knowing the cost.",
       ], "", bg) +
       h.cta("Get a flood insurance quote on the lot you like.", `Tell us the home you are looking at. One of our agents can help you get a flood ${h.a("/buyers/coastal-insurance/", "insurance")} quote on it before you offer.`, "Get a flood quote", "/contact/", bg) },
   ],

@@ -184,10 +184,9 @@ module.exports = {
     { h2: "How long can grandchildren stay in Del Webb at Grande Dunes?", toc: "Grandchildren's stays", html: (bg) =>
       h.p("Grandchildren and other guests under 19 can stay up to 90 nights in any 12 months in a row.") +
       story([
-        "<strong>Example:</strong> Bill and Nancy are moving from Columbus, Ohio, and they like a villa in Del Webb at Grande Dunes. Their grandsons plan to come for Christmas and then for the whole summer after it.",
-        "Before the offer, their Chapter3 agent asks for the dates and counts the nights on a calendar with them. The agent counts Christmas and the next summer together, because they fall inside the same 12 months.",
-        "The nights add up to more than 90. Nancy moves the boys' summer arrival to the first week of July, and the agent counts again.",
-        "Bill and Nancy make their offer knowing the boys' visits fit the rule. If the visits had not fit, they could have looked at a different neighborhood before they signed anything.",
+        "<strong>Example:</strong> Bill and Nancy are moving from Ohio. They want their two grandsons to stay with them all summer and again at Christmas.",
+        "They like a villa in Del Webb at Grande Dunes. Before they make an offer, their Chapter3 agent reads the neighborhood's rules with them.",
+        "A grandchild can stay up to 90 nights a year, and their plan is about two weeks too long. Bill and Nancy cut two weeks from the summer visit and make their offer.",
       ], "", bg) +
       h.cta("Tell us when your family plans to visit.", "An agent counts the nights against the guest rule with you before you make an offer.", "Talk to an agent", "/contact/", bg) },
   ],

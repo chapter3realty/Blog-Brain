@@ -19,7 +19,7 @@ Look in `stories/stories.json` before writing anything. A real story is the stro
 
 ## The shape
 
-One buyer or one couple, first names only. Five to eight sentences.
+One buyer or one couple, first names only. Four to six sentences. One want, one problem, one fix. The story must pass the simple story test in `voice/STORY-SIMPLE.md` (owner, 2026-10-11, on the Grande Dunes story: "impossible to understand"): retell it in one sentence, no counting, no "if", one timeline.
 
 1. **Before:** their old life and the worry this page answers. Use a real worry: leaving the grandchildren, money lasting, the doctor, knowing no one, a house full of belongings, storms and insurance, stairs later in life, putting it off for years.
 2. **But:** the thing that makes it hard.
@@ -34,10 +34,12 @@ Write the ending first, then open on its opposite.
 
 ## The checklist
 
+- It passes every line of the simple story test (`voice/STORY-SIMPLE.md`). A story the reader must work out is worse than no story.
+
 - Each sentence follows from the one before by "but" or "therefore". If only "and then" fits, it is a list, not a story.
 - One detail the reader can picture.
 - No named feelings ("nervous", "thrilled", "love it"). Show the act that proves it.
-- Three numbers or fewer, rounded, about the people (an age, years in a house). Prices, taxes and fees go outside the story, from a verified row. Never a rate or a payment.
+- One number at most, and the reader does nothing with it. Prices, taxes and fees go outside the story, from a verified row. Never a rate or a payment.
 - Show Chapter3's skill, with tension (owner, 2026-10-11: "the story should also be showing Chapter3's skill and have some tension involved somewhere"). In a labelled example, write it in the present tense with the agent acting by name, so no sentence claims a past client: "**Example:** Bill and Nancy are moving from Columbus... Before they offer, their Chapter3 agent reads the neighborhood's rules with them and finds..." Do not open with "Here is how" or with And, So, But, Or or Yet: the website audit bans those openers. The problem must be real for this place (from a verified row), the agent's act must be a service the story bank or an owner answer records, and the ending is what the buyer can now do, never a promise or a saving. Past tense "a Chapter3 agent helped them" stays out of examples; it belongs only to real stories from the bank.
 - Tension: something the buyer did not see coming, found before it cost them (a rule, a flood line, a fee, a limit), and the moment the agent's skill turns it.
 - Never reuse this page's model examples, or the report's, with new names. Write a new story from the page's own worry.
@@ -52,6 +54,6 @@ Write the ending first, then open on its opposite.
 
 Weak: "Many retirees worry about leaving their family when they move south. Tom and Diane felt the same way. They were nervous, but in the end they knew it was the right decision. Now they love their new life at the beach."
 
-Strong: "**Example:** For twelve years, Tom and Diane lived ten minutes from their grandchildren in Pennsylvania. Moving to the beach meant the end of Sunday dinners at their house. But they had wanted to retire near the ocean for most of their lives. They decided the new house had to be a place the family would want to visit. They passed on a house with a bigger yard and chose one with a spare bedroom and a pull-out couch. Before they left Pennsylvania, Diane wrote the grandchildren's first visit on the new kitchen calendar."
+Strong: "**Example:** Tom and Diane live ten minutes from their grandchildren in Pennsylvania. Moving to the beach means the end of Sunday dinners at their house. They decide the new house has to be a place the family would want to visit. They pass on a house with a bigger yard and choose one with a spare bedroom and a pull-out couch. Before they leave Pennsylvania, Diane writes the grandchildren's first visit on the new kitchen calendar."
 
 After it: "If you want family to visit, look for a place for them to sleep before you look at the yard."

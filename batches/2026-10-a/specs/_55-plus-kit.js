@@ -123,7 +123,12 @@ function story(paras, meaning, bg, offer) {
   /* Present tense only: an agent who "helped", "found" or "got" reads as a real past client. */
   if (/\bagent (?:helped|found|got|read|checked|showed|saw|walked|told|knew|made|gave)\b/i.test(text)) throw new Error("the agent acts in the present tense inside an example");
   const n = text.split(/(?<=[.!?])\s+/).filter(Boolean).length;
-  if (n < 5 || n > 8) throw new Error(`an example runs 5 to 8 sentences, not ${n}`);
+  /* The simple story test (voice/STORY-SIMPLE.md, owner 2026-10-11: the Grande Dunes story was
+     "impossible to understand"): 4 to 6 short sentences, no condition, no counting. */
+  if (n < 4 || n > 6) throw new Error(`an example runs 4 to 6 sentences, not ${n}`);
+  for (const sen of text.split(/(?<=[.!?])\s+/)) if (sen.split(/\s+/).length > 25) throw new Error(`a story sentence runs over 25 words: ${sen}`);
+  if (/\b(?:if|unless|except|would have|could have)\b/i.test(text)) throw new Error("no if, unless, except, would have or could have inside a story (STORY-SIMPLE 5)");
+  if ((text.replace(/Chapter ?3/g, "").match(/\d[\d,]*/g) || []).length > 1) throw new Error("at most one number inside a story (STORY-SIMPLE 4)");
   if (/\$\s?\d/.test(text)) throw new Error("no prices inside an example");
   /* Only people act; no figure of speech (RULES 1 and 2; owner's eye, 2026-10-11). */
   if (/\b(?:rules?|law|plan|map|quote) (?:allows?|says?|lets?|makes?|requires?)\b|in front of them/i.test(text)) throw new Error("a rule or paper acts, or a figure of speech inside the example");

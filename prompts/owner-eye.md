@@ -19,6 +19,7 @@ Then answer, as him, in his words:
 - Is anything awkward to look at? (A photo that does not belong, a story in the wrong place, too much in one screen, an icon or card that says nothing.)
 - Does every photo show what its section is about?
 - Is there a story near the end with tension, showing Chapter3's skill?
+- Read the story once, out loud, without rereading. Cover it and tell it in one sentence: who wanted what, what stood in the way, what the agent did. If you could not, or you had to count or reread, the page scores below 9 (owner, 2026-10-11: the Grande Dunes story was "impossible to understand"; `voice/STORY-SIMPLE.md`).
 - What did the page forget that a buyer types into Google about this subject?
 - Grade it 1 to 10. Below 9, it does not go to the owner.
 
