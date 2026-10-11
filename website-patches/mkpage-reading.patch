@@ -1,8 +1,8 @@
 diff --git a/tools/mkpage.js b/tools/mkpage.js
-index 72c425d..5e0973d 100644
+index 72c425d3..05d4c5c5 100644
 --- a/tools/mkpage.js
 +++ b/tools/mkpage.js
-@@ -190,17 +190,36 @@ function build(spec) {
+@@ -190,17 +190,39 @@ function build(spec) {
    const heroMedia = spec.heroMedia ? `<div class="detail-media" style="margin:0 0 1.2rem;max-width:760px">${spec.heroMedia}</div>` : "";
    const bgs = ["ivory", "ivory-2"];
    let i = 0; const nextBg = () => bgs[i++ % 2];
@@ -29,7 +29,10 @@ index 72c425d..5e0973d 100644
 +  const uniq = (base) => { base = base || "section"; let id = base, n = 2; while (taken.has(id)) id = `${base}-${n++}`; taken.add(id); return id; };
 +  for (const x of secs) x.id = x.s.id || (x.s.h2 ? uniq(cut(slug(x.s.h2))) : "");
 +  const faqId = uniq(cut(slug(spec.faqTitle)) || "questions");
-+  const tocItems = secs.filter((x) => x.s.h2).map((x) => [x.id, x.s.h2]).concat([[faqId, spec.faqTitle]]);
++  /* A section may carry a short contents label, s.toc (owner, 2026-10-11: full local headings,
++     short labels in the list). The H2 then carries it as data-toc, so a checker can match the
++     label to its heading (Blog-Brain score.js H14). */
++  const tocItems = secs.filter((x) => x.s.h2).map((x) => [x.id, x.s.toc || x.s.h2]).concat([[faqId, spec.faqTitle]]);
 +  const toc = (spec.toc === true || (spec.toc !== false && tocItems.length >= 5))
 +    ? `<nav aria-label="On this page" style="margin-top:2rem;max-width:720px"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.3rem;font-weight:600">On this page</p><ul style="list-style:none;margin:0;padding:0">${tocItems.map(([id, h2]) => `<li><a href="#${id}" style="display:block;padding:.65rem 0;color:var(--navy);text-decoration:underline;text-underline-offset:.18em;line-height:1.35">${plain(h2)}</a></li>`).join("")}</ul></nav>`
 +    : "";
@@ -41,10 +44,19 @@ index 72c425d..5e0973d 100644
 +  const parts = [];
 +  parts.push(`<main id="main"><div class="detail-hero bg-grid"><div class="wrap"><div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="${hub.url}">${hub.name}</a><span>/</span><span style="color:var(--muted)">${spec.crumb}</span></div><p class="eyebrow" style="margin-bottom:1rem">${spec.eyebrow}</p><h1 class="detail-h1">${spec.h1}<br/><em style="font-style:italic;color:var(--brass)">${spec.h1em}</em></h1>${heroMedia}<p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">${byline}</p><p class="detail-sub">${spec.sub}</p></div></div>`);
 +  parts.push(`<section style="background:var(--${saBg})"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">The short answer</p>${(Array.isArray(spec.shortAnswer) ? spec.shortAnswer : [spec.shortAnswer]).map(t => `<p ${P}>${t}</p>`).join("")}${heroCta}${toc}</div></section>`);
-+  for (const x of secs) parts.push(`<section style="background:var(--${x.bg})"${x.id ? ` id="${x.id}"` : ""}><div class="wrap">${x.s.h2 ? `<h2 ${H2}>${x.s.h2}</h2>` : ""}${x.body}</div></section>`);
++  for (const x of secs) parts.push(`<section style="background:var(--${x.bg})"${x.id ? ` id="${x.id}"` : ""}><div class="wrap">${x.s.h2 ? `<h2 ${H2}${x.s.toc ? ` data-toc="${String(x.s.toc).replace(/&/g, "&amp;").replace(/"/g, "&quot;")}"` : ""}>${x.s.h2}</h2>` : ""}${x.body}</div></section>`);
    const srcLinks = spec.sources.map(x => `<a href="${x.href}" ${EXT}>${x.name}</a>`).join(", ");
 -  parts.push(`<section style="background:var(--${faqBg})"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. Read ${shown}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p></div></section>`);
-+  parts.push(`<section style="background:var(--${faqBg})" id="${faqId}"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. Read ${shown}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p></div></section>`);
++  parts.push(`<section style="background:var(--${faqBg})" id="${faqId}"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p></div></section>`);
    parts.push(`<section style="background:var(--navy);padding:3rem 0"><div class="wrap" style="text-align:center;max-width:720px;margin:0 auto"><h2 style="font-family:var(--serif);font-size:1.7rem;color:var(--ivory);margin-bottom:1rem">${spec.bottomCta.h2}</h2><p style="color:rgba(244,239,232,.75);line-height:1.7;margin-bottom:1.6rem">${spec.bottomCta.p}</p><a class="btn btn-brass btn-lg" href="${spec.bottomCta.href}">${spec.bottomCta.label}</a></div></section></main>`);
    const main = parts.join("");
    const out = head + main + tail;
+@@ -226,7 +248,7 @@ function build(spec) {
+      the donor gained an identity element this script does not rewrite. */
+   for (const t of DONOR_HEAD_TOKENS) if (donorChrome.includes(t)) throw new Error(`donor chrome still names the donor ("${t}") - an identity element is not on the rewrite list`);
+   if (strip(out) !== donorChrome) throw new Error("chrome differs from donor outside the identity elements");
+-  const sourceWords = words(srcLinks) + words(`Read ${shown}. ${spec.sourcesNote || ""}`);
++  const sourceWords = words(srcLinks) + words(`${spec.sourcesNote || ""}`);
+   if (sourceWords > 90) throw new Error(`sources line is ${sourceWords} words (max 90)`);
+ 
+   const file = path.join(ROOT, ...spec.url.split("/").filter(Boolean), "index.html");

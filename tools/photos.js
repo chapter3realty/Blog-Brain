@@ -183,7 +183,9 @@ const changesOf = (rec) => String((rec && rec.changes) || "").trim().replace(/\.
    license. The license name, the source and the note of changes are in creditsList. */
 function overlay(rec, kind) {
   if (kind === "illustration") return `<span class="c3ph-cr">Drawing: Chapter3 Realty</span>`;
-  const body = `Photo: ${esc(shortAuthor(rec.author))}`;
+  /* A record may set display_credit, the short words shown on the photo itself ("U.S. government
+     aerial photo"); the credits list and the embedded metadata keep the full author. */
+  const body = rec.display_credit ? esc(rec.display_credit) : `Photo: ${esc(shortAuthor(rec.author))}`;
   if (kind === "own" || !rec.license_url) return `<span class="c3ph-cr">${body}</span>`;
   const lic = esc(licText(rec, kind));
   return `<span class="c3ph-cr"><a href="${esc(rec.license_url)}" ${EXT} aria-label="${body}. License: ${lic}" title="License: ${lic}">${body}</a></span>`;

@@ -48,7 +48,7 @@ How it looks matters as much as what it shows. The design report (`reports/Page 
 - The answer comes first. On a phone, the first screen shows the H1, the byline and the first sentence of the short answer. No big photo above it.
 - Large, dark text: 18 px or more on a phone, lines of about 65 characters. Links are underlined.
 - Hide nothing. FAQ answers are open text, never in a closed accordion. Nothing rotates or pops up.
-- A page with 4 or more sections gets an "On this page" list. Each label is the heading, word for word.
+- A page with 4 or more sections gets an "On this page" list. Each label is the heading, word for word, or a short label the heading declares (owner, 2026-10-11: local headings keep the place name; the list keeps short labels).
 - Each photo shows a fact, and its caption says the fact. Cut a photo that only decorates.
 
 ## 5. Write it

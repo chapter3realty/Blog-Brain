@@ -301,7 +301,7 @@ const CMP_CSS = "<style>.c3-cmp tr.c3-self td{background:#fff;font-weight:600;co
 const compareTable = (self) => {
   const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
   const rows = COMPARE.rows.map((r) => {
-    const cells = [r.url === self ? `<strong style="color:var(--navy);font-weight:500">${r.cells[0]}</strong>` : h.a(r.url, r.cells[0]), ...r.cells.slice(1)];
+    const cells = [r.url === self ? `<strong style="color:var(--navy);font-weight:700">${r.cells[0]}</strong>` : h.a(r.url, r.cells[0]), ...r.cells.slice(1)];
     /* This page's own row stands out: bold, shaded, with a brass frame on a phone card. */
     return `<tr${r.url === self ? ' class="c3-self"' : ""}>${cells.map((c, i) => `<td data-label="${esc(COMPARE.head[i])}" ${TD}>${c}</td>`).join("")}</tr>`;
   }).join("");

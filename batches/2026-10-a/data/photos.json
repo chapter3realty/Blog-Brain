@@ -1169,7 +1169,8 @@
           "height": 675
         }
       },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen."
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen.",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "del-webb-grande-dunes",
@@ -1247,7 +1248,8 @@
           "height": 675
         }
       },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen."
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen.",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "del-webb-grande-dunes",
@@ -1308,7 +1310,8 @@
       ],
       "width": 1200,
       "height": 900,
-      "original_size": "2400x1800 (NAIP export at 2x, drawn on, then resized)"
+      "original_size": "2400x1800 (NAIP export at 2x, drawn on, then resized)",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "myrtle-trace",
@@ -1387,7 +1390,8 @@
           "height": 675
         }
       },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen."
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen.",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "seasons-at-prince-creek-west",
@@ -1465,7 +1469,8 @@
           "height": 675
         }
       },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen."
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: Chapter3 exported each ratio from the same NAIP 2023 imagery and placed the outline and labels for that frame, 1200 px wide. In the 16x9 and 4x3 files the outline and labels sit inside the part the page keeps when it shows the photo 4:3 on a phone or 16:9 on a wide screen.",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "seasons-at-prince-creek-west",
@@ -1525,7 +1530,8 @@
       ],
       "width": 1200,
       "height": 900,
-      "original_size": "2400x1800 (NAIP export at 2x, drawn on, then resized)"
+      "original_size": "2400x1800 (NAIP export at 2x, drawn on, then resized)",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "myrtle-trace",
@@ -1575,7 +1581,8 @@
       },
       "width": 1200,
       "height": 900,
-      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)"
+      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "seasons-at-prince-creek-west",
@@ -1624,7 +1631,8 @@
       },
       "width": 1200,
       "height": 900,
-      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)"
+      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "del-webb-north-myrtle-beach",
@@ -1691,7 +1699,8 @@
           "height": 675
         }
       },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own NAIP 2023 export of the same street, 1200 px wide, colors adjusted."
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Each ratio is its own NAIP 2023 export of the same street, 1200 px wide, colors adjusted.",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "del-webb-grande-dunes",
@@ -1744,7 +1753,8 @@
       },
       "width": 1200,
       "height": 900,
-      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)"
+      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)",
+      "display_credit": "U.S. government aerial photo"
     },
     {
       "slug": "del-webb-grande-dunes",
@@ -1796,7 +1806,8 @@
       },
       "width": 1200,
       "height": 900,
-      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)"
+      "original_size": "2400x1800 (NAIP export at 2x, colors adjusted, then resized)",
+      "display_credit": "U.S. government aerial photo"
     }
   ],
   "updated": "2026-10-10"

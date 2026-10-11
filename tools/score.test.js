@@ -272,6 +272,11 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   quiet("a page with no list", base, "toc");
   /* Live /buyers/waterfront-homes/ heads this section "Docks and dock permits, the part that decides value" under the label "Docks". */
   fires("a short label for a long heading (live /buyers/waterfront-homes/)", withToc(all.concat([["docks", "Docks"]]), '<section><div class="wrap"><h2 id="docks">Docks and dock permits, the part that decides value</h2><p>A private dock needs a permit.</p></div></section>'), "toc");
+  /* A heading that declares its short label (mkpage-reading.patch, 2026-10-11; 55+ pages, v12: "Where is
+     Del Webb North Myrtle Beach?" listed as "Where is it?"). The label may be the declared one, never another. */
+  const shortDecl = (h) => h.replace('<h2 id="who-pays">Who pays it when the unit sells?</h2>', '<h2 id="who-pays" data-toc="Who pays?">Who pays it when the unit sells?</h2>');
+  passes("a short label the heading declares in data-toc", shortDecl(withToc(all.slice(0, 2).concat([["who-pays", "Who pays?"]], all.slice(3)))), "toc");
+  fires("a short label that matches neither the heading nor its declared label", shortDecl(withToc(all.slice(0, 2).concat([["who-pays", "Paying"]], all.slice(3)))), "toc");
   fires("a section left out", withToc(all.slice(0, 3)), "toc");
   fires("a link to no heading", withToc(all.concat([["costs", "What does it cost?"]])), "toc");
   quiet("a list after a legal notice that says \"on this page\" is not a contents list", gold({ body: '<p>Nothing on this page is legal advice.</p><ul><li><a href="#lead-form">Ask a question</a></li><li><a href="#main">Back to the top</a></li></ul>' }), "toc");

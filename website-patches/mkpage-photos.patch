@@ -1,5 +1,5 @@
 diff --git a/tools/mkpage.js b/tools/mkpage.js
-index 5e0973d0..f85dd9bc 100644
+index 05d4c5c5..911fc296 100644
 --- a/tools/mkpage.js
 +++ b/tools/mkpage.js
 @@ -103,11 +103,6 @@ function build(spec) {
@@ -51,21 +51,21 @@ index 5e0973d0..f85dd9bc 100644
    rep(/<meta property="og:image:alt" content="[^"]*">/, `<meta property="og:image:alt" content="${esc(ogAlt)}">`, "og:image:alt");
    rep(/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${ogImage}">`, "twitter:image");
    rep(/<meta name="twitter:image:alt" content="[^"]*">/, `<meta name="twitter:image:alt" content="${esc(ogAlt)}">`, "twitter:image:alt");
-@@ -219,7 +228,12 @@ function build(spec) {
+@@ -222,7 +231,12 @@ function build(spec) {
    parts.push(`<section style="background:var(--${saBg})"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">The short answer</p>${(Array.isArray(spec.shortAnswer) ? spec.shortAnswer : [spec.shortAnswer]).map(t => `<p ${P}>${t}</p>`).join("")}${heroCta}${toc}</div></section>`);
-   for (const x of secs) parts.push(`<section style="background:var(--${x.bg})"${x.id ? ` id="${x.id}"` : ""}><div class="wrap">${x.s.h2 ? `<h2 ${H2}>${x.s.h2}</h2>` : ""}${x.body}</div></section>`);
+   for (const x of secs) parts.push(`<section style="background:var(--${x.bg})"${x.id ? ` id="${x.id}"` : ""}><div class="wrap">${x.s.h2 ? `<h2 ${H2}${x.s.toc ? ` data-toc="${String(x.s.toc).replace(/&/g, "&amp;").replace(/"/g, "&quot;")}"` : ""}>${x.s.h2}</h2>` : ""}${x.body}</div></section>`);
    const srcLinks = spec.sources.map(x => `<a href="${x.href}" ${EXT}>${x.name}</a>`).join(", ");
--  parts.push(`<section style="background:var(--${faqBg})" id="${faqId}"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. Read ${shown}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p></div></section>`);
+-  parts.push(`<section style="background:var(--${faqBg})" id="${faqId}"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p></div></section>`);
 +  /* Optional spec.afterSources: small print that belongs with the sources line, such as the
 +     photo credits (Blog-Brain tools/photos.js creditsList), or a function that returns it,
 +     called after the sections are built. It goes right after the sources line, so the credits
 +     no longer sit between the last section and the FAQ (Blog-Brain playbook, component 19). */
 +  const afterSources = typeof spec.afterSources === "function" ? spec.afterSources() : (spec.afterSources || "");
-+  parts.push(`<section style="background:var(--${faqBg})" id="${faqId}"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. Read ${shown}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p>${afterSources}</div></section>`);
++  parts.push(`<section style="background:var(--${faqBg})" id="${faqId}"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p>${afterSources}</div></section>`);
    parts.push(`<section style="background:var(--navy);padding:3rem 0"><div class="wrap" style="text-align:center;max-width:720px;margin:0 auto"><h2 style="font-family:var(--serif);font-size:1.7rem;color:var(--ivory);margin-bottom:1rem">${spec.bottomCta.h2}</h2><p style="color:rgba(244,239,232,.75);line-height:1.7;margin-bottom:1.6rem">${spec.bottomCta.p}</p><a class="btn btn-brass btn-lg" href="${spec.bottomCta.href}">${spec.bottomCta.label}</a></div></section></main>`);
    const main = parts.join("");
    const out = head + main + tail;
-@@ -238,7 +252,7 @@ function build(spec) {
+@@ -241,7 +255,7 @@ function build(spec) {
      if (m1) throw new Error(`"${m1[0]}" - nothing maps a loan or a plan; say plan, list, or the literal action (owner rule 2026-09-07)`);
      const m2 = txt.match(/\bcarr(?:y|ies|ied|ying)\s+(?:a |an |the |its |their |your |his |her |our |new |two |three |both |that |this |each |every |own )*(?:loan|mortgage|payment|payments|cost|costs|debt|note|rest|house|property|premium|itself|themselves)\b|\bcarrying costs?\b/i);
      if (m2) throw new Error(`"${m2[0]}" - nothing carries a loan, a payment or a cost; say who pays what (owner rule 2026-09-07)`); }

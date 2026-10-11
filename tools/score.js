@@ -318,7 +318,7 @@ function facts(p) {
 
   /* "On this page" lists (H14): a nav or list of in-page links, named "On this page" (or "Contents",
      "In this guide", "Jump to"), or whose every link points at a heading. Each label must be the
-     heading text exactly. The live site has none (2026-10-11). */
+     heading text exactly, or the short label the heading declares in data-toc. The live site has none (2026-10-11). */
   const ids = new Map();
   main.find("[id]").each((_, e) => { if (!ids.has($(e).attr("id"))) ids.set($(e).attr("id"), $(e)); });
   const targetHead = (href) => {
@@ -339,7 +339,9 @@ function facts(p) {
     const named = near.some(t => TOC_NAME.test(t));
     const toHead = links.filter(a => targetHead(a.attr("href")));
     if (!named && toHead.length < links.length) return;
-    tocs.push(links.map(a => { const h = targetHead(a.attr("href")); return { label: norm(a.text()), href: a.attr("href"), head: h ? headText(h) : null, el: h }; }));
+    /* A heading may declare a short contents label, data-toc="Where is it?" (website mkpage-reading.patch,
+       2026-10-11: full local headings, short labels in the list). The label may equal either. */
+    tocs.push(links.map(a => { const h = targetHead(a.attr("href")); return { label: norm(a.text()), href: a.attr("href"), head: h ? headText(h) : null, short: h ? norm(h.attr("data-toc") || "") || null : null, el: h }; }));
   });
 
   /* Icons with no word beside them (H15): a decorative svg (aria-hidden) in a list item or card
@@ -585,10 +587,10 @@ rule("place-map", "Human", 3, "A community, submarket or neighborhood page shows
 }, { blocker: true });
 
 /* --- Page design (reports/Page design for readers and search.md, 2026-10-11) --- */
-rule("toc", "Human", 2, "\"On this page\" labels match the headings they point to, and every section is listed", (p, f) => {
+rule("toc", "Human", 2, "\"On this page\" labels match the headings they point to (or their declared short label), and every section is listed", (p, f) => {
   const tocs = f.design.tocs;
   if (!tocs.length) return na("no \"On this page\" list");
-  const links = tocs.flat(), bad = links.filter(l => l.head === null || l.label !== l.head);
+  const links = tocs.flat(), bad = links.filter(l => l.head === null || (l.label !== l.head && l.label !== l.short));
   const listed = new Set(links.filter(l => l.el).map(l => l.el.get(0)));
   const sections = p.h2s.filter(h => !/\.\s*$/.test(h.text) && !/navy/.test(h.el.closest("section").attr("style") || "") && !/^sources?$/i.test(h.text) && !h.el.closest("form").length);
   const missing = sections.filter(h => !listed.has(h.el.get(0)));

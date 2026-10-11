@@ -1,6 +1,13 @@
 /* /buyers/55-plus-communities/seasons-at-prince-creek-west/ - what it is like to live
  * in Seasons at Prince Creek West, a 55+ neighborhood near Murrells Inlet.
  *
+ * Version 12, 2026-10-11: the v11 owner's-eye review (OWNER-EYE-v11-seasons-at-prince-creek-west.md):
+ *            headings with the place name and short contents labels; drive times once (tiles and
+ *            map); four amenity tiles with titles only; built 2006 to 2016 back in the homes section
+ *            (row 89) and an FAQ on it; one HOA bill (row 37); two months of dues, about $700
+ *            (row 39 with row 86's $342); "a small transfer fee" (row 40's cap is adjusted and not
+ *            given); flood "your choice"; in the example the house is in the zone; the compare intro
+ *            compares price and beach distance; the golf cart tile is a cart.
  * Version 11, 2026-10-11: the v10 owner's-eye review (OWNER-EYE-v10-seasons-at-prince-creek-west.md):
  * short question headings, a new top line and short answer (no name three times), the amenities
  * as icons with no repeat list and no pickleball drawing for tennis, the part-year answer said
@@ -85,12 +92,12 @@ module.exports = {
   eyebrow: "Murrells Inlet, 55+",
   h1: "What is it like to live in Seasons at Prince Creek West in Murrells Inlet?",
   h1em: "A 55+ neighborhood with two pools.",
-  sub: "Seasons has about 440 homes around ponds near Murrells Inlet, with the beach about 10 minutes away by car.",
+  sub: "Seasons has about 440 homes, most on one level, on curving streets around ponds near Murrells Inlet.",
   heroMedia: glance([
     { icon: "beach", label: "Beach", text: "About 10 minutes" },
     { icon: "grocery", label: "Publix", text: "About 5 minutes" },
     { icon: "hospital", label: "Hospital", text: "About 8 minutes" },
-    { icon: "pool", label: "Pools", text: "Indoor and outdoor" },
+    { icon: "lawn", label: "Lawn care", text: "In the HOA fee" },
   ]),
   heroCta: { label: "Talk to an agent", href: "/contact/" },
   author: "devin",
@@ -99,68 +106,66 @@ module.exports = {
     "At least one person in each home must be 55 or older and live there six months of the year or more. Grandchildren under 18 can come to stay for up to 60 days a year.",
   ],
   sections: [
-    { h2: "What is there to do?", html:
+    { h2: "What is there to do in Seasons at Prince Creek West?", toc: "Things to do", html:
       ph.css() +
       h.p("The Seasons clubhouse has the fitness center, with the outdoor pool and the tennis courts right beside it.") +
       atAGlance([
-        { icon: "pool", label: "Indoor pool", text: "For the cooler months" },
-        { icon: "pool", label: "Outdoor pool", text: "Next to the clubhouse" },
+        { icon: "pool", label: "Indoor pool" },
+        { icon: "pool", label: "Outdoor pool" },
         { icon: "tennis", label: "Tennis courts" },
         { icon: "bocce", label: "Bocce" },
-      ], { min: "13rem" }) +
+      ], { min: "9rem" }) +
       CLUB },
 
-    { h2: "Where is Seasons?", html:
-      h.p("Seasons is in the Murrells Inlet area, about 10 minutes by car from the beach in Garden City without traffic. In our experience, rush hour adds 5 to 10 minutes.") +
+    { h2: "Where is Seasons at Prince Creek West?", toc: "Where it is", html:
+      h.p("Seasons is in the Murrells Inlet area, and the nearest beach is in Garden City. In our experience, rush hour adds 5 to 10 minutes to the drive times on the map.") +
       M.where +
-      h.p("A Publix grocery store is about 5 minutes away, and Tidelands Waccamaw Community Hospital is about 8.") +
-      h.p("The airport is about 25 minutes away by car.") +
-      h.p("Murrells Inlet is on a salt marsh, with fishing boats and marinas. The MarshWalk, a boardwalk along the marsh, is about 10 minutes from Seasons.") +
+      h.p("Murrells Inlet is on a salt marsh, with fishing boats and marinas. The MarshWalk on the map is a boardwalk along the marsh.") +
       BOATS },
 
-    { h2: "What are the homes like?", html:
-      h.p("Most homes in Seasons are on one level, with 3 bedrooms and about 1,700 to 2,500 square feet. Every home here is a resale now, because the builder has finished.") +
+    { h2: "What are the homes like in Seasons?", toc: "The homes", html:
+      h.p("Most homes in Seasons are on one level, with 3 bedrooms and about 1,700 to 2,500 square feet. They were built from 2006 to 2016, so every home here is a resale now.") +
       h.p("The homes are on curving streets around ponds. More than half of the land is shared by the owners, with ponds and woods.") +
       OVER +
       STREET },
 
-    { h2: "Can you live here part-time?", html: (bg) =>
+    { h2: "Can you live in Seasons part of the year?", toc: "Living here part-time", html: (bg) =>
       h.p(`Yes, if you live in Seasons at least six months a year. Under the ${h.ext(CHARTER, "homeowners association (HOA) rules")}, one person in the home must be 55 or older.`) +
       h.p("You cannot rent the home out for the months you are away. A lease here must be at least a year.") +
       h.cta("Read the Seasons age rules with an agent.", "An agent at Chapter3 can read the age and visitor rules with you before you offer.", "Talk to an agent", "/contact/", bg) },
 
-    { h2: "What does it cost?", html:
+    { h2: "What does it cost to live in Seasons?", toc: "Costs", html:
       h.p("Seasons homes usually sell for about $500,000. The HOA fee is about $340 a month, and it includes internet, weekly trash pickup and lawn care.") +
       h.ul([
-        "<strong>One bill.</strong> Your HOA bill covers Seasons and the larger Prince Creek West area.",
-        "<strong>When you buy,</strong> you pay the HOA two months of dues as a one-time fee. There is also a small transfer fee, no more than a quarter of one percent of the price.",
+        "<strong>One bill.</strong> You pay one HOA bill. It includes the fees for the larger Prince Creek West area around Seasons.",
+        "<strong>When you buy,</strong> you pay the HOA two months of dues, about $700, as a one-time fee. There is also a small transfer fee.",
         "<strong>Property tax.</strong> If you live in the home, the tax on a home at that price is about $2,000 a year. Seasons is outside any city limits, so there is no city tax.",
       ]) +
       h.p(`See ${h.a("/buyers/property-taxes/", "how Horry County works out the tax on a home near Murrells Inlet")}.`) },
 
-    { h2: "What are the house rules?", html: (bg) =>
+    { h2: "What are the house rules in Seasons?", toc: "House rules", html: (bg) =>
       h.p("In Seasons, pets, fences, renting and golf carts are allowed, each with a rule.") +
       atAGlance([
         { icon: "pets", label: "Pets", text: "Up to two. Keep them on a leash outside unless they are in a fenced yard." },
         { icon: "key", label: "Renting it out", text: "Yes, with a written lease of at least a year." },
         { icon: "gate", label: "Fences", text: "Yes, once the neighborhood's design board approves it. It must line up with the sides of the house." },
-        { icon: "golf", label: "Golf carts", text: "Park them in your garage, not on the street." },
+        { icon: "golf-cart", label: "Golf carts", text: "Park them in your garage, not on the street." },
       ], { bg, min: "18rem" }) },
 
-    { h2: "How does it compare?", html: () =>
-      h.p("Seasons is about 10 minutes from the beach, and its clubhouse has both an indoor and an outdoor pool.") +
+    { h2: "How does Seasons compare with other 55+ neighborhoods?", toc: "Compare", html: () =>
+      h.p("Seasons usually sells for less than either Del Webb, and it is closer to the beach than Myrtle Trace.") +
       compareTable(SELF) +
       `<div style="border-left:3px solid var(--brass);padding:.2rem 0 .2rem 1.2rem;margin:1.6rem 0 1.2rem;max-width:720px">` +
       `<p style="font-family:var(--sans);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-ink);font-weight:600;margin:0 0 .4rem">From our files</p>` +
       h.p("An agent at Chapter3 helped clients who owned a house in Blackmoor, a golf neighborhood in Murrells Inlet with no age rule. They sold that house and bought in Seasons, a few minutes away.") +
       `</div>` },
 
-    { h2: "Will a lot need flood insurance?", html: (bg) =>
+    { h2: "Will a Seasons lot need flood insurance?", toc: "Flood insurance", html: (bg) =>
       h.p(`Most Seasons lots will not. On 45 of the lots, one corner touches the high-risk flood zone on ${h.ext(FEMA, "the federal flood map")}.`) +
-      h.p("If the house itself is in the zone, your lender will require flood insurance. Outside the zone, a flood policy here usually costs about $600 a year.") +
+      h.p("If the house itself is in the zone, your lender will require flood insurance. Outside the zone, flood insurance is your choice. A policy here usually costs about $600 a year.") +
       story([
         "<strong>Example:</strong> Carol and Jim are moving from Buffalo. A Chapter3 agent is helping them find a house in Seasons that backs onto the woods. They find one they like and plan to make an offer that night.",
-        "Before they do, the agent pulls up that lot on the federal flood map and sees one corner inside the high-risk flood zone. If the house itself is in that zone, their lender will require flood insurance. That is a yearly cost they have not planned for.",
+        "Before they do, the agent pulls up that lot on the federal flood map. The back of the house sits inside the high-risk flood zone, so their lender will require flood insurance. That is a yearly cost they had not planned for.",
         "The agent gets them a flood insurance quote on that exact house the same afternoon. Carol and Jim write their offer knowing what flood insurance on that house will cost each year.",
       ], "", bg) +
       h.cta("Get a flood quote on the lot you like.", `Tell us the home you are looking at. One of our agents can help you get an ${h.a("/buyers/coastal-insurance/", "insurance")} quote on it before you offer.`, "Get a flood quote", "/contact/", bg) },
@@ -170,7 +175,7 @@ module.exports = {
     { q: "How much is the HOA fee in Seasons at Prince Creek West?", a: "The HOA fee is about $340 a month. It includes internet, weekly trash pickup and lawn care." },
     { q: "Are there new homes for sale in Seasons at Prince Creek West?", a: "No. The builder has finished, so every home for sale in Seasons is a resale." },
     { q: "Can someone under 55 live in Seasons at Prince Creek West?", a: "Yes, if a resident 55 or older also lives in the home. No one under 18 can live there." },
-    { q: "Can you keep a golf cart in Seasons at Prince Creek West?", a: "Yes. Park it in your garage. Golf carts and other vehicles may not be parked on the streets." },
+    { q: "How old are the homes in Seasons at Prince Creek West?", a: "The homes were built from 2006 to 2016. Most are on one level, with 3 bedrooms." },
     { q: "How far is Seasons at Prince Creek West from the beach?", a: "About 10 minutes by car without traffic, to the nearest public beach access in Garden City." },
   ],
   sources: [
@@ -180,7 +185,7 @@ module.exports = {
     { name: "FEMA flood map", href: FEMA },
     { name: "Federal flood insurance law", href: LAW },
   ],
-  sourcesNote: "For education, not legal advice. The HOA fee and the home sizes are from recent MLS listings. Drive times are no-traffic estimates from OpenStreetMap. The flood cost is the middle FEMA policy price in ZIP code 29576.",
+  sourcesNote: "For education, not legal advice. The HOA fee and the home sizes are from recent home listings. Drive times are no-traffic estimates from OpenStreetMap. The flood cost is the middle FEMA policy price in ZIP code 29576.",
   /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
   afterSources: () => ph.credits(),
   bottomCta: { h2: "Want to buy in Seasons?", p: "Talk to a specialized agent about the Seasons home you like. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call an agent", href: TEL },

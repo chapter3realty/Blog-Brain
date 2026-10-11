@@ -1,6 +1,15 @@
 /* /buyers/55-plus-communities/del-webb-grande-dunes/ - what it is like to live in
  * Del Webb at Grande Dunes, a 55+ neighborhood of houses and villas in Myrtle Beach.
  *
+ * Version 12, 2026-10-11: the v11 owner's-eye review (OWNER-EYE-v11-del-webb-grande-dunes.md) and the
+ *            coordinator's decisions: headings carry the place name again, with short contents labels
+ *            (section field "toc", website mkpage-reading.patch); drive times once (chips and map,
+ *            plus the Boardwalk line); Broadway at the Beach off the map; the villa upkeep named by
+ *            section (row 26: the supplement covers the Heel Tract, Parcel D-1; whether later villa
+ *            phases carry the same terms is unconfirmed, so not "most villas"); homes built 2018 to
+ *            2026 (row 98); the Ocean Club paid through the HOA bill (rows 32, 33, 76, 91; never
+ *            "free"); the story says why before the offer; one pools card. Price stays $665,000
+ *            (coordinator: it excludes the unclear sale); pet limit stays off (PLAIN-9).
  * Version 11b, 2026-10-11: final rows placed: row 105 (property tax, about $2,700 a year on a house and
  *            about $1,700 on a villa you live in, city tax included; the bill uses the county's
  *            appraised value; no homestead mention), row 106 (Ocean Club about 8 minutes by car).
@@ -76,7 +85,6 @@ const M = maps("del-webb-grande-dunes", [
   { id: "beach_dwgd", name: "the beach at Highland Way", short: "Beach", kind: "beach" },
   { id: "hosp_gsmc", name: "Grand Strand Medical Center", short: "Hospital", kind: "hospital" },
   { id: "groc_dwgd", name: "Food Lion", short: "Food Lion", kind: "grocery" },
-  { id: "broadway", name: "Broadway at the Beach", short: "Broadway at the Beach", kind: "shopping" },
   { id: "airport", name: "Myrtle Beach International Airport", short: "Myrtle Beach airport", kind: "airport" },
 ], {
   label: "Del Webb",
@@ -112,56 +120,56 @@ module.exports = {
     "Owners share a clubhouse with indoor and outdoor pools, a fitness center and courts for tennis, pickleball and bocce. Your homeowners association (HOA) dues include a beach club on the ocean, with a pool and private beach access.",
   ],
   sections: [
-    { h2: "What is there to do?", html:
+    { h2: "What is there to do in Del Webb at Grande Dunes?", toc: "Things to do", html:
       ph.css() +
       h.p("The clubhouse in Del Webb at Grande Dunes has an indoor pool, an outdoor pool, a fitness center and an arts and crafts room. Staff are there every day, and your mailbox is there too.") +
       ph.cards([
-        { illustration: "indoor-pool", label: "Indoor pool", text: "Swim in the cooler months" },
-        { illustration: "outdoor-pool", label: "Outdoor pool", text: "Swim outside in the warm months" },
+        { illustration: "outdoor-pool", label: "Indoor and outdoor pools", text: "Swim all year" },
         { illustration: "pickleball", label: "Tennis and pickleball", text: "Courts beside the clubhouse, with bocce too" },
         { illustration: "dock", label: "Boat dock", text: "Tie up your boat on the waterway from dawn to dusk" },
-      ], { cols: 4 }) +
+      ], { cols: 3 }) +
       h.p("Outside there is a fire pit, and a lifestyle director plans activities for the neighborhood.") +
       CLUB },
 
-    { h2: "What is the Ocean Club?", html:
+    { h2: "What is the Grande Dunes Ocean Club?", toc: "The Ocean Club", html:
       h.p("Grande Dunes is a large area of neighborhoods and golf courses in Myrtle Beach. Del Webb is one neighborhood inside it.") +
-      h.p(`The ${h.ext(OCEANCLUB, "Grande Dunes Ocean Club")} is the beach club for all of Grande Dunes, about 8 minutes by car from the Del Webb clubhouse. Its clubs include mahjong, knitting and a dominoes game called Mexican Train.`) +
+      h.p(`The ${h.ext(OCEANCLUB, "Grande Dunes Ocean Club")} is the beach club for all of Grande Dunes, about 8 minutes by car from the Del Webb clubhouse. Your HOA bill pays for your membership.`) +
+      h.p("Its clubs include mahjong, knitting and Mexican Train, a dominoes game.") +
       atAGlance([
         { icon: "beach", label: "Private beach access", text: "A members-only way onto the sand" },
         { icon: "pool", label: "Pool and hot tub", text: "A large outdoor pool at the beach club" },
-        { icon: "calendar", label: "Classes and events", text: "Sign up on the club's members' website. Some events cost extra." },
+        { icon: "calendar", label: "Classes and events", text: "Clubs, classes and events for members. Some cost extra." },
       ], { min: "13rem" }) },
 
-    { h2: "Where is it?", html:
-      h.p("Del Webb at Grande Dunes is inside the city of Myrtle Beach, on the ocean side of the Intracoastal Waterway. The beach is about 4 minutes away by car without traffic. In our experience, rush hour adds 5 to 10 minutes.") +
+    { h2: "Where is Del Webb at Grande Dunes?", toc: "Where it is", html:
+      h.p("Del Webb at Grande Dunes is inside the city of Myrtle Beach, on the ocean side of the Intracoastal Waterway. In our experience, rush hour adds 5 to 10 minutes to the drive times below.") +
       M.where +
-      h.p("Grand Strand Medical Center is about 6 minutes away, and a Food Lion grocery store is about 4.") +
-      h.p("The Boardwalk, with its big Ferris wheel, is about 15 minutes away, and the airport is about 20.") },
+      h.p("The nearest hospital is Grand Strand Medical Center, and the nearest grocery store is a Food Lion. The Boardwalk, with its big Ferris wheel, is about 15 minutes away.") },
 
-    { h2: "What are the homes like?", html: (bg) =>
-      h.p("The homes are on curving streets around ponds. Every home here is a resale now, and the builder has finished.") +
+    { h2: "What are the homes like in Del Webb at Grande Dunes?", toc: "The homes", html: (bg) =>
+      h.p("The homes were built from 2018 to 2026, so every home here is a resale now, and the builder has finished.") +
       OVER +
       h.p("The neighborhood has houses and villas. A villa here is a home that shares one wall with another home, and villas usually sell for less than houses.") +
       STREET +
-      h.p("Most homes are on one level, with 2 or 3 bedrooms and about 1,500 to 2,900 square feet. For the villas in one section, the HOA takes care of the roofs, gutters and outside paint, and those owners pay a little more for it.") +
+      h.p("Most homes are on one level, with 2 or 3 bedrooms and about 1,500 to 2,900 square feet.") +
+      h.p("For the villas in the section called the Heel Tract, the HOA takes care of the roofs, gutters and outside paint. Those villa owners pay a little more for it.") +
       h.cta("Ask what the HOA takes care of on the home you like.", "Tell us the house or villa you like. One of our agents finds out what the HOA keeps up on that home.", "Ask an agent", "/contact/", bg) },
 
-    { h2: "Who can live here?", html: (bg) =>
+    { h2: "Who can live in Del Webb at Grande Dunes?", toc: "Who can live here", html: (bg) =>
       h.p(`At least one person living in each home must be 55 or older, under ${h.ext(DECL, "the neighborhood's rules")}. Everyone else who lives there must be 19 or older.`) +
       h.p("If the resident who is 55 or older dies or moves out, the others in the home can stay.") +
       atAGlance([
         { icon: "family", label: "Guests", text: "Each home gets two guest cards for the pools and the clubhouse." },
         { icon: "pets", label: "Pets", text: "Cats and dogs are allowed." },
-        { icon: "key", label: "Renting it out", text: "Yes. A lease must be at least 12 months, and you can sign only one a year. A tenant gets amenity cards only if the home meets the 55+ rule." },
-        { icon: "golf", label: "Golf carts", text: "On the streets with a licensed driver, never on the sidewalks." },
+        { icon: "key", label: "Renting it out", text: "Yes. A lease must be at least 12 months, and you can sign only one a year. A tenant can use the pools and clubhouse only if someone 55 or older lives in the home." },
+        { icon: "golf-cart", label: "Golf carts", text: "On the streets with a licensed driver, never on the sidewalks." },
       ], { bg, min: "18rem" }) },
 
-    { h2: "What does it cost?", html: (bg) =>
+    { h2: "What does it cost to live in Del Webb at Grande Dunes?", toc: "Costs", html: (bg) =>
       h.p("A house usually sells for about $665,000, and a villa for about $430,000. The HOA fee is about $400 a month for a house and about $445 for a villa.") +
       h.p("Your HOA bill includes basic lawn care and the beach club.") +
       h.table(["Other costs", "About"], [
-        ["One-time fee to the HOA when you buy", "At least one year of HOA dues"],
+        ["One-time fee to the HOA when you buy", "About one year of HOA dues"],
         ["Property tax on a house you live in, city tax included", "About $2,700 a year"],
         ["Property tax on a villa you live in, city tax included", "About $1,700 a year"],
       ]) +
@@ -169,17 +177,17 @@ module.exports = {
       h.p("You probably will not need flood insurance, because the homes are outside the high-risk flood zone. If you want it, a policy here usually costs about $550 a year.") +
       h.cta("Get an insurance quote on the home you pick.", `Tell us the exact house or villa. One of our agents helps you get an ${h.a("/buyers/coastal-insurance/", "insurance")} quote on it before you write the offer.`, "Get a quote", "/contact/", bg) },
 
-    { h2: "How does it compare?", html: () =>
+    { h2: "How does Del Webb at Grande Dunes compare with other 55+ neighborhoods?", toc: "Compare", html: () =>
       h.p("Del Webb at Grande Dunes is the only one of these four 55+ neighborhoods with a beach club in the dues.") +
       compareTable(SELF) },
 
-    { h2: "How long can grandchildren stay?", html: (bg) =>
-      h.p("Grandchildren and other guests under 19 can stay in Del Webb at Grande Dunes up to 90 nights in any 12 months in a row.") +
+    { h2: "How long can grandchildren stay in Del Webb at Grande Dunes?", toc: "Grandchildren's stays", html: (bg) =>
+      h.p("Grandchildren and other guests under 19 can stay up to 90 nights in any 12 months in a row.") +
       story([
         "<strong>Example:</strong> Bill and Nancy are moving from Columbus, Ohio, and they like a villa in Del Webb at Grande Dunes. Their grandsons plan to come for Christmas and then for the whole summer after it.",
         "Before the offer, their Chapter3 agent asks for the dates and counts the nights on a calendar with them. The agent counts Christmas and the next summer together, because they fall inside the same 12 months.",
-        "Together they come to more nights than a guest under 19 may stay. Nancy moves the boys' summer arrival to the first week of July, and the agent counts again.",
-        "Bill and Nancy make their offer knowing the boys' visits fit the rule.",
+        "The nights add up to more than 90. Nancy moves the boys' summer arrival to the first week of July, and the agent counts again.",
+        "Bill and Nancy make their offer knowing the boys' visits fit the rule. If the visits had not fit, they could have looked at a different neighborhood before they signed anything.",
       ], "", bg) +
       h.cta("Tell us when your family plans to visit.", "An agent counts the nights against the guest rule with you before you make an offer.", "Talk to an agent", "/contact/", bg) },
   ],
@@ -199,7 +207,7 @@ module.exports = {
     { name: "FEMA flood map", href: FEMA },
     { name: "Federal flood insurance law", href: LAW },
   ],
-  sourcesNote: "This is not legal advice. The HOA fees and home sizes are from recent MLS listings. OpenStreetMap gave the drive times, without traffic. The flood cost is the typical FEMA policy price in ZIP code 29572.",
+  sourcesNote: "This is not legal advice. The HOA fees and home sizes are from recent home listings. OpenStreetMap gave the drive times, without traffic. The flood cost is the typical FEMA policy price in ZIP code 29572.",
   /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
   afterSources: () => ph.credits(),
   bottomCta: { h2: "See a house or villa in Del Webb at Grande Dunes.", p: "Call about the home you like, and an agent at Chapter3 will set up a showing. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call an agent", href: TEL },

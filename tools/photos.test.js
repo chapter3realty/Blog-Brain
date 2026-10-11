@@ -71,6 +71,10 @@ check("hero has rounded corners", /\.c3ph-hero \.c3ph-f\{border-radius:8px\}/.te
 check("hero credit on the photo reads 'Photo: <author>', linked to the license, nothing else", /<span class="c3ph-cr"><a href="https:\/\/creativecommons\.org\/licenses\/by-sa\/4\.0\/" target="_blank" rel="noopener noreferrer"[^>]*>Photo: Jane Doe<\/a><\/span>/.test(hero));
 check("hero credit: the license name is for screen readers and hover only, not printed", /aria-label="Photo: Jane Doe\. License: CC BY-SA 4\.0"/.test(hero) && !/>[^<]*CC BY-SA[^<]*</.test(hero.match(/<span class="c3ph-cr">.*?<\/span>/)[0]));
 check("credit on the photo drops the '(English Wikipedia)' tail", />Photo: Pollinator<\/a>/.test(P.heroPhoto(rec({ author: "Pollinator (English Wikipedia)" }))));
+{
+  const short = P.heroPhoto(Object.assign(rec(), { display_credit: "U.S. government aerial photo" }), { caption: "A street of homes" });
+  check("display_credit replaces the words on the photo, and the full author stays out of the overlay", /<span class="c3ph-cr"><a [^>]*>U\.S\. government aerial photo<\/a><\/span>/.test(short) && !/c3ph-cr[^]*Jane Doe[^]*<\/span>/.test(short.match(/<span class="c3ph-cr">.*?<\/span>/)[0]));
+}
 check("credit overlay is tiny text on a soft gradient", /\.c3ph-cr\{[^}]*font:400 \.625rem[^}]*gradient/.test(hero));
 {
   /* WCAG 2.5.8: the credit link's tap area is 24 px or taller. Line box (font size x 1.3 at
