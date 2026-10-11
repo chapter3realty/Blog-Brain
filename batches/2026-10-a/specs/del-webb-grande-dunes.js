@@ -1,6 +1,18 @@
 /* /buyers/55-plus-communities/del-webb-grande-dunes/ - what it is like to live in
  * Del Webb at Grande Dunes, a 55+ neighborhood of houses and villas in Myrtle Beach.
  *
+ * Version 14, 2026-10-11: the SEO gaps (coordinator). A pros and cons section after the comparison and
+ *            before the grandchildren story, in the verifier's wording (PROS-CONS-candidates.md,
+ *            "Verifier check"): pros P2 (rows 84 to 86: from the clubhouse, groceries and the beach
+ *            about 4 minutes, Grand Strand Medical Center about 6), P1 (rows 91, 32: the master
+ *            association says each Grande Dunes homeowner gets a household membership to the Ocean
+ *            Club), P3 (row 45: the association's posted rules describe a day dock, dawn to dusk, no
+ *            overnight docking, no boat ramp); cons C2 (row 50: the recorded declaration's 12-month
+ *            minimum lease, once a year, without "sets", owner rule 2026-09-06), C4 (rows 49, 56: posted rules on yard fences, sheds and dog
+ *            runs; act: an agent reads the rules with you), C5 (row 106: the Ocean Club about 8
+ *            minutes by car from the clubhouse). "The amenity center (the clubhouse)" once (row 108).
+ *            Title and description carry "55+", "HOA fees" and "pros and cons" (STANDARD S1, S2, S9).
+ *            The pinned datePublished is removed.
  * Version 12, 2026-10-11: the v11 owner's-eye review (OWNER-EYE-v11-del-webb-grande-dunes.md) and the
  *            coordinator's decisions: headings carry the place name again, with short contents labels
  *            (section field "toc", website mkpage-reading.patch); drive times once (chips and map,
@@ -58,7 +70,7 @@
  *         row, lays the summer and Christmas on a calendar with them before the offer (reading the
  *         HOA documents with buyers, stories.json "hoa-rental-bans-filtered").
  */
-const { h, maps, story, glance, photoSet, compareTable, atAGlance } = require("./_55-plus-kit.js");
+const { h, maps, story, glance, photoSet, compareTable, atAGlance, prosCons } = require("./_55-plus-kit.js");
 
 const HUB = "/buyers/55-plus-communities/";
 const SELF = "/buyers/55-plus-communities/del-webb-grande-dunes/";
@@ -96,11 +108,12 @@ const M = maps("del-webb-grande-dunes", [
 module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
-  datePublished: "2026-10-05",
+  /* No datePublished (version 14): mkpage keeps the date of a page already built and gives a new page
+     the day it is first built for the live site; build.js dates never moves it. */
   /* The overview aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
-  title: "Living in Del Webb at Grande Dunes, Myrtle Beach | Chapter3",
-  description: "What life is like in Del Webb at Grande Dunes, Myrtle Beach: the clubhouse, pools and courts, a beach club, the houses and villas, the 55+ rule and the costs.",
+  title: "Del Webb at Grande Dunes 55+: HOA Fees, Pros & Cons | Chapter3",
+  description: "Del Webb at Grande Dunes 55+ in Myrtle Beach: the pros and cons, HOA fees for houses and villas, the amenity center, the Ocean Club, and the lease and guest rules.",
   ogTitle: "Living in Del Webb at Grande Dunes: pools, pickleball, a beach club and a dock on the waterway",
   crumb: "Del Webb at Grande Dunes",
   eyebrow: "Myrtle Beach, 55+",
@@ -122,7 +135,7 @@ module.exports = {
   sections: [
     { h2: "What is there to do in Del Webb at Grande Dunes?", toc: "Things to do", html:
       ph.css() +
-      h.p("The clubhouse in Del Webb at Grande Dunes has an indoor pool, an outdoor pool, a fitness center and an arts and crafts room. Staff are there every day, and your mailbox is there too.") +
+      h.p("The amenity center (the clubhouse) in Del Webb at Grande Dunes has an indoor pool, an outdoor pool, a fitness center and an arts and crafts room. Staff are there every day, and your mailbox is there too.") +
       ph.cards([
         { illustration: "outdoor-pool", label: "Indoor and outdoor pools", text: "Swim all year" },
         { illustration: "pickleball", label: "Tennis and pickleball", text: "Courts beside the clubhouse, with bocce too" },
@@ -180,6 +193,18 @@ module.exports = {
     { h2: "How does Del Webb at Grande Dunes compare with other 55+ neighborhoods?", toc: "Compare", html: () =>
       h.p("Del Webb at Grande Dunes is the only one of these four 55+ neighborhoods with a beach club in the dues.") +
       compareTable(SELF) },
+
+    { h2: "What are the pros and cons of living in Del Webb at Grande Dunes?", toc: "Pros and cons", html: (bg) =>
+      h.p("Del Webb at Grande Dunes is close to the beach, a grocery store and a hospital, and its rules limit leases, fences and sheds.") +
+      prosCons([
+        "From the clubhouse, a grocery store and the beach are about 4 minutes away by car, and Grand Strand Medical Center is about 6 minutes.",
+        "The Grande Dunes master association says each Grande Dunes homeowner gets a household membership to the Grande Dunes Ocean Club.",
+        "The association's posted rules describe a day dock for owners and guests, dawn to dusk, with no overnight docking and no boat ramp.",
+      ], [
+        { text: "Under the recorded declaration, a lease must run at least 12 months, one time per year, or on other terms in the association's rules." },
+        { text: "The association's posted rules require yard fences to be 4-foot black aluminum and approved first, and bar sheds and dog runs.", act: "Ask an agent to read the rules with you before you make an offer." },
+        { text: "The beach club is a drive. The Grande Dunes Ocean Club is about 8 minutes by car from the clubhouse." },
+      ], { bg }) },
 
     { h2: "How long can grandchildren stay in Del Webb at Grande Dunes?", toc: "Grandchildren's stays", html: (bg) =>
       h.p("Grandchildren and other guests younger than 19 can stay up to 90 nights in any 12 months.") +

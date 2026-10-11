@@ -1,6 +1,6 @@
-Upload package for batch 2026-10-a. Built 2026-10-11 from Blog-Brain 93bc7c8 against the live branch at 54703db5.
+Upload package for batch 2026-10-a. Built 2026-10-11 from Blog-Brain 4dc9ebf (with uncommitted changes to its sources) against the live branch at 54703db.
 size  sha256  path
-263128  96ad8500636a655cf030470c0cd4a5a4020849d472e55c5a4e9e039c1087085f  batch-2026-10-a.patch
+263141  23c85e4c51f29d00a84687fbe1759d490a04853354c804f55ec43653ef213ec5  batch-2026-10-a.patch
 147332  2cbbc170a72ec2c5ed4ded7668293502c328d1299a93818814d8d2f85bc8960a  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above-1200w.webp
 64780  ea41daece6e5477596551c78081b7ccab07def1caca09754041dbb77e2edcb2d  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above-600w.webp
 186702  74e6810cde1873f17310978ae97ada9157b1fb8e1bbbdfaa02c1d2e7c7cfdbcb  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-from-above-1200w.webp
@@ -52,12 +52,12 @@ size  sha256  path
 3869  dcad6eb63a69eb35f432b4c2331a880671153ee896ec5d63db8c2f8b900b0d42  site/data/55-plus-communities.json
 140079  f1922aa85aa80f5276e703c2a9f6e8598903e0cbbbe260e161ea32121fa37621  site/data/photos.json
 22356  906bfbc455364d05ad59544b7caec08fda002a4e7d9d65f3de4753113f4ba3bd  site/data/places.json
-23712  c09d82c95a2e7f1ab5241c07cd8e4338901d4f1b816757965f5e8f372ab1486f  site/specs/_55-plus-kit.js
+26343  60106ef4317ebb1dfdd844994f9301d6d3151a26113d9b169e683054299ac61a  site/specs/_55-plus-kit.js
 3411  da4cc24577a0af333ec828134730b20b09618385425fa02dc91caac034d9ae2a  site/specs/_story-check.js
-18204  5fd6e03a8d6603ea75ed009ebd36ecb051260947bce2674e5c21000c2b159041  site/specs/del-webb-grande-dunes.js
-21002  2cb97707560b2ac894a98f051807f62181a9706cfb37554de6228769c8b7bad4  site/specs/del-webb-north-myrtle-beach.js
-15906  74be174465cea13dd654993707b13c6c851a7291c18b6029642c859b683b3bf9  site/specs/myrtle-trace.js
-15901  c119894522776a9c63876f915fc84f2a49f6ebe49cbe42a35ffacfd6a9139a73  site/specs/seasons-at-prince-creek-west.js
+20831  0415601c70c9dbc64fdeee0e3d482a25aa82b38e36763e24f554f0ed509328a2  site/specs/del-webb-grande-dunes.js
+23420  183402b2f483df4ee37a9eb91e03d626120cb077914bd785b4bb1f3dbf8b03ae  site/specs/del-webb-north-myrtle-beach.js
+18334  e2dab86140872e229431357770eed4ac4387ecb7a4e4b0e5d87511c6bf1b7180  site/specs/myrtle-trace.js
+18605  3591c72648ea04c2988a6483469ba8029a8baa5dbd50d86c412ae03adca5ac59  site/specs/seasons-at-prince-creek-west.js
 125672  1bcb55fc43ce10d3cf83a11ce133aec0f560d0f730a81936b215fb01a1175645  site/tools/blog-brain/tools/area-map.js
 223955  1c8acdd4d2ae811b578a9d57ef6de5a2791ac4505e2b31ce73f4215b22dfcc9e  site/tools/blog-brain/tools/geo/grand-strand-v2.json
 11334  b1b7aef0cc78648c818a682f24981e027ec4641a12d70c5cb717ee3b3a170d54  site/tools/blog-brain/tools/geo/grand-strand.json

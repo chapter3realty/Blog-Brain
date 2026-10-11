@@ -1,6 +1,17 @@
 /* /buyers/55-plus-communities/myrtle-trace/ - what it is like to live in Myrtle Trace,
  * a 55+ neighborhood just outside Conway.
  *
+ * Version 14, 2026-10-11: the SEO gaps (coordinator). A pros and cons section after the comparison and
+ *            before the fence story, in the verifier's wording (PROS-CONS-candidates.md, "Verifier
+ *            check"): pros P1 (rows 30, 34: $95 a month; the HOA says dues pay for the maintenance and
+ *            improvement of the pool, clubhouse, gate, roads, common areas and lakes), P2 (rows 86, 87:
+ *            from the HOA's address, the hospital and a Walmart Supercenter about 3 minutes), P3 (rows
+ *            78 to 80: standing committees for bingo and game nights; a Labor Day picnic and a craft
+ *            fair; no counts or months); cons C1 (row 85: the beach about 15 minutes from the HOA's
+ *            address), C2 (row 94: most homes in the listings built 1984 to 1998; act: ask the roof's
+ *            age), C6 (row 29: the HOA says there are no sidewalks), C5 (row 59: the HOA's rules, the plain word for the
+ *            covenants, say each owner keeps up the lot and the home). Title and description carry "55+", "HOA fee" and
+ *            "pros and cons" (STANDARD S1, S2, S9). The pinned datePublished is removed.
  * Version 12, 2026-10-11: the v11 owner's-eye review (OWNER-EYE-v11-myrtle-trace.md): headings with the
  *            place name and short contents labels, "Conway's riverwalk", the league card, the walkways
  *            in the homes section (row 46), "trees" not "pines" (no row says pines), "helps you get",
@@ -41,7 +52,7 @@
  *         finds no fence is allowed on a golf course or pond lot and that an approved dog run is
  *         (stories.json "hoa-rental-bans-filtered", "ny-buyer-rules-fit").
  */
-const { h, maps, story, glance, photoSet, compareTable, atAGlance } = require("./_55-plus-kit.js");
+const { h, maps, story, glance, photoSet, compareTable, atAGlance, prosCons } = require("./_55-plus-kit.js");
 
 const HUB = "/buyers/55-plus-communities/";
 const SELF = "/buyers/55-plus-communities/myrtle-trace/";
@@ -74,11 +85,12 @@ const M = maps("myrtle-trace", [
 module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
-  datePublished: "2026-10-05",
+  /* No datePublished (version 14): mkpage keeps the date of a page already built and gives a new page
+     the day it is first built for the live site; build.js dates never moves it. */
   /* The overview aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
-  title: "Living in Myrtle Trace, a 55+ Community in Conway | Chapter3",
-  description: "What life is like in Myrtle Trace near Conway: a hospital minutes away, the pool, ponds and clubs, one-story homes, the $95 HOA fee and the 55+ rule.",
+  title: "Myrtle Trace 55+, Conway: HOA Fee, Pros and Cons | Chapter3",
+  description: "Myrtle Trace 55+ in Conway: the pros and cons, the $95 HOA fee and what it pays for, a hospital minutes away, the pool and clubs, the homes and the fence rules.",
   ogTitle: "Living in Myrtle Trace, Conway: close to the hospital, with a pool, ponds and clubs",
   crumb: "Myrtle Trace",
   eyebrow: "Conway, 55+",
@@ -153,6 +165,19 @@ module.exports = {
     { h2: "How does Myrtle Trace compare with other 55+ neighborhoods?", toc: "Compare", html: () =>
       h.p("Myrtle Trace has the lowest HOA fee of these four 55+ neighborhoods, $95 a month, and its homes usually sell for the least. The beach is about 15 minutes away.") +
       compareTable(SELF) },
+
+    { h2: "What are the pros and cons of living in Myrtle Trace?", toc: "Pros and cons", html: (bg) =>
+      h.p("Myrtle Trace is minutes from the hospital and has a $95 HOA fee, and its owners keep up their own homes and yards.") +
+      prosCons([
+        "HOA dues are $95 a month. The HOA says dues pay for the maintenance and improvement of the pool, clubhouse, gate, roads, common areas and lakes.",
+        "From the HOA's address, the hospital is about 3 minutes away by car, and so is a Walmart Supercenter.",
+        "The HOA's calendar has standing committees for bingo and game nights, and events such as a Labor Day picnic and a craft fair.",
+      ], [
+        { text: "The beach is a drive, about 15 minutes from the HOA's address." },
+        { text: "Most homes in the listings were built from 1984 to 1998.", act: "Ask how old the roof is before you make an offer." },
+        { text: "The HOA says there are no sidewalks." },
+        { text: "The HOA's rules say each owner keeps up the lot and the home, including the roof, the outside and the grass." },
+      ], { bg }) },
 
     { h2: "Can you fence a yard in Myrtle Trace?", toc: "Fences", html: (bg) =>
       h.p("Usually not in Myrtle Trace. Fences between yards and across the front are not allowed, and most lots cannot have a fence around the back yard either. A dog run is allowed once the HOA approves it.") +

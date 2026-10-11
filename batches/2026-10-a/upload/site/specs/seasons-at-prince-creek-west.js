@@ -1,6 +1,20 @@
 /* /buyers/55-plus-communities/seasons-at-prince-creek-west/ - what it is like to live
  * in Seasons at Prince Creek West, a 55+ neighborhood near Murrells Inlet.
  *
+ * Version 14, 2026-10-11: the SEO gaps (coordinator). A pros and cons section after the comparison and
+ *            before the flood story, in the verifier's wording (PROS-CONS-candidates.md, "Verifier
+ *            check"): pros P1 (rows 92, 93: a gate at the main entrance on TPC Boulevard, with a call box
+ *            for visitors; stated plainly, "recent home listings" in the sources line; never "staffed",
+ *            never hours, row 94; facts/registry.json "seasons-gate"), P3 (rows 85, 78: from the
+ *            clubhouse, Publix about 5 minutes, the hospital about 8), P6 (row 81: the MarshWalk about 10
+ *            minutes from the clubhouse); cons C1 (row 76: the nearest public beach access by road, the
+ *            county's Atlantic Avenue boardwalk access in Garden City, lists no parking; no minutes, so
+ *            the page keeps one value for the beach drive), C6 (row 47: golf carts only in enclosed
+ *            garages, no parking on the streets; "the association's posted rules"), C9 (row 40: the
+ *            transfer fee of 0.25 percent of the price, capped; act: ask for the resale certificate).
+ *            Title unchanged (no room for more words with the place name); the description carries
+ *            "55+", "pros and cons" and "HOA fee" (STANDARD S1, S2, S9). The pinned datePublished is
+ *            removed.
  * Version 12, 2026-10-11: the v11 owner's-eye review (OWNER-EYE-v11-seasons-at-prince-creek-west.md):
  *            headings with the place name and short contents labels; drive times once (tiles and
  *            map); four amenity tiles with titles only; built 2006 to 2016 back in the homes section
@@ -47,7 +61,7 @@
  *         (Carol and Jim): the agent checks that lot on the federal flood map and gets a flood
  *         quote before the offer (stories.json "insurance-quote-before-offer"). No numbers.
  */
-const { h, maps, story, glance, photoSet, compareTable, atAGlance } = require("./_55-plus-kit.js");
+const { h, maps, story, glance, photoSet, compareTable, atAGlance, prosCons } = require("./_55-plus-kit.js");
 
 const HUB = "/buyers/55-plus-communities/";
 const SELF = "/buyers/55-plus-communities/seasons-at-prince-creek-west/";
@@ -82,11 +96,12 @@ const M = maps("seasons-at-prince-creek-west", [
 module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
-  datePublished: "2026-10-05",
+  /* No datePublished (version 14): mkpage keeps the date of a page already built and gives a new page
+     the day it is first built for the live site; build.js dates never moves it. */
   /* The overview aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
   title: "Seasons at Prince Creek West, Murrells Inlet 55+ | Chapter3",
-  description: "What life is like in Seasons at Prince Creek West near Murrells Inlet: two pools, visits from grandchildren, the homes, the 55+ rule and the costs.",
+  description: "Seasons at Prince Creek West 55+ near Murrells Inlet: the pros and cons, the HOA fee and what it includes, two pools, the gate, family visits and flood risk.",
   ogTitle: "Living in Seasons at Prince Creek West, Murrells Inlet: two pools, family visits and the 55+ rule",
   crumb: "Seasons at Prince Creek West",
   eyebrow: "Murrells Inlet, 55+",
@@ -160,6 +175,18 @@ module.exports = {
       h.p("An agent at Chapter3 helped clients who owned a house in Blackmoor, a golf neighborhood in Murrells Inlet with no age rule. They sold that house and bought in Seasons, a few minutes away.") +
       `</div>` },
 
+    { h2: "What are the pros and cons of living in Seasons at Prince Creek West?", toc: "Pros and cons", html: (bg) =>
+      h.p("Seasons at Prince Creek West has a gate, two pools and stores close by, and the beach is a drive.") +
+      prosCons([
+        "There is a gate at the main entrance on TPC Boulevard, with a call box for visitors.",
+        "From the clubhouse, Publix is about 5 minutes away by car and the hospital about 8.",
+        "The Murrells Inlet MarshWalk is about 10 minutes from the clubhouse by car.",
+      ], [
+        { text: "The beach is a drive. The nearest public beach access by road is the county's Atlantic Avenue boardwalk access in Garden City, which lists no parking.", act: "Plan where to park before you go." },
+        { text: "The association's posted rules bar parking vehicles on the streets and list golf carts among vehicles allowed only in enclosed garages." },
+        { text: "Under the association's posted rules, the road and park association charges a transfer fee of 0.25 percent of the price, capped at an amount the declaration adjusts.", act: "Ask for the resale certificate." },
+      ], { bg }) },
+
     { h2: "Will a Seasons lot need flood insurance?", toc: "Flood insurance", html: (bg) =>
       h.p(`Most Seasons lots will not. On 45 of the lots, one corner touches the high-risk flood zone on ${h.ext(FEMA, "the federal flood map")}.`) +
       h.p("If the house itself is in the zone, your lender will require flood insurance. Outside the zone, flood insurance is your choice. A policy here usually costs about $600 a year.") +
@@ -185,7 +212,7 @@ module.exports = {
     { name: "FEMA flood map", href: FEMA },
     { name: "Federal flood insurance law", href: LAW },
   ],
-  sourcesNote: "For education, not legal advice. The HOA fee and the home sizes are from recent home listings. Drive times are no-traffic estimates from OpenStreetMap. The flood cost is the middle FEMA policy price in ZIP code 29576.",
+  sourcesNote: "For education, not legal advice. The HOA fee, the gate and the home sizes are from recent home listings. Drive times are no-traffic estimates from OpenStreetMap. The flood cost is the middle FEMA policy price in ZIP code 29576.",
   /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
   afterSources: () => ph.credits(),
   bottomCta: { h2: "Want to buy in Seasons?", p: "Talk to a specialized agent about the Seasons home you like. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call an agent", href: TEL },

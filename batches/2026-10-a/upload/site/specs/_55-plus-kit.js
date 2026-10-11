@@ -323,4 +323,32 @@ const compareTable = (self) => {
   return `${CMP_CSS}<div class="c3-cmp" style="overflow-x:auto;margin:1.2rem 0;max-width:760px"><table style="width:100%;border-collapse:collapse;font-size:.92rem"><thead><tr>${COMPARE.head.map((c) => `<th ${TH}>${c}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`;
 };
 
-module.exports = { h, maps, story, glance, photoSet, compareTable, atAGlance, icon, CREDIT2 };
+/* prosCons(pros, cons, { bg }): the pros and cons section's two lists (version 14, CRAFT 3: "Name the
+   drawbacks, kindly, in their own place"). Good news first. Each list has a word heading ("Pros",
+   "Cons"); the marks beside the items are decoration (aria-hidden): a check in a brass circle for a pro,
+   a plain dash for a con. A con is a string, or { text, act } where act says what to do about it and
+   shows on its own line. Text is at reading size; the two lists sit side by side on a wide screen and
+   one above the other on a phone. */
+const PC_CSS = "<style>.c3-pc{display:grid;gap:1rem;max-width:960px;margin:1.2rem 0 1.6rem}"
+  + "@media (min-width:760px){.c3-pc{grid-template-columns:1fr 1fr;align-items:start}}"
+  + ".c3-pc>div{padding:1.1rem 1.2rem .6rem}"
+  + ".c3-pc h3{font-family:var(--sans);font-size:1.15rem;font-weight:600;color:var(--navy);margin:0 0 .8rem;display:flex;align-items:center;gap:.55rem}"
+  + ".c3-pc ul{list-style:none;margin:0;padding:0}"
+  + ".c3-pc li{display:flex;gap:.7rem;align-items:flex-start;color:var(--muted);line-height:1.7;margin:0 0 .9rem}"
+  + ".c3-pc li svg{flex:none;margin-top:.3rem}"
+  + ".c3-pc .c3-pc-do{display:block;color:var(--navy);font-weight:500;margin-top:.2rem}</style>";
+const PC_YES = '<svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="11" fill="var(--brass)"/><path d="M6.2 11.4l3.1 3.1 6.5-6.7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const PC_NO = '<svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="none" stroke="var(--muted)" stroke-width="1.6"/><path d="M6.8 11h8.4" stroke="var(--muted)" stroke-width="2.2" stroke-linecap="round"/></svg>';
+function prosCons(pros, cons, o = {}) {
+  if (!Array.isArray(pros) || !Array.isArray(cons) || pros.length < 3 || pros.length > 4 || cons.length < 3 || cons.length > 4)
+    throw new Error("prosCons takes 3 or 4 pros and 3 or 4 cons");
+  const box = o.bg === "ivory" ? "ivory-2" : "ivory";
+  const item = (mark) => (x) => {
+    const t = typeof x === "string" ? x : x.text, act = typeof x === "string" ? "" : x.act;
+    return `<li>${mark}<span>${t}${act ? ` <span class="c3-pc-do">${act}</span>` : ""}</span></li>`;
+  };
+  const col = (title, mark, top, list) => `<div style="background:var(--${box});border-top:3px solid ${top}"><h3>${mark}${title}</h3><ul>${list.map(item(mark)).join("")}</ul></div>`;
+  return PC_CSS + `<div class="c3-pc">${col("Pros", PC_YES, "var(--brass)", pros)}${col("Cons", PC_NO, "var(--muted)", cons)}</div>`;
+}
+
+module.exports = { h, maps, story, glance, photoSet, compareTable, atAGlance, icon, CREDIT2, prosCons };

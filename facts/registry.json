@@ -247,17 +247,25 @@
     },
     {
       "id": "seasons-gate",
-      "fact": "No 2026 source says the entry gate at Seasons at Prince Creek West operates. The builder called it gated in 2013 and the charter allows gates, but the owner does not know if the gate operates (2026-10-06). Pages leave the gate out.",
-      "source": "https://www.prweb.com/releases/seasons_at_prince_creek_west_listed_among_the_nation_s_top_master_planned_communities/prweb11080455.htm",
-      "quote": "this gated community (Dock Street Communities, 2013). Ledger: batches/2026-10-a/facts/seasons-at-prince-creek-west-facts.md rows 50 to 53; PLAN.md owner answer 5.",
+      "fact": "Listings show a gate at the main entrance on TPC Boulevard at Seasons at Prince Creek West, with a call box for visitors (ledger rows 92 and 93, verified 2026-10-11). The page states that plainly, with recent home listings named in the sources line. No primary source says the gate is staffed or gives hours: two 2025 listings give different guard hours (row 94). Never 'staffed', never guard hours, never 'gated' as a verified fact.",
+      "source": "https://www.beachproteam.com/listings/view/209-castle-pines-ln-murrells-inlet-sc-real-estate-2522381.html",
+      "quote": "THE CALLBOX IS LOCATED AT THE MAIN GATE ON TPC (MLS 2522381). Ledger: batches/2026-10-a/facts/seasons-at-prince-creek-west-facts.md rows 50 to 53 and 90 to 95; PROS-CONS-candidates.md, Verifier check, Seasons P1.",
       "asOf": "2026-10-11",
       "staleBy": "2027-04-11",
       "ownerPage": "/buyers/55-plus-communities/seasons-at-prince-creek-west/",
       "wrong": [
         {
           "pattern": "\\bSeasons\\b[^.]{0,120}\\bgated\\b|\\bgated\\b[^.]{0,60}\\bSeasons\\b",
-          "note": "The Seasons gate is not verified for 2026. Leave it out.",
+          "note": "Only a gate at the main entrance with a call box is verified (listings, rows 92 and 93). Do not call Seasons gated or verified gated.",
           "unless": "\\b2013\\b|\\bcharter\\b"
+        },
+        {
+          "pattern": "(?:\\bSeasons\\b|\\bTPC\\b|\\bPrince Creek\\b)[^.]{0,160}\\b(?:staffed|manned|attended|guard(?:ed|house| house| gate| booth)?|security guard)\\b|\\b(?:staffed|manned|attended|guard(?:ed|house| house| gate| booth)?|security guard)\\b[^.]{0,160}(?:\\bSeasons\\b|\\bTPC\\b|\\bPrince Creek\\b)",
+          "note": "No primary source says the Seasons gate is staffed or has a guard (row 94: two listings disagree). Say a gate with a call box for visitors."
+        },
+        {
+          "pattern": "\\bguard\\b[^.]{0,60}\\b\\d{1,2}(?::\\d\\d)? ?(?:a\\.?m\\.?|p\\.?m\\.?)",
+          "note": "Guard hours are not verified (row 94: one listing says 8 to 4, another 9 to 5). Leave hours out."
         }
       ],
       "severity": "high"

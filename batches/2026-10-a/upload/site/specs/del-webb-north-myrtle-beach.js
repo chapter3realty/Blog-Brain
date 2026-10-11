@@ -1,6 +1,18 @@
 /* /buyers/55-plus-communities/del-webb-north-myrtle-beach/ - what it is like to live
  * in Del Webb North Myrtle Beach, a newer 55+ neighborhood in North Myrtle Beach.
  *
+ * Version 14, 2026-10-11: the SEO gaps (coordinator). A pros and cons section after the comparison and
+ *            before the renting story, in the verifier's wording (PROS-CONS-candidates.md, "Verifier
+ *            check"): pros P1 (rows 41, 62: from the HOA office, the nearest city beach parking lot),
+ *            P2 (rows 73, 36: listings show houses built since 2022; Pulte says the warranty is
+ *            transferable; the 10 years stay in the homes list), P5 (rows 79, 80: the city-run community center, a quarter mile in a
+ *            straight line); cons: the builder still building and selling (rows 26, 59, as the page
+ *            already says; the act "ask which streets are finished"), C4 (rows 40, 93, 94: carts may
+ *            cross US 17, not drive along it; "the city says"), C5 (row 65: the airport 35 minutes
+ *            from the HOA office; said once, so the "where" section no longer says it). "The amenity center (the clubhouse)" once (row 106). The beach
+ *            sentence names the nearest city beach parking lot, not a "beach path" (rows 41, 93 to
+ *            95). Title and description carry "55+", "pros and cons" and "HOA fee" (STANDARD S1, S2,
+ *            S9). The pinned datePublished is removed.
  * Version 13c, 2026-10-11: the second independent review (OWNER-EYE-v13c-del-webb-north-myrtle-beach.md,
  *            8 of 10) and the coordinator's decision on row 75 (end of the ledger): "homeowners
  *            association (HOA)" at first use; the short-answer sentence split; "Not by the week.
@@ -87,7 +99,7 @@
  *         sign the builder's contract and finds the 30-day minimum (stories.json
  *         "hoa-rental-bans-filtered": the agents read the HOA documents for a rental plan).
  */
-const { h, maps, story, glance, photoSet, compareTable, atAGlance } = require("./_55-plus-kit.js");
+const { h, maps, story, glance, photoSet, compareTable, atAGlance, prosCons } = require("./_55-plus-kit.js");
 
 const HUB = "/buyers/55-plus-communities/";
 const SELF = "/buyers/55-plus-communities/del-webb-north-myrtle-beach/";
@@ -122,11 +134,12 @@ const M = maps("del-webb-north-myrtle-beach", [
 module.exports = {
   url: SELF,
   hub: { name: "55+ communities", url: HUB },
-  datePublished: "2026-10-05",
+  /* No datePublished (version 14): mkpage keeps the date of a page already built and gives a new page
+     the day it is first built for the live site; build.js dates never moves it. */
   /* The 2026 overview's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
-  title: "Living in Del Webb North Myrtle Beach (55+) | Chapter3",
-  description: "What life is like in Del Webb North Myrtle Beach: new one-story homes, lawn care, the clubhouse and pools, renting, the 55+ rule and the costs.",
+  title: "Del Webb North Myrtle Beach 55+: Pros and Cons | Chapter3",
+  description: "Del Webb North Myrtle Beach 55+: the pros and cons, the HOA fee and what it covers, new one-story homes, the amenity center, the drive to the beach and renting.",
   ogTitle: "Living in Del Webb North Myrtle Beach: new homes, lawn care and a clubhouse near the beach",
   crumb: "Del Webb North Myrtle Beach",
   eyebrow: "North Myrtle Beach, 55+",
@@ -160,7 +173,7 @@ module.exports = {
       ]) },
 
     { h2: "What is there to do in Del Webb North Myrtle Beach?", toc: "Things to do", html:
-      h.p("The clubhouse has a gathering room, an arts and crafts room and a fitness center.") +
+      h.p("The amenity center (the clubhouse) has a gathering room, an arts and crafts room and a fitness center.") +
       CLUB +
       ph.cards([
         { illustration: "indoor-pool", label: "Indoor lap pool", text: "Swim laps all year" },
@@ -176,7 +189,7 @@ module.exports = {
       TOBEACH +
       h.p("In our experience, rush hour adds 5 to 10 minutes to the drive times on the map.") +
       M.where +
-      h.p("For an emergency, the North Strand emergency room is closer than the hospital, about 5 minutes by car. It is open day and night. The airport is about 35 minutes away by car.") },
+      h.p("For an emergency, the North Strand emergency room is closer than the hospital, about 5 minutes by car. It is open day and night.") },
 
     { h2: "What is North Myrtle Beach like?", toc: "The town", html: (bg) =>
       h.p("North Myrtle Beach has a wide sand beach lined with beach houses. The city keeps hundreds of paths to the beach and dozens of public parking lots, so you can find a place near the sand.") +
@@ -186,7 +199,7 @@ module.exports = {
         { icon: "golf-cart", label: "Golf carts", text: "Allowed with a state permit sticker, on roads of 35 mph or less, from sunrise to sunset." },
         { icon: "pets", label: "Dogs on the beach", text: "Always on a leash. From mid-May to Labor Day, no dogs on the beach from 10 a.m. to 4 p.m." },
       ], { bg, min: "18rem" }) +
-      h.p("To reach the nearest beach path, you drive a short way along US 17. Golf carts may only cross US 17, so plan to take your car to the beach.") +
+      h.p("The car route to the nearest city beach parking lot runs a short way along US 17, where golf carts may only cross. Plan to take your car to the beach.") +
       h.p("These places in town are close by car.") +
       atAGlance([
         { icon: "tennis", label: "Central Park", text: "A city park with a paved walking path and tennis courts. About 2 minutes." },
@@ -210,6 +223,18 @@ module.exports = {
     { h2: "How does Del Webb North Myrtle Beach compare with other 55+ neighborhoods?", toc: "Compare", html: () =>
       h.p("Del Webb North Myrtle Beach is the newest of these four 55+ neighborhoods.") +
       compareTable(SELF) },
+
+    { h2: "What are the pros and cons of living in Del Webb North Myrtle Beach?", toc: "Pros and cons", html: (bg) =>
+      h.p("Del Webb North Myrtle Beach has new homes about a mile from the ocean, and the builder is still building.") +
+      prosCons([
+        "From the HOA office, the nearest city beach parking lot is about 1 mile, about 4 minutes by car.",
+        "Listings show detached houses built since 2022. Pulte says its structural warranty is transferable.",
+        "A city-run community center with indoor pickleball is about a quarter mile from the HOA office in a straight line.",
+      ], [
+        { text: "Pulte is still building and selling new homes here.", act: "Ask which streets are finished before you choose a lot." },
+        { text: "US 17 lies between the homes and the beach. The city says a golf cart may cross the highway but may not drive along it." },
+        { text: "The airport is about 35 minutes from the HOA office by car." },
+      ], { bg }) },
 
     { h2: "Can you rent out a home in Del Webb North Myrtle Beach?", toc: "Renting", html: (bg) =>
       h.p(`Not by the week. Renters here must stay ${h.ext(AGREEMENT, "at least 30 days")}.`) +

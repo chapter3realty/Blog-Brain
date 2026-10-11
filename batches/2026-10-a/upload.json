@@ -78,7 +78,7 @@
     "page": "/buyers/55-plus-communities/"
   },
   "changes": [
-    "`/buyers/55-plus-communities/` (the hub): links to the four pages, and its figures for the four communities now match the pages and `data/55-plus-communities.json` (resale prices, HOA fees, home counts). The gate claims for Seasons at Prince Creek West and Del Webb at Grande Dunes are gone: no 2026 source confirms either gate, and the owner does not know if the Seasons gate operates (2026-10-06).",
+    "`/buyers/55-plus-communities/` (the hub): links to the four pages, and its figures for the four communities now match the pages and `data/55-plus-communities.json` (resale prices, HOA fees, home counts). The gate claims for Seasons at Prince Creek West and Del Webb at Grande Dunes are gone: no primary 2026 source calls either one gated. The Seasons page says only what recent listings show: a gate at the main entrance on TPC Boulevard, with a call box for visitors (version 14).",
     "`/buyers/retirees/` and `/buyers/golf-communities/`: the same gate claims, removed. The Blackmoor story on the golf page now says only what the story bank records.",
     "`sitemap.xml`: the four pages, with their photos (Google image sitemap).",
     "`llms.txt`: the four pages, with their descriptions; the hub's fee range now reads \"from $43/mo\".",

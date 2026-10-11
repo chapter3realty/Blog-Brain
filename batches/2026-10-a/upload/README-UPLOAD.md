@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-11 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain 93bc7c8, against the live branch `claude/github-account-check-wutg8b` at commit 54703db5 ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
+Built 2026-10-11 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain 4dc9ebf (with uncommitted changes to its sources), against the live branch `claude/github-account-check-wutg8b` at commit 54703db ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -15,7 +15,7 @@ When the specs change, rebuild the package with the same command. Do not edit fi
 
 It also changes pages the site already has:
 
-- `/buyers/55-plus-communities/` (the hub): links to the four pages, and its figures for the four communities now match the pages and `data/55-plus-communities.json` (resale prices, HOA fees, home counts). The gate claims for Seasons at Prince Creek West and Del Webb at Grande Dunes are gone: no 2026 source confirms either gate, and the owner does not know if the Seasons gate operates (2026-10-06).
+- `/buyers/55-plus-communities/` (the hub): links to the four pages, and its figures for the four communities now match the pages and `data/55-plus-communities.json` (resale prices, HOA fees, home counts). The gate claims for Seasons at Prince Creek West and Del Webb at Grande Dunes are gone: no primary 2026 source calls either one gated. The Seasons page says only what recent listings show: a gate at the main entrance on TPC Boulevard, with a call box for visitors (version 14).
 - `/buyers/retirees/` and `/buyers/golf-communities/`: the same gate claims, removed. The Blackmoor story on the golf page now says only what the story bank records.
 - `sitemap.xml`: the four pages, with their photos (Google image sitemap).
 - `llms.txt`: the four pages, with their descriptions; the hub's fee range now reads "from $43/mo".
@@ -129,7 +129,7 @@ git push origin claude/github-account-check-wutg8b
 
 ## If a step fails
 
-- **`git apply --check` fails.** The live branch changed after this package was built (it was built on 54703db5). Nothing has been changed yet. In Blog-Brain, rebuild the package on a fresh clone: `node tools/package-batch.js batches/2026-10-a --site <fresh clone>`. Do not edit the patch.
+- **`git apply --check` fails.** The live branch changed after this package was built (it was built on 54703db). Nothing has been changed yet. In Blog-Brain, rebuild the package on a fresh clone: `node tools/package-batch.js batches/2026-10-a --site <fresh clone>`. Do not edit the patch.
 - **`mkpage` says "Blog-Brain tools not found".** `site\tools\blog-brain` was not copied. Run the Copy-Item line again.
 - **`check`, `audit` or `preflight` fails.** Do not push. `git reset --hard` and `git clean -fd` put the clone back as it was; send the output to Blog-Brain.
 
@@ -152,7 +152,7 @@ The site-wide scans also list older findings on other pages; the test below comp
 
 ## Test results
 
-On a second fresh clone of `claude/github-account-check-wutg8b` at 54703db5, with exactly the steps above (bash), on 2026-10-11 (`SCORE_TODAY=2026-10-11`). The commit was local and was not pushed.
+On a second fresh clone of `claude/github-account-check-wutg8b` at 54703db, with exactly the steps above (bash), on 2026-10-11 (`SCORE_TODAY=2026-10-11`). The commit was local and was not pushed.
 
 ### PASS: /buyers/55-plus-communities/ agrees with data/55-plus-communities.json (every dollar figure in each row)
 
@@ -178,25 +178,25 @@ Seasons at Prince Creek West: hub row has $340, $500,000
 ### PASS: node tools/mkpage.js specs/del-webb-north-myrtle-beach.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (157902 bytes, hero sub 19 words, main 2488 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (162325 bytes, hero sub 19 words, main 2648 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/del-webb-grande-dunes.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (148797 bytes, hero sub 21 words, main 2231 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (153447 bytes, hero sub 21 words, main 2441 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/myrtle-trace.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (155988 bytes, hero sub 22 words, main 2080 words)
+wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (160737 bytes, hero sub 22 words, main 2266 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/seasons-at-prince-creek-west.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (142567 bytes, hero sub 17 words, main 1990 words)
+wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (147168 bytes, hero sub 17 words, main 2180 words)
 ```
 
 ### PASS: specs/_story-check.js in the package is Blog-Brain tools/story-check.js, as it is today
@@ -223,24 +223,28 @@ Updated references in 136 page(s). Run 'node build.js check', then deploy.
 ### PASS: node build.js dates
 
 ```
-Corrected 8:
-  /buyers/retirees/  2026-10-04 -> 2026-10-11  (uncommitted content change)
-  /buyers/55-plus-communities/  2026-09-07 -> 2026-10-11  (uncommitted content change)
-  /buyers/55-plus-communities/del-webb-north-myrtle-beach/  2026-10-05 -> 2026-10-11  (new page, not committed yet)
-  /buyers/55-plus-communities/del-webb-grande-dunes/  2026-10-05 -> 2026-10-11  (new page, not committed yet)
-  /buyers/55-plus-communities/myrtle-trace/  2026-10-05 -> 2026-10-11  (new page, not committed yet)
-  /buyers/55-plus-communities/seasons-at-prince-creek-west/  2026-10-05 -> 2026-10-11  (new page, not committed yet)
-  /buyers/golf-communities/  2026-09-07 -> 2026-10-11  (uncommitted content change)
+  /buyers/closing-costs/  2026-10-04 -> 2026-10-05  (first published)
+  /sell/sell-my-condo/  2026-09-07 -> 2026-10-05  (first published)
+  /sell/capital-gains/  2026-10-04 -> 2026-10-05  (first published)
+  /guides/  2026-10-04 -> 2026-10-05  (first published)
+  /hoa/master-insurance-ho6/  2026-09-05 -> 2026-10-05  (first published)
+  /hoa/who-pays-for-damage/  2026-09-16 -> 2026-10-05  (first published)
+  /hoa/benefits/  2026-10-04 -> 2026-10-05  (first published)
+  /hoa/violations-and-fines/  2026-09-16 -> 2026-10-05  (first published)
+  /hoa/estoppel-and-transfer-fees/  2026-09-02 -> 2026-10-05  (first published)
+  /hoa/developer-control-turnover/  2026-10-04 -> 2026-10-05  (first published)
+  /hoa/tax-deductible/  2026-09-02 -> 2026-10-05  (first published)
+  /hoa/dues-increases/  2026-09-05 -> 2026-10-05  (first published)
   llms.txt  2026-10-05 -> 2026-10-11
 
-7 page dates moved, 124 left alone.
+126 page dates moved, 5 left alone.
 llms-full.txt carries the header date - run 'node build.js llmsfull' if page text changed.
 ```
 
 ### PASS: node build.js llmsfull
 
 ```
-llms-full.txt regenerated: 131 pages, 1409KB, dated 2026-10-11.
+llms-full.txt regenerated: 131 pages, 1413KB, dated 2026-10-11.
 ```
 
 ### PASS: node build.js check
@@ -288,39 +292,36 @@ OK - all 131 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 136 pages from commit c49222e2 on claude/github-account-check-wutg8b.
+OK - deploying 136 pages from commit 1a2205c on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
 ### PASS: score.js --only /buyers/55-plus-communities/del-webb-north-myrtle-beach/
 
 ```
-/buyers/55-plus-communities/del-webb-north-myrtle-beach/  Living in Del Webb North Myrtle Beach (55+) | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (996 words)
-   98% P2  Few numbers: 3.5 or fewer per 100 words of prose  3.6 per 100 words (37 numbers in 1032 words)
+/buyers/55-plus-communities/del-webb-north-myrtle-beach/  Del Webb North Myrtle Beach 55+: Pros and Cons | Chapter3
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1123 words)
 ```
 
 ### PASS: score.js --only /buyers/55-plus-communities/del-webb-grande-dunes/
 
 ```
-/buyers/55-plus-communities/del-webb-grande-dunes/  Living in Del Webb at Grande Dunes, Myrtle Beach | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (983 words)
-   99% P2  Few numbers: 3.5 or fewer per 100 words of prose  3.5 per 100 words (36 numbers in 1018 words)
+/buyers/55-plus-communities/del-webb-grande-dunes/  Del Webb at Grande Dunes 55+: HOA Fees, Pros & Cons | Chapter3
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1160 words)
 ```
 
 ### PASS: score.js --only /buyers/55-plus-communities/myrtle-trace/
 
 ```
-/buyers/55-plus-communities/myrtle-trace/  Living in Myrtle Trace, a 55+ Community in Conway | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1064 words)
+/buyers/55-plus-communities/myrtle-trace/  Myrtle Trace 55+, Conway: HOA Fee, Pros and Cons | Chapter3
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1220 words)
 ```
 
 ### PASS: score.js --only /buyers/55-plus-communities/seasons-at-prince-creek-west/
 
 ```
 /buyers/55-plus-communities/seasons-at-prince-creek-west/  Seasons at Prince Creek West, Murrells Inlet 55+ | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (851 words)
-   97% P2  Few numbers: 3.5 or fewer per 100 words of prose  3.6 per 100 words (32 numbers in 885 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1006 words)
 ```
 
 ### PASS: claims-scan.js: no new banned claim on any surface

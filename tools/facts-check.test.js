@@ -69,6 +69,15 @@ const cases = [
     "Seasons is deed-restricted and built around single-level plans and a full amenity program."],
   ["seasons-gate", "It anchors the Prince Creek master plan in Murrells Inlet, where villages range from the low $300,000s to the $600,000s and up, including the gated Seasons 55+ community.",
     "It anchors the Prince Creek master plan in Murrells Inlet, where villages range from the low $300,000s to the $600,000s and up, including the Seasons 55+ community."],
+  /* Version 14 (2026-10-11): the verified wording is a gate with a call box (rows 92, 93). A guard, a
+     staffed gate, guard hours or "verified gated" still fire. Firing text from the listings in row 94 and
+     the old hub; quiet text from the Seasons page and the same listings. */
+  ["seasons-gate", "At the main entrance to Seasons, proceed to the guard gate.",
+    "There is a gate at the main entrance on TPC Boulevard, with a call box for visitors."],
+  ["seasons-gate", "The Guard is on duty Monday-Friday 8am-4pm.",
+    "Please use the call box if no guard is on duty."],
+  ["seasons-gate", "Verified gated: Seasons at Prince Creek West in Murrells Inlet, with controlled access, and Del Webb at Grande Dunes.",
+    "Listings show a gate at the main entrance on TPC Boulevard, with a call box for visitors."],
   ["del-webb-grande-dunes-gate", "Del Webb at Grande Dunes is the most established active adult community with resort-level amenities, gated access, and an on-site lifestyle director.",
     "Grande Dunes and Barefoot are gated only in certain villages, and value communities like Blackmoor and Wild Wing are open."],
   ["del-webb-grande-dunes-gate", "Verified gated: Seasons at Prince Creek West in Murrells Inlet, with controlled access, and Del Webb at Grande Dunes.",
