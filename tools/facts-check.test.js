@@ -64,11 +64,33 @@ const cases = [
     "McLeod Health Carolina Forest cut its ribbon on August 27, 2026."],
   ["mortgage-rate-statements", "The national 30-year fixed averaged 6.55 percent that week.",
     "Rates change weekly; your lender quotes yours."],
+  /* Batch 2026-10-a (55+ pages): live hub, retirees and golf text on 2026-10-11, against the corrected wording. */
+  ["seasons-gate", "Seasons at Prince Creek West in Murrells Inlet is gated.",
+    "Seasons is deed-restricted and built around single-level plans and a full amenity program."],
+  ["seasons-gate", "It anchors the Prince Creek master plan in Murrells Inlet, where villages range from the low $300,000s to the $600,000s and up, including the gated Seasons 55+ community.",
+    "It anchors the Prince Creek master plan in Murrells Inlet, where villages range from the low $300,000s to the $600,000s and up, including the Seasons 55+ community."],
+  ["del-webb-grande-dunes-gate", "Del Webb at Grande Dunes is the most established active adult community with resort-level amenities, gated access, and an on-site lifestyle director.",
+    "Grande Dunes and Barefoot are gated only in certain villages, and value communities like Blackmoor and Wild Wing are open."],
+  ["del-webb-grande-dunes-gate", "Verified gated: Seasons at Prince Creek West in Murrells Inlet, with controlled access, and Del Webb at Grande Dunes.",
+    "Del Webb at Grande Dunes has indoor and outdoor pools, a lifestyle director, and HOA dues that include an oceanfront beach club."],
+  ["myrtle-trace-hoa-fee", "For fee-simple ownership, Woodlake Village in Murrells Inlet runs $260,000 to $379,000 with an HOA around $43 a month, and Myrtle Trace in Conway averages about $305,000 at roughly $90 a month.",
+    "For fee-simple ownership, Woodlake Village in Murrells Inlet runs $260,000 to $379,000 with an HOA around $43 a month, and in Myrtle Trace in Conway, homes usually sell for about $300,000, with an HOA fee of $95 a month."],
+  ["del-webb-grande-dunes-hoa-fee", "Nine 55+ communities in Myrtle Beach compared: prices from $190K, HOA fees $43 to $384 a month, the land-lease catch, and South Carolina retiree tax breaks.",
+    "Nine 55+ communities in Myrtle Beach compared: prices from $190K, HOA fees from $43 a month, the land-lease catch, and South Carolina retiree tax breaks."],
+  ["del-webb-grande-dunes-hoa-fee", "$317/mo houses, $384/mo villas; includes the oceanfront Grande Dunes Ocean Club",
+    "About $400/mo for a house, about $445 for a villa; includes basic lawn care and the oceanfront Grande Dunes Ocean Club"],
+  ["seasons-hoa-fee", "About $300 to $330/mo: cable, internet, phone, lawn, security monitoring, lifestyle director",
+    "About $340/mo: internet, weekly trash pickup and lawn care"],
 ];
 for (const [id, bad, good] of cases) {
   check(`${id}: fires on "${bad.slice(0, 50)}..."`, fires(bad, id));
   check(`${id}: quiet on "${good.slice(0, 50)}..."`, !fires(good, id));
 }
+/* llms.txt and llms-full.txt are plain text; the same rules apply to them. */
+const { checkText } = require("./facts-check.js");
+check("llms text: fires on a wrong sentence", checkText("- [55+ Communities](https://chapter3realty.com/buyers/55-plus-communities/): Nine verified communities compared: prices from $190k, HOA fees $43-$384/mo, the land-lease model.", "/llms.txt").some(f => f.fact === "del-webb-grande-dunes-hoa-fee"));
+check("llms text: quiet on the corrected line", !checkText("- [55+ Communities](https://chapter3realty.com/buyers/55-plus-communities/): Nine verified communities compared: prices from $190k, HOA fees from $43/mo, the land-lease model.", "/llms.txt").length);
+
 const tested = new Set(cases.map(c => c[0]));
 for (const f of REG.facts) check(`fact ${f.id} has a control`, tested.has(f.id));
 for (const f of REG.facts) check(`fact ${f.id} has source, asOf and staleBy`, !!(f.source && f.asOf && f.staleBy));

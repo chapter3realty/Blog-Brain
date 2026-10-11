@@ -244,6 +244,89 @@
           "note": "No stated rates."
         }
       ]
+    },
+    {
+      "id": "seasons-gate",
+      "fact": "No 2026 source says the entry gate at Seasons at Prince Creek West operates. The builder called it gated in 2013 and the charter allows gates, but the owner does not know if the gate operates (2026-10-06). Pages leave the gate out.",
+      "source": "https://www.prweb.com/releases/seasons_at_prince_creek_west_listed_among_the_nation_s_top_master_planned_communities/prweb11080455.htm",
+      "quote": "this gated community (Dock Street Communities, 2013). Ledger: batches/2026-10-a/facts/seasons-at-prince-creek-west-facts.md rows 50 to 53; PLAN.md owner answer 5.",
+      "asOf": "2026-10-11",
+      "staleBy": "2027-04-11",
+      "ownerPage": "/buyers/55-plus-communities/seasons-at-prince-creek-west/",
+      "wrong": [
+        {
+          "pattern": "\\bSeasons\\b[^.]{0,120}\\bgated\\b|\\bgated\\b[^.]{0,60}\\bSeasons\\b",
+          "note": "The Seasons gate is not verified for 2026. Leave it out.",
+          "unless": "\\b2013\\b|\\bcharter\\b"
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "del-webb-grande-dunes-gate",
+      "fact": "No primary source says Del Webb at Grande Dunes is gated. The HOA's hurricane guide mentions gate arms without saying where, and Pulte called the Ocean Club gated, not the neighborhood.",
+      "source": "https://www.delwebbatgrandedunes.com/ResourceCenter/Download/48372~3083090",
+      "quote": "Any gate arms will be removed (hurricane guide; place not given). Ledger: batches/2026-10-a/facts/del-webb-grande-dunes-facts.md rows 36 and 59, hub check.",
+      "asOf": "2026-10-11",
+      "staleBy": "2027-04-11",
+      "ownerPage": "/buyers/55-plus-communities/del-webb-grande-dunes/",
+      "wrong": [
+        {
+          "pattern": "Del Webb at Grande Dunes[^.]{0,200}\\bgated\\b|\\bgated\\b[^.]{0,120}Del Webb at Grande Dunes",
+          "note": "Not verified gated. Leave the gate out.",
+          "unless": "\\bOcean Club\\b[^.]{0,40}\\bgated\\b"
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "myrtle-trace-hoa-fee",
+      "fact": "Myrtle Trace HOA dues are $95 a month from January 1, 2026. They were $90 in 2025.",
+      "source": "https://myrtletracesc.org/wp-content/uploads/BoardOfDirectorsMinutes/2025/2025-12-Dec-BoardMinutes.pdf",
+      "quote": "there will be an increase in resident's dues to $95.00 a month",
+      "asOf": "2026-10-11",
+      "staleBy": "2027-01-11",
+      "ownerPage": "/buyers/55-plus-communities/myrtle-trace/",
+      "wrong": [
+        {
+          "pattern": "Myrtle Trace[^.]{0,160}\\$90\\b|\\$90\\b[^.]{0,60}Myrtle Trace",
+          "note": "$90 was the 2025 fee. It is $95 a month from January 2026.",
+          "unless": "\\b2025\\b"
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "del-webb-grande-dunes-hoa-fee",
+      "fact": "The HOA fee in Del Webb at Grande Dunes is about $400 a month for a house and about $445 for a villa (MLS listings entered in 2026). The hub's old $317 and $384 are 2022 and 2023 listing figures, so no 55+ fee range ends at $384.",
+      "source": "batches/2026-10-a/facts/del-webb-grande-dunes-facts.md rows 95 and 96 (MLS listings)",
+      "quote": "Houses (MLS type Detached): $401 a month on 20 of 30 listings ... Villas (MLS type Semi-Detached): $445 on 6 of 13 listings",
+      "asOf": "2026-10-11",
+      "staleBy": "2027-01-11",
+      "ownerPage": "/buyers/55-plus-communities/del-webb-grande-dunes/",
+      "wrong": [
+        {
+          "pattern": "\\$31[57]\\s*/\\s*mo houses|\\$384\\s*/\\s*mo villas|\\$43\\s*(?:to|-)\\s*\\$384",
+          "note": "Old listing figures. Houses about $400, villas about $445; the hub range is 'from $43 a month'."
+        }
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "seasons-hoa-fee",
+      "fact": "The HOA fee in Seasons at Prince Creek West is about $340 a month (MLS listings in 2026: $342 on 7 of 8). It includes internet, weekly trash pickup and lawn care.",
+      "source": "batches/2026-10-a/facts/seasons-at-prince-creek-west-facts.md row 86 (MLS listings)",
+      "quote": "7 show $342 and one shows $324",
+      "asOf": "2026-10-11",
+      "staleBy": "2027-01-11",
+      "ownerPage": "/buyers/55-plus-communities/seasons-at-prince-creek-west/",
+      "wrong": [
+        {
+          "pattern": "\\$300 to \\$330\\b",
+          "note": "Not sourced. Use about $340 a month."
+        }
+      ],
+      "severity": "high"
     }
   ],
   "unsourced": {

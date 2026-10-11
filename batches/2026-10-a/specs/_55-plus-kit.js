@@ -22,7 +22,10 @@
 const fs = require("fs"), path = require("path");
 const { h } = require("../tools/mkpage.js");
 
-const BB = [path.join(__dirname, "..", "..", ".."), "/home/user/Blog-Brain"]
+/* Where the Blog-Brain tools are: the copy an upload package puts in the website's
+   tools/blog-brain/ (tools/package-batch.js), then $BLOG_BRAIN, then the Blog-Brain repo. */
+const BB = [path.join(__dirname, "..", "tools", "blog-brain"), process.env.BLOG_BRAIN,
+  path.join(__dirname, "..", "..", ".."), "/home/user/Blog-Brain"].filter(Boolean)
   .find((d) => fs.existsSync(path.join(d, "tools", "area-map.js")) && fs.existsSync(path.join(d, "tools", "photos.js")));
 if (!BB) throw new Error("Blog-Brain tools not found (tools/area-map.js, tools/photos.js)");
 const { communityMaps, CREDIT2 } = require(path.join(BB, "tools", "area-map.js"));

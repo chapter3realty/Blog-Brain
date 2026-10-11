@@ -7,8 +7,9 @@
  *   node tools/facts-check.js --stale                 only list registry entries past their staleBy date
  *
  * Two checks:
- *   1. WRONG: a sentence on any page (visible text, meta, JSON-LD) matches a
- *      known-wrong shape of a registered fact, and does not match its 'unless'.
+ *   1. WRONG: a sentence on any page (visible text, meta, JSON-LD), or in
+ *      llms.txt or llms-full.txt, matches a known-wrong shape of a registered
+ *      fact, and does not match its 'unless'.
  *   2. STALE: a registry entry is past its 'staleBy' date. Re-open its source,
  *      update value, asOf and staleBy, then fix every page the check names.
  *
@@ -59,6 +60,11 @@ function checkPage(html, url) {
 
 function staleEntries() { return REG.facts.filter(f => f.staleBy && f.staleBy <= TODAY).map(f => ({ fact: f.id, staleBy: f.staleBy, asOf: f.asOf, source: f.source })); }
 
+/* Plain-text surfaces (llms.txt, llms-full.txt): AI answer engines read them as much as the pages (WORKFLOW rule 8). */
+const escHtml = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const checkText = (text, url) => checkPage(`<!doctype html><html><head><title></title></head><body><pre>${escHtml(text)}</pre></body></html>`, url);
+const TEXT_FILES = ["llms.txt", "llms-full.txt"];
+
 function walk(d, o = []) { for (const f of fs.readdirSync(d)) { const p = path.join(d, f); if (fs.statSync(p).isDirectory()) walk(p, o); else if (f === "index.html") o.push(p); } return o; }
 
 function main() {
@@ -73,6 +79,7 @@ function main() {
   const root = fs.existsSync(path.join(repo, "chapter3realty")) ? path.join(repo, "chapter3realty") : repo;
   let found = [];
   for (const f of walk(root)) { const rel = path.relative(root, path.dirname(f)).split(path.sep).join("/"); found = found.concat(checkPage(fs.readFileSync(f, "utf8"), rel ? `/${rel}/` : "/")); }
+  for (const t of TEXT_FILES) { const f = path.join(root, t); if (fs.existsSync(f)) found = found.concat(checkText(fs.readFileSync(f, "utf8"), `/${t}`)); }
   if (args.includes("--json")) console.log(JSON.stringify({ wrong: found, stale }, null, 1));
   else {
     found.sort((a, b) => a.fact.localeCompare(b.fact) || a.url.localeCompare(b.url));
@@ -87,5 +94,5 @@ function main() {
   process.exitCode = found.length || stale.length ? 1 : 0;
 }
 
-module.exports = { checkPage, staleEntries };
+module.exports = { checkPage, checkText, staleEntries };
 if (require.main === module) main();
