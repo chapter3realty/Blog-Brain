@@ -364,3 +364,16 @@ The independent audits are in `batches/2026-10-a/GRADE-pages.md`, `GRADE-process
 8. **One fact, one value, sitewide.** A fact on a new page goes into `facts/registry.json`, and `facts-check.js` checks the hub, `llms.txt`, `llms-full.txt` and every other page for the old value.
 9. **Record cost.** `RETRO.md` records tokens, wall time and owner minutes per stage. Budget: about 2 million tokens and 3 hours per page.
 10. **Done means live.** A batch is done when it is deployed, not when it is approved.
+
+## Conflicts and reversals (lessons 2026-10-a, L12)
+
+When two reviewers, or a reviewer and a rule, ask for opposite things, resolve it on paper before any build. Write down what each one protects; usually one design serves both. If you must choose, choose by the reader. Then log the reversal here, and change every file that held the old rule in the same commit.
+
+| Date | What changed | From | To | Why | Files |
+|---|---|---|---|---|---|
+| 2026-10-11 | Place names in headings | Short headings (v11) | Full name in the heading, short label in the contents list (`data-toc`) | Readers wanted short labels; search and answer engines need the name. One design serves both. | specs, mkpage-reading.patch, score.js H14 |
+| 2026-10-11 | Chapter3 inside an example | Allowed (T2, 10-07), then forbidden (10-10) | Allowed in the present tense, the agent acting by name | The owner asked to see Chapter3's skill; the present tense claims no past client. | STANDARD T2, STORY-CRAFT |
+| 2026-10-11 | Photo at the top | Large photo near the top (v6) | No photo above the answer; a small icon row may share the first screen | The owner found it awkward; the answer belongs on the first screen. | CRAFT 4, STANDARD H16 |
+| 2026-10-11 | Rounding short figures | "About $100" for a verified $95 | "$95 a month" | Round only what a person would not say aloud; the exact short figure is the answer and what others print. | RULES PLAIN-2, CRAFT 5 |
+| 2026-10-11 | Searched trade words | Banned with all industry terms | Used once, in plain context | Readers type them ("amenity center"). | RULES BUYER-2, CRAFT 1 |
+| 2026-10-11 | Arithmetic in examples | "Show the arithmetic" | No arithmetic; result in words | A story that asks the reader to count is not understood. | writer prompt, STORY-3, STANDARD T2 and T8 |
