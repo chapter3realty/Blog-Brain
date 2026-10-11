@@ -23,6 +23,16 @@
  *   Money:   rows 58 and 59; tax on $635,000 as a main home at the 2026 levies (rows 50 to 52):
  *            "a little under $3,000".
  *   Flood:   rows 37, 55 ("about $600"), 68.
+ * Version 9 (2026-10-11): the aerial overview (USDA NAIP 2023) at the top of "where", captioned
+ *         that the east side was still being built then; it is the share image now. Must-answer
+ *         rows: 70 ("listings show about $315 a month" on most homes for sale or sold in 2026;
+ *         never "the HOA charges"), 72 ("listings say the fee includes" management, grounds,
+ *         internet, recreation), 73 (built 2022 to 2026, about 1,350 to 4,200 sq ft, most 1,400
+ *         to 2,700, mostly 2 or 3 bedrooms; levels from the 2026 listings only). The builder's
+ *         "current designs from about 2,200 square feet" line is cut (row 74: the builder closed
+ *         1,345 sq ft homes in 2026; do not say its three plans are all there is). Row 75 (the
+ *         2020 plan's 30-day renter minimum) stays out: it is the plan, not the recorded rule.
+ *         No gates.
  * Photos: data/photos.json, beside the beach sentence: beach umbrellas in North Myrtle Beach
  *         (the share image, its crops) and Cherry Grove Pier from above. The lake photo is cut
  *         (no sentence is about it). An aerial of the neighborhood, when photos.json has one,
@@ -48,7 +58,7 @@ const LEVY = "https://www.horrycountysc.gov/media/kufln4qp/tax-levy-2026_2.pdf";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
 const ph = photoSet().share("north-myrtle-beach-beach-umbrellas");
-const AERIAL = ph.aerial("del-webb-north-myrtle-beach", "Del Webb North Myrtle Beach from the air.");
+const AERIAL = ph.aerial("del-webb-north-myrtle-beach-from-above", "Del Webb North Myrtle Beach from above in 2023, with its edge drawn in orange. The east side was still being built then.");
 const M = maps("del-webb-north-myrtle-beach", [
   { id: "beach_dwnmb", name: "the beach at 14th Avenue South", short: "Beach", kind: "beach" },
   { id: "hosp_mcleod", name: "McLeod Health Seacoast", short: "Hospital", kind: "hospital" },
@@ -85,15 +95,15 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Del Webb North Myrtle Beach has about 400 homes built so far, and its builder is still selling new ones. At least one person in each household must be 55 or older.",
-    "Lawn care is part of the homeowners association (HOA) fee, so you do not mow your own grass. Owners share a clubhouse with indoor and outdoor pools.",
+    "Lawn care is part of the homeowners association (HOA) fee, so you do not mow your own grass. Listings show an HOA fee of about $315 a month. Owners share a clubhouse with indoor and outdoor pools.",
   ],
   sections: [
     { h2: "What are the new homes like in Del Webb North Myrtle Beach?", html:
       ph.css() +
-      h.p("The builder, Pulte, sells new houses here under its Del Webb name. Each design it sells now has 2 to 4 bedrooms and a garage.") +
+      h.p("The builder, Pulte, sells new houses here under its Del Webb name, each with a garage.") +
+      h.p("Listings show houses built since 2022, from about 1,350 to 4,200 square feet. Most are about 1,400 to 2,700 square feet, with 2 or 3 bedrooms, and most recent listings are on one level.") +
       h.p("The builder lists these for its houses here:") +
       h.ul([
-        "Current designs from about 2,200 square feet",
         "Fabric hurricane covers for the windows",
         "A warranty on the structure for 10 years, which a later owner keeps",
         "Lawn care, sprinklers in every yard and a TV package, all in the HOA fee",
@@ -103,6 +113,7 @@ module.exports = {
     { h2: "What does a home here cost?", html:
       h.p("In the last year, new homes from the builder usually sold for about $635,000. Homes resold by their owners sold for about $535,000.") +
       h.p("The new-home figure is what buyers paid in the end, with the lot and the extras each one picked.") +
+      h.p("Listings show an HOA fee of about $315 a month on most homes for sale or sold in 2026. Listings say the fee includes the association's management, grounds care, internet and the shared amenities.") +
       h.p(`If you live in a new home at that price, the property tax is a little under $3,000 a year. That includes the city tax. See ${h.a("/buyers/property-taxes/", "how a home you live in is taxed in North Myrtle Beach")}.`) +
       h.p(`Read ${h.a("/buyers/coastal-insurance/", "what home and wind insurance cost near the coast")}.`) },
 
@@ -152,9 +163,10 @@ module.exports = {
   faq: [
     { q: "Is Del Webb North Myrtle Beach finished?", a: "Not yet. About 400 homes are built, and the builder is still selling new houses there." },
     { q: "Does the HOA fee in Del Webb North Myrtle Beach include lawn care?", a: "Yes. Lawn care and a TV package are part of the HOA fee, and every yard has sprinklers." },
+    { q: "How much is the HOA fee in Del Webb North Myrtle Beach?", a: "Recent listings mostly show about $315 a month. That is the figure sellers entered, and listings say it includes internet and grounds care." },
     { q: "Do you need flood insurance in Del Webb North Myrtle Beach?", a: "No law requires it, because every lot is outside the high-risk flood zone. A lender may still ask for it." },
     { q: "Is Del Webb North Myrtle Beach inside the city limits?", a: "Yes. It is inside North Myrtle Beach, so owners pay a city tax on top of the county and school tax." },
-    { q: "Who builds the homes in Del Webb North Myrtle Beach?", a: "Pulte builds them and sells them under its Del Webb name. The designs it sells now have 2 to 4 bedrooms and a garage." },
+    { q: "Who builds the homes in Del Webb North Myrtle Beach?", a: "Pulte builds them and sells them under its Del Webb name. Listings show houses with 2 to 4 bedrooms, built since 2022." },
   ],
   sources: [
     { name: "Del Webb North Myrtle Beach website", href: PULTE },

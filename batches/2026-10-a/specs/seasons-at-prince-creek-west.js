@@ -29,12 +29,16 @@
  *            stormwater fee: "about $2,000".
  *   Flood:   row 59 (every lot center outside the high-risk zone; 45 lots touch it at a
  *            corner; the house's own zone decides), row 71 ("about $600"), row 82 (federal rule).
+ * Version 9 (2026-10-11): aerials (USDA NAIP 2023, photos.json, commit 73f9819): the overview at the
+ *         top of "where" (its crops are the share image) and the clubhouse close-up beside the
+ *         amenity cards. Must-answer rows: 86 (HOA fee, "listings show about $340 a month in
+ *         2026"; never the whole bill), 88 ("some listings say" internet, trash, lawn care), 89
+ *         (homes: built 2006 to 2016, most about 1,700 to 2,500 sq ft, mostly 3 bedrooms; one
+ *         level on most 2026 listings). No gates (no primary source).
  * Photos: data/photos.json. Murrells Inlet section: fishing boats and a marina in Murrells
  *         Inlet, beside the Murrells Inlet sentence. The Pawleys Island hero, the Huntington
  *         Beach State Park and Brookgreen Gardens photos are cut (no sentence on the page is
- *         about those places). An aerial of Seasons, when photos.json has one, goes at the top
- *         of the "where" section (ph.aerial). No photo here has crops, so the page shares its
- *         card (og/) unless the aerial has crops.
+ *         about those places). The aerial overview is the share image (its crops).
  * Maps:   amenity pin "Clubhouse"; the airport pin "Myrtle Beach airport". Hero: an icon row.
  * Stories: Real: stories.json "blackmoor-to-seasons", told as the bank has it ("clients", not
  *         "a couple"), in the homes section. Example (Carol and Jim): how an agent handles a
@@ -57,7 +61,8 @@ const LAW = "https://www.law.cornell.edu/uscode/text/42/4012a";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
 const ph = photoSet();
-const AERIAL = ph.aerial("seasons-at-prince-creek-west", "Seasons at Prince Creek West from the air.");
+const CLUB = ph.aerial("seasons-at-prince-creek-west-clubhouse-from-above", "The Seasons clubhouse from above in 2023, with its outdoor pool and tennis courts.", { closeUp: true });
+const AERIAL = ph.aerial("seasons-at-prince-creek-west-from-above", "Seasons at Prince Creek West from above in 2023, with its edge drawn in orange.");
 const M = maps("seasons-at-prince-creek-west", [
   { id: "beach_spcw", name: "the beach in Garden City", short: "Beach", kind: "beach" },
   { id: "hosp_tidelands", name: "Tidelands Waccamaw Community Hospital", short: "Hospital", kind: "hospital" },
@@ -96,7 +101,7 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Seasons at Prince Creek West is near Murrells Inlet, south of Myrtle Beach. Owners share a clubhouse with an indoor pool, an outdoor pool and a fitness center, plus tennis and bocce.",
-    "At least one person in each home must be 55 or older and live there six months of the year or more. Grandchildren under 18 can come to stay for up to 60 days a year.",
+    "At least one person in each home must be 55 or older and live there six months of the year or more. Grandchildren under 18 can come to stay for up to 60 days a year. Listings show an HOA fee of about $340 a month.",
   ],
   sections: [
     { h2: "What can you do at Seasons at Prince Creek West?", html:
@@ -107,7 +112,8 @@ module.exports = {
         { illustration: "outdoor-pool", label: "Outdoor pool", text: "Swim outside in the warm months" },
         { illustration: "bocce", label: "Courts", text: "For tennis and bocce" },
         { illustration: "clubhouse", label: "Clubhouse", text: "With a fitness center inside" },
-      ], { cols: 4 }) },
+      ], { cols: 4 }) +
+      CLUB },
 
     { h2: "Where is Seasons, and what is Murrells Inlet like?", html:
       h.p("Seasons is in the Murrells Inlet area, about 10 minutes by car from the beach in Garden City without traffic. In our experience, rush hour adds 5 to 10 minutes.") +
@@ -124,6 +130,7 @@ module.exports = {
 
     { h2: "What are the homes like in Seasons?", html:
       h.p("The builder described its designs here as open, one-story floor plans. Some designs had an optional extra room.") +
+      h.p("Listings show houses built from 2006 to 2016, most of about 1,700 to 2,500 square feet, mostly with 3 bedrooms. Most recent listings are on one level.") +
       h.p("Seasons has room for about 440 homes, and more than half of its land is shared by the owners.") +
       `<div style="border-left:3px solid var(--brass);padding:.2rem 0 .2rem 1.2rem;margin:1.6rem 0 1.2rem;max-width:720px">` +
       h.p("An agent at Chapter3 helped clients who owned a house in Blackmoor, a golf neighborhood in Murrells Inlet with no age rule. They sold that house and bought in Seasons, a few minutes away.") +
@@ -142,7 +149,8 @@ module.exports = {
       h.p(`Read ${h.a("/buyers/coastal-insurance/", "what flood zones near Myrtle Beach mean for insurance")}.`) },
 
     { h2: "What does it cost to live in Seasons?", html:
-      h.p("Seasons homes usually sell for about $500,000.") +
+      h.p("Seasons homes usually sell for about $500,000. Listings show an HOA fee of about $340 a month in 2026.") +
+      h.p("Some listings say the fee includes internet, weekly trash pickup and lawn care.") +
       h.ul([
         "<strong>Your HOA bill</strong> includes your share of the fees for the larger Prince Creek West area, so you get one bill.",
         "<strong>When you buy,</strong> you pay the HOA two months of dues as a one-time fee. One of the larger Prince Creek West associations also charges a transfer fee of up to a quarter of 1 percent of the price.",
@@ -176,6 +184,7 @@ module.exports = {
     { q: "Is Seasons at Prince Creek West part of Prince Creek?", a: "Yes. Seasons is one neighborhood inside the larger Prince Creek West area near Murrells Inlet. Its HOA bill includes the fees for that larger area." },
     { q: "What hospital is closest to Seasons at Prince Creek West?", a: "Tidelands Waccamaw Community Hospital in Murrells Inlet, about 8 minutes away by car from the clubhouse." },
     { q: "Can someone under 55 live in Seasons at Prince Creek West?", a: "Yes, if a resident 55 or older also lives in the home. No one under 18 can live there." },
+    { q: "How much is the HOA fee in Seasons at Prince Creek West?", a: "Recent listings show about $340 a month. Some listings say the fee includes internet, weekly trash pickup and lawn care." },
     { q: "How big is Seasons at Prince Creek West?", a: "Seasons has room for about 440 homes on about 190 acres. More than half of that land is shared by the owners." },
     { q: "How far is Seasons at Prince Creek West from the beach?", a: "About 10 minutes by car to the nearest public beach access, in Garden City. The Myrtle Beach Boardwalk is about 25 minutes away." },
   ],

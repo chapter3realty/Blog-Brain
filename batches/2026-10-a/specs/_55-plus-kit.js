@@ -185,6 +185,9 @@ const KIT_CSS = "<style>"
   + "section#c3-photo{padding-top:0}"
   + "section:has(+section#c3-photo){background:var(--ivory-2)!important;padding-bottom:2rem}"
   + ".c3ph-hero{margin:0}"
+  /* An aerial is shown whole: its own shape, no crop (kit ph.aerial). */
+  + ".c3-aerial .c3ph-hero{max-width:900px;margin:1.4rem 0 1.6rem}.c3-aerial .c3ph-hero img{aspect-ratio:auto!important;height:auto}"
+  + ".c3-aerial-close .c3ph-hero{max-width:640px}"
   /* The two maps side by side on a wide screen. */
   + ".c3-maps{display:grid;gap:0 1.5rem;max-width:1136px}"
   + "@media (min-width:900px){.c3-maps{grid-template-columns:1fr 1fr;align-items:start}}"
@@ -219,16 +222,20 @@ function photoSet() {
       heroRec = rec(name);
       return P.heroPhoto(heroRec, { alt: o.alt, caption: o.caption, css: false, maxWidth: o.maxWidth });
     },
-    /* An aerial photo of the neighborhood itself, if one is in photos.json for this slug
-       (a record with aerial: true, or "aerial" in its file name). Returns "" when there is
-       none, so a page builds without it. Owner, 2026-10-11 (RULES P10): the photo shows what
-       the section is about, so it sits in the "where" or homes section with a plain caption. */
-    aerial(slug, caption) {
-      const r = PHOTOS.find((x) => x.slug === slug && !x.hold && (x.aerial === true || /aerial/i.test(JSON.stringify(x.variants || x.file || ""))));
-      if (!r) return "";
-      const name = String((r.variants && r.variants["1200"]) || r.file).split("/").pop().replace(/-1200w\.webp$|\.webp$/, "");
-      heroRec = heroRec || rec(name);
-      return P.heroPhoto(r, { alt: r.alt, caption: caption || r.what, css: false, maxWidth: "760px" });
+    /* An aerial photo of the neighborhood itself (USDA NAIP 2023, public domain, with
+       Chapter3's outline and labels; commit 73f9819). Owner, 2026-10-11 (RULES P10): the
+       photo shows what its section is about, so the overview sits near the top of the "where"
+       section and a clubhouse close-up beside the clubhouse sentence. Shown whole (no crop to
+       4:3 or 16:9, so the drawn outline and labels stay in view) and loaded lazily. The
+       overview, which has crops, becomes the page's share image and Article.image; a close-up
+       (o.closeUp) is not marked representative of the page. */
+    aerial(name, caption, o = {}) {
+      const r = rec(name);
+      if (!o.closeUp && r.crops && !heroRec) heroRec = r;
+      let html = P.heroPhoto(r, { alt: o.alt || r.alt, caption, css: false });
+      if (o.closeUp) { const seen = P.SHOWN.get(r); if (seen) seen.hero = false; }
+      html = html.replace(' fetchpriority="high" decoding="async"', ' loading="lazy" decoding="async"');
+      return `<div class="c3-aerial${o.closeUp ? " c3-aerial-close" : ""}">${html}</div>`;
     },
     gallery(items, o = {}) {
       return P.gallery(items.map((it) => ({ photo: rec(it.name), alt: it.alt, caption: it.caption })), { css: false, label: o.label, ratio: o.ratio });

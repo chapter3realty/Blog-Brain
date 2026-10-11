@@ -24,6 +24,12 @@
  *   Review 4 MT 5: "about 500 homes" (row 23), the flood core (row 61) and the bingo and
  *            game-night days (rows 77 and 80) rest on the supported part of rows marked
  *            wrong; re-file them as new rows before publish.
+ * Version 9 (2026-10-11): the aerial overview (USDA NAIP 2023) at the top of "What is close" (the
+ *         share image now, its crops). Must-answer: row 30's exact "$95 a month" (SEO audit:
+ *         not "about $100") in the short answer, the cost cards and a new FAQ; row 92 (listings:
+ *         about 1,000 to 2,900 sq ft, mostly 3 bedrooms with some 2, built mostly 1984 to 1998,
+ *         all homes for sale on one level). The gate facts stay: row 16 is the HOA's own 2025
+ *         gates policy, a primary source (the "no gates" rule is for pages with no source).
  * Photos: data/photos.json, beside the Conway sentence: cypress trees on the Waccamaw River
  *         near Conway (the share image, its crops), the riverwalk and Main Street. The house
  *         in the historic district is cut (no sentence is about it). An aerial of Myrtle
@@ -49,7 +55,7 @@ const LAW = "https://www.law.cornell.edu/uscode/text/42/4012a";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
 const ph = photoSet().share("waccamaw-river-cypress-near-conway");
-const AERIAL = ph.aerial("myrtle-trace", "Myrtle Trace from the air.");
+const AERIAL = ph.aerial("myrtle-trace-from-above", "Myrtle Trace from above in 2023, with its edge drawn in orange and the golf course next door.");
 const M = maps("myrtle-trace", [
   { id: "hosp_cmc", name: "Conway Medical Center", short: "Hospital", kind: "hospital" },
   { id: "groc_mt", name: "Walmart Supercenter", short: "Walmart", kind: "grocery" },
@@ -84,7 +90,7 @@ module.exports = {
   heroCta: { label: "Talk to a specialized agent", href: "/contact/" },
   author: "devin",
   shortAnswer: [
-    "Myrtle Trace is a neighborhood of about 500 homes just outside Conway. At least one person in each home must be 55 or older.",
+    "Myrtle Trace is a neighborhood of about 500 homes just outside Conway. At least one person in each home must be 55 or older. The homeowners association (HOA) fee is $95 a month.",
     "Conway Medical Center and a Walmart Supercenter are each about 3 minutes away by car without traffic. Owners share a clubhouse, a pool and ponds for fishing. The neighborhood calendar lists about 70 events and club meetings a month.",
   ],
   sections: [
@@ -110,7 +116,8 @@ module.exports = {
 
     { h2: "What are the homes like?", html: (bg) =>
       h.p("Most homes in Myrtle Trace are single-family houses with their own yards, and a few are townhouses.") +
-      h.p("Myrtle Trace was laid out in eight sections from 1984 to 1994. The builder's original designs had 2 or 3 bedrooms.") +
+      h.p("Myrtle Trace was laid out in eight sections from 1984 to 1994. Listings show houses of about 1,000 to 2,900 square feet, mostly with 3 bedrooms and some with 2.") +
+      h.p("Most were built from 1984 to 1998, and every home for sale now is on one level.") +
       h.p("Each owner takes care of the house and the yard, including the roof and the grass.") +
       h.p("Some homes back onto Burning Ridge Golf Club, a privately owned course next door. Owners of those homes accept golf balls and noise from the course.") +
       h.cta("See a Myrtle Trace home with an agent.", "Tell us which home you like, and one of our agents will set up a showing.", "Speak to an expert", "/contact/", bg) },
@@ -126,7 +133,7 @@ module.exports = {
     { h2: "What does it cost to live here?", html: (bg) =>
       h.p("Homes in Myrtle Trace usually sell for about $300,000. On a home at that price that you live in, plan for these costs:") +
       atAGlance([
-        { icon: "dollar", label: "HOA fee", text: "About $100 a month" },
+        { icon: "dollar", label: "HOA fee", text: "$95 a month" },
         { icon: "tax", label: "Property tax", text: "About $1,200 a year, with a small county drainage fee" },
         { icon: "key", label: "When you buy", text: "A one-time fee to the HOA of a little over $1,500" },
       ], { bg, min: "13rem" }) +
@@ -163,6 +170,7 @@ module.exports = {
   faqTitle: "Myrtle Trace FAQ",
   faq: [
     { q: "Is Myrtle Trace a gated community?", a: "Only in part. The back entrance has gates, and the front entrance is always open. The HOA says the back gates stop drivers from using the neighborhood as a shortcut." },
+    { q: "How much is the HOA fee in Myrtle Trace?", a: "The HOA fee is $95 a month. It pays to keep up the pool, the clubhouse, the roads the HOA owns, the ponds and the shared land." },
     { q: "Who runs the Myrtle Trace HOA?", a: "The owners run it themselves with volunteers, and the HOA says it has no management company." },
     { q: "Is the golf course part of Myrtle Trace?", a: "No. Burning Ridge Golf Club, next door, is privately owned and is not part of the HOA. Some Myrtle Trace homes back onto it." },
     { q: "Can you fish in the Myrtle Trace ponds?", a: "Yes. Residents and their house guests can fish from the shared land around the 15 ponds. Every fish goes back in the water." },

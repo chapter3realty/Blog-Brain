@@ -30,6 +30,15 @@
  *            $432,500. The comparison table now shows the same two figures (grader). Row 37
  *            (one-time fee "at least $3,000"), row 38. Tax "more than $2,000 a year".
  *   Flood:   rows 60, 74 ("about $550"), 90.
+ * Version 9 (2026-10-11): aerials (USDA NAIP 2023): the overview at the top of "where" (the share
+ *         image now, its crops) and the clubhouse close-up beside the clubhouse sentence.
+ *         Must-answer rows: 95 and 96 (listings entered in 2026 mostly show $401 houses, $445
+ *         villas: "about $400" and "$445"; seller-entered; never that it includes the Ocean
+ *         Club), 97 ("some listings say"), 98 (built 2018 to 2026, most about 1,500 to 2,900 sq
+ *         ft, 2 to 4 bedrooms), 99 (Pulte no longer sells new homes here), 101 and 102 (the
+ *         Resort Club sells tee times online; the Members Club is private, members and their
+ *         guests). The short answer drops the household-membership sentence to make room for the
+ *         fee (the FAQ still says each owner pays for the club through the HOA bill). No gates.
  * Photos: data/photos.json, beside the Myrtle Beach sentence: the beach from a high floor, a
  *         fishing pier, the SkyWheel. The beach photo is the share image (its crops). An
  *         aerial of the neighborhood, when photos.json has one, goes in the "where" section.
@@ -54,7 +63,8 @@ const LAW = "https://www.law.cornell.edu/uscode/text/42/4012a";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 
 const ph = photoSet().share("myrtle-beach-beach-from-above");
-const AERIAL = ph.aerial("del-webb-grande-dunes", "Del Webb at Grande Dunes from the air.");
+const CLUB = ph.aerial("del-webb-grande-dunes-clubhouse-from-above", "The Del Webb at Grande Dunes clubhouse from above in 2023, with its outdoor pool and courts.", { closeUp: true });
+const AERIAL = ph.aerial("del-webb-grande-dunes-from-above", "Del Webb at Grande Dunes from above in 2023, with its edge drawn in orange beside the Intracoastal Waterway.");
 const M = maps("del-webb-grande-dunes", [
   { id: "beach_dwgd", name: "the beach at Highland Way", short: "Beach", kind: "beach" },
   { id: "hosp_gsmc", name: "Grand Strand Medical Center", short: "Hospital", kind: "hospital" },
@@ -92,7 +102,7 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Del Webb at Grande Dunes has houses and villas beside the Intracoastal Waterway, a channel for boats along the coast. At least one person living in each home must be 55 or older.",
-    "Owners share a clubhouse, pools and a dock on the waterway. Each owner also pays, through the homeowners association (HOA) bill, for the Grande Dunes Ocean Club, a beach club. The association for all of Grande Dunes says each homeowner gets a household membership.",
+    "Owners share a clubhouse, pools and a dock on the waterway. Each owner also pays, through the homeowners association (HOA) bill, for the Grande Dunes Ocean Club, a beach club. Listings show an HOA fee of about $400 a month for houses and $445 for villas.",
   ],
   sections: [
     { h2: "What does the Ocean Club offer owners in Del Webb at Grande Dunes?", html:
@@ -108,7 +118,8 @@ module.exports = {
 
     { h2: "How do new owners meet people here?", html:
       h.p("You sign up for Ocean Club classes, club meetings and social events on the club's members' website.") +
-      h.p("The neighborhood's own clubhouse is open every day, with staff there. Your mailbox is at the clubhouse too, so you stop in there for your mail.") },
+      h.p("The neighborhood's own clubhouse is open every day, with staff there. Your mailbox is at the clubhouse too, so you stop in there for your mail.") +
+      CLUB },
 
     { h2: "Where is the neighborhood, and what is near it?", html:
       h.p("Del Webb at Grande Dunes is inside the city of Myrtle Beach, on the ocean side of the Intracoastal Waterway.") +
@@ -125,7 +136,8 @@ module.exports = {
       ], { label: "Photos of Myrtle Beach" }) },
 
     { h2: "What are the houses and villas like?", html: (bg) =>
-      h.p("The neighborhood has single-family houses and a section of villas, and the villas usually sell for less.") +
+      h.p("The neighborhood has single-family houses and a section of villas, and the villas usually sell for less. Pulte, the builder, no longer sells new homes here.") +
+      h.p("Listings show homes of about 1,500 to 2,900 square feet, most with 2 or 3 bedrooms. Most recent listings are on one level.") +
       h.p("In one villa section, the HOA takes care of the roofs, gutters and outside paint. Those villa owners pay an extra fee for that work.") +
       h.cta("See a house or villa in Grande Dunes with an agent.", "Tell us the one you have in mind. One of our agents reads the neighborhood's rules with you and finds out what the HOA keeps up on that home.", "Speak to an expert", "/contact/", bg) },
 
@@ -139,8 +151,9 @@ module.exports = {
       ], { bg }) },
 
     { h2: "What does it cost to live here?", html: (bg) =>
-      h.p("Your HOA bill includes the Ocean Club, the association for all of Grande Dunes and basic lawn care.") +
       h.p("A house in Del Webb at Grande Dunes usually sells for about $665,000, and a villa for about $430,000.") +
+      h.p("Listings entered in 2026 mostly show an HOA fee of about $400 a month for houses and $445 for villas. Some listings say the fee includes the common areas, grounds care, the pools and the other shared amenities.") +
+      h.p("Under the neighborhood's rules, the HOA bill includes charges for the Ocean Club, the association for all of Grande Dunes and basic lawn care.") +
       h.table(["Other costs on a house you live in", "About"], [
         ["One-time fee to the HOA when you buy", "At least $3,000"],
         ["Property tax", "More than $2,000 a year"],
@@ -166,7 +179,8 @@ module.exports = {
   faqTitle: "Del Webb at Grande Dunes FAQ",
   faq: [
     { q: "Do owners in Del Webb at Grande Dunes get a beach club?", a: "Yes, and they pay for it. Each Del Webb owner pays for the Grande Dunes Ocean Club, a beach club, through the HOA bill." },
-    { q: "Is golf part of the Ocean Club at Grande Dunes?", a: "No. Golf at the private Grande Dunes Members Club is a separate membership, with its own price, apart from the Ocean Club." },
+    { q: "Is there golf at Grande Dunes?", a: "Yes, two 18-hole courses. The Grande Dunes Resort Club sells tee times online. The Grande Dunes Members Club is a private club for members and their guests, with its own membership apart from the Ocean Club." },
+    { q: "How much is the HOA fee in Del Webb at Grande Dunes?", a: "Recent listings mostly show about $400 a month for houses and $445 for villas. These are the figures sellers entered, not a bill from the HOA." },
     { q: "Is there a boat dock at Del Webb at Grande Dunes?", a: "Yes, a day dock on the Intracoastal Waterway for owners and their guests, open from dawn to dusk. Boats may not stay overnight, and there is no boat ramp." },
     { q: "Do you need flood insurance in Del Webb at Grande Dunes?", a: "Not by law, because the homes are outside the high-risk flood zone. Your lender may still ask for a policy." },
     { q: "How old must you be to live in Del Webb at Grande Dunes?", a: "At least one person in each home that someone lives in must be 55 or older. Everyone else who lives there must be 19 or older." },
