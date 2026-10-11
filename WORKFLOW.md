@@ -306,17 +306,21 @@ Every month, in one batch:
 
 ## Cadence: how many pages, how fast
 
-Decided 2026-10-10 from the research in `research_notes/Short stories for retiree buyers/legal_and_search.md` and Google's own guidance.
+Revised 2026-10-11. The owner: weeks of 5 pages a day gave the site its most impressions, and he wants more pages than that, all very high quality. He is right that impressions track the number of good pages: each page can show for its own set of searches. The limit is not a number of pages. It is that every page must be worth a reader's time.
 
-- Google does not reward publishing often. It does penalize many pages made mainly to rank (spam policy on scaled content abuse, March 2024), and it uses some sitewide signals, so weak pages can pull down good ones.
-- The Grand Strand has about 500 to 800 questions worth a page: about 20 55+ communities, a few hundred neighborhoods and condo buildings, a dozen towns, and about 100 topic guides. Each needs facts no other site has.
-- Updates count as much as new pages. Answer engines favor current pages.
+What Google says, and what it means here:
+
+- Google does not count how often a site publishes. It does act against many pages made mainly to rank with little value ("scaled content abuse", March 2024), however they are made, and some of its signals are sitewide.
+- Hundreds of pages updated often are fine when each update is real: new prices, new rules, new photos. Changing a date without changing the page is not. `node build.js dates` moves a date only when the page changed.
+- Two pages that answer the same search with the same facts compete with each other. One page per real question.
 
 The pace:
 
-1. First 2 to 3 months: 1 new page each weekday, and about 5 updates of existing pages a week.
-2. Then check Search Console. If most new pages are indexed and showing in results within about 4 weeks, go to 2 new pages a weekday. If not, slow down and fix quality first.
-3. Never more than every page can carry: verified facts, a map or pictures, a real story or a labelled example, and a buyer read.
+1. **Now:** up to 5 new pages a day, run in parallel, as long as every page passes every gate, the buyer readers grade it 8 or more, and it carries facts no other page on the site or the web has.
+2. **Grow past 5 a day** when Search Console shows most new pages indexed and showing within about 4 weeks.
+3. **Slow down at once** if "Crawled, currently not indexed" or "Discovered, currently not indexed" grows week over week in Search Console. That is Google saying the pages are not worth indexing.
+4. **Updates:** every page's prices refresh monthly from the county deed index; rules and photos when they change.
+5. **Choose topics that share research** so the cost per page falls: all 55+ communities from one set of county pulls, all condo buildings from one deed export, all towns from one tax table.
 
 ## Rules that keep the line fast
 
