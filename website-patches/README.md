@@ -72,6 +72,98 @@ git apply <blog-brain>/website-patches/mkpage-page-images.patch
 
 `mkpage.patch` was refreshed the same day: the live branch had changed the line that sets the page date (a spec's datePublished, else the page on disk, else today), and the old patch no longer applied. The refreshed patch makes the same three changes.
 
+## Order
+
+Apply in this order, on a clean copy of the live branch:
+
+```
+cd <website-repo>
+git apply <blog-brain>/website-patches/mkpage.patch
+git apply <blog-brain>/website-patches/mkpage-hero-media.patch
+git apply <blog-brain>/website-patches/mkpage-page-images.patch
+git apply <blog-brain>/website-patches/readability.patch
+git apply <blog-brain>/website-patches/mkpage-reading.patch
+node tools/mkpage.js specs/<slug>.js     # once for every spec page
+node build.js rehash                     # new cache names for the two changed stylesheets
+node build.js dates
+node build.js check
+node build.js audit
+```
+
+- `readability.patch` touches only the stylesheets and eight hand-built pages. It applies alone, before or after the mkpage patches.
+- `mkpage-reading.patch` touches only `tools/mkpage.js`. It applies after `mkpage.patch` and `mkpage-hero-media.patch`, with or without `mkpage-page-images.patch`.
+- `speed.patch` and `contrast.patch` are not in the list. Both are already on the live branch (deployed 2026-10-05, in its own revised form), and neither applies to it any more.
+
+**Tested 2026-10-11** on a clean clone of the live branch at commit 54703db. All five patches pass `git apply --check` in the order above. After them, three spec pages were regenerated, then `rehash`, `check` and `audit` all passed. (`dates --check` cannot be tested on a one-commit clone: it flags every page there, with or without these patches.)
+
+## `readability.patch`: reading size, links, open FAQ answers, tap targets, fonts
+
+This puts the page design report (`reports/Page design for readers and search.md`) into the stylesheet. Every rule is in one commented block at the end of `assets/app.8e7fe83324.css`, after the contrast rules. Type and link rules are scoped to `body:not(.home)`, so the homepage keeps its own type.
+
+| What | Before (live, measured) | After |
+|---|---|---|
+| Article text on phones | 17px, line height 1.75 | 18px, line height 1.6 |
+| Article text from 900px wide | 17px | 19.5px |
+| Characters per line in article text, 1280 wide | median 62 to 78, longest 87 to 117 | median 55 to 65, longest 63 to 75 |
+| Text colour | #1c2028, 15.4:1 on #fbf8f2, 14.2:1 on #f4efe5 | unchanged (the owner made it the ink on 2026-10-02) |
+| Question headings (H3) from 900px | 21px, line height 1 | 23px, line height 1.3 |
+| Tables | 15.6px | 17px |
+| Photo captions | 14.5px | 16px |
+| Links in text on hand-built pages | brass ink, 5.0 to 5.4:1, no underline | the same colour, underlined |
+| FAQ answers on 8 hand-built pages | 79 answers in closed `<details>` | open text under H3 question headings |
+| Tap targets under 44px on a phone, 390 wide | 43 to 55 per page | 1 on article pages; 10 to 13 on the 55+ pages and tool pages (see below) |
+| Font swap | `font-display: swap` | `font-display: optional` |
+
+How it works:
+
+- **Text size.** `html` is now `106.25%`, so rem follows the reader's own browser text size. At the default it is still 17px. The size rules match the inline styles that `tools/mkpage.js` and the hand-built pages use for prose (`color:var(--muted);line-height:1.7...`). Cards, labels, tables and small print set their own font-size and keep it.
+- **Line length.** The column is 34em, not 65ch. In DM Sans 1ch is the width of a zero, about 0.66em, so 65ch measured 92 characters a line. 34em measures about 65.
+- **Links.** Links in paragraphs, list items and table cells are underlined. Their colours do not change: brass ink on light grounds, brass-2 on navy, navy where the page sets it.
+- **FAQ.** The eight pages are /buyers/buying-in-myrtle-beach/, /buyers/common-mistakes/, /buyers/relocating/, /buyers/retirees/, /buyers/second-home/, /buyers/va-loans/, /sell/ and /sell/out-of-state-buyers/. Only tags change, so `build.js dates` does not move their dates. The calculator rows on /buyers/relocating/cost-of-living/ are not an FAQ and keep their `<details>`.
+- **FAQPage JSON-LD stays.** Google stopped showing FAQ rich results on 7 May 2026, so it earns nothing there. It does no harm, Bing and other engines can still read it, and the website's PLAYBOOK (A25) and `tools/mkpage.js` already check that it matches the visible answers word for word. Removing it would mean changing that rule for no gain.
+- **Tap targets.** Buttons are at least 44px tall. On phones and touch screens, the header's phone icon and menu button are 44 by 44, the call bar under the header is 44px tall, footer links are 44px rows, and breadcrumb links get a 45px hit area that does not move the line. Footer links sit in two columns below 600px wide, so the footer does not get longer.
+- **Fonts.** The 21 faces in `assets/fonts.5be9fb17b5.css` change from `swap` to `optional`. The three fonts every page uses are already preloaded by the `Link` header in `_headers`, so in the normal case the web font is ready before the first paint and nothing changes. When a font is late, the page keeps the size-matched fallback (from the speed work) instead of swapping, so the text cannot move.
+
+Layout shift (CLS), measured with Playwright on a cold load, 390 wide, slow 4G (150 ms, 1.6 Mbps) and a 4x slower CPU, three runs each:
+
+| Page | Fonts preloaded, `swap` | Fonts preloaded, `optional` | Fonts not preloaded, `swap` | Fonts not preloaded, `optional` |
+|---|---|---|---|---|
+| /invest/llc/ | 0 | 0 | 0.0002 | 0 |
+| /buyers/55-plus-communities/myrtle-trace/ | 0 | 0 | 0.039 to 0.047 | 0 |
+
+The trade-off: on a first visit where the font arrives late, that page shows the fallback font (Georgia or Arial, sized to match). The next page uses the web font from the cache.
+
+What is still under 44px on a phone, and why it is not in this patch:
+
+- The photo credits on the 55+ pages ("Photo: name", 14px tall). They come from the batch kit's own CSS (`specs/_55-plus-kit.js`), so the fix belongs there.
+- Calculator inputs (40 to 41px), the consent checkboxes (15px) on forms, the persona tabs on /sell/ (36px) and the review dots on the homepage (24px). Each changes a tool or the homepage layout, so each needs its own look.
+- Links inside a sentence (WCAG exempts them).
+
+Found and not changed:
+
+- The "/" separators in the breadcrumb on the navy heroes (/buyers/retirees/, /buyers/va-loans/) are `--muted`, which is now the ink, on navy: 1.82:1.
+- Small print with its own font-size (sources lines, legal notices, a few intro paragraphs on /sell/) still runs past 75 characters a line on a desktop.
+- On a phone the short answer still starts below the first screen (1,012 to 1,286 pixels down at 390 x 844). Moving the button gains 78 pixels. The rest is the hero: 85px of top padding, the breadcrumb, the eyebrow, a 4 to 7 line H1 and a 30-word sub.
+
+## `mkpage-reading.patch`: the button under the short answer, and "On this page"
+
+It changes `tools/mkpage.js` only.
+
+**1. The hero's call-to-action button moves under the short answer.** In the hero it came between the sub line and the answer and pushed the answer down. The short answer now starts 78 pixels higher on a phone and on a desktop. A spec may add `heroCta.text`, one sentence shown before the button.
+
+**2. "On this page".**
+
+- A plain list of links to every H2 section, the FAQ included, under the short answer and its button.
+- Each label is the H2's own text. The closing call-to-action band is not a section and is not listed.
+- It is not sticky. Each link is a 44px row.
+- It appears on a page with 5 or more H2s. `toc: false` in a spec leaves it out; `toc: true` keeps it on a shorter page.
+- Every H2 section gets an id: the spec's own `id`, else one made from the H2 text, cut at a word near 60 characters, that no other element on the page uses.
+- A section reached from the list lands below the sticky header (the stylesheet in `readability.patch` sets the margin). Measured at 390 and 1280: the H2 sits 88 and 82 pixels below the header's bottom edge.
+
+**3. FAQ.** Nothing changes. mkpage already writes each question as an H3 and each answer as an open paragraph.
+
+Rebuilt and checked on 2026-10-11, with all five patches applied to 54703db: the four 55+ pages (Del Webb North Myrtle Beach, Del Webb at Grande Dunes, Myrtle Trace, Seasons at Prince Creek West), /invest/llc/ (topic guide), /invest/what-is-being-built/ (data page with charts) and /sell/rental-property/ (seller guide). On each, every list label equals its H2, every link resolves, no id repeats, and `build.js audit` passes. No page scrolls sideways at 320, 390 or 1280.
+
 ## `logo-chapter-iii.patch`: on hold
 
 The owner will supply the logo (2026-10-05). This text-only version, "Chapter" plus a copper "III", is kept for reference and should not be applied.

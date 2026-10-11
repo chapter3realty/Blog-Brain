@@ -1,0 +1,50 @@
+diff --git a/tools/mkpage.js b/tools/mkpage.js
+index 72c425d..5e0973d 100644
+--- a/tools/mkpage.js
++++ b/tools/mkpage.js
+@@ -190,17 +190,36 @@ function build(spec) {
+   const heroMedia = spec.heroMedia ? `<div class="detail-media" style="margin:0 0 1.2rem;max-width:760px">${spec.heroMedia}</div>` : "";
+   const bgs = ["ivory", "ivory-2"];
+   let i = 0; const nextBg = () => bgs[i++ % 2];
+-  const parts = [];
+-  parts.push(`<main id="main"><div class="detail-hero bg-grid"><div class="wrap"><div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="${hub.url}">${hub.name}</a><span>/</span><span style="color:var(--muted)">${spec.crumb}</span></div><p class="eyebrow" style="margin-bottom:1rem">${spec.eyebrow}</p><h1 class="detail-h1">${spec.h1}<br/><em style="font-style:italic;color:var(--brass)">${spec.h1em}</em></h1>${heroMedia}<p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">${byline}</p><p class="detail-sub">${spec.sub}</p><div style="margin-top:1.8rem"><a class="btn btn-brass btn-lg" href="${spec.heroCta.href}">${spec.heroCta.label}</a></div></div></div>`);
+-  parts.push(`<section style="background:var(--${nextBg()})"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">The short answer</p>${(Array.isArray(spec.shortAnswer) ? spec.shortAnswer : [spec.shortAnswer]).map(t => `<p ${P}>${t}</p>`).join("")}</div></section>`);
+-  for (const s of spec.sections) {
+-    const bg = nextBg();
+-    const body = typeof s.html === "function" ? s.html(bg === "ivory" ? "ivory-2" : "ivory") : s.html;
+-    parts.push(`<section style="background:var(--${bg})"${s.id ? ` id="${s.id}"` : ""}><div class="wrap">${s.h2 ? `<h2 ${H2}>${s.h2}</h2>` : ""}${body}</div></section>`);
+-  }
++  const saBg = nextBg();
++  const secs = spec.sections.map((s) => { const bg = nextBg(); return { s, bg, body: typeof s.html === "function" ? s.html(bg === "ivory" ? "ivory-2" : "ivory") : s.html }; });
+   const faqBg = nextBg();
++  /* "On this page" (Blog-Brain playbook, 2026-10-11): a plain list of links to every H2
++     section, the FAQ included, each label the H2's own text, not sticky, under the short
++     answer on a page with 5 or more H2s. spec.toc = false leaves it out; spec.toc = true
++     keeps it on a shorter page. Every H2 section gets an id: the spec's own, else one made
++     from the H2 text that no other element on the page uses. */
++  const plain = (html) => String(html).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
++  const slug = (html) => plain(html).replace(/&(?:#39|#x27|rsquo|apos);|['\u2019]/gi, "").replace(/&[a-z#0-9]+;/gi, " ").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
++  const cut = (t) => (t.length <= 60 ? t : t.slice(0, 61).replace(/-[^-]*$/, ""));
++  const taken = new Set([...(head + tail + secs.map((x) => x.body).join("")).matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]).concat(secs.filter((x) => x.s.id).map((x) => x.s.id)));
++  const uniq = (base) => { base = base || "section"; let id = base, n = 2; while (taken.has(id)) id = `${base}-${n++}`; taken.add(id); return id; };
++  for (const x of secs) x.id = x.s.id || (x.s.h2 ? uniq(cut(slug(x.s.h2))) : "");
++  const faqId = uniq(cut(slug(spec.faqTitle)) || "questions");
++  const tocItems = secs.filter((x) => x.s.h2).map((x) => [x.id, x.s.h2]).concat([[faqId, spec.faqTitle]]);
++  const toc = (spec.toc === true || (spec.toc !== false && tocItems.length >= 5))
++    ? `<nav aria-label="On this page" style="margin-top:2rem;max-width:720px"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.3rem;font-weight:600">On this page</p><ul style="list-style:none;margin:0;padding:0">${tocItems.map(([id, h2]) => `<li><a href="#${id}" style="display:block;padding:.65rem 0;color:var(--navy);text-decoration:underline;text-underline-offset:.18em;line-height:1.35">${plain(h2)}</a></li>`).join("")}</ul></nav>`
++    : "";
++  /* The call-to-action button sits under the short answer, not in the hero (Blog-Brain
++     playbook, 2026-10-11): in the hero it came before the answer and pushed the answer
++     further down the first phone screen. spec.heroCta.text, when set, is one sentence
++     before the button. */
++  const heroCta = `${spec.heroCta.text ? `<p ${P}>${spec.heroCta.text}</p>` : ""}<div style="margin-top:1.4rem"><a class="btn btn-brass btn-lg" href="${spec.heroCta.href}">${spec.heroCta.label}</a></div>`;
++  const parts = [];
++  parts.push(`<main id="main"><div class="detail-hero bg-grid"><div class="wrap"><div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="${hub.url}">${hub.name}</a><span>/</span><span style="color:var(--muted)">${spec.crumb}</span></div><p class="eyebrow" style="margin-bottom:1rem">${spec.eyebrow}</p><h1 class="detail-h1">${spec.h1}<br/><em style="font-style:italic;color:var(--brass)">${spec.h1em}</em></h1>${heroMedia}<p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">${byline}</p><p class="detail-sub">${spec.sub}</p></div></div>`);
++  parts.push(`<section style="background:var(--${saBg})"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">The short answer</p>${(Array.isArray(spec.shortAnswer) ? spec.shortAnswer : [spec.shortAnswer]).map(t => `<p ${P}>${t}</p>`).join("")}${heroCta}${toc}</div></section>`);
++  for (const x of secs) parts.push(`<section style="background:var(--${x.bg})"${x.id ? ` id="${x.id}"` : ""}><div class="wrap">${x.s.h2 ? `<h2 ${H2}>${x.s.h2}</h2>` : ""}${x.body}</div></section>`);
+   const srcLinks = spec.sources.map(x => `<a href="${x.href}" ${EXT}>${x.name}</a>`).join(", ");
+-  parts.push(`<section style="background:var(--${faqBg})"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. Read ${shown}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p></div></section>`);
++  parts.push(`<section style="background:var(--${faqBg})" id="${faqId}"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. Read ${shown}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p></div></section>`);
+   parts.push(`<section style="background:var(--navy);padding:3rem 0"><div class="wrap" style="text-align:center;max-width:720px;margin:0 auto"><h2 style="font-family:var(--serif);font-size:1.7rem;color:var(--ivory);margin-bottom:1rem">${spec.bottomCta.h2}</h2><p style="color:rgba(244,239,232,.75);line-height:1.7;margin-bottom:1.6rem">${spec.bottomCta.p}</p><a class="btn btn-brass btn-lg" href="${spec.bottomCta.href}">${spec.bottomCta.label}</a></div></section></main>`);
+   const main = parts.join("");
+   const out = head + main + tail;
