@@ -331,3 +331,18 @@ The pace:
 - **Score before anyone reads.** The owner's time is for business judgment, not for finding a 171-character meta description.
 - **Scan every surface.** A claim in the footer, a meta description, a calculator default or llms.txt is published as much as one in the body. AI answers quoted the footer.
 - **A form is not done until a captured request proves it sends.**
+
+## Rules from the 2026-10-11 audit
+
+The independent audits are in `batches/2026-10-a/GRADE-pages.md`, `GRADE-process.md` and `GRADE-seo.md`.
+
+1. **Search demand first.** Before research, list what people type about the subject (autocomplete, People Also Ask, Search Console). That list plus `templates/must-answer.md` is the research plan.
+2. **Must-answer gate.** A page goes to the owner only when it answers its must-answer list, or the gap is on the owner question list with a date.
+3. **Owner's eye last.** `prompts/owner-eye.md` runs after the reviewer. Below 9 of 10, fix before the owner sees it.
+4. **Stop rule.** Send to the owner at 0 high and 0 medium findings, buyer reads 8 or more, owner's eye 9 or more. Low findings go to a list, not a new version. At most 2 owner rounds.
+5. **One model page.** When the owner approves a page, name it in `batches/<batch>/MODEL.md`. Writers and reviewers read it first.
+6. **Scope freeze.** A batch keeps the plan it started with. New tools are built on their own track and reach pages in the next batch.
+7. **One working tree per agent.** Agents that change code work in their own git worktree. Only the orchestrator commits to the branch, and never with a failing test.
+8. **One fact, one value, sitewide.** A fact on a new page goes into `facts/registry.json`, and `facts-check.js` checks the hub, `llms.txt`, `llms-full.txt` and every other page for the old value.
+9. **Record cost.** `RETRO.md` records tokens, wall time and owner minutes per stage. Budget: about 2 million tokens and 3 hours per page.
+10. **Done means live.** A batch is done when it is deployed, not when it is approved.
