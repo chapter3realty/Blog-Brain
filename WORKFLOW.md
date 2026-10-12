@@ -223,6 +223,8 @@ node tools/package-batch.js batches/<batch> --site <clean clone of the live bran
 
 Rebuild the package whenever a spec, a data file, a photo or a batch diff changes, and commit the new `upload/` folder. Never edit the package by hand. If `git apply --check` fails for the owner, the live branch has moved: rebuild on a fresh clone.
 
+- Apply a package only on a clone with full git history. On a shallow clone, `build.js dates` cannot see when each page last changed and stamps today on every page (2026-10-12 trial: 126 pages).
+
 ## Lane U: upgrade an existing page
 
 Most of the gain on this site is in the 122 pages that already exist. The `/invest/llc/` pilot went from 75 to 99 with no new research. Run upgrades in this order, cheapest and widest first:

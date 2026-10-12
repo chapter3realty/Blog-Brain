@@ -53,7 +53,7 @@ node tools/record-edit.js draft.txt edited.txt --page /url/  # add the owner's e
 - **Never state an interest rate or a payment amount.** Chapter3 is not a lender and does no financing work.
 - **BrickWood Mortgage is an affiliate, not the same company.** Keep the affiliation and its disclosure; never imply ownership (owner, 2026-10-04).
 - **Devin Day may be the visible author** (byline, author note, schema). Never name him in the copy, a story or a CTA. Never name Paul on the site (owner, 2026-10-05).
-- **The DBA "Chapter III Realty" is registered.** The owner will supply the new logo; `website-patches/logo-chapter-iii.patch` is on hold.
+- **The DBA "Chapter III Realty" is registered.** The Chapter III logo (owner's image, 2026-10-12) is on the site: `chapter3realty/images/brand/chapter-iii-logo.svg` (header) and `-ivory.svg` (footer), from `website-patches/logo-chapter-iii.patch`. Redraw it only from the owner's file.
 - **Claude decides; the owner approves (owner, 2026-10-06).** Do not send the owner questions a source, the story bank or the rules can answer. See WORKFLOW Roles.
 - **Listing sites:** Zillow's robots file disallows its listing pages for every agent. Use Horry County recorded sales and Zillow's published research data instead.
 - **Images:** only our own photos, CC0, public domain, CC BY or CC BY-SA with credit, and our own illustrations. Never builder, listing, MLS, news or Google images, a logo or a person as the subject, or an AI image of a real place. `rules/images.md`; `tools/photos.js` refuses an image without a license record.
