@@ -193,14 +193,23 @@ Pages without either field are unchanged.
 
 ## `logo-chapter-iii.patch`: the Chapter III logo (2026-10-12)
 
-The owner sent the logo on 2026-10-12: "Chapter" in Navy, then a copper bookmark ribbon with "III" in white. It asked for it "in the corner" and "smooth".
+The owner sent the logo on 2026-10-12 and asked for it "exactly the same". It is redrawn from that image as two SVG files, so it is sharp at every size:
 
-- "Chapter" stays live text in the site's Fraunces (weight 500), so it is sharp at every size and needs no image file.
-- The ribbon is an inline SVG drawn from shapes: the brass gradient (#d4894a to #b3672f), a darker fold at the top left, a forked end, and "III" drawn as three serif bars, so it does not depend on a font. It is 1.22em tall, so it scales with the word on phones.
-- Header and footer both change. The footer keeps its ivory word on navy; the ribbon is the same.
-- The link reads "Chapter III Realty, home" to a screen reader; the SVG is hidden from it.
-- Apply it, then run `node build.js stitch` so every page takes the new header and footer.
-- Tested on a clone of the live branch at 54703db: applies, stitches all pages, and at 320, 390 and 1280 px the header has no sideways scroll and the logo ends at 152, 178 and 228 px.
+- `chapter3realty/images/brand/chapter-iii-logo.svg`: navy text, for the light header.
+- `chapter3realty/images/brand/chapter-iii-logo-ivory.svg`: ivory text, for the navy footer (navy text is invisible on navy, BRAND.md pairing rules).
+
+How it was matched to the owner's image:
+
+- The lettering was compared pixel by pixel against 13 serif fonts at every weight. "Chapter" is Fraunces, the brand font, at weight 580 with 0.01em tracking. The "III" is a lighter flat-serif face (Noto Serif 400). Both are drawn as outlines, so the site loads no new font.
+- The colors are the brand's own, read from the image: Navy #1c2028, Brass #c4783a, Saddle #8b4513 for the left strip, Ivory #f4efe8 for "III".
+- The ribbon's edges, the left strip, the notch and the III stem positions were measured from the image. Rendered at the image's size, the drawing differs from it by about 4 levels in 255 on average, mostly the image's own blur.
+
+On the page:
+
+- An `<img>` with width and height set, so nothing shifts while it loads. Its height is `clamp(54px, 14vw, 66px)`.
+- The link reads "Chapter III Realty, home"; the image's alt text is "Chapter III Realty".
+- Measured at 320, 390 and 1280 px: no sideways scroll, and the logo ends at 148, 149 and 225 px.
+- Apply the patch, then run `node build.js stitch` so every page takes the new header and footer.
 
 ## `speed.patch` and `contrast.patch`
 

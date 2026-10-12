@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-12 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain d196d9f (with uncommitted changes to its sources), against the live branch `claude/github-account-check-wutg8b` at commit 54703db5 ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
+Built 2026-10-12 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain fab6f16 (with uncommitted changes to its sources), against the live branch `claude/github-account-check-wutg8b` at commit 54703db5 ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -30,7 +30,7 @@ It also changes pages the site already has:
 | `site/specs/` | The page specs, the shared kit `_55-plus-kit.js`, and `_story-check.js` (a copy of Blog-Brain `tools/story-check.js`, which the kit runs on every example). |
 | `site/data/` | `55-plus-communities.json`, `photos.json`, `places.json`. The specs read them. |
 | `site/tools/blog-brain/` | The Blog-Brain tools the kit uses to draw maps, icons and photo blocks, with the map data. The kit looks here first. |
-| `site/chapter3realty/images/55-plus/` | 48 photos (5.5 MB, WebP), only those the four pages use. Binary files, copied as they are; they are not in the patch. |
+| `site/chapter3realty/images/55-plus/` | 50 photos (5.5 MB, WebP), only those the four pages use. Binary files, copied as they are; they are not in the patch. |
 | `MANIFEST.txt` | Every file with its size and SHA-256. |
 | `CHECKLIST-AFTER-DEPLOY.md` | What to look at once it is live. |
 
@@ -187,25 +187,25 @@ Everything already matched the partials - nothing to do.
 ### PASS: node tools/mkpage.js specs/del-webb-north-myrtle-beach.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (164734 bytes, hero sub 19 words, main 2679 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (162902 bytes, hero sub 19 words, main 2679 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/del-webb-grande-dunes.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (154997 bytes, hero sub 21 words, main 2430 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (153165 bytes, hero sub 21 words, main 2430 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/myrtle-trace.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (161851 bytes, hero sub 22 words, main 2210 words)
+wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (160019 bytes, hero sub 22 words, main 2210 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/seasons-at-prince-creek-west.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (149467 bytes, hero sub 17 words, main 2187 words)
+wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (147635 bytes, hero sub 17 words, main 2187 words)
 ```
 
 ### PASS: specs/_story-check.js in the package is Blog-Brain tools/story-check.js, as it is today
@@ -251,7 +251,7 @@ llms-full.txt regenerated: 131 pages, 1413KB, dated 2026-10-12.
 ### PASS: node build.js check
 
 ```
-Pages: 137 | Assets: 9 | Avg page: 96KB
+Pages: 137 | Assets: 9 | Avg page: 94KB
 
 OK - all asset links resolve, no giant shared CSS re-inlined, no orphans. Safe to deploy.
 ```
@@ -293,7 +293,7 @@ OK - all 131 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 136 pages from commit 84e8a1d6 on claude/github-account-check-wutg8b.
+OK - deploying 136 pages from commit 7907527f on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
