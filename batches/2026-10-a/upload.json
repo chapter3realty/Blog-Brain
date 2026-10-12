@@ -8,10 +8,10 @@
     "mkpage-page-images.patch",
     "readability.patch",
     "mkpage-reading.patch",
-    "mkpage-photos.patch"
+    "mkpage-photos.patch",
+    "logo-chapter-iii.patch"
   ],
   "notApplied": {
-    "logo-chapter-iii.patch": "On hold: the owner will supply the logo (2026-10-05).",
     "speed.patch": "Already on the live branch (deployed 2026-10-05, in its own revised form).",
     "contrast.patch": "Already on the live branch (deployed 2026-10-05, in its own revised form)."
   },

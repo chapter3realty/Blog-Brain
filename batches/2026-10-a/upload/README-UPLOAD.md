@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-11 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain 1e7e966 (with uncommitted changes to its sources), against the live branch `claude/github-account-check-wutg8b` at commit 54703db5 ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
+Built 2026-10-12 by `node tools/package-batch.js batches/2026-10-a --site <clone>` from Blog-Brain d196d9f (with uncommitted changes to its sources), against the live branch `claude/github-account-check-wutg8b` at commit 54703db5 ("The new homepage goes live: the redesign replaces chapter3realty/index.html").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -26,7 +26,7 @@ It also changes pages the site already has:
 
 | Path | What |
 |---|---|
-| `batch-2026-10-a.patch` | One patch for the files the site already has (15 files). Text only. |
+| `batch-2026-10-a.patch` | One patch for the files the site already has (139 files). Text only. |
 | `site/specs/` | The page specs, the shared kit `_55-plus-kit.js`, and `_story-check.js` (a copy of Blog-Brain `tools/story-check.js`, which the kit runs on every example). |
 | `site/data/` | `55-plus-communities.json`, `photos.json`, `places.json`. The specs read them. |
 | `site/tools/blog-brain/` | The Blog-Brain tools the kit uses to draw maps, icons and photo blocks, with the map data. The kit looks here first. |
@@ -42,13 +42,13 @@ Patches applied, in this order, to make `batch-2026-10-a.patch`:
 4. `website-patches/readability.patch`
 5. `website-patches/mkpage-reading.patch`
 6. `website-patches/mkpage-photos.patch`
-7. `batches/2026-10-a/hub-links.diff`
-8. `batches/2026-10-a/hub-corrections.diff`
-9. `batches/2026-10-a/other-pages.diff`
+7. `website-patches/logo-chapter-iii.patch`
+8. `batches/2026-10-a/hub-links.diff`
+9. `batches/2026-10-a/hub-corrections.diff`
+10. `batches/2026-10-a/other-pages.diff`
 
 Not applied:
 
-- `website-patches/logo-chapter-iii.patch`: On hold: the owner will supply the logo (2026-10-05). `git apply --check` on the live branch: does not apply.
 - `website-patches/speed.patch`: Already on the live branch (deployed 2026-10-05, in its own revised form). `git apply --check` on the live branch: does not apply.
 - `website-patches/contrast.patch`: Already on the live branch (deployed 2026-10-05, in its own revised form). `git apply --check` on the live branch: does not apply.
 
@@ -76,6 +76,7 @@ git apply --check "$U\batch-2026-10-a.patch"      # no output means it will appl
 Copy-Item -Path "$U\site\*" -Destination . -Recurse -Force
 Test-Path specs\_55-plus-kit.js, specs\_story-check.js, data\photos.json, tools\blog-brain\tools\photos.js, chapter3realty\images\55-plus   # five times True
 git apply "$U\batch-2026-10-a.patch"
+node build.js stitch             # puts the new header and footer (the logo) on every page
 
 node tools/mkpage.js specs/del-webb-north-myrtle-beach.js
 node tools/mkpage.js specs/del-webb-grande-dunes.js
@@ -110,6 +111,7 @@ git apply --check "$U/batch-2026-10-a.patch"
 cp -R "$U/site/." .
 ls specs/_55-plus-kit.js specs/_story-check.js data/photos.json tools/blog-brain/tools/photos.js chapter3realty/images/55-plus
 git apply "$U/batch-2026-10-a.patch"
+node build.js stitch             # puts the new header and footer (the logo) on every page
 
 node tools/mkpage.js specs/del-webb-north-myrtle-beach.js
 node tools/mkpage.js specs/del-webb-grande-dunes.js
@@ -138,7 +140,7 @@ git push origin claude/github-account-check-wutg8b
 They need a Blog-Brain clone with `npm install` done. The results from the test run are below.
 
 ```powershell
-$env:SCORE_TODAY = "2026-10-11"
+$env:SCORE_TODAY = "2026-10-12"
 node <Blog-Brain>\tools\score.js --site chapter3realty --only /buyers/55-plus-communities/del-webb-north-myrtle-beach/
 node <Blog-Brain>\tools\score.js --site chapter3realty --only /buyers/55-plus-communities/del-webb-grande-dunes/
 node <Blog-Brain>\tools\score.js --site chapter3realty --only /buyers/55-plus-communities/myrtle-trace/
@@ -152,7 +154,7 @@ The site-wide scans also list older findings on other pages; the test below comp
 
 ## Test results
 
-On a second fresh clone of `claude/github-account-check-wutg8b` at 54703db5, with exactly the steps above (bash), on 2026-10-11 (`SCORE_TODAY=2026-10-11`). The commit was local and was not pushed.
+On a second fresh clone of `claude/github-account-check-wutg8b` at 54703db5, with exactly the steps above (bash), on 2026-10-12 (`SCORE_TODAY=2026-10-12`). The commit was local and was not pushed.
 
 ### PASS: /buyers/55-plus-communities/ agrees with data/55-plus-communities.json (every dollar figure in each row)
 
@@ -175,28 +177,35 @@ Seasons at Prince Creek West: hub row has $340, $500,000
 (no output)
 ```
 
+### PASS: node build.js stitch
+
+```
+
+Everything already matched the partials - nothing to do.
+```
+
 ### PASS: node tools/mkpage.js specs/del-webb-north-myrtle-beach.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (162610 bytes, hero sub 19 words, main 2679 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html (164734 bytes, hero sub 19 words, main 2679 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/del-webb-grande-dunes.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (152873 bytes, hero sub 21 words, main 2430 words)
+wrote chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html (154997 bytes, hero sub 21 words, main 2430 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/myrtle-trace.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (159727 bytes, hero sub 22 words, main 2210 words)
+wrote chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html (161851 bytes, hero sub 22 words, main 2210 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/seasons-at-prince-creek-west.js
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (147343 bytes, hero sub 17 words, main 2187 words)
+wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (149467 bytes, hero sub 17 words, main 2187 words)
 ```
 
 ### PASS: specs/_story-check.js in the package is Blog-Brain tools/story-check.js, as it is today
@@ -224,10 +233,10 @@ Updated references in 136 page(s). Run 'node build.js check', then deploy.
 
 ```
 Corrected 4:
-  /buyers/retirees/  2026-10-04 -> 2026-10-11  (uncommitted content change)
-  /buyers/55-plus-communities/  2026-09-07 -> 2026-10-11  (uncommitted content change)
-  /buyers/golf-communities/  2026-09-07 -> 2026-10-11  (uncommitted content change)
-  llms.txt  2026-10-05 -> 2026-10-11
+  /buyers/retirees/  2026-10-04 -> 2026-10-12  (uncommitted content change)
+  /buyers/55-plus-communities/  2026-09-07 -> 2026-10-12  (uncommitted content change)
+  /buyers/golf-communities/  2026-09-07 -> 2026-10-12  (uncommitted content change)
+  llms.txt  2026-10-05 -> 2026-10-12
 
 3 page dates moved, 128 left alone.
 llms-full.txt carries the header date - run 'node build.js llmsfull' if page text changed.
@@ -236,13 +245,13 @@ llms-full.txt carries the header date - run 'node build.js llmsfull' if page tex
 ### PASS: node build.js llmsfull
 
 ```
-llms-full.txt regenerated: 131 pages, 1413KB, dated 2026-10-11.
+llms-full.txt regenerated: 131 pages, 1413KB, dated 2026-10-12.
 ```
 
 ### PASS: node build.js check
 
 ```
-Pages: 137 | Assets: 9 | Avg page: 94KB
+Pages: 137 | Assets: 9 | Avg page: 96KB
 
 OK - all asset links resolve, no giant shared CSS re-inlined, no orphans. Safe to deploy.
 ```
@@ -263,10 +272,10 @@ OK - zero blocking defects. Page quality gate passed.
 ### PASS: sitemap.xml, llms.txt and llms-full.txt list the pages
 
 ```
-/buyers/55-plus-communities/del-webb-north-myrtle-beach/: sitemap yes, lastmod 2026-10-11, 9 images; llms.txt yes; llms-full.txt yes, with its text
-/buyers/55-plus-communities/del-webb-grande-dunes/: sitemap yes, lastmod 2026-10-11, 7 images; llms.txt yes; llms-full.txt yes, with its text
-/buyers/55-plus-communities/myrtle-trace/: sitemap yes, lastmod 2026-10-11, 7 images; llms.txt yes; llms-full.txt yes, with its text
-/buyers/55-plus-communities/seasons-at-prince-creek-west/: sitemap yes, lastmod 2026-10-11, 7 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/55-plus-communities/del-webb-north-myrtle-beach/: sitemap yes, lastmod 2026-10-12, 9 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/55-plus-communities/del-webb-grande-dunes/: sitemap yes, lastmod 2026-10-12, 7 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/55-plus-communities/myrtle-trace/: sitemap yes, lastmod 2026-10-12, 7 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/55-plus-communities/seasons-at-prince-creek-west/: sitemap yes, lastmod 2026-10-12, 7 images; llms.txt yes; llms-full.txt yes, with its text
 ```
 
 ### PASS: node build.js preflight (after a local commit)
@@ -284,7 +293,7 @@ OK - all 131 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 136 pages from commit 05815cb4 on claude/github-account-check-wutg8b.
+OK - deploying 136 pages from commit 84e8a1d6 on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 

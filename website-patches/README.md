@@ -191,11 +191,16 @@ It changes `tools/mkpage.js` only, and applies after the other four mkpage patch
 
 Pages without either field are unchanged.
 
-## `logo-chapter-iii.patch`: on hold
+## `logo-chapter-iii.patch`: the Chapter III logo (2026-10-12)
 
-The owner will supply the logo (2026-10-05). This text-only version, "Chapter" plus a copper "III", is kept for reference and should not be applied.
+The owner sent the logo on 2026-10-12: "Chapter" in Navy, then a copper bookmark ribbon with "III" in white. It asked for it "in the corner" and "smooth".
 
-On 2026-10-11 it no longer applies to the live branch at 54703db (`partials/footer.html` changed). When the logo arrives, make the patch again on a fresh clone.
+- "Chapter" stays live text in the site's Fraunces (weight 500), so it is sharp at every size and needs no image file.
+- The ribbon is an inline SVG drawn from shapes: the brass gradient (#d4894a to #b3672f), a darker fold at the top left, a forked end, and "III" drawn as three serif bars, so it does not depend on a font. It is 1.22em tall, so it scales with the word on phones.
+- Header and footer both change. The footer keeps its ivory word on navy; the ribbon is the same.
+- The link reads "Chapter III Realty, home" to a screen reader; the SVG is hidden from it.
+- Apply it, then run `node build.js stitch` so every page takes the new header and footer.
+- Tested on a clone of the live branch at 54703db: applies, stitches all pages, and at 320, 390 and 1280 px the header has no sideways scroll and the logo ends at 152, 178 and 228 px.
 
 ## `speed.patch` and `contrast.patch`
 

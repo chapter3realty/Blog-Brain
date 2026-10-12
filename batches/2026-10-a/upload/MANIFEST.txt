@@ -1,6 +1,6 @@
-Upload package for batch 2026-10-a. Built 2026-10-11 from Blog-Brain 1e7e966 (with uncommitted changes to its sources) against the live branch at 54703db5.
+Upload package for batch 2026-10-a. Built 2026-10-12 from Blog-Brain d196d9f (with uncommitted changes to its sources) against the live branch at 54703db5.
 size  sha256  path
-263173  7ad67bf8dc8bf1a29e702682b5a9a27687490885c267faf19ce21ff7cd0b955b  batch-2026-10-a.patch
+1555344  50d529d7964db80d13455d64d629fa0b29b402758942046edbcb9ffdf7e2a561  batch-2026-10-a.patch
 147332  2cbbc170a72ec2c5ed4ded7668293502c328d1299a93818814d8d2f85bc8960a  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above-1200w.webp
 64780  ea41daece6e5477596551c78081b7ccab07def1caca09754041dbb77e2edcb2d  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-clubhouse-from-above-600w.webp
 186702  74e6810cde1873f17310978ae97ada9157b1fb8e1bbbdfaa02c1d2e7c7cfdbcb  site/chapter3realty/images/55-plus/del-webb-grande-dunes/del-webb-grande-dunes-from-above-1200w.webp

@@ -217,6 +217,10 @@ for (const d of M.batchDiffs) {
 }
 step("batch diffs apply after the website patches", M.batchDiffs.every((d) => report.patches.find((p) => p.patch.endsWith(`/${d}`) && p.ok)));
 
+/* The logo patch changes partials/*, so every page takes the new header and footer (website CLAUDE.md:
+   edit partials, run stitch; build.js check fails on drift). Stitch is chrome only; dates ignore it. */
+{ const r = run(process.execPath, ["build.js", "stitch"], A); step("node build.js stitch", r.code === 0, r.out.split("\n").pop()); }
+
 /* Build. Without BLOG_BRAIN set, the kit must find the copy in tools/blog-brain/. */
 const buildEnv = { BLOG_BRAIN: "" };
 for (const pg of M.pages) {
@@ -292,6 +296,7 @@ const T = (name, r, okTest = (x) => x.code === 0, keep = 12) => {
 T(`git apply --check ${PATCH_NAME}`, run("git", ["apply", "--check", path.join(OUT, PATCH_NAME)], B));
 for (const f of walk(path.join(OUT, "site"))) copyFile(path.join(OUT, "site", f), path.join(B, f));
 T(`git apply ${PATCH_NAME}`, run("git", ["apply", path.join(OUT, PATCH_NAME)], B));
+T("node build.js stitch", run(process.execPath, ["build.js", "stitch"], B), undefined, 2);
 for (const pg of M.pages) T(`node tools/mkpage.js specs/${pg.spec}`, run(process.execPath, ["tools/mkpage.js", `specs/${pg.spec}`], B, buildEnv), undefined, 2);
 for (const c of M.copyAs || []) {
   const sameFile = fs.readFileSync(path.join(B, c.to)).equals(fs.readFileSync(path.join(BB, c.from)));
@@ -468,6 +473,7 @@ git apply --check "$U\\${PATCH_NAME}"      # no output means it will apply
 Copy-Item -Path "$U\\site\\*" -Destination . -Recurse -Force
 Test-Path specs\\_55-plus-kit.js, specs\\_story-check.js, data\\photos.json, tools\\blog-brain\\tools\\photos.js, ${M.images.to.replace(/\//g, "\\")}   # five times True
 git apply "$U\\${PATCH_NAME}"
+node build.js stitch             # puts the new header and footer (the logo) on every page
 
 ${specCmds.join("\n")}
 node build.js rehash
@@ -499,6 +505,7 @@ git apply --check "$U/${PATCH_NAME}"
 cp -R "$U/site/." .
 ls specs/_55-plus-kit.js specs/_story-check.js data/photos.json tools/blog-brain/tools/photos.js ${M.images.to}
 git apply "$U/${PATCH_NAME}"
+node build.js stitch             # puts the new header and footer (the logo) on every page
 
 ${specCmds.join("\n")}
 node build.js rehash
