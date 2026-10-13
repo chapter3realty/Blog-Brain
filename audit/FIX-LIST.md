@@ -2697,3 +2697,4 @@ Fixed, or the page changed. Remove them from `audit/manual-findings.json`.
 - `/submarkets/myrtle-beach/`: Zillow value $315k (down 3%) is now $323k (up 0.3%).
 - `/submarkets/pawleys-island/`: Zillow value $514k (up 5%) is now $553k (up 0.7%).
 - These go in facts/registry.json once the batch 2026-10-b verifier confirms them, so facts-check flags them.
+- `/hoa/reserves/` and `/hoa/special-assessments/` each print a literal "%s" (found 2026-10-13, batch 2026-10-b no-HOA research).
