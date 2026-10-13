@@ -2687,3 +2687,13 @@ Fixed, or the page changed. Remove them from `audit/manual-findings.json`.
 - (every page: footer): "investor-focused brokerage"
 - (every page: byline, tools/mkpage.js): "Reviewed by Tim Nash, Broker-in-Charge"
 
+
+## Found by batch 2026-10-b research (2026-10-13)
+
+- `/buyers/programs/` shows "Interest Rate 0%" and "Monthly Payments None". That states a rate, which the owner's rule forbids. It also omits the SC Housing $10,000 amount, the income and price limits, Palmetto Home Advantage and County First (batches/2026-10-b/facts/affordable-facts.md rows 92 to 98).
+- `/submarkets/conway/`: Census median value $287,700 is now $260,900; "lowest entry prices" is no longer true (Loris is lower).
+- `/submarkets/north-myrtle-beach/`: Census median value $452,000 is now $416,900.
+- `/submarkets/murrells-inlet/`: Census median value $454,900 is now $366,000.
+- `/submarkets/myrtle-beach/`: Zillow value $315k (down 3%) is now $323k (up 0.3%).
+- `/submarkets/pawleys-island/`: Zillow value $514k (up 5%) is now $553k (up 0.7%).
+- These go in facts/registry.json once the batch 2026-10-b verifier confirms them, so facts-check flags them.
