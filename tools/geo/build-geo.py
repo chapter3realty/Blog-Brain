@@ -43,15 +43,20 @@ import shapefile
 from shapely.geometry import Polygon, MultiPolygon, LineString, MultiLineString, Point, box as sbox
 from shapely.ops import unary_union, linemerge, polylabel
 
-BBOX = (-79.45, 33.25, -78.35, 34.05)  # west, south, east, north
+# West, south, east, north. Widened on 2026-10-13 from (-79.45, 33.25, -78.35, 34.05) so every town in
+# Horry County (Loris 34.06 N, Green Sea 34.13 N) and the Georgetown County towns (Georgetown, Andrews
+# 79.57 W) fit on a region map, with about 8 km to spare for the frame.
+BBOX = (-79.65, 33.25, -78.35, 34.22)
+# Counties whose roads and water are drawn on the region map: Horry, Georgetown and Brunswick (NC),
+# and since the wider box, the edges of Marion, Williamsburg, Florence, Berkeley and Columbus (NC)
+# that fall inside it, so no road stops at a county line.
+REGION_COUNTIES = ("45051", "45043", "37019", "45067", "45089", "45041", "45015", "37047")
 TIGER = "https://www2.census.gov/geo/tiger/TIGER2026"
 TIGER_FILES = [
     "COASTLINE/tl_2026_us_coastline.zip", "STATE/tl_2026_us_state.zip",
-    "ROADS/tl_2026_45051_roads.zip", "ROADS/tl_2026_45043_roads.zip", "ROADS/tl_2026_37019_roads.zip",
-    "FEATNAMES/tl_2026_45051_featnames.zip", "FEATNAMES/tl_2026_45043_featnames.zip", "FEATNAMES/tl_2026_37019_featnames.zip",
-    "AREAWATER/tl_2026_45051_areawater.zip", "AREAWATER/tl_2026_45043_areawater.zip", "AREAWATER/tl_2026_37019_areawater.zip",
-    "LINEARWATER/tl_2026_45051_linearwater.zip", "LINEARWATER/tl_2026_45043_linearwater.zip",
-    "AREALM/tl_2026_45_arealm.zip", "PLACE/tl_2026_45_place.zip", "PLACE/tl_2026_37_place.zip",
+    *[f"{layer}/tl_2026_{c}_{layer.lower()}.zip" for layer in ("ROADS", "FEATNAMES", "AREAWATER") for c in REGION_COUNTIES],
+    "LINEARWATER/tl_2026_45051_linearwater.zip", "LINEARWATER/tl_2026_45043_linearwater.zip", "LINEARWATER/tl_2026_37047_linearwater.zip",
+    "AREALM/tl_2026_45_arealm.zip", "PLACE/tl_2026_45_place.zip", "PLACE/tl_2026_37_place.zip", "POINTLM/tl_2026_45_pointlm.zip",
 ]
 HORRY = "https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer"
 HORRY_BASEMAP = "https://gisportal.horrycounty.org/server/rest/services/Basemap/Horry_Basemap/MapServer"
@@ -80,7 +85,13 @@ TOWNS = {  # TIGER PLACE name -> rank (1 = always try to label, 2 = when there i
     "Little River": 1, "Pawleys Island": 1, "Garden City": 1, "Carolina Forest": 2, "Socastee": 2,
     "Forestbrook": 2, "Atlantic Beach": 2, "Loris": 2, "Aynor": 2, "Georgetown": 2, "Litchfield Beach": 2,
     "Red Hill": 2, "Calabash": 2, "Sunset Beach": 2, "Briarcliffe Acres": 3,
+    # added with the wider box (2026-10-13): the rest of the Census places in Horry County north of
+    # 34.05 N, and Andrews in Georgetown County
+    "Andrews": 2, "Green Sea": 2, "Finklea": 3, "Live Oak": 3, "Ketchuptown": 3,
 }
+# Towns with no Census place (no outline): the TIGER POINTLM locality point (MTFCC C3081, the
+# GNIS point for the name). "at" is that point and "o" is empty.
+LOCALITIES = {"Longs": 2}
 
 # Communities. The parcel filter is the one the fact ledger uses (batches/2026-10-a/facts/).
 AREAS = [
@@ -330,7 +341,7 @@ def build_region(work):
 
     # water
     water_polys = []
-    for county in ("45051", "45043", "37019"):
+    for county in REGION_COUNTIES:
         r = shapefile.Reader(os.path.join(T, f"tl_2026_{county}_areawater.zip"))
         for sr in r.iterShapeRecords():
             if not in_bbox(sr.shape.bbox): continue
@@ -355,7 +366,7 @@ def build_region(work):
     # centerline worked out from the Intracoastal Waterway polygons (TIGER AREAWATER)
     waterlines = []
     wl = []
-    for county in ("45051", "45043"):
+    for county in ("45051", "45043", "37047"):
         r = shapefile.Reader(os.path.join(T, f"tl_2026_{county}_linearwater.zip"))
         for sr in r.iterShapeRecords():
             if (sr.record.as_dict()["FULLNAME"] or "").strip() == "Waccamaw Riv":
@@ -369,7 +380,7 @@ def build_region(work):
 
     # roads
     groups = {}
-    for county in ("45051", "45043", "37019"):
+    for county in REGION_COUNTIES:
         fn = featnames(work, county)
         r = shapefile.Reader(os.path.join(T, f"tl_2026_{county}_roads.zip"))
         for sr in r.iterShapeRecords():
@@ -434,6 +445,16 @@ def build_region(work):
             lat, lon = float(d["INTPTLAT"]), float(d["INTPTLON"])
             towns.append({"n": d["NAME"], "rank": TOWNS[d["NAME"]], "kind": "city" if d["LSAD"] == "25" else ("town" if d["LSAD"] == "43" else "community"),
                           "at": e4.pt(lon, lat), "o": outline})
+    r = shapefile.Reader(os.path.join(T, "tl_2026_45_pointlm.zip"))
+    for sr in r.iterShapeRecords():
+        d = sr.record.as_dict()
+        name = (d["FULLNAME"] or "").strip()
+        if d["MTFCC"] != "C3081" or name not in LOCALITIES or not in_bbox(sr.shape.bbox): continue
+        if any(t["n"] == name for t in towns): raise SystemExit(f"{name} is both a Census place and a locality point")
+        lon, lat = sr.shape.points[0]
+        towns.append({"n": name, "rank": LOCALITIES[name], "kind": "community", "at": e4.pt(lon, lat), "o": []})
+    missing = (set(TOWNS) | set(LOCALITIES)) - {t["n"] for t in towns}
+    if missing: raise SystemExit(f"towns not found in the box: {sorted(missing)}")
     towns.sort(key=lambda t: (t["rank"], t["n"]))
 
     # state line
