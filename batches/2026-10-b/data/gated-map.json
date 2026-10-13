@@ -179,7 +179,7 @@
   }
  ],
  "prices": {
-  "about": "The price chart (round 2): the typical (middle) recorded sale for each gated neighborhood with a front gate whose verified row allows one, rounded as the page says it. Leatherleaf and The Bluffs on the Waterway (ranges only) and Myrtle Trace (back gate only) are said in the text; Georgetown County rows are not used.",
+  "about": "The price chart (round 2): the typical (middle) recorded sale for each gated neighborhood with a front gate whose verified row allows one, rounded as the page says it. Leatherleaf and The Bluffs on the Waterway (ranges only) and Myrtle Trace (back gate only) are said in the text; Georgetown County rows are not used. Round 5: the seven Georgetown County neighborhoods use MLS closed sales of detached homes in the same 12 months (ledger rows 83 to 89, pending verification), because the county's sales server refuses connections.",
   "rows": [
    {
     "name": "Prestwick",
@@ -237,6 +237,55 @@
     "sales": 6,
     "exact": 738500,
     "note": "verifier safe wording gives the middle sale, $738,500"
+   },
+   {
+    "name": "DeBordieu Colony",
+    "value": 2000000,
+    "row": 83,
+    "sales": 38,
+    "source": "MLS closed sales (pending verification, round 5)"
+   },
+   {
+    "name": "Heritage Plantation",
+    "value": 710000,
+    "row": 84,
+    "sales": 24,
+    "source": "MLS closed sales (pending verification, round 5)"
+   },
+   {
+    "name": "Litchfield Plantation",
+    "value": 1000000,
+    "row": 85,
+    "sales": 8,
+    "source": "MLS closed sales (pending verification, round 5)"
+   },
+   {
+    "name": "The Reserve",
+    "value": 1350000,
+    "row": 86,
+    "sales": 13,
+    "source": "MLS closed sales (pending verification, round 5)"
+   },
+   {
+    "name": "Wachesaw East",
+    "value": 510000,
+    "row": 87,
+    "sales": 17,
+    "source": "MLS closed sales (pending verification, round 5)"
+   },
+   {
+    "name": "Wachesaw Plantation",
+    "value": 660000,
+    "row": 88,
+    "sales": 16,
+    "source": "MLS closed sales (pending verification, round 5)"
+   },
+   {
+    "name": "Willbrook Plantation",
+    "value": 1000000,
+    "row": 89,
+    "sales": 7,
+    "source": "MLS closed sales (pending verification, round 5)"
    }
   ]
  },
