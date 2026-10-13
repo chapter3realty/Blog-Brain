@@ -136,7 +136,7 @@ const to5k = (v) => money(Math.round(v / 5000) * 5000);
 const share = (a) => Math.round(100 * a.homes.noHoaFee / a.homes.listings);
 /* A lot size in words: a tenth of an acre, a fifth, a quarter, a third, a half, an acre. */
 const acreWords = (v) => {
-  const steps = [[0.1, "a tenth of an acre"], [0.15, "a seventh of an acre"], [0.2, "a fifth of an acre"], [0.25, "a quarter acre"], [0.33, "a third of an acre"], [0.5, "half an acre"], [0.75, "three quarters of an acre"], [1, "an acre"]];
+  const steps = [[0.1, "a tenth of an acre"], [0.2, "a fifth of an acre"], [0.25, "a quarter acre"], [0.33, "a third of an acre"], [0.5, "half an acre"], [0.75, "three quarters of an acre"], [1, "an acre"]];
   let best = steps[0];
   for (const s of steps) if (Math.abs(s[0] - v) < Math.abs(best[0] - v)) best = s;
   return `about ${best[1]}`;
@@ -177,11 +177,11 @@ const areaTable = () => compareCards(AREAS.map((a) => ({
    the rest. */
 const parkingTable = () => compareCards([
   { name: "Outside the towns", icon: "home", cells: { boat: "Anywhere on your lot", truck: "No county limit on your lot" } },
-  { name: "Myrtle Beach", href: "/submarkets/myrtle-beach/", icon: "town", cells: { boat: "Not in the front yard", truck: "One, up to one ton" } },
-  { name: "North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", icon: "town", cells: { boat: "Beside or behind the house", truck: "None over 18,500 pounds" } },
-  { name: "Conway", href: "/submarkets/conway/", icon: "town", cells: { boat: "Side yard, back yard or carport", truck: "Big ones off the street" } },
-  { name: "Surfside Beach", href: "/submarkets/surfside-beach/", icon: "town", cells: { boat: "Two boats or trailers at most", truck: "One van or pickup, to 21 feet" } },
-  { name: "Loris", icon: "town", cells: { boat: "Not by the front or side line", truck: "One, up to 2 tons" } },
+  { name: "Inside Myrtle Beach", href: "/submarkets/myrtle-beach/", icon: "town", cells: { boat: "Not in the front yard", truck: "One, up to one ton" } },
+  { name: "Inside North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", icon: "town", cells: { boat: "Beside or behind the house", truck: "None over 18,500 pounds" } },
+  { name: "Inside Conway", href: "/submarkets/conway/", icon: "town", cells: { boat: "Side yard, back yard or carport", truck: "Big ones off the street" } },
+  { name: "Inside Surfside Beach", href: "/submarkets/surfside-beach/", icon: "town", cells: { boat: "Two boats or trailers at most", truck: "One van or pickup, to 21 feet" } },
+  { name: "Inside Loris", icon: "town", cells: { boat: "Back yard, not near the lot lines", truck: "One, up to 2 tons" } },
 ], [
   { key: "boat", label: "A boat, camper or trailer" },
   { key: "truck", label: "A work truck at home" },
