@@ -63,6 +63,18 @@ function localDate() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
+/* ---------------------------------------------------------------- Blog-Brain tools */
+/* The Blog-Brain files to copy into the website's tools/blog-brain/: the ones upload.json lists
+   ("blogBrainTools.files"), and every file they load from beside them, followed down. A tool
+   loads its neighbours by a relative require ("./icons.js", "../rules/claims.json") or by a
+   fixed path from its own folder (path.join(__dirname, "geo", "grand-strand-v2.json")). So a
+   batch can list tools/page-kit.js and tools/compare.js alone, and story-check.js, area-map.js,
+   icons.js, photos.js, illustrations.js, rules/claims.json and the map data come with them, at
+   the same paths, which is where those tools look (tools/tool-deps.js). */
+const BB_FILES = require("./tool-deps.js").toolFiles(BB, M.blogBrainTools.files);
+const BB_ADDED = BB_FILES.filter((f) => !M.blogBrainTools.files.includes(f));
+if (BB_ADDED.length) console.log(`Blog-Brain files the listed tools load, copied too: ${BB_ADDED.join(", ")}`);
+
 /* ---------------------------------------------------------------- helpers */
 const log = (s) => console.log(s);
 const failures = [];
@@ -197,7 +209,7 @@ step("website patches apply in order on a clean clone", report.patches.length ==
 const copies = [];
 for (const f of walk(path.join(BATCH, M.specs))) if (f.endsWith(".js")) copies.push([path.join(BATCH, M.specs, f), `specs/${f}`]);
 for (const f of walk(path.join(BATCH, M.data))) copies.push([path.join(BATCH, M.data, f), `data/${f}`]);
-for (const f of M.blogBrainTools.files) copies.push([path.join(BB, f), `${M.blogBrainTools.to}/${f}`]);
+for (const f of BB_FILES) copies.push([path.join(BB, f), `${M.blogBrainTools.to}/${f}`]);
 /* Blog-Brain files the specs load under another name (copyAs), always from the current Blog-Brain.
    They replace a file of the same name in the batch folder. */
 for (const c of M.copyAs || []) {
@@ -400,7 +412,7 @@ fs.writeFileSync(path.join(OUT, "MANIFEST.txt"),
 /* The Blog-Brain commit, and whether any file the package is made from differs from it. */
 function bbHead() {
   const used = [M.specs, M.data, M.images.from, ...M.batchDiffs, "upload.json"].map((f) => path.join(BATCH, f))
-    .concat(M.blogBrainTools.files.map((f) => path.join(BB, f)), (M.copyAs || []).map((c) => path.join(BB, c.from)), path.join(BB, "website-patches"))
+    .concat(BB_FILES.map((f) => path.join(BB, f)), (M.copyAs || []).map((c) => path.join(BB, c.from)), path.join(BB, "website-patches"))
     .map((f) => path.relative(BB, f));
   try { return git(BB, "rev-parse", "--short", "HEAD") + (git(BB, "status", "--porcelain", "--", ...used) ? " (with uncommitted changes to its sources)" : ""); } catch { return "(unknown)"; }
 }
@@ -436,7 +448,7 @@ ${(M.changes || []).map((c) => `- ${c}`).join("\n")}
 | \`${PATCH_NAME}\` | One patch for the files the site already has (${report.files.touched.length} files). Text only. |
 | \`site/specs/\` | The page specs, the shared kit \`_55-plus-kit.js\`, and \`_story-check.js\` (a copy of Blog-Brain \`tools/story-check.js\`, which the kit runs on every example). |
 | \`site/data/\` | \`55-plus-communities.json\`, \`photos.json\`, \`places.json\`. The specs read them. |
-| \`site/tools/blog-brain/\` | The Blog-Brain tools the kit uses to draw maps, icons and photo blocks, with the map data. The kit looks here first. |
+| \`site/tools/blog-brain/\` | The Blog-Brain tools the kit uses to draw maps, icons, photo blocks and comparison tables, with the map data and the files they load. The kit looks here first. |
 | \`site/${M.images.to}/\` | ${imgCount} photos (${(imgBytes / 1048576).toFixed(1)} MB, WebP), only those the four pages use. Binary files, copied as they are; they are not in the patch. |
 | \`MANIFEST.txt\` | Every file with its size and SHA-256. |
 | \`CHECKLIST-AFTER-DEPLOY.md\` | What to look at once it is live. |

@@ -29,6 +29,7 @@
   "blogBrainTools": {
     "to": "tools/blog-brain",
     "files": [
+      "tools/page-kit.js",
       "tools/area-map.js",
       "tools/icons.js",
       "tools/photos.js",
@@ -41,7 +42,7 @@
     {
       "from": "tools/story-check.js",
       "to": "specs/_story-check.js",
-      "why": "The kit's story check. In Blog-Brain the kit loads tools/story-check.js; in the website it falls back to specs/_story-check.js. Copied fresh on every build so it never drifts."
+      "why": "The story check the first versions of the kit loaded from specs/. Since 2026-10-13 the kit's story() lives in tools/page-kit.js, which loads tools/story-check.js from beside it (in the website, tools/blog-brain/tools/). Kept so the shipped copy matches; copied fresh on every build so it never drifts."
     }
   ],
   "pages": [
