@@ -86,12 +86,11 @@ const SURFSIDE = ph.aerial("surfside-beach-from-above", "The ocean side of Surfs
   { alt: "Surfside Beach from the air: streets of houses under trees from a highway at the left to a wide beach and the ocean at the right, with a fishing pier and a public beach access marked" });
 const PINE = ph.aerial("pine-lakes-from-above", "Pine Lakes from the air: the homes in the table, outlined in orange, beside the Pine Lakes Country Club golf course.",
   { alt: "Pine Lakes in Myrtle Beach from the air: curving streets of houses around ponds, outlined in orange, beside a golf course with green fairways and sand traps, and the beach at the far right", closeUp: true });
-const MARKET = ph.aerial("market-common-from-above", "The Market Common from the air: its homes, outlined in orange, with shops below them and the airport at the bottom.",
-  { alt: "The Market Common in Myrtle Beach from the air: blocks of townhomes and houses outlined in orange beside a lake, shops below them, and the airport with its planes and runway at the bottom", closeUp: true });
-const FARM_POOL = ph.aerial("the-farm-pool-from-above-2026", "The large pool and the activity center in The Farm at Carolina Forest, from above.",
-  { closeUp: true });
-const CHERRY = ph.aerial("cherry-grove-from-above", "Cherry Grove from the air: houses near the beach and along the canals, with the salt marsh behind them.",
-  { alt: "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of houses along canals, and a wide salt marsh with winding creeks", closeUp: true });
+const MARKET = ph.aerial("market-common-from-above", "The Market Common from the air: its homes, outlined in orange, The Reserve at the right, shops below and the airport at the bottom.",
+  { alt: "The Market Common in Myrtle Beach from the air: blocks of townhomes and houses outlined in orange beside a lake, a second outlined group labelled The Reserve at Market Common at the right, shops below them, and the airport with its runway at the bottom", closeUp: true });
+/* This page's labelled copy of the no-HOA page's Cherry Grove view (same NOAA frame and crop, with labels). */
+const CHERRY = ph.aerial("cherry-grove-canals-from-above", "Cherry Grove from the air: the beach, the canals and the salt marsh.",
+  { alt: "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of houses on canals labelled Canals, and a wide salt marsh with winding creeks labelled Salt marsh", closeUp: true });
 
 const SELF = "/buyers/best-neighborhoods/";
 const OFFER = "/contact/";
