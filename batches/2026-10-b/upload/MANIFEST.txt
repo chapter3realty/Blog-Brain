@@ -1,4 +1,4 @@
-Upload package for batch 2026-10-b. Built 2026-10-13 from Blog-Brain af6b857 against the live branch at 39036014.
+Upload package for batch 2026-10-b. Built 2026-10-13 from Blog-Brain 959e2a3 against the live branch at 39036014.
 size  sha256  path
 122626  b1169684e687d239da425f52380a91e57c679d0bce45e6853b9d4e23a0c62712  batch-2026-10-b.patch
 140700  fdbe1cdfd26367f3bea99b396d6a5b807e479cca77aef6650971298b89f3d6c8  site/chapter3realty/images/buyers/affordable/georgetown-harbor-1200w.webp
@@ -56,7 +56,7 @@ size  sha256  path
 4066  d2003d639bc0a896c0eac44d4cdbc517b033322530d3c51b77ebab7140da53d4  site/specs/_kit.js
 28772  bb3613d58b45f52720b69d794ec3f55a7f20b08f70e6dca73b4f02abead2cacd  site/specs/affordable-places-to-live.js
 40803  06c4f38c1a1e84b6311a43eeab60e1362049df003790fc46951a60d69965389b  site/specs/best-neighborhoods.js
-32510  52dde921fcbc36b878ddc5daa161beada8d26b7c2064c58d200112969536e986  site/specs/gated-communities.js
+32495  6d6342bf7f2e4fcba197e0f8809212ec8b36a0f7b03de19c21fc635e013b719f  site/specs/gated-communities.js
 32340  31c94a30b1cd9f6938c7eb2e8daca4b95df42be5db31f4fba1d24b5edb3b0729  site/specs/no-hoa-homes.js
 27664  22e97626b39d893bcc886a540238a794f39249cfb71bdc37e9d036617482a30a  site/specs/the-farm.js
 10182  5ec11d7c1db5b05cee1488be81dd6627305fa43ae4a621be3dc9dc5da549e8a3  site/tools/blog-brain-2026-10-b/rules/claims.json

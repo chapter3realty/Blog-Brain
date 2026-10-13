@@ -50,8 +50,7 @@
  * table or on a map).
  * Maps: batches/2026-10-b/data/gated-map.json. Picture: batches/2026-10-b/data/photos.json,
  * prestwick-gate-from-above-2026.
- * Story (round 6, the round-3 arc restored): Joan wants a 55+ home behind a gate; a Myrtle Trace house fits
- *   her budget; the front entrance has no gate; the agent shows her Seasons, with a gate at its main
+ * Story (round 6, the round-3 arc restored): Joan wants a 55+ home behind a gate; she finds a Myrtle Trace house; the front entrance has no gate; the agent shows her Seasons, with a gate at its main
  *   entrance (registry seasons-gate); she offers there (WORKFLOW log, 2026-10-13).
  * Round 6: verifier wording on rows 83 to 89 (The Reserve about $1.35 million, Wachesaw East about
  *   $500,000, Wachesaw Plantation about $650,000, the wide spread around $1 million said once);
@@ -274,11 +273,11 @@ module.exports = {
 
     { h2: "Which neighborhoods in Pawleys Island and Litchfield are gated?", toc: "Pawleys Island", id: "pawleys-island", html: (bg) =>
       h.p(`Litchfield by the Sea is a private, gated community on the ocean at Litchfield, near Pawleys Island. Its main gate on US 17 has a ${h.ext(LBTS_GUIDE, "guard day and night")}.`) +
-      h.p("Litchfield by the Sea has many sections, and prices and HOA fees differ a lot from one to the next. In the last year, whole condos there sold for anywhere from under $200,000 to over $2 million. Houses in its Oystercatcher Island section sold for about $750,000. We send the homes for sale in each section on request.") +
+      h.p("Litchfield by the Sea has many sections, and prices and HOA fees differ a lot from one to the next. In the last year, condos there sold for anywhere from under $200,000 to over $2 million. Houses in its Oystercatcher Island section sold for about $750,000. We send the homes for sale in each section on request.") +
       h.p("DeBordieu Colony, a little farther south toward Georgetown, is on the ocean too.") +
       DEB_PHOTO +
       table("table-pawleys-island", compareCards([
-        { name: "Litchfield by the Sea", cells: { gate: K.guard, fee: "Differs by section", price: "Condos under $200,000 to over $2 million", beach: "On the ocean" } },
+        { name: "Litchfield by the Sea", cells: { gate: K.guard, fee: "Differs by section and unit", price: "Condos under $200,000 to over $2 million", beach: "On the ocean" } },
         { name: "Litchfield Plantation", cells: { gate: K.house, fee: "About $230 a month on most homes", price: "About $1 million", beach: "About 8 minutes" } },
         { name: "Willbrook Plantation", cells: { gate: K.house, fee: "About $340 a month", price: "About $1 million", beach: "About 9 minutes" } },
         { name: "The Reserve", cells: { gate: K.ask, fee: "About $320 a month on most homes", price: "About $1.35 million", beach: "About 8 minutes" } },
@@ -314,7 +313,7 @@ module.exports = {
     { h2: "What should you check at the gate before you buy?", toc: "Check the gate", html: (bg) =>
       h.p("Two things matter at the gate: whether the home is behind it, and how your guests will get in. In Barefoot Resort and Grande Dunes only some sections are gated, and Myrtle Trace has gates only at its back entrance.") +
       story([
-        "<strong>Example:</strong> Joan is moving from Ohio, and she wants a 55+ home behind a gate. A house in Myrtle Trace, near Conway, fits her budget.",
+        "<strong>Example:</strong> Joan is moving from Ohio, and she wants a 55+ home behind a gate. She finds a house in Myrtle Trace, near Conway.",
         "Her Chapter3 agent drives her in by the front entrance. That entrance has no gate, and the gates are only at the back.",
         "The agent shows her homes for sale in Seasons at Prince Creek West, which has a gate at its main entrance. Joan finds a house there and makes her offer.",
       ], "", bg,

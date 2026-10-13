@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-13 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain af6b857, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
+Built 2026-10-13 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 959e2a3, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -189,7 +189,7 @@ best-neighborhoods: no room on the overview for the names of 5, 8, 9, 11, 15; th
 ### PASS: node tools/mkpage.js specs/gated-communities.js
 
 ```
-wrote chapter3realty/buyers/gated-communities/index.html (185900 bytes, hero sub 23 words, main 3203 words)
+wrote chapter3realty/buyers/gated-communities/index.html (185896 bytes, hero sub 23 words, main 3203 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/no-hoa-homes.js
@@ -289,7 +289,7 @@ OK - all 136 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 141 pages from commit 5b9119fd on claude/github-account-check-wutg8b.
+OK - deploying 141 pages from commit e9cbf245 on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
@@ -304,7 +304,7 @@ Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2317 words)
 
 ```
 /buyers/gated-communities/  Gated Communities in Myrtle Beach: HOA Fees, Prices | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1523 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1521 words)
 ```
 
 ### PASS: score.js --only /buyers/no-hoa-homes/
