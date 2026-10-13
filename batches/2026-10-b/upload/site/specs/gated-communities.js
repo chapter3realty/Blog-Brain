@@ -50,7 +50,13 @@
  * table or on a map).
  * Maps: batches/2026-10-b/data/gated-map.json. Picture: batches/2026-10-b/data/photos.json,
  * prestwick-gate-from-above-2026.
- * Story: the labelled example (Joan, Myrtle Trace's open front entrance, Seasons' gate), kept.
+ * Story (round 6, the round-3 arc restored): Joan wants a 55+ home behind a gate; a Myrtle Trace house fits
+ *   her budget; the front entrance has no gate; the agent shows her Seasons, with a gate at its main
+ *   entrance (registry seasons-gate); she offers there (WORKFLOW log, 2026-10-13).
+ * Round 6: verifier wording on rows 83 to 89 (The Reserve about $1.35 million, Wachesaw East about
+ *   $500,000, Wachesaw Plantation about $650,000, the wide spread around $1 million said once);
+ *   sources line as the verifier wrote it; Willbrook fee stays about $340 (row 27, houses $339 to $346);
+ *   Litchfield by the Sea in the verifier's wording (rows 90 to 92), no fee figure, no "usually".
  */
 const { h, kit, data, placesMap, compareCards, wantPicker, prosCons, atAGlance, glance, story, photoSetB, BB } = require("./_kit.js");
 const path = require("path");
@@ -124,16 +130,16 @@ const MAP_N = (() => {
   return { html: kit.mapFigure(m.html, "Map of neighborhoods with a gate from North Myrtle Beach (top right) to Murrells Inlet (bottom left). The city of Myrtle Beach is on the coast between Grande Dunes (4) and Prestwick (8).", m.credit) + m.key };
 })();
 const MAP_S = placesMap("Gated neighborhoods near Pawleys Island", G.pawleys.map((p) => ({ name: p.name, short: p.short, lat: p.lat, lon: p.lon, href: AREA["pawleys-island"] })), {
-  caption: "Map of neighborhoods with a gate near Pawleys Island and Litchfield, south of Murrells Inlet.",
+  caption: "Map of neighborhoods with a gate near Pawleys Island and Litchfield, south of Murrells Inlet. Dot 4 is Litchfield by the Sea's River Club gate; its main gate is on US 17.",
 });
 addTown(MAP_S, "Pawleys Island");
 
-/* The price chart: the eight gated neighborhoods with a typical price, lowest to highest, from
+/* The price chart: every gated neighborhood with a typical sale price (15), lowest to highest, from
    gated-map.json "prices". 330 units wide, so the names show at about 16 px on a phone. */
 function priceChart() {
   const rows = G.prices.rows.slice().sort((a, b) => a.value - b.value);
   const W = 330, RH = 47, TOP = 6, MAXW = 235, max = Math.max(...rows.map((r) => r.value));
-  const money = (v) => v >= 1e6 ? `$${(v / 1e6).toFixed(1).replace(/\.0$/, "")} million` : `$${v.toLocaleString("en-US")}`;
+  const money = (v) => v >= 1e6 ? `$${(v / 1e6).toFixed(2).replace(/\.?0+$/, "")} million` : `$${v.toLocaleString("en-US")}`;
   const H = TOP + rows.length * RH;
   const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   const label = `Bar chart of what homes usually sell for in ${rows.length} gated neighborhoods near Myrtle Beach, lowest to highest: `
@@ -155,7 +161,9 @@ const COLS = [
   { key: "price", label: "Homes usually sell for", num: true },
   { key: "beach", label: "To the beach", num: true },
 ];
-const COLS3 = COLS.filter((c) => c.key !== "price");
+/* Pawleys Island table: "sell for", not "usually": Litchfield by the Sea is a wide range, and few homes sold
+ * in Willbrook and Litchfield Plantation (rows 89 to 92, verifier). */
+const COLS_P = COLS.map((c) => c.key === "price" ? { ...c, label: "Homes sell for" } : c);
 const opts = (caption, first) => ({ caption, nameLabel: "Neighborhood", css: first });
 
 /* Text at reading size inside the icon cards (atAGlance writes .9rem), and the icon beside the words
@@ -183,19 +191,19 @@ module.exports = {
   h1em: "From North Myrtle Beach to Pawleys Island.",
   sub: "Gated neighborhoods near Myrtle Beach, by area, with who is at the gate, the HOA fee and what homes there usually sell for.",
   heroMedia: glance([
-    { icon: "beach", label: "Seaside Plantation", text: "About 2 minutes to the beach" },
-    { icon: "home", label: "Homes sell for", text: "About $480,000 to $1.5 million" },
-    { icon: "dollar", label: "HOA fee", text: "About $90 to $440 a month" },
+    { icon: "beach", label: "On the ocean", text: "DeBordieu Colony, Litchfield by the Sea" },
+    { icon: "home", label: "Homes sell for", text: "About $480,000 to $2 million" },
+    { icon: "dollar", label: "HOA fee in most", text: "About $90 to $400 a month" },
   ]),
   heroCta: { label: OFFER_LABEL, href: OFFER },
   author: "devin",
   shortAnswer: [
-    "Gated neighborhoods near Myrtle Beach run along the coast from North Myrtle Beach to Pawleys Island. Homes in most of them usually sell for about $480,000 to $1.5 million.",
-    "Each has a homeowners association (HOA), the group of owners that runs the neighborhood. The HOA fee here is about $90 to $440 a month. A gate controls who drives in. It is not a guard at each home. Litchfield by the Sea and DeBordieu Colony are on the ocean, and most others are a short drive from the beach.",
-    `Read ${h.a("#what-a-gate-does", "what a gate does and does not do")} before you choose one.`,
+    "Gated neighborhoods near Myrtle Beach run along the coast from North Myrtle Beach to Pawleys Island. Homes in most of them usually sell for about $480,000 to $2 million.",
+    "Each has a homeowners association (HOA), the group of owners that runs the neighborhood. In most of them, the HOA fee is about $90 to $400 a month. A gate controls who drives in. It is not a guard at each home. Litchfield by the Sea and DeBordieu Colony are on the ocean, and most others are a short drive from the beach.",
   ],
   sections: [
     { h2: "Where are the gated neighborhoods near Myrtle Beach?", toc: "Maps", html:
+      ph.css() +
       MAP_N.html + MAP_S.html +
       h.p(`Litchfield by the Sea and DeBordieu Colony are on the ocean, and each has a Beach Club. Most others are a short drive from a ${h.ext(BEACH, "public beach access")}, a public path to the beach. Some have parking and some do not.`) },
 
@@ -206,8 +214,8 @@ module.exports = {
           places: [{ name: "DeBordieu Colony", href: "#table-pawleys-island" }, { name: "Litchfield by the Sea", href: "#table-pawleys-island" }] },
         { icon: "dollar", want: "A low HOA fee", note: "About $90 to $150 a month.",
           places: [{ name: "Covington Lake East", href: "#table-myrtle-beach" }, { name: "Wachesaw East", href: "#table-murrells-inlet" }, { name: "Waterway Palms Plantation", href: "#table-myrtle-beach" }] },
-        { icon: "home", want: "A lower price", note: "About $480,000 to $570,000.",
-          places: [{ name: "Prestwick", href: "#table-murrells-inlet" }, { name: "Seasons at Prince Creek West", href: SEASONS }, { name: "Covington Lake East", href: "#table-myrtle-beach" }] },
+        { icon: "home", want: "A lower price", note: "About $480,000 to $500,000.",
+          places: [{ name: "Prestwick", href: "#table-murrells-inlet" }, { name: "Seasons at Prince Creek West", href: SEASONS }, { name: "Wachesaw East", href: "#table-murrells-inlet" }] },
         { icon: "clubhouse", want: "A 55+ neighborhood",
           places: [{ name: "Seasons at Prince Creek West", href: SEASONS }, { name: "Myrtle Trace (back gate only)", href: MT }] },
       ]) +
@@ -228,55 +236,55 @@ module.exports = {
       h.p(`To see crime reported to a police department or sheriff, use the state's ${h.ext(SLED, "crime data site")}. You pick the agency, the year and the type of crime.`) },
 
     { h2: "What do homes in gated neighborhoods near Myrtle Beach cost?", toc: "Prices", html:
-      h.p("Homes in most gated neighborhoods near Myrtle Beach usually sell for about $480,000 to $1.5 million. These are prices homes sold for, not asking prices.") +
-      h.figure(priceChart(), "Chart of what homes usually sell for in the eight gated neighborhoods with enough recent sales to give one typical price.") +
-      h.p("In Leatherleaf and The Bluffs on the Waterway, the few homes that sold went for about $700,000 to $975,000. Myrtle Trace, with gates only at its back entrance, usually sells for about $300,000.") +
+      h.p("Homes in most gated neighborhoods near Myrtle Beach usually sell for about $480,000 to $2 million. These are prices homes sold for, not asking prices.") +
+      h.figure(priceChart(), "Chart of what homes usually sell for in 15 gated neighborhoods near Myrtle Beach, lowest to highest.") +
+      h.p("In Leatherleaf and The Bluffs on the Waterway, the few homes that sold went for about $700,000 to $975,000. Myrtle Trace, with gates only at its back entrance, usually sells for about $300,000. Few homes sold in Litchfield Plantation and Willbrook Plantation, so prices there ranged widely around $1 million.") +
       "" },
 
     { h2: "Which neighborhoods in North Myrtle Beach are gated?", toc: "North Myrtle Beach", id: "north-myrtle-beach", html:
       h.p("Tidewater Plantation, Seaside Plantation and parts of Barefoot Resort are gated neighborhoods in North Myrtle Beach. A name with “Plantation” is a neighborhood name, not a farm.") +
       table("table-north-myrtle-beach", compareCards([
-        { name: "Tidewater Plantation", cells: { gate: K.house, fee: "About $230 a month", beach: "About 8 minutes" } },
-        { name: "Seaside Plantation", cells: { gate: K.ask, fee: "About $210 a month", beach: "About 2 minutes" } },
-        { name: "Leatherleaf (Barefoot Resort)", cells: { gate: K.ask, fee: "About $390 a month", beach: "About 10 minutes" } },
-      ], COLS3, opts("Neighborhoods with a gate in North Myrtle Beach", true))) +
+        { name: "Tidewater Plantation", cells: { gate: K.house, fee: "About $230 a month", price: "About $625,000", beach: "About 8 minutes" } },
+        { name: "Seaside Plantation", cells: { gate: K.ask, fee: "About $210 a month", price: "About $740,000", beach: "About 2 minutes" } },
+        { name: "Leatherleaf (Barefoot Resort)", cells: { gate: K.ask, fee: "About $390 a month", price: "About $700,000 to $975,000", beach: "About 10 minutes" } },
+      ], COLS, opts("Neighborhoods with a gate in North Myrtle Beach", true))) +
       h.p(`Barefoot Resort is a large neighborhood with four golf courses, and ${h.ext(BAREFOOT, "only some of its sections are gated")}, such as Leatherleaf and Dye Estates.`) },
 
     { h2: "Which neighborhoods in Myrtle Beach, Carolina Forest and Conway have a gate?", toc: "Myrtle Beach and Carolina Forest", id: "myrtle-beach-carolina-forest", html:
       h.p("Grande Dunes is a large neighborhood in Myrtle Beach. Only some of its sections are gated, including Calais, Palermo and Villa Venezia.") +
       h.p("Carolina Forest is a large area of neighborhoods just inland from Myrtle Beach.") +
       table("table-myrtle-beach", compareCards([
-        { name: "Myrtle Trace (55+, back gate only)", href: MT, cells: { gate: K.back, fee: "$95 a month", beach: "About 15 minutes" } },
-        { name: "Grande Dunes: Calais, Palermo and Villa Venezia", cells: { gate: K.ask, fee: "About $200 to $375 a month", beach: "About 10 minutes" } },
-        { name: "Waterway Palms Plantation", cells: { gate: K.ask, fee: "About $150 a month", beach: "About 10 minutes" } },
-        { name: "The Bluffs on the Waterway", cells: { gate: K.ask, fee: "About $150 a month", beach: "About 10 minutes" } },
-        { name: "Covington Lake East", cells: { gate: K.ask, fee: "About $90 a month", beach: "About 15 minutes" } },
-      ], COLS3, opts("Neighborhoods with a gate in Myrtle Beach, Carolina Forest and Conway", false))) +
+        { name: "Myrtle Trace (55+)", href: MT, cells: { gate: K.back, fee: "$95 a month", price: "About $300,000", beach: "About 15 minutes" } },
+        { name: "Grande Dunes: Calais, Palermo and Villa Venezia", cells: { gate: K.ask, fee: "About $200 to $375 a month", price: "About $1.5 million", beach: "About 10 minutes" } },
+        { name: "Waterway Palms Plantation", cells: { gate: K.ask, fee: "About $150 a month", price: "About $780,000", beach: "About 10 minutes" } },
+        { name: "The Bluffs on the Waterway", cells: { gate: K.ask, fee: "About $150 a month", price: "About $700,000 to $975,000", beach: "About 10 minutes" } },
+        { name: "Covington Lake East", cells: { gate: K.ask, fee: "About $90 a month", price: "About $570,000", beach: "About 15 minutes" } },
+      ], COLS, opts("Neighborhoods with a gate in Myrtle Beach, Carolina Forest and Conway", false))) +
       h.p(`For a closer look at one Carolina Forest neighborhood, see our ${h.a("/submarkets/carolina-forest/the-farm/", "guide to The Farm at Carolina Forest")}.`) },
 
     { h2: "Which neighborhoods from Surfside Beach to Murrells Inlet are gated?", toc: "Surfside Beach to Murrells Inlet", id: "surfside-murrells-inlet", html:
       h.p("Prestwick, just outside the town of Surfside Beach, is the closest gated neighborhood to that town. In Murrells Inlet, Bellwood Landing, Wachesaw Plantation and Wachesaw East are gated.") +
       table("table-murrells-inlet", compareCards([
-        { name: "Prestwick", cells: { gate: K.house, fee: "About $190 a month", beach: "About 7 minutes" } },
-        { name: "Bellwood Landing", cells: { gate: K.ask, fee: "About $160 a month", beach: "About 15 minutes" } },
-        { name: "Wachesaw Plantation", cells: { gate: K.house, fee: "About $150 a month on most homes", beach: "About 15 minutes" } },
-        { name: "Wachesaw East", cells: { gate: K.ask, fee: "About $145 a month", beach: "About 10 minutes" } },
-        { name: "Seasons at Prince Creek West (55+)", href: SEASONS, cells: { gate: K.call, fee: "About $340 a month", beach: "About 10 minutes" } },
-      ], COLS3, opts("Neighborhoods with a gate, Surfside Beach to Murrells Inlet", false))) },
+        { name: "Prestwick", cells: { gate: K.house, fee: "About $190 a month", price: "About $480,000", beach: "About 7 minutes" } },
+        { name: "Bellwood Landing", cells: { gate: K.ask, fee: "About $160 a month", price: "About $850,000", beach: "About 15 minutes" } },
+        { name: "Wachesaw Plantation", cells: { gate: K.house, fee: "About $150 a month on most homes", price: "About $650,000", beach: "About 15 minutes" } },
+        { name: "Wachesaw East", cells: { gate: K.ask, fee: "About $145 a month", price: "About $500,000", beach: "About 10 minutes" } },
+        { name: "Seasons at Prince Creek West (55+)", href: SEASONS, cells: { gate: K.call, fee: "About $340 a month", price: "About $500,000", beach: "About 10 minutes" } },
+      ], COLS, opts("Neighborhoods with a gate, Surfside Beach to Murrells Inlet", false))) },
 
     { h2: "Which neighborhoods in Pawleys Island and Litchfield are gated?", toc: "Pawleys Island", id: "pawleys-island", html: (bg) =>
       h.p(`Litchfield by the Sea is a private, gated community on the ocean at Litchfield, near Pawleys Island. Its main gate on US 17 has a ${h.ext(LBTS_GUIDE, "guard day and night")}.`) +
+      h.p("Litchfield by the Sea has many sections, and prices and HOA fees differ a lot from one to the next. In the last year, whole condos there sold for anywhere from under $200,000 to over $2 million. Houses in its Oystercatcher Island section sold for about $750,000. We send the homes for sale in each section on request.") +
       h.p("DeBordieu Colony, a little farther south toward Georgetown, is on the ocean too.") +
       DEB_PHOTO +
-      h.p(`We send recent sales for these neighborhoods, and for Wachesaw Plantation and Wachesaw East, ${h.a(OFFER, "on request")}.`) +
       table("table-pawleys-island", compareCards([
-        { name: "Litchfield by the Sea", cells: { gate: K.guard, fee: "Not posted by the association", beach: "On the ocean" } },
-        { name: "Litchfield Plantation", cells: { gate: K.house, fee: "About $230 a month on most homes", beach: "About 8 minutes" } },
-        { name: "Willbrook Plantation", cells: { gate: K.house, fee: "About $340 a month", beach: "About 9 minutes" } },
-        { name: "The Reserve", cells: { gate: K.ask, fee: "About $320 a month on most homes", beach: "About 8 minutes" } },
-        { name: "Heritage Plantation", cells: { gate: K.ask, fee: "About $325 a month", beach: "About 10 minutes" } },
-        { name: "DeBordieu Colony", cells: { gate: K.house, fee: "About $300 to $400 a month", beach: "On the ocean" } },
-      ], COLS3, opts("Neighborhoods with a gate in Pawleys Island and Litchfield", false))) +
+        { name: "Litchfield by the Sea", cells: { gate: K.guard, fee: "Differs by section", price: "Condos under $200,000 to over $2 million", beach: "On the ocean" } },
+        { name: "Litchfield Plantation", cells: { gate: K.house, fee: "About $230 a month on most homes", price: "About $1 million", beach: "About 8 minutes" } },
+        { name: "Willbrook Plantation", cells: { gate: K.house, fee: "About $340 a month", price: "About $1 million", beach: "About 9 minutes" } },
+        { name: "The Reserve", cells: { gate: K.ask, fee: "About $320 a month on most homes", price: "About $1.35 million", beach: "About 8 minutes" } },
+        { name: "Heritage Plantation", cells: { gate: K.ask, fee: "About $325 a month", price: "About $710,000", beach: "About 10 minutes" } },
+        { name: "DeBordieu Colony", cells: { gate: K.house, fee: "About $300 to $400 a month", price: "About $2 million", beach: "On the ocean" } },
+      ], COLS_P, opts("Neighborhoods with a gate in Pawleys Island and Litchfield", false))) +
       h.cta("Get this week's list of homes for sale in gated neighborhoods.",
         "Tell us your price range and the area you like. One of our agents will email you this week's homes for sale in the gated neighborhoods that fit.",
         OFFER_LABEL, OFFER, bg) },
@@ -303,10 +311,10 @@ module.exports = {
         { text: "Every guest and worker comes through the gate.", act: "Give the gate your guest's name before the visit, where the gate asks for it." },
       ], { bg }) },
 
-    { h2: "How do you know a home is behind the gate?", toc: "Check the gate", html: (bg) =>
-      h.p("Drive in by the entrance you will use every day, because some neighborhoods are gated only in part. In Barefoot Resort and Grande Dunes only some sections are gated, and Myrtle Trace has gates only at its back entrance.") +
+    { h2: "What should you check at the gate before you buy?", toc: "Check the gate", html: (bg) =>
+      h.p("Two things matter at the gate: whether the home is behind it, and how your guests will get in. In Barefoot Resort and Grande Dunes only some sections are gated, and Myrtle Trace has gates only at its back entrance.") +
       story([
-        "<strong>Example:</strong> Joan is moving from Ohio, and she wants a 55+ home behind a gate. She likes a house in Myrtle Trace, near Conway.",
+        "<strong>Example:</strong> Joan is moving from Ohio, and she wants a 55+ home behind a gate. A house in Myrtle Trace, near Conway, fits her budget.",
         "Her Chapter3 agent drives her in by the front entrance. That entrance has no gate, and the gates are only at the back.",
         "The agent shows her homes for sale in Seasons at Prince Creek West, which has a gate at its main entrance. Joan finds a house there and makes her offer.",
       ], "", bg,
@@ -326,7 +334,7 @@ module.exports = {
     { name: "Litchfield by the Sea guest guide", href: LBTS_GUIDE },
     { name: "Barefoot Resort Residential Association", href: BAREFOOT },
   ],
-  sourcesNote: "Not legal advice. Gates, fees and golf come from each association and recent home listings. A price is the typical recorded sale over the last 12 months, without builder sales. Drive times are OpenStreetMap estimates with no traffic.",
+  sourcesNote: "Not legal advice. Gates, fees and golf come from associations and home listings. A price is the middle sale of the past year. Horry County prices are deed records, without builder sales. Prices near Pawleys Island and in Wachesaw are MLS closed sales, which can include builder sales. Litchfield by the Sea figures leave out shared-week sales. Drive times: OpenStreetMap, no traffic.",
   afterSources: () => ph.credits(),
   bottomCta: { h2: "Get this week's list of homes for sale in gated neighborhoods.", p: "Tell us your price range and the area you like. One of our agents will email you this week's homes for sale in the gated neighborhoods that fit.", label: OFFER_LABEL, href: OFFER },
   keywords: "gated communities Myrtle Beach, gated communities North Myrtle Beach, gated communities Murrells Inlet, gated communities Pawleys Island, 55+ gated communities Myrtle Beach, gated golf communities Myrtle Beach, homes for sale in gated communities Myrtle Beach",

@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-13 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain eb0ee65, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
+Built 2026-10-13 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain af6b857, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -182,20 +182,20 @@ Everything already matched the partials - nothing to do.
 ### PASS: node tools/mkpage.js specs/best-neighborhoods.js
 
 ```
-wrote chapter3realty/buyers/best-neighborhoods/index.html (191735 bytes, hero sub 23 words, main 4287 words)
+wrote chapter3realty/buyers/best-neighborhoods/index.html (191750 bytes, hero sub 23 words, main 4289 words)
 best-neighborhoods: no room on the overview for the names of 5, 8, 9, 11, 15; the key names them
 ```
 
 ### PASS: node tools/mkpage.js specs/gated-communities.js
 
 ```
-wrote chapter3realty/buyers/gated-communities/index.html (176249 bytes, hero sub 23 words, main 2906 words)
+wrote chapter3realty/buyers/gated-communities/index.html (185900 bytes, hero sub 23 words, main 3203 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/no-hoa-homes.js
 
 ```
-wrote chapter3realty/buyers/no-hoa-homes/index.html (165127 bytes, hero sub 26 words, main 2928 words)
+wrote chapter3realty/buyers/no-hoa-homes/index.html (165140 bytes, hero sub 26 words, main 2930 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/affordable-places-to-live.js
@@ -207,7 +207,7 @@ wrote chapter3realty/buyers/affordable-places-to-live/index.html (177128 bytes, 
 ### PASS: node tools/mkpage.js specs/the-farm.js
 
 ```
-wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (179966 bytes, hero sub 22 words, main 3068 words)
+wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (179976 bytes, hero sub 22 words, main 3069 words)
 ```
 
 ### PASS: the pages built from the package match the first build byte for byte
@@ -240,7 +240,7 @@ llms-full.txt carries the header date - run 'node build.js llmsfull' if page tex
 ### PASS: node build.js llmsfull
 
 ```
-llms-full.txt regenerated: 136 pages, 1487KB, dated 2026-10-13.
+llms-full.txt regenerated: 136 pages, 1488KB, dated 2026-10-13.
 ```
 
 ### PASS: node build.js check
@@ -289,7 +289,7 @@ OK - all 136 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 141 pages from commit 1f6e61ed on claude/github-account-check-wutg8b.
+OK - deploying 141 pages from commit 5b9119fd on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
@@ -297,21 +297,21 @@ OK - deploying 141 pages from commit 1f6e61ed on claude/github-account-check-wut
 
 ```
 /buyers/best-neighborhoods/  Best Neighborhoods in Myrtle Beach: Prices and Map | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2315 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2317 words)
 ```
 
 ### PASS: score.js --only /buyers/gated-communities/
 
 ```
 /buyers/gated-communities/  Gated Communities in Myrtle Beach: HOA Fees, Prices | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1473 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1523 words)
 ```
 
 ### PASS: score.js --only /buyers/no-hoa-homes/
 
 ```
 /buyers/no-hoa-homes/  Homes With No HOA in Myrtle Beach: Where, Cost, Pros and Cons
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1650 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1652 words)
 ```
 
 ### PASS: score.js --only /buyers/affordable-places-to-live/
@@ -325,7 +325,7 @@ Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1844 words)
 
 ```
 /submarkets/carolina-forest/the-farm/  The Farm at Carolina Forest: HOA Fee, Pools, Rules | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1815 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1816 words)
 ```
 
 ### PASS: claims-scan.js: no new banned claim on any surface
