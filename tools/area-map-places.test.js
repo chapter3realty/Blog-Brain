@@ -117,7 +117,7 @@ const county = regionMap({ name: "County test", places: [pt("Georgetown", T.Geor
 const toXY = (o) => [(o.lon - county.frame.west) / (county.frame.east - county.frame.west) * county.width, (county.frame.north - o.lat) / (county.frame.north - county.frame.south) * county.height];
 const far = county.boxes.filter((b) => b.kind === "town").filter((b) => {
   const [x, y] = toXY(T[b.owner]), [cx, cy] = center(b);
-  return Math.hypot(cx - x, cy - y) > (b.y1 - b.y0) / 2 + A.internals.TOWN_REACH + 0.5;
+  return Math.hypot(cx - x, cy - y) > (b.y1 - b.y0) / 2 + 12.5;
 }).map((b) => b.owner);
 check("every town name on a county-wide map sits by its own town", !far.length, far.join());
 check("no coastal town name is drawn west of the waterway on the county-wide map", !county.boxes.some((b) => b.kind === "town" && ["Surfside Beach", "Garden City", "Murrells Inlet", "Pawleys Island"].includes(b.owner) && center(b)[0] < toXY(T[b.owner])[0] - 20));
