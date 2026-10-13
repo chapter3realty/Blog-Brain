@@ -42,7 +42,13 @@
  *                           labelled }], unlabelled (names left off the map) and key: an <ol> of
  *                           every place by number, at reading size, linked when href is given. Show
  *                           the key under the map whenever unlabelled is not empty. No drive minutes:
- *                           a map with no home has nothing to measure from. Tested in
+ *                           a map with no home has nothing to measure from. Options (2026-10-13,
+ *                           round 4): places[i].first names that place before the others (the page's
+ *                           own pick in a crowded cluster); spec.leaders { places, towns } gives a
+ *                           name with no room by its spot a thin leader line to it from the nearest
+ *                           open space (at most LEADER_MAX units long, crossing no mark, name or
+ *                           line), for a place left without a name (places: true) and for each town
+ *                           named in towns (on the ocean when the town is on the coast). Tested in
  *                           tools/area-map-places.test.js. Before 2026-10-13 regionMap needed a home,
  *                           and a cluster of neighborhoods lost whole places, not only their names.
  *                           Any point in the cached data's box can go on a map: since 2026-10-13
@@ -629,7 +635,7 @@ const C2 = {
 const TOWN_REACH = 12;
 /* The longest leader line from a name to its town or marker (spec.leaders), in map units: about a
    sixth of the map's width. A longer line read as pointing at something else. */
-const LEADER_MAX = 60;
+const LEADER_MAX = 80;
 const SZ = { home: 17, place: 14, mins: 13, town: 14, water: 14, ocean: 15, state: 11.5, shield: 11, suf: 8, furn: 11, street: 12.5, name: 14, amenity: 14.5, sub: 12.5, many: 15, num: 12.5 };
 
 /* A label's room. textWidth fits DM Sans within about 5 percent; a phone that shows a
@@ -1183,7 +1189,7 @@ function placesSpec(spec) {
   }
   const lat = list.reduce((t, p) => t + (+p.lat || 0), 0) / list.length, lon = list.reduce((t, p) => t + (+p.lon || 0), 0) / list.length;
   const out = { home: { name: spec.name, lat, lon }, many: true, coast: spec.coast, minSpanKm: spec.minSpanKm, alt: spec.alt, caption: spec.caption, leaders: spec.leaders === true ? { places: true } : spec.leaders || null,
-    landmarks: list.map((p, i) => ({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region" })) };
+    landmarks: list.map((p, i) => ({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region", first: !!p.first })) };
   validate(out, loadGeo2().bbox, WIDEN2);
   return out;
 }
@@ -1222,7 +1228,9 @@ function placeMany(L, F, lms, R, between) {
   });
   if (between) between();
   const labels = [], dropped = [], bare = [];
-  for (const k of marks) {
+  /* A place marked first (places[i].first: the page's own pick) is named before the others, so it
+     gets the room beside its marker in a crowded cluster; the rest keep their order. */
+  for (const k of marks.filter((k) => k.m.lm.first).concat(marks.filter((k) => !k.m.lm.first))) {
     const { m, owner } = k, own = (it) => it.owner === owner;
     /* One line first, then the name on two lines, which fits a tighter spot. */
     const text = m.lm.short || m.lm.name;
@@ -1431,7 +1439,7 @@ function regionMap(spec, opts = {}) {
     return best;
   };
   /* Towns first, after the markers and before the place names (placeMany calls it between its two
-     passes), so the town in the page's title gets its spot. */
+     passes), so the town in the page's title gets its spot: the open ocean nearest the town. */
   const townLeaders = () => {
     /* Towns: the caller names them (leaders.towns). The name goes in the open spot nearest the town,
        the ocean side first, with its line to a clear point inside the town's own outline. */

@@ -220,12 +220,14 @@ function makeMaps(ctx) {
  *           batch's verified data.
  *   o.caption  the words under the map; it must say "map".
  *   o.key      true shows the key even when every name is on the map.
+ *   o.leaders  names with a leader line where they have no room by their spot (area-map.js
+ *              spec.leaders): { places: true, towns: ["Myrtle Beach"] }.
  * Returns { html, map }: the figure (and key), and the regionMap result.
  */
 function makePlacesMap(ctx) {
   const { h, mapDir, mapSrc } = ctx;
   return function placesMap(name, places, o = {}) {
-    const m = regionMap({ name, places }, { dir: mapDir, src: mapSrc });
+    const m = regionMap({ name, places, leaders: o.leaders }, { dir: mapDir, src: mapSrc });
     const fig = mapFigure(h, m.html, o.caption, m.credit, name);
     return { html: fig + (o.key || m.unlabelled.length ? m.key : ""), map: m };
   };

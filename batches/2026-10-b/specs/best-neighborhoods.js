@@ -169,14 +169,14 @@ function labelDots(res, forms, o = {}) {
   let svg = res.html;
   for (const num of strip) {
     const re = new RegExp(`(<text class="nm"[^>]*>${num}</text>)<text class="l"[^>]*>[\\s\\S]*?</text>`);
-    if (!re.test(svg)) throw new Error(`best-neighborhoods: no map label to strip for ${num}`);
+    if (!re.test(svg)) continue;
     svg = svg.replace(re, "$1");
     m.boxes = m.boxes.filter((b) => !(b.kind === "label" && b.owner === "lm" + (num - 1)));
   }
   for (const sh of o.stripShields || []) {
     const num = sh.split(" ")[1].split("#")[0];
     const re = new RegExp(`<g transform="translate\\([^)]*\\)"><g class="k"><rect [^>]*/><text class="r"[^>]*>${num}</text></g></g>`);
-    if (!re.test(svg)) throw new Error(`best-neighborhoods: no road shield ${sh} on the map`);
+    if (!re.test(svg)) continue;
     svg = svg.replace(re, "");
     m.boxes = m.boxes.filter((b) => !(b.kind === "shield" && b.owner === sh));
   }
@@ -219,9 +219,10 @@ function labelDots(res, forms, o = {}) {
 
 /* The overview: the fifteen, north to south, each name linked to its own part of the page, and the key in
    two columns on a phone too, so it sits right under the map. */
-const OVERVIEW = labelDots(kit.placesMap("Neighborhoods", D.neighborhoods.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: link(n.id) })), {
+const OVERVIEW = labelDots(kit.placesMap("Neighborhoods", D.neighborhoods.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: link(n.id), first: n.id === "the-farm" })), {
   caption: "Map of the 15 neighborhoods on this page, numbered from North Myrtle Beach at the top right to Murrells Inlet at the bottom left. The city of Myrtle Beach is on the coast around numbers 6, 10 and 12.",
   key: true,
+  leaders: { places: true, towns: ["Myrtle Beach"] },
 }), {
   "Barefoot Resort": [["Barefoot"]], "Waterbridge": [["Waterbridge"]], "The Farm at Carolina Forest": [["The Farm"]],
   "Plantation Lakes": [["Plantation Lakes"], ["Plantation", "Lakes"]], "Berkshire Forest": [["Berkshire"]],

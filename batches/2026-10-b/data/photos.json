@@ -720,7 +720,7 @@
      "height": 675
     }
    },
-   "crop_source": "The 2400 by 1800 px labelled export (the same view, outline and labels as the page photo), center-cropped by tools/photos.js crops for Article.image and the share image."
+   "crop_source": "The 2400 by 1800 px labelled export (the same view, outline and labels as the page photo), cut by tools/photos.js crops for Article.image and the share image. In the 16x9 cut, the House label box is moved down 85 px (its leader line still ends at the house) so it is not cut off."
   },
   {
    "slug": "gated-communities",

@@ -2,6 +2,12 @@
  * boat or a work truck there, how much room the lots have, what the homes cost, and how to check one.
  *
  * Batch 2026-10-b, page 3.
+ * Version 4, 2026-10-13: round 4 (review/OWNER-EYE-2-no-hoa-homes.md). A new example: the boat meets the
+ *   Myrtle Beach front-yard limit (row 59), the agent finds the house inside the city on the county map
+ *   (row 68), and the buyer buys outside the towns, where the county has no limit (row 64). The "why"
+ *   section is one price comparison and one reason (near the ocean, row 73). The Cherry Grove photo is the
+ *   labelled copy made for best-neighborhoods; the Aynor lot is now the share image (its own crops).
+ *   Table units in words; the pond, campground and guide-link wording from the review.
  * Version 2, 2026-10-13: round 2 (review/ROUND-2.md; review/BUYER-READ-no-hoa-homes.md). The cold reader
  *   (47, Virginia, a boat and a work truck) came for a place to park both, and the page never said whether
  *   the town, the county or the deed can say no, or which areas have lots with room. Changes:
@@ -179,11 +185,11 @@ const areaTable = () => compareCards(AREAS.map((a) => ({
 /* The parking rules, place by place (ledger rows 58 to 64, as verified). */
 const parkingTable = () => compareCards([
   { name: "Outside the towns", icon: "home", cells: { boat: "Anywhere on your lot", truck: "Two per acre for a home business" } },
-  { name: "Inside Myrtle Beach", href: "/submarkets/myrtle-beach/", icon: "town", cells: { boat: "Over 16 feet: not in the front yard", truck: "One commercial; none over one ton" } },
+  { name: "Inside Myrtle Beach", href: "/submarkets/myrtle-beach/", icon: "town", cells: { boat: "Over 16 feet: not in the front yard", truck: "One work vehicle; none over one ton" } },
   { name: "Inside North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", icon: "town", cells: { boat: "Behind the house front, or a carport", truck: "None over 18,500 pounds" } },
-  { name: "Inside Conway", href: "/submarkets/conway/", icon: "town", cells: { boat: "Side yard, back yard or carport", truck: "Over 10,000 lb: not on the street" } },
-  { name: "Inside Surfside Beach", href: "/submarkets/surfside-beach/", icon: "town", cells: { boat: "Two boats or trailers (not in a garage)", truck: "One van or pickup, 21 ft, 8 ft high" } },
-  { name: "Inside Loris", icon: "town", cells: { boat: "Over 17 feet: not in front or side yard", truck: "One, up to 2 tons" } },
+  { name: "Inside Conway", href: "/submarkets/conway/", icon: "town", cells: { boat: "Side yard, back yard or carport", truck: "Over 10,000 pounds: not on the street" } },
+  { name: "Inside Surfside Beach", href: "/submarkets/surfside-beach/", icon: "town", cells: { boat: "Two boats or trailers (not in a garage)", truck: "One van or pickup, up to 21 feet long" } },
+  { name: "Inside Loris", icon: "town", cells: { boat: "Over 17 feet: not in front or side yard", truck: "One work vehicle, up to 2 tons" } },
 ], [
   { key: "boat", label: "A boat, camper or trailer" },
   { key: "truck", label: "A work truck at home" },
@@ -191,12 +197,13 @@ const parkingTable = () => compareCards([
 
 const ph = kit.photoSet({ aerialWidth: "760px" });
 const CSS = ph.css() + "<style>.c3-areamap figure{max-width:600px!important}</style>";
-/* Made at load time: mkpage reads pageImages before it builds the sections. The Cherry Grove aerial stays the
-   share image; the Aynor lot is the page's own picture of "room". */
-const CHERRY = ph.aerial("cherry-grove-from-above", "Cherry Grove in North Myrtle Beach, from the air. More homes for sale with no HOA fee are here than in any other part of North Myrtle Beach.",
-  { alt: "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of houses along canals, and a wide salt marsh with winding creeks" });
+/* Made at load time: mkpage reads pageImages before it builds the sections. The Aynor lot is the page's own
+   picture of "room" and its share image (its record has crops). The Cherry Grove photo is the labelled copy
+   made for best-neighborhoods (Beach, Canals, Salt marsh), with this page's caption: the flood fact (row 74). */
 const AYNOR_LOT = ph.aerial("aynor-country-lot", "Houses on lots of about an acre along a country road outside Aynor, from the air. The orange line is one lot.",
   { closeUp: true });
+ph.share("aynor-country-lot");
+const CHERRY = ph.aerial("cherry-grove-canals-from-above", "Cherry Grove from the air. Almost every home here is in a high-risk flood zone.");
 
 /* Sources. */
 const CONDO_LAW = "https://www.scstatehouse.gov/code/t27c031.php";
@@ -215,15 +222,14 @@ const HORRY_CODE = `${MUNI}horry_county/codes/code_of_ordinances?nodeId=COOR_CH1
 
 /* Words used more than once. */
 const loris = AREAS.find((a) => a.key === "Loris");
-const surf = AREAS.find((a) => a.key === "Surfside Beach and Garden City");
 const LABEL = "Get the list";
-/* The example: its own arc, on this page's deciding fact (a blank fee field is not proof; row 20), with the
-   service Chapter3 records: the agents filter homes out of a search for the buyer (stories.json
-   "hoa-rental-bans-filtered"). It ends with a tour, not an offer. */
+/* The example: its own arc, on this page's deciding fact (a town limit on a boat; rows 59, 64 and 68), with
+   the services Chapter3 records: the agent reads the rules and filters the search for the buyer (stories.json
+   "hoa-rental-bans-filtered"). Myrtle Beach: a boat over 16 feet may not sit in the front yard (row 59). */
 const STORY = [
-  "<strong>Example:</strong> Rosa owns a work truck and a small boat, and she wants a home with no HOA. Her Chapter3 agent searches the homes for sale in her price range with no HOA fee listed.",
-  "In one listing, the home pays community dues. The agent takes that home off her list.",
-  "Rosa tours the rest on her first weekend in town.",
+  "<strong>Example:</strong> Teresa wants a home with no HOA and room for her 20-foot boat. She likes a house on a small lot with a Myrtle Beach address.",
+  "Her Chapter3 agent finds the house on the county map, inside the city of Myrtle Beach. In the city, a boat that long cannot sit in the front yard, and that lot has no other room for it.",
+  "The agent shows her houses just outside the city, where she can keep the boat anywhere on her lot. Teresa makes an offer on one with a wide side yard.",
 ];
 
 /* ---------------------------------------------------------------------------- */
@@ -231,7 +237,7 @@ const STORY = [
 module.exports = {
   url: SELF,
   hub: { name: "Buyers", url: "/buyers/" },
-  /* The Cherry Grove aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
+  /* The Aynor lot aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
   title: "Homes With No HOA in Myrtle Beach: Where, Cost, Pros and Cons",
   description: "Where to find homes with no HOA fee around Myrtle Beach, what they cost, lot sizes, flood zones, the pros and cons, and the town rules for a boat or work truck.",
@@ -262,14 +268,14 @@ module.exports = {
       h.p("A house for sale with no HOA fee in Aynor usually has about an acre, and in Loris about three quarters of an acre. In North Myrtle Beach and Surfside Beach the lots are small, about a sixth of an acre. About 1 in 3 houses with no HOA fee has half an acre or more, against about 1 in 15 houses with a fee.") +
       AYNOR_LOT +
       h.p("Most houses with no HOA fee in Aynor, Loris and Conway are outside the town limits, so the county's rules apply there. In North Myrtle Beach, almost all of them are in four parts of town: Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive.") +
+      h.p(`Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
       h.cta("Get the homes with no HOA fee in your price range.", "Tell us your price range and the areas you like. One of our agents will send you the homes for sale with no HOA fee.", LABEL, "/contact/", bg) },
 
-    { h2: "Why do homes with no HOA fee cost more in some areas?", toc: "Why some cost more", html: () =>
-      h.p(`Houses for sale with no HOA fee are listed higher in every area that has them: about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are older houses, and about 1 in 3 is on the ocean side of Business 17, the coast road. About half were built before 2000, against about 1 in 10 houses with a fee.`) +
-      h.p(`In Surfside Beach and Garden City, about 4 in 10 houses with no HOA fee face the ocean, see it or are one row back. Almost none of the houses with a fee there are. Houses for sale with no HOA fee there are listed at about ${to5k(surf.houses.medianListPriceNoFee)}, against about ${to5k(surf.houses.medianListPriceWithFee)} with a fee.`) +
+    { h2: "Why do homes with no HOA fee cost more?", toc: "Why they cost more", html: () =>
+      h.p(`Houses for sale with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are near the ocean: about 1 in 3 is on the ocean side of Business 17, the coast road.`) +
       CHERRY +
       h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Near the water, flood insurance can cost more than that. Almost every home in Cherry Grove is in a high-risk flood zone on ${h.ext(FEMA, "FEMA's flood map")}. Flood insurance on a home you live in there usually costs about $1,300 a year.`) +
-      h.p(`On the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose. Check the flood zone of the home you like before you offer. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) },
+      h.p(`On the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose. Check the flood zone of the home you like before you offer.`) },
 
     { h2: "What do you gain and give up with no HOA?", toc: "Pros and cons", html: (bg) =>
       h.p("With no HOA, you pay no HOA fee and follow no HOA rules. You also have no shared pool, and outside the towns you arrange your own trash pickup.") +
@@ -299,7 +305,7 @@ module.exports = {
         "Outside the towns, the county does not pick up at the curb. You arrange pickup yourself, or use one of the county's drop-off centers, which are only for homes outside the towns.",
       ]) +
       h.p(`A Myrtle Beach mailing address does not mean the home is inside the city. To see whether a home is inside a town, find it on the county's ${h.ext(MAP_YOUR_MOVE, "Map Your Move map")}, which shows the town for each lot.`) +
-      h.p(`If the lot has a ${h.ext(PONDS, "stormwater pond")}, you keep it working. A good habit: check it twice a year and after big storms, clear out debris and cut back the plants.`) +
+      h.p(`If the lot has a ${h.ext(PONDS, "stormwater pond")}, you keep it working. Check it twice a year and after big storms. Clear out debris and cut back the plants.`) +
       h.p("The county keeps up only the roads it owns, and the state keeps up state roads. A private road is kept up by whoever its papers name, such as a property owners association. Ask who that is before you buy.") },
 
     { h2: "Can you buy a condo with no HOA fee in Myrtle Beach?", toc: "Condos", html: () =>
@@ -324,7 +330,7 @@ module.exports = {
     { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot. Inside the city of Myrtle Beach, a boat over 16 feet may not sit in the front yard, and boats and trailers may not park on residential streets. Outside the towns, the county has no rule on where you keep your own boat, trailer or camper on your lot." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "Why are HOA fees so high in Myrtle Beach?", a: "Condo fees are high because they include the cost of the building: its insurance, water and sewer, trash and a pool. Fees on houses are much lower, about $95 a month, because most include only shared areas, trash and a pool." },
-    { q: "Is a campground home with no HOA fee a no-HOA home?", a: "No. A home on leased land in a campground community has no HOA fee, but you pay a yearly lease for the land under it." },
+    { q: "Is a campground home with no HOA fee a no-HOA home?", a: "A campground home has no HOA fee, but you pay a yearly lease for the land under it." },
   ],
   sources: [
     { name: "town and county codes", href: `${MUNI}horry_county/codes/code_of_ordinances` },
