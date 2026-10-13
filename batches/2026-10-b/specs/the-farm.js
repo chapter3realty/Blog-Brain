@@ -2,6 +2,12 @@
  * a built-out neighborhood of about 1,600 homes in Carolina Forest, Myrtle Beach.
  *
  * Batch 2026-10-b, page 4. Version 1, 2026-10-13.
+ * Version 2, 2026-10-13 (round 2, BUYER-READ-the-farm.md and ROUND-2.md): the yearly cost of a typical
+ *   house in one line (pending rows 85 and 86); the price in the short answer; HOA spelled out once; the
+ *   large pool's settling and the special assessment in the pools section; the Corps' status words
+ *   explained from DoD's own definitions (pending rows 87 to 89); townhome and condo explained (pending
+ *   row 90); plain words for county value, zoned for, stormwater, county roads and the lot survey; the
+ *   rent-out tax, the acreage, the food drive and history dates cut; a brighter, closer pool aerial.
  *
  * Reader: a buyer, often from out of state, who has seen a listing in The Farm or heard the name and
  * wants to picture living there and decide whether to look. They do not know Carolina Forest, the
