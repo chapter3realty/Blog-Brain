@@ -259,7 +259,7 @@ module.exports = {
       ], { bg, min: "13rem" }) +
       story([
         "<strong>Example:</strong> Rachel and Luis want to spend their summer afternoons at a big pool, and they love the large pool in The Farm. They find a house a short walk from it.",
-        "Before they make an offer, their Chapter3 agent reads the HOA's documents with them, including the latest board minutes. The minutes show the large pool has sunk, and the board has not decided how to fix it.",
+        "Their Chapter3 agent reads the HOA's documents with them, including the latest board minutes, before they make an offer. The minutes show the large pool has sunk, and the board has not decided how to fix it.",
         "Owners may have to pay a one-time charge for the work. Rachel and Luis put money aside for that charge before they move in.",
       ], "", bg,
       `An agent at Chapter3 can ${h.a("/contact/", "read the HOA's documents and latest minutes with you")} before you make an offer.`) },

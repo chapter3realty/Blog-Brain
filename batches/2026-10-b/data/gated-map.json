@@ -273,8 +273,8 @@
    "from": "gated-communities.json"
   },
   {
-   "name": "Litchfield by the Sea",
-   "short": "Litchfield by the Sea",
+   "name": "Litchfield by the Sea (River Club gate)",
+   "short": "Litchfield by the Sea, River Club gate",
    "lat": 33.471219,
    "lon": -79.126112,
    "rows": [
@@ -282,7 +282,7 @@
     5,
     6
    ],
-   "from": "U.S. Census geocoder, 11 Club Circle, Pawleys Island, SC 29585 (the River Club gate, ledger row 6), read 2026-10-13"
+   "from": "U.S. Census geocoder, 11 Club Circle, Pawleys Island, SC 29585 (the River Club gate, ledger row 6), read 2026-10-13 The dot marks the River Club gate, west of US 17; the community's ocean side is east of US 17 (round 4: labelled so the dot is not read as the beach)."
   },
   {
    "name": "Heritage Plantation",
