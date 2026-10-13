@@ -125,11 +125,13 @@ function cloneSite(name) {
   return dir;
 }
 
-/* The URL a spec builds, read the way mkpage reads it (the spec needs the website's tools). */
+/* The URL a spec builds, read the way mkpage reads it (the spec needs the website's tools). A spec may
+   print a note while it loads (a map label that does not fit), so the URL is read after a marker. */
 function specUrl(site, spec) {
-  const r = run(process.execPath, ["-e", `process.stdout.write(require(${JSON.stringify(path.join(site, "specs", spec))}).url)`], site);
-  if (r.code !== 0 || !/^\/.*\/$/.test(r.out)) throw new Error(`cannot read the url of specs/${spec}: ${tail(r.out, 5)}`);
-  return r.out;
+  const r = run(process.execPath, ["-e", `process.stdout.write("\\nSPEC-URL " + require(${JSON.stringify(path.join(site, "specs", spec))}).url + "\\n")`], site);
+  const url = (r.out.match(/\nSPEC-URL (\S+)/) || [])[1] || "";
+  if (r.code !== 0 || !/^\/.*\/$/.test(url)) throw new Error(`cannot read the url of specs/${spec}: ${tail(r.out, 5)}`);
+  return url;
 }
 
 /* Every /images/ path a built page uses (src, srcset, og:image, JSON-LD), as site paths. */

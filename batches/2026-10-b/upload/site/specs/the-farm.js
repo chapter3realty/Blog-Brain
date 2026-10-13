@@ -8,6 +8,13 @@
  *   from DoD's definition of response complete (rows 87, 89; row 88 is wrong as applied, not used); townhome and condo explained (pending
  *   row 90); plain words for county value, zoned for, stormwater, county roads and the lot survey; the
  *   rent-out tax, the acreage, the food drive and history dates cut; a brighter, closer pool aerial.
+ * Version 3, 2026-10-13 (round 3, OWNER-EYE-the-farm.md and ROUND-3.md): a new example (Rachel and Luis, the
+ *   sunken pool and the chance of a one-time charge; the agent reads the HOA documents and minutes, stories.json
+ *   "hoa-rental-bans-filtered"); the bombing range in plain words with the Corps' status in the sources line and
+ *   the Defense Department's 3Rs advice (pending row 91); "Get the list" in all three places; dots under The
+ *   Orchards and Planters Point on the overview; the Google Maps link; the hospital off the region map and into
+ *   a short table; the events from rows 68 and 69; tax in one line; stormwater outside the $2,600 sum; three
+ *   FAQ entries and the shopping cards cut for length.
  *
  * Reader: a buyer, often from out of state, who has seen a listing in The Farm or heard the name and
  * wants to picture living there and decide whether to look. They do not know Carolina Forest, the
@@ -104,7 +111,6 @@ const { maps, glance, prosCons, atAGlance, story, photoSet } = kit;
 
 const HUB = "/submarkets/carolina-forest/";
 const SELF = "/submarkets/carolina-forest/the-farm/";
-const TEL = "tel:+18543332135";
 
 /* Primary sources, each opened by the researcher and again by the verifier. */
 const HOA_DOCS = "https://www.farmatcarolinaforest.com/documents.html";
@@ -117,15 +123,15 @@ const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 const FUDS = "https://geospatial.sec.usace.army.mil/server/rest/services/Military/FUDS_Data/MapServer";
 const DEP = "https://www.denix.osd.mil/arc/dep-arc-fy-2024/";
 const SPECIAL = "/hoa/special-assessments/";
+const UXO = "https://www.denix.osd.mil/uxo/";
 
 const ph = photoSet({ aerialWidth: "720px" });
 const OVER = ph.aerial("the-farm-from-above", "The Farm at Carolina Forest from above. The orange line is the edge of the neighborhood.");
-const STREET = ph.aerial("the-farm-homes-from-above-2026", "A street of houses in The Farm, from above.", { closeUp: true });
+const STREET = ph.aerial("the-farm-homes-from-above-2026", "Houses on one street in The Farm, close together, many with fenced back yards.", { closeUp: true });
 const POOL = ph.aerial("the-farm-pool-from-above-2026", "The large pool and the activity center, from above.", { closeUp: true });
 const M = maps("the-farm", [
   { id: "beach_mb101", name: "the beach in Myrtle Beach", short: "Beach", kind: "beach" },
   { id: "er_mcleod", name: "McLeod Health's emergency room", short: "Emergency room", kind: "hospital" },
-  { id: "hosp_gsmc", name: "Grand Strand Medical Center", short: "Hospital", kind: "hospital" },
   { id: "airport", name: "Myrtle Beach International Airport", short: "Airport", kind: "airport" },
   { id: "groc_publix", name: "Publix", short: "Publix", kind: "grocery" },
 ], {
@@ -155,7 +161,7 @@ module.exports = {
     { icon: "hospital", label: "Emergency room", text: "About 5 minutes" },
     { icon: "dollar", label: "HOA fee", text: "$107 a month" },
   ]),
-  heroCta: { label: "Talk to an agent", href: "/contact/" },
+  heroCta: { label: "Get the list", href: "/contact/" },
   author: "devin",
   shortAnswer: [
     "The Farm at Carolina Forest has about 1,600 homes, and every lot has a home on it. Most are houses with three or four bedrooms.",
@@ -168,7 +174,7 @@ module.exports = {
       h.p("Most homes in The Farm at Carolina Forest are houses with their own yards. Most of the houses have about 1,450 to 3,200 square feet.") +
       h.p("The houses are on curving streets around ponds and shared open space. The townhomes are in a section called The Orchards, and the condos are in a section called Planters Point.") +
       OVER +
-      h.p("Most houses were built in the mid-2000s, and most of the rest in the mid-2010s. Both one-story and two-story houses are for sale here. A typical house lot is about a fifth of an acre.") +
+      h.p("D.R. Horton developed The Farm in sections. Both one-story and two-story houses are for sale here, and a typical house lot is about a fifth of an acre.") +
       STREET +
       h.p("Most houses here are about 20 years old. Before you make an offer, ask how old the roof and the air conditioner are.") +
       h.p("In The Orchards, each townhome comes with its own small lot. In Planters Point, each owner owns a condo unit and shares the buildings and land with the other owners.") +
@@ -186,23 +192,21 @@ module.exports = {
       ], { bg, min: "18rem" }) +
       h.p("The large pool has sunk into the ground more than it should, which engineers call settling. The HOA board has not decided whether to repair it or replace it. The board plans more tests of the ground under the pool after it closes for the season.") +
       h.p(`The board has not said what the work will cost. By a majority vote, it can add a one-time charge to owners, called a ${h.a(SPECIAL, "special assessment")}.`) +
-      h.p("The HOA also holds events, such as a fall yard sale. The state owns the land along The Farm's north side. It plans to open that land for outdoor recreation as part of the Lewis Ocean Bay Heritage Preserve.") },
+      h.p("The HOA budgets about $6,500 a year for social events. In the fall, its calendar lists a yard sale and a Community Appreciation Day. Every year, The Farm also joins other Carolina Forest neighborhoods in a food drive.") +
+      h.p("The state owns the land along The Farm's north side. It plans to open that land for outdoor recreation as part of the Lewis Ocean Bay Heritage Preserve.") },
 
     { h2: "Where is The Farm at Carolina Forest?", toc: "Where it is", html: (bg) =>
       h.p(`The Farm is in ${h.a(HUB, "Carolina Forest")}, about 10 minutes from the beach by car. It has a Myrtle Beach mailing address but is outside the city limits.`) +
       h.p("In our experience, rush hour adds 5 to 10 minutes to these drive times.") +
-      M.region +
+      M.where +
       h.p("A Publix grocery store is just outside The Farm, about 2 minutes from the entrance by the large pool.") +
       M.close +
-      h.p("These places are also a short drive away.") +
-      atAGlance([
-        { icon: "fitness", label: "Carolina Forest Recreation Center", text: "A county center with a full gym, a fitness room and a rock climbing wall. About 3 minutes." },
-        { icon: "trail", label: "Bike and Run Park", text: "A county park with 7 miles of trails for mountain biking and hiking. About 4 minutes." },
-        { icon: "pin", label: "International Drive Fields", text: "A county park. About 5 minutes." },
-        { icon: "shopping", label: "Tanger Outlets", text: "Outlet stores on Highway 501. About 13 minutes." },
-        { icon: "shopping", label: "Coastal Grand Mall", text: "A shopping mall. About 15 minutes." },
-        { icon: "beach", label: "Myrtle Beach Boardwalk", text: "The boardwalk along the ocean in Myrtle Beach. About 15 minutes." },
-      ], { bg, min: "13rem" }) },
+      h.table(["Also close by", "Drive"], [
+        ["Carolina Forest Recreation Center, a county gym with a fitness room and a climbing wall", "About 3 minutes"],
+        ["Bike and Run Park, a county park with 7 miles of trails", "About 4 minutes"],
+        ["Grand Strand Medical Center, a large hospital", "About 12 minutes"],
+        ["Myrtle Beach Boardwalk, along the ocean", "About 15 minutes"],
+      ]) },
 
     { h2: "Which schools is The Farm at Carolina Forest zoned for?", toc: "Schools", html:
       h.p("Every home in The Farm at Carolina Forest is zoned for, or assigned to, these three public schools in Horry County Schools. The two Ocean Bay schools are just outside The Farm's north-east side.") +
@@ -219,9 +223,8 @@ module.exports = {
       atAGlance([
         { icon: "dollar", label: "HOA fee", text: "$107 a month, about $1,300 a year" },
         { icon: "tax", label: "Property tax", text: "About $1,300 a year on a $350,000 house you live in" },
-        { icon: "storm", label: "Stormwater fee", text: "About $90 a year more, for the county's drainage of rain water" },
-      ], { bg, min: "13rem" }) +
-      h.p("When you buy, the county values the home for tax at about what a buyer would pay for it on the open market. For a new owner, that is usually close to the price paid. The new value first appears on the tax bill for the year after you buy. The tax above is for a home you live in, before any tax credit.") +
+      ], { bg, min: "18rem" }) +
+      h.p("The tax is based on about what you pay for the house, and the new amount starts the year after you buy. The county also adds a stormwater fee of about $90 a year to the tax bill, for draining rain water.") +
       h.p("The Farm is outside the city limits, so there is no city tax. When you buy, you also pay the HOA a one-time fee of $250 at closing.") +
       h.p(`The HOA spends the largest share of the ${h.ext(BUDGET, "fee")} on cable TV from Spectrum. The HOA spends the rest on landscaping and the ponds, trash pickup, the management company, electricity, savings for repairs, the pools and insurance. The fee does not include internet.`) +
       h.p("Townhomes in The Orchards and condos in Planters Point also have their own HOA. In all, owners in The Orchards pay about $225 to $255 a month. Owners in Planters Point pay about $450 to $500 a month.") +
@@ -255,17 +258,17 @@ module.exports = {
         { icon: "home", label: "Home business", text: "Allowed if nothing shows from outside, it brings no extra traffic and county rules allow that business at a home." },
       ], { bg, min: "13rem" }) +
       story([
-        "<strong>Example:</strong> Jen and Marcus are moving from New Jersey, and they want to put a swimming pool in their back yard. They like a house in The Farm with a big yard.",
-        "Before they make an offer, their Chapter3 agent reads the neighborhood's rules with them. No house in The Farm can have its own swimming pool.",
-        "The agent shows them that a hot tub is allowed once the HOA approves it, and the neighborhood has two pools. Jen and Marcus make their offer, with a plan for a hot tub on the patio.",
+        "<strong>Example:</strong> Rachel and Luis want to spend their summer afternoons at a big pool, and they love the large pool in The Farm. They find a house a short walk from it.",
+        "Before they make an offer, their Chapter3 agent reads the HOA's documents with them, including the latest board minutes. The minutes show the large pool has sunk, and the board has not decided how to fix it.",
+        "Owners may have to pay a one-time charge for the work. Rachel and Luis put money aside for that charge before they move in.",
       ], "", bg,
-      `An agent at Chapter3 can ${h.a("/contact/", "read the HOA's rules with you")} before you make an offer.`) },
+      `An agent at Chapter3 can ${h.a("/contact/", "read the HOA's documents and latest minutes with you")} before you make an offer.`) },
 
     { h2: "Was The Farm at Carolina Forest part of an old bombing range?", toc: "Old bombing range", html:
-      h.p("Yes. The Farm is on land the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Much of Carolina Forest is on that land too.") +
-      h.p("The U.S. Army Corps of Engineers runs the cleanup of former military land like this. On its map (fiscal year 2024 data), every home in The Farm is on land it lists as \"Response Complete and Site Closeout\".") +
-      h.p(`The ${h.ext(DEP, "Defense Department")} explains what that means. Response complete means the cleanup work there is finished. The Defense Department or a later owner may keep monitoring the site.`) +
-      h.p("The Corps lists another section, called Range III, as still under investigation. It borders The Farm. On the Corps' map, Range III touches the edges of some of The Farm's open land, but not any home lot.") +
+      h.p("Yes. The Farm is on land the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Other parts of Carolina Forest are on that land too.") +
+      h.p("On the Army Corps of Engineers' latest map, the cleanup work on the land under every home in The Farm is finished. The Defense Department or a later owner may keep monitoring that land.") +
+      h.p("On the same map, the Corps is still investigating another section next to The Farm, called Range III. On the Corps' map, Range III touches the edges of some of The Farm's open land, but not any home lot.") +
+      h.p(`If you ever find something that looks like old ammunition, the ${h.ext(UXO, "Defense Department's advice")} is to leave it alone. Do not touch it, move away and call 911.`) +
       h.p(`An agent at Chapter3 can show you the ${h.ext(FUDS, "Corps' map")} for the lot you like.`) },
   ],
   faqTitle: "The Farm at Carolina Forest FAQ",
@@ -273,9 +276,6 @@ module.exports = {
     { q: "How much is the HOA fee in The Farm at Carolina Forest?", a: "The HOA fee is $107 a month for every home, or about $1,300 a year. The HOA spends it on cable TV, trash pickup, landscaping, the ponds and the pools. Townhomes in The Orchards and condos in Planters Point pay a second HOA fee too." },
     { q: "Can the HOA fee in The Farm go up?", a: "Yes. The HOA can raise the fee by up to 20 percent a year. The board can also add a one-time charge, called a special assessment, by a majority vote." },
     { q: "Is The Farm at Carolina Forest a gated community?", a: "No. The streets in The Farm are public roads owned by Horry County. To add a gate, about three out of four owners would have to agree to ask a court first." },
-    { q: "Is The Farm inside the Myrtle Beach city limits?", a: "No. The Farm has a Myrtle Beach mailing address, but it is outside the city limits. Owners pay no city property tax." },
-    { q: "Who built The Farm at Carolina Forest?", a: "D.R. Horton developed The Farm in sections over many years. Every lot now has a home on it, so the homes for sale here are sold by their owners." },
-    { q: "Can you swim or boat in the ponds in The Farm?", a: "No. The ponds collect rain water from the neighborhood, and swimming and boating are not allowed in them." },
     { q: "What happens if you break an HOA rule in The Farm?", a: "You get a courtesy notice first. The HOA then charges a $25 fine, then a $50 fine, and then $50 a week until the problem is fixed." },
   ],
   sources: [
@@ -286,12 +286,13 @@ module.exports = {
     { name: "FEMA flood map", href: FEMA },
     { name: "County tax levies", href: LEVY },
     { name: "Corps map data", href: FUDS },
-    { name: "Defense Department cleanup report", href: DEP },
+    { name: "DoD cleanup report", href: DEP },
+    { name: "DoD safety advice", href: UXO },
   ],
-  sourcesNote: "Not legal or tax advice. Home sizes and ages, and the HOA totals in The Orchards and Planters Point, are from recent listings. Drive times leave out traffic. The flood cost is FEMA's middle price for house policies in ZIP code 29579.",
+  sourcesNote: "Not legal or tax advice. Home sizes, ages and the Orchards and Planters Point HOA totals are from recent listings. Drive times leave out traffic. The flood cost is FEMA's middle house policy price in ZIP code 29579. The Corps lists the land under the homes as Response Complete and Site Closeout (fiscal year 2024).",
   /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
   afterSources: () => ph.credits(),
-  bottomCta: { h2: "Want help buying a home in The Farm?", p: "Call about the home you like. One of our agents will go over the HOA rules and costs with you. Office hours are Monday to Friday 9 to 6 and Saturday 10 to 4.", label: "Call an agent", href: TEL },
+  bottomCta: { h2: "Get the list of homes for sale in The Farm.", p: "Tell us your price range, and one of our agents will send you the homes for sale in The Farm now.", label: "Get the list", href: "/contact/" },
   keywords: "The Farm at Carolina Forest, The Farm Carolina Forest HOA, The Farm at Carolina Forest HOA fee, The Farm at Carolina Forest homes for sale, The Farm at Carolina Forest pool, The Farm at Carolina Forest rules",
   about: "The Farm at Carolina Forest, a neighborhood in unincorporated Horry County with a Myrtle Beach address, South Carolina",
 };

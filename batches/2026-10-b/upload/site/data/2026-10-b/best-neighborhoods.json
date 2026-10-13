@@ -1,5 +1,5 @@
 {
-  "_comment": "The neighborhoods, map points and table cells on /buyers/best-neighborhoods/ (batch 2026-10-b, page 1). Every cell comes from a verified row in batches/2026-10-b/facts/neighborhoods-facts.md (the verifier's 'OK to use on the page as' wording and the corrected beach rows), except The Farm (batches/2026-10-b/facts/the-farm-facts.md, rows 5, 28, 47, 48, 71), Tidewater's price and fee (batches/2026-10-b/facts/gated-communities-facts.md rows 20 and 43, so the gated page and this page show one value) and the four 55+ communities (batches/2026-10-a/data/55-plus-communities.json, by reference). Prices: the middle recorded resale, October 2025 to September 2026, rounded; a range (the verifier's middle half or full range) where fewer than 20 sold; houses and other types apart where one figure blends them. Fees: the fee sellers entered on listings in October 2026 (The Farm: the HOA's 2026 budget). Beach: minutes by car with no traffic from the neighborhood's middle to the nearest public beach access (The Farm: from the Farmers Rest Drive entrance). Map points: the reference point of each neighborhood (a county address point near the middle of its homes; the address is never shown), The Farm at the middle of its 1,634 parcels. Round 2 (2026-10-13): fees rounded to one figure where the verifier's 'most often' value exists (ROUND-2 item 5); 'Ask us' replaced by rows 177 and 178; the beach column says 'by car, no traffic' in its heading.",
+  "_comment": "The neighborhoods, map points and table cells on /buyers/best-neighborhoods/ (batch 2026-10-b, page 1). Every cell comes from a verified row in batches/2026-10-b/facts/neighborhoods-facts.md (the verifier's 'OK to use on the page as' wording and the corrected beach rows), except The Farm (batches/2026-10-b/facts/the-farm-facts.md, rows 5, 28, 47, 48, 71), Tidewater's price and fee (batches/2026-10-b/facts/gated-communities-facts.md rows 20 and 43, so the gated page and this page show one value) and the four 55+ communities (batches/2026-10-a/data/55-plus-communities.json, by reference). Prices: the middle recorded resale, October 2025 to September 2026, rounded; a range (the verifier's middle half or full range) where fewer than 20 sold; houses and other types apart where one figure blends them. Fees: the fee sellers entered on listings in October 2026 (The Farm: the HOA's 2026 budget). Beach: minutes by car with no traffic from the neighborhood's middle to the nearest public beach access (The Farm: from the Farmers Rest Drive entrance). Map points: the reference point of each neighborhood (a county address point near the middle of its homes; the address is never shown), The Farm at the middle of its 1,634 parcels. Round 2 (2026-10-13): fees rounded to one figure where the verifier's 'most often' value exists (ROUND-2 item 5); 'Ask us' replaced by rows 177 and 178; the beach column says 'by car, no traffic' in its heading. Round 3 (2026-10-13): Grande Dunes uses the gated page's group and values (one fact, one value); the Cherry Grove HOA cell in the yearly cost table reads 'None on most homes' (row 177: 52 of 89 listed with no fee).",
   "as_of": "2026-10-13",
   "ledger": "batches/2026-10-b/facts/neighborhoods-facts.md",
   "neighborhoods": [
@@ -26,7 +26,7 @@
       "lon": -78.627983,
       "cells": {
         "price": "About $695,000 for a house",
-        "fee": "None on more than half",
+        "fee": "None on most homes",
         "beach": "A short walk, about 0.1 mile"
       },
       "rows": "price: row 94 (92 house resales, middle $695,000); fee: none gathered (row 175 wrong); beach: row 97 (0.1 mile; no parking at that access; on-street pay parking 0.3 mile); flood: row 100; no-HOA share: no-hoa-facts.md row 18 corrected; round 2: fee cell from row 177 (52 of 89 homes for sale with no fee)"
@@ -75,17 +75,17 @@
     },
     {
       "id": "grande-dunes",
-      "name": "Grande Dunes, some sections",
+      "name": "Grande Dunes: Calais, Palermo and Villa Venezia",
       "short": "Grande Dunes",
       "area": "myrtle-beach",
-      "lat": 33.768492,
-      "lon": -78.813809,
+      "lat": 33.75879,
+      "lon": -78.82911,
       "cells": {
-        "price": "$1.2 million to $2.9 million",
-        "fee": "About $200 to $400",
+        "price": "About $1.5 million",
+        "fee": "About $200 to $375",
         "beach": "About 10 minutes"
       },
-      "rows": "price: row 14 (7 resales in the Villages, Villa Venezia and Bal Harbor sections, $1.19 million to $2.91 million; builders' new homes $530,000 to $1.07 million); fee: row 17; beach: row 19 (9 to 10 min; closest accesses have little or no parking); hospital: row 21; gated sections: gated rows 11 and 34"
+      "rows": "Round 3: one value with the gated page. The three gated sections of gated-communities-facts.md: price row 46 (11 sales, middle $1,501,500), fee row 34 ($199 to $375 in these sections), beach as the gated page; map point from data/gated-map.json. The neighborhoods ledger's rows 14 and 17 (other sections) are no longer used on this page."
     },
     {
       "id": "the-farm",
@@ -261,7 +261,7 @@
       {
         "name": "Cherry Grove house, about $695,000",
         "cells": {
-          "hoa": "None on more than half listed",
+          "hoa": "None on most homes",
           "tax": "About $3,100",
           "flood": "About $1,300",
           "total": "About $4,400"
