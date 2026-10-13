@@ -48,3 +48,7 @@ Work in your own website worktree, never a shared one (lesson L63): clone `/tmp/
 Gates for each page: mkpage, `build.js rehash/check/audit` (zero blocking), `SCORE_TODAY=2026-10-13 node tools/score.js --only <url>` at 100 with no blocker, `claims-scan.js` and `facts-check.js` at 0 for the page, `image-meta.js`, `photos.js check`, and `npm test`.
 
 Never grade your own page. Report what you built; a fresh reviewer grades it.
+
+## Added after verification
+
+- **Affordable places, scope.** The page covers towns and areas in Horry County and the Georgetown County coast, and says so in one line. Green Sea is added (rows from 99). Nichols and Hemingway are outside the two counties and are left out on purpose. Read the verifier's twelve notes at the top of the ledger before writing: ZIP areas are named as areas, not towns; deed medians are "recorded sales"; "hospital", never "emergency room"; the tax figures are for a home you live in; Georgetown's tax is not compared with the 2026 Horry bills; Zillow's percentile range is never stated.
