@@ -262,7 +262,7 @@ module.exports = {
     { h2: "Was The Farm at Carolina Forest part of an old bombing range?", toc: "Old bombing range", html:
       h.p("Yes. The Farm is on land the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Much of Carolina Forest is on that land too.") +
       h.p("The U.S. Army Corps of Engineers runs the cleanup of former military land like this. On its map (fiscal year 2024 data), every home in The Farm is on land it lists as \"Response Complete and Site Closeout\".") +
-      h.p(`The ${h.ext(DEP, "Defense Department")}, which runs the program, explains what that means. Response complete means the cleanup work there is finished. The Defense Department or a later owner may keep monitoring the site.`) +
+      h.p(`The ${h.ext(DEP, "Defense Department")} explains what that means. Response complete means the cleanup work there is finished. The Defense Department or a later owner may keep monitoring the site.`) +
       h.p("The Corps lists another section, called Range III, as still under investigation. It borders The Farm. On the Corps' map, Range III touches the edges of some of The Farm's open land, but not any home lot.") +
       h.p(`An agent at Chapter3 can show you the ${h.ext(FUDS, "Corps' map")} for the lot you like.`) },
   ],
