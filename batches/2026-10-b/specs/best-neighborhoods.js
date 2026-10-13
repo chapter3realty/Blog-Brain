@@ -395,7 +395,7 @@ module.exports = {
       nh("surfside-beach") +
       h.p("The ocean side of Surfside Beach is the part of town between US 17 Business and the beach. From the middle of it, a public beach access with a pay lot is about 0.4 mile away. A Piggly Wiggly grocery store is about 3 minutes away by car.") +
       SURFSIDE +
-      h.p("Most homes for sale here are listed with no HOA fee. The trade-off is flood risk near the water: about 1 in 4 homes here is in a high-risk flood zone, so check the exact home before you make an offer.") +
+      h.p("Most homes for sale here are listed with no HOA fee. The trade-off is flood risk near the water. About 1 in 4 homes here is in a high-risk flood zone, so check the exact home before you make an offer.") +
       nh("deerfield") +
       h.p("The Deerfield Plantation area, near Surfside Beach, has the lowest prices on this page for a home under 10 minutes from the beach. Its HOA fees are low too, and none of its homes is in a high-risk flood zone.") +
       h.p("The trade-off is beach parking. The closest beach access has parking for golf carts only, and the next one, with a pay lot, is about 8 minutes away by car.") +
