@@ -390,7 +390,7 @@ module.exports = {
 
     { h2: "What are the best neighborhoods in Surfside Beach and Murrells Inlet?", toc: "Surfside Beach and Murrells Inlet", id: "surfside-beach-murrells-inlet", html:
       h.p("In Surfside Beach, the streets on the ocean side of town are a short walk from the beach. The Deerfield Plantation area and Prince Creek cost less and are a short drive away.") +
-      areaMap("Surfside Beach and Murrells Inlet neighborhoods", ["surfside-beach", "deerfield", "prince-creek"], "Map of the ocean side of Surfside Beach, the Deerfield Plantation area and Prince Creek in Murrells Inlet.", ["Murrells Inlet"]) +
+      areaMap("Surfside Beach and Murrells Inlet neighborhoods", ["surfside-beach", "deerfield", "prince-creek"], "Map of the ocean side of Surfside Beach, the Deerfield Plantation area and Prince Creek in Murrells Inlet.") +
       table(["surfside-beach", "deerfield", "prince-creek"], "Three neighborhoods in Surfside Beach and Murrells Inlet") +
       nh("surfside-beach") +
       h.p("The ocean side of Surfside Beach is the part of town between US 17 Business and the beach. From the middle of it, a public beach access with a pay lot is about 0.4 mile away. A Piggly Wiggly grocery store is about 3 minutes away by car.") +
@@ -443,7 +443,7 @@ module.exports = {
     { name: "The Farm HOA", href: FARM_HOA },
     { name: "North Myrtle Beach canal assessment", href: CG_CANALS },
   ],
-  sourcesNote: "Prices are the middle sale price over the last 12 months, or the range where few homes sold; Pine Lakes, Grande Dunes and Prince Creek are the sections named or outlined. HOA fees come from recent home listings, except The Farm's; the no-fee counts are MLS areas 11a Cherry Grove and 29a and 29b Surfside Beach east of US 17. Taxes come from 2026 county tax bills, and the canal fee from the city's 2025 resolution.",
+  sourcesNote: "Prices are the middle sale price over 12 months, or the range where few sold, in the sections named or outlined. HOA fees come from recent listings, except The Farm's. The no-fee counts are MLS areas 11a and 29a and 29b. Taxes come from 2026 county tax bills.",
   afterSources: () => ph.credits(),
   bottomCta: { h2: "Tell us what you want nearby. We will send three neighborhoods.", p: "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each.", label: "Get three neighborhoods", href: OFFER },
   keywords: "best neighborhoods in Myrtle Beach, best places to live in Myrtle Beach, best areas to live in Myrtle Beach, best communities in Myrtle Beach, best neighborhoods in North Myrtle Beach, best neighborhoods in Surfside Beach, Myrtle Beach neighborhoods map, Carolina Forest vs Myrtle Beach",
