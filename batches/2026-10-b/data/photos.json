@@ -302,6 +302,63 @@
       "original_size": "10352x10352 pixels of the raw frame, resized to 2400 wide, colors adjusted, outline and labels drawn"
     },
     {
+      "slug": "gated-communities",
+      "file": "images/buyers/gated-communities/prestwick-gate-from-above-2026.webp",
+      "variants": {
+        "600": "images/buyers/gated-communities/prestwick-gate-from-above-2026-600w.webp",
+        "1200": "images/buyers/gated-communities/prestwick-gate-from-above-2026-1200w.webp"
+      },
+      "title": "An entrance to Prestwick, Myrtle Beach, NOAA aerial, 2026",
+      "what": "An entrance to Prestwick, a gated neighborhood near Surfside Beach, from above in winter 2026, with one label at the point where the entrance road leaves the main road. Just inside is a small gatehouse between the inbound and outbound lanes, with a gate arm across each lane. A curving drive leads past trees to the homes and the clubhouse loop.",
+      "caption": "An entrance to Prestwick from above.",
+      "alt": "An entrance to Prestwick from above, labelled: a road leaves the main road and splits around a small gatehouse, with a white gate arm across each lane, among tall trees",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Prestwick"
+      },
+      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+      "source_name": "NOAA Emergency Response Imagery",
+      "author": "NOAA National Geodetic Survey",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
+      "terms_urls": [
+        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+        "https://registry.opendata.aws/noaa-eri/",
+        "https://www.fisheries.noaa.gov/inport/item/67562"
+      ],
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a (posted 2026-03-19). Joined from two orthorectified tiles in the public S3 bucket noaa-eri-pds; the exact files are in source_files. The flight day of these two tiles was not read, so taken gives the month of the group's January 2026 flights.",
+      "taken": "2026-01",
+      "display_credit": "U.S. government aerial photo",
+      "credit": "Photo: NOAA National Geodetic Survey, public domain. Label by Chapter3 Realty.",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty joined two NOAA map tiles, cut a close view of one entrance, resized it two times, adjusted the colors and added one label placed from Horry County road data",
+      "labels": [
+        "Prestwick entrance"
+      ],
+      "annotation_sources": {
+        "prestwick_entrance": "Horry County GIS roads layer 18: the first point of LINKS RD at (-78.962481, 33.643893), where it leaves PRESTWICK CLUB DR (the state-owned segment ends at the same point). LINKS RD runs south past the gatehouse; the county parcels on both sides are PRESTWICK PHASE V (layer 24: PIN 44714030003 and 44714030004, open space; PIN 44714030002, lot 447). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18 ; https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
+      },
+      "source_files": [
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785745w333900n.tif",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785830w333900n.tif"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -78.963111,
+          33.643547,
+          -78.961493,
+          33.644761
+        ],
+        "ground_m_per_px_1200w": 0.14
+      },
+      "original_size": "600x450 cut from the joined tiles (about 0.27 m a pixel), resized to 1200x900 (Lanczos), colors adjusted",
+      "method": "scratchpad wb-gated-work: tiles.py (download), eri/scripts/mosaic.py (join), PIL crop, resize and label",
+      "width": 1200,
+      "height": 900
+    },
+    {
       "slug": "the-farm",
       "file": "images/buyers/the-farm/the-farm-from-above.webp",
       "variants": {
@@ -420,14 +477,14 @@
       "display_credit": "U.S. government aerial photo",
       "credit": "Photo: NOAA National Geodetic Survey, public domain. Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty joined three NOAA map tiles, cut a close view, adjusted the colors and added two labels placed from county building footprints",
+      "changes": "Chapter3 Realty joined three NOAA map tiles, cut a close view, brightened the colors and added two labels placed from county building footprints",
       "labels": [
         "Large pool",
         "Activity center"
       ],
       "annotation_sources": {
         "large_pool": "Horry County GIS building footprints layer 27, object 412186 (Pool Inground): label to the left of its west edge (-78.876058, 33.75983). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
-        "activity_center": "Horry County GIS building footprints layer 27, object 390424, the building on the HOA parcel PIN 39609030003 with the address point 190 Farmers Rest Dr: label below its south-west corner (-78.87733, 33.759098). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27; https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/22"
+        "activity_center": "Horry County GIS building footprints layer 27, object 390424, the building on the HOA parcel PIN 39609030003 with the address point 190 Farmers Rest Dr: label to the right of its east edge (-78.877103, 33.759172). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27; https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/22"
       },
       "source_files": [
         "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785230w334545n.tif",
@@ -436,15 +493,15 @@
       ],
       "frame": {
         "bbox_wgs84": [
-          -78.877497,
-          33.758552,
-          -78.874903,
-          33.760168
+          -78.877531,
+          33.758806,
+          -78.875369,
+          33.760154
         ],
-        "ground_m_per_px_1200w": 0.2
+        "ground_m_per_px_1200w": 0.17
       },
       "original_size": "2400x1800 (cut from the NOAA tiles, Web Mercator, Lanczos, drawn on at 2x, colors adjusted, then resized)",
-      "method": "scratchpad farmw/scripts/mosaic.py (three NOAA tiles joined at their GeoTIFF tie points), eri_fetch.py (frame in Web Mercator, no no-data pixels) and render_eri.py; config farmw/aerial/work/config.json",
+      "method": "scratchpad farmw/scripts/mosaic.py (three NOAA tiles joined at their GeoTIFF tie points), eri_fetch.py (frame in Web Mercator, no no-data pixels) and render_eri.py; config farmw/aerial/work/config.json, key the-farm-pool (round 2: a tighter 200 m frame and brighter colors)",
       "width": 1200,
       "height": 900
     },

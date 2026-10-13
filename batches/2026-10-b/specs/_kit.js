@@ -41,3 +41,20 @@ const data = (name) => JSON.parse(fs.readFileSync(path.join(__dirname, "..", "da
 module.exports = { h, kit, data, compareCards, wantPicker, BB,
   placesMap: kit.placesMap, photoSet: kit.photoSet, story: kit.story, glance: kit.glance,
   prosCons: kit.prosCons, atAGlance: kit.atAGlance, icon: kit.icon };
+
+/* Added 2026-10-13 (gated communities, round 2): this batch's photo records. The website's
+   data/photos.json holds batch 2026-10-a's records, so batch 2026-10-b's photos.json is read from
+   the first of: the website's data/photos-2026-10-b.json, then this batch's data folder in
+   Blog-Brain. Records from both files are merged (the website's first), so a page can show a
+   photo from either batch. photoSetB(o) is kit.photoSet(o) over the merged records. */
+function batchPhotos() {
+  const recs = [];
+  const add = (f) => { if (fs.existsSync(f)) for (const r of JSON.parse(fs.readFileSync(f, "utf8")).photos) if (!recs.some((x) => x.file === r.file)) recs.push(r); };
+  add(PHOTOS);
+  add([path.join(__dirname, "..", "data", "photos-2026-10-b.json"), path.join(BB, "batches", "2026-10-b", "data", "photos.json")]
+    .find((f) => fs.existsSync(f)) || "");
+  return recs;
+}
+const photoSetB = (o) => PK.create({ h, photos: batchPhotos(), mapDir: MAP_DIR, mapSrc: MAP_SRC }).photoSet(o);
+module.exports.photoSetB = photoSetB;
+module.exports.batchPhotos = batchPhotos;

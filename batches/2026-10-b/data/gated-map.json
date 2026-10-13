@@ -1,6 +1,6 @@
 {
  "page": "/buyers/gated-communities/",
- "about": "The points on the page's map of gated neighborhoods, north to south, one numbered marker each. A map of many places shows 15 at most (tools/area-map.js), so four pairs of neighbors that share a road share a marker. Points are the average position of the community's home address points (Horry County) or home parcel centers (Georgetown County) from gated-communities.json; a pair is the midpoint of its two points (each pair is under 1.5 km apart).",
+ "about": "The points on the page's map of gated neighborhoods, north to south, one numbered marker each. A map of many places shows 15 at most (tools/area-map.js), so four pairs of neighbors that share a road share a marker. Points are the average position of the community's home address points (Horry County) or home parcel centers (Georgetown County) from gated-communities.json; a pair is the midpoint of its two points (each pair is under 1.5 km apart). Round 2 (2026-10-13): the page draws two maps, the places with an area other than pawleys-island on the first and 'pawleys' (each neighborhood its own marker) on the second.",
  "ledger": "batches/2026-10-b/facts/gated-communities-facts.md",
  "places": [
   {
@@ -179,15 +179,8 @@
   }
  ],
  "prices": {
-  "about": "The price chart: the middle recorded sale (Horry County deed records, deeds recorded October 2025 through September 2026, builder sales left out) for each gated neighborhood whose verified row allows a typical price, rounded as the page says it. Neighborhoods with only a range (Seaside Plantation, Leatherleaf, The Bluffs on the Waterway) or no verified price are not charted.",
+  "about": "The price chart (round 2): the typical (middle) recorded sale for each gated neighborhood with a front gate whose verified row allows one, rounded as the page says it. Leatherleaf and The Bluffs on the Waterway (ranges only) and Myrtle Trace (back gate only) are said in the text; Georgetown County rows are not used.",
   "rows": [
-   {
-    "name": "Myrtle Trace (back gate only)",
-    "value": 300000,
-    "row": 51,
-    "sales": 35,
-    "note": "myrtle-trace ledger row 81"
-   },
    {
     "name": "Prestwick",
     "value": 480000,
@@ -236,7 +229,80 @@
     "row": 46,
     "sales": 11,
     "note": "verifier: about $1.5 million"
+   },
+   {
+    "name": "Seaside Plantation",
+    "value": 740000,
+    "row": 40,
+    "sales": 6,
+    "exact": 738500,
+    "note": "verifier safe wording gives the middle sale, $738,500"
    }
   ]
- }
+ },
+ "pawleys": [
+  {
+   "name": "The Reserve",
+   "short": "The Reserve",
+   "lat": 33.49467,
+   "lon": -79.1133,
+   "rows": [
+    23
+   ],
+   "from": "gated-communities.json"
+  },
+  {
+   "name": "Willbrook Plantation",
+   "short": "Willbrook",
+   "lat": 33.48206,
+   "lon": -79.13519,
+   "rows": [
+    27,
+    75
+   ],
+   "from": "gated-communities.json (Census geocode of 49 Red Squirrel Ln, row 75)"
+  },
+  {
+   "name": "Litchfield Plantation",
+   "short": "Litchfield Plantation",
+   "lat": 33.47674,
+   "lon": -79.1313,
+   "rows": [
+    26
+   ],
+   "from": "gated-communities.json"
+  },
+  {
+   "name": "Litchfield by the Sea",
+   "short": "Litchfield by the Sea",
+   "lat": 33.471219,
+   "lon": -79.126112,
+   "rows": [
+    4,
+    5,
+    6
+   ],
+   "from": "U.S. Census geocoder, 11 Club Circle, Pawleys Island, SC 29585 (the River Club gate, ledger row 6), read 2026-10-13"
+  },
+  {
+   "name": "Heritage Plantation",
+   "short": "Heritage",
+   "lat": 33.44215,
+   "lon": -79.16353,
+   "rows": [
+    24
+   ],
+   "from": "gated-communities.json"
+  },
+  {
+   "name": "DeBordieu Colony",
+   "short": "DeBordieu",
+   "lat": 33.3744,
+   "lon": -79.17446,
+   "rows": [
+    28
+   ],
+   "from": "gated-communities.json"
+  }
+ ]
 }
