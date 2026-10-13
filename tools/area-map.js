@@ -31,6 +31,22 @@
  *   closeMap(spec, opts)    the close-up alone: every street (names on the main ones), ponds, golf
  *                           course land, the outline, the clubhouse or amenity center, the main
  *                           entrance, a grocery or hospital that fits the frame, scale bar, north arrow.
+ *   regionMap({ name, places }, opts)   a map of many places (2026-10-13): 2 to 15 neighborhoods
+ *                           or towns, and no home pin. places: [{ name, lat, lon, short?, href? }], in
+ *                           order of importance. Each place is a numbered marker at its true spot (or
+ *                           the nearest clear one, with a thin line to the spot), with its name beside
+ *                           it at 15 units (about 14 px on a 390 px phone) when the name has room. The
+ *                           name must sit nearer its own marker than any other, so a reader never
+ *                           reads it as another place's. A name with no room is left off and its
+ *                           marker keeps the number. The result adds places [{ num, name, href,
+ *                           labelled }], unlabelled (names left off the map) and key: an <ol> of
+ *                           every place by number, at reading size, linked when href is given. Show
+ *                           the key under the map whenever unlabelled is not empty. No drive minutes:
+ *                           a map with no home has nothing to measure from. Tested in
+ *                           tools/area-map-places.test.js. Before 2026-10-13 regionMap needed a home,
+ *                           and a cluster of neighborhoods lost whole places, not only their names.
+ *                           The cached data ends at 34.05 N: Loris (34.06 N) needs a rebuild of
+ *                           tools/geo with a wider BBOX before it can go on a map.
  *   mapLinksHtml({ name, lat, lon })   "Open in Google Maps" (btn btn-brass) and "Get directions"
  *                           (btn btn-outline). Plain links; nothing loads from Google until a tap.
  *
@@ -603,7 +619,7 @@ const C2 = {
    batch 2026-10-a). Now: place names 14 (13 px or more on that phone), drive times 13 (12 px
    or more), street names 12.5, the home name 17. Wider screens shrink them (css2), so the
    map reads the same at 760 px. */
-const SZ = { home: 17, place: 14, mins: 13, town: 14, water: 14, ocean: 15, state: 11.5, shield: 11, suf: 8, furn: 11, street: 12.5, name: 14, amenity: 14.5, sub: 12.5 };
+const SZ = { home: 17, place: 14, mins: 13, town: 14, water: 14, ocean: 15, state: 11.5, shield: 11, suf: 8, furn: 11, street: 12.5, name: 14, amenity: 14.5, sub: 12.5, many: 15, num: 12.5 };
 
 /* A label's room. textWidth fits DM Sans within about 5 percent; a phone that shows a
    fallback font draws digits wider. So each box is a little wider than the DM Sans text, and
@@ -935,12 +951,16 @@ function placeCallouts(L, F, lms, R, prefix, o = {}) {
 
 function markerSvg(lab, R, sym, g, txt) {
   const { m, c, lines, mins, LH, MS } = lab;
-  let inner = `<circle r="${R}" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/>` + sym(m.kind, -R * 0.67, -R * 0.67, R * 1.34, C2.navy);
+  let inner = `<circle r="${R}" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/>` + (m.lm.num ? numSvg(m.lm.num) : sym(m.kind, -R * 0.67, -R * 0.67, R * 1.34, C2.navy));
+  if (!c) return g(m.x, m.y, inner);
   const y = c.y + LH - 2.5;
   inner += txt("l", c.x, y, c.anchor, lines.map((l, i) => `<tspan x="${r1(c.x)}"${i ? ` dy="${LH}"` : ""}>${esc(l)}</tspan>`).join(""));
   if (mins) inner += txt("m", c.x, y + (lines.length - 1) * LH + MS + 2.5, c.anchor, esc(mins));
   return g(m.x, m.y, inner);
 }
+
+/* The number inside a marker on a map of many places (regionMap with spec.places). */
+const numSvg = (n) => `<text class="nm" y="${r1(SZ.num * 0.36)}" text-anchor="middle">${n}</text>`;
 
 const leaderSvg = (m) => `<path d="M${r1(m.tx)} ${r1(m.ty)}L${r1(m.x)} ${r1(m.y)}" stroke="${C2.navy}" stroke-width="1.1"/><circle cx="${r1(m.tx)}" cy="${r1(m.ty)}" r="2.4" fill="${C2.navy}"/>`;
 
@@ -1036,6 +1056,12 @@ function townWords(home, geo) {
   return `near ${best.tw.name}`;
 }
 
+/* The alt text of a map of many places: what it shows, in the order of its numbers. */
+function describePlaces(name, lms) {
+  const n = lms.map((l) => `${l.num}, ${l.name}`);
+  return `${name}: a map of ${lms.length} places, numbered ${n.slice(0, -1).join("; ")}; and ${n.at(-1)}.`;
+}
+
 function describeRegion(spec, geo, shown) {
   const home = spec.home;
   const coast = nearestCoast2(home, geo);
@@ -1127,13 +1153,102 @@ function shieldSvg(sp) {
   return shape + `<text class="r" y="${r1(SZ.shield * (sp.type === "US" ? 0.28 : 0.36))}" text-anchor="middle">${sp.num}${sp.suf ? `<tspan class="q" dx="2">${sp.suf}</tspan>` : ""}</text>`;
 }
 
+/* A map of many places (spec.places): 2 to 15 neighborhoods or towns, each a numbered marker with
+   its name beside it, and no home pin. The places are turned into a home-less spec: the "home" is
+   the middle of the places, used only to frame the map and to choose which roads and water to
+   name, and is not drawn. */
+const MANY_MAX = 15;
+function placesSpec(spec) {
+  const list = spec.places;
+  if (!spec.name || typeof spec.name !== "string") throw new Error("area-map: a map of many places needs a name (spec.name), for its id and its file");
+  if (list.length < 2 || list.length > MANY_MAX) throw new Error(`area-map: a map of many places shows 2 to ${MANY_MAX} places`);
+  const names = new Set();
+  for (const p of list) {
+    if (p && p.minutes !== undefined) throw new Error(`area-map: ${p.name}: a map of many places has no home, so no drive minutes; give minutes in the text or a table`);
+    if (p && names.has(p.name)) throw new Error(`area-map: ${p.name} is on the map twice`);
+    if (p) names.add(p.name);
+  }
+  const lat = list.reduce((t, p) => t + (+p.lat || 0), 0) / list.length, lon = list.reduce((t, p) => t + (+p.lon || 0), 0) / list.length;
+  const out = { home: { name: spec.name, lat, lon }, many: true, coast: spec.coast, minSpanKm: spec.minSpanKm, alt: spec.alt, caption: spec.caption,
+    landmarks: list.map((p, i) => ({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region" })) };
+  validate(out);
+  return out;
+}
+
+/* The places on a map of many places, in two passes, so no name can sit nearer another place's
+   marker than its own. First every numbered marker, at its true spot or the nearest clear one (a
+   moved marker gets a thin line to its spot). Then each name beside its own marker, nearer to it
+   than to any other marker or true spot, clear of every mark, label and line. A name with no room
+   is left off and the marker keeps its number: the reader finds the name in the key under the
+   map (m.key). Returns { labels, dropped, bare } like placeCallouts, plus the bare markers. */
+function placeMany(L, F, lms, R) {
+  const NS = SZ.many, LH = NS + 2.5;
+  const marks = [];
+  lms.forEach((lm, i) => {
+    const owner = "lm" + i, own = (it) => it.owner === owner;
+    const [tx, ty] = F.P(lm.lon, lm.lat);
+    const x0 = Math.max(R + 4, Math.min(F.W - R - 4, tx)), y0 = Math.max(R + 4, Math.min(F.H - R - 4, ty));
+    let found = null;
+    for (const r of [0, 7, 14, 21, 28, 36, 45, 56, 70]) {
+      const n = r === 0 ? 1 : Math.max(8, Math.round(2 * Math.PI * r / 8));
+      for (let k = 0; k < n && !found; k++) {
+        const a = k * 2 * Math.PI / n, x = x0 + r * Math.cos(a), y = y0 + r * Math.sin(a);
+        if (x < R + 4 || x > F.W - R - 4 || y < R + 4 || y > F.H - R - 4) continue;
+        const mb = rectXY(x - R - 1, y - R - 1, x + R + 1, y + R + 1);
+        if (!L.fits(mb, 2, (it) => own(it) || it.kind === "area")) continue;
+        const moved = Math.hypot(x - tx, y - ty) > 3, seg = segBox([tx, ty], [x, y]);
+        if (moved && L.items.some((it) => !own(it) && !["dot", "furniture", "area"].includes(it.kind) && satOverlap(seg, it))) continue;
+        found = { x, y, mb, moved, seg };
+      }
+      if (found) break;
+    }
+    if (!found) throw new Error(`area-map: no room on the map for ${lm.name}, even as a number. Show fewer places, or split the map.`);
+    L.add(found.mb, "marker", owner);
+    if (found.moved) L.add(found.seg, "leader", owner);
+    marks.push({ m: { lm, kind: "pin", tx, ty, x: found.x, y: found.y, moved: found.moved }, owner });
+  });
+  const labels = [], dropped = [], bare = [];
+  for (const k of marks) {
+    const { m, owner } = k, own = (it) => it.owner === owner;
+    /* One line first, then the name on two lines, which fits a tighter spot. */
+    const text = m.lm.short || m.lm.name;
+    let best = null;
+    for (const lines of [[text], wrap2(text, 10)]) {
+      if (best || (lines.length === 1 && lines[0] !== text)) continue;
+      const w = Math.max(...lines.map((l) => tw2(l, NS))) + 4, h = lines.length * LH + 2;
+      for (const cand of besideCandidates(w, h, R, [0, 4, 8])) {
+        const b = boxOf(m.x, m.y, cand, w, h), lb = rectXY(b.x0, b.y0, b.x1, b.y1);
+        if (!L.fits(lb, 2, own)) continue;
+        if (m.moved && satOverlap(lb, segBox([m.tx, m.ty], [m.x, m.y]))) continue;
+        const dOwn = boxDist(lb, m.x, m.y);
+        if (L.items.some((it) => (it.kind === "marker" || it.kind === "dot") && !own(it) && boxDist(lb, it.cx, it.cy) < dOwn + 2)) continue;
+        best = { c: cand, lb, lines, w, h };
+        break;
+      }
+    }
+    if (!best) { dropped.push(m.lm); bare.push({ m }); continue; }
+    L.add(best.lb, "label", owner);
+    labels.push({ m, c: best.c, w: best.w, h: best.h, lines: best.lines, mins: "", NS, MS: SZ.mins, LH });
+  }
+  return { labels, dropped, bare };
+}
+
+/* The key under a map of many places: every place by its number, at reading size (STANDARD
+   H13), linked to its page when it has one. */
+function placesKeyHtml(places) {
+  return `<ol class="c3-map-key" style="margin:.4rem 0 1.4rem 1.6rem;padding:0;max-width:760px;columns:2 14rem;column-gap:2rem;color:var(--muted);font-size:var(--read,1.0625rem);line-height:1.5">`
+    + places.map((p) => `<li style="margin:0 0 .35rem;break-inside:avoid">${p.href ? `<a href="${esc(p.href)}" style="color:var(--navy);text-decoration:underline;text-underline-offset:.18em">${esc(p.name)}</a>` : esc(p.name)}</li>`).join("")
+    + `</ol>`;
+}
+
 function regionMap(spec, opts = {}) {
-  validate2(spec);
+  const many = !!(spec && Array.isArray(spec.places));
+  if (many) spec = placesSpec(spec); else validate2(spec);
   const geo = loadGeo2();
   const W = opts.width || 360;
   const home = spec.home;
   const lms = (spec.landmarks || []).filter((l) => l.map !== "close").map((l) => nameAirport(l, geo));
-  const area = findArea(home, geo, false);
+  const area = many ? null : findArea(home, geo, false);
   const homeTown = home.town && geo.towns.find((t) => t.name === home.town);
 
   /* Frame: home, every landmark, the nearest beach, the home town (if near), the outline. */
@@ -1216,7 +1331,7 @@ function regionMap(spec, opts = {}) {
     hy = top + 1;
   }
   const PK = 0.8; // pin scale
-  L.add(rect2(hx, hy - 19 * PK, 28 * PK, 42 * PK), "marker", "home");
+  if (!many) L.add(rect2(hx, hy - 19 * PK, 28 * PK, 42 * PK), "marker", "home");
   const R = 11;
   reserveDots(L, F, lms, "lm");
 
@@ -1232,9 +1347,12 @@ function regionMap(spec, opts = {}) {
   ];
   const ownHome = (o) => o.owner === "home";
   const hbox = (c) => { const b = boxOf(hx, hy, c, hw, hh); return rectXY(b.x0, b.y0, b.x1, b.y1); };
-  let hc = homeCands.find((c) => L.fits(hbox(c), 2, ownHome));
-  if (!hc) hc = homeCands.slice().sort((a, b) => L.cost(hbox(a)) - L.cost(hbox(b)))[0];
-  L.add(hbox(hc), "label", "home");
+  let hc = null;
+  if (!many) {
+    hc = homeCands.find((c) => L.fits(hbox(c), 2, ownHome));
+    if (!hc) hc = homeCands.slice().sort((a, b) => L.cost(hbox(a)) - L.cost(hbox(b)))[0];
+    L.add(hbox(hc), "label", "home");
+  }
   /* The outline keeps other labels off it: a town name across it reads as the town it is in.
      Marks may sit on it (kind "area", like a landmark's dot). */
   if (area) {
@@ -1268,8 +1386,8 @@ function regionMap(spec, opts = {}) {
   if (homeTown) placeTown(homeTown, homeTown.rank === 1);
 
   /* Landmarks, in the caller's order of importance. */
-  const { labels: lmLabels, dropped } = placeCallouts(L, F, lms, R, "lm");
-  const marks = lmLabels.map((l) => l.m);
+  const { labels: lmLabels, dropped, bare = [] } = many ? placeMany(L, F, lms, R) : placeCallouts(L, F, lms, R, "lm");
+  const marks = lmLabels.map((l) => l.m).concat(bare.map((b) => b.m));
 
   /* Ocean label: in the ocean, clear of the coast; a size smaller (still a place size) when a
      narrow strip of ocean has no room for the larger one. */
@@ -1399,7 +1517,7 @@ function regionMap(spec, opts = {}) {
   }
 
   /* ---------- write the svg ---------- */
-  const used = new Set(["home", ...marks.map((m) => m.kind)]);
+  const used = many ? new Set(marks.filter((m) => !m.lm.num).map((m) => m.kind)) : new Set(["home", ...marks.map((m) => m.kind)]);
   const defs = [...used].map((k) => `<symbol id="${id}-${k}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${iconInner(k)}</symbol>`).join("");
   const sym = (k, x, y, size, color) => `<use href="#${id}-${k}" x="${r1(x)}" y="${r1(y)}" width="${r1(size)}" height="${r1(size)}" color="${color}"/>`;
   const g = (x, y, inner) => `<g transform="translate(${r1(x)} ${r1(y)})"><g class="k">${inner}</g></g>`;
@@ -1422,24 +1540,32 @@ function regionMap(spec, opts = {}) {
   const mk = [];
   for (const m of marks) if (m.moved) mk.push(leaderSvg(m));
   for (const l of lmLabels) if (l) mk.push(markerSvg(l, R, sym, g, txt));
-  {
+  for (const b of bare) mk.push(markerSvg(b, R, sym, g, txt));
+  if (!many) {
     const y = hc.y + HLH - 4;
     const body = homeLines.map((l, i) => `<tspan x="${r1(hc.x)}"${i ? ` dy="${HLH}"` : ""}>${esc(l)}</tspan>`).join("");
     mk.push(g(hx, hy, pinSvg((x, y2, size, color) => sym("home", x, y2, size, color), PK) + txt("h", hc.x, y, hc.anchor, body)));
   }
 
-  const shown = lms.filter((l) => !dropped.includes(l));
-  const alt = spec.alt || describeRegion(Object.assign({}, spec, { landmarks: shown }), geo, shown);
-  const css = css2(id, "", strokes);
+  const shown = many ? lms : lms.filter((l) => !dropped.includes(l));
+  const alt = spec.alt || (many ? describePlaces(home.name, lms) : describeRegion(Object.assign({}, spec, { landmarks: shown }), geo, shown));
+  /* Names a size larger on a map of many places (15 units, about 14 px on a 390 px phone), and the
+     numbers in the markers. */
+  const css = css2(id, many ? `#${id} .l{font-size:${SZ.many}px}#${id} .nm{font-size:${SZ.num}px;font-weight:700;stroke:none;fill:${C2.navy}}` : "", strokes);
   const body = `<defs>${defs}${wdefs}</defs>${geom.join("")}${furn}${lab.join("")}<g>${mk.join("")}</g>`;
   const m = {
     kind: "region", name: home.name, svg: svgShell(id, F, alt, css, body), alt, width: W, height: H,
     credit: CREDIT2, caption: `${spec.caption ? spec.caption.trim() + " " : ""}${CREDIT2}`,
     frame: F.frame, outline: !!outlineD,
     boxes: L.items.map((b) => ({ kind: b.kind, owner: b.owner, pts: b.pts, x0: b.x0, y0: b.y0, x1: b.x1, y1: b.y1 })),
-    labels: { home: true, towns: townLabels.map((t) => t.t.name), routes: shields.map((s) => s.route), water: waterLabels.map((w) => w.text), parks: parkLabels.map((p) => p.p.name), ocean: !!oceanLabel, airport: !!airportLabel || lmLabels.some((l) => l.m.kind === "airport"), landmarks: lmLabels.map((l) => l.m.lm.name) },
-    dropped: dropped.map((l) => l.name),
+    labels: { home: !many, towns: townLabels.map((t) => t.t.name), routes: shields.map((s) => s.route), water: waterLabels.map((w) => w.text), parks: parkLabels.map((p) => p.p.name), ocean: !!oceanLabel, airport: !!airportLabel || lmLabels.some((l) => l.m.kind === "airport"), landmarks: lmLabels.map((l) => l.m.lm.name) },
+    dropped: many ? [] : dropped.map((l) => l.name),
   };
+  if (many) {
+    m.places = lms.map((l) => ({ num: l.num, name: l.name, href: l.href, labelled: !dropped.includes(l) }));
+    m.unlabelled = m.places.filter((p) => !p.labelled).map((p) => p.name);
+    m.key = placesKeyHtml(m.places);
+  }
   return emit2(m, Object.assign({ slug: home.area || home.name }, opts), "region");
 }
 
@@ -1958,7 +2084,7 @@ function refreshGeo(rawDir) {
 
 module.exports = {
   /* version 2 */
-  regionMap, closeMap, communityMaps, mapLinksHtml, loadGeo2, describeRegion, cleanStreet, CREDIT2, GEO2_FILE, INLINE_MAX, FILE_MAX,
+  regionMap, closeMap, communityMaps, mapLinksHtml, loadGeo2, describeRegion, cleanStreet, CREDIT2, GEO2_FILE, INLINE_MAX, FILE_MAX, MANY_MAX,
   internals: { satOverlap, curvedLabel, chainPieces, Layout2, rect2, frame2, linePieces, tw2, SZ, EDGE, nameAirport, amenityOf },
   /* version 1, kept for older specs */
   areaMap, areaMapSvg, liveMapHtml, describe, CREDIT, GEO_FILE, DATA_BBOX, MAX_BYTES, loadGeo, buildGeo,
