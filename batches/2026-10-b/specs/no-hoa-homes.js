@@ -176,7 +176,7 @@ const areaTable = () => compareCards(AREAS.map((a) => ({
 /* The parking rules, place by place (ledger rows 58 to 64). Short cells; the sentences under the table say
    the rest. */
 const parkingTable = () => compareCards([
-  { name: "Outside the towns", icon: "home", cells: { boat: "Anywhere on your lot", truck: "Business at home: 2 per acre at most" } },
+  { name: "Outside the towns", icon: "home", cells: { boat: "Anywhere on your lot", truck: "Two per acre for a home business" } },
   { name: "Inside Myrtle Beach", href: "/submarkets/myrtle-beach/", icon: "town", cells: { boat: "Over 16 feet: not in the front yard", truck: "One commercial; none over one ton" } },
   { name: "Inside North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", icon: "town", cells: { boat: "Behind the house front, or a carport", truck: "None over 18,500 pounds" } },
   { name: "Inside Conway", href: "/submarkets/conway/", icon: "town", cells: { boat: "Side yard, back yard or carport", truck: "Big ones off the street" } },
@@ -253,7 +253,7 @@ module.exports = {
       h.p(`Work trucks have limits in the towns too. Myrtle Beach allows one commercial vehicle at a house and nothing over one ton. ${h.ext(SURF_CODE, "Surfside Beach")} allows one van or pickup overnight, up to 21 feet long and about 8 feet high.`) +
       h.p(`On county roads outside the towns, the county ${h.ext(HORRY_CODE, "bans parking")} only where it posts a sign. State highways and private roads are not part of that rule.`) +
       h.p(`A deed restriction can also limit how you use a lot. It is a rule written into the papers filed with the county for the lot or its street. In South Carolina, a lawyer, the ${h.ext(CLOSING, "closing attorney")}, supervises the title search and the closing. That search shows before you buy whether a restriction covers a boat or a truck.`) +
-      h.p(`Conway's street ban covers only work vehicles over 10,000 pounds and 20 feet long. A plumber's van is not one of them.`) +
+      h.p(`Conway's street ban covers only work vehicles over 10,000 pounds and 20 feet long.`) +
       story([
         "<strong>Example:</strong> Dale is a plumber and owns a fishing boat. He wants a house in Conway with room for the boat and his work van.",
         "He likes a house with no HOA fee and a long driveway. His Chapter3 agent reads Conway's parking rule with him.",
