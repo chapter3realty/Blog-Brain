@@ -100,7 +100,7 @@ const BARS_CSS = "<style>.c3-bars{margin:1.6rem 0 1.8rem;max-width:760px}"
   + ".c3-bars .b{flex:none;height:1.05rem;width:calc(var(--w) * .68);background:var(--brass);border-radius:0 4px 4px 0}"
   + ".c3-bars tr.me .b{background:var(--navy)}.c3-bars tr.me th,.c3-bars tr.me .v{font-weight:600}"
   + ".c3-bars .v{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}"
-  + "@media (max-width:599px){.c3-bars th{width:42%}.c3-bars .b{width:calc(var(--w) * .45)}}"
+  + "@media (max-width:599px){.c3-bars th{width:40%}.c3-bars .b{width:calc(var(--w) * .56)}}"
   + ".c3-bars figcaption{color:var(--muted);font-size:.95rem;line-height:1.6;margin-top:.8rem}</style>";
 function barChart(title, caption) {
   const max = 400213;
@@ -160,7 +160,7 @@ module.exports = {
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "What a typical home is worth, and what you give up.",
-  sub: "A typical home in Georgetown or Loris is worth about $70,000 less than one in Myrtle Beach. You drive farther to the beach.",
+  sub: "Georgetown and Loris are the most affordable places near Myrtle Beach. A typical home there is worth about $70,000 less, and the beach is farther.",
   heroMedia: glance([
     { icon: "dollar", label: "Georgetown, Loris", text: "About $250,000" },
     { icon: "town", label: "Myrtle Beach", text: "About $323,000" },
@@ -171,7 +171,7 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "The most affordable places to buy a home near Myrtle Beach are Georgetown, Loris, Longs, Conway and Aynor. A typical home in Georgetown or Loris is worth about $250,000. In Myrtle Beach, a typical home is worth about $323,000.",
-    "What you give up is time. From Loris or Aynor, the beach is 35 to 45 minutes away by car. Inside the town limits of Loris and Conway, the property tax is higher, so a home just outside town can cost less each year.",
+    "The trade-off is time. From Loris or Aynor, the beach is 35 to 45 minutes away by car. Inside the town limits of Loris and Conway, the property tax is higher. A home just outside town can cost less each year.",
   ],
   sections: [
     { h2: "Where do homes cost the least near Myrtle Beach?", toc: "Where homes cost the least", id: "compare", html: () =>
@@ -179,7 +179,7 @@ module.exports = {
       h.p("Homes cost the least in Georgetown and Loris, where a typical home is worth about $250,000. Longs, Conway and Aynor come next. This page covers the towns and areas in Horry County and on the Georgetown County coast.") +
       barChart("What a typical home is worth, lowest first", `Chart of typical home values from ${h.ext(ZILLOW, "Zillow's home value data")}. Myrtle Beach is the dark bar. The Socastee, Carolina Forest, and Murrells Inlet and Garden City areas are ZIP code areas.`) +
       h.p("Little River and the Socastee area cost about the same as Myrtle Beach. The beach towns to the north and south cost more.") +
-      h.p("Values are lower in very small inland places such as Green Sea, but few homes sell there, so it is not on the chart.") +
+      h.p("Values are lower in small inland places such as Green Sea, a place of about 40 homes, but few homes sell there.") +
       MAP.html +
       h.p("The table puts the five places beside Myrtle Beach. Drive times are from the center of each town to the nearest public beach access, by car with no traffic. In our experience, rush hour adds 5 to 10 minutes.") +
       TABLE +
@@ -196,14 +196,14 @@ module.exports = {
       h.p("A typical home in Loris is worth about $255,000, about $68,000 less than in Myrtle Beach. Loris is a small town in the north of Horry County, near the North Carolina line.") +
       LORIS_PHOTO +
       h.p("McLeod Loris Hospital is a short drive from the center of town. The nearest beach, in North Myrtle Beach, is about 36 minutes away by car. Coastal Grand Mall is about 52 minutes away.") +
-      h.p("Many homes in Loris are older: half were built before about 1978. About 36 homes inside the town sold in the past year, so there are fewer to choose from than in a bigger town.") +
-      h.p("Very few buildings in Loris are in a high-risk flood zone. Inside the town limits, the property tax is higher than in Myrtle Beach or Conway. A home just outside town pays the lower county rate.") },
+      h.p("Many homes in Loris are older: half were built before about 1978. About 36 homes inside the town sold in the past year. There are fewer to choose from than in a bigger town.") +
+      h.p("Almost no buildings in Loris are in a high-risk flood zone. Inside the town limits, the property tax is higher than in Myrtle Beach or Conway. A home just outside town pays the lower county rate.") },
 
     { h2: "What is it like to buy in Longs?", toc: "Longs", id: "longs", html: () =>
       h.p("A typical home in the Longs area is worth about $286,000, about $37,000 less than in Myrtle Beach. Longs is an area inland from North Myrtle Beach, outside any town.") +
       h.p("The nearest beach, in North Myrtle Beach, is about 17 minutes away by car. McLeod Seacoast, a hospital in Little River, is about 11 minutes away. Coastal Grand Mall is about 38 minutes away.") +
       h.p("Builders sold about 47 new homes near the center of Longs in the past year, so you can find new homes here. In Chapter3's files, clients from North Carolina bought land in Longs and built a new house there with a builder.") +
-      h.p("Longs is not a town, so homes there pay no town tax, only the county rate and a small yearly fee. Very few buildings near the center of Longs are in a high-risk flood zone.") },
+      h.p("Longs is not a town, so homes there pay no town tax, only the county rate and a small yearly fee. Almost no buildings near the center of Longs are in a high-risk flood zone.") },
 
     { h2: "What is it like to buy in Conway?", toc: "Conway", id: "conway", html: () =>
       h.p("A typical home in Conway is worth about $288,000, about $35,000 less than in Myrtle Beach. Conway is a city on the Waccamaw River, inland from Myrtle Beach.") +
@@ -212,17 +212,18 @@ module.exports = {
       h.p("Homes in Conway are newer than in Loris or Georgetown: half were built after about 2000. Builders sold about 130 new homes in the city in the past year. A few homes in Conway are in a high-risk flood zone, about one building in 25.") +
       h.p(`Inside the city limits, the property tax is higher than in Myrtle Beach. Some homes with a Conway address are outside the city and pay the lower county rate. Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself.`) },
 
-    { h2: "What is it like to buy in Aynor?", toc: "Aynor", id: "aynor", html: () =>
+    { h2: "What is it like to buy in Aynor?", toc: "Aynor", id: "aynor", html: (bg) =>
       h.p("A typical home in Aynor is worth about $292,000, about $31,000 less than in Myrtle Beach. Aynor is a small town in the west of Horry County.") +
       h.p("The nearest beach, in Myrtle Beach, is about 44 minutes away by car, the longest drive in the table above. Conway Medical Center is about 30 minutes away, and Coastal Grand Mall a little closer than the beach.") +
       h.p("Only 18 homes inside the town sold in the past year. With so few sales, the typical value can change quickly, and there are few homes to choose from.") +
-      h.p("None of the buildings in Aynor is in a high-risk flood zone. Inside the town, the property tax is higher than in Myrtle Beach.") },
+      h.p("None of the buildings in Aynor is in a high-risk flood zone. Inside the town, the property tax is higher than in Myrtle Beach.") +
+      h.cta("Get the homes for sale in each place.", "Tell us your price range. One of our agents will send you the homes for sale now in Georgetown, Loris, Longs, Conway and Aynor.", OFFER, CONTACT, bg) },
 
     { h2: "What do you give up when you buy farther from the beach?", toc: "Pros and cons", id: "pros-and-cons", html: (bg) =>
       h.p("Homes inland cost less, and in most inland places few buildings are in a flood zone. The drives to the beach and the mall are longer.") +
       prosCons([
         "A typical home in Georgetown or Loris is worth about $70,000 less than in Myrtle Beach.",
-        "Very few buildings in Loris, Longs and Aynor are in a high-risk flood zone.",
+        "Almost no buildings in Loris, Longs and Aynor are in a high-risk flood zone.",
         "A hospital is a short drive from the center of Loris and from downtown Georgetown.",
         "Homes outside town limits pay no town tax.",
       ], [
@@ -237,13 +238,13 @@ module.exports = {
       h.p(`The Homebuyer Program from ${h.ext(SCH, "SC Housing")}, South Carolina's housing agency, gives buyers in Horry and Georgetown counties $10,000 toward the down payment and closing costs. You do not pay it back if you live in the home for 15 years.`) +
       h.p("In these two counties, you do not have to be a first-time buyer. You must not own a home when you close. You need a credit score of 640 or more and a homebuyer class before the loan is approved.") +
       PROGRAMS +
-      h.p("A typical home in every place in the first table is worth less than the Homebuyer Program's price limit. The money is limited, and an SC Housing approved lender reserves it for you when you apply for the loan.") +
+      h.p("A typical home in every place on this page is worth less than the Homebuyer Program's price limit. The money is limited, and an SC Housing approved lender reserves it for you when you apply for the loan.") +
       h.p(`Horry and Georgetown counties are also on SC Housing's County First list, which also offers forgivable help, with the same limits. Our page on ${h.a("/buyers/programs/", "down-payment help programs")} explains how the programs work with your loan.`) +
       h.cta("See what your budget buys in each place.", "Tell us your price range and the places you like. One of our agents will send you the homes for sale in each place, and the down-payment programs that fit.", OFFER, CONTACT, bg) },
 
     { h2: "How much property tax will you pay in each place?", toc: "Property tax", id: "property-tax", html: (bg) =>
       h.p(`Property tax is lowest outside town and city limits. There, a home you live in pays about $370 a year for every $100,000 of value, plus an $89 county fee, at ${h.ext(LEVY, "the county's tax rates")}.`) +
-      h.p("Inside a town, you pay the town's tax too. For the same value, a home you live in pays about $400 a year in Myrtle Beach, $600 in Aynor, $650 in Conway and $690 in Loris.") +
+      h.p("Inside a town, you pay the town's tax too. For the same value, a home you live in pays about $400 a year in Myrtle Beach. It pays about $600 in Aynor, $650 in Conway and $690 in Loris.") +
       h.p(`These figures are for your main home, once the county gives it the lower rate for a home you live in. You apply for that rate; it is not automatic. A second home or a rental pays more. Our ${h.a("/buyers/property-taxes/", "property tax guide")} shows how to apply.`) +
       h.p("The tax is on the county's value of the home, which can differ from the price you pay.") +
       story([
@@ -261,7 +262,7 @@ module.exports = {
     { q: "How far is Aynor from Myrtle Beach?", a: "Coastal Grand Mall in Myrtle Beach is about 42 minutes from the center of Aynor by car, with no traffic. The nearest beach is a little farther. A typical home in Aynor is worth about $292,000." },
     { q: "Do you have to be a first-time buyer to get down-payment help?", a: "No, not in Horry or Georgetown County. For SC Housing's Homebuyer Program, you must not own a home when you close. Palmetto Home Advantage is open to repeat buyers too." },
     { q: "Is property tax lower outside city limits?", a: "Yes. Outside town and city limits, a home you live in pays only the county's tax and a small county fee. Inside Conway, Loris or Aynor, it pays the town's tax too, so the yearly bill is higher." },
-    { q: "Which places near Myrtle Beach have the fewest homes in flood zones?", a: "The inland places. None of the buildings in Aynor is in a high-risk flood zone, and very few are in Loris or near the center of Longs. In Surfside Beach, about one in four buildings is." },
+    { q: "Which places near Myrtle Beach have the fewest homes in flood zones?", a: "The inland places. None of the buildings in Aynor is in a high-risk flood zone. Almost none are in Loris or near the center of Longs. In Surfside Beach, about one in four buildings is." },
   ],
   sources: [
     { name: "Zillow home value data", href: ZILLOW },
