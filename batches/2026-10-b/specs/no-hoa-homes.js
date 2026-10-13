@@ -103,13 +103,32 @@ if (CONDO.count !== 2742 || CONDO.noFee !== 1 || CONDO.median !== 647) throw new
 
 /* The round 2 values (ledger rows 69 to 73, pending verification), from data/no-hoa-lots.json. The same
    check: if the file changes, the build stops until the rows and the copy are read again. */
-const PENDING = require(path.join(__dirname, "_no-hoa-pending.js"));
+const PENDING = {
+  /* Row 69: typical lot of a house with no HOA fee, by area (acres; county parcel area). */
+  lotAcres: { "Aynor": 1.06, "Loris": 0.71, "Conway": 0.51, "Myrtle Beach (not Carolina Forest)": 0.3, "Murrells Inlet": 0.24, "Little River": 0.23,
+    "Surfside Beach and Garden City": 0.18, "North Myrtle Beach": 0.16, "Carolina Forest": null },
+  /* Rows 70, 72 and 73: the nine areas together. [group, field, value] */
+  all: {
+    lotNoFee: ["noFee", "lotAcresMedian", 0.3], lotWithFee: ["withFee", "lotAcresMedian", 0.21],
+    halfAcreNoFee: ["noFee", "lotHalfAcreOrMore", 172], matchedNoFee: ["noFee", "parcelMatched", 509],
+    halfAcreWithFee: ["withFee", "lotHalfAcreOrMore", 115], matchedWithFee: ["withFee", "parcelMatched", 1732],
+    oldNoFee: ["noFee", "builtBefore2000", 335], knownNoFee: ["noFee", "yearKnown", 693],
+    oldWithFee: ["withFee", "builtBefore2000", 190], knownWithFee: ["withFee", "yearKnown", 1926],
+  },
+};
 for (const a of AREAS) {
   const want = PENDING.lotAcres[a.key], got = a.lots.noFee.lotAcresMedian;
   if (want !== undefined && want !== got) throw new Error(`${a.key}: the lot size ${got} is not the ledger's ${want}`);
 }
 const L_ALL = LOTS.allNineAreas;
 for (const [k, v] of Object.entries(PENDING.all)) if (JSON.stringify(L_ALL[v[0]][v[1]]) !== JSON.stringify(v[2])) throw new Error(`lots: ${k} is ${JSON.stringify(L_ALL[v[0]][v[1]])}, not the ledger's ${JSON.stringify(v[2])}`);
+/* Row 71: inside or outside the town limits, houses with no HOA fee matched to a parcel. */
+const outsideTown = (key) => { const t = Object.fromEntries(LOTS.byArea[key].noFee.insideTown); return [t["outside any town"] || 0, Object.values(t).reduce((x, y) => x + y, 0)]; };
+for (const [k, want] of [["Aynor", [20, 23]], ["Loris", [54, 71]], ["Conway", [84, 126]]]) if (JSON.stringify(outsideTown(k)) !== JSON.stringify(want)) throw new Error(`${k}: outside the town ${outsideTown(k)} is not the ledger's ${want}`);
+/* Row 73: Surfside Beach and Garden City, oceanfront, ocean view or second row. */
+const SURF_OCEAN = [LOTS.byArea["Surfside Beach and Garden City"].noFee.oceanfrontViewOrSecondRow, LOTS.byArea["Surfside Beach and Garden City"].noFee.listings,
+  LOTS.byArea["Surfside Beach and Garden City"].withFee.oceanfrontViewOrSecondRow, LOTS.byArea["Surfside Beach and Garden City"].withFee.listings];
+if (JSON.stringify(SURF_OCEAN) !== JSON.stringify([22, 56, 1, 47])) throw new Error(`Surfside ocean counts ${SURF_OCEAN} are not the ledger's`);
 
 /* Rounding a reader can say out loud (CRAFT 5). */
 const money = (v) => "$" + Math.round(v).toLocaleString("en-US");
@@ -192,10 +211,8 @@ const CONWAY_UDO = "https://www.conwaysc.gov/Current%20UDO%20(7.20.26).pdf";
 const LORIS_CODE = "https://www.cityoflorissc.com/documents/58/Loris_Unified_Zoning_and_Land_Use-_Current_3-7-18_-.pdf";
 
 /* Words used more than once. */
-const LOTS_BIG = PENDING.biggestLots;      // the areas with the most room, in order
-const loris = AREAS.find((a) => a.key === "Loris"), aynor = AREAS.find((a) => a.key === "Aynor");
+const loris = AREAS.find((a) => a.key === "Loris");
 const surf = AREAS.find((a) => a.key === "Surfside Beach and Garden City");
-const NOFEE = L_ALL.noFee, WITHFEE = L_ALL.withFee;
 
 /* ---------------------------------------------------------------------------- */
 
@@ -221,7 +238,7 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     `About a quarter of the homes for sale around Myrtle Beach show no fee to a homeowners association (HOA), the group that runs a neighborhood and collects a monthly fee. A house with no HOA fee usually asks about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, and about ${to5k(loris.houses.medianListPriceNoFee)} in Loris and Aynor.`,
-    PENDING.shortAnswerRoom,
+    "Loris and Aynor have the most room: a house with no HOA fee there usually has a lot of half an acre or more.",
     "With no HOA, you can keep a boat or a work truck at home. Each town still has its own rule on where a boat goes, and outside the towns the county sets no limit on your lot.",
   ],
   sections: [
@@ -240,17 +257,18 @@ module.exports = {
       h.cta("Get the homes with room for a boat.", "Tell us your price range, the areas you like, and what you need to park. One of our agents will send you the homes for sale with no HOA fee.", "Get the list", "/contact/", bg) },
 
     { h2: "Where are the homes with no HOA fee, and which have the most room?", toc: "Where, and lot sizes", html: () =>
-      PENDING.whereLead +
+      h.p("Most homes for sale in Aynor, Loris, North Myrtle Beach, and Surfside Beach and Garden City show no HOA fee. The houses with the most room are inland, in Aynor, Loris and Conway.") +
       `<div class="c3-areamap">${MAP.html}</div>` +
       areaTable() +
-      PENDING.lotsText +
+      h.p("A house with no HOA fee in Aynor usually has about an acre, and in Loris about three quarters of an acre. In North Myrtle Beach and Surfside Beach the lots are smaller, about a fifth of an acre. About 1 in 3 houses with no HOA fee has half an acre or more, against about 1 in 15 houses with a fee.") +
+      h.p("Most of the homes with no HOA fee in Aynor, Loris and Conway are outside the town limits. There, the county sets no limit on a boat or a work truck on your lot.") +
       h.p("In North Myrtle Beach, almost all the homes for sale with no HOA fee are in four parts of town: Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive.") +
       CHERRY +
       h.p("Some homes in campground communities near the beach show no HOA fee because the owner leases the land under the home and pays a yearly lease. We left them out of every count on this page.") },
 
     { h2: "Why do homes with no HOA fee cost more in some areas?", toc: "Why some cost more", html: () =>
-      h.p(`Houses with no HOA fee ask more in every area, about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} against ${to5k(ALL.detachedHouses.medianListPriceWithFee)} for a house with a fee. ${PENDING.whyMore}`) +
-      PENDING.surfsideText +
+      h.p(`Houses with no HOA fee ask more in every area, about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} against ${to5k(ALL.detachedHouses.medianListPriceWithFee)} for a house with a fee. Many of them are older houses near the ocean. About half of the houses with no HOA fee were built before 2000, against about 1 in 10 houses with a fee.`) +
+      h.p(`In Surfside Beach and Garden City, about 4 in 10 houses with no HOA fee are on the ocean, have an ocean view or are one row back from it. Almost none of the houses with a fee there are. A house with no HOA fee there asks about ${to5k(surf.houses.medianListPriceNoFee)}, against about ${to5k(surf.houses.medianListPriceWithFee)} with a fee.`) +
       h.p(`With no HOA fee, you also skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. For the places where a home costs least, see our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")}.`) },
 
     { h2: "What do you gain and give up with no HOA?", toc: "Pros and cons", html: (bg) =>
