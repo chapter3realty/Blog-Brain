@@ -403,16 +403,16 @@
    "width": 1200,
    "height": 900,
    "title": "The Market Common and the Myrtle Beach airport from the air, NOAA, January 2026",
-   "what": "The Market Common in Myrtle Beach from the air on January 12, 2026: its streets of homes outlined in orange around a lake, shops and offices south of them, and Myrtle Beach International Airport at the bottom.",
-   "caption": "The Market Common from the air: its homes, outlined, and the airport at the bottom.",
-   "alt": "The Market Common in Myrtle Beach from the air: blocks of townhomes and houses outlined in orange beside a lake, shops below them, and the airport with its planes and runway at the bottom",
+   "what": "The Market Common in Myrtle Beach from the air on January 12, 2026: its streets of homes outlined in orange around a lake, The Reserve at Market Common outlined at the right, shops and offices south of them, and Myrtle Beach International Airport at the bottom.",
+   "caption": "The Market Common from the air: its homes, outlined, The Reserve at the right, and the airport at the bottom.",
+   "alt": "The Market Common in Myrtle Beach from the air: blocks of townhomes and houses outlined in orange beside a lake, a second outlined group labelled The Reserve at Market Common at the right, shops below them, and the airport with its runway at the bottom",
    "place": {
     "city": "Myrtle Beach",
     "sublocation": "The Market Common"
    },
    "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185148_0112261657106_036_RGB2, flown 2026-01-12 at about 16:57 UTC (exterior orientation file 0122026_RGB_2_Oblique_EO.txt, camera within 1 km of The Market Common's reference point, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
    "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added an outline and labels",
-   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye. Outline: the union of the Horry County GIS parcels (layer 24) in the Market Common set of neighborhoods-facts.md row 24 that hold a building and are coded as homes (land use 101, 107, 109, 319 or 800; 652 parcels), streets inside closed, parts under 0.3 hectare-degrees dropped. 'The Market Common' at a point within 30 m of those parcels (-78.935793, 33.663248); 'Myrtle Beach International Airport' at a point inside the airport outline in Blog-Brain tools/geo (-78.932616, 33.670049). Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, market-common-from-above.labels.json).",
+   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye. Outline: the union of the Horry County GIS parcels (layer 24) in the Market Common set of neighborhoods-facts.md row 24 that hold a building and are coded as homes (land use 101, 107, 109, 319 or 800; 652 parcels), streets inside closed, parts under 0.3 hectare-degrees dropped. 'The Market Common' at a point within 30 m of those parcels (-78.935793, 33.663248); 'Myrtle Beach International Airport' at a point inside the airport outline in Blog-Brain tools/geo (-78.932616, 33.670049). 'The Reserve at Market Common' to the left of the centre of the 'RESERVE @ MARKET COMMON' parcels, which are part of the same row 24 set and of the outline (-78.948887, 33.674383). Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, market-common-from-above.labels.json).",
    "source_files": [
     "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.jpg",
     "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.geom"
@@ -428,6 +428,60 @@
     "note": "a raw frame, tilted about 20 degrees from straight down, not a map"
    },
    "original_size": "12000x9000 pixels of the raw frame, resized to 2400 wide, colors adjusted, outline and labels drawn"
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/cherry-grove-from-above.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/cherry-grove-from-above-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/cherry-grove-from-above-1200w.webp"
+   },
+   "title": "Cherry Grove from the air with labels, NOAA, January 2026",
+   "what": "Cherry Grove in North Myrtle Beach from the air on January 12, 2026: the beach at the left, homes along canals, and the salt marsh behind them, each labelled.",
+   "caption": "Cherry Grove from the air: the beach, the canals and the salt marsh.",
+   "alt": "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of homes on canals labelled Canals, and a wide salt marsh with winding creeks labelled Salt marsh",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Cherry Grove"
+   },
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_2_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "digital_source_type": "digitalCapture",
+   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added labels",
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.jpg",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.geom"
+   ],
+   "frame": {
+    "raw_pixels": [
+     0,
+     0,
+     7360,
+     5520
+    ],
+    "raw_size": "14204x10652",
+    "ground_m_per_px_raw_center": 0.195,
+    "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the left, north is up and to the right"
+   },
+   "original_size": "7360x5520 pixels of the raw frame, resized to 2400 wide, colors adjusted, labels drawn (render_best.py)",
+   "width": 1200,
+   "height": 900,
+   "display_credit": "U.S. government aerial photo",
+   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit), never by eye. 'Beach' 700 px (render) above a coastline vertex in Blog-Brain tools/geo grand-strand-v2.json coast (-78.6265, 33.8324), on the same strip of sand. 'Canals' at the representative point of the USGS National Hydrography Dataset waterbody (large scale, layer 12, FTYPE 436) inside the canal basin (-78.632326, 33.832326). 'Salt marsh' at the representative point of the largest NHD SwampMarsh polygon in view (FTYPE 466; -78.632751, 33.838892). Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, cherry-grove-labelled.labels.json).",
+   "derived_from": "the no-hoa record for images/buyers/no-hoa/cherry-grove-from-above.webp: same NOAA frame and crop, with labels added"
   },
   {
    "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
