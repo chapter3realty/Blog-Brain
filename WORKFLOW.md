@@ -362,7 +362,7 @@ The independent audits are in `batches/2026-10-a/GRADE-pages.md`, `GRADE-process
 4. **Stop rule.** Send to the owner at 0 high and 0 medium findings, buyer reads 8 or more, owner's eye 9 or more. Low findings go to a list, not a new version. At most 2 owner rounds.
 5. **One model page.** When the owner approves a page, name it in `batches/<batch>/MODEL.md`. Writers and reviewers read it first.
 6. **Scope freeze.** A batch keeps the plan it started with. New tools are built on their own track and reach pages in the next batch.
-7. **One working tree per agent.** Agents that change code work in their own git worktree. Only the orchestrator commits to the branch, and never with a failing test.
+7. **One working tree per agent.** Agents that change code work in their own git worktree. Only the orchestrator commits to the branch, and never with a failing test. Batch 2026-10-b: five writers had their own website clones but shared one Blog-Brain checkout. A coordinator commit swept in a writer's deletions, and a writer's commit then held another writer's files. Each agent commits only its own paths (`git commit -- <paths>`); better, each gets its own Blog-Brain worktree as well.
 8. **One fact, one value, sitewide.** A fact on a new page goes into `facts/registry.json`, and `facts-check.js` checks the hub, `llms.txt`, `llms-full.txt` and every other page for the old value.
 9. **Record cost.** `RETRO.md` records tokens, wall time and owner minutes per stage. Budget: about 2 million tokens and 3 hours per page.
 10. **Done means live.** A batch is done when it is deployed, not when it is approved.

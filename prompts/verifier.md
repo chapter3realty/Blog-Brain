@@ -37,6 +37,15 @@ You are checking a fact ledger for a page on chapter3realty.com. Assume the rese
    - A superlative ("the highest") with one source. It needs two sources that agree, or write "among the highest".
    - A rule stated as law that is only a bill. The SC HOA "$100 fine cap" is bill text that died three times.
    - A live guide page that still shows superseded text.
+   - A definition used outside the program or table its source attaches it to (batch 2026-10-b: a closed-base term applied to other land).
+   - An average whose group differs from the page's case (second homes mixed into "a home you live in").
+   - A total whose parts differ from the same total on a sibling page (a fee counted as tax on one page only). The coordinator names the sibling pages; compare every shared figure.
+   - "There is no rule": search the whole code for the opposite under other names before you pass it.
+   - "Online" or "not online": say which part (an index, the documents).
+   - A link the copy describes: open it and use it once. Say what it really shows and covers.
+   - A fact read from a picture: say only what the picture shows.
+   - "Only", "none", "every": check every case on the page.
+   - A safe wording the site's build would refuse. The website's `build.js` bans some words (for example "sets") and personification; check your wording against its banned list, or flag it for the writer.
 
 8. **Return a summary when done:**
    - counts by status

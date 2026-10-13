@@ -36,6 +36,12 @@ Batch 2026-10-a planned ten records questions and missed the one every reader as
 
 After every section, ask what question it just raised. Answer it, or cut what raised it.
 
+**Ask why this person typed it.** A search shows the words, not the reason. "Homes with no HOA" was typed by a boat owner who wanted to know what the town lets them park. The must-answer list had "what you gain" and missed it. For each top search, write the likely reason behind it, and answer that too (batch 2026-10-b).
+
+**Give the yearly cost in dollars.** Four of five cold readers in batch 2026-10-b came, in part, for what owning would cost them each year, and got pieces: a fee a month, a tax rate per $100,000. A reader does not add up pieces. On any page about where or what to buy, give one line for the typical home: "about $X a year besides the mortgage", with its parts named, from verified rows. Never a mortgage payment or a rate.
+
+**Answer the question you cannot answer.** A reader who asks whether a gated place is safe gets what a gate does, what it does not do, that we rate no place as safe or unsafe, and where the official public data is. Silence reads as hiding. Fair housing rules out the rating, not the answer.
+
 **Use the reader's words, including the words they search.** "No jargon" means no word the reader does not use. If readers type "amenity center", "HOA fees" or "pros and cons", the page says those words once, in plain context: "the clubhouse, which the builder calls the amenity center."
 
 **Define the word the reader thinks they already know.** Strange words get flagged. The trap is an ordinary word with a local meaning: "villa", "plan", a place name that is both a district and a neighborhood. Say what it means here the first time.
@@ -55,6 +61,16 @@ After every section, ask what question it just raised. Answer it, or cut what ra
 - **Firmness:** did an estimate become a decision, or an announcement date a start date?
 
 Researchers make the same mistakes over and over: a range from two samples instead of all cases, a geocoder's road label used as an address, an amended paragraph read as current, an impossible number. `prompts/researcher.md` lists them. Facts come only from verified ledger rows, checked by an agent that did not research them.
+
+The same stretch takes other forms. Batch 2026-10-b's verifiers found each of these in new rows (`research_notes/lessons-2026-10-b.md`, B8 to B15):
+- **A definition applies only where its source applies it.** A term defined for one program does not describe land in another.
+- **An average describes its own group.** A flood policy average that mixes second homes is not the cost for a home you live in.
+- **A total on two pages is built from the same parts.** If one page counts a fee in "tax" and another does not, both are right and the site disagrees with itself.
+- **"There is no rule" needs a search for the rule,** under every name it could have.
+- **"Online" has parts.** An index can be online when the documents are not.
+- **A link must do what the copy says.** Open it and use it once. A calls map is not a crime map.
+- **A picture shows shapes, not staff or rules.**
+- **"Only", "none" and "every" need every case checked.**
 
 **When the obvious source is closed, find a lawful one.** Respect robots files and site terms. Look for a public record, a second publisher or our own files. Use two independent sources for any figure that is not primary.
 
@@ -127,6 +143,9 @@ For a subject that fits no kind, find the main relation in the content: place, a
 ## 5. Write it
 
 - **Short sentences, one idea each, plain words.** A stranger decides what is plain, not the writer.
+- **Spell out every abbreviation once, even the common one.** Readers of pages that said "HOA" 28 times did not know what the fee pays for. Say it once in full, with what it means for the reader.
+- **One page, one value.** The tiles, the short answer, the table, the chart and the FAQ give the same figure for the same thing, rounded the same way.
+- **Answer here.** "Ask an agent" is a non-answer when the page or a verified row has the answer. Use it only where the answer depends on the one house, and say what gets checked.
 - **Round to help, not by reflex.** Round what a person would not say aloud: "about $535,000", "about $600 a year". Keep a short exact figure when it is the answer itself or what others print: "$95 a month". Three numbers in a paragraph at most.
 - **Give a number the reader can plan with.** "More than $2,000", "at least $3,000" and "ask the manager" are true and useless. Give the rounded figure for the reader's case, or leave the question off the page and put the offer to find out in a call to action.
 - **Say what it means, not what it is.** "You probably will not need flood insurance," not "Zone X".
