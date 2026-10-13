@@ -187,9 +187,9 @@
         "1200": "images/buyers/the-farm/the-farm-from-above-1200w.webp"
       },
       "title": "The Farm at Carolina Forest, NAIP aerial, April 2023",
-      "what": "The Farm at Carolina Forest from above on April 10, 2023, with its outline and six labels: the entrance on Carolina Forest Boulevard at the bottom, the activity center and the large pool near it, the townhomes of The Orchards on the east side, the small pool in the north part and the Planters Point condominiums at the north-east corner. Curving streets of houses wind around ponds and strips of woods.",
+      "what": "The Farm at Carolina Forest from above on April 10, 2023, with its outline and six labels: the entrance on Carolina Forest Boulevard at the bottom, the activity center and the large pool near it, the townhomes of The Orchards on the east side, the small pool in the north part and the Planters Point condominiums in the north-east part. Curving streets of houses wind around ponds and strips of woods.",
       "caption": "The Farm at Carolina Forest from above. The orange line is the edge of the neighborhood.",
-      "alt": "The Farm at Carolina Forest from above, with its edge drawn in orange: curving streets of houses around ponds and strips of woods, with labels for the entrance at the bottom, the activity center, the large pool, The Orchards townhomes, the small pool and Planters Point",
+      "alt": "The Farm at Carolina Forest from above, its edge drawn in orange: curving streets of houses around ponds and woods, labelled with the entrance, the activity center, the large pool, The Orchards, the small pool and Planters Point",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "The Farm at Carolina Forest"
@@ -231,7 +231,7 @@
         "activity_center": "Horry County GIS building footprints layer 27, object 390424, its center (-78.877216, 33.759172), the one building on the HOA parcel PIN 39609030003 that carries the address point 190 Farmers Rest Dr (ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
         "small_pool": "Horry County GIS building footprints layer 27, object 412200 (Pool Inground), its center (-78.873601, 33.767405), on the HOA parcel PIN 39607040047 (address 389 Carolina Farms Blvd; ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
         "the_orchards": "Center of the 207 parcels with land use 109 (The Orchards townhouse lots; ledger row 1) in Horry County parcels layer 24 (-78.87093, 33.761825). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24",
-        "planters_point": "Center of the 72 parcels with land use 107 (Planters Point condominium units; ledger row 1) in Horry County parcels layer 24 (-78.87088, 33.767446). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
+        "planters_point": "The 72 parcels with land use 107 (Planters Point condominium units; ledger row 1) in Horry County parcels layer 24: centered on their middle (-78.87088) and set just below their south edge (33.76672), so the label does not cover the small pool's dot. https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8781844.693441521%2C3995769.8170473897%2C-8779106.655017434%2C3998507.8554714797&bboxSR=3857&imageSR=3857&size=2400%2C2400&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
@@ -244,7 +244,7 @@
         "ground_m_per_px_1200w": 1.9
       },
       "original_size": "2400x2400 (NAIP export, drawn on at 2x, colors adjusted, then resized)",
-      "method": "scratchpad farmw/scripts/render.py (the batch 2026-10-a aerial/scripts/render.py with a top-left label anchor) and fetch.py; config farmw/aerial/work/config.json",
+      "method": "scratchpad farmw/scripts/render.py (the batch 2026-10-a aerial/scripts/render.py with a top-left label anchor) and fetch.py; config farmw/aerial/work/config.json (labels 46 px in 1200 for the page file, so they read on a phone)",
       "width": 1200,
       "height": 1200,
       "crops": {
@@ -264,7 +264,7 @@
           "height": 675
         }
       },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: each ratio is its own NAIP 2023 export with the outline and labels placed for that frame, 1200 px wide. A label with no room in a frame is left out of that frame (Planters Point in the 4x3 and 16x9, The Orchards in the 16x9)."
+      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: each ratio is its own NAIP 2023 export with the outline and labels placed for that frame, 1200 px wide. A label with no room in a frame is left out of that frame: in the 4x3 the Entrance label (its dot stays) and The Orchards; in the 16x9 The Orchards. The 1x1 and the page's own file carry all six."
     },
     {
       "slug": "the-farm",
@@ -298,7 +298,7 @@
       "display_credit": "U.S. government aerial photo",
       "credit": "Photo: NOAA National Geodetic Survey, public domain. Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty joined three NOAA map tiles, cut a close view of the large pool and the activity center, adjusted the colors and added two labels placed from Horry County building footprints",
+      "changes": "Chapter3 Realty joined three NOAA map tiles, cut a close view, adjusted the colors and added two labels placed from county building footprints",
       "labels": [
         "Large pool",
         "Activity center"
