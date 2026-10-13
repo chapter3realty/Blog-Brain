@@ -1122,5 +1122,573 @@
     }
    ]
   }
- ]
+ ],
+ "litchfield_by_the_sea": {
+  "about": "Litchfield by the Sea, round 6. Closed sales with a closing date from 2025-10-01 to 2026-09-30, read 2026-10-13 from the same MLS site (RE/MAX Southern Shores, mbcoastalhomes.realgeeks.com). Sections found by scanning the newest 240 Pawleys Island sold listings for 'Litchfield by the Sea' in their text, then searching each section's MLS neighborhood name. Every counted listing names Litchfield by the Sea or LBTS on its page. Excluded: the MLS neighborhood 'Litchfield By the Sea' itself and Osprey Watch, whose closed listings in the window are interval (shared-week) ownership or have no description (listed under excluded). No keyword search exists on the site, so a house section whose listings do not mention Litchfield by the Sea may be missing.",
+  "window": [
+   "2025-10-01",
+   "2026-09-30"
+  ],
+  "read": "2026-10-13",
+  "sections": {
+   "Bridgewater - Litchfield By The Sea": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=Bridgewater%20-%20Litchfield%20By%20The%20Sea&type=all&status=sold",
+    "sold_search_total": 21,
+    "sales": [
+     {
+      "mls": "2610778",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2610778/",
+      "sold": 672000,
+      "close": "Jun 12, 2026",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1708
+     },
+     {
+      "mls": "2613620",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2613620/",
+      "sold": 660000,
+      "close": "Jul 10, 2026",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1876
+     },
+     {
+      "mls": "2618200",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2618200/",
+      "sold": 645000,
+      "close": "Aug 31, 2026",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1708
+     },
+     {
+      "mls": "2525273",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2525273/",
+      "sold": 605000,
+      "close": "Apr 09, 2026",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1786
+     },
+     {
+      "mls": "2519354",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2519354/",
+      "sold": 567000,
+      "close": "Feb 03, 2026",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1786
+     },
+     {
+      "mls": "2610984",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2610984/",
+      "sold": 569000,
+      "close": "May 15, 2026",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1708
+     },
+     {
+      "mls": "2513948",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2513948/",
+      "sold": 550000,
+      "close": "Jun 25, 2026",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1786
+     },
+     {
+      "mls": "2424430",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2424430/",
+      "sold": 550000,
+      "close": "Jun 15, 2026",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1786
+     },
+     {
+      "mls": "2513611",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2513611/",
+      "sold": 340000,
+      "close": "Oct 27, 2025",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1054
+     },
+     {
+      "mls": "2600780",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2600780/",
+      "sold": 330000,
+      "close": "Mar 18, 2026",
+      "type": "Condominium",
+      "neighborhood": "Bridgewater - Litchfield By The Sea",
+      "section": "Bridgewater - Litchfield By The Sea",
+      "hoa_monthly": 1054
+     }
+    ]
+   },
+   "SEASIDE INN - LITCHFIELD AREA": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=SEASIDE%20INN%20-%20LITCHFIELD%20AREA&type=all&status=sold",
+    "sold_search_total": 16,
+    "sales": [
+     {
+      "mls": "2606829",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2606829/",
+      "sold": 418000,
+      "close": "Jul 08, 2026",
+      "type": "Condominium",
+      "neighborhood": "SEASIDE INN - LITCHFIELD AREA",
+      "section": "SEASIDE INN - LITCHFIELD AREA",
+      "hoa_monthly": 736
+     }
+    ]
+   },
+   "Summerhouse at LBTS": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=Summerhouse%20at%20LBTS&type=all&status=sold",
+    "sold_search_total": 28,
+    "sales": [
+     {
+      "mls": "2601204",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2601204/",
+      "sold": 207000,
+      "close": "Mar 09, 2026",
+      "type": "Condominium",
+      "neighborhood": "Summerhouse at LBTS",
+      "section": "Summerhouse at LBTS",
+      "hoa_monthly": 618
+     },
+     {
+      "mls": "2517518",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2517518/",
+      "sold": 200000,
+      "close": "Dec 15, 2025",
+      "type": "Condominium",
+      "neighborhood": "Summerhouse at LBTS",
+      "section": "Summerhouse at LBTS",
+      "hoa_monthly": 796
+     },
+     {
+      "mls": "2600059",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2600059/",
+      "sold": 195000,
+      "close": "Mar 17, 2026",
+      "type": "Condominium",
+      "neighborhood": "Summerhouse at LBTS",
+      "section": "Summerhouse at LBTS",
+      "hoa_monthly": 804
+     },
+     {
+      "mls": "2510952",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2510952/",
+      "sold": 210000,
+      "close": "Nov 20, 2025",
+      "type": "Condominium",
+      "neighborhood": "Summerhouse at LBTS",
+      "section": "Summerhouse at LBTS",
+      "hoa_monthly": 660
+     },
+     {
+      "mls": "2602808",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2602808/",
+      "sold": 200000,
+      "close": "Mar 30, 2026",
+      "type": "Condominium",
+      "neighborhood": "Summerhouse at LBTS",
+      "section": "Summerhouse at LBTS",
+      "hoa_monthly": 804
+     },
+     {
+      "mls": "2424774",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2424774/",
+      "sold": 193900,
+      "close": "Nov 11, 2025",
+      "type": "Condominium",
+      "neighborhood": "Summerhouse at LBTS",
+      "section": "Summerhouse at LBTS",
+      "hoa_monthly": 660
+     },
+     {
+      "mls": "2605707",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2605707/",
+      "sold": 183000,
+      "close": "Sep 28, 2026",
+      "type": "Condominium",
+      "neighborhood": "Summerhouse at LBTS",
+      "section": "Summerhouse at LBTS",
+      "hoa_monthly": 808
+     }
+    ]
+   },
+   "Lakeside Villas": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=Lakeside%20Villas&type=all&status=sold",
+    "sold_search_total": 10,
+    "sales": [
+     {
+      "mls": "2618909",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2618909/",
+      "sold": 741000,
+      "close": "Sep 15, 2026",
+      "type": "Condominium",
+      "neighborhood": "Lakeside Villas",
+      "section": "Lakeside Villas",
+      "hoa_monthly": 808
+     },
+     {
+      "mls": "2603904",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2603904/",
+      "sold": 675000,
+      "close": "May 21, 2026",
+      "type": "Condominium",
+      "neighborhood": "Lakeside Villas",
+      "section": null,
+      "hoa_monthly": 808
+     },
+     {
+      "mls": "2521982",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2521982/",
+      "sold": 492000,
+      "close": "Jul 23, 2026",
+      "type": "Condominium",
+      "neighborhood": "Lakeside Villas",
+      "section": "Lakeside Villas",
+      "hoa_monthly": 680
+     }
+    ]
+   },
+   "Sandpiper Run": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=Sandpiper%20Run&type=all&status=sold",
+    "sold_search_total": 8,
+    "sales": [
+     {
+      "mls": "2609857",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2609857/",
+      "sold": 885000,
+      "close": "May 29, 2026",
+      "type": "Condominium",
+      "neighborhood": "Sandpiper Run",
+      "section": "Sandpiper Run",
+      "hoa_monthly": 1130
+     }
+    ]
+   },
+   "Sandpiper Run - The Crescent": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=Sandpiper%20Run%20-%20The%20Crescent&type=all&status=sold",
+    "sold_search_total": 5,
+    "sales": [
+     {
+      "mls": "2613343",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2613343/",
+      "sold": 1100000,
+      "close": "Jun 30, 2026",
+      "type": "Condominium",
+      "neighborhood": "Sandpiper Run - The Crescent",
+      "section": "Sandpiper Run - The Crescent",
+      "hoa_monthly": 1323
+     },
+     {
+      "mls": "2608791",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2608791/",
+      "sold": 1000000,
+      "close": "May 14, 2026",
+      "type": "Condominium",
+      "neighborhood": "Sandpiper Run - The Crescent",
+      "section": "Sandpiper Run - The Crescent",
+      "hoa_monthly": 1254
+     }
+    ]
+   },
+   "Cambridge, The": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=Cambridge%2C%20The&type=all&status=sold",
+    "sold_search_total": 4,
+    "sales": [
+     {
+      "mls": "2612802",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2612802/",
+      "sold": 1575000,
+      "close": "Jul 07, 2026",
+      "type": "Condominium",
+      "neighborhood": "Cambridge, The",
+      "section": "Cambridge, The",
+      "hoa_monthly": 1284
+     },
+     {
+      "mls": "2525113",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2525113/",
+      "sold": 1300000,
+      "close": "Nov 24, 2025",
+      "type": "Condominium",
+      "neighborhood": "Cambridge, The",
+      "section": "Cambridge, The",
+      "hoa_monthly": 1140
+     },
+     {
+      "mls": "2513333",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2513333/",
+      "sold": 835000,
+      "close": "Oct 31, 2025",
+      "type": "Condominium",
+      "neighborhood": "Cambridge, The",
+      "section": "Cambridge, The",
+      "hoa_monthly": 855
+     }
+    ]
+   },
+   "WARWICK, THE": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=WARWICK%2C%20THE&type=all&status=sold",
+    "sold_search_total": 8,
+    "sales": [
+     {
+      "mls": "2610234",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2610234/",
+      "sold": 1300000,
+      "close": "Jun 17, 2026",
+      "type": "Condominium",
+      "neighborhood": "WARWICK, THE",
+      "section": "WARWICK, THE",
+      "hoa_monthly": 1276
+     },
+     {
+      "mls": "2600502",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2600502/",
+      "sold": 1045000,
+      "close": "Jul 20, 2026",
+      "type": "Condominium",
+      "neighborhood": "WARWICK, THE",
+      "section": "WARWICK, THE",
+      "hoa_monthly": 1276
+     }
+    ]
+   },
+   "Breakers Reef": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=Breakers%20Reef&type=all&status=sold",
+    "sold_search_total": 5,
+    "sales": [
+     {
+      "mls": "2610212",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2610212/",
+      "sold": 2178000,
+      "close": "May 13, 2026",
+      "type": "Condominium",
+      "neighborhood": "Breakers Reef",
+      "section": null,
+      "hoa_monthly": 1394
+     },
+     {
+      "mls": "2603630",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2603630/",
+      "sold": 1795000,
+      "close": "Mar 18, 2026",
+      "type": "Townhouse",
+      "neighborhood": "Breakers Reef",
+      "section": null,
+      "hoa_monthly": 1394
+     },
+     {
+      "mls": "2524745",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2524745/",
+      "sold": 1570000,
+      "close": "Nov 24, 2025",
+      "type": "Townhouse",
+      "neighborhood": "Breakers Reef",
+      "section": null,
+      "hoa_monthly": 1386
+     },
+     {
+      "mls": "2607269",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2607269/",
+      "sold": 1490000,
+      "close": "Jun 05, 2026",
+      "type": "Condominium",
+      "neighborhood": "Breakers Reef",
+      "section": null,
+      "hoa_monthly": 1394
+     }
+    ]
+   },
+   "Oystercatcher Island": {
+    "search": "https://mbcoastalhomes.realgeeks.com/search/results/?city=all&neighborhood=Oystercatcher%20Island&type=all&status=sold",
+    "sold_search_total": 9,
+    "sales": [
+     {
+      "mls": "2525110",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2525110/",
+      "sold": 780000,
+      "close": "Feb 23, 2026",
+      "type": "Detached",
+      "neighborhood": "Oystercatcher Island",
+      "section": "Oystercatcher Island",
+      "hoa_monthly": 1357
+     },
+     {
+      "mls": "2524594",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2524594/",
+      "sold": 770000,
+      "close": "Mar 12, 2026",
+      "type": "Detached",
+      "neighborhood": "Oystercatcher Island",
+      "section": "Oystercatcher Island",
+      "hoa_monthly": 1050
+     },
+     {
+      "mls": "2606158",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2606158/",
+      "sold": 742000,
+      "close": "May 14, 2026",
+      "type": "Detached",
+      "neighborhood": "Oystercatcher Island",
+      "section": "Oystercatcher Island",
+      "hoa_monthly": 1065
+     },
+     {
+      "mls": "2607902",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2607902/",
+      "sold": 750000,
+      "close": "Jul 17, 2026",
+      "type": "Detached",
+      "neighborhood": "Oystercatcher Island",
+      "section": "Oystercatcher Island",
+      "hoa_monthly": 1150
+     },
+     {
+      "mls": "2602108",
+      "url": "https://mbcoastalhomes.realgeeks.com/property/2602108/",
+      "sold": 720000,
+      "close": "Mar 30, 2026",
+      "type": "Detached",
+      "neighborhood": "Oystercatcher Island",
+      "section": "Oystercatcher Island",
+      "hoa_monthly": 1069
+     }
+    ]
+   }
+  },
+  "condos_and_townhouses": {
+   "count": 33,
+   "median": 645000,
+   "low": 183000,
+   "high": 2178000,
+   "middle_half": [
+    340000.0,
+    1045000.0
+   ]
+  },
+  "detached": {
+   "count": 5,
+   "median": 750000,
+   "low": 720000,
+   "high": 780000,
+   "middle_half": [
+    742000.0,
+    770000.0
+   ]
+  },
+  "excluded": [
+   {
+    "mls": "2610727",
+    "nb": "Litchfield By the Sea",
+    "sold": "$220,000",
+    "close": "Jun 03, 2026"
+   },
+   {
+    "mls": "2500435",
+    "nb": "Litchfield By the Sea",
+    "sold": "$150,000",
+    "close": "Jun 24, 2026"
+   },
+   {
+    "mls": "2613853",
+    "nb": "Litchfield By the Sea",
+    "sold": "$140,000",
+    "close": "Jun 25, 2026"
+   },
+   {
+    "mls": "2613816",
+    "nb": "Litchfield By the Sea",
+    "sold": "$140,000",
+    "close": "Jul 15, 2026"
+   },
+   {
+    "mls": "2520023",
+    "nb": "Litchfield By the Sea",
+    "sold": "$125,000",
+    "close": "Dec 17, 2025"
+   },
+   {
+    "mls": "2519692",
+    "nb": "Litchfield By the Sea",
+    "sold": "$125,000",
+    "close": "Dec 19, 2025"
+   },
+   {
+    "mls": "2619889",
+    "nb": "Litchfield By the Sea",
+    "sold": "$110,000",
+    "close": "Aug 26, 2026"
+   },
+   {
+    "mls": "2528694",
+    "nb": "Litchfield By the Sea",
+    "sold": "$110,000",
+    "close": "Dec 31, 2025"
+   },
+   {
+    "mls": "2614798",
+    "nb": "Litchfield By the Sea",
+    "sold": "$110,000",
+    "close": "Jul 13, 2026"
+   },
+   {
+    "mls": "2610972",
+    "nb": "Litchfield By the Sea",
+    "sold": "$105,000",
+    "close": "May 28, 2026"
+   },
+   {
+    "mls": "2615667",
+    "nb": "Litchfield By the Sea",
+    "sold": "$94,000",
+    "close": "Aug 06, 2026"
+   },
+   {
+    "mls": "2614067",
+    "nb": "Litchfield By the Sea",
+    "sold": "$67,500",
+    "close": "Jun 18, 2026"
+   },
+   {
+    "mls": "2615776",
+    "nb": "Litchfield By the Sea",
+    "sold": "$27,000",
+    "close": "Jul 27, 2026"
+   },
+   {
+    "mls": "2530086",
+    "nb": "Litchfield By the Sea",
+    "sold": "$20,000",
+    "close": "Feb 17, 2026"
+   },
+   {
+    "mls": "2522062",
+    "nb": "Litchfield By the Sea",
+    "sold": "$19,500",
+    "close": "Oct 20, 2025"
+   },
+   {
+    "mls": "2608321",
+    "nb": "Osprey Watch",
+    "sold": "$74,000",
+    "close": "May 08, 2026"
+   }
+  ]
+ }
 }
