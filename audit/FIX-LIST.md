@@ -2698,3 +2698,5 @@ Fixed, or the page changed. Remove them from `audit/manual-findings.json`.
 - `/submarkets/pawleys-island/`: Zillow value $514k (up 5%) is now $553k (up 0.7%).
 - These go in facts/registry.json once the batch 2026-10-b verifier confirms them, so facts-check flags them.
 - `/hoa/reserves/` and `/hoa/special-assessments/` each print a literal "%s" (found 2026-10-13, batch 2026-10-b no-HOA research).
+- `/buyers/golf-communities/`: the comparison table says "Gated 24/7 with a live guard" and "Gated with 24-hour security" for communities whose staffing no verified source shows; its FAQ said "Prestwick has a 24/7 staffed gate" and that Pawleys Plantation is gated (batch 2026-10-b gated-communities ledger; the FAQ fix is in batches/2026-10-b/gated-communities-links.diff, the table is not).
+- Site chrome: the search pop-up on every page promises "off-market homes before they hit the public sites" (claims-scan HIGH on 136 pages). The footer calls Chapter3 "the Myrtle Beach investor-focused brokerage" on buyer pages.
