@@ -99,6 +99,8 @@ check("photoSet: a refused photo throws", throws(() => ph.aerial("broadway-at-th
 const cr = ph.credits();
 check("photoSet: credits list every photo shown, in order, then the ImageObjects", cr.indexOf("aerial photo") >= 0 && /application\/ld\+json/.test(cr) && ph.used().length === 2);
 check("photoSet: the overview with crops is the page image", Array.isArray(ph.pageImages()) && ph.pageImages().length === 3);
+{ const noCss = kit.photoSet(); noCss.aerial("conway-main-street", "x");
+  check("photoSet: credits without the photo CSS throws (B22)", throws(() => noCss.credits(), /photo CSS missing/)); }
 check("photoSet: a share photo not on the page throws", throws(() => kit.photoSet().share("conway-main-street").credits()));
 
 /* ---- lesson L34: the general helpers live here, not in a batch kit ---- */

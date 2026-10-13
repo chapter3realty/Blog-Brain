@@ -340,6 +340,10 @@ function makePhotoSet(ctx) {
       share(name) { shareRec = P.findPhoto(photos, name); return this; },
       credits() {
         if (!used.length) throw new Error("no photos shown, so no credits");
+        /* A page that shows photos without their stylesheet passed every gate once: the gated page
+           of batch 2026-10-b showed two aerials at 1,200 px past the column, with a bare blue credit
+           link (lessons-2026-10-b B22). credits() comes last on every page, so it checks. */
+        if (!cssDone) throw new Error("photo CSS missing: put ph.css() in the page's CSS before ph.credits()");
         if (shareRec && !used.includes(shareRec)) throw new Error("the share photo is not shown on the page");
         /* The year of a government aerial goes in its credit line, the one place a photo's date
            appears (owner, 2026-10-11: the date once at the top; photo years only in the credits). */
