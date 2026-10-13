@@ -180,6 +180,128 @@
       "reused_from": "batches/2026-10-a/data/photos.json (same files, already on the live site under images/55-plus/myrtle-trace/)"
     },
     {
+      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+      "source_name": "NOAA Emergency Response Imagery",
+      "author": "NOAA National Geodetic Survey",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
+      "terms_urls": [
+        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+        "https://registry.opendata.aws/noaa-eri/",
+        "https://www.fisheries.noaa.gov/inport/item/67562"
+      ],
+      "taken": "2026-01-12",
+      "digital_source_type": "digitalCapture",
+      "display_credit": "U.S. government aerial photo",
+      "slug": "best-neighborhoods",
+      "file": "images/buyers/best-neighborhoods/surfside-beach-from-above.webp",
+      "variants": {
+        "600": "images/buyers/best-neighborhoods/surfside-beach-from-above-600w.webp",
+        "1200": "images/buyers/best-neighborhoods/surfside-beach-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "The ocean side of Surfside Beach from the air, NOAA, January 2026",
+      "what": "Surfside Beach from the air on January 12, 2026: streets of homes from US 17 Business at the left to the beach and the ocean at the right, with a public beach access and a fishing pier at the right.",
+      "caption": "The ocean side of Surfside Beach from the air, from US 17 Business to the beach.",
+      "alt": "Surfside Beach from the air: streets of houses under trees from a highway at the left to a wide beach and the ocean at the right, with a fishing pier and a public beach access marked",
+      "place": {
+        "city": "Surfside Beach",
+        "sublocation": "between US 17 Business and the ocean"
+      },
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185159_0112261658253_036_RGB1, flown 2026-01-12 at about 16:58 UTC (the frame name carries 011226 1658; the exterior orientation file 0122026_RGB_1_Oblique_EO.txt, event 201, puts the camera at 33.6108, -78.9802, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
+      "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added labels",
+      "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye: 'US 17 Business' on the Horry County GIS highways layer 17 line HWY 17 (alias HWY 17 BUSINESS); 'Public beach access' at the S.C. DES beach access record SURFSIDE BEACH 17 (OBJECTID 108, -78.971728, 33.605163), the access in neighborhoods-facts.md row 140. Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, surfside-beach-from-above.labels.json).",
+      "source_files": [
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.jpg",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.geom"
+      ],
+      "frame": {
+        "raw_pixels": [
+          0,
+          2400,
+          8800,
+          9000
+        ],
+        "raw_size": "14204x10652",
+        "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the right"
+      },
+      "original_size": "8800x6600 pixels of the raw frame, resized to 2400 wide, colors adjusted, labels drawn",
+      "crops": {
+        "1x1": {
+          "path": "images/buyers/best-neighborhoods/surfside-beach-from-above-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/buyers/best-neighborhoods/surfside-beach-from-above-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/buyers/best-neighborhoods/surfside-beach-from-above-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crop_source": "the same NOAA view without labels (scratchpad wb-best-work/eri/surfside-beach-plain.png, 2400 x 1800), cut to 1x1, 4x3 and 16x9 from the center with tools/photos.js crops"
+    },
+    {
+      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+      "source_name": "NOAA Emergency Response Imagery",
+      "author": "NOAA National Geodetic Survey",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
+      "terms_urls": [
+        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+        "https://registry.opendata.aws/noaa-eri/",
+        "https://www.fisheries.noaa.gov/inport/item/67562"
+      ],
+      "taken": "2026-01-12",
+      "digital_source_type": "digitalCapture",
+      "display_credit": "U.S. government aerial photo",
+      "slug": "best-neighborhoods",
+      "file": "images/buyers/best-neighborhoods/pine-lakes-from-above.webp",
+      "variants": {
+        "600": "images/buyers/best-neighborhoods/pine-lakes-from-above-600w.webp",
+        "1200": "images/buyers/best-neighborhoods/pine-lakes-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 1200,
+      "title": "Pine Lakes in Myrtle Beach from the air, NOAA, January 2026",
+      "what": "Pine Lakes in Myrtle Beach from the air on January 12, 2026: The Preserve at Pine Lakes and Pine Lakes Estates outlined in orange beside the Pine Lakes Country Club golf course, with the beach at the right.",
+      "caption": "Pine Lakes from the air: the homes in The Preserve at Pine Lakes and Pine Lakes Estates, outlined, beside the golf course.",
+      "alt": "Pine Lakes in Myrtle Beach from the air: curving streets of houses around ponds, outlined in orange, beside a golf course with green fairways and sand traps, and the beach at the far right",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Pine Lakes"
+      },
+      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185127_0112261649071_037_RGB1, flown 2026-01-12 at about 16:49 UTC (exterior orientation file 0122026_RGB_1_Oblique_EO.txt, event 169, camera at 33.7443, -78.8497, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
+      "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added an outline and labels",
+      "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye. Outline: the union of the Horry County GIS parcels (layer 24) whose legal description starts 'PINE LAKES PH' or 'PINE LAKES ESTATES', the homes in neighborhoods-facts.md row 1 (The Preserve at Pine Lakes and Pine Lakes Estates), with streets inside closed. 'The Preserve at Pine Lakes' at a point inside the 'PINE LAKES PH' parcels; 'Pine Lakes Estates' beside the centre of its parcels; 'Pine Lakes Country Club' at a point inside the course parcel 42100000010 'PINE LAKES; REVISED PARCEL 4' (land use 389), row 168. Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, pine-lakes-from-above.labels.json).",
+      "source_files": [
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185127_0112261649071_037_RGB1.jpg",
+        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185127_0112261649071_037_RGB1.geom"
+      ],
+      "frame": {
+        "raw_pixels": [
+          3550,
+          300,
+          13902,
+          10652
+        ],
+        "raw_size": "14204x10652",
+        "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the right"
+      },
+      "original_size": "10352x10352 pixels of the raw frame, resized to 2400 wide, colors adjusted, outline and labels drawn"
+    },
+    {
       "slug": "the-farm",
       "file": "images/buyers/the-farm/the-farm-from-above.webp",
       "variants": {

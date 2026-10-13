@@ -37,7 +37,7 @@
       "cells": { "price": "About $395,000 for a house", "fee": "$65 to $86 for a house", "beach": "About 15 minutes by car" },
       "rows": "price: row 84 (29 house resales, middle $395,000); fee: row 85; beach: row 87; grocery: row 88; flood: row 90" },
     { "id": "market-common", "name": "The Market Common", "short": "Market Common", "area": "myrtle-beach", "lat": 33.666315, "lon": -78.939592,
-      "cells": { "price": "Houses $540,000, townhomes $400,000", "fee": "About $300 to $680 for a townhome", "beach": "About 5 minutes by car" },
+      "cells": { "price": "Houses $540,000, townhomes $398,000", "fee": "About $300 to $680 for a townhome", "beach": "About 5 minutes by car" },
       "rows": "price: row 26 (26 houses middle $540,000; 20 townhomes middle $398,400); fee: row 28 (townhomes $300 to $683; one house $101); beach: row 30; grocery: row 31; flood: row 33 (11 of 838 in AE)" },
     { "id": "deerfield", "name": "Deerfield Plantation area", "short": "Deerfield", "area": "surfside", "lat": 33.63038, "lon": -78.977526,
       "cells": { "price": "About $355,000", "fee": "$40 to $85 for a house", "beach": "7 to 8 minutes by car" },
