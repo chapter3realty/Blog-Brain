@@ -325,7 +325,7 @@ module.exports = {
         { caption: "A house you live in: the yearly cost", nameLabel: "House", css: css() }) +
       h.p("The HOA fee covers what the neighborhood shares. For a house, it usually includes the common areas, and often trash pickup and a pool. A condo fee usually also includes the building's insurance, water and sewer.") +
       h.p(`The tax is for a home you live in, and in North Myrtle Beach it includes the city's share. A home you rent out pays a higher rate. When a home sells, the county ${h.ext(SC_TAX, "values it again")}, usually close to the price paid, and taxes the new value the next year.`) +
-      h.p(`About 400 properties in Cherry Grove also pay the city about $1,700 a year, on the tax bill, for ${h.ext(CG_CANALS, "dredging the canals")}. The city's bond for that work is scheduled to be paid off in April 2028. The totals above do not count it.`) +
+      h.p(`About 415 homes and lots in Cherry Grove also pay the city a yearly fee for ${h.ext(CG_CANALS, "dredging the canals")}, about $1,700 now. The city decides the amount each year. The totals above do not count it.`) +
       h.p(`Homeowners insurance comes on top of all this. Our guide to ${h.a("/buyers/coastal-insurance/", "insurance near the coast")} shows what it costs.`) },
 
     { h2: "What is it like to live here all year?", toc: "Living here all year", id: "all-year", html:
