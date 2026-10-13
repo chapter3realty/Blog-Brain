@@ -123,6 +123,45 @@ check("every town name on a county-wide map sits by its own town", !far.length, 
 check("no coastal town name is drawn west of the waterway on the county-wide map", !county.boxes.some((b) => b.kind === "town" && ["Surfside Beach", "Garden City", "Murrells Inlet", "Pawleys Island"].includes(b.owner) && center(b)[0] < toXY(T[b.owner])[0] - 20));
 check("the park name is spelled Huntington", !/Hunington/.test(JSON.stringify(geo.parks || [])) && !/Hunington/.test(county.svg));
 
+/* Leader lines and "first" (round 4, batch 2026-10-b). The best-neighborhoods map had no
+   "Myrtle Beach" (the city is a narrow strip among the markers) and The Farm, the page's own pick,
+   had a number only. spec.leaders puts a name with no room by its spot in open space with a thin
+   line to it; places[i].first names a place before the others. */
+const { LEADER_MAX } = A.internals;
+const inOutline = (rings, lon, lat) => {
+  let inside = false;
+  for (const ring of rings) for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i], [xj, yj] = ring[j];
+    if ((yi > lat) !== (yj > lat) && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+};
+const LT = { name: "Leader test", places: PLACES.slice(0, 15) };
+const plain15 = regionMap(LT, { inlineMax: 1e9 });
+const led = regionMap(Object.assign({}, LT, { leaders: { places: true, towns: ["Myrtle Beach"] } }), { inlineMax: 1e9 });
+const tBox = led.boxes.find((b) => b.kind === "town" && b.owner === "town:Myrtle Beach");
+const tLine = led.boxes.find((b) => b.kind === "leader" && b.owner === "town:Myrtle Beach");
+check("leaders.towns: a town with no room by its point gets its name, with a line", !plain15.labels.towns.includes("Myrtle Beach") && led.labels.townLeaders.includes("Myrtle Beach") && tBox && tLine && /<text class="T"[^>]*>(?:<tspan[^>]*>)?MYRTLE/.test(led.svg));
+const [ax, ay] = tLine.pts[0], toLL = (m, x, y) => [m.frame.west + x / m.width * (m.frame.east - m.frame.west), m.frame.north - y / m.height * (m.frame.north - m.frame.south)];
+check("leaders.towns: the line ends inside the town's own outline and is LEADER_MAX units or shorter", inOutline(T["Myrtle Beach"].outline, ...toLL(led, ax, ay)) && Math.hypot(tLine.pts[1][0] - ax, tLine.pts[1][1] - ay) <= LEADER_MAX + 0.5);
+const ledPlaces = led.places.filter((p) => p.leader);
+check("leaders.places: fewer names are left off than without leaders", ledPlaces.length > 0 && led.unlabelled.length < plain15.unlabelled.length, `${plain15.unlabelled.length} -> ${led.unlabelled.length}`);
+const R0 = (led.boxes.find((b) => b.kind === "marker").x1 - led.boxes.find((b) => b.kind === "marker").x0) / 2 - 1;
+const badLead = ledPlaces.filter((p) => {
+  const ow = "lm" + (p.num - 1), lb2 = led.boxes.find((b) => b.kind === "label" && b.owner === ow), ln = led.boxes.filter((b) => b.kind === "leader" && b.owner === ow).pop();
+  if (!lb2 || !ln) return true;
+  const mk = led.boxes.find((b) => b.kind === "marker" && b.owner === ow), [mx, my] = center(mk);
+  if (Math.hypot(ln.pts[1][0] - mx, ln.pts[1][1] - my) > LEADER_MAX + R0 + 0.5) return true;
+  return led.boxes.some((b) => b.kind === "marker" && b.owner !== ow && boxDist(lb2, ...center(b)) < R0 + 12);
+}).map((p) => p.name);
+check("leaders.places: each added name has its line to its own marker, short, and sits away from every other marker", !badLead.length, badLead.join());
+check("leaders: no label, marker or line touches another", !overlaps(led), overlaps(led));
+check("without leaders no name has a line and no town is drawn with one", !plain15.places.some((p) => p.leader) && !(plain15.labels.townLeaders || []).length);
+check("leaders.towns: a town not in the data is refused", throws(() => regionMap(Object.assign({}, LT, { leaders: { towns: ["Atlantis"] } })), /no town named Atlantis/));
+const P8 = PLACES.slice(0, 8), bare8 = regionMap({ name: "First test", places: P8 }, { inlineMax: 1e9 }).unlabelled;
+const firstName = bare8[0], f8 = regionMap({ name: "First test", places: P8.map((p) => Object.assign({}, p, { first: p.name === firstName })) }, { inlineMax: 1e9 });
+check("first: a place left without a name is named when it is marked first", firstName && !f8.unlabelled.includes(firstName) && !overlaps(f8), `${firstName}: ${f8.unlabelled.join()}`);
+
 /* The community map is unchanged by the new mode (the four 55+ pages rebuilt byte for byte). */
 const one = regionMap({ home: { name: "Myrtle Trace", lat: 33.778502, lon: -78.996618, town: "Conway" }, landmarks: [{ name: "Beach", kind: "beach", lat: 33.6906919, lon: -78.8804377, minutes: 15 }] });
 check("a community map still has its home pin and no numbers", /class="h"/.test(one.svg) && !/class="nm"/.test(one.svg) && one.places === undefined);

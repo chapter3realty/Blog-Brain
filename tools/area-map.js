@@ -1422,19 +1422,23 @@ function regionMap(spec, opts = {}) {
      name and other line; a name with no such spot is left off, as before. */
   const leaderTowns = [], leaderNames = [];
   const soft = (it) => ["dot", "area", "furniture"].includes(it.kind);
-  const spot = (ax, ay, w, h, own, r0, sea, from = 0) => {
+  /* The open spot nearest (ax, ay) for a w x h name, on a 3-unit grid within LEADER_MAX: clear of
+     everything but the owner's own marks, and with a line from (ax, ay), starting `from` units out,
+     that crosses no mark, name or line. */
+  const spot = (ax, ay, w, h, own, from = 0) => {
     let best = null;
-    for (const r of [r0, r0 + 10, r0 + 22, r0 + 36, r0 + 52, r0 + 70]) for (let k = 0; k < 24; k++) {
-      const ux = Math.cos(k * Math.PI / 12), uy = Math.sin(k * Math.PI / 12);
-      const lb = rect2(ax + ux * (r + w / 2 * Math.abs(ux)), ay + uy * (r + h / 2 * Math.abs(uy)), w, h);
-      if (!L.fits(lb, 3, own)) continue;
+    const reach = LEADER_MAX + from;
+    for (let cy = ay - reach - h / 2; cy <= ay + reach + h / 2; cy += 3) for (let cx = ax - reach - w / 2; cx <= ax + reach + w / 2; cx += 3) {
+      const lb = rect2(cx, cy, w, h);
       const ex = Math.max(lb.x0, Math.min(ax, lb.x1)), ey = Math.max(lb.y0, Math.min(ay, lb.y1)), d = Math.hypot(ex - ax, ey - ay);
-      if (d <= from + 3 || d > LEADER_MAX) continue;
+      if (d <= from + 4 || d > reach || (best && d >= best.d)) continue;
+      /* Six units clear of other names: at three, two names on one line read as one ("Wild Wing The Farm"). */
+      if (!L.fits(lb, 3, own) || L.items.some((it) => !own(it) && (it.kind === "label" || it.kind === "town") && satOverlap(inflate(lb, 7), it))) continue;
+      /* Not beside another marker, where it would read as that place's name. */
+      if (L.items.some((it) => it.kind === "marker" && !own(it) && boxDist(lb, (it.x0 + it.x1) / 2, (it.y0 + it.y1) / 2) < R + 12)) continue;
       const sx = ax + (ex - ax) / d * from, sy = ay + (ey - ay) / d * from, seg = segBox([sx, sy], [ex, ey]);
       if (L.items.some((it) => !own(it) && !soft(it) && satOverlap(seg, it))) continue;
-      const wet = oceanPx.length > 2 && inPoly([lb.cx, lb.cy], oceanPx);
-      const score = d + (sea && !wet ? 40 : 0);
-      if (!best || score < best.score) best = { lb, ex, ey, sx, sy, seg, score };
+      best = { lb, ex, ey, sx, sy, seg, d };
     }
     return best;
   };
@@ -1532,7 +1536,7 @@ function regionMap(spec, opts = {}) {
       for (const ls of [[text], wrap2(text, 10)]) {
         if (best) break;
         const w = Math.max(...ls.map((l) => tw2(l, NS))) + 4, h = ls.length * LH + 2;
-        best = spot(m.x, m.y, w, h, own, R + 8, false, R);
+        best = spot(m.x, m.y, w, h, own, R);
         lines = ls;
       }
       if (!best) continue;
