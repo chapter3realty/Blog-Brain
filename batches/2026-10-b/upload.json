@@ -15,6 +15,7 @@
   "batchDiffs": [
     "affordable-inbound-links.diff",
     "gated-communities-links.diff",
+    "golf-guide-gates.diff",
     "the-farm-inbound-links.diff"
   ],
   "specs": "specs",
@@ -99,7 +100,7 @@
   },
   "changes": [
     "`/buyers/first-time-home-buyer-myrtle-beach/` and `/buyers/relocating/which-town/` (with its spec, `data/relocating/pages/which-town.js`): a link to the affordable places page.",
-    "`/buyers/55-plus-communities/` and `/buyers/golf-communities/`: a link to the gated communities page; the golf page's FAQ answer on gates now says only what verified sources show.",
+    "`/buyers/55-plus-communities/` and `/buyers/golf-communities/`: a link to the gated communities page; the golf page's FAQ answer on gates now says only what verified sources show. In the golf page's comparison table, the gate cells for Prestwick and Wachesaw Plantation now read \"Gatehouse at the entrance\" and Wachesaw East \"Gate at the entrance\" (they said a live guard around the clock, 24-hour security and security; no verified source shows staffing).",
     "`/submarkets/carolina-forest/`: a link to The Farm at Carolina Forest.",
     "`sitemap.xml`: the five pages, with their photos (Google image sitemap). The four buyer pages are listed after the buyers hub, The Farm after Carolina Forest.",
     "`llms.txt`: the five pages, with their descriptions.",
@@ -109,7 +110,7 @@
   "afterDeploy": [
     "{site}/buyers/first-time-home-buyer-myrtle-beach/ and {site}/buyers/relocating/which-town/: the link to the affordable places page opens.",
     "{site}/buyers/55-plus-communities/ and {site}/buyers/golf-communities/: the link to the gated communities page opens.",
-    "{site}/buyers/golf-communities/: the FAQ answer on gated communities does not say \"24/7 staffed gate\".",
+    "{site}/buyers/golf-communities/: the FAQ answer on gated communities does not say \"24/7 staffed gate\", and the comparison table does not say \"live guard\" or \"24-hour security\".",
     "{site}/submarkets/carolina-forest/: the link to The Farm at Carolina Forest opens."
   ]
 }
