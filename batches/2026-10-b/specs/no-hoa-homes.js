@@ -228,7 +228,7 @@ module.exports = {
   eyebrow: "Buying a home",
   h1: "Where can you buy a home with no HOA in Myrtle Beach?",
   h1em: "Where to look, what it costs and where the boat can go.",
-  sub: "Most homes for sale with no HOA fee are on ordinary streets, not in a planned neighborhood. Loris and Aynor have the most, and the biggest lots.",
+  sub: "Most homes for sale with no HOA fee are on ordinary streets outside planned neighborhoods. Loris and Aynor have the highest share and the biggest lots.",
   heroMedia: glance([
     { icon: "town", label: "Loris and Aynor", text: "Most show no fee" },
     { icon: "beach", label: "North Myrtle Beach", text: "Most show no fee" },
@@ -237,14 +237,14 @@ module.exports = {
   heroCta: { label: "Get the list", href: "/contact/", text: "Tell us your price range, and we will send you the homes for sale with no HOA fee." },
   author: "devin",
   shortAnswer: [
-    `About a quarter of the homes for sale around Myrtle Beach show no fee to a homeowners association (HOA), the group that runs a neighborhood and collects a monthly fee. A house with no HOA fee usually asks about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, and about ${to5k(loris.houses.medianListPriceNoFee)} in Loris and Aynor.`,
+    `About a quarter of the homes for sale around Myrtle Beach show no homeowners association (HOA) fee. An HOA runs a neighborhood and collects a monthly fee. A house with no HOA fee usually asks about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, and about ${to5k(loris.houses.medianListPriceNoFee)} in Loris and Aynor.`,
     "Loris and Aynor have the most room: a house with no HOA fee there usually has a lot of half an acre or more.",
-    "With no HOA, you can keep a boat or a work truck at home. Each town still has its own rule on where a boat goes, and outside the towns the county sets no limit on your lot.",
+    "With no HOA, you can keep a boat or a work truck at home. The towns limit where a boat goes; the county has no limit on your lot.",
   ],
   sections: [
-    { h2: "Can you park a boat, a trailer or a work truck at a home with no HOA?", toc: "Boats and work trucks", html: (bg) =>
+    { h2: "Can you keep a boat or a work truck at a home with no HOA?", toc: "Boats and work trucks", html: (bg) =>
       CSS +
-      h.p("Yes, on your own lot. Outside the towns, the county has no rule on where you keep your own boat, trailer or work truck on your lot. Inside a town, the town's rule decides where a boat goes and how big a work truck can be.") +
+      h.p("Yes, on your own lot. Outside the towns, the county has no rule on where you keep your own boat, trailer or work truck on your lot. Inside a town, a boat goes where the town allows, and a work truck has a size limit.") +
       parkingTable() +
       h.p(`Myrtle Beach counts a boat over 16 feet as a recreational vehicle, which ${h.ext(MB_CODE, "cannot sit in the front yard")}. ${h.ext(NMB_CODE, "North Myrtle Beach")} wants it in a carport or behind the front of the house. ${h.ext(CONWAY_UDO, "Conway")} wants it in a side yard, a back yard or a carport. In Myrtle Beach, North Myrtle Beach, Conway and ${h.ext(LORIS_CODE, "Loris")}, you can leave it in the driveway for a day to load and unload.`) +
       h.p(`Work trucks have limits in the towns too. Myrtle Beach allows one at a house, up to one ton. ${h.ext(SURF_CODE, "Surfside Beach")} allows one van or pickup up to 21 feet overnight. Outside the towns, the county ${h.ext(HORRY_CODE, "bans parking on a road")} only where it posts a sign.`) +
@@ -261,14 +261,14 @@ module.exports = {
       `<div class="c3-areamap">${MAP.html}</div>` +
       areaTable() +
       h.p("A house with no HOA fee in Aynor usually has about an acre, and in Loris about three quarters of an acre. In North Myrtle Beach and Surfside Beach the lots are smaller, about a fifth of an acre. About 1 in 3 houses with no HOA fee has half an acre or more, against about 1 in 15 houses with a fee.") +
-      h.p("Most of the homes with no HOA fee in Aynor, Loris and Conway are outside the town limits. There, the county sets no limit on a boat or a work truck on your lot.") +
-      h.p("In North Myrtle Beach, almost all the homes for sale with no HOA fee are in four parts of town: Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive.") +
+      h.p("Most of the homes with no HOA fee in Aynor, Loris and Conway are outside the town limits. There, the county has no limit on a boat or a work truck on your lot.") +
+      h.p("In North Myrtle Beach, almost all of them are in four parts of town: Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive.") +
       CHERRY +
-      h.p("Some homes in campground communities near the beach show no HOA fee because the owner leases the land under the home and pays a yearly lease. We left them out of every count on this page.") },
+      h.p("Some homes in campground communities near the beach show no HOA fee. The owner leases the land under the home and pays a yearly lease. We left them out of every count on this page.") },
 
     { h2: "Why do homes with no HOA fee cost more in some areas?", toc: "Why some cost more", html: () =>
       h.p(`Houses with no HOA fee ask more in every area, about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} against ${to5k(ALL.detachedHouses.medianListPriceWithFee)} for a house with a fee. Many of them are older houses near the ocean. About half of the houses with no HOA fee were built before 2000, against about 1 in 10 houses with a fee.`) +
-      h.p(`In Surfside Beach and Garden City, about 4 in 10 houses with no HOA fee are on the ocean, have an ocean view or are one row back from it. Almost none of the houses with a fee there are. A house with no HOA fee there asks about ${to5k(surf.houses.medianListPriceNoFee)}, against about ${to5k(surf.houses.medianListPriceWithFee)} with a fee.`) +
+      h.p(`In Surfside Beach and Garden City, about 4 in 10 houses with no HOA fee face the ocean, see it or are one row back. Almost none of the houses with a fee there are. A house with no HOA fee there asks about ${to5k(surf.houses.medianListPriceNoFee)}, against about ${to5k(surf.houses.medianListPriceWithFee)} with a fee.`) +
       h.p(`With no HOA fee, you also skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. For the places where a home costs least, see our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")}.`) },
 
     { h2: "What do you gain and give up with no HOA?", toc: "Pros and cons", html: (bg) =>
@@ -283,7 +283,7 @@ module.exports = {
         { text: "Outside the town limits, you arrange your own trash pickup.", act: "The county map in the next section shows whether a home is inside a town." },
         { text: "A home with no HOA can still have deed restrictions.", act: "The closing attorney's search finds them before you buy." },
       ], { bg }) +
-      h.p(`If you want a pool, a clubhouse or a gate, you pay an HOA fee for them. Our guides to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods for what you want nearby")}, to ${h.a("/buyers/gated-communities/", "gated communities around Myrtle Beach")} and to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")}, where every home has an HOA, show where to look. Our guide to whether ${h.a("/hoa/benefits/", "HOA fees are worth it")} lists what the fee buys.`) },
+      h.p(`If you want a pool, a clubhouse or a gate, you pay an HOA fee for them. Our guides to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods for what you want nearby")} and to ${h.a("/buyers/gated-communities/", "gated communities around Myrtle Beach")} show where to look. In Carolina Forest, every home for sale has an HOA fee; our guide to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")} shows one of its neighborhoods. Our guide to whether ${h.a("/hoa/benefits/", "HOA fees are worth it")} lists what the fee buys.`) },
 
     { h2: "What do you take care of yourself with no HOA?", toc: "What you take care of", html: () =>
       h.p("With no HOA, you take care of trash pickup, your yard and any pond on your land. On a house here, most HOA fees include the shared areas, and more than half include trash pickup and a pool.") +
@@ -293,8 +293,8 @@ module.exports = {
         "Outside the towns, the county does not pick up at the curb. You arrange pickup yourself, or use one of the county's drop-off centers, which are only for homes outside the towns.",
       ]) +
       h.p(`A Myrtle Beach mailing address does not mean the home is inside the city. To see whether a home is inside a town, find it on the ${h.ext(COUNTY_MAP, "county's online map")}, which shows the town limits.`) +
-      h.p(`If the lot has a ${h.ext(PONDS, "stormwater pond")}, you keep it working: check it twice a year and after big storms, clear out debris and keep the plants in check.`) +
-      h.p("The county keeps up the roads it owns. A private road is kept up by the group named in the papers filed for it, such as an HOA or a property owners group, never by the county.") },
+      h.p(`If the lot has a ${h.ext(PONDS, "stormwater pond")}, you keep it working. Check it twice a year and after big storms, clear out debris and keep the plants in check.`) +
+      h.p("The county keeps up the roads it owns, and never a private road. A private road is kept up by the group named in its papers, such as a property owners group.") },
 
     { h2: "Can you buy a condo with no HOA fee in Myrtle Beach?", toc: "Condos", html: () =>
       h.p(`Almost never. Of about ${(Math.round(CONDO.count / 100) * 100).toLocaleString("en-US")} condos for sale around Myrtle Beach, only one showed no HOA fee. ${h.ext(CONDO_LAW, "South Carolina law")} makes condo owners share the cost of the building.`) },
@@ -314,8 +314,8 @@ module.exports = {
   ],
   faqTitle: "Homes with no HOA FAQ",
   faq: [
-    { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot, but not in the front yard inside the city of Myrtle Beach for a boat over 16 feet. Boats and trailers may not be parked on city streets in a residential area. Outside the towns, the county sets no limit on your lot." },
-    { q: "Can I park a work truck at my house in Myrtle Beach?", a: "Yes. Inside the city of Myrtle Beach, a house may have one work vehicle, up to one ton. Outside the towns, the county sets no limit on a work truck on your own lot." },
+    { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot, but not in the front yard inside the city of Myrtle Beach for a boat over 16 feet. Boats and trailers may not be parked on city streets in a residential area. Outside the towns, the county has no limit on your lot." },
+    { q: "Can I park a work truck at my house in Myrtle Beach?", a: "Yes. Inside the city of Myrtle Beach, a house may have one work vehicle, up to one ton. Outside the towns, the county has no limit on a work truck on your own lot." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address show no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "Why are HOA fees so high in Myrtle Beach?", a: "Condo fees are high because they include the cost of the building: its insurance, water and sewer, trash and a pool. Fees on houses are much lower, about $95 a month, because most include only shared areas, trash and a pool." },
     { q: "Does every neighborhood in Myrtle Beach have an HOA?", a: "No. Most homes for sale with no HOA fee are on ordinary streets, not in a planned neighborhood. Every home for sale in Carolina Forest shows an HOA fee." },
