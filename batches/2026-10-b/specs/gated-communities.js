@@ -56,7 +56,7 @@
  * Round 6: verifier wording on rows 83 to 89 (The Reserve about $1.35 million, Wachesaw East about
  *   $500,000, Wachesaw Plantation about $650,000, the wide spread around $1 million said once);
  *   sources line as the verifier wrote it; Willbrook fee stays about $340 (row 27, houses $339 to $346);
- *   Litchfield by the Sea prices by section (rows 90 to 92, pending, round 6), no fee figure.
+ *   Litchfield by the Sea in the verifier's wording (rows 90 to 92), no fee figure, no "usually".
  */
 const { h, kit, data, placesMap, compareCards, wantPicker, prosCons, atAGlance, glance, story, photoSetB, BB } = require("./_kit.js");
 const path = require("path");
@@ -161,6 +161,9 @@ const COLS = [
   { key: "price", label: "Homes usually sell for", num: true },
   { key: "beach", label: "To the beach", num: true },
 ];
+/* Pawleys Island table: "sell for", not "usually": Litchfield by the Sea is a wide range, and few homes sold
+ * in Willbrook and Litchfield Plantation (rows 89 to 92, verifier). */
+const COLS_P = COLS.map((c) => c.key === "price" ? { ...c, label: "Homes sell for" } : c);
 const opts = (caption, first) => ({ caption, nameLabel: "Neighborhood", css: first });
 
 /* Text at reading size inside the icon cards (atAGlance writes .9rem), and the icon beside the words
@@ -271,17 +274,17 @@ module.exports = {
 
     { h2: "Which neighborhoods in Pawleys Island and Litchfield are gated?", toc: "Pawleys Island", id: "pawleys-island", html: (bg) =>
       h.p(`Litchfield by the Sea is a private, gated community on the ocean at Litchfield, near Pawleys Island. Its main gate on US 17 has a ${h.ext(LBTS_GUIDE, "guard day and night")}.`) +
-      h.p("Litchfield by the Sea has many sections, each with its own HOA fee and prices. Over the last 12 months, its condos sold for about $180,000 to $2.2 million. Houses in its Oystercatcher Island section sold for about $750,000. We send the homes for sale in each section on request.") +
+      h.p("Litchfield by the Sea has many sections, and prices and HOA fees differ a lot from one to the next. In the last year, whole condos there sold for anywhere from under $200,000 to over $2 million. Houses in its Oystercatcher Island section sold for about $750,000. We send the homes for sale in each section on request.") +
       h.p("DeBordieu Colony, a little farther south toward Georgetown, is on the ocean too.") +
       DEB_PHOTO +
       table("table-pawleys-island", compareCards([
-        { name: "Litchfield by the Sea", cells: { gate: K.guard, fee: "Different in each section", price: "Condos about $180,000 to $2.2 million", beach: "On the ocean" } },
+        { name: "Litchfield by the Sea", cells: { gate: K.guard, fee: "Differs by section", price: "Condos under $200,000 to over $2 million", beach: "On the ocean" } },
         { name: "Litchfield Plantation", cells: { gate: K.house, fee: "About $230 a month on most homes", price: "About $1 million", beach: "About 8 minutes" } },
         { name: "Willbrook Plantation", cells: { gate: K.house, fee: "About $340 a month", price: "About $1 million", beach: "About 9 minutes" } },
         { name: "The Reserve", cells: { gate: K.ask, fee: "About $320 a month on most homes", price: "About $1.35 million", beach: "About 8 minutes" } },
         { name: "Heritage Plantation", cells: { gate: K.ask, fee: "About $325 a month", price: "About $710,000", beach: "About 10 minutes" } },
         { name: "DeBordieu Colony", cells: { gate: K.house, fee: "About $300 to $400 a month", price: "About $2 million", beach: "On the ocean" } },
-      ], COLS, opts("Neighborhoods with a gate in Pawleys Island and Litchfield", false))) +
+      ], COLS_P, opts("Neighborhoods with a gate in Pawleys Island and Litchfield", false))) +
       h.cta("Get this week's list of homes for sale in gated neighborhoods.",
         "Tell us your price range and the area you like. One of our agents will email you this week's homes for sale in the gated neighborhoods that fit.",
         OFFER_LABEL, OFFER, bg) },
@@ -331,7 +334,7 @@ module.exports = {
     { name: "Litchfield by the Sea guest guide", href: LBTS_GUIDE },
     { name: "Barefoot Resort Residential Association", href: BAREFOOT },
   ],
-  sourcesNote: "Not legal advice. Gates, fees and golf come from each association and recent home listings. A price is the middle sale over the last 12 months. Horry County prices come from county deed records, without builder sales. Prices near Pawleys Island and in Wachesaw come from MLS closed sales, which can include builder sales. Drive times are OpenStreetMap estimates with no traffic.",
+  sourcesNote: "Not legal advice. Gates, fees and golf come from associations and home listings. A price is the middle sale of the past year. Horry County prices are deed records, without builder sales. Prices near Pawleys Island and in Wachesaw are MLS closed sales, which can include builder sales. Litchfield by the Sea figures leave out shared-week sales. Drive times: OpenStreetMap, no traffic.",
   afterSources: () => ph.credits(),
   bottomCta: { h2: "Get this week's list of homes for sale in gated neighborhoods.", p: "Tell us your price range and the area you like. One of our agents will email you this week's homes for sale in the gated neighborhoods that fit.", label: OFFER_LABEL, href: OFFER },
   keywords: "gated communities Myrtle Beach, gated communities North Myrtle Beach, gated communities Murrells Inlet, gated communities Pawleys Island, 55+ gated communities Myrtle Beach, gated golf communities Myrtle Beach, homes for sale in gated communities Myrtle Beach",
