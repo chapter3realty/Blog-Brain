@@ -486,7 +486,7 @@ ${(M.changes || []).map((c) => `- ${c}`).join("\n")}
 | \`${PATCH_NAME}\` | One patch for the files the site already has (${report.files.touched.length} files). Text only. |
 | \`site/specs/\` | ${TXT.specsRow} |
 | \`site/${DATA_TO}/\` | ${TXT.dataRow} |
-| \`site/tools/blog-brain/\` | The Blog-Brain tools the kit uses to draw maps, icons, photo blocks and comparison tables, with the map data and the files they load. The kit looks here first. |
+| \`site/${M.blogBrainTools.to}/\` | The Blog-Brain tools the kit uses to draw maps, icons, photo blocks and comparison tables, with the map data and the files they load. The kit looks here first. |
 | \`site/${M.images.to}/\` | ${imgCount} photos (${(imgBytes / 1048576).toFixed(1)} MB, WebP), only those the ${PAGES_WORD} pages use. Binary files, copied as they are; they are not in the patch. |
 | \`MANIFEST.txt\` | Every file with its size and SHA-256. |
 | \`CHECKLIST-AFTER-DEPLOY.md\` | What to look at once it is live. |
@@ -532,7 +532,7 @@ node build.js llmsfull
 node build.js check
 node build.js audit
 
-git status                       # the new pages, specs, data, tools\\blog-brain and photos, and the changed files
+git status                       # the new pages, specs, data, ${M.blogBrainTools.to.replace(/\//g, "\\")} and photos, and the changed files
 git add -A
 git commit -m "${TXT.commit}"
 node build.js preflight          # the same gate deploy.ps1 runs; it must end without FAIL
@@ -573,7 +573,7 @@ git push origin ${M.branch}
 ## If a step fails
 
 - **\`git apply --check\` fails.** The live branch changed after this package was built (it was built on ${liveHead}). Nothing has been changed yet. In Blog-Brain, rebuild the package on a fresh clone: \`node tools/package-batch.js batches/${M.batch} --site <fresh clone>\`. Do not edit the patch.
-- **\`mkpage\` says "Blog-Brain tools not found".** \`site\\tools\\blog-brain\` was not copied. Run the Copy-Item line again.
+- **\`mkpage\` says "Blog-Brain tools not found".** \`site\\${M.blogBrainTools.to.replace(/\//g, "\\")}\` was not copied. Run the Copy-Item line again.
 - **\`check\`, \`audit\` or \`preflight\` fails.** Do not push. \`git reset --hard\` and \`git clean -fd\` put the clone back as it was; send the output to Blog-Brain.
 
 ## Optional: the Blog-Brain checks
