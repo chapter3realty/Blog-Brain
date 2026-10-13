@@ -147,11 +147,11 @@ module.exports = {
     { h2: "Which gated community fits what you want?", toc: "Which one fits you", html:
       h.p("The best gated community for you depends on what you want close by. Start with what matters most to you.") +
       wantPicker([
-        { icon: "beach", want: "Close to the beach", note: "About 2 to 8 minutes by car to a public beach access",
+        { icon: "beach", want: "Close to the beach", note: "About 2 to 8 minutes by car to a public beach access.",
           places: [{ name: "Seaside Plantation", href: "#table-north-myrtle-beach" }, { name: "Prestwick", href: "#table-murrells-inlet" }, { name: "Tidewater Plantation", href: "#table-north-myrtle-beach" }] },
-        { icon: "dollar", want: "A low HOA fee", note: "About $80 to $150 a month",
+        { icon: "dollar", want: "A low HOA fee", note: "About $80 to $150 a month.",
           places: [{ name: "Covington Lake East", href: "#table-myrtle-beach" }, { name: "Myrtle Trace", href: MT }, { name: "Wachesaw East", href: "#table-murrells-inlet" }] },
-        { icon: "home", want: "A lower price", note: "Myrtle Trace has gates only at its back entrance",
+        { icon: "home", want: "A lower price", note: "Myrtle Trace has gates only at its back entrance.",
           places: [{ name: "Myrtle Trace", href: MT }, { name: "Prestwick", href: "#table-murrells-inlet" }, { name: "Seasons at Prince Creek West", href: SEASONS }] },
         { icon: "gate", want: "A guard house at the gate",
           places: [{ name: "Litchfield by the Sea", href: "#table-pawleys-island" }, { name: "Tidewater Plantation", href: "#table-north-myrtle-beach" }, { name: "DeBordieu Colony", href: "#table-pawleys-island" }] },

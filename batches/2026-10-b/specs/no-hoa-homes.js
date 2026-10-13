@@ -137,6 +137,7 @@ if (CONDO.count !== 2742 || CONDO.noFee !== 1 || CONDO.median !== 647 || CONDO.p
 const money = (v) => "$" + Math.round(v).toLocaleString("en-US");
 const to5k = (v) => money(Math.round(v / 5000) * 5000);
 const to10 = (v) => money(Math.round(v / 10) * 10);
+const to5 = (v) => money(Math.round(v / 5) * 5);
 const share = (a) => Math.round(100 * a.homes.noHoaFee / a.homes.listings);
 
 /* The day the homes for sale were counted, from the data file (never typed). */
@@ -151,7 +152,7 @@ const TOWN = Object.fromEntries(loadGeo2().towns.map((t) => [t.name, t]));
 const MAP = placesMap("Areas with homes for sale with no HOA fee",
   ["Loris", "Aynor", "Little River", "North Myrtle Beach", "Conway", "Carolina Forest", "Myrtle Beach", "Surfside Beach", "Garden City", "Murrells Inlet"]
     .map((n) => ({ name: n, lat: TOWN[n].lat, lon: TOWN[n].lon })),
-  { caption: "Map of the areas on this page, from Little River to Murrells Inlet and inland to Loris and Aynor." });
+  { caption: "Map of the areas around Myrtle Beach, from Loris and Aynor to Murrells Inlet." });
 
 /* The bar chart: the share of homes for sale in each area that show no HOA fee. One series, one color,
    the value at the tip of each bar, the count under the name, a track that shows the whole (dataviz
@@ -161,7 +162,7 @@ const BAR_CSS = "<style>"
   + ".c3-share{margin:1.4rem 0 1.8rem;max-width:760px}"
   + ".c3-share .t{color:var(--navy);font-weight:600;font-size:var(--read,1.0625rem);line-height:1.4;margin:0 0 .8rem}"
   + ".c3-share ol{list-style:none;margin:0;padding:0}"
-  + ".c3-share li{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) 3.4rem;align-items:center;column-gap:.9rem;padding:.45rem 0;border-bottom:1px solid var(--rule)}"
+  + ".c3-share li{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr) 3.4rem;align-items:center;column-gap:.9rem;padding:.45rem 0;border-bottom:1px solid var(--rule)}"
   + ".c3-share .nm{color:var(--navy);font-size:var(--read,1.0625rem);line-height:1.3}"
   + ".c3-share .ct{display:block;color:var(--muted);font-size:1rem;line-height:1.3}"
   + ".c3-share .tr{display:block;height:16px;background:rgba(28,32,40,.08);border-radius:0 4px 4px 0}"
@@ -192,23 +193,23 @@ const priceTable = () => compareCards(AREAS.filter((a) => VERIFIED.price[a.key])
 
 /* The typical fee on a house and on a condo. */
 const feeTable = () => compareCards([
-  { name: "House", icon: "home", cells: { fee: `$${HOUSE_FEE.medianMonthlyHoaFee} a month`, half: `${to10(HOUSE_FEE.hoaFeeP25)} to ${to10(HOUSE_FEE.hoaFeeP75)}`, covers: "Shared areas; often trash and a pool" } },
-  { name: "Condo", icon: "pool", cells: { fee: `About ${to10(Math.round(CONDO.median / 50) * 50)} a month`, half: `${to10(CONDO.p25)} to ${to10(CONDO.p75)}`, covers: "Insurance, water, trash and a pool" } },
+  { name: "House", icon: "home", cells: { fee: `$${HOUSE_FEE.medianMonthlyHoaFee} a month`, half: `${to5(HOUSE_FEE.hoaFeeP25)} to ${to5(HOUSE_FEE.hoaFeeP75)} a month`, covers: "Shared areas; often trash and a pool" } },
+  { name: "Condo", icon: "town", cells: { fee: `about ${to10(Math.round(CONDO.median / 50) * 50)} a month`, half: `${to5(CONDO.p25)} to ${to5(CONDO.p75)} a month`, covers: "Insurance, water, trash and a pool" } },
 ], [
   { key: "fee", label: "Typical HOA fee" },
-  { key: "half", label: "Half pay between" },
+  { key: "half", label: "Half of them pay" },
   { key: "covers", label: "What it usually includes" },
 ], { caption: "The typical monthly HOA fee on a home for sale", nameLabel: "Home" });
 
 /* Our two drawings, each beside the sentence it shows. */
-const DRAW_CSS = "<style>.c3-draw{margin:1.2rem 0 1.6rem;max-width:520px}.c3-draw svg{display:block;width:100%;height:auto;border-radius:6px}"
+const DRAW_CSS = "<style>.c3-areamap figure{max-width:600px!important}.c3-draw{margin:1.2rem 0 1.6rem;max-width:520px}.c3-draw svg{display:block;width:100%;height:auto;border-radius:6px}"
   + ".c3-draw figcaption{color:var(--muted);font-size:.95rem;line-height:1.6;margin-top:.6rem}</style>";
 const fig = (name, caption) => `<figure class="c3-draw">${drawing(name)}<figcaption>${caption}</figcaption></figure>`;
 
 const ph = kit.photoSet({ aerialWidth: "760px" });
 const CSS = ph.css();
 /* Made at load time: mkpage reads pageImages before it builds the sections. */
-const CHERRY = ph.aerial("cherry-grove-from-above", "Cherry Grove in North Myrtle Beach from the air: houses near the beach and along the canals, and the salt marsh behind them.",
+const CHERRY = ph.aerial("cherry-grove-from-above", "Cherry Grove in North Myrtle Beach, from the air: beach houses, houses on canals and the salt marsh.",
   { alt: "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of houses along canals, and a wide salt marsh with winding creeks" });
 
 /* Primary sources, each opened by the researcher and again by the verifier. */
@@ -241,33 +242,33 @@ module.exports = {
   h1em: "Where to look, what it costs and what to check.",
   sub: "Most homes for sale with no HOA fee are outside a named neighborhood. North Myrtle Beach, Surfside Beach, Loris and Aynor have the highest share.",
   heroMedia: glance([
-    { icon: "beach", label: "North Myrtle Beach", text: "More than half show no fee" },
-    { icon: "town", label: "Loris and Aynor", text: "More than half show no fee" },
-    { icon: "home", label: "Carolina Forest", text: "Every home shows a fee" },
+    { icon: "beach", label: "North Myrtle Beach", text: "Most show no fee" },
+    { icon: "town", label: "Loris and Aynor", text: "Most show no fee" },
+    { icon: "home", label: "Carolina Forest", text: "All show a fee" },
   ]),
   heroCta: { label: "Get the list", href: "/contact/", text: "Tell us your price range, and we will send you the homes for sale with no HOA fee." },
   author: "devin",
   shortAnswer: [
-    `About 1 in 4 homes for sale around Myrtle Beach shows no HOA fee, from Little River to Murrells Inlet and inland to Aynor. More than half of the homes for sale with a North Myrtle Beach, Surfside Beach, Garden City, Loris or Aynor address show no fee. Every home for sale in Carolina Forest shows one.`,
+    `About 1 in 4 homes for sale around Myrtle Beach shows no HOA fee. That is the area from Little River to Murrells Inlet, and inland to Aynor. More than half of the homes for sale with a North Myrtle Beach, Surfside Beach, Garden City, Loris or Aynor address show no fee. Every home for sale in Carolina Forest shows one.`,
     `A condo almost always has a fee, because the owners must share the cost of the building. The typical HOA fee is $${HOUSE_FEE.medianMonthlyHoaFee} a month on a house and about ${to10(Math.round(CONDO.median / 50) * 50)} on a condo.`,
   ],
   sections: [
     { h2: "Where are the homes with no HOA fee around Myrtle Beach?", toc: "Where they are", html: (bg) =>
       CSS + DRAW_CSS +
-      h.p("Homes with no HOA fee are for sale in every area around Myrtle Beach except Carolina Forest. The map shows the areas, from Little River in the north to Murrells Inlet in the south.") +
-      MAP.html +
-      h.p("The share of homes for sale with no HOA fee changes a lot from one area to the next, from none in Carolina Forest to about 2 in 3 in Aynor.") +
+      h.p("Homes with no HOA fee are for sale in every area around Myrtle Beach except Carolina Forest.") +
+      `<div class="c3-areamap">${MAP.html}</div>` +
+      h.p("The share of homes with no HOA fee changes a lot from one area to the next. In Aynor, about 2 in 3 homes for sale show no fee. In Carolina Forest, none do.") +
       shareChart() +
       h.p(`Most homes for sale with no HOA fee are on streets that are not part of a named neighborhood. In North Myrtle Beach, almost all of them are in four parts of town: Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive. Our ${h.a("/submarkets/north-myrtle-beach/", "guide to North Myrtle Beach")} shows what each part is like.`) +
       CHERRY +
-      h.p("In Loris and Aynor, two towns inland north of Conway, almost every home for sale with no HOA fee is outside a named neighborhood.") +
+      h.p("Loris and Aynor are two towns inland, north of Conway. Almost every home for sale there with no HOA fee is outside a named neighborhood.") +
       h.p(`Carolina Forest is the opposite. Every one of its ${cf.homes.listings} homes for sale shows an HOA fee, usually about $${cf.houses.medianMonthlyHoaFee} a month for a house. Our guide to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")} shows what living in one of its neighborhoods is like.`) +
-      h.p("Some campground communities near the beach have homes that show no HOA fee because the owner leases the land under the home and pays a yearly lease. We left those homes out of every count on this page.") +
+      h.p("Some homes in campground communities near the beach show no HOA fee. The owner of each one leases the land under the home and pays a yearly lease. We left those homes out of every count on this page.") +
       h.cta("Get the list of homes with no HOA fee.", "Tell us your price range and the areas you like. One of our agents will send you the homes for sale with no HOA fee.", "Get the list", "/contact/", bg) },
 
     { h2: "What do you gain and give up with no HOA in Myrtle Beach?", toc: "Pros and cons", html: (bg) =>
       h.p("With no HOA, you pay no HOA fee and follow no HOA rules. You also have no shared pool, and outside the towns you arrange your own trash pickup.") +
-      fig("house-own-yard", "A house with no HOA: your own fenced yard, a shed and a boat in the driveway, with no HOA to ask first.") +
+      fig("house-own-yard", "A house with no HOA: a fenced yard, a shed and a boat in the driveway.") +
       prosCons([
         "No monthly HOA fee, and no surprise HOA bill for a big repair.",
         "No HOA to ask before you put up a fence, add a shed or park a boat in the driveway.",
@@ -276,9 +277,9 @@ module.exports = {
         "No shared pool, clubhouse or common areas. On a house, an HOA fee often includes these.",
         { text: "No HOA rules for the houses next door either.", act: "Look at the houses on the street before you offer." },
         { text: "Outside the town limits, you arrange your own trash pickup.", act: "Find out whether the home is inside a town that picks up trash." },
-        { text: "A home with no HOA can still have deed restrictions filed with the county.", act: "Have your closing attorney read them before you are committed to buy." },
+        { text: "A home with no HOA can still have deed restrictions: rules on the land, filed with the county.", act: "Have your closing attorney read them before you are committed to buy." },
       ], { bg }) +
-      h.p(`In our experience, the biggest mistake buyers moving here from New York make is buying before they check that an HOA's rules fit how they live: a boat, a golf cart, a pool or renting the home out. City and county ${h.a("/invest/str-rules/", "rules on short-term rentals")} still apply with no HOA.`) +
+      h.p(`In our experience, the biggest mistake buyers moving here from New York make is not reading the HOA's rules before they buy. Check that the rules fit how you live: a boat, a golf cart, a pool or renting the home out. City and county ${h.a("/invest/str-rules/", "rules on short-term rentals")} still apply with no HOA.`) +
       h.p(`If you want a pool, a clubhouse or a gate, you will pay an HOA fee for them. Our guides to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods for what you want nearby")} and to ${h.a("/buyers/gated-communities/", "gated communities around Myrtle Beach")} show where to look. Our guide to whether ${h.a("/hoa/benefits/", "HOA fees are worth it")} lists what the fee buys.`) },
 
     { h2: "What does a home with no HOA fee cost around Myrtle Beach?", toc: "What they cost", html: () =>
@@ -288,7 +289,7 @@ module.exports = {
       h.p(`The lowest asking prices for a house with no HOA fee are inland, in Conway, Loris and Aynor. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares what a home costs in each town.`) },
 
     { h2: "What do you pay for yourself with no HOA?", toc: "What you pay for", html: () =>
-      h.p("With no HOA, the main things you take on are trash pickup, your yard and any pond on your land. Most HOA fees on houses here include the shared areas, and more than half include trash pickup and a pool. Very few include a house's insurance or water.") +
+      h.p("With no HOA, the main things you take on are trash pickup, your yard and any pond on your land. Most HOA fees on houses here include the shared areas, and more than half include trash pickup and a pool. Few include a house's insurance or water.") +
       fig("trash-carts", "Trash and recycling carts set out at the curb.") +
       h.p("Who picks up your trash depends on whether the home is inside a town.") +
       h.ul([
@@ -296,8 +297,8 @@ module.exports = {
         `North Myrtle Beach, Conway, Surfside Beach, Loris, Aynor, Briarcliffe Acres and Atlantic Beach also ${h.ext(SWA, "offer trash service")}.`,
         `Outside the town limits, no one from the county picks up at the curb. You arrange pickup yourself, or use one of the county's ${h.ext(CENTERS, "25 drop-off centers")}, which are only for homes outside the towns.`,
       ]) +
-      h.p("A Myrtle Beach mailing address does not mean the home is inside the city. This is how trash works in Horry County. Some Murrells Inlet and Garden City homes are in Georgetown County instead.") +
-      h.p(`Most of the county's ${h.ext(PONDS, "stormwater ponds")} belong to HOAs, businesses or the owners of the land, and the owner must keep them working. With no HOA, a pond on your land is yours to keep up. The county keeps up only the roads it owns.`) },
+      h.p("A Myrtle Beach mailing address does not mean the home is inside the city. Trash service works this way in Horry County. Some homes with a Murrells Inlet or Garden City address are in Georgetown County.") +
+      h.p(`Most of the county's ${h.ext(PONDS, "stormwater ponds")} belong to HOAs, businesses or the owners of the land, and the owner must keep them working. With no HOA, a pond on your land is yours to keep up. The county keeps up only the roads it owns. Ask your closing attorney who owns the street in front of the home.`) },
 
     { h2: "Can you buy a condo with no HOA fee in Myrtle Beach?", toc: "Condos", html: () =>
       h.p(`Almost never. Of about ${(Math.round(CONDO.count / 100) * 100).toLocaleString("en-US")} condos for sale around Myrtle Beach, only ${CONDO.noFee === 1 ? "one" : CONDO.noFee} showed no HOA fee.`) +
@@ -308,7 +309,7 @@ module.exports = {
       h.p(`The typical HOA fee around Myrtle Beach is $${HOUSE_FEE.medianMonthlyHoaFee} a month on a house and about ${to10(Math.round(CONDO.median / 50) * 50)} a month on a condo. About 1 in 8 houses for sale with an HOA fee shows $200 a month or more.`) +
       feeTable() +
       h.p("A condo fee is higher because it includes the cost of the building. Most condo fees here include the building's insurance, water and sewer, trash and a pool.") +
-      h.p(`${h.ext(INSURANCE, "Property insurance near the coast")} has gone up, mainly because repairs cost more, insurers pay more for their own insurance, and property values are higher.`) +
+      h.p(`${h.ext(INSURANCE, "Property insurance near the coast")} has gone up. The main reasons are higher repair costs, higher costs for insurers' own insurance, and higher property values.`) +
       h.p(`When you compare two fees, compare what each one includes. Our guides to ${h.a("/hoa/", "what HOA fees cover")}, ${h.a("/hoa/reserves/", "HOA savings for big repairs")} and ${h.a("/hoa/special-assessments/", "special assessments")} show what to look at.`) },
 
     { h2: "How do you check a home for an HOA before you offer?", toc: "How to check", html: (bg) =>
@@ -318,7 +319,7 @@ module.exports = {
         `<strong>The seller's disclosure.</strong> For most sales, South Carolina requires the seller to fill out a ${h.ext(DISCLOSURE_LAW, "disclosure form")}. It asks whether the home is in an HOA and whether it has deed restrictions. The seller can answer that he makes no claim either way. A builder selling a new home for the first time does not have to fill it out.`,
         `<strong>The papers filed with the county.</strong> Deed restrictions are filed at the ${h.ext(DEEDS, "Horry County Register of Deeds")}, with the deed and the map of the lots. The county does not show these papers online, so they are read in person in Conway. Have your closing attorney read them before you are committed to buy.`,
       ]) +
-      h.p(`A deed restriction is a rule on the land, filed with the county. It can limit what you build, even when there is no HOA and no fee. ${h.ext(COURT, "South Carolina courts")} read these rules narrowly. When the words are unclear, the court favors the owner's free use of the land, unless that would defeat the plain purpose of the rule.`) +
+      h.p(`A deed restriction is a rule on the land, filed with the county. It can limit what you build, even when there is no HOA and no fee. ${h.ext(COURT, "South Carolina courts")} read these rules narrowly. When the words are unclear, the court favors the owner's free use of the land. The exception is when that would defeat the plain purpose of the rule.`) +
       h.cta("Get the homes with no HOA fee in your price range.", "Tell us your price range and the areas you like. One of our agents will send you the list.", "Get the list", "/contact/", bg) },
   ],
   faqTitle: "Homes with no HOA FAQ",
@@ -328,7 +329,7 @@ module.exports = {
     { q: "Can you buy a condo in Myrtle Beach with no HOA fee?", a: "Almost never. Only one of about 2,700 condos for sale around Myrtle Beach showed no HOA fee. South Carolina law makes condo owners share the cost of running and repairing the building." },
     { q: "Why are HOA fees so high in Myrtle Beach?", a: "Condo fees are high because they include the cost of the building. Most include the building's insurance, water and sewer, trash and a pool. Fees on houses are much lower, because most include only the shared areas, trash and a pool." },
     { q: "What is the average HOA fee in Myrtle Beach?", a: "The typical HOA fee is $95 a month on a house and about $650 a month on a condo. About 1 in 8 houses for sale with an HOA fee shows $200 a month or more." },
-    { q: "Does every neighborhood in Myrtle Beach have an HOA?", a: "No. About 1 in 4 homes for sale around Myrtle Beach shows no HOA fee, and most of those are on streets outside a named neighborhood. In Carolina Forest, every home for sale shows an HOA fee." },
+    { q: "Does every neighborhood in Myrtle Beach have an HOA?", a: "No. About 1 in 4 homes for sale around Myrtle Beach shows no HOA fee. Most of those are on streets outside a named neighborhood. In Carolina Forest, every home for sale shows an HOA fee." },
     { q: "How do you find a home with no HOA in Myrtle Beach?", a: "Look at homes on streets outside a named neighborhood. They are most common in North Myrtle Beach, Surfside Beach, Garden City, Loris and Aynor. Before you offer, confirm there is no HOA in the seller's disclosure and in the papers filed with the county." },
     { q: "Can a home with no HOA still have rules?", a: "Yes. A home with no HOA can still have deed restrictions filed with the county, and they can limit what you build. Your closing attorney can read them before you are committed to buy." },
   ],
