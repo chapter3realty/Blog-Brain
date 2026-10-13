@@ -80,7 +80,7 @@ const MAP_N = placesMap("Gated neighborhoods, North Myrtle Beach to Murrells Inl
     key: true,
   });
 const MAP_S = placesMap("Gated neighborhoods near Pawleys Island", G.pawleys.map((p) => ({ name: p.name, short: p.short, lat: p.lat, lon: p.lon, href: AREA["pawleys-island"] })), {
-  caption: "Map of the gated neighborhoods near Pawleys Island and Litchfield, south of Murrells Inlet.",
+  caption: "Map of the neighborhoods with a gate near Pawleys Island and Litchfield, south of Murrells Inlet.",
   key: true,
 });
 
@@ -119,11 +119,13 @@ const big = (html) => `<div class="c3-big">${html}</div>`;
 
 const ph = photoSetB({ aerialWidth: "720px" });
 const GATE_PHOTO = ph.aerial("prestwick-gate-from-above-2026",
-  "An entrance to Prestwick from above. Just inside is a small gatehouse between the two lanes, with a gate arm across each lane.", { closeUp: true });
+  "An entrance to Prestwick from above. Just inside is a small gatehouse between the two lanes, with a gate arm across each lane.");
 
 module.exports = {
   url: SELF,
   hub: { name: "Buyers", url: "/buyers/" },
+  /* The gate aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
+  pageImages: () => ph.pageImages(),
   title: "Gated Communities in Myrtle Beach: HOA Fees, Prices | Chapter3",
   description: "Gated communities near Myrtle Beach on two maps, by area: who is at the gate, what the HOA fee pays for, what homes sell for, 55+ and golf, pros and cons.",
   ogTitle: "Gated communities near Myrtle Beach: where they are, what they cost and what the gate does",
@@ -141,7 +143,7 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Gated neighborhoods near Myrtle Beach run along the coast from North Myrtle Beach to Pawleys Island. Homes in most of them usually sell for about $480,000 to $1.5 million.",
-    "Each has a homeowners association (HOA), the group of owners that runs the neighborhood and collects a monthly fee, here about $90 to $440. A gate controls who drives in, but it does not guard each home. Two of these neighborhoods are on the ocean, and the rest are a short drive from the beach.",
+    "Each has a homeowners association (HOA), the group of owners that runs the neighborhood. The HOA fee here is about $90 to $440 a month. A gate controls who drives in, but it does not guard each home. Two of these neighborhoods are on the ocean, and the rest are a short drive from the beach.",
   ],
   sections: [
     { h2: "Does a gate make a neighborhood safer?", toc: "What a gate does", html: (bg) =>
@@ -200,14 +202,14 @@ module.exports = {
       h.p(`Barefoot Resort is a large neighborhood with four golf courses, and ${h.ext(BAREFOOT, "only some of its sections are gated")}, such as Leatherleaf and Dye Estates.`) },
 
     { h2: "Which neighborhoods in Myrtle Beach, Carolina Forest and Conway have a gate?", toc: "Myrtle Beach and Carolina Forest", id: "myrtle-beach-carolina-forest", html:
-      h.p("Grande Dunes is a large neighborhood in Myrtle Beach, and only some of its sections are gated, including Calais, Palermo and Villa Venezia.") +
+      h.p("Grande Dunes is a large neighborhood in Myrtle Beach. Only some of its sections are gated, including Calais, Palermo and Villa Venezia.") +
       h.p("Carolina Forest is a large area of neighborhoods just inland from Myrtle Beach. Covington Lake East, Waterway Palms Plantation and The Bluffs on the Waterway are gated there. Myrtle Trace, a 55+ neighborhood near the town of Conway, has gates only at its back entrance.") +
       table("table-myrtle-beach", compareCards([
+        { name: "Myrtle Trace (55+, back gate only)", href: MT, cells: { gate: K.back, fee: "$95 a month", price: "About $300,000", beach: "About 15 minutes" } },
         { name: "Grande Dunes: Calais, Palermo and Villa Venezia", cells: { gate: K.ask, fee: "About $200 to $375 a month", price: "About $1.5 million", beach: "About 10 minutes" } },
         { name: "Waterway Palms Plantation", cells: { gate: K.ask, fee: "About $150 a month", price: "About $780,000", beach: "About 10 minutes" } },
         { name: "The Bluffs on the Waterway", cells: { gate: K.ask, fee: "About $150 a month", price: "About $730,000 to $975,000", beach: "About 10 minutes" } },
         { name: "Covington Lake East", cells: { gate: K.ask, fee: "About $90 a month", price: "About $570,000", beach: "About 15 minutes" } },
-        { name: "Myrtle Trace (55+, back gate only)", href: MT, cells: { gate: K.back, fee: "$95 a month", price: "About $300,000", beach: "About 15 minutes" } },
       ], COLS, opts("Gated neighborhoods in Myrtle Beach, Carolina Forest and Conway", false))) +
       h.p(`For a closer look at one Carolina Forest neighborhood, see our ${h.a("/submarkets/carolina-forest/the-farm/", "guide to The Farm at Carolina Forest")}.`) },
 
@@ -238,17 +240,17 @@ module.exports = {
         OFFER_LABEL, OFFER, bg) +
       h.p(`If your budget is tighter, see ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy a home near Myrtle Beach")}.`) },
 
-    { h2: "What do you get for the HOA fee in a gated community?", toc: "What the fee pays for", html: (bg) =>
-      h.p("The HOA fee pays to run the gate and keep up the streets, and in many neighborhoods it pays for shared places like a pool. Each HOA decides what its fee covers.") +
+    { h2: "What do you get for the HOA fee in a gated community?", toc: "What the fee covers", html: (bg) =>
+      h.p("The HOA uses the fee to run the gate and keep up the streets. In many neighborhoods, the fee also covers shared places like a pool.") +
       CARD_CSS + big(atAGlance([
         { icon: "clubhouse", label: "Seasons at Prince Creek West", text: "About $340 a month. It includes internet, weekly trash pickup and lawn care." },
         { icon: "pool", label: "Myrtle Trace", text: "$95 a month. The HOA uses it to keep up the pool, clubhouse, gates, roads, ponds and shared land." },
         { icon: "beach", label: "Litchfield by the Sea", text: "The association keeps up the gates, the roads, the Beach Club, the River Club pool, a fishing dock, paths and tennis and pickleball courts." },
       ], { bg, min: "18rem" })) +
-      h.p(`For a home you live in, the yearly cost besides the mortgage is about $2,300 in Myrtle Trace, for the HOA fee and county tax. In Seasons at Prince Creek West, it is about $6,100 a year.`) +
-      h.p(`Outside city limits in Horry County, the streets behind a gate are usually private, and the ${h.ext(CODE, "HOA keeps them up")}, not the county. Repaving comes from the HOA's savings or from the owners, so ${h.a("/hoa/reserves/", "check how much the HOA has saved for repairs")} before you buy.`) +
-      h.p(`Workers come through the gate too. At Litchfield by the Sea, owners pay ${h.ext(LBTS_FAQ, "$25 for a barcode")} for each car, and a contractor's truck needs its own $25 barcode.`) +
-      h.p(`Hurricanes and flooding matter here too. Flood risk can change from one street to the next, even inside one gate, so get an insurance quote for the home before you offer. Our ${h.a("/buyers/coastal-insurance/", "guide to home insurance on the coast")} explains the costs.`) },
+      h.p("In Myrtle Trace, the HOA fee and county tax for a home you live in come to about $2,300 a year, besides the mortgage. In Seasons at Prince Creek West, they come to about $6,100 a year.") +
+      h.p(`Outside city limits in Horry County, the streets behind a gate are usually ${h.ext(CODE, "private")}, so the county does not repave them. Repaving comes from the HOA's savings or from the owners, so ${h.a("/hoa/reserves/", "check how much the HOA has saved for repairs")} before you buy.`) +
+      h.p(`Workers come through the gate too. At Litchfield by the Sea, owners pay ${h.ext(LBTS_FAQ, "$25 for a barcode")} for each car. A contractor's truck needs its own $25 barcode.`) +
+      h.p(`Hurricanes and flooding matter here too. Flood risk can change from one street to the next, even inside one gate. Get an insurance quote for the home before you offer. Our ${h.a("/buyers/coastal-insurance/", "guide to home insurance on the coast")} explains the costs.`) },
 
     { h2: "What are the pros and cons of a gated community?", toc: "Pros and cons", html: (bg) =>
       h.p("A gated community keeps through traffic off your street, and you pay for the gate and the streets through the HOA fee.") +

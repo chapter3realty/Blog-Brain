@@ -1,617 +1,635 @@
 {
-  "_comment": "Photos for batch 2026-10-b. Each record is checked by tools/photos.js (license, author, source). 'variants' paths are where the files are served: the upload package copies batches/2026-10-b/images/ to chapter3realty/images/buyers/ (upload.json images.to = chapter3realty/images/buyers). Rules: rules/images.md.",
-  "as_of": "2026-10-13",
-  "image_root": "/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/wb-nohoa/chapter3realty/",
-  "photos": [
-    {
-      "slug": "no-hoa",
-      "file": "images/buyers/no-hoa/cherry-grove-from-above.webp",
-      "variants": {
-        "600": "images/buyers/no-hoa/cherry-grove-from-above-600w.webp",
-        "1200": "images/buyers/no-hoa/cherry-grove-from-above-1200w.webp"
-      },
-      "title": "Cherry Grove from the air, NOAA, January 2026",
-      "what": "Cherry Grove in North Myrtle Beach from the air on January 12, 2026: the beach and the Cherry Grove Pier at the left, homes along canals, and the salt marsh and its creeks behind them.",
-      "caption": "Cherry Grove from the air: the beach and part of the pier, canal homes and the salt marsh.",
-      "alt": "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of homes on canals, and a wide salt marsh with winding creeks",
-      "place": {
-        "city": "North Myrtle Beach",
-        "sublocation": "Cherry Grove"
-      },
-      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
-      "source_name": "NOAA Emergency Response Imagery",
-      "author": "NOAA National Geodetic Survey",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_2_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
-      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
-      "terms_urls": [
-        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-        "https://registry.opendata.aws/noaa-eri/",
-        "https://www.fisheries.noaa.gov/inport/item/67562"
-      ],
-      "taken": "2026-01-12",
-      "digital_source_type": "digitalCapture",
-      "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it and adjusted the colors",
-      "source_files": [
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.jpg",
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.geom"
-      ],
-      "frame": {
-        "raw_pixels": [
-          0,
-          0,
-          7360,
-          5520
-        ],
-        "raw_size": "14204x10652",
-        "ground_m_per_px_raw_center": 0.195,
-        "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the left, north is up and to the right"
-      },
-      "original_size": "7360x5520 pixels of the raw frame, resized to 2400 wide, colors adjusted (eri/scripts/rawcrop.py)",
-      "width": 1200,
-      "height": 900,
-      "display_credit": "U.S. government aerial photo",
-      "reused_from": "batches/2026-10-a/images/del-webb-north-myrtle-beach/cherry-grove-marsh-from-above-2026-*.webp (same files, renamed; record copied from batches/2026-10-a/data/photos.json)",
-      "crops": {
-        "1x1": {
-          "path": "images/buyers/no-hoa/cherry-grove-from-above-1x1.webp",
-          "width": 1200,
-          "height": 1200
-        },
-        "4x3": {
-          "path": "images/buyers/no-hoa/cherry-grove-from-above-4x3.webp",
-          "width": 1200,
-          "height": 900
-        },
-        "16x9": {
-          "path": "images/buyers/no-hoa/cherry-grove-from-above-16x9.webp",
-          "width": 1200,
-          "height": 675
-        }
-      },
-      "crop_source": "scratchpad eri/cg-4x3.png (2400 x 1800, the same NOAA view the 600w and 1200w files were made from; RMSE 1.1% against the 1200w file), cut to 1x1, 4x3 and 16x9 from the center with tools/photos.js crops"
+ "_comment": "Photos for batch 2026-10-b. Each record is checked by tools/photos.js (license, author, source). 'variants' paths are where the files are served: the upload package copies batches/2026-10-b/images/ to chapter3realty/images/buyers/ (upload.json images.to = chapter3realty/images/buyers). Rules: rules/images.md.",
+ "as_of": "2026-10-13",
+ "image_root": "/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/wb-nohoa/chapter3realty/",
+ "photos": [
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/cherry-grove-from-above.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/cherry-grove-from-above-600w.webp",
+    "1200": "images/buyers/no-hoa/cherry-grove-from-above-1200w.webp"
+   },
+   "title": "Cherry Grove from the air, NOAA, January 2026",
+   "what": "Cherry Grove in North Myrtle Beach from the air on January 12, 2026: the beach and the Cherry Grove Pier at the left, homes along canals, and the salt marsh and its creeks behind them.",
+   "caption": "Cherry Grove from the air: the beach and part of the pier, canal homes and the salt marsh.",
+   "alt": "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of homes on canals, and a wide salt marsh with winding creeks",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Cherry Grove"
+   },
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_2_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "digital_source_type": "digitalCapture",
+   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it and adjusted the colors",
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.jpg",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.geom"
+   ],
+   "frame": {
+    "raw_pixels": [
+     0,
+     0,
+     7360,
+     5520
+    ],
+    "raw_size": "14204x10652",
+    "ground_m_per_px_raw_center": 0.195,
+    "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the left, north is up and to the right"
+   },
+   "original_size": "7360x5520 pixels of the raw frame, resized to 2400 wide, colors adjusted (eri/scripts/rawcrop.py)",
+   "width": 1200,
+   "height": 900,
+   "display_credit": "U.S. government aerial photo",
+   "reused_from": "batches/2026-10-a/images/del-webb-north-myrtle-beach/cherry-grove-marsh-from-above-2026-*.webp (same files, renamed; record copied from batches/2026-10-a/data/photos.json)",
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/no-hoa/cherry-grove-from-above-1x1.webp",
+     "width": 1200,
+     "height": 1200
     },
-    {
-      "slug": "affordable-places-to-live",
-      "file": "images/buyers/affordable/georgetown-harbor.webp",
-      "variants": {
-        "600": "images/buyers/affordable/georgetown-harbor-600w.webp",
-        "1200": "images/buyers/affordable/georgetown-harbor-1200w.webp"
-      },
-      "width": 1200,
-      "height": 800,
-      "title": "Georgetown, South Carolina harbor",
-      "what": "Boats tied up at wooden docks in the harbor at Georgetown, with waterfront buildings behind them.",
-      "caption": "Boats at the harbor in Georgetown.",
-      "alt": "Small boats tied to wooden docks in the harbor at Georgetown, South Carolina, with waterfront buildings behind them",
-      "place": {
-        "city": "Georgetown",
-        "sublocation": "Georgetown harbor"
-      },
-      "source": "https://commons.wikimedia.org/wiki/File:Georgetown,_South_Carolina_harbor.JPG",
-      "source_name": "Wikimedia Commons",
-      "commons_page": "https://commons.wikimedia.org/wiki/File:Georgetown,_South_Carolina_harbor.JPG",
-      "author": "Thomson200",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "credit": "Photo: Thomson200, CC0 (public domain dedication), via Wikimedia Commons. Credit not required; give it anyway.",
-      "provenance": "own work (Commons: 'Own work', uploaded by the author with UploadWizard, 2015-06-17)",
-      "taken": "2015-06-13",
-      "original_size": "3456x2304",
-      "share_alike": false,
-      "crops": {
-        "1x1": {
-          "path": "images/buyers/affordable/georgetown-harbor-1x1.webp",
-          "width": 1200,
-          "height": 1200
-        },
-        "4x3": {
-          "path": "images/buyers/affordable/georgetown-harbor-4x3.webp",
-          "width": 1200,
-          "height": 900
-        },
-        "16x9": {
-          "path": "images/buyers/affordable/georgetown-harbor-16x9.webp",
-          "width": 1200,
-          "height": 675
-        }
-      },
-      "crops_note": "The share image of /buyers/affordable-places-to-live/. For Article.image (16x9, 4x3 and 1x1), Chapter3 cut a center crop in each ratio, 1200 px wide, from the Commons 1920 px thumbnail (tools/photos.js makeCrops). CC0: no conditions."
+    "4x3": {
+     "path": "images/buyers/no-hoa/cherry-grove-from-above-4x3.webp",
+     "width": 1200,
+     "height": 900
     },
-    {
-      "slug": "affordable-places-to-live",
-      "file": "images/buyers/affordable/loris-downtown.webp",
-      "variants": {
-        "600": "images/buyers/affordable/loris-downtown-600w.webp",
-        "1200": "images/buyers/affordable/loris-downtown-1200w.webp"
-      },
-      "width": 1200,
-      "height": 899,
-      "title": "Downtown Loris, South Carolina",
-      "what": "Main Street in downtown Loris at its crossing with US 701, with brick shop buildings on both sides.",
-      "caption": "Main Street in downtown Loris.",
-      "alt": "Main Street in downtown Loris, South Carolina, with low brick shop buildings, trees and traffic lights",
-      "place": {
-        "city": "Loris",
-        "sublocation": "Main Street"
-      },
-      "source": "https://commons.wikimedia.org/wiki/File:Downtown_Loris,_South_Carolina.jpg",
-      "source_name": "Wikimedia Commons",
-      "commons_page": "https://commons.wikimedia.org/wiki/File:Downtown_Loris,_South_Carolina.jpg",
-      "author": "Pithon314",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "credit": "Photo: Pithon314, CC0 (public domain dedication), via Wikimedia Commons. Credit not required; give it anyway.",
-      "provenance": "own work (Commons: 'Own work', uploaded by the author with UploadWizard, 2026-08-18; camera location 34.0556 N, 78.8888 W)",
-      "taken": "2026-08-08",
-      "original_size": "3228x2419",
-      "share_alike": false
-    },
-    {
-      "slug": "affordable-places-to-live",
-      "file": "images/55-plus/myrtle-trace/conway-riverwalk-boardwalk.webp",
-      "variants": {
-        "600": "images/55-plus/myrtle-trace/conway-riverwalk-boardwalk-600w.webp",
-        "1200": "images/55-plus/myrtle-trace/conway-riverwalk-boardwalk-1200w.webp"
-      },
-      "width": 1200,
-      "height": 900,
-      "title": "Waccamaw River Warehouse Historic District Jun 10",
-      "what": "A shaded boardwalk in Conway's old riverfront warehouse district, on the Waccamaw River.",
-      "alt": "A wooden boardwalk with a black railing, shaded by trees, beside old wooden buildings in Conway",
-      "place": {
-        "sublocation": "Waccamaw River Warehouse Historic District",
-        "city": "Conway"
-      },
-      "source": "https://commons.wikimedia.org/wiki/File:Waccamaw_River_Warehouse_Historic_District_Jun_10.JPG",
-      "source_name": "Wikimedia Commons",
-      "commons_page": "https://commons.wikimedia.org/wiki/File:Waccamaw_River_Warehouse_Historic_District_Jun_10.JPG",
-      "author": "Pubdog",
-      "license": "Public domain",
-      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-      "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
-      "provenance": "own work",
-      "taken": "2010-06-20",
-      "original_size": "2592x1944",
-      "share_alike": false,
-      "reused_from": "batches/2026-10-a/data/photos.json (same files, already on the live site under images/55-plus/myrtle-trace/)"
-    },
-    {
-      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
-      "source_name": "NOAA Emergency Response Imagery",
-      "author": "NOAA National Geodetic Survey",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
-      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
-      "terms_urls": [
-        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-        "https://registry.opendata.aws/noaa-eri/",
-        "https://www.fisheries.noaa.gov/inport/item/67562"
-      ],
-      "taken": "2026-01-12",
-      "digital_source_type": "digitalCapture",
-      "display_credit": "U.S. government aerial photo",
-      "slug": "best-neighborhoods",
-      "file": "images/buyers/best-neighborhoods/surfside-beach-from-above.webp",
-      "variants": {
-        "600": "images/buyers/best-neighborhoods/surfside-beach-from-above-600w.webp",
-        "1200": "images/buyers/best-neighborhoods/surfside-beach-from-above-1200w.webp"
-      },
-      "width": 1200,
-      "height": 900,
-      "title": "The ocean side of Surfside Beach from the air, NOAA, January 2026",
-      "what": "Surfside Beach from the air on January 12, 2026: streets of homes from US 17 Business at the left to the beach and the ocean at the right, with a public beach access and a fishing pier at the right.",
-      "caption": "The ocean side of Surfside Beach from the air, from US 17 Business to the beach.",
-      "alt": "Surfside Beach from the air: streets of houses under trees from a highway at the left to a wide beach and the ocean at the right, with a fishing pier and a public beach access marked",
-      "place": {
-        "city": "Surfside Beach",
-        "sublocation": "between US 17 Business and the ocean"
-      },
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185159_0112261658253_036_RGB1, flown 2026-01-12 at about 16:58 UTC (the frame name carries 011226 1658; the exterior orientation file 0122026_RGB_1_Oblique_EO.txt, event 201, puts the camera at 33.6108, -78.9802, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
-      "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added labels",
-      "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye: 'US 17 Business' on the Horry County GIS highways layer 17 line HWY 17 (alias HWY 17 BUSINESS); 'Public beach access' at the S.C. DES beach access record SURFSIDE BEACH 17 (OBJECTID 108, -78.971728, 33.605163), the access in neighborhoods-facts.md row 140. Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, surfside-beach-from-above.labels.json).",
-      "source_files": [
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.jpg",
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.geom"
-      ],
-      "frame": {
-        "raw_pixels": [
-          0,
-          2400,
-          8800,
-          9000
-        ],
-        "raw_size": "14204x10652",
-        "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the right"
-      },
-      "original_size": "8800x6600 pixels of the raw frame, resized to 2400 wide, colors adjusted, labels drawn",
-      "crops": {
-        "1x1": {
-          "path": "images/buyers/best-neighborhoods/surfside-beach-from-above-1x1.webp",
-          "width": 1200,
-          "height": 1200
-        },
-        "4x3": {
-          "path": "images/buyers/best-neighborhoods/surfside-beach-from-above-4x3.webp",
-          "width": 1200,
-          "height": 900
-        },
-        "16x9": {
-          "path": "images/buyers/best-neighborhoods/surfside-beach-from-above-16x9.webp",
-          "width": 1200,
-          "height": 675
-        }
-      },
-      "crop_source": "the same NOAA view without labels (scratchpad wb-best-work/eri/surfside-beach-plain.png, 2400 x 1800), cut to 1x1, 4x3 and 16x9 from the center with tools/photos.js crops"
-    },
-    {
-      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
-      "source_name": "NOAA Emergency Response Imagery",
-      "author": "NOAA National Geodetic Survey",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
-      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
-      "terms_urls": [
-        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-        "https://registry.opendata.aws/noaa-eri/",
-        "https://www.fisheries.noaa.gov/inport/item/67562"
-      ],
-      "taken": "2026-01-12",
-      "digital_source_type": "digitalCapture",
-      "display_credit": "U.S. government aerial photo",
-      "slug": "best-neighborhoods",
-      "file": "images/buyers/best-neighborhoods/pine-lakes-from-above.webp",
-      "variants": {
-        "600": "images/buyers/best-neighborhoods/pine-lakes-from-above-600w.webp",
-        "1200": "images/buyers/best-neighborhoods/pine-lakes-from-above-1200w.webp"
-      },
-      "width": 1200,
-      "height": 1200,
-      "title": "Pine Lakes in Myrtle Beach from the air, NOAA, January 2026",
-      "what": "Pine Lakes in Myrtle Beach from the air on January 12, 2026: The Preserve at Pine Lakes and Pine Lakes Estates outlined in orange beside the Pine Lakes Country Club golf course, with the beach at the right.",
-      "caption": "Pine Lakes from the air: the homes in The Preserve at Pine Lakes and Pine Lakes Estates, outlined, beside the golf course.",
-      "alt": "Pine Lakes in Myrtle Beach from the air: curving streets of houses around ponds, outlined in orange, beside a golf course with green fairways and sand traps, and the beach at the far right",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "Pine Lakes"
-      },
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185127_0112261649071_037_RGB1, flown 2026-01-12 at about 16:49 UTC (exterior orientation file 0122026_RGB_1_Oblique_EO.txt, event 169, camera at 33.7443, -78.8497, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
-      "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added an outline and labels",
-      "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye. Outline: the union of the Horry County GIS parcels (layer 24) whose legal description starts 'PINE LAKES PH' or 'PINE LAKES ESTATES', the homes in neighborhoods-facts.md row 1 (The Preserve at Pine Lakes and Pine Lakes Estates), with streets inside closed. 'The Preserve at Pine Lakes' at a point inside the 'PINE LAKES PH' parcels; 'Pine Lakes Estates' beside the centre of its parcels; 'Pine Lakes Country Club' at a point inside the course parcel 42100000010 'PINE LAKES; REVISED PARCEL 4' (land use 389), row 168. Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, pine-lakes-from-above.labels.json).",
-      "source_files": [
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185127_0112261649071_037_RGB1.jpg",
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185127_0112261649071_037_RGB1.geom"
-      ],
-      "frame": {
-        "raw_pixels": [
-          3550,
-          300,
-          13902,
-          10652
-        ],
-        "raw_size": "14204x10652",
-        "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the right"
-      },
-      "original_size": "10352x10352 pixels of the raw frame, resized to 2400 wide, colors adjusted, outline and labels drawn"
-    },
-    {
-      "slug": "gated-communities",
-      "file": "images/buyers/gated-communities/prestwick-gate-from-above-2026.webp",
-      "variants": {
-        "600": "images/buyers/gated-communities/prestwick-gate-from-above-2026-600w.webp",
-        "1200": "images/buyers/gated-communities/prestwick-gate-from-above-2026-1200w.webp"
-      },
-      "title": "An entrance to Prestwick, Myrtle Beach, NOAA aerial, 2026",
-      "what": "An entrance to Prestwick, a gated neighborhood near Surfside Beach, from above in winter 2026, with one label at the point where the entrance road leaves the main road. Just inside is a small gatehouse between the inbound and outbound lanes, with a gate arm across each lane. A curving drive leads past trees to the homes and the clubhouse loop.",
-      "caption": "An entrance to Prestwick from above.",
-      "alt": "An entrance to Prestwick from above, labelled: a road leaves the main road and splits around a small gatehouse, with a white gate arm across each lane, among tall trees",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "Prestwick"
-      },
-      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
-      "source_name": "NOAA Emergency Response Imagery",
-      "author": "NOAA National Geodetic Survey",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
-      "terms_urls": [
-        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-        "https://registry.opendata.aws/noaa-eri/",
-        "https://www.fisheries.noaa.gov/inport/item/67562"
-      ],
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a (posted 2026-03-19). Joined from two orthorectified tiles in the public S3 bucket noaa-eri-pds; the exact files are in source_files. The flight day of these two tiles was not read, so taken gives the month of the group's January 2026 flights.",
-      "taken": "2026-01",
-      "display_credit": "U.S. government aerial photo",
-      "credit": "Photo: NOAA National Geodetic Survey, public domain. Label by Chapter3 Realty.",
-      "digital_source_type": "composite",
-      "changes": "Chapter3 Realty joined two NOAA map tiles, cut a close view of one entrance, resized it two times, adjusted the colors and added one label placed from Horry County road data",
-      "labels": [
-        "Prestwick entrance"
-      ],
-      "annotation_sources": {
-        "prestwick_entrance": "Horry County GIS roads layer 18: the first point of LINKS RD at (-78.962481, 33.643893), where it leaves PRESTWICK CLUB DR (the state-owned segment ends at the same point). LINKS RD runs south past the gatehouse; the county parcels on both sides are PRESTWICK PHASE V (layer 24: PIN 44714030003 and 44714030004, open space; PIN 44714030002, lot 447). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18 ; https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
-      },
-      "source_files": [
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785745w333900n.tif",
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785830w333900n.tif"
-      ],
-      "frame": {
-        "bbox_wgs84": [
-          -78.963111,
-          33.643547,
-          -78.961493,
-          33.644761
-        ],
-        "ground_m_per_px_1200w": 0.14
-      },
-      "original_size": "600x450 cut from the joined tiles (about 0.27 m a pixel), resized to 1200x900 (Lanczos), colors adjusted",
-      "method": "scratchpad wb-gated-work: tiles.py (download), eri/scripts/mosaic.py (join), PIL crop, resize and label",
-      "width": 1200,
-      "height": 900
-    },
-    {
-      "slug": "the-farm",
-      "file": "images/buyers/the-farm/the-farm-from-above.webp",
-      "variants": {
-        "600": "images/buyers/the-farm/the-farm-from-above-600w.webp",
-        "1200": "images/buyers/the-farm/the-farm-from-above-1200w.webp"
-      },
-      "title": "The Farm at Carolina Forest, NAIP aerial, April 2023",
-      "what": "The Farm at Carolina Forest from above on April 10, 2023, with its outline and six labels: the entrance on Carolina Forest Boulevard at the bottom, the activity center and the large pool near it, the townhomes of The Orchards on the east side, the small pool in the north part and the Planters Point condominiums in the north-east part. Curving streets of houses wind around ponds and strips of woods.",
-      "caption": "The Farm at Carolina Forest from above. The orange line is the edge of the neighborhood.",
-      "alt": "The Farm at Carolina Forest from above, its edge drawn in orange: curving streets of houses around ponds and woods, labelled with the entrance, the activity center, the large pool, The Orchards, the small pool and Planters Point",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "The Farm at Carolina Forest"
-      },
-      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-      "source_name": "The National Map (USGS)",
-      "author": "USDA Farm Service Agency, NAIP",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names m_3307809_se_17_060_20230410 and m_3307810_sw_17_060_20230410; ledger row 84). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
-      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
-      "terms_urls": [
-        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-        "https://www.fsa.usda.gov/help/policies-and-links/",
-        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
-      ],
-      "taken": "2023-04-10",
-      "naip_tiles": [
-        "m_3307809_se_17_060_20230410",
-        "m_3307810_sw_17_060_20230410"
-      ],
-      "display_credit": "U.S. government aerial photo",
-      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
-      "digital_source_type": "composite",
-      "changes": "Chapter3 Realty drew the outline from Horry County GIS parcels, added six labels placed from county data and adjusted the colors",
-      "labels": [
-        "Entrance",
-        "Large pool",
-        "Activity center",
-        "Small pool",
-        "The Orchards",
-        "Planters Point"
-      ],
-      "annotation_sources": {
-        "outline": "Horry County GIS parcels layer 24, the 1,634 parcels of the-farm-facts.md method note 'Parcel set', joined and closed across the streets: the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json, area 'the-farm')",
-        "entrance": "The Farmers Rest Drive entrance from Carolina Forest Boulevard (-78.875215, 33.754869), the shared end point of the FARMERS REST DR and CAROLINA FOREST BLVD segments in Horry County roads layer 18 (ledger row 27; batches/2026-10-b/data/the-farm.json reference_point)",
-        "large_pool": "Horry County GIS building footprints layer 27, object 412186 (Pool Inground), its center (-78.87577, 33.759814), on the HOA amenity parcel PIN 39600000019 (address 201 Carolina Farms Blvd; ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
-        "activity_center": "Horry County GIS building footprints layer 27, object 390424, its center (-78.877216, 33.759172), the one building on the HOA parcel PIN 39609030003 that carries the address point 190 Farmers Rest Dr (ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
-        "small_pool": "Horry County GIS building footprints layer 27, object 412200 (Pool Inground), its center (-78.873601, 33.767405), on the HOA parcel PIN 39607040047 (address 389 Carolina Farms Blvd; ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
-        "the_orchards": "Center of the 207 parcels with land use 109 (The Orchards townhouse lots; ledger row 1) in Horry County parcels layer 24 (-78.87093, 33.761825). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24",
-        "planters_point": "The 72 parcels with land use 107 (Planters Point condominium units; ledger row 1) in Horry County parcels layer 24: centered on their middle (-78.87088) and set just below their south edge (33.76672), so the label does not cover the small pool's dot. https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
-      },
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8781844.693441521%2C3995769.8170473897%2C-8779106.655017434%2C3998507.8554714797&bboxSR=3857&imageSR=3857&size=2400%2C2400&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
-      "frame": {
-        "bbox_wgs84": [
-          -78.888653,
-          33.753641,
-          -78.864057,
-          33.774089
-        ],
-        "ground_m_per_px_1200w": 1.9
-      },
-      "original_size": "2400x2400 (NAIP export, drawn on at 2x, colors adjusted, then resized)",
-      "method": "scratchpad farmw/scripts/render.py (the batch 2026-10-a aerial/scripts/render.py with a top-left label anchor) and fetch.py; config farmw/aerial/work/config.json (labels 46 px in 1200 for the page file, so they read on a phone)",
-      "width": 1200,
-      "height": 1200,
-      "crops": {
-        "1x1": {
-          "path": "images/buyers/the-farm/the-farm-from-above-1x1.webp",
-          "width": 1200,
-          "height": 1200
-        },
-        "4x3": {
-          "path": "images/buyers/the-farm/the-farm-from-above-4x3.webp",
-          "width": 1200,
-          "height": 900
-        },
-        "16x9": {
-          "path": "images/buyers/the-farm/the-farm-from-above-16x9.webp",
-          "width": 1200,
-          "height": 675
-        }
-      },
-      "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: each ratio is its own NAIP 2023 export with the outline and labels placed for that frame, 1200 px wide. A label with no room in a frame is left out of that frame: in the 4x3 the Entrance label (its dot stays) and The Orchards; in the 16x9 The Orchards. The 1x1 and the page's own file carry all six."
-    },
-    {
-      "slug": "the-farm",
-      "file": "images/buyers/the-farm/the-farm-pool-from-above-2026.webp",
-      "variants": {
-        "600": "images/buyers/the-farm/the-farm-pool-from-above-2026-600w.webp",
-        "1200": "images/buyers/the-farm/the-farm-pool-from-above-2026-1200w.webp"
-      },
-      "title": "The large pool and activity center in The Farm at Carolina Forest, NOAA aerial, January 2026",
-      "what": "The large pool of The Farm at Carolina Forest and its activity center from above on January 12, 2026, with two labels. The pool is a curving pool with two small islands of palms and a wide deck, beside a pond. The activity center is the white-roofed building at the lower left. Trees are bare in January.",
-      "caption": "The large pool and the activity center, from above.",
-      "alt": "The Farm at Carolina Forest from above in winter, labelled: a large curving blue pool with a wide deck and two palm islands beside a dark pond, and a white-roofed activity center at the lower left by a curving road",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "The Farm at Carolina Forest"
-      },
-      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
-      "source_name": "NOAA Emergency Response Imagery",
-      "author": "NOAA National Geodetic Survey",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a, flown 2026-01-12 (the same group and flight date as the batch 2026-10-a records; ledger row 83). The three map tiles over The Farm cover only its southern part (image data at 462 of 1,571 home parcels): the Farmers Rest Drive entrance, the large pool and the activity center. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
-      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
-      "terms_urls": [
-        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-        "https://registry.opendata.aws/noaa-eri/",
-        "https://www.fisheries.noaa.gov/inport/item/67562"
-      ],
-      "taken": "2026-01-12",
-      "display_credit": "U.S. government aerial photo",
-      "credit": "Photo: NOAA National Geodetic Survey, public domain. Labels by Chapter3 Realty.",
-      "digital_source_type": "composite",
-      "changes": "Chapter3 Realty joined three NOAA map tiles, cut a close view, brightened the colors and added two labels placed from county building footprints",
-      "labels": [
-        "Large pool",
-        "Activity center"
-      ],
-      "annotation_sources": {
-        "large_pool": "Horry County GIS building footprints layer 27, object 412186 (Pool Inground): label to the left of its west edge (-78.876058, 33.75983). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
-        "activity_center": "Horry County GIS building footprints layer 27, object 390424, the building on the HOA parcel PIN 39609030003 with the address point 190 Farmers Rest Dr: label to the right of its east edge (-78.877103, 33.759172). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27; https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/22"
-      },
-      "source_files": [
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785230w334545n.tif",
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785230w334630n.tif",
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785315w334545n.tif"
-      ],
-      "frame": {
-        "bbox_wgs84": [
-          -78.877531,
-          33.758806,
-          -78.875369,
-          33.760154
-        ],
-        "ground_m_per_px_1200w": 0.17
-      },
-      "original_size": "2400x1800 (cut from the NOAA tiles, Web Mercator, Lanczos, drawn on at 2x, colors adjusted, then resized)",
-      "method": "scratchpad farmw/scripts/mosaic.py (three NOAA tiles joined at their GeoTIFF tie points), eri_fetch.py (frame in Web Mercator, no no-data pixels) and render_eri.py; config farmw/aerial/work/config.json, key the-farm-pool (round 2: a tighter 200 m frame and brighter colors)",
-      "width": 1200,
-      "height": 900
-    },
-    {
-      "slug": "the-farm",
-      "file": "images/buyers/the-farm/the-farm-homes-from-above-2026.webp",
-      "variants": {
-        "600": "images/buyers/the-farm/the-farm-homes-from-above-2026-600w.webp",
-        "1200": "images/buyers/the-farm/the-farm-homes-from-above-2026-1200w.webp"
-      },
-      "title": "A street of houses in The Farm at Carolina Forest, NOAA aerial, January 2026",
-      "what": "A loop street of two-story and one-story houses with driveways and back yards in Phase 25 of The Farm at Carolina Forest, seen from above on January 12, 2026. Lawns are brown in January.",
-      "caption": "A street of houses in The Farm, from above.",
-      "alt": "A curving street of houses with gray roofs, short driveways and fenced back yards in The Farm at Carolina Forest, seen from above",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "The Farm at Carolina Forest"
-      },
-      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
-      "source_name": "NOAA Emergency Response Imagery",
-      "author": "NOAA National Geodetic Survey",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a, flown 2026-01-12 (the same group and flight date as the batch 2026-10-a records; ledger row 83). The three map tiles over The Farm cover only its southern part (image data at 462 of 1,571 home parcels): the Farmers Rest Drive entrance, the large pool and the activity center. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
-      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
-      "terms_urls": [
-        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-        "https://registry.opendata.aws/noaa-eri/",
-        "https://www.fisheries.noaa.gov/inport/item/67562"
-      ],
-      "taken": "2026-01-12",
-      "display_credit": "U.S. government aerial photo",
-      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
-      "digital_source_type": "compositeCapture",
-      "changes": "Chapter3 Realty joined three NOAA map tiles, cut a close view of one street and adjusted the colors",
-      "annotation_sources": {
-        "street": "Frame centered on Phase 25 (68 detached lots, center -78.877947, 33.755997, from Horry County parcels layer 24, ledger row 2). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
-      },
-      "source_files": [
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785230w334545n.tif",
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785230w334630n.tif",
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785315w334545n.tif"
-      ],
-      "frame": {
-        "bbox_wgs84": [
-          -78.878997,
-          33.755242,
-          -78.876403,
-          33.756858
-        ],
-        "ground_m_per_px_1200w": 0.2
-      },
-      "original_size": "2400x1800 (cut from the NOAA tiles, Web Mercator, Lanczos, drawn on at 2x, colors adjusted, then resized)",
-      "method": "scratchpad farmw/scripts/mosaic.py, eri_fetch.py and render_eri.py (no outline, no labels); config farmw/aerial/work/config.json, key the-farm-street",
-      "width": 1200,
-      "height": 900
-    },
-    {
-      "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
-      "source_name": "NOAA Emergency Response Imagery",
-      "author": "NOAA National Geodetic Survey",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-      "credit": "Photo: NOAA National Geodetic Survey, public domain.",
-      "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
-      "terms_urls": [
-        "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-        "https://registry.opendata.aws/noaa-eri/",
-        "https://www.fisheries.noaa.gov/inport/item/67562"
-      ],
-      "taken": "2026-01-12",
-      "digital_source_type": "digitalCapture",
-      "display_credit": "U.S. government aerial photo",
-      "slug": "best-neighborhoods",
-      "file": "images/buyers/best-neighborhoods/market-common-from-above.webp",
-      "variants": {
-        "600": "images/buyers/best-neighborhoods/market-common-from-above-600w.webp",
-        "1200": "images/buyers/best-neighborhoods/market-common-from-above-1200w.webp"
-      },
-      "width": 1200,
-      "height": 900,
-      "title": "The Market Common and the Myrtle Beach airport from the air, NOAA, January 2026",
-      "what": "The Market Common in Myrtle Beach from the air on January 12, 2026: its streets of homes outlined in orange around a lake, shops and offices south of them, and Myrtle Beach International Airport at the bottom.",
-      "caption": "The Market Common from the air: its homes, outlined, and the airport at the bottom.",
-      "alt": "The Market Common in Myrtle Beach from the air: blocks of townhomes and houses outlined in orange beside a lake, shops below them, and the airport with its planes and runway at the bottom",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "The Market Common"
-      },
-      "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185148_0112261657106_036_RGB2, flown 2026-01-12 at about 16:57 UTC (exterior orientation file 0122026_RGB_2_Oblique_EO.txt, camera within 1 km of The Market Common's reference point, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
-      "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added an outline and labels",
-      "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye. Outline: the union of the Horry County GIS parcels (layer 24) in the Market Common set of neighborhoods-facts.md row 24 that hold a building and are coded as homes (land use 101, 107, 109, 319 or 800; 652 parcels), streets inside closed, parts under 0.3 hectare-degrees dropped. 'The Market Common' at a point within 30 m of those parcels (-78.935793, 33.663248); 'Myrtle Beach International Airport' at a point inside the airport outline in Blog-Brain tools/geo (-78.932616, 33.670049). Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, market-common-from-above.labels.json).",
-      "source_files": [
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.jpg",
-        "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.geom"
-      ],
-      "frame": {
-        "raw_pixels": [
-          1500,
-          1600,
-          13500,
-          10600
-        ],
-        "raw_size": "14204x10652",
-        "note": "a raw frame, tilted about 20 degrees from straight down, not a map"
-      },
-      "original_size": "12000x9000 pixels of the raw frame, resized to 2400 wide, colors adjusted, outline and labels drawn"
+    "16x9": {
+     "path": "images/buyers/no-hoa/cherry-grove-from-above-16x9.webp",
+     "width": 1200,
+     "height": 675
     }
-  ],
-  "updated": "2026-10-13"
+   },
+   "crop_source": "scratchpad eri/cg-4x3.png (2400 x 1800, the same NOAA view the 600w and 1200w files were made from; RMSE 1.1% against the 1200w file), cut to 1x1, 4x3 and 16x9 from the center with tools/photos.js crops"
+  },
+  {
+   "slug": "affordable-places-to-live",
+   "file": "images/buyers/affordable/georgetown-harbor.webp",
+   "variants": {
+    "600": "images/buyers/affordable/georgetown-harbor-600w.webp",
+    "1200": "images/buyers/affordable/georgetown-harbor-1200w.webp"
+   },
+   "width": 1200,
+   "height": 800,
+   "title": "Georgetown, South Carolina harbor",
+   "what": "Boats tied up at wooden docks in the harbor at Georgetown, with waterfront buildings behind them.",
+   "caption": "Boats at the harbor in Georgetown.",
+   "alt": "Small boats tied to wooden docks in the harbor at Georgetown, South Carolina, with waterfront buildings behind them",
+   "place": {
+    "city": "Georgetown",
+    "sublocation": "Georgetown harbor"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Georgetown,_South_Carolina_harbor.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Georgetown,_South_Carolina_harbor.JPG",
+   "author": "Thomson200",
+   "license": "CC0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "credit": "Photo: Thomson200, CC0 (public domain dedication), via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: 'Own work', uploaded by the author with UploadWizard, 2015-06-17)",
+   "taken": "2015-06-13",
+   "original_size": "3456x2304",
+   "share_alike": false,
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/affordable/georgetown-harbor-1x1.webp",
+     "width": 1200,
+     "height": 1200
+    },
+    "4x3": {
+     "path": "images/buyers/affordable/georgetown-harbor-4x3.webp",
+     "width": 1200,
+     "height": 900
+    },
+    "16x9": {
+     "path": "images/buyers/affordable/georgetown-harbor-16x9.webp",
+     "width": 1200,
+     "height": 675
+    }
+   },
+   "crops_note": "The share image of /buyers/affordable-places-to-live/. For Article.image (16x9, 4x3 and 1x1), Chapter3 cut a center crop in each ratio, 1200 px wide, from the Commons 1920 px thumbnail (tools/photos.js makeCrops). CC0: no conditions."
+  },
+  {
+   "slug": "affordable-places-to-live",
+   "file": "images/buyers/affordable/loris-downtown.webp",
+   "variants": {
+    "600": "images/buyers/affordable/loris-downtown-600w.webp",
+    "1200": "images/buyers/affordable/loris-downtown-1200w.webp"
+   },
+   "width": 1200,
+   "height": 899,
+   "title": "Downtown Loris, South Carolina",
+   "what": "Main Street in downtown Loris at its crossing with US 701, with brick shop buildings on both sides.",
+   "caption": "Main Street in downtown Loris.",
+   "alt": "Main Street in downtown Loris, South Carolina, with low brick shop buildings, trees and traffic lights",
+   "place": {
+    "city": "Loris",
+    "sublocation": "Main Street"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Downtown_Loris,_South_Carolina.jpg",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Downtown_Loris,_South_Carolina.jpg",
+   "author": "Pithon314",
+   "license": "CC0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "credit": "Photo: Pithon314, CC0 (public domain dedication), via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: 'Own work', uploaded by the author with UploadWizard, 2026-08-18; camera location 34.0556 N, 78.8888 W)",
+   "taken": "2026-08-08",
+   "original_size": "3228x2419",
+   "share_alike": false
+  },
+  {
+   "slug": "affordable-places-to-live",
+   "file": "images/55-plus/myrtle-trace/conway-riverwalk-boardwalk.webp",
+   "variants": {
+    "600": "images/55-plus/myrtle-trace/conway-riverwalk-boardwalk-600w.webp",
+    "1200": "images/55-plus/myrtle-trace/conway-riverwalk-boardwalk-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Waccamaw River Warehouse Historic District Jun 10",
+   "what": "A shaded boardwalk in Conway's old riverfront warehouse district, on the Waccamaw River.",
+   "alt": "A wooden boardwalk with a black railing, shaded by trees, beside old wooden buildings in Conway",
+   "place": {
+    "sublocation": "Waccamaw River Warehouse Historic District",
+    "city": "Conway"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Waccamaw_River_Warehouse_Historic_District_Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Waccamaw_River_Warehouse_Historic_District_Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "reused_from": "batches/2026-10-a/data/photos.json (same files, already on the live site under images/55-plus/myrtle-trace/)"
+  },
+  {
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "digital_source_type": "digitalCapture",
+   "display_credit": "U.S. government aerial photo",
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/surfside-beach-from-above.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/surfside-beach-from-above-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/surfside-beach-from-above-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "The ocean side of Surfside Beach from the air, NOAA, January 2026",
+   "what": "Surfside Beach from the air on January 12, 2026: streets of homes from US 17 Business at the left to the beach and the ocean at the right, with a public beach access and a fishing pier at the right.",
+   "caption": "The ocean side of Surfside Beach from the air, from US 17 Business to the beach.",
+   "alt": "Surfside Beach from the air: streets of houses under trees from a highway at the left to a wide beach and the ocean at the right, with a fishing pier and a public beach access marked",
+   "place": {
+    "city": "Surfside Beach",
+    "sublocation": "between US 17 Business and the ocean"
+   },
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185159_0112261658253_036_RGB1, flown 2026-01-12 at about 16:58 UTC (the frame name carries 011226 1658; the exterior orientation file 0122026_RGB_1_Oblique_EO.txt, event 201, puts the camera at 33.6108, -78.9802, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
+   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added labels",
+   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye: 'US 17 Business' on the Horry County GIS highways layer 17 line HWY 17 (alias HWY 17 BUSINESS); 'Public beach access' at the S.C. DES beach access record SURFSIDE BEACH 17 (OBJECTID 108, -78.971728, 33.605163), the access in neighborhoods-facts.md row 140. Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, surfside-beach-from-above.labels.json).",
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.jpg",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.geom"
+   ],
+   "frame": {
+    "raw_pixels": [
+     0,
+     2400,
+     8800,
+     9000
+    ],
+    "raw_size": "14204x10652",
+    "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the right"
+   },
+   "original_size": "8800x6600 pixels of the raw frame, resized to 2400 wide, colors adjusted, labels drawn",
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/best-neighborhoods/surfside-beach-from-above-1x1.webp",
+     "width": 1200,
+     "height": 1200
+    },
+    "4x3": {
+     "path": "images/buyers/best-neighborhoods/surfside-beach-from-above-4x3.webp",
+     "width": 1200,
+     "height": 900
+    },
+    "16x9": {
+     "path": "images/buyers/best-neighborhoods/surfside-beach-from-above-16x9.webp",
+     "width": 1200,
+     "height": 675
+    }
+   },
+   "crop_source": "the same NOAA view without labels (scratchpad wb-best-work/eri/surfside-beach-plain.png, 2400 x 1800), cut to 1x1, 4x3 and 16x9 from the center with tools/photos.js crops"
+  },
+  {
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "digital_source_type": "digitalCapture",
+   "display_credit": "U.S. government aerial photo",
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/pine-lakes-from-above.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/pine-lakes-from-above-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/pine-lakes-from-above-1200w.webp"
+   },
+   "width": 1200,
+   "height": 1200,
+   "title": "Pine Lakes in Myrtle Beach from the air, NOAA, January 2026",
+   "what": "Pine Lakes in Myrtle Beach from the air on January 12, 2026: The Preserve at Pine Lakes and Pine Lakes Estates outlined in orange beside the Pine Lakes Country Club golf course, with the beach at the right.",
+   "caption": "Pine Lakes from the air: the homes in The Preserve at Pine Lakes and Pine Lakes Estates, outlined, beside the golf course.",
+   "alt": "Pine Lakes in Myrtle Beach from the air: curving streets of houses around ponds, outlined in orange, beside a golf course with green fairways and sand traps, and the beach at the far right",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Pine Lakes"
+   },
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185127_0112261649071_037_RGB1, flown 2026-01-12 at about 16:49 UTC (exterior orientation file 0122026_RGB_1_Oblique_EO.txt, event 169, camera at 33.7443, -78.8497, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
+   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added an outline and labels",
+   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye. Outline: the union of the Horry County GIS parcels (layer 24) whose legal description starts 'PINE LAKES PH' or 'PINE LAKES ESTATES', the homes in neighborhoods-facts.md row 1 (The Preserve at Pine Lakes and Pine Lakes Estates), with streets inside closed. 'The Preserve at Pine Lakes' at a point inside the 'PINE LAKES PH' parcels; 'Pine Lakes Estates' beside the centre of its parcels; 'Pine Lakes Country Club' at a point inside the course parcel 42100000010 'PINE LAKES; REVISED PARCEL 4' (land use 389), row 168. Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, pine-lakes-from-above.labels.json).",
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185127_0112261649071_037_RGB1.jpg",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185127_0112261649071_037_RGB1.geom"
+   ],
+   "frame": {
+    "raw_pixels": [
+     3550,
+     300,
+     13902,
+     10652
+    ],
+    "raw_size": "14204x10652",
+    "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the right"
+   },
+   "original_size": "10352x10352 pixels of the raw frame, resized to 2400 wide, colors adjusted, outline and labels drawn"
+  },
+  {
+   "slug": "gated-communities",
+   "file": "images/buyers/gated-communities/prestwick-gate-from-above-2026.webp",
+   "variants": {
+    "600": "images/buyers/gated-communities/prestwick-gate-from-above-2026-600w.webp",
+    "1200": "images/buyers/gated-communities/prestwick-gate-from-above-2026-1200w.webp"
+   },
+   "title": "An entrance to Prestwick, Myrtle Beach, NOAA aerial, 2026",
+   "what": "An entrance to Prestwick, a gated neighborhood near Surfside Beach, from above in winter 2026, with one label at the point where the entrance road leaves the main road. Just inside is a small gatehouse between the inbound and outbound lanes, with a gate arm across each lane. A curving drive leads past trees to the homes and the clubhouse loop.",
+   "caption": "An entrance to Prestwick from above.",
+   "alt": "An entrance to Prestwick from above, labelled: a road leaves the main road and splits around a small gatehouse, with a white gate arm across each lane, among tall trees",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Prestwick"
+   },
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a (posted 2026-03-19). Joined from two orthorectified tiles in the public S3 bucket noaa-eri-pds; the exact files are in source_files. The flight day of these two tiles was not read, so taken gives the month of the group's January 2026 flights.",
+   "taken": "2026-01",
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain. Label by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty joined two NOAA map tiles, cut a close view of one entrance, resized it two times, adjusted the colors and added one label placed from Horry County road data",
+   "labels": [
+    "Prestwick entrance"
+   ],
+   "annotation_sources": {
+    "prestwick_entrance": "Horry County GIS roads layer 18: the first point of LINKS RD at (-78.962481, 33.643893), where it leaves PRESTWICK CLUB DR (the state-owned segment ends at the same point). LINKS RD runs south past the gatehouse; the county parcels on both sides are PRESTWICK PHASE V (layer 24: PIN 44714030003 and 44714030004, open space; PIN 44714030002, lot 447). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18 ; https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
+   },
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785745w333900n.tif",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785830w333900n.tif"
+   ],
+   "frame": {
+    "bbox_wgs84": [
+     -78.963111,
+     33.643547,
+     -78.961493,
+     33.644761
+    ],
+    "ground_m_per_px_1200w": 0.14
+   },
+   "original_size": "600x450 cut from the joined tiles (about 0.27 m a pixel), resized to 1200x900 (Lanczos), colors adjusted",
+   "method": "scratchpad wb-gated-work: tiles.py (download), eri/scripts/mosaic.py (join), PIL crop, resize and label",
+   "width": 1200,
+   "height": 900,
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/gated-communities/prestwick-gate-from-above-2026-1x1.webp",
+     "width": 1200,
+     "height": 1200
+    },
+    "4x3": {
+     "path": "images/buyers/gated-communities/prestwick-gate-from-above-2026-4x3.webp",
+     "width": 1200,
+     "height": 900
+    },
+    "16x9": {
+     "path": "images/buyers/gated-communities/prestwick-gate-from-above-2026-16x9.webp",
+     "width": 1200,
+     "height": 675
+    }
+   },
+   "crops_source": "800x600 cut from the joined tiles around the same entrance, resized to 1600x1200 with the same label, then cut at the center to 1x1, 4x3 and 16x9 (tools/photos.js makeCrops)."
+  },
+  {
+   "slug": "the-farm",
+   "file": "images/buyers/the-farm/the-farm-from-above.webp",
+   "variants": {
+    "600": "images/buyers/the-farm/the-farm-from-above-600w.webp",
+    "1200": "images/buyers/the-farm/the-farm-from-above-1200w.webp"
+   },
+   "title": "The Farm at Carolina Forest, NAIP aerial, April 2023",
+   "what": "The Farm at Carolina Forest from above on April 10, 2023, with its outline and six labels: the entrance on Carolina Forest Boulevard at the bottom, the activity center and the large pool near it, the townhomes of The Orchards on the east side, the small pool in the north part and the Planters Point condominiums in the north-east part. Curving streets of houses wind around ponds and strips of woods.",
+   "caption": "The Farm at Carolina Forest from above. The orange line is the edge of the neighborhood.",
+   "alt": "The Farm at Carolina Forest from above, its edge drawn in orange: curving streets of houses around ponds and woods, labelled with the entrance, the activity center, the large pool, The Orchards, the small pool and Planters Point",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "The Farm at Carolina Forest"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names m_3307809_se_17_060_20230410 and m_3307810_sw_17_060_20230410; ledger row 84). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "naip_tiles": [
+    "m_3307809_se_17_060_20230410",
+    "m_3307810_sw_17_060_20230410"
+   ],
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty drew the outline from Horry County GIS parcels, added six labels placed from county data and adjusted the colors",
+   "labels": [
+    "Entrance",
+    "Large pool",
+    "Activity center",
+    "Small pool",
+    "The Orchards",
+    "Planters Point"
+   ],
+   "annotation_sources": {
+    "outline": "Horry County GIS parcels layer 24, the 1,634 parcels of the-farm-facts.md method note 'Parcel set', joined and closed across the streets: the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json, area 'the-farm')",
+    "entrance": "The Farmers Rest Drive entrance from Carolina Forest Boulevard (-78.875215, 33.754869), the shared end point of the FARMERS REST DR and CAROLINA FOREST BLVD segments in Horry County roads layer 18 (ledger row 27; batches/2026-10-b/data/the-farm.json reference_point)",
+    "large_pool": "Horry County GIS building footprints layer 27, object 412186 (Pool Inground), its center (-78.87577, 33.759814), on the HOA amenity parcel PIN 39600000019 (address 201 Carolina Farms Blvd; ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+    "activity_center": "Horry County GIS building footprints layer 27, object 390424, its center (-78.877216, 33.759172), the one building on the HOA parcel PIN 39609030003 that carries the address point 190 Farmers Rest Dr (ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+    "small_pool": "Horry County GIS building footprints layer 27, object 412200 (Pool Inground), its center (-78.873601, 33.767405), on the HOA parcel PIN 39607040047 (address 389 Carolina Farms Blvd; ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+    "the_orchards": "Center of the 207 parcels with land use 109 (The Orchards townhouse lots; ledger row 1) in Horry County parcels layer 24 (-78.87093, 33.761825). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24",
+    "planters_point": "The 72 parcels with land use 107 (Planters Point condominium units; ledger row 1) in Horry County parcels layer 24: centered on their middle (-78.87088) and set just below their south edge (33.76672), so the label does not cover the small pool's dot. https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8781844.693441521%2C3995769.8170473897%2C-8779106.655017434%2C3998507.8554714797&bboxSR=3857&imageSR=3857&size=2400%2C2400&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "frame": {
+    "bbox_wgs84": [
+     -78.888653,
+     33.753641,
+     -78.864057,
+     33.774089
+    ],
+    "ground_m_per_px_1200w": 1.9
+   },
+   "original_size": "2400x2400 (NAIP export, drawn on at 2x, colors adjusted, then resized)",
+   "method": "scratchpad farmw/scripts/render.py (the batch 2026-10-a aerial/scripts/render.py with a top-left label anchor) and fetch.py; config farmw/aerial/work/config.json (labels 46 px in 1200 for the page file, so they read on a phone)",
+   "width": 1200,
+   "height": 1200,
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/the-farm/the-farm-from-above-1x1.webp",
+     "width": 1200,
+     "height": 1200
+    },
+    "4x3": {
+     "path": "images/buyers/the-farm/the-farm-from-above-4x3.webp",
+     "width": 1200,
+     "height": 900
+    },
+    "16x9": {
+     "path": "images/buyers/the-farm/the-farm-from-above-16x9.webp",
+     "width": 1200,
+     "height": 675
+    }
+   },
+   "crops_note": "For Article.image (Google: 16x9, 4x3 and 1x1). Not center cuts: each ratio is its own NAIP 2023 export with the outline and labels placed for that frame, 1200 px wide. A label with no room in a frame is left out of that frame: in the 4x3 the Entrance label (its dot stays) and The Orchards; in the 16x9 The Orchards. The 1x1 and the page's own file carry all six."
+  },
+  {
+   "slug": "the-farm",
+   "file": "images/buyers/the-farm/the-farm-pool-from-above-2026.webp",
+   "variants": {
+    "600": "images/buyers/the-farm/the-farm-pool-from-above-2026-600w.webp",
+    "1200": "images/buyers/the-farm/the-farm-pool-from-above-2026-1200w.webp"
+   },
+   "title": "The large pool and activity center in The Farm at Carolina Forest, NOAA aerial, January 2026",
+   "what": "The large pool of The Farm at Carolina Forest and its activity center from above on January 12, 2026, with two labels. The pool is a curving pool with two small islands of palms and a wide deck, beside a pond. The activity center is the white-roofed building at the lower left. Trees are bare in January.",
+   "caption": "The large pool and the activity center, from above.",
+   "alt": "The Farm at Carolina Forest from above in winter, labelled: a large curving blue pool with a wide deck and two palm islands beside a dark pond, and a white-roofed activity center at the lower left by a curving road",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "The Farm at Carolina Forest"
+   },
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a, flown 2026-01-12 (the same group and flight date as the batch 2026-10-a records; ledger row 83). The three map tiles over The Farm cover only its southern part (image data at 462 of 1,571 home parcels): the Farmers Rest Drive entrance, the large pool and the activity center. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain. Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty joined three NOAA map tiles, cut a close view, brightened the colors and added two labels placed from county building footprints",
+   "labels": [
+    "Large pool",
+    "Activity center"
+   ],
+   "annotation_sources": {
+    "large_pool": "Horry County GIS building footprints layer 27, object 412186 (Pool Inground): label to the left of its west edge (-78.876058, 33.75983). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
+    "activity_center": "Horry County GIS building footprints layer 27, object 390424, the building on the HOA parcel PIN 39609030003 with the address point 190 Farmers Rest Dr: label to the right of its east edge (-78.877103, 33.759172). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27; https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/22"
+   },
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785230w334545n.tif",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785230w334630n.tif",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785315w334545n.tif"
+   ],
+   "frame": {
+    "bbox_wgs84": [
+     -78.877531,
+     33.758806,
+     -78.875369,
+     33.760154
+    ],
+    "ground_m_per_px_1200w": 0.17
+   },
+   "original_size": "2400x1800 (cut from the NOAA tiles, Web Mercator, Lanczos, drawn on at 2x, colors adjusted, then resized)",
+   "method": "scratchpad farmw/scripts/mosaic.py (three NOAA tiles joined at their GeoTIFF tie points), eri_fetch.py (frame in Web Mercator, no no-data pixels) and render_eri.py; config farmw/aerial/work/config.json, key the-farm-pool (round 2: a tighter 200 m frame and brighter colors)",
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "slug": "the-farm",
+   "file": "images/buyers/the-farm/the-farm-homes-from-above-2026.webp",
+   "variants": {
+    "600": "images/buyers/the-farm/the-farm-homes-from-above-2026-600w.webp",
+    "1200": "images/buyers/the-farm/the-farm-homes-from-above-2026-1200w.webp"
+   },
+   "title": "A street of houses in The Farm at Carolina Forest, NOAA aerial, January 2026",
+   "what": "A loop street of two-story and one-story houses with driveways and back yards in Phase 25 of The Farm at Carolina Forest, seen from above on January 12, 2026. Lawns are brown in January.",
+   "caption": "A street of houses in The Farm, from above.",
+   "alt": "A curving street of houses with gray roofs, short driveways and fenced back yards in The Farm at Carolina Forest, seen from above",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "The Farm at Carolina Forest"
+   },
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a, flown 2026-01-12 (the same group and flight date as the batch 2026-10-a records; ledger row 83). The three map tiles over The Farm cover only its southern part (image data at 462 of 1,571 home parcels): the Farmers Rest Drive entrance, the large pool and the activity center. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "digital_source_type": "compositeCapture",
+   "changes": "Chapter3 Realty joined three NOAA map tiles, cut a close view of one street and adjusted the colors",
+   "annotation_sources": {
+    "street": "Frame centered on Phase 25 (68 detached lots, center -78.877947, 33.755997, from Horry County parcels layer 24, ledger row 2). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
+   },
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785230w334545n.tif",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785230w334630n.tif",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/EC2601a_OB_N_C0785315w334545n.tif"
+   ],
+   "frame": {
+    "bbox_wgs84": [
+     -78.878997,
+     33.755242,
+     -78.876403,
+     33.756858
+    ],
+    "ground_m_per_px_1200w": 0.2
+   },
+   "original_size": "2400x1800 (cut from the NOAA tiles, Web Mercator, Lanczos, drawn on at 2x, colors adjusted, then resized)",
+   "method": "scratchpad farmw/scripts/mosaic.py, eri_fetch.py and render_eri.py (no outline, no labels); config farmw/aerial/work/config.json, key the-farm-street",
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "digital_source_type": "digitalCapture",
+   "display_credit": "U.S. government aerial photo",
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/market-common-from-above.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/market-common-from-above-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/market-common-from-above-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "The Market Common and the Myrtle Beach airport from the air, NOAA, January 2026",
+   "what": "The Market Common in Myrtle Beach from the air on January 12, 2026: its streets of homes outlined in orange around a lake, shops and offices south of them, and Myrtle Beach International Airport at the bottom.",
+   "caption": "The Market Common from the air: its homes, outlined, and the airport at the bottom.",
+   "alt": "The Market Common in Myrtle Beach from the air: blocks of townhomes and houses outlined in orange beside a lake, shops below them, and the airport with its planes and runway at the bottom",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "The Market Common"
+   },
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185148_0112261657106_036_RGB2, flown 2026-01-12 at about 16:57 UTC (exterior orientation file 0122026_RGB_2_Oblique_EO.txt, camera within 1 km of The Market Common's reference point, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
+   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added an outline and labels",
+   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye. Outline: the union of the Horry County GIS parcels (layer 24) in the Market Common set of neighborhoods-facts.md row 24 that hold a building and are coded as homes (land use 101, 107, 109, 319 or 800; 652 parcels), streets inside closed, parts under 0.3 hectare-degrees dropped. 'The Market Common' at a point within 30 m of those parcels (-78.935793, 33.663248); 'Myrtle Beach International Airport' at a point inside the airport outline in Blog-Brain tools/geo (-78.932616, 33.670049). Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, market-common-from-above.labels.json).",
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.jpg",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.geom"
+   ],
+   "frame": {
+    "raw_pixels": [
+     1500,
+     1600,
+     13500,
+     10600
+    ],
+    "raw_size": "14204x10652",
+    "note": "a raw frame, tilted about 20 degrees from straight down, not a map"
+   },
+   "original_size": "12000x9000 pixels of the raw frame, resized to 2400 wide, colors adjusted, outline and labels drawn"
+  }
+ ],
+ "updated": "2026-10-13"
 }
