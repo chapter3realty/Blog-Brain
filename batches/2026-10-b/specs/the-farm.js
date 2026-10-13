@@ -213,11 +213,11 @@ module.exports = {
 
     { h2: "What does it cost to live in The Farm at Carolina Forest?", toc: "Costs", html: (bg) =>
       h.p("Houses in The Farm at Carolina Forest that sold in the last year usually went for about $350,000. Townhomes and condos usually went for about $230,000 to $240,000.") +
-      h.p("For a house of about $350,000 that you live in, plan on about $2,700 a year besides the mortgage and home insurance. That is the sum of these three costs.") +
+      h.p("For a house of about $350,000 that you live in, plan on about $2,600 a year besides the mortgage and home insurance. That covers the HOA fee and the county property tax.") +
       atAGlance([
         { icon: "dollar", label: "HOA fee", text: "$107 a month, about $1,300 a year" },
         { icon: "tax", label: "Property tax", text: "About $1,300 a year on a $350,000 house you live in" },
-        { icon: "storm", label: "Stormwater fee", text: "About $90 a year on the tax bill, for county drainage of rain water" },
+        { icon: "storm", label: "Stormwater fee", text: "About $90 a year more, for the county's drainage of rain water" },
       ], { bg, min: "13rem" }) +
       h.p("When you buy, the county values the home for tax at about what a buyer would pay for it on the open market. For a new owner, that is usually close to the price paid. The new value first appears on the tax bill for the year after you buy. The tax above is for a home you live in, before any tax credit.") +
       h.p("The Farm is outside the city limits, so there is no city tax. When you buy, you also pay the HOA a one-time fee of $250 at closing.") +
