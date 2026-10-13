@@ -19,8 +19,9 @@ const fs = require("fs"), path = require("path");
 const { h } = require("../tools/mkpage.js");
 
 /* Where the Blog-Brain tools are: the copy an upload package puts in the website's
-   tools/blog-brain/ (tools/package-batch.js), then $BLOG_BRAIN, then the Blog-Brain repo. */
-const BB = [path.join(__dirname, "..", "tools", "blog-brain"), process.env.BLOG_BRAIN,
+   tools/blog-brain-2026-10-b/ (tools/package-batch.js), then $BLOG_BRAIN, then the Blog-Brain repo.
+   Batch 2026-10-a's pages keep tools/blog-brain/, so this batch's newer tools do not change them. */
+const BB = [path.join(__dirname, "..", "tools", "blog-brain-2026-10-b"), process.env.BLOG_BRAIN,
   path.join(__dirname, "..", "..", ".."), "/home/user/Blog-Brain"].filter(Boolean)
   .find((d) => fs.existsSync(path.join(d, "tools", "page-kit.js")));
 if (!BB) throw new Error("Blog-Brain tools not found (tools/page-kit.js)");

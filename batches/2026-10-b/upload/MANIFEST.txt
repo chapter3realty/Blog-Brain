@@ -1,4 +1,4 @@
-Upload package for batch 2026-10-b. Built 2026-10-13 from Blog-Brain 7455e9e against the live branch at 39036014.
+Upload package for batch 2026-10-b. Built 2026-10-13 from Blog-Brain eb0ee65 against the live branch at 39036014.
 size  sha256  path
 122626  b1169684e687d239da425f52380a91e57c679d0bce45e6853b9d4e23a0c62712  batch-2026-10-b.patch
 140700  fdbe1cdfd26367f3bea99b396d6a5b807e479cca77aef6650971298b89f3d6c8  site/chapter3realty/images/buyers/affordable/georgetown-harbor-1200w.webp
@@ -52,19 +52,19 @@ size  sha256  path
 1487000  d7c0957129105b248b5f3e998e51f4facdf6ffb2d004a23a91da80f29f90e8d1  site/data/2026-10-b/no-hoa.json
 61133  716907285a3605b276ea4d3bb40046e4e8ae7dd4de1762a8f561450d03e1bdcc  site/data/2026-10-b/photos.json
 8135  c899c89fde9d9e233c8b959483750707855216f756f82d8bd43c45b01a4773c8  site/data/2026-10-b/the-farm.json
-3947  d9e01305aec0a24c703fafed44f3df92fa8adcb9de08ef0ba833d220e6d37fc6  site/specs/_kit.js
-28752  e168678185bec186645c8fdc63ae7795f8c61d1616ecb23e146b12b59669e44d  site/specs/affordable-places-to-live.js
+4066  d2003d639bc0a896c0eac44d4cdbc517b033322530d3c51b77ebab7140da53d4  site/specs/_kit.js
+28772  bb3613d58b45f52720b69d794ec3f55a7f20b08f70e6dca73b4f02abead2cacd  site/specs/affordable-places-to-live.js
 40788  156f928eaba236ede1cbd78c2f921424e07331fd56155a06d967ffbd64f09345  site/specs/best-neighborhoods.js
 30712  ae5d06341b7e822d8532df95e901e087821eb7df55749abdf812368d716d8b72  site/specs/gated-communities.js
-32317  e64aa8e7a4249f3389d01d92ad6654866e1b5b49363c9cad4fb261bf42509cb7  site/specs/no-hoa-homes.js
-27634  1410d3dd1b46771377e77a2225c36cab777a147144a054ed5420ef76dae23c5a  site/specs/the-farm.js
-10182  5ec11d7c1db5b05cee1488be81dd6627305fa43ae4a621be3dc9dc5da549e8a3  site/tools/blog-brain/rules/claims.json
-144777  50b1e1f4b4595a20e4ea68acaec179b942fcbe972f20bed374079a0f9136aa6e  site/tools/blog-brain/tools/area-map.js
-18596  6829e28a49b7b3b8ac481b688be545877f8c0202231a610b093443e420d92ab8  site/tools/blog-brain/tools/compare.js
-284941  2ff852011d32f6c9ced35c31486d90ca4465d1f941889ab4f13314a005a58261  site/tools/blog-brain/tools/geo/grand-strand-v2.json
-11334  b1b7aef0cc78648c818a682f24981e027ec4641a12d70c5cb717ee3b3a170d54  site/tools/blog-brain/tools/geo/grand-strand.json
-9687  acc6894a62383b49bffb52a2f0f675844e4dd0cd1fdaffdbe1544ad888631be2  site/tools/blog-brain/tools/icons.js
-26907  41838d1a56bcec681723626b0638fdc77068ecba032032f41790603ebfaf366a  site/tools/blog-brain/tools/illustrations.js
-26539  d012dbf6bf1968806369d0362e6eaa62e7cd48aefc6b0b051ef7fb8b9ad5f03c  site/tools/blog-brain/tools/page-kit.js
-51767  b4cf3bbd7ed72c250627a323e51a12e5dc106f2341c74b0ef4fee33c1924c329  site/tools/blog-brain/tools/photos.js
-3411  da4cc24577a0af333ec828134730b20b09618385425fa02dc91caac034d9ae2a  site/tools/blog-brain/tools/story-check.js
+32327  79227e88d60a14caa5265350a488ce31d37b6912f4cbb6a3c36e6cca3a5da6d0  site/specs/no-hoa-homes.js
+27654  6066567361312983e775abf40a784c08bc9b6cfeab23900dbb3b364aac6753cf  site/specs/the-farm.js
+10182  5ec11d7c1db5b05cee1488be81dd6627305fa43ae4a621be3dc9dc5da549e8a3  site/tools/blog-brain-2026-10-b/rules/claims.json
+144777  50b1e1f4b4595a20e4ea68acaec179b942fcbe972f20bed374079a0f9136aa6e  site/tools/blog-brain-2026-10-b/tools/area-map.js
+18596  6829e28a49b7b3b8ac481b688be545877f8c0202231a610b093443e420d92ab8  site/tools/blog-brain-2026-10-b/tools/compare.js
+284941  2ff852011d32f6c9ced35c31486d90ca4465d1f941889ab4f13314a005a58261  site/tools/blog-brain-2026-10-b/tools/geo/grand-strand-v2.json
+11334  b1b7aef0cc78648c818a682f24981e027ec4641a12d70c5cb717ee3b3a170d54  site/tools/blog-brain-2026-10-b/tools/geo/grand-strand.json
+9687  acc6894a62383b49bffb52a2f0f675844e4dd0cd1fdaffdbe1544ad888631be2  site/tools/blog-brain-2026-10-b/tools/icons.js
+26907  41838d1a56bcec681723626b0638fdc77068ecba032032f41790603ebfaf366a  site/tools/blog-brain-2026-10-b/tools/illustrations.js
+26539  d012dbf6bf1968806369d0362e6eaa62e7cd48aefc6b0b051ef7fb8b9ad5f03c  site/tools/blog-brain-2026-10-b/tools/page-kit.js
+51767  b4cf3bbd7ed72c250627a323e51a12e5dc106f2341c74b0ef4fee33c1924c329  site/tools/blog-brain-2026-10-b/tools/photos.js
+3411  da4cc24577a0af333ec828134730b20b09618385425fa02dc91caac034d9ae2a  site/tools/blog-brain-2026-10-b/tools/story-check.js

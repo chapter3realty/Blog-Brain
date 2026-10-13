@@ -72,8 +72,8 @@
 const fs = require("fs"), path = require("path");
 const { h } = require("../tools/mkpage.js");
 
-/* Blog-Brain tools: the upload package's copy in tools/blog-brain/, then $BLOG_BRAIN, then the repo. */
-const BB = [path.join(__dirname, "..", "tools", "blog-brain"), process.env.BLOG_BRAIN,
+/* Blog-Brain tools: the upload package's copy in tools/blog-brain-2026-10-b/, then $BLOG_BRAIN, then the repo. */
+const BB = [path.join(__dirname, "..", "tools", "blog-brain-2026-10-b"), process.env.BLOG_BRAIN,
   path.join(__dirname, "..", "..", ".."), "/home/user/Blog-Brain"].filter(Boolean)
   .find((d) => fs.existsSync(path.join(d, "tools", "page-kit.js")));
 if (!BB) throw new Error("Blog-Brain tools not found (tools/page-kit.js)");
