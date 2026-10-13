@@ -239,7 +239,7 @@ module.exports = {
       h.p(`If your budget is tighter, see ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy a home near Myrtle Beach")}.`) },
 
     { h2: "What do you get for the HOA fee in a gated community?", toc: "What the fee pays for", html: (bg) =>
-      h.p("The HOA fee pays to run the gate and keep up the streets, and in many neighborhoods it pays for shared places like a pool. Each HOA sets its own list.") +
+      h.p("The HOA fee pays to run the gate and keep up the streets, and in many neighborhoods it pays for shared places like a pool. Each HOA decides what its fee covers.") +
       CARD_CSS + big(atAGlance([
         { icon: "clubhouse", label: "Seasons at Prince Creek West", text: "About $340 a month. It includes internet, weekly trash pickup and lawn care." },
         { icon: "pool", label: "Myrtle Trace", text: "$95 a month. The HOA uses it to keep up the pool, clubhouse, gates, roads, ponds and shared land." },
