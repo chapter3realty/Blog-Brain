@@ -34,6 +34,8 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 
 **2026-10-11, v12.** "The story for dell webb at grand dunes atleast is impossible to understand research how to make a story simple and engaging." Loss: the reader had to count. Class: story. Changed: voice/STORY-SIMPLE.md, tools/story-check.js, STANDARD T8, CRAFT 6.
 
+**2026-10-13, process.** "we have a partner that doordashes and drives alot so every time you want photos of a specific place or thing at a place for the website i want you to email him you can ask him for as much as you'd like to make the best website possible." Loss: pages showed distant aerials or no picture of the place itself (reviewers: "pictures of the subject"). Class: visuals; process. Changed: CLAUDE.md, CRAFT 4, rules/images.md item 1, templates/photo-request-email.md, batches/2026-10-b/photo-request-1.md.
+
 ## Praise: keep these
 
 **2026-10-05.** "great work on the example". The first worked example, a real-sounding situation labelled "Example". Keep: labelled examples that read like a real situation.

@@ -119,6 +119,8 @@ For a subject that fits no kind, find the main relation in the content: place, a
 
 ## 4. Show it
 
+**Ask for the photo you need.** Chapter3 has a photo partner who drives the area (owner, 2026-10-13). When a page needs a photo of a real place or thing, send him a shot list (`templates/photo-request-email.md`) instead of settling for a distant aerial or no picture. Ask for as much as the page needs.
+
 **People understand pictures before words.** Use one wherever it carries a fact. Use a map for any place, our own static map with a Google Maps link and drive minutes (`tools/area-map.js`). Use real photos of the subject itself (`tools/photos.js`; `rules/images.md` for what is allowed). Use a drawing to show a feature (`tools/illustrations.js`). Use icons with words for quick facts (`tools/icons.js`). Use a table when the reader compares. Use a chart when the reader needs a trend. Use steps when there is an order.
 
 **A picture is a claim.** It says something is true. A golf flag on a golf cart card says there is golf. A photo of a beach on a page about a neighborhood says the beach is the neighborhood. Every image must show the fact in the sentence beside it, and its caption says that fact. Cut an image that only decorates.

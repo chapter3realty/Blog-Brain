@@ -6,7 +6,7 @@ The owner asked on 2026-10-10: "Are we making sure we cant get trademarked or su
 
 ## What we may use
 
-1. **Our own photos.** Taken by Chapter3 staff for Chapter3. Record them in `photos.json` with `"license": "own"`, the photographer as author, and where and when it was taken as source. See `templates/photo-shot-list.md`.
+1. **Our own photos.** Taken by Chapter3 staff for Chapter3, or by Chapter3's photo partner for Chapter3 (owner, 2026-10-13). The partner's written line that he took them and that Chapter3 may use them on its website and marketing is the license; keep it on file. Ask him with `templates/photo-request-email.md`. Record them in `photos.json` with `"license": "own"`, the photographer as author, and where and when it was taken as source. See `templates/photo-shot-list.md`.
 2. **Public domain and CC0 photos.** No permission is needed. We credit them anyway.
 3. **CC BY and CC BY-SA photos.** Any version (2.0, 2.5, 3.0, 4.0). We must credit them as the license says (below).
 4. **Our drawings.** The spot drawings in `tools/illustrations.js` were made for Chapter3. They show a kind of place, never a real one.

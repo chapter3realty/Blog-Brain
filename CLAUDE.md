@@ -56,6 +56,7 @@ node tools/record-edit.js draft.txt edited.txt --page /url/  # add the owner's e
 - **The DBA "Chapter III Realty" is registered.** The Chapter III logo (owner's image, 2026-10-12) is on the site: `chapter3realty/images/brand/chapter-iii-logo.svg` (header) and `-ivory.svg` (footer), from `website-patches/logo-chapter-iii.patch`. Redraw it only from the owner's file.
 - **Claude decides; the owner approves (owner, 2026-10-06).** Do not send the owner questions a source, the story bank or the rules can answer. See WORKFLOW Roles.
 - **Listing sites:** Zillow's robots file disallows its listing pages for every agent. Use Horry County recorded sales and Zillow's published research data instead.
+- **Photos of a real place: ask the photo partner first (owner, 2026-10-13).** A partner who drives the area takes photos for the site. Whenever a page needs a photo of a specific place or thing, email him a shot list from the owner's Gmail, as much as the page needs (`templates/photo-request-email.md`). His address is with the owner, not in this repo. His photos are our own photos once he confirms in writing.
 - **Images:** only our own photos, CC0, public domain, CC BY or CC BY-SA with credit, and our own illustrations. Never builder, listing, MLS, news or Google images, a logo or a person as the subject, or an AI image of a real place. `rules/images.md`; `tools/photos.js` refuses an image without a license record.
 - **Facts come from verified rows in a fact ledger,** checked by an agent that did not research them.
 
