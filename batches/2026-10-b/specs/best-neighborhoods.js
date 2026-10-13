@@ -50,11 +50,14 @@
  * Surfside Beach. Every outline and label is placed from county, state or USGS GIS through each frame's
  * corner coordinates (data/photos.json names the points).
  *
- * Example: retell first. "Megan wants a house near the beach for less, and the beach access closest to
- * Deerfield has parking for golf carts only, but she rides her bike, so she chooses Deerfield over The
- * Farm." Child sentence: "You can only park a golf cart at that beach." A labelled example, not a
- * story from stories.json (none records a choice between two neighborhoods); its own shape: a choice,
- * not a check before an offer.
+ * Example (round 4): retell first. "Megan wants a cheaper house near the beach to drive to every
+ * morning, the closest access to the Deerfield house has parking for golf carts only, so her agent
+ * drives it with her and shows her the next access, with a pay lot about 8 minutes away (row 129 and
+ * the Deerfield trade-off row)." Child sentence: "You can only park a golf cart at that beach." A
+ * labelled example, not a story from stories.json; the agent acts on the problem, and it ends with
+ * what Megan can now do, not with an offer.
+ * Overview map (round 4): names with a leader line where they have no room (tools/area-map.js
+ * spec.leaders), "MYRTLE BEACH" on the ocean with a line into the city, The Farm named first.
  */
 const fs = require("fs"), path = require("path");
 const { h, compareCards, wantPicker, glance, story, BB } = require("./_kit.js");
@@ -395,7 +398,7 @@ module.exports = {
       h.p(`Prince Creek, in Murrells Inlet, is about 6 minutes by car from Tidelands Waccamaw Community Hospital and 2 minutes from a Publix. Builders sold new townhomes here for $300,000 to $356,000. The trade-off is choice: in the sections in the table, only about 10 homes were sold by their owners in the last 12 months. Our guides to ${h.a("/submarkets/surfside-beach/", "Surfside Beach")} and ${h.a("/submarkets/murrells-inlet/", "Murrells Inlet")} cover both towns.`) },
 
     { h2: "If you are 55 or older, which 55+ communities should you look at?", toc: "55+ communities", id: "55-plus", html:
-      h.p("A 55+ community is for homes where at least one person is 55 or older. Federal rules require that in at least 80 percent of its occupied homes, and Myrtle Trace requires it in every home. If no one in your home is 55 yet, skip this part. Each of the four we cover has a pool and a clubhouse.") +
+      h.p("A 55+ community is for homes where at least one person is 55 or older. Federal rules require that in at least 80 percent of its occupied homes, and Myrtle Trace and Seasons at Prince Creek West require it in every home. If no one in your home is 55 yet, skip this part. Each of the four we cover has a pool and a clubhouse.") +
       compareCards(D.fifty_five_plus.rows.map((r) => ({ name: r.name, href: r.href, cells: r.cells })), COLS,
         { caption: "Four 55+ communities near Myrtle Beach", nameLabel: "Community", css: css() }) +
       h.p(`Our ${h.a(P55, "guide to 55+ communities near Myrtle Beach")} compares the four side by side, with what the HOA fee includes.`) },
@@ -404,9 +407,9 @@ module.exports = {
       h.p("Two things can differ from one home to the next in the same neighborhood: the HOA rules and the homes around it. Read the rules on boats, golf carts, renting and pools before you buy. Different kinds of homes are often built within a few blocks of each other here, so walk two blocks around the home.") +
       h.p(`Public schools are assigned by address. Check the exact address with the ${h.ext(SCHOOLS, "Horry County Schools zone lookup")}, and see our page on ${h.a("/buyers/relocating/schools/", "schools near Myrtle Beach")}.`) +
       story([
-        "<strong>Example:</strong> Megan wants a house near the beach that costs less. A Chapter3 agent sends her three neighborhoods, and she narrows them to the Deerfield Plantation area and The Farm.",
-        "Deerfield is closer to the beach, but the closest beach access there has parking for golf carts only. Megan rides her bike to the beach, so she does not need a parking spot.",
-        "She chooses Deerfield and asks to see the houses for sale there.",
+        "<strong>Example:</strong> Megan wants a house near the beach that costs less, so she can drive to the beach every morning. She likes a house in the Deerfield Plantation area.",
+        "Her Chapter3 agent drives with her from the house to the closest beach access. It has parking for golf carts only. The agent then shows her the next access, which has a pay lot about 8 minutes from the house.",
+        "Megan knows where she will park each morning, and she keeps the Deerfield house on her list.",
       ], "", bg,
       `An agent at Chapter3 can send you three neighborhoods that fit what you want, and the homes for sale in each.`) },
   ],
