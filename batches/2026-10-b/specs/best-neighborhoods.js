@@ -251,7 +251,7 @@ module.exports = {
       h.p(`When a home sells, the county ${h.ext(SC_TAX, "values it again")} at what the home is worth, and the new value is first taxed the next year. In an ordinary sale, that is usually close to the price paid.`) +
       h.p("In Cherry Grove, more than half of the homes for sale are listed with no HOA fee, and the others pay a fee.") +
       h.p("Almost every home in Cherry Grove is in a high-risk flood zone. A federally regulated or federally backed lender must require flood insurance on a mortgage for a home in one. A cash buyer is not required to carry it.") +
-      h.p("Many Cherry Grove homes also pay a flat fee of about $1,700 a year, which appears to be the city's canal-dredging charge. The table leaves it out because only some homes pay it.") +
+      h.p("Many Cherry Grove homes also pay a flat fee of about $1,700 a year, which appears to be the city's canal-dredging charge. Only some homes pay it, so the yearly totals above do not count it.") +
       h.p(`In The Farm and most of Tidewater Plantation, flood insurance is not required, and in The Farm it costs about $600 a year if you choose it. Homeowners insurance comes on top of all this. Our guide to ${h.a("/buyers/coastal-insurance/", "insurance near the coast")} shows what it costs.`) },
 
     { h2: "What is it like to live here all year?", toc: "Living here all year", id: "all-year", html:
