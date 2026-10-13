@@ -188,7 +188,7 @@ module.exports = {
       ]) +
       h.p(`A 55+ community is for homes where at least one person is 55 or older. Federal rules require that in at least 80 percent of its occupied homes, and Myrtle Trace and Seasons at Prince Creek West require it in every home. Our ${h.a("/buyers/55-plus-communities/", "guide to 55+ communities")} gives each one's rules for who else may live there.`) +
       h.p(`Our ${h.a("/buyers/golf-communities/", "guide to golf communities near Myrtle Beach")} covers the courses.`) +
-      h.p(`To compare these with neighborhoods that have no gate, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods in Myrtle Beach for what you want nearby")}, ${h.a("/buyers/no-hoa-homes/", "homes with no HOA near Myrtle Beach")} and ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy near Myrtle Beach")}.`) },
+      h.p(`To compare these with neighborhoods that have no gate, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods in Myrtle Beach for what you want nearby")}. We also cover ${h.a("/buyers/no-hoa-homes/", "homes with no HOA near Myrtle Beach")} and ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy near Myrtle Beach")}.`) },
 
     { h2: "What do homes in gated neighborhoods near Myrtle Beach cost?", toc: "Prices", html:
       h.p("Homes in most gated neighborhoods near Myrtle Beach usually sell for about $480,000 to $1.5 million. These are prices homes sold for, not asking prices.") +
