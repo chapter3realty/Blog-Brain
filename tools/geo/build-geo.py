@@ -143,6 +143,19 @@ AREAS = [
                  "source": "Horry County address point for 130 GRAND CYPRESS WAY, on the clubhouse parcel PIN 46802030007 (places.json)"},
      "entrance": {"label": "Entrance", "road": "GRAND CYPRESS WAY", "at": "TPC BLVD", "on": "TPC Boulevard",
                   "source": "Horry County roads layer 18: Grand Cypress Way, the private street the clubhouse is on, meets TPC Boulevard here. Ledger row 51 (builder's site plan, main entry on TPC Boulevard) is unverifiable."}},
+    # Batch 2026-10-b (2026-10-13). The filter is the-farm-facts.md method note "Parcel set" (1,634
+    # parcels, 1,571 homes); it leaves out The Farm at Timberlake and The Farm at Fox Bay, which are
+    # other places. The Farm has three road connections and no source names a main one (ledger row 27).
+    {"slug": "the-farm", "name": "The Farm at Carolina Forest",
+     "where": "(LegalDescr LIKE 'FARM @%' OR LegalDescr LIKE 'FARM AT%' OR LegalDescr LIKE 'THE FARM%' OR LegalDescr LIKE 'BROOKBERRY%' "
+              "OR LegalDescr LIKE 'THE ORCHARDS PH 2%' OR LegalDescr LIKE 'PLANTERS POINT%') "
+              "AND LegalDescr NOT LIKE '%TIMBERLAKE%' AND LegalDescr NOT LIKE '%FOX BAY%'",
+     "envelope": None,
+     "ledger": "batches/2026-10-b/facts/the-farm-facts.md rows 1 to 3 and the method note 'Parcel set'; amenity rows 60 and 27",
+     "amenity": {"label": "Pool and activity center", "lat": 33.759522, "lon": -78.8757, "street": "Carolina Farms Blvd",
+                 "source": "Horry County address point for 201 CAROLINA FARMS BLVD, the large pool on the HOA amenity parcel PIN 39600000019 (ledger row 60); the activity center, 190 Farmers Rest Dr, is about 150 m west (batches/2026-10-b/data/the-farm.json)"},
+     "entrance": {"label": "Entrance", "road": "FARMERS REST DR", "at": "CAROLINA FOREST BLVD", "on": "Carolina Forest Boulevard",
+                  "source": "Horry County roads layer 18: Farmers Rest Drive meets Carolina Forest Boulevard here, the entrance nearest the large pool and the activity center (ledger row 27). No source names a main entrance."}},
 ]
 
 SOURCES = [

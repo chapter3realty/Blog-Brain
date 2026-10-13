@@ -624,6 +624,9 @@ const C2 = {
    batch 2026-10-a). Now: place names 14 (13 px or more on that phone), drive times 13 (12 px
    or more), street names 12.5, the home name 17. Wider screens shrink them (css2), so the
    map reads the same at 760 px. */
+/* How far, in map units beyond half its height, a town or park name's middle may sit from its
+   town or park on a map of many places (regionMap with spec.places). */
+const TOWN_REACH = 12;
 const SZ = { home: 17, place: 14, mins: 13, town: 14, water: 14, ocean: 15, state: 11.5, shield: 11, suf: 8, furn: 11, street: 12.5, name: 14, amenity: 14.5, sub: 12.5, many: 15, num: 12.5 };
 
 /* A label's room. textWidth fits DM Sans within about 5 percent; a phone that shows a
@@ -1386,6 +1389,11 @@ function regionMap(spec, opts = {}) {
       for (const r of t === homeTown ? [8, 16, 24, 34, 46, 60] : [8, 16, 24, 34]) for (let a = 0; a < 8; a++) offs.push([Math.cos(a * Math.PI / 4) * (w / 2 + r) * 0.8, Math.sin(a * Math.PI / 4) * (h / 2 + r)]);
       for (const [dx, dy] of offs) {
         const b = rect2(x + dx, y + dy, w, h);
+        /* On a map of many places a town name sits by its own town: its middle no farther from
+           the town than half its height plus TOWN_REACH. A long name pushed off the coast slid
+           inland across the river and the waterway ("Surfside Beach" west of the river, batch
+           2026-10-b); a name with no room near its town is left off. */
+        if (many && Math.hypot(b.cx - x, b.cy - y) > h / 2 + TOWN_REACH) continue;
         if (L.fits(b, 3) && onLand(b)) { L.add(b, "town", t.name); townLabels.push({ t, b, lines, size, big }); return; }
       }
     }
@@ -1489,6 +1497,8 @@ function regionMap(spec, opts = {}) {
     for (const r of [6, 12, 20]) for (let k = 0; k < 8; k++) offs.push([Math.cos(k * Math.PI / 4) * (w / 2 + r), Math.sin(k * Math.PI / 4) * (h / 2 + r)]);
     for (const [dx, dy] of offs) {
       const b = rect2(cx + dx, cy + dy, w, h);
+      /* As a town name: by its own park on a map of many places. */
+      if (many && Math.hypot(b.cx - cx, b.cy - cy) > h / 2 + TOWN_REACH) continue;
       if (L.fits(b, 3) && onLand(b)) { L.add(b, "label", p.name); parkLabels.push({ p, b, lines }); break; }
     }
   }
@@ -2092,7 +2102,7 @@ function refreshGeo(rawDir) {
 module.exports = {
   /* version 2 */
   regionMap, closeMap, communityMaps, mapLinksHtml, loadGeo2, describeRegion, cleanStreet, CREDIT2, GEO2_FILE, INLINE_MAX, FILE_MAX, MANY_MAX,
-  internals: { satOverlap, curvedLabel, chainPieces, Layout2, rect2, frame2, linePieces, tw2, SZ, EDGE, nameAirport, amenityOf },
+  internals: { satOverlap, curvedLabel, chainPieces, Layout2, rect2, frame2, linePieces, tw2, SZ, EDGE, TOWN_REACH, nameAirport, amenityOf },
   /* version 1, kept for older specs */
   areaMap, areaMapSvg, liveMapHtml, describe, CREDIT, GEO_FILE, DATA_BBOX, MAX_BYTES, loadGeo, buildGeo,
   simplify, clipPolygon, clipLine, textWidth,

@@ -110,6 +110,19 @@ check("a place at Loris is labelled on the map, beside its own marker", lp.label
 check("the map with Loris has no overlap and nothing cut at the edge", !overlaps(lm) && !lm.boxes.some((b) => (b.kind === "label" || b.kind === "marker") && (b.x0 < EDGE - 2 || b.y0 < EDGE - 2 || b.x1 > lm.width - EDGE + 2 || b.y1 > lm.height - EDGE + 2)), overlaps(lm));
 check("a home in Longs (a town with no outline) reads \"in Longs\"", /is in Longs,/.test(regionMap({ home: { name: "A home", lat: T.Longs.lat + 0.005, lon: T.Longs.lon, town: "Longs" }, landmarks: [] }).alt));
 
+/* A town or park name sits by its own town on a map of many places (batch 2026-10-b): a long
+   coastal name pushed off the coast slid inland across the river ("Surfside Beach" west of the
+   river). The county-wide map of Georgetown, Loris, Longs, Conway, Aynor and Myrtle Beach. */
+const county = regionMap({ name: "County test", places: [pt("Georgetown", T.Georgetown), pt("Loris", T.Loris), pt("Longs", T.Longs), pt("Conway", T.Conway), pt("Aynor", T.Aynor), pt("Myrtle Beach", T["Myrtle Beach"])] }, { inlineMax: 1e9 });
+const toXY = (o) => [(o.lon - county.frame.west) / (county.frame.east - county.frame.west) * county.width, (county.frame.north - o.lat) / (county.frame.north - county.frame.south) * county.height];
+const far = county.boxes.filter((b) => b.kind === "town").filter((b) => {
+  const [x, y] = toXY(T[b.owner]), [cx, cy] = center(b);
+  return Math.hypot(cx - x, cy - y) > (b.y1 - b.y0) / 2 + A.internals.TOWN_REACH + 0.5;
+}).map((b) => b.owner);
+check("every town name on a county-wide map sits by its own town", !far.length, far.join());
+check("no coastal town name is drawn west of the waterway on the county-wide map", !county.boxes.some((b) => b.kind === "town" && ["Surfside Beach", "Garden City", "Murrells Inlet", "Pawleys Island"].includes(b.owner) && center(b)[0] < toXY(T[b.owner])[0] - 20));
+check("the park name is spelled Huntington", !/Hunington/.test(JSON.stringify(geo.parks || [])) && !/Hunington/.test(county.svg));
+
 /* The community map is unchanged by the new mode (the four 55+ pages rebuilt byte for byte). */
 const one = regionMap({ home: { name: "Myrtle Trace", lat: 33.778502, lon: -78.996618, town: "Conway" }, landmarks: [{ name: "Beach", kind: "beach", lat: 33.6906919, lon: -78.8804377, minutes: 15 }] });
 check("a community map still has its home pin and no numbers", /class="h"/.test(one.svg) && !/class="nm"/.test(one.svg) && one.places === undefined);
