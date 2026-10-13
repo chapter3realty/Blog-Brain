@@ -83,9 +83,10 @@
  *
  * Data (tools/geo/grand-strand-v2.json; sources, licenses, the box and the build date are in the
  * file): U.S. Census Bureau TIGER/Line 2026 (public domain) for the coast, water, roads, route
- * numbers, parks, airport, towns (Census places; Longs is a TIGER locality point) and streets; Horry County GIS for community outlines (parcels layer 24),
- * streets TIGER lacks (roads layer 18), ponds (basemap hydro) and golf course land. A new
- * community needs an entry in AREAS in tools/geo/build-geo.py and a rebuild.
+ * numbers, parks, airport, towns (Census places; Longs is a TIGER locality point) and streets;
+ * Horry County GIS for community outlines (parcels layer 24), streets TIGER lacks (roads layer
+ * 18), ponds (basemap hydro) and golf course land. A new community needs an entry in AREAS in
+ * tools/geo/build-geo.py and a rebuild.
  *
  * What version 2 keeps to:
  *   - No external request, no script. Text is DM Sans and Fraunces, as on the site.
