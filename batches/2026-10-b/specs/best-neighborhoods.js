@@ -390,7 +390,7 @@ module.exports = {
 
     { h2: "What are the best neighborhoods in Surfside Beach and Murrells Inlet?", toc: "Surfside Beach and Murrells Inlet", id: "surfside-beach-murrells-inlet", html:
       h.p("In Surfside Beach, the streets on the ocean side of town are a short walk from the beach. The Deerfield Plantation area and Prince Creek cost less and are a short drive away.") +
-      areaMap("Surfside Beach and Murrells Inlet neighborhoods", ["surfside-beach", "deerfield", "prince-creek"], "Map of the ocean side of Surfside Beach, the Deerfield Plantation area and Prince Creek in Murrells Inlet.") +
+      areaMap("Surfside Beach and Murrells Inlet neighborhoods", ["surfside-beach", "deerfield", "prince-creek"], "Map of the ocean side of Surfside Beach, the Deerfield Plantation area and Prince Creek in Murrells Inlet.", ["Murrells Inlet"]) +
       table(["surfside-beach", "deerfield", "prince-creek"], "Three neighborhoods in Surfside Beach and Murrells Inlet") +
       nh("surfside-beach") +
       h.p("The ocean side of Surfside Beach is the part of town between US 17 Business and the beach. From the middle of it, a public beach access with a pay lot is about 0.4 mile away. A Piggly Wiggly grocery store is about 3 minutes away by car.") +
@@ -411,9 +411,8 @@ module.exports = {
       h.p(`Our ${h.a(P55, "guide to 55+ communities near Myrtle Beach")} compares the four side by side, with what the HOA fee includes.`) },
 
     { h2: "What should you check before you choose a neighborhood?", toc: "Before you choose", html: (bg) =>
-      h.p("Four things can differ from one home to the next in the same neighborhood: the flood zone, the HOA fee, the rules and beach parking.") +
+      h.p("Four things can differ from one home to the next in the same neighborhood: the HOA fee, the rules, beach parking and the homes nearby.") +
       atAGlance([
-        { icon: "flood", label: "The flood zone", text: "On a mortgage from a federally regulated or federally backed lender, a home in a high-risk flood zone needs flood insurance. Cherry Grove and parts of Surfside Beach are in one." },
         { icon: "dollar", label: "The HOA fee", text: "A condo or townhome often has a higher fee than a house nearby, because its fee also includes the building's insurance." },
         { icon: "key", label: "The rules", text: "Read the HOA rules on boats, golf carts, renting and pools before you buy." },
         { icon: "beach", label: "Beach parking", text: "Some of the closest beach accesses have no parking. Drive from the home to the beach before you buy." },
@@ -421,21 +420,18 @@ module.exports = {
       ], { bg, min: "15rem" }) +
       h.p(`Public schools are assigned by address. Check the exact address with the ${h.ext(SCHOOLS, "Horry County Schools zone lookup")}, and see our page on ${h.a("/buyers/relocating/schools/", "schools near Myrtle Beach")}. Horry County is the county that holds Myrtle Beach and every neighborhood on this page.`) +
       story([
-        "<strong>Example:</strong> Lisa wants to walk to the beach every morning. She likes a house in Cherry Grove, a short walk from a beach access.",
-        "Her Chapter3 agent checks the flood map before she makes an offer. The house is in a high-risk flood zone, so her lender will require flood insurance.",
-        "The agent gets her an insurance quote that week. Lisa knows the full yearly cost of the house before she makes her offer.",
+        "<strong>Example:</strong> Dana wants a house near the beach that costs less. A Chapter3 agent sends her three neighborhoods, and she narrows them to the Deerfield Plantation area and The Farm.",
+        "Deerfield is closer to the beach, but the closest beach access there has parking for golf carts only. Dana rides her bike to the beach, so she does not need a parking spot.",
+        "She chooses Deerfield and asks to see the houses for sale there.",
       ], "", bg,
-      `An agent at Chapter3 can get you an insurance quote for the home you like before you make an offer.`) },
+      `An agent at Chapter3 can send you three neighborhoods that fit what you want, and the homes for sale in each.`) },
   ],
   faqTitle: "Best neighborhoods in Myrtle Beach: FAQ",
   faq: [
     { q: "What are the best neighborhoods in Myrtle Beach?", a: "The best neighborhood in Myrtle Beach depends on what you want nearby. Cherry Grove and the ocean side of Surfside Beach are a short walk from the beach. The Farm and the Deerfield Plantation area cost less and are about 10 minutes from the beach by car. Pine Lakes, Tidewater Plantation and Barefoot Resort have golf." },
-    { q: "What are the best areas to live in near Myrtle Beach?", a: "North Myrtle Beach, the city of Myrtle Beach, Surfside Beach and Murrells Inlet are along the coast, closest to the beach. Carolina Forest and Conway are inland. The inland neighborhoods on this page are 10 to 20 minutes from the beach by car. Almost none of their homes is in a high-risk flood zone." },
     { q: "How much does it cost each year to own a home in Myrtle Beach?", a: "Besides the mortgage, a house in the three neighborhoods we priced costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance. A house in The Farm costs about $2,600 a year. A house in Cherry Grove costs about $4,400, mostly property tax and flood insurance." },
-    { q: "What are the best neighborhoods in North Myrtle Beach?", a: "Cherry Grove is the closest to the beach, a short walk from a public beach access. Almost every home there is in a high-risk flood zone. Tidewater Plantation has a guard house at its gate and a golf course. Barefoot Resort has four golf courses." },
-    { q: "What are the best neighborhoods in Surfside Beach?", a: "The streets on the ocean side of Surfside Beach are a short walk from the beach, and houses there usually sell for about $705,000. The Deerfield Plantation area, near the town, costs less. Its homes usually sell for about $355,000, and the beach is about 8 minutes away by car." },
     { q: "Is Carolina Forest or Myrtle Beach better to live in?", a: "Carolina Forest is farther from the beach, and it has almost no homes in a high-risk flood zone. Its neighborhoods on this page are about 10 to 20 minutes from the beach by car. The neighborhoods in the city of Myrtle Beach on this page are about 5 to 10 minutes away." },
-    { q: "Which neighborhoods near Myrtle Beach have no HOA?", a: "Most homes for sale on the ocean side of Surfside Beach are listed with no HOA fee, and so are more than half in Cherry Grove. Homes for sale on the older streets near Pine Lakes Country Club are listed with no HOA fee too." },
+    { q: "Which neighborhoods near Myrtle Beach have no HOA?", a: "Most homes for sale on the ocean side of Surfside Beach are listed with no HOA fee, and so are most in Cherry Grove. Homes for sale on the older streets near Pine Lakes Country Club are listed with no HOA fee too." },
     { q: "Which neighborhoods near Myrtle Beach are closest to a hospital?", a: "Prince Creek in Murrells Inlet is about 6 minutes by car from Tidelands Waccamaw Community Hospital. Pine Lakes is about 8 minutes from Grand Strand Medical Center, and Wild Wing Plantation is about 8 minutes from Conway Medical Center." },
   ],
   sources: [
@@ -445,8 +441,9 @@ module.exports = {
     { name: "S.C. property tax law", href: SC_TAX },
     { name: "S.C. beach access list", href: BEACH },
     { name: "The Farm HOA", href: FARM_HOA },
+    { name: "North Myrtle Beach canal assessment", href: CG_CANALS },
   ],
-  sourcesNote: "Prices are the middle sale price over the last 12 months, or the range where few homes sold. HOA fees come from recent home listings, except The Farm's; the no-fee counts are MLS areas 11a Cherry Grove and 29a and 29b Surfside Beach east of US 17. Taxes come from 2026 county tax bills.",
+  sourcesNote: "Prices are the middle sale price over the last 12 months, or the range where few homes sold; Pine Lakes, Grande Dunes and Prince Creek are the sections named or outlined. HOA fees come from recent home listings, except The Farm's; the no-fee counts are MLS areas 11a Cherry Grove and 29a and 29b Surfside Beach east of US 17. Taxes come from 2026 county tax bills, and the canal fee from the city's 2025 resolution.",
   afterSources: () => ph.credits(),
   bottomCta: { h2: "Tell us what you want nearby. We will send three neighborhoods.", p: "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each.", label: "Get three neighborhoods", href: OFFER },
   keywords: "best neighborhoods in Myrtle Beach, best places to live in Myrtle Beach, best areas to live in Myrtle Beach, best communities in Myrtle Beach, best neighborhoods in North Myrtle Beach, best neighborhoods in Surfside Beach, Myrtle Beach neighborhoods map, Carolina Forest vs Myrtle Beach",
