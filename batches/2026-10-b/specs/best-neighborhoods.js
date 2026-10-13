@@ -223,7 +223,7 @@ function labelDots(res, forms, o = {}) {
 /* The overview: the fifteen, north to south, each name linked to its own part of the page, and the key in
    two columns on a phone too, so it sits right under the map. */
 const OVERVIEW = labelDots(kit.placesMap("Neighborhoods", D.neighborhoods.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: link(n.id), first: n.id === "the-farm" })), {
-  caption: "Map of the 15 neighborhoods on this page, numbered from North Myrtle Beach at the top right to Murrells Inlet at the bottom left. The city of Myrtle Beach is on the coast around numbers 6, 10 and 12.",
+  caption: "Map of the 15 neighborhoods on this page, numbered from North Myrtle Beach at the top right to Murrells Inlet at the bottom left.",
   key: true,
   leaders: { places: true, towns: ["Myrtle Beach"] },
 }), {
@@ -232,8 +232,8 @@ const OVERVIEW = labelDots(kit.placesMap("Neighborhoods", D.neighborhoods.map((n
   "Forestbrook Estates": [["Forestbrook"]], "Prince Creek": [["Prince Creek"], ["Prince", "Creek"]],
   [N["grande-dunes"].name]: [["Grande Dunes"], ["Grande", "Dunes"]],
 }, { strip: [6, 10], stripShields: ["SC 31#0"] });
-/* The city of Myrtle Beach is a narrow strip along the coast here, too narrow for its name among the dots,
-   so the caption says where it is (coordinator, round 3). */
+/* The city of Myrtle Beach, a narrow strip along the coast here, is named on the ocean with a line into
+   the city (leaders.towns, round 4). */
 /* The picker's places sit side by side when they fit, so the ten boxes take less of a phone screen; each
    link keeps its full tap height. */
 const KEY_CSS = "<style>.c3-map-key{columns:2 8rem!important;column-gap:1rem!important;margin-left:1.4rem!important}.c3-map-key li{font-size:1rem}"

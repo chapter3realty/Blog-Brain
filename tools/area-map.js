@@ -967,8 +967,8 @@ function placeCallouts(L, F, lms, R, prefix, o = {}) {
 }
 
 function markerSvg(lab, R, sym, g, txt) {
-  const { m, c, lines, mins, LH, MS, lead } = lab;
-  let inner = (lead ? `<path d="M0 0L${r1(lead[0])} ${r1(lead[1])}" stroke="${C2.navy}" stroke-width="1"/>` : "") + `<circle r="${R}" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/>` + (m.lm.num ? numSvg(m.lm.num) : sym(m.kind, -R * 0.67, -R * 0.67, R * 1.34, C2.navy));
+  const { m, c, lines, mins, LH, MS } = lab;
+  let inner = `<circle r="${R}" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/>` + (m.lm.num ? numSvg(m.lm.num) : sym(m.kind, -R * 0.67, -R * 0.67, R * 1.34, C2.navy));
   if (!c) return g(m.x, m.y, inner);
   const y = c.y + LH - 2.5;
   inner += txt("l", c.x, y, c.anchor, lines.map((l, i) => `<tspan x="${r1(c.x)}"${i ? ` dy="${LH}"` : ""}>${esc(l)}</tspan>`).join(""));
@@ -1544,7 +1544,10 @@ function regionMap(spec, opts = {}) {
       L.add(best.seg, "leader", owner);
       bare.splice(bare.indexOf(b), 1);
       dropped.splice(dropped.indexOf(m.lm), 1);
-      lmLabels.push({ m, c: { anchor: "start", x: best.lb.x0 + 2 - m.x, y: best.lb.y0 - m.y }, w: best.lb.w, h: best.lb.h, lines, mins: "", NS, MS: SZ.mins, LH, lead: [best.ex - m.x, best.ey - m.y] });
+      /* Drawn apart from the marker (lead): the line in map units, the name in its own group about the
+         line's end, so on a wide screen, where css2 shrinks each group about its point, the name stays
+         on its line and does not slide toward the marker. */
+      lmLabels.push({ m, c: null, lines, mins: "", NS, MS: SZ.mins, LH, lead: { lb: best.lb, ex: best.ex, ey: best.ey } });
       leaderNames.push(m.lm.name);
     }
   }
@@ -1654,13 +1657,12 @@ function regionMap(spec, opts = {}) {
     const lh = tl.size + 2.5, y0 = -(tl.lines.length * lh) / 2 + tl.size * 0.85;
     lab.push(g(tl.b.cx, tl.b.cy, txt(tl.big ? "T" : "t", 0, y0, "middle", tl.lines.map((l, i) => `<tspan x="0"${i ? ` dy="${lh}"` : ""}>${esc(l)}</tspan>`).join(""))));
   }
-  /* A town name with a leader: drawn about the point in the town, so on a wide screen (css2 shrinks
-     each group about its own point) the name stays at the end of its line. */
+  /* A town name with a leader: the line and its dot in map units, the name in a group about the line's
+     end (css2 shrinks each group about its own point on a wide screen), so it stays on its line. */
   for (const lt of leaderTowns) {
-    const dx = lt.ex - lt.ax, dy = lt.ey - lt.ay;
-    lab.push(g(lt.ax, lt.ay, `<path class="ld" d="M0 0L${r1(dx)} ${r1(dy)}" stroke="#3b4450" stroke-width="1"/><circle r="2" fill="#3b4450"/>`
-      + txt("T", lt.lb.cx - lt.ax, lt.lb.cy - lt.ay - ((lt.lines.length - 1) * (lt.size + 2.5)) / 2 + lt.size * 0.36, "middle",
-        lt.lines.map((l, i) => `<tspan x="${r1(lt.lb.cx - lt.ax)}"${i ? ` dy="${r1(lt.size + 2.5)}"` : ""}>${esc(l)}</tspan>`).join(""))));
+    lab.push(`<path d="M${r1(lt.ax)} ${r1(lt.ay)}L${r1(lt.ex)} ${r1(lt.ey)}" stroke="#3b4450" stroke-width="1"/><circle cx="${r1(lt.ax)}" cy="${r1(lt.ay)}" r="2" fill="#3b4450"/>`
+      + g(lt.ex, lt.ey, txt("T", lt.lb.cx - lt.ex, lt.lb.cy - lt.ey - ((lt.lines.length - 1) * (lt.size + 2.5)) / 2 + lt.size * 0.36, "middle",
+        lt.lines.map((l, i) => `<tspan x="${r1(lt.lb.cx - lt.ex)}"${i ? ` dy="${r1(lt.size + 2.5)}"` : ""}>${esc(l)}</tspan>`).join(""))));
   }
   /* A name of one or two lines, centred on its box. */
   const block = (cls, lines, size, extra = "") => { const lh = size + 2; return txt(cls, 0, -(lines.length * lh) / 2 + size * 0.85, "middle", lines.map((l, i) => `<tspan x="0"${i ? ` dy="${lh}"` : ""}>${esc(l)}</tspan>`).join("")).replace(`class="${cls}"`, `class="${cls}"${extra}`); };
@@ -1673,7 +1675,13 @@ function regionMap(spec, opts = {}) {
   for (const s of shields) lab.push(g(s.x, s.y, shieldSvg(s.sp)));
   const mk = [];
   for (const m of marks) if (m.moved) mk.push(leaderSvg(m));
+  for (const l of lmLabels) if (l && l.lead) mk.push(`<path d="M${r1(l.m.x)} ${r1(l.m.y)}L${r1(l.lead.ex)} ${r1(l.lead.ey)}" stroke="${C2.navy}" stroke-width="1"/>`);
   for (const l of lmLabels) if (l) mk.push(markerSvg(l, R, sym, g, txt));
+  for (const l of lmLabels) if (l && l.lead) {
+    const lh = l.LH, y0 = -(l.lines.length * lh) / 2 + SZ.many * 0.85;
+    const ox = l.lead.lb.cx - l.lead.ex, oy = l.lead.lb.cy - l.lead.ey;
+    mk.push(g(l.lead.ex, l.lead.ey, txt("l", ox, oy + y0, "middle", l.lines.map((t, i) => `<tspan x="${r1(ox)}"${i ? ` dy="${lh}"` : ""}>${esc(t)}</tspan>`).join(""))));
+  }
   for (const b of bare) mk.push(markerSvg(b, R, sym, g, txt));
   if (!many) {
     const y = hc.y + HLH - 4;
