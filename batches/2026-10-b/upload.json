@@ -100,7 +100,7 @@
   },
   "changes": [
     "`/buyers/first-time-home-buyer-myrtle-beach/` and `/buyers/relocating/which-town/` (with its spec, `data/relocating/pages/which-town.js`): a link to the affordable places page.",
-    "`/buyers/55-plus-communities/` and `/buyers/golf-communities/`: a link to the gated communities page; the golf page's FAQ answer on gates now says only what verified sources show. In the golf page's comparison table, the gate cells for Prestwick and Wachesaw Plantation now read \"Gatehouse at the entrance\" and Wachesaw East \"Gate at the entrance\" (they said a live guard around the clock, 24-hour security and security; no verified source shows staffing).",
+    "`/buyers/55-plus-communities/` and `/buyers/golf-communities/`: a link to the gated communities page; the golf page's FAQ answer on gates now says only what verified sources show. In the golf page's comparison table, the gate cells for Prestwick and Wachesaw Plantation now read \"Gatehouse at the entrance\" and Wachesaw East \"Gate at the entrance\" (they said a live guard around the clock, 24-hour security and security; no verified source shows staffing). Pawleys Plantation's cell no longer says \"Gated\" (no verified source shows it gated), and the HOA notes for Prestwick and Wachesaw East no longer list a guard or security.",
     "`/submarkets/carolina-forest/`: a link to The Farm at Carolina Forest.",
     "`sitemap.xml`: the five pages, with their photos (Google image sitemap). The four buyer pages are listed after the buyers hub, The Farm after Carolina Forest.",
     "`llms.txt`: the five pages, with their descriptions.",
