@@ -223,6 +223,7 @@ node tools/package-batch.js batches/<batch> --site <clean clone of the live bran
 
 Rebuild the package whenever a spec, a data file, a photo or a batch diff changes, and commit the new `upload/` folder. Never edit the package by hand. If `git apply --check` fails for the owner, the live branch has moved: rebuild on a fresh clone.
 
+- If the batch changes a shared Blog-Brain tool or geo file, rebuild every live page whose spec loads it and compare byte for byte before shipping. If any page moves, ship the batch its own copy of the tools in `tools/blog-brain-<batch>/` (2026-10-13: batch b's wider map data would have redrawn roads on three live 55+ pages).
 - Apply a package only on a clone with full git history. On a shallow clone, `build.js dates` cannot see when each page last changed and stamps today on every page (2026-10-12 trial: 126 pages).
 
 ## Lane U: upgrade an existing page
