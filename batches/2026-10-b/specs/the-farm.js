@@ -72,10 +72,12 @@ const BB = [path.join(__dirname, "..", "tools", "blog-brain"), process.env.BLOG_
 if (!BB) throw new Error("Blog-Brain tools not found (tools/page-kit.js)");
 const PK = require(path.join(BB, "tools", "page-kit.js"));
 
-/* This batch's photo records: the website copy (data/2026-10-b/), else the batch folder. */
+/* This batch's files: the website's data/2026-10-b/ (where the upload package puts them), else the
+   batch folder in Blog-Brain. Photo records: batch 2026-10-a's (the website's data/photos.json), then this batch's. */
 const DATA = [path.join(__dirname, "..", "data", "2026-10-b"), path.join(BB, "batches", "2026-10-b", "data"),
   "/home/user/Blog-Brain/batches/2026-10-b/data"].find((d) => fs.existsSync(path.join(d, "photos.json")));
 if (!DATA) throw new Error("batch 2026-10-b photos.json not found");
+const PHOTO_FILES = [path.join(__dirname, "..", "data", "photos.json"), path.join(DATA, "photos.json")].filter((f) => fs.existsSync(f));
 
 /* The map points for maps(): the Farmers Rest Drive entrance (ledger row 27; data/the-farm.json
    reference_point) and the places the page names, each with its verified drive (rows 28 to 33). */
@@ -96,7 +98,7 @@ const PLACES = {
     { id: "airport", lat: 33.6825, lon: -78.924023 },
   ],
 };
-const kit = PK.create({ h, places: PLACES, photos: require(path.join(DATA, "photos.json")).photos,
+const kit = PK.create({ h, places: PLACES, photos: PHOTO_FILES.flatMap((f) => JSON.parse(fs.readFileSync(f, "utf8")).photos),
   mapDir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), mapSrc: "/images/maps" });
 const { maps, glance, prosCons, atAGlance, story, photoSet } = kit;
 

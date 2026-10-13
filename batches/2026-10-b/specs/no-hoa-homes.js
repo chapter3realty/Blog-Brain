@@ -39,14 +39,18 @@ const PK = require(path.join(BB, "tools", "page-kit.js"));
 const { compareCards } = require(path.join(BB, "tools", "compare.js"));
 const { loadGeo2 } = require(path.join(BB, "tools", "area-map.js"));
 
-/* A batch file: the website's data/ (where an upload package puts it), else the batch folder. */
-const BATCH = path.join(BB, "batches", "2026-10-b");
-const dataFiles = (name) => [path.join(__dirname, "..", "data", name), path.join(BATCH, "data", name)].filter((f) => fs.existsSync(f));
+/* This batch's files: the website's data/2026-10-b/ (where the upload package puts them), else the
+   batch folder in Blog-Brain. Photo records: batch 2026-10-a's (the website's data/photos.json), then this batch's. */
+const BATCH_DATA = [path.join(__dirname, "..", "data", "2026-10-b"), path.join(BB, "batches", "2026-10-b", "data"),
+  "/home/user/Blog-Brain/batches/2026-10-b/data"].find((d) => fs.existsSync(path.join(d, "photos.json")));
+if (!BATCH_DATA) throw new Error("batch 2026-10-b photos.json not found");
+const PHOTO_FILES = [path.join(__dirname, "..", "data", "photos.json"), path.join(BATCH_DATA, "photos.json")].filter((f) => fs.existsSync(f));
+const dataFiles = (name) => [path.join(BATCH_DATA, name)].filter((f) => fs.existsSync(f));
 const DATA = JSON.parse(fs.readFileSync(dataFiles("no-hoa.json")[0], "utf8"));
 const LOTS = JSON.parse(fs.readFileSync(dataFiles("no-hoa-lots.json")[0], "utf8"));
-/* Photo records: every photos.json found, merged, so this page finds its record beside another batch's. */
+/* Photo records: both photos.json files, merged, so this page finds its record beside another batch's. */
 const PHOTOS = [];
-for (const f of dataFiles("photos.json")) for (const r of JSON.parse(fs.readFileSync(f, "utf8")).photos) {
+for (const f of PHOTO_FILES) for (const r of JSON.parse(fs.readFileSync(f, "utf8")).photos) {
   const k = JSON.stringify(r.variants || r.file);
   if (!PHOTOS.some((x) => JSON.stringify(x.variants || x.file) === k)) PHOTOS.push(r);
 }

@@ -57,6 +57,26 @@ const M = JSON.parse(fs.readFileSync(path.join(BATCH, "upload.json"), "utf8"));
 const OUT = path.resolve(opt("--out") || path.join(BATCH, "upload"));
 const WORK = fs.mkdtempSync(path.join(path.resolve(opt("--work") || os.tmpdir()), `package-${M.batch}-`));
 const PATCH_NAME = `batch-${M.batch}.patch`;
+/* "data" is the batch's data folder, copied to the website's data/; or { from, to } to copy it to
+   another folder (batch 2026-10-b: data/2026-10-b/, so data/photos.json, batch 2026-10-a's, stays). */
+const DATA_FROM = typeof M.data === "string" ? M.data : M.data.from;
+const DATA_TO = typeof M.data === "string" ? "data" : M.data.to;
+/* The hub each page is listed after in sitemap.xml and llms.txt: the page's own listAfter, else the batch's. */
+const listAfterOf = (p) => p.listAfter || M.listAfter;
+const HUBS_WORD = new Set(M.pages.map(listAfterOf)).size > 1 ? "their hubs" : "the hub";
+/* Words for the README and the checklist ("text" in upload.json). Each defaults to batch 2026-10-a's. */
+const nWord = (n) => ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"][n] || String(n);
+const PAGES_WORD = nWord(M.pages.length);
+const TXT = Object.assign({
+  commit: `Batch ${M.batch}: four 55+ community pages, hub figures, sitemap and llms files`,
+  specsRow: "The page specs, the shared kit `_55-plus-kit.js`, and `_story-check.js` (a copy of Blog-Brain `tools/story-check.js`, which the kit runs on every example).",
+  dataRow: "`55-plus-communities.json`, `photos.json`, `places.json`. The specs read them.",
+  dropped: "(among them the five the kit refuses: the uploader is not the author, or the subject is a brand sign)",
+  stitch: "puts the new header and footer (the logo) on every page",
+  pageChecks: ["The comparison table links to the other three pages, and each link opens."],
+  llmsFacts: "55-plus|seasons|grande|myrtle-trace|del-webb",
+  testPaths: ["specs/_55-plus-kit.js", "specs/_story-check.js", "data/photos.json", "tools/blog-brain/tools/photos.js", M.images.to],
+}, M.text || {});
 
 function localDate() {
   const d = new Date();
@@ -146,34 +166,47 @@ const metaDescription = (html) => ((html.match(/<meta name="description" content
   .replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'");
 const dateModified = (html) => (html.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})/) || [])[1];
 
-/* Add or refresh the batch's entries in sitemap.xml and llms.txt, right after the hub. */
+/* Add or refresh the batch's entries in sitemap.xml and llms.txt, right after the hub (listAfterOf).
+   Pages with the same hub keep their order. In sitemap.xml the hub's entry may be one line or a
+   <url> block over several lines (/buyers/ is); the new entry goes after the hub's </url>. */
 function addListings(site, pages) {
   const smPath = path.join(site, "chapter3realty", "sitemap.xml");
   let sm = fs.readFileSync(smPath, "utf8");
   if (!/xmlns:image=/.test(sm)) sm = sm.replace(/<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">');
   if (!/xmlns:image=/.test(sm)) throw new Error("sitemap.xml: could not add the image namespace to <urlset>");
-  const hubLine = new RegExp(`^.*<loc>${SITE_URL}${M.listAfter}</loc>.*$`, "m");
-  let anchor = (sm.match(hubLine) || [])[0];
-  if (!anchor) throw new Error(`sitemap.xml has no entry for ${M.listAfter}`);
+  const smAfter = {};
+  const hubEnd = (hub) => {
+    const at = sm.indexOf(`<loc>${SITE_URL}${hub}</loc>`);
+    const end = at < 0 ? -1 : sm.indexOf("</url>", at);
+    if (end < 0) throw new Error(`sitemap.xml has no entry for ${hub}`);
+    return end + "</url>".length;
+  };
   for (const p of pages) {
+    const hub = listAfterOf(p);
     const imgs = p.sitemapImages.map((u) => `<image:image><image:loc>${SITE_URL}${u}</image:loc></image:image>`).join("");
     /* The lastmod is the page's own dateModified for now; `node build.js dates` sets the real one. */
     const line = `<url><loc>${SITE_URL}${p.url}</loc><lastmod>${p.dateModified}</lastmod><changefreq>${M.sitemap.changefreq}</changefreq><priority>${M.sitemap.priority}</priority>${imgs}</url>`;
     const existing = sm.match(new RegExp(`^.*<loc>${SITE_URL}${p.url}</loc>.*$`, "m"));
     if (existing) sm = sm.replace(existing[0], line.replace(/<lastmod>[^<]*<\/lastmod>/, (existing[0].match(/<lastmod>[^<]*<\/lastmod>/) || [""])[0]));
-    else { sm = sm.replace(anchor, `${anchor}\n${line}`); anchor = line; }
+    else {
+      const at = smAfter[hub] ? sm.indexOf(smAfter[hub]) + smAfter[hub].length : hubEnd(hub);
+      sm = `${sm.slice(0, at)}\n${line}${sm.slice(at)}`;
+      smAfter[hub] = line;
+    }
   }
   fs.writeFileSync(smPath, sm);
 
   const llPath = path.join(site, "chapter3realty", "llms.txt");
   let ll = fs.readFileSync(llPath, "utf8");
-  let llAnchor = (ll.match(new RegExp(`^- \\[[^\\]]+\\]\\(${SITE_URL}${M.listAfter}\\):.*$`, "m")) || [])[0];
-  if (!llAnchor) throw new Error(`llms.txt has no entry for ${M.listAfter}`);
+  const llAnchor = {};
   for (const p of pages) {
+    const hub = listAfterOf(p);
+    if (!llAnchor[hub]) llAnchor[hub] = (ll.match(new RegExp(`^- \\[[^\\]]+\\]\\(${SITE_URL}${hub}\\):.*$`, "m")) || [])[0];
+    if (!llAnchor[hub]) throw new Error(`llms.txt has no entry for ${hub}`);
     const line = `- [${p.name}](${SITE_URL}${p.url}): ${p.description}`;
     const existing = ll.match(new RegExp(`^- \\[[^\\]]+\\]\\(${SITE_URL}${p.url}\\):.*$`, "m"));
     if (existing) ll = ll.replace(existing[0], line);
-    else { ll = ll.replace(llAnchor, `${llAnchor}\n${line}`); llAnchor = line; }
+    else { ll = ll.replace(llAnchor[hub], `${llAnchor[hub]}\n${line}`); llAnchor[hub] = line; }
   }
   fs.writeFileSync(llPath, ll);
 }
@@ -208,7 +241,7 @@ step("website patches apply in order on a clean clone", report.patches.length ==
 /* Files the package copies in. */
 const copies = [];
 for (const f of walk(path.join(BATCH, M.specs))) if (f.endsWith(".js")) copies.push([path.join(BATCH, M.specs, f), `specs/${f}`]);
-for (const f of walk(path.join(BATCH, M.data))) copies.push([path.join(BATCH, M.data, f), `data/${f}`]);
+for (const f of walk(path.join(BATCH, DATA_FROM))) copies.push([path.join(BATCH, DATA_FROM, f), `${DATA_TO}/${f}`]);
 for (const f of BB_FILES) copies.push([path.join(BB, f), `${M.blogBrainTools.to}/${f}`]);
 /* Blog-Brain files the specs load under another name (copyAs), always from the current Blog-Brain.
    They replace a file of the same name in the batch folder. */
@@ -282,16 +315,19 @@ if (M.agree) {
   step(`${M.agree.page} agrees with ${M.agree.data}`, ok, ok ? "" : lines.join("\n"));
 }
 
-/* The patch: every change to a file the site already tracks. New files ship as files. */
-const patch = git(A, "diff", "--binary") + "\n";
-const touched = git(A, "diff", "--name-only").split("\n").filter(Boolean);
+/* The patch: every change to a file the site already tracks. New files ship as files, and so does a
+   tracked file the package copies in whole (site/): the Blog-Brain tools in tools/blog-brain/, once a
+   batch has shipped them. The patch leaves those out, or it would fail on the copied file. */
+const siteFiles = [...copies.map(([, to]) => to), ...shipped].sort();
+const inSite = new Set(siteFiles);
+const touched = git(A, "diff", "--name-only").split("\n").filter(Boolean).filter((f) => !inSite.has(f));
+const patch = touched.length ? git(A, "diff", "--binary", "--", ...touched) + "\n" : "\n";
 const generated = touched.filter((f) => report.pages.some((p) => pageFile("", p.url).replace(/^[\\/]/, "").split(path.sep).join("/") === f));
 step("the patch does not touch a generated page", !generated.length, generated.join(", "));
 
 /* ---------------------------------------------------------------- 5: write */
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, "site"), { recursive: true });
-const siteFiles = [...copies.map(([, to]) => to), ...shipped].sort();
 for (const f of siteFiles) copyFile(path.join(A, f), path.join(OUT, "site", f));
 fs.writeFileSync(path.join(OUT, PATCH_NAME), patch);
 report.files.site = siteFiles; report.files.touched = touched;
@@ -393,7 +429,7 @@ const parse = (r) => { try { return JSON.parse(r.out.slice(r.out.search(/[[{]/))
   const items = (j) => (j && j.wrong) || [];
   compare("facts-check.js: no new known-wrong fact (pages, llms.txt, llms-full.txt)", before, after, items, (f) => `${f.fact} ${f.url} "${String(f.sentence).slice(0, 120)}"`);
   const ours = new Set([...report.pages.map((p) => p.url), ...(M.checkPages || []), "/llms.txt", "/llms-full.txt"]);
-  const left = items(after).filter((f) => ours.has(f.url) && (f.url.startsWith("/llms") ? /55-plus|seasons|grande|myrtle-trace|del-webb/i.test(f.fact) : true));
+  const left = items(after).filter((f) => ours.has(f.url) && (f.url.startsWith("/llms") ? new RegExp(TXT.llmsFacts, "i").test(f.fact) : true));
   T("facts-check.js: none on the new pages, the edited pages or the batch's facts in llms files", { code: left.length || (after && after.stale && after.stale.length) ? 1 : 0, out: left.length ? left.map((f) => `${f.fact} ${f.url} "${String(f.sentence).slice(0, 120)}"`).join("\n") : `none; stale registry entries: ${(after && after.stale || []).length}` }, undefined, 20);
 }
 {
@@ -411,7 +447,7 @@ fs.writeFileSync(path.join(OUT, "MANIFEST.txt"),
 
 /* The Blog-Brain commit, and whether any file the package is made from differs from it. */
 function bbHead() {
-  const used = [M.specs, M.data, M.images.from, ...M.batchDiffs, "upload.json"].map((f) => path.join(BATCH, f))
+  const used = [M.specs, DATA_FROM, M.images.from, ...M.batchDiffs, "upload.json"].map((f) => path.join(BATCH, f))
     .concat(BB_FILES.map((f) => path.join(BB, f)), (M.copyAs || []).map((c) => path.join(BB, c.from)), path.join(BB, "website-patches"))
     .map((f) => path.relative(BB, f));
   try { return git(BB, "rev-parse", "--short", "HEAD") + (git(BB, "status", "--porcelain", "--", ...used) ? " (with uncommitted changes to its sources)" : ""); } catch { return "(unknown)"; }
@@ -446,10 +482,10 @@ ${(M.changes || []).map((c) => `- ${c}`).join("\n")}
 | Path | What |
 |---|---|
 | \`${PATCH_NAME}\` | One patch for the files the site already has (${report.files.touched.length} files). Text only. |
-| \`site/specs/\` | The page specs, the shared kit \`_55-plus-kit.js\`, and \`_story-check.js\` (a copy of Blog-Brain \`tools/story-check.js\`, which the kit runs on every example). |
-| \`site/data/\` | \`55-plus-communities.json\`, \`photos.json\`, \`places.json\`. The specs read them. |
+| \`site/specs/\` | ${TXT.specsRow} |
+| \`site/${DATA_TO}/\` | ${TXT.dataRow} |
 | \`site/tools/blog-brain/\` | The Blog-Brain tools the kit uses to draw maps, icons, photo blocks and comparison tables, with the map data and the files they load. The kit looks here first. |
-| \`site/${M.images.to}/\` | ${imgCount} photos (${(imgBytes / 1048576).toFixed(1)} MB, WebP), only those the four pages use. Binary files, copied as they are; they are not in the patch. |
+| \`site/${M.images.to}/\` | ${imgCount} photos (${(imgBytes / 1048576).toFixed(1)} MB, WebP), only those the ${PAGES_WORD} pages use. Binary files, copied as they are; they are not in the patch. |
 | \`MANIFEST.txt\` | Every file with its size and SHA-256. |
 | \`CHECKLIST-AFTER-DEPLOY.md\` | What to look at once it is live. |
 
@@ -461,7 +497,7 @@ Not applied:
 
 ${report.onHold.map((h) => `- \`website-patches/${h.patch}\`: ${h.why} \`git apply --check\` on the live branch: ${h.applies ? "applies" : "does not apply"}.`).join("\n")}
 
-${report.files.droppedImages.length} batch photos are left out because no page uses them (among them the five the kit refuses: the uploader is not the author, or the subject is a brand sign). The share cards in Blog-Brain's \`og/\` folder are not shipped: these pages share their hero photo (\`mkpage-photos.patch\`).
+${report.files.droppedImages.length} batch photos are left out because no page uses them${TXT.dropped ? ` ${TXT.dropped}` : ""}. The share cards in Blog-Brain's \`og/\` folder are not shipped: these pages share their hero photo (\`mkpage-photos.patch\`).
 
 ## Before you start
 
@@ -483,9 +519,9 @@ $U = "C:\\Blog-Brain\\batches\\${M.batch}\\upload"
 
 git apply --check "$U\\${PATCH_NAME}"      # no output means it will apply
 Copy-Item -Path "$U\\site\\*" -Destination . -Recurse -Force
-Test-Path specs\\_55-plus-kit.js, specs\\_story-check.js, data\\photos.json, tools\\blog-brain\\tools\\photos.js, ${M.images.to.replace(/\//g, "\\")}   # five times True
+Test-Path ${TXT.testPaths.map((t) => t.replace(/\//g, "\\")).join(", ")}   # ${nWord(TXT.testPaths.length)} times True
 git apply "$U\\${PATCH_NAME}"
-node build.js stitch             # puts the new header and footer (the logo) on every page
+node build.js stitch             # ${TXT.stitch}
 
 ${specCmds.join("\n")}
 node build.js rehash
@@ -496,7 +532,7 @@ node build.js audit
 
 git status                       # the new pages, specs, data, tools\\blog-brain and photos, and the changed files
 git add -A
-git commit -m "Batch ${M.batch}: four 55+ community pages, hub figures, sitemap and llms files"
+git commit -m "${TXT.commit}"
 node build.js preflight          # the same gate deploy.ps1 runs; it must end without FAIL
 git push origin ${M.branch}
 \`\`\`
@@ -515,9 +551,9 @@ U=<Blog-Brain>/batches/${M.batch}/upload
 
 git apply --check "$U/${PATCH_NAME}"
 cp -R "$U/site/." .
-ls specs/_55-plus-kit.js specs/_story-check.js data/photos.json tools/blog-brain/tools/photos.js ${M.images.to}
+ls ${TXT.testPaths.join(" ")}
 git apply "$U/${PATCH_NAME}"
-node build.js stitch             # puts the new header and footer (the logo) on every page
+node build.js stitch             # ${TXT.stitch}
 
 ${specCmds.join("\n")}
 node build.js rehash
@@ -527,7 +563,7 @@ node build.js check
 node build.js audit
 
 git add -A
-git commit -m "Batch ${M.batch}: four 55+ community pages, hub figures, sitemap and llms files"
+git commit -m "${TXT.commit}"
 node build.js preflight
 git push origin ${M.branch}
 \`\`\`
@@ -564,9 +600,9 @@ const checklist = `# After the deploy: batch ${M.batch}
 
 Look at each item on the live site, https://chapter3realty.com. Tick it when it is right.
 
-## The four new pages
+## The ${PAGES_WORD} new pages
 
-${report.pages.map((p) => `### ${p.name}\n\n${SITE_URL}${p.url}\n\n- [ ] The page opens, with the hero photo, the icon row under the title and the short answer.\n- [ ] On a phone (about 390 wide), the first screen shows the title, the icon row and the start of the short answer, and nothing scrolls sideways.\n- [ ] The maps, the photos and their credits show; "On this page" links jump to their sections.\n- [ ] The comparison table links to the other three pages, and each link opens.\n- [ ] One photo opens on its own: ${SITE_URL}${p.sitemapImages[0] || ""}`).join("\n\n")}
+${report.pages.map((p) => `### ${p.name}\n\n${SITE_URL}${p.url}\n\n- [ ] The page opens, with the hero photo, the icon row under the title and the short answer.\n- [ ] On a phone (about 390 wide), the first screen shows the title, the icon row and the start of the short answer, and nothing scrolls sideways.\n- [ ] The maps, the photos and their credits show; "On this page" links jump to their sections.${TXT.pageChecks.map((c) => `\n- [ ] ${c}`).join("")}\n- [ ] One photo opens on its own: ${SITE_URL}${p.sitemapImages[0] || ""}`).join("\n\n")}
 
 ## Pages that changed
 
@@ -574,20 +610,20 @@ ${(M.afterDeploy || []).map((c) => `- [ ] ${c.replace(/\{site\}/g, SITE_URL)}`).
 
 ## Files for search engines and AI
 
-- [ ] ${SITE_URL}/sitemap.xml lists the four pages, each with image entries, and opens without an error.
-- [ ] ${SITE_URL}/llms.txt lists the four pages under the hub.
-- [ ] ${SITE_URL}/llms-full.txt has a section for each of the four pages.
+- [ ] ${SITE_URL}/sitemap.xml lists the ${PAGES_WORD} pages, each with image entries, and opens without an error.
+- [ ] ${SITE_URL}/llms.txt lists the ${PAGES_WORD} pages under ${HUBS_WORD}.
+- [ ] ${SITE_URL}/llms-full.txt has a section for each of the ${PAGES_WORD} pages.
 - [ ] Share one page link in a private message (or the Facebook Sharing Debugger): the preview shows the page's hero photo, not the text card.
 - [ ] Google's Rich Results Test on one page: Article and FAQ are valid, with no errors.
 
 ## Tell search engines
 
 - [ ] Run \`indexnow.ps1\`.
-- [ ] Search Console: request indexing for the four pages and the hub, and resubmit sitemap.xml.
+- [ ] Search Console: request indexing for the ${PAGES_WORD} pages and ${HUBS_WORD}, and resubmit sitemap.xml.
 
 ## Later
 
-- [ ] Day 7: the four URLs are indexed in Search Console.
+- [ ] Day 7: the ${PAGES_WORD} URLs are indexed in Search Console.
 - [ ] Day 30: look at the searches each page shows for; add any missing question as a section or an FAQ entry.
 - [ ] Every 90 days: \`node <Blog-Brain>/tools/facts-check.js --stale\`. The HOA fees on these pages come from listings and go stale first.
 - [ ] Blog-Brain: \`node tools/site-audit.js <website> --live\` finds no error on these pages.
