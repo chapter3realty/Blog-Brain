@@ -14,16 +14,19 @@ that is already there is not downloaded again. Run with -I: the downloads are da
 What it does:
 
   Region layer (the whole Grand Strand box, for the "where it is" map). All from U.S. Census
-  Bureau TIGER/Line 2026 shapefiles (public domain):
+  Bureau TIGER/Line 2026 shapefiles (public domain). The box (BBOX) holds all of Horry County's
+  towns and the Georgetown County towns; REGION_COUNTIES are the counties with land in it.
     coast    COASTLINE, joined into one line from southwest to northeast (land on the left).
-    water    AREAWATER for Horry, Georgetown and Brunswick (NC) counties: rivers, the
-             Intracoastal Waterway, bays and inlets, and lakes larger than LAKE_KM2.
-    roads    ROADS (S1100 and S1200 classes) with route numbers from FEATNAMES.
+    water    AREAWATER for REGION_COUNTIES: rivers, the Intracoastal Waterway, bays and inlets,
+             and lakes larger than LAKE_KM2.
+    roads    ROADS (S1100 and S1200 classes) with route numbers from FEATNAMES, for REGION_COUNTIES.
+             NOT_ROUTES lists route numbers TIGER gives to roads that do not carry them.
     parks    AREALM state parks (K2184). Brookgreen Gardens is filed there as a state park; it is
              kept under its own name.
     airport  AREALM K2457, Myrtle Beach International.
     towns    PLACE: label point (Census internal point) and a simplified outline, used to say
-             "in" or "just outside" a town.
+             "in" or "just outside" a town. A town with no Census place (Longs) is the POINTLM
+             locality point, with no outline.
     stateline STATE: the North Carolina and South Carolina line.
 
   Areas (one per community, for the "inside the neighborhood" map):
@@ -78,7 +81,18 @@ ROUTES = {
     ("SC", "544", ""): 2, ("SC", "707", ""): 2, ("SC", "9", ""): 2, ("SC", "90", ""): 2, ("US", "701", ""): 2,
     ("SC", "9", "BUS"): 2, ("SC", "9", "BYP"): 2, ("SC", "905", ""): 2, ("SC", "65", ""): 2, ("SC", "179", ""): 2,
     ("SC", "57", ""): 2, ("SC", "319", ""): 2, ("NC", "179", ""): 2, ("NC", "904", ""): 2,
+    ("US", "521", ""): 2, ("SC", "41", ""): 2,  # added with the wider box (2026-10-13): the roads into Andrews
 }
+
+# Route numbers TIGER gives to roads that do not carry them. Each was checked against Horry County
+# roads layer 18 (2026-10-13). A road listed here is drawn only if it is a main road (S1100, S1200).
+NOT_ROUTES = [
+    {"route": ("SC", "31", ""), "box": (-78.90, 34.00, -78.86, 34.06),
+     "why": "TIGER names two local roads (S1400) south of Loris 'State Hwy 31'. SC 31 ends at SC 9 (33.87 N, 78.69 W "
+            "in the same TIGER file); the county roads layer has only local roads there (Heritage Rd, Holly Hill Rd, Hwy 762 and others)."},
+]
+def wrong_route(key, bb):
+    return any(n["route"] == key and in_bbox(bb, n["box"]) for n in NOT_ROUTES)
 
 TOWNS = {  # TIGER PLACE name -> rank (1 = always try to label, 2 = when there is room)
     "Myrtle Beach": 1, "North Myrtle Beach": 1, "Conway": 1, "Surfside Beach": 1, "Murrells Inlet": 1,
@@ -134,7 +148,8 @@ AREAS = [
 SOURCES = [
     {"id": "tiger", "name": "U.S. Census Bureau, TIGER/Line Shapefiles 2026", "url": TIGER + "/",
      "license": "Public domain (U.S. Government work). No credit required; credited anyway.",
-     "used_for": "coast, region water, roads and route numbers, state parks, airport, towns, state line; streets and water in the close-ups"},
+     "used_for": "coast, region water, roads and route numbers, state parks, airport, towns (PLACE; the POINTLM locality point for Longs), state line; streets and water in the close-ups",
+     "files": "COASTLINE, STATE, PLACE (SC, NC), AREALM (SC), POINTLM (SC); ROADS, FEATNAMES and AREAWATER for Horry, Georgetown, Marion, Williamsburg, Florence and Berkeley (SC) and Brunswick and Columbus (NC); LINEARWATER for Horry, Georgetown and Columbus (NC)"},
     {"id": "horry", "name": "Horry County GIS, HorryCountyGISApp map service (parcels layer 24, roads layer 18)", "url": HORRY,
      "license": "Public map service of Horry County, South Carolina. No license is published with it; credit Horry County GIS.",
      "used_for": "community outlines (parcels), golf course land (parcel land use 389 and 394), streets TIGER lacks, entrance points"},
@@ -386,7 +401,7 @@ def build_region(work):
         for sr in r.iterShapeRecords():
             d = sr.record.as_dict()
             if not in_bbox(sr.shape.bbox): continue
-            routes = {k for k in fn.get(d["LINEARID"], ()) if k in ROUTES}
+            routes = {k for k in fn.get(d["LINEARID"], ()) if k in ROUTES and not wrong_route(k, sr.shape.bbox)}
             if d["MTFCC"] not in ("S1100", "S1200") and not routes: continue
             if d["MTFCC"] not in ("S1100", "S1200", "S1400"): continue
             if routes:
@@ -449,9 +464,9 @@ def build_region(work):
     for sr in r.iterShapeRecords():
         d = sr.record.as_dict()
         name = (d["FULLNAME"] or "").strip()
-        if d["MTFCC"] != "C3081" or name not in LOCALITIES or not in_bbox(sr.shape.bbox): continue
-        if any(t["n"] == name for t in towns): raise SystemExit(f"{name} is both a Census place and a locality point")
         lon, lat = sr.shape.points[0]
+        if d["MTFCC"] != "C3081" or name not in LOCALITIES or not in_bbox((lon, lat, lon, lat)): continue
+        if any(t["n"] == name for t in towns): raise SystemExit(f"{name} is both a Census place and a locality point")
         towns.append({"n": name, "rank": LOCALITIES[name], "kind": "community", "at": e4.pt(lon, lat), "o": []})
     missing = (set(TOWNS) | set(LOCALITIES)) - {t["n"] for t in towns}
     if missing: raise SystemExit(f"towns not found in the box: {sorted(missing)}")

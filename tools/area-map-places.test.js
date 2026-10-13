@@ -88,7 +88,27 @@ check("a map of many places needs a name", throws(() => regionMap({ places: PLAC
 check(`a map of many places takes 2 to ${MANY_MAX} places`, throws(() => regionMap({ name: "x", places: PLACES.slice(0, 1) })) && throws(() => regionMap({ name: "x", places: [...PLACES, ...PLACES].slice(0, 16).map((p, i) => Object.assign({}, p, { name: p.name + i })) })));
 check("drive minutes are refused (no home to measure from)", throws(() => regionMap({ name: "x", places: [Object.assign({ minutes: 10 }, PLACES[0]), PLACES[1]] }), /minutes/));
 check("a place twice is refused", throws(() => regionMap({ name: "x", places: [PLACES[0], PLACES[0]] }), /twice/));
-check("a place outside the cached data is refused (Loris, 34.06 N)", throws(() => regionMap({ name: "x", places: [PLACES[0], { name: "Loris", lat: 34.0575, lon: -78.8884 }] }), /outside the cached/));
+check("a place outside the cached data is refused (Whiteville, NC, 34.33 N)", throws(() => regionMap({ name: "x", places: [PLACES[0], { name: "Whiteville", lat: 34.3305, lon: -78.7014 }] }), /outside the cached/));
+
+/* The wider data (2026-10-13): every town in Horry County and Georgetown and Andrews. Before it,
+   the data ended at 34.05 N and Loris (34.06 N) was refused. */
+const geo = loadGeo2(), [bw, bs, be, bn] = geo.bbox;
+const NEW_TOWNS = ["Loris", "Aynor", "Longs", "Georgetown", "Andrews", "Green Sea", "Finklea", "Live Oak", "Ketchuptown"];
+check("the towns of the wider data are in it, with a name, rank, kind and point", NEW_TOWNS.every((n) => T[n] && T[n].rank >= 1 && ["city", "town", "community"].includes(T[n].kind) && Number.isFinite(T[n].lat) && Number.isFinite(T[n].lon)), NEW_TOWNS.filter((n) => !T[n]).join());
+check("every town but Longs has its Census outline; Longs (no Census place) has none", NEW_TOWNS.every((n) => (n === "Longs") === !T[n].outline.length));
+/* Half the smallest map (12 km) inside the box, so a map of one town has data to its edges. */
+const kmIn = (t) => Math.min((t.lon - bw) * 92.6, (be - t.lon) * 92.6, (t.lat - bs) * 110.6, (bn - t.lat) * 110.6);
+check("every town sits 6 km or more inside the data box", geo.towns.every((t) => kmIn(t) >= 6), geo.towns.filter((t) => kmIn(t) < 6).map((t) => t.name).join());
+const lorisSpec = { name: "Towns to compare", places: [pt("Loris", T.Loris), pt("Conway", T.Conway), pt("Aynor", T.Aynor), pt("Longs", T.Longs)] };
+const lm = regionMap(lorisSpec, { inlineMax: 1e9 });
+const lp = lm.places.find((p) => p.name === "Loris");
+const own = "lm" + (lp.num - 1); // a place's boxes are owned by "lm" and its index
+const lb = lm.boxes.find((b) => b.kind === "marker" && b.owner === own), [lx, ly] = center(lb);
+const [tx, ty] = [(T.Loris.lon - lm.frame.west) / (lm.frame.east - lm.frame.west) * lm.width, (lm.frame.north - T.Loris.lat) / (lm.frame.north - lm.frame.south) * lm.height];
+check("a place at Loris draws: its numbered marker is on the map, at its true spot", lp && lb && new RegExp(`<text class="nm"[^>]*>${lp.num}</text>`).test(lm.svg) && Math.hypot(lx - tx, ly - ty) < 2, lb ? `${Math.hypot(lx - tx, ly - ty).toFixed(1)} units off` : "no marker");
+check("a place at Loris is labelled on the map, beside its own marker", lp.labelled && !lm.unlabelled.includes("Loris") && /<text class="l"[^>]*>(?:<tspan[^>]*>)?Loris</.test(lm.svg) && lm.boxes.some((b) => b.kind === "label" && b.owner === own && b.x0 >= lb.x0 - 40 && b.x1 <= lb.x1 + 80 && b.y0 >= lb.y0 - 30 && b.y1 <= lb.y1 + 30));
+check("the map with Loris has no overlap and nothing cut at the edge", !overlaps(lm) && !lm.boxes.some((b) => (b.kind === "label" || b.kind === "marker") && (b.x0 < EDGE - 2 || b.y0 < EDGE - 2 || b.x1 > lm.width - EDGE + 2 || b.y1 > lm.height - EDGE + 2)), overlaps(lm));
+check("a home in Longs (a town with no outline) reads \"in Longs\"", /is in Longs,/.test(regionMap({ home: { name: "A home", lat: T.Longs.lat + 0.005, lon: T.Longs.lon, town: "Longs" }, landmarks: [] }).alt));
 
 /* The community map is unchanged by the new mode (the four 55+ pages rebuilt byte for byte). */
 const one = regionMap({ home: { name: "Myrtle Trace", lat: 33.778502, lon: -78.996618, town: "Conway" }, landmarks: [{ name: "Beach", kind: "beach", lat: 33.6906919, lon: -78.8804377, minutes: 15 }] });

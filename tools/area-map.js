@@ -45,8 +45,10 @@
  *                           a map with no home has nothing to measure from. Tested in
  *                           tools/area-map-places.test.js. Before 2026-10-13 regionMap needed a home,
  *                           and a cluster of neighborhoods lost whole places, not only their names.
- *                           The cached data ends at 34.05 N: Loris (34.06 N) needs a rebuild of
- *                           tools/geo with a wider BBOX before it can go on a map.
+ *                           Any point in the cached data's box can go on a map: since 2026-10-13
+ *                           that is 79.65 to 78.35 W and 33.25 to 34.22 N, every town in Horry
+ *                           County (Loris, Green Sea) and Georgetown and Andrews. A point outside
+ *                           it is refused; widen BBOX in tools/geo/build-geo.py and rebuild.
  *   mapLinksHtml({ name, lat, lon })   "Open in Google Maps" (btn btn-brass) and "Get directions"
  *                           (btn btn-outline). Plain links; nothing loads from Google until a tap.
  *
@@ -79,9 +81,9 @@
  *   node tools/area-map.js places.json --links                      # the two buttons
  *   python3 -I tools/geo/build-geo.py --work <dir>                  # rebuild the version 2 data
  *
- * Data (tools/geo/grand-strand-v2.json; sources and licenses are in the file): U.S. Census
- * Bureau TIGER/Line 2026 (public domain) for the coast, water, roads, route numbers, parks,
- * airport, towns and streets; Horry County GIS for community outlines (parcels layer 24),
+ * Data (tools/geo/grand-strand-v2.json; sources, licenses, the box and the build date are in the
+ * file): U.S. Census Bureau TIGER/Line 2026 (public domain) for the coast, water, roads, route
+ * numbers, parks, airport, towns (Census places; Longs is a TIGER locality point) and streets; Horry County GIS for community outlines (parcels layer 24),
  * streets TIGER lacks (roads layer 18), ponds (basemap hydro) and golf course land. A new
  * community needs an entry in AREAS in tools/geo/build-geo.py and a rebuild.
  *
@@ -328,13 +330,15 @@ function resolveKind(kind) { try { return resolveIcon(kind || "pin"); } catch { 
 
 function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 24) || "map"; }
 
-function validate(spec) {
+/* bbox is the cached data's box: DATA_BBOX for version 1, the bbox in grand-strand-v2.json for
+   version 2 (validate2 and placesSpec pass it, with the way to widen it). */
+function validate(spec, bbox = DATA_BBOX, widen = "Widen DATA_BBOX and run --refresh-geo.") {
   if (!spec || !spec.home) throw new Error("area-map: places need a home { name, lat, lon }");
   const all = [spec.home, ...(spec.landmarks || [])];
   for (const p of all) {
     if (!p.name || typeof p.lat !== "number" || typeof p.lon !== "number") throw new Error(`area-map: every place needs name, lat, lon: ${JSON.stringify(p)}`);
-    const [w, s, e, n] = DATA_BBOX;
-    if (p.lon < w || p.lon > e || p.lat < s || p.lat > n) throw new Error(`area-map: ${p.name} (${p.lat}, ${p.lon}) is outside the cached Grand Strand data ${DATA_BBOX.join(", ")}. Widen DATA_BBOX and run --refresh-geo.`);
+    const [w, s, e, n] = bbox;
+    if (p.lon < w || p.lon > e || p.lat < s || p.lat > n) throw new Error(`area-map: ${p.name} (${p.lat}, ${p.lon}) is outside the cached Grand Strand data ${bbox.join(", ")}. ${widen}`);
     if (p.minutes !== undefined && !(Number.isFinite(p.minutes) && p.minutes > 0)) throw new Error(`area-map: minutes for ${p.name} must be a positive number`);
   }
 }
@@ -1045,7 +1049,8 @@ function townWords(home, geo) {
   let best = null;
   for (const tw of cand) {
     const inside = tw.outline.some((r) => inPoly([home.lon, home.lat], r));
-    const d = inside ? 0 : Math.min(...tw.outline.map((r) => distToPolyline(home, r.concat([r[0]])).km));
+    /* A place with no Census outline (Longs, a TIGER locality point) is measured from its point. */
+    const d = inside ? 0 : tw.outline.length ? Math.min(...tw.outline.map((r) => distToPolyline(home, r.concat([r[0]])).km)) : km(home, tw);
     if (!best || d < best.d) best = { tw, d, inside };
   }
   if (!best) return "on the Grand Strand";
@@ -1095,8 +1100,9 @@ function findArea(home, geo, required) {
   return best ? best.a : null;
 }
 
+const WIDEN2 = "Widen BBOX in tools/geo/build-geo.py and rebuild.";
 function validate2(spec) {
-  validate(spec);
+  validate(spec, loadGeo2().bbox, WIDEN2);
   const e = spec.entrance;
   if (e && (typeof e.lat !== "number" || typeof e.lon !== "number")) throw new Error("area-map: entrance needs lat and lon");
   const a = spec.amenity;
@@ -1171,7 +1177,7 @@ function placesSpec(spec) {
   const lat = list.reduce((t, p) => t + (+p.lat || 0), 0) / list.length, lon = list.reduce((t, p) => t + (+p.lon || 0), 0) / list.length;
   const out = { home: { name: spec.name, lat, lon }, many: true, coast: spec.coast, minSpanKm: spec.minSpanKm, alt: spec.alt, caption: spec.caption,
     landmarks: list.map((p, i) => ({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region" })) };
-  validate(out);
+  validate(out, loadGeo2().bbox, WIDEN2);
   return out;
 }
 
