@@ -1,7 +1,12 @@
 /* /buyers/best-neighborhoods/ - the best neighborhoods in Myrtle Beach, by what the reader wants nearby.
  *
- * Batch 2026-10-b, page 1. Version 2, 2026-10-13 (round 2: review/ROUND-2.md and
- * review/BUYER-READ-best-neighborhoods.md).
+ * Batch 2026-10-b, page 1. Version 3, 2026-10-13 (round 3: review/ROUND-3.md and
+ * review/OWNER-EYE-best-neighborhoods.md; round 2: ROUND-2.md and BUYER-READ-best-neighborhoods.md).
+ * Round 3: the canal fee stated from the city's own resolution (row 182, pending); the lender's flood
+ * rule said once, in plain words; a new example with its own shape (Deerfield's golf-cart parking); a
+ * name beside every overview dot that has room, a number in the key for the rest; Grande Dunes and
+ * Tidewater in the gated page's words and values; shorter (FAQ of five, no method sentences, no
+ * paragraph that repeats a table).
  *
  * Reader. Someone who typed "best neighborhoods in Myrtle Beach", "best places to live in Myrtle Beach",
  * "best communities", "best areas to live", or the North Myrtle Beach or Surfside Beach versions. The cold
@@ -20,35 +25,36 @@
  *
  * Facts: batches/2026-10-b/data/best-neighborhoods.json names the ledger row of every table cell and of
  * the yearly cost table. The prose uses the same rows:
- *   neighborhoods-facts.md, verified rows only, in the verifier's wording, and the round 2 rows 176 to 181
- *     (pending verification): 176 a sale resets the county value (the tax in dollars), 177 and 178 the
- *     share of homes with no HOA fee in Cherry Grove and on the ocean side of Surfside Beach (one value
- *     with the no-HOA page's rows 5 and 7), 179 flood insurance in a high-risk zone in 29582, 180 the
- *     drive to the airport, 181 Cherry Grove's tax districts. A row that fails comes out of the copy.
+ *   neighborhoods-facts.md, verified rows only, in the verifier's wording; rows 176 to 181 (round 2,
+ *     verified); row 182 (round 3, pending): the City of North Myrtle Beach's Cherry Grove canal
+ *     assessment, from its 2025 resolution. A row that fails comes out of the copy.
  *   the-farm-facts.md for The Farm: rows 5, 6, 28, 47, 48, 71, 73, 74, 77, 78 and the verifier's
  *     completeness wording for the amenities. affordable-facts.md rows 65 and 72 (tax per $100,000).
- *   gated-communities-facts.md rows 9, 11, 20, 34 and 43 (Tidewater's guard house, price and fee).
+ *   gated-communities-facts.md rows 9, 11, 20, 34, 43 and 46 (Tidewater's gatehouse, price and fee; the
+ *     gated sections of Grande Dunes, in the gated page's words: "a gatehouse at its entrance").
  *   no-hoa-facts.md row 16 (what an HOA fee pays for, house against condo) and rows 5 and 18 corrected.
  *   batches/2026-10-a: the four 55+ cells, the pools and clubhouses their pages state, and the 80 percent
  *     rule (myrtle-trace-facts.md rows 1 and 9).
- *   stories.json: traffic-timing and off-season-open (the owner's experience, said as ours),
- *     golf-cart-community (restated literally), insurance-quote-before-offer (the example's fix),
+ *   stories.json: traffic-timing and off-season-open (the owner's experience, said as ours, once),
  *     ny-buyer-rules-fit (the rules card), housing-types-mix (the property version only).
  *   Left out on purpose: the McLeod Carolina Forest hospital (no opening confirmed), amenities from
  *     listing remarks, any gate not in the gated ledger, school ratings, builder names, crowds and
  *     anything about who lives anywhere (fair housing), homeowners insurance in dollars (no row; the
  *     coastal insurance guide is linked).
  *
- * Pictures: the overview map of the fifteen with a two-column key and the town names a reader knows, a
- * small map per area where every neighborhood is named (tools/area-map.js placesMap; town labels added
- * here from the tool's own town points and frame, in free space only), and five NOAA 2026 aerials, each
- * under the sentence it shows: Pine Lakes and The Market Common (with the airport), drawn for this page;
- * The Farm's large pool (the Farm page's file) and Cherry Grove (the no-HOA page's file), used again with
- * this page's own captions; the ocean side of Surfside Beach. Every outline and label is placed from
- * county or state GIS through each frame's corner coordinates (data/photos.json names the points).
+ * Pictures: the overview map of the fifteen with a two-column key, a name beside every dot with room
+ * for one (labelDots below), a small map per area where every neighborhood is named (tools/area-map.js
+ * placesMap; town labels added here from the tool's own town points and frame, in free space only), and
+ * four NOAA 2026 aerials, each under the sentence it shows, drawn for this page: Pine Lakes, The Market
+ * Common (with The Reserve and the airport), Cherry Grove (beach, canals, salt marsh), the ocean side of
+ * Surfside Beach. Every outline and label is placed from county, state or USGS GIS through each frame's
+ * corner coordinates (data/photos.json names the points).
  *
- * Example: retell first. "Lisa wants to walk to the beach, the house she likes in Cherry Grove is in a
- * flood zone, so her agent gets her an insurance quote before she makes an offer."
+ * Example: retell first. "Dana wants a house near the beach for less, and the beach access closest to
+ * Deerfield has parking for golf carts only, but she rides her bike, so she chooses Deerfield over The
+ * Farm." Child sentence: "You can only park a golf cart at that beach." A labelled example, not a
+ * story from stories.json (none records a choice between two neighborhoods); its own shape: a choice,
+ * not a check before an offer.
  */
 const fs = require("fs"), path = require("path");
 const { h, compareCards, wantPicker, atAGlance, glance, story, BB } = require("./_kit.js");
