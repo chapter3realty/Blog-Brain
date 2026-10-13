@@ -50,7 +50,7 @@
  * Surfside Beach. Every outline and label is placed from county, state or USGS GIS through each frame's
  * corner coordinates (data/photos.json names the points).
  *
- * Example: retell first. "Dana wants a house near the beach for less, and the beach access closest to
+ * Example: retell first. "Megan wants a house near the beach for less, and the beach access closest to
  * Deerfield has parking for golf carts only, but she rides her bike, so she chooses Deerfield over The
  * Farm." Child sentence: "You can only park a golf cart at that beach." A labelled example, not a
  * story from stories.json (none records a choice between two neighborhoods); its own shape: a choice,
@@ -403,8 +403,8 @@ module.exports = {
       h.p("Two things can differ from one home to the next in the same neighborhood: the HOA rules and the homes around it. Read the rules on boats, golf carts, renting and pools before you buy. Different kinds of homes are often built within a few blocks of each other here, so walk two blocks around the home.") +
       h.p(`Public schools are assigned by address. Check the exact address with the ${h.ext(SCHOOLS, "Horry County Schools zone lookup")}, and see our page on ${h.a("/buyers/relocating/schools/", "schools near Myrtle Beach")}.`) +
       story([
-        "<strong>Example:</strong> Dana wants a house near the beach that costs less. A Chapter3 agent sends her three neighborhoods, and she narrows them to the Deerfield Plantation area and The Farm.",
-        "Deerfield is closer to the beach, but the closest beach access there has parking for golf carts only. Dana rides her bike to the beach, so she does not need a parking spot.",
+        "<strong>Example:</strong> Megan wants a house near the beach that costs less. A Chapter3 agent sends her three neighborhoods, and she narrows them to the Deerfield Plantation area and The Farm.",
+        "Deerfield is closer to the beach, but the closest beach access there has parking for golf carts only. Megan rides her bike to the beach, so she does not need a parking spot.",
         "She chooses Deerfield and asks to see the houses for sale there.",
       ], "", bg,
       `An agent at Chapter3 can send you three neighborhoods that fit what you want, and the homes for sale in each.`) },
