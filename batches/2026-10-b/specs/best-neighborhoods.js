@@ -152,7 +152,7 @@ const OVERVIEW = kit.placesMap("Neighborhoods", D.neighborhoods.map((n) => ({ na
   caption: "Map of the 15 neighborhoods on this page, numbered from North Myrtle Beach at the top right to Murrells Inlet at the bottom left. Numbers 6, 10 and 12 are in the city of Myrtle Beach.",
   key: true,
 });
-const KEY_CSS = "<style>.c3-map-key{columns:2 9rem!important;column-gap:1.2rem!important;margin-left:1.4rem!important}.c3-map-key li{font-size:1rem}</style>";
+const KEY_CSS = "<style>.c3-map-key{columns:2 8rem!important;column-gap:1rem!important;margin-left:1.4rem!important}.c3-map-key li{font-size:1rem}</style>";
 
 /* One small map per area, where every name fits. */
 const areaMap = (name, ids, caption, towns = []) => {

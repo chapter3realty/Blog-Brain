@@ -4,8 +4,8 @@
  * Batch 2026-10-b, page 4. Version 1, 2026-10-13.
  * Version 2, 2026-10-13 (round 2, BUYER-READ-the-farm.md and ROUND-2.md): the yearly cost of a typical
  *   house in one line (pending rows 85 and 86); the price in the short answer; HOA spelled out once; the
- *   large pool's settling and the special assessment in the pools section; the Corps' status words
- *   explained from DoD's own definitions (pending rows 87 to 89); townhome and condo explained (pending
+ *   large pool's settling and the special assessment in the pools section; the Corps' status explained
+ *   from DoD's definition of response complete (rows 87, 89; row 88 is wrong as applied, not used); townhome and condo explained (pending
  *   row 90); plain words for county value, zoned for, stormwater, county roads and the lot survey; the
  *   rent-out tax, the acreage, the food drive and history dates cut; a brighter, closer pool aerial.
  *
@@ -219,11 +219,11 @@ module.exports = {
         { icon: "tax", label: "Property tax", text: "About $1,300 a year on a $350,000 house you live in" },
         { icon: "storm", label: "Stormwater fee", text: "About $90 a year on the tax bill, for county drainage of rain water" },
       ], { bg, min: "13rem" }) +
-      h.p("When you buy, the county values the home for tax at about what a buyer would pay for it on the open market. For a new owner, that is close to the price paid. The tax above is for a home you live in, before any tax credit.") +
+      h.p("When you buy, the county values the home for tax at about what a buyer would pay for it on the open market. For a new owner, that is usually close to the price paid. The new value first appears on the tax bill for the year after you buy. The tax above is for a home you live in, before any tax credit.") +
       h.p("The Farm is outside the city limits, so there is no city tax. When you buy, you also pay the HOA a one-time fee of $250 at closing.") +
       h.p(`The HOA spends the largest share of the ${h.ext(BUDGET, "fee")} on cable TV from Spectrum. The HOA spends the rest on landscaping and the ponds, trash pickup, the management company, electricity, savings for repairs, the pools and insurance. The fee does not include internet.`) +
       h.p("Townhomes in The Orchards and condos in Planters Point also have their own HOA. In all, owners in The Orchards pay about $225 to $255 a month. Owners in Planters Point pay about $450 to $500 a month.") +
-      h.p(`Every home in The Farm is outside the high-risk flood zone on ${h.ext(FEMA, "FEMA's flood map")}. That means federal law does not make your lender require flood insurance. If you want a policy for a house anyway, it usually costs about $600 a year.`) +
+      h.p(`Every home in The Farm is outside the high-risk flood zone on ${h.ext(FEMA, "FEMA's flood map")}. That means federal law does not make your lender require flood insurance. If you want a policy for a house anyway, one in this ZIP code usually costs about $600 a year.`) +
       h.cta("Get the list of homes for sale in The Farm.", "Tell us your price range, and one of our agents will send you the homes for sale in The Farm now.", "Get the list", "/contact/", bg) +
       h.p(`If you would rather not pay an HOA fee, see ${h.a("/buyers/no-hoa-homes/", "where to find homes with no HOA near Myrtle Beach")}. For lower prices, see ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy near Myrtle Beach")}.`) },
 
@@ -261,9 +261,9 @@ module.exports = {
 
     { h2: "Was The Farm at Carolina Forest part of an old bombing range?", toc: "Old bombing range", html:
       h.p("Yes. The Farm is on land the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Much of Carolina Forest is on that land too.") +
-      h.p("The U.S. Army Corps of Engineers runs the cleanup of former military land like this. On its map, every home in The Farm is on land it lists as \"response complete\" and \"site closeout\".") +
-      h.p(`The ${h.ext(DEP, "Defense Department")}, which runs the program, explains those words. Response complete means the cleanup work there is done. Site closeout means the cleanup goals were met so the land can be used without limits. No more cleanup money will be spent there.`) +
-      h.p("The Corps is still working on another section, called Range III, in a different part of Carolina Forest. On the Corps' map, Range III touches the edges of some of The Farm's open land, but not any home lot.") +
+      h.p("The U.S. Army Corps of Engineers runs the cleanup of former military land like this. On its map (fiscal year 2024 data), every home in The Farm is on land it lists as \"Response Complete and Site Closeout\".") +
+      h.p(`The ${h.ext(DEP, "Defense Department")}, which sets the program's terms, explains what that means. Response complete means the cleanup work there is finished. The Defense Department or a later owner may keep monitoring the site.`) +
+      h.p("The Corps lists another section, called Range III, as still under investigation. It borders The Farm. On the Corps' map, Range III touches the edges of some of The Farm's open land, but not any home lot.") +
       h.p(`An agent at Chapter3 can show you the ${h.ext(FUDS, "Corps' map")} for the lot you like.`) },
   ],
   faqTitle: "The Farm at Carolina Forest FAQ",
