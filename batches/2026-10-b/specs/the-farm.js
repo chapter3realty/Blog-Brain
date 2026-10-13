@@ -8,7 +8,7 @@
  *   from DoD's definition of response complete (rows 87, 89; row 88 is wrong as applied, not used); townhome and condo explained (pending
  *   row 90); plain words for county value, zoned for, stormwater, county roads and the lot survey; the
  *   rent-out tax, the acreage, the food drive and history dates cut; a brighter, closer pool aerial.
- * Version 3, 2026-10-13 (round 3, OWNER-EYE-the-farm.md and ROUND-3.md): a new example (Dana and Luis, the
+ * Version 3, 2026-10-13 (round 3, OWNER-EYE-the-farm.md and ROUND-3.md): a new example (Rachel and Luis, the
  *   sunken pool and the chance of a one-time charge; the agent reads the HOA documents and minutes, stories.json
  *   "hoa-rental-bans-filtered"); the bombing range in plain words with the Corps' status in the sources line and
  *   the Defense Department's 3Rs advice (pending row 91); "Get the list" in all three places; dots under The
@@ -258,9 +258,9 @@ module.exports = {
         { icon: "home", label: "Home business", text: "Allowed if nothing shows from outside, it brings no extra traffic and county rules allow that business at a home." },
       ], { bg, min: "13rem" }) +
       story([
-        "<strong>Example:</strong> Dana and Luis want to spend their summer afternoons at a big pool, and they love the large pool in The Farm. They find a house a short walk from it.",
+        "<strong>Example:</strong> Rachel and Luis want to spend their summer afternoons at a big pool, and they love the large pool in The Farm. They find a house a short walk from it.",
         "Before they make an offer, their Chapter3 agent reads the HOA's documents with them, including the latest board minutes. The minutes show the large pool has sunk, and the board has not decided how to fix it.",
-        "Owners may have to pay a one-time charge for the work. Dana and Luis put money aside for that charge before they move in.",
+        "Owners may have to pay a one-time charge for the work. Rachel and Luis put money aside for that charge before they move in.",
       ], "", bg,
       `An agent at Chapter3 can ${h.a("/contact/", "read the HOA's documents and latest minutes with you")} before you make an offer.`) },
 
