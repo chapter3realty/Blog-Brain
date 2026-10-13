@@ -958,8 +958,8 @@ function placeCallouts(L, F, lms, R, prefix, o = {}) {
 }
 
 function markerSvg(lab, R, sym, g, txt) {
-  const { m, c, lines, mins, LH, MS } = lab;
-  let inner = `<circle r="${R}" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/>` + (m.lm.num ? numSvg(m.lm.num) : sym(m.kind, -R * 0.67, -R * 0.67, R * 1.34, C2.navy));
+  const { m, c, lines, mins, LH, MS, lead } = lab;
+  let inner = (lead ? `<path d="M0 0L${r1(lead[0])} ${r1(lead[1])}" stroke="${C2.navy}" stroke-width="1"/>` : "") + `<circle r="${R}" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/>` + (m.lm.num ? numSvg(m.lm.num) : sym(m.kind, -R * 0.67, -R * 0.67, R * 1.34, C2.navy));
   if (!c) return g(m.x, m.y, inner);
   const y = c.y + LH - 2.5;
   inner += txt("l", c.x, y, c.anchor, lines.map((l, i) => `<tspan x="${r1(c.x)}"${i ? ` dy="${LH}"` : ""}>${esc(l)}</tspan>`).join(""));
@@ -1179,7 +1179,7 @@ function placesSpec(spec) {
     if (p) names.add(p.name);
   }
   const lat = list.reduce((t, p) => t + (+p.lat || 0), 0) / list.length, lon = list.reduce((t, p) => t + (+p.lon || 0), 0) / list.length;
-  const out = { home: { name: spec.name, lat, lon }, many: true, coast: spec.coast, minSpanKm: spec.minSpanKm, alt: spec.alt, caption: spec.caption,
+  const out = { home: { name: spec.name, lat, lon }, many: true, coast: spec.coast, minSpanKm: spec.minSpanKm, alt: spec.alt, caption: spec.caption, leaders: spec.leaders === true ? { places: true } : spec.leaders || null,
     landmarks: list.map((p, i) => ({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region" })) };
   validate(out, loadGeo2().bbox, WIDEN2);
   return out;
@@ -1440,6 +1440,89 @@ function regionMap(spec, opts = {}) {
   /* The other main towns, nearest first: a town name tells a newcomer more than a road number. */
   geo.towns.filter((t) => t.rank === 1 && t !== homeTown).sort((a, b) => km(home, a) - km(home, b)).forEach((t) => placeTown(t, ["Myrtle Beach", "North Myrtle Beach", "Conway"].includes(t.name)));
 
+  /* Names with a leader line (spec.leaders, a map of many places only). A main town whose name has
+     no room by its point, and a place whose name has no room beside its marker, get the name in the
+     nearest open space, the ocean side first for a town, with a thin line from the name to the town
+     or the marker. The city of Myrtle Beach is a strip a few units wide among the markers on a map
+     of the whole coast, and a page called "the best neighborhoods in Myrtle Beach" had no "Myrtle
+     Beach" on its map (owner's eye, batch 2026-10-b round 4). The line keeps clear of every mark,
+     name and other line; a name with no such spot is left off, as before. */
+  const leaderTowns = [], leaderNames = [];
+  if (many && spec.leaders) {
+    const soft = (it) => ["dot", "area", "furniture"].includes(it.kind);
+    const spot = (ax, ay, w, h, own, r0, sea, from = 0) => {
+      let best = null;
+      for (const r of [r0, r0 + 10, r0 + 22, r0 + 36, r0 + 52, r0 + 70]) for (let k = 0; k < 24; k++) {
+        const ux = Math.cos(k * Math.PI / 12), uy = Math.sin(k * Math.PI / 12);
+        const lb = rect2(ax + ux * (r + w / 2 * Math.abs(ux)), ay + uy * (r + h / 2 * Math.abs(uy)), w, h);
+        if (!L.fits(lb, 3, own)) continue;
+        const ex = Math.max(lb.x0, Math.min(ax, lb.x1)), ey = Math.max(lb.y0, Math.min(ay, lb.y1)), d = Math.hypot(ex - ax, ey - ay);
+        if (d <= from + 3) continue;
+        const sx = ax + (ex - ax) / d * from, sy = ay + (ey - ay) / d * from, seg = segBox([sx, sy], [ex, ey]);
+        if (L.items.some((it) => !own(it) && !soft(it) && satOverlap(seg, it))) continue;
+        const wet = oceanPx.length > 2 && inPoly([lb.cx, lb.cy], oceanPx);
+        const score = d + (sea && !wet ? 40 : 0);
+        if (!best || score < best.score) best = { lb, ex, ey, sx, sy, seg, score };
+      }
+      return best;
+    };
+    /* Towns: the caller names them (leaders.towns). The name goes in the open spot nearest the town,
+       the ocean side first, with its line to a clear point inside the town's own outline. */
+    const want = (spec.leaders && spec.leaders.towns) || [];
+    for (const name of want) {
+      const t = geo.towns.find((x) => x.name === name);
+      if (!t) throw new Error(`area-map: no town named ${name} for a leader`);
+      if (townLabels.some((x) => x.t === t) || !t.outline.length) continue;
+      const ringsPx = t.outline.map((ring) => ring.map(([lo, la]) => P(lo, la)));
+      const anchors = [];
+      for (let y = 6; y < H - 6; y += 4) for (let x = 6; x < W - 6; x += 4) {
+        if (!ringsPx.some((ring) => inPoly([x, y], ring))) continue;
+        if (!L.fits(rect2(x, y, 10, 10), 2, (it) => it.kind === "area") || !onLand(rect2(x, y, 2, 2))) continue;
+        anchors.push([x, y]);
+      }
+      if (!anchors.length) continue;
+      const text = t.name.toUpperCase(), size = SZ.town, w = tw2(text, size, 0.1) + 6, h = size + 5;
+      const own = (it) => it.owner === "town:" + t.name;
+      let best = null;
+      for (let cy = 8 + h / 2; cy < H - 8 - h / 2; cy += 3) for (let cx = 8 + w / 2; cx < W - 8 - w / 2; cx += 3) {
+        const lb = rect2(cx, cy, w, h);
+        if (!L.fits(lb, 3, own)) continue;
+        const wet = oceanPx.length > 2 && lb.pts.every((q) => inPoly(q, oceanPx));
+        for (const [ax, ay] of anchors) {
+          const ex = Math.max(lb.x0, Math.min(ax, lb.x1)), ey = Math.max(lb.y0, Math.min(ay, lb.y1)), d = Math.hypot(ex - ax, ey - ay);
+          const score = d + (wet ? 0 : 40);
+          if (d < 10 || (best && score >= best.score)) continue;
+          const seg = segBox([ax, ay], [ex, ey]);
+          if (L.items.some((it) => !own(it) && !soft(it) && satOverlap(seg, it))) continue;
+          best = { lb, ax, ay, ex, ey, seg, score };
+        }
+      }
+      if (!best || best.score > 140) continue;
+      L.add(best.lb, "town", "town:" + t.name);
+      L.add(best.seg, "leader", "town:" + t.name);
+      leaderTowns.push({ t, ...best, text, size });
+    }
+    /* Places: from the edge of the marker. */
+    for (const b of spec.leaders.places === false ? [] : bare.slice()) {
+      const m = b.m, owner = "lm" + (m.lm.num - 1), own = (it) => it.owner === owner;
+      const NS = SZ.many, LH = NS + 2.5, text = m.lm.short || m.lm.name;
+      let best = null, lines = null;
+      for (const ls of [[text], wrap2(text, 10)]) {
+        if (best) break;
+        const w = Math.max(...ls.map((l) => tw2(l, NS))) + 4, h = ls.length * LH + 2;
+        best = spot(m.x, m.y, w, h, own, R + 8, false, R);
+        lines = ls;
+      }
+      if (!best) continue;
+      L.add(rectXY(best.lb.x0, best.lb.y0, best.lb.x1, best.lb.y1), "label", owner);
+      L.add(best.seg, "leader", owner);
+      bare.splice(bare.indexOf(b), 1);
+      dropped.splice(dropped.indexOf(m.lm), 1);
+      lmLabels.push({ m, c: { anchor: "start", x: best.lb.x0 + 2 - m.x, y: best.lb.y0 - m.y }, w: best.lb.w, h: best.lb.h, lines, mins: "", NS, MS: SZ.mins, LH, lead: [best.ex - m.x, best.ey - m.y] });
+      leaderNames.push(m.lm.name);
+    }
+  }
+
   /* Route markers: the routes a newcomer drives, near the home first. One marker a route and
      four at most: readers found a map full of road numbers hard to read. */
   const shields = [];
@@ -1545,6 +1628,13 @@ function regionMap(spec, opts = {}) {
     const lh = tl.size + 2.5, y0 = -(tl.lines.length * lh) / 2 + tl.size * 0.85;
     lab.push(g(tl.b.cx, tl.b.cy, txt(tl.big ? "T" : "t", 0, y0, "middle", tl.lines.map((l, i) => `<tspan x="0"${i ? ` dy="${lh}"` : ""}>${esc(l)}</tspan>`).join(""))));
   }
+  /* A town name with a leader: drawn about the point in the town, so on a wide screen (css2 shrinks
+     each group about its own point) the name stays at the end of its line. */
+  for (const lt of leaderTowns) {
+    const dx = lt.ex - lt.ax, dy = lt.ey - lt.ay;
+    lab.push(g(lt.ax, lt.ay, `<path class="ld" d="M0 0L${r1(dx)} ${r1(dy)}" stroke="#3b4450" stroke-width="1"/><circle r="2" fill="#3b4450"/>`
+      + txt("T", lt.lb.cx - lt.ax, lt.lb.cy - lt.ay + lt.size * 0.36, "middle", esc(lt.text))));
+  }
   /* A name of one or two lines, centred on its box. */
   const block = (cls, lines, size, extra = "") => { const lh = size + 2; return txt(cls, 0, -(lines.length * lh) / 2 + size * 0.85, "middle", lines.map((l, i) => `<tspan x="0"${i ? ` dy="${lh}"` : ""}>${esc(l)}</tspan>`).join("")).replace(`class="${cls}"`, `class="${cls}"${extra}`); };
   for (const pl of parkLabels) lab.push(g(pl.b.cx, pl.b.cy, block("p", pl.lines, SZ.place)));
@@ -1579,7 +1669,8 @@ function regionMap(spec, opts = {}) {
     dropped: many ? [] : dropped.map((l) => l.name),
   };
   if (many) {
-    m.places = lms.map((l) => ({ num: l.num, name: l.name, href: l.href, labelled: !dropped.includes(l) }));
+    m.places = lms.map((l) => ({ num: l.num, name: l.name, href: l.href, labelled: !dropped.includes(l), leader: leaderNames.includes(l.name) }));
+    m.labels.townLeaders = leaderTowns.map((t) => t.t.name);
     m.unlabelled = m.places.filter((p) => !p.labelled).map((p) => p.name);
     m.key = placesKeyHtml(m.places);
   }

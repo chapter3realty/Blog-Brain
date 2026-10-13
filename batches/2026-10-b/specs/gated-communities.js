@@ -54,7 +54,40 @@
  */
 const { h, kit, data, placesMap, compareCards, wantPicker, prosCons, atAGlance, glance, story, photoSetB, BB } = require("./_kit.js");
 const path = require("path");
-const { regionMap } = require(path.join(BB, "tools", "area-map.js"));
+const { regionMap, loadGeo2 } = require(path.join(BB, "tools", "area-map.js"));
+
+/* A town name the reader needs ("Myrtle Beach", "Pawleys Island"), added to a map the tool drew: the same
+   helper as batches/2026-10-b/specs/best-neighborhoods.js (addTown), so both pages draw it alike. The point
+   is the tool's own town point, projected with the map's frame; the name goes in the first free spot near
+   it, clear of every label and marker the tool placed; with no room it is left off and the build says so. */
+const GEO = loadGeo2();
+function addTown(res, name, reach = 60) {
+  const t = GEO.towns.find((x) => x.name === name);
+  if (!t) throw new Error(`no town point for ${name}`);
+  const m = res.map, f = m.frame, W = m.width, H = m.height;
+  const x0 = (t.lon - f.west) / (f.east - f.west) * W, y0 = (f.north - t.lat) / (f.north - f.south) * H;
+  const lines = name.toUpperCase().split(" ");
+  const w = Math.max(...lines.map((l) => l.length)) * 9.6 + 6, hgt = lines.length * 16.5 + 2;
+  const free = (cx, cy) => {
+    const b = { x0: cx - w / 2, x1: cx + w / 2, y0: cy - hgt / 2, y1: cy + hgt / 2 };
+    if (b.x0 < 6 || b.y0 < 6 || b.x1 > W - 6 || b.y1 > H - 6) return false;
+    return !m.boxes.some((o) => !(o.x1 + 3 < b.x0 || o.x0 - 3 > b.x1 || o.y1 + 3 < b.y0 || o.y0 - 3 > b.y1));
+  };
+  let spot = null;
+  for (let r = 0; r <= reach && !spot; r += 2) for (let k = 0; k < 16 && !spot; k++) {
+    const cx = x0 + r * Math.cos(k * Math.PI / 8), cy = y0 + r * Math.sin(k * Math.PI / 8);
+    if (free(cx, cy)) spot = [cx, cy];
+  }
+  if (!spot) { console.warn(`gated-communities: no room for the town name ${name}`); return res; }
+  m.boxes.push({ kind: "town", x0: spot[0] - w / 2, x1: spot[0] + w / 2, y0: spot[1] - hgt / 2, y1: spot[1] + hgt / 2 });
+  const top = -(lines.length - 1) * 8.25 + 4.6;
+  const label = `<g transform="translate(${spot[0].toFixed(1)} ${spot[1].toFixed(1)})"><g class="k"><text class="T" x="0" y="${top.toFixed(1)}" text-anchor="middle">`
+    + lines.map((l, i) => `<tspan x="0"${i ? ' dy="16.5"' : ""}>${l}</tspan>`).join("") + `</text></g></g>`;
+  const i = res.html.indexOf("</svg>");
+  if (i < 0) throw new Error("the map is not inline, so a town name cannot be added");
+  res.html = res.html.slice(0, i) + label + res.html.slice(i);
+  return res;
+}
 
 const SELF = "/buyers/gated-communities/";
 const MT = "/buyers/55-plus-communities/myrtle-trace/";
@@ -86,11 +119,14 @@ const MAP_N = (() => {
     places: G.places.filter((p) => p.area !== "pawleys-island").map((p) => ({ name: p.name, short: SHORT[p.short] || p.short, lat: p.lat, lon: p.lon, href: AREA[p.area] })) },
     { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420 });
   if (m.unlabelled.length) throw new Error(`map: no name beside ${m.unlabelled.join(", ")}`);
+  /* "Myrtle Beach" has no free spot near its own town point on this map (the nearest free spot is by
+     Prestwick, which would mislead), so the caption says where the city is (round 4). */
   return { html: kit.mapFigure(m.html, "Map of neighborhoods with a gate from North Myrtle Beach (top right) to Murrells Inlet (bottom left). The city of Myrtle Beach is on the coast between Grande Dunes (4) and Prestwick (8).", m.credit) + m.key };
 })();
 const MAP_S = placesMap("Gated neighborhoods near Pawleys Island", G.pawleys.map((p) => ({ name: p.name, short: p.short, lat: p.lat, lon: p.lon, href: AREA["pawleys-island"] })), {
   caption: "Map of neighborhoods with a gate near Pawleys Island and Litchfield, south of Murrells Inlet.",
 });
+addTown(MAP_S, "Pawleys Island");
 
 /* The price chart: the eight gated neighborhoods with a typical price, lowest to highest, from
    gated-map.json "prices". 330 units wide, so the names show at about 16 px on a phone. */
@@ -131,7 +167,7 @@ const ph = photoSetB({ aerialWidth: "720px" });
 const GATE_PHOTO = ph.aerial("prestwick-gate-from-above-2026",
   "An entrance to Prestwick from above. Just inside, a small building, the gatehouse, sits between the two lanes, with a gate arm across each lane.");
 const DEB_PHOTO = ph.aerial("debordieu-from-above-2026",
-  "DeBordieu Colony and the beach to its east, from above. Golf fairways and ponds are among the homes, and a salt marsh is between them and the beach.", { closeUp: true });
+  "DeBordieu Colony and the beach to its east, from above. Golf fairways and ponds are among the homes, and a salt marsh is between most of them and the beach.", { closeUp: true });
 
 module.exports = {
   url: SELF,
@@ -147,7 +183,7 @@ module.exports = {
   h1em: "From North Myrtle Beach to Pawleys Island.",
   sub: "Gated neighborhoods near Myrtle Beach, by area, with who is at the gate, the HOA fee and what homes there usually sell for.",
   heroMedia: glance([
-    { icon: "gate", label: "Guard day and night", text: "Litchfield by the Sea" },
+    { icon: "beach", label: "Closest to the beach", text: "Seaside Plantation, about 2 minutes" },
     { icon: "home", label: "Homes sell for", text: "About $480,000 to $1.5 million" },
     { icon: "dollar", label: "HOA fee", text: "About $90 to $440 a month" },
   ]),
@@ -155,30 +191,19 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Gated neighborhoods near Myrtle Beach run along the coast from North Myrtle Beach to Pawleys Island. Homes in most of them usually sell for about $480,000 to $1.5 million.",
-    "Each has a homeowners association (HOA), the group of owners that runs the neighborhood. The HOA fee here is about $90 to $440 a month. A gate controls who drives in, but it does not guard each home. Litchfield by the Sea and DeBordieu Colony are on the ocean, and most others are a short drive from the beach.",
+    "Each has a homeowners association (HOA), the group of owners that runs the neighborhood. The HOA fee here is about $90 to $440 a month. A gate controls who drives in. It is not a guard at each home. Litchfield by the Sea and DeBordieu Colony are on the ocean, and most others are a short drive from the beach.",
+    `Read ${h.a("#what-a-gate-does", "what a gate does and does not do")} before you choose one.`,
   ],
   sections: [
-    { h2: "Does a gate make a neighborhood safer?", toc: "What a gate does", html: (bg) =>
-      h.p("A gate controls who drives into the neighborhood. It does not put a guard at each home, and we do not rate any neighborhood as safe or unsafe.") +
-      h.p(`Visitors stop at the gate and are let in at the gate or by the owner. At Litchfield by the Sea, the owner or rental manager must ${h.ext(LBTS_GUIDE, "register guests")} before the visit. Your own doors, locks and alarm are still yours to choose.`) +
-      CARD_CSS + big(atAGlance([
-        { icon: "gate", label: K.guard, text: "A guard is on duty at the main gate around the clock. Litchfield by the Sea." },
-        { icon: "home", label: K.house, text: "A building at the gate. Ask us about hours. Tidewater Plantation, Prestwick, Wachesaw Plantation, Willbrook Plantation, Litchfield Plantation, DeBordieu Colony and Dye Estates." },
-        { icon: "key", label: K.call, text: "A phone at the gate. A visitor calls the owner, who opens the gate. Seasons at Prince Creek West." },
-        { icon: "trail", label: K.back, text: "The front entrance is open, and only the back entrance has gates. Myrtle Trace." },
-      ], { bg, min: "18rem" })) +
-      GATE_PHOTO +
-      h.p(`To see crime reported to a police department or sheriff, use the state's ${h.ext(SLED, "crime data site")}. You pick the agency, the year and the type of crime.`) },
-
     { h2: "Where are the gated neighborhoods near Myrtle Beach?", toc: "Maps", html:
       MAP_N.html + MAP_S.html +
-      h.p(`Litchfield by the Sea and DeBordieu Colony are on the ocean, and each has a Beach Club. Most others are a short drive from a ${h.ext(BEACH, "public beach access")}, a spot where anyone can park and walk onto the beach.`) },
+      h.p(`Litchfield by the Sea and DeBordieu Colony are on the ocean, and each has a Beach Club. Most others are a short drive from a ${h.ext(BEACH, "public beach access")}, a public path to the beach. Some have parking and some do not.`) },
 
     { h2: "Which gated community fits what you want?", toc: "Which one fits you", html:
       h.p("The best gated community for you depends on what you want close by. Start with what matters most to you.") +
       wantPicker([
         { icon: "beach", want: "On the ocean",
-          places: [{ name: "Litchfield by the Sea", href: "#table-pawleys-island" }, { name: "DeBordieu Colony", href: "#table-pawleys-island" }] },
+          places: [{ name: "DeBordieu Colony", href: "#table-pawleys-island" }, { name: "Litchfield by the Sea", href: "#table-pawleys-island" }] },
         { icon: "dollar", want: "A low HOA fee", note: "About $90 to $150 a month.",
           places: [{ name: "Covington Lake East", href: "#table-myrtle-beach" }, { name: "Wachesaw East", href: "#table-murrells-inlet" }, { name: "Waterway Palms Plantation", href: "#table-myrtle-beach" }] },
         { icon: "home", want: "A lower price", note: "About $480,000 to $570,000.",
@@ -190,6 +215,18 @@ module.exports = {
       h.p(`Our ${h.a("/buyers/golf-communities/", "guide to golf communities near Myrtle Beach")} covers the courses.`) +
       h.p(`To compare these with neighborhoods that have no gate, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods in Myrtle Beach for what you want nearby")}. We also cover ${h.a("/buyers/no-hoa-homes/", "homes with no HOA near Myrtle Beach")} and ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy near Myrtle Beach")}.`) },
 
+    { h2: "Does a gate make a neighborhood safer?", toc: "What a gate does", id: "what-a-gate-does", html: (bg) =>
+      h.p("A gate controls who drives into the neighborhood. It does not put a guard at each home, and we do not rate any neighborhood as safe or unsafe.") +
+      h.p(`Visitors stop at the gate and are let in at the gate or by the owner. At Litchfield by the Sea, the owner or rental manager must ${h.ext(LBTS_GUIDE, "register guests")} before the visit. Your own doors, locks and alarm are still yours to choose.`) +
+      CARD_CSS + big(atAGlance([
+        { icon: "gate", label: K.guard, text: "A guard is on duty at the main gate around the clock. Litchfield by the Sea." },
+        { icon: "home", label: K.house, text: "A building at the gate. Ask us about hours. Tidewater Plantation, Prestwick, Wachesaw Plantation, Willbrook Plantation, Litchfield Plantation, DeBordieu Colony and Dye Estates." },
+        { icon: "key", label: K.call, text: "A phone at the gate. A visitor calls the owner, who opens the gate. Seasons at Prince Creek West." },
+        { icon: "trail", label: K.back, text: "The front entrance is open, and only the back entrance has gates. Myrtle Trace." },
+      ], { bg, min: "18rem" })) +
+      GATE_PHOTO +
+      h.p(`To see crime reported to a police department or sheriff, use the state's ${h.ext(SLED, "crime data site")}. You pick the agency, the year and the type of crime.`) },
+
     { h2: "What do homes in gated neighborhoods near Myrtle Beach cost?", toc: "Prices", html:
       h.p("Homes in most gated neighborhoods near Myrtle Beach usually sell for about $480,000 to $1.5 million. These are prices homes sold for, not asking prices.") +
       h.figure(priceChart(), "Chart of what homes usually sell for in the eight gated neighborhoods with enough recent sales to give one typical price.") +
@@ -197,7 +234,7 @@ module.exports = {
       "" },
 
     { h2: "Which neighborhoods in North Myrtle Beach are gated?", toc: "North Myrtle Beach", id: "north-myrtle-beach", html:
-      h.p("Tidewater Plantation, Seaside Plantation and parts of Barefoot Resort are gated neighborhoods in North Myrtle Beach. “Plantation” is part of many neighborhood names here.") +
+      h.p("Tidewater Plantation, Seaside Plantation and parts of Barefoot Resort are gated neighborhoods in North Myrtle Beach. A name with “Plantation” is a neighborhood name, not a farm.") +
       table("table-north-myrtle-beach", compareCards([
         { name: "Tidewater Plantation", cells: { gate: K.house, fee: "About $230 a month", beach: "About 8 minutes" } },
         { name: "Seaside Plantation", cells: { gate: K.ask, fee: "About $210 a month", beach: "About 2 minutes" } },
@@ -233,6 +270,7 @@ module.exports = {
       DEB_PHOTO +
       h.p(`We send recent sales for these neighborhoods, and for Wachesaw Plantation and Wachesaw East, ${h.a(OFFER, "on request")}.`) +
       table("table-pawleys-island", compareCards([
+        { name: "Litchfield by the Sea", cells: { gate: K.guard, fee: "Not posted by the association", beach: "On the ocean" } },
         { name: "Litchfield Plantation", cells: { gate: K.house, fee: "About $230 a month on most homes", beach: "About 8 minutes" } },
         { name: "Willbrook Plantation", cells: { gate: K.house, fee: "About $340 a month", beach: "About 9 minutes" } },
         { name: "The Reserve", cells: { gate: K.ask, fee: "About $320 a month on most homes", beach: "About 8 minutes" } },
@@ -269,7 +307,7 @@ module.exports = {
       h.p("Drive in by the entrance you will use every day, because some neighborhoods are gated only in part. In Barefoot Resort and Grande Dunes only some sections are gated, and Myrtle Trace has gates only at its back entrance.") +
       story([
         "<strong>Example:</strong> Joan is moving from Ohio, and she wants a 55+ home behind a gate. She likes a house in Myrtle Trace, near Conway.",
-        "Before she makes an offer, her Chapter3 agent drives her in by the front entrance. That entrance has no gate, and the gates are only at the back.",
+        "Her Chapter3 agent drives her in by the front entrance. That entrance has no gate, and the gates are only at the back.",
         "The agent shows her homes for sale in Seasons at Prince Creek West, which has a gate at its main entrance. Joan finds a house there and makes her offer.",
       ], "", bg,
       `An agent at Chapter3 can ${h.a(OFFER, "check the gate for the home you like")} before you make an offer.`) },
