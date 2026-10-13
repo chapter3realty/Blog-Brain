@@ -193,7 +193,7 @@ const ph = kit.photoSet({ aerialWidth: "760px" });
 const CSS = ph.css() + "<style>.c3-areamap figure{max-width:600px!important}</style>";
 /* Made at load time: mkpage reads pageImages before it builds the sections. The Cherry Grove aerial stays the
    share image; the Aynor lot is the page's own picture of "room". */
-const CHERRY = ph.aerial("cherry-grove-from-above", "Cherry Grove in North Myrtle Beach, from the air. More homes for sale with no HOA fee are here than in any other part of North Myrtle Beach. Almost every home here is in a high-risk flood zone.",
+const CHERRY = ph.aerial("cherry-grove-from-above", "Cherry Grove in North Myrtle Beach, from the air. More homes for sale with no HOA fee are here than in any other part of North Myrtle Beach.",
   { alt: "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of houses along canals, and a wide salt marsh with winding creeks" });
 const AYNOR_LOT = ph.aerial("aynor-country-lot", "Houses on lots of about an acre along a country road outside Aynor, from the air. The orange line is one lot.",
   { closeUp: true });
@@ -268,8 +268,8 @@ module.exports = {
       h.p(`Houses for sale with no HOA fee are listed higher in every area that has them: about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are older houses, and about 1 in 3 is on the ocean side of Business 17, the coast road. About half were built before 2000, against about 1 in 10 houses with a fee.`) +
       h.p(`In Surfside Beach and Garden City, about 4 in 10 houses with no HOA fee face the ocean, see it or are one row back. Almost none of the houses with a fee there are. Houses for sale with no HOA fee there are listed at about ${to5k(surf.houses.medianListPriceNoFee)}, against about ${to5k(surf.houses.medianListPriceWithFee)} with a fee.`) +
       CHERRY +
-      h.p(`Near the water, flood insurance can cost more than the HOA fee you save. Almost every home in Cherry Grove is in a high-risk flood zone on ${h.ext(FEMA, "FEMA's flood map")}. Flood insurance on a home you live in there usually costs about $1,300 a year. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose.`) +
-      h.p(`On the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. Check the flood zone of the home you like before you offer. With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) },
+      h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Near the water, flood insurance can cost more than that. Almost every home in Cherry Grove is in a high-risk flood zone on ${h.ext(FEMA, "FEMA's flood map")}. Flood insurance on a home you live in there usually costs about $1,300 a year.`) +
+      h.p(`On the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose. Check the flood zone of the home you like before you offer. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) },
 
     { h2: "What do you gain and give up with no HOA?", toc: "Pros and cons", html: (bg) =>
       h.p("With no HOA, you pay no HOA fee and follow no HOA rules. You also have no shared pool, and outside the towns you arrange your own trash pickup.") +
