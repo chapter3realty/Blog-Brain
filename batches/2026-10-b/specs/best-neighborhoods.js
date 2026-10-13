@@ -37,9 +37,10 @@
  *     builder names, grocery addresses.
  *
  * Pictures: our own map of the fifteen (tools/area-map.js placesMap, from the reference points), and two
- * USDA NAIP aerials with labels placed from county and state data (images/best-neighborhoods/), each under
- * the sentence it shows: the ocean side of Surfside Beach (walk to the beach) and Pine Lakes beside its
- * golf course.
+ * NOAA 2026 aerials (EC2601a, flown 2026-01-12; public domain) with an outline and labels placed from county
+ * and state GIS through each frame's own corner coordinates (images/best-neighborhoods/; the records in
+ * data/photos.json name every source point), each under the sentence it shows: the ocean side of Surfside
+ * Beach, from US 17 Business to the beach access (walk to the beach), and Pine Lakes beside its golf course.
  *
  * Example: retell first. "Lisa wants to walk to the beach, the house she likes in Cherry Grove is in a
  * flood zone, so her agent gets her an insurance quote before she makes an offer."
