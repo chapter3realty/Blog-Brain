@@ -52,6 +52,10 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B19. The site's own banned-word list shapes the copy.** The build refuses "sets" and some personification. A verifier's safe wording can fail the build; the writer then rewords. Give verifiers the site's banned list.
 
+**B20. A shared tool change can move a live page.** Batch b widened the shared map data. Three of batch a's live pages would have drawn different roads on their next rebuild, with no copy changed and no gate failing. The integrator caught it only because it rebuilt the old pages with the new tools and compared. Rule: before a batch ships a changed shared tool, rebuild every live page that loads it and compare byte for byte. If anything moves, ship the batch its own copy of the tools (`tools/blog-brain-<batch>/`) or make the change opt-in.
+
+**B21. Review rounds converge when each finding is graded.** Round 1 of the owner's-eye review gave 8, 8, 7, 7, 7 with no severity. Round 2 asked for high, medium or low on each finding: the pages rose to 9, 9, 8, 8, 8, and the medium items were few and concrete. Asking a reviewer to grade each finding, and to say when a page is ready, stops the loop from inventing work (CRAFT 8, "Stop by rule").
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
