@@ -4,77 +4,6 @@
  "image_root": "/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/wb-nohoa/chapter3realty/",
  "photos": [
   {
-   "slug": "no-hoa",
-   "file": "images/buyers/no-hoa/cherry-grove-from-above.webp",
-   "variants": {
-    "600": "images/buyers/no-hoa/cherry-grove-from-above-600w.webp",
-    "1200": "images/buyers/no-hoa/cherry-grove-from-above-1200w.webp"
-   },
-   "title": "Cherry Grove from the air, NOAA, January 2026",
-   "what": "Cherry Grove in North Myrtle Beach from the air on January 12, 2026: the beach and the Cherry Grove Pier at the left, homes along canals, and the salt marsh and its creeks behind them.",
-   "caption": "Cherry Grove from the air: the beach and part of the pier, canal homes and the salt marsh.",
-   "alt": "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of homes on canals, and a wide salt marsh with winding creeks",
-   "place": {
-    "city": "North Myrtle Beach",
-    "sublocation": "Cherry Grove"
-   },
-   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
-   "source_name": "NOAA Emergency Response Imagery",
-   "author": "NOAA National Geodetic Survey",
-   "author_type": "Organization",
-   "license": "Public domain",
-   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
-   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Flown 2026-01-12: the exterior orientation file raw/0122026_RGB_2_Oblique_EO.txt (day 012 of 2026) is the only flight file with frames within 6 km of the community, and the frame names carry 011226 (frames 185092 to 185108, about 16:45 UTC, about 2,300 m up). The group was posted 2026-03-19. Downloaded from the public S3 bucket noaa-eri-pds; the exact files are in source_files.",
-   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" The NOAA InPort record for the NGS coastal imagery (item 67562) gives \"Data access constraints: None\" and says the missions \"were conducted by NOAA's National Geodetic Survey, Remote Sensing Division\". So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Read 2026-10-11.",
-   "terms_urls": [
-    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
-    "https://registry.opendata.aws/noaa-eri/",
-    "https://www.fisheries.noaa.gov/inport/item/67562"
-   ],
-   "taken": "2026-01-12",
-   "digital_source_type": "digitalCapture",
-   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it and adjusted the colors",
-   "source_files": [
-    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.jpg",
-    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185092_0112261645026_037_RGB2.geom"
-   ],
-   "frame": {
-    "raw_pixels": [
-     0,
-     0,
-     7360,
-     5520
-    ],
-    "raw_size": "14204x10652",
-    "ground_m_per_px_raw_center": 0.195,
-    "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the left, north is up and to the right"
-   },
-   "original_size": "7360x5520 pixels of the raw frame, resized to 2400 wide, colors adjusted (eri/scripts/rawcrop.py)",
-   "width": 1200,
-   "height": 900,
-   "display_credit": "U.S. government aerial photo",
-   "reused_from": "batches/2026-10-a/images/del-webb-north-myrtle-beach/cherry-grove-marsh-from-above-2026-*.webp (same files, renamed; record copied from batches/2026-10-a/data/photos.json)",
-   "crops": {
-    "1x1": {
-     "path": "images/buyers/no-hoa/cherry-grove-from-above-1x1.webp",
-     "width": 1200,
-     "height": 1200
-    },
-    "4x3": {
-     "path": "images/buyers/no-hoa/cherry-grove-from-above-4x3.webp",
-     "width": 1200,
-     "height": 900
-    },
-    "16x9": {
-     "path": "images/buyers/no-hoa/cherry-grove-from-above-16x9.webp",
-     "width": 1200,
-     "height": 675
-    }
-   },
-   "crop_source": "scratchpad eri/cg-4x3.png (2400 x 1800, the same NOAA view the 600w and 1200w files were made from; RMSE 1.1% against the 1200w file), cut to 1x1, 4x3 and 16x9 from the center with tools/photos.js crops"
-  },
-  {
    "slug": "affordable-places-to-live",
    "file": "images/buyers/affordable/georgetown-harbor.webp",
    "variants": {
@@ -773,7 +702,25 @@
    "width": 1200,
    "height": 900,
    "original_size": "2400x1800 export of 480 x 360 m; cut 1440 x 1080 px and resized to 2400 x 1800 before labels",
-   "display_credit": "U.S. government aerial photo"
+   "display_credit": "U.S. government aerial photo",
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/no-hoa/aynor-country-lot-1x1.webp",
+     "width": 1200,
+     "height": 1200
+    },
+    "4x3": {
+     "path": "images/buyers/no-hoa/aynor-country-lot-4x3.webp",
+     "width": 1200,
+     "height": 900
+    },
+    "16x9": {
+     "path": "images/buyers/no-hoa/aynor-country-lot-16x9.webp",
+     "width": 1200,
+     "height": 675
+    }
+   },
+   "crop_source": "The 2400 by 1800 px labelled export (the same view, outline and labels as the page photo), center-cropped by tools/photos.js crops for Article.image and the share image."
   },
   {
    "slug": "gated-communities",

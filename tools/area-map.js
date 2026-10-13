@@ -627,6 +627,9 @@ const C2 = {
 /* How far, in map units beyond half its height, a town or park name's middle may sit from its
    town or park on a map of many places (regionMap with spec.places). */
 const TOWN_REACH = 12;
+/* The longest leader line from a name to its town or marker (spec.leaders), in map units: about a
+   sixth of the map's width. A longer line read as pointing at something else. */
+const LEADER_MAX = 60;
 const SZ = { home: 17, place: 14, mins: 13, town: 14, water: 14, ocean: 15, state: 11.5, shield: 11, suf: 8, furn: 11, street: 12.5, name: 14, amenity: 14.5, sub: 12.5, many: 15, num: 12.5 };
 
 /* A label's room. textWidth fits DM Sans within about 5 percent; a phone that shows a
@@ -1457,7 +1460,7 @@ function regionMap(spec, opts = {}) {
         const lb = rect2(ax + ux * (r + w / 2 * Math.abs(ux)), ay + uy * (r + h / 2 * Math.abs(uy)), w, h);
         if (!L.fits(lb, 3, own)) continue;
         const ex = Math.max(lb.x0, Math.min(ax, lb.x1)), ey = Math.max(lb.y0, Math.min(ay, lb.y1)), d = Math.hypot(ex - ax, ey - ay);
-        if (d <= from + 3) continue;
+        if (d <= from + 3 || d > LEADER_MAX) continue;
         const sx = ax + (ex - ax) / d * from, sy = ay + (ey - ay) / d * from, seg = segBox([sx, sy], [ex, ey]);
         if (L.items.some((it) => !own(it) && !soft(it) && satOverlap(seg, it))) continue;
         const wet = oceanPx.length > 2 && inPoly([lb.cx, lb.cy], oceanPx);
@@ -1481,26 +1484,32 @@ function regionMap(spec, opts = {}) {
         anchors.push([x, y]);
       }
       if (!anchors.length) continue;
-      const text = t.name.toUpperCase(), size = SZ.town, w = tw2(text, size, 0.1) + 6, h = size + 5;
-      const own = (it) => it.owner === "town:" + t.name;
+      /* In the ocean when the town is on the coast (a name on land far from the city read as another
+         place inland), on one line or two; the line no longer than LEADER_MAX. */
+      const coastal = oceanPx.length > 2 && ringsPx.some((ring) => ring.some((q) => inPoly(q, oceanPx)));
+      const own = (it) => it.owner === "town:" + t.name, size = SZ.town, lh = size + 2.5;
       let best = null;
-      for (let cy = 8 + h / 2; cy < H - 8 - h / 2; cy += 3) for (let cx = 8 + w / 2; cx < W - 8 - w / 2; cx += 3) {
-        const lb = rect2(cx, cy, w, h);
-        if (!L.fits(lb, 3, own)) continue;
-        const wet = oceanPx.length > 2 && lb.pts.every((q) => inPoly(q, oceanPx));
-        for (const [ax, ay] of anchors) {
-          const ex = Math.max(lb.x0, Math.min(ax, lb.x1)), ey = Math.max(lb.y0, Math.min(ay, lb.y1)), d = Math.hypot(ex - ax, ey - ay);
-          const score = d + (wet ? 0 : 40);
-          if (d < 10 || (best && score >= best.score)) continue;
-          const seg = segBox([ax, ay], [ex, ey]);
-          if (L.items.some((it) => !own(it) && !soft(it) && satOverlap(seg, it))) continue;
-          best = { lb, ax, ay, ex, ey, seg, score };
+      for (const lines of [[t.name.toUpperCase()], wrap2(t.name.toUpperCase(), 6)]) {
+        const w = Math.max(...lines.map((l) => tw2(l, size, 0.1))) + 6, h = lines.length * lh + 3;
+        for (let cy = 8 + h / 2; cy < H - 8 - h / 2; cy += 3) for (let cx = 8 + w / 2; cx < W - 8 - w / 2; cx += 3) {
+          const lb = rect2(cx, cy, w, h);
+          if (!L.fits(lb, 3, own)) continue;
+          const wet = oceanPx.length > 2 && lb.pts.every((q) => inPoly(q, oceanPx));
+          if (coastal ? !wet : !onLand(lb)) continue;
+          for (const [ax, ay] of anchors) {
+            const ex = Math.max(lb.x0, Math.min(ax, lb.x1)), ey = Math.max(lb.y0, Math.min(ay, lb.y1)), d = Math.hypot(ex - ax, ey - ay);
+            const score = d + (lines.length - 1) * 6;
+            if (d < 10 || d > LEADER_MAX || (best && score >= best.score)) continue;
+            const seg = segBox([ax, ay], [ex, ey]);
+            if (L.items.some((it) => !own(it) && !soft(it) && satOverlap(seg, it))) continue;
+            best = { lb, ax, ay, ex, ey, seg, score, lines };
+          }
         }
       }
-      if (!best || best.score > 140) continue;
+      if (!best) continue;
       L.add(best.lb, "town", "town:" + t.name);
       L.add(best.seg, "leader", "town:" + t.name);
-      leaderTowns.push({ t, ...best, text, size });
+      leaderTowns.push({ t, ...best, size });
     }
     /* Places: from the edge of the marker. */
     for (const b of spec.leaders.places === false ? [] : bare.slice()) {
@@ -1633,7 +1642,8 @@ function regionMap(spec, opts = {}) {
   for (const lt of leaderTowns) {
     const dx = lt.ex - lt.ax, dy = lt.ey - lt.ay;
     lab.push(g(lt.ax, lt.ay, `<path class="ld" d="M0 0L${r1(dx)} ${r1(dy)}" stroke="#3b4450" stroke-width="1"/><circle r="2" fill="#3b4450"/>`
-      + txt("T", lt.lb.cx - lt.ax, lt.lb.cy - lt.ay + lt.size * 0.36, "middle", esc(lt.text))));
+      + txt("T", lt.lb.cx - lt.ax, lt.lb.cy - lt.ay - ((lt.lines.length - 1) * (lt.size + 2.5)) / 2 + lt.size * 0.36, "middle",
+        lt.lines.map((l, i) => `<tspan x="${r1(lt.lb.cx - lt.ax)}"${i ? ` dy="${r1(lt.size + 2.5)}"` : ""}>${esc(l)}</tspan>`).join(""))));
   }
   /* A name of one or two lines, centred on its box. */
   const block = (cls, lines, size, extra = "") => { const lh = size + 2; return txt(cls, 0, -(lines.length * lh) / 2 + size * 0.85, "middle", lines.map((l, i) => `<tspan x="0"${i ? ` dy="${lh}"` : ""}>${esc(l)}</tspan>`).join("")).replace(`class="${cls}"`, `class="${cls}"${extra}`); };
@@ -2193,7 +2203,7 @@ function refreshGeo(rawDir) {
 module.exports = {
   /* version 2 */
   regionMap, closeMap, communityMaps, mapLinksHtml, loadGeo2, describeRegion, cleanStreet, CREDIT2, GEO2_FILE, INLINE_MAX, FILE_MAX, MANY_MAX,
-  internals: { satOverlap, curvedLabel, chainPieces, Layout2, rect2, frame2, linePieces, tw2, SZ, EDGE, TOWN_REACH, nameAirport, amenityOf },
+  internals: { LEADER_MAX, satOverlap, curvedLabel, chainPieces, Layout2, rect2, frame2, linePieces, tw2, SZ, EDGE, TOWN_REACH, nameAirport, amenityOf },
   /* version 1, kept for older specs */
   areaMap, areaMapSvg, liveMapHtml, describe, CREDIT, GEO_FILE, DATA_BBOX, MAX_BYTES, loadGeo, buildGeo,
   simplify, clipPolygon, clipLine, textWidth,
