@@ -85,7 +85,7 @@ const beach = (p) => r5m(BEACH[p]), mall = (p) => r5m(MALL[p]);
 /* Yearly property tax on a typical home you live in (pending row 108): value x the 2026 rate per
    $100,000 (rows 64 to 68, 73), plus the bill's flat fee; Georgetown from the county's estimator (row 76).
    To the nearest $100. */
-const TAX = { Georgetown: 2300, Loris: 1800, Longs: 1100, Conway: 1900, Aynor: 1700, "Myrtle Beach": 1300 };
+const TAX = { Georgetown: 2300, Loris: 1800, Longs: 1100, Conway: 1900, Aynor: 1800, "Myrtle Beach": 1300 };
 const tax = (p) => "$" + TAX[p].toLocaleString("en-US");
 
 const PLACES = [
@@ -239,7 +239,7 @@ module.exports = {
       h.p(`${valueLine("Conway")} Conway is a city on the Waccamaw River, inland from Myrtle Beach.`) +
       h.p(drives("Conway", "in Myrtle Beach") + " Conway Medical Center is a short drive from downtown.") +
       CONWAY_PHOTO +
-      h.p(`A typical home you live in inside the city pays about ${tax("Conway")} a year in property tax. Most homes for sale in Conway have an HOA fee, typically about $85 a month. That adds up to about $2,900 a year, besides the mortgage.`) +
+      h.p(`A typical home you live in inside the city pays about ${tax("Conway")} a year in property tax. Most homes for sale in Conway have an HOA fee, typically about $85 a month. The tax and the fee together come to about $2,900 a year, besides the mortgage.`) +
       h.p(`Homes in Conway are newer than in Loris or Georgetown, and builders are selling new homes there. Some homes with a Conway address are outside the city and pay the lower county tax. Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself.`) },
 
     { h2: "What is it like to buy in Aynor?", toc: "Aynor", id: "aynor", html: () =>
@@ -257,7 +257,7 @@ module.exports = {
         "Homes outside town limits pay no town tax.",
       ], [
         { text: "From Loris, Georgetown or Aynor, Myrtle Beach is 40 to 50 minutes away by car.", act: "Drive from the home to your work at the hour you would go, before you make an offer." },
-        { text: "Many homes in Loris and Georgetown were built before 1980.", act: `Insurers may ask an older home to have an updated roof, wiring, plumbing and heating. A home inspection shows their age before you buy.` },
+        { text: "Many homes in Loris and Georgetown were built before 1980.", act: `Insurers may require an older home to have an updated roof, wiring, plumbing and heating. A home inspection shows their age before you buy.` },
         { text: "Inside the town limits of Loris, Conway and Aynor, the property tax is higher.", act: "An agent checks the county tax record for the address before you make an offer." },
         { text: "Few homes come up for sale in Loris and Aynor." },
       ], { bg }) +
@@ -276,7 +276,7 @@ module.exports = {
     { h2: "How much property tax will you pay in each place?", toc: "Property tax", id: "property-tax", html: (bg) =>
       h.p(`Property tax on a typical home you live in runs from about ${tax("Longs")} a year in Longs to about ${tax("Georgetown")} in Georgetown. Myrtle Beach is about ${tax("Myrtle Beach")}.`) +
       h.p(`Homes outside town and city limits pay the lowest rate, at ${h.ext(LEVY, "the county's tax rates")}. Inside a town, you pay the town's tax too, so a home just outside town can pay less each year.`) +
-      h.p("When you buy, the county values the home at about what it is worth that year. These figures use the typical value, so a cheaper home pays less.") +
+      h.p("When you buy, the county values the home at about what it is worth that year. The new value shows up on the next year's tax bill. These figures use the typical value, so a cheaper home pays less.") +
       h.p(`The figures are for your main home, once the county gives it the lower rate for a home you live in. You apply for that rate; it is not automatic. Our ${h.a("/buyers/property-taxes/", "property tax guide")} shows how to apply.`) +
       story([
         "<strong>Example:</strong> Kim is buying her first home near Conway. She likes two houses at about the same price, and one of them is inside the city limits.",
