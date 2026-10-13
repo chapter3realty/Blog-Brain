@@ -56,6 +56,8 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B21. Review rounds converge when each finding is graded.** Round 1 of the owner's-eye review gave 8, 8, 7, 7, 7 with no severity. Round 2 asked for high, medium or low on each finding: the pages rose to 9, 9, 8, 8, 8, and the medium items were few and concrete. Asking a reviewer to grade each finding, and to say when a page is ready, stops the loop from inventing work (CRAFT 8, "Stop by rule").
 
+**B22. A page can score 100 with a broken layout.** The gated spec never loaded the photo stylesheet. Its two aerials ran 1,200 px wide on a desktop, and the credit was a bare blue link. Every gate passed, and two reviewers missed it. The third caught it at 1280 px. Rule: every reviewer looks at desktop width as well as phone width, and a check that every photo on the page has its styling belongs in a gate (candidate: a scorer or image-meta rule that fails a figure whose stylesheet is missing).
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
