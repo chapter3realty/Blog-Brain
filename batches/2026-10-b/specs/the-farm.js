@@ -228,7 +228,7 @@ module.exports = {
       h.p("The Farm is outside the city limits, so there is no city tax. When you buy, you also pay the HOA a one-time fee of $250 at closing.") +
       h.p(`The HOA spends the largest share of the ${h.ext(BUDGET, "fee")} on cable TV from Spectrum. The HOA spends the rest on landscaping and the ponds, trash pickup, the management company, electricity, savings for repairs, the pools and insurance. The fee does not include internet.`) +
       h.p("Townhomes in The Orchards and condos in Planters Point also have their own HOA. In all, owners in The Orchards pay about $225 to $255 a month. Owners in Planters Point pay about $450 to $500 a month.") +
-      h.p(`Every home in The Farm is outside the high-risk flood zone on ${h.ext(FEMA, "FEMA's flood map")}. That means federal law does not make your lender require flood insurance. If you want a policy for a house anyway, one in this ZIP code usually costs about $600 a year.`) +
+      h.p(`Every home in The Farm is outside the high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}. That means federal law does not make your lender require flood insurance. If you want a policy for a house anyway, one in this ZIP code usually costs about $600 a year.`) +
       h.cta("Get the list of homes for sale in The Farm.", "Tell us your price range, and one of our agents will send you the homes for sale in The Farm now.", "Get the list", "/contact/", bg) +
       h.p(`If you would rather not pay an HOA fee, see ${h.a("/buyers/no-hoa-homes/", "where to find homes with no HOA near Myrtle Beach")}. For lower prices, see ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy near Myrtle Beach")}.`) },
 

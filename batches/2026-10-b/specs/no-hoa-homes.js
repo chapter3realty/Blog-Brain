@@ -272,9 +272,9 @@ module.exports = {
       h.cta("Get the homes with no HOA fee in your price range.", "Tell us your price range and the areas you like. One of our agents will send you the homes for sale with no HOA fee.", LABEL, "/contact/", bg) },
 
     { h2: "Why do homes with no HOA fee cost more?", toc: "Why they cost more", html: () =>
-      h.p(`Houses for sale with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are near the ocean: about 1 in 3 is on the ocean side of Business 17, the coast road.`) +
+      h.p(`Houses for sale with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are near the ocean: about 1 in 3 is on the ocean side of US 17 Business, the coast road.`) +
       CHERRY +
-      h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Near the water, flood insurance can cost more than that. Almost every home in Cherry Grove is in a high-risk flood zone on ${h.ext(FEMA, "FEMA's flood map")}. Flood insurance on a home you live in there usually costs about $1,300 a year.`) +
+      h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Near the water, flood insurance can cost more than that. Almost every home in Cherry Grove is in a high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}. Flood insurance on a home you live in there usually costs about $1,300 a year.`) +
       h.p(`On the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose. Check the flood zone of the home you like before you offer.`) },
 
     { h2: "What do you gain and give up with no HOA?", toc: "Pros and cons", html: (bg) =>
