@@ -59,7 +59,8 @@
 const fs = require("fs"), path = require("path");
 const { h, compareCards, wantPicker, atAGlance, glance, story, BB } = require("./_kit.js");
 const PK = require(path.join(BB, "tools", "page-kit.js"));
-const { loadGeo2 } = require(path.join(BB, "tools", "area-map.js"));
+const AM = require(path.join(BB, "tools", "area-map.js"));
+const { loadGeo2 } = AM;
 
 /* This batch's files: the website's data/2026-10-b/ (where the upload package puts them), else the
    batch folder in Blog-Brain. Photo records: batch 2026-10-a's (the website's data/photos.json), then this batch's. */
@@ -108,6 +109,7 @@ const SC_TAX = "https://www.scstatehouse.gov/code/t12c037.php";
 const BEACH = "https://gis.des.sc.gov/beachaccess/";
 const SCHOOLS = "https://hcsd1.maps.arcgis.com/apps/instant/lookup/index.html?appid=72f93a5329c54f54840673fe6430ab43";
 const FARM_HOA = "https://www.farmatcarolinaforest.com/";
+const CG_CANALS = "https://www.nmb.us/AgendaCenter/ViewFile/Item/1251?fileID=3883";
 
 /* A neighborhood's heading, with the id the picker, the map key and the tables link to. The heading is
    the neighborhood's own name, the same words as its row in the table, its card in the picker and its
@@ -154,13 +156,80 @@ function addTown(res, name, reach = 60) {
   return res;
 }
 
+/* A name beside a dot the tool left with a number only (owner's eye, round 3: "a name beside every dot").
+   The tool names the dots it has room for. This adds a name to the others: a ring search around the
+   dot's own marker, in one or two lines, clear of every label, marker, shield and the map's furniture,
+   and nearer its own marker than any other marker by `margin` px, so it reads as that dot's name. A dot
+   with no such spot keeps its number, and the key under the map names it. strip removes a label the tool
+   placed between two markers (Grande Dunes, round 3), so it can be placed again against its own dot;
+   stripShields removes a road shield the reader does not need where it blocks a name. */
+const TW2 = AM.internals.tw2, SZ_MANY = AM.internals.SZ.many;
+function labelDots(res, forms, o = {}) {
+  const m = res.map, strip = new Set(o.strip || []), margin = o.margin == null ? 2 : o.margin;
+  let svg = res.html;
+  for (const num of strip) {
+    const re = new RegExp(`(<text class="nm"[^>]*>${num}</text>)<text class="l"[^>]*>[\\s\\S]*?</text>`);
+    if (!re.test(svg)) throw new Error(`best-neighborhoods: no map label to strip for ${num}`);
+    svg = svg.replace(re, "$1");
+    m.boxes = m.boxes.filter((b) => !(b.kind === "label" && b.owner === "lm" + (num - 1)));
+  }
+  for (const sh of o.stripShields || []) {
+    const num = sh.split(" ")[1].split("#")[0];
+    const re = new RegExp(`<g transform="translate\\([^)]*\\)"><g class="k"><rect [^>]*/><text class="r"[^>]*>${num}</text></g></g>`);
+    if (!re.test(svg)) throw new Error(`best-neighborhoods: no road shield ${sh} on the map`);
+    svg = svg.replace(re, "");
+    m.boxes = m.boxes.filter((b) => !(b.kind === "shield" && b.owner === sh));
+  }
+  const markers = m.boxes.filter((b) => b.kind === "marker");
+  const cen = (b) => [(b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2];
+  const LH = 17.5, out = [], missed = [];
+  for (const p of m.places) {
+    if (p.labelled && !strip.has(p.num)) continue;
+    const mk = markers.find((b) => b.owner === "lm" + (p.num - 1));
+    const [cx, cy] = cen(mk), r = (mk.x1 - mk.x0) / 2;
+    let best = null;
+    for (const lines of forms[p.name] || [[p.name]]) {
+      const w = Math.max(...lines.map((l) => TW2(l, SZ_MANY))) + 4, hh = lines.length * LH + 2;
+      for (let gap = 2; gap <= 14 && !best; gap += 2) for (let k = 0; k < 24 && !best; k++) {
+        const a = k * Math.PI / 12, ux = Math.cos(a), uy = Math.sin(a), px = cx + (r + gap) * ux, py = cy + (r + gap) * uy;
+        const x0 = ux > 0.3 ? px : ux < -0.3 ? px - w : px - w / 2, y0 = uy > 0.3 ? py : uy < -0.3 ? py - hh : py - hh / 2;
+        const b = { x0, x1: x0 + w, y0, y1: y0 + hh };
+        if (b.x0 < 4 || b.x1 > m.width - 4 || b.y0 < 4 || b.y1 > m.height - 4) continue;
+        if (m.boxes.some((q) => q !== mk && q.kind !== "water" && !(q.x1 + 1 < b.x0 || q.x0 - 1 > b.x1 || q.y1 + 1 < b.y0 || q.y0 - 1 > b.y1))) continue;
+        const d = (q) => { const [qx, qy] = cen(q); return Math.hypot(Math.max(b.x0 - qx, 0, qx - b.x1), Math.max(b.y0 - qy, 0, qy - b.y1)); };
+        if (markers.some((q) => q !== mk && d(q) <= d(mk) + margin)) continue;
+        best = { lines, b };
+      }
+      if (best) break;
+    }
+    if (!best) { missed.push(p.num); continue; }
+    const { lines, b } = best, x = (b.x0 + 2).toFixed(1), y = (b.y0 + 14).toFixed(1);
+    m.boxes.push(Object.assign({ kind: "label", owner: "lm" + (p.num - 1) }, b));
+    out.push(`<g class="k"><text class="l" x="${x}" y="${y}">` + lines.map((l, i) => `<tspan x="${x}"${i ? ` dy="${LH}"` : ""}>${l}</tspan>`).join("") + `</text></g>`);
+  }
+  const i = svg.indexOf("</svg>");
+  if (i < 0) throw new Error("the map is not inline, so names cannot be added");
+  res.html = svg.slice(0, i) + out.join("") + svg.slice(i);
+  if (missed.length) console.warn(`best-neighborhoods: no room on the overview for the names of ${missed.join(", ")}; the key names them`);
+  return res;
+}
+
 /* The overview: the fifteen, north to south, each name linked to its own part of the page, and the key in
    two columns on a phone too, so it sits right under the map. */
-const OVERVIEW = kit.placesMap("Neighborhoods", D.neighborhoods.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: link(n.id) })), {
-  caption: "Map of the 15 neighborhoods on this page, numbered from North Myrtle Beach at the top right to Murrells Inlet at the bottom left. Numbers 6, 10 and 12 are in the city of Myrtle Beach.",
+const OVERVIEW = labelDots(kit.placesMap("Neighborhoods", D.neighborhoods.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: link(n.id) })), {
+  caption: "Map of the 15 neighborhoods on this page, numbered from North Myrtle Beach at the top right to Murrells Inlet at the bottom left. The city of Myrtle Beach is on the coast around numbers 6, 10 and 12.",
   key: true,
-});
-const KEY_CSS = "<style>.c3-map-key{columns:2 8rem!important;column-gap:1rem!important;margin-left:1.4rem!important}.c3-map-key li{font-size:1rem}</style>";
+}), {
+  "Barefoot Resort": [["Barefoot"]], "Waterbridge": [["Waterbridge"]], "The Farm at Carolina Forest": [["The Farm"]],
+  "Plantation Lakes": [["Plantation Lakes"], ["Plantation", "Lakes"]], "Berkshire Forest": [["Berkshire"]],
+  "Forestbrook Estates": [["Forestbrook"]], "Prince Creek": [["Prince Creek"], ["Prince", "Creek"]],
+  [N["grande-dunes"].name]: [["Grande Dunes"], ["Grande", "Dunes"]],
+}, { strip: [6], stripShields: ["SC 31#0"] });
+/* The picker's places sit side by side when they fit, so the ten boxes take less of a phone screen; each
+   link keeps its full tap height. */
+const KEY_CSS = "<style>.c3-map-key{columns:2 8rem!important;column-gap:1rem!important;margin-left:1.4rem!important}.c3-map-key li{font-size:1rem}"
+  + ".c3-want{gap:.75rem!important;margin:1rem 0 1.4rem!important}.c3-want>li{padding:.8rem 1rem .45rem!important}.c3-want .w{margin-bottom:.2rem!important}"
+  + ".c3-want ul{display:flex;flex-wrap:wrap;column-gap:1.25rem}.c3-want .note{margin:0 0 .35rem!important}</style>";
 
 /* One small map per area, where every name fits. */
 const areaMap = (name, ids, caption, towns = []) => {
@@ -207,7 +276,7 @@ module.exports = {
   heroMedia: glance([
     { icon: "beach", label: "Walk to the beach", text: "Cherry Grove, about $695,000" },
     { icon: "dollar", label: "A lower price", text: "The Farm, about $350,000" },
-    { icon: "golf", label: "Golf", text: "Pine Lakes, Barefoot Resort" },
+    { icon: "golf", label: "Golf", text: "Pine Lakes, Tidewater, Barefoot" },
   ]),
   heroCta: { label: "Get three neighborhoods", href: OFFER },
   author: "devin",
@@ -239,7 +308,7 @@ module.exports = {
         { icon: "clubhouse", want: "A 55+ community", note: "See the 55+ section below for the age rule.",
           places: [{ name: "Del Webb North Myrtle Beach", href: DWNMB }, { name: "Seasons at Prince Creek West", href: SEASONS }, { name: "Myrtle Trace", href: MT }] },
         { icon: "gate", want: "A gate at the entrance", note: "Our guide to gated communities lists more.",
-          places: [{ name: "Tidewater Plantation", href: A("tidewater") }, { name: "Grande Dunes, some sections", href: A("grande-dunes") }] },
+          places: [{ name: "Tidewater Plantation", href: A("tidewater") }, { name: N["grande-dunes"].name, href: A("grande-dunes") }] },
       ]) +
       h.p(`For a home with no HOA at all, see ${h.a("/buyers/no-hoa-homes/", "where to find homes with no HOA near Myrtle Beach")}. For a gate at the entrance, see our guide to ${h.a("/buyers/gated-communities/", "gated communities near Myrtle Beach")}. If the price matters most, see ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy a home near Myrtle Beach")}.`) },
 
@@ -247,7 +316,7 @@ module.exports = {
       h.p("The 15 neighborhoods on this page run along the coast from North Myrtle Beach to Murrells Inlet, and inland to Carolina Forest and Conway. Most people say Myrtle Beach for this whole stretch of coast, but the city of Myrtle Beach is only one part of it.") +
       OVERVIEW.html +
       h.p("Myrtle Beach, North Myrtle Beach, Surfside Beach and Conway are cities and towns. Carolina Forest, Forestbrook and Murrells Inlet are areas outside any town. The other names are neighborhoods: Barefoot Resort is not a hotel, The Farm is not a farm, and Plantation is only part of a name.") +
-      h.p(`A public beach access is a public path to the beach. Some have parking and some do not. A high-risk flood zone is land the federal flood map, ${h.ext(FEMA, "FEMA's flood map")}, marks as likely to flood. A federally regulated or federally backed lender must require flood insurance on a mortgage for a home in one.`) +
+      h.p(`A public beach access is a public path to the beach. Some have parking and some do not. A high-risk flood zone is land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. With a mortgage, your lender will almost always require flood insurance on a home in one. A cash buyer can choose.`) +
       h.p(`To choose a town before a neighborhood, read ${h.a("/buyers/relocating/which-town/", "which town near Myrtle Beach fits you")}.`) },
 
     { h2: "What does a home here cost each year, besides the mortgage?", toc: "Yearly cost", id: "yearly-cost", html:
@@ -257,14 +326,12 @@ module.exports = {
       h.p("The HOA fee covers what the neighborhood shares. For a house, it usually includes the common areas, and often trash pickup and a pool. A condo fee usually also includes the building's insurance, water and sewer.") +
       h.p(`The tax is for a home you live in, and in North Myrtle Beach the figure includes the city's share. A home you rent out pays a higher rate.`) +
       h.p(`When a home sells, the county ${h.ext(SC_TAX, "values it again")} at what the home is worth, and the new value is first taxed the next year. In an ordinary sale, that is usually close to the price paid.`) +
-      h.p("In Cherry Grove, more than half of the homes for sale are listed with no HOA fee, and the others pay a fee.") +
-      h.p("Almost every home in Cherry Grove is in a high-risk flood zone. A federally regulated or federally backed lender must require flood insurance on a mortgage for a home in one. A cash buyer is not required to carry it.") +
-      h.p("Many Cherry Grove homes also pay a flat fee of about $1,700 a year, which appears to be the city's canal-dredging charge. Only some homes pay it, so the yearly totals above do not count it.") +
+      h.p(`About 400 properties in Cherry Grove also pay the city about $1,700 a year, on the tax bill, for ${h.ext(CG_CANALS, "dredging the canals")}. The city's bond for that work is scheduled to be paid off in April 2028. Only those properties pay it, so the totals above do not count it.`) +
       h.p(`In The Farm and most of Tidewater Plantation, flood insurance is not required, and in The Farm it costs about $600 a year if you choose it. Homeowners insurance comes on top of all this. Our guide to ${h.a("/buyers/coastal-insurance/", "insurance near the coast")} shows what it costs.`) },
 
     { h2: "What is it like to live here all year?", toc: "Living here all year", id: "all-year", html:
-      h.p("Life here goes on all year. In our experience, nothing closes in the off-season except tourist attractions and water parks.") +
-      h.p("In our experience, rush hour adds 5 to 10 minutes to a drive. In our experience, Highway 31 and Highway 22 avoid the stop lights on US 17. The drive times on this page are with no traffic, so allow more time in summer.") +
+      h.p("Life here goes on all year. In our experience, nothing closes in the off-season except tourist attractions and water parks. Rush hour adds 5 to 10 minutes to a drive. The highways we use, a few miles inland, avoid the stop lights on the main road along the coast.") +
+      h.p("The drive times on this page are with no traffic, so allow more time in summer.") +
       h.p("Myrtle Beach International Airport is about 10 minutes from The Market Common and about 20 minutes from The Farm's entrance. From Cherry Grove and Tidewater Plantation, the drive is about 45 minutes.") +
       h.p(`Hurricanes can reach this coast. Our ${h.a("/buyers/relocating/hurricanes/", "guide to hurricanes near Myrtle Beach")} shows how to get ready.`) },
 
