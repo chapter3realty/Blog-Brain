@@ -11,6 +11,9 @@
  *   two maps (the Pawleys Island neighborhoods on their own map, so no two dots hide each other);
  *   a labelled NOAA aerial of a gatehouse (row 82, pending); the plain word for every term the
  *   reader had to guess; fees rounded; the HOA's care of the gate and streets said once.
+ * Version 2b, 2026-10-13: the verifier's notes on rows 77 to 82 (crime line by agency, year and type; no
+ *   calls map; the Prestwick building and the Gatehouse card make no staffing claim; Beach Club wording;
+ *   'main entrance gates'; guests registered by the owner or rental manager; the two ocean places named).
  * Version 1, 2026-10-13.
  *
  * Reader: typed "gated communities in Myrtle Beach", "best gated communities", or an area, "55+" or
@@ -40,7 +43,8 @@
  *   Beach: rows 57 to 76; "on the ocean" for Litchfield by the Sea and DeBordieu (rows 79, 81).
  *   Golf: rows 39 and 10. 55+: Myrtle Trace and Seasons (batch 2026-10-a), with their age rule.
  *   Streets: rows 1 to 3, said with their limit (outside city limits in Horry County).
- *   Crime: SLED's crime data site and Horry County's calls-for-service map, links only (rows 77, 78).
+ *   Crime: SLED's crime data site, link only (row 77). Row 78 (Horry County's calls-for-service map) is
+ *     not used: it shows calls, not crimes, part of its data is months old, and no agency list (verifier).
  * Never: safe, secure, exclusive, luxury, upscale; a rating; who lives anywhere; a conclusion about
  * an HOA or builder; package deliveries (no row); Tuscany Village and Cascadia (cut: not in a
  * table or on a map).
@@ -64,7 +68,6 @@ const BAREFOOT = "https://www.barefoothoa.com/single-family-neighborhoods/";
 const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
 const BEACH = "https://gis.des.sc.gov/beachaccess/";
 const SLED = "https://www.sled.sc.gov/sc-crime-data";
-const CALLS = "https://www.horrycountysc.gov/gis/calls48/";
 
 /* ---------------------------------------------------------------------------- */
 /* Maps: the coast from North Myrtle Beach to Murrells Inlet, then the Pawleys Island
@@ -119,7 +122,7 @@ const big = (html) => `<div class="c3-big">${html}</div>`;
 
 const ph = photoSetB({ aerialWidth: "720px" });
 const GATE_PHOTO = ph.aerial("prestwick-gate-from-above-2026",
-  "An entrance to Prestwick from above. Just inside is a small gatehouse between the two lanes, with a gate arm across each lane.");
+  "An entrance to Prestwick from above. Just inside, a small building sits between the two lanes, with a gate arm across each lane.");
 
 module.exports = {
   url: SELF,
@@ -143,27 +146,27 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Gated neighborhoods near Myrtle Beach run along the coast from North Myrtle Beach to Pawleys Island. Homes in most of them usually sell for about $480,000 to $1.5 million.",
-    "Each has a homeowners association (HOA), the group of owners that runs the neighborhood. The HOA fee here is about $90 to $440 a month. A gate controls who drives in, but it does not guard each home. Two of these neighborhoods are on the ocean, and the rest are a short drive from the beach.",
+    "Each has a homeowners association (HOA), the group of owners that runs the neighborhood. The HOA fee here is about $90 to $440 a month. A gate controls who drives in, but it does not guard each home. Litchfield by the Sea and DeBordieu Colony are on the ocean, and most others are a short drive from the beach.",
   ],
   sections: [
     { h2: "Does a gate make a neighborhood safer?", toc: "What a gate does", html: (bg) =>
       h.p("A gate controls who drives into the neighborhood. It does not put a guard at each home, and we do not rate any neighborhood as safe or unsafe.") +
-      h.p(`Visitors stop at the gate and are let in by a guard or by the owner. At Litchfield by the Sea, the owner ${h.ext(LBTS_GUIDE, "registers each guest")} before the visit. Your own doors, locks and alarm are still yours to choose.`) +
+      h.p(`Visitors stop at the gate and are let in at the gate or by the owner. At Litchfield by the Sea, the owner or rental manager must ${h.ext(LBTS_GUIDE, "register guests")} before the visit. Your own doors, locks and alarm are still yours to choose.`) +
       h.p("Who is at the gate depends on the neighborhood. These are the five kinds of gate you will find here.") +
       CARD_CSS + big(atAGlance([
         { icon: "gate", label: K.guard, text: "A guard is on duty at the main gate around the clock. Litchfield by the Sea." },
-        { icon: "home", label: K.house, text: "A small building at the gate where a guard can check visitors. The hours differ. Tidewater Plantation, Prestwick, Wachesaw Plantation, Willbrook Plantation, Litchfield Plantation, DeBordieu Colony and Dye Estates." },
+        { icon: "home", label: K.house, text: "A building at the gate. Ask us about hours. Tidewater Plantation, Prestwick, Wachesaw Plantation, Willbrook Plantation, Litchfield Plantation, DeBordieu Colony and Dye Estates." },
         { icon: "key", label: K.call, text: "A phone at the gate. A visitor calls the owner, who opens the gate. Seasons at Prince Creek West." },
         { icon: "trail", label: K.back, text: "The front entrance is open, and only the back entrance has gates. Myrtle Trace." },
         { icon: "pin", label: K.ask, text: "These neighborhoods have a gate, and the kind is not posted. Ask us before you tour." },
       ], { bg, min: "18rem" })) +
       GATE_PHOTO +
-      h.p(`To see reported crime near any address, use the state's ${h.ext(SLED, "crime data site")} and pick the police department or sheriff that covers it. Horry County also posts a ${h.ext(CALLS, "public map of calls for service")} from the last 48 hours.`) },
+      h.p(`To see crime reported to a police department or sheriff, use the state's ${h.ext(SLED, "crime data site")}. You pick the agency, the year and the type of crime.`) },
 
     { h2: "Where are the gated neighborhoods near Myrtle Beach?", toc: "Maps", html:
       h.p("Gated neighborhoods near Myrtle Beach are in four parts of the coast. From north to south, they are North Myrtle Beach, Myrtle Beach and Carolina Forest, Surfside Beach to Murrells Inlet, and Pawleys Island.") +
       MAP_N.html + MAP_S.html +
-      h.p(`Litchfield by the Sea and DeBordieu Colony are on the ocean, each with a private beach club for owners. The others are a short drive from a ${h.ext(BEACH, "public beach access")}, a spot where anyone can park and walk onto the beach.`) },
+      h.p(`Litchfield by the Sea and DeBordieu Colony are on the ocean, and each has a Beach Club. Most others are a short drive from a ${h.ext(BEACH, "public beach access")}, a spot where anyone can park and walk onto the beach.`) },
 
     { h2: "Which gated community fits what you want?", toc: "Which one fits you", html:
       h.p("The best gated community for you depends on what you want close by. Start with what matters most to you.") +
@@ -245,7 +248,7 @@ module.exports = {
       CARD_CSS + big(atAGlance([
         { icon: "clubhouse", label: "Seasons at Prince Creek West", text: "About $340 a month. It includes internet, weekly trash pickup and lawn care." },
         { icon: "pool", label: "Myrtle Trace", text: "$95 a month. The HOA uses it to keep up the pool, clubhouse, gates, roads, ponds and shared land." },
-        { icon: "beach", label: "Litchfield by the Sea", text: "The association keeps up the gates, the roads, the Beach Club, the River Club pool, a fishing dock, paths and tennis and pickleball courts." },
+        { icon: "beach", label: "Litchfield by the Sea", text: "The association keeps up the main entrance gates, the roads and the Beach Club. It also keeps up the River Club pool, a fishing dock, paths and courts." },
       ], { bg, min: "18rem" })) +
       h.p("In Myrtle Trace, the HOA fee and county tax for a home you live in come to about $2,300 a year, besides the mortgage. In Seasons at Prince Creek West, they come to about $6,100 a year.") +
       h.p(`Outside city limits in Horry County, the streets behind a gate are usually ${h.ext(CODE, "private")}, so the county does not repave them. Repaving comes from the HOA's savings or from the owners, so ${h.a("/hoa/reserves/", "check how much the HOA has saved for repairs")} before you buy.`) +
