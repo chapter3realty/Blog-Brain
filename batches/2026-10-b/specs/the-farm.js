@@ -8,6 +8,13 @@
  *   from DoD's definition of response complete (rows 87, 89; row 88 is wrong as applied, not used); townhome and condo explained (pending
  *   row 90); plain words for county value, zoned for, stormwater, county roads and the lot survey; the
  *   rent-out tax, the acreage, the food drive and history dates cut; a brighter, closer pool aerial.
+ * Version 3, 2026-10-13 (round 3, OWNER-EYE-the-farm.md and ROUND-3.md): a new example (Dana and Luis, the
+ *   sunken pool and the chance of a one-time charge; the agent reads the HOA documents and minutes, stories.json
+ *   "hoa-rental-bans-filtered"); the bombing range in plain words with the Corps' status in the sources line and
+ *   the Defense Department's 3Rs advice (pending row 91); "Get the list" in all three places; dots under The
+ *   Orchards and Planters Point on the overview; the Google Maps link; the hospital off the region map and into
+ *   a short table; the events from rows 68 and 69; tax in one line; stormwater outside the $2,600 sum; three
+ *   FAQ entries and the shopping cards cut for length.
  *
  * Reader: a buyer, often from out of state, who has seen a listing in The Farm or heard the name and
  * wants to picture living there and decide whether to look. They do not know Carolina Forest, the
