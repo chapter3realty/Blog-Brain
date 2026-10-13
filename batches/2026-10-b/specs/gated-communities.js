@@ -183,7 +183,7 @@ module.exports = {
   h1em: "From North Myrtle Beach to Pawleys Island.",
   sub: "Gated neighborhoods near Myrtle Beach, by area, with who is at the gate, the HOA fee and what homes there usually sell for.",
   heroMedia: glance([
-    { icon: "beach", label: "Closest to the beach", text: "Seaside Plantation, about 2 minutes" },
+    { icon: "beach", label: "Seaside Plantation", text: "About 2 minutes to the beach" },
     { icon: "home", label: "Homes sell for", text: "About $480,000 to $1.5 million" },
     { icon: "dollar", label: "HOA fee", text: "About $90 to $440 a month" },
   ]),

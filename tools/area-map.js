@@ -1194,7 +1194,7 @@ function placesSpec(spec) {
    than to any other marker or true spot, clear of every mark, label and line. A name with no room
    is left off and the marker keeps its number: the reader finds the name in the key under the
    map (m.key). Returns { labels, dropped, bare } like placeCallouts, plus the bare markers. */
-function placeMany(L, F, lms, R) {
+function placeMany(L, F, lms, R, between) {
   const NS = SZ.many, LH = NS + 2.5;
   const marks = [];
   lms.forEach((lm, i) => {
@@ -1220,6 +1220,7 @@ function placeMany(L, F, lms, R) {
     if (found.moved) L.add(found.seg, "leader", owner);
     marks.push({ m: { lm, kind: "pin", tx, ty, x: found.x, y: found.y, moved: found.moved }, owner });
   });
+  if (between) between();
   const labels = [], dropped = [], bare = [];
   for (const k of marks) {
     const { m, owner } = k, own = (it) => it.owner === owner;
@@ -1404,45 +1405,6 @@ function regionMap(spec, opts = {}) {
   if (homeTown) placeTown(homeTown, homeTown.rank === 1);
 
   /* Landmarks, in the caller's order of importance. */
-  const { labels: lmLabels, dropped, bare = [] } = many ? placeMany(L, F, lms, R) : placeCallouts(L, F, lms, R, "lm");
-  const marks = lmLabels.map((l) => l.m).concat(bare.map((b) => b.m));
-
-  /* Ocean label: in the ocean, clear of the coast; a size smaller (still a place size) when a
-     narrow strip of ocean has no room for the larger one. */
-  let oceanLabel = null;
-  if (oceanPx.length > 2) for (const size of [SZ.ocean, SZ.place]) {
-    const text = "Atlantic Ocean", w = tw2(text, size, 0.06) + 6, h = size + 4;
-    let best = null;
-    for (let y = 12; y < H - 12; y += 4) for (let x = 12; x < W - 12; x += 4) {
-      const b = rect2(x, y, w, h);
-      if (!L.fits(b, 4) || !b.pts.concat([[x, y]]).every((p) => inPoly(p, oceanPx))) continue;
-      const d = Math.min(...coastPx.map((c) => distToLine([x, y], c)));
-      if (d < h / 2 + 2) continue;
-      const score = Math.min(d, 36) - 0.05 * Math.hypot(x - W / 2, y - H / 2);
-      if (!best || score > best.score) best = { x, y, b, score };
-    }
-    if (best) { L.add(best.b, "water", "ocean"); oceanLabel = { x: best.x, y: best.y, text, size }; break; }
-  }
-
-  /* Water labels along the river and the waterway. */
-  const waterLabels = [];
-  const wlByName = {};
-  for (const wl of geo.waterlines) if (bbHits(wl.bb, view)) (wlByName[wl.name] = wlByName[wl.name] || []).push(...linePieces(F, wl.pts, 0.8, 0));
-  for (const [name, pcs] of Object.entries(wlByName)) {
-    const chained = chainPieces(pcs.map((l) => clipLine(l, 0, 0, W, H)).flat().filter((l) => l.length > 1), 3);
-    const off = SZ.water * 0.7;
-    /* A name this long needs a fairly straight run; a gentler bend is tried when none is free. */
-    let best = null;
-    for (const [sharp, turn] of [[0.24, 0.9], [0.3, 1.25]]) {
-      best = [-off, off, 0].map((o) => curvedLabel(L, chained, name, SZ.water, { offset: o, pad: 2, sharp, turn, score: (x, y) => -Math.hypot(x - hx, y - hy) * 0.01 })).filter(Boolean).sort((a, b) => b.score - a.score)[0];
-      if (best) break;
-    }
-    if (best) { best.boxes.forEach((b) => L.add(b, "water", name)); waterLabels.push({ text: name, ...best }); }
-  }
-
-  /* The other main towns, nearest first: a town name tells a newcomer more than a road number. */
-  geo.towns.filter((t) => t.rank === 1 && t !== homeTown).sort((a, b) => km(home, a) - km(home, b)).forEach((t) => placeTown(t, ["Myrtle Beach", "North Myrtle Beach", "Conway"].includes(t.name)));
-
   /* Names with a leader line (spec.leaders, a map of many places only). A main town whose name has
      no room by its point, and a place whose name has no room beside its marker, get the name in the
      nearest open space, the ocean side first for a town, with a thin line from the name to the town
@@ -1451,24 +1413,26 @@ function regionMap(spec, opts = {}) {
      Beach" on its map (owner's eye, batch 2026-10-b round 4). The line keeps clear of every mark,
      name and other line; a name with no such spot is left off, as before. */
   const leaderTowns = [], leaderNames = [];
-  if (many && spec.leaders) {
-    const soft = (it) => ["dot", "area", "furniture"].includes(it.kind);
-    const spot = (ax, ay, w, h, own, r0, sea, from = 0) => {
-      let best = null;
-      for (const r of [r0, r0 + 10, r0 + 22, r0 + 36, r0 + 52, r0 + 70]) for (let k = 0; k < 24; k++) {
-        const ux = Math.cos(k * Math.PI / 12), uy = Math.sin(k * Math.PI / 12);
-        const lb = rect2(ax + ux * (r + w / 2 * Math.abs(ux)), ay + uy * (r + h / 2 * Math.abs(uy)), w, h);
-        if (!L.fits(lb, 3, own)) continue;
-        const ex = Math.max(lb.x0, Math.min(ax, lb.x1)), ey = Math.max(lb.y0, Math.min(ay, lb.y1)), d = Math.hypot(ex - ax, ey - ay);
-        if (d <= from + 3 || d > LEADER_MAX) continue;
-        const sx = ax + (ex - ax) / d * from, sy = ay + (ey - ay) / d * from, seg = segBox([sx, sy], [ex, ey]);
-        if (L.items.some((it) => !own(it) && !soft(it) && satOverlap(seg, it))) continue;
-        const wet = oceanPx.length > 2 && inPoly([lb.cx, lb.cy], oceanPx);
-        const score = d + (sea && !wet ? 40 : 0);
-        if (!best || score < best.score) best = { lb, ex, ey, sx, sy, seg, score };
-      }
-      return best;
-    };
+  const soft = (it) => ["dot", "area", "furniture"].includes(it.kind);
+  const spot = (ax, ay, w, h, own, r0, sea, from = 0) => {
+    let best = null;
+    for (const r of [r0, r0 + 10, r0 + 22, r0 + 36, r0 + 52, r0 + 70]) for (let k = 0; k < 24; k++) {
+      const ux = Math.cos(k * Math.PI / 12), uy = Math.sin(k * Math.PI / 12);
+      const lb = rect2(ax + ux * (r + w / 2 * Math.abs(ux)), ay + uy * (r + h / 2 * Math.abs(uy)), w, h);
+      if (!L.fits(lb, 3, own)) continue;
+      const ex = Math.max(lb.x0, Math.min(ax, lb.x1)), ey = Math.max(lb.y0, Math.min(ay, lb.y1)), d = Math.hypot(ex - ax, ey - ay);
+      if (d <= from + 3 || d > LEADER_MAX) continue;
+      const sx = ax + (ex - ax) / d * from, sy = ay + (ey - ay) / d * from, seg = segBox([sx, sy], [ex, ey]);
+      if (L.items.some((it) => !own(it) && !soft(it) && satOverlap(seg, it))) continue;
+      const wet = oceanPx.length > 2 && inPoly([lb.cx, lb.cy], oceanPx);
+      const score = d + (sea && !wet ? 40 : 0);
+      if (!best || score < best.score) best = { lb, ex, ey, sx, sy, seg, score };
+    }
+    return best;
+  };
+  /* Towns first, after the markers and before the place names (placeMany calls it between its two
+     passes), so the town in the page's title gets its spot. */
+  const townLeaders = () => {
     /* Towns: the caller names them (leaders.towns). The name goes in the open spot nearest the town,
        the ocean side first, with its line to a clear point inside the town's own outline. */
     const want = (spec.leaders && spec.leaders.towns) || [];
@@ -1511,6 +1475,47 @@ function regionMap(spec, opts = {}) {
       L.add(best.seg, "leader", "town:" + t.name);
       leaderTowns.push({ t, ...best, size });
     }
+  };
+  const { labels: lmLabels, dropped, bare = [] } = many ? placeMany(L, F, lms, R, spec.leaders ? townLeaders : null) : placeCallouts(L, F, lms, R, "lm");
+  const marks = lmLabels.map((l) => l.m).concat(bare.map((b) => b.m));
+
+  /* Ocean label: in the ocean, clear of the coast; a size smaller (still a place size) when a
+     narrow strip of ocean has no room for the larger one. */
+  let oceanLabel = null;
+  if (oceanPx.length > 2) for (const size of [SZ.ocean, SZ.place]) {
+    const text = "Atlantic Ocean", w = tw2(text, size, 0.06) + 6, h = size + 4;
+    let best = null;
+    for (let y = 12; y < H - 12; y += 4) for (let x = 12; x < W - 12; x += 4) {
+      const b = rect2(x, y, w, h);
+      if (!L.fits(b, 4) || !b.pts.concat([[x, y]]).every((p) => inPoly(p, oceanPx))) continue;
+      const d = Math.min(...coastPx.map((c) => distToLine([x, y], c)));
+      if (d < h / 2 + 2) continue;
+      const score = Math.min(d, 36) - 0.05 * Math.hypot(x - W / 2, y - H / 2);
+      if (!best || score > best.score) best = { x, y, b, score };
+    }
+    if (best) { L.add(best.b, "water", "ocean"); oceanLabel = { x: best.x, y: best.y, text, size }; break; }
+  }
+
+  /* Water labels along the river and the waterway. */
+  const waterLabels = [];
+  const wlByName = {};
+  for (const wl of geo.waterlines) if (bbHits(wl.bb, view)) (wlByName[wl.name] = wlByName[wl.name] || []).push(...linePieces(F, wl.pts, 0.8, 0));
+  for (const [name, pcs] of Object.entries(wlByName)) {
+    const chained = chainPieces(pcs.map((l) => clipLine(l, 0, 0, W, H)).flat().filter((l) => l.length > 1), 3);
+    const off = SZ.water * 0.7;
+    /* A name this long needs a fairly straight run; a gentler bend is tried when none is free. */
+    let best = null;
+    for (const [sharp, turn] of [[0.24, 0.9], [0.3, 1.25]]) {
+      best = [-off, off, 0].map((o) => curvedLabel(L, chained, name, SZ.water, { offset: o, pad: 2, sharp, turn, score: (x, y) => -Math.hypot(x - hx, y - hy) * 0.01 })).filter(Boolean).sort((a, b) => b.score - a.score)[0];
+      if (best) break;
+    }
+    if (best) { best.boxes.forEach((b) => L.add(b, "water", name)); waterLabels.push({ text: name, ...best }); }
+  }
+
+  /* The other main towns, nearest first: a town name tells a newcomer more than a road number. */
+  geo.towns.filter((t) => t.rank === 1 && t !== homeTown).sort((a, b) => km(home, a) - km(home, b)).forEach((t) => placeTown(t, ["Myrtle Beach", "North Myrtle Beach", "Conway"].includes(t.name)));
+
+  if (many && spec.leaders) {
     /* Places: from the edge of the marker. */
     for (const b of spec.leaders.places === false ? [] : bare.slice()) {
       const m = b.m, owner = "lm" + (m.lm.num - 1), own = (it) => it.owner === owner;
