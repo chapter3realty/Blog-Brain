@@ -57,7 +57,7 @@
  * not a check before an offer.
  */
 const fs = require("fs"), path = require("path");
-const { h, compareCards, wantPicker, atAGlance, glance, story, BB } = require("./_kit.js");
+const { h, compareCards, wantPicker, glance, story, BB } = require("./_kit.js");
 const PK = require(path.join(BB, "tools", "page-kit.js"));
 const AM = require(path.join(BB, "tools", "area-map.js"));
 const { loadGeo2 } = AM;
@@ -88,7 +88,7 @@ const SURFSIDE = ph.aerial("surfside-beach-from-above", "The ocean side of Surfs
 const PINE = ph.aerial("pine-lakes-from-above", "Pine Lakes from the air: the homes in the table, outlined in orange, beside the Pine Lakes Country Club golf course.",
   { alt: "Pine Lakes in Myrtle Beach from the air: curving streets of houses around ponds, outlined in orange, beside a golf course with green fairways and sand traps, and the beach at the far right", closeUp: true });
 const MARKET = ph.aerial("market-common-from-above", "The Market Common from the air: its homes, outlined in orange, The Reserve at the right, shops below and the airport at the bottom.",
-  { alt: "The Market Common in Myrtle Beach from the air: blocks of townhomes and houses outlined in orange beside a lake, a second outlined group labelled The Reserve at Market Common at the right, shops below them, and the airport with its runway at the bottom", closeUp: true });
+  { alt: "The Market Common in Myrtle Beach from the air: townhomes and houses outlined in orange beside a lake, a second outlined group labelled The Reserve at Market Common at the right, shops below them, and the airport runway at the bottom", closeUp: true });
 /* This page's labelled copy of the no-HOA page's Cherry Grove view (same NOAA frame and crop, with labels). */
 const CHERRY = ph.aerial("cherry-grove-canals-from-above", "Cherry Grove from the air: the beach, the canals and the salt marsh.",
   { alt: "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of houses on canals labelled Canals, and a wide salt marsh with winding creeks labelled Salt marsh", closeUp: true });
@@ -114,7 +114,7 @@ const CG_CANALS = "https://www.nmb.us/AgendaCenter/ViewFile/Item/1251?fileID=388
 /* A neighborhood's heading, with the id the picker, the map key and the tables link to. The heading is
    the neighborhood's own name, the same words as its row in the table, its card in the picker and its
    line in the map key (score.js H14: a link label is the heading it points to). */
-const H3 = 'style="font-family:var(--serif);font-size:1.25rem;color:var(--navy);margin:1.6rem 0 .6rem"';
+const H3 = 'style="font-family:var(--serif);font-size:1.25rem;color:var(--navy);margin:1.3rem 0 .5rem"';
 const nh = (id) => `<h3 id="${id}" ${H3}>${N[id].name}</h3>`;
 const A = (id) => `#${id}`;
 const link = (id) => (id === "the-farm" ? FARM : A(id));
@@ -203,9 +203,12 @@ function labelDots(res, forms, o = {}) {
       if (best) break;
     }
     if (!best) { missed.push(p.num); continue; }
-    const { lines, b } = best, x = (b.x0 + 2).toFixed(1), y = (b.y0 + 14).toFixed(1);
+    /* Drawn the tool's way: a group at the marker's centre, so on a wide screen, where the tool shrinks each
+       marker and its label toward that centre (class k), the name stays beside its own marker. */
+    const { lines, b } = best, x = (b.x0 + 2 - cx).toFixed(1), y = (b.y0 + 14 - cy).toFixed(1);
     m.boxes.push(Object.assign({ kind: "label", owner: "lm" + (p.num - 1) }, b));
-    out.push(`<g class="k"><text class="l" x="${x}" y="${y}">` + lines.map((l, i) => `<tspan x="${x}"${i ? ` dy="${LH}"` : ""}>${l}</tspan>`).join("") + `</text></g>`);
+    out.push(`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)})"><g class="k"><text class="l" x="${x}" y="${y}">`
+      + lines.map((l, i) => `<tspan x="${x}"${i ? ` dy="${LH}"` : ""}>${l}</tspan>`).join("") + `</text></g></g>`);
   }
   const i = svg.indexOf("</svg>");
   if (i < 0) throw new Error("the map is not inline, so names cannot be added");
@@ -224,12 +227,16 @@ const OVERVIEW = labelDots(kit.placesMap("Neighborhoods", D.neighborhoods.map((n
   "Plantation Lakes": [["Plantation Lakes"], ["Plantation", "Lakes"]], "Berkshire Forest": [["Berkshire"]],
   "Forestbrook Estates": [["Forestbrook"]], "Prince Creek": [["Prince Creek"], ["Prince", "Creek"]],
   [N["grande-dunes"].name]: [["Grande Dunes"], ["Grande", "Dunes"]],
-}, { strip: [6], stripShields: ["SC 31#0"] });
+}, { strip: [6, 10], stripShields: ["SC 31#0"] });
+/* The city of Myrtle Beach is a narrow strip along the coast here, too narrow for its name among the dots,
+   so the caption says where it is (coordinator, round 3). */
 /* The picker's places sit side by side when they fit, so the ten boxes take less of a phone screen; each
    link keeps its full tap height. */
 const KEY_CSS = "<style>.c3-map-key{columns:2 8rem!important;column-gap:1rem!important;margin-left:1.4rem!important}.c3-map-key li{font-size:1rem}"
   + ".c3-want{gap:.75rem!important;margin:1rem 0 1.4rem!important}.c3-want>li{padding:.8rem 1rem .45rem!important}.c3-want .w{margin-bottom:.2rem!important}"
-  + ".c3-want ul{display:flex;flex-wrap:wrap;column-gap:1.25rem}.c3-want .note{margin:0 0 .35rem!important}</style>";
+  + ".c3-want ul{display:flex;flex-wrap:wrap;column-gap:1.25rem}.c3-want .note{margin:0 0 .35rem!important}"
+  /* The table cards on a phone, a little tighter (the tap height of each name link is kept). */
+  + "@media (max-width:39.999em){.c3-cc tbody tr{padding:.3rem 0 .45rem!important;margin:0 0 .6rem!important}.c3-cc td{padding:.1rem 1rem!important;line-height:1.4}.c3-cc tbody th{padding-bottom:0!important}}</style>";
 
 /* One small map per area, where every name fits. */
 const areaMap = (name, ids, caption, towns = []) => {
@@ -245,7 +252,7 @@ const areaMap = (name, ids, caption, towns = []) => {
 const COLS = [
   { key: "price", label: "Homes usually sell for", num: true },
   { key: "fee", label: "HOA fee a month" },
-  { key: "beach", label: "To the beach by car, no traffic" },
+  { key: "beach", label: "To the beach" },
 ];
 let cssDone = false;
 const css = () => { const first = !cssDone; cssDone = true; return first; };
@@ -287,7 +294,7 @@ module.exports = {
   sections: [
     { h2: "Which Myrtle Beach neighborhood fits what you want?", toc: "Find one by what you want", html:
       CSS + KEY_CSS +
-      h.p("The neighborhood that fits you depends on what you want most near home. Find it below, then read about each neighborhood it names.") +
+      h.p("Find what you want most near home, then read about each neighborhood it names.") +
       wantPicker([
         { icon: "beach", want: "Walk to the beach", note: "The middle of each is under half a mile from a public path to the beach.",
           places: [{ name: "Cherry Grove", href: A("cherry-grove") }, { name: "Surfside Beach, ocean side", href: A("surfside-beach") }] },
@@ -295,130 +302,106 @@ module.exports = {
           places: [{ name: "Deerfield Plantation area", href: A("deerfield") }, { name: "The Farm at Carolina Forest", href: FARM }] },
         { icon: "golf", want: "Golf near home",
           places: [{ name: "Pine Lakes", href: A("pine-lakes") }, { name: "Tidewater Plantation", href: A("tidewater") }, { name: "Barefoot Resort", href: A("barefoot-resort") }] },
-        { icon: "pool", want: "Pools and a clubhouse", note: "Seasons and Del Webb are 55+ communities.",
+        { icon: "pool", want: "Pools and a clubhouse",
           places: [{ name: "The Farm at Carolina Forest", href: FARM }, { name: "Seasons at Prince Creek West (55+)", href: SEASONS }, { name: "Del Webb North Myrtle Beach (55+)", href: DWNMB }] },
-        { icon: "dollar", want: "A lower price", note: "Townhomes and condos in The Farm sell for about $230,000 to $240,000.",
-          places: [{ name: "The Farm at Carolina Forest", href: FARM }, { name: "Prince Creek", href: A("prince-creek") }, { name: "Deerfield Plantation area", href: A("deerfield") }] },
-        { icon: "home", want: "No HOA fee, or a low one", note: "Most homes for sale on the ocean side of Surfside Beach are listed with no HOA fee.",
+        { icon: "home", want: "No HOA fee, or a low one",
           places: [{ name: "Surfside Beach, ocean side", href: A("surfside-beach") }, { name: "Cherry Grove", href: A("cherry-grove") }, { name: "Forestbrook Estates", href: A("forestbrook-estates") }] },
         { icon: "key", want: "A new home", note: "Builders sold new homes in each in the last 12 months.",
           places: [{ name: "Waterbridge", href: A("waterbridge") }, { name: "Wild Wing Plantation", href: A("wild-wing") }, { name: "Prince Creek", href: A("prince-creek") }] },
-        { icon: "hospital", want: "Close to a hospital", note: "About 6 to 8 minutes by car to a hospital.",
-          places: [{ name: "Prince Creek", href: A("prince-creek") }, { name: "Pine Lakes", href: A("pine-lakes") }, { name: "Wild Wing Plantation", href: A("wild-wing") }] },
-        { icon: "clubhouse", want: "A 55+ community", note: "See the 55+ section below for the age rule.",
-          places: [{ name: "Del Webb North Myrtle Beach", href: DWNMB }, { name: "Seasons at Prince Creek West", href: SEASONS }, { name: "Myrtle Trace", href: MT }] },
-        { icon: "gate", want: "A gate at the entrance", note: "Our guide to gated communities lists more.",
+        { icon: "gate", want: "A gate at the entrance",
           places: [{ name: "Tidewater Plantation", href: A("tidewater") }, { name: N["grande-dunes"].name, href: A("grande-dunes") }] },
       ]) +
-      h.p(`For a home with no HOA at all, see ${h.a("/buyers/no-hoa-homes/", "where to find homes with no HOA near Myrtle Beach")}. For a gate at the entrance, see our guide to ${h.a("/buyers/gated-communities/", "gated communities near Myrtle Beach")}. If the price matters most, see ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy a home near Myrtle Beach")}.`) },
+      h.p(`Our guides to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}, ${h.a("/buyers/gated-communities/", "gated communities")} and ${h.a("/buyers/affordable-places-to-live/", "the most affordable places")} near Myrtle Beach list more.`) },
 
     { h2: "Where are the best neighborhoods in Myrtle Beach?", toc: "Map", html:
       h.p("The 15 neighborhoods on this page run along the coast from North Myrtle Beach to Murrells Inlet, and inland to Carolina Forest and Conway. Most people say Myrtle Beach for this whole stretch of coast, but the city of Myrtle Beach is only one part of it.") +
       OVERVIEW.html +
-      h.p("Myrtle Beach, North Myrtle Beach, Surfside Beach and Conway are cities and towns. Carolina Forest, Forestbrook and Murrells Inlet are areas outside any town. The other names are neighborhoods: Barefoot Resort is not a hotel, The Farm is not a farm, and Plantation is only part of a name.") +
-      h.p(`A public beach access is a public path to the beach. Some have parking and some do not. A high-risk flood zone is land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. With a mortgage, your lender will almost always require flood insurance on a home in one. A cash buyer can choose.`) +
-      h.p(`To choose a town before a neighborhood, read ${h.a("/buyers/relocating/which-town/", "which town near Myrtle Beach fits you")}.`) },
+      h.p(`Myrtle Beach, North Myrtle Beach, Surfside Beach and Conway are towns. Carolina Forest, Forestbrook and Murrells Inlet are areas outside any town. The rest are neighborhoods: Barefoot Resort is not a hotel, and The Farm is not a farm. To choose a town first, read ${h.a("/buyers/relocating/which-town/", "which town near Myrtle Beach fits you")}.`) +
+      h.p(`A public beach access is a public path to the beach. Some have parking and some do not. A high-risk flood zone is land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. With a mortgage, your lender will almost always require flood insurance on a home in one. A cash buyer can choose.`) },
 
     { h2: "What does a home here cost each year, besides the mortgage?", toc: "Yearly cost", id: "yearly-cost", html:
       h.p("Besides the mortgage, a house in these three neighborhoods costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance.") +
       compareCards(D.yearly_cost.rows.map((r) => ({ name: r.name, cells: r.cells })), COST_COLS,
-        { caption: "What a house you live in costs each year, besides the mortgage", nameLabel: "House", css: css() }) +
+        { caption: "A house you live in: the yearly cost", nameLabel: "House", css: css() }) +
       h.p("The HOA fee covers what the neighborhood shares. For a house, it usually includes the common areas, and often trash pickup and a pool. A condo fee usually also includes the building's insurance, water and sewer.") +
-      h.p(`The tax is for a home you live in, and in North Myrtle Beach the figure includes the city's share. A home you rent out pays a higher rate.`) +
-      h.p(`When a home sells, the county ${h.ext(SC_TAX, "values it again")} at what the home is worth, and the new value is first taxed the next year. In an ordinary sale, that is usually close to the price paid.`) +
-      h.p(`About 400 properties in Cherry Grove also pay the city about $1,700 a year, on the tax bill, for ${h.ext(CG_CANALS, "dredging the canals")}. The city's bond for that work is scheduled to be paid off in April 2028. Only those properties pay it, so the totals above do not count it.`) +
-      h.p(`In The Farm and most of Tidewater Plantation, flood insurance is not required, and in The Farm it costs about $600 a year if you choose it. Homeowners insurance comes on top of all this. Our guide to ${h.a("/buyers/coastal-insurance/", "insurance near the coast")} shows what it costs.`) },
+      h.p(`The tax is for a home you live in, and in North Myrtle Beach it includes the city's share. A home you rent out pays a higher rate. When a home sells, the county ${h.ext(SC_TAX, "values it again")}, usually close to the price paid, and taxes the new value the next year.`) +
+      h.p(`About 400 properties in Cherry Grove also pay the city about $1,700 a year, on the tax bill, for ${h.ext(CG_CANALS, "dredging the canals")}. The city's bond for that work is scheduled to be paid off in April 2028. The totals above do not count it.`) +
+      h.p(`Homeowners insurance comes on top of all this. Our guide to ${h.a("/buyers/coastal-insurance/", "insurance near the coast")} shows what it costs.`) },
 
     { h2: "What is it like to live here all year?", toc: "Living here all year", id: "all-year", html:
       h.p("Life here goes on all year. In our experience, nothing closes in the off-season except tourist attractions and water parks. Rush hour adds 5 to 10 minutes to a drive. The highways we use, a few miles inland, avoid the stop lights on the main road along the coast.") +
       h.p("The drive times on this page are with no traffic, so allow more time in summer.") +
-      h.p("Myrtle Beach International Airport is about 10 minutes from The Market Common and about 20 minutes from The Farm's entrance. From Cherry Grove and Tidewater Plantation, the drive is about 45 minutes.") +
+      h.p("Myrtle Beach International Airport is about 10 minutes from The Market Common, 20 from The Farm's entrance and 45 from Cherry Grove or Tidewater Plantation.") +
       h.p(`Hurricanes can reach this coast. Our ${h.a("/buyers/relocating/hurricanes/", "guide to hurricanes near Myrtle Beach")} shows how to get ready.`) },
 
     { h2: "What are the best neighborhoods in the city of Myrtle Beach?", toc: "Myrtle Beach", id: "myrtle-beach", html:
-      h.p("Pine Lakes, Grande Dunes and The Market Common are the neighborhoods on this page inside the city of Myrtle Beach. Each is about 5 to 10 minutes by car from a public beach access.") +
-      areaMap("Myrtle Beach neighborhoods", ["pine-lakes", "grande-dunes", "market-common"], "Map of Pine Lakes, Grande Dunes and The Market Common in the city of Myrtle Beach, with the airport.") +
+      h.p("Pine Lakes, Grande Dunes and The Market Common are inside the city of Myrtle Beach, numbers 6, 10 and 12 on the map above.") +
       table(["pine-lakes", "grande-dunes", "market-common"], "Three neighborhoods in the city of Myrtle Beach") +
       nh("pine-lakes") +
       h.p("The Pine Lakes Country Club golf course is part of Pine Lakes. Grand Strand Medical Center is about 8 minutes away by car. None of the homes outlined below is in a high-risk flood zone.") +
       PINE +
       h.p("Homes for sale on the older streets near the club are listed with no HOA fee. The trade-off is choice: in the parts outlined above, only about 17 homes sold in the last 12 months.") +
       nh("grande-dunes") +
-      h.p(`Calais, Palermo and Villa Venezia are three sections of Grande Dunes with ${h.a("/buyers/gated-communities/", "a gate at the entrance")}. Their homes cost the most of any neighborhood on this page.`) +
-      h.p("The trade-off is beach parking: the beach accesses closest to Grande Dunes have little or no parking.") +
+      h.p(`Calais, Palermo and Villa Venezia are three sections of Grande Dunes with ${h.a("/buyers/gated-communities/", "a gate at the entrance")}. Their homes cost the most of any neighborhood on this page. The trade-off is beach parking: the beach accesses closest to Grande Dunes have little or no parking.`) +
       nh("market-common") +
-      h.p("The Market Common is the closest of the three to the beach, about 5 minutes by car, and it is next to the airport. A grocery store is about 4 minutes away. Most homes for sale here are townhomes.") +
+      h.p("The Market Common is the closest of the three to the beach, and it is next to the airport. A grocery store is about 4 minutes away. Most homes for sale here are townhomes.") +
       MARKET +
       h.p(`The trade-off is the HOA fee on a townhome, the highest of the three. A few homes here are in a high-risk flood zone. Our ${h.a("/submarkets/myrtle-beach/", "guide to Myrtle Beach")} covers the rest of the city.`) },
 
     { h2: "What are the best neighborhoods in Carolina Forest and near Conway?", toc: "Carolina Forest", id: "carolina-forest", html: (bg) =>
       h.p("Carolina Forest, Forestbrook and Wild Wing Plantation are inland, about 10 to 20 minutes from the beach by car. Almost none of their homes is in a high-risk flood zone.") +
       areaMap("Carolina Forest neighborhoods", ["the-farm", "berkshire-forest", "plantation-lakes", "waterbridge", "forestbrook-estates", "wild-wing"], "Map of the six inland neighborhoods in Carolina Forest, Forestbrook and near Conway.", ["Carolina Forest", "Forestbrook"]) +
-      table(["the-farm", "berkshire-forest", "plantation-lakes", "waterbridge", "forestbrook-estates", "wild-wing"], "Six inland neighborhoods in Carolina Forest, Forestbrook and near Conway") +
+      table(["the-farm", "berkshire-forest", "plantation-lakes", "waterbridge", "forestbrook-estates", "wild-wing"], "Six inland neighborhoods") +
       nh("the-farm") +
       h.p(`The Farm has ${h.ext(FARM_HOA, "two pools")}, a clubhouse with a fitness room, an activity center, a basketball court and a playground. Its HOA fee also includes cable TV and trash pickup. Every home in The Farm is outside the high-risk flood zones.`) +
-      h.p(`The Farm also has townhomes and condos, which sell for about $230,000 to $240,000. They pay a second HOA fee on top of The Farm's. Our ${h.a(FARM, "guide to The Farm at Carolina Forest")} covers the homes, the HOA and the rules.`) +
+      h.p(`The Farm's townhomes and condos sell for about $230,000 to $240,000 and pay a second HOA fee on top of The Farm's. Our ${h.a(FARM, "guide to The Farm at Carolina Forest")} covers the homes, the HOA and the rules.`) +
       nh("berkshire-forest") +
-      h.p("Berkshire Forest is about 15 minutes from the beach by car, with a Publix grocery store about 7 minutes away. None of its homes is in a high-risk flood zone. The trade-off is the drive to the beach, which takes longer in summer traffic.") +
+      h.p("Berkshire Forest has a Publix grocery store about 7 minutes away, and none of its homes is in a high-risk flood zone. The trade-off is the drive to the beach, which takes longer in summer traffic.") +
       nh("plantation-lakes") +
       h.p("None of the homes in Plantation Lakes is in a high-risk flood zone. The trade-off is the price, the highest of the inland neighborhoods on this page.") +
       nh("waterbridge") +
       h.p("Builders sold new homes in Waterbridge in the last 12 months, for about $555,000. The trade-off is the drive to the beach, 15 to 20 minutes. A few homes here are in a high-risk flood zone.") +
       nh("forestbrook-estates") +
-      h.p("Forestbrook Estates has one of the lowest HOA fees on this page, under $90 a month for a house. A Food Lion grocery store is about 6 minutes away. The trade-off is the beach, about 15 minutes away by car.") +
+      h.p("Forestbrook Estates has one of the lowest HOA fees on this page, and a Food Lion grocery store is about 6 minutes away. The trade-off is the drive to the beach.") +
       nh("wild-wing") +
-      h.p("Conway Medical Center is about 8 minutes from Wild Wing Plantation, and an ALDI grocery store is about 6 minutes away. Builders sold new homes here for about $430,000.") +
-      h.p(`The trade-off is the beach. At about 20 minutes by car, Wild Wing Plantation is the farthest from the beach of the neighborhoods on this page. Our guides to ${h.a("/submarkets/carolina-forest/", "Carolina Forest")} and ${h.a("/submarkets/conway/", "Conway")} cover the wider areas.`) +
+      h.p(`Conway Medical Center is about 8 minutes from Wild Wing Plantation, and an ALDI grocery store is about 6 minutes away. Builders sold new homes here for about $430,000. The trade-off is the beach, about 20 minutes by car, the farthest on this page. Our guides to ${h.a("/submarkets/carolina-forest/", "Carolina Forest")} and ${h.a("/submarkets/conway/", "Conway")} cover the wider areas.`) +
       h.cta("Not sure which of these fits you? We will send three neighborhoods.",
-        "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each. The form asks for your name, email and phone, and there is no charge for the list.",
+        "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each. There is no charge.",
         "Get three neighborhoods", OFFER, bg) },
 
     { h2: "What are the best neighborhoods in North Myrtle Beach?", toc: "North Myrtle Beach", id: "north-myrtle-beach", html:
-      h.p("Cherry Grove, Tidewater Plantation and Barefoot Resort are the North Myrtle Beach neighborhoods on this page. Cherry Grove is a short walk from the beach, and the other two have golf.") +
-      areaMap("North Myrtle Beach neighborhoods", ["cherry-grove", "tidewater", "barefoot-resort"], "Map of Cherry Grove, Tidewater Plantation and Barefoot Resort in North Myrtle Beach.", ["North Myrtle Beach"]) +
+      h.p("Cherry Grove, Tidewater Plantation and Barefoot Resort are in North Myrtle Beach, numbers 1 to 3 on the map above.") +
       table(["cherry-grove", "tidewater", "barefoot-resort"], "Three neighborhoods in North Myrtle Beach") +
       nh("cherry-grove") +
-      h.p(`Cherry Grove is the closest to the beach of any neighborhood on this page. From the middle of Cherry Grove, a ${h.ext(BEACH, "public beach access")} is about 0.1 mile away. That access has no parking, and the closest one with paid street parking is 0.3 mile away.`) +
+      h.p(`Cherry Grove is the closest to the beach of any neighborhood on this page. The closest ${h.ext(BEACH, "public beach access")} has no parking, and the closest one with paid street parking is 0.3 mile away.`) +
       CHERRY +
       h.p("Most homes for sale in Cherry Grove are listed with no HOA fee. The trade-off is flood risk. Almost every home in Cherry Grove is in a high-risk flood zone, so it needs flood insurance.") +
       nh("tidewater") +
-      h.p("Tidewater Plantation has a gatehouse at its entrance and a golf course, Tidewater Golf Club. McLeod Health Seacoast hospital is about 10 minutes away by car.") +
-      h.p("The trade-off is the HOA fee, one of the higher ones on this page for a house. A few homes here are in a high-risk flood zone.") +
+      h.p(`Tidewater Plantation has a gatehouse at its entrance and a golf course, Tidewater Golf Club. McLeod Health Seacoast hospital is about 10 minutes away by car. The trade-off is the HOA fee, one of the higher ones on this page for a house. A few homes here are in a high-risk flood zone.`) +
       nh("barefoot-resort") +
-      h.p("Barefoot Resort has four golf courses, and it is about 6 minutes from the beach by car. Most of the homes in the table are condos, and its houses are in sections with their own names.") +
-      h.p(`The trade-off is the HOA fee on a condo, several times the fee on most houses on this page. Only some sections of Barefoot Resort have a gate. Our ${h.a("/submarkets/north-myrtle-beach/", "guide to North Myrtle Beach")} shows what each part of town is like.`) },
+      h.p(`Barefoot Resort has four golf courses. Most of the homes in the table are condos, and its houses are in sections with their own names. The trade-off is the HOA fee on a condo, several times the fee on most houses on this page. Only some sections of Barefoot Resort have a gate. Our ${h.a("/submarkets/north-myrtle-beach/", "guide to North Myrtle Beach")} shows what each part of town is like.`) },
 
     { h2: "What are the best neighborhoods in Surfside Beach and Murrells Inlet?", toc: "Surfside Beach and Murrells Inlet", id: "surfside-beach-murrells-inlet", html:
-      h.p("In Surfside Beach, the streets on the ocean side of town are a short walk from the beach. The Deerfield Plantation area and Prince Creek cost less and are a short drive away.") +
-      areaMap("Surfside Beach and Murrells Inlet neighborhoods", ["surfside-beach", "deerfield", "prince-creek"], "Map of the ocean side of Surfside Beach, the Deerfield Plantation area and Prince Creek in Murrells Inlet.") +
-      table(["surfside-beach", "deerfield", "prince-creek"], "Three neighborhoods in Surfside Beach and Murrells Inlet") +
+      h.p("In Surfside Beach, the streets on the ocean side of town are a short walk from the beach. The Deerfield Plantation area and Prince Creek cost less and are a short drive away. They are numbers 13 to 15 on the map above.") +
+      table(["surfside-beach", "deerfield", "prince-creek"], "Surfside Beach and Murrells Inlet") +
       nh("surfside-beach") +
-      h.p("The ocean side of Surfside Beach is the part of town between US 17 Business and the beach. From the middle of it, a public beach access with a pay lot is about 0.4 mile away. A Piggly Wiggly grocery store is about 3 minutes away by car.") +
+      h.p("The ocean side of Surfside Beach is the part of town between US 17 Business and the beach. The closest public beach access has a pay lot, and a Piggly Wiggly grocery store is about 3 minutes away by car.") +
       SURFSIDE +
       h.p("Most homes for sale here are listed with no HOA fee. The trade-off is flood risk near the water. About 1 in 4 homes here is in a high-risk flood zone, so check the exact home before you make an offer.") +
       nh("deerfield") +
-      h.p("The Deerfield Plantation area, near Surfside Beach, has the lowest prices on this page for a home under 10 minutes from the beach. Its HOA fees are low too, and none of its homes is in a high-risk flood zone.") +
-      h.p("The trade-off is beach parking. The closest beach access has parking for golf carts only, and the next one, with a pay lot, is about 8 minutes away by car.") +
+      h.p(`The Deerfield Plantation area, near Surfside Beach, has the lowest prices on this page for a home under 10 minutes from the beach. Its HOA fees are low too, and none of its homes is in a high-risk flood zone. The trade-off is beach parking. The closest beach access has parking for golf carts only, and the next one, with a pay lot, is about 8 minutes away by car.`) +
       nh("prince-creek") +
-      h.p("Prince Creek, in Murrells Inlet, is about 6 minutes by car from Tidelands Waccamaw Community Hospital and 2 minutes from a Publix. A free beach parking lot is about 10 minutes away. Builders sold new townhomes here for $300,000 to $356,000.") +
-      h.p(`The trade-off is choice: in these sections, only about 10 homes were sold by their owners in the last 12 months. Our guides to ${h.a("/submarkets/surfside-beach/", "Surfside Beach")} and ${h.a("/submarkets/murrells-inlet/", "Murrells Inlet")} cover both towns.`) },
+      h.p(`Prince Creek, in Murrells Inlet, is about 6 minutes by car from Tidelands Waccamaw Community Hospital and 2 minutes from a Publix. Builders sold new townhomes here for $300,000 to $356,000. The trade-off is choice: in the sections in the table, only about 10 homes were sold by their owners in the last 12 months. Our guides to ${h.a("/submarkets/surfside-beach/", "Surfside Beach")} and ${h.a("/submarkets/murrells-inlet/", "Murrells Inlet")} cover both towns.`) },
 
     { h2: "If you are 55 or older, which 55+ communities should you look at?", toc: "55+ communities", id: "55-plus", html:
-      h.p("Del Webb North Myrtle Beach, Del Webb at Grande Dunes, Seasons at Prince Creek West and Myrtle Trace are the four 55+ communities we cover. Each has a pool and a clubhouse.") +
-      h.p("A 55+ community is for homes where at least one person is 55 or older. Federal rules require that in at least 80 percent of its occupied homes, and Myrtle Trace requires it in every home. If no one in your home is 55 yet, skip this part.") +
+      h.p("A 55+ community is for homes where at least one person is 55 or older. Federal rules require that in at least 80 percent of its occupied homes, and Myrtle Trace requires it in every home. If no one in your home is 55 yet, skip this part. Each of the four we cover has a pool and a clubhouse.") +
       compareCards(D.fifty_five_plus.rows.map((r) => ({ name: r.name, href: r.href, cells: r.cells })), COLS,
         { caption: "Four 55+ communities near Myrtle Beach", nameLabel: "Community", css: css() }) +
       h.p(`Our ${h.a(P55, "guide to 55+ communities near Myrtle Beach")} compares the four side by side, with what the HOA fee includes.`) },
 
     { h2: "What should you check before you choose a neighborhood?", toc: "Before you choose", html: (bg) =>
-      h.p("Four things can differ from one home to the next in the same neighborhood: the HOA fee, the rules, beach parking and the homes nearby.") +
-      atAGlance([
-        { icon: "dollar", label: "The HOA fee", text: "A condo or townhome often has a higher fee than a house nearby, because its fee also includes the building's insurance." },
-        { icon: "key", label: "The rules", text: "Read the HOA rules on boats, golf carts, renting and pools before you buy." },
-        { icon: "beach", label: "Beach parking", text: "Some of the closest beach accesses have no parking. Drive from the home to the beach before you buy." },
-        { icon: "town", label: "Two blocks around", text: "Different kinds of homes are often built within a few blocks of each other here. Walk two blocks around the home." },
-      ], { bg, min: "15rem" }) +
-      h.p(`Public schools are assigned by address. Check the exact address with the ${h.ext(SCHOOLS, "Horry County Schools zone lookup")}, and see our page on ${h.a("/buyers/relocating/schools/", "schools near Myrtle Beach")}. Horry County is the county that holds Myrtle Beach and every neighborhood on this page.`) +
+      h.p("Two things can differ from one home to the next in the same neighborhood: the HOA rules and the homes around it. Read the rules on boats, golf carts, renting and pools before you buy. Different kinds of homes are often built within a few blocks of each other here, so walk two blocks around the home.") +
+      h.p(`Public schools are assigned by address. Check the exact address with the ${h.ext(SCHOOLS, "Horry County Schools zone lookup")}, and see our page on ${h.a("/buyers/relocating/schools/", "schools near Myrtle Beach")}.`) +
       story([
         "<strong>Example:</strong> Dana wants a house near the beach that costs less. A Chapter3 agent sends her three neighborhoods, and she narrows them to the Deerfield Plantation area and The Farm.",
         "Deerfield is closer to the beach, but the closest beach access there has parking for golf carts only. Dana rides her bike to the beach, so she does not need a parking spot.",
@@ -428,11 +411,11 @@ module.exports = {
   ],
   faqTitle: "Best neighborhoods in Myrtle Beach: FAQ",
   faq: [
-    { q: "What are the best neighborhoods in Myrtle Beach?", a: "The best neighborhood in Myrtle Beach depends on what you want nearby. Cherry Grove and the ocean side of Surfside Beach are a short walk from the beach. The Farm and the Deerfield Plantation area cost less and are about 10 minutes from the beach by car. Pine Lakes, Tidewater Plantation and Barefoot Resort have golf." },
-    { q: "How much does it cost each year to own a home in Myrtle Beach?", a: "Besides the mortgage, a house in the three neighborhoods we priced costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance. A house in The Farm costs about $2,600 a year. A house in Cherry Grove costs about $4,400, mostly property tax and flood insurance." },
-    { q: "Is Carolina Forest or Myrtle Beach better to live in?", a: "Carolina Forest is farther from the beach, and it has almost no homes in a high-risk flood zone. Its neighborhoods on this page are about 10 to 20 minutes from the beach by car. The neighborhoods in the city of Myrtle Beach on this page are about 5 to 10 minutes away." },
-    { q: "Which neighborhoods near Myrtle Beach have no HOA?", a: "Most homes for sale on the ocean side of Surfside Beach are listed with no HOA fee, and so are most in Cherry Grove. Homes for sale on the older streets near Pine Lakes Country Club are listed with no HOA fee too." },
-    { q: "Which neighborhoods near Myrtle Beach are closest to a hospital?", a: "Prince Creek in Murrells Inlet is about 6 minutes by car from Tidelands Waccamaw Community Hospital. Pine Lakes is about 8 minutes from Grand Strand Medical Center, and Wild Wing Plantation is about 8 minutes from Conway Medical Center." },
+    { q: "What are the best neighborhoods in Myrtle Beach?", a: "The best neighborhood depends on what you want nearby. Cherry Grove and the ocean side of Surfside Beach are a short walk from the beach. The Farm and the Deerfield Plantation area cost less and are a short drive away. Pine Lakes, Tidewater Plantation and Barefoot Resort have golf." },
+    { q: "How much does it cost each year to own a home in Myrtle Beach?", a: "Besides the mortgage, a house in the three neighborhoods we priced costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance. A house in Cherry Grove costs about $4,400, mostly tax and flood insurance." },
+    { q: "Is Carolina Forest or Myrtle Beach better to live in?", a: "Carolina Forest has almost no homes in a high-risk flood zone, and its neighborhoods here are 10 to 20 minutes from the beach by car. The ones in the city of Myrtle Beach are about 5 to 10 minutes away." },
+    { q: "Which neighborhoods near Myrtle Beach have no HOA?", a: "Most homes for sale on the ocean side of Surfside Beach and in Cherry Grove are listed with no HOA fee. Homes on the older streets near Pine Lakes Country Club are listed with no HOA fee too." },
+    { q: "Which neighborhoods near Myrtle Beach are closest to a hospital?", a: "Prince Creek in Murrells Inlet is about 6 minutes by car from a hospital. Pine Lakes and Wild Wing Plantation are about 8 minutes from one." },
   ],
   sources: [
     { name: "Horry County deed records", href: DEEDS },
