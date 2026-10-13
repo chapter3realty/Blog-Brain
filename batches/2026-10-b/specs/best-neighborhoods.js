@@ -176,7 +176,7 @@ const table = (ids, caption) => compareCards(ids.map((id) => ({ name: N[id].name
   { caption, nameLabel: "Neighborhood", css: css() });
 const COST_COLS = [
   { key: "hoa", label: "HOA fee a year" },
-  { key: "tax", label: "County tax a year", num: true },
+  { key: "tax", label: "Property tax a year", num: true },
   { key: "flood", label: "Flood insurance a year" },
   { key: "total", label: "In all, a year", num: true },
 ];
@@ -239,21 +239,25 @@ module.exports = {
       h.p("The 15 neighborhoods on this page run along the coast from North Myrtle Beach to Murrells Inlet, and inland to Carolina Forest and Conway. Most people say Myrtle Beach for this whole stretch of coast, but the city of Myrtle Beach is only one part of it.") +
       OVERVIEW.html +
       h.p("Myrtle Beach, North Myrtle Beach, Surfside Beach and Conway are cities and towns. Carolina Forest, Forestbrook and Murrells Inlet are areas outside any town. The other names are neighborhoods: Barefoot Resort is not a hotel, The Farm is not a farm, and Plantation is only part of a name.") +
-      h.p(`A public beach access is a public path to the beach. Some have parking and some do not. A high-risk flood zone is land the federal flood map, ${h.ext(FEMA, "FEMA's flood map")}, marks as likely to flood. If your home is in one and you have a mortgage, your lender will require flood insurance.`) +
+      h.p(`A public beach access is a public path to the beach. Some have parking and some do not. A high-risk flood zone is land the federal flood map, ${h.ext(FEMA, "FEMA's flood map")}, marks as likely to flood. A federally regulated or federally backed lender must require flood insurance on a mortgage for a home in one.`) +
       h.p(`To choose a town before a neighborhood, read ${h.a("/buyers/relocating/which-town/", "which town near Myrtle Beach fits you")}.`) },
 
     { h2: "What does a home here cost each year, besides the mortgage?", toc: "Yearly cost", id: "yearly-cost", html:
-      h.p("Besides the mortgage, a house in these three neighborhoods costs about $2,700 to $5,600 a year in HOA fees, county tax and flood insurance.") +
+      h.p("Besides the mortgage, a house in these three neighborhoods costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance.") +
       compareCards(D.yearly_cost.rows.map((r) => ({ name: r.name, cells: r.cells })), COST_COLS,
         { caption: "What a house you live in costs each year, besides the mortgage", nameLabel: "House", css: css() }) +
       h.p("The HOA fee covers what the neighborhood shares. For a house, it usually includes the common areas, and often trash pickup and a pool. A condo fee usually also includes the building's insurance, water and sewer.") +
-      h.p(`The tax is for a home you live in. A home you rent out pays a higher rate. When a home sells, the county ${h.ext(SC_TAX, "values it again")} at about what it is worth, so your tax is based on about the price you pay.`) +
-      h.p(`With a mortgage, flood insurance is required for almost every home in Cherry Grove, because almost every home there is in a high-risk flood zone. In The Farm and most of Tidewater Plantation it is not required, and in The Farm it costs about $600 a year if you choose it. Homeowners insurance comes on top of all this. Our guide to ${h.a("/buyers/coastal-insurance/", "insurance near the coast")} shows what it costs.`) },
+      h.p(`The tax is for a home you live in, and in North Myrtle Beach the figure includes the city's share. A home you rent out pays a higher rate.`) +
+      h.p(`When a home sells, the county ${h.ext(SC_TAX, "values it again")} at what the home is worth, and the new value is first taxed the next year. In an ordinary sale, that is usually close to the price paid.`) +
+      h.p("In Cherry Grove, more than half of the homes for sale are listed with no HOA fee, and the others pay a fee.") +
+      h.p("Almost every home in Cherry Grove is in a high-risk flood zone. A federally regulated or federally backed lender must require flood insurance on a mortgage for a home in one. A cash buyer is not required to carry it.") +
+      h.p("Many Cherry Grove homes also pay a flat fee of about $1,700 a year, which appears to be the city's canal-dredging charge. The table leaves it out because only some homes pay it.") +
+      h.p(`In The Farm and most of Tidewater Plantation, flood insurance is not required, and in The Farm it costs about $600 a year if you choose it. Homeowners insurance comes on top of all this. Our guide to ${h.a("/buyers/coastal-insurance/", "insurance near the coast")} shows what it costs.`) },
 
     { h2: "What is it like to live here all year?", toc: "Living here all year", id: "all-year", html:
       h.p("Life here goes on all year. In our experience, nothing closes in the off-season except tourist attractions and water parks.") +
-      h.p("In our experience, rush hour adds 5 to 10 minutes to a drive, and US 17 has many stop lights. Highway 31 and Highway 22 are the faster roads. The drive times on this page are with no traffic, so allow more time in summer. Most trips here need a car or a golf cart.") +
-      h.p("Myrtle Beach International Airport is about 10 minutes from The Market Common and about 20 minutes from The Farm. From Cherry Grove and Tidewater Plantation, the drive is about 45 minutes.") +
+      h.p("In our experience, rush hour adds 5 to 10 minutes to a drive. In our experience, Highway 31 and Highway 22 avoid the stop lights on US 17. The drive times on this page are with no traffic, so allow more time in summer.") +
+      h.p("Myrtle Beach International Airport is about 10 minutes from The Market Common and about 20 minutes from The Farm's entrance. From Cherry Grove and Tidewater Plantation, the drive is about 45 minutes.") +
       h.p(`Hurricanes can reach this coast. Our ${h.a("/buyers/relocating/hurricanes/", "guide to hurricanes near Myrtle Beach")} shows how to get ready.`) },
 
     { h2: "What are the best neighborhoods in the city of Myrtle Beach?", toc: "Myrtle Beach", id: "myrtle-beach", html:
@@ -336,7 +340,7 @@ module.exports = {
     { h2: "What should you check before you choose a neighborhood?", toc: "Before you choose", html: (bg) =>
       h.p("Four things can differ from one home to the next in the same neighborhood: the flood zone, the HOA fee, the rules and beach parking.") +
       atAGlance([
-        { icon: "flood", label: "The flood zone", text: "In a high-risk flood zone, your lender will require flood insurance. Cherry Grove and parts of Surfside Beach are in one." },
+        { icon: "flood", label: "The flood zone", text: "On a mortgage from a federally regulated or federally backed lender, a home in a high-risk flood zone needs flood insurance. Cherry Grove and parts of Surfside Beach are in one." },
         { icon: "dollar", label: "The HOA fee", text: "A condo or townhome often has a higher fee than a house nearby, because its fee also includes the building's insurance." },
         { icon: "key", label: "The rules", text: "Read the HOA rules on boats, golf carts, renting and pools before you buy." },
         { icon: "beach", label: "Beach parking", text: "Some of the closest beach accesses have no parking. Drive from the home to the beach before you buy." },
@@ -354,7 +358,7 @@ module.exports = {
   faq: [
     { q: "What are the best neighborhoods in Myrtle Beach?", a: "The best neighborhood in Myrtle Beach depends on what you want nearby. Cherry Grove and the ocean side of Surfside Beach are a short walk from the beach. The Farm and the Deerfield Plantation area cost less and are about 10 minutes from the beach by car. Pine Lakes, Tidewater Plantation and Barefoot Resort have golf." },
     { q: "What are the best areas to live in near Myrtle Beach?", a: "North Myrtle Beach, the city of Myrtle Beach, Surfside Beach and Murrells Inlet are along the coast, closest to the beach. Carolina Forest and Conway are inland. The inland neighborhoods on this page are 10 to 20 minutes from the beach by car. Almost none of their homes is in a high-risk flood zone." },
-    { q: "How much does it cost each year to own a home in Myrtle Beach?", a: "Besides the mortgage, a house in the three neighborhoods we priced costs about $2,700 to $5,600 a year in HOA fees, county tax and flood insurance. A house in The Farm costs about $2,700 a year. A house in Cherry Grove costs about $4,600, mostly county tax and flood insurance." },
+    { q: "How much does it cost each year to own a home in Myrtle Beach?", a: "Besides the mortgage, a house in the three neighborhoods we priced costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance. A house in The Farm costs about $2,600 a year. A house in Cherry Grove costs about $4,400, mostly property tax and flood insurance." },
     { q: "What are the best neighborhoods in North Myrtle Beach?", a: "Cherry Grove is the closest to the beach, a short walk from a public beach access. Almost every home there is in a high-risk flood zone. Tidewater Plantation has a guard house at its gate and a golf course. Barefoot Resort has four golf courses." },
     { q: "What are the best neighborhoods in Surfside Beach?", a: "The streets on the ocean side of Surfside Beach are a short walk from the beach, and houses there usually sell for about $705,000. The Deerfield Plantation area, near the town, costs less. Its homes usually sell for about $355,000, and the beach is about 8 minutes away by car." },
     { q: "Is Carolina Forest or Myrtle Beach better to live in?", a: "Carolina Forest is farther from the beach, and it has almost no homes in a high-risk flood zone. Its neighborhoods on this page are about 10 to 20 minutes from the beach by car. The neighborhoods in the city of Myrtle Beach on this page are about 5 to 10 minutes away." },
@@ -369,7 +373,7 @@ module.exports = {
     { name: "S.C. beach access list", href: BEACH },
     { name: "The Farm HOA", href: FARM_HOA },
   ],
-  sourcesNote: "Prices are the middle sale price over the last 12 months, or the range where few homes sold. HOA fees come from recent home listings, except The Farm's. Taxes come from 2026 county tax bills. Drive times are estimates with no traffic.",
+  sourcesNote: "Prices are the middle sale price over the last 12 months, or the range where few homes sold. HOA fees come from recent home listings, except The Farm's; the no-fee counts are MLS areas 11a Cherry Grove and 29a and 29b Surfside Beach east of US 17. Taxes come from 2026 county tax bills.",
   afterSources: () => ph.credits(),
   bottomCta: { h2: "Tell us what you want nearby. We will send three neighborhoods.", p: "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each.", label: "Get three neighborhoods", href: OFFER },
   keywords: "best neighborhoods in Myrtle Beach, best places to live in Myrtle Beach, best areas to live in Myrtle Beach, best communities in Myrtle Beach, best neighborhoods in North Myrtle Beach, best neighborhoods in Surfside Beach, Myrtle Beach neighborhoods map, Carolina Forest vs Myrtle Beach",

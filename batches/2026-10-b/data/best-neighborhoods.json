@@ -256,24 +256,24 @@
     ]
   },
   "yearly_cost": {
-    "_comment": "The yearly cost table (round 2, coordinator item 1): writer's arithmetic on verified rows and round 2 pending rows 176, 177, 179 and 181 of neighborhoods-facts.md; the working is under that ledger's round 2 table.",
+    "_comment": "The yearly cost table (round 2, coordinator item 1): writer's arithmetic on verified rows and round 2 pending rows 176, 177, 179 and 181 of neighborhoods-facts.md; the working is under that ledger's round 2 table. Verifier round 2 (2026-10-13): The Farm's tax is $1,286.60 (the stormwater fee is a fee, not tax), total about $2,600; Cherry Grove flood uses the primary-residence middle $1,258 (row 179), total about $4,400; Cherry Grove's flat bill fee of about $1,700 (row 181) is said in the text, not added.",
     "rows": [
       {
         "name": "Cherry Grove house, about $695,000",
         "cells": {
-          "hoa": "None on more than half",
+          "hoa": "None on more than half listed",
           "tax": "About $3,100",
-          "flood": "About $1,500",
-          "total": "About $4,600"
+          "flood": "About $1,300",
+          "total": "About $4,400"
         }
       },
       {
         "name": "The Farm house, about $350,000",
         "cells": {
           "hoa": "About $1,300",
-          "tax": "About $1,400",
+          "tax": "About $1,300",
           "flood": "Not required",
-          "total": "About $2,700"
+          "total": "About $2,600"
         }
       },
       {
