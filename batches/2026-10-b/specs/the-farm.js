@@ -265,9 +265,9 @@ module.exports = {
       `An agent at Chapter3 can ${h.a("/contact/", "read the HOA's documents and latest minutes with you")} before you make an offer.`) },
 
     { h2: "Was The Farm at Carolina Forest part of an old bombing range?", toc: "Old bombing range", html:
-      h.p("Yes. The Farm is on land the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Much of Carolina Forest is on that land too.") +
-      h.p("The U.S. Army Corps of Engineers has finished its cleanup work on the land under every home in The Farm. The Defense Department or a later owner may still check that land from time to time.") +
-      h.p("The Corps is still studying another section next to The Farm, called Range III. On the Corps' map, Range III touches the edges of some of The Farm's open land, but not any home lot.") +
+      h.p("Yes. The Farm is on land the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Other parts of Carolina Forest are on that land too.") +
+      h.p("On the Army Corps of Engineers' latest map, the cleanup work on the land under every home in The Farm is finished. The Defense Department or a later owner may keep monitoring that land.") +
+      h.p("On the same map, the Corps is still investigating another section next to The Farm, called Range III. On the Corps' map, Range III touches the edges of some of The Farm's open land, but not any home lot.") +
       h.p(`If you ever find something that looks like old ammunition, the ${h.ext(UXO, "Defense Department's advice")} is to leave it alone. Do not touch it, move away and call 911.`) +
       h.p(`An agent at Chapter3 can show you the ${h.ext(FUDS, "Corps' map")} for the lot you like.`) },
   ],
