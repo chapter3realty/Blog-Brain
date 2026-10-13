@@ -9,7 +9,7 @@
   "lat": 33.754869,
   "source": "Horry County GIS Roads layer (HorryCountyGISApp MapServer layer 18): the shared end point of FARMERS REST DR and CAROLINA FOREST BLVD segments (also STONEY LANDING RD, across the boulevard).",
   "source_url": "https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18/query?geometry=-78.890,33.752,-78.862,33.774&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=FULLNAME,OWNER,SPEEDLIMIT&returnGeometry=true&outSR=4326&f=json",
-  "note": "No source names a 'main' entrance. This is the entrance nearest the clubhouse, large pool (201 Carolina Farms Blvd) and activity center (190 Farmers Rest Dr). Other road connections: Mill Street at Carolina Forest Blvd and Wheatfield Drive at International Drive."
+  "note": "No source names a 'main' entrance. This is the entrance nearest the large pool (201 Carolina Farms Blvd) and the activity center (190 Farmers Rest Dr). Other road connections: Mill Street at Carolina Forest Blvd and Wheatfield Drive at International Drive."
  },
  "other_entrances": [
   {
@@ -178,6 +178,25 @@
    "mi": 7.52,
    "straight_mi": 5.7,
    "url": "https://router.project-osrm.org/route/v1/driving/-78.87521,33.75487;-78.970179,33.779049?overview=false"
+  },
+  "gs_cf_er": {
+   "min": 11.1,
+   "mi": 5.61,
+   "straight_mi": 5.0,
+   "url": "https://router.project-osrm.org/route/v1/driving/-78.87521,33.75487;-78.962052,33.758605?overview=false"
+  },
+  "bike_run": {
+   "min": 3.6,
+   "mi": 1.69,
+   "straight_mi": 1.34,
+   "url": "https://router.project-osrm.org/route/v1/driving/-78.87521,33.75487;-78.852219,33.751357?overview=false"
+  },
+  "intl_fields": {
+   "min": 5.0,
+   "mi": 1.78,
+   "straight_mi": 1.04,
+   "url": "https://router.project-osrm.org/route/v1/driving/-78.87521,33.75487;-78.864262,33.766833?overview=false"
   }
- }
+ },
+ "drive_start": "reference_point (OSRM start -78.87521,33.75487)"
 }
