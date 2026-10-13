@@ -82,7 +82,7 @@ const AREA = { "north-myrtle-beach": "#table-north-myrtle-beach", "myrtle-beach"
 const table = (id, html) => `<div id="${id}">${html}</div>`;
 const MAP = placesMap("Gated neighborhoods", data("gated-map.json").places.map((p) =>
   ({ name: p.name, short: p.short, lat: p.lat, lon: p.lon, href: AREA[p.area] })), {
-  caption: "Map of the gated neighborhoods on this page, numbered from North Myrtle Beach at the top right to DeBordieu Colony, south of Pawleys Island, at the bottom left.",
+  caption: "Map of gated neighborhoods near Myrtle Beach, numbered from North Myrtle Beach at the top right to DeBordieu Colony, south of Pawleys Island, at the bottom left.",
   key: true,
 });
 
@@ -98,11 +98,11 @@ const COLS_NO_PRICE = COLS.filter((c) => c.key !== "price");
 const opts = (caption, first) => ({ caption, nameLabel: "Neighborhood", css: first });
 
 /* The price chart: one bar per neighborhood with a typical price, lowest to highest, drawn from
-   gated-map.json "prices". Drawn 360 units wide so it shows at about its own size on a phone: the
+   gated-map.json "prices". Drawn 330 units wide so it shows a little larger than its own size on a phone: the
    name above each bar at 15 px, the price at the end of the bar. One color; no legend (one series). */
 function priceChart() {
   const rows = data("gated-map.json").prices.rows.slice().sort((a, b) => a.value - b.value);
-  const W = 360, RH = 52, TOP = 6, MAXW = 262, max = Math.max(...rows.map((r) => r.value));
+  const W = 330, RH = 52, TOP = 6, MAXW = 235, max = Math.max(...rows.map((r) => r.value));
   const money = (v) => v >= 1e6 ? `$${(v / 1e6).toFixed(1).replace(/\.0$/, "")} million` : `$${v.toLocaleString("en-US")}`;
   const H = TOP + rows.length * RH;
   const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -164,16 +164,16 @@ module.exports = {
       h.p(`To skip an HOA fee altogether, see ${h.a("/buyers/no-hoa-homes/", "where to find homes with no HOA near Myrtle Beach")}. To compare neighborhoods with and without a gate, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods in Myrtle Beach for what you want nearby")}.`) },
 
     { h2: "What do homes in gated neighborhoods near Myrtle Beach cost?", toc: "Prices", html:
-      h.p("Homes in most gated neighborhoods near Myrtle Beach usually sell for about $480,000 to $850,000. The gated sections of Grande Dunes cost the most, at about $1.5 million.") +
+      h.p("Homes in most gated neighborhoods near Myrtle Beach usually sell for about $480,000 to $850,000. Homes in three gated sections of Grande Dunes cost the most, at about $1.5 million.") +
       h.figure(priceChart(), "Chart of what homes usually sell for in eight gated neighborhoods near Myrtle Beach, lowest to highest.") +
       h.p(`These are prices homes sold for, recorded with the ${h.ext(ROD, "county's Register of Deeds")}, not asking prices. Myrtle Trace costs less, but its front entrance has no gate.`) },
 
     { h2: "Which neighborhoods in North Myrtle Beach are gated?", toc: "North Myrtle Beach", id: "north-myrtle-beach", html:
-      h.p(`Tidewater Plantation, Seaside Plantation and parts of Barefoot Resort are the gated neighborhoods in North Myrtle Beach on this page. Of these three, Seaside Plantation is the closest to a ${h.ext(BEACH, "public beach access")}.`) +
+      h.p(`Tidewater Plantation, Seaside Plantation and parts of Barefoot Resort are gated neighborhoods in North Myrtle Beach. Of these three, Seaside Plantation is the closest to a ${h.ext(BEACH, "public beach access")}.`) +
       table("table-north-myrtle-beach", compareCards([
         { name: "Tidewater Plantation", cells: { gate: "Guard house", fee: "About $230 a month", price: "About $625,000", beach: "About 8 minutes" } },
-        { name: "Seaside Plantation", cells: { gate: "Gate", fee: "$206 to $208 a month", price: "$650,000 to $885,000", beach: "About 2 minutes" } },
-        { name: "Leatherleaf, in Barefoot Resort", cells: { gate: "Gate", fee: "$385 to $398 a month", price: "$700,000 to $975,000", beach: "About 10 minutes" } },
+        { name: "Seaside Plantation", cells: { gate: "Gated entrance", fee: "$206 to $208 a month", price: "$650,000 to $885,000", beach: "About 2 minutes" } },
+        { name: "Leatherleaf, in Barefoot Resort", cells: { gate: "Gated entrance", fee: "$385 to $398 a month", price: "$700,000 to $975,000", beach: "About 10 minutes" } },
       ], COLS, opts("Gated neighborhoods in North Myrtle Beach", true))) +
       h.p(`Barefoot Resort is not gated as a whole. ${h.ext(BAREFOOT, "Its residents' association")} lists eight gated neighborhoods. Dye Estates, Leatherleaf and Oak Pointe have houses. Blackwater Townhomes, Dye Townhomes, Edgewater, River Crossing and Woodlands are ${h.ext(BAREFOOT_MF, "townhome and condo neighborhoods")}.`) +
       h.p("Staff at the front guardhouse of Dye Estates greet owners and their guests. Barefoot Resort also has four golf courses.") },
@@ -183,9 +183,9 @@ module.exports = {
       h.p("Carolina Forest is a large area of neighborhoods just inland from Myrtle Beach. Covington Lake East, Waterway Palms Plantation and The Bluffs on the Waterway are gated there. Myrtle Trace, a 55+ neighborhood near Conway, has gates only at its back entrance.") +
       table("table-myrtle-beach", compareCards([
         { name: "Grande Dunes: Calais, Palermo and Villa Venezia", cells: { gate: "Gated sections", fee: "About $200 to $375 a month", price: "About $1.5 million", beach: "About 10 minutes" } },
-        { name: "Waterway Palms Plantation", cells: { gate: "Gate", fee: "$137 to $157 a month", price: "About $780,000", beach: "About 10 minutes" } },
+        { name: "Waterway Palms Plantation", cells: { gate: "Gated entrance", fee: "$137 to $157 a month", price: "About $780,000", beach: "About 10 minutes" } },
         { name: "The Bluffs on the Waterway", cells: { gate: "Main gate", fee: "$154 a month on most homes", price: "$730,000 to $975,000", beach: "About 10 minutes" } },
-        { name: "Covington Lake East", cells: { gate: "Gate", fee: "$80 to $95 a month", price: "About $570,000", beach: "About 15 minutes" } },
+        { name: "Covington Lake East", cells: { gate: "Gated entrance", fee: "$80 to $95 a month", price: "About $570,000", beach: "About 15 minutes" } },
         { name: "Myrtle Trace (55+)", href: MT, cells: { gate: "Back entrance only", fee: "$95 a month", price: "About $300,000", beach: "About 15 minutes" } },
       ], COLS, opts("Gated neighborhoods in Myrtle Beach, Carolina Forest and Conway", false))) +
       h.p(`For a closer look at one Carolina Forest neighborhood, see our ${h.a("/submarkets/carolina-forest/the-farm/", "guide to The Farm at Carolina Forest")}.`) },
@@ -197,7 +197,7 @@ module.exports = {
         { name: "Prestwick", cells: { gate: "Main gate and side gate", fee: "$185 to $197 a month", price: "About $480,000", beach: "About 7 minutes" } },
         { name: "Bellwood Landing", cells: { gate: "Main gate", fee: "$157 a month", price: "About $850,000", beach: "About 15 minutes" } },
         { name: "Wachesaw Plantation", cells: { gate: "Guard gate", fee: "$151 to $280 a month", price: "Ask us", beach: "About 15 minutes" } },
-        { name: "Wachesaw East", cells: { gate: "Gate", fee: "$141 to $149 a month", price: "Ask us", beach: "About 10 minutes" } },
+        { name: "Wachesaw East", cells: { gate: "Gated entrance", fee: "$141 to $149 a month", price: "Ask us", beach: "About 10 minutes" } },
       ], COLS, opts("Gated neighborhoods from Surfside Beach to Murrells Inlet", false))) +
       h.p(`Where the table says “Ask us”, ${h.a(OFFER, "tell us your price range")} and we send you the homes for sale there now, with their prices.`) },
 
@@ -207,7 +207,7 @@ module.exports = {
       table("table-pawleys-island", compareCards([
         { name: "Litchfield Plantation", cells: { gate: "Gate house", fee: "$230 to $275 a month", beach: "About 8 minutes" } },
         { name: "Willbrook Plantation", cells: { gate: "Guard gate", fee: "$339 to $346 a month", beach: "About 9 minutes" } },
-        { name: "The Reserve", cells: { gate: "Gate", fee: "$318 to $437 a month", beach: "About 8 minutes" } },
+        { name: "The Reserve", cells: { gate: "Gated entrance", fee: "$318 to $437 a month", beach: "About 8 minutes" } },
         { name: "Heritage Plantation", cells: { gate: "Main gate", fee: "$317 to $332 a month", beach: "About 10 minutes" } },
         { name: "DeBordieu Colony", cells: { gate: "Guard gate", fee: "$302 to $379 a month", beach: "About 20 minutes" } },
       ], COLS_NO_PRICE, opts("Gated neighborhoods in Pawleys Island and Litchfield", false))) +
@@ -218,12 +218,12 @@ module.exports = {
 
     { h2: "What does a gate mean for you as an owner?", toc: "What a gate means", html: (bg) =>
       h.p("A gate means guests stop at the entrance, and the HOA, not the county, usually keeps up the gate and the streets. Owners pay for both through the HOA fee.") +
-      atAGlance([
+      "<style>.c3-gate-cards li span[style*=\"font-size:.9rem\"]{font-size:var(--read,1.0625rem)!important}.c3-gate-cards li strong{font-weight:600!important;font-size:var(--read,1.0625rem)!important}</style><div class=\"c3-gate-cards\">" + atAGlance([
         { icon: "home", label: "The streets", text: "Outside city limits in Horry County, the streets behind a gate are usually private. The HOA keeps them up, not the county." },
         { icon: "dollar", label: "Your HOA fee", text: "The HOA uses the fee to run the gate and to keep up the private streets." },
         { icon: "key", label: "Guests", text: "Guests stop at the gate. At Litchfield by the Sea, the owner registers each guest before the visit." },
         { icon: "gate", label: "Workers", text: "At Litchfield by the Sea, a contractor's truck needs its own $25 barcode to come through the gate." },
-      ], { bg, min: "18rem" }) +
+      ], { bg, min: "18rem" }) + "</div>" +
       h.p(`Each gate works its own way. At Litchfield by the Sea, owners pay ${h.ext(LBTS_FAQ, "$25 for a barcode")} for each car. At Dye Estates in Barefoot Resort, staff at the front guardhouse greet owners and their guests. At Seasons at Prince Creek West, visitors use a call box at the main gate.`) +
       h.p(`A sign can tell you the streets are private. Outside city limits, ${h.ext(CODE, "Horry County requires")} a sign at the entrance of a neighborhood with private roads: “Private Road. Not maintained by Horry County.” Private streets there have blue street signs, and public streets have green ones.`) +
       h.p(`The county does not repave private streets, so the HOA pays for it from its savings or from the owners. Before you buy, ${h.a("/hoa/reserves/", "check how much the HOA has saved for repairs")} and ${h.a("/hoa/documents/", "read the HOA documents")}. When you tour a home, your agent arranges your way in at the gate.`) },
@@ -249,9 +249,9 @@ module.exports = {
       ], "", bg,
       `An agent at Chapter3 can ${h.a(OFFER, "check the gate for the home you like")} before you make an offer.`) },
   ],
-  faqTitle: "Gated communities near Myrtle Beach: FAQ",
+  faqTitle: "Gated communities FAQ",
   faq: [
-    { q: "What are the best gated communities in Myrtle Beach?", a: "The best one depends on what you want nearby. Seaside Plantation in North Myrtle Beach is about 2 minutes by car from a public beach access. Covington Lake East and Myrtle Trace have the lowest HOA fees on this page. Litchfield by the Sea has a main gate staffed 24 hours a day." },
+    { q: "What are the best gated communities in Myrtle Beach?", a: "The best one depends on what you want nearby. Seaside Plantation in North Myrtle Beach is about 2 minutes by car from a public beach access. Covington Lake East and Myrtle Trace have HOA fees under $100 a month. Litchfield by the Sea has a main gate staffed 24 hours a day." },
     { q: "Are there gated communities in North Myrtle Beach?", a: "Yes. Tidewater Plantation and Seaside Plantation are gated. Eight neighborhoods inside Barefoot Resort are gated too, including Dye Estates and Leatherleaf." },
     { q: "Is there a gated community in Surfside Beach?", a: "Prestwick, off Highway 544 just outside the town, is gated. Its nearest public beach access is in Surfside Beach, about 7 minutes away by car." },
     { q: "Are there gated communities in Murrells Inlet?", a: "Yes. Bellwood Landing, Wachesaw Plantation and Wachesaw East are gated. The 55+ neighborhood Seasons at Prince Creek West has a gate at its main entrance, with a call box for visitors." },
