@@ -223,8 +223,8 @@ const SECTIONS_PLACES = [
   "most of Barefoot Resort is open. Dye Estates has a guardhouse at its entrance, and Leatherleaf has a gate. In Leatherleaf, the few homes that sold went for about $700,000 to $975,000, and the HOA fee is about $390 a month."),
 
   entry("grande-dunes", "golf above the Intracoastal Waterway and an oceanfront club", [
-    "Burroughs & Chapin launched Grande Dunes and sold its first lots in October 2000, once its roads and utilities were in. Its Resort Course runs along the Intracoastal Waterway.",
-    "Grande Dunes stretches from the ocean to the Carolina Bays Preserve, with miles of walking and biking trails. Its gated sections of houses, Calais, Palermo and Villa Venezia, are beside the golf course; Villa Venezia is the newest, with houses built since 2016. Grande Dunes has the Ocean Club on the beach, with oceanfront pools and dining, and a deep-water marina on the waterway with restaurants beside it.",
+    "Burroughs & Chapin launched Grande Dunes and made its first sale in October 2000. Its Resort Course runs along the Intracoastal Waterway.",
+    "Grande Dunes covers about 2,200 acres, with walking and biking trails. Its gated sections of houses are Calais, Palermo and Villa Venezia; Palermo and Villa Venezia are beside the golf course, and Villa Venezia's houses for sale were built from 2016 on. Grande Dunes has the Ocean Club on the beach, with oceanfront pools and dining, and a deep-water marina on the waterway with restaurants beside it.",
   ], P("grande-dunes-villa-venezia"), "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right.",
   "a gate at the entrance of each gated section; other sections are open. Homes usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
@@ -241,8 +241,8 @@ const SECTIONS_PLACES = [
   "a gate on Royal Bluff Drive, off River Oaks Boulevard. The few homes that sold went for about $700,000 to $975,000, and the HOA fee is about $150 a month."),
 
   entry("covington-lake-east", "a pool, ponds and a low HOA fee in Carolina Forest", [
-    "Covington Lake East has brick houses, built from about 2008, on curving streets around ponds. The streets have sidewalks and are friendly to golf carts, and the houses have natural gas.",
-    "Coastal Carolina University and the shops and restaurants of Carolina Forest Boulevard are a short drive.",
+    "Covington Lake East has brick houses, built since the mid-2000s, on curving streets with ponds among them. The streets have sidewalks, and many houses have natural gas.",
+    "Coastal Carolina University is about 12 minutes away by car.",
   ], P("covington-lake-east"), "Covington Lake East from above: houses on curving streets, with ponds among them.",
   "a gate at the entrance. Homes usually sell for about $570,000, and the HOA fee is about $90 a month, the lowest here."),
 
@@ -265,7 +265,7 @@ const SECTIONS_PLACES = [
   "a call box at the main entrance; a visitor calls the owner, who opens the gate. Homes usually sell for about $500,000, and the HOA fee is about $340 a month."),
 
   entry("bellwood-landing", "about 100 houses beside Prince Creek's park", [
-    "Bellwood Landing is a small neighborhood in Prince Creek West, with 102 home lots in two phases. About one lot in ten had no house in the county's last count, and new houses are still being built.",
+    "Bellwood Landing is a small neighborhood in Prince Creek West, with 102 home lots in two phases. About one lot in ten had no house in the county's parcel records, and new houses are still being built.",
     "Some homes are on ponds. The Park at Prince Creek has two pools, tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
     "Close by is TPC Myrtle Beach, a Tom Fazio course from 1999 that hosted the 2000 Senior PGA Tour Championship, won by Tom Watson.",
   ], P("bellwood-landing"), "Bellwood Landing from above: houses around a pond, beside the woods.",
@@ -278,8 +278,8 @@ const SECTIONS_PLACES = [
   "a gatehouse at the main gate, reached from Riverwood Drive. Homes usually sell for about $650,000, and the HOA fee is about $150 a month on most homes."),
 
   entry("wachesaw-east", "a 1996 course that hosted the LPGA", [
-    "Clyde Johnston's Wachesaw Plantation East course opened in December 1996 and held LPGA tour events from 1997 to 2000. Its houses date from the early 2000s.",
-    "Houses line its fairways, and the main entrance is at the light by Tidelands Waccamaw Community Hospital. Huntington Beach State Park and Brookgreen Gardens are a short drive.",
+    "Clyde Johnston's Wachesaw Plantation East course opened in December 1996 and held LPGA tour events from 1997 to 2000. Its houses for sale were built from 2000 to 2006.",
+    "Houses line its fairways, and the main entrance is at the light by Tidelands Waccamaw Community Hospital. Huntington Beach State Park and Brookgreen Gardens are about 15 and 18 minutes away by car.",
   ], P("wachesaw-east"), "Wachesaw East from above: houses along the fairways of its golf course.",
   "a gate at the main entrance; the back gate on Wachesaw Road opens with a card key. Homes usually sell for about $500,000, and the HOA fee is about $145 a month."),
 
@@ -298,7 +298,7 @@ const SECTIONS_PLACES = [
 
   entry("litchfield-plantation", "a 1700s plantation house and its avenue of oaks", [
     "Litchfield Plantation's house dates from the 1700s, and the road in is lined with old live oaks, the Avenue of Oaks. In the 1800s the plantation belonged to the Tucker family, who also owned Willbrook.",
-    "It has a pool that looks out over the marsh and an oceanfront beach house on Pawleys Island. A private marina on the river is an optional extra.",
+    "It has a pool that looks out over the rice fields and an oceanfront beach house on Pawleys Island. A private marina on the river is an optional extra.",
   ], P("litchfield-plantation"), "Litchfield Plantation from above: houses under tall trees, with golf fairways and ponds at the right.",
   "a gatehouse on Kings River Road. Homes are mostly houses and townhouses. Few sold, so prices ranged widely around $1 million; the HOA fee is about $230 a month on most homes."),
 
