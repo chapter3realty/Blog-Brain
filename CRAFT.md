@@ -212,19 +212,20 @@ In this order:
 
 1. **Read it as the reader, before any gate.** A perfect score measures rules, not value. Version 1 of batch 2026-10-a scored 100 on every gate and was sent back.
 2. **A cold reader who has never seen the page** reads it and lists what stopped them and what they came for but did not find (`prompts/buyer-reader.md`, with the reader chosen for this page). A gap the cold reader names is a blocker that day, not a note.
-3. **Never grade your own work.** Use a fresh reader for every judgment that gates a release, and a new one after each round of fixes. Every self-grade in batch 2026-10-a came in higher than the independent grade after it.
-4. **Compare sibling pages side by side.** List words, pictures of the subject itself, must-answers covered, phone screens and the longest section for each. A page that passes alone can be plainly the weakest of the set.
-5. **Look at the served page, freshly built,** at 375 px wide, after a slow scroll so every image loads, with the largest text setting once. Check that screenshots are newer than the build.
-6. **Run the gates:**
+3. Run `node tools/repeat-check.js <page> --strict` after every rewrite; a rewrite that cures one repetition often grows the next (batch 2026-10-b).
+4. **Never grade your own work.** Use a fresh reader for every judgment that gates a release, and a new one after each round of fixes. Every self-grade in batch 2026-10-a came in higher than the independent grade after it.
+5. **Compare sibling pages side by side.** List words, pictures of the subject itself, must-answers covered, phone screens and the longest section for each. A page that passes alone can be plainly the weakest of the set.
+6. **Look at the served page, freshly built,** at 375 px wide, after a slow scroll so every image loads, with the largest text setting once. Check that screenshots are newer than the build.
+7. **Run the gates:**
    - `npm test`
    - `score.js`
    - `claims-scan.js`
    - `facts-check.js`
    - `image-meta.js`
    - the website's `build.js audit`
-7. **The owner's eye** (`prompts/owner-eye.md`), run by an agent that did not write the page, grades it as the owner would. Below 9, it does not go to the owner. A stand-in can stretch the owner's words, so a cold reader checks its pet fixes too.
-8. **Stop by rule.** Release when no high or medium findings remain. Low findings go to a list. They never start a new version.
-9. **When two reviewers disagree,** write down what each one protects and find one design that serves both before building. If you must choose, choose by the reader, and log the reversal in `WORKFLOW.md`.
+8. **The owner's eye** (`prompts/owner-eye.md`), run by an agent that did not write the page, grades it as the owner would. Below 9, it does not go to the owner. A stand-in can stretch the owner's words, so a cold reader checks its pet fixes too.
+9. **Stop by rule.** Release when no high or medium findings remain. Low findings go to a list. They never start a new version.
+10. **When two reviewers disagree,** write down what each one protects and find one design that serves both before building. If you must choose, choose by the reader, and log the reversal in `WORKFLOW.md`.
 
 Test an outside service or a site component in the real page, under the site's own rules, before building on it.
 

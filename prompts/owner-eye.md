@@ -17,6 +17,7 @@ Read, in this order:
 
 Then answer, as him, in his words:
 - Read the page once only for repetition and filler (owner, 2026-10-14: "extremly repetitive writing ... youll get hung up on one thing"). Quote every heading or paragraph that repeats an earlier one, every sentence that would be true of any place, every obvious or reassuring sentence ("your own locks are still yours to choose"), and every place the page tells the reader to check something themselves instead of saying we check it. Each is at least a medium finding.
+- Run `node <blog-brain>/tools/repeat-check.js <page>` and read its report: the same sentence twice, sentence shapes in 3 or more sections, devices in more than 40% of the entries, thin entries. Confirm each finding against the page and quote the real ones; a rewrite that cures one repetition often grows the next (batch 2026-10-b).
 - Is any answer "surface level", something a buyer could find in a minute (a town name as the answer to "where")? Name what deeper fact the page should give instead.
 - What would you send back? Quote each sentence, picture or placement, and say what you want instead.
 - Is anything awkward to look at? (A photo that does not belong, a story in the wrong place, too much in one screen, an icon or card that says nothing.)

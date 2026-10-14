@@ -17,9 +17,12 @@
  *   body   the copy, the short answer and the story box;
  *   offer  a box with a button (its heading and lines);
  *   faq    the section under the FAQ heading.
- * Headings are not counted as sentences: a question H2 names the subject by design.
- * A "facts line" is a paragraph that opens with the same bold label in 3 or more entries ("The facts:").
- * It is the one place CRAFT 5 puts the page's theme in each entry, so checks b, c, d and e skip it.
+ * Headings are not counted as sentences: a question H2 names the subject by design. A bold label that
+ * opens a paragraph ("The trade-off:") is dropped before the text is read.
+ * A facts line is a paragraph opened by a label that names facts ("The facts:", "At a glance:"), or by the
+ * same label in 3 or more entries over a price ("With no HOA fee:"). It is the one place CRAFT 5 puts the
+ * page's theme in each entry, so every check skips it. A repeated label over prose ("The trade-off:") is
+ * read as body copy: what follows it should differ from entry to entry.
  *
  * The checks:
  *   a. The same sentence twice. Case and punctuation are ignored. Identical: 6 or more words, the same
@@ -28,12 +31,13 @@
  *      "Litchfield was a rice plantation ..."; not "[name] is about [number] minutes away by car").
  *      Near: 8 or more words in each, and 85% or more of the longer sentence's words also in the other. Body against body is the finding. A body sentence repeated in an offer
  *      or the FAQ, and an offer repeated in another offer, are listed apart as low: an FAQ answer is
- *      written to stand alone, and the offer box is one component.
+ *      written to stand alone, and the offer box is one component. Also low: a run of 8 or more words
+ *      used 3 or more times anywhere ("we check the deed, the lot map and the HOA papers ...").
  *   b. A repeated sentence shape. Numbers become N, names become P (a capitalized run of words, joined by
- *      "of", "at", "and", "the", "on", "by", "de"; a sentence's first word counts as a name only if the
- *      page never uses it in lower case), and quoted text becomes Q. Then any 4-token opening with at
- *      least one content word, or any 5-token run with at least two content words, that occurs in 3 or
- *      more H2 sections is a shape. Body sentences only. Each shape is grown to the longest run its
+ *      "of", "at", "and", "the", "on", "by", "de"; a sentence's first word counts as a name only if it is
+ *      not a stopword and the page never uses it in lower case), and quoted text becomes Q. Then any
+ *      4-token opening or 3-token ending with at least one content word, or any 5-token run with at least
+ *      two content words, that occurs in 3 or more H2 sections is a shape. Body sentences only. Each shape is grown to the longest run its
  *      sentences share.
  *   c. A repeated device, on a list of places (4 or more H2s that start "1. ", "2. ", ...). A content
  *      word or bigram in more than 40% of the entries and in at least 4 of them (3 of 5 is chance), and
@@ -98,8 +102,8 @@ function sentences(text) {
     .filter((s) => /[A-Za-z]/.test(s));
 }
 
-/* Words as they are written, with apostrophes and inner hyphens kept: "high-risk", "Iree's". */
-/* Punctuation inside a sentence is kept as its own token, so a comma ends a name ("Wimbledon Way, Wilshire Lane"). */
+/* Words as they are written, with apostrophes and inner hyphens kept ("high-risk", "Iree's"). Punctuation
+   inside a sentence is its own token, so a comma ends a name ("Wimbledon Way, Wilshire Lane"). */
 const BREAK = /^[,;:()]$/;
 const rawWords = (s) => (s.replace(/[“”]/g, '"').replace(/[‘’]/g, "'").match(/\$?\d+(?:,\d{3})*(?:\.\d+)?%?|"[^"]{1,80}"|[A-Za-z][A-Za-z'-]*[A-Za-z]|[A-Za-z]|[,;:()]/g) || []);
 const plainTokens = (s) => rawWords(s).filter((w) => !BREAK.test(w)).map((w) => w.toLowerCase().replace(/^"|"$/g, "").replace(/[,$%]/g, "").replace(/'s$/, "")).filter(Boolean);
@@ -126,9 +130,11 @@ function extract(html) {
     if (/^By\s/.test(text) && /(?:Officer|Broker|Reviewed|Updated)/.test(text)) return;
     let zone = "body";
     const box = el.parent();
-    if (el.closest(".c3-story").length) zone = "body";
-    else if (box.children("a.btn, .btn").length || el.closest("[class*='cta']").length) zone = "offer";
-    else if (box.nextAll().filter((_, x) => $(x).is("a.btn") || $(x).find("a.btn").length).length && box.children("p, h2, h3").length <= 4 && !box.children("h2").filter((_, h) => /^\d+\.\s/.test(norm($(h).text()))).length) zone = "offer";
+    /* An offer: a box holding a button, or a short box whose next sibling holds the button (the site's
+       "Ready to make your next move" block puts its text and its button in two divs). */
+    const btn = (x) => x.is("a.btn, .btn") || x.find("a.btn, .btn").length > 0;
+    if (!el.closest(".c3-story").length && (box.children("a.btn, .btn").length || el.closest("[class*='cta']").length ||
+      box.next().length && btn(box.next()) && box.children("p, h2, h3").length <= 3 && !box.is("main, body, section"))) zone = "offer";
     const first = el.children().first();
     const label = first.is("strong, b") && el.text().trimStart().startsWith(first.text().trim()) && /:\s*$/.test(norm(first.text())) && norm(first.text()).split(" ").length <= 4 ? norm(first.text()).toLowerCase() : "";
     /* body: the text without its bold label. A label is structure, not copy. */
@@ -388,7 +394,7 @@ function devices(ex, vocab, subject) {
     const g = groups[i];
     const bi = g.members.find((m) => m.key.includes(" ") && m.entries >= g.entries);
     const lead = bi || g;
-    groups[i] = { ...lead, also: g.members.filter((m) => m.key !== lead.key).map((m) => m.device) };
+    groups[i] = { ...lead, also: g.members.filter((m) => m.key !== lead.key).map((m) => m.device), alsoEntries: g.members.filter((m) => m.key !== lead.key).map((m) => m.entries) };
   }
   return { entries: n, list: true, found: groups };
 }
@@ -479,7 +485,7 @@ function report(r, file) {
   if (!r.list) L.push(`c. Devices: not a list of places (fewer than ${T.listMinEntries} numbered H2s).`);
   else {
     L.push(`c. Devices in more than ${T.deviceShare * 100}% of the ${r.entries} entries: ${r.devices.length}.`);
-    for (const x of r.devices) L.push(`   - ${x.share > T.deviceStrict ? "[60%+] " : ""}"${x.device}"${x.also.length ? ` (with ${x.also.map((w) => `"${w}"`).join(", ")})` : ""} in ${x.entries} of ${x.of} entries (${x.which.join(", ")}). ${short(x.example.entry)}: ${q(x.example.text, 150)}`);
+    for (const x of r.devices) L.push(`   - ${x.share > T.deviceStrict ? "[60%+] " : ""}"${x.device}"${x.also.length ? ` (with ${x.also.map((w, k) => `"${w}" ${x.alsoEntries[k]}`).join(", ")})` : ""} in ${x.entries} of ${x.of} entries (${x.which.join(", ")}). ${short(x.example.entry)}: ${q(x.example.text, 150)}`);
   }
   L.push("");
   if (!r.lengths.entries) L.push("d. Entry length: no numbered entries.");
