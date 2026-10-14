@@ -222,13 +222,13 @@ const SECTIONS_PLACES = [
     "Tidewater began with its golf course. Ken Tomlinson, a Columbia lawyer who also designed courses, found a 600-acre site on the Intracoastal Waterway. Hurricane Hugo delayed the work, and the course opened in 1990. Golf Digest and Golf Magazine both named it the best new public course in America that year.",
     "Two of its holes meet the marsh of the waterway, and another looks across Cherry Grove Inlet. Many of its homes are houses along the fairways, with a few condo buildings among them.",
     "Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood.",
-    "Tidewater is on the marsh, not the ocean. Owners have their own oceanfront cabana, with parking, at Cherry Grove Beach, about 8 minutes away by car.",
+    "Tidewater is on the marsh, not the ocean. Owners have their own oceanfront cabana, with parking, at Cherry Grove Beach; the drive there takes about 8 minutes.",
   ], P("tidewater-plantation"), "Tidewater Plantation from above: houses along the fairways of its golf course, with ponds among them.",
   "a gatehouse on Little River Neck Road, where visitors check in. Homes usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
   entry("seaside-plantation", "lakes and shag festivals a few blocks from the ocean", [
     "Seaside Plantation is in the Tilghman Beach part of North Myrtle Beach, two or three blocks from the ocean. Many of its houses are brick, and many back up to its lakes.",
-    "Its clubhouse has a pool, a hot tub and parking for golf carts. A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are less than half a mile away, and Main Street is a golf cart ride away.",
+    "Its clubhouse has a pool, a hot tub and parking for golf carts. A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are less than half a mile away. Main Street is a short trip by golf cart.",
     "Its property owners association recorded its gate access rules with the county in 2019.",
     "Each fall the Society of Stranders holds its Fall Migration on Main Street, a shag dance festival, and its Spring Safari comes each April. On those weeks, thousands of dancers fill the streets near the neighborhood.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
@@ -254,7 +254,7 @@ const SECTIONS_PLACES = [
     "Waterway Palms Plantation is on the west side of the Intracoastal Waterway. Its plan was taken from Charleston's Battery: houses in the Charleston style of the 1700s, with high front porches and courtyards behind wrought-iron or white fences.",
     "The clubhouse stands on a point in a pond, with gazebos for looking out over the water. Nearby are tennis and pickleball courts, a fitness center, a basketball court and a playground, and every street has sidewalks.",
     "Boat owners have a ramp on the waterway, a day dock and a fenced yard for boats and trailers.",
-    `Carolina Forest was land owned by International Paper, and the Army used part of it as a bombing and gunnery range from 1942 to 1947. Our ${h.a(FARM, "guide to The Farm")} tells that story.`,
+    `Carolina Forest was land owned by International Paper, and the Army used part of it as a bombing and gunnery range from 1942 to 1947. Read that story in our ${h.a(FARM, "guide to The Farm")}.`,
     "Builders are still finishing new houses, so parts of the neighborhood are still under construction.",
   ], P("waterway-palms-plantation"), "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
   "a gate at the entrance, where a visitor calls the owner to be let in. Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
@@ -270,7 +270,7 @@ const SECTIONS_PLACES = [
   entry("covington-lake-east", "brick houses around ponds and a low HOA fee", [
     "Covington Lake East is a small neighborhood of brick houses in Carolina Forest, built from about 2008. Its curving streets wind among ponds, and most lots are about a quarter of an acre.",
     "The streets have sidewalks, and listings call them friendly to golf carts. Many of the houses have natural gas.",
-    "It has a pool and a clubhouse on land its owners association holds. Shops and restaurants are less than a mile away, and Coastal Carolina University is about 12 minutes away by car.",
+    "It has a pool and a clubhouse on land its owners association holds. Shops and restaurants are less than a mile away, and Coastal Carolina University is a 12-minute drive.",
     "It has no golf course or boat ramp of its own.",
   ], P("covington-lake-east"), "Covington Lake East from above: houses on curving streets, with ponds among them.",
   "a gate at the entrance. Homes usually sell for about $570,000, and the HOA fee is about $90 a month, the lowest here."),
@@ -278,7 +278,7 @@ const SECTIONS_PLACES = [
   entry("myrtle-trace", "a 55+ neighborhood near Conway, run by its owners", [
     `Glenn Hall developed Myrtle Trace, and its first lot deeds were recorded in 1983. Every occupied home must have a resident 55 or older. Our ${h.a(MT, "guide to Myrtle Trace")} tells its story.`,
     "The owners run the HOA themselves, with volunteers and no management company. Its facilities include a clubhouse, a bocce court, a horseshoe pit and a basketball area.",
-    "Fifteen ponds lie among the streets. Residents and their house guests may fish in them from the common land, and every fish goes back. Some lots back onto Burning Ridge Golf Club, a private course next door, and Conway Medical Center is less than a mile away by car.",
+    "Fifteen ponds lie among the streets. Residents and their house guests may fish in them from the common land, and every fish goes back. Some lots back onto Burning Ridge Golf Club, a privately owned club next door, and Conway Medical Center is less than a mile away by road.",
     "Its streets have no sidewalks.",
   ], P("myrtle-trace"), "Myrtle Trace from above: houses on curving streets among trees, with golf fairways and ponds nearby.",
   "gates only at the back entrance on Myrtle Ridge Road; the front entrance on Burning Ridge Road is open. Homes usually sell for about $300,000, and the HOA fee is $95 a month."),
@@ -300,9 +300,9 @@ const SECTIONS_PLACES = [
   "a gatehouse at the main gate off Highway 544. Homes usually sell for about $480,000, and the HOA fee is about $190 a month."),
 
   entry("prince-creek-55", "a 55+ clubhouse with a ballroom and an art studio", [
-    `Levitt and Sons deeded the first lot in Seasons at Prince Creek West in 2006, and a second builder deeded the last in 2016. Like Myrtle Trace, it requires a resident 55 or older in every occupied home. Our ${h.a(SEASONS, "guide to Seasons")} covers its rules.`,
+    `Levitt and Sons deeded the first lot in Seasons at Prince Creek West in 2006, and a second builder deeded the last in 2016. Like Myrtle Trace, it requires a resident 55 or older in every occupied home. Its rules are in our ${h.a(SEASONS, "guide to Seasons")}.`,
     "The clubhouse has indoor and outdoor pools and a fitness center. In 2013 the builder also listed a ballroom, a card room, an art studio, a billiards room and a full-time activities director. The sports park has tennis, bocce and shuffleboard.",
-    "Golf carts are kept in garages, not on the streets. The Murrells Inlet MarshWalk is about 10 minutes away by car.",
+    "Golf carts are kept in garages, not on the streets. It takes about 10 minutes to drive to the Murrells Inlet MarshWalk.",
     "The HOA fee, about $340 a month, is more than three times Myrtle Trace's.",
   ], P("prince-creek-55-clubhouse"), "The Seasons at Prince Creek West clubhouse and its outdoor pool from above, among the streets of Prince Creek West.",
   "a call box at the main entrance; a visitor calls the owner, who opens the gate. Homes usually sell for about $500,000."),
@@ -335,7 +335,7 @@ const SECTIONS_PLACES = [
   entry("the-reserve", "Greg Norman's private course and a river marina", [
     "The Reserve Golf Club, designed by Greg Norman, opened in 1998 on 350 acres, about 160 of them wetlands. Its holes are cut through the woods, around ponds and marsh.",
     "The neighborhood's marina, on the Waccamaw River, is run by Safe Harbor. It has wet slips and dry storage, and staff launch and haul the boats. Its Harbor Club has a restaurant.",
-    "The beach and Beach Club at Litchfield by the Sea are a golf cart ride away. Most houses for sale were built from 2005 on.",
+    "Litchfield by the Sea's beach and Beach Club are close enough to reach by golf cart. Most houses for sale were built from 2005 on.",
     "The golf club is private, and its membership is separate from owning a home. The Harbor Club is a separate membership too.",
   ], P("the-reserve"), "The Reserve from above: houses around a pond, with golf fairways cut through the woods.",
   "a gate at the entrance. Homes usually sell for about $1.35 million, and the HOA fee is about $320 a month on most homes."),

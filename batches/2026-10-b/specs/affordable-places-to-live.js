@@ -328,7 +328,7 @@ module.exports = {
       h.p("The Townes at Amber Bluff is a new townhome community off Savannah Bluff Road, on the Conway side of US 501. Coastal Carolina University's campus and Brooks Stadium are about a mile south.") +
       PH["amber-bluff"] +
       h.p("D.R. Horton built every townhome here. Each one listed has the same floor plan, with three bedrooms, and the sales were close together in price. Each came with the builder's smart-home package for the front door lock, the thermostat and a video doorbell. The HOA fee includes the grounds and trash, not water.") +
-      h.p("Downtown Conway and its riverwalk on the Waccamaw River are about two miles west. One cost is not yet set: a yearly insurance charge for the buildings. We find out what it will be for any home you like.") +
+      h.p("Downtown Conway and its riverwalk on the Waccamaw River are about two miles northwest. One cost is not yet set: a yearly insurance charge for the buildings. We find out what it will be for any home you like.") +
       h.cta("Want the homes for sale in one of these neighborhoods?", "Tell us which ones you like and your price range. One of our agents will send you what is for sale there, with the HOA fee and the yearly tax for each home.", OFFER, CONTACT, bg)),
 
     entry("villas-at-sandridge", "new townhomes off SC 90 near the waterway", () =>
