@@ -411,8 +411,8 @@ module.exports = {
     ], CONWAY_PHOTO, "inside the city, a big business truck may not park on a city street."),
 
     entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
-      `North Myrtle Beach began in 1968, when Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill joined as one city. In the Ocean Drive and Crescent Beach area, a pavilion drew crowds who danced the ${h.ext(SCE + "shag/", "shag")}. South Carolina made it the ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
-      "The houses for sale are mostly in those old beach towns, and most are within half a mile of the beach. About 6 in 10 were built before 1990.",
+      `Hurricane Hazel struck this shore on October 15, 1954, and destroyed many homes and businesses. All but three of the houses for sale here with no HOA fee were built after it. In the Ocean Drive and Crescent Beach area, a pavilion drew crowds who danced the ${h.ext(SCE + "shag/", "shag")}. South Carolina made it the ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
+      "The houses for sale are mostly in Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill, and most are within half a mile of the beach. About 6 in 10 were built before 1990.",
       `Cherry Grove's canals were ${h.ext(CANALS, "created as early as the 1950s")}. By the 1970s, some were filling up. Left alone, they would have turned back into marsh and mudflats. The city has dredged canals there twice since 2016, so owners' boats can reach House Creek and the Intracoastal Waterway at high and low tide. Owners of about 415 properties in the canal district pay the city about $1,700 a year for that work.`,
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
 
@@ -441,7 +441,7 @@ module.exports = {
     ], LR_PHOTO, "none of the houses for sale here is within a mile of the beach."),
 
     { h2: "How do the eight areas compare?", toc: "The areas side by side", html: () =>
-      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of the houses listed with no fee are on the ocean side of US 17 Business, the coast road, which helps explain why they cost more.`) +
+      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of the houses listed with no fee are on the ocean side of US 17 Business, the coast road, and houses there cost more.`) +
       areaTable() +
       h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) },
 
