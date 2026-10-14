@@ -425,7 +425,7 @@ module.exports = {
     entry("Murrells Inlet", "Murrells Inlet: bigger houses near the seafood restaurants and Brookgreen Gardens", [
       `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought a tract there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
       `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. In the twentieth century a fleet of charter and party boats grew up at the inlet, and its captains took visiting anglers offshore.`,
-      `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest of the eight areas.`,
+      `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, bigger than the typical house in any of the other seven areas.`,
     ], INLET_PHOTO, "Murrells Inlet is not a town, and part of it is in Georgetown County, with its own tax bill and rules."),
 
     entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near the ocean", [
@@ -450,7 +450,7 @@ module.exports = {
       prosCons([
         "No monthly HOA fee, and no surprise HOA bill for a big repair.",
         "No HOA to ask before you put up a fence, add a shed or keep a boat on the lot. Town rules on boats still apply.",
-        "No HOA rule against renting the home out. In our experience, many HOAs here do not allow renting a house out at all.",
+        "No HOA rule against renting the home out.",
       ], [
         "No shared pool, clubhouse or common areas. On a house, an HOA fee often includes these.",
         "No HOA rules for the houses next door either.",

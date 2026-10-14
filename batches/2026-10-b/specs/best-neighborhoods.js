@@ -376,7 +376,7 @@ const ENTRIES = [
   ENTRY(3, "barefoot-resort", "Barefoot Resort: four golf courses that opened on one day in North Myrtle Beach", [
     "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. The residential association's rules were recorded that day too, and neighborhoods grew up around the courses.",
     "Many streets carry seashell names, from Junonia Drive to Moonshell Drive. Barefoot Landing's shops and restaurants are across the swing bridge on the waterway.",
-    "That bridge dates from 1934 and was moved here from Edenton, North Carolina, the year the courses opened. The resort's developer restored it and gave it to the city of North Myrtle Beach.",
+    "That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened.",
     `We check which association a home belongs to before you offer, because each association has its own pools and clubs. Our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} covers the resort's beach cabana, its shuttle and its gated sections.`,
   ], "homes for sale are mostly condos, a mix of older ones and new ones, and the new ones are larger. They usually sell for about $430,000, and the HOA fee is about $680 a month for a condo."),
 
@@ -397,36 +397,36 @@ const ENTRIES = [
     `Grande Dunes has an oceanfront club and a marina on the Intracoastal Waterway. Calais, Palermo and Villa Venezia are three of its sections with ${h.a("/buyers/gated-communities/", "a gate at the entrance")}.`,
     "Its Resort Club course is a Roger Rulewich design on a bluff over the waterway. The National Golf Course Owners Association named it course of the year in 2009. Nick Price and Craig Schreiner designed the Members Club course. On the ocean side, the Ocean Club is a beach club for residents, with dining. The clubs offer memberships, and we find out which homes include one.",
     "On the waterway side, the public can use the marina, and the two-mile Waterway Trail is open from sunrise to sunset.",
-    "Grande Dunes is still being built, and most houses for sale are new or not yet finished.",
+    "Across Grande Dunes, most houses for sale are new or not yet finished.",
   ], "homes in the three gated sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
   ENTRY(7, "the-farm", "The Farm at Carolina Forest: two pools and cable TV in the fee", [
     `D.R. Horton developed The Farm, and our ${h.a(FARM, "guide to The Farm at Carolina Forest")} tells its history, its rules and the story behind its street names.`,
     `It has ${h.ext(FARM_HOA, "two pools")}, a fitness room, an activity center, a basketball court and a playground, and the HOA fee includes cable TV and trash pickup.`,
-    "Of the four Carolina Forest neighborhoods here, The Farm has the lowest house prices and the lowest HOA fee for a house.",
+    "Of the four Carolina Forest neighborhoods here, The Farm has the lowest house prices, and its HOA fee is lower than the usual fee in the other three.",
     "Townhomes and condos at The Farm cost less, but they pay a second HOA fee on top of The Farm's.",
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,200 square feet. Houses usually sell for about $350,000, and the HOA fee for a house is $107 a month."),
 
   ENTRY(8, "plantation-lakes", "Plantation Lakes: a large lake and two pools on a point in Carolina Forest", [
     "Plantation Lakes is built around a large lake, with about 15 miles of shoreline, off Carolina Bays Parkway. Its developer was American Mining Company, and the owners' association holds about 185 acres of common areas.",
-    "Many homes back onto the lake, and the amenity area has a dock. That amenity area is on a point in the lake, with two pools joined by a waterfall and a clubhouse with a gym. Tennis and basketball courts and horseshoe pits are across the road.",
-    "Of the fifteen, only Grande Dunes has houses that sell for more.",
+    "Many homes back onto the lake, and the amenity area has a dock. That amenity area is on a point in the lake, with two pools joined by waterfalls and a clubhouse with a gym. Tennis and basketball courts are across the road, and the community has horseshoe pits.",
+    "Of the four Carolina Forest neighborhoods here, Plantation Lakes has the highest house prices.",
   ], "houses for sale were mostly built in the 2000s and have about 3,400 square feet. Houses usually sell for about $740,000, and the HOA fee is about $125 a month.", MID_CTA),
 
   ENTRY(9, "berkshire-forest", "Berkshire Forest: a water slide and two pool areas in Carolina Forest", [
     "Centex Homes developed the first sections of Berkshire Forest, such as Crestwood, Sutton Place and Cambridge. Pulte Homes later added land from two neighboring developments. Berkshire Forest and its Berkshire Village section together have more than 1,100 homes.",
     "The first pool complex, with a water slide, is beside a lake, with tennis and basketball courts and a play area next to it. The expansion added a second amenity area with a pool and courts for tennis or pickleball.",
-    "River Oaks Elementary School is on Augusta Plantation Drive, next to the Berkshire Village section. The beach is a 15-minute drive.",
+    "River Oaks Elementary School is on Augusta Plantation Drive, about 0.1 mile from the Berkshire Village section. The beach is a 15-minute drive.",
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,400 square feet. Houses usually sell for about $390,000, and the HOA fee is about $115 a month."),
 
   ENTRY(10, "pine-lakes", "Pine Lakes: homes beside the Granddaddy, Myrtle Beach's first golf course", [
     "Pine Lakes Country Club opened in 1927 as Ocean Forest Country Club, Myrtle Beach's first golf course, and took the name Pine Lakes in 1946. Robert White, a native of St. Andrews, Scotland, and the first president of the PGA of America, designed it. Its clubhouse is on the National Register of Historic Places, and Time-Life executives planned Sports Illustrated there in 1954.",
     "The Preserve at Pine Lakes and Pine Lakes Estates are two sections of houses beside the course.",
-    "Homes for sale on the older streets near the club have no HOA fee. Few homes in the two sections come up for sale.",
+    "Homes for sale on the older streets near the club have no HOA fee.",
   ], "houses for sale were mostly built since 2015 and have about 2,400 square feet. Homes usually sell for $540,000 to $670,000, and the HOA fee is about $95 a month for a house."),
 
   ENTRY(11, "forestbrook-estates", "Forestbrook Estates: newer houses, a pool and garden plots", [
-    "Forestbrook Estates is the pick for a house from the last few years with a low HOA fee. Lennar built every house the county approved here, around ponds, with townhomes beside them.",
+    "Forestbrook Estates is the pick for a house from the last few years with a low HOA fee. Lennar built nearly every home here, around ponds, with townhomes beside the houses.",
     "Owners swim at the community pool, and on the same grounds they can keep a plot in the community garden.",
     "Every home here is zoned for Forestbrook Elementary, Forestbrook Middle and Socastee High. The elementary and middle schools are each 5 to 6 minutes away by car, and a Food Lion is about the same.",
     "Its houses cost a little more than The Farm's, but they are newer.",
@@ -435,12 +435,12 @@ const ENTRIES = [
   ENTRY(12, "market-common", "The Market Common: a town center on the old Myrtle Beach Air Force Base", [
     "The Market Common is built on the old Myrtle Beach Air Force Base. The base began as an Army Air Corps field in World War II and closed in 1993. The base's land now holds The Market Common, a dozen parks, the airport and a golf course.",
     "Its houses and townhomes are beside a district of shops and offices. Grand Park, with picnic shelters, ball fields and a playground, is about 0.1 mile from the nearest homes.",
-    "A townhome here pays about $300 to $680 a month in HOA fees, much more than a house.",
+    "A townhome here pays about $300 to $680 a month in HOA fees.",
   ], "townhomes for sale have about 1,700 square feet. Houses usually sell for about $540,000 and townhomes for about $398,000."),
 
   ENTRY(13, "deerfield", "Deerfield Plantation area: wooded streets around an old golf resort near Surfside Beach", [
     "The Deerfield Plantation area is built around the old Deer Track golf courses near Surfside Beach. Its older streets are wooded, and the association owns lake and canal land among the homes.",
-    "In 2006 two buyers bought the golf course. Homeowners sued to keep it a golf course. A court found no rule on the land that kept it a golf course, and the state Court of Appeals agreed in 2012.",
+    "In 2006 two buyers bought the golf course. Homeowners sued to keep it a golf course. A special referee found no rule on the land that kept it a golf course, and the state Court of Appeals upheld that in 2012.",
     "The old South Course is now a neighborhood of new houses. On the old North Course, building has only begun, so homes near it are beside a building site.",
     "The closest beach access has three parking spaces, for golf carts only. By car, owners use the next access, which has a pay lot.",
   ], "most of the few houses for sale here were built in the 1970s and 1980s and have about 2,000 square feet. Homes usually sell for about $355,000, and the HOA fee is under $90 a month for a house."),
@@ -454,7 +454,7 @@ const ENTRIES = [
   ENTRY(15, "prince-creek", "Prince Creek: homes beside a Tom Fazio course in Murrells Inlet", [
     "Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course that opened in 1999. Tom Watson won the Senior PGA Tour Championship there the next year.",
     "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, a park of mostly woods. Its amenity area has two pools, courts for tennis and pickleball, basketball, a playground and a covered pavilion.",
-    "Bellwood Landing, behind its own gate, sells for more, about $850,000. A Publix is about 2 minutes away by car. Builders sold new townhomes here in the past year, but few homes are sold by their owners.",
+    "Bellwood Landing, behind its own gate, sells for more, about $850,000. A Publix is about 2 minutes away by car. Builders sold new townhomes here in the past year.",
   ], "the few houses for sale here were built from about 2007 to 2015 and have about 2,400 square feet. Homes usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."),
 ];
 
