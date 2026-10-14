@@ -278,7 +278,7 @@ module.exports = {
       h.p("Parkview is a group of townhomes off 17th Avenue South, near Harrelson Boulevard. It is the only one of the twelve inside the city of Myrtle Beach. The townhomes date from the middle 2000s, many with two bedrooms, and are around ponds, with a pool for the owners.") +
       PH["parkview"] +
       h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own golf course")}, is a short walk from Parkview. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Myrtle Beach International Airport is across Harrelson Boulevard from the course.`) +
-      h.p("A Food Lion is close by. The Market Common, with its shops and restaurants, is about 10 minutes by car, southwest. The trade-off is choice: few of these townhomes come up for sale in a year, so we watch for each new listing.")),
+      h.p("A Food Lion is close by. The Market Common, with its shops and restaurants, is about a 10-minute drive southwest. The trade-off is choice: few of these townhomes come up for sale in a year, so we watch for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes at a golf course off US 501", () =>
       strip("fairways-at-wild-wing") +
@@ -305,14 +305,14 @@ module.exports = {
       strip("golf-and-yacht-club") +
       h.p("Myrtle Beach Golf and Yacht Club is a community of houses off Bay Road, which leaves SC 707 near Socastee. Owners share a pool, tennis and shuffleboard courts, a playground and a clubhouse, and the HOA has a storage area for RVs and trailers. We check the HOA papers for what the fee covers, including any gate and security.") +
       PH["golf-and-yacht-club"] +
-      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is about a mile and a half away. Socastee Recreation Park is about the same distance northeast, in a straight line. Most houses in the older part are small and one story, on small lots, from the 1980s. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
+      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is close by, and Socastee Recreation Park is to the northeast. Most houses in the older part are small and one story, on small lots, from the 1980s. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
       h.p(`Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`)),
 
     entry("forestbrook-village", "new townhomes off Forestbrook Road", () =>
       strip("forestbrook-village") +
       h.p("Forestbrook Village is a new Lennar townhome community off Forestbrook Road, south of US 501. Each townhome is two stories, with a one-car garage, and internet is included. It is next to the Forestbrook neighborhood, and its townhomes sold for less than the houses there.") +
       PH["forestbrook-village"] +
-      h.p("Forestbrook Grocery is about a third of a mile away. The golf course at Arrowhead Country Club is about a mile southeast, and Coastal Grand Mall is about 10 minutes by car. Forestbrook Middle and Forestbrook Elementary are about a mile to a mile and a quarter west.") +
+      h.p("Forestbrook Grocery is about a third of a mile away. The golf course at Arrowhead Country Club is about a mile southeast. Forestbrook Middle and Forestbrook Elementary are about a mile to a mile and a quarter west.") +
       h.p("The trade-off is flood. A few of the lots sold last year are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for the lot of any home you like.")),
 
     entry("victory-point", "new townhomes on the old speedway land", () =>
@@ -325,10 +325,10 @@ module.exports = {
 
     entry("amber-bluff", "new townhomes near Coastal Carolina University", (bg) =>
       strip("amber-bluff") +
-      h.p("The Townes at Amber Bluff is a new townhome community off Savannah Bluff Road, on the Conway side of US 501. Coastal Carolina University's campus and Brooks Stadium are about a mile south.") +
+      h.p("The Townes at Amber Bluff is a new townhome community off Savannah Bluff Road, on the Conway side of US 501. Coastal Carolina University's campus and Brooks Stadium are south, across US 501.") +
       PH["amber-bluff"] +
       h.p("D.R. Horton built every townhome here. Each one listed has the same floor plan, with three bedrooms, and the sales were close together in price. The HOA fee includes the grounds and trash, not water.") +
-      h.p("Downtown Conway and its riverwalk on the Waccamaw River are about two miles northwest. Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.") +
+      h.p("Downtown Conway and its riverwalk on the Waccamaw River are to the northwest. Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.") +
       h.cta("Want the homes for sale in one of these neighborhoods?", "Tell us which ones you like and your price range. One of our agents will send you what is for sale there, with the HOA fee and the yearly tax for each home.", OFFER, CONTACT, bg)),
 
     entry("villas-at-sandridge", "new townhomes off SC 90 near the waterway", () =>
@@ -342,21 +342,21 @@ module.exports = {
       strip("indigo-grove") +
       h.p("Indigo Grove is a new neighborhood of houses off SC 90, south of Longs. Lennar sells it as The Overlook and sold about 145 houses here in about ten months.") +
       PH["indigo-grove"] +
-      h.p("Griffin's IGA, a grocery store on SC 90, is under a mile away. Riverside Elementary, the zoned elementary school, is under two miles east. The beach in North Myrtle Beach is about 15 minutes away.") +
+      h.p("Griffin's IGA, a grocery store on SC 90, is under a mile away. Riverside Elementary, the zoned elementary school, is under two miles east. None of the lots sold here last year is in a high-risk flood zone. The beach in North Myrtle Beach is about 15 minutes away.") +
       h.p("Coastal Grand Mall, on the other hand, is a long drive. Before the houses, this land was fields and woods.")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
       strip("wynbrooke") +
       h.p("Wynbrooke is a townhome community off SC 707, near Murrells Inlet. Its townhomes went up in the early 2000s around ponds; some back onto the water. Owners share a pool.") +
       PH["wynbrooke"] +
-      h.p("Groceries are close: a Lowes Foods and a Publix are less than half a mile northwest, on SC 707. The TPC Myrtle Beach golf course is about a mile west, and the Murrells Inlet MarshWalk is a short drive south. The nearest beach is in Garden City.") +
+      h.p("Groceries are close: a Lowes Foods and a Publix are less than half a mile northwest, on SC 707. The TPC Myrtle Beach golf course is about a mile west, and the Murrells Inlet MarshWalk is farther south. The nearest beach is in Garden City.") +
       h.p("The trade-off is the fee. Its HOA fee is the highest of the twelve. It usually includes water, sewer and the insurance on the buildings, but with the tax, a year here costs more than at Polo Farms, which sells for more.")),
 
     entry("polo-farms", "older houses with a small HOA fee", () =>
       strip("polo-farms") +
       h.p("Polo Farms is a neighborhood of one-story houses off SC 905, between SC 9 and SC 22, west of Longs. The houses date from 2005 on, every sale last year was a resale, and the monthly fee is small.") +
       PH["polo-farms"] +
-      h.p(`Around it are woods, pine plantations, fields and a few homes along SC 905. Todd Swamp, a stream with wooded wetland along it, is about a mile to the southwest. Horry County Fire Rescue's Red Bluff station is about a mile and a half away, and the Food Lion in Longs is about 10 minutes by car. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
+      h.p(`Around it are woods, pine plantations, fields and a few homes along SC 905. Todd Swamp, a stream with wooded wetland along it, is about a mile to the southwest. Horry County Fire Rescue's Red Bluff station is about a mile and a half away, and the Food Lion in Longs is a 10-minute drive. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
       h.p("Flood is a concern here. Half of last year's sales were on lots in a high-risk flood zone, and a lender usually requires flood insurance there. Before you make an offer, we look up the lot on FEMA's flood map.")),
 
     { h2: "How do the twelve compare on schools and the drive?", toc: "Schools and the drive", id: "schools", html: () =>
