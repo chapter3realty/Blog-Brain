@@ -498,7 +498,7 @@ module.exports = {
     { name: "Litchfield by the Sea guest guide", href: LBTS_GUIDE },
     { name: "Barefoot Resort Residential Association", href: BAREFOOT },
   ],
-  sourcesNote: "Not legal advice. Facts: associations, clubs, county records, news, OpenStreetMap and listings. A price is the past year's middle sale, checked against the MLS and the deed index. Horry County prices leave out builder sales. Georgetown County's sale records name no seller, so a price there may include a builder sale, and they keep only each home's latest sale. Few sales: a rough guide. Drives: no traffic.",
+  sourcesNote: "Not legal advice. Facts: associations, clubs, county records, news, OpenStreetMap, listings. Prices: the past year's middle sale, checked against the MLS and deed index. Horry prices leave out builder sales. Georgetown County's sale records name no seller, so a price there may include a builder sale, and keep only each home's latest sale. Few sales: a rough guide. Drives: no traffic.",
   afterSources: () => ph.credits() + ITEMLIST,
   bottomCta: { h2: "Get this week's list of homes for sale in gated neighborhoods.", p: OFFER_TEXT, label: OFFER_LABEL, href: OFFER },
   keywords: "gated communities Myrtle Beach, gated communities North Myrtle Beach, gated communities Murrells Inlet, gated communities Pawleys Island, 55+ gated communities Myrtle Beach, gated golf communities Myrtle Beach, homes for sale in gated communities Myrtle Beach",

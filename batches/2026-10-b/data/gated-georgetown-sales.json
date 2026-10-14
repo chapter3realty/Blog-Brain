@@ -1,4 +1,5 @@
 {
+ "_note": "Writer's first pull (round 12b), kept as a record. It is not the page's source. The verifier reconciled it sale by sale against the MLS and the deed index (2026-10-14): the county filters missed whole subdivisions, street spellings and sales recorded behind $5 deeds. The verifier's corrected sale sets are in the VERIFIER notes of rows 191 to 197 in batches/2026-10-b/facts/gated-communities-facts.md. Page figures: Wachesaw Plantation about $700,000, The Reserve about $1.3 million, Willbrook about $840,000, Oystercatcher about $750,000 (county and deed index); Wachesaw East about $500,000, Heritage about $710,000, DeBordieu about $2 million, Litchfield Plantation $800,000 to $1.8 million (MLS, confirmed by the reconciliation).",
  "Wachesaw Plantation": {
   "where": "StreetName IN ('HUNTERS WOOD DR','RICHMOND HILL DR','HITCHING POST LN','TURNBERRY LN','HORSESHOE BEND','FULTON PL','PADDOCK RUN DR','SAINT JOHNS PL','ST JOHNS PL','RIVERSIDE LN','INDIGO LN','CARRIAGE RUN CIR','TROTTERS CT','CANTER LN','DERBY CT')",
   "parcels": 257,
