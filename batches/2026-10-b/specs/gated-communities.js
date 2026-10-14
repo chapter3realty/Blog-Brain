@@ -238,7 +238,7 @@ const SECTIONS_PLACES = [
     "Barefoot Resort opened four golf courses at the same time in April 2000, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman.",
     "Leatherleaf has 62 houses of one or two floors around a pond, with the Love course on every side. Dye Estates has 98 home sites of half an acre to two acres, some on the Dye course and some with docks on the Intracoastal Waterway.",
     "A free shuttle goes in season to the resort's beach cabana, which has showers and gated parking, and the North Tower Pool is on the waterway. Leatherleaf residents can use the Residents' Club, with tennis courts, a fitness center and a playground.",
-    "Leatherleaf's HOA fee, about $390 a month, is among the highest on this page.",
+    "Leatherleaf's HOA fee, about $390 a month, is among the highest of the twenty.",
   ], P("barefoot-leatherleaf"), "Leatherleaf, a gated neighborhood in Barefoot Resort, from above: one loop of houses around a pond, with golf fairways on both sides.",
   "most of Barefoot Resort is open. Dye Estates has a guardhouse at its entrance, and Leatherleaf has a gate. In Leatherleaf, the few homes that sold went for about $700,000 to $975,000."),
 
@@ -246,7 +246,7 @@ const SECTIONS_PLACES = [
     "Burroughs & Chapin, which grew out of Myrtle Beach Farms, launched Grande Dunes and made its first sale in October 2000. Its Resort Course follows the Intracoastal Waterway along a bluff.",
     "Grande Dunes covers about 2,200 acres, from the ocean to the Carolina Bays Preserve, with walking and biking trails. Its gated sections of houses are Calais, Palermo and Villa Venezia. Palermo and Villa Venezia are beside the golf course, and Villa Venezia's houses for sale were built from 2016 on.",
     "Grande Dunes has the Ocean Club on the beach, with oceanfront dining, and a deep-water marina on the waterway with restaurants beside it.",
-    "Most of Grande Dunes is open; only some sections have their own gate. Its prices are among the higher ones on this page.",
+    "Most of Grande Dunes is open; only some sections have their own gate. Its prices are among the higher ones here.",
   ], P("grande-dunes-villa-venezia"), "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right.",
   "a gate at the entrance of each gated section. Homes usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
@@ -335,7 +335,7 @@ const SECTIONS_PLACES = [
   entry("the-reserve", "Greg Norman's private course and a river marina", [
     "The Reserve Golf Club, designed by Greg Norman, opened in 1998 on 350 acres, about 160 of them wetlands. Its holes are cut through the woods, around ponds and marsh.",
     "The neighborhood's marina, on the Waccamaw River, is run by Safe Harbor. It has wet slips and dry storage, and its staff launch and haul boats kept in dry storage. Its Harbor Club has a restaurant.",
-    "Litchfield by the Sea's beach and Beach Club are close enough to reach by golf cart. Houses for sale here were built from 2005 to 2019.",
+    "Litchfield by the Sea's beach and Beach Club are close enough to reach by golf cart. The Reserve's houses on the market went up between 2005 and 2019.",
     "The golf club is private, and its membership is separate from owning a home. The Harbor Club is a separate membership too.",
   ], P("the-reserve"), "The Reserve from above: houses around a pond, with golf fairways cut through the woods.",
   "a gate at the entrance. Homes usually sell for about $1.35 million, and the HOA fee is about $320 a month on most homes."),
