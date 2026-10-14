@@ -106,7 +106,7 @@
     "row": "gated 166",
     "pattern": "has its own prices and fees",
     "struck": "Each of its many sections has its own prices and fees.",
-    "use": "The HOA fee differs from building to building, so we find out the fee for any home you like before you offer."
+    "use": "The HOA fee differs from home to home, so we find out the fee for any home you like before you offer."
   },
   {
     "row": "gated 93",
@@ -1208,7 +1208,7 @@
     "row": "gated 139",
     "pattern": "\\bAbout one lot in ten had no house yet",
     "struck": "About one lot in ten had no house yet, so new houses are still going up beside some homes.",
-    "use": "Some lots have no house yet, and a few houses are brand new."
+    "use": "Some lots have no house yet, and the newest houses here date from 2025 and 2026."
   },
   {
     "row": "gated 161",
@@ -1244,7 +1244,7 @@
     "row": "gated 139, 189",
     "pattern": "\\bnew houses are going up beside",
     "struck": "Some lots have no house yet, so new houses are going up beside some homes.",
-    "use": "Some lots have no house yet, and a few houses are brand new."
+    "use": "Some lots have no house yet, and the newest houses here date from 2025 and 2026."
   },
   {
     "row": "gated 89, 190",
@@ -1338,9 +1338,9 @@
   },
   {
     "row": "gated 92, 199",
-    "pattern": "\\bHOA fee and the prices differ from section to section",
-    "struck": "The HOA fee and the prices differ from section to section and from unit to unit.",
-    "use": "The HOA fee differs from building to building, so we find out the fee for any home you like before you offer."
+    "pattern": "\\bHOA fee differs from building to building|\\bDiffers by building",
+    "struck": "The HOA fee differs from building to building (table: Differs by building).",
+    "use": "The HOA fee differs from home to home, so we find out the fee for any home you like before you offer. Table: Differs from home to home."
   },
   {
     "row": "gated 190, 199",
@@ -1350,20 +1350,32 @@
   },
   {
     "row": "gated 189, 199",
-    "pattern": "\\bnewest houses here (?:were built in|date from) 2025",
-    "struck": "Some lots have no house yet, and the newest houses here were built in 2025 and 2026.",
-    "use": "Some lots have no house yet, and a few houses are brand new."
+    "pattern": "\\ba few houses are brand new",
+    "struck": "Some lots have no house yet, and a few houses are brand new.",
+    "use": "Some lots have no house yet, and the newest houses here date from 2025 and 2026."
   },
   {
     "row": "gated 177, 199",
-    "pattern": "\\bCovington Lake East LLC",
-    "struck": "Its developer, Covington Lake East LLC, began selling lots in 2006.",
-    "use": "Lots went on sale in 2006."
+    "pattern": "\\bLots went on sale in 2006",
+    "struck": "Lots went on sale in 2006.",
+    "use": "Its developer began selling lots in 2006."
   },
   {
     "row": "gated 199",
     "pattern": "\\bspecial assessment\\W*(?:</a>)?\\W*is less likely",
     "struck": "We check the HOA's savings, so a one-time charge to every owner, a special assessment, is less likely.",
     "use": "We check the HOA's savings, so you know before you offer whether a one-time charge to every owner, a special assessment, is likely."
+  },
+  {
+    "row": "gated 90, 91, 199",
+    "pattern": "for whole condos; houses about \\$750,000",
+    "struck": "About $180,000 to $2.2 million for whole condos; houses about $750,000 (table: reads as all Litchfield by the Sea houses).",
+    "use": "About $180,000 to $2.2 million for whole condos; about $750,000 for Oystercatcher Island houses."
+  },
+  {
+    "row": "gated 90, 199",
+    "pattern": "\\bSummerhouse sell for about \\$200,000",
+    "struck": "One-bedroom condos in Summerhouse sell for about $200,000, and homes in Breakers Reef for about $1.5 million to $2.2 million. (Four sales stated as what homes sell for.)",
+    "use": "In the last year, one-bedroom condos in Summerhouse sold for about $200,000, and four homes in Breakers Reef for about $1.5 million to $2.2 million."
   }
 ]
