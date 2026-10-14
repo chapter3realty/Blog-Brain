@@ -405,7 +405,7 @@ const ENTRIES = [
 
   ENTRY(13, "deerfield", "Deerfield Plantation area: wooded streets around an old golf resort near Surfside Beach", [
     "The Deerfield Plantation area grew up around the Deer Track golf resort near Surfside Beach. Its older streets are wooded, and the association owns the lakes and canals that run between the homes.",
-    "In 2006 McCray Smith and Jerry Pettus bought the golf course land. Homeowners sued to keep it a golf course. The courts found the land carried no such restriction, and the state Court of Appeals agreed in 2012.",
+    "In 2006 two investors bought the golf course land. Homeowners sued to keep it a golf course. The courts found the land carried no such restriction, and the state Court of Appeals agreed in 2012.",
     "The old South Course is now a neighborhood of new houses. On the old North Course, building has only begun, so homes near it are beside a building site.",
     "The closest beach access has parking for golf carts only, so an owner with a golf cart can park right at the beach. By car, owners use the next access, which has a pay lot.",
   ], "most of the few houses for sale here were built in the 1970s and 1980s and have about 2,000 square feet. Homes usually sell for about $355,000, and the HOA fee is under $90 a month for a house."),
