@@ -394,7 +394,7 @@ module.exports = {
 
     entry("Aynor", "Aynor: new houses on about an acre", [
       `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
-      `Here you get land: most lots are about an acre, with room for a boat or a camper beside the house. The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 5 minutes from the center of town.`,
+      `Here you get land: most lots are about an acre, with room for a boat or a camper beside the house. The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 6 minutes from the center of town.`,
       "Almost no home inside the town of Aynor is in a high-risk flood zone on FEMA's flood map.",
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
@@ -419,7 +419,7 @@ module.exports = {
     entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses within half a mile of the beach", [
       `Surfside Beach owns its ${h.ext(SURF_TOWN_PIER, "fishing pier")}: a concrete pier 814 feet long that ${h.ext(SURF_PIER, "opened in 2024")}, after a hurricane destroyed the old one. Walking out on it is free, and it has two restaurants and an ice cream shop.`,
       `Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. How a rice plantation called The Ark became Surfside Beach is in our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}.`,
-      "From Garden City, the MarshWalk restaurants are about 5 minutes south by car.",
+      "From Garden City, the MarshWalk restaurants are about 7 minutes south by car.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
     entry("Murrells Inlet", "Murrells Inlet: bigger houses near the seafood restaurants and Brookgreen Gardens", [
@@ -436,7 +436,7 @@ module.exports = {
 
     entry("Little River", "Little River: a boat on the Intracoastal Waterway", [
       `Little River is on the Intracoastal Waterway at the north end of the Grand Strand. Its waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day.`,
-      `Little River is not a town, so the ${h.a("#boats-and-work-trucks", "county's rules")} apply to a boat on your lot. The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} on the waterway is about 10 minutes from the center, and so is the beach in North Myrtle Beach.`,
+      `Little River is not a town, so the ${h.a("#boats-and-work-trucks", "county's rules")} apply to a boat on your lot. The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} on the waterway is about 7 minutes from the center.`,
       `${h.ext(HC_PARKS, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has nature trails and boardwalks through its gardens and along the water. A small piece of the original Kings Highway, a colonial route between Boston and Charleston, is still at its front.`,
     ], LR_PHOTO, "none of the houses for sale here is within a mile of the beach."),
 
