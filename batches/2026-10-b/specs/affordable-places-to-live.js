@@ -380,7 +380,8 @@ module.exports = {
       h.p("The Fairways is a group of townhomes off Wild Wing Boulevard, inside Wild Wing Plantation, on US 501 between Conway and Myrtle Beach.") +
       PH["fairways-at-wild-wing"] +
       h.p(`Wild Wing was once a golf resort with several courses. Three of them closed in 2004, and one later reopened with nine holes. The Avocet course, designed by Jeff Brauer and Larry Nelson, is ${h.ext(WILDWING, "still open")}, and some of these townhomes are near it.`) +
-      h.p("The Aldi on Wild Wing Boulevard is a three-minute drive. The HOA fee includes the pool and internet, and usually water and sewer. Living inside Conway's city limits means a higher yearly tax than outside a town.")),
+      h.p("The Aldi on Wild Wing Boulevard is a three-minute drive. The HOA fee includes the pool and internet, and usually water and sewer.") +
+      h.p("The trade-off is tax. The Fairways is inside Conway's city limits, so its yearly tax is higher than outside a town.")),
 
     entry("sawgrass-east", "townhomes off Carolina Forest Boulevard", () =>
       strip("sawgrass-east") +
@@ -439,7 +440,7 @@ module.exports = {
       PH["indigo-grove"] +
       h.p(`${h.ext(OVERLOOK, "Lennar builds houses here")} with three to five bedrooms, including one-story plans, on lots of about a fifth of an acre. Every lot is outside the high-risk flood zone.`) +
       h.p("Griffin's IGA, a grocery store on SC 90, is a three-minute drive. The HOA fee covers trash pickup, and the HOA owns about 22 acres of open space in the neighborhood.") +
-      h.p("The cost is the drive to Myrtle Beach: Coastal Grand Mall is about 35 minutes away, though North Myrtle Beach is about 12.")),
+      h.p("North Myrtle Beach is about 12 minutes away by car. Myrtle Beach is the long drive: Coastal Grand Mall is about 35 minutes.")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
       strip("wynbrooke") +
@@ -487,7 +488,7 @@ module.exports = {
     { q: "Where can you buy a new house near Myrtle Beach for less?", a: `In Birchwood, off SC 905 near Longs, new Lennar houses usually sold for about ${money(N.birchwood.price)} in the past year. In Indigo Grove, off SC 90, they usually sold for about ${money(N["indigo-grove"].price)}.` },
     { q: "Is it cheaper to buy in Conway than in Myrtle Beach?", a: `Yes. A home that resold in Conway in the past year usually went for about ${money(264250)}. In the city of Myrtle Beach, a home usually went for about ${money(MB_HOUSE)}. Inside the city limits, Conway's property tax is higher.` },
     { q: "Which affordable neighborhood is closest to the beach?", a: `Parkview, a townhome community off 17th Avenue South in Myrtle Beach, is about ${mins(N.parkview.beach)} minutes by car from a public beach access. Its older townhomes usually sold for about ${money(N.parkview.price)} in the past year.` },
-    { q: "Do you have to be a first-time buyer to get down-payment help?", a: "No, not in Horry or Georgetown County. For SC Housing's Homebuyer Program, you must not own a home when you close. Palmetto Home Advantage is open to repeat buyers too." },
+    { q: "Do you have to be a first-time buyer to get down-payment help?", a: "No, not in Horry or Georgetown County. For SC Housing's Homebuyer Program, you must not own a home when you close. Palmetto Home Advantage, another SC Housing down-payment program, is open to repeat buyers too." },
   ],
   sources: [
     { name: "county deeds", href: DEEDS },

@@ -8,7 +8,7 @@ Not sent yet: the Gmail connector is not authorized in this session. The owner c
 
 Hi,
 
-It's Claude again, the AI assistant that builds the Chapter3 Realty website pages for Devin. This list is for our page on the most affordable neighborhoods near Myrtle Beach. Three of them are so new that the only aerial photo shows bare land, so a photo of the finished street would help a reader most. Those three are marked **first**.
+It's Claude again, the AI assistant that builds the Chapter3 Realty website pages for Devin. This list is for our page on the most affordable neighborhoods near Myrtle Beach. Five of them are so new that the only aerial photo shows bare land, so a photo of the finished street would help a reader most. Those five are marked **first**.
 
 ## The rules (the same as last time)
 
@@ -28,7 +28,8 @@ It's Claude again, the AI assistant that builds the Chapter3 Realty website page
 ## Near Myrtle Beach
 
 - **first** Forestbrook Village, off Forestbrook Road: a street of the new townhomes. [Map](https://www.google.com/maps/search/?api=1&query=Forestbrook+Village+Forestbrook+Road+Myrtle+Beach+SC)
-- Victory Point, off US 501 by Tanger Outlets: a street of the townhomes, with a racing street sign (Speedway Street or Talladega Drive) small in the shot. [Map](https://www.google.com/maps/search/?api=1&query=Speedway+St+Myrtle+Beach+SC)
+- **first** Victory Point, off US 501 by Tanger Outlets: a street of the townhomes, with a racing street sign (Speedway Street or Talladega Drive) small in the shot. [Map](https://www.google.com/maps/search/?api=1&query=Speedway+St+Myrtle+Beach+SC)
+- **first** The Townes at Amber Bluff, off Savannah Bluff Road on the Conway side of US 501: a street of the new townhomes. [Map](https://www.google.com/maps/search/?api=1&query=Townes+at+Amber+Bluff+Savannah+Bluff+Road+Conway+SC)
 - Myrtle Beach Golf and Yacht Club: the gatehouse at the Bay Road entrance, from Bay Road. Please do not drive in. [Map](https://www.google.com/maps/search/?api=1&query=Myrtle+Beach+Golf+and+Yacht+Club+Bay+Road+Myrtle+Beach+SC)
 
 ## One small thing
