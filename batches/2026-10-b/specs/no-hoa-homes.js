@@ -395,7 +395,7 @@ module.exports = {
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
     entry("Loris", "Loris: new houses on three quarters of an acre, near a small downtown", [
-      `Loris grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. In those years it was also a farm center for the country around it. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street.`,
+      `Loris grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. In the late 1800s it was also a farm center for the country around it. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street.`,
       `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and two stages of live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
       "Loris has its own hospital, McLeod Loris, in town. Its lots fall between Aynor's acre and Conway's half acre.",
     ], LORIS_PHOTO, "Coastal Grand Mall in Myrtle Beach is a drive of about 50 minutes."),
@@ -409,7 +409,7 @@ module.exports = {
     entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
       `North Myrtle Beach began in 1968, when Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill joined as one city. In the Ocean Drive and Crescent Beach area, a pavilion drew crowds who danced the ${h.ext(SCE + "shag/", "shag")}. South Carolina made it the ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
       "The houses for sale are mostly in those old beach towns, and most are within half a mile of the beach. About 6 in 10 were built before 1990. Cherry Grove also has a fishing pier.",
-      `Cherry Grove's canals were ${h.ext(CANALS, "dug through the marsh in the 1950s and 1960s")}. By the 1970s, some were filling with silt. Left alone, they would have turned back into mudflats. The city has dredged them twice since 2016, so boats can reach House Creek and the Intracoastal Waterway at any tide. Owners of about 415 properties in the canal district pay the city about $1,700 a year for that work, on the tax bill.`,
+      `Cherry Grove's canals were ${h.ext(CANALS, "created as early as the 1950s")}. By the 1970s, some were filling up. Left alone, they would have turned back into marsh and mudflats. The city has dredged canals there twice since 2016, so owners' boats can reach House Creek and the Intracoastal Waterway at high and low tide. Owners of about 415 properties in the canal district pay the city about $1,700 a year for that work.`,
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
 
     entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses within half a mile of the beach", [
