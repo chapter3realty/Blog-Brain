@@ -294,7 +294,7 @@ module.exports = {
 
     entry("amber-bluff", "new townhomes near Coastal Carolina University", (bg) =>
       h.p("The Townes at Amber Bluff is a new townhome community off Savannah Bluff Road, on the Conway side of US 501. It is about a mile north of Brooks Stadium, Coastal Carolina University's football stadium.") +
-      h.p("D.R. Horton built every townhome here. The listings show one floor plan, with three bedrooms, and the sales were close together in price. Each came with the builder's smart-home package for the front door lock, the thermostat and a video doorbell.") +
+      h.p("D.R. Horton built every townhome here. Every townhome listed here has the same floor plan, with three bedrooms, and the sales were close together in price. Each came with the builder's smart-home package for the front door lock, the thermostat and a video doorbell.") +
       facts("amber-bluff") +
       h.cta("Want the homes for sale in one of these neighborhoods?", "Tell us which ones you like and your price range. One of our agents will send you what is for sale there, with the HOA fee and the yearly tax for each home.", OFFER, CONTACT, bg)),
 
