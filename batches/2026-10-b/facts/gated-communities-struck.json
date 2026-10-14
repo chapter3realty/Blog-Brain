@@ -1272,21 +1272,27 @@
   },
   {
     "row": "gated 83, 196",
-    "pattern": "\\busually sell for about \\$2 million",
-    "struck": "Homes here usually sell for about $2 million.",
-    "use": "Homes here usually sell for about $1.7 million."
+    "pattern": "\\$1\\.7 million",
+    "struck": "Homes here usually sell for about $1.7 million.",
+    "use": "Homes here usually sell for about $2 million."
   },
   {
     "row": "gated 84, 195",
-    "pattern": "\\bsell for about \\$710,000",
-    "struck": "a gate off Kings River Road. Homes usually sell for about $710,000.",
-    "use": "a gate off Kings River Road. Homes usually sell for about $680,000."
+    "pattern": "\\bsell for about \\$680,000|\\bAbout \\$680,000",
+    "struck": "a gate off Kings River Road. Homes usually sell for about $680,000.",
+    "use": "a gate off Kings River Road. Homes usually sell for about $710,000."
   },
   {
     "row": "gated 85, 193",
     "pattern": "\\bsell for about \\$1 million, and the HOA fee is about \\$230",
     "struck": "Homes sell for about $1 million, and the HOA fee is about $230 a month on most homes.",
-    "use": "In the last year, six houses here sold, for about $800,000 to $1.8 million."
+    "use": "In the last year, houses here sold for about $800,000 to $1.8 million. The HOA fee is about $230 a month on most homes."
+  },
+  {
+    "row": "gated 85, 193",
+    "pattern": "\\bsix houses here sold",
+    "struck": "In the last year, six houses here sold, for about $800,000 to $1.8 million.",
+    "use": "In the last year, houses here sold for about $800,000 to $1.8 million."
   },
   {
     "row": "gated 86, 194",
@@ -1296,9 +1302,9 @@
   },
   {
     "row": "gated 87, 192",
-    "pattern": "\\bsell for about \\$500,000, and the HOA fee is about \\$145",
-    "struck": "they usually sell for about $500,000, and the HOA fee is about $145 a month.",
-    "use": "they usually sell for about $520,000, and the HOA fee is about $145 a month."
+    "pattern": "\\$520,000",
+    "struck": "they usually sell for about $520,000, and the HOA fee is about $145 a month.",
+    "use": "they usually sell for about $500,000, and the HOA fee is about $145 a month."
   },
   {
     "row": "gated 88, 191",
@@ -1308,14 +1314,20 @@
   },
   {
     "row": "gated 191 to 196",
-    "pattern": "\\bhomes sell for about \\$225,000 to \\$2 million",
-    "struck": "In most, homes sell for about $225,000 to $2 million.",
-    "use": "In most, homes sell for about $225,000 to $1.7 million."
+    "pattern": "\\bhomes sell for about \\$225,000 to \\$1\\.7 million",
+    "struck": "In most, homes sell for about $225,000 to $1.7 million.",
+    "use": "In most, homes sell for about $225,000 to $2 million."
   },
   {
     "row": "gated 191 to 197",
     "pattern": "\\bnear Pawleys Island and in Wachesaw, MLS closed sales",
     "struck": "near Pawleys Island and in Wachesaw, MLS closed sales, which can include builder sales",
     "use": "Georgetown's records name no seller and may include a builder sale."
+  },
+  {
+    "row": "gated 198",
+    "pattern": "Georgetown's name no seller",
+    "struck": "Georgetown's name no seller and may include a builder sale.",
+    "use": "Georgetown County's sale records name no seller, so a price there may include a builder sale, and they keep only each home's latest sale."
   }
 ]

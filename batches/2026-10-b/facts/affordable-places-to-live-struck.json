@@ -386,12 +386,31 @@
     "row": "affordable 162, 193",
     "pattern": "\\babout 1,450 to 2,000 square feet|\\bInternet, yard care and trash pickup",
     "struck": "Each townhome has about 1,450 to 2,000 square feet and a one-car garage. Internet, yard care and trash pickup are included.",
-    "use": "Each townhome has about 1,450 to 2,400 square feet and a one-car garage. Internet and grounds care are included."
+    "use": "Each townhome has about 1,450 to 2,400 square feet. Internet and grounds care are included."
   },
   {
     "row": "affordable 176, 194",
     "pattern": "\\bon the rest of the speedway land",
     "struck": "Another owner plans 194 townhomes for rent on the rest of the speedway land.",
     "use": "Another owner plans 194 townhomes for rent on about 20 acres of the old speedway land next door."
+  },
+  {
+    "row": "affordable 162, 195",
+    "pattern": "\\bEach townhome has a one-car garage",
+    "struck": "Each townhome has a one-car garage and about 1,450 to 2,400 square feet.",
+    "use": "Each townhome has about 1,450 to 2,400 square feet. (Cut the garage: only the 1,437-square-foot Blakely plan is shown with a one-car garage.)"
+  },
+  {
+    "row": "affordable 133, 195",
+    "pattern": "\\bbuilt every house here, from about 1,100",
+    "unless": "\\bplans\\b",
+    "struck": "Lennar built every house here, from about 1,100 to 1,950 square feet, on about a quarter acre.",
+    "use": "Lennar built every house here, in plans of about 1,100 to 1,950 square feet, on about a quarter acre."
+  },
+  {
+    "row": "affordable 193, 195",
+    "pattern": "\\bNearly half (?:its|of its) lots",
+    "struck": "Nearly half its lots are in a high-risk flood zone, where a lender usually requires flood insurance.",
+    "use": "More than four in ten of its lots are in a high-risk flood zone, where a lender usually requires flood insurance."
   }
 ]

@@ -88,6 +88,8 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B37. The note voice changes form.** Round 11's review left best, gated and affordable at 8 again, with no high finding. The verifier's voice had moved from "in a straight line" to "deeded", "recorded", "from the middle of the neighborhood" and sentences pasted from a struck list's `use` field. Writers also weakened facts to stay under the number limit ("miles of shoreline") instead of cutting a weaker number. Rules: a struck list's `use` is the approved fact, not copy to paste; the last step before a page goes to review is one read aloud as a top local agent talking to a buyer; when a limit binds, cut the least useful number, never blur the most useful one.
 
+**B38. A second source is a check, not a replacement.** After B36, the gated writer swapped every Georgetown County price from MLS closings to the county's last-sale table. The verifier reconciled the two sale by sale and found the county pull was the worse one: its filters missed whole subdivisions (DeBordieu's Ocean Oaks, Wachesaw East's Cottages at Planters Point), a street spelled with a backtick, and sales hidden behind a later $5 deed. DeBordieu fell from $2 million to $1.7 million on the swap and went back. Rule: when two sources disagree, match them sale by sale and explain each difference; never switch sources wholesale. A county legal description can omit the subdivision name; check the deed index and the MLS neighborhood field too.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
