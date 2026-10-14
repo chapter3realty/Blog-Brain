@@ -71,6 +71,7 @@ The same stretch takes other forms. Batch 2026-10-b's verifiers found each of th
 - **A link must do what the copy says.** Open it and use it once. A calls map is not a crime map.
 - **A picture shows shapes, not staff or rules.**
 - **"Only", "none" and "every" need every case checked.**
+- **A filter on a field that new items lack biases a ranking.** Dropping sales with no county building value threw out every new home the county had not yet valued, so the "cheapest" list was really "cheapest older resales" (batch 2026-10-b). Before ranking, ask what each filter removes and whether it removes one kind of item more than another.
 
 **When the obvious source is closed, find a lawful one.** Respect robots files and site terms. Look for a public record, a second publisher or our own files. Use two independent sources for any figure that is not primary.
 
