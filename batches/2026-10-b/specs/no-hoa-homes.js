@@ -215,12 +215,12 @@ const areaTable = () => compareCards(AREAS.map((a) => ({
 
 /* The parking rules, place by place (ledger rows 58 to 64, as verified). */
 const parkingTable = () => compareCards([
-  { name: "Outside the towns", icon: "home", cells: { boat: "Anywhere on your lot", truck: "Two per acre for a home business" } },
+  { name: "Outside the towns", icon: "home", cells: { boat: "No county rule on where", truck: "Two per acre for a home business" } },
   { name: "Inside Myrtle Beach", href: "/submarkets/myrtle-beach/", icon: "town", cells: { boat: "Over 16 feet: not in the front yard", truck: "One work vehicle; none over one ton" } },
   { name: "Inside North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", icon: "town", cells: { boat: "Behind the house front, or a carport", truck: "None over 18,500 pounds" } },
-  { name: "Inside Conway", href: "/submarkets/conway/", icon: "town", cells: { boat: "Side yard, back yard or carport", truck: "Over 10,000 pounds: not on the street" } },
-  { name: "Inside Surfside Beach", href: "/submarkets/surfside-beach/", icon: "town", cells: { boat: "Two boats or trailers (not in a garage)", truck: "One van or pickup, up to 21 feet long" } },
-  { name: "Inside Loris", icon: "town", cells: { boat: "Over 17 feet: not in front or side yard", truck: "One work vehicle, up to 2 tons" } },
+  { name: "Inside Conway", href: "/submarkets/conway/", icon: "town", cells: { boat: "Side yard, back yard or carport", truck: "Big business trucks: not on city streets" } },
+  { name: "Inside Surfside Beach", href: "/submarkets/surfside-beach/", icon: "town", cells: { boat: "Two boats or trailers (not in a garage)", truck: "Up to 21 feet long, about 8 feet high" } },
+  { name: "Inside Loris", icon: "town", cells: { boat: "Over 17 feet: not near the lot's edges", truck: "One work vehicle, up to 2 tons" } },
 ], [
   { key: "boat", label: "A boat, camper or trailer" },
   { key: "truck", label: "A work truck at home" },
@@ -269,7 +269,7 @@ const LABEL = "Get the list";
 const STORY = [
   "<strong>Example:</strong> Teresa wants a home with no HOA and room for her 20-foot boat. She likes a house on a small lot with a Myrtle Beach address.",
   "Her Chapter3 agent finds the house on the county map, inside the city of Myrtle Beach. In the city, a boat that long cannot sit in the front yard, and that lot has no other room for it.",
-  "The agent shows her houses just outside the city, where she can keep the boat anywhere on her lot. Teresa makes an offer on one with a wide side yard.",
+  "The agent shows her houses just outside the city, where the county has no rule on where she parks the boat. Teresa makes an offer on one with a wide side yard.",
 ];
 
 /* One numbered area (round 7; CRAFT 3, "A list of places is read one place at a time"): the headline with
@@ -312,43 +312,43 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "About a quarter of the homes for sale around Myrtle Beach are listed with no homeowners association (HOA) fee. An HOA runs a neighborhood and collects a monthly fee.",
-    "Inland, near Aynor, Loris and Conway, most are houses on country lots, many of them new. Near the beach, most are older houses near the sand.",
+    "Inland, near Aynor, Loris and Conway, most are houses on big lots, many of them new. Near the beach, most are older houses near the sand.",
     `With no HOA, you can keep a boat or a work truck at home, within ${h.a("#boats-and-work-trucks", "each town's rules")}. Houses with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}.`,
   ],
   sections: [
     { h2: "Where are the homes with no HOA fee?", toc: "Where they are", html: () =>
       CSS + ENTRY_CSS +
-      h.p("Homes with no HOA fee are in eight areas, from country roads near Aynor and Loris to older streets near the beach. The numbers on the map match the list below.") +
+      h.p("Homes with no HOA fee are in eight areas, from big lots near Aynor and Loris to older streets near the beach. The numbers on the map match the list below.") +
       `<div class="c3-areamap">${MAP.html}</div>` +
       h.p(`For the most land, see ${go("Aynor")}, ${go("Loris")} and ${go("Conway")}. To live near the beach, see ${go("North Myrtle Beach")}, ${go("Surfside Beach and Garden City")}, ${go("Murrells Inlet")} and ${go("Myrtle Beach (not Carolina Forest)")}. For a boat near the waterway, see ${go("Little River")}.`) +
       h.p("Every home for sale in Carolina Forest has an HOA fee.") },
 
     entry("Aynor", "an acre of land and room for a boat", [
-      `Aynor is a small town about 25 minutes by car from downtown Conway. Most houses for sale here with no HOA fee are on country roads outside the town, on lots of ${lotOf("Aynor")}.`,
-      "More than half were built in 2024 or later. Almost all stand on their own lot, not in a subdivision. Outside the town, the county has no rule on where you keep a boat, a trailer or a camper on your lot.",
+      `Aynor is a small town about 25 minutes by car from downtown Conway. Most houses for sale here with no HOA fee are outside the town, on lots of ${lotOf("Aynor")}.`,
+      "More than half were built in 2024 or later, and almost all are listed as not in a subdivision. Outside the town, the county has no rule on where you keep a boat, a trailer or a camper on your lot.",
       `The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 5 minutes from the center of Aynor.`,
     ], AYNOR_LOT, "the nearest beach is about 45 minutes away by car, and outside the town you arrange your own trash pickup."),
 
     entry("Loris", "three quarters of an acre and a new house", [
-      `Loris is a small town with a downtown on Main Street. Its hospital, McLeod Loris, is about 2 minutes from the center of town. Most houses for sale here with no HOA fee are outside the city limits, on lots of ${lotOf("Loris")}.`,
-      "About 6 in 10 were built in 2024 or later. Almost none are in a subdivision, so most sit on their own lot along a country road. Outside the city, the county has no rule on where you keep a boat or a camper on your lot.",
+      `Loris is a small town with its own Main Street. Its hospital, McLeod Loris, is about 2 minutes from the center of town. Most houses for sale here with no HOA fee are outside the city limits, on lots of ${lotOf("Loris")}.`,
+      "About 6 in 10 were built in 2024 or later. Almost none are listed in a subdivision. Outside the city, the county has no rule on where you keep a boat or a camper on your lot.",
     ], LORIS_PHOTO, "the nearest beach, in North Myrtle Beach, is about 35 minutes away by car."),
 
     entry("North Myrtle Beach", "an older beach house near the sand", [
       "Almost all the houses for sale here with no HOA fee are in four older parts of town near the ocean. They are Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive. About 3 in 4 are within half a mile of the beach.",
-      `About 6 in 10 were built before 1990, on lots of ${lotOf("North Myrtle Beach")}. Ocean Drive has the city's Main Street, where the city holds free Music on Main concerts on Thursdays in summer. Cherry Grove has a fishing pier, and some of its streets are on canals that run to the marsh.`,
+      `About 6 in 10 were built before 1990, on lots of ${lotOf("North Myrtle Beach")}. The city holds free Music on Main concerts on Main Street on Thursdays each summer. Cherry Grove has a fishing pier and canals.`,
       "Inside the city, a boat or a trailer goes behind the front of the house or in a carport.",
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. Check the home on ${h.ext(FEMA, "the government's flood map")} before you offer.`),
 
     entry("Surfside Beach and Garden City", "close to the ocean", [
-      "Surfside Beach and Garden City Beach sit side by side on the ocean. Each has a fishing pier. About 8 in 10 houses for sale here with no HOA fee are within half a mile of the beach. About 4 in 10 face the ocean, see it or are one row back.",
+      "Surfside Beach and Garden City Beach sit side by side on the ocean. Surfside Beach has a fishing pier. About 8 in 10 houses for sale here with no HOA fee are within half a mile of the beach. About 4 in 10 face the ocean, see it or are one row back.",
       `The lots are small, ${lotOf("Surfside Beach and Garden City")}. From Garden City, the restaurants of the Murrells Inlet MarshWalk are about 5 minutes away by car. The county's Stanley Drive boat landing is about 5 minutes away, too.`,
       "Inside the town of Surfside Beach, a home can keep two boats or trailers outside.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
     entry("Murrells Inlet", "a bigger house near the marsh", [
-      `Murrells Inlet is on a salt marsh just south of Garden City Beach. Its houses for sale with no HOA fee are the biggest of the eight areas, typically about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet.`,
-      "About half are within a mile of the beach. Restaurants line the MarshWalk, a boardwalk along the marsh, and Huntington Beach State Park is about 15 minutes away by car.",
+      `Murrells Inlet is just south of Garden City Beach. Its typical house for sale with no HOA fee is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest typical size of the eight areas.`,
+      "About half are within a mile of the beach. Restaurants line the MarshWalk, a boardwalk along the water, and Huntington Beach State Park is about 10 minutes away by car.",
       "Murrells Inlet is not a town, and part of it is in Georgetown County.",
     ], INLET_PHOTO, `the lots are smaller than inland, ${lotOf("Murrells Inlet")}.`),
 
@@ -360,7 +360,7 @@ module.exports = {
 
     entry("Myrtle Beach (not Carolina Forest)", "an older house near the beach", [
       "Outside Carolina Forest, many houses for sale with a Myrtle Beach address and no HOA fee are on older streets near the ocean. Almost half are within half a mile of the beach, and almost half were built before 1990.",
-      `The lots are ${lotOf("Myrtle Beach (not Carolina Forest)")}. About half of these houses are inside the city of Myrtle Beach, and the rest are in the county.`,
+      `The lots are ${lotOf("Myrtle Beach (not Carolina Forest)")}. About half of these houses are inside the city of Myrtle Beach, and most of the rest are outside any town.`,
     ], MB_PHOTO, "inside the city, a boat over 16 feet may not sit in the front yard."),
 
     entry("Little River", "a boat near the waterway", [
@@ -390,6 +390,7 @@ module.exports = {
 
     { h2: "Can you keep a boat or a work truck at a home with no HOA?", toc: "Boats and work trucks", id: "boats-and-work-trucks", html: () =>
       h.p(`Yes, on your own lot. Outside the towns, the county has no rule on where you keep your own boat, trailer or camper on your lot. If you run a business from the house, the county allows ${h.ext(HORRY_927, "two service vehicles per acre")} on most lots. Inside a town, the town's limits in the table apply.`) +
+      h.p("In Conway, a business truck over 10,000 pounds and longer than 20 feet may not park on a city street. In Surfside Beach, one work van or pickup may park overnight at a home. In Loris, a boat over 17 feet may not sit near the front or side lot line, or within 5 feet of the back line. The one-work-vehicle limit in Loris covers the R-1.4, R-1.5, R-1.7 and R-2 districts.") +
       parkingTable() +
       h.p(`In Myrtle Beach, North Myrtle Beach, Conway and Loris, you can leave a boat in the driveway for a day to load and unload. On county roads outside the towns, the county ${h.ext(HORRY_CODE, "bans parking")} only where it posts a sign.`) +
       h.p(`A deed restriction can also limit how you use a lot. It is a rule written into the papers filed with the county for the lot or its street. In South Carolina, a lawyer, the ${h.ext(CLOSING, "closing attorney")}, supervises the title search and the closing. That search shows before you buy whether a restriction covers a boat or a truck.`) },
