@@ -11,6 +11,11 @@
  *   Kept: the tax in dollars (now one example, pending row 153), the down-payment help and the Dana
  *   example. Cut: the town entries, their photos, the pros and cons, the compare table (it repeated the
  *   entries). ItemList JSON-LD for the numbered entries.
+ * Version 9, 2026-10-14: the owner's-eye review (review/OWNER-EYE-8-affordable-places-to-live.md). Access
+ *   roads only (no street lists, except Victory Point's racing names); the builder sentence twice; each
+ *   entry says why the price is low; the facts table gains "HOA fee and tax a year" (pending row 169) and a
+ *   trade-off row, with flood where FEMA shows it (row 170); the method moves to the sources line; the first
+ *   offer is the navy band (mkpage-offer-box.patch). repeat-check --strict passes.
  * Version 8b, 2026-10-14: the verifier's round 8 check (rows 116 to 154). The ranking now counts new homes the
  *   county has not valued yet (the building-value filter had dropped them), splits one legal name that covers
  *   two places (PARKVIEW), leaves out manufactured homes, and keeps only places within about 20 minutes'
@@ -293,7 +298,7 @@ module.exports = {
 
     entry("villas-at-sandridge", "new townhomes off SC 90 near the waterway", () =>
       h.p("Villas at Sandridge is a new townhome community off SC 90 near Little River, from Dream Finders Homes. The county records it as Village at Sandridge.") +
-      h.p("The Intracoastal Waterway, a marina and a boat launch are close by. Only Parkview is closer to a beach. They are townhomes, a few miles inland from the beachfront towns, which is why they cost less than houses by the water.") +
+      h.p("The Intracoastal Waterway, a marina and a boat launch are close by. Only Parkview is closer to a beach. They are townhomes, a few miles inland from the beachfront towns. That is why they cost less than houses by the water.") +
       facts("villas-at-sandridge")),
 
     entry("indigo-grove", "new houses off SC 90", () =>
@@ -355,7 +360,7 @@ module.exports = {
     { name: "SC Department of Insurance", href: DOI },
     { name: "WMBF News on the speedway", href: SPEEDWAY },
   ],
-  sourcesNote: "Not legal, tax or loan advice. Prices: the middle recorded sale, October 2025 to September 2026, without condos, manufactured homes, multi-lot deeds or sales far below value. Each place has 10 or more sales and a beach within about 20 minutes. Home details from listings; schools from district zones. Yearly tax for a home you live in, before the break at 65.",
+  sourcesNote: "Not legal, tax or loan advice. Prices: the middle recorded sale, October 2025 to September 2026, without condos, manufactured homes, multi-lot deeds or sales far below value. Each place has 10 or more sales and a beach within about 20 minutes. Home details from listings; schools from zones. Yearly tax for a home you live in, before the break at 65.",
   afterSources: () => ph.credits() + ITEMLIST(),
   bottomCta: { h2: "See what your budget buys in these neighborhoods.", p: "Tell us your price range and the places you like. One of our agents will send you the homes for sale there, and the down-payment programs that fit.", label: OFFER, href: CONTACT },
   keywords: "most affordable places to live near Myrtle Beach, cheapest neighborhoods Myrtle Beach, affordable townhomes Myrtle Beach, cheap homes near Myrtle Beach, new homes under 250000 Myrtle Beach, Parkview Myrtle Beach, Wild Wing Plantation townhomes, Victory Point Myrtle Beach, Forestbrook Village, Villas at Sandridge, Birchwood Longs SC, Indigo Grove Longs",
