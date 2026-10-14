@@ -413,7 +413,7 @@ module.exports = {
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
 
     entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses within half a mile of the beach", [
-      `Surfside Beach owns its ${h.ext(SURF_TOWN_PIER, "fishing pier")}: a concrete pier 814 feet long that ${h.ext(SURF_PIER, "opened in 2024")}, after a hurricane destroyed the old wooden one. Walking out on it is free, and it has two restaurants and an ice cream shop.`,
+      `Surfside Beach owns its ${h.ext(SURF_TOWN_PIER, "fishing pier")}: a concrete pier 814 feet long that ${h.ext(SURF_PIER, "opened in 2024")}, after a hurricane destroyed the old one. Walking out on it is free, and it has two restaurants and an ice cream shop.`,
       `Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. How a rice plantation called The Ark became Surfside Beach is in our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}.`,
       "From Garden City, the MarshWalk restaurants are a short drive south.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
