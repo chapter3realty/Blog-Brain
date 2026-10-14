@@ -61,3 +61,7 @@ Fair housing (owner asked "are all of these legal topics?", 2026-10-12): no page
 - Every fact from a verified ledger row in `batches/2026-10-b/facts/`.
 - Pictures: aerials from U.S. government imagery (NOAA 2026 where flown, else USDA NAIP), our own maps, Commons photos only of the place named.
 - Delivery: `tools/package-batch.js` with `batches/2026-10-b/upload.json`; pushed to the live branch when the owner approves.
+
+## When IDX arrives (owner, 2026-10-14)
+
+"make a note that once we get IDX we hook that into this page." When the site has an IDX feed (live MLS listings), connect it to these pages. Each named place shows its homes for sale now, in place of the "send me the list" form alone. First /buyers/affordable-places-to-live/ (each community's listings under its entry), then /buyers/no-hoa-homes/ (by price band), /buyers/gated-communities/, /buyers/best-neighborhoods/ and The Farm. Also listed in audit/FIX-LIST.md.
