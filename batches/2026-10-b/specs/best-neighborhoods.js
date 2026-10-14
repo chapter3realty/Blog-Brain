@@ -375,7 +375,7 @@ const ENTRIES = [
   ], "houses for sale were mostly built from the 1960s to the 1980s and have about 1,900 square feet. Houses usually sell for about $695,000, and most homes for sale have no HOA fee."),
 
   ENTRY(3, "barefoot-resort", "Barefoot Resort: four golf courses that opened on one day in North Myrtle Beach", [
-    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. The residential association started the same day, and neighborhoods grew up around the courses.",
+    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. The residential association's rules for owners were filed the same day, and neighborhoods grew up around the courses.",
     "Many streets carry seashell names, from Junonia Drive to Moonshell Drive. Barefoot Landing's shops and restaurants are across the swing bridge on the waterway.",
     "That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened.",
     `We check which association a home belongs to before you offer, because each association has its own pools and clubs. Our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} covers the resort's beach cabana, its shuttle and its gated sections.`,
@@ -411,31 +411,31 @@ const ENTRIES = [
   ENTRY(8, "plantation-lakes", "Plantation Lakes: a large lake and two pools on a point in Carolina Forest", [
     "Plantation Lakes is built around a lake with about 15 miles of shoreline, off Carolina Bays Parkway.",
     "Many homes back onto the lake, and owners take pontoon boats out on the water. The amenity area, with a dock, is on a point in the lake. It has two pools joined by waterfalls, and a clubhouse with a gym and a great room with a fireplace. Tennis and basketball courts are across the road, and the community has horseshoe pits.",
-    "The drive to the beach takes about 20 minutes, the longest of the four Carolina Forest neighborhoods here.",
+    "Its houses cost the most of the four Carolina Forest neighborhoods here.",
   ], "houses for sale were mostly built in the 2000s and have about 3,400 square feet. Houses usually sell for about $740,000, and the HOA fee is about $125 a month.", MID_CTA),
 
   ENTRY(9, "berkshire-forest", "Berkshire Forest: a water slide and two pool areas in Carolina Forest", [
     "Centex Homes developed the first sections of Berkshire Forest, such as Crestwood, Sutton Place and Cambridge. Pulte Homes later added land from two neighboring developments. Berkshire Forest and its Berkshire Village section together have more than 1,100 homes.",
     "The first pool complex, with a water slide, is beside a lake, with tennis and basketball courts and a play area next to it. The expansion added a second amenity area with a pool and courts for tennis or pickleball.",
-    "River Oaks Elementary School and the Berkshire Village section are both on Augusta Plantation Drive. The beach is a 15-minute drive.",
+    "River Oaks Elementary School, on Augusta Plantation Drive, is a 2-minute drive from the Berkshire Village section. The beach is a 15-minute drive.",
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,400 square feet. Houses usually sell for about $390,000, and the HOA fee is about $115 a month."),
 
   ENTRY(10, "pine-lakes", "Pine Lakes: homes beside the Granddaddy, Myrtle Beach's first golf course", [
-    "Pine Lakes Country Club opened in 1927 as Ocean Forest Country Club, Myrtle Beach's first golf course, and took the name Pine Lakes in 1946. Robert White, a native of St. Andrews, Scotland, and the first president of the PGA of America, designed it. Its clubhouse is on the National Register of Historic Places, and Time-Life executives planned Sports Illustrated there in 1954.",
+    "Pine Lakes Country Club opened in 1927 as Ocean Forest Country Club, Myrtle Beach's first golf course, and took the name Pine Lakes in the 1940s. Robert White, a native of St. Andrews, Scotland, and the first president of the PGA of America, designed it. Its clubhouse is on the National Register of Historic Places, and Time-Life executives planned Sports Illustrated there in 1954.",
     "The Preserve at Pine Lakes and Pine Lakes Estates are two sections of houses beside the course.",
     "Homes for sale on the older streets near the club have no HOA fee. The homes are inside the city of Myrtle Beach, so owners pay city property tax on top of the county's.",
   ], "houses for sale were mostly built since 2015 and have about 2,400 square feet. Homes usually sell for $540,000 to $670,000, and the HOA fee is about $95 a month for a house."),
 
   ENTRY(11, "forestbrook-estates", "Forestbrook Estates: newer houses, a pool and garden plots", [
-    "Forestbrook Estates is the pick for a house from the last few years with a low HOA fee. Lennar built nearly every home here, around ponds, with townhomes beside the houses.",
+    "Forestbrook Estates is a neighborhood of houses built in the last few years. Lennar built nearly every home here, around ponds, with townhomes beside the houses.",
     "Owners swim at the community pool, and on the same grounds they can keep a plot in the community garden.",
     "Every home here is zoned for Forestbrook Elementary, Forestbrook Middle and Socastee High. The elementary and middle schools and a Food Lion are each 5 to 6 minutes away by car.",
     "Its houses cost a little more than The Farm's, but they are newer.",
   ], "most of the few houses for sale here were built in the last few years and have about 2,300 square feet. Houses usually sell for about $395,000, and the HOA fee is under $90 a month."),
 
   ENTRY(12, "market-common", "The Market Common: a town center on the old Myrtle Beach Air Force Base", [
-    "The Market Common is built on the old Myrtle Beach Air Force Base. The base began as an Army Air Corps field in World War II, grew into an Air Force base after the war, and closed in 1993. The base's land now holds The Market Common, a dozen parks, the airport and a golf course.",
-    "Its houses and townhomes are beside a district of shops and offices. Grand Park, with picnic shelters, ball fields and a playground, is a two-minute walk from the nearest homes.",
+    "The Market Common is built on the old Myrtle Beach Air Force Base. The base began as an Army Air Corps field in World War II. It closed for a few years after the war, reopened as an Air Force base in 1954 and closed for good in 1993. The base's land now holds The Market Common, a dozen parks, the airport and a golf course.",
+    "Its houses and townhomes are beside a district of shops and offices. Grand Park, with picnic shelters, ball fields and a playground, is right beside the nearest homes.",
     "A townhome here pays about $300 to $680 a month in HOA fees.",
   ], "townhomes for sale have about 1,700 square feet. Houses usually sell for about $540,000 and townhomes for about $398,000."),
 
