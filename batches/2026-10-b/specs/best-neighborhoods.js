@@ -339,25 +339,25 @@ const ENTRIES = [
   ENTRY(2, "cherry-grove", "Cherry Grove: beach streets, canals and a 1950s pier in North Myrtle Beach", [
     `Cherry Grove Beach was made in 1950, when an inlet was filled to join Futch Beach to the Nixon family's Cherry Grove land. In 1968 it joined Ocean Drive, Crescent Beach and Windy Hill to form the city of North Myrtle Beach. Later, channels were dug into the marsh behind the beach, and those canals now run behind rows of houses.`,
     "Cherry Grove Pier was built in the 1950s, and in 1964 a 1,780-pound tiger shark was landed from it, a world record at the time. From a home near the middle of the neighborhood, a public beach access is about 0.1 mile away, the closest of the fifteen.",
-    `Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile away on foot. Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. With a mortgage, flood insurance comes with the house.`,
+    `From the same spot, Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot. Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. With a mortgage, flood insurance comes with the house.`,
   ], "houses for sale were mostly built from the 1960s to the 1980s and have about 1,900 square feet. Houses usually sell for about $695,000, and most homes for sale have no HOA fee."),
 
   ENTRY(3, "barefoot-resort", "Barefoot Resort: four golf courses that opened on one day in North Myrtle Beach", [
-    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. The residential association's rules were recorded that day too, and neighborhoods grew up around the courses on about 2,300 acres.",
+    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. The residential association's rules were recorded that day too, and neighborhoods grew up around the courses.",
     "Many streets carry seashell names, from Junonia Drive to Moonshell Drive. Owners in the residential association have a beach cabana on the ocean with owner parking, a kitchen, showers and an elevator. In season, a shuttle runs from the resort to the beach. The North Tower pool, for owners in the Barefoot associations, is beside the Intracoastal Waterway.",
     "Residents of ten named communities share the Residents' Club, with a pool, a weight room, and tennis and pickleball courts. We check which association a home belongs to before you offer, because each association has its own pools and clubs. Barefoot Landing's shops and restaurants are across the swing bridge.",
   ], "homes for sale are mostly condos, a mix of older ones and new ones, and the new ones are larger. They usually sell for about $430,000, and the HOA fee is about $680 a month for a condo."),
 
   ENTRY(4, "wild-wing", "Wild Wing Plantation: a 27-hole golf club and streets named for water birds near Conway", [
-    "Wild Wing's Avocet course, designed by Jeff Brauer and Larry Nelson, opened in 1993 and has new greens after a recent renovation. The club also has the nine-hole Hummingbird course.",
+    "Wild Wing's Avocet course, designed by Jeff Brauer and Larry Nelson, opened in 1993. A recent renovation, led by Brauer himself, rebuilt its greens and bunkers. The club also has the nine-hole Hummingbird course.",
     "Many streets are named for water birds: Wood Stork Drive, Whooping Crane Drive, Black Skimmer Drive, Limpkin Drive. The association's amenity area, beside a lake, has a pool complex, courts for tennis or pickleball, a basketball court and a playground.",
-    "Conway Medical Center and an ALDI grocery store are a short drive away. Owners drive about 20 minutes to reach the beach.",
+    "Conway Medical Center is about 8 minutes away by car. Owners drive about 20 minutes to reach the beach.",
   ], "houses for sale were mostly built since 2014 and have about 2,900 square feet. Houses usually sell for about $600,000, and the HOA fee is about $135 a month."),
 
   ENTRY(5, "waterbridge", "Waterbridge: 80 acres of lakes, a boat launch and a big pool in Carolina Forest", [
-    "Waterbridge was started by South Carolina Coastal Development, which sold open space and common areas to the homeowners association in 2010. The association looks after the lakes. Builders have added sections since. Over 80 acres of lakes and natural areas wind through it, with small pocket parks along the way.",
+    "Waterbridge was started by South Carolina Coastal Development, which sold open space and common areas to the homeowners association. The association looks after the lakes. Builders have added sections since. Over 80 acres of lakes and natural areas wind through it, with small pocket parks along the way.",
     "Owners can launch a kayak or other non-motorized boat on the lakes from a boat launch with a floating dock, and walking paths cross the water on bridges.",
-    "The pool complex and the clubhouse are inside a circle of streets. The clubhouse has a fitness center open around the clock. Courts for tennis, pickleball, basketball and volleyball are a quarter mile away, on Fiddlehead Way. A Food Lion and McLeod Health Carolina Forest's emergency department are close by.",
+    "The pool complex and the clubhouse are inside a circle of streets. The clubhouse has a fitness center open around the clock. Courts for tennis, pickleball, basketball and volleyball are a quarter mile away, on Fiddlehead Way.",
     "About 90 new houses were sold here in the past year, mostly by builders, and some of its newest streets are still filling in.",
   ], "houses for sale were mostly built in the last few years and have about 3,100 square feet. Houses usually sell for about $630,000, and the HOA fee is about $150 a month."),
 
@@ -374,7 +374,7 @@ const ENTRIES = [
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,200 square feet. Houses usually sell for about $350,000, and the HOA fee for a house is $107 a month."),
 
   ENTRY(8, "plantation-lakes", "Plantation Lakes: a large lake and two pools on a point in Carolina Forest", [
-    "Plantation Lakes is built around a large lake, with about 15 miles of shoreline, off Carolina Bays Parkway. Its developer was American Mining Company, and the owners' association holds about 185 acres of common areas, deeded to it in 2007 and 2008.",
+    "Plantation Lakes is built around a large lake, with about 15 miles of shoreline, off Carolina Bays Parkway. Its developer was American Mining Company, and the owners' association holds about 185 acres of common areas.",
     "Many homes back onto the lake, and the amenity area has a dock. That amenity area is on a point in the lake, with two pools and a clubhouse with a gym. Tennis and basketball courts are across the road.",
     "The beach access nearest by car has no parking; the next one, with a pay lot, is about the same distance away.",
   ], "houses for sale were mostly built in the 2000s and have about 3,400 square feet. Houses usually sell for about $740,000, and the HOA fee is about $125 a month.", MID_CTA),
@@ -399,7 +399,7 @@ const ENTRIES = [
 
   ENTRY(12, "market-common", "The Market Common: a town center on the old Myrtle Beach Air Force Base", [
     "The Market Common is built on the old Myrtle Beach Air Force Base. The base began as an Army Air Corps field in World War II and closed in 1993. The base's land now holds The Market Common, a dozen parks, the airport and a golf course.",
-    "Its houses and townhomes are beside a district of shops and offices. Grand Park, with picnic shelters, ball fields and a playground, is a few blocks from the nearest homes.",
+    "Its houses and townhomes are beside a district of shops and offices. Grand Park, with picnic shelters, ball fields and a playground, is about 0.1 mile from the nearest homes.",
     "Townhomes here list at about $300 to $680 a month in HOA fees, higher than the houses here pay.",
   ], "townhomes for sale have about 1,700 square feet. Houses usually sell for about $540,000 and townhomes for about $398,000."),
 
@@ -419,7 +419,7 @@ const ENTRIES = [
   ENTRY(15, "prince-creek", "Prince Creek: homes beside a Tom Fazio course in Murrells Inlet", [
     "Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course that opened in 1999. Tom Watson won the Senior PGA Tour Championship there the next year.",
     "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, a park of mostly woods. Its amenity area has two pools and courts for tennis and pickleball, and listings add basketball, a playground and a covered pavilion.",
-    "A Publix is just across the main road, and Tidelands Waccamaw Community Hospital is a short drive away. Builders sold new townhomes here in the past year, but few homes are sold by their owners.",
+    "A Publix is about 2 minutes away by car. Builders sold new townhomes here in the past year, but few homes are sold by their owners.",
   ], "the few houses for sale here were built from about 2007 to 2015 and have about 2,400 square feet. Homes usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."),
 ];
 
@@ -495,12 +495,12 @@ module.exports = {
       h.p(`Yes. Del Webb North Myrtle Beach, Del Webb at Grande Dunes, Seasons at Prince Creek West and Myrtle Trace are 55+ communities, each with a pool and a clubhouse. Our ${h.a(P55, "guide to 55+ communities near Myrtle Beach")} compares them, with the age rule for each.`) },
 
     { h2: "What do we check before you choose a neighborhood?", toc: "Before you choose", html:
-      h.p("Two things can differ from one home to the next in the same neighborhood: the HOA rules and the homes around it. We read each home's HOA rules on boats, golf carts, renting and pools before you offer. Different kinds of homes are often built a few blocks apart here, so we walk the blocks around the home with you.") +
+      h.p("Two things can differ from one home to the next in the same neighborhood: the HOA rules and the homes around it. We read each home's HOA rules on boats, golf carts, renting and pools before you offer. Different kinds of homes are often built close together here, so we walk the blocks around the home with you.") +
       h.p(`Public schools are assigned by address, and we look up each home's schools in the ${h.ext(SCHOOLS, "Horry County Schools zone lookup")}. Our page on ${h.a("/buyers/relocating/schools/", "schools near Myrtle Beach")} covers the schools themselves.`) },
   ],
   faqTitle: "Best neighborhoods in Myrtle Beach: FAQ",
   faq: [
-    { q: "What are the best neighborhoods in Myrtle Beach?", a: "For walking to the beach, Cherry Grove and the ocean side of Surfside Beach are a few blocks from the sand. For golf, Pine Lakes, Tidewater Plantation and Barefoot Resort are built around their courses. For a lower price near the beach, The Farm and the Deerfield Plantation area are a short drive away." },
+    { q: "What are the best neighborhoods in Myrtle Beach?", a: "For walking to the beach, choose Cherry Grove or the ocean side of Surfside Beach. For golf, Pine Lakes, Tidewater Plantation and Barefoot Resort are built around their courses. For a lower price near the beach, The Farm and the Deerfield Plantation area cost less." },
     { q: "How much does it cost each year to own a home in Myrtle Beach?", a: "Besides the mortgage, a house in the three neighborhoods we priced costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance. A house in Cherry Grove costs about $4,400, mostly tax and flood insurance." },
     { q: "Is Carolina Forest or Myrtle Beach better to live in?", a: "The city of Myrtle Beach is better for being close to the beach, and Carolina Forest for big neighborhood pools. Carolina Forest has almost no homes in a high-risk flood zone, and its neighborhoods here are 10 to 20 minutes from the beach by car. The ones in the city of Myrtle Beach are about 5 to 10 minutes away." },
     { q: "Which neighborhoods near Myrtle Beach have no HOA?", a: "Most homes for sale on the ocean side of Surfside Beach and in Cherry Grove are listed with no HOA fee. Homes on the older streets near Pine Lakes Country Club are listed with no HOA fee too." },
