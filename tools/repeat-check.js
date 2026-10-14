@@ -25,8 +25,8 @@
  *   a. The same sentence twice. Case and punctuation are ignored. Identical: 6 or more words, the same
  *      words in the same order; or the same sentence with only names and numbers changed, when 8 or more
  *      of its words are neither ("Wachesaw was a rice plantation on the Waccamaw River ..." and
- *      "Litchfield was a rice plantation ..."; not "[name] is about [number] minutes away by car"). Near: 8 or more words in each, and 85% or more of the longer sentence's
- *      words also in the other. Body against body is the finding. A body sentence repeated in an offer
+ *      "Litchfield was a rice plantation ..."; not "[name] is about [number] minutes away by car").
+ *      Near: 8 or more words in each, and 85% or more of the longer sentence's words also in the other. Body against body is the finding. A body sentence repeated in an offer
  *      or the FAQ, and an offer repeated in another offer, are listed apart as low: an FAQ answer is
  *      written to stand alone, and the offer box is one component.
  *   b. A repeated sentence shape. Numbers become N, names become P (a capitalized run of words, joined by
@@ -36,10 +36,12 @@
  *      more H2 sections is a shape. Body sentences only. Each shape is grown to the longest run its
  *      sentences share.
  *   c. A repeated device, on a list of places (4 or more H2s that start "1. ", "2. ", ...). A content
- *      word or bigram in more than 40% of the entries, leaving out stopwords, names and the H1's subject
+ *      word or bigram in more than 40% of the entries and in at least 4 of them (3 of 5 is chance), and
+ *      a list of 3 or more street names in one sentence. Left out: stopwords, names, the H1's subject
  *      words. A bigram is two content words in a row once stopwords are dropped ("course that opened"
  *      gives "course opened"). Entry text is the body and the H2 after its colon. A word is not listed
- *      when a listed bigram holding it is in nearly as many entries.
+ *      when a bigram holding it is in as many entries, and words drawn from the same sentences are shown
+ *      as one device ("pool" with "tennis" and "courts": the amenity list).
  *   d. Thin entries: a numbered entry whose body (no tables, no facts line, no offer box) is under 90
  *      words. The range of entry lengths is always given.
  *   e. Theme words: the 10 most frequent content bigrams on the page (body and FAQ; not offers or facts
@@ -59,7 +61,7 @@ const cheerio = require("cheerio");
 const T = {
   identMinWords: 6, nearMinWords: 8, nearOverlap: 0.85, templateWords: 8,
   openLen: 4, closeLen: 3, gramLen: 5, shapeSections: 3, shapeStrict: 4,
-  listMinEntries: 4, deviceShare: 0.40, deviceStrict: 0.60,
+  listMinEntries: 4, deviceShare: 0.40, deviceMinEntries: 4, deviceStrict: 0.60,
   thinWords: 90, themes: 10, factsLabelEntries: 3, phraseLen: 8, phraseTimes: 3,
 };
 
@@ -147,16 +149,16 @@ function extract(html) {
     s.blocks.push(b);
   }
 
-  /* A facts line: the same bold label opening a paragraph in 3 or more numbered entries, when the label
-     names facts ("The facts:", "At a glance:") or most of its lines give a price ("With no HOA fee: typical
-     list price about $370,000"). A repeated label over prose ("The trade-off:") is body copy: what follows
-     it should differ from entry to entry. */
+  /* A facts line: a paragraph opened by a bold label that names facts ("The facts:", "At a glance:"), or by
+     the same label in 3 or more numbered entries when most of its lines give a price ("With no HOA fee:
+     typical list price about $370,000"). A repeated label over prose ("The trade-off:") is body copy: what
+     follows it should differ from entry to entry. */
   const labels = {};
   for (const s of sections) if (s.n != null) for (const b of s.blocks.filter((x) => x.label)) {
     const l = labels[b.label] || (labels[b.label] = { entries: new Set(), lines: 0, priced: 0 });
     l.entries.add(s.n); l.lines++; if (/\$\s?\d/.test(b.text)) l.priced++;
   }
-  const isFacts = (l) => labels[l] && labels[l].entries.size >= T.factsLabelEntries && (FACTS_LABEL.test(l) || labels[l].priced >= labels[l].lines / 2);
+  const isFacts = (l) => FACTS_LABEL.test(l) || labels[l] && labels[l].entries.size >= T.factsLabelEntries && labels[l].priced >= labels[l].lines / 2;
   for (const s of sections) for (const b of s.blocks) b.facts = !!(b.label && isFacts(b.label));
 
   /* Sentences, each with its section and zone. Headings are not sentences. */
@@ -185,7 +187,7 @@ function marked(text, vocab) {
   const raw = rawWords(text);
   const out = [];
   const isCap = (w, i) => /^[A-Z][a-z]/.test(w) || /^[A-Z]{2,}$/.test(w) && /^\d/.test(raw[i + 1] || "");
-  const isNameStart = (w, i) => isCap(w, i) && (i > 0 ? !/^[A-Z]{2,}$/.test(w) || /^\d/.test(raw[i + 1] || "") : !vocab.has(w.toLowerCase()) || isCap(raw[1] || "", 1));
+  const isNameStart = (w, i) => isCap(w, i) && (i > 0 ? !/^[A-Z]{2,}$/.test(w) || /^\d/.test(raw[i + 1] || "") : !STOP.has(w.toLowerCase()) && (!vocab.has(w.toLowerCase()) || isCap(raw[1] || "", 1)));
   for (let i = 0; i < raw.length; i++) {
     const w = raw[i];
     if (BREAK.test(w)) { out.push({ w: ",", name: false, brk: true }); continue; }
@@ -364,7 +366,7 @@ function devices(ex, vocab, subject) {
     }
   });
   const n = entries.length;
-  let found = [...per.values()].filter((d) => d.entries.size / n > T.deviceShare).map((d) => ({
+  let found = [...per.values()].filter((d) => d.entries.size / n > T.deviceShare && d.entries.size >= T.deviceMinEntries).map((d) => ({
     device: [...d.forms.entries()].sort((a, b) => b[1] - a[1])[0][0],
     key: d.key, entries: d.entries.size, of: n, share: d.entries.size / n,
     which: [...d.entries.keys()].map((i) => entries[i].n),
@@ -372,7 +374,7 @@ function devices(ex, vocab, subject) {
     examples: [...d.entries.entries()].map(([i, t]) => ({ entry: entries[i].n, text: t })),
   }));
   const bigrams = found.filter((d) => d.key.includes(" "));
-  found = found.filter((d) => d.key.includes(" ") || !bigrams.some((b) => b.key.split(" ").includes(d.key) && b.entries >= d.entries - 1));
+  found = found.filter((d) => d.key.includes(" ") || !bigrams.some((b) => b.key.split(" ").includes(d.key) && b.entries >= d.entries));
   found.sort((a, b) => b.entries - a.entries || (b.key.includes(" ") ? 1 : 0) - (a.key.includes(" ") ? 1 : 0));
   /* Words that come from the same sentences are one device ("pool", "tennis", "courts": the amenity list). */
   const groups = [];
@@ -381,10 +383,10 @@ function devices(ex, vocab, subject) {
     const g = groups.find((x) => { const theirs = per.get(x.key).sents; let both = 0; for (const t of mine) if (theirs.has(t)) both++; return both >= 0.6 * Math.min(mine.size, theirs.size); });
     if (g) g.members.push(d); else groups.push({ ...d, members: [d] });
   }
-  /* Show a group by its bigram when one is in nearly as many entries: "past year", not "year". */
+  /* Show a group by its bigram when the bigram is in as many entries: "course opened", not "course". */
   for (let i = 0; i < groups.length; i++) {
     const g = groups[i];
-    const bi = g.members.filter((m) => m.key.includes(" ") && m.entries >= 0.75 * g.entries).sort((a, b) => b.entries - a.entries)[0];
+    const bi = g.members.find((m) => m.key.includes(" ") && m.entries >= g.entries);
     const lead = bi || g;
     groups[i] = { ...lead, also: g.members.filter((m) => m.key !== lead.key).map((m) => m.device) };
   }

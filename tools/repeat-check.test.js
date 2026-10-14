@@ -45,7 +45,8 @@ function page({ h1 = "Where are the gated communities in Myrtle Beach?", top = [
 const G = {
   tidewater: { title: "Tidewater Plantation: a 1990 golf course beside the Cherry Grove marsh", paras: [
     "Tidewater began with its golf course. Ken Tomlinson, a Columbia lawyer who also designed courses, found a 600-acre site on the Intracoastal Waterway. Hurricane Hugo delayed the work, and the course opened in 1990. Golf Digest and Golf Magazine both named it the best new public course in America that year.",
-    "Holes 3 and 12 meet the marsh of the waterway, and hole 4 looks across Cherry Grove Inlet. Many of its homes are houses along the fairways, with a few condo buildings among them."],
+    "Holes 3 and 12 meet the marsh of the waterway, and hole 4 looks across Cherry Grove Inlet. Many of its homes are houses along the fairways, with a few condo buildings among them.",
+    "It has pools with hot tubs, tennis and pickleball courts, bocce, and an oceanfront cabana with parking at Cherry Grove Beach. Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood."],
     facts: "a gatehouse on Little River Neck Road. Homes usually sell for about $625,000, and the HOA fee is about $230 a month." },
   barefoot: { title: "Barefoot Resort: four golf courses that opened together in 2000", paras: [
     "Barefoot Resort opened four golf courses at the same time in April 2000, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman. No other developer in the United States has opened four new courses at once.",

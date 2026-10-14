@@ -6,7 +6,7 @@
  * Cherry Grove and Surfside only, with one sentence after the table; the park-distance line in Cherry Grove
  * and Market Common only. No "on this page" comparisons. The first screen leads with the beach, golf and
  * pools; the short answer and the first FAQ name places. The "all year" section and the general HOA-fee
- * paragraph are cut. The example is now the Cherry Grove canal fee, in the yearly cost. New rows 215 to 222,
+ * paragraph are cut. The example is now the Cherry Grove canal fee, in the yearly cost. New rows 215 to 223,
  * pending verification (round 9).
  * Version 8, 2026-10-14 (round 8: review/ROUND-8.md, the owner: "extremly
  * repetitive writing", "surface level"). Each of the 15 entries now gives the place's own history and
@@ -372,7 +372,7 @@ const ENTRIES = [
 
   ENTRY(9, "berkshire-forest", "Berkshire Forest: a lazy river, a water slide and two pool areas in Carolina Forest", [
     "Centex Homes developed the first sections of Berkshire Forest, such as Crestwood, Sutton Place and Cambridge. Pulte Homes later announced about 600 more houses, on land taken in from two neighboring developments.",
-    "The first pool complex, with a water slide, is beside a lake, with tennis and basketball courts and a play area next to it. The expansion added a second amenity area with a lazy river, a splash pad, another pool and pickleball courts.",
+    "The first pool complex, with a water slide, is beside a lake, with tennis and basketball courts and a play area next to it. The expansion added a second amenity area with a lazy river, another pool and pickleball courts.",
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,400 square feet. Houses usually sell for about $390,000, and the HOA fee is about $115 a month."),
 
   ENTRY(10, "pine-lakes", "Pine Lakes: homes beside the Granddaddy, Myrtle Beach's first golf course", [
