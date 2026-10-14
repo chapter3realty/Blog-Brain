@@ -263,11 +263,11 @@ const CSS = ph.css() + "<style>.c3-areamap figure{max-width:600px!important}</st
 const AYNOR_LOT = ph.aerial("aynor-country-lot", "Houses on lots of about an acre along a country road outside Aynor, from the air. The orange line is one lot.",
   { closeUp: true });
 ph.share("aynor-country-lot");
-const CHERRY = ph.aerial("cherry-grove-canals-from-above", "Cherry Grove from the air. Almost every home here is in a high-risk flood zone.");
+const CHERRY = ph.aerial("cherry-grove-canal-streets-from-above", "Houses on the Cherry Grove canals from the air. Almost every home here is in a high-risk flood zone.");
 /* One photo per area (round 7). Reused records keep their own credit; the captions are this page's. Ground
    photos from the photo partner will replace these later (templates/photo-request-email.md). */
 const LORIS_PHOTO = ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true });
-const SURF_PHOTO = ph.aerial("surfside-beach-from-above", "The ocean side of Surfside Beach from the air, from US 17 Business to the beach.");
+const SURF_PHOTO = ph.aerial("surfside-beach-pier-from-above", "The ocean side of Surfside Beach from the air, with the pier under construction.");
 const INLET_PHOTO = ph.aerial("murrells-inlet-boats", "Fishing boats at a marina in Murrells Inlet.", { closeUp: true });
 const CONWAY_PHOTO = ph.aerial("conway-riverwalk-boardwalk", "The Riverwalk in downtown Conway, on the Waccamaw River.", { closeUp: true });
 const MB_PHOTO = ph.aerial("myrtle-beach-older-streets-from-above", "Houses on older streets between US 17 Business and the beach in Myrtle Beach, from the air.");
