@@ -210,7 +210,7 @@ const SECTIONS_PLACES = [
   "a gatehouse on Little River Neck Road. Homes usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
   entry("seaside-plantation", "lakes and shag festivals a few blocks from the ocean", [
-    "Seaside Plantation is a small neighborhood of houses in North Myrtle Beach, two or three blocks from the ocean, with its houses beside lakes.",
+    "Seaside Plantation's houses are beside lakes, two or three blocks from the ocean in North Myrtle Beach.",
     "Main Street is a golf cart ride away. Each fall the Society of Stranders holds its Fall Migration there, a shag dance festival for thousands of dancers. Its Spring Safari comes each April.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
   "a gate at the entrance, with rules the owners association has recorded with the county. Homes usually sell for about $740,000, and the HOA fee is about $210 a month. Only a handful sell each year."),
@@ -224,25 +224,25 @@ const SECTIONS_PLACES = [
 
   entry("grande-dunes", "golf above the Intracoastal Waterway and an oceanfront club", [
     "Burroughs & Chapin launched Grande Dunes and sold its first lots in October 2000, once its roads and utilities were in. Its Resort Course runs along the Intracoastal Waterway.",
-    "Its gated sections are small. Calais has 29 houses, Palermo about 60 lots, and Villa Venezia, the newest, has houses built since 2016 and a few empty lots. Grande Dunes has the Ocean Club on the beach, with oceanfront pools and dining, Har-Tru tennis courts, and a marina on the waterway with restaurants beside it.",
+    "Grande Dunes stretches from the ocean to the Carolina Bays Preserve, with miles of walking and biking trails. Its gated sections of houses, Calais, Palermo and Villa Venezia, are beside the golf course; Villa Venezia is the newest, with houses built since 2016. Grande Dunes has the Ocean Club on the beach, with oceanfront pools and dining, and a deep-water marina on the waterway with restaurants beside it.",
   ], P("grande-dunes-villa-venezia"), "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right.",
   "a gate at the entrance of each gated section; other sections are open. Homes usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
   entry("waterway-palms-plantation", "a boat ramp and a clubhouse on a pond", [
     "Waterway Palms Plantation is on the Intracoastal Waterway in Carolina Forest. Carolina Forest was land owned by International Paper. The Army used part of it as a bombing and gunnery range during World War II, and Horry County approved its development agreement in 1997.",
-    "It is large, with about 745 home lots, and the HOA owns its ponds and a wetland. The clubhouse is on a point in a pond, beside the pools. It has a boat ramp, a day dock and boat storage, a fitness center, tennis and pickleball courts, a basketball court and a playground.",
+    "The clubhouse is on a point in a pond, beside the pools, with sidewalks throughout the neighborhood. It has a boat ramp, a day dock and boat storage, a fitness center, tennis and pickleball courts, a basketball court and a playground. Builders are still finishing new houses there.",
   ], P("waterway-palms-plantation"), "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
   "a gate at the entrance, where a visitor calls the owner to be let in. Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
   entry("the-bluffs-on-the-waterway", "two clubhouses and a boathouse on the water", [
-    "The Bluffs on the Waterway has about 416 home lots, built in three phases since about 2006, and its HOA owns several lakes and an amenity area. It has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway with a day dock.",
+    "Many of the houses at The Bluffs on the Waterway are custom Mediterranean-style homes in stucco, and many look onto ponds with fountains. It has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway with a day dock.",
     "It also has a boat ramp, boat storage, a pool, tennis and pickleball courts, playgrounds and walking paths. The Carolina Forest bike park is within a mile.",
   ], P("the-bluffs-on-the-waterway"), "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner.",
   "a gate on Royal Bluff Drive, off River Oaks Boulevard. The few homes that sold went for about $700,000 to $975,000, and the HOA fee is about $150 a month."),
 
   entry("covington-lake-east", "a pool, ponds and a low HOA fee in Carolina Forest", [
-    "Covington Lake East is small: 178 home lots on curving streets around ponds, nearly all with a house, built from about 2008. The streets have sidewalks.",
-    "Its owners association owns the common land, and the shops and restaurants of Carolina Forest Boulevard are less than a mile away.",
+    "Covington Lake East has brick houses, built from about 2008, on curving streets around ponds. The streets have sidewalks and are friendly to golf carts, and the houses have natural gas.",
+    "Coastal Carolina University and the shops and restaurants of Carolina Forest Boulevard are a short drive.",
   ], P("covington-lake-east"), "Covington Lake East from above: houses on curving streets, with ponds among them.",
   "a gate at the entrance. Homes usually sell for about $570,000, and the HOA fee is about $90 a month, the lowest here."),
 
