@@ -158,7 +158,7 @@ const E = [
   { id: "the-reserve", name: "The Reserve", short: "The Reserve", lat: 33.49467, lon: -79.1133, gate: K.ask, fee: "About $320 a month on most homes", price: "About $1.3 million", beach: "About 8 minutes" },
   { id: "willbrook-plantation", name: "Willbrook Plantation", short: "Willbrook", lat: 33.48206, lon: -79.13519, gate: K.house, fee: "About $340 a month", price: "About $840,000", beach: "About 9 minutes" },
   { id: "litchfield-plantation", name: "Litchfield Plantation", short: "Litchfield Plantation", lat: 33.47674, lon: -79.1313, gate: K.house, fee: "About $230 a month on most homes", price: "About $800,000 to $1.8 million", beach: "About 8 minutes" },
-  { id: "litchfield-by-the-sea", name: "Litchfield by the Sea", short: "Litchfield by the Sea, River Club gate", lat: 33.471219, lon: -79.126112, gate: K.guard, fee: "Differs by section and unit", price: "Condos under $200,000 to over $2 million", beach: "On the ocean" },
+  { id: "litchfield-by-the-sea", name: "Litchfield by the Sea", short: "Litchfield by the Sea, River Club gate", lat: 33.471219, lon: -79.126112, gate: K.guard, fee: "Differs by building", price: "About $180,000 to $2.2 million for whole condos; houses about $750,000", beach: "On the ocean" },
   { id: "heritage-plantation", name: "Heritage Plantation", short: "Heritage", lat: 33.44215, lon: -79.16353, gate: K.ask, fee: "About $325 a month", price: "About $710,000", beach: "About 10 minutes" },
   { id: "debordieu-colony", name: "DeBordieu Colony", short: "DeBordieu", lat: 33.3744, lon: -79.17446, gate: K.house, fee: "About $300 to $400 a month", price: "About $2 million", beach: "On the ocean" },
 ];
@@ -299,13 +299,12 @@ const FARM = "/submarkets/carolina-forest/the-farm/";
 const SECTIONS_PLACES = [
   entry("tidewater-plantation", "a 1990 golf course beside the Cherry Grove marsh", [
     "Tidewater began with its golf course. Ken Tomlinson, a Columbia lawyer who also designed courses, found a 600-acre site on the Intracoastal Waterway. Hurricane Hugo delayed the work, and the course opened in 1990. Golf Digest and Golf Magazine both named it the best new public course in America that year.",
-    "Two of its holes meet the marsh of the waterway, and another looks across Cherry Grove Inlet. Many of its homes are houses along the fairways, and it also has condo buildings.",
-    "Cherry Grove's public boat ramp is a 14-minute drive.",
+    "Two of its holes meet the marsh of the waterway, and another looks across Cherry Grove Inlet. Many of its homes are houses along the fairways, and it also has condo buildings. Its nearest public boat ramp, in Cherry Grove, is a 14-minute drive.",
     "Tidewater is on the Intracoastal Waterway, not the ocean. The nearest public beach access is about 8 minutes away by car, and Tidewater also has an oceanfront cabana with parking at Cherry Grove Beach.",
   ], P("tidewater-plantation"), "Tidewater Plantation from above: houses along the fairways of its golf course, with ponds among them.",
   "a gatehouse on Little River Neck Road, where visitors check in. Homes usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
-  entry("seaside-plantation", "lakes and shag festivals a half mile from the ocean", [
+  entry("seaside-plantation", "lakes and shag festivals near the ocean", [
     "Seaside Plantation is in North Myrtle Beach, a quarter to three-quarters of a mile from the ocean. Some of its houses are all brick, and some look onto its lakes.",
     "Its clubhouse has a pool, a hot tub and parking for golf carts. A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are 3 to 5 minutes away by car.",
     `Main Street is 3 to 5 minutes away too. Each spring and fall the ${h.ext("https://www.shagdance.com/", "Society of Stranders")} holds its shag dance festivals, the Spring Safari and the Fall Migration, around Main Street and Ocean Drive.`,
@@ -347,7 +346,7 @@ const SECTIONS_PLACES = [
   "a gate on Royal Bluff Drive, off River Oaks Boulevard. Homes usually sell for about $850,000, and the HOA fee is about $150 a month."),
 
   entry("covington-lake-east", "brick houses around ponds and a low HOA fee", [
-    "Covington Lake East is a small neighborhood of brick houses in Carolina Forest. Its developer, Covington Lake East LLC, began selling lots in 2006. Lennar built about 50 of its houses from 2015 to 2017, and many builders built the rest one lot at a time.",
+    "Covington Lake East is a small neighborhood of brick houses in Carolina Forest. Lots went on sale in 2006. Lennar built about 50 of its houses from 2015 to 2017, and many builders built the rest one lot at a time.",
     "Its curving streets lie among ponds, and most lots are about a quarter of an acre. The streets have sidewalks, and many of the houses have natural gas.",
     "The owners association owns the pool and clubhouse. For a gate, a pool and a clubhouse, the HOA fee is about $90 a month.",
     "It has no golf course or boat ramp of its own.",
@@ -390,7 +389,7 @@ const SECTIONS_PLACES = [
     "Its lots are big: most are close to half an acre, and some along Collins Creek are larger than an acre and a half. Houses for sale here were built from 2006 on, several of them custom-built. Homes here usually sell for about $810,000.",
     "The Park at Prince Creek West is about 4 minutes north by car. It covers 43 acres, with tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
     `For TPC Myrtle Beach and the rest of Prince Creek, see our ${h.a(BEST, "best neighborhoods in Myrtle Beach")}.`,
-    "Some lots have no house yet, and the newest houses here were built in 2025 and 2026.",
+    "Some lots have no house yet, and a few houses are brand new.",
   ], P("bellwood-landing"), "Bellwood Landing from above: houses around a pond, beside the woods.",
   "a gate on TPC Boulevard. The HOA fee is about $160 a month."),
 
@@ -421,9 +420,8 @@ const SECTIONS_PLACES = [
     "Willbrook was part of a land grant made in 1711. Enslaved people grew rice here; the 1850 census counted 149 at Willbrook. The loss of workers, rice grown farther west and a run of hurricanes that wrecked the dikes ended rice growing on the Georgetown rivers.",
     "Before Dan Maples' course opened, archaeologists surveyed the land. Beside the course are a marked cemetery of enslaved people from nearby Oatland Plantation and brick remains at the site of the plantation house.",
     "Open fields, cut by straight ditches, lie along its west side. The neighborhood has a pool and a clubhouse.",
-    "In the last year, homes here sold for about $630,000 to $1.5 million, and the middle sale was about $840,000.",
   ], P("willbrook-plantation"), "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left.",
-  "a gatehouse at the entrance off Willbrook Boulevard. The HOA fee is about $340 a month."),
+  "a gatehouse at the entrance off Willbrook Boulevard. Homes here usually sell for about $840,000, and the HOA fee is about $340 a month."),
 
   entry("litchfield-plantation", "a 1700s plantation house and its avenue of oaks", [
     "Litchfield Plantation's house dates from the 1700s, and the road in is lined with old live oaks, the Avenue of Live Oaks. In the 1800s the plantation belonged to the Tucker family, who also owned Willbrook.",
@@ -437,9 +435,9 @@ const SECTIONS_PLACES = [
     "Litchfield by the Sea lies between the marsh and the ocean. Its homes range from oceanfront houses to villas with marsh views and condos.",
     "It has about a mile of beach and an oceanfront Beach Club with a deck and a pavilion. Fishing and crabbing docks are on Osprey Lake, and paved paths run through the marsh and woods.",
     "Owners' cars use a barcode at the gate. The pool is at the River Club, across US 17 from the beach.",
-    "The HOA fee and the prices differ from section to section and from unit to unit.",
+    "In the last year, one-bedroom condos in Summerhouse sold for about $200,000, and homes in Breakers Reef for $1.5 million or more. The HOA fee differs from building to building, so we find out the fee for any home you like before you offer.",
   ], P("litchfield-by-the-sea"), "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right.",
-  `a ${h.ext(LBTS_GUIDE, "guard day and night")} at the main gate on US 17. In the last year, condos sold for anywhere from under $200,000 to over $2 million, and houses in its Oystercatcher Island section for about $750,000.`),
+  `a ${h.ext(LBTS_GUIDE, "guard day and night")} at the main gate on US 17. In the last year, whole condos here, not shared weeks, sold for about $180,000 to $2.2 million, and houses in its Oystercatcher Island section for about $750,000.`),
 
   entry("heritage-plantation", "a river marina with a dock master", [
     "Heritage Plantation lies between the Waccamaw River and the beaches of Pawleys Island, about three miles from the ocean. Caledonia Creek runs through the marsh on its north side. About 500 houses are among live oaks, lakes and marsh, and Dan Maples' Heritage Club course lies among them.",
@@ -537,7 +535,7 @@ module.exports = {
 
     { h2: "What does a gated neighborhood cost to live in each year?", toc: "The yearly cost", html: () =>
       h.p("In Myrtle Trace, the HOA fee and county tax for a home you live in come to about $2,300 a year, besides the mortgage. In Seasons at Prince Creek West, they come to about $6,100.") +
-      h.p(`We check the flood zone of the home before you make an offer. Our ${h.a("/buyers/coastal-insurance/", "guide to home insurance on the coast")} covers storms and flooding.`) },
+      h.p(`Our ${h.a("/buyers/coastal-insurance/", "guide to home insurance on the coast")} covers storms and flooding.`) },
 
     { h2: "What are the pros and cons of a gated community?", toc: "Pros and cons", html: (bg) =>
       prosCons([
@@ -546,8 +544,8 @@ module.exports = {
         "Some have a staffed gate, as at Litchfield by the Sea.",
       ], [
         { text: "You pay for the gate and the private streets through the HOA fee.", act: `We find out what the fee covers before you offer. Our guide to ${h.a("/hoa/benefits/", "what HOA fees pay for")} lists the usual items.` },
-        { text: `In Horry County outside city limits, the HOA, not the county, maintains ${h.ext(CODE, "private streets")}.`, act: `We check the HOA's savings, so a one-time charge to every owner, a ${h.a("/hoa/special-assessments/", "special assessment")}, is less likely.` },
-        { text: "Guests and workers come through the gate.", act: "We find out how the gate lets visitors in for the home you like." },
+        { text: `In Horry County outside city limits, the HOA, not the county, maintains ${h.ext(CODE, "private streets")}.`, act: `We check the HOA's savings, so you know before you offer whether a one-time charge to every owner, a ${h.a("/hoa/special-assessments/", "special assessment")}, is likely.` },
+        { text: "Guests and workers come through the gate, so a visit can need a call box or a guest list." },
       ], { bg }) },
 
     { h2: "How did one couple plan for guests behind a gate?", toc: "A buyer's story", html: (bg) =>
