@@ -86,15 +86,42 @@ const N = Object.fromEntries(D.neighborhoods.map((n) => [n.id, n]));
    builds the sections. The Surfside Beach view has crops, so it is the page's share image. */
 const ph = kit.photoSet({ aerialWidth: "760px" });
 const CSS = ph.css();
-const SURFSIDE = ph.aerial("surfside-beach-from-above", "The ocean side of Surfside Beach from the air: streets of homes from US 17 Business, at the left, to the beach.",
-  { alt: "Surfside Beach from the air: streets of houses under trees from a highway at the left to a wide beach and the ocean at the right, with a fishing pier and a public beach access marked" });
-const PINE = ph.aerial("pine-lakes-from-above", "Pine Lakes from the air: the homes in the table, outlined in orange, beside the Pine Lakes Country Club golf course.",
-  { alt: "Pine Lakes in Myrtle Beach from the air: curving streets of houses around ponds, outlined in orange, beside a golf course with green fairways and sand traps, and the beach at the far right", closeUp: true });
-const MARKET = ph.aerial("market-common-from-above", "The Market Common from the air: its homes, outlined in orange, The Reserve at the right, shops below and the airport at the bottom.",
-  { alt: "The Market Common in Myrtle Beach from the air: townhomes and houses outlined in orange beside a lake, a second outlined group labelled The Reserve at Market Common at the right, shops below them, and the airport runway at the bottom", closeUp: true });
-/* This page's labelled copy of the no-HOA page's Cherry Grove view (same NOAA frame and crop, with labels). */
-const CHERRY = ph.aerial("cherry-grove-canals-from-above", "Cherry Grove from the air: the beach, the canals and the salt marsh.",
-  { alt: "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of houses on canals labelled Canals, and a wide salt marsh with winding creeks labelled Salt marsh", closeUp: true });
+/* One aerial per entry, in the order of the list. The Surfside Beach view has crops, so it is the page's
+   share image. Ten are this round's NAIP 2023 views, labelled from county data (data/photos.json names
+   the points); Cherry Grove, Pine Lakes, The Market Common and Surfside Beach are NOAA 2026 views; The
+   Farm's is the Farm page's file. */
+const AER = (name, caption, alt) => ph.aerial(name, caption, { alt, closeUp: true });
+const PHOTO = {
+  "tidewater": AER("tidewater-from-above", "Tidewater Plantation from above: its pools and clubhouse, and the golf course around the homes.",
+    "Tidewater Plantation in North Myrtle Beach from above: houses under trees around a pool and clubhouse, labelled, with golf fairways and greens on both sides"),
+  "cherry-grove": AER("cherry-grove-canals-from-above", "Cherry Grove from the air: the beach, the canals and the salt marsh.",
+    "Cherry Grove in North Myrtle Beach from the air: the beach and part of a fishing pier at the left, rows of houses on canals labelled Canals, and a wide salt marsh with winding creeks labelled Salt marsh"),
+  "barefoot-resort": AER("barefoot-resort-from-above", "Barefoot Resort from above: the North Tower pool beside the Intracoastal Waterway, with townhomes and condos around it.",
+    "Barefoot Resort from above: a large curved pool labelled North Tower pool between condo towers and townhomes, with boats at a marina on the Intracoastal Waterway below"),
+  "wild-wing": AER("wild-wing-from-above", "Wild Wing Plantation from above: the pools and clubhouse beside a lake, and the golf course.",
+    "Wild Wing Plantation from above: pools and a clubhouse beside a lake, labelled, tennis courts, golf course land, labelled, and streets of houses"),
+  "waterbridge": AER("waterbridge-from-above", "Waterbridge from above: the pools and clubhouse inside a circle of streets.",
+    "Waterbridge from above: a pool complex and clubhouse, labelled, inside a circle drive, with streets of houses all around"),
+  "grande-dunes": AER("grande-dunes-from-above", "Palermo and Villa Venezia in Grande Dunes from above, with the Intracoastal Waterway at the bottom right.",
+    "Palermo and Villa Venezia in Grande Dunes from above, each labelled: large houses with pools around ponds and golf fairways, and the Intracoastal Waterway at the bottom right"),
+  "the-farm": AER("the-farm-pool-from-above-2026", "The large pool and the activity center in The Farm at Carolina Forest, from above.", undefined),
+  "plantation-lakes": AER("plantation-lakes-from-above", "Plantation Lakes from above: the pools and clubhouse on the lake, with tennis courts and a dock.",
+    "Plantation Lakes from above: two pools and a clubhouse on a point in a lake, labelled, with tennis courts, a small dock and houses along the shore"),
+  "berkshire-forest": AER("berkshire-forest-from-above", "Berkshire Forest from above: the pools beside a lake, with tennis courts and streets of houses.",
+    "Berkshire Forest from above: a pool complex beside a lake, labelled, tennis courts, ponds and streets of houses"),
+  "pine-lakes": AER("pine-lakes-from-above", "Pine Lakes from the air: The Preserve and Pine Lakes Estates, outlined in orange, beside the Pine Lakes Country Club golf course.",
+    "Pine Lakes in Myrtle Beach from the air: curving streets of houses around ponds, outlined in orange, beside a golf course with green fairways and sand traps, and the beach at the far right"),
+  "forestbrook-estates": AER("forestbrook-estates-from-above", "Forestbrook Estates from above: streets of houses around ponds, and the pool.",
+    "Forestbrook Estates from above: rows of houses around ponds, a pool labelled at the bottom, and cleared land at the left"),
+  "market-common": AER("market-common-from-above", "The Market Common from the air: its homes, outlined in orange, The Reserve at the right, shops below and the airport at the bottom.",
+    "The Market Common in Myrtle Beach from the air: townhomes and houses outlined in orange beside a lake, a second outlined group labelled The Reserve at Market Common at the right, shops below them, and the airport runway at the bottom"),
+  "deerfield": AER("deerfield-from-above", "The Deerfield Plantation area from above: houses under tall trees, with ponds and green strips between the streets.",
+    "The Deerfield Plantation area from above: houses on wooded lots, with ponds and long green strips between the streets"),
+  "surfside-beach": ph.aerial("surfside-beach-from-above", "The ocean side of Surfside Beach from the air: streets of homes from US 17 Business, at the left, to the beach.",
+    { alt: "Surfside Beach from the air: streets of houses under trees from a highway at the left to a wide beach and the ocean at the right, with a fishing pier and a public beach access marked" }),
+  "prince-creek": AER("prince-creek-from-above", "Prince Creek from above: homes beside the TPC Myrtle Beach golf course, and a Publix across the road.",
+    "Prince Creek from above: streets of townhomes and houses, a golf course labelled TPC Myrtle Beach golf course, and a Publix store labelled across the highway"),
+};
 
 const SELF = "/buyers/best-neighborhoods/";
 const OFFER = "/contact/";
@@ -120,7 +147,7 @@ const CG_CANALS = "https://www.nmb.us/AgendaCenter/ViewFile/Item/1251?fileID=388
 const H3 = 'style="font-family:var(--serif);font-size:1.25rem;color:var(--navy);margin:1.3rem 0 .5rem"';
 const nh = (id) => `<h3 id="${id}" ${H3}>${N[id].name}</h3>`;
 const A = (id) => `#${id}`;
-const link = (id) => (id === "the-farm" ? FARM : A(id));
+const link = (id) => A(id);
 
 /* ---------------------------------------------------------------------------- */
 /* Maps                                                                           */

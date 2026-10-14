@@ -2,6 +2,14 @@
  * boat or a work truck there, how much room the lots have, what the homes cost, and how to check one.
  *
  * Batch 2026-10-b, page 3.
+ * Version 7, 2026-10-14: round 7 (review/ROUND-7.md; the owner's first read: "too jumpy and alot about price
+ *   instead of the amenities ... focus on what the house and location gives you"). The first offer is a box
+ *   (heroCta.title, website-patches/mkpage-offer-box.patch). The "where" section is now eight numbered areas,
+ *   in the map's order, each with what a home there gives you (land, room for a boat, the kind and age of the
+ *   houses, what is close by), one photo, the trade-off and the price in one line. The table of all areas
+ *   follows the list, with the price comparison. Cut: the lot and town-limit paragraphs and the "why" section
+ *   (now in the entries and the comparison). New rows 75 to 80 pending verification (round 7); row 81 copies
+ *   verified values from other ledgers. Two new NAIP aerials (Myrtle Beach, Little River).
  * Version 4, 2026-10-13: round 4 (review/OWNER-EYE-2-no-hoa-homes.md). A new example: the boat meets the
  *   Myrtle Beach front-yard limit (row 59), the agent finds the house inside the city on the county map
  *   (row 68), and the buyer buys outside the towns, where the county has no limit (row 64). The "why"
@@ -139,6 +147,22 @@ for (const [k, want] of [["Aynor", [20, 23]], ["Loris", [54, 71]], ["Conway", [8
 const SURF_OCEAN = [LOTS.byArea["Surfside Beach and Garden City"].noFee.oceanfrontViewOrSecondRow, LOTS.byArea["Surfside Beach and Garden City"].noFee.listings,
   LOTS.byArea["Surfside Beach and Garden City"].withFee.oceanfrontViewOrSecondRow, LOTS.byArea["Surfside Beach and Garden City"].withFee.listings];
 if (JSON.stringify(SURF_OCEAN) !== JSON.stringify([22, 56, 1, 47])) throw new Error(`Surfside ocean counts ${SURF_OCEAN} are not the ledger's`);
+/* Rows 75 to 77 (round 7, pending verification): the homes in each area, from data/no-hoa-lots.json. The same
+   check: the build stops if the file no longer gives the ledger's counts. [field, area, value] */
+const ROUND7 = [
+  ["listings", "Aynor", 30], ["builtSince2024", "Aynor", 17], ["notInSubdivision", "Aynor", 28],
+  ["listings", "Loris", 96], ["builtSince2024", "Loris", 60], ["notInSubdivision", "Loris", 94],
+  ["listings", "North Myrtle Beach", 135], ["builtBefore1990", "North Myrtle Beach", 84], ["withinHalfMileOfBeach", "North Myrtle Beach", 101],
+  ["listings", "Surfside Beach and Garden City", 56], ["withinHalfMileOfBeach", "Surfside Beach and Garden City", 47],
+  ["listings", "Murrells Inlet", 56], ["withinOneMileOfBeach", "Murrells Inlet", 28], ["heatedSqftMedian", "Murrells Inlet", 2433],
+  ["listings", "Conway", 167], ["builtSince2024", "Conway", 58], ["notInSubdivision", "Conway", 114],
+  ["listings", "Myrtle Beach (not Carolina Forest)", 131], ["builtBefore1990", "Myrtle Beach (not Carolina Forest)", 61], ["withinHalfMileOfBeach", "Myrtle Beach (not Carolina Forest)", 59],
+  ["listings", "Little River", 22], ["builtSince2024", "Little River", 7],
+];
+for (const [k, area, want] of ROUND7) if (LOTS.byArea[area].noFee[k] !== want) throw new Error(`${area}: ${k} is ${LOTS.byArea[area].noFee[k]}, not the ledger's ${want}`);
+for (const [area, want] of [["Little River", [17, 17]], ["Murrells Inlet", [24, 24]]]) if (JSON.stringify(outsideTown(area)) !== JSON.stringify(want)) throw new Error(`${area}: outside any town ${outsideTown(area)} is not the ledger's ${want}`);
+const HEATED_MI = LOTS.byArea["Murrells Inlet"].noFee.heatedSqftMedian;
+if (Object.values(LOTS.byArea).some((v) => v.noFee.heatedSqftMedian > HEATED_MI)) throw new Error("Murrells Inlet is no longer the largest by heated area");
 
 /* Rounding a reader can say out loud (CRAFT 5). */
 const money = (v) => "$" + Math.round(v).toLocaleString("en-US");
@@ -162,11 +186,18 @@ const COUNTED = (([y, m, d]) => `${MONTHS[m - 1]} ${d}, ${y}`)(DATA.asOf.split("
 
 /* The map: each area's name with its share of homes for sale listed with no HOA fee. */
 const TOWN = Object.fromEntries(loadGeo2().towns.map((t) => [t.name, t]));
-const MAP = placesMap("Share of homes for sale with no HOA fee",
-  ["Loris", "Aynor", "Little River", "North Myrtle Beach", "Conway", "Carolina Forest", "Myrtle Beach", "Surfside Beach and Garden City", "Murrells Inlet"]
-    .map((k) => AREAS.find((a) => a.key === k || a.name === k || a.town === k))
-    .map((a) => ({ name: `${a.map} ${share(a)}%`, lat: TOWN[a.town].lat, lon: TOWN[a.town].lon })),
-  { caption: "Map of the share of homes for sale in each area that are listed with no HOA fee." });
+/* The eight areas with homes for sale with no HOA fee, numbered in the order of the list below (round 7).
+   Carolina Forest has none for sale, so it is not on the map or the list; the table and one line say so. */
+const PLACES = AREAS.filter((a) => a.homes.noHoaFee > 0);
+const ID = { "Aynor": "aynor", "Loris": "loris", "North Myrtle Beach": "north-myrtle-beach", "Surfside Beach and Garden City": "surfside-and-garden-city",
+  "Murrells Inlet": "murrells-inlet", "Conway": "conway", "Myrtle Beach (not Carolina Forest)": "myrtle-beach", "Little River": "little-river" };
+const MAP = placesMap("Homes for sale with no HOA fee, by area",
+  PLACES.map((a) => ({ name: `${a.map} ${share(a)}%`, lat: TOWN[a.town].lat, lon: TOWN[a.town].lon, href: `#${ID[a.key]}` })),
+  { caption: "Map of the eight areas, numbered as in the list below, with the share of homes for sale in each that are listed with no HOA fee." });
+const num = (key) => PLACES.findIndex((a) => a.key === key) + 1;
+const area = (key) => AREAS.find((a) => a.key === key);
+const lotOf = (key) => acreWords(area(key).lots.noFee.lotAcresMedian);
+const priceOf = (key) => to5k(area(key).houses.medianListPriceNoFee);
 
 /* The table by area: share, typical list price and typical lot of a house for sale with no HOA fee. */
 const areaTable = () => compareCards(AREAS.map((a) => ({
@@ -204,6 +235,14 @@ const AYNOR_LOT = ph.aerial("aynor-country-lot", "Houses on lots of about an acr
   { closeUp: true });
 ph.share("aynor-country-lot");
 const CHERRY = ph.aerial("cherry-grove-canals-from-above", "Cherry Grove from the air. Almost every home here is in a high-risk flood zone.");
+/* One photo per area (round 7). Reused records keep their own credit; the captions are this page's. Ground
+   photos from the photo partner will replace these later (templates/photo-request-email.md). */
+const LORIS_PHOTO = ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true });
+const SURF_PHOTO = ph.aerial("surfside-beach-from-above", "The ocean side of Surfside Beach from the air, from US 17 Business to the beach.");
+const INLET_PHOTO = ph.aerial("murrells-inlet-boats", "Fishing boats at a marina in Murrells Inlet.", { closeUp: true });
+const CONWAY_PHOTO = ph.aerial("conway-riverwalk-boardwalk", "The Riverwalk in downtown Conway, on the Waccamaw River.", { closeUp: true });
+const MB_PHOTO = ph.aerial("myrtle-beach-older-streets-from-above", "Houses on older streets between Kings Highway and the beach in Myrtle Beach, from the air.");
+const LR_PHOTO = ph.aerial("little-river-waterway-from-above", "Little River from the air: streets of houses beside the salt marsh and the Intracoastal Waterway.");
 
 /* Sources. */
 const CONDO_LAW = "https://www.scstatehouse.gov/code/t27c031.php";
@@ -219,6 +258,7 @@ const CLOSING = "https://www.sccourts.org/media/opinions/HTMLFiles/SC/25508.htm"
 const FEMA = "https://msc.fema.gov/portal/home";
 const MUNI = "https://library.municode.com/sc/";
 const HORRY_CODE = `${MUNI}horry_county/codes/code_of_ordinances?nodeId=COOR_CH13OFMIPR_ARTIINGE_S13-12PRPA`;
+const LANDINGS = "https://www.horrycountysc.gov/departments/parksandrecreation/boat-landings/";
 
 /* Words used more than once. */
 const loris = AREAS.find((a) => a.key === "Loris");
@@ -231,6 +271,20 @@ const STORY = [
   "Her Chapter3 agent finds the house on the county map, inside the city of Myrtle Beach. In the city, a boat that long cannot sit in the front yard, and that lot has no other room for it.",
   "The agent shows her houses just outside the city, where she can keep the boat anywhere on her lot. Teresa makes an offer on one with a wide side yard.",
 ];
+
+/* One numbered area (round 7; CRAFT 3, "A list of places is read one place at a time"): the headline with
+   the number, the place and what it gives you; a few short paragraphs; one photo; the trade-off and the
+   price, one line each. */
+const ENTRY_CSS = "<style>.c3-entry-facts{max-width:720px;margin:.4rem 0 .6rem;padding:.8rem 1rem;border-left:3px solid var(--brass)}"
+  + ".c3-entry-facts p{margin:0 0 .35rem!important;color:var(--navy)!important}.c3-entry-facts p:last-child{margin-bottom:0!important}</style>";
+const go = (key) => h.a(`#${ID[key]}`, `${num(key)}. ${area(key).name.replace(", outside Carolina Forest", "")}`);
+function entry(key, bestFor, paras, photo, tradeOff) {
+  const a = area(key), n = num(key);
+  if (!n) throw new Error(`${key} is not on the list`);
+  return { h2: `${n}. ${a.name.replace(", outside Carolina Forest", "")}: ${bestFor}`, toc: `${n}. ${a.map}`, id: ID[key], html: () =>
+    paras.map((t) => h.p(t)).join("") + photo +
+    `<div class="c3-entry-facts"><p><strong>The trade-off:</strong> ${tradeOff}</p><p><strong>Price:</strong> a house for sale here with no HOA fee is typically listed at about ${priceOf(key)}.</p></div>` };
+}
 
 /* ---------------------------------------------------------------------------- */
 
@@ -248,34 +302,77 @@ module.exports = {
   h1em: "Where to look, what it costs and what to check.",
   sub: "Most homes for sale with no HOA fee are on ordinary streets outside planned neighborhoods. Loris and Aynor have the highest share and the biggest lots.",
   heroMedia: glance([
-    { icon: "town", label: "Loris and Aynor", text: "Most have no HOA fee" },
-    { icon: "beach", label: "North Myrtle Beach", text: "Most have no HOA fee" },
-    { icon: "dollar", label: "Typical list price", text: `About ${to5k(ALL.detachedHouses.medianListPriceNoFee)}` },
+    { icon: "home", label: "Inland", text: "Half an acre to an acre" },
+    { icon: "beach", label: "Near the beach", text: "Older houses near the sand" },
+    { icon: "dock", label: "A boat at home", text: "Within each town's rules" },
   ]),
-  heroCta: { label: LABEL, href: "/contact/", text: "Tell us your price range, and we will send you the homes for sale with no HOA fee." },
+  /* The first offer is a box (owner, 2026-10-14: "make the first CTA more of a CTA"; mkpage-offer-box.patch). */
+  heroCta: { title: "Get the homes with no HOA fee in your price range.", label: LABEL, href: "/contact/",
+    text: "Tell us your price range and the areas you like. We will send you the homes for sale in each." },
   author: "devin",
   shortAnswer: [
-    `About a quarter of the homes for sale around Myrtle Beach are listed with no homeowners association (HOA) fee. An HOA runs a neighborhood and collects a monthly fee. Houses for sale with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, and at about ${to5k(loris.houses.medianListPriceNoFee)} in Loris and Aynor.`,
-    "Loris and Aynor have the most room, usually half an acre or more. Near the beach, many homes with no HOA fee are in a high-risk flood zone.",
-    `With no HOA, you can keep a boat or a work truck at home, within ${h.a("#boats-and-work-trucks", "each town's rules")}.`,
+    "About a quarter of the homes for sale around Myrtle Beach are listed with no homeowners association (HOA) fee. An HOA runs a neighborhood and collects a monthly fee.",
+    "Inland, near Aynor, Loris and Conway, most are new houses on country lots. Near the beach, most are older houses near the sand.",
+    `With no HOA, you can keep a boat or a work truck at home, within ${h.a("#boats-and-work-trucks", "each town's rules")}. Houses for sale with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}.`,
   ],
   sections: [
-    { h2: "Where are the homes with no HOA fee, and which have the most room?", toc: "Where, and lot sizes", html: (bg) =>
-      CSS +
-      h.p("Most homes for sale in Aynor, Loris, North Myrtle Beach, and Surfside Beach and Garden City are listed with no HOA fee. The houses with the most room are inland, in Aynor, Loris and Conway.") +
+    { h2: "Where are the homes with no HOA fee?", toc: "Where they are", html: () =>
+      CSS + ENTRY_CSS +
+      h.p("Homes with no HOA fee are in eight areas, from country roads near Aynor and Loris to older streets near the beach. The numbers on the map match the list below.") +
       `<div class="c3-areamap">${MAP.html}</div>` +
-      areaTable() +
-      h.p("A house for sale with no HOA fee in Aynor usually has about an acre, and in Loris about three quarters of an acre. In North Myrtle Beach and Surfside Beach the lots are small, about a sixth of an acre. About 1 in 3 houses with no HOA fee has half an acre or more, against about 1 in 15 houses with a fee.") +
-      AYNOR_LOT +
-      h.p("Most houses with no HOA fee in Aynor, Loris and Conway are outside the town limits, so the county's rules apply there. In North Myrtle Beach, almost all of them are in four parts of town: Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive.") +
-      h.p(`Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
-      h.cta("Get the homes with no HOA fee in your price range.", "Tell us your price range and the areas you like. One of our agents will send you the homes for sale with no HOA fee.", LABEL, "/contact/", bg) },
+      h.p(`For the most land, see ${go("Aynor")}, ${go("Loris")} and ${go("Conway")}. To live near the beach, see ${go("North Myrtle Beach")}, ${go("Surfside Beach and Garden City")}, ${go("Murrells Inlet")} and ${go("Myrtle Beach (not Carolina Forest)")}. For a boat near the waterway, see ${go("Little River")}.`) +
+      h.p("Carolina Forest is not on the list: every home for sale there has an HOA fee.") },
 
-    { h2: "Why do homes with no HOA fee cost more?", toc: "Why they cost more", html: () =>
+    entry("Aynor", "an acre of land and room for a boat", [
+      `Aynor is a small town about 25 minutes by car from downtown Conway. Most houses for sale here with no HOA fee are on country roads outside the town, on lots of ${lotOf("Aynor")}.`,
+      "More than half were built in 2024 or later. Almost all stand on their own lot, not in a subdivision. Outside the town, the county has no rule on where you keep a boat, a trailer or a camper on your lot.",
+      `The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 5 minutes from the center of Aynor.`,
+    ], AYNOR_LOT, "the nearest beach is about 45 minutes away by car, and outside the town you arrange your own trash pickup."),
+
+    entry("Loris", "three quarters of an acre and a new house", [
+      `Loris is a small town with a downtown on Main Street and a hospital, McLeod Loris, about 2 minutes from the center of town. Most houses for sale here with no HOA fee are outside the city limits, on lots of ${lotOf("Loris")}.`,
+      "About 6 in 10 were built in 2024 or later. Almost none are in a subdivision, so most sit on their own lot along a country road. Outside the city, the county has no rule on where you keep a boat or a camper on your lot.",
+    ], LORIS_PHOTO, "the nearest beach, in North Myrtle Beach, is about 35 minutes away by car."),
+
+    entry("North Myrtle Beach", "an older beach house near the sand", [
+      "Almost all the houses for sale here with no HOA fee are in four older parts of town near the ocean: Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive. About 3 in 4 are within half a mile of the beach.",
+      `About 6 in 10 were built before 1990, on lots of ${lotOf("North Myrtle Beach")}. Ocean Drive has the city's Main Street, where the city holds free Music on Main concerts on Thursdays in summer. Cherry Grove has a fishing pier, and some of its streets are on canals that run to the marsh.`,
+      "Inside the city, a boat or a trailer goes behind the front of the house or in a carport.",
+    ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. Check the home on ${h.ext(FEMA, "the government's flood map")} before you offer.`),
+
+    entry("Surfside Beach and Garden City", "close to the ocean", [
+      "Surfside Beach and Garden City Beach sit side by side on the ocean, and each has a fishing pier. About 8 in 10 houses for sale here with no HOA fee are within half a mile of the beach. About 4 in 10 face the ocean, see it or are one row back.",
+      `The lots are small, ${lotOf("Surfside Beach and Garden City")}. From Garden City, the restaurants of the Murrells Inlet MarshWalk are about 5 minutes away by car, and so is the county's Stanley Drive boat landing.`,
+      "Inside the town of Surfside Beach, a home can keep two boats or trailers outside.",
+    ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
+
+    entry("Murrells Inlet", "a bigger house near the marsh", [
+      `Murrells Inlet is on a salt marsh just south of Garden City Beach. Its houses for sale with no HOA fee are the biggest of the eight areas, typically about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet.`,
+      "About half are within a mile of the beach. Restaurants line the MarshWalk, a boardwalk along the marsh, and Huntington Beach State Park is about 15 minutes away by car.",
+      "Murrells Inlet is not a town, and part of it is in Georgetown County.",
+    ], INLET_PHOTO, `the lots are smaller than inland, ${lotOf("Murrells Inlet")}.`),
+
+    entry("Conway", "half an acre near the river", [
+      `Conway is on the Waccamaw River, with a Riverwalk in its downtown. Most houses for sale with a Conway address and no HOA fee are outside the city limits, on lots of ${lotOf("Conway")}.`,
+      `About 2 in 3 are not in a subdivision, and about a third were built in 2024 or later. Horry County runs five ${h.ext(LANDINGS, "public boat landings")} on the Waccamaw River with a Conway address.`,
+      "Inside the city, a boat goes in the side yard, the back yard or a carport.",
+    ], CONWAY_PHOTO, "the nearest beach is about 25 minutes away by car."),
+
+    entry("Myrtle Beach (not Carolina Forest)", "an older house near the beach", [
+      "Outside Carolina Forest, many houses for sale with a Myrtle Beach address and no HOA fee are on older streets near the ocean. Almost half are within half a mile of the beach, and almost half were built before 1990.",
+      `The lots are ${lotOf("Myrtle Beach (not Carolina Forest)")}. About half of these houses are inside the city of Myrtle Beach, and the rest are in the county.`,
+    ], MB_PHOTO, "inside the city, a boat over 16 feet may not sit in the front yard."),
+
+    entry("Little River", "a boat near the waterway", [
+      "Little River is on the Intracoastal Waterway, at the north end of the Grand Strand. It is not a town, so its houses for sale with no HOA fee follow the county's rules: you can keep a boat anywhere on your lot.",
+      `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} on the waterway is about 10 minutes from the center of Little River, and the beach in North Myrtle Beach is about 10 minutes away. The lots are ${lotOf("Little River")}, and about a third of the houses were built in 2024 or later.`,
+    ], LR_PHOTO, "few homes for sale here have no HOA fee, about 1 in 10."),
+
+    { h2: "How do the eight areas compare?", toc: "The areas side by side", html: (bg) =>
       h.p(`Houses for sale with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are near the ocean: about 1 in 3 is on the ocean side of US 17 Business, the coast road.`) +
-      CHERRY +
-      h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Near the water, flood insurance can cost more than that. Almost every home in Cherry Grove is in a high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}. Flood insurance on a home you live in there usually costs about $1,300 a year.`) +
-      h.p(`On the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose. Check the flood zone of the home you like before you offer.`) },
+      areaTable() +
+      h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
+      h.cta("Get the homes with no HOA fee in your price range.", "Tell us your price range and the areas you like. One of our agents will send you the homes for sale with no HOA fee in each.", LABEL, "/contact/", bg) },
 
     { h2: "What do you gain and give up with no HOA?", toc: "Pros and cons", html: (bg) =>
       h.p("With no HOA, you pay no HOA fee and follow no HOA rules. You also have no shared pool, and outside the towns you arrange your own trash pickup.") +
