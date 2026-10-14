@@ -81,6 +81,10 @@ Examples on the site: `/submarkets/conway/`, `/buyers/55-plus-communities/myrtle
 - More than half the photos are decorative: their captions state no fact.
 - Two community pages read alike. STANDARD S10 measures shared text; over 25 percent means the template is writing the page, not the place.
 
+### 1b. A list of many places (added 2026-10-14, from the owner)
+
+"Best neighborhoods", "gated communities", "places to live": the reader picks a few places from many. Keep the opening (the short answer, a numbered map). Then give each place its own numbered entry, 1 to the last: a headline with the place and what it is best for, a few short paragraphs on the homes, the amenities and what is close by, one photo of the place, its trade-off, and price and fee in one line. A table of all the places side by side may follow the list. Do not split the places across want cards, tables by area and cards: the owner called that "too jumpy" and said the page was "alot about price instead of the amenities" (voice/VERDICTS.md, 2026-10-14).
+
 ## 2. Cost or fee breakdown
 
 Examples: `/buyers/closing-costs/`, `/sell/net-proceeds/`, `/buyers/cost-to-own/`. None of the three has an HTML table today; each has a calculator instead.

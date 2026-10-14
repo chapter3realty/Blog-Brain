@@ -87,6 +87,7 @@ The same stretch takes other forms. Batch 2026-10-b's verifiers found each of th
 | The reader came to | Kind of page | Lead with | The visual that does the work |
 |---|---|---|---|
 | Picture living there | Area or community guide | What daily life is like, with a key-facts row | A map, then captioned photos of the place |
+| Pick a few places from many | List of places ("best neighborhoods", "gated communities") | A short answer and a numbered map, then the places one by one | A numbered entry per place: a headline, a few paragraphs on what it gives you, a photo |
 | Know the total | Cost or fee breakdown | The typical total in one sentence | An itemized table with a total row |
 | Follow the steps | How-to or process | How many steps and how long | Numbered steps; a timeline when deadlines matter |
 | Choose one | Comparison | The verdict for each situation | A table of 2 to 5 options, cards on a phone |
@@ -113,9 +114,11 @@ For a subject that fits no kind, find the main relation in the content: place, a
 - What it costs and what could go wrong, plainly.
 - The next step.
 
+**A list of places is read one place at a time (owner, 2026-10-14).** When a page names many places, keep the opening (the short answer, the map), then give each place its own numbered entry, 1 to the last, in one order the reader can follow: a headline, a few short paragraphs on what living there gives you (the homes, the amenities, what is close by), one photo of the place, and its trade-off. Price and the HOA fee go in one line inside the entry; the reader needs them, but they are not the point. Do not make the reader jump between want cards, tables by area and cards to learn about one place. A table of every place side by side may follow the list, for the reader who wants to compare numbers. The owner on the first version: "too jumpy and alot about price instead of the amenities ... focus on what the house and location gives you." On a page whose subject is price (the most affordable places), price stays in front, but each place still gets what living there is like.
+
 **Name the drawbacks, kindly, in their own place.** Readers trust a page that says what is hard. They also search for it ("reviews", "pros and cons", "is it worth it"). Give a short plain list of the good and the hard, each from a verified fact, each hard point with what to do about it. Facts only: never a verdict on a named company, and never anything about who lives somewhere.
 
-**One clear offer, tied to the page's gap.** The call to action offers the one thing the reader cannot easily get alone, ideally what the page could not fully answer. Keep one label. Several vague calls read as sales.
+**One clear offer, tied to the page's gap.** The call to action offers the one thing the reader cannot easily get alone, ideally what the page could not fully answer. Keep one label. Several vague calls read as sales. The first offer on the page looks like an offer, not a link: a box with a headline that says what the reader gets, one sentence, and a large button (owner, 2026-10-14: "make the first CTA more of a CTA"). Use the same box component as the last offer.
 
 ## 4. Show it
 
