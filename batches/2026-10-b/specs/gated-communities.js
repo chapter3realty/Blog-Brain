@@ -210,7 +210,7 @@ const SECTIONS_PLACES = [
   "a gatehouse on Little River Neck Road. Homes usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
   entry("seaside-plantation", "lakes and golf carts a few blocks from the ocean", [
-    "Seaside Plantation is a small neighborhood of houses in the Tilghman Beach part of North Myrtle Beach, a few blocks from the ocean. Its houses sit beside lakes, and it has a clubhouse, a pool and a hot tub.",
+    "Seaside Plantation is a small neighborhood of houses in the Tilghman Beach part of North Myrtle Beach, a few blocks from the ocean. Its houses are beside lakes, and it has a clubhouse, a pool and a hot tub.",
     "Main Street is close by. Each spring and fall, thousands of shag dancers fill Main Street for the Society of Stranders' Spring Safari and Fall Migration.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
   "a gate at the entrance, with rules the owners association has recorded with the county. Homes usually sell for about $740,000, and the HOA fee is about $210 a month. Only a handful sell each year."),
@@ -230,7 +230,7 @@ const SECTIONS_PLACES = [
 
   entry("waterway-palms-plantation", "a boat ramp and a clubhouse on a lagoon", [
     "Waterway Palms Plantation is on the Intracoastal Waterway at the east edge of Carolina Forest. Carolina Forest was a paper company's pine land, used for a bombing and gunnery range in World War II, and its neighborhoods were planned from the late 1990s.",
-    "The clubhouse stands on a point in the lagoon that winds through the neighborhood, beside the pools. It has a boat ramp on the waterway, a day dock and a boat storage yard, and a fitness center, tennis and pickleball courts, a basketball court and a playground.",
+    "The clubhouse stands on a point in the lagoon that winds through the neighborhood, beside the pools. It has a boat ramp on the waterway, a day dock and a boat storage yard. It also has a fitness center, tennis and pickleball courts, a basketball court and a playground.",
   ], P("waterway-palms-plantation"), "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
   "a gate at the entrance, where a visitor calls the owner to be let in. Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
@@ -248,7 +248,7 @@ const SECTIONS_PLACES = [
 
   entry("myrtle-trace", "a 1980s 55+ neighborhood on old paper company land", [
     `Glenn Hall developed Myrtle Trace on more than 400 acres bought from International Paper. The first streets and homes were started by 1982. Our ${h.a(MT, "guide to Myrtle Trace")} tells its story.`,
-    "It has 518 homes, mostly houses and a few townhouses. Every occupied home must have a resident 55 or older. The HOA owns 42 acres of shared land with fifteen ponds, and its facilities include a clubhouse, a swimming pool, a bocce court, a horseshoe pit and a basketball area.",
+    "It has 518 homes, mostly houses and a few townhouses. Every occupied home must have a resident 55 or older. The HOA owns 42 acres of shared land with fifteen ponds. Its facilities include a clubhouse, a swimming pool, a bocce court, a horseshoe pit and a basketball area.",
   ], P("myrtle-trace"), "Myrtle Trace from above: houses on curving streets among trees, with golf fairways and ponds nearby.",
   "gates only at the back entrance on Myrtle Ridge Road; the front entrance on Burning Ridge Road is open. Homes usually sell for about $300,000, and the HOA fee is $95 a month."),
 
@@ -310,7 +310,7 @@ const SECTIONS_PLACES = [
 
   entry("heritage-plantation", "golf on the True Blue and Midway rice fields", [
     "Heritage Plantation is on the land of two rice plantations, True Blue and Midway. Dan Maples' Heritage Club course opened there in 1986, among live oaks and the old rice fields.",
-    `About 500 houses sit among lakes and marsh between the Waccamaw River and the ocean, less than three miles from the beach. The ${h.ext(HERITAGE, "owners association")} runs a marina on the river, four tennis courts, four pickleball courts, a pool and a clubhouse with a fitness room.`,
+    `About 500 houses are among lakes and marsh between the Waccamaw River and the ocean, less than three miles from the beach. The ${h.ext(HERITAGE, "owners association")} runs a marina on the river, four tennis courts, four pickleball courts, a pool and a clubhouse with a fitness room.`,
   ], P("heritage-plantation"), "Heritage Plantation from above: houses along golf fairways, a pool and tennis courts near the label, and a river and marsh at the top.",
   "a gate off Kings River Road. Homes usually sell for about $710,000, and the HOA fee is about $325 a month."),
 ];
