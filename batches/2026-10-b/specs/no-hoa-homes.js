@@ -376,26 +376,27 @@ module.exports = {
       h.p(`Half were built in ${BAND["250k-500k"].medianYearBuilt} or later. The middle house has a little over a third of an acre and ${sqftWords(BAND["250k-500k"].medianSqft)}.`) },
 
     { h2: "What can you buy with no HOA fee for $500,000 to $750,000?", toc: "$500,000 to $750,000", id: "500000-to-750000", html: () =>
-      h.p(`About ${Math.round(BAND["500k-750k"].houses / 10) * 10} houses. Here a beach house and a bigger inland house cost about the same. About 1 in 3 was a short walk from the sand.`) +
+      h.p(`About ${Math.round(BAND["500k-750k"].houses / 10) * 10} houses. Here a beach house and a bigger inland house cost about the same. About 1 in 3 was within half a mile of the beach; in the next band up, 2 in 3 were.`) +
       h.p("In North Myrtle Beach, this band buys a house in Cherry Grove, Windy Hill or Ocean Drive; in Cherry Grove most were built before 1990. In Murrells Inlet, most were in the Georgetown County part. In Conway, it buys a larger house from the 1970s in Coastal Heights, south of town.") +
       h.p(`The middle house here dates from about ${BAND["500k-750k"].medianYearBuilt}, with ${sqftWords(BAND["500k-750k"].medianSqft)} on ${acreWords(BAND["500k-750k"].medianLotAcres).replace(/^about /, "about ")}.`) },
 
     { h2: "What can you buy with no HOA fee for $750,000 and up?", toc: "$750,000 and up", id: "750000-and-up", html: (bg) =>
-      h.p(`About ${Math.round(BAND["750k+"].houses / 10) * 10} houses, and about 2 in 3 of them within half a mile of the beach.`) +
+      h.p(`About ${Math.round(BAND["750k+"].houses / 10) * 10} houses, most of them near the ocean.`) +
       h.p("Some are on Ocean Boulevard in Myrtle Beach and North Myrtle Beach and on South Waccamaw Drive in Garden City. Others were listed with no fee in Pine Lakes and Plantation Point in Myrtle Beach and in Tilghman Estates in North Myrtle Beach.") +
       h.p(`Most are big: the middle house is ${sqftWords(BAND["750k+"].medianSqft)}, from about ${BAND["750k+"].medianYearBuilt}.`) +
       h.cta("Get the homes with no HOA fee in your price band.", "Tell us your band and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
 
     entry("Aynor", "Aynor: new houses on about an acre", [
-      `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a harvest festival. The Pilot Club of Aynor started it in 1979 to raise money for community projects in town. It draws visitors from across the state and beyond. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
+      `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
       `Here you get land: most lots are about an acre, with room for a boat or a camper beside the house. The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 5 minutes from the center of town.`,
+      "Flood risk is low here: none of the homes sampled inside the town is in a high-risk flood zone.",
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
     entry("Loris", "Loris: new houses on three quarters of an acre, near a small downtown", [
       `Loris is a small city with City Hall downtown on Walnut Street. On the third Saturday in October, downtown fills for the ${h.ext(LORIS_CITY, "Loris Bog-Off")}, a festival centered on chicken bog: chicken, rice and sausage cooked together.`,
       "Loris has its own hospital, McLeod Loris, in town. Its lots fall between Aynor's acre and Conway's half acre.",
-      `Loris grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street, and the Bog-Off brings a parade, bands and fireworks.`,
-    ], LORIS_PHOTO, "the nearest big mall, Coastal Grand in Myrtle Beach, is a drive of about 50 minutes."),
+      `Loris grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street, and the Bog-Off brings vendors, a car show and two stages of live music.`,
+    ], LORIS_PHOTO, "Coastal Grand Mall in Myrtle Beach is a drive of about 50 minutes."),
 
     entry("Conway", "Conway: half an acre near the Waccamaw River and an old downtown", [
       `Conway began in the 1730s as Kingston, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "later Conwayborough")}, then Conway. Its Riverwalk runs along the river downtown.`,
@@ -405,32 +406,32 @@ module.exports = {
 
     entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
       `North Myrtle Beach began in 1968, when Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill joined as one city. In the Ocean Drive and Crescent Beach area, a pavilion drew crowds who danced the ${h.ext(SCE + "shag/", "shag")}. South Carolina made it the ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
-      "The houses for sale are mostly in those old beach towns, most of them a short walk from the sand. About 6 in 10 were built before 1990. In Cherry Grove, canals were dug through the marsh, and owners of about 415 properties in the canal district pay the city a yearly fee to dredge them. Cherry Grove also has a fishing pier.",
+      "The houses for sale are mostly in those old beach towns, and most are within half a mile of the beach. About 6 in 10 were built before 1990. In Cherry Grove, canals were dug through the marsh, and owners of about 415 properties in the canal district pay the city a yearly fee to dredge them. Cherry Grove also has a fishing pier.",
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
 
-    entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses a short walk from the ocean", [
+    entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses within half a mile of the beach", [
       `Surfside Beach was part of a rice plantation called The Ark, later named Floral Beach. It was renamed Surfside Beach in 1952 and ${h.ext(SCE + "surfside-beach/", "became a town in 1964")}. The town limited building density, and through the 1980s single-family houses remained the norm.`,
-      `Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. The town's fishing pier ${h.ext(SURF_PIER, "reopened in 2024")}, after a hurricane destroyed the old one.`,
+      `Most houses for sale here are that close, and about 4 in 10 face the ocean, see it or are one row back. The town's fishing pier ${h.ext(SURF_PIER, "reopened in 2024")}, after a hurricane destroyed the old one.`,
       "From Garden City, the MarshWalk restaurants are a short drive south.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
     entry("Murrells Inlet", "Murrells Inlet: bigger houses near the seafood restaurants and Brookgreen Gardens", [
       `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought a tract there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
       `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. It is a 15-minute drive, and Huntington Beach State Park is closer.`,
-      `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest typical size on this list. About half are a mile or less from the ocean.`,
+      `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest typical size on this list.`,
     ], INLET_PHOTO, "Murrells Inlet is not a town, and part of it is in Georgetown County, with its own tax bill and rules."),
 
     entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near the ocean", [
       `Myrtle Beach began at the end of a logging railroad from Conway. In 1901 the railroad company ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought a large tract and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
-      "Outside Carolina Forest, the houses for sale are mostly older: almost half were built before 1990, and almost half are close to the beach.",
-      `On the south side of the city, ${h.ext(MB_STATE_PARK, "Myrtle Beach State Park")} opened in 1936 as the first park in South Carolina's state park system. It has a stretch of beach with no buildings on it, a fishing pier and a nature trail.`,
+      "Outside Carolina Forest, the houses for sale are mostly older: almost half date from before 1990.",
+      `On the south side of the city, ${h.ext(MB_STATE_PARK, "Myrtle Beach State Park")} opened in 1936, the first of South Carolina's state parks to open. It has a mile of undeveloped beach, a fishing pier and a nature trail.`,
     ], MB_PHOTO, "about half are inside the city, where the city's limits on boats and work trucks apply."),
 
     entry("Little River", "Little River: a boat on the Intracoastal Waterway", [
       `Little River is on the Intracoastal Waterway at the north end of the Grand Strand. Its waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day.`,
       `Little River is not a town, so the ${h.a("#boats-and-work-trucks", "county's rules")} apply to a boat on your lot. The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} on the waterway is about 10 minutes from the center, and so is the beach in North Myrtle Beach.`,
-      `${h.ext(HC_PARKS, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has about 3 miles of trails and boardwalks through forest and marsh. A piece of the colonial Kings Highway, the old road from Boston to Charleston, is still at its front.`,
-    ], LR_PHOTO, "none of the houses for sale here is close enough to walk to the beach."),
+      `${h.ext(HC_PARKS, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has nature trails and boardwalks through its gardens and along the water. A small piece of the original Kings Highway, a colonial route between Boston and Charleston, is still at its front.`,
+    ], LR_PHOTO, "none of the houses for sale here is within a mile of the beach."),
 
     { h2: "How do the eight areas compare?", toc: "The areas side by side", html: () =>
       h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are near the ocean, on the ocean side of US 17 Business, the coast road.`) +
