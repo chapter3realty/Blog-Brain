@@ -3060,29 +3060,29 @@
       "digital_source_type": "digitalCapture",
       "share_alike": false,
       "slug": "affordable-places-to-live",
-      "file": "images/buyers/affordable/polo-farms-and-todd-swamp-from-above.webp",
+      "file": "images/buyers/affordable/polo-farms-and-simpson-creek-from-above.webp",
       "variants": {
-        "600": "images/buyers/affordable/polo-farms-and-todd-swamp-from-above-600w.webp",
-        "1200": "images/buyers/affordable/polo-farms-and-todd-swamp-from-above-1200w.webp"
+        "600": "images/buyers/affordable/polo-farms-and-simpson-creek-from-above-600w.webp",
+        "1200": "images/buyers/affordable/polo-farms-and-simpson-creek-from-above-1200w.webp"
       },
       "width": 1200,
       "height": 900,
-      "title": "Polo Farms, SC 905 and Todd Swamp, from above (USDA NAIP 2023)",
-      "what": "Polo Farms' houses north of SC 905, with the woods of Todd Swamp to the southwest, labelled by Chapter3.",
-      "caption": "Polo Farms off SC 905, with Todd Swamp to the southwest.",
-      "alt": "Aerial view of a neighborhood of houses among woods and fields, with labels for Polo Farms, SC 905 and Todd Swamp",
+      "title": "Polo Farms, SC 905 and Simpson Creek, from above (USDA NAIP 2023)",
+      "what": "Polo Farms' houses north of SC 905, with its ponds and Simpson Creek along its southwest side, labelled by Chapter3.",
+      "caption": "Polo Farms off SC 905, with Simpson Creek along its southwest side.",
+      "alt": "Aerial view of a neighborhood of houses with fenced yards and two ponds, a creek curving past it and a highway, with labels for Polo Farms, SC 905 and Simpson Creek",
       "place": {
         "city": "Longs",
-        "sublocation": "Polo Farms, SC 905"
+        "sublocation": "Polo Farms, SC 905, Simpson Creek"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8775007.549886785%2C4016139.727420371%2C-8772503.573059553%2C4018017.7100407975&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8774157.888439521%2C4017038.1843365803%2C-8772657.888439521%2C4018163.1843365794&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -78.82723,
-          33.90565,
-          -78.80474,
-          33.91965
+          -78.8196,
+          33.91235,
+          -78.80613,
+          33.92073
         ],
         "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },

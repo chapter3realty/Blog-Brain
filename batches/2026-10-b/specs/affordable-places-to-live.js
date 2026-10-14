@@ -11,6 +11,12 @@
  *   Kept: the tax in dollars (now one example, pending row 153), the down-payment help and the Dana
  *   example. Cut: the town entries, their photos, the pros and cons, the compare table (it repeated the
  *   entries). ItemList JSON-LD for the numbered entries.
+ * Version 11, 2026-10-14: round 11 (review/OWNER-EYE-10-affordable-places-to-live.md). The prose no longer
+ *   repeats the facts strip; one errand drive per entry, with no compass direction; Indigo Grove (floor plans,
+ *   lots, open space, the drive to work) and Polo Farms (Simpson Creek, the three phases, the yards, the 2016
+ *   and 2018 floods) rebuilt from new rows; the Golf and Yacht Club's gatehouse stated (gated row 149); the
+ *   map drops the mall marker; the down-payment section keeps the $10,000, the income limit and the price
+ *   cap. Pending rows 187 to 191.
  * Version 10, 2026-10-14: round 10 (review/OWNER-EYE-9-affordable-places-to-live.md, ROUND-10.md). Each entry
  *   is a facts strip, then what living there is like (nearby stores, parks, landings, golf, the land's
  *   history) and the trade-off in the prose; the per-entry table is gone, and schools and the mall drive
@@ -230,7 +236,7 @@ const PH = {
   "villas-at-sandridge": ph.aerial("villas-at-sandridge-and-sc-90-from-above", "Villas at Sandridge, east of SC 31, with the North Myrtle Beach Sports Complex to the southwest.", { closeUp: true }),
   "indigo-grove": ph.aerial("indigo-grove-and-sc-90-from-above", "Indigo Grove's land, before the houses were built, with Griffin's IGA on SC 90.", { closeUp: true }),
   "wynbrooke": ph.aerial("wynbrooke-and-sc-707-shops-from-above", "Wynbrooke, off SC 707, with Lowes Foods and Publix to the northwest.", { closeUp: true }),
-  "polo-farms": ph.aerial("polo-farms-and-todd-swamp-from-above", "Polo Farms off SC 905, with Todd Swamp to the southwest.", { closeUp: true }),
+  "polo-farms": ph.aerial("polo-farms-and-simpson-creek-from-above", "Polo Farms off SC 905, with Simpson Creek along its southwest side.", { closeUp: true }),
 };
 ph.share("old-speedway-and-victory-point-labelled-from-above");
 
@@ -376,7 +382,7 @@ module.exports = {
       h.p(`Most places on this list are outside any town, so homes there pay only ${h.ext(LEVY, "the county's tax rates")}. Parkview is inside the city of Myrtle Beach. The Fairways at Wild Wing is inside the city of Conway, which adds its own city tax.`) +
       h.p("Take a $240,000 home that is your main home. Outside a town, or in Myrtle Beach, its tax is about $970 a year. It is a little more in Polo Farms and Wynbrooke. Inside Conway, it is about $1,570.") +
       h.p("When you buy, the county values the home at about what it is worth that year. The new value shows up on the next year's tax bill.") +
-      h.p(`These figures are for your main home, once the county gives it the lower rate for a home you live in. The county gives that rate only after an application, and we walk you through it after closing. Our ${h.a("/buyers/property-taxes/", "property tax guide")} explains the rate.`) },
+      h.p(`These figures are for your main home, once the county gives it the lower rate for a home you live in. The county gives that rate only after an application, and our ${h.a("/buyers/property-taxes/", "property tax guide")} shows how it works.`) },
 
     { h2: "What help can you get with a down payment?", toc: "Down payment help", id: "down-payment", html: (bg) =>
       h.p(`SC Housing, the state's housing agency, gives buyers in Horry and Georgetown counties $10,000 toward the down payment and closing costs. You do not pay it back if you keep living in the home for the full term. The program is called the ${h.ext(SCH, "Homebuyer Program")}.`) +
