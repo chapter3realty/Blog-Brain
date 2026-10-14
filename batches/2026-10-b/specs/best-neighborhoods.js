@@ -321,7 +321,7 @@ const ENTRIES = [
   "houses usually sell for about $695,000, and most homes for sale have no HOA fee."),
 
   ENTRY(3, "barefoot-resort", "Barefoot Resort: four golf courses and a beach cabana in North Myrtle Beach", [
-    "Barefoot Resort has four golf courses: Dye, Fazio, Love and Norman. Its houses are in sections with their own names. Most homes for sale here are condos, built in the 2000s or since 2020, with about 2,500 square feet.",
+    "Barefoot Resort has four golf courses: Dye, Fazio, Love and Norman. Its houses are in sections with their own names. Condos for sale here are a mix of older ones and new ones, and the new ones are larger.",
     "Owners in its residential association can use a beach cabana on the ocean, with owner parking, a kitchen, showers and an elevator. In spring and summer, a shuttle runs to the public beach access at 46th Street. The large North Tower pool, for owners in the Barefoot associations, is beside the Intracoastal Waterway.",
     "Residents of ten named communities in Barefoot also share the Residents' Club, with a pool, a weight room, tennis and pickleball courts, a basketball court and a playground. What a home can use depends on its association, so ask before you buy. The beach and a Food Lion are each about 6 minutes away by car.",
   ], "the HOA fee on a condo, several times the fee on most houses on this page. Only some sections have a gate.",
@@ -335,16 +335,16 @@ const ENTRIES = [
   "houses usually sell for about $600,000, and the HOA fee is about $135 a month."),
 
   ENTRY(5, "waterbridge", "Waterbridge: a pool complex and 80 acres of lakes in Carolina Forest", [
-    "Waterbridge is a newer neighborhood of houses, and builders are still selling new homes there. Most houses for sale here are new, built since 2023, with about 3,100 square feet. It has over 80 acres of lakes and natural areas, small pocket parks and a clubhouse.",
+    "Waterbridge is a newer neighborhood of houses, and builders are still selling new homes there. Most houses for sale here were built in the last few years and have about 3,100 square feet. It has over 80 acres of lakes and natural areas, small pocket parks and a clubhouse.",
     "Its swimming pool complex is inside a circle of streets, next to the clubhouse.",
     "A Food Lion and McLeod Health Carolina Forest's emergency department are each a short drive away. A few homes in Waterbridge are in a high-risk flood zone.",
   ], "the drive to the beach, 15 to 20 minutes.",
   "houses usually sell for about $630,000, and the HOA fee is about $150 a month."),
 
   ENTRY(6, "grande-dunes", "Grande Dunes: gated sections, a beach club and a marina in Myrtle Beach", [
-    `Calais, Palermo and Villa Venezia are three sections of Grande Dunes with ${h.a("/buyers/gated-communities/", "a gate at the entrance")}. Their homes cost the most of any neighborhood on this page. Across Grande Dunes, most houses for sale are new, built since 2024, with about 2,900 square feet.`,
+    `Calais, Palermo and Villa Venezia are three sections of Grande Dunes with ${h.a("/buyers/gated-communities/", "a gate at the entrance")}. Their homes cost the most of any neighborhood on this page.`,
     "Grande Dunes has the Ocean Club, a beach club on the ocean for residents, with a pool and dining, and two golf courses. Its marina on the Intracoastal Waterway is open to the public.",
-    "The Waterway Trail, about two miles long, is open to the public from sunrise to sunset. The clubs offer memberships, so ask which homes include one.",
+    "The Waterway Trail, about two miles long, is open to the public from sunrise to sunset. The clubs offer memberships, so ask which homes include one. Across Grande Dunes, most houses for sale are just built or still being built, with about 2,900 square feet.",
   ], "beach parking: the beach accesses closest to Grande Dunes have little or no parking.",
   "homes in these three sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
@@ -363,7 +363,7 @@ const ENTRIES = [
   "houses usually sell for about $740,000, and the HOA fee is about $125 a month.", MID_CTA),
 
   ENTRY(9, "berkshire-forest", "Berkshire Forest: a pool complex by the lake in Carolina Forest", [
-    "Berkshire Forest is a neighborhood of houses on streets around lakes and ponds. Most houses for sale here were built in the 2010s and have about 2,400 square feet.",
+    "Berkshire Forest is a neighborhood of houses on streets around lakes and ponds. Most houses for sale here were built in the 2000s and 2010s and have about 2,400 square feet.",
     "The association's pool complex is beside a lake, with a tennis court, a basketball court and a play area next to it.",
     "A Publix is about 7 minutes away, and none of its homes is in a high-risk flood zone.",
   ], "the drive to the beach, about 15 minutes, which takes longer in summer traffic.",
@@ -377,7 +377,7 @@ const ENTRIES = [
   "homes usually sell for $540,000 to $670,000, and the HOA fee is about $95 a month for a house."),
 
   ENTRY(11, "forestbrook-estates", "Forestbrook Estates: a low HOA fee and a pool", [
-    "Forestbrook Estates is mostly houses, with some townhomes, on streets around ponds in the Forestbrook area. Most houses for sale here are new, built since 2021, with about 2,300 square feet.",
+    "Forestbrook Estates is mostly houses, with some townhomes, on streets around ponds in the Forestbrook area. Most of the few houses for sale here were built in the last few years, with about 2,300 square feet.",
     "The association has a pool. Rosewood Landing, a county boat ramp on the Intracoastal Waterway, is about 2 miles away.",
     "A Food Lion is about 6 minutes away. None of its homes is in a high-risk flood zone, and its HOA fee is one of the lowest on this page.",
   ], "the drive to the beach, about 15 minutes.",
@@ -391,7 +391,7 @@ const ENTRIES = [
   "houses usually sell for about $540,000 and townhomes for about $398,000. The HOA fee on a townhome is about $300 to $700 a month."),
 
   ENTRY(13, "deerfield", "Deerfield Plantation area: lower prices near Surfside Beach", [
-    "The Deerfield Plantation area is a neighborhood of houses on wooded streets near Surfside Beach, and its association owns lake and canal land between them. Most houses for sale here were built in the 1970s and 1980s and have about 2,000 square feet.",
+    "The Deerfield Plantation area is a neighborhood of houses on wooded streets near Surfside Beach, and its association owns lake and canal land between them. Most of the few houses for sale here were built in the 1970s and 1980s, with about 2,000 square feet.",
     "Fuller Park in Surfside Beach, with a playground, and the Surfside Beach Fishing Pier are both under 2 miles away.",
     "A Walmart Neighborhood Market is close by. None of its homes is in a high-risk flood zone, and its HOA fees are low.",
   ], "beach parking. The closest beach access has parking for golf carts only, and the next one, with a pay lot, is about 8 minutes away by car.",
@@ -405,7 +405,7 @@ const ENTRIES = [
   "houses usually sell for about $705,000 and condos for about $405,000, and most homes for sale have no HOA fee."),
 
   ENTRY(15, "prince-creek", "Prince Creek: golf next door in Murrells Inlet", [
-    "Prince Creek, in Murrells Inlet, is a group of townhome and house sections beside the TPC Myrtle Beach golf course. Most houses for sale here were built around 2010 and have about 2,400 square feet.",
+    "Prince Creek, in Murrells Inlet, is a group of townhome and house sections beside the TPC Myrtle Beach golf course. The few houses for sale here were built from about 2007 to 2015, with about 2,400 square feet.",
     "A Publix is just across the main road, and Tidelands Waccamaw Community Hospital is a short drive away. A free beach parking lot is a short drive away.",
     "Burgess Park, with a playground and a basketball court, is about 2 or 3 miles away. Builders sold new townhomes here in the last 12 months.",
   ], "choice: in these sections, few homes are sold by their owners.",
