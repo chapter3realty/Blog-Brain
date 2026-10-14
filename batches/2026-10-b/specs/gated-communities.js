@@ -32,7 +32,7 @@
  *   here; TPC and Tom Watson on /buyers/best-neighborhoods/; the bombing range on The Farm's page.
  *   The story is now a labelled example about guests at Litchfield by the Sea's gate (rows 5 and 6).
  *   Each aerial has one feature label from OpenStreetMap or the county besides the name. New facts:
- *   ledger rows 149 onward, pending verification (round 10).
+ *   ledger rows 149 to 171, pending verification (round 10).
  * Versions 1 to 2b and rounds 3 to 6 (2026-10-13): the safety answer, kinds of gate, the verifier's
  *   wording on rows 77 to 92, the Joan story (Myrtle Trace's open front entrance, then Seasons).
  *
@@ -230,7 +230,7 @@ const SECTIONS_PLACES = [
     "Seaside Plantation is in the Tilghman Beach part of North Myrtle Beach, two or three blocks from the ocean. Many of its houses are brick, and many back up to its lakes.",
     "Its clubhouse has a pool, a hot tub and parking for golf carts. A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are less than half a mile away. Main Street is a short trip by golf cart.",
     "Its property owners association recorded its gate access rules with the county in 2019.",
-    "Each fall the Society of Stranders holds its Fall Migration on Main Street, a shag dance festival, and its Spring Safari comes each April. On those weeks, thousands of dancers fill the streets near the neighborhood.",
+    "Each fall the Society of Stranders holds its Fall Migration on Main Street, a shag dance festival, and its Spring Safari comes each April. Both bring thousands of dancers to Main Street, a short trip from the neighborhood.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
   "a gate at the entrance. Homes usually sell for about $740,000, and the HOA fee is about $210 a month. Only a handful sell each year."),
 
@@ -253,7 +253,7 @@ const SECTIONS_PLACES = [
   entry("waterway-palms-plantation", "Charleston-style houses on the west bank of the waterway", [
     "Waterway Palms Plantation is on the west side of the Intracoastal Waterway. Its plan was taken from Charleston's Battery: houses in the Charleston style of the 1700s, with high front porches and courtyards behind wrought-iron or white fences.",
     "The clubhouse stands on a point in a pond, with gazebos for looking out over the water. Nearby are tennis and pickleball courts, a fitness center, a basketball court and a playground, and every street has sidewalks.",
-    "Boat owners have a ramp on the waterway, a day dock and a fenced yard for boats and trailers.",
+    "Boat owners have a ramp on the waterway, a day dock and a fenced storage yard for boats.",
     `Carolina Forest was land owned by International Paper, and the Army used part of it as a bombing and gunnery range from 1942 to 1947. Read that story in our ${h.a(FARM, "guide to The Farm")}.`,
     "Builders are still finishing new houses, so parts of the neighborhood are still under construction.",
   ], P("waterway-palms-plantation"), "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
@@ -261,7 +261,7 @@ const SECTIONS_PLACES = [
 
   entry("the-bluffs-on-the-waterway", "two clubhouses and a boathouse on the water", [
     "Many of the houses at The Bluffs on the Waterway are custom Mediterranean-style homes in stucco, and many look onto ponds with fountains. It was built in three phases, from about 2006 on. Black Creek winds through the woods beside it.",
-    "It has two clubhouses. One of them is a boathouse on the Intracoastal Waterway, with a day dock and a view of the passing boats. Beside it are a boat ramp and a yard for boats and trailers.",
+    "It has two clubhouses. One of them is a boathouse on the Intracoastal Waterway, with a day dock. The neighborhood also has a boat ramp and boat storage.",
     "Around the main clubhouse are tennis and pickleball courts, playgrounds and walking paths. The Carolina Forest bike park is within a mile.",
     "Few homes come up for sale: only four sold in the past year.",
   ], P("the-bluffs-on-the-waterway"), "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner.",
@@ -285,7 +285,7 @@ const SECTIONS_PLACES = [
 
   entry("myrtle-beach-golf-and-yacht-club", "1980s houses among ponds and open land near Socastee", [
     "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, southwest of Myrtle Beach. Most of its houses are one story, built in the 1980s, with about 1,350 square feet. Its sections have their own names, such as Camelot, Ashley Cove, the Fairways and the Gardens at Heron Point.",
-    "Wide strips of grass and woods, with ponds, wind between its streets. The association owns more than 60 acres of this open land, and its streets are private.",
+    "Wide strips of grass and woods, with ponds, wind between its streets. The association owns more than 60 acres of this open land, and the private streets of some sections.",
     "The clubhouse has a pool, tennis and shuffleboard courts and a playground, and the association has a storage area for RVs and trailers. A public boat ramp on the Intracoastal Waterway is close by.",
     "D.R. Horton is building new houses in a newer section, Sandpiper Place, which sell for more.",
     "Most houses here are older and smaller than in the other neighborhoods on this page.",
@@ -295,7 +295,7 @@ const SECTIONS_PLACES = [
   entry("prestwick", "a Pete and P.B. Dye course from 1989", [
     "Prestwick was founded by the Jackson family, who also created the Ocean Lakes campground. Its golf course, designed by Pete Dye and his son P.B. Dye, opened in 1989 as a private club with a skins game among four PGA Tour players.",
     "When the club ended its memberships, the owners association took over the pools and the tennis center. The community has a large pool, a smaller pool, eleven clay courts and two hard courts.",
-    "The golf course is now open to the public, paid by the round, so golfers who do not live here play it every day. The clay courts need a tennis membership of their own.",
+    "The golf course is now open to the public, paid by the round, so golfers who do not live here play it too. The clay courts need a tennis membership of their own.",
   ], P("prestwick"), "Prestwick from above: houses among the fairways of its golf course, with a lake at the left.",
   "a gatehouse at the main gate off Highway 544. Homes usually sell for about $480,000, and the HOA fee is about $190 a month."),
 
@@ -309,15 +309,15 @@ const SECTIONS_PLACES = [
 
   entry("bellwood-landing", "houses on ponds beside Prince Creek's park", [
     "Bellwood Landing is a small neighborhood of houses in Prince Creek West, near Murrells Inlet. Some homes are on ponds, and Collins Creek winds through the woods and marsh just south of it.",
-    "Its owners association recorded a gate policy with the county in 2024. Delivery and building trucks have an entrance of their own.",
+    "Its owners association recorded a gate policy with the county in 2024, and the main gate is on TPC Boulevard.",
     "Prince Creek West's road and park association owns The Park at Prince Creek West, 43 acres deeded to it in 2007. The park has tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
     `For TPC Myrtle Beach and the rest of Prince Creek, see our ${h.a(BEST, "best neighborhoods in Myrtle Beach")}.`,
     "About one lot in ten had no house yet, so new houses are still going up beside some homes.",
   ], P("bellwood-landing"), "Bellwood Landing from above: houses around a pond, beside the woods.",
-  "a gate on TPC Boulevard. Homes usually sell for about $850,000, and the HOA fee is about $160 a month."),
+  "a gate at the main entrance. Homes usually sell for about $850,000, and the HOA fee is about $160 a month."),
 
   entry("wachesaw-plantation", "a private club on a bluff above the Waccamaw River", [
-    "Before the first street was laid out, archaeologists from the University of South Carolina dug at Wachesaw. James Michie called it the most extensive archaeological research done on any South Carolina plantation. Some of their finds are on display in the clubhouse.",
+    "Before the neighborhoods were planned, archaeologists dug at Wachesaw, among them James Michie of the University of South Carolina. He called it the most extensive archaeological research done on any South Carolina plantation. Some of their finds are on display in the clubhouse.",
     "Arthur Lachiotte Jr. and Olan Mills II then planned its neighborhoods in the early 1980s, and much of its land is kept in conservation. Inside the gates are Native American burial mounds, an Avenue of the Oaks, a Civil War-era fort and a cemetery of enslaved people.",
     "Kimbel's restaurant is on the bluff above the river. It was once a trading post, where Waccamaw people and English colonists traded deer and beaver skins for beads and tools. The members own the club. A membership, which is optional, includes eight clay tennis courts and Tom Fazio's course.",
     "The club is still building its new restaurant, Magnolia's, and other amenities, with completion slated for the spring of 2027.",
@@ -328,7 +328,7 @@ const SECTIONS_PLACES = [
     "Clyde Johnston's Wachesaw Plantation East course opened in December 1996, and the LPGA tour played here from 1997 to 2000. In 1998, Meg Mallon shot a 62, then an LPGA record. Her scorecard is on display in the clubhouse grill room.",
     "Its signature hole is the 17th, Azalea, a par 5 with two fairways. After a round, golfers sit on the Plantation Terrace, a bar and patio outside the clubhouse.",
     "Houses line the fairways. Owners share tennis courts, a workout room and a clubhouse of their own. The main entrance is at the light by Tidelands Waccamaw Community Hospital, and the back gate on Wachesaw Road opens with a card key.",
-    "Its houses date from the early 2000s, so a buyer will not find a new one here.",
+    "Its houses date from the early 2000s; the newest one listed for sale was built in 2006.",
   ], P("wachesaw-east"), "Wachesaw East from above: houses along the fairways of its golf course.",
   "a gate at the main entrance. Homes usually sell for about $500,000, and the HOA fee is about $145 a month."),
 
@@ -497,7 +497,7 @@ module.exports = {
     { name: "Litchfield by the Sea guest guide", href: LBTS_GUIDE },
     { name: "Barefoot Resort Residential Association", href: BAREFOOT },
   ],
-  sourcesNote: "Not legal advice. Facts come from associations, clubs, county records and listings. A price is the middle sale of the past year. Horry County prices are deed records, without builder sales. Prices near Pawleys Island and in Wachesaw are MLS closed sales, which can include builder sales. Litchfield by the Sea figures leave out shared-week sales. Drive times: OpenStreetMap, no traffic.",
+  sourcesNote: "Not legal advice. Facts come from associations, clubs, county records, news, OpenStreetMap and listings. A price is the past year's middle sale. Horry County prices are deed records, without builder sales. Prices near Pawleys Island and in Wachesaw are MLS closed sales, which can include builder sales. Litchfield by the Sea figures leave out shared-week sales. Drive times assume no traffic.",
   afterSources: () => ph.credits() + ITEMLIST,
   bottomCta: { h2: "Get this week's list of homes for sale in gated neighborhoods.", p: OFFER_TEXT, label: OFFER_LABEL, href: OFFER },
   keywords: "gated communities Myrtle Beach, gated communities North Myrtle Beach, gated communities Murrells Inlet, gated communities Pawleys Island, 55+ gated communities Myrtle Beach, gated golf communities Myrtle Beach, homes for sale in gated communities Myrtle Beach",
