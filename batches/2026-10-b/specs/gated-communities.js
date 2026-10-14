@@ -76,8 +76,9 @@
  *   $500,000, Wachesaw Plantation about $650,000, the wide spread around $1 million said once);
  *   sources line as the verifier wrote it; Willbrook fee stays about $340 (row 27, houses $339 to $346);
  *   Litchfield by the Sea in the verifier's wording (rows 90 to 92), no fee figure, no "usually".
- * Round 12b: Georgetown County prices re-pulled from the county's last-sale table (rows 191 to 198,
- *   data/gated-georgetown-sales.json); they replace the MLS figures of round 6.
+ * Round 12b: Georgetown County prices checked against the county's last-sale table and the deed index
+ *   (rows 191 to 198, data/gated-georgetown-sales.json). After the verifier's reconciliation, Wachesaw
+ *   ($700,000), The Reserve ($1.3 million) and Willbrook ($840,000) moved; the others keep the MLS figures.
  */
 const { h, kit, data, placesMap, compareCards, wantPicker, prosCons, atAGlance, glance, story, photoSetB, BB } = require("./_kit.js");
 const path = require("path");
@@ -153,13 +154,13 @@ const E = [
   { id: "prince-creek-55", name: "Seasons at Prince Creek West (55+)", short: "Seasons", href: SEASONS, lat: 33.585419, lon: -79.071772, gate: K.call, fee: "About $340 a month", price: "About $500,000", beach: "About 13 minutes" },
   { id: "bellwood-landing", name: "Bellwood Landing", short: "Bellwood", lat: 33.582185, lon: -79.073470, gate: K.ask, fee: "About $160 a month", price: "About $810,000", beach: "About 14 minutes" },
   { id: "wachesaw-plantation", name: "Wachesaw Plantation", short: "Wachesaw", lat: 33.560796, lon: -79.073101, gate: K.house, fee: "About $150 a month on most homes", price: "About $700,000", beach: "About 13 minutes" },
-  { id: "wachesaw-east", name: "Wachesaw East", short: "Wachesaw East", lat: 33.558050, lon: -79.058480, gate: K.ask, fee: "About $145 a month", price: "About $520,000", beach: "About 12 minutes" },
+  { id: "wachesaw-east", name: "Wachesaw East", short: "Wachesaw East", lat: 33.558050, lon: -79.058480, gate: K.ask, fee: "About $145 a month", price: "About $500,000", beach: "About 12 minutes" },
   { id: "the-reserve", name: "The Reserve", short: "The Reserve", lat: 33.49467, lon: -79.1133, gate: K.ask, fee: "About $320 a month on most homes", price: "About $1.3 million", beach: "About 8 minutes" },
   { id: "willbrook-plantation", name: "Willbrook Plantation", short: "Willbrook", lat: 33.48206, lon: -79.13519, gate: K.house, fee: "About $340 a month", price: "About $840,000", beach: "About 9 minutes" },
   { id: "litchfield-plantation", name: "Litchfield Plantation", short: "Litchfield Plantation", lat: 33.47674, lon: -79.1313, gate: K.house, fee: "About $230 a month on most homes", price: "About $800,000 to $1.8 million", beach: "About 8 minutes" },
   { id: "litchfield-by-the-sea", name: "Litchfield by the Sea", short: "Litchfield by the Sea, River Club gate", lat: 33.471219, lon: -79.126112, gate: K.guard, fee: "Differs by section and unit", price: "Condos under $200,000 to over $2 million", beach: "On the ocean" },
-  { id: "heritage-plantation", name: "Heritage Plantation", short: "Heritage", lat: 33.44215, lon: -79.16353, gate: K.ask, fee: "About $325 a month", price: "About $680,000", beach: "About 10 minutes" },
-  { id: "debordieu-colony", name: "DeBordieu Colony", short: "DeBordieu", lat: 33.3744, lon: -79.17446, gate: K.house, fee: "About $300 to $400 a month", price: "About $1.7 million", beach: "On the ocean" },
+  { id: "heritage-plantation", name: "Heritage Plantation", short: "Heritage", lat: 33.44215, lon: -79.16353, gate: K.ask, fee: "About $325 a month", price: "About $710,000", beach: "About 10 minutes" },
+  { id: "debordieu-colony", name: "DeBordieu Colony", short: "DeBordieu", lat: 33.3744, lon: -79.17446, gate: K.house, fee: "About $300 to $400 a month", price: "About $2 million", beach: "On the ocean" },
 ];
 E.forEach((e, i) => { e.n = i + 1; });
 const byId = Object.fromEntries(E.map((e) => [e.id, e]));
@@ -331,7 +332,7 @@ const SECTIONS_PLACES = [
     "Houses line the fairways. Owners share tennis courts, a workout room and a clubhouse of their own. Visitors turn in from the light by Tidelands Waccamaw Community Hospital, cross Old Kings Highway and reach the gate guard. The entrance to Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 20.",
     "The beach is about 12 minutes away by car.",
   ], P("wachesaw-east"), "Wachesaw East from above: houses along the fairways of its golf course.",
-  "a gate at the main entrance. Houses here date from 2000 to 2006; they usually sell for about $520,000, and the HOA fee is about $145 a month."),
+  "a gate at the main entrance. Houses here date from 2000 to 2006; they usually sell for about $500,000, and the HOA fee is about $145 a month."),
 
   entry("the-reserve", "Greg Norman's private course and a river marina", [
     "The Reserve Golf Club, designed by Greg Norman, opened in 1998 on 350 acres, about 160 of them wetlands. Its holes are cut through the woods, around ponds and marsh.",
@@ -354,7 +355,7 @@ const SECTIONS_PLACES = [
     "The plantation house is available for special events. A pool looks out over the marsh, and a private marina on the river is an optional extra. Its homes are mostly houses and townhouses.",
     "Litchfield Plantation is on the river side of US 17. Its oceanfront beach house is on Pawleys Island, about 4 miles away by road.",
   ], P("litchfield-plantation"), "Litchfield Plantation from above: houses under tall trees, with a neighboring golf course and its ponds at the right.",
-  "a gatehouse at the main entrance. In the last year, six houses here sold, for about $800,000 to $1.8 million. The HOA fee is about $230 a month on most homes."),
+  "a gatehouse at the main entrance. In the last year, houses here sold for about $800,000 to $1.8 million. The HOA fee is about $230 a month on most homes."),
 
   entry("litchfield-by-the-sea", "a mile of private beach and an oceanfront club", [
     "Litchfield by the Sea lies between the marsh and the ocean. Its homes range from oceanfront houses to villas with marsh views and condos.",
@@ -370,7 +371,7 @@ const SECTIONS_PLACES = [
     "The clubhouse has a fitness room, and there are four tennis courts and four pickleball courts.",
     "Slips are rented by the day, the month or the year, on top of the HOA fee of about $325 a month.",
   ], P("heritage-plantation"), "Heritage Plantation from above: houses along golf fairways, a pool and tennis courts near the label, and a river and marsh at the top.",
-  "a gate off Kings River Road. Homes usually sell for about $680,000."),
+  "a gate off Kings River Road. Homes usually sell for about $710,000."),
 ];
 
 /* DeBordieu keeps its NOAA 2026 aerial (rows 28, 70, 81). */
@@ -379,7 +380,7 @@ SECTIONS_PLACES.push({ h2: `${byId["debordieu-colony"].n}. DeBordieu Colony: an 
   + ph.aerial("debordieu-from-above-2026", "DeBordieu Colony and the beach to its east, from above. Golf fairways and ponds are among the homes, and a salt marsh is between many of the homes and the beach.", { closeUp: true })
   + h.p("The colony covers 2,700 acres. At least 600 are a nature preserve, and 17,000 undeveloped acres border it to the south. Home sites are half an acre to five acres.")
   + h.p(`The ${h.ext(DEBORDIEU, "DeBordieu Club")} has a Pete and P.B. Dye course, a Beach Club with a pool over the ocean, and a tennis center with eight Har-Tru courts. Through the year it holds oyster roasts, dinner dances and barbecues.`)
-  + h.p("Homes here usually sell for about $1.7 million.")
+  + h.p("Homes here usually sell for about $2 million.")
   + FACTS("a gatehouse on Luvan Boulevard, with the real estate office before it. The HOA fee is about $300 to $400 a month.") });
 
 /* The places side by side: one plain table, four short columns, so it stays short on a phone. */
@@ -438,7 +439,7 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "Tidewater Plantation, Barefoot Resort's Dye Estates, Grande Dunes, Prestwick, Wachesaw Plantation and DeBordieu Colony are among the gated neighborhoods near Myrtle Beach. Of the 20 on this page, ten are golf communities, and two are on the ocean.",
-    `In most, the fee to the homeowners association (HOA) is about $90 to $400 a month, and homes sell for about $225,000 to $1.7 million. A gate controls who drives in; ${h.a("#what-a-gate-does", "see what a gate does and does not do")}.`,
+    `In most, the fee to the homeowners association (HOA) is about $90 to $400 a month, and homes sell for about $225,000 to $2 million. A gate controls who drives in; ${h.a("#what-a-gate-does", "see what a gate does and does not do")}.`,
   ],
   sections: [
     { h2: "Where are the gated neighborhoods near Myrtle Beach?", toc: "Maps", html: () =>
@@ -497,7 +498,7 @@ module.exports = {
     { name: "Litchfield by the Sea guest guide", href: LBTS_GUIDE },
     { name: "Barefoot Resort Residential Association", href: BAREFOOT },
   ],
-  sourcesNote: "Not legal advice. Facts: associations, clubs, county records, news, OpenStreetMap and listings. A price is the past year's middle sale in county records, without builder sales in Horry County. Georgetown's name no seller and may include a builder sale. Litchfield by the Sea condos: MLS, without shared weeks. Where few sold, it is a rough guide. House ages: listings. Drives: no traffic.",
+  sourcesNote: "Not legal advice. Facts: associations, clubs, county records, news, OpenStreetMap and listings. A price is the past year's middle sale, checked against the MLS and the deed index. Horry County prices leave out builder sales. Georgetown County's sale records name no seller, so a price there may include a builder sale, and they keep only each home's latest sale. Few sales: a rough guide. Drives: no traffic.",
   afterSources: () => ph.credits() + ITEMLIST,
   bottomCta: { h2: "Get this week's list of homes for sale in gated neighborhoods.", p: OFFER_TEXT, label: OFFER_LABEL, href: OFFER },
   keywords: "gated communities Myrtle Beach, gated communities North Myrtle Beach, gated communities Murrells Inlet, gated communities Pawleys Island, 55+ gated communities Myrtle Beach, gated golf communities Myrtle Beach, homes for sale in gated communities Myrtle Beach",
