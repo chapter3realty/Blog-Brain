@@ -390,7 +390,7 @@
     "row": "gated 122",
     "pattern": "\\bmore than 400 acres|Myrtle Trace[^.]{0,120}\\b1982\\b|\\bby 1982\\b",
     "struck": "Glenn Hall developed it on more than 400 acres bought from International Paper; the first streets and homes were started by 1982.",
-    "use": "Building began in Myrtle Trace in 1983."
+    "use": "The first homes in Myrtle Trace were sold in 1983."
   },
   {
     "row": "gated 124",
@@ -492,7 +492,7 @@
     "row": "gated 144",
     "pattern": "Brookgreen Gardens (?:are|is) a short drive",
     "struck": "Huntington Beach State Park and Brookgreen Gardens are a short drive.",
-    "use": "Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 16."
+    "use": "The entrance to Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 20."
   },
   {
     "row": "gated 145, 154",
@@ -771,7 +771,7 @@
     "row": "gated 174",
     "pattern": "\\b15 and 18 minutes",
     "struck": "Huntington Beach State Park and Brookgreen Gardens are about 15 and 18 minutes away by car.",
-    "use": "Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 16."
+    "use": "The entrance to Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 20."
   },
   {
     "row": "gated 22",
@@ -1178,7 +1178,7 @@
     "row": "gated 122",
     "pattern": "\\bfirst lot deeds were recorded",
     "struck": "Glenn Hall developed Myrtle Trace, and its first lot deeds were recorded in 1983.",
-    "use": "Building began in Myrtle Trace in 1983."
+    "use": "The first homes in Myrtle Trace were sold in 1983."
   },
   {
     "row": "gated 151",
@@ -1196,7 +1196,7 @@
     "row": "gated 174",
     "pattern": "\\bminutes to its parking\\b",
     "struck": "Brookgreen Gardens about 16 minutes to its parking.",
-    "use": "Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 16."
+    "use": "The entrance to Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 20."
   },
   {
     "row": "gated 175",
@@ -1208,7 +1208,7 @@
     "row": "gated 139",
     "pattern": "\\bAbout one lot in ten had no house yet",
     "struck": "About one lot in ten had no house yet, so new houses are still going up beside some homes.",
-    "use": "Some lots have no house yet, so new houses are going up beside some homes."
+    "use": "Some lots have no house yet, and the newest houses here date from 2025 and 2026."
   },
   {
     "row": "gated 161",
@@ -1220,6 +1220,54 @@
     "row": "gated 122",
     "pattern": "\\bGlenn Hall developed Myrtle Trace, starting",
     "struck": "Glenn Hall developed Myrtle Trace, starting in 1983.",
-    "use": "Building began in Myrtle Trace in 1983."
+    "use": "The first homes in Myrtle Trace were sold in 1983."
+  },
+  {
+    "row": "gated 189",
+    "pattern": "\\bon the marsh by Collins Creek",
+    "struck": "Some lots on the marsh by Collins Creek are larger than an acre and a half.",
+    "use": "Some lots along Collins Creek are larger than an acre and a half."
+  },
+  {
+    "row": "gated 189",
+    "pattern": "\\bfor a house of that age on close to half an acre|\\$850,000, for a house of that age",
+    "struck": "Homes here usually sell for about $850,000, for a house of that age on close to half an acre.",
+    "use": "Homes here usually sell for about $810,000."
+  },
+  {
+    "row": "gated 189",
+    "pattern": "\\bThe houses were built from 2006 on",
+    "struck": "The houses were built from 2006 on, several of them custom-built.",
+    "use": "Houses for sale here were built from 2006 on, several of them custom-built."
+  },
+  {
+    "row": "gated 139, 189",
+    "pattern": "\\bnew houses are going up beside",
+    "struck": "Some lots have no house yet, so new houses are going up beside some homes.",
+    "use": "Some lots have no house yet, and the newest houses here date from 2025 and 2026."
+  },
+  {
+    "row": "gated 89, 190",
+    "pattern": "\\$1\\.5 million, and the middle sale was about \\$1 million",
+    "struck": "In the last year, homes here sold for about $630,000 to $1.5 million, and the middle sale was about $1 million.",
+    "use": "In the last year, homes here sold for about $630,000 to $1.5 million, and the middle sale was about $840,000."
+  },
+  {
+    "row": "gated 174, 190",
+    "pattern": "\\bBrookgreen Gardens about 16\\b",
+    "struck": "Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 16.",
+    "use": "The entrance to Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 20."
+  },
+  {
+    "row": "gated 122, 190",
+    "pattern": "\\bBuilding began in Myrtle Trace",
+    "struck": "Building began in Myrtle Trace in 1983.",
+    "use": "The first homes in Myrtle Trace were sold in 1983."
+  },
+  {
+    "row": "gated 163, 190",
+    "pattern": "\\bHarbor Club has a pool and a restaurant",
+    "struck": "Its Harbor Club has a pool and a restaurant.",
+    "use": "Its Harbor Club has a pool and serves food and drinks."
   }
 ]

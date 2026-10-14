@@ -369,5 +369,29 @@
     "pattern": "\\ba larger household may earn a little more",
     "struck": "For one or two people, household income must be under about $115,000, and a larger household may earn a little more.",
     "use": "For one or two people, household income must be under about $115,000. For three or more, it is about $134,000."
+  },
+  {
+    "row": "affordable 189, 194",
+    "pattern": "\\bIn the older part, most houses have about 1,350",
+    "struck": "In the older part, most houses have about 1,350 square feet, on about an eighth of an acre.",
+    "use": "In the older part, houses typically have about 1,350 square feet, on about an eighth of an acre."
+  },
+  {
+    "row": "affordable 133, 194",
+    "pattern": "\\bmost with about 1,500 square feet",
+    "struck": "Lennar built every house here, most with about 1,500 square feet on about a quarter acre.",
+    "use": "Lennar built every house here, in plans of about 1,100 to 1,950 square feet, on about a quarter acre."
+  },
+  {
+    "row": "affordable 162, 193",
+    "pattern": "\\babout 1,450 to 2,000 square feet|\\bInternet, yard care and trash pickup",
+    "struck": "Each townhome has about 1,450 to 2,000 square feet and a one-car garage. Internet, yard care and trash pickup are included.",
+    "use": "Each townhome has about 1,450 to 2,400 square feet and a one-car garage. Internet and grounds care are included."
+  },
+  {
+    "row": "affordable 176, 194",
+    "pattern": "\\bon the rest of the speedway land",
+    "struck": "Another owner plans 194 townhomes for rent on the rest of the speedway land.",
+    "use": "Another owner plans 194 townhomes for rent on about 20 acres of the old speedway land next door."
   }
 ]
