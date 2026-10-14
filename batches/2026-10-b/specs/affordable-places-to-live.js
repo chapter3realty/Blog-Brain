@@ -364,7 +364,7 @@ module.exports = {
     { name: "SC Department of Insurance", href: DOI },
     { name: "WMBF News on the speedway", href: SPEEDWAY },
   ],
-  sourcesNote: "Not legal, tax or loan advice. Prices are the middle recorded sale per neighborhood, October 2025 through September 2026, new and resale. Condos, manufactured homes, deeds for several lots and sales far below a home's value are left out. Each place has 10 or more sales and a beach within about 20 minutes. Home details are from listings; schools from the district's zones. Drives have no traffic. Yearly tax is for a home you live in, before the break for owners 65 and older.",
+  sourcesNote: "Not legal, tax or loan advice. Prices: the middle recorded sale, October 2025 to September 2026, without condos, manufactured homes, multi-lot deeds or sales far below value. Each place has 10 or more sales and a beach within about 20 minutes. Home details from listings; schools from district zones. Yearly tax for a home you live in, before the break at 65.",
   afterSources: () => ph.credits() + ITEMLIST(),
   bottomCta: { h2: "See what your budget buys in these neighborhoods.", p: "Tell us your price range and the places you like. One of our agents will send you the homes for sale there, and the down-payment programs that fit.", label: OFFER, href: CONTACT },
   keywords: "most affordable places to live near Myrtle Beach, cheapest neighborhoods Myrtle Beach, affordable townhomes Myrtle Beach, cheap homes near Myrtle Beach, new homes under 250000 Myrtle Beach, Parkview Myrtle Beach, Wild Wing Plantation townhomes, Victory Point Myrtle Beach, Forestbrook Village, Villas at Sandridge, Birchwood Longs SC, Indigo Grove Longs",
