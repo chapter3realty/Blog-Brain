@@ -1,0 +1,122 @@
+[
+  {
+    "row": "the-farm 10",
+    "pattern": "\\bbulk cable|cable TV is the largest item, then trash",
+    "struck": "Bulk cable TV is the largest item, then trash pickup, the management contract, landscaping and ponds.",
+    "use": "The largest item in the 2026 budget is cable TV, 38.5 percent of $2,031,964, then landscaping and ponds, trash pickup, the management contract, electricity, a reserve contribution, the pools and insurance."
+  },
+  {
+    "row": "the-farm 21",
+    "pattern": "\\bhanded control|\\bon August 1, 2019",
+    "struck": "D.R. Horton handed control of the HOA board to the owners on August 1, 2019.",
+    "use": "D.R. Horton ended its right to appoint a majority of the HOA board in July and August 2019."
+  },
+  {
+    "row": "the-farm 22",
+    "pattern": "\\bdeleted in 2017",
+    "struck": "The covenant section for a beach club was deleted in 2017.",
+    "use": "The Declaration's beach club section was deleted by an amendment recorded in January 2018."
+  },
+  {
+    "row": "the-farm 24",
+    "pattern": "\\bcannot add speed bumps",
+    "struck": "Its streets are county roads, so the HOA cannot add speed bumps on its own.",
+    "use": "The Farm is not gated, and its roads are county-owned."
+  },
+  {
+    "row": "the-farm 28",
+    "pattern": "\\bnearest (?:public )?beach access",
+    "struck": "The nearest public beach accesses by car are City of Myrtle Beach accesses about 10 minutes and 4.6 to 4.7 miles away.",
+    "use": "Public beach accesses in Myrtle Beach are about 10 minutes and under 5 miles by car from the Farmers Rest Drive entrance."
+  },
+  {
+    "row": "the-farm 34",
+    "pattern": "\\bshopping centers nearest",
+    "struck": "The big shopping centers nearest Carolina Forest: Tanger Outlets on Highway 501 is about 13 minutes.",
+    "use": "Tanger Outlets on Highway 501 is about 13 minutes and 8 miles by car, and Coastal Grand Mall about 15 minutes and 8 miles."
+  },
+  {
+    "row": "the-farm 31",
+    "pattern": "\\bhospital (?:is (?:now )?open|has opened|opens in October)",
+    "struck": "The new 48-bed hospital is open.",
+    "use": "McLeod Health says its 48-bed McLeod Carolina Forest Hospital, on the same campus as its emergency department, is scheduled to open in fall 2026."
+  },
+  {
+    "row": "the-farm 46",
+    "pattern": "\\b14 homes[^.]{0,40}\\bfor sale",
+    "struck": "On 2026-10-13, 14 homes in The Farm were listed for sale, from $229,000 to $510,999.",
+    "use": "16 homes for sale on 2026-10-13, from $229,000 to $510,999: 15 detached houses and 1 Orchards townhouse."
+  },
+  {
+    "row": "the-farm 50",
+    "pattern": "\\bminimum lease (?:term )?of (?:six|6)|\\b(?:six|6)-month minimum",
+    "struck": "The board may set a minimum lease term of six months.",
+    "use": "Owners may rent their homes; leases must be in writing and a copy with the tenants' names and phone numbers goes to the manager within 10 days."
+  },
+  {
+    "row": "the-farm 64",
+    "pattern": "activity center[^.]{0,100}\\$\\d|\\$\\d[^.]{0,100}activity center",
+    "struck": "The 2024 rules list a $150 non-refundable fee and a $250 refundable deposit to reserve the activity center.",
+    "use": "Owners can reserve the activity center for up to four hours for a private event, for a fee."
+  },
+  {
+    "row": "the-farm 73",
+    "pattern": "\\blender may still (?:ask|require)",
+    "struck": "Zone X is not one. A lender may still ask for it.",
+    "use": "Federal law requires flood insurance on a mortgage from a federally regulated lender when the home is in a special flood hazard area."
+  },
+  {
+    "row": "the-farm 79",
+    "pattern": "\\bdedicated to the Lewis Ocean Bay Heritage Preserve on|\\b(?:preserve|tract) is (?:now )?open to the public",
+    "struck": "SCDNR acquired the tract and dedicated to the Lewis Ocean Bay Heritage Preserve on June 10, 2025.",
+    "use": "The S.C. Department of Natural Resources bought a 353-acre tract on The Farm's northern side and says it will be dedicated as part of the Lewis Ocean Bay Heritage Preserve and open for outdoor recreation."
+  },
+  {
+    "row": "the-farm 82",
+    "pattern": "Fields[^.]{0,60}\\bnext to The Farm",
+    "struck": "The county's International Drive Fields, at 900 International Drive next to The Farm.",
+    "use": "The county's International Drive Fields at 900 International Drive are about 5 minutes and under 2 miles by car from the Farmers Rest Drive entrance."
+  },
+  {
+    "row": "the-farm 85",
+    "pattern": "\\bdoes not apply that year",
+    "struck": "The 15 percent cap on reassessment increases does not apply that year.",
+    "use": "The new value first appears on the tax bill for the year after the sale."
+  },
+  {
+    "row": "the-farm 87",
+    "pattern": "\\bcleanup work there is done|\\bwhich runs the program",
+    "struck": "Response complete means the cleanup work there is done. The Defense Department, which runs the program, explains those words.",
+    "use": "Response complete means the cleanup work there is finished, although the Defense Department or a later owner may keep monitoring the site. The Defense Department, which sets the program's terms, explains those words."
+  },
+  {
+    "row": "the-farm 88",
+    "pattern": "\\bsite closeout means|\\bno more cleanup money will be spent|\\bcan be used without limits",
+    "struck": "Site closeout means the land can be used without limits. No more cleanup money will be spent there.",
+    "use": "On its map, the Corps lists every home in The Farm as on land with the status 'Response Complete and Site Closeout'."
+  },
+  {
+    "row": "the-farm 89",
+    "pattern": "\\bin a different part of Carolina Forest|\\bCorps is still working",
+    "struck": "The Corps is still working on another section, called Range III, in a different part of Carolina Forest.",
+    "use": "The Corps lists another section, called Range III, as still under investigation. It borders The Farm."
+  },
+  {
+    "row": "the-farm 92",
+    "pattern": "\\bevery street\\b",
+    "struck": "Every street in The Farm is inside all three zones.",
+    "use": "Every home in The Farm is inside all three zones, so every home has the same three schools."
+  },
+  {
+    "row": "the-farm 95",
+    "pattern": "\\byellow for Carolina Forest High",
+    "struck": "The Farm, in orange, with the school zone lines: blue for Ocean Bay Elementary, purple for Ocean Bay Middle and yellow for Carolina Forest High.",
+    "use": "The Farm, in orange, with the school zones: a blue line for Ocean Bay Elementary, purple shading for Ocean Bay Middle and yellow shading for Carolina Forest High."
+  },
+  {
+    "row": "the-farm 97",
+    "pattern": "\\brecorded its last two sections",
+    "struck": "D.R. Horton recorded its HOA rules in 2004 and recorded its last two sections, Phases 23B and 21, in 2017.",
+    "use": "D.R. Horton recorded its HOA rules in 2004 and added land in stages until 2017, when the last two sections, Phases 23B and 21, were added."
+  }
+]

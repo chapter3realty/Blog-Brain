@@ -50,12 +50,14 @@ You are checking a fact ledger for a page on chapter3realty.com. Assume the rese
    - "Only", "none", "every": check every case on the page.
    - A safe wording the site's build would refuse. The website's `build.js` bans some words (for example "sets") and personification; check your wording against its banned list, or flag it for the writer.
 
-8. **Return a summary when done:**
+8. **When you strike wording,** add an entry for it to the page's struck list, `batches/<batch>/facts/<slug>-struck.json`, in the same edit. That is any row you mark `verified with corrected wording`, `wrong` or partly wrong, and any note that says drop, remove, cut or replace. Each entry: `{ "row": "<ledger> <row number>", "pattern": "<regex>", "unless": "<optional regex>", "struck": "<the struck wording>", "use": "<the approved wording>" }`. Make the pattern match the struck claim, not its subject: "bluff" alone would fire on Kimbel's bluff, which is approved; `Resort Course[^.]{0,80}\bbluff\b` does not (in the JSON file, double each backslash). When a note drops a claim with no replacement, write "use" as an instruction in round brackets, for example "(cut it: one listing only)". Then run `node tools/struck-check.test.js`: the struck wording must fire its entry, and the approved wording must fire none. `tools/struck-check.js` holds every later rewrite to it (lesson B30).
+
+9. **Return a summary when done:**
    - counts by status
    - every `wrong` row, with the correction
    - any claim that should not be published at all
 
-Edit only the status and note columns. Never change a claim to make it pass.
+Edit only the status and note columns of the ledger, and the page's struck list. Never change a claim to make it pass.
 
 ---
 

@@ -129,6 +129,7 @@ node <blog-brain>/tools/score.js --site chapter3realty --only /<url>/         # 
 node <blog-brain>/tools/claims-scan.js chapter3realty/<url>/index.html        # no critical or high (STANDARD C)
 node <blog-brain>/tools/facts-check.js .                                      # no WRONG on this page, no STALE (A12, T7)
 node <blog-brain>/tools/site-audit.js .                                       # no errors on this page (links, markup, forms)
+node <blog-brain>/tools/struck-check.js <blog-brain>/batches/<batch>/facts/<slug>-struck.json chapter3realty/<url>/index.html   # no wording a verifier struck (B30)
 ```
 
 Fix the spec and rerun until all of them are clean.

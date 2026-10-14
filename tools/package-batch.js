@@ -27,8 +27,8 @@
  *   6. Test the package the way the owner will use it, on a second fresh clone: copy,
  *      apply, mkpage each spec, build.js rehash, dates, llmsfull, check, audit, then a
  *      local commit (never pushed) and build.js preflight. Then this repo's score.js
- *      (each page), claims-scan.js, facts-check.js and site-audit.js, compared with
- *      the clean live branch. The results go into README-UPLOAD.md.
+ *      and struck-check.js (each page), claims-scan.js, facts-check.js and site-audit.js,
+ *      compared with the clean live branch. The results go into README-UPLOAD.md.
  *
  * Exit 1 if any step or gate fails. The package is still written, with the failure
  * in its README, so the cause can be read.
@@ -395,6 +395,13 @@ for (const p of report.pages) {
   const head = r.out.split("\n").slice(0, 2).join("\n");
   const misses = r.out.split("\n").filter((l) => /^\s+(FAIL|\s*\d+%)\s/.test(l) || /BLOCKER/.test(l)).join("\n");
   T(`score.js --only ${p.url}`, { code: /Score (9\d|100)\/100/.test(head) && !/BLOCK/i.test(r.out) ? 0 : 1, out: head + (misses ? `\n${misses}` : "") }, undefined, 20);
+}
+/* Struck wording (lesson B30): no phrase a verifier struck in the batch's fact ledgers is back on a built
+   page. The list is batches/<batch>/facts/<spec name>-struck.json; a page without one is noted, not failed. */
+for (const p of report.pages) {
+  const list = path.join(BATCH, "facts", `${p.spec.replace(/\.js$/, "")}-struck.json`);
+  if (!fs.existsSync(list)) { T(`struck-check.js ${p.url}`, { code: 0, out: `no struck list (${path.relative(BB, list)})` }); continue; }
+  T(`struck-check.js ${p.url}`, run(process.execPath, [path.join(BB, "tools", "struck-check.js"), list, pageFile(B, p.url)], BB), undefined, 30);
 }
 const scan = (tool, args, dir) => run(process.execPath, [path.join(BB, "tools", tool), dir, ...args], BB, scoreEnv);
 const key = (f) => `${f.url}|${f.rule || f.fact || f.check}|${f.sentence || f.text || f.detail || f.match}`;

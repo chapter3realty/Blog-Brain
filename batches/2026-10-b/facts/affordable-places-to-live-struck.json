@@ -1,0 +1,301 @@
+[
+  {
+    "row": "affordable 9, 10, 13",
+    "pattern": "\\btypical home value for (?:Socastee|Carolina Forest|Garden City)|\\b(?:Socastee|Carolina Forest|Garden City)'s (?:typical )?(?:home )?value",
+    "struck": "Zillow's typical home value for Socastee was $323,494 in August 2026.",
+    "use": "Zillow's typical home value for ZIP code 29588, which includes Socastee, was $323,494 in August 2026."
+  },
+  {
+    "row": "affordable 30",
+    "pattern": "\\bsources agree",
+    "struck": "The two price sources agree within about 15 percent for Loris, Longs, Aynor, Conway, Little River, Socastee, Carolina Forest and North Myrtle Beach.",
+    "use": "Zillow's typical value and the middle of recorded sales are different measures and are not expected to match."
+  },
+  {
+    "row": "affordable 98",
+    "pattern": "\\bno city (?:down payment )?program",
+    "struck": "No city down payment program for Myrtle Beach or Conway was found.",
+    "use": "(Do not publish the absence.)"
+  },
+  {
+    "row": "affordable 107",
+    "pattern": "\\bin the year it is bought",
+    "struck": "So a buyer's tax is figured on about what the home is worth in the year it is bought.",
+    "use": "When you buy, the county values the home at about what it is worth that year. The new value shows up on the next year's tax bill."
+  },
+  {
+    "row": "affordable 110",
+    "pattern": "\\bwaterfront street|\\bshops and restaurants in 18th",
+    "struck": "Its downtown is a walkable waterfront street of shops and restaurants in 18th- and 19th-century buildings.",
+    "use": "It has a waterfront shopping district with restaurants, and preserved 18th- and 19th-century buildings."
+  },
+  {
+    "row": "affordable 110",
+    "pattern": "\\bwalkable\\b",
+    "unless": "city's (?:own )?word|calls itself|the city calls",
+    "struck": "Its downtown is walkable.",
+    "use": "(Leave out walkable, or keep it only as the city's word.)"
+  },
+  {
+    "row": "affordable 111",
+    "pattern": "\\bMemorial Library|\\blibrary is downtown",
+    "struck": "The Georgetown Memorial Library is downtown. The library is downtown.",
+    "use": "The county library is on Cleland Street."
+  },
+  {
+    "row": "affordable 112",
+    "pattern": "\\btown library",
+    "struck": "Its downtown is a few blocks of brick shops on Main Street, with the town library among them.",
+    "use": "Loris has a library on Main Street."
+  },
+  {
+    "row": "affordable 114",
+    "pattern": "\\bunder (?:the )?(?:old )?live oak",
+    "struck": "Much of its downtown was built in the early 1900s, under old live oak trees beside the Waccamaw River.",
+    "use": "Much of Conway's downtown was built in the early 1900s. Old live oak trees and the Waccamaw River are part of the town."
+  },
+  {
+    "row": "affordable 114",
+    "pattern": "Conway Recreation Complex|\\bthe city library|\\bperfect setting",
+    "struck": "In town: a Food Lion, an IGA, the city library and the Conway Recreation Complex.",
+    "use": "Conway has a Food Lion, an IGA, a county library and a city recreation complex."
+  },
+  {
+    "row": "affordable 115",
+    "pattern": "\\bcenter has the town hall, a town park, an athletic complex",
+    "struck": "Its center has the town hall, a town park, an athletic complex, the library and a grocery store, KJ's Market.",
+    "use": "Aynor has Town Hall, a park, the library and KJ's Market (an IGA) within about half a mile of the center, and a county athletic complex about a mile south."
+  },
+  {
+    "row": "affordable 116",
+    "pattern": "\\btwelve with the lowest prices",
+    "struck": "These are the twelve with the lowest prices.",
+    "use": "Twelve of the lower-priced neighborhoods we checked within about 20 minutes of a public beach access."
+  },
+  {
+    "row": "affordable 120, 161",
+    "pattern": "\\busually sold for about \\$225,000",
+    "unless": "\\bolder\\b|Birchwood|Lennar|\\bnew\\b",
+    "struck": "Homes usually sold for about $225,000.",
+    "use": "Houses in the older part of Myrtle Beach Golf and Yacht Club usually sold for about $225,000."
+  },
+  {
+    "row": "affordable 123",
+    "pattern": "\\bwithin about five months|\\bevery house recorded here was a Lennar",
+    "struck": "All of them closed within about five months. Every house recorded here was a Lennar sale.",
+    "use": "Lennar sold about 145 houses here in about ten months."
+  },
+  {
+    "row": "affordable 160",
+    "pattern": "\\bin (?:about )?(?:eleven|11) months",
+    "struck": "Lennar sold nearly every house recorded here in the past year, about 145 in eleven months.",
+    "use": "Lennar sold about 145 houses here in about ten months."
+  },
+  {
+    "row": "affordable 125, 126",
+    "pattern": "\\busually sold for about \\$250,000",
+    "struck": "Homes usually sold for about $250,000.",
+    "use": "Townhomes in Victory Point usually sold for about $235,000."
+  },
+  {
+    "row": "affordable 126",
+    "pattern": "\\btownhomes usually sold for about \\$240,000",
+    "unless": "resold",
+    "struck": "The townhomes usually sold for about $240,000, and the houses for about $345,000.",
+    "use": "Townhomes in Coopers Bluff that resold usually sold for about $240,000."
+  },
+  {
+    "row": "affordable 129",
+    "pattern": "\\b2 bedrooms, about 1,050|\\$325 a month, with water, sewer, internet",
+    "struck": "2 bedrooms, about 1,050 to 1,350 square feet; HOA about $325 a month, with water, sewer, internet and the pool.",
+    "use": "2 or 3 bedrooms, about 1,050 to 1,350 square feet; HOA about $325 a month, with water, sewer, grounds and the pool."
+  },
+  {
+    "row": "affordable 130",
+    "pattern": "\\bHOA fee includes water, sewer and internet|\\$390 a month, with water, sewer, internet",
+    "struck": "The HOA fee includes water, sewer and internet.",
+    "use": "HOA about $390 a month, with the pool and internet, and usually water and sewer."
+  },
+  {
+    "row": "affordable 131",
+    "pattern": "\\$425 a month, with water, sewer and the pool",
+    "struck": "HOA about $425 a month, with water, sewer and the pool.",
+    "use": "HOA about $425 a month, with the pool and usually water and sewer."
+  },
+  {
+    "row": "affordable 132",
+    "pattern": "\\bwith the gate, the pool and the courts",
+    "struck": "HOA about $95 a month, with the gate, the pool and the courts.",
+    "use": "HOA about $95 a month, with security, the pool and the courts."
+  },
+  {
+    "row": "affordable 135, 147",
+    "pattern": "\\bzoned for North Myrtle Beach",
+    "struck": "It is zoned for North Myrtle Beach's schools.",
+    "use": "Listings name Riverside Elementary, North Myrtle Beach Middle and North Myrtle Beach High."
+  },
+  {
+    "row": "affordable 142",
+    "pattern": "\\bbuilt around the old Myrtle Beach Speedway|\\bland around the track",
+    "struck": "It is being built around the old Myrtle Beach Speedway, where cars ran their last laps in 2020.",
+    "use": "Victory Point is a new Lennar townhome community off US 501 by Tanger Outlets, on part of the former Myrtle Beach Speedway land, which closed in 2020."
+  },
+  {
+    "row": "affordable 142",
+    "pattern": "\\bVictory Way",
+    "struck": "Its street names come from racing: Speedway Street, Victory Way and Talladega Drive.",
+    "use": "Several streets have racing names: Speedway Street, Talladega Drive and Pit Crew Drive."
+  },
+  {
+    "row": "affordable 180",
+    "pattern": "\\bwoods to its southeast",
+    "struck": "Victory Point's townhomes stand in the woods to its southeast.",
+    "use": "Victory Point's townhomes are now on the southeast part of the track and the land beside it."
+  },
+  {
+    "row": "affordable 143",
+    "pattern": "\\bThree of them closed in 2004",
+    "unless": "reopened",
+    "struck": "Three of them closed in 2004.",
+    "use": "Three of Wild Wing's courses closed in 2004; one of them later reopened as a nine-hole course."
+  },
+  {
+    "row": "affordable 144",
+    "pattern": "\\bStaff keep the gate|\\bOwners can rent a space",
+    "struck": "Staff keep the gate day and night. Owners can rent a space for an RV or a trailer.",
+    "use": "The community is gated, and listings describe 24-hour security at the gate. The HOA has a storage area for RVs and trailers."
+  },
+  {
+    "row": "affordable 145",
+    "pattern": "\\bowners have[^.]{0,40}\\bkayak launch",
+    "struck": "Owners have a pool and a private kayak launch onto the waterway.",
+    "use": "Beverly Homes is building the newest houses, and its listings mention a private kayak launch on the waterway for homeowners."
+  },
+  {
+    "row": "affordable 150",
+    "pattern": "\\brent for a party|\\barea of newer neighborhoods",
+    "struck": "The townhomes are around small ponds, with a pool and a clubhouse owners can rent for a party. Carolina Forest is an area of newer neighborhoods along Carolina Forest Boulevard, north of US 501.",
+    "use": "The townhomes are around small ponds, with a pool and a clubhouse."
+  },
+  {
+    "row": "affordable 154",
+    "pattern": "\\bon the same measure|\\ba home usually costs more than in the twelve|\\ba house in the city of Myrtle Beach",
+    "struck": "Across a whole town, a home usually costs more than in the twelve places above, on the same measure. A house in the city of Myrtle Beach.",
+    "use": "Homes that resold, builder sales and condos left out."
+  },
+  {
+    "row": "affordable 168",
+    "pattern": "\\bLoris and Conway cost about the same",
+    "struck": "Across the whole town, Loris and Conway cost about the same as these neighborhoods.",
+    "use": "Loris costs about the same, and Conway a little more."
+  },
+  {
+    "row": "affordable 163",
+    "pattern": "\\b1,550 to 2,200",
+    "struck": "About 1,550 to 2,200 square feet.",
+    "use": "About 1,500 to 1,900 square feet."
+  },
+  {
+    "row": "affordable 166",
+    "pattern": "\\bIn our experience, rush hour",
+    "struck": "In our experience, rush hour adds 5 to 10 minutes.",
+    "use": "In the owner's experience, rush hour adds 5 to 10 minutes."
+  },
+  {
+    "row": "affordable 169, 181",
+    "pattern": "\\bbesides the mortgage\\b(?! and insurance)",
+    "struck": "About $4,700 a year for the HOA fee and tax, besides the mortgage.",
+    "use": "About $4,700 a year for the HOA fee and tax, besides the mortgage and insurance."
+  },
+  {
+    "row": "affordable 171",
+    "pattern": "\\bhundreds (?:more|of) townhomes",
+    "struck": "Another owner bought 21 acres of the speedway land in 2022 for hundreds more townhomes.",
+    "use": "Another owner bought about 20 acres of the speedway land in 2022 and plans 194 townhomes for rent there, with leasing expected in 2027."
+  },
+  {
+    "row": "affordable 171",
+    "pattern": "\\bthe most of any neighborhood we found|\\bthat is why|\\bthe reason is distance|\\bcost less for that distance|\\bbetween SC 90 and the Waccamaw River",
+    "struck": "That is the most of any neighborhood we found. The reason is distance.",
+    "use": "(Cut the 'because' and 'that is why' price explanations: no row supports them.)"
+  },
+  {
+    "row": "affordable 172, 176",
+    "pattern": "\\b226 townhomes|\\b21 acres",
+    "struck": "Another owner bought the other 21 acres of the speedway land in 2022 and, in a 2024 plan, said it would build 226 townhomes there.",
+    "use": "Another owner bought about 20 acres of the speedway land in 2022 and plans 194 townhomes for rent there, with leasing expected in 2027."
+  },
+  {
+    "row": "affordable 175",
+    "pattern": "\\bnorth of Longs|\\b(?:well|far) inland|\\blowest we found",
+    "struck": "Birchwood, north of Longs and well inland. The HOA fee is the lowest we found.",
+    "use": "Birchwood, southwest of Longs. The monthly fee is small."
+  },
+  {
+    "row": "affordable 178, 180",
+    "pattern": "Lowes Foods and (?:a )?Publix (?:are )?(?:just )?across|\\bjust across SC 707",
+    "struck": "A Lowes Foods and a Publix are just across SC 707.",
+    "use": "Lowes Foods and Publix are less than half a mile northwest, on SC 707."
+  },
+  {
+    "row": "affordable 178",
+    "pattern": "Park at The Bays|Forestbrook Park",
+    "struck": "The Park at The Bays is a short walk south.",
+    "use": "(Drop The Park at The Bays and Forestbrook Park unless a source shows they are open to the public.)"
+  },
+  {
+    "row": "affordable 178",
+    "pattern": "\\bjust (?:west|southwest)\\b",
+    "struck": "TPC Myrtle Beach is just west.",
+    "use": "The TPC Myrtle Beach course is about a mile west."
+  },
+  {
+    "row": "affordable 178, 181",
+    "pattern": "\\ba short drive (?:west|southwest)\\b",
+    "struck": "Today the outlets are a short drive west.",
+    "use": "Tanger Outlets are northwest, a short drive."
+  },
+  {
+    "row": "affordable 178",
+    "pattern": "\\beach a few minutes by car|\\ba few minutes(?:'|s')? drive",
+    "struck": "The Food Lion and the Publix are each a few minutes by car.",
+    "use": "The Food Lion and the Publix are within about 8 minutes by car."
+  },
+  {
+    "row": "affordable 178",
+    "pattern": "\\bPublix on Carolina Forest Boulevard|\\bdown US 501|\\bAldi and Walmart on US 501",
+    "struck": "A Publix on Carolina Forest Boulevard. Walmart is down US 501. Aldi and Walmart on US 501.",
+    "use": "Aldi and Walmart near US 501."
+  },
+  {
+    "row": "affordable 178",
+    "pattern": "Riverside Elementary[^.]{0,40}\\babout two miles",
+    "struck": "Riverside Elementary is about two miles east.",
+    "use": "(Riverside Elementary is 1.68 miles away in a straight line.)"
+  },
+  {
+    "row": "affordable 178",
+    "pattern": "\\bsame distance northeast",
+    "unless": "straight line",
+    "struck": "Socastee Recreation Park is the same distance northeast.",
+    "use": "Socastee Recreation Park is about the same distance northeast, in a straight line."
+  },
+  {
+    "row": "affordable 179",
+    "pattern": "\\bwas the golf course of the Myrtle Beach Air Force Base|\\bpaved in 1987",
+    "struck": "It was the golf course of the Myrtle Beach Air Force Base. It was a dirt track until it was paved in 1987.",
+    "use": "The course was originally part of the Myrtle Beach Air Force Base. The track opened in 1958 as RAMBI Raceway."
+  },
+  {
+    "row": "affordable 180",
+    "pattern": "\\bAround it are fields, woods and older homes|\\bAround it are woods, fields and small farms",
+    "struck": "Around it are fields, woods and older homes on large lots.",
+    "use": "To the west and north are fields, woods and older homes on large lots; newer neighborhoods are to the east."
+  },
+  {
+    "row": "affordable 181",
+    "pattern": "\\binsurance charge for the buildings|\\bAge is the main question|\\bFlood is the concern here|\\bEach came with the builder's",
+    "struck": "One cost is not yet set: a yearly insurance charge for the buildings. Age is the main question here. Flood is the concern here. Each came with the builder's smart-home package.",
+    "use": "Listings say each owner will pay a yearly insurance assessment that is not yet set. Age matters here. Flood is a concern here."
+  }
+]

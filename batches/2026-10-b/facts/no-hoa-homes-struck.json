@@ -1,0 +1,240 @@
+[
+  {
+    "row": "no-hoa 14",
+    "pattern": "\\$609\\b",
+    "struck": "The typical monthly HOA fee on a condo for sale in the nine areas is $609.",
+    "use": "The typical HOA fee shown on a condominium listed in these areas is about $650 a month."
+  },
+  {
+    "row": "no-hoa 18",
+    "pattern": "\\bmost are in the (?:MLS )?areas along the ocean",
+    "struck": "In North Myrtle Beach, Myrtle Beach and Surfside Beach most are in the MLS areas along the ocean.",
+    "use": "Most homes for sale with no HOA fee are listed as not in a named subdivision."
+  },
+  {
+    "row": "no-hoa 19",
+    "pattern": "\\beach home (?:is|sits) on leased land",
+    "struck": "Listing remarks in Ocean Lakes say each home is on leased land with a yearly lease paid twice a year.",
+    "use": "A listing with no HOA fee can still carry a yearly charge: 15 of 82 no-fee listings in campground communities say in their remarks that the home is on leased land."
+  },
+  {
+    "row": "no-hoa 29",
+    "pattern": "\\bseller'?s? (?:disclosure statement )?must (?:cover|disclose|give)",
+    "unless": "\\bmost sales\\b|exempt|first sale|never[- ]inhabited",
+    "struck": "A seller's disclosure statement must cover whether the home is governed by an HOA.",
+    "use": "For most sales, a seller must give the buyer a written disclosure statement that asks whether the property is subject to governance of a homeowners association."
+  },
+  {
+    "row": "no-hoa 43",
+    "pattern": "\\bcounty does not pick up trash|\\blists private haulers",
+    "struck": "Outside city and town limits, the county does not pick up trash at the curb. The county authority lists private haulers that offer trash and recycling service there.",
+    "use": "The Horry County Solid Waste Authority does not provide curbside trash or recycling pickup."
+  },
+  {
+    "row": "no-hoa 48",
+    "pattern": "stormwater fee[^.]{0,100}\\bHOA or not|\\bpay the same flat fee",
+    "struck": "Every home in unincorporated Horry County pays a county stormwater fee on its property tax bill, HOA or not. Townhomes and condos pay the same flat fee.",
+    "use": "Property owners in unincorporated Horry County pay a county stormwater fee on the property tax bill. Townhomes and condominiums pay a flat fee, amount not shown."
+  },
+  {
+    "row": "no-hoa 63",
+    "pattern": "Back yard, not near the lot lines|\\bR-1 and R-2\\b",
+    "struck": "Back yard, not near the lot lines. In the R-1 and R-2 districts, a home may have one work vehicle of no more than 2 tons.",
+    "use": "In the R-1.4, R-1.5, R-1.7 and R-2 districts a home may have one commercial, industrial, farm or construction vehicle of no more than 2 tons."
+  },
+  {
+    "row": "no-hoa 64",
+    "pattern": "\\bno (?:county )?(?:limit|rule)[^.]{0,80}\\bwork truck",
+    "struck": "The county's zoning sets no limit on where an owner parks his own boat, trailer, camper or work truck on a home lot.",
+    "use": "Outside the towns, Horry County sets no rule on where on a residential lot you park your own boat, boat trailer or camper."
+  },
+  {
+    "row": "no-hoa 65",
+    "pattern": "\\bruns every (?:home )?closing",
+    "struck": "A lawyer runs every home closing.",
+    "use": "A home closing is done under the supervision of a lawyer."
+  },
+  {
+    "row": "no-hoa 66",
+    "pattern": "\\bpond holding water",
+    "struck": "The county asks pond owners to inspect twice a year, to keep the pond holding water.",
+    "use": "The inspections help keep storage capacity, stop erosion and control algae."
+  },
+  {
+    "row": "no-hoa 67",
+    "pattern": "\\bcounty never (?:maintains|keeps up)",
+    "struck": "The county never maintains a private road.",
+    "use": "The county maintains the roads it owns."
+  },
+  {
+    "row": "no-hoa 68",
+    "pattern": "\\bGIS (?:map|app)[^.]{0,120}\\btown limits",
+    "unless": "account|sign-in|sign in",
+    "struck": "The county's online GIS map, linked from its Land Info page, shows each parcel; its map service carries a layer of the town limits.",
+    "use": "The county's Map Your Move map, linked from its Land Info page, shows the municipality for a parcel."
+  },
+  {
+    "row": "no-hoa 69",
+    "pattern": "\\ba fifth of an acre|\\bthree[- ]quarters of an acre",
+    "struck": "North Myrtle Beach a fifth of an acre; Loris three quarters of an acre.",
+    "use": "About 0.7 in Loris and 0.16 in North Myrtle Beach."
+  },
+  {
+    "row": "no-hoa 69, 83",
+    "pattern": "\\ba third of an acre",
+    "unless": "over a third",
+    "struck": "Myrtle Beach a third of an acre.",
+    "use": "On a little over a third of an acre."
+  },
+  {
+    "row": "no-hoa 75",
+    "pattern": "\\b(?:most|they|houses) (?:sit|stand) on (?:their|its) own lot|\\bown lot along a country road",
+    "struck": "So most sit on their own lot along a country road.",
+    "use": "Almost none are listed in a subdivision."
+  },
+  {
+    "row": "no-hoa 75",
+    "pattern": "\\bbiggest houses of the eight",
+    "struck": "The biggest houses of the eight areas.",
+    "use": "The middle house is about 2,400 square feet, the largest middle size of the eight areas."
+  },
+  {
+    "row": "no-hoa 79",
+    "pattern": "Huntington Beach State Park[^.]{0,60}\\b15 minutes|\\b15 minutes[^.]{0,60}Huntington Beach State Park",
+    "struck": "About 15 minutes from Murrells Inlet to Huntington Beach State Park.",
+    "use": "About 10 minutes from Murrells Inlet to Huntington Beach State Park, with no traffic."
+  },
+  {
+    "row": "no-hoa 81",
+    "pattern": "\\bsome of its streets are on canals|\\bcanals that run to the marsh",
+    "struck": "So some of its streets are on canals that run to the marsh.",
+    "use": "Cherry Grove has canals, and about 415 properties pay the city a yearly fee to dredge them."
+  },
+  {
+    "row": "no-hoa 82",
+    "pattern": "Lakeside Crossing",
+    "struck": "Lakeside Crossing",
+    "use": "(Do not name Lakeside Crossing: its blank fee is a land lease and an association.)"
+  },
+  {
+    "row": "no-hoa 82",
+    "pattern": "\\bolder streets[^.]{0,80}(?:Cherry|Temple) Street|(?:Cherry|Temple) Street[^.]{0,80}\\bolder streets",
+    "struck": "Some are on older streets in central Conway, such as Temple Street and Cherry Street.",
+    "use": "Some are on streets in central Conway, such as Temple Street and Cherry Street."
+  },
+  {
+    "row": "no-hoa 82",
+    "pattern": "(?:Rosewood Estates|Bridge Creek)[^.]{0,80}\\bbuilt in the 1980s",
+    "struck": "In Socastee, they were in Rosewood Estates and Bridge Creek, built in the 1980s.",
+    "use": "In Socastee, they were in Rosewood Estates and Bridge Creek, built from 1979 to 1988."
+  },
+  {
+    "row": "no-hoa 82",
+    "pattern": "\\b(?:has|have) no HOA\\b(?! fee)",
+    "unless": "\\?",
+    "struck": "The house has no HOA.",
+    "use": "The house is listed with no HOA fee."
+  },
+  {
+    "row": "no-hoa 84",
+    "pattern": "\\bolder house in Cherry Grove, Windy Hill or Ocean Drive|\\b1976 to 1981",
+    "struck": "In North Myrtle Beach, an older house in Cherry Grove, Windy Hill or Ocean Drive. Coastal Heights houses built 1976 to 1981.",
+    "use": "In North Myrtle Beach, this band buys a house in Cherry Grove, Windy Hill or Ocean Drive; in Cherry Grove nearly all were built before 1990."
+  },
+  {
+    "row": "no-hoa 85",
+    "pattern": "\\bThey line Ocean Boulevard|\\bOthers are in older neighborhoods",
+    "struck": "They line Ocean Boulevard in Myrtle Beach and North Myrtle Beach and South Waccamaw Drive. Others are in older neighborhoods.",
+    "use": "Some are on Ocean Boulevard in Myrtle Beach and North Myrtle Beach and on South Waccamaw Drive in Garden City. Others were listed with no fee in Pine Lakes and Plantation Point."
+  },
+  {
+    "row": "no-hoa 88",
+    "pattern": "\\bowners along them",
+    "struck": "The owners along them pay the city a yearly fee to dredge them.",
+    "use": "Owners of about 400 properties in the canal district pay the city a yearly fee to dredge them."
+  },
+  {
+    "row": "no-hoa 89",
+    "pattern": "\\bSurfside Beach was a rice plantation",
+    "struck": "Surfside Beach was a rice plantation called The Ark, then Floral Beach.",
+    "use": "The land was part of a rice plantation called The Ark and was later named Floral Beach."
+  },
+  {
+    "row": "no-hoa 90",
+    "pattern": "\\b(?:takes|took|gets) its name from John Morrall",
+    "struck": "Murrells Inlet takes its name from John Morrall.",
+    "use": "Maps from the early 1800s call the inlet Murray's Inlet or Morrall's, the second after John Morrall, who bought 610 acres on the inlet in 1731."
+  },
+  {
+    "row": "no-hoa 90",
+    "pattern": "\\brestaurants grew (?:out of|from)|\\blinks a row of",
+    "struck": "Its seafood restaurants grew from the oyster roasts and fried shore dinners of its founding families. The MarshWalk links a row of them.",
+    "use": "People first came to the inlet for oyster roasts and fried shore dinners, and seafood restaurants followed."
+  },
+  {
+    "row": "no-hoa 91",
+    "pattern": "\\bas Kingston\\b(?! Village)",
+    "struck": "Conway began as Kingston, on a bluff of the Waccamaw River.",
+    "use": "Conway began in the 1730s as Kingston Village, on a bluff of the Waccamaw River."
+  },
+  {
+    "row": "no-hoa 92",
+    "pattern": "\\bbuilt the Ocean Forest Hotel|\\bfirst owners sold",
+    "struck": "In the 1920s the Woodside family built the Ocean Forest Hotel and the Pine Lakes golf course. Its first owners sold oceanfront lots for $25 each.",
+    "use": "The Woodside family bought land in the 1920s and finished the Pine Lakes golf course and the Ocean Forest Hotel just before the Great Depression. In 1901 the railroad company began selling oceanfront lots for $25 each."
+  },
+  {
+    "row": "no-hoa 94",
+    "pattern": "\\bnearest (?:big )?mall",
+    "struck": "Coastal Grand, the nearest big mall, is about 50 minutes away.",
+    "use": "Coastal Grand Mall in Myrtle Beach is a drive of about 50 minutes from the center of Loris, with no traffic."
+  },
+  {
+    "row": "no-hoa 95",
+    "pattern": "\\bshort walk\\b|\\bclose enough to walk\\b|\\bwalk to the (?:beach|sand)",
+    "struck": "Most of them a short walk from the sand. None of the houses for sale here is close enough to walk to the beach.",
+    "use": "Most are within half a mile of the ocean shore. None of the houses for sale in Little River is within a mile of the beach."
+  },
+  {
+    "row": "no-hoa 97",
+    "pattern": "Stump Meeting",
+    "struck": "Galivants Ferry is also home to the Galivants Ferry Stump Meeting, a Democratic Party tradition.",
+    "use": "(Dropped by the coordinator: a party-political event.)"
+  },
+  {
+    "row": "no-hoa 98",
+    "pattern": "Bog-Off[^.]{0,100}\\b(?:parade|fireworks)",
+    "struck": "The Bog-Off features a parade, crafts, bands and fireworks.",
+    "use": "The Bog-Off brings vendors, a car show and two stages of live music."
+  },
+  {
+    "row": "no-hoa 101",
+    "pattern": "\\bas the first park in",
+    "struck": "On the south side of the city, Myrtle Beach State Park opened in 1936 as the first park in South Carolina's state park system.",
+    "use": "Myrtle Beach State Park opened in 1936 as the first of South Carolina's state parks to open."
+  },
+  {
+    "row": "no-hoa 102",
+    "pattern": "\\bthe old road\\b",
+    "struck": "A piece of the old road is still at its front.",
+    "use": "A small piece of the original Kings Highway, a colonial route between Boston and Charleston, is still at its front."
+  },
+  {
+    "row": "no-hoa 103",
+    "pattern": "\\bdug through the marsh|\\bat any tide|\\bdredged them twice|\\bfilling with silt",
+    "struck": "Cherry Grove's canals were dug through the marsh in the 1950s and 1960s. By the 1970s, some were filling with silt. The city has dredged them twice, so boats can reach House Creek and the Intracoastal Waterway at any tide.",
+    "use": "Cherry Grove's canals were created as early as the 1950s. By the 1970s, some were filling up. The city has dredged canals there twice since 2016, to give owners boat access to House Creek and the Intracoastal Waterway at high and low tide."
+  },
+  {
+    "row": "no-hoa 103",
+    "pattern": "\\bon the tax bill",
+    "struck": "Owners pay the city about $1,700 a year for that work, on the tax bill.",
+    "use": "Owners of about 415 properties in the canal district pay the city about $1,700 a year for that work, on the county tax bill."
+  },
+  {
+    "row": "no-hoa 105",
+    "pattern": "\\bIn those years it was also a farm center",
+    "struck": "In those years it was also a farm center for the country around it.",
+    "use": "In the late 1800s it was also a farm center for the country around it."
+  }
+]

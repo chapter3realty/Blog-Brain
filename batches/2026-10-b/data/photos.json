@@ -2606,15 +2606,15 @@
         "sublocation": "Parkview, 17th Avenue South"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8785415.844401713%2C3985864.706456045%2C-8783660.479919313%2C3987181.2298178487&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8785292.781919383%2C3985845.2997036567%2C-8783792.781919383%2C3986970.2997036553&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -78.91959,
-          33.67965,
-          -78.90611,
-          33.68805
+          -78.91963,
+          33.67948,
+          -78.90615,
+          33.68789
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -2661,7 +2661,7 @@
           -78.97112,
           33.79234
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -2708,7 +2708,7 @@
           -78.92234,
           33.76093
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -2747,15 +2747,15 @@
         "sublocation": "Birchwood, SC 905"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8767472.469556801%2C4017921.8950486262%2C-8763776.734820135%2C4020693.696101124&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8767461.894205175%2C4017938.593697882%2C-8763778.84989046%2C4020700.8769339207&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -78.75955,
-          33.91902,
-          -78.72635,
-          33.93968
+          -78.75945,
+          33.91906,
+          -78.72636,
+          33.93965
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -2786,23 +2786,23 @@
       "width": 1200,
       "height": 900,
       "title": "Myrtle Beach Golf and Yacht Club and Enterprise Landing, from above (USDA NAIP 2023)",
-      "what": "The houses of Myrtle Beach Golf and Yacht Club off Bay Road, with Enterprise Landing on the water to the north, labelled by Chapter3.",
+      "what": "The houses of Myrtle Beach Golf and Yacht Club off Bay Road, with Enterprise Landing on the waterway to the north-northwest, labelled by Chapter3.",
       "caption": "Myrtle Beach Golf and Yacht Club, Bay Road and Enterprise Landing, from above.",
-      "alt": "Aerial view of houses on curving streets among trees, with a dark river and a boat landing to the north, with labels",
+      "alt": "Aerial view of houses on curving streets among trees, with a dark river and a boat landing to the north-northwest, with labels",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "Myrtle Beach Golf and Yacht Club, Bay Road"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8801806.684916845%2C3981244.896349385%2C-8798806.684916845%2C3983494.8963493844&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8802373.664153036%2C3981613.578293407%2C-8798573.664153036%2C3984463.578293408&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -79.06797,
-          33.64509,
-          -79.04103,
-          33.66191
+          -79.07307,
+          33.64784,
+          -79.03893,
+          33.66915
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -2841,7 +2841,7 @@
         "sublocation": "Forestbrook Village, Forestbrook Road"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8791353.601977624%2C3990257.0494923964%2C-8789553.601977624%2C3991607.0494923927&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8791412.356404863%2C3990109.0614262354%2C-8789612.356404863%2C3991459.0614262368&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
           -78.9746,
@@ -2849,7 +2849,7 @@
           -78.95843,
           33.72144
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -2888,15 +2888,15 @@
         "sublocation": "The Townes at Amber Bluff, Savannah Bluff Road"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8798319.428563753%2C4000451.2635637%2C-8793688.098603485%2C4003924.761033901&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8798367.751984382%2C4000440.8803307777%2C-8793653.356160736%2C4003976.6771985115&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -79.03665,
-          33.7886,
-          -78.99504,
-          33.81453
+          -79.03708,
+          33.78852,
+          -78.99473,
+          33.81492
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -2927,7 +2927,7 @@
       "width": 1200,
       "height": 900,
       "title": "Villas at Sandridge, SC 31 and the North Myrtle Beach Sports Complex, from above (USDA NAIP 2023)",
-      "what": "Villas at Sandridge just south of SC 90, east of the SC 31 (Carolina Bays Parkway) interchange, with the North Myrtle Beach Park and Sports Complex to the southwest, labelled by Chapter3.",
+      "what": "Villas at Sandridge just north of SC 90, east of the SC 31 (Carolina Bays Parkway) interchange, with the North Myrtle Beach Park and Sports Complex to the southwest, labelled by Chapter3.",
       "caption": "Villas at Sandridge, east of SC 31, with the North Myrtle Beach Sports Complex to the southwest.",
       "alt": "Aerial view of a highway interchange with a sports complex and new streets, with labels for Villas at Sandridge, SC 31 and the sports complex",
       "place": {
@@ -2935,15 +2935,15 @@
         "sublocation": "Villas at Sandridge, SC 90"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8762255.244921423%2C4007502.3732442884%2C-8759655.244921423%2C4009452.3732442865&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8762366.564412218%2C4007502.3732442884%2C-8759766.564412216%2C4009452.3732442865&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -78.71268,
+          -78.71368,
           33.84123,
-          -78.68932,
+          -78.69032,
           33.85577
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -2982,15 +2982,15 @@
         "sublocation": "Indigo Grove, SC 90"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8767712.520557242%2C4009323.8377168127%2C-8765971.742021052%2C4010629.4216189515&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8767722.282445075%2C4009322.329545588%2C-8765969.438539103%2C4010636.96247507&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -78.7617,
-          33.85481,
-          -78.74606,
-          33.86455
+          -78.76179,
+          33.8548,
+          -78.74604,
+          33.86461
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -3029,15 +3029,15 @@
         "sublocation": "Wynbrooke, SC 707"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8801237.02556426%2C3971995.619355814%2C-8798729.054826312%2C3973876.597409277&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8800763.837583127%2C3972695.646223609%2C-8799163.837583128%2C3973895.6462236093&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -79.05878,
-          33.58141,
-          -79.04441,
-          33.59039
+          -79.05861,
+          33.58113,
+          -79.04423,
+          33.59011
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },
@@ -3076,15 +3076,15 @@
         "sublocation": "Polo Farms, SC 905"
       },
       "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8775078.647026293%2C4016121.9531354923%2C-8772432.475920044%2C4018106.58146518&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8775007.549886785%2C4016139.727420371%2C-8772503.573059553%2C4018017.7100407975&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -78.82787,
-          33.90551,
-          -78.8041,
-          33.92031
+          -78.82723,
+          33.90565,
+          -78.80474,
+          33.91965
         ],
-        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+        "note": "labels at a sold lot near the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points; every dot tested against Horry County parcel outlines (pending rows 178, 179 and 184)"
       },
       "original_size": "1600x1200"
     },

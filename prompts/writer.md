@@ -85,9 +85,10 @@ node <blog-brain>/tools/claims-scan.js chapter3realty/<url>/index.html
 node <blog-brain>/tools/facts-check.js .
 node <blog-brain>/tools/site-audit.js .
 node <blog-brain>/tools/repeat-check.js chapter3realty/<url>/index.html --strict
+node <blog-brain>/tools/struck-check.js <blog-brain>/batches/<batch>/facts/<slug>-struck.json chapter3realty/<url>/index.html
 ```
 
-Stop when the audit shows 0 errors for the page, the score is 90 or more with no blockers, and the claims, facts and site checks report nothing for the page. Then hand the page to the reviewer.
+Stop when the audit shows 0 errors for the page, the score is 90 or more with no blockers, and the claims, facts, site and struck checks report nothing for the page. The struck check finds wording a verifier struck in the ledger that a rewrite put back (lesson B30); use the row's approved wording it prints. Then hand the page to the reviewer.
 
 
 **Say something new, and speak as the agents (owner, 2026-10-14).** Read CRAFT 5, "Say something new" and "We do the work". Before you hand in, read your page once only for repetition: list each section's new facts. If a section has none, or repeats an earlier one, cut or merge it. State the page's theme (the gate, the price) once at the top and once in each entry's facts line, not in every paragraph. Cut every sentence that would be true of any place, and every obvious or reassuring sentence. Never tell the reader to check, verify or ask; say what we check.

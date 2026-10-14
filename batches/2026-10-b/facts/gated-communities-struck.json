@@ -1,0 +1,769 @@
+[
+  {
+    "row": "gated 25",
+    "pattern": "Pawleys Plantation\\b[^.]{0,60}\\b(?:is (?:shown as )?gated|guard gate)",
+    "unless": "\\bnot\\b|one is marked",
+    "struck": "Listings: Pawleys Plantation in Pawleys Island is shown as gated, with a guard gate at the entrance.",
+    "use": "Of two houses for sale in Pawleys Plantation, one is marked gated; the other is not."
+  },
+  {
+    "row": "gated 44",
+    "pattern": "(?:middle|typical)[^.]{0,30}\\$1,925,854|Dye Estates[^.]{0,120}\\b(?:middle sale|middle price|typical price|usually sell)",
+    "struck": "Barefoot Resort, Dye Estates: there were 3 sales of 3 homes. The middle sale was $1,925,854.",
+    "use": "Two Dye Estates homes were resold in the 12 months, at $1,400,000 and $2,525,000, and one new home was sold by a builder at $1,925,854."
+  },
+  {
+    "row": "gated 48",
+    "pattern": "\\$778,000|\\b51 (?:deed )?sales",
+    "struck": "There were 51 sales of 51 homes. The middle sale was $778,000.",
+    "use": "Waterway Palms Plantation had about 50 recorded deed sales of houses from October 2025 through September 2026, middle sale about $780,000."
+  },
+  {
+    "row": "gated 56",
+    "pattern": "\\$944,042|\\$866,27[78]",
+    "struck": "The Reserve: 5 houses sold for $866,278 to $1,855,000; the middle sale was $944,042.",
+    "use": "(Publish no price for The Reserve from the county parcel table: one deed was counted twice.)"
+  },
+  {
+    "row": "gated 78",
+    "pattern": "\\b(?:last|past) 48 hours",
+    "struck": "The page says it shows calls for service from the last 48 hours.",
+    "use": "Horry County posts a public map of recent calls for service. A call for service is not a confirmed crime."
+  },
+  {
+    "row": "gated 79, 81",
+    "pattern": "beach club[^.]{0,40}\\bfor (?:its )?owners\\b",
+    "struck": "Litchfield by the Sea is on the ocean, with a private beach club for owners.",
+    "use": "Litchfield by the Sea is on the ocean, with about a mile of beach and an oceanfront Beach Club."
+  },
+  {
+    "row": "gated 81",
+    "pattern": "DeBordieu[^.]{0,80}\\boceanfront homes",
+    "struck": "DeBordieu Colony is on the ocean, with oceanfront homes and a private beach club.",
+    "use": "DeBordieu Colony is on the ocean. Its Beach Club is part of the private DeBordieu Club, for members and their guests."
+  },
+  {
+    "row": "gated 80",
+    "pattern": "Litchfield by the Sea[^.]{0,120}\\bfee covers|\\bfee covers[^.]{0,80}(?:guardhouses|Beach Club|River Club)",
+    "struck": "The fee covers the main entrance gates and guardhouses, the private roads, the Beach Club and oceanfront deck and the River Club pool.",
+    "use": "The association owns and maintains the main entrance gates and guardhouses, the private roads, the Beach Club and oceanfront deck, the River Club pool, a crabbing and fishing dock, common landscaping, walking and bike paths, and tennis and pickleball courts."
+  },
+  {
+    "row": "gated 85, 89",
+    "pattern": "usually sells? for about \\$1 million",
+    "struck": "Page: \"Homes usually sell for about $1 million\".",
+    "use": "Litchfield Plantation homes sold for $800,000 to $1.8 million, and the middle sale was about $1 million."
+  },
+  {
+    "row": "gated 85",
+    "pattern": "\\$900,000 to \\$1\\.1 million",
+    "struck": "Homes sell for $900,000 to $1.1 million.",
+    "use": "(Do not use this range: only 3 of the 8 sales fall in it.)"
+  },
+  {
+    "row": "gated 86",
+    "pattern": "\\$1\\.4 million",
+    "struck": "The chart says The Reserve's homes sell for about $1.4 million.",
+    "use": "The Reserve homes usually sell for about $1.35 million."
+  },
+  {
+    "row": "gated 87",
+    "pattern": "\\$510,000",
+    "struck": "Page: \"Homes usually sell for about $510,000\".",
+    "use": "Wachesaw East homes usually sell for about $500,000."
+  },
+  {
+    "row": "gated 88",
+    "pattern": "\\$660,000",
+    "struck": "Page: \"Homes usually sell for about $660,000\".",
+    "use": "Wachesaw Plantation homes usually sell for about $650,000."
+  },
+  {
+    "row": "gated 90",
+    "pattern": "\\bnine (?:of its )?sections",
+    "struck": "33 condos and townhouses in nine of its sections closed from October 2025 through September 2026.",
+    "use": "Whole-unit condos in the sections we counted sold for about $180,000 to $2.2 million between October 2025 and September 2026."
+  },
+  {
+    "row": "gated 90",
+    "pattern": "\\bits condos sold for about \\$180,000|\\bCondos about \\$180,000",
+    "struck": "Over the last 12 months, its condos sold for about $180,000 to $2.2 million.",
+    "use": "In the sections we counted, whole condos (not shared weeks) sold for about $180,000 to $2.2 million over the last 12 months."
+  },
+  {
+    "row": "gated 91",
+    "pattern": "Oystercatcher Island (?:is|was) the only",
+    "struck": "Oystercatcher Island is the only section of houses.",
+    "use": "Houses in its Oystercatcher Island section sold for about $750,000. Houses in other sections sold for very different prices."
+  },
+  {
+    "row": "gated 92",
+    "pattern": "each with its own HOA fee|\\bDifferent in each section\\b|\\bno two (?:sections )?agree",
+    "struck": "Litchfield by the Sea has many sections, each with its own HOA fee and prices.",
+    "use": "Litchfield by the Sea has many sections, and the HOA fee and the prices differ from one section to the next."
+  },
+  {
+    "row": "gated 166",
+    "pattern": "has its own prices and fees",
+    "struck": "Each of its many sections has its own prices and fees.",
+    "use": "The HOA fee and the prices differ from section to section and from unit to unit."
+  },
+  {
+    "row": "gated 93",
+    "pattern": "\\bthree pools\\b",
+    "struck": "Owners share three pools with hot tubs, tennis and pickleball courts, bocce, a fitness center and a clubhouse.",
+    "use": "Tidewater Plantation has pools and hot tubs, tennis and pickleball courts, bocce, a fitness center, a clubhouse and an oceanfront beach cabana with parking at Cherry Grove."
+  },
+  {
+    "row": "gated 93",
+    "pattern": "\\bmost (?:of its )?homes are houses along the fairways",
+    "struck": "Most homes are houses along the fairways of Tidewater Golf Club, and it also has condo buildings.",
+    "use": "Many of its homes are houses along the fairways of Tidewater Golf Club."
+  },
+  {
+    "row": "gated 94, 112",
+    "pattern": "\\btwo (?:freshwater |fresh-water )?lakes",
+    "struck": "Seaside Plantation (North Myrtle Beach) is a small neighborhood of houses with two freshwater lakes.",
+    "use": "Many homes are on its lakes."
+  },
+  {
+    "row": "gated 94",
+    "pattern": "\\b(?:owners|residents) (?:may |can )?drive golf carts",
+    "struck": "Owners share a clubhouse, a pool and a hot tub, and may drive golf carts on its streets. Owners may drive golf carts on its streets.",
+    "use": "(Drop it, or say golf-cart friendly only: the rule is from an agent-entered listing field.)"
+  },
+  {
+    "row": "gated 95",
+    "pattern": "\\bjoin the Residents' Club",
+    "struck": "Most owners of houses also join the Residents' Club.",
+    "use": "Leatherleaf residents can use the Residents' Club, with a pool, tennis courts, a fitness center and a playground; Dye Estates is not on the club's list."
+  },
+  {
+    "row": "gated 95",
+    "pattern": "\\bshuttle\\b",
+    "unless": "season|summer|April|June|weekend",
+    "struck": "Owners can ride a free shuttle to a private beach cabana with showers and gated parking.",
+    "use": "Owners can ride a seasonal shuttle to a private beach cabana with showers and gated parking."
+  },
+  {
+    "row": "gated 96",
+    "pattern": "\\b(?:owners|residents) (?:can|may) use the Ocean Club",
+    "struck": "Owners can use the Ocean Club, a private club on the beach with oceanfront pools and dining.",
+    "use": "Grande Dunes has the Ocean Club, a private club on the beach with oceanfront pools and dining, as well as golf, Har-Tru tennis courts and a marina on the waterway with restaurants beside it."
+  },
+  {
+    "row": "gated 97",
+    "pattern": "\\btwo-story clubhouse|\\beveryone shares\\b",
+    "struck": "Everyone shares a two-story clubhouse, pools, a fitness center, tennis and pickleball courts, a basketball court and a playground.",
+    "use": "It also has a clubhouse, pools, a fitness center, tennis and pickleball courts, a basketball court and a playground."
+  },
+  {
+    "row": "gated 97, 119",
+    "pattern": "\\bprivate (?:boat )?ramp",
+    "struck": "Boat owners have a private boat ramp on the waterway, a day dock and boat storage.",
+    "use": "Waterway Palms Plantation has a boat ramp on the waterway, a day dock and boat storage."
+  },
+  {
+    "row": "gated 99",
+    "pattern": "\\b(?:homes|houses) back up to its lakes",
+    "struck": "Covington Lake East is a neighborhood of houses; many homes back up to its lakes and its streets have sidewalks.",
+    "use": "Many homes face its ponds, and its streets have sidewalks."
+  },
+  {
+    "row": "gated 99",
+    "pattern": "restaurants of Carolina Forest Boulevard",
+    "struck": "The shops and restaurants of Carolina Forest Boulevard are close by.",
+    "use": "Shops and restaurants are less than a mile away in a straight line."
+  },
+  {
+    "row": "gated 112",
+    "pattern": "\\baround its lakes",
+    "struck": "Covington Lake East from above: houses around its lakes.",
+    "use": "Covington Lake East from above: houses on curving streets, with ponds among them."
+  },
+  {
+    "row": "gated 100, 102",
+    "pattern": "\\bevery home must have a resident 55",
+    "struck": "Myrtle Trace: 518 homes, mostly houses and a few townhouses; every home must have a resident 55 or older.",
+    "use": "Every occupied home must have a resident 55 or older."
+  },
+  {
+    "row": "gated 101, 123",
+    "pattern": "Golf and the clay courts|clay courts and (?:the )?golf(?: course)? (?:have|take)|\\bgolf (?:course )?(?:takes|requires|needs) (?:a )?(?:separate|its own) membership",
+    "struck": "Golf and the clay courts take a separate membership. The eleven clay courts and the golf course have their own memberships.",
+    "use": "The clay courts take a separate tennis membership. Golf is open to the public by the round."
+  },
+  {
+    "row": "gated 101",
+    "pattern": "owners association owns a large pool",
+    "struck": "The owners association owns a large pool, a smaller pool and a tennis center with clay courts and two hard courts.",
+    "use": "Its tennis center has clay courts and two hard courts, and it has a large pool and a smaller pool."
+  },
+  {
+    "row": "gated 102",
+    "pattern": "\\bweekly trash",
+    "struck": "The HOA fee includes internet, weekly trash pickup and lawn care.",
+    "use": "The HOA fee is shown on listings as including internet, trash pickup and grounds care."
+  },
+  {
+    "row": "gated 103",
+    "pattern": "\\bsplash (?:area|pad)|\\blighted tennis",
+    "struck": "Owners use The Park at Prince Creek, with two pools and a splash area for children, lighted tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
+    "use": "The park has tennis and pickleball courts, basketball, a playground and a covered pavilion with grills."
+  },
+  {
+    "row": "gated 103",
+    "pattern": "\\bhomes look out over the marsh",
+    "struck": "Some homes look out over the marsh.",
+    "use": "Some homes are on ponds."
+  },
+  {
+    "row": "gated 104",
+    "pattern": "\\bjust outside the gates?\\b",
+    "struck": "Just outside the gates, Wacca Wache Marina is on the Waccamaw River and the Intracoastal Waterway.",
+    "use": "Wacca Wache Marina is less than a mile away, on the Waccamaw River and the Intracoastal Waterway."
+  },
+  {
+    "row": "gated 106",
+    "pattern": "\\bmarina[^.]{0,80}\\bwith a boat ramp",
+    "struck": "It has a marina on the Waccamaw River with a boat ramp.",
+    "use": "It has a marina on the Waccamaw River."
+  },
+  {
+    "row": "gated 106",
+    "pattern": "\\bsidewalks suit",
+    "struck": "Its sidewalks suit walking and biking.",
+    "use": "(Drop it: one listing, and \"suit\" is a quality claim.)"
+  },
+  {
+    "row": "gated 106, 107",
+    "pattern": "\\bcan (?:also )?use (?:the beach|the Beach Club|Litchfield by the Sea)",
+    "struck": "Owners can use the beach and Beach Club at Litchfield by the Sea, a golf cart ride away.",
+    "use": "The beach and Beach Club at Litchfield by the Sea are a golf cart ride away."
+  },
+  {
+    "row": "gated 107",
+    "pattern": "\\bopen fields and marsh",
+    "struck": "Open fields and marsh are along its west side.",
+    "use": "Open fields are along its west side."
+  },
+  {
+    "row": "gated 108",
+    "pattern": "\\brents? (?:out )?boat slips",
+    "struck": "A private marina in the plantation rents boat slips.",
+    "use": "A private marina in the plantation is an optional extra."
+  },
+  {
+    "row": "gated 108",
+    "pattern": "\\bcan use the plantation house",
+    "struck": "Owners can use the plantation house, built in the 1700s.",
+    "use": "It has a plantation house built in the 1700s."
+  },
+  {
+    "row": "gated 108",
+    "pattern": "\\bhomes are houses and townhouses",
+    "struck": "Its homes are houses and townhouses.",
+    "use": "Its homes are mostly houses and townhouses."
+  },
+  {
+    "row": "gated 165",
+    "pattern": "\\bplantation house is used for",
+    "struck": "The plantation house is used for special events.",
+    "use": "The plantation house is available for special events."
+  },
+  {
+    "row": "gated 109",
+    "pattern": "\\b(?:more than|over) a mile of (?:beach|Atlantic)",
+    "struck": "Litchfield by the Sea: more than a mile of beach.",
+    "use": "Litchfield by the Sea has about a mile of beach."
+  },
+  {
+    "row": "gated 109",
+    "pattern": "\\bvillas by the marsh",
+    "struck": "Houses on the ocean, villas by the marsh and condos.",
+    "use": "Homes range from oceanfront houses to villas with marsh views and condos."
+  },
+  {
+    "row": "gated 112",
+    "pattern": "Litchfield by the Sea[^.]{0,120}\\bcondo buildings",
+    "struck": "Litchfield by the Sea from above: condo buildings by the beach.",
+    "use": "Litchfield by the Sea from above: large buildings by the beach."
+  },
+  {
+    "row": "gated 111",
+    "pattern": "\\beight clay",
+    "unless": "Fazio|Wachesaw|membership",
+    "struck": "The DeBordieu Club has a tennis center with eight clay courts.",
+    "use": "The DeBordieu Club has a tennis center with eight Har-Tru courts."
+  },
+  {
+    "row": "gated 112",
+    "pattern": "clubhouse and pools in the middle|its pool and tennis courts near the label|Just inside, a small building|between most of them and the beach",
+    "struck": "Waterway Palms from above: the clubhouse and pools in the middle.",
+    "use": "Waterway Palms Plantation from above: a large building, pools and tennis courts on a point in the water at the left."
+  },
+  {
+    "row": "gated 114",
+    "pattern": "Holes 3 and 12 play over",
+    "struck": "Holes 3 and 12 play over the waterway's marsh, facing Cherry Grove.",
+    "use": "Holes 3 and 12 meet the marsh of the waterway, and hole 4 looks across Cherry Grove Inlet to Cherry Grove Beach."
+  },
+  {
+    "row": "gated 115, 153",
+    "pattern": "Tilghman Beach",
+    "struck": "Seaside Plantation is in the Tilghman Beach part of North Myrtle Beach, a few blocks from the ocean.",
+    "use": "Seaside Plantation is in North Myrtle Beach, a quarter to a half mile from the ocean."
+  },
+  {
+    "row": "gated 115, 153",
+    "pattern": "\\bthousands of (?:shag )?dancers|shag dancers fill",
+    "struck": "Both bring thousands of dancers to Main Street.",
+    "use": "Each fall the Society of Stranders holds its Fall Migration in North Myrtle Beach, which a local paper expected to bring at least 10,000 people; its Spring Safari comes each April."
+  },
+  {
+    "row": "gated 153",
+    "pattern": "\\b(?:two or three|a few) blocks from the (?:ocean|beach|Atlantic)",
+    "struck": "Seaside Plantation is two or three blocks from the ocean.",
+    "use": "Seaside Plantation is in North Myrtle Beach, a quarter to a half mile from the ocean."
+  },
+  {
+    "row": "gated 153",
+    "pattern": "\\bmany of its houses are brick",
+    "struck": "Many of its houses are brick.",
+    "use": "Some of its houses are brick."
+  },
+  {
+    "row": "gated 116",
+    "pattern": "\\bused for hunting|Hurricane Floyd",
+    "struck": "Before that, the land was used for hunting. Hurricane Floyd's flooding in 1999 delayed the opening.",
+    "use": "Barefoot Resort opened four golf courses at the same time in April 2000, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman."
+  },
+  {
+    "row": "gated 117, 154",
+    "pattern": "Resort Course[^.]{0,80}\\bbluff\\b|\\balong a bluff\\b",
+    "struck": "Its Resort Course, designed by Roger Rulewich, opened in 2001 on a bluff above the Intracoastal Waterway, with 34 acres of lakes. Its Resort Course follows the waterway along a bluff.",
+    "use": "Its Resort Course runs along the Intracoastal Waterway."
+  },
+  {
+    "row": "gated 117",
+    "pattern": "\\b34 acres of lakes",
+    "struck": "It opened in 2001 with 34 acres of lakes.",
+    "use": "Its Resort Course, designed by Roger Rulewich, opened in 2001 beside the Intracoastal Waterway."
+  },
+  {
+    "row": "gated 118",
+    "pattern": "paper company's pine land",
+    "struck": "Carolina Forest was a paper company's pine land.",
+    "use": "Carolina Forest was land owned by International Paper."
+  },
+  {
+    "row": "gated 118",
+    "pattern": "\\bplanned from the late 1990s",
+    "struck": "Its neighborhoods were planned from the late 1990s.",
+    "use": "Horry County approved a development agreement for it in December 1997."
+  },
+  {
+    "row": "gated 119",
+    "pattern": "\\blagoon",
+    "struck": "The Waterway Palms clubhouse stands on a point in the lagoon, beside the pools.",
+    "use": "The clubhouse is on a point in a pond in the neighborhood, beside the pools."
+  },
+  {
+    "row": "gated 119, 155",
+    "pattern": "\\bstorage yard",
+    "struck": "Boat owners have a fenced storage yard for boats.",
+    "use": "Boat owners have a fenced boat storage area."
+  },
+  {
+    "row": "gated 119, 156, 160",
+    "pattern": "\\bwinds (?:through|along|around)",
+    "struck": "Black Creek winds through the woods beside it.",
+    "use": "Black Creek runs through the woods along its west side."
+  },
+  {
+    "row": "gated 121",
+    "pattern": "Tuckahoe|\\bamong the first (?:neighborhoods )?in Carolina Forest|Covington Lake[^.]{0,100}\\b1996\\b",
+    "struck": "Covington Lake East is next to Tuckahoe Bay, a Carolina bay; the Covington Lake neighborhoods were started in 1996, among the first in Carolina Forest.",
+    "use": "(Comes off the page: the source names Covington Lake, not Covington Lake East.)"
+  },
+  {
+    "row": "gated 122",
+    "pattern": "\\bmore than 400 acres|Myrtle Trace[^.]{0,120}\\b1982\\b|\\bby 1982\\b",
+    "struck": "Glenn Hall developed it on more than 400 acres bought from International Paper; the first streets and homes were started by 1982.",
+    "use": "Glenn Hall developed Myrtle Trace. Its first lot deeds were recorded in November 1983."
+  },
+  {
+    "row": "gated 124",
+    "pattern": "\\bfirst lots in 2006",
+    "struck": "Levitt and Sons sold its first lots in 2006.",
+    "use": "Levitt and Sons deeded the first lot in Seasons at Prince Creek West in December 2006."
+  },
+  {
+    "row": "gated 124, 159",
+    "pattern": "\\b(?:sold|deeded) the last (?:of (?:its )?444 lots )?in 2016|\\blast of its 444 lots",
+    "struck": "A second builder (MBSC Seasons) sold the last in 2016, of 444 lots. A second builder deeded the last in 2016.",
+    "use": "A second builder, MBSC Seasons, deeded its last lot in December 2016."
+  },
+  {
+    "row": "gated 126, 130",
+    "pattern": "survey of Georgetown County's rice plantations",
+    "struck": "The state's survey of Georgetown County's rice plantations lists it.",
+    "use": "The state's Rice Culture survey of Georgetown County lists it."
+  },
+  {
+    "row": "gated 129",
+    "pattern": "\\b2,400[- ]acres?",
+    "struck": "Willbrook: part of a 2,400-acre grant to Robert Daniel in 1711.",
+    "use": "Willbrook was part of a 24,000-acre grant made by the Lords Proprietors to Robert Daniel in 1711."
+  },
+  {
+    "row": "gated 129",
+    "pattern": "\\b140 enslaved",
+    "struck": "By 1850, 140 enslaved people worked its rice fields.",
+    "use": "The 1850 census counted 149 enslaved people at Willbrook."
+  },
+  {
+    "row": "gated 129",
+    "pattern": "\\b1889\\b",
+    "struck": "Hurricanes from 1889 to 1911 broke the dikes and ended rice growing along the Waccamaw.",
+    "use": "Hurricanes from 1893 to 1911 wrecked the dikes."
+  },
+  {
+    "row": "gated 129",
+    "pattern": "\\bchimney of the plantation house",
+    "struck": "Along it stand the chimney of the plantation house, which burned in 1895.",
+    "use": "Brick remains at the site of the plantation house, rebuilt after a fire in 1895, are beside the course."
+  },
+  {
+    "row": "gated 130",
+    "pattern": "Hepworth|\\bPeter Simons?\\b|\\broyal (?:land )?grants?",
+    "struck": "Litchfield Plantation began with royal land grants to Thomas Hepworth from 1710 to 1712, and Peter Simons named it.",
+    "use": "Litchfield was a rice plantation on the Waccamaw River; the state's Rice Culture survey of Georgetown County lists it."
+  },
+  {
+    "row": "gated 131",
+    "pattern": "Litchfield Company[^.]{0,60}(?:1956|built|founded)|(?:built|developed) by The Litchfield Company",
+    "struck": "The Litchfield Company, founded in 1956, built Litchfield by the Sea.",
+    "use": "Litchfield by the Sea lies between the marsh and the ocean."
+  },
+  {
+    "row": "gated 132",
+    "pattern": "\\bsummer retreat since",
+    "struck": "DeBordieu has been a summer retreat since rice planters built homes there before the Civil War.",
+    "use": "Before the Civil War, rice planters built a colony of summer homes at DeBordieu."
+  },
+  {
+    "row": "gated 133, 148",
+    "pattern": "\\bfrom about 2008",
+    "struck": "Covington Lake East is a neighborhood of houses in Carolina Forest, built from about 2008.",
+    "use": "Covington Lake East has houses built since the mid-2000s."
+  },
+  {
+    "row": "gated 134",
+    "pattern": "\\bfirst lots in October 2000|\\broads and utilities",
+    "struck": "Burroughs & Chapin launched Grande Dunes and sold its first lots in October 2000, once its roads and utilities were in.",
+    "use": "Burroughs & Chapin launched Grande Dunes and made its first sale in October 2000, after building its infrastructure."
+  },
+  {
+    "row": "gated 135",
+    "pattern": "\\ball three[^.]{0,30}beside the golf course|Calais, Palermo and Villa Venezia[^.]{0,20}(?:are|sit) beside the golf course",
+    "struck": "Calais, Palermo and Villa Venezia are beside the golf course.",
+    "use": "Palermo and Villa Venezia are beside the golf course."
+  },
+  {
+    "row": "gated 135",
+    "pattern": "Villa Venezia(?:,| is) the newest",
+    "struck": "Villa Venezia, the newest, has houses built since 2016 and a few empty lots.",
+    "use": "The Villa Venezia houses in the listings we read were built from 2016 on."
+  },
+  {
+    "row": "gated 154",
+    "pattern": "gated sections of houses are Calais",
+    "struck": "Its gated sections of houses are Calais, Palermo and Villa Venezia.",
+    "use": "Its gated sections of houses include Calais, Palermo, Tuscany Village and Villa Venezia."
+  },
+  {
+    "row": "gated 137, 156",
+    "pattern": "\\bthree phases",
+    "struck": "The Bluffs on the Waterway has about 416 home lots, built in three phases since about 2006.",
+    "use": "It was built from about 2006 on."
+  },
+  {
+    "row": "gated 144",
+    "pattern": "Brookgreen Gardens (?:are|is) a short drive",
+    "struck": "Huntington Beach State Park and Brookgreen Gardens are a short drive.",
+    "use": "Huntington Beach State Park and Brookgreen Gardens are about 15 and 18 minutes away by car."
+  },
+  {
+    "row": "gated 145, 154",
+    "pattern": "Carolina Bays Preserve|\\bmiles of (?:walking and biking |walking |biking )?trails",
+    "struck": "Grande Dunes stretches from the ocean to the Carolina Bays Preserve, with miles of walking and biking trails.",
+    "use": "Grande Dunes covers about 2,200 acres, with walking and biking trails."
+  },
+  {
+    "row": "gated 148",
+    "pattern": "\\bfriendly to golf carts",
+    "struck": "Its streets have sidewalks and are friendly to golf carts.",
+    "use": "The streets have sidewalks, and many houses have natural gas."
+  },
+  {
+    "row": "gated 148",
+    "pattern": "Coastal Carolina University[^.]{0,60}\\ba short drive",
+    "struck": "Coastal Carolina University and Carolina Forest Boulevard are a short drive.",
+    "use": "Coastal Carolina University is about 12 minutes away by car."
+  },
+  {
+    "row": "gated 150",
+    "pattern": "\\bclubhouse has a pool, tennis and shuffleboard",
+    "struck": "The clubhouse has a pool, tennis and shuffleboard courts and a playground.",
+    "use": "The community has a clubhouse, a pool, tennis and shuffleboard courts and a playground."
+  },
+  {
+    "row": "gated 150",
+    "pattern": "\\bboat ramp[^.]{0,80}\\bis close by",
+    "struck": "A public boat ramp on the Intracoastal Waterway is close by.",
+    "use": "A public boat ramp on the Intracoastal Waterway, Enterprise Landing, is about a mile and a half away in a straight line."
+  },
+  {
+    "row": "gated 150",
+    "pattern": "\\bolder and smaller than",
+    "struck": "Most houses here are older and smaller than in the other neighborhoods on this page.",
+    "use": "(Cut it: no row compares house age or size across the page.)"
+  },
+  {
+    "row": "gated 154",
+    "pattern": "\\bmost of Grande Dunes is open",
+    "struck": "Most of Grande Dunes is open and only some sections have their own gate.",
+    "use": "Only some sections of Grande Dunes are marked gated by listings: Calais, Palermo, Tuscany Village and Villa Venezia."
+  },
+  {
+    "row": "gated 154, 168",
+    "pattern": "any other neighborhood[^.]{0,30}but DeBordieu|\\bcost the most of the",
+    "struck": "Its homes also cost more than in any other neighborhood here but DeBordieu. Homes here cost the most of the twenty on this page, about $2 million.",
+    "use": "DeBordieu's middle sale price in the last year was about $2 million, among the highest on this page."
+  },
+  {
+    "row": "gated 154",
+    "pattern": "\\ba gate at the entrance of each gated section",
+    "struck": "The facts: a gate at the entrance of each gated section.",
+    "use": "The facts: listings mark Calais, Palermo, Tuscany Village and Villa Venezia as gated."
+  },
+  {
+    "row": "gated 155",
+    "pattern": "wrought[- ]iron|\\bcourtyards\\b|\\bhigh front porches",
+    "struck": "Its plan was taken from Charleston's Battery, with Charleston-style houses of the 1700s, high front porches and courtyards behind wrought-iron or white fences.",
+    "use": "Its plan was patterned after Charleston's Battery district, with Charleston-style architecture as the blueprint."
+  },
+  {
+    "row": "gated 155",
+    "pattern": "\\bgazebos?\\b",
+    "unless": "\\b2014\\b|\\bplan\\b",
+    "struck": "The clubhouse has gazebos for looking out over the water.",
+    "use": "(Cut the gazebos, or date them to the 2014 plan.)"
+  },
+  {
+    "row": "gated 156",
+    "pattern": "\\bwith a day dock",
+    "struck": "One of them is a boathouse on the Intracoastal Waterway, with a day dock.",
+    "use": "One of them is on the Intracoastal Waterway; listings call it a boathouse. Listings also name day docks, a boat ramp and boat storage."
+  },
+  {
+    "row": "gated 156",
+    "pattern": "\\bplaygrounds and walking paths",
+    "struck": "It has tennis and pickleball courts, playgrounds and walking paths.",
+    "use": "It has tennis and pickleball courts and a playground."
+  },
+  {
+    "row": "gated 159",
+    "pattern": "\\bsports park has tennis, bocce and shuffleboard",
+    "struck": "The sports park has tennis, bocce and shuffleboard.",
+    "use": "It also has tennis courts and bocce."
+  },
+  {
+    "row": "gated 159",
+    "pattern": "\\bgolf carts are kept in garages",
+    "struck": "Golf carts are kept in garages, not on the streets.",
+    "use": "The covenants allow a golf cart to be parked only in an enclosed garage."
+  },
+  {
+    "row": "gated 159",
+    "pattern": "calls the owner, who opens the gate",
+    "struck": "A call box at the main entrance; a visitor calls the owner, who opens the gate.",
+    "use": "A gate at the main entrance with a call box for visitors."
+  },
+  {
+    "row": "gated 160",
+    "pattern": "\\bbeside Prince Creek's park|\\bwoods and marsh just south",
+    "struck": "Bellwood Landing: houses on ponds beside Prince Creek's park. Collins Creek winds through the woods and marsh just south of it.",
+    "use": "Bellwood Landing: houses on ponds in Prince Creek West. Collins Creek runs through the woods just south of it."
+  },
+  {
+    "row": "gated 160",
+    "pattern": "\\bowns The Park at Prince Creek",
+    "struck": "Prince Creek West's road and park association owns The Park at Prince Creek West.",
+    "use": "The park was deeded to the road and park association in 2007."
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\btrading post",
+    "struck": "Kimbel's restaurant is on the bluff above the river. It was once a trading post, where Waccamaw people and English colonists traded deer and beaver skins for beads and tools.",
+    "use": "The bluff where Kimbel's restaurant stands was once the site of an outpost where, by one local history, Waccamaw Native Americans and English colonists would have traded animal skins for beads, tools, salt and rum."
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\bInside the gates are",
+    "struck": "Inside the gates are Native American burial mounds.",
+    "use": "On the property are Native American burial mounds."
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\bcalled it the most extensive",
+    "struck": "He called it the most extensive archaeological research done on any South Carolina plantation.",
+    "use": "Michie said the project was the most extensive archaeological research done on any South Carolina plantation."
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\bmuch of its land is kept in conservation",
+    "struck": "Much of its land is kept in conservation.",
+    "use": "Much of the community's natural land is in conservation."
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\bmembership, which is optional, includes",
+    "struck": "A membership, which is optional, includes eight clay tennis courts and Tom Fazio's course.",
+    "use": "Memberships come in levels, open to residents and nonresidents, and give access to eight clay tennis courts and Tom Fazio's course."
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\bclub is still building",
+    "struck": "The club is still building a pool and a restaurant, with completion slated for the spring of 2027.",
+    "use": "Construction began in 2026 on a new pool-side restaurant, Magnolia's, due in the spring of 2027."
+  },
+  {
+    "row": "gated 162",
+    "pattern": "signature hole is the 17th|\\bAzalea\\b",
+    "struck": "Its signature hole is the 17th, Azalea, a par 5 with two fairways.",
+    "use": "The club calls the 18th, played around a pond, its signature hole."
+  },
+  {
+    "row": "gated 162",
+    "pattern": "\\bscorecard\\b|Plantation Terrace",
+    "struck": "Her scorecard is on display in the clubhouse grill room. Golfers sit on the Plantation Terrace, a bar and patio outside the clubhouse.",
+    "use": "(Remove both: they come from a 2013 interview only.)"
+  },
+  {
+    "row": "gated 162",
+    "pattern": "\\bLPGA record",
+    "struck": "In 1998, Meg Mallon shot a 62, then an LPGA record.",
+    "use": "In 1998, Meg Mallon shot a 62 here, the course record."
+  },
+  {
+    "row": "gated 162",
+    "pattern": "\\bhouses date from the early 2000s",
+    "struck": "Its houses date from the early 2000s.",
+    "use": "Of the 13 listings we read, the houses were built from 2000 to 2006."
+  },
+  {
+    "row": "gated 163",
+    "pattern": "\\bstaff launch and haul the boats",
+    "struck": "It has wet slips and dry storage, and staff launch and haul the boats.",
+    "use": "It has wet slips and dry storage, and its staff launch and haul boats kept in dry storage."
+  },
+  {
+    "row": "gated 163",
+    "pattern": "\\bmost houses for sale were built from 2005",
+    "struck": "Most houses for sale were built from 2005 on.",
+    "use": "The houses in the listings we read were built from 2005 to 2019."
+  },
+  {
+    "row": "gated 164",
+    "pattern": "\\bAround 1900, hurricanes",
+    "struck": "Around 1900, hurricanes wrecked the dikes of the rice fields, and rice growing on these rivers ended.",
+    "use": "The loss of workers, rice grown farther west and hurricanes from 1893 to 1911 that wrecked the dikes ended rice growing on the Georgetown rivers."
+  },
+  {
+    "row": "gated 164",
+    "pattern": "\\bmarked cemetery of enslaved people",
+    "unless": "Oatland",
+    "struck": "A marked cemetery of enslaved people is beside the course.",
+    "use": "A marked cemetery of enslaved people from nearby Oatland Plantation is beside the course."
+  },
+  {
+    "row": "gated 164",
+    "pattern": "\\bbrick remains of the plantation house",
+    "struck": "The brick remains of the plantation house are beside the course.",
+    "use": "Brick remains at the site of the plantation house are beside the course."
+  },
+  {
+    "row": "gated 164",
+    "pattern": "\\bbeach is outside the gate",
+    "struck": "The beach is outside the gate.",
+    "use": "The beach and crabbing docks of Litchfield by the Sea are a golf cart ride away."
+  },
+  {
+    "row": "gated 165",
+    "pattern": "\\bgatehouse stands where",
+    "struck": "The gatehouse stands where the avenue meets Kings River Road.",
+    "use": "The main entrance is on the Avenue of Live Oaks, off Kings River Road."
+  },
+  {
+    "row": "gated 166",
+    "pattern": "\\bonly on weekdays",
+    "struck": "Contractors may work only on weekdays, from 7 a.m. to 6 p.m.",
+    "use": "(Drop the contractor hours: the guide also allows Saturday and Sunday, and hours can change.)"
+  },
+  {
+    "row": "gated 166",
+    "pattern": "\\$25 a car",
+    "struck": "Owners' cars come in with a barcode, at $25 a car.",
+    "use": "A new vehicle barcode costs $25."
+  },
+  {
+    "row": "gated 166",
+    "pattern": "\\bThe owner registers each guest|\\bhow the family will get in",
+    "struck": "The owner registers each guest before the visit, and the guard at the main gate checks the list.",
+    "use": "Once the condo is theirs, they register each guest before the visit."
+  },
+  {
+    "row": "gated 167",
+    "pattern": "\\bfloating docks",
+    "struck": "Forty boat slips are on four floating docks.",
+    "use": "The marina has 40 boat slips."
+  },
+  {
+    "row": "gated 167",
+    "pattern": "\\bparty deck",
+    "struck": "Its marina has a dock master at the dock house and a party deck over the water.",
+    "use": "(Delete the party deck unless the association confirms it.)"
+  },
+  {
+    "row": "gated 167",
+    "pattern": "\\bproperty manager|\\bcard room and a party room|\\btwo of them lighted",
+    "struck": "The clubhouse has a full-time property manager, a fitness center, a card room and a party room. There are four clay tennis courts, two of them lighted.",
+    "use": "The clubhouse has a fitness room, and there are four tennis courts."
+  },
+  {
+    "row": "gated 167",
+    "pattern": "\\bby the day or the year|\\bkeeping a boat here costs extra",
+    "struck": "Slips at the marina are rented by the day or the year, so keeping a boat here costs extra.",
+    "use": "Slips are rented, mostly on long-term contracts, and the marina is open to people who do not live in Heritage Plantation."
+  },
+  {
+    "row": "gated 167",
+    "pattern": "\\bleads to Winyah Bay",
+    "struck": "From the docks, the river leads to Winyah Bay and the ocean.",
+    "use": "The marina is on the Intracoastal Waterway and the Waccamaw River."
+  },
+  {
+    "row": "gated 169",
+    "pattern": "\\bdrive there takes about 8 minutes|\\bon the marsh, not the ocean",
+    "struck": "Owners have their own oceanfront cabana, with parking, at Cherry Grove Beach; the drive there takes about 8 minutes. Tidewater is on the marsh, not the ocean.",
+    "use": "Tidewater is on the Intracoastal Waterway, not the ocean. The nearest public beach access is about 8 minutes away by car, without traffic."
+  },
+  {
+    "row": "gated 170",
+    "pattern": "golf fairways and ponds at the right",
+    "struck": "Litchfield Plantation from above, with golf fairways and ponds at the right.",
+    "use": "Litchfield Plantation from above, with a neighboring golf course and its ponds at the right."
+  }
+]
