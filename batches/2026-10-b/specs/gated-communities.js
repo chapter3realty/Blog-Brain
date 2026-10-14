@@ -82,7 +82,7 @@
  */
 const { h, kit, data, placesMap, compareCards, wantPicker, prosCons, atAGlance, glance, story, photoSetB, BB } = require("./_kit.js");
 const path = require("path");
-const { loadGeo2 } = require(path.join(BB, "tools", "area-map.js"));
+const { regionMap, loadGeo2 } = require(path.join(BB, "tools", "area-map.js"));
 
 /* A town name the reader needs ("Myrtle Beach", "Pawleys Island"), added to a map the tool drew: the same
    helper as batches/2026-10-b/specs/best-neighborhoods.js (addTown), so both pages draw it alike. The point
@@ -196,7 +196,9 @@ function labelDots(res, forms, o = {}) {
   const markers = m.boxes.filter((b) => b.kind === "marker");
   const cen = (b) => [(b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2];
   const LH = 17.5, out = [], missed = [];
-  for (const p of m.places) {
+  /* o.first: dots named before the others, so a crowded dot gets the room beside it first. */
+  const first = o.first || [];
+  for (const p of [...m.places].sort((x, y) => (first.includes(y.num) ? 1 : 0) - (first.includes(x.num) ? 1 : 0))) {
     if (p.labelled && !strip.has(p.num)) continue;
     const mk = markers.find((b) => b.owner === "lm" + (p.num - 1));
     const [cx, cy] = cen(mk), r = (mk.x1 - mk.x0) / 2;
@@ -224,7 +226,7 @@ function labelDots(res, forms, o = {}) {
   const i = svg.indexOf("</svg>");
   if (i < 0) throw new Error("the map is not inline, so names cannot be added");
   res.html = svg.slice(0, i) + out.join("") + svg.slice(i);
-  if (missed.length) console.warn(`gated-communities: no room on map 1 for the names of ${missed.join(", ")}; the key names them`);
+  if (missed.length) console.warn(`gated-communities: no room on ${res.map.name || "a map"} for the names of ${missed.join(", ")}; the key names them`);
   return res;
 }
 const placeOf = (e) => ({ name: GEO_NAME(e), short: e.short, lat: e.lat, lon: e.lon, href: "#" + e.id });
@@ -232,33 +234,30 @@ const renumberTo = (res, ids) => {
   const nums = ids.map((id) => byId[id].n);
   res.html = res.html.replace(/<ol[\s\S]*?<\/ol>/, "");
   res.html = res.html.replace(/(<text class="nm"[^>]*>)(\d+)(<\/text>)/g, (m0, x, k, y) => x + nums[+k - 1] + y);
+  /* The map's spoken name lists the places "numbered 1, ...": the page's numbers there too. */
+  res.html = res.html.replace(/(numbered )([^"]*?)(\.")/g, (m0, a, list, b) => a + list.replace(/(^|; |and )(\d+)(, )/g, (x, q, k, r) => q + nums[+k - 1] + r) + b);
   return res;
 };
 const MAP_FORMS = {
+  "Barefoot Resort: Leatherleaf and Dye Estates": [["Barefoot"]],
   "Seaside Plantation": [["Seaside Plantation"], ["Seaside", "Plantation"], ["Seaside"]],
   "The Bluffs on the Waterway": [["The Bluffs"], ["The", "Bluffs"]],
   "Covington Lake East": [["Covington Lake East"], ["Covington", "Lake East"], ["Covington"]],
-  "Myrtle Beach Golf and Yacht Club": [["Golf and Yacht Club"], ["Golf and", "Yacht Club"]],
+  "Myrtle Beach Golf and Yacht Club": [["Golf and Yacht Club"], ["Golf and", "Yacht Club"], ["Golf and", "Yacht", "Club"]],
 };
 const CLUSTER_MI = ["prince-creek-55", "bellwood-landing", "wachesaw-plantation", "wachesaw-east"];
 const MAP_N = (() => {
   const all = E.slice(0, N_SPLIT), outerIds = all.map((e) => e.id).filter((id) => !CLUSTER_MI.includes(id));
-  const INSET = renumberTo(placesMap("Murrells Inlet gated neighborhoods", CLUSTER_MI.map((id) => placeOf(byId[id])), {
-    caption: `Closer map of the four neighborhoods in Murrells Inlet, numbered as on this page.`,
-  }), CLUSTER_MI);
-  const OUTER = labelDots(placesMap("Gated neighborhoods, North Myrtle Beach to Murrells Inlet", outerIds.map((id) => placeOf(byId[id])), {
-    caption: `Map of the neighborhoods 1 to ${N_SPLIT} on this page, from North Myrtle Beach (top right) to Murrells Inlet (bottom left). The box marks the four in Murrells Inlet, on the closer map below.`,
-  }), MAP_FORMS);
-  {
-    const f = OUTER.map.frame, W = OUTER.map.width, H = OUTER.map.height, cl = CLUSTER_MI.map((id) => byId[id]), pad = 0.006;
-    const g = { west: Math.min(...cl.map((n) => n.lon)) - pad, east: Math.max(...cl.map((n) => n.lon)) + pad, north: Math.max(...cl.map((n) => n.lat)) + pad, south: Math.min(...cl.map((n) => n.lat)) - pad };
-    const x = (lon) => ((lon - f.west) / (f.east - f.west) * W).toFixed(1), y = (lat) => ((f.north - lat) / (f.north - f.south) * H).toFixed(1);
-    const rect = `<rect x="${x(g.west)}" y="${y(g.north)}" width="${(x(g.east) - x(g.west)).toFixed(1)}" height="${(y(g.south) - y(g.north)).toFixed(1)}" fill="none" stroke="#1f2a44" stroke-width="1.2" stroke-dasharray="4 3" opacity=".75"/>`;
-    const k = OUTER.html.indexOf("<g><g transform");
-    OUTER.html = k > 0 ? OUTER.html.slice(0, k) + rect + OUTER.html.slice(k) : OUTER.html.replace("</svg>", rect + "</svg>");
-    renumberTo(OUTER, outerIds);
-  }
-  const KEY = placesMap("Gated neighborhoods 1 to 14 key", all.map(placeOf), { caption: "Map key", key: true }).map.key;
+  const MAPDIR = { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420 };
+  const draw = (name, ids, caption) => {
+    const m = regionMap({ name, places: ids.map((id) => placeOf(byId[id])) }, MAPDIR);
+    return { html: kit.mapFigure(m.html, caption, m.credit), map: m };
+  };
+  const OUTER = renumberTo(labelDots(draw(`Gated neighborhoods 1 to ${outerIds.length}, North Myrtle Beach to Socastee`, outerIds,
+    `Map of the neighborhoods 1 to ${outerIds.length} on this page, from North Myrtle Beach (top right) to Socastee (bottom left). The city of Myrtle Beach is on the coast between Grande Dunes (${byId["grande-dunes"].n}) and Prestwick (${byId.prestwick.n}). The four in Murrells Inlet are on the next map.`), MAP_FORMS, { first: [6, 9], strip: [3, 7] }), outerIds);
+  const INSET = renumberTo(labelDots(draw("Gated neighborhoods in Murrells Inlet", CLUSTER_MI,
+    `Map of the neighborhoods ${byId[CLUSTER_MI[0]].n} to ${byId[CLUSTER_MI[3]].n} on this page, in Murrells Inlet, near Garden City.`), MAP_FORMS), CLUSTER_MI);
+  const KEY = placesMap(`Gated neighborhoods 1 to ${N_SPLIT} key`, all.map(placeOf), { caption: "Map key", key: true }).map.key;
   return { html: OUTER.html + INSET.html + KEY };
 })();
 const MAP_S = (() => {
