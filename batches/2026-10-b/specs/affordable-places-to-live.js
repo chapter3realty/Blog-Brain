@@ -212,18 +212,18 @@ module.exports = {
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, the roads to them, and what a home costs.",
-  sub: "We went through every home sale the county recorded in the past year, one neighborhood at a time.",
+  sub: `Twelve affordable neighborhoods near Myrtle Beach where you can buy a home for about ${money(N.parkview.price)} to ${money(N["glenns-bay"].price)}.`,
   heroMedia: glance([
     { icon: "dollar", label: "Lowest: Parkview", text: `About ${money(N.parkview.price)}` },
     { icon: "town", label: "A Myrtle Beach house", text: `About ${money(MB_HOUSE)}` },
     { icon: "beach", label: "To the beach", text: "5 to 20 min" },
     { icon: "key", label: "Down payment help", text: "$10,000" },
   ]),
-  heroCta: { title: "See what your budget buys in these neighborhoods.", label: OFFER, href: CONTACT, text: "Tell us your price range. One of our agents will send you the homes for sale in these neighborhoods, and the down-payment programs that fit. We check the HOA papers, the flood map and the tax record for any home you like. The form asks for your name, email and phone." },
+  heroCta: { title: "See what your budget buys in these neighborhoods.", label: OFFER, href: CONTACT, text: "Tell us your price range. One of our agents will send you the homes for sale there, and the down-payment programs that fit. We check the HOA papers, the flood map and the tax record for any home you like. The form asks your name, email and phone." },
   author: "devin",
   shortAnswer: [
     `The homes that sell for the least near Myrtle Beach are townhomes in Parkview, Wild Wing Plantation and Carolina Forest. They usually sold for about ${money(N.parkview.price)} to ${money(N["sawgrass-east"].price)} in the past year.`,
-    `For a house, look off Bay Road in Socastee and in the new neighborhoods near Longs. A house in the city of Myrtle Beach usually sold for about ${money(MB_HOUSE)}.`,
+    `For a house, look off Bay Road in Socastee and in new neighborhoods near Longs. A house in the city of Myrtle Beach usually sold for about ${money(MB_HOUSE)}.`,
   ],
   sections: [
     { h2: "Where do homes sell for the least near Myrtle Beach?", toc: "Where homes cost the least", id: "compare", html: () =>
@@ -235,7 +235,7 @@ module.exports = {
       h.p("Drive times are from the middle of each neighborhood with no traffic. In our experience, rush hour adds 5 to 10 minutes.") },
 
     entry("parkview", "gated townhomes inside Myrtle Beach", () =>
-      h.p("Parkview is a gated community of townhomes off 17th Avenue South, near Harrelson Boulevard. It is the one place on this list inside the city of Myrtle Beach, a few minutes from Coastal Grand Mall and the beach.") +
+      h.p("Parkview is a gated community of townhomes off 17th Avenue South, near Harrelson Boulevard. It is the one place on this list inside the city of Myrtle Beach. Coastal Grand Mall and the beach are a few minutes away.") +
       h.p("The townhomes are around ponds, with a pool for the owners. The HOA fee includes water, sewer, internet and the grounds.") +
       h.p("Few of these townhomes sell in a year, so we watch for each new listing here.") +
       facts("parkview")),
@@ -248,7 +248,7 @@ module.exports = {
       facts("fairways-at-wild-wing")),
 
     entry("sawgrass-east", "townhomes off Carolina Forest Boulevard", () =>
-      h.p("Sawgrass East is a townhome community on Stanton Place, Shoebridge Drive and Seabert Road, off Carolina Forest Boulevard. Carolina Forest Boulevard runs north from US 501 through Carolina Forest, an area of newer neighborhoods.") +
+      h.p("Sawgrass East is a townhome community on Stanton Place, Shoebridge Drive and Seabert Road, off Carolina Forest Boulevard. Carolina Forest is an area of newer neighborhoods along that road, north of US 501.") +
       SAWGRASS_PHOTO +
       h.p("The townhomes are around small ponds, with a pool and a clubhouse owners can rent for a party. As at the Fairways, the HOA fee includes water and sewer.") +
       facts("sawgrass-east")),
@@ -267,16 +267,17 @@ module.exports = {
       h.p("To reach Myrtle Beach, you take SC 9 to the Carolina Bays Parkway. The beach in North Myrtle Beach is closer.") +
       facts("birchwood")),
 
-    entry("amber-bluff", "new townhomes near Coastal Carolina University", () =>
+    entry("amber-bluff", "new townhomes near Coastal Carolina University", (bg) =>
       h.p("The Townes at Amber Bluff is a new townhome community off Savannah Bluff Road, on the Conway side of US 501. Its streets are Gemstone Boulevard, Golden Resin Road, Harvest Gold Drive and Honeystone Street.") +
       h.p("It is about a mile north of Brooks Stadium, Coastal Carolina University's football stadium. D.R. Horton built and sold every townhome recorded here in the past year, all on one floor plan with three bedrooms.") +
       h.p("Each townhome came with a smart-home package for the front door lock, the thermostat and a video doorbell. The HOA fee includes the grounds and trash, not water.") +
-      facts("amber-bluff")),
+      facts("amber-bluff") +
+      h.cta("Want the homes for sale in one of these neighborhoods?", "Tell us which ones you like and your price range. One of our agents will send you what is for sale there, with the HOA fee and the yearly tax for each home.", OFFER, CONTACT, bg)),
 
     entry("indigo-grove", "new houses off SC 90", () =>
-      h.p("Indigo Grove is a new neighborhood of houses on Indigo Grove Drive, Swaying Palm Court and Cambria Drive, off SC 90, south of Longs. Lennar sells it as The Overlook.") +
-      h.p("Every house recorded here in the past year was a Lennar sale, and all of them closed within about five months, the fastest pace on this list.") +
-      h.p("Indigo Grove is zoned for North Myrtle Beach's schools, and the drive to the beach in North Myrtle Beach is the shortest of the places near Longs.") +
+      h.p("Indigo Grove is a new neighborhood off SC 90, south of Longs. Its streets include Indigo Grove Drive, Swaying Palm Court and Cambria Drive. Lennar sells it as The Overlook.") +
+      h.p("Every house recorded here in the past year was a Lennar sale. All of them closed within about five months, the fastest pace on this list.") +
+      h.p("Indigo Grove is zoned for North Myrtle Beach's schools. Of the places near Longs, it has the shortest drive to the beach.") +
       facts("indigo-grove")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
@@ -300,7 +301,7 @@ module.exports = {
       facts("coopers-bluff")),
 
     entry("polo-farms", "older houses with a small HOA fee", () =>
-      h.p("Polo Farms is a neighborhood of houses on Heath Drive, Iree's Way, Alexis Drive and Seth Lane, off SC 905 between SC 9 and SC 22, west of Longs.") +
+      h.p("Polo Farms is a neighborhood of houses off SC 905, between SC 9 and SC 22, west of Longs. Its streets include Heath Drive, Iree's Way and Seth Lane.") +
       h.p("Unlike the new neighborhoods on this list, every sale here in the past year was a resale. The houses are one story, on lots of about a fifth of an acre.") +
       h.p("Its HOA fee is the lowest on this list. Our guide to " + h.a("/buyers/no-hoa-homes/", "homes with no HOA") + " covers places with no fee at all.") +
       facts("polo-farms")),
@@ -314,10 +315,10 @@ module.exports = {
     { h2: "How do the towns compare?", toc: "The towns", id: "towns", html: () =>
       h.p("Across a whole town, a home usually costs more than in the twelve places above. These are homes that resold in the past year, on the same measure.") +
       TOWNS +
-      h.p(`Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself. To choose by what you want nearby, read our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}, or ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")}.`) },
+      h.p(`Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself. To choose by what you want nearby, read our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}. Our guide to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")} covers one neighborhood in depth.`) },
 
     { h2: "How much property tax will you pay?", toc: "Property tax", id: "property-tax", html: () =>
-      h.p(`Most places on this list are outside any town, so homes there pay only ${h.ext(LEVY, "the county's tax rates")}. Parkview is inside the city of Myrtle Beach, and the Fairways at Wild Wing is inside the city of Conway, which adds Conway's city tax.`) +
+      h.p(`Most places on this list are outside any town, so homes there pay only ${h.ext(LEVY, "the county's tax rates")}. Parkview is inside the city of Myrtle Beach. The Fairways at Wild Wing is inside the city of Conway, which adds its own city tax.`) +
       h.p("Take a $240,000 home that is your main home. Outside a town, or in Myrtle Beach, its tax is about $970 a year. Inside Conway, it is about $1,570.") +
       h.p("When you buy, the county values the home at about what it is worth that year. The new value shows up on the next year's tax bill.") +
       h.p(`These figures are for your main home, once the county gives it the lower rate for a home you live in. You apply for that rate; it is not automatic. Our ${h.a("/buyers/property-taxes/", "property tax guide")} shows how to apply.`) },
@@ -341,7 +342,7 @@ module.exports = {
     { q: "What is the cheapest neighborhood to buy a home near Myrtle Beach?", a: `Of the neighborhoods where at least 10 homes sold in the past year, Parkview had the lowest prices. Its townhomes usually sold for about ${money(N.parkview.price)}. Parkview is a gated community off 17th Avenue South, inside the city of Myrtle Beach.` },
     { q: "Where can you buy a new house near Myrtle Beach for less?", a: `In Birchwood, off SC 905 near Longs, new Lennar houses usually sold for about ${money(N.birchwood.price)} in the past year. In Indigo Grove, off SC 90, they usually sold for about ${money(N["indigo-grove"].price)}.` },
     { q: "Is it cheaper to buy in Conway than in Myrtle Beach?", a: `Yes. Leaving out condos, a home that resold in Conway in the past year usually went for about ${money(264250)}. A house in the city of Myrtle Beach usually went for about ${money(MB_HOUSE)}. Inside the city limits, Conway's property tax is higher.` },
-    { q: "Which affordable neighborhood is closest to the beach?", a: `The Cove at Glenns Bay, a new townhome community off Glenns Bay Road, is about 2 miles from the beach in Surfside Beach. Its townhomes usually sold for about ${money(N["glenns-bay"].price)} in the past year.` },
+    { q: "Which affordable neighborhood is closest to the beach?", a: `The Cove at Glenns Bay is a new townhome community off Glenns Bay Road. It is about 2 miles from the beach in Surfside Beach. Its townhomes usually sold for about ${money(N["glenns-bay"].price)} in the past year.` },
     { q: "Do you have to be a first-time buyer to get down-payment help?", a: "No, not in Horry or Georgetown County. For SC Housing's Homebuyer Program, you must not own a home when you close. Palmetto Home Advantage is open to repeat buyers too." },
   ],
   sources: [
@@ -353,7 +354,7 @@ module.exports = {
     { name: "SC Department of Insurance", href: DOI },
     { name: "WMBF News on the speedway", href: SPEEDWAY },
   ],
-  sourcesNote: "Not legal, tax or loan advice. Prices are the middle recorded sale in each neighborhood from October 2025 through September 2026, with condo units and sales far below a home's value left out. Home details and HOA fees are from listings in each neighborhood. Drive times have no traffic. Tax figures leave out the break for owners 65 and older.",
+  sourcesNote: "Not legal, tax or loan advice. Prices are the middle recorded sale in each neighborhood from October 2025 through September 2026. Condo units and sales far below a home's value are left out. Home details and HOA fees are from listings in each neighborhood. Drive times have no traffic. Tax figures leave out the break for owners 65 and older.",
   afterSources: () => ph.credits() + ITEMLIST(),
   bottomCta: { h2: "See what your budget buys in these neighborhoods.", p: "Tell us your price range and the places you like. One of our agents will send you the homes for sale there, and the down-payment programs that fit.", label: OFFER, href: CONTACT },
   keywords: "most affordable places to live near Myrtle Beach, cheapest neighborhoods Myrtle Beach, affordable townhomes Myrtle Beach, cheap homes near Myrtle Beach, new homes under 250000 Myrtle Beach, Parkview Myrtle Beach, Wild Wing Plantation townhomes, Victory Point Myrtle Beach, Birchwood Longs SC, Indigo Grove Longs",
