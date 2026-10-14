@@ -308,7 +308,7 @@ const SECTIONS_PLACES = [
   "a gate at the main entrance with a call box for visitors. Homes usually sell for about $500,000."),
 
   entry("bellwood-landing", "houses on ponds in Prince Creek West", [
-    "Bellwood Landing is a small neighborhood of houses in Prince Creek West, near Murrells Inlet. Some homes are on ponds, and Collins Creek runs through the woods just south of it.",
+    "Bellwood Landing is a small neighborhood of houses in Prince Creek West, near Murrells Inlet. Some homes are on ponds, and Collins Creek runs through the woods along its south edge.",
     "Its owners association recorded a gate policy with the county in 2024, and the main gate is on TPC Boulevard.",
     "The Park at Prince Creek West lies about half a mile north. The park was deeded to the road and park association in 2007. It covers 43 acres, with tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
     `For TPC Myrtle Beach and the rest of Prince Creek, see our ${h.a(BEST, "best neighborhoods in Myrtle Beach")}.`,
