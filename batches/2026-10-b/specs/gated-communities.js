@@ -309,7 +309,7 @@ const SECTIONS_PLACES = [
   entry("bellwood-landing", "houses on ponds in Prince Creek West", [
     "Bellwood Landing is a small neighborhood of houses in Prince Creek West, near Murrells Inlet. Some homes are on ponds, and Collins Creek runs through the woods along its south edge.",
     "Its lots are big: most are close to half an acre, and some on the marsh by Collins Creek are larger than an acre and a half. The houses were built from 2006 on, several of them custom-built. Homes here usually sell for about $850,000, for a house of that age on close to half an acre.",
-    "The Park at Prince Creek West, about 4 minutes north by car, covers 43 acres, with tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
+    "The Park at Prince Creek West is about 4 minutes north by car. It covers 43 acres, with tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
     `For TPC Myrtle Beach and the rest of Prince Creek, see our ${h.a(BEST, "best neighborhoods in Myrtle Beach")}.`,
     "Some lots have no house yet, so new houses are going up beside some homes.",
   ], P("bellwood-landing"), "Bellwood Landing from above: houses around a pond, beside the woods.",
@@ -333,7 +333,7 @@ const SECTIONS_PLACES = [
 
   entry("the-reserve", "Greg Norman's private course and a river marina", [
     "The Reserve Golf Club, designed by Greg Norman, opened in 1998 on 350 acres, about 160 of them wetlands. Its holes are cut through the woods, around ponds and marsh.",
-    "The neighborhood's marina, on the Waccamaw River, is run by Safe Harbor. It has wet slips and dry storage, and its staff launch and haul boats kept in dry storage. Its Harbor Club has a restaurant.",
+    "The neighborhood's marina, on the Waccamaw River, is run by Safe Harbor. It has wet slips and dry storage, and its staff launch and haul boats kept in dry storage. Its Harbor Club has a pool and a restaurant.",
     "The golf club is private, and its membership is separate from owning a home. The Harbor Club is a separate membership too.",
   ], P("the-reserve"), "The Reserve from above: houses around a pond, with golf fairways cut through the woods.",
   "a gate at the entrance. Its houses date from 2005 to 2019; they usually sell for about $1.35 million, and the HOA fee is about $320 a month on most homes."),
@@ -342,7 +342,7 @@ const SECTIONS_PLACES = [
     "Willbrook was part of a land grant made in 1711. Enslaved people grew rice here; the 1850 census counted 149 at Willbrook. The loss of workers, rice grown farther west and a run of hurricanes that wrecked the dikes ended rice growing on the Georgetown rivers.",
     "Before Dan Maples' course opened, archaeologists surveyed the land. Beside the course are a marked cemetery of enslaved people from nearby Oatland Plantation and brick remains at the site of the plantation house.",
     "Open fields, cut by straight ditches, lie along its west side. The neighborhood has a pool and a clubhouse.",
-    "Homes here usually sell for about $1 million; in the last year they sold for about $630,000 to $1.5 million.",
+    "In the last year, homes here sold for about $630,000 to $1.5 million, and the middle sale was about $1 million.",
   ], P("willbrook-plantation"), "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left.",
   "a gatehouse at the entrance off Willbrook Boulevard. The HOA fee is about $340 a month."),
 
