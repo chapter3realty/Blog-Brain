@@ -70,6 +70,8 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B28. Cutting a repeat leaves a hole.** Round 9's review graded gated and affordable 7. Both cured round 8's repetition by cutting: the rice lines, the designer years, the street lists. Nothing new went in. Gated entries fell to a median of 78 words, three of them 39 to 47; affordable's places became 59-word spec sheets over a table that repeated them. The fix for repetition is a new fact, not a shorter entry. `repeat-check --strict` now fails an entry under 60 words, or a median under 90 on a list of four or more. Run on the round 9 pages, it failed exactly the three the reviewer failed and passed the two it passed.
 
+**B29. An aerial can show the wrong neighborhood.** The Deerfield aerial had passed three reviews. When the writer laid the county parcel lines over it, its left half was two other neighborhoods, Southwood and Belle Mer, and the lake and canal in it were theirs. The frame was centered on a point, not on the parcels. Rule: draw the county parcel or subdivision outline over every aerial of a named place before labelling it, and test every label point against that outline. A label that tests outside is wrong, however right it looks.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
