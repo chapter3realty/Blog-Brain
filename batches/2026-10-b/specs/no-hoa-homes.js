@@ -441,7 +441,7 @@ module.exports = {
     ], LR_PHOTO, "none of the houses for sale here is within a mile of the beach."),
 
     { h2: "How do the eight areas compare?", toc: "The areas side by side", html: () =>
-      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of the houses listed with no fee are on the ocean side of US 17 Business, the coast road, which helps explain the higher price.`) +
+      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of the houses listed with no fee are on the ocean side of US 17 Business, the coast road, which helps explain why they cost more.`) +
       areaTable() +
       h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) },
 
