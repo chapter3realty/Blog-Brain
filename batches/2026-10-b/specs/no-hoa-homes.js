@@ -311,7 +311,7 @@ const LABEL = "Get the list";
 const STORY = [
   "<strong>Example:</strong> Teresa wants a home with no HOA and room for her 20-foot boat. She likes a house on a small lot with a Myrtle Beach address.",
   "Her Chapter3 agent finds the house on the county map, inside the city of Myrtle Beach. In the city, a boat that long may not be kept in the front yard, and that lot has no other room for it.",
-  "The agent shows her houses just outside the city, where the county has no rule on where she parks the boat. Teresa makes an offer on one with a wide side yard.",
+  "The agent shows her houses outside the city limits, where the county has no rule on where she parks the boat. Teresa makes an offer on one with a wide side yard.",
 ];
 
 /* One numbered area (round 7; CRAFT 3, "A list of places is read one place at a time"): the headline with
@@ -398,13 +398,13 @@ module.exports = {
       "Almost no home inside the town of Aynor is in a high-risk flood zone on FEMA's flood map.",
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
-    entry("Loris", "Loris: new houses on about 0.7 acre, near a small downtown", [
+    entry("Loris", "Loris: new houses on about 0.7 acre in the country around the town", [
       `In the late 1800s Loris was a farm center for the country around it. It grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street.`,
       `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and two stages of live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
       "Loris has its own hospital, McLeod Loris, in town. Its lots fall between Aynor's acre and Conway's half acre.",
     ], LORIS_PHOTO, "Coastal Grand Mall in Myrtle Beach is a drive of about 50 minutes."),
 
-    entry("Conway", "Conway: half an acre near the Waccamaw River and an old downtown", [
+    entry("Conway", "Conway: half an acre around the county seat on the Waccamaw River", [
       `Conway began in the 1730s as Kingston Village, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "later Conwayborough")}, then Conway. Its Riverwalk runs along the river downtown.`,
       "Lots are about half an acre, a little smaller than in Aynor or Loris, and you are closest to the beach of the three. About a third of the houses for sale were built in 2024 or later.",
       `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. It is a two-story brick building with columns in the old downtown.`,
@@ -422,15 +422,15 @@ module.exports = {
       "From Garden City, the MarshWalk restaurants are about 7 minutes south by car.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
-    entry("Murrells Inlet", "Murrells Inlet: bigger houses near the seafood restaurants and Brookgreen Gardens", [
+    entry("Murrells Inlet", "Murrells Inlet: bigger houses, seafood restaurants and Brookgreen Gardens", [
       `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought a tract there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
       `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. In the twentieth century a fleet of charter and party boats grew up at the inlet, and its captains took visiting anglers offshore.`,
       `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, bigger than the typical house in any of the other seven areas.`,
     ], INLET_PHOTO, "Murrells Inlet is not a town, and part of it is in Georgetown County, with its own tax bill and rules."),
 
-    entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near the ocean", [
-      `Myrtle Beach began at the end of a logging railroad from Conway. In 1901 the railroad company ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought a large tract and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
-      "Outside Carolina Forest, almost half of the houses for sale date from before 1990.",
+    entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses, many within a mile of the ocean", [
+      `Myrtle Beach began at the end of a logging railroad from Conway. The railroad company then ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought a large tract and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
+      "Outside Carolina Forest, almost half of the houses for sale date from before 1990, and more than half are within a mile of the ocean.",
       `On the south side of the city, ${h.ext(MB_STATE_PARK, "Myrtle Beach State Park")} opened in 1936, the first of South Carolina's state parks to open. It has a mile of undeveloped beach, a fishing pier and a nature trail.`,
     ], MB_PHOTO, "about half are inside the city, where the city's limits on boats and work trucks apply."),
 
@@ -441,7 +441,7 @@ module.exports = {
     ], LR_PHOTO, "none of the houses for sale here is within a mile of the beach."),
 
     { h2: "How do the eight areas compare?", toc: "The areas side by side", html: () =>
-      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of the houses listed with no fee are on the ocean side of US 17 Business, the coast road, and houses there cost more.`) +
+      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. About a third of the houses listed with no fee are on the ocean side of US 17 Business. Those list at about $800,000, against about $435,000 for the others.`) +
       areaTable() +
       h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) },
 
