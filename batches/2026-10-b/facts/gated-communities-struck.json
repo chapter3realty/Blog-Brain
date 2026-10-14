@@ -777,7 +777,7 @@
     "row": "gated 22",
     "pattern": "main entrance is at the light by Tidelands",
     "struck": "The main entrance is at the light by Tidelands Waccamaw Community Hospital, and the back gate on Wachesaw Road opens with a card key.",
-    "use": "Visitors turn in from the light by Tidelands Waccamaw Community Hospital, cross Old Kings Highway and reach the gate guard. The back gate on Wachesaw Road takes a card key only."
+    "use": "Visitors turn in from the light by Tidelands Waccamaw Community Hospital, cross Old Kings Highway and reach the gate guard. One listing says the back gate on Wachesaw Road takes a card key only."
   },
   {
     "row": "gated 162",
@@ -902,5 +902,30 @@
     "pattern": "Collins Creek[^.]{0,60}just south",
     "struck": "Collins Creek runs through the woods just south of it.",
     "use": "Collins Creek runs through the woods along its south edge."
+  },
+  {
+    "row": "gated 22, 176",
+    "pattern": "back gate on Wachesaw Road (?:takes|is|opens)[^.]{0,30}card key",
+    "unless": "\\b(?:one|a|the) listing|\\blistings? (?:say|says|show|shows)\\b",
+    "struck": "The back gate on Wachesaw Road takes a card key only.",
+    "use": "One listing says the back gate on Wachesaw Road takes a card key only. (Or cut it: the flat statement rests on one listing, MLS 2620244.)"
+  },
+  {
+    "row": "gated 176",
+    "pattern": "^About 16 minutes$",
+    "struck": "About 16 minutes",
+    "use": "About 15 minutes (Covington Lake East: 16.3 minutes rounds to 15)"
+  },
+  {
+    "row": "gated 176",
+    "pattern": "^About 17 minutes$",
+    "struck": "About 17 minutes",
+    "use": "About 15 minutes (Myrtle Trace: 16.7 minutes rounds to 15)"
+  },
+  {
+    "row": "gated 176",
+    "pattern": "nearest public beach access, from the middle of the homes",
+    "struck": "All 20 neighborhoods: what homes sell for, the HOA fee and the drive to the nearest public beach access, from the middle of the homes, with no traffic",
+    "use": "All 20 neighborhoods: what homes sell for, the HOA fee and the drive to the nearest public beach access, from a street inside each neighborhood, with no traffic"
   }
 ]
