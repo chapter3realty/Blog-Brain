@@ -335,7 +335,7 @@ module.exports = {
       strip("villas-at-sandridge") +
       h.p("Villas at Sandridge is a new townhome community off SC 90 near Little River, from Dream Finders Homes. The county records it as Village at Sandridge, and new townhomes here were still selling in September 2026. Each is two stories, with a one-car garage.") +
       PH["villas-at-sandridge"] +
-      h.p("The North Myrtle Beach Park and Sports Complex, with ball fields and walking trails around a lake, is about five minutes by car to the southwest, across the highway interchange. Marinas on the Intracoastal Waterway are six or seven minutes east by car. A Food Lion, an Aldi and a Kroger are six to eight minutes away.") +
+      h.p("The North Myrtle Beach Park and Sports Complex has ball fields and walking trails around a lake. It is about five minutes by car to the southwest, across the highway interchange. Marinas on the Intracoastal Waterway are six or seven minutes east by car. A Food Lion, an Aldi and a Kroger are six to eight minutes away.") +
       h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly fee is also higher than at the other new communities here.")),
 
     entry("indigo-grove", "new houses off SC 90", () =>
