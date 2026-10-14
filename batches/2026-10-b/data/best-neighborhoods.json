@@ -69,7 +69,7 @@
       "cells": {
         "price": "About $630,000",
         "fee": "About $150",
-        "beach": "15 to 20 minutes"
+        "beach": "About 15 minutes"
       },
       "rows": "price: row 71 (58 resales, middle $632,500); new homes: row 72 (middle $553,220); fee: row 74; beach: row 76 (nearest access has no parking); flood: row 80"
     },
@@ -111,7 +111,7 @@
       "cells": {
         "price": "About $740,000",
         "fee": "About $125",
-        "beach": "15 to 20 minutes"
+        "beach": "About 20 minutes"
       },
       "rows": "price: row 59 (40 resales, middle $739,131); fee: row 61; beach: row 63 corrected (17.3 min, 7.8 mi; nearest access has no parking); flood: row 67"
     },
@@ -153,7 +153,7 @@
       "cells": {
         "price": "About $395,000 for a house",
         "fee": "Under $90 for a house",
-        "beach": "About 15 minutes"
+        "beach": "About 14 minutes"
       },
       "rows": "price: row 84 (29 house resales, middle $395,000); fee: row 85; beach: row 87; grocery: row 88; flood: row 90"
     },
@@ -181,7 +181,7 @@
       "cells": {
         "price": "About $355,000",
         "fee": "Under $90 for a house",
-        "beach": "7 to 8 minutes"
+        "beach": "About 7 minutes"
       },
       "rows": "price: row 125 (41 resales, middle $354,900); fee: row 127; beach: row 129 (nearest access golf-cart parking only; the next, a pay lot, 7.8 min); grocery: row 130; flood: row 132"
     },
@@ -195,7 +195,7 @@
       "cells": {
         "price": "Houses $705,000, condos $405,000",
         "fee": "None on most homes",
-        "beach": "A short walk, about 0.4 mile"
+        "beach": "About 0.4 mile, a 9-minute walk"
       },
       "rows": "group: the streets between US 17 Business and the ocean (row 134); price: row 136 (125 houses middle $705,000; 44 condos middle $405,000); fee: none gathered (Not verified 10); beach: row 140 (0.4 mile to a pay lot, 58 spaces); grocery: row 141; flood: row 143 (1,001 of 3,670 in AE or VE); round 2: fee cell from row 178 (36 of 42 homes for sale with no fee)"
     },
@@ -209,7 +209,7 @@
       "cells": {
         "price": "$315,000 to $620,000",
         "fee": "About $100 to $390, by section",
-        "beach": "About 10 minutes"
+        "beach": "About 11 minutes"
       },
       "rows": "group: named sections outside Seasons at Prince Creek (row 145 corrected); price: row 147 (10 resales $315,000 to $620,000; new townhomes $300,000 to $356,000); fee: row 149; beach: row 151 (a free lot); grocery: row 152; hospital: row 153; flood: row 154"
     }

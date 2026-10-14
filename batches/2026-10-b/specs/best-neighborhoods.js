@@ -301,7 +301,7 @@ const KEY_CSS = "<style>.c3-map-key{columns:2 8rem!important;column-gap:1rem!imp
 const COLS = [
   { key: "price", label: "Homes usually sell for", num: true },
   { key: "fee", label: "HOA fee a month" },
-  { key: "beach", label: "To the beach" },
+  { key: "beach", label: "To the beach, from the middle of the neighborhood" },
 ];
 let cssDone = false;
 const css = () => { const first = !cssDone; cssDone = true; return first; };
@@ -349,7 +349,7 @@ const ENTRIES = [
   ], "homes for sale are mostly condos, a mix of older ones and new ones, and the new ones are larger. They usually sell for about $430,000, and the HOA fee is about $680 a month for a condo."),
 
   ENTRY(4, "wild-wing", "Wild Wing Plantation: a 27-hole golf club and streets named for water birds near Conway", [
-    "Wild Wing's Avocet course, designed by Jeff Brauer and Larry Nelson, opened in 1993. A recent renovation, led by Brauer himself, rebuilt its greens and bunkers. The club also has the nine-hole Hummingbird course.",
+    "Wild Wing's Avocet course, designed by Jeff Brauer and Larry Nelson, opened in 1993. A recent renovation, led by Brauer himself, gave it new greens and refreshed bunkers. The club also has the nine-hole Hummingbird course.",
     "Many streets are named for water birds: Wood Stork Drive, Whooping Crane Drive, Black Skimmer Drive, Limpkin Drive. The association's amenity area, beside a lake, has a pool complex, courts for tennis or pickleball, a basketball court and a playground.",
     "Conway Medical Center is about 8 minutes away by car. Owners drive about 20 minutes to reach the beach.",
   ], "houses for sale were mostly built since 2014 and have about 2,900 square feet. Houses usually sell for about $600,000, and the HOA fee is about $135 a month."),
