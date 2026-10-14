@@ -1295,7 +1295,7 @@
         "1200": "images/buyers/gated-communities/grande-dunes-villa-venezia-from-above-2023-1200w.webp"
       },
       "title": "Grande Dunes from above (USDA NAIP 2023)",
-      "what": "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right, seen from above in 2023, with one label placed from a street address.",
+      "what": "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right, seen from above in 2023, with labels placed from a street address.",
       "caption": "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right.",
       "alt": "Villa Venezia in Grande Dunes from above, labelled: houses with pools beside golf fairways and long dark ponds, and the wide Intracoastal Waterway at the lower right",
       "place": {
@@ -1318,12 +1318,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307810_sw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Villa Venezia"
+        "Villa Venezia",
+        "Intracoastal Waterway"
       ],
       "annotation_sources": {
-        "villa_venezia": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 9367 Venezia Cir, Myrtle Beach, SC 29579 (33.760264, -78.830536). Ledger rows 34, 63."
+        "villa_venezia": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 9367 Venezia Cir, Myrtle Beach, SC 29579 (33.760264, -78.830536). Ledger rows 34, 63.",
+        "intracoastal_waterway": "A point on the centerline of OpenStreetMap way 45434433 (Atlantic Intracoastal Waterway) inside the frame (33.759462, -78.827745). Ledger row 143."
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8776096.875068434%2C3996115.2958033266%2C-8774653.474546291%2C3997197.8461949327&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1353,7 +1355,7 @@
         "1200": "images/buyers/gated-communities/waterway-palms-plantation-from-above-2023-1200w.webp"
       },
       "title": "Waterway Palms Plantation from above (USDA NAIP 2023)",
-      "what": "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right, seen from above in 2023, with one label placed from a street address.",
+      "what": "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right, seen from above in 2023, with labels placed from a street address.",
       "caption": "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
       "alt": "Waterway Palms Plantation from above, labelled: rows of houses on winding ponds, a large building with pools and tennis courts on a point of land, and the Intracoastal Waterway at the lower right",
       "place": {
@@ -1376,12 +1378,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307817_ne_17_060_20230410, m_3307818_nw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Waterway Palms"
+        "Waterway Palms",
+        "Clubhouse and pools"
       ],
       "annotation_sources": {
-        "waterway_palms": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 7004 Legare Pl, Myrtle Beach, SC 29579 (33.742110, -78.876082). Ledger rows 30, 65."
+        "waterway_palms": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 7004 Legare Pl, Myrtle Beach, SC 29579 (33.742110, -78.876082). Ledger rows 30, 65.",
+        "clubhouse_and_pools": "The center of the HOA's amenity parcel, Horry County GIS parcels layer 24, PIN 42000000004, \"W/W PALMS PLANTATION; AMENITY PHASE\" (33.741426, -78.879741). Ledger row 136."
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8781287.085807398%2C3993594.6774566253%2C-8779603.475022878%2C3994857.385545016&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1412,7 +1416,7 @@
         "1200": "images/buyers/gated-communities/the-bluffs-on-the-waterway-from-above-2023-1200w.webp"
       },
       "title": "The Bluffs on the Waterway from above (USDA NAIP 2023)",
-      "what": "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner, seen from above in 2023, with one label placed from a street address.",
+      "what": "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner, seen from above in 2023, with labels placed from a street address.",
       "caption": "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner.",
       "alt": "The Bluffs on the Waterway from above, labelled: houses on curving streets with ponds, a pool at the top, and the edge of the Intracoastal Waterway in the lower right corner",
       "place": {
@@ -1435,12 +1439,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307818_nw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "The Bluffs"
+        "The Bluffs",
+        "Amenity area"
       ],
       "annotation_sources": {
-        "the_bluffs": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 7069 Turtle Cove Dr, Myrtle Beach, SC 29579 (33.746358, -78.867299). Ledger rows 31, 66."
+        "the_bluffs": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 7069 Turtle Cove Dr, Myrtle Beach, SC 29579 (33.746358, -78.867299). Ledger rows 31, 66.",
+        "amenity_area": "The center of the HOA's amenity parcel, Horry County GIS parcels layer 24, PIN 42003010015, \"THE BLUFFS ON THE W/W; AMENITY AREA\" (33.748756, -78.864882). Ledger row 137."
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8780068.849391848%2C3994343.792347423%2C-8778866.210690293%2C3995245.7713735895&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [

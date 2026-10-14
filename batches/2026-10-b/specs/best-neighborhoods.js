@@ -324,8 +324,9 @@ const MID_CTA = (bg) => h.cta("Not sure which of these fits you? We will send th
   "Get three neighborhoods", OFFER, bg);
 const ENTRIES = [
   ENTRY(1, "tidewater", "Tidewater Plantation: golf between the waterway and the inlet in North Myrtle Beach", [
-    `Tidewater Plantation is on the land between the Intracoastal Waterway and Cherry Grove Inlet, behind a ${h.a("/buyers/gated-communities/", "gatehouse at its entrance")}. Tidewater Golf Club, a par-72 public course, looks out on the waterway and the salt marsh.`,
-    "Houses and a few condos are spread among its fairways, and the association has a pool.",
+    `Tidewater Plantation is between the Intracoastal Waterway and Cherry Grove Inlet, behind a ${h.a("/buyers/gated-communities/", "gatehouse at its entrance")}. Ken Tomlinson, a Columbia attorney who also designed golf courses, found the 600-acre site. Hurricane Hugo delayed the work, and Tidewater Golf Club opened in 1990.`,
+    "That year Golf Digest and Golf Magazine both named it the best new public course in America. Some holes meet the marsh of the waterway, and one looks across the inlet to Cherry Grove Beach.",
+    "Many of its homes are houses along the fairways, with a few condo buildings. Owners share a clubhouse, a fitness center, courts for tennis, pickleball and bocce, and an oceanfront beach cabana with parking at Cherry Grove.",
   ], "houses for sale were mostly built around 2000 and have about 2,700 square feet. Houses usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
   ENTRY(2, "cherry-grove", "Cherry Grove: beach streets, canals and a 1950s pier in North Myrtle Beach", [
@@ -341,21 +342,21 @@ const ENTRIES = [
   ], "homes for sale are mostly condos, a mix of older ones and new ones, and the new ones are larger. They usually sell for about $430,000, and the HOA fee is about $680 a month for a condo."),
 
   ENTRY(4, "wild-wing", "Wild Wing Plantation: a 27-hole golf club and streets named for water birds near Conway", [
-    "Wild Wing's Avocet course, designed by Jeff Brauer and Larry Nelson, opened in 1993 and has new greens after a recent renovation. With the nine-hole Hummingbird course, the club has 27 holes.",
+    "Wild Wing's Avocet course, designed by Jeff Brauer and Larry Nelson, opened in 1993 and has new greens after a recent renovation. The club also has the nine-hole Hummingbird course.",
     "Many streets are named for water birds: Wood Stork Drive, Whooping Crane Drive, Black Skimmer Drive, Limpkin Drive. The association's amenity area, beside a lake, has a pool complex, courts for tennis or pickleball, a basketball court and a playground.",
     "Conway Medical Center and an ALDI grocery store are a short drive away. The beach is about 20 minutes away by car, the farthest of the fifteen.",
   ], "houses for sale were mostly built since 2014 and have about 2,900 square feet. Houses usually sell for about $600,000, and the HOA fee is about $135 a month."),
 
   ENTRY(5, "waterbridge", "Waterbridge: 80 acres of lakes, canoes and a big pool in Carolina Forest", [
-    "Waterbridge's first developer, South Carolina Coastal Development, deeded its common land to the homeowners association in 2010, and builders have added sections since. Over 80 acres of lakes and natural areas wind between the streets, with small pocket parks along the way.",
+    "Waterbridge was started by South Carolina Coastal Development, which sold its lakes and common areas to the homeowners association in 2010. Builders have added sections since. Over 80 acres of lakes and natural areas wind through it, with small pocket parks along the way.",
     "Owners can take a canoe out on the lakes from the community's docks, and walking trails follow the water.",
     "The pool complex and the clubhouse are inside a circle of streets. Next to them are a fitness center open around the clock and courts for tennis, pickleball, basketball and sand volleyball. A Food Lion and McLeod Health Carolina Forest's emergency department are close by.",
   ], "houses for sale were mostly built in the last few years and have about 3,100 square feet. Houses usually sell for about $630,000, and the HOA fee is about $150 a month."),
 
   ENTRY(6, "grande-dunes", "Grande Dunes: gated sections between a beach club and a marina in Myrtle Beach", [
     `Grande Dunes has an oceanfront club and a marina on the Intracoastal Waterway. Calais, Palermo and Villa Venezia are three of its sections with ${h.a("/buyers/gated-communities/", "a gate at the entrance")}.`,
-    "Its Resort Club course is a Roger Rulewich design on a bluff over the waterway. The National Golf Course Owners Association named it course of the year in 2009. Nick Price and Craig Schreiner designed the Members Club course. On the ocean side, the Ocean Club is a beach club for residents, with a pool and dining. The clubs offer memberships, and we find out which homes include one.",
-    "On the waterway side, the public can use the marina, and the two-mile Waterway Trail is open from sunrise to sunset. Across Grande Dunes, most houses for sale are just built or still being built, with about 2,900 square feet. The beach accesses closest to it have little or no parking.",
+    "Its Resort Club course is a Roger Rulewich design on a bluff over the waterway. The National Golf Course Owners Association named it course of the year in 2009. Nick Price and Craig Schreiner designed the Members Club course. On the ocean side, the Ocean Club is a beach club for residents, with dining. The clubs offer memberships, and we find out which homes include one.",
+    "On the waterway side, the public can use the marina, and the two-mile Waterway Trail is open from sunrise to sunset. Across Grande Dunes, most houses for sale are just built or still being built. The beach accesses closest to it have little or no parking.",
   ], "homes in the three gated sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
   ENTRY(7, "the-farm", "The Farm at Carolina Forest: two pools and streets named for the farm", [
@@ -364,26 +365,25 @@ const ENTRIES = [
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,200 square feet. Houses usually sell for about $350,000; townhomes and condos cost less and pay a second HOA fee. The HOA fee for a house is $107 a month."),
 
   ENTRY(8, "plantation-lakes", "Plantation Lakes: one long lake and a pool on a point in Carolina Forest", [
-    "Plantation Lakes' streets wind along one continuous lake off Carolina Bays Parkway. Its developer, American Mining Company, deeded about 180 acres of common land to the owners' association in 2007 and 2008.",
+    "Plantation Lakes is built along one continuous lake off Carolina Bays Parkway. Its developer was American Mining Company, and the owners' association has held about 180 acres of common areas since 2007.",
     "On a lakefront lot, the water is behind the house, and an owner can reach the amenity area by boat. The amenity area is on a point in the lake, with two pools and a dock. Tennis and basketball courts are across the road.",
     "Its houses for sale are the largest of the fifteen.",
   ], "houses for sale were mostly built in the 2000s and have about 3,400 square feet. Houses usually sell for about $740,000, and the HOA fee is about $125 a month.", MID_CTA),
 
   ENTRY(9, "berkshire-forest", "Berkshire Forest: a lazy river, a water slide and two pool areas in Carolina Forest", [
-    "Centex Homes developed the first sections of Berkshire Forest, such as Crestwood, Sutton Place and Cambridge, and deeded their common land to the owners' association from 2008. In 2019, Pulte Homes announced about 600 more houses, on land taken in from two neighboring developments.",
+    "Centex Homes developed the first sections of Berkshire Forest, such as Crestwood, Sutton Place and Cambridge. Pulte Homes later announced about 600 more houses, on land taken in from two neighboring developments.",
     "The first pool complex, with a water slide, is beside a lake, with a tennis court, a basketball court and a play area next to it. The expansion added a second amenity area with a lazy river, a splash pad, another pool and pickleball courts.",
-    "Berkshire Forest is off River Oaks Drive, and a Publix is a short drive away.",
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,400 square feet. Houses usually sell for about $390,000, and the HOA fee is about $115 a month."),
 
   ENTRY(10, "pine-lakes", "Pine Lakes: homes beside the Granddaddy, Myrtle Beach's first golf course", [
     "Pine Lakes Country Club opened in 1927 as Ocean Forest Country Club, Myrtle Beach's first golf course, and took the name Pine Lakes in 1946. Robert White, a native of St. Andrews, Scotland, and the first president of the PGA of America, designed it. Its clubhouse is on the National Register of Historic Places, and Time-Life executives planned Sports Illustrated there in 1954.",
-    "The Preserve at Pine Lakes and Pine Lakes Estates are two sections of houses beside the course, and The Preserve has its own pool.",
+    "The Preserve at Pine Lakes and Pine Lakes Estates are two sections of houses beside the course.",
     "Homes for sale on the older streets near the club have no HOA fee. Few homes in the two sections come up for sale.",
   ], "houses for sale were mostly built since 2015 and have about 2,400 square feet. Homes usually sell for $540,000 to $670,000, and the HOA fee is about $95 a month for a house."),
 
   ENTRY(11, "forestbrook-estates", "Forestbrook Estates: houses around ponds, with a community garden", [
-    "Lennar built Forestbrook Estates and deeded its first common land to the owners' association in 2018. Houses, and some townhomes, are built around ponds.",
-    "Beside the pool is a community garden, where owners can keep their own plot. Golf carts are allowed on its streets.",
+    "Lennar built Forestbrook Estates, starting in 2018. Houses, and some townhomes, are built around ponds.",
+    "Beside the pool is a community garden, where owners can keep their own plot. Owners may drive golf carts in the neighborhood.",
   ], "most of the few houses for sale here were built in the last few years and have about 2,300 square feet. Houses usually sell for about $395,000, and the HOA fee is under $90 a month."),
 
   ENTRY(12, "market-common", "The Market Common: a town center on the old Myrtle Beach Air Force Base", [
@@ -392,7 +392,7 @@ const ENTRIES = [
   ], "townhomes for sale have about 1,700 square feet. Houses usually sell for about $540,000 and townhomes for about $398,000, and the HOA fee on a townhome is about $300 to $700 a month."),
 
   ENTRY(13, "deerfield", "Deerfield Plantation area: wooded streets and lake and canal land near Surfside Beach", [
-    "The Deerfield Plantation area is a wooded neighborhood near Surfside Beach. Its association owns lake and canal land between the streets.",
+    "The Deerfield Plantation area is a wooded neighborhood near Surfside Beach. Its association owns the lakes and canals that run between the homes.",
     "Beach parking takes planning. The closest beach access has parking for golf carts only, and the next one, with a pay lot, is about 8 minutes away by car.",
   ], "most of the few houses for sale here were built in the 1970s and 1980s and have about 2,000 square feet. Homes usually sell for about $355,000, and the HOA fee is under $90 a month for a house."),
 
@@ -404,7 +404,7 @@ const ENTRIES = [
 
   ENTRY(15, "prince-creek", "Prince Creek: homes and a 43-acre park beside a Tom Fazio course in Murrells Inlet", [
     "Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course that opened in 1999. Tom Watson won the Senior PGA Tour Championship there the next year.",
-    "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association was deeded The Park at Prince Creek West, 43 acres, in 2007. It has two pools, tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
+    "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association was deeded The Park at Prince Creek West, 43 acres of shared land. It has two pools, tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
     "A Publix is just across the main road, and Tidelands Waccamaw Community Hospital is a short drive away. Builders sold new townhomes here in the past year, but few homes are sold by their owners.",
   ], "the few houses for sale here were built from about 2007 to 2015 and have about 2,400 square feet. Homes usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."),
 ];
@@ -434,7 +434,7 @@ module.exports = {
   hub: { name: "Buyers", url: "/buyers/" },
   /* The Surfside Beach aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
-  title: "Best Neighborhoods in Myrtle Beach: 15 Places to Live, With Map | Chapter3",
+  title: "Best Neighborhoods in Myrtle Beach, With a Map | Chapter3",
   description: "The best neighborhoods in Myrtle Beach, North Myrtle Beach and Surfside Beach by what you want nearby, with home prices, HOA fees, yearly costs and a map.",
   ogTitle: "The best neighborhoods in Myrtle Beach, by what you want nearby",
   crumb: "Best Neighborhoods",
@@ -456,7 +456,7 @@ module.exports = {
   sections: [
     { h2: "Where are the best neighborhoods in Myrtle Beach?", toc: "Map", html:
       CSS + KEY_CSS +
-      h.p("The 15 neighborhoods on this page run along the coast from North Myrtle Beach to Murrells Inlet, and inland to Carolina Forest and Conway. Each one is described below, in the order of the numbers on this map.") +
+      h.p("These 15 neighborhoods run along the coast from North Myrtle Beach to Murrells Inlet, and inland to Carolina Forest and Conway. Each one is described below, in the order of the numbers on this map.") +
       OVERVIEW.html +
       h.p(`Myrtle Beach, North Myrtle Beach, Surfside Beach and Conway are towns. Carolina Forest, Forestbrook and Murrells Inlet are areas outside any town. The rest are neighborhoods. To choose a town first, read ${h.a("/buyers/relocating/which-town/", "which town near Myrtle Beach fits you")}.`) +
       h.p(`A high-risk flood zone is land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. With a mortgage, your lender will almost always require flood insurance on a home in one. A cash buyer can choose.`) +

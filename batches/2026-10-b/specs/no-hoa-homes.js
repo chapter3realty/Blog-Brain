@@ -314,7 +314,7 @@ function entry(key, headline, paras, photo, tradeOff) {
   if (!n) throw new Error(`${key} is not on the list`);
   return { h2: `${n}. ${headline}`, toc: `${n}. ${a.map}`, id: ID[key], html: () =>
     paras.map((t) => h.p(t)).join("") + photo +
-    `<div class="c3-entry-facts"><p><strong>With no HOA fee:</strong> typical list price about ${priceOf(key)}; typical lot ${lotOf(key).replace(/^about /, "about ")}.</p><p><strong>The trade-off:</strong> ${tradeOff}</p></div>` };
+    `<div class="c3-entry-facts"><p><strong>With no HOA fee:</strong> typical lot ${lotOf(key)}; typical list price about ${priceOf(key)}.<br><strong>The trade-off:</strong> ${tradeOff}</p></div>` };
 }
 /* ItemList JSON-LD for the eight numbered areas (round 8; ROUND-8 item 6). */
 const ITEMLIST = () => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList",
@@ -357,43 +357,43 @@ module.exports = {
       `<div class="c3-areamap">${MAP.html}</div>` +
       h.p(`To live near the beach, see ${go("North Myrtle Beach")}, ${go("Surfside Beach and Garden City")}, ${go("Murrells Inlet")} and ${go("Myrtle Beach (not Carolina Forest)")}. For a boat near the waterway, see ${go("Little River")}.`) +
       h.p("Every home for sale in Carolina Forest has an HOA fee.") +
-      h.p(`Inland, in ${go("Aynor")}, ${go("Loris")} and ${go("Conway")}, many houses for sale with no HOA fee are new, and most are outside the town limits and not in a subdivision. From there, the beach is 25 to 45 minutes away by car.`) },
+      h.p(`Inland, in ${go("Aynor")}, ${go("Loris")} and ${go("Conway")}, many houses for sale with no HOA fee are new, and most are outside the town limits and not in a subdivision. From there, the beach is a drive of 25 to 45 minutes.`) },
 
     { h2: "What can you buy with no HOA fee for under $250,000?", toc: "Under $250,000", id: "under-250000", html: () =>
       h.p(`About ${Math.round(BAND["under 250k"].houses / 10) * 10} houses, most of them older and smaller, and almost all inland. About half were in and around Conway, some of them on streets in central Conway, such as Temple Street and Cherry Street.`) +
       h.p(`In Socastee, they were in Rosewood Estates and Bridge Creek, built in the late 1970s and 1980s. Near Loris, a row of new houses on Blue Moon Drive was listed in this band.`) +
-      h.p(`The typical one has ${sqftWords(BAND["under 250k"].medianSqft)} on ${acreWords(BAND["under 250k"].medianLotAcres).replace(/^about /, "about ")} and was built around ${BAND["under 250k"].medianYearBuilt}. Almost none were near the beach.`) },
+      h.p(`Expect a house from about ${BAND["under 250k"].medianYearBuilt}, with ${sqftWords(BAND["under 250k"].medianSqft)} on ${acreWords(BAND["under 250k"].medianLotAcres).replace(/^about /, "")}. Almost none were near the beach.`) },
 
     { h2: "What can you buy with no HOA fee for $250,000 to $500,000?", toc: "$250,000 to $500,000", id: "250000-to-500000", html: () =>
       h.p(`This is the biggest band, with about ${Math.round(BAND["250k-500k"].houses / 10) * 10} houses. It is where the land and the new houses are. About 4 in 10 in this band were built in 2024 or later.`) +
       h.p("Around Loris, new houses were listed on Highway 66. In Aynor, many are in and near the town itself.") +
       h.p("Near the beach, the same money buys an older house. In North Myrtle Beach, houses from the mid-1980s in Ocean Drive Estates, on 3rd Avenue South, were in this band.") +
-      h.p(`The typical one has ${sqftWords(BAND["250k-500k"].medianSqft)} on a little over a third of an acre and was built around ${BAND["250k-500k"].medianYearBuilt}.`) },
+      h.p(`Half were built in ${BAND["250k-500k"].medianYearBuilt} or later. The middle house has a little over a third of an acre and ${sqftWords(BAND["250k-500k"].medianSqft)}.`) },
 
     { h2: "What can you buy with no HOA fee for $500,000 to $750,000?", toc: "$500,000 to $750,000", id: "500000-to-750000", html: () =>
-      h.p(`About ${Math.round(BAND["500k-750k"].houses / 10) * 10} houses. Here a beach house and a bigger inland house cost about the same. About 1 in 3 was within half a mile of the beach.`) +
+      h.p(`About ${Math.round(BAND["500k-750k"].houses / 10) * 10} houses. Here a beach house and a bigger inland house cost about the same. About 1 in 3 was a short walk from the sand.`) +
       h.p("In North Myrtle Beach, this band buys a house in Cherry Grove, Windy Hill or Ocean Drive; in Cherry Grove most were built before 1990. In Murrells Inlet, most were in the Georgetown County part. In Conway, it buys a larger house from the 1970s in Coastal Heights, south of town.") +
-      h.p(`A typical house in this band has ${sqftWords(BAND["500k-750k"].medianSqft)} on ${acreWords(BAND["500k-750k"].medianLotAcres).replace(/^about /, "about ")} and was built around ${BAND["500k-750k"].medianYearBuilt}.`) },
+      h.p(`The middle house here dates from about ${BAND["500k-750k"].medianYearBuilt}, with ${sqftWords(BAND["500k-750k"].medianSqft)} on ${acreWords(BAND["500k-750k"].medianLotAcres).replace(/^about /, "about ")}.`) },
 
     { h2: "What can you buy with no HOA fee for $750,000 and up?", toc: "$750,000 and up", id: "750000-and-up", html: (bg) =>
       h.p(`About ${Math.round(BAND["750k+"].houses / 10) * 10} houses, and about 2 in 3 of them within half a mile of the beach.`) +
       h.p("Some are on Ocean Boulevard in Myrtle Beach and North Myrtle Beach and on South Waccamaw Drive in Garden City. Others were listed with no fee in Pine Lakes and Plantation Point in Myrtle Beach and in Tilghman Estates in North Myrtle Beach.") +
-      h.p(`Most are big: the typical one has ${sqftWords(BAND["750k+"].medianSqft)} and was built around ${BAND["750k+"].medianYearBuilt}.`) +
+      h.p(`Most are big: the middle house is ${sqftWords(BAND["750k+"].medianSqft)}, from about ${BAND["750k+"].medianYearBuilt}.`) +
       h.cta("Get the homes with no HOA fee in your price band.", "Tell us your band and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
 
     entry("Aynor", "Aynor: new houses on about an acre", [
-      `Aynor is a small town about 25 minutes by car from downtown Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
+      `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
       `Here you get land: most lots are about an acre, with room for a boat or a camper beside the house. The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 5 minutes from the center of town.`,
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
     entry("Loris", "Loris: new houses on three quarters of an acre, near a small downtown", [
-      `Loris is a small city with City Hall downtown on Walnut Street. On the third Saturday in October, downtown fills for the ${h.ext(LORIS_CITY, "Loris Bog-Off")}, a festival built around chicken bog: chicken, rice and sausage cooked together.`,
-      "Loris has its own hospital, McLeod Loris, about 2 minutes from the center of town. Its lots fall between Aynor's acre and Conway's half acre.",
-    ], LORIS_PHOTO, "Coastal Grand Mall in Myrtle Beach, the nearest big mall, is about 50 minutes away by car."),
+      `Loris is a small city with City Hall downtown on Walnut Street. On the third Saturday in October, downtown fills for the ${h.ext(LORIS_CITY, "Loris Bog-Off")}, a festival centered on chicken bog: chicken, rice and sausage cooked together.`,
+      "Loris has its own hospital, McLeod Loris, in town. Its lots fall between Aynor's acre and Conway's half acre.",
+    ], LORIS_PHOTO, "the nearest big mall, Coastal Grand in Myrtle Beach, is a drive of about 50 minutes."),
 
     entry("Conway", "Conway: half an acre near the Waccamaw River and an old downtown", [
       `Conway began in the 1730s as Kingston, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "later Conwayborough")}, then Conway. Its Riverwalk runs along the river downtown.`,
-      "Lots are about half an acre, a little less land than in Aynor or Loris, and you are closest to the beach of the three. About a third of the houses for sale were built in 2024 or later.",
+      "Lots are about half an acre, a little smaller than in Aynor or Loris, and you are closest to the beach of the three. About a third of the houses for sale were built in 2024 or later.",
     ], CONWAY_PHOTO, "inside the city, a big business truck may not park on a city street."),
 
     entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
@@ -402,21 +402,21 @@ module.exports = {
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
 
     entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses a short walk from the ocean", [
-      `The land was part of a rice plantation called The Ark, later named Floral Beach. It was renamed Surfside Beach in 1952 and ${h.ext(SCE + "surfside-beach/", "became a town in 1964")}. The town limited building density, and through the 1980s single-family houses remained the norm.`,
+      `Surfside Beach was part of a rice plantation called The Ark, later named Floral Beach. It was renamed Surfside Beach in 1952 and ${h.ext(SCE + "surfside-beach/", "became a town in 1964")}. The town limited building density, and through the 1980s single-family houses remained the norm.`,
       "Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. Surfside Beach has a fishing pier.",
-      "From Garden City, the MarshWalk restaurants are about 5 minutes away by car.",
+      "From Garden City, the MarshWalk restaurants are a short drive south.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
     entry("Murrells Inlet", "Murrells Inlet: bigger houses near the seafood restaurants and Brookgreen Gardens", [
-      `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought land there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
-      `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. It is about 15 minutes away by car, and Huntington Beach State Park is closer.`,
-      `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest typical size on this list. About half are within a mile of the beach.`,
+      `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought a tract there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
+      `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. It is a 15-minute drive, and Huntington Beach State Park is closer.`,
+      `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest typical size on this list. About half are a mile or less from the ocean.`,
     ], INLET_PHOTO, "Murrells Inlet is not a town, and part of it is in Georgetown County, with its own tax bill and rules."),
 
     entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near the ocean", [
-      `Myrtle Beach began at the end of a logging railroad from Conway. In 1901 the railroad company ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought land and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
-      "Outside Carolina Forest, the houses for sale are mostly older: almost half were built before 1990, and almost half are close to the beach. About half are inside the city, and most of the rest are outside any town.",
-    ], MB_PHOTO, "inside the city, property tax on a home you live in is about a tenth higher than outside the towns."),
+      `Myrtle Beach began at the end of a logging railroad from Conway. In 1901 the railroad company ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought a large tract and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
+      "Outside Carolina Forest, the houses for sale are mostly older: almost half were built before 1990, and almost half are close to the beach.",
+    ], MB_PHOTO, "about half are inside the city, where the city's limits on boats and work trucks apply."),
 
     entry("Little River", "Little River: a boat on the Intracoastal Waterway", [
       `Little River is on the Intracoastal Waterway at the north end of the Grand Strand. Its waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day.`,
@@ -424,12 +424,12 @@ module.exports = {
     ], LR_PHOTO, "none of the houses for sale here is close enough to walk to the beach."),
 
     { h2: "How do the eight areas compare?", toc: "The areas side by side", html: () =>
-      h.p(`Houses for sale with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are near the ocean, on the ocean side of US 17 Business, the coast road.`) +
+      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are near the ocean, on the ocean side of US 17 Business, the coast road.`) +
       areaTable() +
       h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) },
 
     { h2: "What do you gain and give up with no HOA?", toc: "Pros and cons", html: (bg) =>
-      h.p("With no HOA, you pay no HOA fee and follow no HOA rules. You also have no shared pool.") +
+      h.p("No HOA means no HOA fee and no HOA rules. It also means no shared pool.") +
       prosCons([
         "No monthly HOA fee, and no surprise HOA bill for a big repair.",
         "No HOA to ask before you put up a fence, add a shed or keep a boat on the lot. Town rules on boats still apply.",

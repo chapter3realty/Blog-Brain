@@ -40,8 +40,9 @@
  *      when a listed bigram holding it is in nearly as many entries.
  *   d. Thin entries: a numbered entry whose body (no tables, no facts line, no offer box) is under 90
  *      words. The range of entry lengths is always given.
- *   e. Theme words: the 10 most frequent content bigrams on the page (body, offers and FAQ), names left
- *      out, with counts. Information, not a finding.
+ *   e. Theme words: the 10 most frequent content bigrams on the page (body and FAQ; not offers or facts
+ *      lines), names left out, with counts; then the 10 most frequent single content words, subject words
+ *      left out ("rice 13" on the gated page). Information, not a finding.
  *
  * Exit 0 always, unless --strict: then exit 1 if (a) finds an identical body sentence, (b) finds a shape
  * in 4 or more sections, or (c) finds a device in more than 60% of the entries. Near matches, low
@@ -70,7 +71,7 @@ const STOP = new Set(("a an the and or but nor so yet if then than that this the
   "one two three four five six seven eight nine ten eleven twelve half dozen hundred thousand million " +
   "get gets got make makes made take takes took go goes went come comes came give gives gave see sees saw say says said " +
   "lot lots way ways thing things part kind like well back yes s t don't can't won't isn't aren't doesn't didn't " +
-  "include includes including entry sale sales town towns " +
+  "include includes including entry sale sales town towns city cities " +
   /* The kinds of home are what a real-estate page is about, like its subject words. */
   "home homes house houses townhome townhomes townhouse townhouses condo condos villa villas neighborhood neighborhoods " +
   "community communities subdivision subdivisions place places area areas").split(/\s+/));
@@ -78,6 +79,7 @@ const STOP = new Set(("a an the and or but nor so yet if then than that this the
 const STREET = /^(?:Street|St|Road|Rd|Drive|Dr|Way|Lane|Ln|Court|Ct|Loop|Boulevard|Blvd|Avenue|Ave|Place|Circle|Trail|Parkway|Terrace|Path|Row)\.?$/;
 const NAME_JOIN = new Set(["of", "at", "and", "the", "on", "by", "de", "la", "del", "in"]);
 const NUMBER_WORDS = /^(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty|thirty|forty|fifty|hundred|thousand|dozen|half)$/i;
+const FACTS_LABEL = /\b(?:facts?|at a glance|in short|key numbers|by the numbers)\b/i;
 const FAQ_HEAD = /\bFAQs?\b|common questions|frequently asked|^every question\b/i;
 
 const norm = (s) => String(s || "").replace(/[ \s]+/g, " ").trim();
@@ -114,7 +116,8 @@ function extract(html) {
   main.find("h1, h2, h3, h4, p, li, dt, dd, blockquote").each((_, e) => {
     const el = $(e);
     if (el.find("p, li, h2, h3, h4, dd, blockquote").length) return;
-    const text = norm(el.text());
+    /* A space where two inline elements meet with none between them: "<strong>Pool</strong>A large pool". */
+    const text = norm(cheerio.load((el.html() || "").replace(/(<\/(?:strong|b|span|div)>|<br\s*\/?>)/gi, "$1 ")).text()).replace(/\s+([.,;:!?])/g, "$1");
     if (!text) return;
     if (/^By\s/.test(text) && /(?:Officer|Broker|Reviewed|Updated)/.test(text)) return;
     let zone = "body";
@@ -124,7 +127,8 @@ function extract(html) {
     else if (box.nextAll().filter((_, x) => $(x).is("a.btn") || $(x).find("a.btn").length).length && box.children("p, h2, h3").length <= 4 && !box.children("h2").filter((_, h) => /^\d+\.\s/.test(norm($(h).text()))).length) zone = "offer";
     const first = el.children().first();
     const label = first.is("strong, b") && el.text().trimStart().startsWith(first.text().trim()) && /:\s*$/.test(norm(first.text())) && norm(first.text()).split(" ").length <= 4 ? norm(first.text()).toLowerCase() : "";
-    blocks.push({ tag: e.tagName.toLowerCase(), text, zone, label });
+    /* body: the text without its bold label. A label is structure, not copy. */
+    blocks.push({ tag: e.tagName.toLowerCase(), text, body: label ? text.slice(label.length).trim() : text, zone, label });
   });
 
   /* Sections at each H2. Text before the first H2 is the top of the page. */
@@ -141,10 +145,17 @@ function extract(html) {
     s.blocks.push(b);
   }
 
-  /* A facts line: the same bold label opening a paragraph in 3 or more numbered entries. */
-  const labelCount = {};
-  for (const s of sections) if (s.n != null) for (const l of new Set(s.blocks.filter((b) => b.label).map((b) => b.label))) labelCount[l] = (labelCount[l] || 0) + 1;
-  for (const s of sections) for (const b of s.blocks) b.facts = !!(b.label && labelCount[b.label] >= T.factsLabelEntries);
+  /* A facts line: the same bold label opening a paragraph in 3 or more numbered entries, when the label
+     names facts ("The facts:", "At a glance:") or most of its lines give a price ("With no HOA fee: typical
+     list price about $370,000"). A repeated label over prose ("The trade-off:") is body copy: what follows
+     it should differ from entry to entry. */
+  const labels = {};
+  for (const s of sections) if (s.n != null) for (const b of s.blocks.filter((x) => x.label)) {
+    const l = labels[b.label] || (labels[b.label] = { entries: new Set(), lines: 0, priced: 0 });
+    l.entries.add(s.n); l.lines++; if (/\$\s?\d/.test(b.text)) l.priced++;
+  }
+  const isFacts = (l) => labels[l] && labels[l].entries.size >= T.factsLabelEntries && (FACTS_LABEL.test(l) || labels[l].priced >= labels[l].lines / 2);
+  for (const s of sections) for (const b of s.blocks) b.facts = !!(b.label && isFacts(b.label));
 
   /* Sentences, each with its section and zone. Headings are not sentences. */
   const sents = [];
@@ -152,7 +163,7 @@ function extract(html) {
     for (const b of s.blocks) {
       if (/^h[1-4]$/.test(b.tag)) continue;
       const zone = s.offer ? "offer" : b.zone;
-      for (const text of sentences(b.text)) sents.push({ text, si, zone, facts: b.facts, tokens: plainTokens(text) });
+      for (const text of sentences(b.body)) sents.push({ text, si, zone, facts: b.facts, tokens: plainTokens(text) });
     }
   });
   return { $, h1, sections, sents };
@@ -338,7 +349,7 @@ function devices(ex, vocab, subject) {
     d.sents.add(si + "|" + sentence);
   };
   entries.forEach((s, ei) => {
-    const parts = (s.after ? [s.after] : []).concat(s.blocks.filter((b) => !/^h[1-4]$/.test(b.tag) && b.zone === "body" && !b.facts).map((b) => b.text));
+    const parts = (s.after ? [s.after] : []).concat(s.blocks.filter((b) => !/^h[1-4]$/.test(b.tag) && b.zone === "body" && !b.facts).map((b) => b.body));
     for (const p of parts) for (const sent of sentences(p)) {
       if (marked(sent, vocab).reduce((a, t) => a + (t.streets || 0), 0) >= 3) note("[street list]", "[a list of three or more street names]", ei, sent);
       for (const run of contentRuns(sent, vocab, subject)) {
@@ -355,6 +366,7 @@ function devices(ex, vocab, subject) {
     key: d.key, entries: d.entries.size, of: n, share: d.entries.size / n,
     which: [...d.entries.keys()].map((i) => entries[i].n),
     example: { entry: entries[[...d.entries.keys()][0]].title, text: [...d.entries.values()][0] },
+    examples: [...d.entries.entries()].map(([i, t]) => ({ entry: entries[i].n, text: t })),
   }));
   const bigrams = found.filter((d) => d.key.includes(" "));
   found = found.filter((d) => d.key.includes(" ") || !bigrams.some((b) => b.key.split(" ").includes(d.key) && b.entries >= d.entries - 1));
@@ -380,7 +392,7 @@ function lengths(ex) {
   const entries = ex.sections.filter((s) => s.n != null);
   const rows = entries.map((s) => ({
     entry: s.title,
-    words: s.blocks.filter((b) => !/^h[1-4]$/.test(b.tag) && b.zone === "body" && !b.facts).reduce((a, b) => a + plainTokens(b.text).length, 0),
+    words: s.blocks.filter((b) => !/^h[1-4]$/.test(b.tag) && b.zone === "body" && !b.facts).reduce((a, b) => a + plainTokens(b.body).length, 0),
   }));
   const w = rows.map((r) => r.words).sort((a, b) => a - b);
   return {
@@ -389,17 +401,18 @@ function lengths(ex) {
   };
 }
 
-function themes(ex, vocab) {
-  const count = new Map();
+function themes(ex, vocab, subject) {
+  const count = new Map(), single = new Map();
+  const tally = (m, k, shown) => { if (!m.has(k)) m.set(k, { shown, n: 0 }); m.get(k).n++; };
   for (const s of ex.sents) {
     if (s.facts || s.zone === "offer") continue;
-    for (const run of contentRuns(s.text, vocab, new Set())) for (let i = 0; i + 1 < run.length; i++) {
-      const k = stem(run[i]) + " " + stem(run[i + 1]);
-      if (!count.has(k)) count.set(k, { shown: run[i] + " " + run[i + 1], n: 0 });
-      count.get(k).n++;
-    }
+    for (const run of contentRuns(s.text, vocab, new Set())) run.forEach((w, i) => {
+      if (!subject.has(stem(w))) tally(single, stem(w), w);
+      if (i + 1 < run.length) tally(count, stem(w) + " " + stem(run[i + 1]), w + " " + run[i + 1]);
+    });
   }
-  return [...count.values()].filter((x) => x.n >= 2).sort((a, b) => b.n - a.n).slice(0, T.themes).map((x) => ({ bigram: x.shown, count: x.n }));
+  const top = (m) => [...m.values()].filter((x) => x.n >= 2).sort((a, b) => b.n - a.n).slice(0, T.themes);
+  return { bigrams: top(count).map((x) => ({ bigram: x.shown, count: x.n })), words: top(single).map((x) => ({ word: x.shown, count: x.n })) };
 }
 
 function analyze(html) {
@@ -410,7 +423,7 @@ function analyze(html) {
   const b = shapes(ex.sents, vocab);
   const c = devices(ex, vocab, subject);
   const d = lengths(ex);
-  const e = themes(ex, vocab);
+  const e = themes(ex, vocab, subject);
   const title = (si) => ex.sections[si].title;
   const named = (arr) => arr.map((x) => ({ ...x, sections: x.where.map(title) }));
   const strictReasons = [];
@@ -424,7 +437,7 @@ function analyze(html) {
     identical: named(a.identical), near: named(a.near), low: named(a.low),
     shapes: b.map((x) => ({ ...x, sections: x.sections.map(title) })),
     devices: c.found.map(({ key, ...x }) => x), list: c.list,
-    lengths: d, themes: e,
+    lengths: d, themes: e.bigrams, themeWords: e.words,
     strict: { pass: !strictReasons.length, reasons: strictReasons },
     thresholds: T,
   };
@@ -471,6 +484,7 @@ function report(r, file) {
   }
   L.push("");
   L.push(`e. Theme words: ${r.themes.map((x) => `${x.bigram} ${x.count}`).join(", ") || "none repeated"}.`);
+  L.push(`   Single words, subject words left out: ${r.themeWords.map((x) => `${x.word} ${x.count}`).join(", ") || "none repeated"}.`);
   L.push("");
   L.push(r.strict.pass ? "strict: passes" : `strict: fails (${r.strict.reasons.join("; ")})`);
   return L.join("\n");
