@@ -389,7 +389,7 @@ module.exports = {
     entry("Aynor", "Aynor: new houses on about an acre", [
       `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
       `Here you get land: most lots are about an acre, with room for a boat or a camper beside the house. The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 5 minutes from the center of town.`,
-      "Flood risk is low here: none of the homes sampled inside the town is in a high-risk flood zone.",
+      "On FEMA's flood map, none of the 400 homes we sampled inside the town is in a high-risk flood zone.",
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
     entry("Loris", "Loris: new houses on three quarters of an acre, near a small downtown", [
