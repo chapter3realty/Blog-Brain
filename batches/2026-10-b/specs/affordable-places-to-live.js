@@ -119,7 +119,7 @@ const P = [
     homes: "New townhomes, 3 bedrooms", fee: "About $235 a month", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", year: 2200, name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6,
     homes: "New townhomes, 3 bedrooms", fee: "About $100 a month", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
-  { id: "villas-at-sandridge", year: 4600, name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.5,
+  { id: "villas-at-sandridge", year: 4600, name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46,
     homes: "New two-story townhomes, 3 bedrooms", fee: "About $300 a month", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", year: 2000, name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2,
     homes: "New houses", fee: "About $80 a month", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
@@ -292,7 +292,7 @@ module.exports = {
       strip("sawgrass-east") +
       h.p("Sawgrass East is a townhome community off Carolina Forest Boulevard, about 2.5 miles by road north of US 501. Built in 2005 and 2006, the townhomes are around small ponds, with a pool and a clubhouse for the owners. Some have only two bedrooms.") +
       PH["sawgrass-east"] +
-      h.p("They sold for less than the new townhomes at Victory Point, eleven minutes away by car to the southwest. A Publix is six minutes west by car, and the Carolina Forest Recreation Center seven minutes east.") +
+      h.p("They sold for less than the new townhomes at Victory Point, eleven minutes away by car to the southwest. A Publix is six minutes west by car, and the Carolina Forest Recreation Center six minutes east.") +
       h.p("The HOA fee is higher than at most places here, though it usually includes water and sewer. For a buyer who would pay those bills anyway, the gap is smaller than it looks.")),
 
     entry("birchwood", "new houses off SC 905 near Longs", () =>
@@ -306,7 +306,7 @@ module.exports = {
       strip("golf-and-yacht-club") +
       h.p("Myrtle Beach Golf and Yacht Club is a community of houses off Bay Road, which leaves SC 707 near Socastee. Owners share a pool, tennis and shuffleboard courts, a playground and a clubhouse, and the HOA has a storage area for RVs and trailers. We check the HOA papers for what the fee covers, including any gate and security.") +
       PH["golf-and-yacht-club"] +
-      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is about an eight-minute drive. Most houses in the older part are small and one story, on small lots, from the 1980s. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
+      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is about a seven-minute drive. Most houses in the older part are small and one story, on small lots, from the 1980s. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
       h.p(`Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`)),
 
     entry("forestbrook-village", "new townhomes off Forestbrook Road", () =>
