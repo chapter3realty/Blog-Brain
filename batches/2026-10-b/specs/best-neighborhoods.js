@@ -375,7 +375,7 @@ const ENTRIES = [
   ], "houses for sale were mostly built from the 1960s to the 1980s and have about 1,900 square feet. Houses usually sell for about $695,000, and most homes for sale have no HOA fee."),
 
   ENTRY(3, "barefoot-resort", "Barefoot Resort: four golf courses that opened on one day in North Myrtle Beach", [
-    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. The residential association's rules for owners were filed the same day, and neighborhoods grew up around the courses.",
+    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000, and neighborhoods grew up around them.",
     "Many streets carry seashell names, from Junonia Drive to Moonshell Drive. Barefoot Landing's shops and restaurants are across the swing bridge on the waterway.",
     "That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened.",
     `We check which association a home belongs to before you offer, because each association has its own pools and clubs. Our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} covers the resort's beach cabana, its shuttle and its gated sections.`,
@@ -454,8 +454,8 @@ const ENTRIES = [
 
   ENTRY(15, "prince-creek", "Prince Creek: homes beside a Tom Fazio course in Murrells Inlet", [
     "Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course that opened in 1999. Tom Watson won the Senior PGA Tour Championship there the next year.",
-    "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, a park of mostly woods. Its amenity area has two pools, courts for tennis and pickleball, basketball, a playground and a covered pavilion.",
-    "A Publix is a 2-minute drive. Bellwood Landing, behind its own gate, sells for more, about $850,000.",
+    "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, a park of mostly woods. Its amenity area has two pools, courts for tennis and pickleball, basketball, a playground and a covered pavilion. A Publix is a 2-minute drive.",
+    "Bellwood Landing, behind its own gate, sells for more, about $810,000.",
     "The HOA fee changes from section to section, so we compare the fee on each home you like.",
   ], "the few houses for sale here were built from about 2007 to 2015 and have about 2,400 square feet. Homes usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."),
 ];
@@ -519,7 +519,7 @@ module.exports = {
       h.p(`For a home with no HOA at all, see ${h.a("/buyers/no-hoa-homes/", "homes with no HOA near Myrtle Beach")}. For a gate at the entrance, see ${h.a("/buyers/gated-communities/", "gated communities near Myrtle Beach")}. If the price matters most, see ${h.a("/buyers/affordable-places-to-live/", "the most affordable places near Myrtle Beach")}.`) },
 
     { h2: "What does a home here cost each year, besides the mortgage?", toc: "Yearly cost", id: "yearly-cost", html: (bg) =>
-      h.p("Besides the mortgage, a house in these three neighborhoods costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance.") +
+      h.p("Besides the mortgage, a house in Cherry Grove, The Farm or Tidewater Plantation costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance.") +
       compareCards(D.yearly_cost.rows.map((r) => ({ name: r.name, cells: r.cells })), COST_COLS,
         { caption: "A house you live in: the yearly cost", nameLabel: "House", css: css() }) +
       h.p(`The tax is for a home you live in, and in North Myrtle Beach it includes the city's share. When a home sells, the county ${h.ext(SC_TAX, "values it again")}, usually close to the price paid, and taxes the new value the next year.`) +
@@ -537,7 +537,7 @@ module.exports = {
   faqTitle: "Best neighborhoods in Myrtle Beach: FAQ",
   faq: [
     { q: "What are the best neighborhoods in Myrtle Beach?", a: "For walking to the beach, choose Cherry Grove or the ocean side of Surfside Beach. For golf, Pine Lakes, Tidewater Plantation and Barefoot Resort are built around their courses. For a lower price near the beach, The Farm and the Deerfield Plantation area cost less." },
-    { q: "How much does it cost each year to own a home in Myrtle Beach?", a: "Besides the mortgage, a house in the three neighborhoods we priced costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance. A house in Cherry Grove costs about $4,400, mostly tax and flood insurance." },
+    { q: "How much does it cost each year to own a home in Myrtle Beach?", a: "Besides the mortgage, a house in Cherry Grove, The Farm or Tidewater Plantation costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance. A house in Cherry Grove costs about $4,400, mostly tax and flood insurance." },
     { q: "Is Carolina Forest or Myrtle Beach better to live in?", a: "The city of Myrtle Beach is better for being close to the beach, and Carolina Forest for big neighborhood pools. Carolina Forest has almost no homes in a high-risk flood zone, and its neighborhoods here are 10 to 20 minutes from the beach by car. The ones in the city of Myrtle Beach are about 5 to 12 minutes away." },
     { q: "Which neighborhoods near Myrtle Beach have no HOA?", a: "Most homes for sale on the ocean side of Surfside Beach and in Cherry Grove are listed with no HOA fee. Homes on the older streets near Pine Lakes Country Club are listed with no HOA fee too." },
     { q: "Which neighborhoods near Myrtle Beach are closest to a hospital?", a: "Prince Creek in Murrells Inlet is about 6 minutes by car from a hospital. Pine Lakes and Wild Wing Plantation are about 8 minutes from one." },
