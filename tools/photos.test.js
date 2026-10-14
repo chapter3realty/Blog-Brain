@@ -236,5 +236,22 @@ check("batch 2026-10-a: the Alabama Theatre sign is on hold and refused", throws
     && (all.match(/via <a [^>]*>NOAA Emergency Response Imagery<\/a>/g) || []).length === noaa);
 }
 
+/* frameMismatch: the frame the labels were drawn for must be the frame that was exported (batch 2026-10-b
+   round 10, Wynbrooke). The quiet control is the Tidewater record as built; the firing control is the
+   Wynbrooke record as it was: the frame moved, the export did not. */
+{
+  const { frameMismatch } = require("./photos.js");
+  const tide = { frame: { bbox_wgs84: [-78.627061, 33.846629, -78.620139, 33.850971] },
+    source_request: "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8752724.419819523%2C4008226.5713886106%2C-8751953.812848525%2C4008808.6048248145&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png" };
+  const fmQuiet = frameMismatch(tide);
+  if (fmQuiet) { failures++; console.log("FAIL frame quiet: Tidewater frame and export agree", fmQuiet); } else console.log("ok   frame quiet: Tidewater frame and export agree");
+  const moved = { frame: { bbox_wgs84: [-78.627061 + 0.004, 33.846629, -78.620139 + 0.004, 33.850971] }, source_request: tide.source_request };
+  const fmFire = frameMismatch(moved);
+  if (!/differ by \d+%/.test(fmFire)) { failures++; console.log("FAIL frame fires: a frame moved 4 thousandths of a degree east of its export", fmFire); } else console.log("ok   frame fires: a frame moved east of its export");
+  const wgs = { frame: { bbox_wgs84: [-78.9, 33.7, -78.89, 33.71] }, source_request: "https://example.gov/export?bbox=-78.9,33.7,-78.89,33.71&bboxSR=4326" };
+  if (frameMismatch(wgs)) { failures++; console.log("FAIL frame quiet: a 4326 bbox that matches"); } else console.log("ok   frame quiet: a 4326 bbox that matches");
+  if (frameMismatch({ frame: { raw_pixels: [0, 0, 10, 10] } })) { failures++; console.log("FAIL frame quiet: a raw NOAA frame has nothing to compare"); } else console.log("ok   frame quiet: a raw NOAA frame has nothing to compare");
+}
+
 console.log(failures ? `\n${failures} control(s) failed` : "\nall controls pass");
 process.exitCode = failures ? 1 : 0;

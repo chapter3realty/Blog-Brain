@@ -76,6 +76,10 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B31. Distance words drift.** Writing "what is nearby" for twelve places, the writer reached for easy words: "a short walk", "just west", "just across SC 707", "a few minutes". The verifier measured all 35 places: eleven words failed, among them a "short walk" of a mile and a store "across" the road that was on the near side. CRAFT 2 now gives each word a measured limit, and the verifier prompt lists the trap.
 
+**B32. The frame moved, the photo did not.** Three affordable aerials were re-centered by changing the frame record and redrawing the labels for it, but the image was still the old export. Every name dot landed on the wrong houses, one in the neighborhood next door, and the captions read backwards. The verifier caught it by re-exporting both frames and matching pixels. `photos.js check` now fails a record whose `frame.bbox_wgs84` and `source_request` bbox differ by more than 2% of the frame; on the round 10 data it fails exactly those three.
+
+**B33. Straight-line distance is not the drive.** A store "about a third of a mile away" was 0.7 mile by road; one "under a mile" was 1.2. For anything the reader drives to, give the drive time (CRAFT 2).
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
