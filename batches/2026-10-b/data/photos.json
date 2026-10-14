@@ -2170,259 +2170,6 @@
       "height": 900
     },
     {
-      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-      "source_name": "The National Map (USGS)",
-      "author": "USDA Farm Service Agency, NAIP",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
-      "terms_urls": [
-        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-        "https://www.fsa.usda.gov/help/policies-and-links/",
-        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
-      ],
-      "taken": "2023",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
-      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
-      "digital_source_type": "digitalCapture",
-      "share_alike": false,
-      "slug": "affordable-places-to-live",
-      "file": "images/buyers/affordable/old-speedway-and-victory-point-from-above.webp",
-      "variants": {
-        "600": "images/buyers/affordable/old-speedway-and-victory-point-from-above-600w.webp",
-        "1200": "images/buyers/affordable/old-speedway-and-victory-point-from-above-1200w.webp"
-      },
-      "width": 1200,
-      "height": 900,
-      "title": "The old Myrtle Beach Speedway beside US 501, from above (USDA NAIP 2023)",
-      "what": "The oval of the closed Myrtle Beach Speedway in 2023, with US 501 at the lower left, older houses to the northeast and woods to the southeast. Lennar's Victory Point townhomes are on part of the former speedway land.",
-      "caption": "The old Myrtle Beach Speedway beside US 501, before Victory Point was built on part of its land.",
-      "alt": "Aerial view of an empty oval dirt race track beside a divided highway, with a street of houses on one side and pine woods on the other",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "Victory Point, off US 501"
-      },
-      "changes": "Chapter3 Realty exported this view from the NAIP image service and resized it; no labels",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8789351.700000001%2C3994394.5999999987%2C-8788391.699999997%2C3995114.5999999996&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
-      "frame": {
-        "bbox_wgs84": [
-          -78.95609,
-          33.74337,
-          -78.94747,
-          33.74875
-        ],
-        "note": "framed on the speedway oval; Victory Point lots sold in 2025 and 2026 (county deed index, joined to county parcels) fall on part of the former speedway land"
-      },
-      "original_size": "1600x1200",
-      "crops": {
-        "1x1": {
-          "path": "images/buyers/affordable/old-speedway-and-victory-point-from-above-1x1.webp",
-          "width": 1200,
-          "height": 1200
-        },
-        "4x3": {
-          "path": "images/buyers/affordable/old-speedway-and-victory-point-from-above-4x3.webp",
-          "width": 1200,
-          "height": 900
-        },
-        "16x9": {
-          "path": "images/buyers/affordable/old-speedway-and-victory-point-from-above-16x9.webp",
-          "width": 1200,
-          "height": 675
-        }
-      },
-      "crops_note": "The share image of /buyers/affordable-places-to-live/. Center crops in each ratio, 1200 px wide, from the 1600 x 1200 export (tools/photos.js makeCrops). Public domain: no conditions."
-    },
-    {
-      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-      "source_name": "The National Map (USGS)",
-      "author": "USDA Farm Service Agency, NAIP",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
-      "terms_urls": [
-        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-        "https://www.fsa.usda.gov/help/policies-and-links/",
-        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
-      ],
-      "taken": "2023",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
-      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
-      "digital_source_type": "digitalCapture",
-      "share_alike": false,
-      "slug": "affordable-places-to-live",
-      "file": "images/buyers/affordable/fairways-at-wild-wing-from-above.webp",
-      "variants": {
-        "600": "images/buyers/affordable/fairways-at-wild-wing-from-above-600w.webp",
-        "1200": "images/buyers/affordable/fairways-at-wild-wing-from-above-1200w.webp"
-      },
-      "width": 1200,
-      "height": 900,
-      "title": "The Fairways at Wild Wing Plantation townhomes, from above (USDA NAIP 2023)",
-      "what": "Rows of two-story townhomes on Fairway Lane and Tee Shot Drive inside Wild Wing Plantation, with a small pool, between woods and a rail line.",
-      "caption": "The Fairways townhomes at Wild Wing Plantation, from above.",
-      "alt": "Aerial view of rows of two-story townhomes on looping streets, with a small pool, between pine woods and a rail line",
-      "place": {
-        "city": "Conway",
-        "sublocation": "The Fairways at Wild Wing Plantation"
-      },
-      "changes": "Chapter3 Realty exported this view from the NAIP image service and resized it; no labels",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8793069.024236752%2C4000052.1789836446%2C-8792345.70070983%2C4000595.6753081465&bboxSR=3857&imageSR=3857&size=1200%2C900&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
-      "frame": {
-        "bbox_wgs84": [
-          -78.98948,
-          33.78562,
-          -78.98299,
-          33.78968
-        ],
-        "note": "centered on the 2025-2026 sales in the community (county deed index, joined to county parcels)"
-      },
-      "original_size": "1200x900"
-    },
-    {
-      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-      "source_name": "The National Map (USGS)",
-      "author": "USDA Farm Service Agency, NAIP",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
-      "terms_urls": [
-        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-        "https://www.fsa.usda.gov/help/policies-and-links/",
-        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
-      ],
-      "taken": "2023",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
-      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
-      "digital_source_type": "digitalCapture",
-      "share_alike": false,
-      "slug": "affordable-places-to-live",
-      "file": "images/buyers/affordable/sawgrass-east-from-above.webp",
-      "variants": {
-        "600": "images/buyers/affordable/sawgrass-east-from-above-600w.webp",
-        "1200": "images/buyers/affordable/sawgrass-east-from-above-1200w.webp"
-      },
-      "width": 1200,
-      "height": 900,
-      "title": "Sawgrass East townhomes in Carolina Forest, from above (USDA NAIP 2023)",
-      "what": "Townhome rows of Sawgrass East around small ponds, off Carolina Forest Boulevard, with a pool near the entrance.",
-      "caption": "Sawgrass East, off Carolina Forest Boulevard, from above.",
-      "alt": "Aerial view of rows of townhomes around several small ponds, with a pool and a wide road at the edge",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "Sawgrass East, Carolina Forest"
-      },
-      "changes": "Chapter3 Realty exported this view from the NAIP image service and resized it; no labels",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8786806.231429528%2C3995836.4364556996%2C-8786082.907902606%2C3996379.7331185113&bboxSR=3857&imageSR=3857&size=1200%2C900&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
-      "frame": {
-        "bbox_wgs84": [
-          -78.93322,
-          33.75414,
-          -78.92673,
-          33.7582
-        ],
-        "note": "centered on the 2025-2026 sales in the community (county deed index, joined to county parcels)"
-      },
-      "original_size": "1200x900"
-    },
-    {
-      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-      "source_name": "The National Map (USGS)",
-      "author": "USDA Farm Service Agency, NAIP",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
-      "terms_urls": [
-        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-        "https://www.fsa.usda.gov/help/policies-and-links/",
-        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
-      ],
-      "taken": "2023",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
-      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
-      "digital_source_type": "digitalCapture",
-      "share_alike": false,
-      "slug": "affordable-places-to-live",
-      "file": "images/buyers/affordable/myrtle-beach-golf-and-yacht-from-above.webp",
-      "variants": {
-        "600": "images/buyers/affordable/myrtle-beach-golf-and-yacht-from-above-600w.webp",
-        "1200": "images/buyers/affordable/myrtle-beach-golf-and-yacht-from-above-1200w.webp"
-      },
-      "width": 1200,
-      "height": 900,
-      "title": "Myrtle Beach Golf and Yacht Club, off Bay Road, from above (USDA NAIP 2023)",
-      "what": "Single-story houses on cul-de-sacs among tall trees, beside a creek and open grass, in the gated Myrtle Beach Golf and Yacht Club off Bay Road.",
-      "caption": "Myrtle Beach Golf and Yacht Club, off Bay Road, from above.",
-      "alt": "Aerial view of small single-story houses on curving streets under tall trees, beside a creek and an open field",
-      "place": {
-        "city": "Myrtle Beach",
-        "sublocation": "Myrtle Beach Golf and Yacht Club, Bay Road"
-      },
-      "changes": "Chapter3 Realty exported this view from the NAIP image service and resized it; no labels",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8800169.746681044%2C3981549.5763260806%2C-8799446.423154121%2C3982092.1981140124&bboxSR=3857&imageSR=3857&size=1200%2C900&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
-      "frame": {
-        "bbox_wgs84": [
-          -79.05327,
-          33.64737,
-          -79.04677,
-          33.65142
-        ],
-        "note": "centered on the 2025-2026 sales in the community (county deed index, joined to county parcels)"
-      },
-      "original_size": "1200x900"
-    },
-    {
-      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-      "source_name": "The National Map (USGS)",
-      "author": "USDA Farm Service Agency, NAIP",
-      "author_type": "Organization",
-      "license": "Public domain",
-      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
-      "terms_urls": [
-        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
-        "https://www.fsa.usda.gov/help/policies-and-links/",
-        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
-      ],
-      "taken": "2023",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
-      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
-      "digital_source_type": "digitalCapture",
-      "share_alike": false,
-      "slug": "affordable-places-to-live",
-      "file": "images/buyers/affordable/wynbrooke-from-above.webp",
-      "variants": {
-        "600": "images/buyers/affordable/wynbrooke-from-above-600w.webp",
-        "1200": "images/buyers/affordable/wynbrooke-from-above-1200w.webp"
-      },
-      "width": 1200,
-      "height": 900,
-      "title": "Wynbrooke townhomes off SC 707, from above (USDA NAIP 2023)",
-      "what": "Townhome rows of Wynbrooke around ponds, with the community pool, beside SC 707.",
-      "caption": "Wynbrooke, off SC 707, from above.",
-      "alt": "Aerial view of townhome rows around several ponds, with a pool in the middle and a highway along one edge",
-      "place": {
-        "city": "Murrells Inlet",
-        "sublocation": "Wynbrooke"
-      },
-      "changes": "Chapter3 Realty exported this view from the NAIP image service and resized it; no labels",
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8799994.471359804%2C3972831.634697849%2C-8799271.14783288%2C3973373.84601029&bboxSR=3857&imageSR=3857&size=1200%2C900&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
-      "frame": {
-        "bbox_wgs84": [
-          -79.0517,
-          33.58215,
-          -79.0452,
-          33.5862
-        ],
-        "note": "centered on the 2025-2026 sales in the community (county deed index, joined to county parcels)"
-      },
-      "original_size": "1200x900"
-    },
-    {
       "slug": "no-hoa",
       "file": "images/buyers/no-hoa/loris-downtown.webp",
       "variants": {
@@ -2795,6 +2542,588 @@
       "method": "scratchpad farmw/scripts/render.py (labels may use the whole frame because the page shows this figure whole; two-line labels) and fetch.py; config farmw/aerial/work/config.json, key the-farm-schools; zones fetched by farmw/r8/zones.py; the shared area in farmw/r8/all3.json",
       "width": 1200,
       "height": 900
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/parkview-and-whispering-pines-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/parkview-and-whispering-pines-from-above-600w.webp",
+        "1200": "images/buyers/affordable/parkview-and-whispering-pines-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Parkview and Whispering Pines Golf Course, from above (USDA NAIP 2023)",
+      "what": "Parkview's townhomes around their ponds, 17th Avenue South, and the city's Whispering Pines Golf Course to the southwest, labelled by Chapter3.",
+      "caption": "Parkview, beside 17th Avenue South, with Whispering Pines Golf Course, from above.",
+      "alt": "Aerial view of townhomes around a pond beside a road, with golf course fairways and ponds to the southwest, with labels",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Parkview, 17th Avenue South"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8785415.844401713%2C3985864.706456045%2C-8783660.479919313%2C3987181.2298178487&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -78.92073,
+          33.67963,
+          -78.90496,
+          33.68947
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/fairways-at-wild-wing-and-us-501-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/fairways-at-wild-wing-and-us-501-from-above-600w.webp",
+        "1200": "images/buyers/affordable/fairways-at-wild-wing-and-us-501-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "The Fairways at Wild Wing, Aldi and Walmart on US 501, from above (USDA NAIP 2023)",
+      "what": "The Fairways townhomes off Wild Wing Boulevard, with the Aldi and Walmart Supercenter on US 501 to the southwest, labelled by Chapter3.",
+      "caption": "The Fairways at Wild Wing, with Aldi and Walmart on US 501, from above.",
+      "alt": "Aerial view of townhome rows beside a highway lined with stores, with labels for the townhomes, Aldi, Walmart and Wild Wing Boulevard",
+      "place": {
+        "city": "Conway",
+        "sublocation": "The Fairways at Wild Wing Plantation"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8794187.032446872%2C3998580.590977332%2C-8791025.252439722%2C4000951.9259826955&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -78.99953,
+          33.77463,
+          -78.97112,
+          33.79234
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/sawgrass-east-and-carolina-forest-boulevard-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/sawgrass-east-and-carolina-forest-boulevard-from-above-600w.webp",
+        "1200": "images/buyers/affordable/sawgrass-east-and-carolina-forest-boulevard-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Sawgrass East and Carolina Forest Boulevard, from above (USDA NAIP 2023)",
+      "what": "Sawgrass East's townhomes south of Carolina Forest Boulevard, among other Carolina Forest neighborhoods, labelled by Chapter3.",
+      "caption": "Sawgrass East, off Carolina Forest Boulevard, from above.",
+      "alt": "Aerial view of neighborhoods with ponds along a long boulevard, with labels for Sawgrass East and Carolina Forest Boulevard",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Sawgrass East, Carolina Forest"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8789165.691128891%2C3995093.569239722%2C-8785900.412165198%2C3997542.5284624933&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -78.95442,
+          33.74859,
+          -78.92509,
+          33.76688
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/birchwood-and-sc-905-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/birchwood-and-sc-905-from-above-600w.webp",
+        "1200": "images/buyers/affordable/birchwood-and-sc-905-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Birchwood's land off SC 905 near Longs, from above (USDA NAIP 2023)",
+      "what": "The land where Birchwood's houses were later built, off SC 905, with the Food Lion in Longs to the northeast, labelled by Chapter3.",
+      "caption": "Birchwood's land off SC 905, before the houses were built, with the Food Lion in Longs.",
+      "alt": "Aerial view of fields, woods and scattered houses around a highway, with labels for Birchwood, SC 905 and the Food Lion in Longs",
+      "place": {
+        "city": "Longs",
+        "sublocation": "Birchwood, SC 905"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8767472.469556801%2C4017921.8950486262%2C-8763776.734820135%2C4020693.696101124&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -78.75955,
+          33.91893,
+          -78.72635,
+          33.93959
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/golf-and-yacht-club-and-enterprise-landing-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/golf-and-yacht-club-and-enterprise-landing-from-above-600w.webp",
+        "1200": "images/buyers/affordable/golf-and-yacht-club-and-enterprise-landing-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Myrtle Beach Golf and Yacht Club and Enterprise Landing, from above (USDA NAIP 2023)",
+      "what": "The houses of Myrtle Beach Golf and Yacht Club off Bay Road, with Enterprise Landing on the water to the north, labelled by Chapter3.",
+      "caption": "Myrtle Beach Golf and Yacht Club, Bay Road and Enterprise Landing, from above.",
+      "alt": "Aerial view of houses on curving streets among trees, with a dark river and a boat landing to the north, with labels",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Myrtle Beach Golf and Yacht Club, Bay Road"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8802875.387199385%2C3981205.641032642%2C-8797945.526692946%2C3984903.036412469&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -79.07758,
+          33.64479,
+          -79.03329,
+          33.67244
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/forestbrook-village-and-forestbrook-road-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/forestbrook-village-and-forestbrook-road-from-above-600w.webp",
+        "1200": "images/buyers/affordable/forestbrook-village-and-forestbrook-road-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Forestbrook Village's land, Forestbrook Road and Forestbrook Park, from above (USDA NAIP 2023)",
+      "what": "The land where Forestbrook Village was later built, off Forestbrook Road, with Forestbrook Grocery and Forestbrook Park to the northeast, labelled by Chapter3.",
+      "caption": "Forestbrook Village's land off Forestbrook Road, before the townhomes, with Forestbrook Park and Forestbrook Grocery.",
+      "alt": "Aerial view of new streets and woods beside an older neighborhood, with labels for Forestbrook Village, Forestbrook Road, Forestbrook Park and Forestbrook Grocery",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Forestbrook Village, Forestbrook Road"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8791353.601977624%2C3990257.0494923964%2C-8789553.601977624%2C3991607.0494923927&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -78.97407,
+          33.71246,
+          -78.9579,
+          33.72254
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/townes-at-amber-bluff-and-coastal-carolina-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/townes-at-amber-bluff-and-coastal-carolina-from-above-600w.webp",
+        "1200": "images/buyers/affordable/townes-at-amber-bluff-and-coastal-carolina-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "The Townes at Amber Bluff's land and Coastal Carolina University, from above (USDA NAIP 2023)",
+      "what": "The land of The Townes at Amber Bluff off Savannah Bluff Road, with Brooks Stadium and Coastal Carolina University to the south, labelled by Chapter3.",
+      "caption": "The Townes at Amber Bluff's land, with Brooks Stadium and Coastal Carolina University to the south.",
+      "alt": "Aerial view of a highway, campus buildings and a stadium, with labels for The Townes at Amber Bluff, Brooks Stadium and Coastal Carolina University",
+      "place": {
+        "city": "Conway",
+        "sublocation": "The Townes at Amber Bluff, Savannah Bluff Road"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8798319.428563753%2C4000451.2635637%2C-8793688.098603485%2C4003924.761033901&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -79.03665,
+          33.7886,
+          -78.99504,
+          33.81453
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/villas-at-sandridge-and-sc-90-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/villas-at-sandridge-and-sc-90-from-above-600w.webp",
+        "1200": "images/buyers/affordable/villas-at-sandridge-and-sc-90-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Villas at Sandridge, SC 90 and the North Myrtle Beach Sports Complex, from above (USDA NAIP 2023)",
+      "what": "Villas at Sandridge beside SC 90, with the North Myrtle Beach Park and Sports Complex to the southwest across the highway interchange, labelled by Chapter3.",
+      "caption": "Villas at Sandridge on SC 90, with the North Myrtle Beach Sports Complex, from above.",
+      "alt": "Aerial view of a highway interchange with a sports complex and new streets, with labels for Villas at Sandridge, SC 90 and the sports complex",
+      "place": {
+        "city": "Little River",
+        "sublocation": "Villas at Sandridge, SC 90"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8762823.004151039%2C4007002.907164707%2C-8759531.795175415%2C4009471.3138964246&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -78.71778,
+          33.8375,
+          -78.68821,
+          33.85592
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/indigo-grove-and-sc-90-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/indigo-grove-and-sc-90-from-above-600w.webp",
+        "1200": "images/buyers/affordable/indigo-grove-and-sc-90-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Indigo Grove's land and Griffin's IGA on SC 90, from above (USDA NAIP 2023)",
+      "what": "The land where Indigo Grove was later built, north of SC 90, with Griffin's IGA on SC 90, labelled by Chapter3.",
+      "caption": "Indigo Grove's land, before the houses were built, with Griffin's IGA on SC 90.",
+      "alt": "Aerial view of fields and woods north of a two-lane highway, with labels for Indigo Grove, SC 90 and Griffin's IGA",
+      "place": {
+        "city": "Longs",
+        "sublocation": "Indigo Grove, SC 90"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8767712.520557242%2C4009323.8377168127%2C-8765971.742021052%2C4010629.4216189515&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -78.7617,
+          33.85481,
+          -78.74606,
+          33.86455
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/wynbrooke-and-sc-707-shops-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/wynbrooke-and-sc-707-shops-from-above-600w.webp",
+        "1200": "images/buyers/affordable/wynbrooke-and-sc-707-shops-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Wynbrooke, Lowes Foods, Publix and The Park at The Bays, from above (USDA NAIP 2023)",
+      "what": "Wynbrooke's townhomes around ponds off SC 707, with Lowes Foods and Publix across the highway and The Park at The Bays to the south, labelled by Chapter3.",
+      "caption": "Wynbrooke, with Lowes Foods, Publix and The Park at The Bays a short walk away.",
+      "alt": "Aerial view of townhomes around ponds beside a highway, with grocery stores across it and a park to the south, with labels",
+      "place": {
+        "city": "Murrells Inlet",
+        "sublocation": "Wynbrooke, SC 707"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8801237.02556426%2C3971995.619355814%2C-8798729.054826312%2C3973876.597409277&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -79.06286,
+          33.57589,
+          -79.04033,
+          33.58997
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/polo-farms-and-todd-swamp-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/polo-farms-and-todd-swamp-from-above-600w.webp",
+        "1200": "images/buyers/affordable/polo-farms-and-todd-swamp-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Polo Farms, SC 905 and Todd Swamp, from above (USDA NAIP 2023)",
+      "what": "Polo Farms' houses north of SC 905, with the woods of Todd Swamp to the southwest, labelled by Chapter3.",
+      "caption": "Polo Farms off SC 905, with Todd Swamp to the southwest.",
+      "alt": "Aerial view of a neighborhood of houses among woods and fields, with labels for Polo Farms, SC 905 and Todd Swamp",
+      "place": {
+        "city": "Longs",
+        "sublocation": "Polo Farms, SC 905"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8775078.647026293%2C4016121.9531354923%2C-8772432.475920044%2C4018106.58146518&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -78.82787,
+          33.90551,
+          -78.8041,
+          33.92031
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200"
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, 2023 (the mosaic is locked to Year=2023). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "share_alike": false,
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/old-speedway-and-victory-point-labelled-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/old-speedway-and-victory-point-labelled-from-above-600w.webp",
+        "1200": "images/buyers/affordable/old-speedway-and-victory-point-labelled-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "The old Myrtle Beach Speedway beside US 501, from above (USDA NAIP 2023)",
+      "what": "The closed track's oval beside US 501, with the woods to its southeast where Victory Point's townhomes now stand, labelled by Chapter3.",
+      "caption": "The old Myrtle Beach Speedway beside US 501, before Victory Point was built on part of its land.",
+      "alt": "Aerial view of an empty oval dirt race track beside a divided highway, with labels for the track, US 501 and where Victory Point now is",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Victory Point, US 501"
+      },
+      "changes": "Chapter3 Realty exported this view from the NAIP image service, resized it and added labels (place names and points from county records and OpenStreetMap)",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8789351.700000001%2C3994394.5999999987%2C-8788391.699999997%2C3995114.5999999996&bboxSR=3857&imageSR=3857&size=1600%2C1200&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -78.95609,
+          33.74337,
+          -78.94747,
+          33.74875
+        ],
+        "note": "labels at the middle of the place's 2025-2026 sales (county deeds joined to parcels) and at OpenStreetMap points (pending rows 178 and 179)"
+      },
+      "original_size": "1600x1200",
+      "crops": {
+        "1x1": {
+          "path": "images/buyers/affordable/old-speedway-and-victory-point-labelled-from-above-1x1.webp",
+          "width": 1200,
+          "height": 1200
+        },
+        "4x3": {
+          "path": "images/buyers/affordable/old-speedway-and-victory-point-labelled-from-above-4x3.webp",
+          "width": 1200,
+          "height": 900
+        },
+        "16x9": {
+          "path": "images/buyers/affordable/old-speedway-and-victory-point-labelled-from-above-16x9.webp",
+          "width": 1200,
+          "height": 675
+        }
+      },
+      "crops_note": "The share image of /buyers/affordable-places-to-live/. Center crops in each ratio, 1200 px wide, from the 1600 x 1200 labelled export (tools/photos.js makeCrops). Public domain base image."
     }
   ],
   "updated": "2026-10-13"
