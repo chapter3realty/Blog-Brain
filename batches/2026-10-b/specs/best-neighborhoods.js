@@ -331,9 +331,9 @@ const MID_CTA = (bg) => h.cta("Not sure which of these fits you? We will send th
   "Get three neighborhoods", OFFER, bg);
 const ENTRIES = [
   ENTRY(1, "tidewater", "Tidewater Plantation: golf between the waterway and the inlet in North Myrtle Beach", [
-    `Tidewater Plantation is between the Intracoastal Waterway and Cherry Grove Inlet, behind a gatehouse on Little River Neck Road. Tidewater Golf Club, a public course, winds between the homes, and our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} tells how it was built.`,
+    `Tidewater Plantation is between the Intracoastal Waterway and Cherry Grove Inlet, behind a guard house that visitors reach from Little River Neck Road. Tidewater Golf Club, a public course, winds between the homes, and our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} tells how it was built.`,
     "Most of its homes are houses, many along the fairways, with a few condo buildings. Owners share a clubhouse, a fitness center, courts for tennis, pickleball and bocce, and an oceanfront beach cabana with parking at Cherry Grove.",
-    "A condo or villa here pays about $780 to $800 a month in HOA fees.",
+    "Two-bedroom condos in the Clubhouse Villas list at about $780 to $800 a month in HOA fees, and other units in the same buildings list higher and lower.",
   ], "houses for sale were mostly built around 2000 and have about 2,700 square feet. Houses usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
   ENTRY(2, "cherry-grove", "Cherry Grove: beach streets, canals and a 1950s pier in North Myrtle Beach", [
@@ -358,7 +358,7 @@ const ENTRIES = [
     "Waterbridge was started by South Carolina Coastal Development, which sold open space and common areas to the homeowners association in 2010. The association looks after the lakes. Builders have added sections since. Over 80 acres of lakes and natural areas wind through it, with small pocket parks along the way.",
     "Owners can launch a kayak or other non-motorized boat on the lakes from a boat launch with a floating dock, and walking paths cross the water on bridges.",
     "The pool complex and the clubhouse are inside a circle of streets. The clubhouse has a fitness center open around the clock. Courts for tennis, pickleball, basketball and volleyball are a quarter mile away, on Fiddlehead Way. A Food Lion and McLeod Health Carolina Forest's emergency department are close by.",
-    "Builders are still selling new houses in its newest sections, so some streets still have building work.",
+    "About 90 new houses were sold here in the past year, mostly by builders, and some of its newest streets are still filling in.",
   ], "houses for sale were mostly built in the last few years and have about 3,100 square feet. Houses usually sell for about $630,000, and the HOA fee is about $150 a month."),
 
   ENTRY(6, "grande-dunes", "Grande Dunes: gated sections between a beach club and a marina in Myrtle Beach", [
@@ -376,13 +376,13 @@ const ENTRIES = [
   ENTRY(8, "plantation-lakes", "Plantation Lakes: a large lake and two pools on a point in Carolina Forest", [
     "Plantation Lakes is built around a large lake, with about 15 miles of shoreline, off Carolina Bays Parkway. Its developer was American Mining Company, and the owners' association holds about 185 acres of common areas, deeded to it in 2007 and 2008.",
     "Many homes back onto the lake, and the amenity area has a dock. That amenity area is on a point in the lake, with two pools and a clubhouse with a gym. Tennis and basketball courts are across the road.",
-    "Its nearest beach access has no parking, so owners drive on to one that does.",
+    "The beach access nearest by car has no parking; the next one, with a pay lot, is about the same distance away.",
   ], "houses for sale were mostly built in the 2000s and have about 3,400 square feet. Houses usually sell for about $740,000, and the HOA fee is about $125 a month.", MID_CTA),
 
   ENTRY(9, "berkshire-forest", "Berkshire Forest: a water slide and two pool areas in Carolina Forest", [
-    "Centex Homes developed the first sections of Berkshire Forest, such as Crestwood, Sutton Place and Cambridge. Pulte Homes later added land from two neighboring developments, and the county now counts about 870 homes in Berkshire Forest.",
+    "Centex Homes developed the first sections of Berkshire Forest, such as Crestwood, Sutton Place and Cambridge. Pulte Homes later added land from two neighboring developments. Berkshire Forest and its Berkshire Village section together have more than 1,100 homes.",
     "The first pool complex, with a water slide, is beside a lake, with tennis and basketball courts and a play area next to it. The expansion added a second amenity area with a pool and courts for tennis or pickleball.",
-    "River Oaks Elementary School is at the edge of the neighborhood, on Augusta Plantation Drive. The beach is a 15-minute drive.",
+    "River Oaks Elementary School is on Augusta Plantation Drive, next to the Berkshire Village section. The beach is a 15-minute drive.",
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,400 square feet. Houses usually sell for about $390,000, and the HOA fee is about $115 a month."),
 
   ENTRY(10, "pine-lakes", "Pine Lakes: homes beside the Granddaddy, Myrtle Beach's first golf course", [
@@ -392,22 +392,22 @@ const ENTRIES = [
   ], "houses for sale were mostly built since 2015 and have about 2,400 square feet. Homes usually sell for $540,000 to $670,000, and the HOA fee is about $95 a month for a house."),
 
   ENTRY(11, "forestbrook-estates", "Forestbrook Estates: houses around ponds, with a community garden", [
-    "Forestbrook Estates was planned under the name Kingsland. The county rezoned the land in 2017, and Lennar began building soon after. All of the 500 houses the county approved are built, and townhomes stand beside them.",
-    "The houses are built around ponds. On the same grounds as the pool is a community garden with garden plots, and owners drive golf carts on its streets.",
-    "Rosewood Landing, a county boat ramp on the Intracoastal Waterway, is about 2 miles away. The neighborhood has ponds but no lake you can take a boat on.",
+    "Forestbrook Estates was formerly known as Kingsland. The county rezoned the land in 2017, and Lennar began building soon after. All of the 500 houses the county approved are built, and townhomes stand beside them.",
+    "The houses are built around ponds. On the same grounds as the pool is a community garden with garden plots, and listings say golf carts are allowed here.",
+    "Rosewood Landing, a county boat ramp on the Intracoastal Waterway, is about 2 miles away in a straight line, and about 5 miles by road. The neighborhood has ponds, not a lake.",
   ], "most of the few houses for sale here were built in the last few years and have about 2,300 square feet. Houses usually sell for about $395,000, and the HOA fee is under $90 a month."),
 
   ENTRY(12, "market-common", "The Market Common: a town center on the old Myrtle Beach Air Force Base", [
     "The Market Common is built on the old Myrtle Beach Air Force Base. The base began as an Army Air Corps field in World War II and closed in 1993. The base's land now holds The Market Common, a dozen parks, the airport and a golf course.",
     "Its houses and townhomes are beside a district of shops and offices. Grand Park, with picnic shelters, ball fields and a playground, is a few blocks from the nearest homes.",
-    "A townhome here pays a high HOA fee, about $300 to $700 a month.",
+    "Townhomes here list at about $300 to $680 a month in HOA fees, higher than the houses here pay.",
   ], "townhomes for sale have about 1,700 square feet. Houses usually sell for about $540,000 and townhomes for about $398,000."),
 
   ENTRY(13, "deerfield", "Deerfield Plantation area: wooded streets around an old golf resort near Surfside Beach", [
-    "The Deerfield Plantation area grew up around the Deer Track golf resort near Surfside Beach. Its older streets are wooded, and the association owns the lakes and canals that run between the homes.",
-    "In 2006 two investors bought the golf course land. Homeowners sued to keep it a golf course. The courts found the land carried no such restriction, and the state Court of Appeals agreed in 2012.",
+    "The Deerfield Plantation area is built around the old Deer Track golf courses near Surfside Beach. Its older streets are wooded, and the association owns lake and canal land among the homes.",
+    "In 2006 two buyers bought the golf course. Homeowners sued to keep it a golf course. A special referee found no such restriction on the land, and the state Court of Appeals affirmed in 2012.",
     "The old South Course is now a neighborhood of new houses. On the old North Course, building has only begun, so homes near it are beside a building site.",
-    "The closest beach access has parking for golf carts only, so an owner with a golf cart can park right at the beach. By car, owners use the next access, which has a pay lot.",
+    "The closest beach access has three parking spaces, for golf carts only. By car, owners use the next access, which has a pay lot.",
   ], "most of the few houses for sale here were built in the 1970s and 1980s and have about 2,000 square feet. Homes usually sell for about $355,000, and the HOA fee is under $90 a month for a house."),
 
   ENTRY(14, "surfside-beach", "Surfside Beach, ocean side: beach streets on an old rice plantation", [
@@ -418,7 +418,7 @@ const ENTRIES = [
 
   ENTRY(15, "prince-creek", "Prince Creek: homes beside a Tom Fazio course in Murrells Inlet", [
     "Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course that opened in 1999. Tom Watson won the Senior PGA Tour Championship there the next year.",
-    "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, 43 acres of mostly woods. Its amenity area has two pools and courts for tennis and pickleball, and listings add basketball, a playground and a covered pavilion.",
+    "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, a park of mostly woods. Its amenity area has two pools and courts for tennis and pickleball, and listings add basketball, a playground and a covered pavilion.",
     "A Publix is just across the main road, and Tidelands Waccamaw Community Hospital is a short drive away. Builders sold new townhomes here in the past year, but few homes are sold by their owners.",
   ], "the few houses for sale here were built from about 2007 to 2015 and have about 2,400 square feet. Homes usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."),
 ];
@@ -439,7 +439,7 @@ const BEST_FOR = `<p style="color:var(--muted);line-height:1.8;max-width:720px;m
 const STORY = (bg) => story([
   "<strong>Example:</strong> A house at Pine Lakes will be Megan's second home until she moves here from up north.",
   "The county taxes a second home at a higher rate than the home you live in. Her Chapter3 agent works out her yearly cost at the second-home rate before she offers.",
-  "Once Megan lives in the house, she applies for the lower rate.",
+  "Once Megan lives in the house, she applies to the county for the lower rate.",
 ], "", bg,
 `An agent at Chapter3 can send you three neighborhoods that fit what you want, and the homes for sale in each.`);
 
