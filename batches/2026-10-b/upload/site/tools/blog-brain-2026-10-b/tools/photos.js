@@ -709,6 +709,31 @@ function pageImages(rec, o = {}) {
   });
 }
 
+/* The frame and the export must be the same place. Batch 2026-10-b round 10: three aerials had labels
+   drawn for a new frame.bbox_wgs84 over pixels still exported from the old source_request, so a name
+   dot sat in the neighborhood next door. Returns a problem string, or "" when the two agree or when
+   the record has no bbox in both. Tolerance: 2% of the frame's width or height. */
+function frameMismatch(rec) {
+  const b = rec.frame && rec.frame.bbox_wgs84, sr = rec.source_request;
+  if (!Array.isArray(b) || b.length !== 4 || typeof sr !== "string") return "";
+  let q;
+  try { q = new URL(sr).searchParams; } catch (e) { return ""; }
+  const raw = q.get("bbox") || q.get("BBOX");
+  if (!raw) return "";
+  let e = raw.split(",").map(Number);
+  if (e.length !== 4 || e.some((x) => !Number.isFinite(x))) return "";
+  const sref = String(q.get("bboxSR") || q.get("SRS") || q.get("CRS") || q.get("srs") || q.get("crs") || "");
+  if (/3857|102100|900913/.test(sref) || Math.abs(e[0]) > 360) {
+    const R = 6378137, lon = (x) => (x / R) * 180 / Math.PI, lat = (y) => (2 * Math.atan(Math.exp(y / R)) - Math.PI / 2) * 180 / Math.PI;
+    e = [lon(e[0]), lat(e[1]), lon(e[2]), lat(e[3])];
+  } else if (/4326/.test(sref) && /1\.3/.test(q.get("VERSION") || q.get("version") || "") && Math.abs(e[0]) <= 90 && Math.abs(e[1]) > 90) {
+    e = [e[1], e[0], e[3], e[2]];
+  }
+  const w = Math.abs(b[2] - b[0]), h = Math.abs(b[3] - b[1]);
+  const off = Math.max(Math.abs(e[0] - b[0]) / w, Math.abs(e[2] - b[2]) / w, Math.abs(e[1] - b[1]) / h, Math.abs(e[3] - b[3]) / h);
+  return off > 0.02 ? `frame.bbox_wgs84 and source_request bbox differ by ${Math.round(off * 100)}% of the frame: re-export from the frame, or redraw the labels for the export` : "";
+}
+
 /* Checks every record in a photos.json and, with a root, that its files exist. With
    o.meta, also that every file holds its embedded metadata. Returns problems. */
 function checkFile(jsonPath, root, o = {}) {
@@ -719,6 +744,8 @@ function checkFile(jsonPath, root, o = {}) {
       if (rec.hold) { out.push(`hold  ${rec.file}: ${rec.hold}`); continue; }
       checkRecord(rec); imageSet(rec);
       if (!rec.alt) out.push(`warn  ${rec.file}: no default alt (each call must pass alt)`);
+      const fm = frameMismatch(rec);
+      if (fm) out.push(`FAIL  ${rec.file}: ${fm}`);
       if (root) for (const p of [rec.variants["600"], rec.variants["1200"]]) if (!resolveImage(root, p)) out.push(`FAIL  ${rec.file}: missing ${p}`);
       if (root && o.meta) for (const f of recordFiles(rec)) {
         const at = resolveImage(root, f.path);
@@ -747,7 +774,7 @@ function embedFile(jsonPath, roots) {
   return out;
 }
 
-module.exports = { heroPhoto, gallery, featureCards, creditsList, photoCss, checkRecord, findPhoto, imageSet, makeVariants, makeCrops, checkFile, whatItShows, hasDate, LICENSES, esc,
+module.exports = { frameMismatch, heroPhoto, gallery, featureCards, creditsList, photoCss, checkRecord, findPhoto, imageSet, makeVariants, makeCrops, checkFile, whatItShows, hasDate, LICENSES, esc,
   metaFor, embedMetadata, readEmbedded, checkEmbedded, imageObject, imageSchema, pageImages, recordFiles, resolveImage, embedFile, hasExiftool, SHOWN, SITE, DST, CROPS };
 
 if (require.main === module) {

@@ -1,48 +1,64 @@
 /* /buyers/affordable-places-to-live/ - the most affordable places to buy a home near Myrtle Beach.
  *
  * Batch 2026-10-b, page 5.
- * Version 3, 2026-10-13: round 3 (review/ROUND-3.md, review/OWNER-EYE-affordable-places-to-live.md). One
- *   Conway price only (the recorded-sale line is cut); method sentences moved to the sources line; Green
- *   Sea line cut; a new labelled example on the down-payment help (the agent connects the buyer with a
- *   lender that works with SC Housing, the service /buyers/programs/ records); the short-answer offer line
- *   shortened; the coastal insurance guide linked beside the older-homes line; a NAIP 2023 aerial of new
- *   streets near Longs; the Georgetown harbor photo cropped to leave out a dealer's name; the tax section
- *   moved before the down-payment section, so the example sits near the end.
- * Version 2, 2026-10-13: round 2 (review/ROUND-2.md and review/BUYER-READ-affordable-places-to-live.md).
- *   The reader (34, rents and works in Myrtle Beach, first home, tight budget) came for a place a short
- *   drive from Myrtle Beach, and for what a home costs each year. Added: the drive from each place to
- *   Myrtle Beach (Coastal Grand Mall, one fixed point for every row, verified rows 47 to 53), the yearly
- *   property tax on a typical home in dollars (pending rows 107 and 108), the HOA fee where it is typical
- *   (no-hoa ledger, verified rows 6, 10 to 12, 15), what about $250,000 buys and a line for spending less
- *   (verified rows 19, 20, 22, 24; no-hoa row 14 as corrected), insurance on an older home (pending row
- *   109), plain words for the down-payment programs and how to apply, "typical home value" said once,
- *   the areas named. One value per thing: every value is rounded to the nearest $5,000 and every drive to
- *   the nearest 5 minutes, the same on every surface; no "$X less" gaps (they disagreed with the rounded
- *   values). Cut: the Longs story line, the builder and sale counts, the exact income limits. The offer
- *   appears three times (short answer, down-payment section, bottom), and the page says what the form asks.
- * Version 1, 2026-10-13: first build.
+ * Version 8, 2026-10-14: round 8 (review/ROUND-8.md; the owner's second read in voice/VERDICTS.md: "name
+ *   some roads some communities some actual useful shit"). The page now answers "where" with twelve named
+ *   neighborhoods, found by joining the county's deed index to the county's parcels and grouping every
+ *   home sale of the past year by subdivision (pending row 116). Each entry says where it is by the roads,
+ *   what you get (a facts table), and what makes it different (history, the gate, the water, the builder).
+ *   The towns are a short table for comparison, on the same measure (verified rows 19 to 25). Myrtle Beach
+ *   the city is only the point of comparison; Parkview, a subdivision inside the city, is an answer.
+ *   Kept: the tax in dollars (now one example, pending row 153), the down-payment help and the Dana
+ *   example. Cut: the town entries, their photos, the pros and cons, the compare table (it repeated the
+ *   entries). ItemList JSON-LD for the numbered entries.
+ * Version 12, 2026-10-14: round 12 (review/OWNER-EYE-11-affordable-places-to-live.md). Indigo Grove rewritten
+ *   as living there (grocery, open space, flood, the drive); the Golf and Yacht Club entry leaves the gate,
+ *   the amenities and the ramp to the gated page; the lows; a voice pass. Pending rows 193 and 194.
+ * Version 11, 2026-10-14: round 11 (review/OWNER-EYE-10-affordable-places-to-live.md). The prose no longer
+ *   repeats the facts strip; one errand drive per entry, with no compass direction; Indigo Grove (floor plans,
+ *   lots, open space, the drive to work) and Polo Farms (Simpson Creek, the three phases, the yards, the 2016
+ *   and 2018 floods) rebuilt from new rows; the Golf and Yacht Club's gatehouse stated (gated row 149); the
+ *   map drops the mall marker; the down-payment section keeps the $10,000, the income limit and the price
+ *   cap. Pending rows 187 to 191.
+ * Version 10, 2026-10-14: round 10 (review/OWNER-EYE-9-affordable-places-to-live.md, ROUND-10.md). Each entry
+ *   is a facts strip, then what living there is like (nearby stores, parks, landings, golf, the land's
+ *   history) and the trade-off in the prose; the per-entry table is gone, and schools and the mall drive
+ *   are one table after the list. Rankings cut to two. Parkview and the Golf and Yacht Club are not called
+ *   gated until the gated writer confirms it. Twelve labelled NAIP aerials. Pending rows 178 to 181.
+ * Version 9c, 2026-10-14: Victory Point's neighbor plan from MyHorryNews 2026 (row 176); Villas at Sandridge
+ *   still selling by the deeds (row 177); Birchwood southwest of Longs; Polo Farms fee "lowest on this list".
+ * Version 9b, 2026-10-14: the verifier's notes on rows 155 to 171 (none wrong): cause wording without a row
+ *   cut; Victory Point's neighbor plan from the Sun News (row 172); Villas at Sandridge sold out and sized
+ *   (row 173); the Sawgrass East to Victory Point drive (row 174); wording fixes (row 175).
+ * Version 9, 2026-10-14: the owner's-eye review (review/OWNER-EYE-8-affordable-places-to-live.md). Access
+ *   roads only (no street lists, except Victory Point's racing names); the builder sentence twice; each
+ *   entry says why the price is low; the facts table gains "HOA fee and tax a year" (pending row 169) and a
+ *   trade-off row, with flood where FEMA shows it (row 170); the method moves to the sources line; the first
+ *   offer is the navy band (mkpage-offer-box.patch). repeat-check --strict passes.
+ * Version 8b, 2026-10-14: the verifier's round 8 check (rows 116 to 154). The ranking now counts new homes the
+ *   county has not valued yet (the building-value filter had dropped them), splits one legal name that covers
+ *   two places (PARKVIEW), leaves out manufactured homes, and keeps only places within about 20 minutes'
+ *   drive of a public beach access (pending rows 155 to 168). Out: Coopers Bluff, the Cove at Glenns Bay.
+ *   In: Forestbrook Village, Villas at Sandridge. Schools from the district's attendance zones (row 165).
+ * Versions 1 to 7, 2026-10-13 and 14: towns ranked by Zillow's typical value (git history).
  *
- * One price measure in every comparison: Zillow's typical home value (ZHVI all homes, middle tier,
- * August 2026), said as "a typical home in X is worth about $Y". Recorded-sale medians appear only in
- * the "what about $250,000 buys" section, as "a house there usually sells for", never in a comparison.
+ * One price measure in every comparison: the middle recorded sale price over the past year (county deed
+ * index, October 2025 to September 2026), condo units left out, said "homes usually sold for about $X".
+ * Every price is rounded to the nearest $5,000 and every drive under 15 minutes to the nearest minute and longer ones to the nearest 5, the same on
+ * every surface.
  *
- * Ranking rule (WRITER-BRIEF, refined 2026-10-13): at least 15 recorded sales in 12 months, or, in
- * Georgetown County, at least 1,000 homes by the Census housing-unit count (Georgetown: rows 78 and 106).
- * Green Sea is not ranked (row 100); one plain line names it. Nichols and Hemingway are out of scope
- * (row 105). Pawleys Island is left off the chart (rows 15, 91).
- *
- * Facts: batches/2026-10-b/facts/affordable-facts.md (verified rows, and pending rows 106 to 109), and
- * batches/2026-10-b/facts/no-hoa-facts.md (verified rows 6, 10, 11, 12, 15; row 14's corrected wording).
- *   Values:        rows 1 to 8, 11, 12, 16, 99.
- *   What it buys:  rows 19, 20, 22, 24 (condo-style shares; house and condo middles), 32 to 34 (year built).
- *   Drives:        rows 46 to 53. Free-flow minutes from each town point. Traffic: stories.json "traffic-timing".
- *   Tax:           rows 62 to 68, 73, 75, 76, 103; dollars on a typical home: pending rows 107, 108.
- *   Flood:         rows 77 to 84, 87.
- *   Insurance:     pending row 109 (SC Department of Insurance).
- *   Down payment:  rows 92 to 97. No rate, no payment, no "0 percent".
- * Pictures: our map of the five places, Myrtle Beach and Coastal Grand Mall (tools/page-kit.js placesMap),
- *   a bar chart of every ranked place, and Commons photos of Georgetown, Loris and Conway. Commons has no
- *   license-clean ground photo of Longs or Aynor (searched 2026-10-13).
+ * Facts: batches/2026-10-b/facts/affordable-facts.md.
+ *   Sales by place:   pending rows 116 to 128 (round 8).
+ *   Homes, fees:      pending rows 129 to 140 (listings).
+ *   Drives:           pending row 141 (OSRM, from the middle of each place's sales).
+ *   What is different: pending rows 142 to 152.
+ *   Tax example:      pending row 153; rates rows 64, 66, 71, 72, 75 (verified); row 107 (verified).
+ *   Towns:            verified rows 19, 21 to 25; rounding in pending row 154.
+ *   Down payment:     rows 92 to 97. No rate, no payment, no "0 percent".
+ *   Insurance:        row 109.
+ * Pictures: a bar chart of the twelve and a Myrtle Beach house; our map of the twelve and Coastal Grand
+ *   Mall; six USDA NAIP 2023 aerials (public domain). The other six places were built after 2023 or show
+ *   only woods in 2023; they are on the photo partner's list.
  */
 const fs = require("fs"), path = require("path");
 const { h } = require("../tools/mkpage.js");
@@ -53,7 +69,7 @@ const BB = [path.join(__dirname, "..", "tools", "blog-brain-2026-10-b"), process
   .find((d) => fs.existsSync(path.join(d, "tools", "page-kit.js")));
 if (!BB) throw new Error("Blog-Brain tools not found (tools/page-kit.js)");
 const PK = require(path.join(BB, "tools", "page-kit.js"));
-const { compareCards } = require(path.join(BB, "tools", "compare.js"));
+const AM = require(path.join(BB, "tools", "area-map.js"));
 
 /* This batch's files: the website's data/2026-10-b/ (where the upload package puts them), else the
    batch folder in Blog-Brain. Photo records: batch 2026-10-a's (the website's data/photos.json), then this batch's. */
@@ -63,244 +79,432 @@ if (!DATA) throw new Error("batch 2026-10-b photos.json not found");
 const PHOTO_FILES = [path.join(__dirname, "..", "data", "photos.json"), path.join(DATA, "photos.json")].filter((f) => fs.existsSync(f));
 const kit = PK.create({ h, photos: PHOTO_FILES.flatMap((f) => JSON.parse(fs.readFileSync(f, "utf8")).photos),
   mapDir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), mapSrc: "/images/maps" });
-const { glance, prosCons, story, placesMap, photoSet } = kit;
+const { glance, story, placesMap, photoSet } = kit;
 
 const SELF = "/buyers/affordable-places-to-live/";
 const CONTACT = "/contact/";
 const OFFER = "Send me the list";
 
-/* Primary sources, each opened by the researcher and again by the verifier. */
-const ZILLOW = "https://www.zillow.com/research/data/";
+/* Primary sources. */
+const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
+const PARCELS = "https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24";
 const LEVY = "https://www.horrycountysc.gov/media/kufln4qp/tax-levy-2026_2.pdf";
-const GT_TAX = "https://www.gtcountysc.gov/385/Property-Tax-Calculator";
-const FEMA = "https://msc.fema.gov/portal/home";
 const SCH = "https://schousing.sc.gov/homebuyers/programs-homebuyers";
 const DOI = "https://doi.sc.gov/614/Cost-of-Homeowners-Insurance";
-const DEEDS = "https://acclaimweb.horrycounty.org/AcclaimWeb/";
-const CENSUS = "https://data.census.gov/";
+const OSRM = "https://project-osrm.org/";
+const SPEEDWAY = "https://www.wmbfnews.com/2024/07/10/old-myrtle-beach-speedway-being-transformed-into-townhome-community";
+/* MyHorryNews, 2026-02-15, Sazie Eagan (pending row 176). */
+const REV3 = "https://www.myhorrynews.com/news/for-rent-townhome-community-breaks-ground-in-carolina-forest/article_bc89fa83-1610-4e28-ad33-58e653b0135c.html";
+/* City of Myrtle Beach, Whispering Pines page; MyHorryNews 2018 on the speedway; Enterprise Landing (pending rows 178, 179). */
+const POLO_FLOOD = "https://www.wmbfnews.com/2018/11/29/wmbf-investigates-did-poor-planning-lead-flooding-longs-community/";
+const OVERLOOK = "https://www.lennar.com/new-homes/south-carolina/myrtle-beach/longs/the-overlook";
+const CFRC = "https://horrycountysc.gov/departments/parksandrecreation/recreation-centers/";
+const WPINES = "https://www.cityofmyrtlebeach.com/i_want_to/find/whispering_pines_golf_course.php";
+const RAMBI = "https://www.myhorrynews.com/visit/race-to-myrtle-beach-speedway-for-the-nascar-experience/article_494efd18-8ab0-11e8-825d-ef4e52fa72ee.html";
+const ENTERPRISE = "https://www.howsyourriver.com/access_sites/enterprise";
+const WILDWING = "https://www.myrtlebeachgolftrips.com/news/time-to-come-home-why-you-need-to-play-wild-wing/";
 
 /* ---------------------------------------------------------------------------- */
 /* Values, rounded once, used everywhere.                                         */
 
-/* Zillow's typical value, August 2026 (rows 2 to 8, 11, 12, 16), to the nearest $5,000. */
-const r5 = (v) => "$" + (Math.round(v / 5000) * 5000).toLocaleString("en-US");
-const V = { Georgetown: 251667, Loris: 255122, Longs: 285812, Conway: 288359, Aynor: 292422, "Myrtle Beach": 323058 };
-const val = (p) => r5(V[p]);
-/* Free-flow minutes from each town point (rows 47 to 53), to the nearest 5. */
-const r5m = (m) => `${Math.max(5, Math.round(m / 5) * 5)}`;
-const BEACH = { Georgetown: 19.8, Loris: 36.4, Longs: 17.0, Conway: 24.3, Aynor: 44.4 };
-const MALL = { Georgetown: 51.4, Loris: 52.3, Longs: 38.0, Conway: 23.1, Aynor: 42.4, "Myrtle Beach": 8.1 };
-const beach = (p) => r5m(BEACH[p]), mall = (p) => r5m(MALL[p]);
-/* Yearly property tax on a typical home you live in (pending row 108): value x the 2026 rate per
-   $100,000 (rows 64 to 68, 73), plus the bill's flat fee; Georgetown from the county's estimator (row 76).
-   To the nearest $100. */
-const TAX = { Georgetown: 2300, Loris: 1800, Longs: 1100, Conway: 1900, Aynor: 1800, "Myrtle Beach": 1300 };
-const tax = (p) => "$" + TAX[p].toLocaleString("en-US");
+const money = (v) => "$" + (Math.round(v / 5000) * 5000).toLocaleString("en-US");
+/* Drives under 15 minutes to the nearest minute, longer ones to the nearest 5 (CRAFT 2). */
+const mins = (m) => `${m < 15 ? Math.max(1, Math.round(m)) : Math.round(m / 5) * 5}`;
 
-const PLACES = [
-  { name: "Georgetown", lat: 33.376834, lon: -79.2944965, href: "#georgetown" },
-  { name: "Loris", lat: 34.0562812, lon: -78.8903044, href: "#loris" },
-  { name: "Longs", lat: 33.9385051, lon: -78.7330737, href: "#longs" },
-  { name: "Conway", lat: 33.8360035, lon: -79.0478143, href: "#conway" },
-  { name: "Aynor", lat: 33.9998881, lon: -79.1994874, href: "#aynor" },
-  { name: "Myrtle Beach", lat: 33.6890603, lon: -78.8866943, href: "/submarkets/myrtle-beach/" },
-  /* Coastal Grand Mall: the county address point for 2000 Coastal Grand Circle (row 46). */
-  { name: "Coastal Grand Mall", lat: 33.702315, lon: -78.923261, href: "#compare" },
+/* The twelve places, lowest middle sale price first (pending rows 117 to 128). lat and lon: the middle
+   of each place's sales (row 141). mb: free-flow minutes to Coastal Grand Mall; beach: to the nearest
+   public beach access by car (row 141). */
+const P = [
+  { id: "parkview", year: 4700, name: "Parkview", map: "Parkview", lat: 33.686431, lon: -78.910360, price: 190000, mb: 6.1, beach: 4.0,
+    homes: "Townhomes from 2004 and 2005, 2 or 3 bedrooms", fee: "About $325 a month", schools: "Myrtle Beach Elementary, Middle and High" },
+  { id: "fairways-at-wild-wing", year: 6100, name: "The Fairways at Wild Wing Plantation", map: "Fairways at Wild Wing", lat: 33.787649, lon: -78.986234, price: 215000, mb: 16.5, beach: 17.8,
+    homes: "Townhomes from 2007 to 2018, 3 bedrooms", fee: "About $390 a month", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
+  { id: "sawgrass-east", year: 6000, name: "Sawgrass East", map: "Sawgrass East", lat: 33.756167, lon: -78.929975, price: 222500, mb: 16.7, beach: 17.9,
+    homes: "Townhomes from 2005 and 2006, 2 or 3 bedrooms", fee: "About $425 a month", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
+  { id: "birchwood", year: 2400, name: "Birchwood", map: "Birchwood", lat: 33.925885, lon: -78.754012, price: 223825, mb: 41.6, beach: 20.2,
+    homes: "New houses, 3 or 4 bedrooms", fee: "About $120 a month", schools: "Daisy Elementary, Loris Middle, Loris High" },
+  { id: "golf-and-yacht-club", year: 2100, name: "Myrtle Beach Golf and Yacht Club", map: "Golf and Yacht Club", lat: 33.649402, lon: -79.05007, price: 225000, mb: 22.9, beach: 15.0,
+    priceText: "About $225,000 (older part); new houses about $330,000",
+    homes: "One-story houses, most from the 1980s", fee: "About $95 a month", schools: "St. James Elementary, Intermediate, Middle and High" },
+  { id: "forestbrook-village", year: 3000, name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6,
+    homes: "New two-story townhomes, 3 bedrooms", fee: "About $170 a month", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
+  { id: "victory-point", year: 3800, name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9,
+    homes: "New townhomes, 3 bedrooms", fee: "About $235 a month", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
+  { id: "amber-bluff", year: 2200, name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6,
+    homes: "New townhomes, 3 bedrooms", fee: "About $100 a month", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
+  { id: "villas-at-sandridge", year: 4600, name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46,
+    homes: "New two-story townhomes, 3 bedrooms", fee: "About $300 a month", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
+  { id: "indigo-grove", year: 2000, name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2,
+    homes: "New houses, 3 to 5 bedrooms", fee: "About $80 a month", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
+  { id: "wynbrooke", year: 6500, name: "Wynbrooke", map: "Wynbrooke", lat: 33.584176, lon: -79.048446, price: 249500, mb: 19.8, beach: 8.9,
+    homes: "Townhomes from 2002 to 2005, 3 bedrooms", fee: "About $450 a month", schools: "St. James Elementary, Intermediate, Middle and High" },
+  { id: "polo-farms", year: 1300, name: "Polo Farms", map: "Polo Farms", lat: 33.917844, lon: -78.812061, price: 255000, mb: 36.0, beach: 22.0,
+    homes: "One-story houses from 2005 to 2017, resales", fee: "About $20 a month", schools: "Daisy Elementary, Loris Middle, Loris High" },
 ];
-/* Every ranked place for the chart, lowest first. ZIP areas are named as areas (verifier note 1). */
-const RANKED = [
-  ["Georgetown", 251667], ["Loris", 255122], ["Longs", 285812], ["Conway", 288359], ["Aynor", 292422],
-  ["Little River", 322487], ["Myrtle Beach", 323058], ["Socastee area", 323494], ["Carolina Forest area", 358049],
-  ["Surfside Beach", 362259], ["North Myrtle Beach", 395960], ["Murrells Inlet and Garden City area", 400213],
-];
+const N = Object.fromEntries(P.map((p, i) => [p.id, Object.assign(p, { n: i + 1 })]));
+const A = (id) => "#" + id;
+/* A house in the city of Myrtle Beach (verified row 24: the non-condo middle, $421,250). */
+const MB_HOUSE = 421250;
 
 /* The chart: a two-column table of bars (place, then its bar and value), so every name and value
    is text at reading size, a screen reader reads it as a table, and a phone shows it as it is.
-   Bars start at $0, so their lengths compare honestly. Myrtle Beach is the dark bar. */
+   Bars start at $0, so their lengths compare honestly. The Myrtle Beach house is the dark bar. */
 const BARS_CSS = "<style>.c3-bars{margin:1.6rem 0 1.8rem;max-width:760px}"
   + ".c3-bars table{width:100%;border-collapse:collapse;font-size:var(--read,1.0625rem);line-height:1.3}"
   + ".c3-bars caption{caption-side:top;text-align:left;color:var(--navy);font-weight:600;padding:0 0 .7rem}"
-  + ".c3-bars th{color:var(--navy);font-weight:400;text-align:left;vertical-align:middle;padding:.2rem .8rem .2rem 0;width:38%}"
+  + ".c3-bars th{color:var(--navy);font-weight:400;text-align:left;vertical-align:middle;padding:.2rem .8rem .2rem 0;width:42%}"
+  + ".c3-bars th a{color:var(--navy)}"
   + ".c3-bars td{padding:.2rem 0;vertical-align:middle}"
   + ".c3-bars .t{display:flex;align-items:center;gap:.5rem;min-width:0}"
-  + ".c3-bars .b{flex:none;height:1.05rem;width:calc(var(--w) * .68);background:var(--brass);border-radius:0 4px 4px 0}"
+  + ".c3-bars .b{flex:none;height:1.05rem;width:calc(var(--w) * .66);background:var(--brass);border-radius:0 4px 4px 0}"
   + ".c3-bars tr.me .b{background:var(--navy)}.c3-bars tr.me th,.c3-bars tr.me .v{font-weight:600}"
   + ".c3-bars .v{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}"
-  + "@media (max-width:599px){.c3-bars th{width:47%}.c3-bars .b{width:calc(var(--w) * .42)}}"
+  + "@media (max-width:599px){.c3-bars th{width:50%}.c3-bars .b{width:calc(var(--w) * .40)}}"
   + ".c3-bars figcaption{color:var(--muted);font-size:.95rem;line-height:1.6;margin-top:.8rem}</style>";
 function barChart(title, caption) {
-  const max = 400213;
-  const rows = RANKED.map(([n, v]) => `<tr${n === "Myrtle Beach" ? ' class="me"' : ""}><th scope="row">${n}</th>`
-    + `<td><span class="t"><span class="b" style="--w:${(v / max * 100).toFixed(1)}%" aria-hidden="true"></span><span class="v">${r5(v)}</span></span></td></tr>`).join("");
-  return BARS_CSS + `<figure class="c3-bars"><table><caption>${title}</caption><thead style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"><tr><th scope="col">Place</th><th scope="col">Typical home value</th></tr></thead><tbody>${rows}</tbody></table><figcaption>${caption}</figcaption></figure>`;
+  const rows = P.map((p) => [`<a href="${A(p.id)}">${p.n}. ${p.name}${p.id === "golf-and-yacht-club" ? " (older part)" : ""}</a>`, p.price, false]).concat([["A home in the city of Myrtle Beach (condos left out)", MB_HOUSE, true]]);
+  const body = rows.map(([n, v, me]) => `<tr${me ? ' class="me"' : ""}><th scope="row">${n}</th>`
+    + `<td><span class="t"><span class="b" style="--w:${(v / MB_HOUSE * 100).toFixed(1)}%" aria-hidden="true"></span><span class="v">${money(v)}</span></span></td></tr>`).join("");
+  return BARS_CSS + `<figure class="c3-bars"><table><caption>${title}</caption><thead style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"><tr><th scope="col">Place</th><th scope="col">Homes usually sold for</th></tr></thead><tbody>${body}</tbody></table><figcaption>${caption}</figcaption></figure>`;
 }
 
-const MAP = placesMap("Affordable places near Myrtle Beach", PLACES, {
-  caption: "Map of the five most affordable places, numbered from the lowest typical value, with Myrtle Beach and Coastal Grand Mall.",
-});
+/* Two maps, so every dot has its name beside it (round 12, low 8; the same fix as best-neighborhoods,
+   commit d57b511, with no tool changed, lesson B20): the full map shows the six places outside the
+   Myrtle Beach and Carolina Forest cluster, with a dashed box around the cluster; a closer map shows the
+   six inside it. The shared tool numbers each map from 1, so the markers are renumbered to the list's
+   numbers, and one key lists all twelve. */
+const CLUSTER = ["parkview", "fairways-at-wild-wing", "sawgrass-east", "forestbrook-village", "victory-point", "amber-bluff"];
+const placeOf = (p) => ({ name: p.map, lat: p.lat, lon: p.lon, href: A(p.id) });
+/* labelDots: the helper from best-neighborhoods.js (round 11), copied: a name beside a dot the tool left
+   with a number only, in one or two lines, clear of every mark. */
+const TW2 = AM.internals.tw2, SZ_MANY = AM.internals.SZ.many;
+function labelDots(res, forms, o = {}) {
+  const m = res.map, strip = new Set(o.strip || []), margin = o.margin == null ? 2 : o.margin;
+  let svg = res.html;
+  for (const num of strip) {
+    const re = new RegExp(`(<text class="nm"[^>]*>${num}</text>)<text class="l"[^>]*>[\\s\\S]*?</text>`);
+    if (!re.test(svg)) continue;
+    svg = svg.replace(re, "$1");
+    m.boxes = m.boxes.filter((b) => !(b.kind === "label" && b.owner === "lm" + (num - 1)));
+  }
+  for (const sh of o.stripShields || []) {
+    const num = sh.split(" ")[1].split("#")[0];
+    const re = new RegExp(`<g transform="translate\\([^)]*\\)"><g class="k"><rect [^>]*/><text class="r"[^>]*>${num}</text></g></g>`);
+    if (!re.test(svg)) continue;
+    svg = svg.replace(re, "");
+    m.boxes = m.boxes.filter((b) => !(b.kind === "shield" && b.owner === sh));
+  }
+  const markers = m.boxes.filter((b) => b.kind === "marker");
+  const cen = (b) => [(b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2];
+  const LH = 17.5, out = [], missed = [];
+  for (const p of m.places) {
+    if (p.labelled && !strip.has(p.num)) continue;
+    const mk = markers.find((b) => b.owner === "lm" + (p.num - 1));
+    const [cx, cy] = cen(mk), r = (mk.x1 - mk.x0) / 2;
+    let best = null;
+    for (const lines of forms[p.name] || [[p.name]]) {
+      const w = Math.max(...lines.map((l) => TW2(l, SZ_MANY))) + 4, hh = lines.length * LH + 2;
+      for (let gap = 2; gap <= 14 && !best; gap += 2) for (let k = 0; k < 24 && !best; k++) {
+        const a = k * Math.PI / 12, ux = Math.cos(a), uy = Math.sin(a), px = cx + (r + gap) * ux, py = cy + (r + gap) * uy;
+        const x0 = ux > 0.3 ? px : ux < -0.3 ? px - w : px - w / 2, y0 = uy > 0.3 ? py : uy < -0.3 ? py - hh : py - hh / 2;
+        const b = { x0, x1: x0 + w, y0, y1: y0 + hh };
+        if (b.x0 < 4 || b.x1 > m.width - 4 || b.y0 < 4 || b.y1 > m.height - 4) continue;
+        if (m.boxes.some((q) => q !== mk && q.kind !== "water" && !(q.x1 + 1 < b.x0 || q.x0 - 1 > b.x1 || q.y1 + 1 < b.y0 || q.y0 - 1 > b.y1))) continue;
+        const d = (q) => { const [qx, qy] = cen(q); return Math.hypot(Math.max(b.x0 - qx, 0, qx - b.x1), Math.max(b.y0 - qy, 0, qy - b.y1)); };
+        if (markers.some((q) => q !== mk && d(q) <= d(mk) + margin)) continue;
+        best = { lines, b };
+      }
+      if (best) break;
+    }
+    if (!best) { missed.push(p.num); continue; }
+    /* Drawn the tool's way: a group at the marker's centre, so on a wide screen, where the tool shrinks each
+       marker and its label toward that centre (class k), the name stays beside its own marker. */
+    const { lines, b } = best, x = (b.x0 + 2 - cx).toFixed(1), y = (b.y0 + 14 - cy).toFixed(1);
+    m.boxes.push(Object.assign({ kind: "label", owner: "lm" + (p.num - 1) }, b));
+    out.push(`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)})"><g class="k"><text class="l" x="${x}" y="${y}">`
+      + lines.map((l, i) => `<tspan x="${x}"${i ? ` dy="${LH}"` : ""}>${l}</tspan>`).join("") + `</text></g></g>`);
+  }
+  const i = svg.indexOf("</svg>");
+  if (i < 0) throw new Error("the map is not inline, so names cannot be added");
+  res.html = svg.slice(0, i) + out.join("") + svg.slice(i);
+  if (missed.length) console.warn(`affordable-places-to-live: no room on the overview for the names of ${missed.join(", ")}; the key names them`);
+  return res;
+}
 
-/* The comparison: five places and Myrtle Beach. One price measure (rows 2 to 8), the drive to
-   Myrtle Beach (Coastal Grand Mall, rows 47 to 53), the drive to the nearest beach access, and the
-   yearly tax on a typical home you live in (pending row 108). The trade-off in the label column. */
-const TO_MB = "To Myrtle Beach";
-const TABLE = compareCards([
-  { name: "Georgetown", href: "#georgetown", bestFor: "Highest tax on this page", cells: { value: `About ${val("Georgetown")}`, mb: `About ${mall("Georgetown")} min`, beach: `About ${beach("Georgetown")} min`, tax: `About ${tax("Georgetown")}` } },
-  { name: "Loris", href: "#loris", bestFor: "Older homes; few for sale", cells: { value: `About ${val("Loris")}`, mb: `About ${mall("Loris")} min`, beach: `About ${beach("Loris")} min`, tax: `About ${tax("Loris")}` } },
-  { name: "Longs", href: "#longs", bestFor: "Most homes have an HOA fee", cells: { value: `About ${val("Longs")}`, mb: `About ${mall("Longs")} min`, beach: `About ${beach("Longs")} min`, tax: `About ${tax("Longs")}` } },
-  { name: "Conway", href: "#conway", bestFor: "Higher tax inside the city", cells: { value: `About ${val("Conway")}`, mb: `About ${mall("Conway")} min`, beach: `About ${beach("Conway")} min`, tax: `About ${tax("Conway")}` } },
-  { name: "Aynor", href: "#aynor", bestFor: "Longest drive to the beach", cells: { value: `About ${val("Aynor")}`, mb: `About ${mall("Aynor")} min`, beach: `About ${beach("Aynor")} min`, tax: `About ${tax("Aynor")}` } },
-  { name: "Myrtle Beach", href: SELF, bestFor: "Most homes sold are condos", cells: { value: `About ${val("Myrtle Beach")}`, mb: `About ${mall("Myrtle Beach")} min`, beach: "At the beach", tax: `About ${tax("Myrtle Beach")}` } },
-], [
-  { key: "value", label: "Typical home value", num: true },
-  { key: "mb", label: TO_MB },
-  { key: "beach", label: "To the beach" },
-  { key: "tax", label: "Yearly property tax" },
-], { caption: "The five places beside Myrtle Beach. Drive times are to Coastal Grand Mall in Myrtle Beach and to the nearest beach. The tax is for a typical home you live in.", bestForLabel: "Main trade-off", self: SELF });
+const renumber = (res, ids) => {
+  const nums = ids.map((id) => N[id].n);
+  res.html = res.html.replace(/<ol[\s\S]*?<\/ol>/, "");
+  res.html = res.html.replace(/(<text class="nm"[^>]*>)(\d+)(<\/text>)/g, (m0, x, k, y) => x + nums[+k - 1] + y);
+  return res;
+};
+const OUTER_IDS = P.map((p) => p.id).filter((id) => !CLUSTER.includes(id));
+const INSET = renumber(placesMap("Myrtle Beach and Conway: affordable neighborhoods", CLUSTER.map((id) => placeOf(N[id])), {
+  caption: "Closer map of the six neighborhoods between Myrtle Beach and Conway, numbered as in the list below.",
+}), CLUSTER);
+const OUTER = labelDots(placesMap("Affordable neighborhoods near Myrtle Beach", OUTER_IDS.map((id) => placeOf(N[id])), {
+  caption: "Map of the six neighborhoods farther out, numbered as in the list below. The box marks the six on the closer map.",
+}), { "Villas at Sandridge": [["Villas at Sandridge"], ["Villas at", "Sandridge"]] });
+{
+  const f = OUTER.map.frame, W = OUTER.map.width, H = OUTER.map.height, cl = CLUSTER.map((id) => N[id]), pad = 0.006;
+  const g = { west: Math.min(...cl.map((n) => n.lon)) - pad, east: Math.max(...cl.map((n) => n.lon)) + pad, north: Math.max(...cl.map((n) => n.lat)) + pad, south: Math.min(...cl.map((n) => n.lat)) - pad };
+  const x = (lon) => ((lon - f.west) / (f.east - f.west) * W).toFixed(1), y = (lat) => ((f.north - lat) / (f.north - f.south) * H).toFixed(1);
+  const rect = `<rect x="${x(g.west)}" y="${y(g.north)}" width="${(x(g.east) - x(g.west)).toFixed(1)}" height="${(y(g.south) - y(g.north)).toFixed(1)}" fill="none" stroke="#1f2a44" stroke-width="1.2" stroke-dasharray="4 3" opacity=".75"/>`;
+  const k = OUTER.html.indexOf("<g><g transform");
+  OUTER.html = k > 0 ? OUTER.html.slice(0, k) + rect + OUTER.html.slice(k) : OUTER.html.replace("</svg>", rect + "</svg>");
+  renumber(OUTER, OUTER_IDS);
+}
+const MAP_KEY = placesMap("Affordable neighborhoods key", P.map(placeOf), { caption: "Map key", key: true }).map.key;
+const MAP = { html: OUTER.html + INSET.html + MAP_KEY };
 
-/* Photos of the towns named, each beside its sentence. */
+/* Each place's facts in one strip (ROUND-10: one facts line per entry). A table, so the numbers stay
+   out of the prose; on a phone the five cells wrap into two columns. */
+const STRIP_CSS = "<style>.c3-strip{margin:1rem 0 1.4rem;max-width:760px}"
+  + ".c3-strip table{width:100%;border-collapse:collapse;font-size:.98rem;line-height:1.35}"
+  + ".c3-strip caption{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}"
+  + ".c3-strip tr{display:grid;grid-template-columns:repeat(5,1fr);gap:0 .9rem}"
+  + ".c3-strip th{color:var(--muted);font-weight:500;font-size:1rem;text-align:left;padding:.15rem 0;text-transform:none}"
+  + ".c3-strip td{color:var(--navy);font-weight:600;padding:.15rem 0 .5rem;vertical-align:top}"
+  + ".c3-strip thead tr{border-top:2px solid var(--brass)}"
+  + "@media (max-width:640px){.c3-strip table{display:grid;grid-template-columns:1fr 1fr}.c3-strip thead,.c3-strip tbody{display:contents}.c3-strip tr{display:contents}"
+  + ".c3-strip th:nth-child(1){grid-row:1;grid-column:1}.c3-strip td:nth-child(1){grid-row:2;grid-column:1}"
+  + ".c3-strip th:nth-child(2){grid-row:1;grid-column:2}.c3-strip td:nth-child(2){grid-row:2;grid-column:2}"
+  + ".c3-strip th:nth-child(3){grid-row:3;grid-column:1}.c3-strip td:nth-child(3){grid-row:4;grid-column:1}"
+  + ".c3-strip th:nth-child(4){grid-row:3;grid-column:2}.c3-strip td:nth-child(4){grid-row:4;grid-column:2}"
+  + ".c3-strip th:nth-child(5){grid-row:5;grid-column:1}.c3-strip td:nth-child(5){grid-row:6;grid-column:1}}</style>";
+function strip(id) {
+  const p = N[id];
+  const cells = [
+    ["Usually sold for", p.priceText || `About ${money(p.price)}`],
+    ["What you get", p.homes],
+    ["HOA fee", p.fee],
+    ["Fee and tax a year, besides the mortgage and insurance", `About $${p.year.toLocaleString("en-US")}`],
+    ["To the beach", `About ${mins(p.beach)} minutes`],
+  ];
+  return `<div class="c3-strip"><table><caption>${p.name}: the facts</caption><thead><tr>${cells.map(([k]) => `<th scope="col">${k}</th>`).join("")}</tr></thead>`
+    + `<tbody><tr>${cells.map(([, v]) => `<td>${v}</td>`).join("")}</tr></tbody></table></div>`;
+}
+
+/* One table after the list: the drive to Coastal Grand Mall and the schools for each place
+   (rows 164 and 165). */
+const COMPARE_CSS = "<style>.c3-cmp{margin:1.2rem 0 1.6rem;max-width:900px;overflow-x:auto}.c3-cmp table{width:100%;border-collapse:collapse;font-size:.98rem;line-height:1.4}"
+  + ".c3-cmp caption{caption-side:top;text-align:left;color:var(--navy);font-weight:600;padding:0 0 .6rem}"
+  + ".c3-cmp th,.c3-cmp td{text-align:left;padding:.45rem .8rem .45rem 0;border-top:1px solid var(--line,#e3ddd0);vertical-align:top}"
+  + ".c3-cmp thead th{border-top:0;color:var(--navy)}.c3-cmp td{color:var(--muted)}.c3-cmp tbody th{color:var(--navy);font-weight:500}"
+  + ".c3-cmp th a{color:var(--navy)}@media (max-width:599px){.c3-cmp table{font-size:.92rem}}</style>";
+const COMPARE = COMPARE_CSS + `<figure class="c3-cmp"><table><caption>The drive to Coastal Grand Mall, and the schools for each place</caption>`
+  + `<thead><tr><th scope="col">Place</th><th scope="col">To Coastal Grand Mall</th><th scope="col">Schools (district zones)</th></tr></thead><tbody>`
+  + P.map((p) => `<tr><th scope="row"><a href="${A(p.id)}">${p.n}. ${p.map}</a></th><td>About ${mins(p.mb)} min</td><td>${p.schools}</td></tr>`).join("")
+  + "</tbody></table></figure>";
+
+/* The towns on the same measure (verified rows 19, 21 to 25): homes that resold, condo units left out. */
+const TOWNS_CSS = "<style>.c3-towns{margin:1.2rem 0 1.6rem;max-width:560px}.c3-towns table{width:100%;border-collapse:collapse;font-size:1rem;line-height:1.45}"
+  + ".c3-towns caption{caption-side:top;text-align:left;color:var(--navy);font-weight:600;padding:0 0 .6rem}"
+  + ".c3-towns th,.c3-towns td{text-align:left;padding:.45rem .9rem .45rem 0;border-top:1px solid var(--line,#e3ddd0);vertical-align:top}"
+  + ".c3-towns thead th{border-top:0;color:var(--navy)}.c3-towns td{color:var(--muted)}.c3-towns tbody th{color:var(--navy);font-weight:400}</style>";
+const TOWNS = TOWNS_CSS + `<figure class="c3-towns"><table><caption>What a home that resold usually went for, by town</caption>`
+  + `<thead><tr><th scope="col">Town</th><th scope="col">Usually sold for</th></tr></thead><tbody>`
+  + [["Loris", 237500], ["Conway", 264250], ["Socastee", 290000], ["Longs", 289500], ["Little River", 335000], ["Myrtle Beach", MB_HOUSE]]
+    .map(([t, v]) => `<tr><th scope="row">${t}</th><td>About ${money(v)}</td></tr>`).join("")
+  + "</tbody></table></figure>";
+
+/* Labelled aerials (USDA NAIP 2023, public domain; Chapter3's labels), one per place. */
 const ph = photoSet({ aerialWidth: "720px" });
 const PHOTO_CSS = ph.css();
-const GEORGETOWN_PHOTO = ph.aerial("georgetown-harbor", "Boats at the harbor in Georgetown.", { closeUp: true });
-const LORIS_PHOTO = ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true });
-const LONGS_PHOTO = ph.aerial("longs-new-streets-from-above", "New streets of houses near the center of Longs, from above.", { closeUp: true });
-const CONWAY_PHOTO = ph.aerial("conway-riverwalk-boardwalk", "The riverwalk in Conway, on the Waccamaw River.", { closeUp: true, alt: "A wooden boardwalk with a black railing, shaded by trees, beside old wooden buildings in Conway" });
-ph.share("georgetown-harbor");
+const PH = {
+  "parkview": ph.aerial("parkview-and-whispering-pines-from-above", "Parkview, beside 17th Avenue South, with Whispering Pines Golf Course, from above.", { closeUp: true }),
+  "fairways-at-wild-wing": ph.aerial("fairways-at-wild-wing-and-us-501-from-above", "The Fairways at Wild Wing, with the Aldi and Walmart near US 501, from above.", { closeUp: true }),
+  "sawgrass-east": ph.aerial("sawgrass-east-and-carolina-forest-boulevard-from-above", "Sawgrass East, off Carolina Forest Boulevard, from above.", { closeUp: true }),
+  "birchwood": ph.aerial("birchwood-and-sc-905-from-above", "Birchwood's land off SC 905, before the houses were built, with the Food Lion in Longs.", { closeUp: true }),
+  "golf-and-yacht-club": ph.aerial("golf-and-yacht-club-and-enterprise-landing-from-above", "Myrtle Beach Golf and Yacht Club, Bay Road and Enterprise Landing, from above.", { closeUp: true }),
+  "forestbrook-village": ph.aerial("forestbrook-village-and-forestbrook-road-from-above", "Forestbrook Village's land off Forestbrook Road, before the townhomes, with Forestbrook Grocery.", { closeUp: true }),
+  "victory-point": ph.aerial("old-speedway-and-victory-point-labelled-from-above", "The old Myrtle Beach Speedway beside US 501, before Victory Point was built on part of its land."),
+  "amber-bluff": ph.aerial("townes-at-amber-bluff-and-coastal-carolina-from-above", "The Townes at Amber Bluff's land, with Brooks Stadium and Coastal Carolina University to the south.", { closeUp: true }),
+  "villas-at-sandridge": ph.aerial("villas-at-sandridge-and-sc-90-from-above", "Villas at Sandridge, east of SC 31, with the North Myrtle Beach Sports Complex to the southwest.", { closeUp: true }),
+  "indigo-grove": ph.aerial("indigo-grove-and-sc-90-from-above", "Indigo Grove's land, before the houses were built, with Griffin's IGA on SC 90.", { closeUp: true }),
+  "wynbrooke": ph.aerial("wynbrooke-and-sc-707-shops-from-above", "Wynbrooke, off SC 707, with Lowes Foods and Publix to the northwest.", { closeUp: true }),
+  "polo-farms": ph.aerial("polo-farms-and-simpson-creek-from-above", "Polo Farms off SC 905, with Simpson Creek along its southwest side.", { closeUp: true }),
+};
+ph.share("old-speedway-and-victory-point-labelled-from-above");
 
-/* One place's facts line: the value against Myrtle Beach, then the two drives. */
-const valueLine = (p) => `A typical home in ${p} is worth about ${val(p)}.`;
-const drives = (p, beachWhere) => `From the center of ${p}, Myrtle Beach (Coastal Grand Mall) is about ${mall(p)} minutes away by car. The nearest beach, ${beachWhere}, is about ${beach(p)} minutes away.`;
+/* One numbered entry. */
+const entry = (id, short, html) => ({ h2: `${N[id].n}. ${N[id].name}: ${short}`, toc: N[id].map, id, html });
+
+/* ItemList JSON-LD for the twelve numbered entries (ROUND-8 item 6). */
+const ITEMLIST = () => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList",
+  name: "The most affordable neighborhoods near Myrtle Beach", numberOfItems: P.length,
+  itemListElement: P.map((p) => ({ "@type": "ListItem", position: p.n, name: p.name, url: `https://chapter3realty.com${SELF}#${p.id}` })) })}</script>`;
 
 module.exports = {
   url: SELF,
   hub: { name: "Buyers", url: "/buyers/" },
   pageImages: () => ph.pageImages(),
-  title: "Most Affordable Places to Live Near Myrtle Beach | Chapter3",
-  description: "The most affordable places to buy a home near Myrtle Beach: Georgetown, Loris, Longs, Conway and Aynor, with the drive, the yearly tax and down-payment help.",
-  ogTitle: "The most affordable places to buy a home near Myrtle Beach, and what you give up",
+  title: "Most Affordable Places to Buy Near Myrtle Beach | Chapter3",
+  description: "Twelve neighborhoods near Myrtle Beach where homes sell for the least, from Parkview to Victory Point: the roads, the homes, the HOA fee and the drive.",
+  ogTitle: "The most affordable neighborhoods near Myrtle Beach, by name and road",
   crumb: "Affordable places",
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
-  h1em: "What a typical home is worth, and what you give up.",
-  sub: `Georgetown and Loris are the most affordable places near Myrtle Beach. A typical home there is worth about ${val("Georgetown")} to ${val("Loris")}.`,
+  h1em: "Twelve neighborhoods, the roads to them, and what a home costs.",
+  sub: `Affordable neighborhoods near Myrtle Beach where you can buy a home for about ${money(N.parkview.price)} to ${money(N["polo-farms"].price)}.`,
   heroMedia: glance([
-    { icon: "dollar", label: "Lowest: Georgetown", text: `About ${val("Georgetown")}` },
-    { icon: "town", label: "Myrtle Beach", text: `About ${val("Myrtle Beach")}` },
-    { icon: "beach", label: "To the beach", text: "15 to 45 min" },
+    { icon: "dollar", label: "Lowest: Parkview", text: `About ${money(N.parkview.price)}` },
+    { icon: "town", label: "A Myrtle Beach home", text: `About ${money(MB_HOUSE)}` },
+    { icon: "beach", label: "To the beach", text: `${Math.min(...P.map((p) => +mins(p.beach)))} to ${Math.max(...P.map((p) => +mins(p.beach)))} min` },
     { icon: "key", label: "Down payment help", text: "$10,000" },
   ]),
-  heroCta: { label: OFFER, href: CONTACT, text: "Tell us your price range. We send you the homes for sale in each place. The form asks for your name, email and phone." },
+  heroCta: { title: "See what your budget buys in these neighborhoods.", label: OFFER, href: CONTACT, text: "Tell us your price range. An agent will send you the homes for sale there, and the down-payment programs that fit. We check the HOA papers, the flood map and the tax record for any home you like." },
   author: "devin",
   shortAnswer: [
-    `The most affordable places to buy a home near Myrtle Beach are Georgetown, Loris, Longs, Conway and Aynor. A typical home in Georgetown is worth about ${val("Georgetown")}, and in Loris about ${val("Loris")}. In Myrtle Beach, a typical home is worth about ${val("Myrtle Beach")}.`,
-    `The trade-off is time. From Loris, Georgetown or Aynor, Myrtle Beach is 40 to 50 minutes away by car. From Conway it is about ${mall("Conway")} minutes, and Conway's homes are newer.`,
+    `Within about 20 minutes of a beach, the cheapest homes near Myrtle Beach are townhomes in Parkview, the Fairways at Wild Wing and Sawgrass East. They usually sold for about ${money(N.parkview.price)} to ${money(N["sawgrass-east"].price)} last year.`,
+    `Houses start at about the same ${money(N.birchwood.price)}: new ones in Birchwood near Longs, and older ones in the Golf and Yacht Club off Bay Road. A Myrtle Beach home that is not a condo usually sold for about ${money(MB_HOUSE)}.`,
   ],
   sections: [
-    { h2: "Where do homes cost the least near Myrtle Beach?", toc: "Where homes cost the least", id: "compare", html: () =>
-      PHOTO_CSS +
-      h.p(`Homes cost the least in Georgetown and Loris. Longs, Conway and Aynor come next, at about ${val("Longs")} to ${val("Aynor")}.`) +
-      h.p("These figures are what a typical home in each place is worth. A home can sell for more or less.") +
-      barChart("What a typical home is worth, lowest first", `Chart of typical home values, from ${h.ext(ZILLOW, "Zillow's home value data")}. Myrtle Beach is the dark bar.`) +
-      h.p("Little River, Socastee and Carolina Forest are areas outside any town. Socastee is just west of Myrtle Beach, and Carolina Forest just north of it. Little River is north of North Myrtle Beach, near the North Carolina line.") +
-      h.p("Little River and the Socastee area cost about the same as Myrtle Beach. The beach towns to the north and south cost more. This page covers Horry County and the Georgetown County coast.") +
+    { h2: "Where do homes sell for the least near Myrtle Beach?", toc: "Where homes cost the least", id: "compare", html: () =>
+      PHOTO_CSS + STRIP_CSS +
+      h.p("These are the twelve neighborhoods within about 20 minutes of a beach where homes sold for the least in the past year. Half are new homes from Lennar, D.R. Horton and Dream Finders Homes.") +
+      h.p(`The next five cost about ${money(257500)} to ${money(266237)}. They are Oak Forest and Forestbrook near Socastee, Meadows Edge off SC 544, the Reserve at Long Bay near Longs and McCormick Townhomes.`) +
+      h.p("Farther inland, new houses in Collins Walk and Kingston Oaks near Conway, and in Warner Crossing near Loris, sold for less than some of the twelve. From those, the beach is 30 minutes or more away.") +
+      barChart("What homes usually sold for in the past year, lowest first", "Chart of the middle sale price in each neighborhood. The dark bar is a home in the city of Myrtle Beach, condos left out, for comparison.") +
       MAP.html +
-      h.p("In the table, drive times are from the center of each town with no traffic. In our experience, rush hour adds 5 to 10 minutes. An HOA is the homeowners association, the group that runs a neighborhood and collects a monthly fee.") +
-      TABLE +
-      h.p(`To choose a neighborhood by what you want nearby, read our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}. Our other guides cover ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}, ${h.a("/buyers/gated-communities/", "gated communities")} and ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")}.`) },
+      h.p("In our experience, rush hour adds 5 to 10 minutes to the drive times on this page.") },
 
-    { h2: "What does about $250,000 buy near Myrtle Beach?", toc: "What $250,000 buys", id: "what-it-buys", html: () =>
-      h.p("In Loris, Aynor and Conway, a typical home is a house, not a condo. Nearly every home that sold in these towns in the past year was a house.") +
-      h.p("In Myrtle Beach, most homes that sell are condos. A house there usually sells for about $420,000.") +
-      h.p("Houses in Loris and Georgetown are older: many were built before 1980. In Conway, half the homes were built after about 2000.") +
-      h.p("To spend less, look at condos. In Myrtle Beach, a condo usually sells for about $165,000. Almost every condo here has a monthly HOA fee. The typical condo fee is about $650 a month.") },
+    entry("parkview", "older townhomes inside Myrtle Beach", () =>
+      strip("parkview") +
+      h.p("Parkview is a group of townhomes off 17th Avenue South, near Harrelson Boulevard. It is the only one of the twelve inside the city of Myrtle Beach. The townhomes are around ponds, with a pool for the owners.") +
+      PH["parkview"] +
+      h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own golf course")}, is across 17th Avenue South from Parkview. It was originally part of the Myrtle Beach Air Force Base, and the squadron emblems are on its tee markers. Myrtle Beach International Airport is across Harrelson Boulevard from the course.`) +
+      h.p("The trade-off is choice: few of these townhomes come up for sale in a year, so we watch for each new listing.")),
 
-    { h2: "What is it like to buy in Georgetown?", toc: "Georgetown", id: "georgetown", html: () =>
-      h.p(`${valueLine("Georgetown")} Georgetown is a city in Georgetown County, at the south end of the area on this page.`) +
-      h.p(drives("Georgetown", "on Pawleys Island") + " Tidelands Georgetown Memorial Hospital is a short drive from downtown.") +
-      GEORGETOWN_PHOTO +
-      h.p(`Georgetown has the lowest typical value on this page and the highest property tax. A typical home you live in pays about ${tax("Georgetown")} a year.`) +
-      h.p("Many homes in Georgetown are older. About one in five homes in the city is in a high-risk flood zone, where a lender requires flood insurance.") },
+    entry("fairways-at-wild-wing", "townhomes at a golf course off US 501", () =>
+      strip("fairways-at-wild-wing") +
+      h.p("The Fairways is a group of townhomes off Wild Wing Boulevard, inside Wild Wing Plantation, on US 501 between Conway and Myrtle Beach.") +
+      PH["fairways-at-wild-wing"] +
+      h.p(`Wild Wing was once a golf resort with several courses. Three of them closed in 2004, and one later reopened with nine holes. The Avocet course, designed by Jeff Brauer and Larry Nelson, is ${h.ext(WILDWING, "still open")}, and some of these townhomes are near it.`) +
+      h.p("The Aldi on Wild Wing Boulevard is a three-minute drive. The HOA fee includes the pool and internet, and usually water and sewer.") +
+      h.p("The trade-off is tax. The Fairways is inside Conway's city limits, so its yearly tax is higher than outside a town.")),
 
-    { h2: "What is it like to buy in Loris?", toc: "Loris", id: "loris", html: () =>
-      h.p(`${valueLine("Loris")} Loris is a small town in the north of Horry County, near the North Carolina line.`) +
-      LORIS_PHOTO +
-      h.p(drives("Loris", "in North Myrtle Beach") + " McLeod Loris Hospital is a short drive from the center of town.") +
-      h.p(`A typical home you live in inside the town pays about ${tax("Loris")} a year in property tax. Most homes for sale in Loris have no HOA fee: about six in ten.`) +
-      h.p("Few homes in Loris come up for sale, and many were built before 1980. Almost no buildings in Loris are in a high-risk flood zone.") },
+    entry("sawgrass-east", "townhomes off Carolina Forest Boulevard", () =>
+      strip("sawgrass-east") +
+      h.p("Sawgrass East is a townhome community off Carolina Forest Boulevard, a little over two miles up the boulevard from US 501. The townhomes are around small ponds, with a pool and a clubhouse for the owners. Most have between about 1,300 and 1,600 square feet.") +
+      PH["sawgrass-east"] +
+      h.p(`The county's ${h.ext(CFRC, "Carolina Forest Recreation Center")}, with a gym, a fitness room and a climbing wall, is a six-minute drive.`) +
+      h.p("The HOA fee is higher than at most places here, though it usually includes water and sewer. For a buyer who would pay those bills anyway, the gap is smaller than it looks.")),
 
-    { h2: "What is it like to buy in Longs?", toc: "Longs", id: "longs", html: () =>
-      h.p(`${valueLine("Longs")} Longs is an area inland from North Myrtle Beach, outside any town.`) +
-      h.p(drives("Longs", "in North Myrtle Beach") + "") +
-      h.p(`Longs is not a town, so homes there pay no town tax. A typical home you live in pays about ${tax("Longs")} a year, the lowest on this page. Almost every home for sale in Longs has an HOA fee, typically about $80 a month.`) +
-      h.p("You can find new homes in Longs: builders are selling homes there.") +
-      LONGS_PHOTO +
-      h.p("Almost no buildings near the center of Longs are in a high-risk flood zone.") },
+    entry("birchwood", "new houses off SC 905 near Longs", () =>
+      strip("birchwood") +
+      h.p("Birchwood is a new neighborhood of houses off SC 905, southwest of Longs. The turn is beside the tall water tower. Lennar built every house here, from plans of about 1,100 to 1,950 square feet, on about a quarter acre, and high-speed internet is included.") +
+      PH["birchwood"] +
+      h.p("Birchwood has only 77 lots, with about 12 acres of open space. Its neighbors are fields and older homes on large lots.") +
+      h.p(`The trade-off is the drive to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by SC 9 and the Carolina Bays Parkway. North Myrtle Beach is about 20.`)),
 
-    { h2: "What is it like to buy in Conway?", toc: "Conway", id: "conway", html: () =>
-      h.p(`${valueLine("Conway")} Conway is a city on the Waccamaw River, inland from Myrtle Beach.`) +
-      h.p(drives("Conway", "in Myrtle Beach") + "") +
-      CONWAY_PHOTO +
-      h.p(`A typical home you live in inside the city pays about ${tax("Conway")} a year in property tax. Most homes for sale in Conway have an HOA fee, typically about $85 a month. The tax and the fee together come to about $2,900 a year, besides the mortgage.`) +
-      h.p(`Homes in Conway are newer than in Loris or Georgetown, and builders are selling new homes there. Some homes with a Conway address are outside the city and pay the lower county tax. Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself.`) },
+    entry("golf-and-yacht-club", "older houses off Bay Road", () =>
+      strip("golf-and-yacht-club") +
+      h.p(`Myrtle Beach Golf and Yacht Club is a community of houses off Bay Road, which leaves SC 707 near Socastee. It has a gatehouse at the entrance and a pool, courts and a clubhouse for owners; our ${h.a("/buyers/gated-communities/", "guide to gated communities")} covers them.`) +
+      PH["golf-and-yacht-club"] +
+      h.p("Houses in the older part typically have about 1,350 square feet, on about an eighth of an acre. We check the HOA papers for what the fee covers.") +
+      h.p(`Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`)),
 
-    { h2: "What is it like to buy in Aynor?", toc: "Aynor", id: "aynor", html: () =>
-      h.p(`${valueLine("Aynor")} Aynor is a small town in the west of Horry County.`) +
-      h.p(drives("Aynor", "in Myrtle Beach") + "") +
-      h.p(`A typical home you live in inside the town pays about ${tax("Aynor")} a year in property tax. Most homes for sale in Aynor have no HOA fee: about two in three.`) +
-      h.p("Few homes in Aynor sell each year, so there are few to choose from, and the typical value is less certain. None of the buildings in Aynor is in a high-risk flood zone.") },
+    entry("forestbrook-village", "new townhomes off Forestbrook Road", () =>
+      strip("forestbrook-village") +
+      h.p("Forestbrook Village is a new Lennar townhome community off Forestbrook Road, south of US 501. The townhomes have about 1,450 to 2,400 square feet. Internet and grounds care are included. It is next to the older Forestbrook neighborhood, and its townhomes cost less than the houses there.") +
+      PH["forestbrook-village"] +
+      h.p("Forestbrook Middle and Forestbrook Elementary are four to five minutes away.") +
+      h.p("The trade-off is flood. Some lots here are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for the lot of any home you like.")),
 
-    { h2: "What do you give up when you buy farther from Myrtle Beach?", toc: "Pros and cons", id: "pros-and-cons", html: (bg) =>
-      h.p("Homes inland cost less, and in most inland places few buildings are in a flood zone. The drives to Myrtle Beach and the beach are longer.") +
-      prosCons([
-        "A typical home in Georgetown or Loris is worth the least of the places on this page.",
-        "Almost no buildings in Loris, Longs and Aynor are in a high-risk flood zone.",
-        "Homes outside town limits pay no town tax.",
-      ], [
-        { text: "From Loris, Georgetown or Aynor, Myrtle Beach is 40 to 50 minutes away by car.", act: "Drive from the home to your work at the hour you would go, before you make an offer." },
-        { text: "Many homes in Loris and Georgetown were built before 1980.", act: `Insurers may require an older home to have an updated roof, wiring, plumbing and heating. A home inspection shows their age before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.` },
-        { text: "Inside the town limits of Loris, Conway and Aynor, the property tax is higher.", act: "An agent checks the county tax record for the address before you make an offer." },
-      ], { bg }) },
+    entry("victory-point", "new townhomes on the old speedway land", () =>
+      strip("victory-point") +
+      h.p("Victory Point is a new Lennar townhome community off US 501, by Tanger Outlets. It was built on part of the old Myrtle Beach Speedway.") +
+      PH["victory-point"] +
+      h.p(`The track ${h.ext(RAMBI, "opened in 1958")} as RAMBI Raceway. Cars ran their ${h.ext(SPEEDWAY, "last laps there in 2020")}. Several streets have racing names: Speedway Street, Talladega Drive and Pit Crew Drive.`) +
+      h.p("A Publix is about five minutes away. Some townhomes back onto a pond, and owners share a pool.") +
+      h.p(`Expect more building next door. Another owner plans ${h.ext(REV3, "194 townhomes for rent")} on about 20 acres of the old speedway land beside it.`)),
 
-    { h2: "How much property tax will you pay in each place?", toc: "Property tax", id: "property-tax", html: () =>
-      h.p("Property tax on a typical home you live in is lowest in Longs and highest in Georgetown, as the table shows.") +
-      h.p(`Homes outside town and city limits pay the lowest rate, at ${h.ext(LEVY, "the county's tax rates")}. Inside a town, you pay the town's tax too, so a home just outside town can pay less each year.`) +
+    entry("amber-bluff", "new townhomes near Coastal Carolina University", (bg) =>
+      strip("amber-bluff") +
+      h.p("The Townes at Amber Bluff is a new townhome community off Savannah Bluff Road, on the Conway side of US 501. Coastal Carolina University's campus and Brooks Stadium are south, across US 501.") +
+      PH["amber-bluff"] +
+      h.p("D.R. Horton built every townhome here, and the ones we have seen for sale all share one floor plan, so prices are close together. The HOA fee includes the grounds and trash, not water.") +
+      h.p("Downtown Conway and its riverwalk on the Waccamaw River are an eight-minute drive. Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.") +
+      h.cta("Want the homes for sale in one of these neighborhoods?", "Tell us which ones you like and your price range. One of our agents will send you what is for sale there, with the HOA fee and the yearly tax for each home.", OFFER, CONTACT, bg)),
+
+    entry("villas-at-sandridge", "new townhomes off SC 90 near Little River", () =>
+      strip("villas-at-sandridge") +
+      h.p("Villas at Sandridge is a community of new townhomes off SC 90 near Little River. They are from Dream Finders Homes, and each has a one-car garage. Some plans have the main bedroom on the first floor.") +
+      PH["villas-at-sandridge"] +
+      h.p("It is small, 79 townhomes in all, with about 8 acres of shared open space. The North Myrtle Beach Park and Sports Complex, a five-minute drive, has ball fields and walking trails around a lake.") +
+      h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly dues are also higher than at the other new communities here.")),
+
+    entry("indigo-grove", "new houses off SC 90", () =>
+      strip("indigo-grove") +
+      h.p("Indigo Grove is a new neighborhood of houses off SC 90, south of Longs. Lennar, which sells it as The Overlook, built most of it in the past year.") +
+      PH["indigo-grove"] +
+      h.p(`${h.ext(OVERLOOK, "Lennar builds houses here")} with three to five bedrooms, including one-story plans, on lots of about a fifth of an acre. Every lot is outside the high-risk flood zone.`) +
+      h.p("Griffin's IGA, a grocery store on SC 90, is a three-minute drive. The HOA fee covers trash pickup, and the HOA owns about 22 acres of open space in the neighborhood.") +
+      h.p("North Myrtle Beach is about 12 minutes away by car. Myrtle Beach is the long drive: Coastal Grand Mall is about 35 minutes.")),
+
+    entry("wynbrooke", "townhomes on ponds off SC 707", () =>
+      strip("wynbrooke") +
+      h.p("Wynbrooke is a townhome community off SC 707, near Murrells Inlet. Its townhomes are around ponds, and some back onto the water. They have about 1,300 to 1,600 square feet, and owners share a pool.") +
+      PH["wynbrooke"] +
+      h.p("A Lowes Foods and a Publix are each about two minutes away. The nearest beach is in Garden City.") +
+      h.p("The trade-off is the fee. Its HOA fee is the highest of the twelve. It usually includes water, sewer and the insurance on the buildings, but with the tax, a year here costs more than at Polo Farms, which sells for more.")),
+
+    entry("polo-farms", "older houses with a small HOA fee", () =>
+      strip("polo-farms") +
+      h.p("Polo Farms is a neighborhood of houses off SC 905, between SC 9 and SC 22, west of Longs. Simpson Creek runs along its southwest side. It was built in three phases.") +
+      PH["polo-farms"] +
+      h.p(`There is no pool or clubhouse; the common land is two ponds, some woods and the strips along SC 905. Lots are about a fifth of an acre, many backyards are fenced, and several have their own pool. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
+      h.p(`Flood is a concern here. A few houses flooded after Hurricane Matthew in 2016. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone, where a lender usually requires flood insurance. Before you make an offer, we look up the lot on FEMA's flood map.`)),
+
+    { h2: "How do the twelve compare on schools and the drive?", toc: "Schools and the drive", id: "schools", html: () =>
+      h.p("How far each place is from Myrtle Beach, by the drive to Coastal Grand Mall, and the zoned schools for each:") +
+      COMPARE },
+
+    { h2: "How do the towns compare?", toc: "The towns", id: "towns", html: () =>
+      h.p("Across the whole town, Loris costs about the same as these neighborhoods, and Conway a little more. Socastee, Longs, Little River and Myrtle Beach cost more.") +
+      TOWNS +
+      h.p(`Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself. To choose by what you want nearby, read our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}. Our guide to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")} covers one neighborhood in depth.`) },
+
+    { h2: "How much property tax will you pay?", toc: "Property tax", id: "property-tax", html: () =>
+      h.p(`Most places on this list are outside any town, so homes there pay only ${h.ext(LEVY, "the county's tax rates")}. Parkview is inside the city of Myrtle Beach. The Fairways at Wild Wing is inside the city of Conway, which adds its own city tax.`) +
+      h.p("Take a $240,000 home that is your main home. Outside a town, or in Myrtle Beach, its tax is about $970 a year. It is a little more in Polo Farms and Wynbrooke. Inside Conway, it is about $1,570.") +
       h.p("When you buy, the county values the home at about what it is worth that year. The new value shows up on the next year's tax bill.") +
-      h.p(`These figures are for your main home, once the county gives it the lower rate for a home you live in. You apply for that rate; it is not automatic. Our ${h.a("/buyers/property-taxes/", "property tax guide")} shows how to apply.`) },
+      h.p(`These figures are for your main home, at the county's lower rate for a home you live in. Our ${h.a("/buyers/property-taxes/", "property tax guide")} explains that rate.`) },
+
     { h2: "What help can you get with a down payment?", toc: "Down payment help", id: "down-payment", html: (bg) =>
-      h.p(`SC Housing, the state's housing agency, gives buyers in Horry and Georgetown counties $10,000 toward the down payment and closing costs. The help is forgivable: you do not pay it back if you live in the home for 15 years. The program is called the ${h.ext(SCH, "Homebuyer Program")}.`) +
-      h.p("In these two counties, you do not have to be a first-time buyer. You must not own a home when you close. Your household income must be under about $115,000 for one or two people, or about $134,000 for three or more.") +
-      h.p("You also need a credit score of 640 or more, and a homebuyer class before the loan is approved. The home price can be up to $450,000.") +
-      h.p("Palmetto Home Advantage, a second SC Housing program, is open to first-time and repeat buyers at any price. It gives up to 4 percent of the loan. On a $250,000 loan, that is up to $10,000. It is forgivable over 10 years.") +
-      h.p("County First is a third program for Horry, Georgetown and some other counties. It also gives forgivable help, with the same limits as the Homebuyer Program.") +
-      h.p(`To apply, you go through a lender that works with SC Housing. The lender checks that you qualify and holds the money for you. Our page on ${h.a("/buyers/programs/", "down-payment help programs")} explains the steps.`) +
+      h.p(`SC Housing, the state's housing agency, gives buyers in Horry and Georgetown counties $10,000 toward the down payment and closing costs. It is forgivable: you do not pay it back if you stay in the home long enough. The program is called the ${h.ext(SCH, "Homebuyer Program")}.`) +
+      h.p("In these two counties, you do not have to be a first-time buyer, but you must not own a home when you close. Household income must be under about $115,000 for one or two people, and under about $134,000 for three or more. The home price can be up to $450,000.") +
+      h.p(`To apply, you go through a lender that works with SC Housing, and the lender checks that you qualify. Our page on ${h.a("/buyers/programs/", "down-payment help programs")} explains the Homebuyer Program step by step, including the credit score it needs.`) +
       story([
         "<strong>Example:</strong> Dana rents an apartment in Myrtle Beach and wants a house of her own in Conway. She thinks she must save for years before she can buy.",
         "Her Chapter3 agent shows her SC Housing's Homebuyer Program, which helps buyers here pay the down payment. The agent puts her in touch with a lender that works with the program.",
-        "Dana takes the homebuyer class and starts looking at houses now, not years from now.",
+        "Dana takes the homebuyer class and starts looking at houses, instead of saving for years first.",
       ], "", bg) +
-      h.cta("See what your budget buys in each place.", "Tell us your price range and the places you like. One of our agents will send you the homes for sale in each place, and the programs that fit.", OFFER, CONTACT, bg) },
-
+      h.cta("See what your budget buys in these neighborhoods.", "Tell us your price range and the places you like. One of our agents will send you the homes for sale there, and the programs that fit.", OFFER, CONTACT, bg) },
   ],
   faqTitle: "Affordable places near Myrtle Beach: FAQ",
   faq: [
-    { q: "Is Myrtle Beach a cheap place to buy a home?", a: `A typical home in Myrtle Beach is worth about ${val("Myrtle Beach")}. That is less than in North Myrtle Beach or Surfside Beach, and more than in Georgetown, Loris, Longs, Conway or Aynor. Most homes that sell in Myrtle Beach are condos.` },
-    { q: "Is Conway cheaper than Myrtle Beach?", a: `Yes. A typical home in Conway is worth about ${val("Conway")}, less than in Myrtle Beach. Coastal Grand Mall in Myrtle Beach is about ${mall("Conway")} minutes from Conway by car. Inside the city limits, Conway's property tax is higher.` },
-    { q: "How far is Loris from Myrtle Beach?", a: `About ${mall("Loris")} minutes by car from the center of Loris to Coastal Grand Mall in Myrtle Beach, with no traffic. The nearest beach, in North Myrtle Beach, is about ${beach("Loris")} minutes away.` },
-    { q: "How far is Aynor from Myrtle Beach?", a: `About ${mall("Aynor")} minutes by car from the center of Aynor to Coastal Grand Mall in Myrtle Beach, with no traffic. The nearest beach is about ${beach("Aynor")} minutes away.` },
-    { q: "Do you have to be a first-time buyer to get down-payment help?", a: "No, not in Horry or Georgetown County. For SC Housing's Homebuyer Program, you must not own a home when you close. Palmetto Home Advantage is open to repeat buyers too." },
+    { q: "What is the cheapest neighborhood to buy a home near Myrtle Beach?", a: `Of the neighborhoods within about 20 minutes of the beach where at least 10 homes sold in the past year, Parkview had the lowest prices. Its older townhomes usually sold for about ${money(N.parkview.price)}. Parkview is a group of townhomes off 17th Avenue South, inside the city of Myrtle Beach.` },
+    { q: "Where can you buy a new house near Myrtle Beach for less?", a: `In Birchwood, off SC 905 near Longs, new Lennar houses usually sold for about ${money(N.birchwood.price)} in the past year. In Indigo Grove, off SC 90, they usually sold for about ${money(N["indigo-grove"].price)}.` },
+    { q: "Is it cheaper to buy in Conway than in Myrtle Beach?", a: `Yes. A home that resold in Conway in the past year usually went for about ${money(264250)}. In the city of Myrtle Beach, a home usually went for about ${money(MB_HOUSE)}. Inside the city limits, Conway's property tax is higher.` },
+    { q: "Which affordable neighborhood is closest to the beach?", a: `Parkview, a townhome community off 17th Avenue South in Myrtle Beach, is about ${mins(N.parkview.beach)} minutes by car from a public beach access. Its older townhomes usually sold for about ${money(N.parkview.price)} in the past year.` },
+    { q: "Do you have to be a first-time buyer to get down-payment help?", a: "No, not in Horry or Georgetown County. For SC Housing's Homebuyer Program, you must not own a home when you close. Palmetto Home Advantage, another SC Housing down-payment program, is open to repeat buyers too." },
   ],
   sources: [
-    { name: "Zillow home values", href: ZILLOW },
     { name: "county deeds", href: DEEDS },
+    { name: "county parcels", href: PARCELS },
     { name: "county tax rates", href: LEVY },
-    { name: "Census", href: CENSUS },
-    { name: "FEMA", href: FEMA },
+    { name: "OpenStreetMap drive times", href: OSRM },
     { name: "SC Housing", href: SCH },
     { name: "SC Department of Insurance", href: DOI },
-    { name: "Georgetown County tax estimator", href: GT_TAX },
+    { name: "WMBF on the speedway", href: SPEEDWAY },
+    { name: "WMBF on Polo Farms", href: POLO_FLOOD },
+    { name: "Lennar", href: OVERLOOK },
+    { name: "county parks", href: CFRC },
   ],
-  sourcesNote: "Not legal, tax or loan advice. Typical values are Zillow's estimates for all homes. Drive times are OpenStreetMap estimates with no traffic. Georgetown's tax is the county's own estimate. Tax figures leave out the break for owners 65 and older.",
-  afterSources: () => ph.credits(),
-  bottomCta: { h2: "See what your budget buys in each place.", p: "Tell us your price range and the places you like. One of our agents will send you the homes for sale in each place, and the down-payment programs that fit.", label: OFFER, href: CONTACT },
-  keywords: "most affordable places to live near Myrtle Beach, affordable towns near Myrtle Beach, cheap homes Myrtle Beach, Conway vs Myrtle Beach, Loris SC homes, Aynor SC homes, Longs SC homes, Georgetown SC homes",
-  about: "The most affordable towns and areas to buy a home near Myrtle Beach, South Carolina: Georgetown, Loris, Longs, Conway and Aynor",
+  sourcesNote: "Not legal, tax or loan advice. Prices: the middle recorded sale, October 2025 to September 2026, without condos, manufactured homes or multi-lot deeds. Drives from the middle of each place, no traffic. Home details from listings; schools from zones. Yearly tax for a home you live in, before the break at 65.",
+  afterSources: () => ph.credits() + ITEMLIST(),
+  bottomCta: { h2: "See what your budget buys in these neighborhoods.", p: "Tell us your price range and the places you like. One of our agents will send you the homes for sale there, and the down-payment programs that fit.", label: OFFER, href: CONTACT },
+  keywords: "most affordable places to live near Myrtle Beach, cheapest neighborhoods Myrtle Beach, affordable townhomes Myrtle Beach, cheap homes near Myrtle Beach, new homes under 250000 Myrtle Beach, Parkview Myrtle Beach, Wild Wing Plantation townhomes, Victory Point Myrtle Beach, Forestbrook Village, Villas at Sandridge, Birchwood Longs SC, Indigo Grove Longs",
+  about: "The most affordable neighborhoods to buy a home near Myrtle Beach, South Carolina, by recorded sale price: Parkview, the Fairways at Wild Wing Plantation, Sawgrass East, Birchwood, Myrtle Beach Golf and Yacht Club, Forestbrook Village, Victory Point, the Townes at Amber Bluff, Villas at Sandridge, Indigo Grove, Wynbrooke and Polo Farms",
 };

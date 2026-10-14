@@ -279,6 +279,30 @@ for (const pg of M.pages) {
   report.pages.push({ ...pg, url, html, description: metaDescription(html), dateModified: dateModified(html), images: imagesUsed(html), sitemapImages: sitemapImages(html) });
 }
 
+/* Pages the site already has, rebuilt from their specs because a file they read changed ("rebuild" in
+   upload.json: [{ spec, why }]; the corrected spec or data ships through copyAs). A generated page is
+   never patched: the owner rebuilds it with mkpage, as the README says. Each is compared with the live
+   branch and the changed text is listed, so a change nobody planned shows. */
+const REBUILD = M.rebuild || [];
+const changedText = (before, after) => {
+  const tok = (h) => h.replace(/></g, ">\n<").split("\n");
+  const a = tok(before), b = tok(after), out = [];
+  for (let i = 0, j = 0; i < a.length || j < b.length;) {
+    if (a[i] === b[j]) { i++; j++; continue; }
+    out.push(`- ${String(a[i] || "").replace(/ d="[^"]{40,}"/g, ' d="(path)"').slice(0, 220)}`, `+ ${String(b[j] || "").replace(/ d="[^"]{40,}"/g, ' d="(path)"').slice(0, 220)}`);
+    i++; j++;
+  }
+  return a.length === b.length ? out : [`line count ${a.length} -> ${b.length}`, ...out];
+};
+for (const rb of REBUILD) {
+  const r = run(process.execPath, ["tools/mkpage.js", `specs/${rb.spec}`], A, buildEnv);
+  step(`mkpage specs/${rb.spec} (rebuild an existing page)`, r.code === 0, r.code === 0 ? r.out.split("\n").pop() : r.out);
+  if (r.code !== 0) continue;
+  const url = specUrl(A, rb.spec), file = pageFile(A, url);
+  rb.url = url; rb.html = fs.readFileSync(file, "utf8");
+  rb.changes = changedText(git(SITE, "show", `HEAD:${path.relative(A, file).split(path.sep).join("/")}`) + "\n", rb.html.replace(/\s*$/, "\n"));
+}
+
 /* Keep only the photos a page uses. */
 const used = new Set(report.pages.flatMap((p) => p.images));
 const imageRoot = "/" + M.images.to.replace(/^chapter3realty\//, "") + "/";
@@ -322,8 +346,10 @@ if (M.agree) {
    batch has shipped them. The patch leaves those out, or it would fail on the copied file. */
 const siteFiles = [...copies.map(([, to]) => to), ...shipped].sort();
 const inSite = new Set(siteFiles);
-const touched = git(A, "diff", "--name-only").split("\n").filter(Boolean).filter((f) => !inSite.has(f));
-const patch = touched.length ? git(A, "diff", "--binary", "--", ...touched) + "\n" : "\n";
+const rebuilt = new Set(REBUILD.filter((rb) => rb.url).map((rb) => pageFile("", rb.url).replace(/^[\\/]/, "").split(path.sep).join("/")));
+const touched = git(A, "diff", "--name-only").split("\n").filter(Boolean).filter((f) => !inSite.has(f) && !rebuilt.has(f));
+/* Read raw: git() trims trailing white space, which would cut a last context line that is blank. */
+const patch = touched.length ? execFileSync("git", ["diff", "--binary", "--", ...touched], { cwd: A, encoding: "utf8", maxBuffer: 1 << 28 }) : "\n";
 const generated = touched.filter((f) => report.pages.some((p) => pageFile("", p.url).replace(/^[\\/]/, "").split(path.sep).join("/") === f));
 step("the patch does not touch a generated page", !generated.length, generated.join(", "));
 
@@ -351,6 +377,12 @@ for (const pg of M.pages) T(`node tools/mkpage.js specs/${pg.spec}`, run(process
 for (const c of M.copyAs || []) {
   const sameFile = fs.readFileSync(path.join(B, c.to)).equals(fs.readFileSync(path.join(BB, c.from)));
   T(`${c.to} in the package is Blog-Brain ${c.from}, as it is today`, { code: sameFile ? 0 : 1, out: sameFile ? `identical (sha256 ${sha256(path.join(B, c.to)).slice(0, 12)})` : "different" });
+}
+for (const rb of REBUILD) T(`node tools/mkpage.js specs/${rb.spec} (rebuild an existing page)`, run(process.execPath, ["tools/mkpage.js", `specs/${rb.spec}`], B, buildEnv), undefined, 2);
+for (const rb of REBUILD.filter((x) => x.url)) {
+  const sameRb = fs.readFileSync(pageFile(B, rb.url), "utf8") === rb.html;
+  T(`${rb.url} rebuilt from the package matches the first build; changed from the live branch: ${rb.changes.length / 2} element(s)`,
+    { code: sameRb ? 0 : 1, out: [sameRb ? "identical to the first build" : "DIFFERENT from the first build", `why: ${rb.why}`, ...rb.changes].join("\n") }, undefined, 40);
 }
 const same = report.pages.every((p) => fs.existsSync(pageFile(B, p.url)) && fs.readFileSync(pageFile(B, p.url), "utf8") === p.html);
 T("the pages built from the package match the first build byte for byte", { code: same ? 0 : 1, out: same ? "identical" : "different" });
@@ -463,7 +495,7 @@ function bbHead() {
 }
 
 const passed = !failures.length;
-const specCmds = M.pages.map((p) => `node tools/mkpage.js specs/${p.spec}`);
+const specCmds = M.pages.map((p) => `node tools/mkpage.js specs/${p.spec}`).concat(REBUILD.map((rb) => `node tools/mkpage.js specs/${rb.spec}`));
 const imgCount = report.files.images.length;
 const imgBytes = report.files.images.reduce((s, f) => s + fs.statSync(path.join(OUT, "site", f)).size, 0);
 const fence = (s) => "```\n" + s + "\n```";

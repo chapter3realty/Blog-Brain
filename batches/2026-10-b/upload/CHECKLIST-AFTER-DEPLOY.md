@@ -12,7 +12,7 @@ https://chapter3realty.com/buyers/best-neighborhoods/
 - [ ] On a phone (about 390 wide), the first screen shows the title, the icon row and the start of the short answer, and nothing scrolls sideways.
 - [ ] The maps, the photos and their credits show; "On this page" links jump to their sections.
 - [ ] The links in the page open, including the links to the other pages in this batch.
-- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/best-neighborhoods/pine-lakes-from-above-1200w.webp
+- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/best-neighborhoods/tidewater-from-above-1200w.webp
 
 ### Gated Communities in Myrtle Beach
 
@@ -22,7 +22,7 @@ https://chapter3realty.com/buyers/gated-communities/
 - [ ] On a phone (about 390 wide), the first screen shows the title, the icon row and the start of the short answer, and nothing scrolls sideways.
 - [ ] The maps, the photos and their credits show; "On this page" links jump to their sections.
 - [ ] The links in the page open, including the links to the other pages in this batch.
-- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/gated-communities/prestwick-gate-from-above-2026-1200w.webp
+- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/gated-communities/tidewater-plantation-from-above-2023-1200w.webp
 
 ### Homes With No HOA in Myrtle Beach
 
@@ -42,7 +42,7 @@ https://chapter3realty.com/buyers/affordable-places-to-live/
 - [ ] On a phone (about 390 wide), the first screen shows the title, the icon row and the start of the short answer, and nothing scrolls sideways.
 - [ ] The maps, the photos and their credits show; "On this page" links jump to their sections.
 - [ ] The links in the page open, including the links to the other pages in this batch.
-- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/affordable/georgetown-harbor-1200w.webp
+- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/affordable/parkview-and-whispering-pines-from-above-1200w.webp
 
 ### The Farm at Carolina Forest
 
@@ -60,6 +60,7 @@ https://chapter3realty.com/submarkets/carolina-forest/the-farm/
 - [ ] https://chapter3realty.com/buyers/55-plus-communities/ and https://chapter3realty.com/buyers/golf-communities/: the link to the gated communities page opens.
 - [ ] https://chapter3realty.com/buyers/golf-communities/: the FAQ answer on gated communities does not say "24/7 staffed gate", and the comparison table does not say "live guard" or "24-hour security".
 - [ ] https://chapter3realty.com/submarkets/carolina-forest/: the link to The Farm at Carolina Forest opens.
+- [ ] https://chapter3realty.com/buyers/55-plus-communities/seasons-at-prince-creek-west/: the at-a-glance row, the FAQ answer and the map say about 13 minutes to the beach; the map's beach dot is on the Garden City shore. The comparison table on all four 55+ pages says About 13 for Seasons.
 
 ## Files for search engines and AI
 

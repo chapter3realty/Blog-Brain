@@ -202,7 +202,7 @@ module.exports = {
       h.p(`The Farm has no gate. Its streets are public roads owned by Horry County, not by the HOA. If you want a gate, see ${h.a("/buyers/gated-communities/", "which neighborhoods near Myrtle Beach are gated")}.`) },
 
     { h2: "What is there to do in The Farm at Carolina Forest?", toc: "Pools and things to do", html: (bg) =>
-      h.p("In The Farm at Carolina Forest, owners can swim in two pools, work out in the fitness room, reserve the activity center for a party and join the HOA's events. The large pool has a wide deck beside a pond, about 400 feet from the activity center.") +
+      h.p("In The Farm at Carolina Forest, owners can swim in two pools and work out in the fitness room. They can also reserve the activity center for a party and join the HOA's events. The large pool has a wide deck beside a pond, about 400 feet from the activity center.") +
       POOL +
       atAGlance([
         { icon: "pool", label: "Two pools", text: "Open April 15 to October 15, from 9 a.m. to 9 p.m. There is no lifeguard." },
