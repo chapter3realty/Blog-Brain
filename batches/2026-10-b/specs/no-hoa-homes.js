@@ -267,7 +267,7 @@ const CHERRY = ph.aerial("cherry-grove-canal-streets-from-above", "Houses on the
 /* One photo per area (round 7). Reused records keep their own credit; the captions are this page's. Ground
    photos from the photo partner will replace these later (templates/photo-request-email.md). */
 const LORIS_PHOTO = ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true });
-const SURF_PHOTO = ph.aerial("surfside-beach-pier-from-above", "The ocean side of Surfside Beach from the air, with the pier under construction.");
+const SURF_PHOTO = ph.aerial("surfside-beach-pier-from-above", "The ocean side of Surfside Beach from the air in 2023, with the new pier being built. It opened in 2024.");
 const INLET_PHOTO = ph.aerial("murrells-inlet-boats", "Fishing boats at a marina in Murrells Inlet.", { closeUp: true });
 const CONWAY_PHOTO = ph.aerial("conway-riverwalk-boardwalk", "The Riverwalk in downtown Conway, on the Waccamaw River.", { closeUp: true });
 const MB_PHOTO = ph.aerial("myrtle-beach-older-streets-from-above", "Houses on older streets between US 17 Business and the beach in Myrtle Beach, from the air.");
