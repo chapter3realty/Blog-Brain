@@ -434,5 +434,77 @@
     "pattern": "^A short walk, about 0\\.4 mile$",
     "struck": "A short walk, about 0.4 mile",
     "use": "About 0.4 mile, a 9-minute walk"
+  },
+  {
+    "row": "neighborhoods 234",
+    "pattern": "\\bLennar built every house",
+    "struck": "Lennar built every house the county approved here, around ponds, with townhomes beside them.",
+    "use": "Lennar built nearly every home here, around ponds, with townhomes beside the houses."
+  },
+  {
+    "row": "neighborhoods 235",
+    "pattern": "\\bbridge dates from 1934",
+    "struck": "That bridge dates from 1934 and was moved here from Edenton, North Carolina, the year the courses opened.",
+    "use": "That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened."
+  },
+  {
+    "row": "neighborhoods 235",
+    "pattern": "\\bdeveloper restored it and gave it to the city",
+    "struck": "The resort's developer restored it and gave it to the city of North Myrtle Beach.",
+    "use": "(Cut it: one source only, the resort's own history page, and that page contradicts itself on the bridge.)"
+  },
+  {
+    "row": "neighborhoods 236",
+    "pattern": "\\bthe lowest HOA fee for a house",
+    "struck": "Of the four Carolina Forest neighborhoods here, The Farm has the lowest house prices and the lowest HOA fee for a house.",
+    "use": "Of the four Carolina Forest neighborhoods here, The Farm has the lowest house prices, and its HOA fee is lower than the usual fee in the other three."
+  },
+  {
+    "row": "neighborhoods 236",
+    "pattern": "\\bonly Grande Dunes has houses that sell for more",
+    "struck": "Of the fifteen, only Grande Dunes has houses that sell for more.",
+    "use": "Of the four Carolina Forest neighborhoods here, Plantation Lakes has the highest house prices."
+  },
+  {
+    "row": "neighborhoods 236",
+    "pattern": "townhome here pays[^.]{0,80}much more than a house",
+    "struck": "A townhome here pays about $300 to $680 a month in HOA fees, much more than a house.",
+    "use": "A townhome here pays about $300 to $680 a month in HOA fees."
+  },
+  {
+    "row": "neighborhoods 236",
+    "pattern": "\\bGrande Dunes is still being built, and most houses",
+    "struck": "Grande Dunes is still being built, and most houses for sale are new or not yet finished.",
+    "use": "Across Grande Dunes, most houses for sale are new or not yet finished."
+  },
+  {
+    "row": "neighborhoods 237",
+    "pattern": "\\bjoined by a waterfall\\b",
+    "struck": "That amenity area is on a point in the lake, with two pools joined by a waterfall and a clubhouse with a gym.",
+    "use": "That amenity area is on a point in the lake, with two pools joined by waterfalls and a clubhouse with a gym."
+  },
+  {
+    "row": "neighborhoods 237",
+    "pattern": "\\bhorseshoe pits are across the road",
+    "struck": "Tennis and basketball courts and horseshoe pits are across the road.",
+    "use": "Tennis and basketball courts are across the road, and the community has horseshoe pits."
+  },
+  {
+    "row": "neighborhoods 230",
+    "pattern": "\\bA court found no rule",
+    "struck": "A court found no rule on the land that kept it a golf course, and the state Court of Appeals agreed in 2012.",
+    "use": "The court sent the case to a special referee, who found no rule on that land that kept it a golf course. The state Court of Appeals upheld that finding in 2012."
+  },
+  {
+    "row": "neighborhoods 3",
+    "pattern": "\\bFew homes in the two sections come up for sale",
+    "struck": "Few homes in the two sections come up for sale.",
+    "use": "(Cut it: 17 resales in about 250 homes in a year, and no row compares turnover with other places.)"
+  },
+  {
+    "row": "neighborhoods 147",
+    "pattern": "\\bfew homes are sold by their owners",
+    "struck": "Builders sold new townhomes here in the past year, but few homes are sold by their owners.",
+    "use": "(Cut the clause after 'but': 10 resales in about 260 homes in a year, and no row compares turnover with other places.)"
   }
 ]
