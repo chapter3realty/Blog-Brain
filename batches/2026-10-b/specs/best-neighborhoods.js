@@ -5,7 +5,7 @@
  * features: who built it and when, the golf course designer, the water, a landmark, the street-name
  * theme. One "At a glance" line per entry holds the homes, the price and the fee; nothing else repeats
  * from entry to entry. The page says what we check, never what the reader should check. New facts:
- * neighborhoods-facts.md rows 201 to 214, pending verification (round 8).
+ * neighborhoods-facts.md rows 201 to 214, pending verification (round 8). ItemList JSON-LD for the 15 entries.
  * Version 7, 2026-10-14 (round 7: review/ROUND-7.md, the owner's first read:
  * "too jumpy and alot about price instead of the amenities ... a headline for that community and a few
  * paragraphs and photos and then the next"). The shape is now CRAFT 3's list of places (reports/Page
@@ -400,6 +400,11 @@ const ENTRIES = [
   ], "the few houses for sale here were built from about 2007 to 2015 and have about 2,400 square feet. Homes usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."),
 ];
 
+/* ItemList JSON-LD for the 15 numbered entries (round 8; the same block as specs/no-hoa-homes.js). */
+const ITEMLIST = () => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList",
+  name: "The best neighborhoods in Myrtle Beach", numberOfItems: ENTRIES.length,
+  itemListElement: ENTRIES.map((e, i) => ({ "@type": "ListItem", position: i + 1, name: N[e.id].name, url: `https://chapter3realty.com${SELF}#${e.id}` })) })}</script>`;
+
 /* A short "best for" index above the list (ROUND-7: "plain links to the entries"). Each link's words are
    the entry's own short label, so score.js H14 holds. */
 const NAMES = (ids) => ids.map((id) => h.a(A(id), N[id].name)).join(", ");
@@ -493,7 +498,7 @@ module.exports = {
     { name: "North Myrtle Beach canal assessment", href: CG_CANALS },
   ],
   sourcesNote: "Prices are the middle sale price over 12 months, or the range where few sold, in the sections named or outlined. HOA fees come from recent listings, except The Farm's. The no-fee counts are MLS areas 11a and 29a and 29b. Taxes come from 2026 county tax bills.",
-  afterSources: () => ph.credits(),
+  afterSources: () => ph.credits() + ITEMLIST(),
   bottomCta: { h2: "Tell us what you want nearby. We will send three neighborhoods.", p: "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each.", label: "Get three neighborhoods", href: OFFER },
   keywords: "best neighborhoods in Myrtle Beach, best places to live in Myrtle Beach, best areas to live in Myrtle Beach, best communities in Myrtle Beach, best neighborhoods in North Myrtle Beach, best neighborhoods in Surfside Beach, Myrtle Beach neighborhoods map, Carolina Forest vs Myrtle Beach",
   about: "Residential neighborhoods in and around Myrtle Beach, South Carolina, from North Myrtle Beach to Murrells Inlet and inland to Carolina Forest and Conway",
