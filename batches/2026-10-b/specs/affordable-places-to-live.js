@@ -248,7 +248,7 @@ module.exports = {
 
     entry("parkview", "older gated townhomes inside Myrtle Beach", () =>
       h.p("Parkview is a gated community off 17th Avenue South, near Harrelson Boulevard. It is the only one of the twelve inside the city of Myrtle Beach, a few minutes from Coastal Grand Mall and the beach.") +
-      h.p("The price is low because these are small townhomes from the middle 2000s, many with two bedrooms, beside ponds. Every sale here last year was a resale.") +
+      h.p("The price is low because these are small townhomes from the middle 2000s, many with two bedrooms, beside ponds.") +
       h.p("A different, new neighborhood near Surfside Beach is also recorded by the county as Parkview. Its new townhomes cost more.") +
       facts("parkview")),
 
@@ -314,8 +314,8 @@ module.exports = {
       facts("wynbrooke")),
 
     entry("polo-farms", "older houses with a small HOA fee", () =>
-      h.p("Polo Farms is a neighborhood of one-story houses off SC 905, between SC 9 and SC 22, west of Longs. None of last year's sales here was from a builder.") +
-      h.p(`These are resale houses far inland, from 2005 on, and its HOA fee is the lowest we found. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
+      h.p("Polo Farms is a neighborhood of one-story houses off SC 905, between SC 9 and SC 22, west of Longs.") +
+      h.p(`These are older houses far inland, from 2005 on, and the HOA fee is the lowest we found. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
       facts("polo-farms")),
 
     { h2: "How do the towns compare?", toc: "The towns", id: "towns", html: () =>
