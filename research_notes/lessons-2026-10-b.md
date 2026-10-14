@@ -86,6 +86,8 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B36. Count sales in the deed index, not the listings.** The gated page said The Bluffs had 4 sales in a year and "Homes rarely come up for sale". The county deed index had about 34 deeds of $10,000 or more for it in the same window; Seaside had 12, not 6. The rows had counted MLS closings, which miss sales that never touched the MLS. A "few homes sell here" claim, a sales count and a price range all need the deed index joined to the parcels (as the affordable ranking did), and a turnover claim needs a comparison across places, not one count.
 
+**B37. The note voice changes form.** Round 11's review left best, gated and affordable at 8 again, with no high finding. The verifier's voice had moved from "in a straight line" to "deeded", "recorded", "from the middle of the neighborhood" and sentences pasted from a struck list's `use` field. Writers also weakened facts to stay under the number limit ("miles of shoreline") instead of cutting a weaker number. Rules: a struck list's `use` is the approved fact, not copy to paste; the last step before a page goes to review is one read aloud as a top local agent talking to a buyer; when a limit binds, cut the least useful number, never blur the most useful one.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
