@@ -381,10 +381,10 @@ module.exports = {
 
     entry("Loris", "Loris: new houses on three quarters of an acre, near a small downtown", [
       `Loris is a small city with City Hall downtown on Walnut Street. On the third Saturday in October, downtown fills for the ${h.ext(LORIS_CITY, "Loris Bog-Off")}, a festival built around chicken bog: chicken, rice and sausage cooked together.`,
-      "About 6 in 10 houses for sale here were built in 2024 or later, and almost none are listed in a subdivision. Most are just outside the city limits. McLeod Loris hospital is about 2 minutes from the center of town.",
+      "About 6 in 10 houses for sale here were built in 2024 or later, and almost none are listed in a subdivision. Most are outside the city limits. McLeod Loris hospital is about 2 minutes from the center of town.",
     ], LORIS_PHOTO, "the nearest beach, in North Myrtle Beach, is about 35 minutes away by car."),
 
-    entry("North Myrtle Beach", "North Myrtle Beach: older beach houses where the shag grew up", [
+    entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
       `North Myrtle Beach began in 1968, when Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill joined as one city. Ocean Drive and Crescent Beach had a pavilion where people danced the ${h.ext(SCE + "shag/", "shag")}, which South Carolina made its ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
       "The houses for sale are mostly in those old beach towns, and most are within half a mile of the sand. About 6 in 10 were built before 1990. In Cherry Grove, canals were dug through the marsh, and owners along them pay the city a yearly fee to dredge them. Cherry Grove also has a fishing pier.",
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
@@ -407,7 +407,7 @@ module.exports = {
     ], CONWAY_PHOTO, "the nearest beach is about 25 minutes away by car."),
 
     entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near Pine Lakes and the ocean", [
-      `Myrtle Beach began about 1900 at the end of a logging railroad from Conway. Its first owners ${h.ext(SCE + "myrtle-beach/", "sold oceanfront lots")} for $25 each. In the 1920s the Woodside family built the Pine Lakes golf course and the Ocean Forest Hotel north of town.`,
+      `Myrtle Beach began about 1900 at the end of a logging railroad from Conway. Its first owners ${h.ext(SCE + "myrtle-beach/", "sold oceanfront lots")} for $25 each. In the 1920s the Woodside family built the Pine Lakes golf course and the Ocean Forest Hotel.`,
       "Outside Carolina Forest, the houses for sale are mostly older: almost half were built before 1990, and almost half are within half a mile of the beach. About half are inside the city, and most of the rest are outside any town.",
     ], MB_PHOTO, "inside the city, a long boat cannot sit in the front yard."),
 
