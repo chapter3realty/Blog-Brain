@@ -202,7 +202,7 @@ module.exports = {
       h.p(`The Farm has no gate. Its streets are public roads owned by Horry County, not by the HOA. If you want a gate, see ${h.a("/buyers/gated-communities/", "which neighborhoods near Myrtle Beach are gated")}.`) },
 
     { h2: "What is there to do in The Farm at Carolina Forest?", toc: "Pools and things to do", html: (bg) =>
-      h.p("In The Farm at Carolina Forest, the large pool and the activity center are about 400 feet apart. The large pool has a wide deck beside a pond.") +
+      h.p("In The Farm at Carolina Forest, owners can swim in two pools, work out in the fitness room, reserve the activity center for a party and join the HOA's events. The large pool has a wide deck beside a pond, about 400 feet from the activity center.") +
       POOL +
       atAGlance([
         { icon: "pool", label: "Two pools", text: "Open April 15 to October 15, from 9 a.m. to 9 p.m. There is no lifeguard." },
@@ -294,7 +294,7 @@ module.exports = {
     { q: "How much is the HOA fee in The Farm at Carolina Forest?", a: "The HOA fee is $107 a month for every home, or about $1,300 a year. The HOA spends it on trash pickup, landscaping, the ponds and the pools. Townhomes in The Orchards and condos in Planters Point pay a second HOA fee too." },
     { q: "Can the HOA fee in The Farm go up?", a: "Yes. The HOA can raise the fee by up to 20 percent a year. The board can also add a one-time charge to owners by a majority vote." },
     { q: "Is The Farm at Carolina Forest a gated community?", a: "No. The streets in The Farm are public roads owned by Horry County. To add a gate, about three out of four owners would have to agree to ask a court first." },
-    { q: "When was The Farm at Carolina Forest built?", a: "The Farm was built in stages. D.R. Horton recorded its HOA rules in 2004 and added land until 2017, when the last two sections, Phases 23B and 21, were added. Most houses were built from 2004 to 2009, and most of the rest from 2014 to 2018." },
+    { q: "When was The Farm at Carolina Forest built?", a: "The Farm was built in stages. D.R. Horton recorded its HOA rules in 2004 and added land until 2017. Most houses were built from 2004 to 2009, and most of the rest from 2014 to 2018." },
     { q: "What happens if you break an HOA rule in The Farm?", a: "You get a courtesy notice first. The HOA then charges a $25 fine, then a $50 fine, and then $50 a week until the problem is fixed." },
   ],
   sources: [
