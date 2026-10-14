@@ -391,7 +391,7 @@ module.exports = {
 
     entry("birchwood", "new houses off SC 905 near Longs", () =>
       strip("birchwood") +
-      h.p("Birchwood is a new neighborhood of houses off SC 905, southwest of Longs. The turn is beside the tall water tower. Lennar built every house here, from about 1,100 to 1,950 square feet, on about a quarter acre, and high-speed internet is included.") +
+      h.p("Birchwood is a new neighborhood of houses off SC 905, southwest of Longs. The turn is beside the tall water tower. Lennar built every house here, from plans of about 1,100 to 1,950 square feet, on about a quarter acre, and high-speed internet is included.") +
       PH["birchwood"] +
       h.p("Birchwood has only 77 lots, with about 12 acres of open space. Its neighbors are fields and older homes on large lots.") +
       h.p(`The trade-off is the drive to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by SC 9 and the Carolina Bays Parkway. North Myrtle Beach is about 20.`)),
@@ -405,7 +405,7 @@ module.exports = {
 
     entry("forestbrook-village", "new townhomes off Forestbrook Road", () =>
       strip("forestbrook-village") +
-      h.p("Forestbrook Village is a new Lennar townhome community off Forestbrook Road, south of US 501. Each townhome has a one-car garage and about 1,450 to 2,400 square feet. Internet and grounds care are included. It is next to the older Forestbrook neighborhood, and its townhomes cost less than the houses there.") +
+      h.p("Forestbrook Village is a new Lennar townhome community off Forestbrook Road, south of US 501. The townhomes have about 1,450 to 2,400 square feet. Internet and grounds care are included. It is next to the older Forestbrook neighborhood, and its townhomes cost less than the houses there.") +
       PH["forestbrook-village"] +
       h.p("Forestbrook Middle and Forestbrook Elementary are four to five minutes away.") +
       h.p("The trade-off is flood. Some lots here are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for the lot of any home you like.")),
@@ -453,7 +453,7 @@ module.exports = {
       h.p("Polo Farms is a neighborhood of houses off SC 905, between SC 9 and SC 22, west of Longs. Simpson Creek runs along its southwest side. It was built in three phases.") +
       PH["polo-farms"] +
       h.p(`There is no pool or clubhouse; the common land is two ponds, some woods and the strips along SC 905. Lots are about a fifth of an acre, many backyards are fenced, and several have their own pool. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
-      h.p(`Flood is a concern here. A few houses flooded after Hurricane Matthew in 2016. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. Nearly half its lots are in a high-risk flood zone, where a lender usually requires flood insurance. Before you make an offer, we look up the lot on FEMA's flood map.`)),
+      h.p(`Flood is a concern here. A few houses flooded after Hurricane Matthew in 2016. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone, where a lender usually requires flood insurance. Before you make an offer, we look up the lot on FEMA's flood map.`)),
 
     { h2: "How do the twelve compare on schools and the drive?", toc: "Schools and the drive", id: "schools", html: () =>
       h.p("How far each place is from Myrtle Beach, by the drive to Coastal Grand Mall, and the zoned schools for each:") +
