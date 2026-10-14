@@ -90,6 +90,22 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B38. A second source is a check, not a replacement.** After B36, the gated writer swapped every Georgetown County price from MLS closings to the county's last-sale table. The verifier reconciled the two sale by sale and found the county pull was the worse one: its filters missed whole subdivisions (DeBordieu's Ocean Oaks, Wachesaw East's Cottages at Planters Point), a street spelled with a backtick, and sales hidden behind a later $5 deed. DeBordieu fell from $2 million to $1.7 million on the swap and went back. Rule: when two sources disagree, match them sale by sale and explain each difference; never switch sources wholesale. A county legal description can omit the subdivision name; check the deed index and the MLS neighborhood field too.
 
+## The owner's third read (2026-10-14, after round 13)
+
+Our own reviewers graded four pages 9 of 10. The owner read them and found each one a long, repeated preamble followed by a reporter's notes. The lessons below are the root causes, not the symptoms.
+
+**B39. Data availability chose the content.** Every entry on every page carried the same fields: year built, square feet, number of homes, price, fee, drive. They were the fields our sources (county parcels, deeds, MLS) give for any place, so research gathered them for every place, and the writers wrote what they had. The gated page and the affordable page got the same facts, though a gated buyer and a first-time buyer want different things. Rule (CRAFT 1): before research, write what this page's searcher would pay to know, and research that, place by place. A field that is easy to fetch is not a reason to print it.
+
+**B40. Our checks measured our rules, not the sale.** Fourteen rounds of verifiers, repeat checks and reviewers made the pages accurate, varied and plain, and graded them 9. None of those checks asks the owner's question: would this make a buyer want to live there and call us? Proxies (no repeated sentence, a measured distance, a verified figure) were met while the goal was missed. Rule (CRAFT 8, prompts/owner-eye.md): the review starts with the sale. Does each entry make a reader want the place? Could the paragraph be about any other place? Is there a way to act on each place?
+
+**B41. The kit built the preamble.** The page kit offered a hero, a glance row, a "what are you looking for" legend, a numbered map, a comparison table, illustrations and an ItemList. Each page used most of them, so the list of places appeared three or four times before the first place, with pictures nobody could read. Rule (CRAFT 3): the first place starts within one phone screen of the short answer. The list of places appears once, as the selection guide, and the guide says what each place does best. One map. A comparison table only if a reader would use it, and simple.
+
+**B42. A reporter's voice does not sell.** The verifier's careful wording, the "facts" line, counts and ranges made each entry read like a record. A buyer wants to be sold on the place by someone who knows it. Rule (CRAFT 5): write like the best agent in town showing the place: lead with the best thing a buyer could not have guessed, then what a normal day there is like, then the trade-off, then the price in one sentence, then an offer to see it. Gloss what anyone can see (a pond, a pool). Every claim still rests on a verified row; selling is choosing and ordering true things, not inventing.
+
+**B43. Every place needs a next step.** No entry offered a way to act on the place the reader had just been sold on. Rule (CRAFT 3): each place ends with its own short offer, for example "Book a showing in Wachesaw Plantation", which goes to the contact form with the place named.
+
+**B44. Design is part of trust.** The owner called the graphs and icons dated. A page that looks old reads as old information. Rule (CRAFT 4): batch 2026-10-b pages use the modern "liquid glass" style (translucent panels, soft blur, light borders) for the background, cards, icons, maps and charts, with contrast checked. A chart says one thing a reader wants at a glance, and can carry each place's best feature, not only its price.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.

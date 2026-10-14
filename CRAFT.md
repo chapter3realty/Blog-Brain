@@ -36,6 +36,8 @@ Batch 2026-10-a planned ten records questions and missed the one every reader as
 
 After every section, ask what question it just raised. Answer it, or cut what raised it.
 
+**Each audience wants different things; research what this one would pay to know (owner, 2026-10-14, third read).** "the same information was given to gated communities as you gave to affordable communities they dont care about the same things." Before any research, write a short list of what this page's searcher would pay an expert to tell them, and research that, place by place. A gated-community buyer wants the club, the golf, the water, who staffs the gate, the social calendar, what the fee takes off their hands. A first-time buyer on a budget wants to know what they get for the money: the amenities, the new-home features, the commute, the parks, the schools, the room to grow. A buyer avoiding an HOA wants the freedom: the boat, the truck, the shed, the land, the character of an older street. A field that is easy to fetch (year built, square feet, number of homes) is not a reason to print it. Also read the top three search results for the page's main query: list what each does well, and beat it.
+
 **Ask why this person typed it.** A search shows the words, not the reason. "Homes with no HOA" was typed by a boat owner who wanted to know what the town lets them park. The must-answer list had "what you gain" and missed it. For each top search, write the likely reason behind it, and answer that too (batch 2026-10-b).
 
 **Give the yearly cost in dollars.** Four of five cold readers in batch 2026-10-b came, in part, for what owning would cost them each year, and got pieces: a fee a month, a tax rate per $100,000. A reader does not add up pieces. On any page about where or what to buy, give one line for the typical home: "about $X a year besides the mortgage", with its parts named, from verified rows. Never a mortgage payment or a rate.
@@ -118,6 +120,10 @@ For a subject that fits no kind, find the main relation in the content: place, a
 
 **A list of places is read one place at a time (owner, 2026-10-14).** When a page names many places, keep the opening (the short answer, the map), then give each place its own numbered entry, 1 to the last, in one order the reader can follow: a headline, a few short paragraphs on what living there gives you (the homes, the amenities, what is close by), one photo of the place, and its trade-off. Price and the HOA fee go in one line inside the entry; the reader needs them, but they are not the point. Do not make the reader jump between want cards, tables by area and cards to learn about one place. A table of every place side by side may follow the list, for the reader who wants to compare numbers. The owner on the first version: "too jumpy and alot about price instead of the amenities ... focus on what the house and location gives you." On a page whose subject is price (the most affordable places), price stays in front, but each place still gets what living there is like.
 
+**No preamble (owner, 2026-10-14, third read).** "im scrolling for a very long time before i get to anything valuable ... you repeat your list ... you repeat where gated communities are in a map for the 3RD time." The first place starts within one phone screen of the short answer. The list of places appears once, as the selection guide, and that guide tells the reader what each place does best, by feature, never by who lives there ("the ocean and a beach club", "a marina on the river", "the lowest fee"), so they can choose. One map. No illustration whose point a reader cannot see in a second. A comparison table only if a reader would use it, with plain column names; otherwise cut it.
+
+**Every place gets its own offer (owner, 2026-10-14).** "theres not even any CTA's for any property on any of the pages." Each entry ends with a short offer for that place, for example "See homes for sale in Wachesaw Plantation" or "Book a showing in Indigo Grove", linked to the contact form with the place named. The page's main offer box stays, once near the top and once at the end.
+
 **Name the drawbacks, kindly, in their own place.** Readers trust a page that says what is hard. They also search for it ("reviews", "pros and cons", "is it worth it"). Give a short plain list of the good and the hard, each from a verified fact, each hard point with what to do about it. Facts only: never a verdict on a named company, and never anything about who lives somewhere.
 
 **One clear offer, tied to the page's gap.** The call to action offers the one thing the reader cannot easily get alone, ideally what the page could not fully answer. Keep one label. Several vague calls read as sales. The first offer on the page looks like an offer, not a link: a box with a headline that says what the reader gets, one sentence, and a large button (owner, 2026-10-14: "make the first CTA more of a CTA"). Use the same box component as the last offer.
@@ -145,9 +151,22 @@ For a subject that fits no kind, find the main relation in the content: place, a
 - Hide nothing. FAQ answers are open text. Nothing rotates or pops up.
 - A page with 4 or more sections gets an "On this page" list with short labels.
 
+**Look modern (owner, 2026-10-14).** "all icons and graphs need to look very modern such as liquid glass." A page that looks dated reads as dated information. Batch 2026-10-b's pages use the "liquid glass" style: a soft translucent background, cards and icon chips with blur and a light edge, and charts drawn flat and clean, with contrast checked against the readability rules. A chart says one thing at a glance and can carry each place's best feature beside its number.
+
 **The page's surroundings are part of the page.** The header, footer and site-wide boxes either speak to this reader or cost trust. An investor footer on a retiree page made readers doubt the company. File a mismatch in the frame as a site fix with the page's release.
 
 ## 5. Write it
+
+### Sell the place like the best agent in town (owner, 2026-10-14, third read)
+
+"get your suit on and sell them on houses and locations ... like you're selling the best place in the world for each location." And: "don't do the facts: thats not how a human talks ... if its next to a pond ... gloss over it ... find information that isnt obvious and therefore is intriguing and valuable."
+
+- **Lead each place with its best thing the reader could not have guessed.** The river landing five minutes away, the course a major tournament played, the free beach shuttle, the oldest live oaks in the county. Gloss what anyone can see in a photo (a pond, a pool).
+- **Then what a normal day there is like, and why people choose it.** What an owner does on a Saturday, where they eat, where they launch the boat, how long the drive to work is.
+- **Then the trade-off, in one honest line. Then the price, in one plain sentence. Then the offer to see it.**
+- **No label lines.** No "The facts:", no field lists. Price and fee go in a sentence a person would say: "Homes here usually sell for about $500,000, and the HOA fee is about $145 a month."
+- **Selling is choosing and ordering true things.** Every claim still rests on a verified row. Enthusiasm comes from specific, surprising facts, not from adjectives. Never "stunning", "nestled", "boasts" or "world-class".
+- **Each page speaks to its own reader.** A gated page and an affordable page share a skeleton, never their content.
 
 ### Say something new, every time (owner, 2026-10-14)
 
@@ -232,6 +251,8 @@ In this order:
 11. **When two reviewers disagree,** write down what each one protects and find one design that serves both before building. If you must choose, choose by the reader, and log the reversal in `WORKFLOW.md`.
 
 Test an outside service or a site component in the real page, under the site's own rules, before building on it.
+
+**The review starts with the sale (lesson B40).** Fourteen rounds of accuracy checks graded pages 9 that the owner found surface level. Before any rule, the reviewer asks: does each entry make a reader want the place? Could this paragraph be about any other place? How far does a phone reader scroll before the first place? How many times does the list of places appear? Does each place have a way to act on it? Does the page look modern?
 
 ## 9. Learn from every correction
 

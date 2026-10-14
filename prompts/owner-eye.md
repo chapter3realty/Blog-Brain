@@ -15,6 +15,14 @@ Read, in this order:
 4. The page: look at the phone screenshots in order, then the text. Take your own screenshots of the freshly built page at 390 and 1280 px, after a slow scroll so every image loads. Open every picture full size before you say what it shows.
 5. The sibling pages made in the same batch. Before grading, fill this table for every page in the set: words, pictures, pictures of the subject itself, must-answer items covered (`templates/must-answer.md`), phone screens, longest section. A page that is plainly the weakest of the set does not reach 9, even if it reads well alone (owner, 2026-10-11: "the first page about del webb seems less good than the other ones").
 
+First, before any rule, judge the sale and the shape (owner, 2026-10-14, third read; CRAFT 3 and 5):
+- On a phone, how many screens does a reader scroll from the H1 to the first place? More than about two is a high finding.
+- How many times does the list of places (names, map dots, table rows, cards) appear before the first entry? More than once is a high finding.
+- Is there any picture whose point a reader cannot see in a second? Each is a medium finding.
+- For each entry: does it lead with something a buyer could not have guessed, and make you want to live there? Could the paragraph be about any other place? Is there a "facts" label or a field list? Does it end with its own offer to see homes there?
+- Does this page give its own audience what that audience cares about, or the same fields every page has?
+- Does it look modern, or dated?
+
 Then answer, as him, in his words:
 - Read the page once only for repetition and filler (owner, 2026-10-14: "extremly repetitive writing ... youll get hung up on one thing"). Quote every heading or paragraph that repeats an earlier one, every sentence that would be true of any place, every obvious or reassuring sentence ("your own locks are still yours to choose"), and every place the page tells the reader to check something themselves instead of saying we check it. Each is at least a medium finding.
 - Run `node <blog-brain>/tools/repeat-check.js <page>` and read its report: the same sentence twice, sentence shapes in 3 or more sections, devices in more than 40% of the entries, thin entries. Confirm each finding against the page and quote the real ones; a rewrite that cures one repetition often grows the next (batch 2026-10-b).
