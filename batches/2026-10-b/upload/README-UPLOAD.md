@@ -1,8 +1,8 @@
 # Upload package: batch 2026-10-b
 
-**NOT READY: a step or gate failed. See the test results below. Do not apply this package.**
+**Tested: every step and gate passed.**
 
-Built 2026-10-14 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 84abd21 (with uncommitted changes to its sources), against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
+Built 2026-10-14 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 8b9560a, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -219,7 +219,7 @@ wrote chapter3realty/buyers/affordable-places-to-live/index.html (219038 bytes, 
 ### PASS: node tools/mkpage.js specs/the-farm.js
 
 ```
-wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (137208 bytes, hero sub 19 words, main 3137 words)
+wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (137225 bytes, hero sub 19 words, main 3141 words)
 ```
 
 ### PASS: specs/seasons-at-prince-creek-west.js in the package is Blog-Brain batches/2026-10-a/specs/seasons-at-prince-creek-west.js, as it is today
@@ -357,17 +357,17 @@ Pages: 142 | Assets: 9 | Avg page: 98KB
 OK - all asset links resolve, no giant shared CSS re-inlined, no orphans. Safe to deploy.
 ```
 
-### FAIL: node build.js audit
+### PASS: node build.js audit
 
 ```
+  ~  near-duplicate content 34%: /buyers/relocating/from-ohio/ and /buyers/relocating/from-virginia/
   ~  near-duplicate content 37%: /buyers/relocating/from-pennsylvania/ and /buyers/relocating/from-virginia/
   ~  /assets/app.70fdb2467e.css: .grid-2 sets grid-template but never display:grid, so the class does nothing
   ~  /assets/app.70fdb2467e.css: .grid-3 sets grid-template but never display:grid, so the class does nothing
   ~  /assets/app.70fdb2467e.css: .grid-4 sets grid-template but never display:grid, so the class does nothing
   ~  /assets/app.70fdb2467e.css: .grid-3 sets grid-template but never display:grid, so the class does nothing
 
-FAIL (1) - fix before publishing:
-  !! /submarkets/carolina-forest/the-farm/  sentence is 30 words (max 28, strict register): "In The Farm at Carolina Forest, owners can swim in two pools, work out..." - split it
+OK - zero blocking defects. Page quality gate passed.
 ```
 
 ### PASS: sitemap.xml, llms.txt and llms-full.txt list the pages
@@ -380,23 +380,23 @@ FAIL (1) - fix before publishing:
 /submarkets/carolina-forest/the-farm/: sitemap yes, lastmod 2026-10-14, 8 images; llms.txt yes; llms-full.txt yes, with its text
 ```
 
-### FAIL: node build.js preflight (after a local commit)
+### PASS: node build.js preflight (after a local commit)
 
 ```
-  ~  near-duplicate content 31%: /buyers/relocating/from-new-york/ and /buyers/relocating/from-virginia/
-  ~  near-duplicate content 35%: /buyers/relocating/from-north-carolina/ and /buyers/relocating/from-ohio/
-  ~  near-duplicate content 38%: /buyers/relocating/from-north-carolina/ and /buyers/relocating/from-pennsylvania/
-  ~  near-duplicate content 34%: /buyers/relocating/from-north-carolina/ and /buyers/relocating/from-virginia/
-  ~  near-duplicate content 38%: /buyers/relocating/from-ohio/ and /buyers/relocating/from-pennsylvania/
-  ~  near-duplicate content 34%: /buyers/relocating/from-ohio/ and /buyers/relocating/from-virginia/
   ~  near-duplicate content 37%: /buyers/relocating/from-pennsylvania/ and /buyers/relocating/from-virginia/
   ~  /assets/app.70fdb2467e.css: .grid-2 sets grid-template but never display:grid, so the class does nothing
   ~  /assets/app.70fdb2467e.css: .grid-3 sets grid-template but never display:grid, so the class does nothing
   ~  /assets/app.70fdb2467e.css: .grid-4 sets grid-template but never display:grid, so the class does nothing
   ~  /assets/app.70fdb2467e.css: .grid-3 sets grid-template but never display:grid, so the class does nothing
 
-FAIL (1) - fix before publishing:
-  !! /submarkets/carolina-forest/the-farm/  sentence is 30 words (max 28, strict register): "In The Farm at Carolina Forest, owners can swim in two pools, work out..." - split it
+OK - zero blocking defects. Page quality gate passed.
+
+OK - all 136 pages date to their real last content change.
+
+OK - tax engine matches state-tax.json and every hand-computed case.
+
+OK - deploying 141 pages from commit d6f1fd42 on claude/github-account-check-wutg8b.
+     Check that commit against the branch before you deploy.
 ```
 
 ### PASS: score.js --only /buyers/best-neighborhoods/
@@ -432,37 +432,37 @@ Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2313 words)
 
 ```
 /submarkets/carolina-forest/the-farm/  The Farm at Carolina Forest: HOA Fee, Pools, Rules | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1734 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1738 words)
 ```
 
 ### PASS: struck-check.js /buyers/best-neighborhoods/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-mb4Z8R/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/gated-communities/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-mb4Z8R/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/no-hoa-homes/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-mb4Z8R/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/affordable-places-to-live/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-mb4Z8R/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /submarkets/carolina-forest/the-farm/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-mb4Z8R/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
 ```
 
 ### PASS: claims-scan.js: no new banned claim on any surface
