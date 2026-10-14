@@ -161,6 +161,7 @@ function barChart(title, caption) {
 const MAP = placesMap("Affordable neighborhoods near Myrtle Beach",
   P.map((p) => ({ name: p.map, lat: p.lat, lon: p.lon, href: A(p.id) })), {
     caption: "Map of the twelve neighborhoods, numbered as in the list below.",
+    leaders: true,
   });
 
 /* Each place's facts in one strip (ROUND-10: one facts line per entry). A table, so the numbers stay
@@ -287,20 +288,20 @@ module.exports = {
       h.p("The Fairways is a group of townhomes off Wild Wing Boulevard, inside Wild Wing Plantation, on US 501 between Conway and Myrtle Beach.") +
       PH["fairways-at-wild-wing"] +
       h.p(`Wild Wing was once a golf resort with several courses. Three of them closed in 2004, and one later reopened with nine holes. The Avocet course, designed by Jeff Brauer and Larry Nelson, is ${h.ext(WILDWING, "still open")}, and some of these townhomes are near it.`) +
-      h.p("An Aldi is about three minutes away. The HOA fee includes the pool and internet, and usually water and sewer. Living inside Conway's city limits means a higher yearly tax than outside a town.")),
+      h.p("The Aldi on Wild Wing Boulevard is a three-minute drive. The HOA fee includes the pool and internet, and usually water and sewer. Living inside Conway's city limits means a higher yearly tax than outside a town.")),
 
     entry("sawgrass-east", "townhomes off Carolina Forest Boulevard", () =>
       strip("sawgrass-east") +
-      h.p("Sawgrass East is a townhome community off Carolina Forest Boulevard, about 2.5 miles by road north of US 501. The townhomes are around small ponds, with a pool and a clubhouse for the owners.") +
+      h.p("Sawgrass East is a townhome community off Carolina Forest Boulevard, about 2.5 miles by road north of US 501. The townhomes are around small ponds, with a pool and a clubhouse for the owners. Most have about 1,300 to 1,600 square feet.") +
       PH["sawgrass-east"] +
-      h.p(`The county's ${h.ext(CFRC, "Carolina Forest Recreation Center")}, with a gym, a fitness room and a climbing wall, is about six minutes away.`) +
+      h.p(`The county's ${h.ext(CFRC, "Carolina Forest Recreation Center")}, with a gym, a fitness room and a climbing wall, is a six-minute drive.`) +
       h.p("The HOA fee is higher than at most places here, though it usually includes water and sewer. For a buyer who would pay those bills anyway, the gap is smaller than it looks.")),
 
     entry("birchwood", "new houses off SC 905 near Longs", () =>
       strip("birchwood") +
       h.p("Birchwood is a new neighborhood of houses off SC 905, southwest of Longs. The turn is beside the tall water tower. Lennar built every house here, most on about a quarter acre, and high-speed internet is included.") +
       PH["birchwood"] +
-      h.p("To the west and north are fields, woods and older homes on large lots; newer neighborhoods are to the east.") +
+      h.p("It is small, with 77 lots, and about 12 acres of it is open space. To the west and north are fields, woods and older homes on large lots; newer neighborhoods are to the east.") +
       h.p(`The trade-off is the drive to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by SC 9 and the Carolina Bays Parkway.`)),
 
     entry("golf-and-yacht-club", "older houses off Bay Road", () =>
@@ -337,8 +338,8 @@ module.exports = {
       strip("villas-at-sandridge") +
       h.p("Villas at Sandridge is a community of new townhomes off SC 90 near Little River. They are from Dream Finders Homes, and each has a one-car garage. In the Wylie floor plan, the main bedroom is on the first floor.") +
       PH["villas-at-sandridge"] +
-      h.p("The North Myrtle Beach Park and Sports Complex, about five minutes away, has ball fields and walking trails around a lake.") +
-      h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly fee is also higher than at the other new communities here.")),
+      h.p("There are 79 townhomes here, and about 8 acres of shared open space. The North Myrtle Beach Park and Sports Complex, a five-minute drive, has ball fields and walking trails around a lake.") +
+      h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly dues are also higher than at the other new communities here.")),
 
     entry("indigo-grove", "new houses off SC 90", () =>
       strip("indigo-grove") +
@@ -346,11 +347,11 @@ module.exports = {
       PH["indigo-grove"] +
       h.p(`Lennar offers ${h.ext(OVERLOOK, "nine floor plans")} here. The smallest, the Beckman, is one story, with three bedrooms in about 1,260 square feet. The largest, the Columbia, has five bedrooms in about 2,360. Most lots are about 0.2 acre.`) +
       h.p("The HOA owns about 22 acres of open space in the neighborhood, and the fee covers the common areas and trash pickup. None of the lots sold here last year is in a high-risk flood zone.") +
-      h.p("For work, North Myrtle Beach is about 12 minutes away by car, and downtown Conway about 35.")),
+      h.p("For work, North Myrtle Beach is about 12 minutes by car, and downtown Conway about 35.")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
       strip("wynbrooke") +
-      h.p("Wynbrooke is a townhome community off SC 707, near Murrells Inlet. Its townhomes are around ponds, and some back onto the water. Owners share a pool.") +
+      h.p("Wynbrooke is a townhome community off SC 707, near Murrells Inlet. Its townhomes are around ponds, and some back onto the water. Most have about 1,350 square feet, and owners share a pool.") +
       PH["wynbrooke"] +
       h.p("A Lowes Foods and a Publix are each about two minutes away. The nearest beach is in Garden City.") +
       h.p("The trade-off is the fee. Its HOA fee is the highest of the twelve. It usually includes water, sewer and the insurance on the buildings, but with the tax, a year here costs more than at Polo Farms, which sells for more.")),

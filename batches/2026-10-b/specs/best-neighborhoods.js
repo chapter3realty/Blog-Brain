@@ -279,16 +279,39 @@ function labelDots(res, forms, o = {}) {
 
 /* The overview: the fifteen, north to south, each name linked to its own part of the page, and the key in
    two columns on a phone too, so it is right under the map. */
-const OVERVIEW = labelDots(kit.placesMap("Neighborhoods", D.neighborhoods.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: link(n.id), first: n.id === "the-farm" })), {
-  caption: "Map of the 15 neighborhoods on this page, numbered from North Myrtle Beach at the top right to Murrells Inlet at the bottom left.",
-  key: true,
-  leaders: { places: true, towns: ["Myrtle Beach"] },
-}), {
-  "Barefoot Resort": [["Barefoot"]], "Waterbridge": [["Waterbridge"]], "The Farm at Carolina Forest": [["The Farm"]],
-  "Plantation Lakes": [["Plantation Lakes"], ["Plantation", "Lakes"]], "Berkshire Forest": [["Berkshire"]],
-  "Forestbrook Estates": [["Forestbrook"]], "Prince Creek": [["Prince Creek"], ["Prince", "Creek"]],
-  [N["grande-dunes"].name]: [["Grande Dunes"], ["Grande", "Dunes"]],
-}, { strip: [6, 10], stripShields: ["SC 31#0"] });
+/* Round 11 (OWNER-EYE-10, low 2): two maps instead of one crowded one. The full map shows the seven
+   places outside the Carolina Forest and Myrtle Beach cluster; a closer map shows the eight inside it,
+   so every dot has its name beside it and no name needs a long line. The shared tool numbers each map
+   from 1, so the spec renumbers the markers to the page's numbers (NUMS), and one key lists all 15.
+   No tool is changed (lesson B20). */
+const CLUSTER = ["waterbridge", "grande-dunes", "the-farm", "plantation-lakes", "berkshire-forest", "pine-lakes", "forestbrook-estates", "market-common"];
+const ORDER = D.neighborhoods.map((n) => n.id);
+const placeOf = (n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: link(n.id) });
+const renumber = (res, ids) => {
+  const nums = ids.map((id) => ORDER.indexOf(id) + 1);
+  res.html = res.html.replace(/<ol[\s\S]*?<\/ol>/, ""); /* this map's own key, numbered from 1; the page key follows */
+  res.html = res.html.replace(/(<text class="nm"[^>]*>)(\d+)(<\/text>)/g, (m0, a, k, b) => a + nums[+k - 1] + b);
+  return res;
+};
+const OUTER_IDS = ORDER.filter((id) => !CLUSTER.includes(id));
+const INSET = renumber(kit.placesMap("Carolina Forest and Myrtle Beach neighborhoods", D.neighborhoods.filter((n) => CLUSTER.includes(n.id)).map(placeOf), {
+  caption: "Closer map of the eight neighborhoods in Carolina Forest and Myrtle Beach, numbered as on this page.",
+}), CLUSTER);
+const OUTER = labelDots(kit.placesMap("Neighborhoods", D.neighborhoods.filter((n) => !CLUSTER.includes(n.id)).map(placeOf), {
+  caption: "Map of the seven neighborhoods outside Carolina Forest and Myrtle Beach, numbered as on this page. The box shows the area of the closer map below.",
+}), { "Prince Creek": [["Prince Creek"], ["Prince", "Creek"]] });
+/* The closer map's area, as a dashed box on the full map (both frames are plain longitude and latitude
+   spans, so a straight scale places it). */
+{
+  const f = OUTER.map.frame, g = INSET.map.frame, W = OUTER.map.width, H = OUTER.map.height;
+  const x = (lon) => ((lon - f.west) / (f.east - f.west) * W).toFixed(1), y = (lat) => ((f.north - lat) / (f.north - f.south) * H).toFixed(1);
+  const rect = `<rect x="${x(g.west)}" y="${y(g.north)}" width="${(x(g.east) - x(g.west)).toFixed(1)}" height="${(y(g.south) - y(g.north)).toFixed(1)}" fill="none" stroke="#1f2a44" stroke-width="1.2" stroke-dasharray="4 3" opacity=".75"/>`;
+  const k = OUTER.html.indexOf("<g><g transform");
+  OUTER.html = k > 0 ? OUTER.html.slice(0, k) + rect + OUTER.html.slice(k) : OUTER.html.replace("</svg>", rect + "</svg>");
+  renumber(OUTER, OUTER_IDS);
+}
+const KEY = kit.placesMap("Neighborhoods key", D.neighborhoods.map(placeOf), { caption: "Map key", key: true }).map.key;
+const OVERVIEW = { html: OUTER.html + INSET.html + KEY };
 /* The city of Myrtle Beach, a narrow strip along the coast here, is named on the ocean with a line into
    the city (leaders.towns, round 4). */
 /* The picker's places sit side by side when they fit, so the ten boxes take less of a phone screen; each
