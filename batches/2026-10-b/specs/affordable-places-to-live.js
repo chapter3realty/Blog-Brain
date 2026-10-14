@@ -235,8 +235,8 @@ module.exports = {
   heroCta: { title: "See what your budget buys in these neighborhoods.", label: OFFER, href: CONTACT, text: "Tell us your price range. An agent will send you the homes for sale there, and the down-payment programs that fit. We check the HOA papers, the flood map and the tax record for any home you like." },
   author: "devin",
   shortAnswer: [
-    `The cheapest homes near Myrtle Beach are townhomes in Parkview, the Fairways at Wild Wing and Sawgrass East. They usually sold for about ${money(N.parkview.price)} to ${money(N["sawgrass-east"].price)} last year.`,
-    `For a house, look at Birchwood near Longs or the Golf and Yacht Club off Bay Road. A Myrtle Beach home that is not a condo usually sold for about ${money(MB_HOUSE)}.`,
+    `Within about 20 minutes of a beach, the cheapest homes near Myrtle Beach are townhomes in Parkview, the Fairways at Wild Wing and Sawgrass East. Leaving out condos, they usually sold for about ${money(N.parkview.price)} to ${money(N["sawgrass-east"].price)} last year.`,
+    `Houses start at about the same ${money(N.birchwood.price)}: new ones in Birchwood near Longs, and older ones in the Golf and Yacht Club off Bay Road. A Myrtle Beach home that is not a condo usually sold for about ${money(MB_HOUSE)}.`,
   ],
   sections: [
     { h2: "Where do homes sell for the least near Myrtle Beach?", toc: "Where homes cost the least", id: "compare", html: () =>
