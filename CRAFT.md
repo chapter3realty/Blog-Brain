@@ -72,6 +72,7 @@ The same stretch takes other forms. Batch 2026-10-b's verifiers found each of th
 - **A picture shows shapes, not staff or rules.**
 - **"Only", "none" and "every" need every case checked.**
 - **A filter on a field that new items lack biases a ranking.** Dropping sales with no county building value threw out every new home the county had not yet valued, so the "cheapest" list was really "cheapest older resales" (batch 2026-10-b). Before ranking, ask what each filter removes and whether it removes one kind of item more than another.
+- **A distance word is a measurement.** In round 10 of batch 2026-10-b, eleven distance words failed the measure: "a short walk" was a mile, "just west" was a mile, and "just across SC 707" was on the same side of the road. Measure first, then pick the word: "a short walk" is a walking route under a quarter mile, "next to" or "just across" means the two touch or face each other, and "a few minutes" by car is 5 or fewer. Past those limits, give the measured distance or time ("about a mile", "6 to 8 minutes by car"). A direction (north, across, down US 501) is a measurement too.
 
 **When the obvious source is closed, find a lawful one.** Respect robots files and site terms. Look for a public record, a second publisher or our own files. Use two independent sources for any figure that is not primary.
 

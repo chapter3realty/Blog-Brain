@@ -38,6 +38,9 @@ You are checking a fact ledger for a page on chapter3realty.com. Assume the rese
    - A rule stated as law that is only a bill. The SC HOA "$100 fine cap" is bill text that died three times.
    - A live guide page that still shows superseded text.
    - A definition used outside the program or table its source attaches it to (batch 2026-10-b: a closed-base term applied to other land).
+   - A distance or direction word ("a short walk", "just across", "a few minutes", "down US 501") that the measure does not support. Measure each with a router or the parcel shapes (CRAFT 2). In batch 2026-10-b, 11 of 35 failed.
+   - A sentence a verifier corrected in an earlier round that a rewrite put back (lesson B30). Read the old rows' notes for every entry the rewrite touched.
+   - An aerial whose frame or label point is not on the named place. Overlay the county parcel outline (lesson B29).
    - An average whose group differs from the page's case (second homes mixed into "a home you live in").
    - A total whose parts differ from the same total on a sibling page (a fee counted as tax on one page only). The coordinator names the sibling pages; compare every shared figure.
    - "There is no rule": search the whole code for the opposite under other names before you pass it.

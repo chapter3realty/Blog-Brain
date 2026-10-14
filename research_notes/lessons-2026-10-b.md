@@ -74,6 +74,8 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B30. A rewrite can undo a verified correction.** Round 9's verifier changed "owners drive golf carts" to "listings say golf carts are allowed" (row 220). In round 10 the writer rewrote the entry for depth and the old claim came back. A new row's cited source can also drift: three round 10 rows cited the wrong row number. Rule: after a rewrite, the writer reads each changed sentence against the final corrected wording of its row, and the verifier checks old rows the rewrite touched, not only the new ones.
 
+**B31. Distance words drift.** Writing "what is nearby" for twelve places, the writer reached for easy words: "a short walk", "just west", "just across SC 707", "a few minutes". The verifier measured all 35 places: eleven words failed, among them a "short walk" of a mile and a store "across" the road that was on the near side. CRAFT 2 now gives each word a measured limit, and the verifier prompt lists the trap.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
