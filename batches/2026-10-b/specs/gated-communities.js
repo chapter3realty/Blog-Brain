@@ -237,7 +237,7 @@ const SECTIONS_PLACES = [
   entry("barefoot-resort", "four golf courses that opened together in 2000", [
     "Barefoot Resort opened four golf courses at the same time in April 2000, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman.",
     "Leatherleaf has 62 houses of one or two floors around a pond, with the Love course on every side. Dye Estates has 98 home sites of half an acre to two acres, some on the Dye course and some with docks on the Intracoastal Waterway.",
-    "A free shuttle goes in season to the resort's beach cabana, which has showers and gated parking, and the North Tower Pool is on the waterway. Leatherleaf residents can use the Residents' Club, with tennis courts, a fitness center and a playground.",
+    "In season, a shuttle runs from the resort to the beach. The resort also has a beach cabana with showers and gated parking, and the North Tower Pool is on the waterway. Leatherleaf residents can use the Residents' Club, with tennis courts, a fitness center and a playground.",
     "Leatherleaf's HOA fee, about $390 a month, is among the highest of the twenty.",
   ], P("barefoot-leatherleaf"), "Leatherleaf, a gated neighborhood in Barefoot Resort, from above: one loop of houses around a pond, with golf fairways on both sides.",
   "most of Barefoot Resort is open. Dye Estates has a guardhouse at its entrance, and Leatherleaf has a gate. In Leatherleaf, the few homes that sold went for about $700,000 to $975,000."),
