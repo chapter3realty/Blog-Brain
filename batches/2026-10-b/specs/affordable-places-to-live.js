@@ -69,6 +69,7 @@ const BB = [path.join(__dirname, "..", "tools", "blog-brain-2026-10-b"), process
   .find((d) => fs.existsSync(path.join(d, "tools", "page-kit.js")));
 if (!BB) throw new Error("Blog-Brain tools not found (tools/page-kit.js)");
 const PK = require(path.join(BB, "tools", "page-kit.js"));
+const AM = require(path.join(BB, "tools", "area-map.js"));
 
 /* This batch's files: the website's data/2026-10-b/ (where the upload package puts them), else the
    batch folder in Blog-Brain. Photo records: batch 2026-10-a's (the website's data/photos.json), then this batch's. */
@@ -167,11 +168,93 @@ function barChart(title, caption) {
   return BARS_CSS + `<figure class="c3-bars"><table><caption>${title}</caption><thead style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"><tr><th scope="col">Place</th><th scope="col">Homes usually sold for</th></tr></thead><tbody>${body}</tbody></table><figcaption>${caption}</figcaption></figure>`;
 }
 
-const MAP = placesMap("Affordable neighborhoods near Myrtle Beach",
-  P.map((p) => ({ name: p.map, lat: p.lat, lon: p.lon, href: A(p.id) })), {
-    caption: "Map of the twelve neighborhoods, numbered as in the list below.",
-    leaders: true,
-  });
+/* Two maps, so every dot has its name beside it (round 12, low 8; the same fix as best-neighborhoods,
+   commit d57b511, with no tool changed, lesson B20): the full map shows the six places outside the
+   Myrtle Beach and Carolina Forest cluster, with a dashed box around the cluster; a closer map shows the
+   six inside it. The shared tool numbers each map from 1, so the markers are renumbered to the list's
+   numbers, and one key lists all twelve. */
+const CLUSTER = ["parkview", "fairways-at-wild-wing", "sawgrass-east", "forestbrook-village", "victory-point", "amber-bluff"];
+const placeOf = (p) => ({ name: p.map, lat: p.lat, lon: p.lon, href: A(p.id) });
+/* labelDots: the helper from best-neighborhoods.js (round 11), copied: a name beside a dot the tool left
+   with a number only, in one or two lines, clear of every mark. */
+const TW2 = AM.internals.tw2, SZ_MANY = AM.internals.SZ.many;
+function labelDots(res, forms, o = {}) {
+  const m = res.map, strip = new Set(o.strip || []), margin = o.margin == null ? 2 : o.margin;
+  let svg = res.html;
+  for (const num of strip) {
+    const re = new RegExp(`(<text class="nm"[^>]*>${num}</text>)<text class="l"[^>]*>[\\s\\S]*?</text>`);
+    if (!re.test(svg)) continue;
+    svg = svg.replace(re, "$1");
+    m.boxes = m.boxes.filter((b) => !(b.kind === "label" && b.owner === "lm" + (num - 1)));
+  }
+  for (const sh of o.stripShields || []) {
+    const num = sh.split(" ")[1].split("#")[0];
+    const re = new RegExp(`<g transform="translate\\([^)]*\\)"><g class="k"><rect [^>]*/><text class="r"[^>]*>${num}</text></g></g>`);
+    if (!re.test(svg)) continue;
+    svg = svg.replace(re, "");
+    m.boxes = m.boxes.filter((b) => !(b.kind === "shield" && b.owner === sh));
+  }
+  const markers = m.boxes.filter((b) => b.kind === "marker");
+  const cen = (b) => [(b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2];
+  const LH = 17.5, out = [], missed = [];
+  for (const p of m.places) {
+    if (p.labelled && !strip.has(p.num)) continue;
+    const mk = markers.find((b) => b.owner === "lm" + (p.num - 1));
+    const [cx, cy] = cen(mk), r = (mk.x1 - mk.x0) / 2;
+    let best = null;
+    for (const lines of forms[p.name] || [[p.name]]) {
+      const w = Math.max(...lines.map((l) => TW2(l, SZ_MANY))) + 4, hh = lines.length * LH + 2;
+      for (let gap = 2; gap <= 14 && !best; gap += 2) for (let k = 0; k < 24 && !best; k++) {
+        const a = k * Math.PI / 12, ux = Math.cos(a), uy = Math.sin(a), px = cx + (r + gap) * ux, py = cy + (r + gap) * uy;
+        const x0 = ux > 0.3 ? px : ux < -0.3 ? px - w : px - w / 2, y0 = uy > 0.3 ? py : uy < -0.3 ? py - hh : py - hh / 2;
+        const b = { x0, x1: x0 + w, y0, y1: y0 + hh };
+        if (b.x0 < 4 || b.x1 > m.width - 4 || b.y0 < 4 || b.y1 > m.height - 4) continue;
+        if (m.boxes.some((q) => q !== mk && q.kind !== "water" && !(q.x1 + 1 < b.x0 || q.x0 - 1 > b.x1 || q.y1 + 1 < b.y0 || q.y0 - 1 > b.y1))) continue;
+        const d = (q) => { const [qx, qy] = cen(q); return Math.hypot(Math.max(b.x0 - qx, 0, qx - b.x1), Math.max(b.y0 - qy, 0, qy - b.y1)); };
+        if (markers.some((q) => q !== mk && d(q) <= d(mk) + margin)) continue;
+        best = { lines, b };
+      }
+      if (best) break;
+    }
+    if (!best) { missed.push(p.num); continue; }
+    /* Drawn the tool's way: a group at the marker's centre, so on a wide screen, where the tool shrinks each
+       marker and its label toward that centre (class k), the name stays beside its own marker. */
+    const { lines, b } = best, x = (b.x0 + 2 - cx).toFixed(1), y = (b.y0 + 14 - cy).toFixed(1);
+    m.boxes.push(Object.assign({ kind: "label", owner: "lm" + (p.num - 1) }, b));
+    out.push(`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)})"><g class="k"><text class="l" x="${x}" y="${y}">`
+      + lines.map((l, i) => `<tspan x="${x}"${i ? ` dy="${LH}"` : ""}>${l}</tspan>`).join("") + `</text></g></g>`);
+  }
+  const i = svg.indexOf("</svg>");
+  if (i < 0) throw new Error("the map is not inline, so names cannot be added");
+  res.html = svg.slice(0, i) + out.join("") + svg.slice(i);
+  if (missed.length) console.warn(`affordable-places-to-live: no room on the overview for the names of ${missed.join(", ")}; the key names them`);
+  return res;
+}
+
+const renumber = (res, ids) => {
+  const nums = ids.map((id) => N[id].n);
+  res.html = res.html.replace(/<ol[\s\S]*?<\/ol>/, "");
+  res.html = res.html.replace(/(<text class="nm"[^>]*>)(\d+)(<\/text>)/g, (m0, x, k, y) => x + nums[+k - 1] + y);
+  return res;
+};
+const OUTER_IDS = P.map((p) => p.id).filter((id) => !CLUSTER.includes(id));
+const INSET = renumber(placesMap("Myrtle Beach and Conway: affordable neighborhoods", CLUSTER.map((id) => placeOf(N[id])), {
+  caption: "Closer map of the six neighborhoods between Myrtle Beach and Conway, numbered as in the list below.",
+}), CLUSTER);
+const OUTER = labelDots(placesMap("Affordable neighborhoods near Myrtle Beach", OUTER_IDS.map((id) => placeOf(N[id])), {
+  caption: "Map of the six neighborhoods farther out, numbered as in the list below. The box marks the six on the closer map.",
+}), { "Villas at Sandridge": [["Villas at Sandridge"], ["Villas at", "Sandridge"]] });
+{
+  const f = OUTER.map.frame, W = OUTER.map.width, H = OUTER.map.height, cl = CLUSTER.map((id) => N[id]), pad = 0.006;
+  const g = { west: Math.min(...cl.map((n) => n.lon)) - pad, east: Math.max(...cl.map((n) => n.lon)) + pad, north: Math.max(...cl.map((n) => n.lat)) + pad, south: Math.min(...cl.map((n) => n.lat)) - pad };
+  const x = (lon) => ((lon - f.west) / (f.east - f.west) * W).toFixed(1), y = (lat) => ((f.north - lat) / (f.north - f.south) * H).toFixed(1);
+  const rect = `<rect x="${x(g.west)}" y="${y(g.north)}" width="${(x(g.east) - x(g.west)).toFixed(1)}" height="${(y(g.south) - y(g.north)).toFixed(1)}" fill="none" stroke="#1f2a44" stroke-width="1.2" stroke-dasharray="4 3" opacity=".75"/>`;
+  const k = OUTER.html.indexOf("<g><g transform");
+  OUTER.html = k > 0 ? OUTER.html.slice(0, k) + rect + OUTER.html.slice(k) : OUTER.html.replace("</svg>", rect + "</svg>");
+  renumber(OUTER, OUTER_IDS);
+}
+const MAP_KEY = placesMap("Affordable neighborhoods key", P.map(placeOf), { caption: "Map key", key: true }).map.key;
+const MAP = { html: OUTER.html + INSET.html + MAP_KEY };
 
 /* Each place's facts in one strip (ROUND-10: one facts line per entry). A table, so the numbers stay
    out of the prose; on a phone the five cells wrap into two columns. */
