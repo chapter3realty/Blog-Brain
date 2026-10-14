@@ -309,5 +309,65 @@
     "pattern": "\\bRecreation Center seven minutes east",
     "struck": "A Publix is six minutes west by car, and the Carolina Forest Recreation Center seven minutes east.",
     "use": "A Publix is six minutes west by car, and the Carolina Forest Recreation Center six minutes east."
+  },
+  {
+    "row": "affordable 187",
+    "pattern": "\\bLennar offers\\b[^.]{0,40}\\bnine floor plans",
+    "struck": "Lennar offers nine floor plans here.",
+    "use": "Lennar lists nine floor plans for the community."
+  },
+  {
+    "row": "affordable 188",
+    "pattern": "\\bFlood is the main concern",
+    "struck": "Flood is the main concern here.",
+    "use": "Flood is a concern here."
+  },
+  {
+    "row": "affordable 188",
+    "pattern": "\\bonly a handful (?:of (?:the )?(?:houses|homes) )?stayed dry",
+    "struck": "After Hurricane Florence in 2018, when the Waccamaw River rose to historic heights, only a handful stayed dry.",
+    "use": "After Hurricane Florence in 2018, when the Waccamaw River rose to historic heights, floodwater filled the streets and gutted homes across the neighborhood."
+  },
+  {
+    "row": "affordable 188",
+    "pattern": "\\bfee is small because",
+    "struck": "The fee is small because the association has no pool or clubhouse.",
+    "use": "The neighborhood has no pool or clubhouse. Its common land is two ponds, some woods and the strips along SC 905."
+  },
+  {
+    "row": "affordable 188",
+    "pattern": "\\bbegan the last one in 2016",
+    "struck": "Creekside Custom Homes began the last one in 2016.",
+    "use": "Creekside Custom Homes began building houses in the third phase in 2016."
+  },
+  {
+    "row": "affordable 189",
+    "pattern": "\\bMost houses in the older part are about 1,350|\\blots of about 6,500 square feet",
+    "struck": "Most houses in the older part are about 1,350 square feet, on lots of about 6,500 square feet.",
+    "use": "Houses in the older part are typically about 1,350 square feet, on lots of about 5,650 square feet."
+  },
+  {
+    "row": "affordable 189",
+    "pattern": "\\bgatehouse stands at the entrance on Bay Road",
+    "struck": "A gatehouse stands at the entrance on Bay Road.",
+    "use": "A gatehouse stands at the entrance off Bay Road."
+  },
+  {
+    "row": "affordable 190",
+    "pattern": "\\bMost have about 1,350 square feet",
+    "struck": "Most have about 1,350 square feet, and owners share a pool.",
+    "use": "Townhomes here have about 1,300 to 1,600 square feet, and owners share a pool."
+  },
+  {
+    "row": "affordable 191",
+    "pattern": "\\bcovers all three and their terms",
+    "struck": "Our page on down-payment help programs covers all three and their terms.",
+    "use": "Our page on down-payment help programs covers the Homebuyer Program, with its credit score and its 15-year term."
+  },
+  {
+    "row": "affordable 191",
+    "pattern": "\\ba larger household may earn a little more",
+    "struck": "For one or two people, household income must be under about $115,000, and a larger household may earn a little more.",
+    "use": "For one or two people, household income must be under about $115,000. For three or more, it is about $134,000."
   }
 ]
