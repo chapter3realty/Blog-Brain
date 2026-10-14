@@ -240,14 +240,19 @@ node <blog-brain>/tools/site-upgrade.js chapter3realty --write
 node build.js preflight
 ```
 
-## `mkpage-offer-box.patch`: the first offer as a box
+## `mkpage-offer-box.patch`: the first offer is the same navy band as the last
 
 ```
 cd <website-repo>
 git apply <blog-brain>/website-patches/mkpage-offer-box.patch
 ```
 
-The owner, 2026-10-14: "make the first CTA more of a CTA". When a spec's `heroCta` has a `title`, the offer under the short answer is a box with the same look as `h.cta`: a headline that says what the reader gets, one sentence (`heroCta.text`) and the large button. A spec without a `title` keeps the button on its own, so no other page changes. Tested with `git apply --check` on a clean clone of the live branch.
+The owner, 2026-10-14: "make the first CTA more of a CTA". CRAFT 3: "Use the same box component as the last offer." The patch moves the closing offer (the navy band with a large serif headline, one sentence and the large brass button) into one function, `offerBand`, and uses it twice:
+
+- `spec.bottomCta`, as before. Its HTML is byte for byte what mkpage wrote before the patch.
+- `spec.heroCta`, when it has a `title`: the same band, right after the short answer, with `heroCta.title`, `heroCta.text`, `heroCta.label` and `heroCta.href`. Its headline is a `<p>` with the H2's style, so the page outline keeps one heading per section. The "On this page" list then follows the band, on the short answer's background.
+
+A spec without `heroCta.title` keeps the button on its own under the short answer, so no live page changes: `llc`, `rent-prices`, `myrtle-trace` and `del-webb-grande-dunes` rebuild with the same `<main>`. Tested with `git apply --check` on a clean clone of the live branch (39036014). Seen at 390 and 1280 px on The Farm (batch 2026-10-b, round 9).
 
 ## `build-place-entries.patch`: a numbered list of places is not counted as section questions
 
