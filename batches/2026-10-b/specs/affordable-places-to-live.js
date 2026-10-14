@@ -24,7 +24,7 @@
  *   Drives:           pending row 141 (OSRM, from the middle of each place's sales).
  *   What is different: pending rows 142 to 152.
  *   Tax example:      pending row 153; rates rows 64, 66, 71, 72, 75 (verified); row 107 (verified).
- *   Towns:            verified rows 19, 21 to 25.
+ *   Towns:            verified rows 19, 21 to 25; rounding in pending row 154.
  *   Down payment:     rows 92 to 97. No rate, no payment, no "0 percent".
  *   Insurance:        row 109.
  * Pictures: a bar chart of the twelve and a Myrtle Beach house; our map of the twelve and Coastal Grand
@@ -281,7 +281,7 @@ module.exports = {
       facts("indigo-grove")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
-      h.p("Wynbrooke is a townhome community off SC 707, near Murrells Inlet. Its streets are Wimbledon Way, Wilshire Lane, Williston Loop and Wembley Way.") +
+      h.p("Wynbrooke is a townhome community off SC 707, near Murrells Inlet. Its streets include Wimbledon Way, Wilshire Lane and Williston Loop.") +
       WYNBROOKE_PHOTO +
       h.p("The townhomes were built in the early 2000s around ponds, and some back onto the water. There is a pool for the owners. The nearest beach is in Garden City.") +
       h.p("Its HOA fee is the highest on this list. The fee also includes water, sewer and the insurance on the buildings.") +

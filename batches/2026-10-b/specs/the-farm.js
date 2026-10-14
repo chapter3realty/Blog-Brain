@@ -137,7 +137,7 @@ const POOL = ph.aerial("the-farm-pool-from-above-2026", "The large pool and the 
 /* Round 8 (owner, 2026-10-14): a wide, labelled aerial for "where it is" in place of the drawn region map, and a
    school zone aerial from Horry County Schools' zone layers (ledger rows 92 and 93, pending verification). */
 const WIDE = ph.aerial("the-farm-where-from-above", "Where The Farm is. The orange line is its edge.", { closeUp: true });
-const SCHOOLS = ph.aerial("the-farm-school-zones-from-above", "The Farm, in orange, inside the school zone lines: blue for Ocean Bay Elementary, purple for Ocean Bay Middle and yellow for Carolina Forest High.", { closeUp: true });
+const SCHOOLS = ph.aerial("the-farm-school-zones-from-above", "The Farm, in orange, with the school zone lines: blue for Ocean Bay Elementary, purple for Ocean Bay Middle and yellow for Carolina Forest High.", { closeUp: true });
 const M = maps("the-farm", [
   { id: "beach_mb101", name: "the beach in Myrtle Beach", short: "Beach", kind: "beach" },
   { id: "er_mcleod", name: "McLeod Health's emergency room", short: "Emergency room", kind: "hospital" },
@@ -219,7 +219,7 @@ module.exports = {
     { h2: "Which schools is The Farm at Carolina Forest zoned for?", toc: "Schools", html:
       h.p("The Farm at Carolina Forest is zoned for, or assigned to, three public schools in Horry County Schools. The two Ocean Bay schools are just outside The Farm's north-east side.") +
       SCHOOLS +
-      h.p("Every home in The Farm is inside all three zones, so every street has the same three schools.") +
+      h.p("Every home in The Farm is inside all three zones, so every home has the same three schools.") +
       h.table(["School", "Grades", "Drive from the entrance"], [
         ["Ocean Bay Elementary", "K to 5", "About 6 minutes"],
         ["Ocean Bay Middle", "6 to 8", "About 4 minutes"],

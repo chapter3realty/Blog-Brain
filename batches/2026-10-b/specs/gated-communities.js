@@ -202,35 +202,35 @@ function entry(id, head, paras, photo, caption, facts) {
 }
 
 const SECTIONS_PLACES = [
-  entry("tidewater-plantation", "a 1990 golf course on the Cherry Grove marsh", [
+  entry("tidewater-plantation", "a 1990 golf course beside the Cherry Grove marsh", [
     "Tidewater began with its golf course. Ken Tomlinson, a Columbia lawyer who also designed courses, found a 600-acre site on the Intracoastal Waterway. Hurricane Hugo delayed the work, and the course opened in 1990. Golf Digest and Golf Magazine both named it the best new public course in America that year.",
-    "Holes 3 and 12 play over the marsh of the waterway, facing Cherry Grove. Many of its homes are houses along the fairways, with a few condo buildings among them.",
+    "Holes 3 and 12 meet the marsh of the waterway, and hole 4 looks across Cherry Grove Inlet. Many of its homes are houses along the fairways, with a few condo buildings among them.",
     "It has pools with hot tubs, tennis and pickleball courts, bocce, and an oceanfront cabana with parking at Cherry Grove Beach. Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood.",
   ], P("tidewater-plantation"), "Tidewater Plantation from above: houses along the fairways of its golf course, with ponds among them.",
   "a gatehouse on Little River Neck Road. Homes usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
-  entry("seaside-plantation", "lakes and golf carts a few blocks from the ocean", [
-    "Seaside Plantation is a small neighborhood of houses in the Tilghman Beach part of North Myrtle Beach, a few blocks from the ocean. Its houses are beside lakes, and it has a clubhouse, a pool and a hot tub.",
-    "Main Street is close by. Each spring and fall, thousands of shag dancers fill Main Street for the Society of Stranders' Spring Safari and Fall Migration.",
+  entry("seaside-plantation", "lakes and shag festivals a few blocks from the ocean", [
+    "Seaside Plantation is a small neighborhood of houses in North Myrtle Beach, two or three blocks from the ocean. Its houses are beside lakes, and it has a clubhouse, a pool and a hot tub.",
+    "Main Street is a golf cart ride away. Each fall the Society of Stranders holds its Fall Migration there, a shag dance festival a local paper expected to bring at least 10,000 people, and its Spring Safari comes each April.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
   "a gate at the entrance, with rules the owners association has recorded with the county. Homes usually sell for about $740,000, and the HOA fee is about $210 a month. Only a handful sell each year."),
 
   entry("barefoot-resort", "four golf courses that opened together in 2000", [
-    "Barefoot Resort opened four golf courses at the same time in April 2000, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman. Before that, the land was used for hunting. Hurricane Floyd's flooding in 1999 delayed the opening.",
+    "Barefoot Resort opened four golf courses at the same time in April 2000, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman. No other developer in the United States has opened four new courses at once.",
     "Leatherleaf has 62 houses of one or two floors around a pond, with the Love course on every side. Dye Estates has 98 home sites of half an acre to two acres, some on the Dye course and some with docks on the Intracoastal Waterway.",
     "A free shuttle runs in season to the resort's beach cabana, which has showers and gated parking, and the North Tower Pool is on the waterway. Leatherleaf residents can use the Residents' Club, with a pool, tennis courts, a fitness center and a playground.",
   ], P("barefoot-leatherleaf"), "Leatherleaf, a gated neighborhood in Barefoot Resort, from above: one loop of houses around a pond, with golf fairways on both sides.",
   "most of Barefoot Resort is open. Dye Estates has a guardhouse at its entrance, and Leatherleaf has a gate. In Leatherleaf, the few homes that sold went for about $700,000 to $975,000, and the HOA fee is about $390 a month."),
 
-  entry("grande-dunes", "golf on a bluff above the Intracoastal Waterway", [
-    "Grande Dunes was developed by Burroughs & Chapin, the company that grew out of Myrtle Beach Farms, which was formed in 1912. Its Resort Course, designed by Roger Rulewich, opened in 2001 on a bluff above the Intracoastal Waterway, with 34 acres of lakes.",
+  entry("grande-dunes", "golf above the Intracoastal Waterway and an oceanfront club", [
+    "Burroughs & Chapin launched Grande Dunes. Its Resort Course, designed by Roger Rulewich, opened in 2001 above the Intracoastal Waterway.",
     "Calais, Palermo and Villa Venezia are its gated sections of houses. Grande Dunes has the Ocean Club on the beach, with oceanfront pools and dining, and Har-Tru tennis courts. The marina on the waterway has restaurants beside it.",
   ], P("grande-dunes-villa-venezia"), "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right.",
   "a gate at the entrance of each gated section; other sections are open. Homes usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
-  entry("waterway-palms-plantation", "a boat ramp and a clubhouse on a lagoon", [
-    "Waterway Palms Plantation is on the Intracoastal Waterway at the east edge of Carolina Forest. Carolina Forest was a paper company's pine land, used for a bombing and gunnery range in World War II, and its neighborhoods were planned from the late 1990s.",
-    "The clubhouse stands on a point in the lagoon that winds through the neighborhood, beside the pools. It has a boat ramp on the waterway, a day dock and a boat storage yard. It also has a fitness center, tennis and pickleball courts, a basketball court and a playground.",
+  entry("waterway-palms-plantation", "a boat ramp and a clubhouse on a pond", [
+    "Waterway Palms Plantation is on the Intracoastal Waterway in Carolina Forest. Carolina Forest was land owned by International Paper. The Army used part of it as a bombing and gunnery range during World War II, and Horry County approved its development agreement in 1997.",
+    "The clubhouse is on a point in a pond in the neighborhood, beside the pools. It has a boat ramp, a day dock and boat storage. It also has a fitness center, tennis and pickleball courts, a basketball court and a playground.",
   ], P("waterway-palms-plantation"), "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
   "a gate at the entrance, where a visitor calls the owner to be let in. Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
@@ -240,26 +240,26 @@ const SECTIONS_PLACES = [
   ], P("the-bluffs-on-the-waterway"), "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner.",
   "a gate on Royal Bluff Drive, off River Oaks Boulevard. The few homes that sold went for about $700,000 to $975,000, and the HOA fee is about $150 a month."),
 
-  entry("covington-lake-east", "lakes beside a Carolina bay", [
-    "Covington Lake East is next to Tuckahoe Bay, one of the oval wetlands called Carolina bays that dot this coast. The Covington Lake neighborhoods were among the first in Carolina Forest, started in 1996.",
-    "Many houses back up to its ponds, the streets have sidewalks, and it has a pool and a clubhouse. The shops and restaurants of Carolina Forest Boulevard are less than a mile away.",
+  entry("covington-lake-east", "a pool, ponds and a low HOA fee in Carolina Forest", [
+    "Covington Lake East is a neighborhood of houses in Carolina Forest, built from about 2008. Many houses back up to its ponds, and the streets have sidewalks.",
+    "It has a pool and a clubhouse. The shops and restaurants of Carolina Forest Boulevard are less than a mile away.",
   ], P("covington-lake-east"), "Covington Lake East from above: houses on curving streets, with ponds among them.",
   "a gate at the entrance. Homes usually sell for about $570,000, and the HOA fee is about $90 a month, the lowest here."),
 
-  entry("myrtle-trace", "a 1980s 55+ neighborhood on old paper company land", [
-    `Glenn Hall developed Myrtle Trace on more than 400 acres bought from International Paper. The first streets and homes were started by 1982. Our ${h.a(MT, "guide to Myrtle Trace")} tells its story.`,
+  entry("myrtle-trace", "a 55+ neighborhood near Conway since 1983", [
+    `Glenn Hall developed Myrtle Trace. Its first lot deeds were recorded in 1983. Our ${h.a(MT, "guide to Myrtle Trace")} tells its story.`,
     "It has 518 homes, mostly houses and a few townhouses. Every occupied home must have a resident 55 or older. The HOA owns 42 acres of shared land with fifteen ponds. Its facilities include a clubhouse, a swimming pool, a bocce court, a horseshoe pit and a basketball area.",
   ], P("myrtle-trace"), "Myrtle Trace from above: houses on curving streets among trees, with golf fairways and ponds nearby.",
   "gates only at the back entrance on Myrtle Ridge Road; the front entrance on Burning Ridge Road is open. Homes usually sell for about $300,000, and the HOA fee is $95 a month."),
 
   entry("prestwick", "a Pete and P.B. Dye course from 1989", [
     "Prestwick was founded by the Jackson family, who also created the Ocean Lakes campground. Its golf course, designed by Pete Dye and his son P.B. Dye, opened in 1989 as a private club with a skins game among four PGA Tour players.",
-    "The golf course is open to the public, paid by the round. The community has a large pool, a smaller pool and a tennis center with eleven clay courts and two hard courts; the clay courts need a tennis membership.",
+    "The golf course is open to the public, paid by the round. When the club ended its memberships, the owners association took over the pools and the tennis center. The community has a large pool, a smaller pool, eleven clay courts and two hard courts; the clay courts need a tennis membership.",
   ], P("prestwick"), "Prestwick from above: houses among the fairways of its golf course, with a lake at the left.",
   "a gatehouse at the main gate off Highway 544. Homes usually sell for about $480,000, and the HOA fee is about $190 a month."),
 
   entry("prince-creek-55", "a 55+ clubhouse with indoor and outdoor pools", [
-    `Levitt and Sons sold the first lots in Seasons at Prince Creek West in 2006, and a second builder sold the last of its 444 lots in 2016. Every occupied home must have a resident 55 or older. Our ${h.a(SEASONS, "guide to Seasons")} covers its rules.`,
+    `Levitt and Sons deeded the first lot in Seasons at Prince Creek West in 2006, and a second builder deeded the last in 2016. Every occupied home must have a resident 55 or older. Our ${h.a(SEASONS, "guide to Seasons")} covers its rules.`,
     "The clubhouse has indoor and outdoor pools, a fitness center, tennis and bocce. The HOA takes care of the grounds. Seasons is part of Prince Creek West, which owns a 43-acre park.",
   ], P("prince-creek-55-clubhouse"), "The Seasons at Prince Creek West clubhouse and its outdoor pool from above, among the streets of Prince Creek West.",
   "a call box at the main entrance; a visitor calls the owner, who opens the gate. Homes usually sell for about $500,000, and the HOA fee is about $340 a month."),
@@ -271,8 +271,8 @@ const SECTIONS_PLACES = [
   "a gate on TPC Boulevard. Homes usually sell for about $850,000, and the HOA fee is about $160 a month."),
 
   entry("wachesaw-plantation", "a rice plantation on the Waccamaw River", [
-    "Wachesaw was a rice plantation on the Waccamaw River. The state's survey of Georgetown County's rice plantations lists it, near the old Wachesaw landing. The Wachesaw Plantation Club, with its Tom Fazio course, was founded in 1985.",
-    "Club membership is optional. Members play golf and tennis and dine at Kimbel's, on a bluff above the river. Wacca Wache Marina is less than a mile away.",
+    "Wachesaw was a rice plantation on the Waccamaw River, and the state's Rice Culture survey of Georgetown County lists it. The Wachesaw Plantation Club, with its Tom Fazio course, was founded in 1985.",
+    "Club membership is optional. Members play golf and tennis and dine at Kimbel's, on the bluff above the river, and a new pool complex is being built. Wacca Wache Marina is less than a mile away.",
   ], P("wachesaw-plantation"), "Wachesaw Plantation from above: houses among the fairways of its golf course, with ponds.",
   "a gatehouse at the main gate, reached from Riverwood Drive. Homes usually sell for about $650,000, and the HOA fee is about $150 a month on most homes."),
 
@@ -289,35 +289,35 @@ const SECTIONS_PLACES = [
   "a gate at the entrance. Homes usually sell for about $1.35 million, and the HOA fee is about $320 a month on most homes."),
 
   entry("willbrook-plantation", "rice-field history along a Dan Maples course", [
-    "Willbrook was part of a 2,400-acre grant to Robert Daniel in 1711. By 1850, 140 enslaved people worked its rice fields. Hurricanes from 1889 to 1911 broke the dikes and ended rice growing along the Waccamaw.",
-    "Dan Maples' golf course opened in 1988, after an archaeological study of the land. Along the course stand the chimney of the plantation house, which burned in 1895, and the cemetery of the enslaved people of Oatland Plantation.",
+    "Willbrook was part of a land grant made in 1711. Enslaved people grew rice here; the 1850 census counted 149 at Willbrook. After the Civil War, hurricanes in the 1890s and 1900s wrecked the rice fields' dikes, and rice growing on these rivers ended.",
+    "Dan Maples' golf course opened in 1988. A marked cemetery of enslaved people and the brick remains of the plantation house are beside the course.",
     "It has a pool and a clubhouse. The beach, Beach Club and crabbing docks at Litchfield by the Sea are a golf cart ride away.",
   ], P("willbrook-plantation"), "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left.",
   "a gatehouse at the entrance off Willbrook Boulevard. Few homes sold, so prices ranged widely around $1 million; the HOA fee is about $340 a month."),
 
   entry("litchfield-plantation", "a 1700s rice plantation and its avenue of oaks", [
-    "Litchfield began with royal land grants to Thomas Hepworth from 1710 to 1712, and Peter Simons gave it its name. It grew rice on the Waccamaw, and the state's survey of Georgetown County's rice plantations lists it.",
+    "Litchfield was a rice plantation on the Waccamaw River, and the state's Rice Culture survey of Georgetown County lists it. In the 1800s it belonged to the Tucker family, who also owned Willbrook.",
     "The road in is lined with old live oaks, the Avenue of Oaks. It has a plantation house, built in the 1700s, and a pool that looks over the old rice fields. It also has an oceanfront beach house on Pawleys Island, and a private marina on the river is an optional extra.",
   ], P("litchfield-plantation"), "Litchfield Plantation from above: houses under tall trees, with golf fairways and ponds at the right.",
   "a gatehouse on Kings River Road. Homes are mostly houses and townhouses. Few sold, so prices ranged widely around $1 million; the HOA fee is about $230 a month on most homes."),
 
   entry("litchfield-by-the-sea", "a mile of private beach and an oceanfront club", [
-    "The Litchfield Company, founded in 1956, built Litchfield by the Sea between the marsh and the ocean. Its homes range from oceanfront houses to villas with marsh views and condos.",
+    "Litchfield by the Sea lies between the marsh and the ocean. Its homes range from oceanfront houses to villas with marsh views and condos.",
     "It has about a mile of beach, an oceanfront Beach Club with a deck and a pavilion, and a pool at the River Club. Fishing and crabbing docks are on Osprey Lake, tennis and pickleball courts are near the Beach Club, and paved paths run through the marsh and woods.",
     "Each of its many sections has its own prices and fees. We send the homes for sale in each section on request.",
   ], P("litchfield-by-the-sea"), "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right.",
   `a ${h.ext(LBTS_GUIDE, "guard day and night")} at the main gate on US 17; the owner or rental manager registers guests. In the last year, condos sold for anywhere from under $200,000 to over $2 million, and houses in its Oystercatcher Island section for about $750,000. The HOA fee differs by section and unit.`),
 
-  entry("heritage-plantation", "golf on the True Blue and Midway rice fields", [
-    "Heritage Plantation is on the land of two rice plantations, True Blue and Midway. Dan Maples' Heritage Club course opened there in 1986, among live oaks and the old rice fields.",
+  entry("heritage-plantation", "golf and a river marina on old rice land", [
+    "Heritage Plantation is on land that was part of former rice plantations. Dan Maples' Heritage Club course opened there in 1986, among live oaks and the old rice fields.",
     `About 500 houses are among lakes and marsh between the Waccamaw River and the ocean, less than three miles from the beach. The ${h.ext(HERITAGE, "owners association")} runs a marina on the river, four tennis courts, four pickleball courts, a pool and a clubhouse with a fitness room.`,
   ], P("heritage-plantation"), "Heritage Plantation from above: houses along golf fairways, a pool and tennis courts near the label, and a river and marsh at the top.",
   "a gate off Kings River Road. Homes usually sell for about $710,000, and the HOA fee is about $325 a month."),
 ];
 
 /* DeBordieu keeps its NOAA 2026 aerial (rows 28, 70, 81). */
-SECTIONS_PLACES.push({ h2: "19. DeBordieu Colony: a planters' summer colony on the ocean", toc: "DeBordieu Colony", id: "debordieu-colony", html: () =>
-  h.p("DeBordieu has been a summer retreat since rice planters built homes there before the Civil War. Later owners of the land included Isaac Emerson, the Bromo-Seltzer maker, and the Vanderbilt family.")
+SECTIONS_PLACES.push({ h2: "19. DeBordieu Colony: an old planters' colony on the ocean", toc: "DeBordieu Colony", id: "debordieu-colony", html: () =>
+  h.p("Before the Civil War, rice planters built a colony of summer homes at DeBordieu. Later owners of the land included Isaac Emerson, the Bromo-Seltzer maker, and the Vanderbilt family.")
   + ph.aerial("debordieu-from-above-2026", "DeBordieu Colony and the beach to its east, from above. Golf fairways and ponds are among the homes, and a salt marsh is between many of the homes and the beach.", { closeUp: true })
   + h.p("The colony covers 2,700 acres. At least 600 are a nature preserve, and 17,000 undeveloped acres border it to the south. Home sites are half an acre to five acres.")
   + h.p(`The ${h.ext(DEBORDIEU, "DeBordieu Club")} has a Pete and P.B. Dye course, a Beach Club with a pool over the ocean, and a tennis center with eight Har-Tru courts.`)
