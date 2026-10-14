@@ -127,7 +127,7 @@ const QUIET = [
   ["gated-communities", "Some of its houses are all brick, and some look onto its lakes."],
   ["gated-communities", "Its Resort Course runs along the Intracoastal Waterway."],
   ["gated-communities", "Wachesaw Plantation: a private club on a bluff above the Waccamaw River"],
-  ["gated-communities", "The bluff where Kimbel's restaurant stands was once the site of an outpost."],
+  ["gated-communities", "Kimbel's restaurant stands on the bluff above the river."],
   ["gated-communities", "Grande Dunes covers about 2,200 acres, with walking and biking trails."],
   ["gated-communities", "It was built from about 2006 on."],
   ["gated-communities", "The neighborhood also has day docks, a boat ramp and boat storage."],

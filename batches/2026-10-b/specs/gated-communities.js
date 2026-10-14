@@ -311,7 +311,7 @@ const SECTIONS_PLACES = [
     "Its lots are big: most are close to half an acre, and some on the marsh by Collins Creek are larger than an acre and a half. The houses were built from 2006 on, several of them custom-built. Homes here usually sell for about $850,000, for a house of that age on close to half an acre.",
     "The Park at Prince Creek West, about 4 minutes north by car, covers 43 acres, with tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
     `For TPC Myrtle Beach and the rest of Prince Creek, see our ${h.a(BEST, "best neighborhoods in Myrtle Beach")}.`,
-    "Some lots are still empty, so new houses are going up beside some homes.",
+    "Some lots have no house yet, so new houses are going up beside some homes.",
   ], P("bellwood-landing"), "Bellwood Landing from above: houses around a pond, beside the woods.",
   "a gate on TPC Boulevard. The HOA fee is about $160 a month."),
 

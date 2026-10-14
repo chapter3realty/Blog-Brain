@@ -390,19 +390,19 @@
     "row": "gated 122",
     "pattern": "\\bmore than 400 acres|Myrtle Trace[^.]{0,120}\\b1982\\b|\\bby 1982\\b",
     "struck": "Glenn Hall developed it on more than 400 acres bought from International Paper; the first streets and homes were started by 1982.",
-    "use": "Glenn Hall developed Myrtle Trace. Its first lot deeds were recorded in November 1983."
+    "use": "Glenn Hall developed Myrtle Trace, starting in 1983."
   },
   {
     "row": "gated 124",
     "pattern": "\\bfirst lots in 2006",
     "struck": "Levitt and Sons sold its first lots in 2006.",
-    "use": "Levitt and Sons deeded the first lot in Seasons at Prince Creek West in December 2006."
+    "use": "Levitt and Sons began selling homes in Seasons at Prince Creek West in 2006, and the builders sold their last lots in 2016."
   },
   {
     "row": "gated 124, 159",
     "pattern": "\\b(?:sold|deeded) the last (?:of (?:its )?444 lots )?in 2016|\\blast of its 444 lots",
     "struck": "A second builder (MBSC Seasons) sold the last in 2016, of 444 lots. A second builder deeded the last in 2016.",
-    "use": "A second builder, MBSC Seasons, deeded its last lot in December 2016."
+    "use": "Levitt and Sons began selling homes in Seasons at Prince Creek West in 2006, and the builders sold their last lots in 2016."
   },
   {
     "row": "gated 126, 130",
@@ -492,7 +492,7 @@
     "row": "gated 144",
     "pattern": "Brookgreen Gardens (?:are|is) a short drive",
     "struck": "Huntington Beach State Park and Brookgreen Gardens are a short drive.",
-    "use": "Huntington Beach State Park's entrance is about 11 minutes away by car, and Brookgreen Gardens about 16 minutes to its parking."
+    "use": "Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 16."
   },
   {
     "row": "gated 145, 154",
@@ -601,13 +601,13 @@
     "row": "gated 160",
     "pattern": "\\bowns The Park at Prince Creek",
     "struck": "Prince Creek West's road and park association owns The Park at Prince Creek West.",
-    "use": "The park was deeded to the road and park association in 2007."
+    "use": "The Park at Prince Creek West, about 4 minutes north by car, covers 43 acres."
   },
   {
     "row": "gated 161",
     "pattern": "\\btrading post",
     "struck": "Kimbel's restaurant is on the bluff above the river. It was once a trading post, where Waccamaw people and English colonists traded deer and beaver skins for beads and tools.",
-    "use": "The bluff where Kimbel's restaurant stands was once the site of an outpost."
+    "use": "Kimbel's restaurant stands on the bluff above the river."
   },
   {
     "row": "gated 161",
@@ -637,7 +637,7 @@
     "row": "gated 161",
     "pattern": "\\bclub is still building",
     "struck": "The club is still building a pool and a restaurant, with completion slated for the spring of 2027.",
-    "use": "Construction began in 2026 on a new pool-side restaurant, Magnolia's, due in the spring of 2027."
+    "use": "A new pool-side restaurant, Magnolia's, is being built."
   },
   {
     "row": "gated 162",
@@ -771,7 +771,7 @@
     "row": "gated 174",
     "pattern": "\\b15 and 18 minutes",
     "struck": "Huntington Beach State Park and Brookgreen Gardens are about 15 and 18 minutes away by car.",
-    "use": "Huntington Beach State Park's entrance is about 11 minutes away by car, and Brookgreen Gardens about 16 minutes to its parking."
+    "use": "Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 16."
   },
   {
     "row": "gated 22",
@@ -822,7 +822,7 @@
     "row": "gated 174",
     "pattern": "Park at Prince Creek West lies about half a mile",
     "struck": "The Park at Prince Creek West lies about half a mile north.",
-    "use": "The Park at Prince Creek West lies about three-quarters of a mile north of the middle of the neighborhood."
+    "use": "The Park at Prince Creek West, about 4 minutes north by car, covers 43 acres."
   },
   {
     "row": "gated 174",
@@ -883,7 +883,7 @@
     "pattern": "\\bsouthwest of Myrtle Beach",
     "unless": "west-southwest",
     "struck": "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, southwest of Myrtle Beach.",
-    "use": "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, west-southwest of Myrtle Beach."
+    "use": "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee."
   },
   {
     "row": "gated 174",
@@ -944,7 +944,7 @@
     "row": "gated 161",
     "pattern": "\\bBy one local history\\b",
     "struck": "By one local history, Waccamaw Native Americans and English colonists would have traded animal skins there.",
-    "use": "The bluff where Kimbel's restaurant stands was once the site of an outpost."
+    "use": "Kimbel's restaurant stands on the bluff above the river."
   },
   {
     "row": "gated 159",
@@ -986,7 +986,7 @@
     "row": "gated 177",
     "pattern": "\\bon an acre and a half\\b",
     "struck": "The pool and clubhouse stand on an acre and a half that the developer deeded to the owners association in 2017.",
-    "use": "The pool and clubhouse stand on about 1.6 acres that the developer deeded to the owners association in 2017."
+    "use": "The owners association owns the pool and clubhouse."
   },
   {
     "row": "gated 179",
@@ -1058,7 +1058,7 @@
     "row": "gated 177",
     "pattern": "\\ban acre and a half that the developer",
     "struck": "The pool and clubhouse stand on an acre and a half that the developer deeded to the owners association in 2017.",
-    "use": "The pool and clubhouse stand on about 1.6 acres that the developer deeded to the owners association in 2017."
+    "use": "The owners association owns the pool and clubhouse."
   },
   {
     "row": "gated 179",
@@ -1149,5 +1149,71 @@
     "pattern": "\\$1,550,000|\\$730,000 to \\$1,030,000|\\b21 (?:re)?sales\\b",
     "struck": "21 sales, $525,000 to $1,550,000, middle half $730,000 to $1,030,000.",
     "use": "Homes usually sell for about $850,000."
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\bwas once the site of an outpost\\b",
+    "struck": "The bluff where Kimbel's restaurant stands was once the site of an outpost.",
+    "use": "Kimbel's restaurant stands on the bluff above the river."
+  },
+  {
+    "row": "gated 124",
+    "pattern": "\\bdeeded (?:the first|its last) lot",
+    "struck": "Levitt and Sons deeded the first lot in Seasons at Prince Creek West in 2006, and a second builder deeded its last lot in 2016.",
+    "use": "Levitt and Sons began selling homes in Seasons at Prince Creek West in 2006, and the builders sold their last lots in 2016."
+  },
+  {
+    "row": "gated 177",
+    "pattern": "\\bthat the developer deeded to the owners association",
+    "struck": "The pool and clubhouse stand on about 1.6 acres that the developer deeded to the owners association in 2017.",
+    "use": "The owners association owns the pool and clubhouse."
+  },
+  {
+    "row": "gated 160",
+    "pattern": "\\bThe park was deeded to the road and park association",
+    "struck": "The park was deeded to the road and park association in 2007.",
+    "use": "(Cut it.)"
+  },
+  {
+    "row": "gated 122",
+    "pattern": "\\bfirst lot deeds were recorded",
+    "struck": "Glenn Hall developed Myrtle Trace, and its first lot deeds were recorded in 1983.",
+    "use": "Glenn Hall developed Myrtle Trace, starting in 1983."
+  },
+  {
+    "row": "gated 151",
+    "pattern": "\\bin six tracts\\b",
+    "struck": "The association owns about 62 acres of this open land, in six tracts.",
+    "use": "The association owns about 62 acres of this open land."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "\\bnorth of the middle of the neighborhood",
+    "struck": "The Park at Prince Creek West lies about three-quarters of a mile north of the middle of the neighborhood.",
+    "use": "The Park at Prince Creek West, about 4 minutes north by car, covers 43 acres."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "\\bminutes to its parking\\b",
+    "struck": "Brookgreen Gardens about 16 minutes to its parking.",
+    "use": "Huntington Beach State Park is about 11 minutes away by car, and Brookgreen Gardens about 16."
+  },
+  {
+    "row": "gated 175",
+    "pattern": "\\bwest-southwest of Myrtle Beach",
+    "struck": "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, west-southwest of Myrtle Beach.",
+    "use": "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee."
+  },
+  {
+    "row": "gated 139",
+    "pattern": "\\bAbout one lot in ten had no house yet",
+    "struck": "About one lot in ten had no house yet, so new houses are still going up beside some homes.",
+    "use": "Some lots have no house yet, so new houses are going up beside some homes."
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\bConstruction began in 2026 on a new pool-side",
+    "struck": "Construction began in 2026 on a new pool-side restaurant, Magnolia's, due in the spring of 2027.",
+    "use": "A new pool-side restaurant, Magnolia's, is being built."
   }
 ]
