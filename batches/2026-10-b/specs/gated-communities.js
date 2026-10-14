@@ -143,7 +143,7 @@ const E = [
   { id: "barefoot-resort", name: "Barefoot Resort: Leatherleaf and Dye Estates", short: "Barefoot", lat: 33.80788, lon: -78.7403, gate: "Gatehouse at Dye Estates", fee: "About $390 a month (Leatherleaf)", price: "About $700,000 to $975,000", beach: "About 8 minutes from Dye Estates, 10 from Leatherleaf" },
   { id: "grande-dunes", name: "Grande Dunes: Calais, Palermo and Villa Venezia", short: "Grande Dunes", lat: 33.75879, lon: -78.82911, gate: K.ask, fee: "About $200 to $375 a month", price: "About $1.5 million", beach: "About 12 minutes" },
   { id: "waterway-palms-plantation", name: "Waterway Palms Plantation", short: "Waterway Palms", lat: 33.742110, lon: -78.876082, gate: K.ask, fee: "About $150 a month", price: "About $780,000", beach: "About 12 minutes" },
-  { id: "the-bluffs-on-the-waterway", name: "The Bluffs on the Waterway", short: "The Bluffs", lat: 33.746358, lon: -78.867299, gate: K.ask, fee: "About $150 a month", price: "We send recent sales on request", beach: "About 11 minutes" },
+  { id: "the-bluffs-on-the-waterway", name: "The Bluffs on the Waterway", short: "The Bluffs", lat: 33.746358, lon: -78.867299, gate: K.ask, fee: "About $150 a month", price: "About $850,000", beach: "About 11 minutes" },
   { id: "covington-lake-east", name: "Covington Lake East", short: "Covington Lake", lat: 33.75485, lon: -78.94557, gate: K.ask, fee: "About $90 a month", price: "About $570,000", beach: "About 15 minutes" },
   { id: "myrtle-trace", name: "Myrtle Trace (55+)", short: "Myrtle Trace", href: MT, lat: 33.77765, lon: -78.99495, gate: K.back, fee: "$95 a month", price: "About $300,000", beach: "About 15 minutes" },
   { id: "myrtle-beach-golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", short: "Golf and Yacht Club", lat: 33.646385, lon: -79.050559, gate: K.house, fee: "About $95 a month", price: "About $225,000 (older part)", beach: "About 15 minutes" },
@@ -230,6 +230,7 @@ const SECTIONS_PLACES = [
     "Seaside Plantation is in North Myrtle Beach, a quarter to three-quarters of a mile from the ocean. Some of its houses are all brick, and some look onto its lakes.",
     "Its clubhouse has a pool, a hot tub and parking for golf carts. A Walmart Supercenter, a Lowe's, the shops of Gator Hole Plaza and Main Street are each 3 to 5 minutes away by car.",
     `Each fall the ${h.ext("https://www.shagdance.com/", "Society of Stranders")} holds its Fall Migration, a shag dance festival, in North Myrtle Beach, and its Spring Safari comes each April.`,
+    "About one house in ten here is in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood zone for any home you like.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
   "a gate at the entrance. Homes usually sell for about $720,000, and the HOA fee is about $210 a month."),
 
@@ -239,7 +240,7 @@ const SECTIONS_PLACES = [
     "In season, a shuttle runs from the resort to the beach. The resort also has a beach cabana with showers and gated parking, and the North Tower Pool is on the waterway. Leatherleaf residents can use the Residents' Club, with tennis courts, a fitness center and a playground.",
     "Leatherleaf's HOA fee is about $390 a month.",
   ], P("barefoot-leatherleaf"), "Leatherleaf, a gated neighborhood in Barefoot Resort, from above: one loop of houses around a pond, with fairways above and below it.",
-  "most of Barefoot Resort is open. Dye Estates has a guardhouse at its entrance, and Leatherleaf has a gate. In Leatherleaf, the few homes that sold went for about $700,000 to $975,000."),
+  "most of Barefoot Resort is open. Dye Estates has a guardhouse at its entrance, and Leatherleaf has a gate. In Leatherleaf, homes sold for about $700,000 to $975,000 in the last year."),
 
   entry("grande-dunes", "golf along the Intracoastal Waterway and an oceanfront club", [
     "Burroughs & Chapin, which grew out of Myrtle Beach Farms, launched Grande Dunes and made its first sale in October 2000. Its Resort Course runs along the Intracoastal Waterway.",
@@ -259,11 +260,12 @@ const SECTIONS_PLACES = [
   "a gate at the entrance. Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
   entry("the-bluffs-on-the-waterway", "two clubhouses, one of them on the waterway", [
-    "Many of the houses at The Bluffs on the Waterway are custom Mediterranean-style homes in stucco, and many look onto ponds with fountains. It was built from about 2006 on, and about 40 of its lots are still empty. Black Creek runs through the woods along its west side.",
+    "Many of the houses at The Bluffs on the Waterway are custom Mediterranean-style homes in stucco, and many look onto ponds with fountains. It was built from about 2006 on, and about 40 of its lots have no house yet. Black Creek runs through the woods along its west side.",
     "It has two clubhouses. One of them, a boathouse, is on the Intracoastal Waterway. The neighborhood also has day docks, a boat ramp and boat storage.",
     "It has tennis and pickleball courts and a playground. Its owners association owns the lakes and an amenity area of almost 4 acres.",
+    "The drive to the nearest public beach access takes about 11 minutes.",
   ], P("the-bluffs-on-the-waterway"), "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner.",
-  "a gate on Royal Bluff Drive, off River Oaks Boulevard. The HOA fee is about $150 a month."),
+  "a gate on Royal Bluff Drive, off River Oaks Boulevard. Homes usually sell for about $850,000, and the HOA fee is about $150 a month."),
 
   entry("covington-lake-east", "brick houses around ponds and a low HOA fee", [
     "Covington Lake East is a small neighborhood of brick houses in Carolina Forest. Its developer, Covington Lake East LLC, began selling lots in 2006. Lennar built about 50 of its houses from 2015 to 2017, and many builders built the rest one lot at a time.",
@@ -284,7 +286,7 @@ const SECTIONS_PLACES = [
   entry("myrtle-beach-golf-and-yacht-club", "older houses among ponds and open land near Socastee", [
     "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, west-southwest of Myrtle Beach. In its older part, houses typically have about 1,350 square feet, on lots of about 5,650 square feet. Its sections have their own names, such as Camelot, Ashley Cove, the Fairways and the Gardens at Heron Point.",
     "Wide strips of grass and woods, with ponds, lie between its streets. The association owns about 62 acres of this open land, in six tracts. The HOA's recorded rules make the streets private.",
-    "The community has a clubhouse, a pool, tennis and shuffleboard courts and a playground, and the association has a storage area for RVs and trailers. Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about 4 minutes from the entrance.",
+    "The community has a clubhouse, a pool, tennis and shuffleboard courts and a playground, and the association has a storage area for RVs and trailers. Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance.",
     "Sandpiper Place, where D.R. Horton is building, is reached from the same entrance on Bay Road, and we confirm whether a home is behind the gate before you make an offer. Its new houses sell for more than those in the older part.",
   ], P("myrtle-beach-golf-and-yacht-club"), "Myrtle Beach Golf and Yacht Club from above: houses on curving streets among trees, with long strips of grass and ponds between them.",
   "a gatehouse at the entrance on Bay Road. In the older part, homes usually sell for about $225,000, and the HOA fee is about $95 a month."),
@@ -341,7 +343,7 @@ const SECTIONS_PLACES = [
     "Willbrook was part of a land grant made in 1711. Enslaved people grew rice here; the 1850 census counted 149 at Willbrook. The loss of workers, rice grown farther west and a run of hurricanes that wrecked the dikes ended rice growing on the Georgetown rivers.",
     "Before Dan Maples' course opened, archaeologists surveyed the land. Beside the course are a marked cemetery of enslaved people from nearby Oatland Plantation and brick remains at the site of the plantation house.",
     "Open fields, cut by straight ditches, lie along its west side. The neighborhood has a pool and a clubhouse.",
-    "Homes here have sold for about $630,000 to $1.5 million.",
+    "In the last year, homes here sold for about $630,000 to $1.5 million.",
   ], P("willbrook-plantation"), "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left.",
   "a gatehouse at the entrance off Willbrook Boulevard. The HOA fee is about $340 a month."),
 

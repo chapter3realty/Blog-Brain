@@ -1113,5 +1113,41 @@
     "pattern": "\\babout 40 of its lots are still empty",
     "struck": "It was built from about 2006 on, and about 40 of its lots are still empty.",
     "use": "It was built from about 2006 on, and about 40 of its lots have no house yet."
+  },
+  {
+    "row": "gated 181",
+    "pattern": "\\bthe few homes that sold went for",
+    "struck": "In Leatherleaf, the few homes that sold went for about $700,000 to $975,000.",
+    "use": "In Leatherleaf, homes sold for about $700,000 to $975,000 in the last year."
+  },
+  {
+    "row": "gated 186",
+    "pattern": "^Homes here have sold for about \\$630,000",
+    "struck": "Homes here have sold for about $630,000 to $1.5 million.",
+    "use": "In the last year, homes here sold for about $630,000 to $1.5 million."
+  },
+  {
+    "row": "gated 186",
+    "pattern": "\\bis about 4 minutes from the entrance",
+    "struck": "Enterprise Landing is about 4 minutes from the entrance.",
+    "use": "Enterprise Landing is about a 4-minute drive from the entrance."
+  },
+  {
+    "row": "gated 186",
+    "pattern": "\\blots are still empty",
+    "struck": "It was built from about 2006 on, and about 40 of its lots are still empty.",
+    "use": "It was built from about 2006 on, and about 40 of its lots have no house yet."
+  },
+  {
+    "row": "gated 184",
+    "pattern": "\\bWe send recent sales on request",
+    "struck": "The Bluffs: We send recent sales on request.",
+    "use": "About $850,000"
+  },
+  {
+    "row": "gated 184",
+    "pattern": "\\$1,550,000|\\$730,000 to \\$1,030,000|\\b21 (?:re)?sales\\b",
+    "struck": "21 sales, $525,000 to $1,550,000, middle half $730,000 to $1,030,000.",
+    "use": "Homes usually sell for about $850,000."
   }
 ]
