@@ -58,6 +58,16 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B22. A page can score 100 with a broken layout.** The gated spec never loaded the photo stylesheet. Its two aerials ran 1,200 px wide on a desktop, and the credit was a bare blue link. Every gate passed, and two reviewers missed it. The third caught it at 1280 px. Rule: every reviewer looks at desktop width as well as phone width, and a check that every photo on the page has its styling belongs in a gate (candidate: a scorer or image-meta rule that fails a figure whose stylesheet is missing).
 
+**B23. Repetition moves to the next field.** After round 7, the writers cut the repeated price line. The repetition came back in a new field: street names in every entry, rice in every history, the year each course opened, lot counts. Cutting one sentence does not fix the cause. The cause is research that gathers the same fields for every place. The fix is research that looks for what only this place has (CRAFT 5, "Say something new, every time"), and a check that counts shapes and devices, not words.
+
+**B24. A repeat check belongs in the gates.** `tools/repeat-check.js` looks for five things: identical sentences, a sentence shape in three or more sections, a device in more than 40% of entries, thin entries, and theme words. Its first runs found repetition on all five pages that two reviewers had missed. A labelled line in every entry ("The catch:") counts as a device. The affordable writer moved the trade-off into the table instead. `--strict` is now part of CRAFT 8.
+
+**B25. Filler is a class, not a sentence.** The owner banned "Your own doors, locks and alarm are still yours to choose." The class is any sentence that is true of every place, that reassures, or that tells the reader what they already know. Each writer swept for the class, not the sentence.
+
+**B26. A ranking drawn from records must include new homes.** Dropping sales without a county building value dropped every new home, because the county had not yet assessed them. The affordable ranking was biased toward old houses until the filter was removed. One county subdivision name can also cover two places miles apart. Check the map, not only the name.
+
+**B27. We do the work.** The owner: "never say in any page you check anything say we check." A page that teaches the reader the agent's job (how to check a deed for an HOA) is cut. One line says what we check.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
