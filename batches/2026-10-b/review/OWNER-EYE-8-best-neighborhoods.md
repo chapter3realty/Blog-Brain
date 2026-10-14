@@ -26,7 +26,7 @@ This is the page the owner read first: "too jumpy and alot about price instead o
 - 15, Prince Creek: "Prince Creek's sections border TPC Myrtle Beach, a golf course designed by Tom Fazio." Then a Publix, a hospital, a park.
 - 5, Waterbridge: "Water is the theme in Waterbridge" and "the newest sections are still filling in". No builder, no start year.
 
-Each reads as a pool, a store and a drive time. Want, for each: who built it and when (the deed index gives the first lot), what the land was, one thing a first visitor notices, and what an owner does there on a normal day. Prince Creek can borrow nothing from gated entry 11 (that history is the TPC course). This is the same root cause as ROUND-8: the research for these five came back as fields, not features.
+Each reads as a pool, a store and a drive time. Want, for each: who built it and when (the deed index gives the first lot), what the land was, one thing a first visitor notices, and what an owner does there on a normal day. The gated page already has TPC Myrtle Beach's history (opened 1999, Tom Watson's 2000 Senior PGA Tour Championship win) under Bellwood Landing; it fits Prince Creek, whose sections border that course, better. This is the same root cause as ROUND-8: the research for these five came back as fields, not features.
 
 ## Medium
 
