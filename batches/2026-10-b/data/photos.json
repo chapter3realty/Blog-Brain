@@ -227,16 +227,16 @@
       "width": 1200,
       "height": 900,
       "title": "The Market Common and the Myrtle Beach airport from the air, NOAA, January 2026",
-      "what": "The Market Common in Myrtle Beach from the air on January 12, 2026: its streets of homes outlined in orange around a lake, The Reserve at Market Common outlined at the right, shops and offices south of them, and Myrtle Beach International Airport at the bottom.",
-      "caption": "The Market Common from the air: its homes, outlined, The Reserve at the right, and the airport at the bottom.",
-      "alt": "The Market Common in Myrtle Beach from the air: townhomes and houses outlined in orange beside a lake, a second outlined group labelled The Reserve at Market Common at the right, shops below them, and the airport runway at the bottom",
+      "what": "The Market Common in Myrtle Beach from the air on January 12, 2026: its streets of homes outlined in orange around a lake, Grand Park's ball fields and lake beside them, labelled, The Reserve at Market Common outlined at the right, shops and offices south of them, and Myrtle Beach International Airport at the bottom.",
+      "caption": "The Market Common from the air: its homes, outlined in orange, Grand Park beside them, The Reserve at the right and the airport at the bottom.",
+      "alt": "The Market Common from the air: homes outlined in orange beside a lake, ball fields and a lake labelled Grand Park, a second outlined group labelled The Reserve at Market Common, and the airport runway at the bottom",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "The Market Common"
       },
       "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185148_0112261657106_036_RGB2, flown 2026-01-12 at about 16:57 UTC (exterior orientation file 0122026_RGB_2_Oblique_EO.txt, camera within 1 km of The Market Common's reference point, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
       "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added an outline and labels",
-      "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye. Outline: the union of the Horry County GIS parcels (layer 24) in the Market Common set of neighborhoods-facts.md row 24 that hold a building and are coded as homes (land use 101, 107, 109, 319 or 800; 652 parcels), streets inside closed, parts under 0.3 hectare-degrees dropped. 'The Market Common' at a point within 30 m of those parcels (-78.935793, 33.663248); 'Myrtle Beach International Airport' at a point inside the airport outline in Blog-Brain tools/geo (-78.932616, 33.670049). 'The Reserve at Market Common' to the left of the centre of the 'RESERVE @ MARKET COMMON' parcels, which are part of the same row 24 set and of the outline (-78.948887, 33.674383). Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, market-common-from-above.labels.json).",
+      "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit, checked on the frame's centre point to 1 px), never by eye. Outline: the union of the Horry County GIS parcels (layer 24) in the Market Common set of neighborhoods-facts.md row 24 that hold a building and are coded as homes (land use 101, 107, 109, 319 or 800; 652 parcels), streets inside closed, parts under 0.3 hectare-degrees dropped. 'The Market Common' at a point within 30 m of those parcels (-78.935793, 33.663248); 'Myrtle Beach International Airport' at a point inside the airport outline in Blog-Brain tools/geo (-78.932616, 33.670049). 'The Reserve at Market Common' to the left of the centre of the 'RESERVE @ MARKET COMMON' parcels, which are part of the same row 24 set and of the outline (-78.948887, 33.674383). Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json, market-common-from-above.labels.json). 'Grand Park' at the centre of the county Parks layer polygon Grand Park (-78.942721, 33.666503), drawn 110 px right and 40 px down onto the park's lake and lawn, clear of the outline.",
       "source_files": [
         "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.jpg",
         "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.geom"
@@ -375,9 +375,9 @@
         "1200": "images/buyers/best-neighborhoods/barefoot-resort-from-above-1200w.webp"
       },
       "title": "Barefoot Resort from above, NAIP aerial, April 2023",
-      "what": "Barefoot Resort in North Myrtle Beach from above on April 10, 2023: the large North Tower pool, labelled, between condo towers and rows of townhomes, and the Intracoastal Waterway with a marina along the bottom.",
-      "caption": "Barefoot Resort from above: the North Tower pool beside the Intracoastal Waterway, with townhomes and condos around it.",
-      "alt": "Barefoot Resort from above: a large curved pool labelled North Tower pool between condo towers and townhomes, with boats at a marina on the Intracoastal Waterway below",
+      "what": "Barefoot Resort in North Myrtle Beach from above on April 10, 2023: the steel swing bridge over the Intracoastal Waterway, labelled, the resort's marina and condo towers on the near bank, and the Barefoot Landing shops on the far bank, labelled.",
+      "caption": "Barefoot Resort from above: the swing bridge over the Intracoastal Waterway, and Barefoot Landing across the water from the resort's marina.",
+      "alt": "Barefoot Resort from above: a steel swing bridge labelled Swing bridge over a wide waterway, a marina of boats below condo towers, and shops labelled Barefoot Landing on the far bank",
       "place": {
         "city": "North Myrtle Beach",
         "sublocation": "Barefoot Resort"
@@ -397,7 +397,6 @@
       ],
       "taken": "2023-04-10",
       "naip_tiles": [
-        "m_3307810_se_17_060_20230410",
         "m_3307811_sw_17_060_20230410"
       ],
       "display_credit": "U.S. government aerial photo",
@@ -405,20 +404,22 @@
       "digital_source_type": "composite",
       "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
       "labels": [
-        "North Tower pool"
+        "Swing bridge",
+        "Barefoot Landing"
       ],
       "annotation_sources": {
-        "North Tower pool": "pool footprint 414099 on the residential association parcel PIN 39101020135 (PARCEL IX); label 110 px above (-78.746341, 33.803194); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27 and /24"
+        "Swing bridge": "midpoint of the county roads layer 18 segment of BAREFOOT RESORT BRIDGE RD across the Intracoastal Waterway (-78.74086, 33.80257 to -78.74224, 33.80361); label 90 px above (-78.74155, 33.80309); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18 and /24",
+        "Barefoot Landing": "centre of the BAREFOOT LANDING COMMERCIAL LLC parcel B (county layer 24, 29.18 acres, commercial); label 90 px above, over the shops (-78.74246, 33.79968); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18 and /24"
       },
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8766564.83554086%2C4002053.0997124547%2C-8765698.366945758%2C4002707.536685918&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8766254.937625295%2C4001833.980747085%2C-8765340.347916568%2C4002524.7632224844&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -78.751392,
-          33.800557,
-          -78.743608,
-          33.805443
+          -78.748608,
+          33.798922,
+          -78.740392,
+          33.804078
         ],
-        "ground_m_per_px_1200w": 0.6
+        "ground_m_per_px_1200w": 0.63
       },
       "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
       "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",

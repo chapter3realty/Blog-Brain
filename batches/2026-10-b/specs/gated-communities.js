@@ -276,7 +276,7 @@ const SECTIONS_PLACES = [
   "a gate at the entrance. Homes usually sell for about $570,000."),
 
   entry("myrtle-trace", "a 55+ neighborhood near Conway, run by its owners", [
-    `Glenn Hall developed Myrtle Trace, starting in 1983. Every occupied home must have a resident 55 or older. Our ${h.a(MT, "guide to Myrtle Trace")} tells its story.`,
+    `Building began in Myrtle Trace in 1983. Every occupied home must have a resident 55 or older. Our ${h.a(MT, "guide to Myrtle Trace")} tells its story.`,
     "The owners run the HOA themselves, with volunteers and no management company. Its facilities include a clubhouse, a bocce court, a horseshoe pit and a basketball area.",
     "Fifteen ponds lie among the streets. Residents and their house guests may fish in them from the common land, and every fish goes back. Some lots back onto Burning Ridge Golf Club, a privately owned club next door, and Conway Medical Center is less than a mile by road.",
     "Its streets have no sidewalks.",

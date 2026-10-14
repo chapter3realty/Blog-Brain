@@ -390,7 +390,7 @@
     "row": "gated 122",
     "pattern": "\\bmore than 400 acres|Myrtle Trace[^.]{0,120}\\b1982\\b|\\bby 1982\\b",
     "struck": "Glenn Hall developed it on more than 400 acres bought from International Paper; the first streets and homes were started by 1982.",
-    "use": "Glenn Hall developed Myrtle Trace, starting in 1983."
+    "use": "Building began in Myrtle Trace in 1983."
   },
   {
     "row": "gated 124",
@@ -1178,7 +1178,7 @@
     "row": "gated 122",
     "pattern": "\\bfirst lot deeds were recorded",
     "struck": "Glenn Hall developed Myrtle Trace, and its first lot deeds were recorded in 1983.",
-    "use": "Glenn Hall developed Myrtle Trace, starting in 1983."
+    "use": "Building began in Myrtle Trace in 1983."
   },
   {
     "row": "gated 151",
@@ -1215,5 +1215,11 @@
     "pattern": "\\bConstruction began in 2026 on a new pool-side",
     "struck": "Construction began in 2026 on a new pool-side restaurant, Magnolia's, due in the spring of 2027.",
     "use": "A new pool-side restaurant, Magnolia's, is being built."
+  },
+  {
+    "row": "gated 122",
+    "pattern": "\\bGlenn Hall developed Myrtle Trace, starting",
+    "struck": "Glenn Hall developed Myrtle Trace, starting in 1983.",
+    "use": "Building began in Myrtle Trace in 1983."
   }
 ]
