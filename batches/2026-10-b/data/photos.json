@@ -2460,6 +2460,36 @@
       "original_size": "1200x900"
     },
     {
+      "slug": "no-hoa",
+      "file": "images/buyers/no-hoa/loris-downtown.webp",
+      "variants": {
+        "600": "images/buyers/no-hoa/loris-downtown-600w.webp",
+        "1200": "images/buyers/no-hoa/loris-downtown-1200w.webp"
+      },
+      "width": 1200,
+      "height": 899,
+      "title": "Downtown Loris, South Carolina",
+      "what": "Main Street in downtown Loris at its crossing with US 701, with brick shop buildings on both sides.",
+      "caption": "Main Street in downtown Loris.",
+      "alt": "Main Street in downtown Loris, South Carolina, with low brick shop buildings, trees and traffic lights",
+      "place": {
+        "city": "Loris",
+        "sublocation": "Main Street"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:Downtown_Loris,_South_Carolina.jpg",
+      "source_name": "Wikimedia Commons",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Downtown_Loris,_South_Carolina.jpg",
+      "author": "Pithon314",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "credit": "Photo: Pithon314, CC0 (public domain dedication), via Wikimedia Commons. Credit not required; give it anyway.",
+      "provenance": "own work (Commons: 'Own work', uploaded by the author with UploadWizard, 2026-08-18; camera location 34.0556 N, 78.8888 W)",
+      "taken": "2026-08-08",
+      "original_size": "3228x2419",
+      "share_alike": false,
+      "reused_from": "batch 2026-10-b affordable-places-to-live record (images/buyers/affordable/loris-downtown.webp), removed from that page in round 8; the same Commons file, kept for the no-HOA page."
+    },
+    {
       "slug": "the-farm",
       "file": "images/buyers/the-farm/the-farm-from-above.webp",
       "variants": {
@@ -2671,7 +2701,7 @@
       "title": "Where The Farm at Carolina Forest is, NAIP aerial, April 2023",
       "what": "A wide view from above of Carolina Forest and Myrtle Beach on April 10, 2023, with The Farm outlined in orange and six labels: The Farm, Carolina Forest Boulevard, US 501, the Publix about 2 minutes from the entrance, McLeod Health's emergency room about 5 minutes away and the beach about 10 minutes away. The ocean is at the lower right.",
       "caption": "Where The Farm is. The orange line is its edge.",
-      "alt": "A wide view from above of Carolina Forest and Myrtle Beach, with The Farm outlined in orange and labels for The Farm, Carolina Forest Boulevard, US 501, Publix about 2 minutes away, the emergency room about 5 minutes away and the beach about 10 minutes away",
+      "alt": "Carolina Forest and Myrtle Beach from above, with The Farm outlined in orange and labels for The Farm, Carolina Forest Boulevard, US 501, Publix 2 minutes away, the emergency room 5 minutes away and the beach 10 minutes away",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "The Farm at Carolina Forest"

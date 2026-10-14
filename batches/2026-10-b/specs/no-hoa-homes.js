@@ -397,7 +397,7 @@ module.exports = {
 
     entry("Murrells Inlet", "Murrells Inlet: bigger houses near the seafood restaurants and Brookgreen Gardens", [
       `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought land there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
-      `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. It is about 15 minutes away by car, and Huntington Beach State Park about 10.`,
+      `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. It is about 15 minutes away by car, and Huntington Beach State Park is closer.`,
       `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest typical size on this list. About half are within a mile of the beach. Murrells Inlet is not a town, and part of it is in Georgetown County.`,
     ], INLET_PHOTO, "the lots are smaller than inland."),
 
@@ -407,14 +407,14 @@ module.exports = {
     ], CONWAY_PHOTO, "the nearest beach is about 25 minutes away by car."),
 
     entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near the ocean", [
-      `Myrtle Beach began about 1900 at the end of a logging railroad from Conway. In 1901 the railroad company ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought land and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
+      `Myrtle Beach began at the end of a logging railroad from Conway. In 1901 the railroad company ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought land and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
       "Outside Carolina Forest, the houses for sale are mostly older: almost half were built before 1990, and almost half are within half a mile of the beach. About half are inside the city, and most of the rest are outside any town.",
     ], MB_PHOTO, "inside the city, a long boat cannot sit in the front yard."),
 
     entry("Little River", "Little River: a boat on the Intracoastal Waterway", [
       `Little River sits on the Intracoastal Waterway at the north end of the Grand Strand. Its waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day.`,
       `Little River is not a town, so the ${h.a("#boats-and-work-trucks", "county's rules")} apply to a boat on your lot. The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} on the waterway is about 10 minutes from the center, and so is the beach in North Myrtle Beach.`,
-    ], LR_PHOTO, "few homes for sale here have no HOA fee, about 1 in 10."),
+    ], LR_PHOTO, "few homes for sale here have no HOA fee, so the choice is small."),
 
     { h2: "How do the eight areas compare?", toc: "The areas side by side", html: () =>
       h.p(`Houses for sale with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are near the ocean, on the ocean side of US 17 Business, the coast road.`) +
@@ -467,7 +467,7 @@ module.exports = {
     { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot. Inside the city of Myrtle Beach, a boat over 16 feet may not sit in the front yard, and boats and trailers may not park on residential streets. Outside the towns, the county has no rule on where you keep your own boat, trailer or camper on your lot." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "Why are HOA fees so high in Myrtle Beach?", a: "Condo fees are high because they include the cost of the building: its insurance, water and sewer, trash and a pool. Fees on houses are much lower, because most include only shared areas, trash and a pool." },
-    { q: "Where can you buy a house with land and no HOA near Myrtle Beach?", a: "Inland. A house for sale with no HOA fee in Aynor usually sits on about an acre. In Loris it is about three quarters of an acre, and in Conway about half an acre. About 1 in 3 houses with no HOA fee has half an acre or more, against about 1 in 15 houses with a fee." },
+    { q: "Where can you buy a house with land and no HOA near Myrtle Beach?", a: "Inland. A house for sale with no HOA fee in Aynor usually sits on about an acre. In Loris it is about three quarters of an acre, and in Conway about half an acre. About 1 in 3 houses with no HOA fee has half an acre or more." },
     { q: "Does a listing with no HOA fee mean the home has no HOA?", a: "Not always. A blank fee means no fee was listed. A few homes listed with no fee are in a neighborhood with a club you can choose to join and pay. We check the deed, the lot map and the HOA papers for any home you like." },
     { q: "Is a campground home with no HOA fee a no-HOA home?", a: "A campground home has no HOA fee, but you pay a yearly lease for the land under it." },
   ],
