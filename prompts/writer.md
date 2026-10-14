@@ -104,3 +104,5 @@ Owner answers: <path>
 ## Applying a verifier's correction
 
 Take the fact from the row, not its wording. Write what the fact means for the buyer, once, in your own sentence. The measure, the sample and the source go in the ledger and the sources line. A sentence that names its own method ("in a straight line", "listings say", "recorded in the past year") is a note, not copy; keep one only when the reader needs it to act (CRAFT 5, lesson B35). A struck list's `use` text is the approved fact, not a sentence to paste. Before you hand a page on, read every entry aloud as a top local agent talking to a buyer, and rewrite any sentence that sounds like a records clerk ("deeded", "recorded", "from the middle of", a sales count). When the number limit binds, cut the least useful number; never blur the most useful one (lesson B37).
+
+After every change, however small, run `node build.js audit` in the website worktree as well as the Blog-Brain gates. In batch 2026-10-b a one-line fix in the last round passed score, repeat-check and struck-check but failed the audit's 28-word sentence limit, and the package stopped at preflight.
