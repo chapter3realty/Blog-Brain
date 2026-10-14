@@ -111,7 +111,7 @@ const P = [
   { id: "forestbrook-village", tradeoff: "A few lots sold last year are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for each lot.", year: 3000, name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6,
     homes: "New two-story townhomes, built 2026 and 2027", size: "3 bedrooms, about 1,450 to 2,000 square feet, a 1-car garage",
     fee: "About $170 a month, with internet", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
-  { id: "victory-point", tradeoff: `Another owner bought the other 21 acres of the speedway land in 2022 and plans ${h.ext(REV3, "194 townhomes for rent")} there, with leasing expected in 2027.`, year: 3800, name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9,
+  { id: "victory-point", tradeoff: `Another owner bought the other part of the speedway land, about 20 acres, in 2022 and plans ${h.ext(REV3, "194 townhomes for rent")} there, with leasing expected in 2027.`, year: 3800, name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9,
     homes: "New townhomes, built 2025 and 2026", size: "3 bedrooms, about 1,450 square feet",
     fee: "About $235 a month, with the pool", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", tradeoff: "Listings say each owner will also pay a yearly insurance assessment, not yet set.", year: 2200, name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6,
