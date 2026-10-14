@@ -139,11 +139,11 @@ const SLED = "https://www.sled.sc.gov/sc-crime-data";
 const K = { guard: "Guard day and night", house: "Gatehouse", call: "Call box", back: "Back gate only", ask: "Gate at the entrance" };
 const E = [
   { id: "tidewater-plantation", name: "Tidewater Plantation", short: "Tidewater", lat: 33.85093, lon: -78.62229, gate: K.house, fee: "About $230 a month", price: "About $625,000", beach: "About 8 minutes" },
-  { id: "seaside-plantation", name: "Seaside Plantation", short: "Seaside", lat: 33.82688, lon: -78.66809, gate: K.ask, fee: "About $210 a month", price: "About $740,000", beach: "About 2 to 3 minutes" },
+  { id: "seaside-plantation", name: "Seaside Plantation", short: "Seaside", lat: 33.82688, lon: -78.66809, gate: K.ask, fee: "About $210 a month", price: "About $720,000", beach: "About 2 to 3 minutes" },
   { id: "barefoot-resort", name: "Barefoot Resort: Leatherleaf and Dye Estates", short: "Barefoot", lat: 33.80788, lon: -78.7403, gate: "Gatehouse at Dye Estates", fee: "About $390 a month (Leatherleaf)", price: "About $700,000 to $975,000", beach: "About 8 minutes from Dye Estates, 10 from Leatherleaf" },
   { id: "grande-dunes", name: "Grande Dunes: Calais, Palermo and Villa Venezia", short: "Grande Dunes", lat: 33.75879, lon: -78.82911, gate: K.ask, fee: "About $200 to $375 a month", price: "About $1.5 million", beach: "About 12 minutes" },
   { id: "waterway-palms-plantation", name: "Waterway Palms Plantation", short: "Waterway Palms", lat: 33.742110, lon: -78.876082, gate: K.ask, fee: "About $150 a month", price: "About $780,000", beach: "About 12 minutes" },
-  { id: "the-bluffs-on-the-waterway", name: "The Bluffs on the Waterway", short: "The Bluffs", lat: 33.746358, lon: -78.867299, gate: K.ask, fee: "About $150 a month", price: "About $730,000 to $975,000", beach: "About 11 minutes" },
+  { id: "the-bluffs-on-the-waterway", name: "The Bluffs on the Waterway", short: "The Bluffs", lat: 33.746358, lon: -78.867299, gate: K.ask, fee: "About $150 a month", price: "We send recent sales on request", beach: "About 11 minutes" },
   { id: "covington-lake-east", name: "Covington Lake East", short: "Covington Lake", lat: 33.75485, lon: -78.94557, gate: K.ask, fee: "About $90 a month", price: "About $570,000", beach: "About 15 minutes" },
   { id: "myrtle-trace", name: "Myrtle Trace (55+)", short: "Myrtle Trace", href: MT, lat: 33.77765, lon: -78.99495, gate: K.back, fee: "$95 a month", price: "About $300,000", beach: "About 15 minutes" },
   { id: "myrtle-beach-golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", short: "Golf and Yacht Club", lat: 33.646385, lon: -79.050559, gate: K.house, fee: "About $95 a month", price: "About $225,000 (older part)", beach: "About 15 minutes" },
@@ -230,9 +230,8 @@ const SECTIONS_PLACES = [
     "Seaside Plantation is in North Myrtle Beach, a quarter to three-quarters of a mile from the ocean. Some of its houses are all brick, and some look onto its lakes.",
     "Its clubhouse has a pool, a hot tub and parking for golf carts. A Walmart Supercenter, a Lowe's, the shops of Gator Hole Plaza and Main Street are each 3 to 5 minutes away by car.",
     `Each fall the ${h.ext("https://www.shagdance.com/", "Society of Stranders")} holds its Fall Migration, a shag dance festival, in North Myrtle Beach, and its Spring Safari comes each April.`,
-    "Few homes come up for sale here.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
-  "a gate at the entrance. Homes usually sell for about $740,000, and the HOA fee is about $210 a month."),
+  "a gate at the entrance. Homes usually sell for about $720,000, and the HOA fee is about $210 a month."),
 
   entry("barefoot-resort", "four golf courses that opened together in 2000", [
     "Barefoot Resort opened four golf courses at the same time in April 2000, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman.",
@@ -260,17 +259,16 @@ const SECTIONS_PLACES = [
   "a gate at the entrance. Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
   entry("the-bluffs-on-the-waterway", "two clubhouses, one of them on the waterway", [
-    "Many of the houses at The Bluffs on the Waterway are custom Mediterranean-style homes in stucco, and many look onto ponds with fountains. It was built from about 2006 on. Black Creek runs through the woods along its west side.",
+    "Many of the houses at The Bluffs on the Waterway are custom Mediterranean-style homes in stucco, and many look onto ponds with fountains. It was built from about 2006 on, and about 40 of its lots are still empty. Black Creek runs through the woods along its west side.",
     "It has two clubhouses. One of them, a boathouse, is on the Intracoastal Waterway. The neighborhood also has day docks, a boat ramp and boat storage.",
     "It has tennis and pickleball courts and a playground. Its owners association owns the lakes and an amenity area of almost 4 acres.",
-    "Homes rarely come up for sale here.",
   ], P("the-bluffs-on-the-waterway"), "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner.",
-  "a gate on Royal Bluff Drive, off River Oaks Boulevard. The few homes that sold went for about $730,000 to $975,000, and the HOA fee is about $150 a month."),
+  "a gate on Royal Bluff Drive, off River Oaks Boulevard. The HOA fee is about $150 a month."),
 
   entry("covington-lake-east", "brick houses around ponds and a low HOA fee", [
-    "Covington Lake East is a small neighborhood of brick houses in Carolina Forest. Its developer, Covington Lake East LLC, began selling lots in 2006. Lennar built about 50 of its houses from 2015 to 2017, and most of the rest are custom houses built one lot at a time.",
+    "Covington Lake East is a small neighborhood of brick houses in Carolina Forest. Its developer, Covington Lake East LLC, began selling lots in 2006. Lennar built about 50 of its houses from 2015 to 2017, and many builders built the rest one lot at a time.",
     "Its curving streets lie among ponds, and most lots are about a quarter of an acre. The streets have sidewalks, and many of the houses have natural gas.",
-    "The pool and clubhouse stand on an acre and a half that the developer deeded to the owners association in 2017. For a gate, a pool and a clubhouse, the HOA fee is about $90 a month.",
+    "The pool and clubhouse stand on about 1.6 acres that the developer deeded to the owners association in 2017. For a gate, a pool and a clubhouse, the HOA fee is about $90 a month.",
     "It has no golf course or boat ramp of its own.",
   ], P("covington-lake-east"), "Covington Lake East from above: houses on curving streets, with ponds among them.",
   "a gate at the entrance. Homes usually sell for about $570,000."),
@@ -283,10 +281,10 @@ const SECTIONS_PLACES = [
   ], P("myrtle-trace"), "Myrtle Trace from above: houses on curving streets among trees, with golf fairways and ponds nearby.",
   "gates only at the back entrance on Myrtle Ridge Road; the front entrance on Burning Ridge Road is open. Homes usually sell for about $300,000, and the HOA fee is $95 a month."),
 
-  entry("myrtle-beach-golf-and-yacht-club", "1980s houses among ponds and open land near Socastee", [
-    "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, west-southwest of Myrtle Beach. Most of its houses are one story, built in the 1980s, with about 1,350 square feet. Its sections have their own names, such as Camelot, Ashley Cove, the Fairways and the Gardens at Heron Point.",
+  entry("myrtle-beach-golf-and-yacht-club", "older houses among ponds and open land near Socastee", [
+    "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, west-southwest of Myrtle Beach. In its older part, houses typically have about 1,350 square feet, on lots of about 5,650 square feet. Its sections have their own names, such as Camelot, Ashley Cove, the Fairways and the Gardens at Heron Point.",
     "Wide strips of grass and woods, with ponds, lie between its streets. The association owns about 62 acres of this open land, in six tracts. The HOA's recorded rules make the streets private.",
-    "The community has a clubhouse, a pool, tennis and shuffleboard courts and a playground, and the association has a storage area for RVs and trailers. Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is a 6-minute drive.",
+    "The community has a clubhouse, a pool, tennis and shuffleboard courts and a playground, and the association has a storage area for RVs and trailers. Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about 4 minutes from the entrance.",
     "Sandpiper Place, where D.R. Horton is building, is reached from the same entrance on Bay Road, and we confirm whether a home is behind the gate before you make an offer. Its new houses sell for more than those in the older part.",
   ], P("myrtle-beach-golf-and-yacht-club"), "Myrtle Beach Golf and Yacht Club from above: houses on curving streets among trees, with long strips of grass and ponds between them.",
   "a gatehouse at the entrance on Bay Road. In the older part, homes usually sell for about $225,000, and the HOA fee is about $95 a month."),
@@ -300,7 +298,7 @@ const SECTIONS_PLACES = [
 
   entry("prince-creek-55", "a 55+ clubhouse with indoor and outdoor pools", [
     `Levitt and Sons deeded the first lot in Seasons at Prince Creek West in 2006, and a second builder deeded its last lot in 2016. Like Myrtle Trace, it requires a resident 55 or older in every occupied home. Its rules are in our ${h.a(SEASONS, "guide to Seasons")}.`,
-    "The clubhouse has indoor and outdoor pools and a fitness center, and there are tennis courts and bocce. An owner gets one bill that covers the Seasons, master and road and park association dues.",
+    "The clubhouse has indoor and outdoor pools and a fitness center, and there are tennis courts and bocce. An owner gets one bill that covers the Seasons dues and the dues of the larger associations, among them the master association and the road and park association.",
     "The HOA's rules allow a golf cart to be parked only in an enclosed garage. It takes about 10 minutes to drive to the Murrells Inlet MarshWalk.",
     "The HOA fee, about $340 a month, is more than three times Myrtle Trace's.",
   ], P("prince-creek-55-clubhouse"), "The Seasons at Prince Creek West clubhouse and its outdoor pool from above, among the streets of Prince Creek West.",
@@ -343,7 +341,7 @@ const SECTIONS_PLACES = [
     "Willbrook was part of a land grant made in 1711. Enslaved people grew rice here; the 1850 census counted 149 at Willbrook. The loss of workers, rice grown farther west and a run of hurricanes that wrecked the dikes ended rice growing on the Georgetown rivers.",
     "Before Dan Maples' course opened, archaeologists surveyed the land. Beside the course are a marked cemetery of enslaved people from nearby Oatland Plantation and brick remains at the site of the plantation house.",
     "Open fields, cut by straight ditches, lie along its west side. The neighborhood has a pool and a clubhouse.",
-    "Few homes change hands here; the ones that do sell for about $1 million.",
+    "Homes here have sold for about $630,000 to $1.5 million.",
   ], P("willbrook-plantation"), "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left.",
   "a gatehouse at the entrance off Willbrook Boulevard. The HOA fee is about $340 a month."),
 
@@ -358,7 +356,7 @@ const SECTIONS_PLACES = [
   entry("litchfield-by-the-sea", "a mile of private beach and an oceanfront club", [
     "Litchfield by the Sea lies between the marsh and the ocean. Its homes range from oceanfront houses to villas with marsh views and condos.",
     "It has about a mile of beach and an oceanfront Beach Club with a deck and a pavilion. Fishing and crabbing docks are on Osprey Lake, and paved paths run through the marsh and woods.",
-    "Owners' cars get a barcode for the gate, $25 each. Its pool is at the River Club.",
+    "Owners' cars use a barcode at the gate. A new barcode for an owner's car costs $25. Its pool is at the River Club.",
     "The HOA fee and the prices differ from section to section and from unit to unit.",
   ], P("litchfield-by-the-sea"), "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right.",
   `a ${h.ext(LBTS_GUIDE, "guard day and night")} at the main gate on US 17. In the last year, condos sold for anywhere from under $200,000 to over $2 million, and houses in its Oystercatcher Island section for about $750,000.`),

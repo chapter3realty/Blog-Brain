@@ -1023,5 +1023,65 @@
     "pattern": "\\bOwners' cars get a barcode for the gate",
     "struck": "Owners' cars get a barcode for the gate, $25 each.",
     "use": "A new barcode for an owner's car costs $25."
+  },
+  {
+    "row": "gated 181",
+    "pattern": "\\bFew homes come up for sale\\b",
+    "struck": "Few homes come up for sale here.",
+    "use": "(Cut it: the deed index has about 11 resales a year in Seaside.)"
+  },
+  {
+    "row": "gated 181",
+    "pattern": "\\bHomes rarely come up for sale\\b",
+    "struck": "Homes rarely come up for sale here.",
+    "use": "(Cut it: the deed index has about 21 resales a year in The Bluffs.)"
+  },
+  {
+    "row": "gated 181",
+    "pattern": "\\bFew homes change hands here\\b",
+    "struck": "Few homes change hands here; the ones that do sell for about $1 million.",
+    "use": "Homes here have sold for about $630,000 to $1.5 million."
+  },
+  {
+    "row": "gated 49",
+    "pattern": "\\$730,000 to \\$975,000",
+    "struck": "The few homes that sold went for about $730,000 to $975,000.",
+    "use": "(No Bluffs price until row 183 is verified.)"
+  },
+  {
+    "row": "gated 177",
+    "pattern": "\\bmost of the rest are custom houses",
+    "struck": "Lennar built about 50 of its houses from 2015 to 2017, and most of the rest are custom houses built one lot at a time.",
+    "use": "Lennar built about 50 of its houses from 2015 to 2017, and many builders built the rest one lot at a time."
+  },
+  {
+    "row": "gated 177",
+    "pattern": "\\ban acre and a half that the developer",
+    "struck": "The pool and clubhouse stand on an acre and a half that the developer deeded to the owners association in 2017.",
+    "use": "The pool and clubhouse stand on about 1.6 acres that the developer deeded to the owners association in 2017."
+  },
+  {
+    "row": "gated 179",
+    "pattern": "covers the Seasons, master and road and park association dues",
+    "struck": "An owner gets one bill that covers the Seasons, master and road and park association dues.",
+    "use": "An owner gets one bill that covers the Seasons dues and the dues of the larger associations, among them the master association and the road and park association."
+  },
+  {
+    "row": "gated 178",
+    "pattern": "Enterprise Landing[^.]{0,80}\\b6-minute drive",
+    "struck": "Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is a 6-minute drive.",
+    "use": "Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about 4 minutes from the entrance."
+  },
+  {
+    "row": "gated 150",
+    "pattern": "Most of its houses are one story",
+    "struck": "Most of its houses are one story, built in the 1980s, with about 1,350 square feet.",
+    "use": "In its older part, houses typically have about 1,350 square feet, on lots of about 5,650 square feet."
+  },
+  {
+    "row": "gated 181",
+    "pattern": "\\bbarcode for the gate, \\$25 each",
+    "struck": "Owners' cars get a barcode for the gate, $25 each.",
+    "use": "A new barcode for an owner's car costs $25."
   }
 ]

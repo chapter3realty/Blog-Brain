@@ -339,8 +339,8 @@
     {
       "id": "conway-range-years",
       "fact": "The Conway Bombing and Gunnery Range, which covered part of Carolina Forest including The Farm, was used from 1942 until 1948 by the Army Air Force (Defense Department FUDS record I04SC0025). Pages say 1942 to 1948.",
-      "source": "https://www.usace.army.mil/Missions/Environmental/Formerly-Used-Defense-Sites/",
-      "quote": "The site was used from 1942 until 1948 by the Army Air Force as an aerial bombing and gunnery range for Myrtle Beach Army Air Field. (USACE FUDS map data, Military/FUDS_Data, FY2024, property I04SC0025; batches/2026-10-b/facts/the-farm-facts.md)",
+      "source": "https://geospatial.sec.usace.army.mil/server/rest/services/Military/FUDS_Data/MapServer/1/query?where=FUDSUNIQUEPROPERTYNUMBER%3D%27I04SC0025%27&outFields=*&f=json",
+      "quote": "The site was used from 1942 until 1948 by the Army Air Force as an aerial bombing and gunnery range for Myrtle Beach Army Air Field. (USACE FUDS map service, layer 1 FUDS Property Points, I04SC0025, FISCALYEAR 2024, FEATURENAME 'CONWAY BMB&GUNRY RNG')",
       "asOf": "2026-10-14",
       "staleBy": "2027-10-14",
       "ownerPage": "/submarkets/carolina-forest/the-farm/",
