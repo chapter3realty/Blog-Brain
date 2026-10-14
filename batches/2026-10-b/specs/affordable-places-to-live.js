@@ -11,6 +11,11 @@
  *   Kept: the tax in dollars (now one example, pending row 153), the down-payment help and the Dana
  *   example. Cut: the town entries, their photos, the pros and cons, the compare table (it repeated the
  *   entries). ItemList JSON-LD for the numbered entries.
+ * Version 8b, 2026-10-14: the verifier's round 8 check (rows 116 to 154). The ranking now counts new homes the
+ *   county has not valued yet (the building-value filter had dropped them), splits one legal name that covers
+ *   two places (PARKVIEW), leaves out manufactured homes, and keeps only places within about 20 minutes'
+ *   drive of a public beach access (pending rows 155 to 168). Out: Coopers Bluff, the Cove at Glenns Bay.
+ *   In: Forestbrook Village, Villas at Sandridge. Schools from the district's attendance zones (row 165).
  * Versions 1 to 7, 2026-10-13 and 14: towns ranked by Zillow's typical value (git history).
  *
  * One price measure in every comparison: the middle recorded sale price over the past year (county deed
@@ -230,7 +235,7 @@ module.exports = {
       PHOTO_CSS + FACTS_CSS +
       h.p("We joined the county's deed records to its map of lots, so every sale has a neighborhood. We counted new and resold houses and townhomes. We left out condos, manufactured homes, deeds that cover several lots and sales far below a home's value.") +
       h.p("Then we kept the neighborhoods within about 20 minutes' drive of a public beach access, with at least 10 sales. These are the twelve with the lowest prices.") +
-      h.p(`Just above them, at about ${money(257500)} to ${money(266237)}, come Oak Forest and Forestbrook near Socastee, Meadows Edge off SC 544, the Reserve at Long Bay near Longs and McCormick Townhomes off Forestbrook Road.`) +
+      h.p(`The next five cost about ${money(257500)} to ${money(266237)}. They are Oak Forest and Forestbrook near Socastee, Meadows Edge off SC 544, the Reserve at Long Bay near Longs and McCormick Townhomes.`) +
       h.p("Farther inland, new houses in Collins Walk and Kingston Oaks near Conway, and in Warner Crossing near Loris, sold for less than some of the twelve. From those, the beach is 30 minutes or more away.") +
       barChart("What homes usually sold for in the past year, lowest first", "Chart of the middle sale price in each neighborhood, from the county's deed records. The dark bar is a home in the city of Myrtle Beach, condos left out, for comparison.") +
       MAP.html +
@@ -239,7 +244,7 @@ module.exports = {
     entry("parkview", "older gated townhomes inside Myrtle Beach", () =>
       h.p("Parkview is a gated community of townhomes off 17th Avenue South, near Harrelson Boulevard. It is the one place on this list inside the city of Myrtle Beach. Coastal Grand Mall and the beach are a few minutes away.") +
       h.p("The townhomes are around ponds, with a pool for the owners. Every sale here in the past year was a resale of a townhome built in the middle 2000s.") +
-      h.p(`A different, new neighborhood near Surfside Beach is also recorded by the county as Parkview. Lennar sold its new townhomes for about ${money(274883)}. That one is not on this list.`) +
+      h.p(`A different, new neighborhood near Surfside Beach is also recorded by the county as Parkview. Lennar sold its new townhomes for about ${money(274883)}, above the twelve here.`) +
       facts("parkview")),
 
     entry("fairways-at-wild-wing", "townhomes at a golf course off US 501", () =>
@@ -356,7 +361,7 @@ module.exports = {
     { name: "SC Department of Insurance", href: DOI },
     { name: "WMBF News on the speedway", href: SPEEDWAY },
   ],
-  sourcesNote: "Not legal, tax or loan advice. Prices are the middle recorded sale from October 2025 through September 2026, new and resale, with condos and manufactured homes left out. Home details are from listings; schools from the district's zones. Drive times have no traffic. Tax leaves out the break for owners 65 and older.",
+  sourcesNote: "Not legal, tax or loan advice. Prices are the middle recorded sale from October 2025 through September 2026, new and resale, with condos and manufactured homes left out. Home details are from listings; schools from the district's zones. Drive times have no traffic. Tax figures are before the break for owners 65 and older.",
   afterSources: () => ph.credits() + ITEMLIST(),
   bottomCta: { h2: "See what your budget buys in these neighborhoods.", p: "Tell us your price range and the places you like. One of our agents will send you the homes for sale there, and the down-payment programs that fit.", label: OFFER, href: CONTACT },
   keywords: "most affordable places to live near Myrtle Beach, cheapest neighborhoods Myrtle Beach, affordable townhomes Myrtle Beach, cheap homes near Myrtle Beach, new homes under 250000 Myrtle Beach, Parkview Myrtle Beach, Wild Wing Plantation townhomes, Victory Point Myrtle Beach, Forestbrook Village, Villas at Sandridge, Birchwood Longs SC, Indigo Grove Longs",
