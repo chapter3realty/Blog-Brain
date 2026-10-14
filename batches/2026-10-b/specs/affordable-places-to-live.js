@@ -364,9 +364,9 @@ module.exports = {
       h.p("These are the twelve neighborhoods within about 20 minutes of a beach where homes sold for the least in the past year. Half are new homes from Lennar, D.R. Horton and Dream Finders Homes.") +
       h.p(`The next five cost about ${money(257500)} to ${money(266237)}. They are Oak Forest and Forestbrook near Socastee, Meadows Edge off SC 544, the Reserve at Long Bay near Longs and McCormick Townhomes.`) +
       h.p("Farther inland, new houses in Collins Walk and Kingston Oaks near Conway, and in Warner Crossing near Loris, sold for less than some of the twelve. From those, the beach is 30 minutes or more away.") +
-      barChart("What homes usually sold for in the past year, lowest first", "Chart of the middle sale price in each neighborhood, from the county's deed records. The dark bar is a home in the city of Myrtle Beach, condos left out, for comparison.") +
+      barChart("What homes usually sold for in the past year, lowest first", "Chart of the middle sale price in each neighborhood. The dark bar is a home in the city of Myrtle Beach, condos left out, for comparison.") +
       MAP.html +
-      h.p("Drive times are from the middle of each neighborhood with no traffic. In our experience, rush hour adds 5 to 10 minutes.") },
+      h.p("In our experience, rush hour adds 5 to 10 minutes to the drive times on this page.") },
 
     entry("parkview", "older townhomes inside Myrtle Beach", () =>
       strip("parkview") +
@@ -384,14 +384,14 @@ module.exports = {
 
     entry("sawgrass-east", "townhomes off Carolina Forest Boulevard", () =>
       strip("sawgrass-east") +
-      h.p("Sawgrass East is a townhome community off Carolina Forest Boulevard, a little over two miles up the boulevard from US 501. The townhomes are around small ponds, with a pool and a clubhouse for the owners. Most have about 1,300 to 1,600 square feet.") +
+      h.p("Sawgrass East is a townhome community off Carolina Forest Boulevard, a little over two miles up the boulevard from US 501. The townhomes are around small ponds, with a pool and a clubhouse for the owners. Most have between about 1,300 and 1,600 square feet.") +
       PH["sawgrass-east"] +
       h.p(`The county's ${h.ext(CFRC, "Carolina Forest Recreation Center")}, with a gym, a fitness room and a climbing wall, is a six-minute drive.`) +
       h.p("The HOA fee is higher than at most places here, though it usually includes water and sewer. For a buyer who would pay those bills anyway, the gap is smaller than it looks.")),
 
     entry("birchwood", "new houses off SC 905 near Longs", () =>
       strip("birchwood") +
-      h.p("Birchwood is a new neighborhood of houses off SC 905, southwest of Longs. The turn is beside the tall water tower. Lennar built every house here, most with about 1,500 square feet on about a quarter acre, and high-speed internet is included.") +
+      h.p("Birchwood is a new neighborhood of houses off SC 905, southwest of Longs. The turn is beside the tall water tower. Lennar built every house here, from about 1,100 to 1,950 square feet, on about a quarter acre, and high-speed internet is included.") +
       PH["birchwood"] +
       h.p("Birchwood has only 77 lots, with about 12 acres of open space. Its neighbors are fields and older homes on large lots.") +
       h.p(`The trade-off is the drive to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by SC 9 and the Carolina Bays Parkway. North Myrtle Beach is about 20.`)),
@@ -400,12 +400,12 @@ module.exports = {
       strip("golf-and-yacht-club") +
       h.p(`Myrtle Beach Golf and Yacht Club is a community of houses off Bay Road, which leaves SC 707 near Socastee. It has a gatehouse at the entrance and a pool, courts and a clubhouse for owners; our ${h.a("/buyers/gated-communities/", "guide to gated communities")} covers them.`) +
       PH["golf-and-yacht-club"] +
-      h.p("In the older part, most houses have about 1,350 square feet, on about an eighth of an acre. We check the HOA papers for what the fee covers.") +
+      h.p("Houses in the older part typically have about 1,350 square feet, on about an eighth of an acre. We check the HOA papers for what the fee covers.") +
       h.p(`Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`)),
 
     entry("forestbrook-village", "new townhomes off Forestbrook Road", () =>
       strip("forestbrook-village") +
-      h.p("Forestbrook Village is a new Lennar townhome community off Forestbrook Road, south of US 501. Each townhome has about 1,450 to 2,000 square feet and a one-car garage. Internet, yard care and trash pickup are included. It is next to the older Forestbrook neighborhood, and its townhomes cost less than the houses there.") +
+      h.p("Forestbrook Village is a new Lennar townhome community off Forestbrook Road, south of US 501. Each townhome has a one-car garage and about 1,450 to 2,400 square feet. Internet and grounds care are included. It is next to the older Forestbrook neighborhood, and its townhomes cost less than the houses there.") +
       PH["forestbrook-village"] +
       h.p("Forestbrook Middle and Forestbrook Elementary are four to five minutes away.") +
       h.p("The trade-off is flood. Some lots here are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for the lot of any home you like.")),
@@ -416,7 +416,7 @@ module.exports = {
       PH["victory-point"] +
       h.p(`The track ${h.ext(RAMBI, "opened in 1958")} as RAMBI Raceway. Cars ran their ${h.ext(SPEEDWAY, "last laps there in 2020")}. Several streets have racing names: Speedway Street, Talladega Drive and Pit Crew Drive.`) +
       h.p("A Publix is about five minutes away. Some townhomes back onto a pond, and owners share a pool.") +
-      h.p(`Expect more building next door. Another owner plans ${h.ext(REV3, "194 townhomes for rent")} on the rest of the speedway land.`)),
+      h.p(`Expect more building next door. Another owner plans ${h.ext(REV3, "194 townhomes for rent")} on about 20 acres of the old speedway land beside it.`)),
 
     entry("amber-bluff", "new townhomes near Coastal Carolina University", (bg) =>
       strip("amber-bluff") +
@@ -501,7 +501,7 @@ module.exports = {
     { name: "Lennar", href: OVERLOOK },
     { name: "county parks", href: CFRC },
   ],
-  sourcesNote: "Not legal, tax or loan advice. Prices: the middle recorded sale, October 2025 to September 2026, without condos, manufactured homes or multi-lot deeds. Each place has 10 or more sales. Home details from listings; schools from zones. Yearly tax for a home you live in, before the break at 65.",
+  sourcesNote: "Not legal, tax or loan advice. Prices: the middle recorded sale, October 2025 to September 2026, without condos, manufactured homes or multi-lot deeds. Drives from the middle of each place, no traffic. Home details from listings; schools from zones. Yearly tax for a home you live in, before the break at 65.",
   afterSources: () => ph.credits() + ITEMLIST(),
   bottomCta: { h2: "See what your budget buys in these neighborhoods.", p: "Tell us your price range and the places you like. One of our agents will send you the homes for sale there, and the down-payment programs that fit.", label: OFFER, href: CONTACT },
   keywords: "most affordable places to live near Myrtle Beach, cheapest neighborhoods Myrtle Beach, affordable townhomes Myrtle Beach, cheap homes near Myrtle Beach, new homes under 250000 Myrtle Beach, Parkview Myrtle Beach, Wild Wing Plantation townhomes, Victory Point Myrtle Beach, Forestbrook Village, Villas at Sandridge, Birchwood Longs SC, Indigo Grove Longs",
