@@ -11,6 +11,9 @@
  *   Kept: the tax in dollars (now one example, pending row 153), the down-payment help and the Dana
  *   example. Cut: the town entries, their photos, the pros and cons, the compare table (it repeated the
  *   entries). ItemList JSON-LD for the numbered entries.
+ * Version 12, 2026-10-14: round 12 (review/OWNER-EYE-11-affordable-places-to-live.md). Indigo Grove rewritten
+ *   as living there (grocery, open space, flood, the drive); the Golf and Yacht Club entry leaves the gate,
+ *   the amenities and the ramp to the gated page; the lows; a voice pass. Pending rows 193 and 194.
  * Version 11, 2026-10-14: round 11 (review/OWNER-EYE-10-affordable-places-to-live.md). The prose no longer
  *   repeats the facts strip; one errand drive per entry, with no compass direction; Indigo Grove (floor plans,
  *   lots, open space, the drive to work) and Polo Farms (Simpson Creek, the three phases, the yards, the 2016
