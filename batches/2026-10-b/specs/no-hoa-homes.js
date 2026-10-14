@@ -194,10 +194,14 @@ const share = (a) => Math.round(100 * a.homes.noHoaFee / a.homes.listings);
 /* A lot size in words a person says aloud (owner's eye, round 3): a sixth, a fifth, a quarter, a third, a half,
    three quarters, an acre. */
 const acreWords = (v) => {
-  const steps = [[1 / 6, "a sixth of an acre"], [0.2, "a fifth of an acre"], [0.25, "a quarter acre"], [1 / 3, "a third of an acre"], [0.5, "half an acre"], [0.75, "three quarters of an acre"], [1, "an acre"]];
-  let best = steps[0];
-  for (const s of steps) if (Math.abs(s[0] - v) < Math.abs(best[0] - v)) best = s;
-  return `about ${best[1]}`;
+  /* A fraction only when it is that close to the real value (struck-check, round 10: 0.71 is not "three quarters",
+     0.30 is not "a third"); a whole acre or a half within the same decimal; else one decimal. */
+  const steps = [[1 / 6, "a sixth of an acre", 0.02], [0.2, "a fifth of an acre", 0.02], [0.25, "a quarter acre", 0.02], [1 / 3, "a third of an acre", 0.02],
+    [0.5, "half an acre", 0.035], [0.75, "three quarters of an acre", 0.02], [1, "an acre", 0.1]];
+  const hit = steps.find(([x, , tol]) => Math.abs(x - v) <= tol);
+  if (hit) return `about ${hit[1]}`;
+  const d = Math.round(v * 10) / 10;
+  return `about ${d} acre${d === 1 ? "" : d > 1 ? "s" : ""}`;
 };
 
 /* The day the homes for sale were counted, from the data file (never typed). */
@@ -394,14 +398,14 @@ module.exports = {
       "Almost no home inside the town of Aynor is in a high-risk flood zone on FEMA's flood map.",
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
-    entry("Loris", "Loris: new houses on three quarters of an acre, near a small downtown", [
+    entry("Loris", "Loris: new houses on about 0.7 acre, near a small downtown", [
       `Loris grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. In the late 1800s it was also a farm center for the country around it. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street.`,
       `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and two stages of live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
       "Loris has its own hospital, McLeod Loris, in town. Its lots fall between Aynor's acre and Conway's half acre.",
     ], LORIS_PHOTO, "Coastal Grand Mall in Myrtle Beach is a drive of about 50 minutes."),
 
     entry("Conway", "Conway: half an acre near the Waccamaw River and an old downtown", [
-      `Conway began in the 1730s as Kingston, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "later Conwayborough")}, then Conway. Its Riverwalk runs along the river downtown.`,
+      `Conway began in the 1730s as Kingston Village, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "later Conwayborough")}, then Conway. Its Riverwalk runs along the river downtown.`,
       "Lots are about half an acre, a little smaller than in Aynor or Loris, and you are closest to the beach of the three. About a third of the houses for sale were built in 2024 or later.",
       `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. It is a two-story brick building with columns in the old downtown.`,
     ], CONWAY_PHOTO, "inside the city, a big business truck may not park on a city street."),
@@ -484,8 +488,8 @@ module.exports = {
     { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot. Inside the city of Myrtle Beach, a boat over 16 feet may not be kept in the front yard. Boats and trailers may not park on residential streets. Outside the towns, you can keep your own boat, trailer or camper anywhere on your lot." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "Why are HOA fees so high in Myrtle Beach?", a: "Condo fees are high because they include the cost of the building: its insurance, water and sewer, trash and a pool. Fees on houses are much lower, because most include only shared areas, trash and a pool." },
-    { q: "Where can you buy a house with land and no HOA near Myrtle Beach?", a: "Inland. A house for sale with no HOA fee in Aynor usually sits on about an acre. In Loris it is about three quarters of an acre, and in Conway about half an acre. About 1 in 3 houses with no HOA fee has half an acre or more." },
-    { q: "Can you buy a house with no HOA under $250,000 near Myrtle Beach?", a: "Yes. About 60 were listed, most of them older, smaller houses inland, in and around Conway, in Socastee and near Loris. The typical one has about 1,250 square feet on a quarter acre. Almost none are near the beach." },
+    { q: "Where can you buy a house with land and no HOA near Myrtle Beach?", a: "Inland. A house for sale with no HOA fee in Aynor usually sits on about an acre. In Loris it is about 0.7 acre, and in Conway about half an acre. About 1 in 3 houses with no HOA fee has half an acre or more." },
+    { q: "Can you buy a house with no HOA under $250,000 near Myrtle Beach?", a: "Yes, a few. Most are older, smaller houses inland, in and around Conway, in Socastee and near Loris. The typical one has about 1,250 square feet on a quarter acre. Almost none are near the beach." },
     { q: "Does a listing with no HOA fee mean the home has no HOA?", a: "Not always. A blank fee means no fee was listed. A few homes listed with no fee are in a neighborhood with a club you can choose to join and pay." },
     { q: "Is a campground home with no HOA fee a no-HOA home?", a: "No. A campground home has no HOA fee, but it sits on leased land, and you pay a yearly lease for the land under it." },
   ],
