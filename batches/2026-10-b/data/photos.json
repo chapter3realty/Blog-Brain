@@ -2732,10 +2732,10 @@
         "600": "images/buyers/the-farm/the-farm-school-zones-from-above-600w.webp",
         "1200": "images/buyers/the-farm/the-farm-school-zones-from-above-1200w.webp"
       },
-      "title": "The Farm at Carolina Forest inside its school zones, NAIP aerial, April 2023",
-      "what": "A view from above of the east side of Carolina Forest on April 10, 2023, with The Farm outlined in orange and the 2025 to 2026 Horry County Schools attendance zones drawn on it: the Ocean Bay Elementary zone as a blue line, the Ocean Bay Middle zone shaded purple and the Carolina Forest High zone shaded yellow. The Farm is inside the blue line and the purple and yellow shading. One dot marks the two Ocean Bay schools on International Drive. A note at the upper left says Carolina Forest High is about 15 minutes west, off the picture.",
-      "caption": "The Farm, in orange, with the school zones: a blue line for Ocean Bay Elementary, purple shading for Ocean Bay Middle and yellow shading for Carolina Forest High.",
-      "alt": "The east side of Carolina Forest from above, with The Farm outlined in orange inside a blue elementary zone line and the purple middle and yellow high school zones, one dot for the two Ocean Bay schools and a note for Carolina Forest High",
+      "title": "The Farm at Carolina Forest inside the area zoned for its three schools, NAIP aerial, April 2023",
+      "what": "A view from above of the east side of Carolina Forest on April 10, 2023, with one area shaded blue: the land that Horry County Schools' 2025 to 2026 attendance zones put in all three of Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. The Farm is outlined in orange inside it. One dot marks the two Ocean Bay schools on International Drive. A note at the upper left says Carolina Forest High is about 15 minutes west, off the picture.",
+      "caption": "The blue area is zoned for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. The Farm is outlined in orange.",
+      "alt": "The east side of Carolina Forest from above, with a blue area zoned for all three schools and The Farm outlined in orange inside it, one dot for the two Ocean Bay schools and a note for Carolina Forest High",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "The Farm at Carolina Forest"
@@ -2746,7 +2746,7 @@
       "author_type": "Organization",
       "license": "Public domain",
       "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in every tile name the service lists for this frame: m_3307809_se_17_060_20230410, m_3307810_sw_17_060_20230410, m_3307817_ne_17_060_20230410, m_3307818_nw_17_060_20230410; the image service's catalog query for Year=2023 over the frame, read 2026-10-14). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request. Ledger rows 92 (verified) and 95 (round 9 redraw, pending verification).",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in every tile name the service lists for this frame: m_3307809_se_17_060_20230410, m_3307810_sw_17_060_20230410, m_3307817_ne_17_060_20230410, m_3307818_nw_17_060_20230410; the image service's catalog query for Year=2023 over the frame, read 2026-10-14). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request. Ledger rows 92 and 95 (verified) and 96 (round 10 redraw, pending verification).",
       "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
       "terms_urls": [
         "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
@@ -2761,23 +2761,21 @@
         "m_3307818_nw_17_060_20230410"
       ],
       "display_credit": "U.S. government aerial photo",
-      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Zone lines from Horry County Schools, as drawn for 2025 to 2026; outline and labels by Chapter3 Realty.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). School zones from Horry County Schools, as drawn for 2025 to 2026; outline and labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty drew The Farm's outline from Horry County GIS parcels and the three attendance zones from Horry County Schools' 2025 to 2026 zone layers (the middle and high school zones shaded, the elementary zone as a line), added six labels placed from that data, county address points and ledger row 38, and adjusted the colors",
+      "changes": "Chapter3 Realty drew The Farm's outline from Horry County GIS parcels, shaded the area inside all three of Horry County Schools' 2025 to 2026 attendance zones for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High, added four labels placed from that data, county address points and ledger row 38, and adjusted the colors",
       "labels": [
         "The Farm",
         "Ocean Bay schools",
         "Carolina Forest High, about 15 min west",
-        "Elementary zone",
-        "Middle school zone",
-        "High school zone"
+        "Zoned for all three schools"
       ],
       "annotation_sources": {
         "outline": "Horry County GIS parcels layer 24, the 1,634 parcels of the-farm-facts.md method note 'Parcel set', joined and closed across the streets: the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json, area 'the-farm')",
-        "zone_lines": "Horry County Schools, HCS_Attendance_Zones 2025-2026 feature service: layer 3 where school = 'Ocean Bay Elementary', layer 2 where school = 'Ocean Bay Middle', layer 1 where school = 'Carolina Forest High' (geojson, WGS84; ledger rows 36, 92 and 95). Fills: high school zone yellow at 50/255, middle school zone purple at 80/255, elementary zone blue at 22/255, so the middle school shading shows through inside the elementary line; every zone line is drawn on top. https://services2.arcgis.com/i2WjYhcoGsRr8Izd/arcgis/rest/services/HCS_Attendance_Zones__2025_2026/FeatureServer",
+        "shared_area": "The intersection of three Horry County Schools zone polygons (HCS_Attendance_Zones 2025-2026: layer 3 where school = 'Ocean Bay Elementary', layer 2 where school = 'Ocean Bay Middle', layer 1 where school = 'Carolina Forest High'; geojson, WGS84), computed with shapely: one polygon of 850.5 square micro-degrees (the elementary zone alone is 958.9). Shaded blue at 95/255 with its edge drawn (ledger rows 36, 92, 95 and 96). The Farm's outline runs about 230 m outside it on the west edge, over woods with no address points (row 92). https://services2.arcgis.com/i2WjYhcoGsRr8Izd/arcgis/rest/services/HCS_Attendance_Zones__2025_2026/FeatureServer",
         "ocean_bay_schools": "One dot for both schools, at the midpoint (-78.865826, 33.767267) of county address points 905 INTERNATIONAL DR (Ocean Bay Middle, -78.865901, 33.766381) and 950 INTERNATIONAL DR (Ocean Bay Elementary, -78.865751, 33.768153), 200 m apart, in Horry County addresses layer 22 (ledger row 38). The label sits to the right of the dot, clear of The Farm's outline.",
         "carolina_forest_high": "Carolina Forest High (700 GARDNER LACY RD, -78.970179, 33.779049, county addresses layer 22) is west of the frame. A note at the frame's left edge (-78.9108, 33.79) gives the drive time and direction: about 15 minutes (row 38, 15.7 min by OSRM, no traffic); west (the school is 0.095 degrees of longitude west and 0.024 degrees of latitude north of the Farmers Rest Drive entrance).",
-        "zone_labels": "Each zone label's whole box sits inside its own zone, at least 10 px (2400-px frame) inside the zone line and clear of The Farm's outline, tested against the zone polygons in pixels: Elementary zone, on two lines (center -78.857039, 33.760699, inside all three), Middle school zone (center -78.883477, 33.745193, inside the middle and high school zones, clear of the elementary line), High school zone (center -78.900692, 33.756099, inside the high school zone, clear of the middle school line)."
+        "shared_label": "\"Zoned for all three schools\", on two lines, centered at (-78.857244, 33.761551): its whole box is at least 12 px (2400-px frame) inside the shaded area and clear of The Farm's outline and the school label."
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8785466.283353336%2C3993452.4223137246%2C-8774515.472340813%2C4001665.5305731166&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
@@ -2790,7 +2788,7 @@
         "ground_m_per_px_1200w": 7.59
       },
       "original_size": "2400x1800 (NAIP export, drawn on at 2x, colors adjusted, then resized)",
-      "method": "scratchpad farmw/scripts/render.py (round 9: zone fills, labels may use the whole frame because the page shows this figure whole, two-line labels, The Farm's outline drawn again on top) and fetch.py; config farmw/aerial/work/config.json, key the-farm-schools; zones fetched by farmw/r8/zones.py",
+      "method": "scratchpad farmw/scripts/render.py (labels may use the whole frame because the page shows this figure whole; two-line labels) and fetch.py; config farmw/aerial/work/config.json, key the-farm-schools; zones fetched by farmw/r8/zones.py; the shared area in farmw/r8/all3.json",
       "width": 1200,
       "height": 900
     }

@@ -142,7 +142,7 @@ const POOL = ph.aerial("the-farm-pool-from-above-2026", "The large pool and the 
 /* Round 8 (owner, 2026-10-14): a wide, labelled aerial for "where it is" in place of the drawn region map, and a
    school zone aerial from Horry County Schools' zone layers (ledger rows 92 and 93, pending verification). */
 const WIDE = ph.aerial("the-farm-where-from-above", "Where The Farm is. The orange line is its edge.", { closeUp: true });
-const SCHOOLS = ph.aerial("the-farm-school-zones-from-above", "The Farm, in orange, with the school zones: a blue line for Ocean Bay Elementary, purple shading for Ocean Bay Middle and yellow shading for Carolina Forest High.", { closeUp: true });
+const SCHOOLS = ph.aerial("the-farm-school-zones-from-above", "The blue area is zoned for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. The Farm is outlined in orange.", { closeUp: true });
 const M = maps("the-farm", [
   { id: "beach_mb101", name: "the beach in Myrtle Beach", short: "Beach", kind: "beach" },
   { id: "er_mcleod", name: "McLeod Health's emergency room", short: "Emergency room", kind: "hospital" },
