@@ -35,7 +35,7 @@
  *
  * One price measure in every comparison: the middle recorded sale price over the past year (county deed
  * index, October 2025 to September 2026), condo units left out, said "homes usually sold for about $X".
- * Every price is rounded to the nearest $5,000 and every drive to the nearest 5 minutes, the same on
+ * Every price is rounded to the nearest $5,000 and every drive under 15 minutes to the nearest minute and longer ones to the nearest 5, the same on
  * every surface.
  *
  * Facts: batches/2026-10-b/facts/affordable-facts.md.
@@ -95,7 +95,8 @@ const WILDWING = "https://www.myrtlebeachgolftrips.com/news/time-to-come-home-wh
 /* Values, rounded once, used everywhere.                                         */
 
 const money = (v) => "$" + (Math.round(v / 5000) * 5000).toLocaleString("en-US");
-const mins = (m) => `${Math.max(5, Math.round(m / 5) * 5)}`;
+/* Drives under 15 minutes to the nearest minute, longer ones to the nearest 5 (CRAFT 2). */
+const mins = (m) => `${m < 15 ? Math.max(1, Math.round(m)) : Math.round(m / 5) * 5}`;
 
 /* The twelve places, lowest middle sale price first (pending rows 117 to 128). lat and lon: the middle
    of each place's sales (row 141). mb: free-flow minutes to Coastal Grand Mall; beach: to the nearest
@@ -393,7 +394,7 @@ module.exports = {
     { q: "What is the cheapest neighborhood to buy a home near Myrtle Beach?", a: `Of the neighborhoods within about 20 minutes of the beach where at least 10 homes sold in the past year, Parkview had the lowest prices. Its older townhomes usually sold for about ${money(N.parkview.price)}. Parkview is a group of townhomes off 17th Avenue South, inside the city of Myrtle Beach.` },
     { q: "Where can you buy a new house near Myrtle Beach for less?", a: `In Birchwood, off SC 905 near Longs, new Lennar houses usually sold for about ${money(N.birchwood.price)} in the past year. In Indigo Grove, off SC 90, they usually sold for about ${money(N["indigo-grove"].price)}.` },
     { q: "Is it cheaper to buy in Conway than in Myrtle Beach?", a: `Yes. Leaving out builder sales and condos, a home that resold in Conway in the past year usually went for about ${money(264250)}. In the city of Myrtle Beach, a home usually went for about ${money(MB_HOUSE)}. Inside the city limits, Conway's property tax is higher.` },
-    { q: "Which affordable neighborhood is closest to the beach?", a: `Parkview, a townhome community off 17th Avenue South in Myrtle Beach, is about 5 minutes by car from a public beach access. Its older townhomes usually sold for about ${money(N.parkview.price)} in the past year.` },
+    { q: "Which affordable neighborhood is closest to the beach?", a: `Parkview, a townhome community off 17th Avenue South in Myrtle Beach, is about ${mins(N.parkview.beach)} minutes by car from a public beach access. Its older townhomes usually sold for about ${money(N.parkview.price)} in the past year.` },
     { q: "Do you have to be a first-time buyer to get down-payment help?", a: "No, not in Horry or Georgetown County. For SC Housing's Homebuyer Program, you must not own a home when you close. Palmetto Home Advantage is open to repeat buyers too." },
   ],
   sources: [
