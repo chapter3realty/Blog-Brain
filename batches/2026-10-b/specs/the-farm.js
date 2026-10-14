@@ -202,7 +202,7 @@ module.exports = {
       h.p(`The Farm has no gate. Its streets are public roads owned by Horry County, not by the HOA. If you want a gate, see ${h.a("/buyers/gated-communities/", "which neighborhoods near Myrtle Beach are gated")}.`) },
 
     { h2: "What is there to do in The Farm at Carolina Forest?", toc: "Pools and things to do", html: (bg) =>
-      h.p("In The Farm at Carolina Forest, the large pool and the activity center are a short walk apart. The large pool has a wide deck beside a pond.") +
+      h.p("In The Farm at Carolina Forest, the large pool and the activity center are about 400 feet apart. The large pool has a wide deck beside a pond.") +
       POOL +
       atAGlance([
         { icon: "pool", label: "Two pools", text: "Open April 15 to October 15, from 9 a.m. to 9 p.m. There is no lifeguard." },
@@ -228,7 +228,7 @@ module.exports = {
       ]) },
 
     { h2: "Which schools is The Farm at Carolina Forest zoned for?", toc: "Schools", html:
-      h.p("Every home in The Farm at Carolina Forest is zoned for three Horry County public schools. The two Ocean Bay schools are just outside The Farm's north-east side.") +
+      h.p("Every home in The Farm at Carolina Forest is zoned for three Horry County public schools. The two Ocean Bay schools are at The Farm's north-east edge. The middle school's land borders The Farm, and the elementary school's land is about 40 feet from it.") +
       SCHOOLS +
       h.p("Every home in The Farm is inside all three zones, so every home has the same three schools.") +
       h.table(["School", "Grades", "Drive from the entrance"], [
