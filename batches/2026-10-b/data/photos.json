@@ -1365,9 +1365,9 @@
         "1200": "images/buyers/gated-communities/waterway-palms-plantation-from-above-2023-1200w.webp"
       },
       "title": "Waterway Palms Plantation from above (USDA NAIP 2023)",
-      "what": "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
-      "caption": "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
-      "alt": "Waterway Palms Plantation from above, labelled: rows of houses on winding ponds, a large building with pools and tennis courts on a point of land, and the Intracoastal Waterway at the lower right; labels: Waterway Palms and Clubhouse and pools",
+      "what": "Waterway Palms Plantation from above: houses on curving ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
+      "caption": "Waterway Palms Plantation from above: houses on curving ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
+      "alt": "Waterway Palms Plantation from above, labelled: rows of houses on curving ponds, a large building with pools and tennis courts on a point of land, and the Intracoastal Waterway at the lower right; labels: Waterway Palms and Clubhouse and pools",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "Waterway Palms Plantation"
@@ -2175,7 +2175,7 @@
         "Seasons clubhouse"
       ],
       "annotation_sources": {
-        "seasons_clubhouse": "The center of the Seasons clubhouse parcel, Horry County GIS parcels layer 24, PIN 46802030007, owner Seasons at Prince Creek West Community Association, \"COMMON AREA 1\" (33.586192, -79.071152); the clubhouse addresses are batch 2026-10-a Seasons ledger row 15."
+        "seasons_clubhouse": "The Seasons clubhouse building (33.586778, -79.071278), moved from the clubhouse parcel's center, which fell about 70 m south of the building beside the tennis courts (round 10 verifier, row 159); OpenStreetMap building way 1455817323 is the clubhouse footprint"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8802889.626175227%2C3972773.7381792786%2C-8801569.196307989%2C3973764.060579707&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
