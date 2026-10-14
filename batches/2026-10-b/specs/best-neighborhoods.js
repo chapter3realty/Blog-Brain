@@ -1,6 +1,13 @@
 /* /buyers/best-neighborhoods/ - the best neighborhoods in Myrtle Beach, by what the reader wants nearby.
  *
- * Batch 2026-10-b, page 1. Version 9, 2026-10-14 (round 9: review/OWNER-EYE-8-best-neighborhoods.md). The five
+ * Batch 2026-10-b, page 1. Version 10, 2026-10-14 (round 10: review/ROUND-10.md, OWNER-EYE-9). Deerfield gains
+ * the Deer Track golf resort, the 2006 sale, the court case and the new houses on the old courses;
+ * Forestbrook Estates gains its county record (planned as Kingsland, 500 houses). A plain trade-off line
+ * in Tidewater, Waterbridge, The Farm, Plantation Lakes, Berkshire Forest, Forestbrook Estates and The
+ * Market Common. Tidewater's course history lives on the gated page now (link). The canal fee is one
+ * line under the yearly-cost table; the example is now Megan's second-home tax rate. Rows 224 to 231,
+ * pending verification (round 10).
+ * Version 9, 2026-10-14 (round 9: review/OWNER-EYE-8-best-neighborhoods.md). The five
  * thin entries (Waterbridge, Plantation Lakes, Berkshire Forest, Forestbrook Estates, Prince Creek) now carry
  * who built them and when, from the county deed index, and what only they have. The flood line is kept in
  * Cherry Grove and Surfside only, with one sentence after the table; the park-distance line in Cherry Grove
