@@ -147,6 +147,27 @@ For a subject that fits no kind, find the main relation in the content: place, a
 
 ## 5. Write it
 
+### Say something new, every time (owner, 2026-10-14)
+
+The owner's second read found the same fault on every page: "extremly repetitive writing ... youll get hung up on one thing and then its all you ever want to talk about", sentences that say nothing ("Your own doors, locks and alarm are still yours to choose"), and "surface level" answers anyone could guess. These are one fault with one root cause.
+
+**The root cause.** Research gathered the same few fields for every place (price, fee, minutes, the gate), like a spreadsheet. A writer who has only those fields can only say them again, place after place, and fills the gaps with safe sentences. Repetition, fixation on one theme and filler all come from thin, uniform research, then from a structure that follows the spreadsheet (one section per area asking the same question) instead of the reader.
+
+**The fix starts in research.** For every place or item on a page, find what only it has: its special features, its history (who built it and when, what the land was, how it changed), what someone notices on a first visit, what an owner does there on a normal day. Primary sources: the county's records, the HOA's own documents, the town's history, old aerials, news archives, our own agents' knowledge. If two places come out with the same paragraph, the research is not done.
+
+**Then test every sentence:**
+- **Is it new?** It tells the reader something the page has not already said. One fact is said once, in its one place. A theme (the gate, the price, the HOA fee) is the page's subject, so it is stated once at the top and once in each entry's facts line, never in every paragraph.
+- **Could only this place say it?** A sentence that would be true of any neighborhood ("homes are close to shopping", "each has its own character") says nothing. Replace it with the fact that makes this place different, or cut it.
+- **Would a top local agent say it out loud?** Obvious statements, reassurance and hedges ("your own doors and locks are still yours to choose", "every home is different", "it depends on your needs") sound like a machine covering itself. Cut them.
+- **Is it more than a minute of searching?** The page is worth reading only for what a buyer could not easily find alone: specific streets and subdivisions, what the county records show, how prices really fall, history, what our agents know. A town name as the answer to "where" is not an answer.
+
+**Structure follows the reader's choices, not the data table.** Never write one section per area that asks the same question ("Which neighborhoods in X are gated?" four times). For many places of one type, give a short "what are you looking for" legend that points to the entries, then one entry per place with several paragraphs on its own special features and history (CRAFT 3, a list of places).
+
+### We do the work (owner, 2026-10-14)
+
+Chapter3's agents do the checking. The page never tells the reader to check, verify or look something up themselves ("check the deed", "ask the HOA", "how do you check a home for an HOA"). It says what we check and what it means: "We check the deed and the HOA papers before you make an offer." The reader should feel they are with the best agents in town, not reading a to-do list.
+
+
 - **Short sentences, one idea each, plain words.** A stranger decides what is plain, not the writer.
 - **Spell out every abbreviation once, even the common one.** Readers of pages that said "HOA" 28 times did not know what the fee pays for. Say it once in full, with what it means for the reader.
 - **One page, one value.** The tiles, the short answer, the table, the chart and the FAQ give the same figure for the same thing, rounded the same way.

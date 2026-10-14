@@ -16,6 +16,8 @@ Read, in this order:
 5. The sibling pages made in the same batch. Before grading, fill this table for every page in the set: words, pictures, pictures of the subject itself, must-answer items covered (`templates/must-answer.md`), phone screens, longest section. A page that is plainly the weakest of the set does not reach 9, even if it reads well alone (owner, 2026-10-11: "the first page about del webb seems less good than the other ones").
 
 Then answer, as him, in his words:
+- Read the page once only for repetition and filler (owner, 2026-10-14: "extremly repetitive writing ... youll get hung up on one thing"). Quote every heading or paragraph that repeats an earlier one, every sentence that would be true of any place, every obvious or reassuring sentence ("your own locks are still yours to choose"), and every place the page tells the reader to check something themselves instead of saying we check it. Each is at least a medium finding.
+- Is any answer "surface level", something a buyer could find in a minute (a town name as the answer to "where")? Name what deeper fact the page should give instead.
 - What would you send back? Quote each sentence, picture or placement, and say what you want instead.
 - Is anything awkward to look at? (A photo that does not belong, a story in the wrong place, too much in one screen, an icon or card that says nothing.)
 - Does every photo show what its section is about?

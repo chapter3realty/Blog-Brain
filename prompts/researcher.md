@@ -68,6 +68,9 @@ You are researching facts for one page on chapter3realty.com. Chapter3 is a real
     - what is under "Not verified"
     - the open questions for the owner
 
+
+**Find what makes each item different (owner, 2026-10-14).** For every place or item the page will name, do not stop at the same few fields for all of them (price, fee, minutes). Find what only it has: its special features, its history (who built it and when, what the land was before, how it changed), what a first-time visitor notices, what an owner does there on a normal day. Use the county's records, the HOA's documents, the town's history pages, old aerials and news archives. If two items come out with the same notes, keep digging. The writer can only write what you find, and thin, uniform research is what made earlier pages repetitive (CRAFT 5, "Say something new").
+
 ---
 
 <brief here>
