@@ -467,7 +467,7 @@
     ],
     "ground_m_per_px_1200w": 0.53
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900
@@ -525,7 +525,7 @@
     ],
     "ground_m_per_px_1200w": 0.6
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900
@@ -584,7 +584,7 @@
     ],
     "ground_m_per_px_1200w": 0.63
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900
@@ -641,7 +641,7 @@
     ],
     "ground_m_per_px_1200w": 0.5
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900
@@ -700,7 +700,7 @@
     ],
     "ground_m_per_px_1200w": 0.87
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900
@@ -758,7 +758,7 @@
     ],
     "ground_m_per_px_1200w": 0.5
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900
@@ -815,7 +815,7 @@
     ],
     "ground_m_per_px_1200w": 0.5
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900
@@ -872,7 +872,7 @@
     ],
     "ground_m_per_px_1200w": 0.55
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900
@@ -925,7 +925,7 @@
     ],
     "ground_m_per_px_1200w": 0.63
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900
@@ -985,7 +985,7 @@
     ],
     "ground_m_per_px_1200w": 0.7
    },
-   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 46 px, then resized)",
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
    "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
    "width": 1200,
    "height": 900

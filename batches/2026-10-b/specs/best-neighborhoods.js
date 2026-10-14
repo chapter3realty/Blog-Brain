@@ -1,12 +1,15 @@
 /* /buyers/best-neighborhoods/ - the best neighborhoods in Myrtle Beach, by what the reader wants nearby.
  *
- * Batch 2026-10-b, page 1. Version 3, 2026-10-13 (round 3: review/ROUND-3.md and
- * review/OWNER-EYE-best-neighborhoods.md; round 2: ROUND-2.md and BUYER-READ-best-neighborhoods.md).
- * Round 3: the canal fee stated from the city's own resolution (row 182, pending); the lender's flood
- * rule said once, in plain words; a new example with its own shape (Deerfield's golf-cart parking); a
- * name beside every overview dot that has room, a number in the key for the rest; Grande Dunes and
- * Tidewater in the gated page's words and values; shorter (FAQ of five, no method sentences, no
- * paragraph that repeats a table).
+ * Batch 2026-10-b, page 1. Version 7, 2026-10-14 (round 7: review/ROUND-7.md, the owner's first read:
+ * "too jumpy and alot about price instead of the amenities ... a headline for that community and a few
+ * paragraphs and photos and then the next"). The shape is now CRAFT 3's list of places (reports/Page
+ * shapes, 1b): hero and short answer, a boxed first offer (website-patches/mkpage-offer-box.patch,
+ * heroCta.title), the numbered map, a short "best for" index, then one numbered entry per place in the
+ * map's order (H2 headline, a photo, the homes, the amenities, what is close by, the trade-off in one
+ * line, the price and fee in one line), then one table of all 15, the yearly cost, living here all year,
+ * a 55+ pointer, the checks and the example, the FAQ. The want cards, the area tables and the area maps
+ * are gone. Amenity facts: neighborhoods-facts.md rows 183 to 199 (round 7, pending verification).
+ * Earlier rounds: version 3 (round 3: ROUND-3.md and OWNER-EYE-best-neighborhoods.md), version 2.
  *
  * Reader. Someone who typed "best neighborhoods in Myrtle Beach", "best places to live in Myrtle Beach",
  * "best communities", "best areas to live", or the North Myrtle Beach or Surfside Beach versions. The cold
