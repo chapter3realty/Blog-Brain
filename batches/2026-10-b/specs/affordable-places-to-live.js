@@ -305,7 +305,7 @@ module.exports = {
       strip("golf-and-yacht-club") +
       h.p("Myrtle Beach Golf and Yacht Club is a community of houses off Bay Road, which leaves SC 707 near Socastee. Owners share a pool, tennis and shuffleboard courts, a playground and a clubhouse, and the HOA has a storage area for RVs and trailers. We check the HOA papers for what the fee covers, including any gate and security.") +
       PH["golf-and-yacht-club"] +
-      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is about 2.5 miles by road, and Socastee Recreation Park is to the northeast. Most houses in the older part are small and one story, on small lots, from the 1980s. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
+      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is about an eight-minute drive. Most houses in the older part are small and one story, on small lots, from the 1980s. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
       h.p(`Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`)),
 
     entry("forestbrook-village", "new townhomes off Forestbrook Road", () =>
@@ -328,14 +328,14 @@ module.exports = {
       h.p("The Townes at Amber Bluff is a new townhome community off Savannah Bluff Road, on the Conway side of US 501. Coastal Carolina University's campus and Brooks Stadium are south, across US 501.") +
       PH["amber-bluff"] +
       h.p("D.R. Horton built every townhome here. Each one listed has the same floor plan, with three bedrooms, and the sales were close together in price. The HOA fee includes the grounds and trash, not water.") +
-      h.p("Downtown Conway and its riverwalk on the Waccamaw River are to the northwest. Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.") +
+      h.p("Downtown Conway and its riverwalk on the Waccamaw River are an eight-minute drive to the northwest. Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.") +
       h.cta("Want the homes for sale in one of these neighborhoods?", "Tell us which ones you like and your price range. One of our agents will send you what is for sale there, with the HOA fee and the yearly tax for each home.", OFFER, CONTACT, bg)),
 
     entry("villas-at-sandridge", "new townhomes off SC 90 near the waterway", () =>
       strip("villas-at-sandridge") +
       h.p("Villas at Sandridge is a new townhome community off SC 90 near Little River, from Dream Finders Homes. The county records it as Village at Sandridge, and new townhomes here were still selling in September 2026. Each is two stories, with a one-car garage.") +
       PH["villas-at-sandridge"] +
-      h.p("The North Myrtle Beach Park and Sports Complex, with ball fields and walking trails around a lake, is about five minutes by car to the southwest, across the highway interchange. Marinas on the Intracoastal Waterway are about two and a half miles east, in a straight line. A Food Lion, an Aldi and a Kroger are six to eight minutes away.") +
+      h.p("The North Myrtle Beach Park and Sports Complex, with ball fields and walking trails around a lake, is about five minutes by car to the southwest, across the highway interchange. Marinas on the Intracoastal Waterway are six or seven minutes east by car. A Food Lion, an Aldi and a Kroger are six to eight minutes away.") +
       h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly fee is also higher than at the other new communities here.")),
 
     entry("indigo-grove", "new houses off SC 90", () =>
@@ -343,7 +343,7 @@ module.exports = {
       h.p("Indigo Grove is a new neighborhood of houses off SC 90, south of Longs. Lennar sells it as The Overlook and sold about 145 houses here in about ten months.") +
       PH["indigo-grove"] +
       h.p("Griffin's IGA, a grocery store on SC 90, is a three-minute drive. Riverside Elementary is the zoned elementary school. None of the lots sold here last year is in a high-risk flood zone.") +
-      h.p("Coastal Grand Mall, on the other hand, is a long drive. Before the houses, this land was fields and woods.")),
+      h.p("Coastal Grand Mall, on the other hand, is a long drive. Of the three places on this list near Longs, Indigo Grove has the shortest drive to the beach. Before the houses, this land was fields and woods.")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
       strip("wynbrooke") +
@@ -356,7 +356,7 @@ module.exports = {
       strip("polo-farms") +
       h.p("Polo Farms is a neighborhood of one-story houses off SC 905, between SC 9 and SC 22, west of Longs. The houses date from 2005 on, every sale last year was a resale, and the monthly fee is small.") +
       PH["polo-farms"] +
-      h.p(`Around it are woods, pine plantations, fields and a few homes along SC 905. Todd Swamp, a stream with wooded wetland along it, is about a mile to the southwest. Horry County Fire Rescue's Red Bluff station is about a mile and a half away. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
+      h.p(`Around it are woods, pine plantations, fields and a few homes along SC 905. Todd Swamp, a stream with wooded wetland along it, is about a mile to the southwest. Horry County Fire Rescue's Red Bluff station is under two miles away by road. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
       h.p("Flood is a concern here. Half of last year's sales were on lots in a high-risk flood zone, and a lender usually requires flood insurance there. Before you make an offer, we look up the lot on FEMA's flood map.")),
 
     { h2: "How do the twelve compare on schools and the drive?", toc: "Schools and the drive", id: "schools", html: () =>
