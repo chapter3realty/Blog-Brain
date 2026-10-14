@@ -1016,7 +1016,7 @@
     "row": "gated 181",
     "pattern": "\\bFew homes change hands here",
     "struck": "Few homes change hands here; the ones that do sell for about $1 million.",
-    "use": "Homes here have sold for about $630,000 to $1.5 million."
+    "use": "In the last year, homes here sold for about $630,000 to $1.5 million."
   },
   {
     "row": "gated 181",
@@ -1040,7 +1040,7 @@
     "row": "gated 181",
     "pattern": "\\bFew homes change hands here\\b",
     "struck": "Few homes change hands here; the ones that do sell for about $1 million.",
-    "use": "Homes here have sold for about $630,000 to $1.5 million."
+    "use": "In the last year, homes here sold for about $630,000 to $1.5 million."
   },
   {
     "row": "gated 49",
@@ -1070,7 +1070,7 @@
     "row": "gated 178",
     "pattern": "Enterprise Landing[^.]{0,80}\\b6-minute drive",
     "struck": "Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is a 6-minute drive.",
-    "use": "Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about 4 minutes from the entrance."
+    "use": "Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance."
   },
   {
     "row": "gated 150",
@@ -1083,5 +1083,35 @@
     "pattern": "\\bbarcode for the gate, \\$25 each",
     "struck": "Owners' cars get a barcode for the gate, $25 each.",
     "use": "A new barcode for an owner's car costs $25."
+  },
+  {
+    "row": "gated 184",
+    "pattern": "\\$525,000 to \\$1[.,]55|\\b21 (?:resales|sales)\\b[^.]{0,60}\\bBluffs|\\bBluffs\\b[^.]{0,60}\\b21 (?:resales|sales)\\b",
+    "struck": "The Bluffs on the Waterway: 21 sales, $525,000 to $1,550,000.",
+    "use": "(Cut the count and the range: the index has 22 resales, $525,000 to $1,675,000. Use 'Homes usually sell for about $850,000.')"
+  },
+  {
+    "row": "gated 184",
+    "pattern": "\\$730,000 to \\$1,030,000",
+    "struck": "Middle half $730,000 to $1,030,000.",
+    "use": "(Middle half of 22 resales: $735,000 to $1,060,000. Better to print only 'about $850,000'.)"
+  },
+  {
+    "row": "gated 186",
+    "pattern": "\\bHomes here have sold for about \\$630,000",
+    "struck": "Homes here have sold for about $630,000 to $1.5 million.",
+    "use": "In the last year, homes here sold for about $630,000 to $1.5 million."
+  },
+  {
+    "row": "gated 186",
+    "pattern": "Enterprise Landing[^.]{0,100}\\babout 4 minutes from the entrance",
+    "struck": "Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about 4 minutes from the entrance.",
+    "use": "Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance."
+  },
+  {
+    "row": "gated 186",
+    "pattern": "\\babout 40 of its lots are still empty",
+    "struck": "It was built from about 2006 on, and about 40 of its lots are still empty.",
+    "use": "It was built from about 2006 on, and about 40 of its lots have no house yet."
   }
 ]
