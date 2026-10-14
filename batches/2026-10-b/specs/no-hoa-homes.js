@@ -399,7 +399,7 @@ module.exports = {
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
     entry("Loris", "Loris: new houses on about 0.7 acre, near a small downtown", [
-      `Loris grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. In the late 1800s it was also a farm center for the country around it. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street.`,
+      `In the late 1800s Loris was a farm center for the country around it. It grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street.`,
       `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and two stages of live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
       "Loris has its own hospital, McLeod Loris, in town. Its lots fall between Aynor's acre and Conway's half acre.",
     ], LORIS_PHOTO, "Coastal Grand Mall in Myrtle Beach is a drive of about 50 minutes."),
@@ -412,7 +412,7 @@ module.exports = {
 
     entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
       `North Myrtle Beach began in 1968, when Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill joined as one city. In the Ocean Drive and Crescent Beach area, a pavilion drew crowds who danced the ${h.ext(SCE + "shag/", "shag")}. South Carolina made it the ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
-      "The houses for sale are mostly in those old beach towns, and most are within half a mile of the beach. About 6 in 10 were built before 1990. Cherry Grove also has a fishing pier.",
+      "The houses for sale are mostly in those old beach towns, and most are within half a mile of the beach. About 6 in 10 were built before 1990.",
       `Cherry Grove's canals were ${h.ext(CANALS, "created as early as the 1950s")}. By the 1970s, some were filling up. Left alone, they would have turned back into marsh and mudflats. The city has dredged canals there twice since 2016, so owners' boats can reach House Creek and the Intracoastal Waterway at high and low tide. Owners of about 415 properties in the canal district pay the city about $1,700 a year for that work.`,
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
 
@@ -425,7 +425,7 @@ module.exports = {
     entry("Murrells Inlet", "Murrells Inlet: bigger houses near the seafood restaurants and Brookgreen Gardens", [
       `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought a tract there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
       `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. In the twentieth century a fleet of charter and party boats grew up at the inlet, and its captains took visiting anglers offshore.`,
-      `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest typical size on this list.`,
+      `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest of the eight areas.`,
     ], INLET_PHOTO, "Murrells Inlet is not a town, and part of it is in Georgetown County, with its own tax bill and rules."),
 
     entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near the ocean", [
@@ -441,7 +441,7 @@ module.exports = {
     ], LR_PHOTO, "none of the houses for sale here is within a mile of the beach."),
 
     { h2: "How do the eight areas compare?", toc: "The areas side by side", html: () =>
-      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of them are near the ocean, on the ocean side of US 17 Business, the coast road.`) +
+      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. Many of the houses listed with no fee are on the ocean side of US 17 Business, the coast road, which helps explain the higher price.`) +
       areaTable() +
       h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) },
 
