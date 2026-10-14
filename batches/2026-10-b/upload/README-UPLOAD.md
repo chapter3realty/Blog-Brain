@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-14 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 8b9560a, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
+Built 2026-10-14 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 5d51e1e, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -225,7 +225,7 @@ wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (137225 byte
 ### PASS: specs/seasons-at-prince-creek-west.js in the package is Blog-Brain batches/2026-10-a/specs/seasons-at-prince-creek-west.js, as it is today
 
 ```
-identical (sha256 94645481c772)
+identical (sha256 e45f38fc989e)
 ```
 
 ### PASS: data/places.json in the package is Blog-Brain batches/2026-10-a/data/places.json, as it is today
@@ -243,7 +243,7 @@ identical (sha256 bad440bfd4b9)
 ### PASS: node tools/mkpage.js specs/seasons-at-prince-creek-west.js (rebuild an existing page)
 
 ```
-wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (147633 bytes, hero sub 17 words, main 2187 words)
+wrote chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html (147661 bytes, hero sub 17 words, main 2189 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/del-webb-north-myrtle-beach.js (rebuild an existing page)
@@ -282,7 +282,7 @@ why: Seasons' beach drive: at-a-glance row, FAQ, comparison table and map (13 mi
 - <td data-label="Minutes to the beach by car" style="padding:.55rem .8rem;border-bottom:1px solid var(--rule);color:var(--muted)">About 10</td>
 + <td data-label="Minutes to the beach by car" style="padding:.55rem .8rem;border-bottom:1px solid var(--rule);color:var(--muted)">About 13</td>
 - <p style="color:var(--muted);line-height:1.75;max-width:720px;margin-bottom:1rem">About 10 minutes by car without traffic, to the nearest public beach access in Garden City.</p>
-+ <p style="color:var(--muted);line-height:1.75;max-width:720px;margin-bottom:1rem">About 13 minutes by car without traffic, to the nearest public beach access in Garden City.</p>
++ <p style="color:var(--muted);line-height:1.75;max-width:720px;margin-bottom:1rem">About 13 minutes by car without traffic, to the nearest public beach access with parking, in Garden City.</p>
 ```
 
 ### PASS: /buyers/55-plus-communities/del-webb-north-myrtle-beach/ rebuilt from the package matches the first build; changed from the live branch: 1 element(s)
@@ -395,7 +395,7 @@ OK - all 136 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 141 pages from commit d6f1fd42 on claude/github-account-check-wutg8b.
+OK - deploying 141 pages from commit acfcc938 on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
@@ -438,31 +438,31 @@ Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1738 words)
 ### PASS: struck-check.js /buyers/best-neighborhoods/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/gated-communities/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/no-hoa-homes/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/affordable-places-to-live/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /submarkets/carolina-forest/the-farm/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-UkPP7K/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
+/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
 ```
 
 ### PASS: claims-scan.js: no new banned claim on any surface

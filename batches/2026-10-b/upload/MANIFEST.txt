@@ -1,4 +1,4 @@
-Upload package for batch 2026-10-b. Built 2026-10-14 from Blog-Brain 8b9560a against the live branch at 39036014.
+Upload package for batch 2026-10-b. Built 2026-10-14 from Blog-Brain 5d51e1e against the live branch at 39036014.
 size  sha256  path
 137138  9ff38f26446dfeef964247b0602887b500364c6dcfd6eae0a032a091cee30d92  batch-2026-10-b.patch
 198802  a7285b35809c52ac37fbb4b3e16e87df1f8f2fd4a20c5034c9a687297a40ac5e  site/chapter3realty/images/buyers/affordable/birchwood-and-sc-905-from-above-1200w.webp
@@ -154,7 +154,7 @@ size  sha256  path
 55075  b415d2c4e45f3d75a1ebfad807f92053527190f40b37a1f960ef55ceb1720c7d  site/specs/best-neighborhoods.js
 59308  73efc6fbb9f3c3f0ff40c50bbde7398e02b2cdc4f18d2f94579a5043984f6aa4  site/specs/gated-communities.js
 51591  1257427093a2463d9f9b33301e96410d0508aa7dd620bc2f64aeecada14a0109  site/specs/no-hoa-homes.js
-19841  94645481c7727bcc38623944c75af8a771655ec4305d57d566dc62dbbae60406  site/specs/seasons-at-prince-creek-west.js
+19855  e45f38fc989ebbc2b6c81061cb6daff57dd5116f6ed1e2affed7729ec6f5993c  site/specs/seasons-at-prince-creek-west.js
 29495  6d10270187181db2de0448b9497e1257e2d7daa2f36a5e48453e189e6139c006  site/specs/the-farm.js
 10182  5ec11d7c1db5b05cee1488be81dd6627305fa43ae4a621be3dc9dc5da549e8a3  site/tools/blog-brain-2026-10-b/rules/claims.json
 144777  50b1e1f4b4595a20e4ea68acaec179b942fcbe972f20bed374079a0f9136aa6e  site/tools/blog-brain-2026-10-b/tools/area-map.js
