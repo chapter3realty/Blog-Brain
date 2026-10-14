@@ -79,6 +79,8 @@
  * Round 12b: Georgetown County prices checked against the county's last-sale table and the deed index
  *   (rows 191 to 198, data/gated-georgetown-sales.json). After the verifier's reconciliation, Wachesaw
  *   ($700,000), The Reserve ($1.3 million) and Willbrook ($840,000) moved; the others keep the MLS figures.
+ * Round 13 (OWNER-EYE-12): Litchfield by the Sea's price and fee lines rewritten (row 199); map 1 split
+ *   into 1 to 10 and a Murrells Inlet map (11 to 14), every dot named; no shared tool changed.
  */
 const { h, kit, data, placesMap, compareCards, wantPicker, prosCons, atAGlance, glance, story, photoSetB, BB } = require("./_kit.js");
 const path = require("path");
@@ -435,7 +437,7 @@ const SECTIONS_PLACES = [
     "Litchfield by the Sea lies between the marsh and the ocean. Its homes range from oceanfront houses to villas with marsh views and condos.",
     "It has about a mile of beach and an oceanfront Beach Club with a deck and a pavilion. Fishing and crabbing docks are on Osprey Lake, and paved paths run through the marsh and woods.",
     "Owners' cars use a barcode at the gate. The pool is at the River Club, across US 17 from the beach.",
-    "In the last year, one-bedroom condos in Summerhouse sold for about $200,000, and homes in Breakers Reef for $1.5 million or more. The HOA fee differs from building to building, so we find out the fee for any home you like before you offer.",
+    "One-bedroom condos in Summerhouse sell for about $200,000, and homes in Breakers Reef for about $1.5 million to $2.2 million. The HOA fee differs from building to building, so we find out the fee for any home you like before you offer.",
   ], P("litchfield-by-the-sea"), "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right.",
   `a ${h.ext(LBTS_GUIDE, "guard day and night")} at the main gate on US 17. In the last year, whole condos here, not shared weeks, sold for about $180,000 to $2.2 million, and houses in its Oystercatcher Island section for about $750,000.`),
 

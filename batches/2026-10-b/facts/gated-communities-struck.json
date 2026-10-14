@@ -106,7 +106,7 @@
     "row": "gated 166",
     "pattern": "has its own prices and fees",
     "struck": "Each of its many sections has its own prices and fees.",
-    "use": "The HOA fee and the prices differ from section to section and from unit to unit."
+    "use": "The HOA fee differs from building to building, so we find out the fee for any home you like before you offer."
   },
   {
     "row": "gated 93",
@@ -1208,7 +1208,7 @@
     "row": "gated 139",
     "pattern": "\\bAbout one lot in ten had no house yet",
     "struck": "About one lot in ten had no house yet, so new houses are still going up beside some homes.",
-    "use": "Some lots have no house yet, and the newest houses here date from 2025 and 2026."
+    "use": "Some lots have no house yet, and a few houses are brand new."
   },
   {
     "row": "gated 161",
@@ -1244,13 +1244,13 @@
     "row": "gated 139, 189",
     "pattern": "\\bnew houses are going up beside",
     "struck": "Some lots have no house yet, so new houses are going up beside some homes.",
-    "use": "Some lots have no house yet, and the newest houses here date from 2025 and 2026."
+    "use": "Some lots have no house yet, and a few houses are brand new."
   },
   {
     "row": "gated 89, 190",
     "pattern": "\\$1\\.5 million, and the middle sale was about \\$1 million",
     "struck": "In the last year, homes here sold for about $630,000 to $1.5 million, and the middle sale was about $1 million.",
-    "use": "In the last year, homes here sold for about $630,000 to $1.5 million, and the middle sale was about $840,000."
+    "use": "Homes here usually sell for about $840,000."
   },
   {
     "row": "gated 174, 190",
@@ -1329,5 +1329,41 @@
     "pattern": "Georgetown's name no seller",
     "struck": "Georgetown's name no seller and may include a builder sale.",
     "use": "Georgetown County's sale records name no seller, so a price there may include a builder sale, and they keep only each home's latest sale."
+  },
+  {
+    "row": "gated 90, 92, 199",
+    "pattern": "\\banywhere from under \\$200,000",
+    "struck": "In the last year, condos sold for anywhere from under $200,000 to over $2 million.",
+    "use": "In the last year, whole condos here, not shared weeks, sold for about $180,000 to $2.2 million."
+  },
+  {
+    "row": "gated 92, 199",
+    "pattern": "\\bHOA fee and the prices differ from section to section",
+    "struck": "The HOA fee and the prices differ from section to section and from unit to unit.",
+    "use": "The HOA fee differs from building to building, so we find out the fee for any home you like before you offer."
+  },
+  {
+    "row": "gated 190, 199",
+    "pattern": "\\bthe middle sale was about \\$840,000",
+    "struck": "In the last year, homes here sold for about $630,000 to $1.5 million, and the middle sale was about $840,000.",
+    "use": "Homes here usually sell for about $840,000."
+  },
+  {
+    "row": "gated 189, 199",
+    "pattern": "\\bnewest houses here (?:were built in|date from) 2025",
+    "struck": "Some lots have no house yet, and the newest houses here were built in 2025 and 2026.",
+    "use": "Some lots have no house yet, and a few houses are brand new."
+  },
+  {
+    "row": "gated 177, 199",
+    "pattern": "\\bCovington Lake East LLC",
+    "struck": "Its developer, Covington Lake East LLC, began selling lots in 2006.",
+    "use": "Lots went on sale in 2006."
+  },
+  {
+    "row": "gated 199",
+    "pattern": "\\bspecial assessment\\W*(?:</a>)?\\W*is less likely",
+    "struck": "We check the HOA's savings, so a one-time charge to every owner, a special assessment, is less likely.",
+    "use": "We check the HOA's savings, so you know before you offer whether a one-time charge to every owner, a special assessment, is likely."
   }
 ]
