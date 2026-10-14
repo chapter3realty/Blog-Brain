@@ -11,6 +11,8 @@
  *   Kept: the tax in dollars (now one example, pending row 153), the down-payment help and the Dana
  *   example. Cut: the town entries, their photos, the pros and cons, the compare table (it repeated the
  *   entries). ItemList JSON-LD for the numbered entries.
+ * Version 9c, 2026-10-14: Victory Point's neighbor plan from MyHorryNews 2026 (row 176); Villas at Sandridge
+ *   still selling by the deeds (row 177); Birchwood southwest of Longs; Polo Farms fee "lowest on this list".
  * Version 9b, 2026-10-14: the verifier's notes on rows 155 to 171 (none wrong): cause wording without a row
  *   cut; Victory Point's neighbor plan from the Sun News (row 172); Villas at Sandridge sold out and sized
  *   (row 173); the Sawgrass East to Victory Point drive (row 174); wording fixes (row 175).
@@ -76,8 +78,8 @@ const SCH = "https://schousing.sc.gov/homebuyers/programs-homebuyers";
 const DOI = "https://doi.sc.gov/614/Cost-of-Homeowners-Insurance";
 const OSRM = "https://project-osrm.org/";
 const SPEEDWAY = "https://www.wmbfnews.com/2024/07/10/old-myrtle-beach-speedway-being-transformed-into-townhome-community";
-/* The Sun News, 2024-06-26, Ben Morse, as republished by AOL (pending row 172). */
-const SUNNEWS = "https://www.aol.com/exclusive-myrtle-beach-closed-speedway-090000918.html";
+/* MyHorryNews, 2026-02-15, Sazie Eagan (pending row 176). */
+const REV3 = "https://www.myhorrynews.com/news/for-rent-townhome-community-breaks-ground-in-carolina-forest/article_bc89fa83-1610-4e28-ad33-58e653b0135c.html";
 const WILDWING = "https://www.myrtlebeachgolftrips.com/news/time-to-come-home-why-you-need-to-play-wild-wing/";
 
 /* ---------------------------------------------------------------------------- */
@@ -109,14 +111,14 @@ const P = [
   { id: "forestbrook-village", tradeoff: "A few lots sold last year are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for each lot.", year: 3000, name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6,
     homes: "New two-story townhomes, built 2026 and 2027", size: "3 bedrooms, about 1,450 to 2,000 square feet, a 1-car garage",
     fee: "About $170 a month, with internet", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
-  { id: "victory-point", tradeoff: `Another owner bought the other 21 acres of the speedway land in 2022 and, in a ${h.ext(SUNNEWS, "2024 plan")}, said it would build 226 townhomes there.`, year: 3800, name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9,
+  { id: "victory-point", tradeoff: `Another owner bought the other 21 acres of the speedway land in 2022 and plans ${h.ext(REV3, "194 townhomes for rent")} there, with leasing expected in 2027.`, year: 3800, name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9,
     homes: "New townhomes, built 2025 and 2026", size: "3 bedrooms, about 1,450 square feet",
     fee: "About $235 a month, with the pool", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", tradeoff: "Listings say each owner will also pay a yearly insurance assessment, not yet set.", year: 2200, name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6,
     homes: "New townhomes, built 2025 and 2026", size: "3 bedrooms, about 1,400 square feet",
     fee: "About $100 a month", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
   { id: "villas-at-sandridge", tradeoff: "About 30 minutes to Myrtle Beach, and the highest HOA fee of the new communities here.", year: 4600, name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.5,
-    homes: "Two-story townhomes, built 2023 to 2026", size: "3 bedrooms, about 1,500 to 1,900 square feet, a 1-car garage",
+    homes: "New two-story townhomes, built 2023 to 2026", size: "3 bedrooms, about 1,500 to 1,900 square feet, a 1-car garage",
     fee: "About $300 a month", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", tradeoff: "Myrtle Beach is a long drive, though the beach is not.", year: 2000, name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2,
     homes: "New houses, built 2025 and 2026", size: "",
@@ -272,7 +274,7 @@ module.exports = {
 
     entry("birchwood", "new houses off SC 905 near Longs", () =>
       h.p("Birchwood is a new neighborhood of houses off SC 905, north of SC 9 near Longs. The turn is beside the tall water tower.") +
-      h.p("Lennar built every house here, most on about a quarter acre. These are the lowest-priced new houses we found, north of Longs and well inland.") +
+      h.p("Lennar built every house here, most on about a quarter acre. These are the lowest-priced new houses we found, southwest of Longs.") +
       facts("birchwood")),
 
     entry("golf-and-yacht-club", "a gated community off Bay Road", () =>
@@ -301,8 +303,8 @@ module.exports = {
       facts("amber-bluff") +
       h.cta("Want the homes for sale in one of these neighborhoods?", "Tell us which ones you like and your price range. One of our agents will send you what is for sale there, with the HOA fee and the yearly tax for each home.", OFFER, CONTACT, bg)),
 
-    entry("villas-at-sandridge", "townhomes off SC 90 near the waterway", () =>
-      h.p("Villas at Sandridge is a townhome community off SC 90 near Little River, from Dream Finders Homes. Jome lists the builder's homes there as sold out. The county records it as Village at Sandridge.") +
+    entry("villas-at-sandridge", "new townhomes off SC 90 near the waterway", () =>
+      h.p("Villas at Sandridge is a townhome community off SC 90 near Little River, from Dream Finders Homes. The county records it as Village at Sandridge, and new townhomes here were still selling in September 2026.") +
       h.p("The Intracoastal Waterway, a marina and a boat launch are close by. Only Parkview is closer to a beach. They are townhomes, a few miles inland from the beachfront towns.") +
       facts("villas-at-sandridge")),
 
@@ -320,7 +322,7 @@ module.exports = {
 
     entry("polo-farms", "older houses with a small HOA fee", () =>
       h.p("Polo Farms is a neighborhood of one-story houses off SC 905, between SC 9 and SC 22, west of Longs.") +
-      h.p(`These are older houses far inland, from 2005 on, and the HOA fee is the lowest we found. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
+      h.p(`These are older houses, from 2005 on, and the HOA fee is the lowest on this list. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
       facts("polo-farms")),
 
     { h2: "How do the towns compare?", toc: "The towns", id: "towns", html: () =>
