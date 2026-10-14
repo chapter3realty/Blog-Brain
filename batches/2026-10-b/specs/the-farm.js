@@ -193,7 +193,7 @@ module.exports = {
       h.p("Most homes in The Farm at Carolina Forest are houses with their own yards. Most of the houses have about 1,450 to 3,200 square feet.") +
       h.p("The houses are on curving streets around ponds and shared open space. The townhomes are in a section called The Orchards, and the condos are in a section called Planters Point.") +
       OVER +
-      h.p("D.R. Horton recorded The Farm's HOA rules in 2004 and added land in stages until 2017. In 2019, it ended its right to appoint a majority of the HOA board. The farm theme runs through the street names, such as Scarecrow Way, Haystack Way, Pumpkin Patch Lane and Wheatfield Drive.") +
+      h.p("D.R. Horton has not controlled the HOA board since 2019, when it gave up its right to appoint a majority of the board. The farm theme runs through the street names, such as Scarecrow Way, Haystack Way, Pumpkin Patch Lane and Wheatfield Drive.") +
       h.p("Both one-story and two-story houses are for sale here, and a typical house lot is about a fifth of an acre.") +
       STREET +
       h.p("Most houses here are about 20 years old. Before you make an offer, we check how old the roof and the air conditioner are.") +
