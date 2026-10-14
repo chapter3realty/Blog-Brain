@@ -228,9 +228,8 @@ module.exports = {
       ]) },
 
     { h2: "Which schools is The Farm at Carolina Forest zoned for?", toc: "Schools", html:
-      h.p("Every home in The Farm at Carolina Forest is zoned for three Horry County public schools. The two Ocean Bay schools are at The Farm's north-east edge. The middle school's land borders The Farm, and the elementary school's land is about 40 feet from it.") +
+      h.p("Every home in The Farm at Carolina Forest is zoned for three Horry County public schools. Both Ocean Bay schools are at The Farm's north-east edge, by Wheatfield Drive.") +
       SCHOOLS +
-      h.p("Every home in The Farm is inside all three zones, so every home has the same three schools.") +
       h.table(["School", "Grades", "Drive from the entrance"], [
         ["Ocean Bay Elementary", "K to 5", "About 6 minutes"],
         ["Ocean Bay Middle", "6 to 8", "About 4 minutes"],
@@ -285,8 +284,8 @@ module.exports = {
 
     { h2: "Was The Farm at Carolina Forest part of an old bombing range?", toc: "Old bombing range", html:
       h.p("Yes. The Farm is on land the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Other parts of Carolina Forest are on that land too.") +
-      h.p("On the Army Corps of Engineers' latest map, the cleanup work on the land under every home in The Farm is finished. The Defense Department or a later owner may keep monitoring that land.") +
-      h.p("On the same map, the Corps is still investigating another section next to The Farm, called Range III. On the Corps' map, Range III touches the edges of some of The Farm's open land, but not any home lot.") +
+      h.p("The Army Corps of Engineers has finished the cleanup work on the land under every home in The Farm. The Defense Department or a later owner may keep monitoring that land.") +
+      h.p("The Corps is still investigating Range III, a section next door. Range III touches the edges of some of The Farm's open land, but not any home lot.") +
       h.p(`If you ever find something that looks like old ammunition, the ${h.ext(UXO, "Defense Department's advice")} is to leave it alone. Do not touch it, move away and call 911.`) +
       h.p(`We check the ${h.ext(FUDS, "Corps' map")} for any lot you like.`) },
   ],
