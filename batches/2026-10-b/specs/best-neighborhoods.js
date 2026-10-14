@@ -377,7 +377,7 @@ const ENTRIES = [
   ], "most of the few houses for sale here were built in the last few years and have about 2,300 square feet. Houses usually sell for about $395,000, and the HOA fee is under $90 a month."),
 
   ENTRY(12, "market-common", "The Market Common: a town center on the old Myrtle Beach Air Force Base", [
-    "The Market Common is built on the former Myrtle Beach Air Force Base. It began as an Army Air Corps field in World War II and closed in 1993. The base's land now holds The Market Common, a dozen parks, the airport and a golf course. Street names keep the history: Air Force Lane, Aviator Lane, Corsair Street.",
+    "The Market Common is built on the old Myrtle Beach Air Force Base. The base began as an Army Air Corps field in World War II and closed in 1993. The base's land now holds The Market Common, a dozen parks, the airport and a golf course. Street names keep the history: Air Force Lane, Aviator Lane, Corsair Street.",
     "Its houses and townhomes are beside a district of shops and offices. Grand Park, with picnic shelters, ball fields and a playground, is a few blocks from the nearest homes. Myrtle Beach State Park is about a mile away, and the ocean beach is about 5 minutes by car.",
     "The HOA fee on a townhome is high for this page, and a few homes are in a high-risk flood zone.",
   ], "townhomes for sale have about 1,700 square feet. Houses usually sell for about $540,000 and townhomes for about $398,000, and the HOA fee on a townhome is about $300 to $700 a month."),
