@@ -280,7 +280,7 @@ module.exports = {
       h.p("Farther inland, new houses in Collins Walk and Kingston Oaks near Conway, and in Warner Crossing near Loris, sold for less than some of the twelve. From those, the beach is 30 minutes or more away.") +
       barChart("What homes usually sold for in the past year, lowest first", "Chart of the middle sale price in each neighborhood, from the county's deed records. The dark bar is a home in the city of Myrtle Beach, condos left out, for comparison.") +
       MAP.html +
-      h.p("Drive times are from the middle of each neighborhood with no traffic. In the owner's experience, rush hour adds 5 to 10 minutes.") },
+      h.p("Drive times are from the middle of each neighborhood with no traffic. In our experience, rush hour adds 5 to 10 minutes.") },
 
     entry("parkview", "older townhomes inside Myrtle Beach", () =>
       strip("parkview") +
