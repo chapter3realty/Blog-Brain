@@ -72,6 +72,8 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B29. An aerial can show the wrong neighborhood.** The Deerfield aerial had passed three reviews. When the writer laid the county parcel lines over it, its left half was two other neighborhoods, Southwood and Belle Mer, and the lake and canal in it were theirs. The frame was centered on a point, not on the parcels. Rule: draw the county parcel or subdivision outline over every aerial of a named place before labelling it, and test every label point against that outline. A label that tests outside is wrong, however right it looks.
 
+**B30. A rewrite can undo a verified correction.** Round 9's verifier changed "owners drive golf carts" to "listings say golf carts are allowed" (row 220). In round 10 the writer rewrote the entry for depth and the old claim came back. A new row's cited source can also drift: three round 10 rows cited the wrong row number. Rule: after a rewrite, the writer reads each changed sentence against the final corrected wording of its row, and the verifier checks old rows the rewrite touched, not only the new ones.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.

@@ -1123,9 +1123,9 @@
         "1200": "images/buyers/gated-communities/tidewater-plantation-from-above-2023-1200w.webp"
       },
       "title": "Tidewater Plantation from above (USDA NAIP 2023)",
-      "what": "Tidewater Plantation from above: houses along the fairways of its golf course, with ponds among them, seen from above in 2023, with one label placed from a street address.",
+      "what": "Tidewater Plantation from above: houses along the fairways of its golf course, with ponds among them, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Tidewater Plantation from above: houses along the fairways of its golf course, with ponds among them.",
-      "alt": "Tidewater Plantation from above, labelled: streets of houses among golf fairways and small ponds, with woods at the left",
+      "alt": "Tidewater Plantation from above, labelled: streets of houses among golf fairways and small ponds, with woods at the left; labels: Tidewater Plantation and Golf club",
       "place": {
         "city": "North Myrtle Beach",
         "sublocation": "Tidewater Plantation"
@@ -1146,12 +1146,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307811_ne_17_060_20230410, m_3307812_nw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Tidewater Plantation"
+        "Tidewater Plantation",
+        "Golf club"
       ],
       "annotation_sources": {
-        "tidewater_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 1200 Tidewater Dr, North Myrtle Beach, SC 29582 (33.850259, -78.623043). Ledger rows 20, 58."
+        "tidewater_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 1200 Tidewater Dr, North Myrtle Beach, SC 29582 (33.850259, -78.623043). Ledger rows 20, 58.",
+        "golf_club": "OpenStreetMap node 6708490229 (Tidewater Golf Club, leisure=golf_course)"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8753240.362947606%2C4007990.7466226486%2C-8751313.803794533%2C4009435.665987453&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1182,9 +1184,9 @@
         "1200": "images/buyers/gated-communities/seaside-plantation-from-above-2023-1200w.webp"
       },
       "title": "Seaside Plantation from above (USDA NAIP 2023)",
-      "what": "Seaside Plantation from above: houses beside lakes, seen from above in 2023, with one label placed from a street address.",
+      "what": "Seaside Plantation from above: houses beside lakes, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Seaside Plantation from above: houses beside lakes.",
-      "alt": "Seaside Plantation from above, labelled: houses on curving streets beside dark lakes, with a large store roof at the top left",
+      "alt": "Seaside Plantation from above, labelled: houses on curving streets beside dark lakes, with a large store roof at the top left; labels: Seaside Plantation and Lake",
       "place": {
         "city": "North Myrtle Beach",
         "sublocation": "Seaside Plantation"
@@ -1205,12 +1207,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307811_ne_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Seaside Plantation"
+        "Seaside Plantation",
+        "Lake"
       ],
       "annotation_sources": {
-        "seaside_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 504 Seafarer Way, North Myrtle Beach, SC 29582 (33.826920, -78.668785). Ledger rows 15, 17, 59."
+        "seaside_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 504 Seafarer Way, North Myrtle Beach, SC 29582 (33.826920, -78.668785). Ledger rows 15, 17, 59.",
+        "lake": "OpenStreetMap way 45443294 (natural=water), its center"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8757970.978041876%2C4005133.8590908106%2C-8756767.207353905%2C4006036.687106789&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1240,9 +1244,9 @@
         "1200": "images/buyers/gated-communities/barefoot-leatherleaf-from-above-2023-1200w.webp"
       },
       "title": "Leatherleaf from above (USDA NAIP 2023)",
-      "what": "Leatherleaf, a gated neighborhood in Barefoot Resort, from above: one loop of houses around a pond, with golf fairways on both sides, seen from above in 2023, with one label placed from a street address.",
+      "what": "Leatherleaf, a gated neighborhood in Barefoot Resort, from above: one loop of houses around a pond, with golf fairways on both sides, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Leatherleaf, a gated neighborhood in Barefoot Resort, from above: one loop of houses around a pond, with golf fairways on both sides.",
-      "alt": "Leatherleaf in Barefoot Resort from above, labelled: a loop of houses around a pond, golf fairways above and below it, woods at the right and a highway at the top",
+      "alt": "Leatherleaf in Barefoot Resort from above, labelled: a loop of houses around a pond, golf fairways above and below it, woods at the right and a highway at the top; labels: Leatherleaf and Pond",
       "place": {
         "city": "North Myrtle Beach",
         "sublocation": "Leatherleaf"
@@ -1263,12 +1267,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307810_ne_17_060_20230410, m_3307810_se_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Leatherleaf"
+        "Leatherleaf",
+        "Pond"
       ],
       "annotation_sources": {
-        "leatherleaf": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 5418 Pheasant Dr, North Myrtle Beach, SC 29582 (33.810886, -78.762093). Ledger rows 9, 33, 62."
+        "leatherleaf": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 5418 Pheasant Dr, North Myrtle Beach, SC 29582 (33.810886, -78.762093). Ledger rows 9, 33, 62.",
+        "pond": "OpenStreetMap way 79157069 (natural=water), its center"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8768357.857290495%2C4002985.5112665077%2C-8767154.312260408%2C4003888.170039073&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1299,9 +1305,9 @@
         "1200": "images/buyers/gated-communities/grande-dunes-villa-venezia-from-above-2023-1200w.webp"
       },
       "title": "Grande Dunes from above (USDA NAIP 2023)",
-      "what": "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right, seen from above in 2023, with labels placed from a street address.",
+      "what": "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right.",
-      "alt": "Villa Venezia in Grande Dunes from above, labelled: houses with pools beside golf fairways and long dark ponds, and the wide Intracoastal Waterway at the lower right",
+      "alt": "Villa Venezia in Grande Dunes from above, labelled: houses with pools beside golf fairways and long dark ponds, and the wide Intracoastal Waterway at the lower right; labels: Villa Venezia and Intracoastal Waterway",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "Grande Dunes"
@@ -1359,9 +1365,9 @@
         "1200": "images/buyers/gated-communities/waterway-palms-plantation-from-above-2023-1200w.webp"
       },
       "title": "Waterway Palms Plantation from above (USDA NAIP 2023)",
-      "what": "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right, seen from above in 2023, with labels placed from a street address.",
+      "what": "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
-      "alt": "Waterway Palms Plantation from above, labelled: rows of houses on winding ponds, a large building with pools and tennis courts on a point of land, and the Intracoastal Waterway at the lower right",
+      "alt": "Waterway Palms Plantation from above, labelled: rows of houses on winding ponds, a large building with pools and tennis courts on a point of land, and the Intracoastal Waterway at the lower right; labels: Waterway Palms and Clubhouse and pools",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "Waterway Palms Plantation"
@@ -1420,9 +1426,9 @@
         "1200": "images/buyers/gated-communities/the-bluffs-on-the-waterway-from-above-2023-1200w.webp"
       },
       "title": "The Bluffs on the Waterway from above (USDA NAIP 2023)",
-      "what": "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner, seen from above in 2023, with labels placed from a street address.",
+      "what": "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner.",
-      "alt": "The Bluffs on the Waterway from above, labelled: houses on curving streets with ponds, a pool at the top, and the edge of the Intracoastal Waterway in the lower right corner",
+      "alt": "The Bluffs on the Waterway from above, labelled: houses on curving streets with ponds, a pool at the top, and the edge of the Intracoastal Waterway in the lower right corner; labels: The Bluffs and Amenity area",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "The Bluffs on the Waterway"
@@ -1480,9 +1486,9 @@
         "1200": "images/buyers/gated-communities/covington-lake-east-from-above-2023-1200w.webp"
       },
       "title": "Covington Lake East from above (USDA NAIP 2023)",
-      "what": "Covington Lake East from above: houses on curving streets, with ponds among them, seen from above in 2023, with one label placed from a street address.",
+      "what": "Covington Lake East from above: houses on curving streets, with ponds among them, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Covington Lake East from above: houses on curving streets, with ponds among them.",
-      "alt": "Covington Lake East from above, labelled: houses on curving streets with dark ponds among them, and woods and a cleared site at the left",
+      "alt": "Covington Lake East from above, labelled: houses on curving streets with dark ponds among them, and woods and a cleared site at the left; labels: Covington Lake East and Pond",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "Covington Lake East"
@@ -1503,12 +1509,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307809_sw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Covington Lake East"
+        "Covington Lake East",
+        "Pond"
       ],
       "annotation_sources": {
-        "covington_lake_east": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 805 Celene Ct, Myrtle Beach, SC 29579 (33.755259, -78.945748). Ledger rows 29, 64."
+        "covington_lake_east": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 805 Celene Ct, Myrtle Beach, SC 29579 (33.755259, -78.945748). Ledger rows 29, 64.",
+        "pond": "A point inside OpenStreetMap way 23378205 (natural=water), in its east arm (33.754552, -78.944988)"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8788741.663489701%2C3995580.560470162%2C-8787659.176294716%2C3996392.425866401&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1538,9 +1546,9 @@
         "1200": "images/buyers/gated-communities/myrtle-trace-from-above-2023-1200w.webp"
       },
       "title": "Myrtle Trace from above (USDA NAIP 2023)",
-      "what": "Myrtle Trace from above: houses on curving streets among trees, with golf fairways and ponds nearby, seen from above in 2023, with one label placed from a street address.",
+      "what": "Myrtle Trace from above: houses on curving streets among trees, with golf fairways and ponds nearby, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Myrtle Trace from above: houses on curving streets among trees, with golf fairways and ponds nearby.",
-      "alt": "Myrtle Trace from above, labelled: houses on curving streets among trees, golf fairways and ponds below them, and a large store at the right edge",
+      "alt": "Myrtle Trace from above, labelled: houses on curving streets among trees, golf fairways and ponds below them, and a large store at the right edge; labels: Myrtle Trace and Golf course",
       "place": {
         "city": "Conway",
         "sublocation": "Myrtle Trace"
@@ -1561,12 +1569,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307809_sw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Myrtle Trace"
+        "Myrtle Trace",
+        "Golf course"
       ],
       "annotation_sources": {
-        "myrtle_trace": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 101 Myrtle Trace Dr, Conway, SC 29526 (33.778502, -78.996618). Ledger rows 13, 76."
+        "myrtle_trace": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 101 Myrtle Trace Dr, Conway, SC 29526 (33.778502, -78.996618). Ledger rows 13, 76.",
+        "golf_course": "OpenStreetMap way 1566331227 (golf=fairway), its center, on Burning Ridge Golf Club (relation 3535586)"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8794705.44830778%2C3998467.232648985%2C-8793021.122571765%2C3999730.476950996&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1596,9 +1606,9 @@
         "1200": "images/buyers/gated-communities/prestwick-from-above-2023-1200w.webp"
       },
       "title": "Prestwick from above (USDA NAIP 2023)",
-      "what": "Prestwick from above: houses among the fairways of its golf course, with a lake at the left, seen from above in 2023, with one label placed from a street address.",
+      "what": "Prestwick from above: houses among the fairways of its golf course, with a lake at the left, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Prestwick from above: houses among the fairways of its golf course, with a lake at the left.",
-      "alt": "Prestwick from above, labelled: houses among trees and golf fairways, a long lake at the left, and a highway with businesses at the right",
+      "alt": "Prestwick from above, labelled: houses among trees and golf fairways, a long lake at the left, and a highway with businesses at the right; labels: Prestwick and Golf course",
       "place": {
         "city": "Myrtle Beach",
         "sublocation": "Prestwick"
@@ -1619,12 +1629,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307817_sw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Prestwick"
+        "Prestwick",
+        "Golf course"
       ],
       "annotation_sources": {
-        "prestwick": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 1344 Royal Devon Dr, Myrtle Beach, SC 29575 (33.642583, -78.956407). Ledger rows 19, 57, 82."
+        "prestwick": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 1344 Royal Devon Dr, Myrtle Beach, SC 29575 (33.642583, -78.956407). Ledger rows 19, 57, 82.",
+        "golf_course": "OpenStreetMap way 1317154978 (golf=fairway), its center, on Prestwick Country Club (relation 3973684)"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8790227.830486283%2C3980279.360445426%2C-8788546.168451265%2C3981540.6069716895&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1654,9 +1666,9 @@
         "1200": "images/buyers/gated-communities/bellwood-landing-from-above-2023-1200w.webp"
       },
       "title": "Bellwood Landing from above (USDA NAIP 2023)",
-      "what": "Bellwood Landing from above: houses around a pond, beside the woods, seen from above in 2023, with one label placed from a street address.",
+      "what": "Bellwood Landing from above: houses around a pond, beside the woods, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Bellwood Landing from above: houses around a pond, beside the woods.",
-      "alt": "Bellwood Landing from above, labelled: houses with pools around a pond on a curving street, with thick woods at the right",
+      "alt": "Bellwood Landing from above, labelled: houses with pools around a pond on a curving street, with thick woods at the right; labels: Bellwood Landing and Pond",
       "place": {
         "city": "Murrells Inlet",
         "sublocation": "Bellwood Landing"
@@ -1677,12 +1689,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307932_nw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Bellwood Landing"
+        "Bellwood Landing",
+        "Pond"
       ],
       "annotation_sources": {
-        "bellwood_landing": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 139 Low Country Lp, Murrells Inlet, SC 29576 (33.582185, -79.073470). Ledger rows 16, 18, 60."
+        "bellwood_landing": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 139 Low Country Lp, Murrells Inlet, SC 29576 (33.582185, -79.073470). Ledger rows 16, 18, 60.",
+        "pond": "OpenStreetMap way 342121000 (natural=water), its center"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8802958.562504778%2C3972431.570777841%2C-8801878.251290793%2C3973241.804188329&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1712,9 +1726,9 @@
         "1200": "images/buyers/gated-communities/wachesaw-plantation-from-above-2023-1200w.webp"
       },
       "title": "Wachesaw Plantation from above (USDA NAIP 2023)",
-      "what": "Wachesaw Plantation from above: houses among the fairways of its golf course, with ponds, seen from above in 2023, with one label placed from a street address.",
+      "what": "Wachesaw Plantation from above: houses among the fairways of its golf course, with ponds, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Wachesaw Plantation from above: houses among the fairways of its golf course, with ponds.",
-      "alt": "Wachesaw Plantation from above, labelled: houses under trees among golf fairways and ponds, with a road curving through",
+      "alt": "Wachesaw Plantation from above, labelled: houses under trees among golf fairways and ponds, with a road curving through; labels: Wachesaw Plantation and Golf course",
       "place": {
         "city": "Murrells Inlet",
         "sublocation": "Wachesaw Plantation"
@@ -1735,12 +1749,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307932_nw_17_060_20230410, m_3307932_sw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Wachesaw Plantation"
+        "Wachesaw Plantation",
+        "Golf course"
       ],
       "annotation_sources": {
-        "wachesaw_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 4333 Hunters Wood Dr, Murrells Inlet, SC 29576 (33.560796, -79.073101). Ledger rows 21, 71."
+        "wachesaw_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 4333 Hunters Wood Dr, Murrells Inlet, SC 29576 (33.560796, -79.073101). Ledger rows 21, 71.",
+        "golf_course": "OpenStreetMap way 1458094976 (golf=fairway), its center, on the Wachesaw Plantation Club course (relation 4853927)"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8803217.31728679%2C3969349.0646393583%2C-8801537.249465127%2C3970609.1155056064&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1771,9 +1787,9 @@
         "1200": "images/buyers/gated-communities/wachesaw-east-from-above-2023-1200w.webp"
       },
       "title": "Wachesaw East from above (USDA NAIP 2023)",
-      "what": "Wachesaw East from above: houses along the fairways of its golf course, seen from above in 2023, with one label placed from a street address.",
+      "what": "Wachesaw East from above: houses along the fairways of its golf course, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Wachesaw East from above: houses along the fairways of its golf course.",
-      "alt": "Wachesaw East from above, labelled: houses on curving streets along golf fairways and ponds, with fields and woods at the lower left",
+      "alt": "Wachesaw East from above, labelled: houses on curving streets along golf fairways and ponds, with fields and woods at the lower left; labels: Wachesaw East and Pond",
       "place": {
         "city": "Murrells Inlet",
         "sublocation": "Wachesaw East"
@@ -1794,12 +1810,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307932_se_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Wachesaw East"
+        "Wachesaw East",
+        "Pond"
       ],
       "annotation_sources": {
-        "wachesaw_east": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 4520 Firethorne Dr, Murrells Inlet, SC 29576 (33.558050, -79.058480). Ledger rows 22, 72."
+        "wachesaw_east": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 4520 Firethorne Dr, Murrells Inlet, SC 29576 (33.558050, -79.058480). Ledger rows 22, 72.",
+        "pond": "OpenStreetMap way 342103433 (natural=water), its center"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8801469.786028022%2C3969072.228371436%2C-8800029.773682507%2C3970152.237630572&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1829,9 +1847,9 @@
         "1200": "images/buyers/gated-communities/the-reserve-from-above-2023-1200w.webp"
       },
       "title": "The Reserve from above (USDA NAIP 2023)",
-      "what": "The Reserve from above: houses around a pond, with golf fairways cut through the woods, seen from above in 2023, with one label placed from a street address.",
+      "what": "The Reserve from above: houses around a pond, with golf fairways cut through the woods, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "The Reserve from above: houses around a pond, with golf fairways cut through the woods.",
-      "alt": "The Reserve from above, labelled: houses around a curved pond, with golf fairways cut through thick woods",
+      "alt": "The Reserve from above, labelled: houses around a curved pond, with golf fairways cut through thick woods; labels: The Reserve and Golf course",
       "place": {
         "city": "Pawleys Island",
         "sublocation": "The Reserve"
@@ -1852,12 +1870,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307940_nw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "The Reserve"
+        "The Reserve",
+        "Golf course"
       ],
       "annotation_sources": {
-        "the_reserve": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 545 Reserve Dr, Pawleys Island, SC 29585 (33.491855, -79.113780). Ledger rows 23, 74."
+        "the_reserve": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 545 Reserve Dr, Pawleys Island, SC 29585 (33.491855, -79.113780). Ledger rows 23, 74.",
+        "golf_course": "OpenStreetMap way 806493520, a green of The Reserve Golf Club"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8807745.115073934%2C3960143.3692221926%2C-8806066.386099443%2C3961402.41595306&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1887,9 +1907,9 @@
         "1200": "images/buyers/gated-communities/willbrook-plantation-from-above-2023-1200w.webp"
       },
       "title": "Willbrook Plantation from above (USDA NAIP 2023)",
-      "what": "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left, seen from above in 2023, with one label placed from a street address.",
+      "what": "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left.",
-      "alt": "Willbrook Plantation from above, labelled: houses under trees among golf fairways and ponds, with wide open fields at the left",
+      "alt": "Willbrook Plantation from above, labelled: houses under trees among golf fairways and ponds, with wide open fields at the left; labels: Willbrook Plantation and Fields and ditches",
       "place": {
         "city": "Pawleys Island",
         "sublocation": "Willbrook Plantation"
@@ -1910,12 +1930,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-19 (the date in the tile name m_3307939_ne_17_060_20230419). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Willbrook Plantation"
+        "Willbrook Plantation",
+        "Fields and ditches"
       ],
       "annotation_sources": {
-        "willbrook_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 49 Red Squirrel Ln, Pawleys Island, SC 29585 (33.482060, -79.135190). Ledger rows 27, 75."
+        "willbrook_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 49 Red Squirrel Ln, Pawleys Island, SC 29585 (33.482060, -79.135190). Ledger rows 27, 75.",
+        "fields_and_ditches": "OpenStreetMap way 45308758 (waterway=ditch), its node 575567189, in the open fields west of the neighborhood"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8810128.268551733%2C3958836.06519118%2C-8808449.729423713%2C3960094.9695371944&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -1945,9 +1967,9 @@
         "1200": "images/buyers/gated-communities/litchfield-plantation-from-above-2023-1200w.webp"
       },
       "title": "Litchfield Plantation from above (USDA NAIP 2023)",
-      "what": "Litchfield Plantation from above: houses under tall trees, with golf fairways and ponds at the right, seen from above in 2023, with one label placed from a street address.",
+      "what": "Litchfield Plantation from above: houses under tall trees, with golf fairways and ponds at the right, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Litchfield Plantation from above: houses under tall trees, with golf fairways and ponds at the right.",
-      "alt": "Litchfield Plantation from above, labelled: houses under tall trees on winding roads, with golf fairways and ponds at the right and marsh at the left edge",
+      "alt": "Litchfield Plantation from above, labelled: houses under tall trees on winding roads, with golf fairways and ponds at the right and marsh at the left edge; labels: Litchfield Plantation and Avenue of Live Oaks",
       "place": {
         "city": "Pawleys Island",
         "sublocation": "Litchfield Plantation"
@@ -1968,12 +1990,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-19 (the date in the tile name m_3307939_ne_17_060_20230419). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Litchfield Plantation"
+        "Litchfield Plantation",
+        "Avenue of Live Oaks"
       ],
       "annotation_sources": {
-        "litchfield_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 307 Tuckers Rd, Pawleys Island, SC 29585 (33.477217, -79.132657). Ledger rows 26, 73."
+        "litchfield_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 307 Tuckers Rd, Pawleys Island, SC 29585 (33.477217, -79.132657). Ledger rows 26, 73.",
+        "avenue_of_live_oaks": "OpenStreetMap way 12391869 (Avenue of Live Oaks)"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8809846.261843529%2C3958189.726980671%2C-8808167.816550579%2C3959448.560950382&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -2003,9 +2027,9 @@
         "1200": "images/buyers/gated-communities/litchfield-by-the-sea-from-above-2023-1200w.webp"
       },
       "title": "Litchfield by the Sea from above (USDA NAIP 2023)",
-      "what": "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right, seen from above in 2023, with one label placed from a street address.",
+      "what": "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right.",
-      "alt": "Litchfield by the Sea from above, labelled: homes around a large lake, large buildings and tennis courts near the beach, and the Atlantic Ocean at the right",
+      "alt": "Litchfield by the Sea from above, labelled: homes around a large lake, large buildings and tennis courts near the beach, and the Atlantic Ocean at the right; labels: Litchfield by the Sea and Beach",
       "place": {
         "city": "Pawleys Island",
         "sublocation": "Litchfield by the Sea"
@@ -2026,12 +2050,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307940_nw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Litchfield by the Sea"
+        "Litchfield by the Sea",
+        "Beach"
       ],
       "annotation_sources": {
-        "litchfield_by_the_sea": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 12 Riptide Ln, Pawleys Island, SC 29585 (Oystercatcher Island, ledger row 91) (33.481398, -79.093534). Ledger rows 79, 90, 91 (Oystercatcher Island, 12 Riptide Ln)."
+        "litchfield_by_the_sea": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 12 Riptide Ln, Pawleys Island, SC 29585 (Oystercatcher Island, ledger row 91) (33.481398, -79.093534). Ledger rows 79, 90, 91 (Oystercatcher Island, 12 Riptide Ln).",
+        "beach": "OpenStreetMap way 128565789 (North Litchfield Beach, natural=beach), a node of it"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8805444.61130874%2C3958626.4955223715%2C-8803406.398392478%2C3960155.1552095683&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -2061,9 +2087,9 @@
         "1200": "images/buyers/gated-communities/heritage-plantation-from-above-2023-1200w.webp"
       },
       "title": "Heritage Plantation from above (USDA NAIP 2023)",
-      "what": "Heritage Plantation from above: houses along golf fairways, a pool and tennis courts near the label, and a river and marsh at the top, seen from above in 2023, with one label placed from a street address.",
+      "what": "Heritage Plantation from above: houses along golf fairways, a pool and tennis courts near the label, and a river and marsh at the top, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "Heritage Plantation from above: houses along golf fairways, a pool and tennis courts near the label, and a river and marsh at the top.",
-      "alt": "Heritage Plantation from above, labelled: houses under trees along golf fairways, a pool and tennis courts near the middle, ponds at the right and a river with marsh at the top",
+      "alt": "Heritage Plantation from above, labelled: houses under trees along golf fairways, a pool and tennis courts near the middle, ponds at the right and a river with marsh at the top; labels: Heritage Plantation and Caledonia Creek",
       "place": {
         "city": "Pawleys Island",
         "sublocation": "Heritage Plantation"
@@ -2084,12 +2110,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-19 (the date in the tile name m_3307939_ne_17_060_20230419). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Heritage Plantation"
+        "Heritage Plantation",
+        "Caledonia Creek"
       ],
       "annotation_sources": {
-        "heritage_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 90 Berwick Dr, Pawleys Island, SC 29585 (33.442183, -79.163747). Ledger rows 24, 69."
+        "heritage_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 90 Berwick Dr, Pawleys Island, SC 29585 (33.442183, -79.163747). Ledger rows 24, 69.",
+        "caledonia_creek": "OpenStreetMap way 45300669 (Caledonia Creek, waterway=stream), its node 575386391"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8813426.738453541%2C3953425.5333559974%2C-8811509.290234696%2C3954863.61952013&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -2119,9 +2147,9 @@
         "1200": "images/buyers/gated-communities/prince-creek-55-clubhouse-from-above-2023-1200w.webp"
       },
       "title": "Seasons at Prince Creek West from above (USDA NAIP 2023)",
-      "what": "The Seasons at Prince Creek West clubhouse and its outdoor pool from above, among the streets of Prince Creek West, seen from above in 2023, with one label placed from a street address.",
+      "what": "The Seasons at Prince Creek West clubhouse and its outdoor pool from above, among the streets of Prince Creek West, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
       "caption": "The Seasons at Prince Creek West clubhouse and its outdoor pool from above, among the streets of Prince Creek West.",
-      "alt": "The Seasons at Prince Creek West clubhouse from above, labelled: a large building with an outdoor pool beside woods, with streets of houses and ponds around it",
+      "alt": "The Seasons at Prince Creek West clubhouse from above, labelled: a large building with an outdoor pool beside woods, with streets of houses and ponds around it; labels: Seasons clubhouse and Pond",
       "place": {
         "city": "Murrells Inlet",
         "sublocation": "Seasons at Prince Creek West"
@@ -2142,12 +2170,14 @@
       "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307932_nw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
       "digital_source_type": "composite",
-      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added one label placed from coordinates",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
       "labels": [
-        "Seasons clubhouse"
+        "Seasons clubhouse",
+        "Pond"
       ],
       "annotation_sources": {
-        "seasons_clubhouse": "The center of the Seasons clubhouse parcel, Horry County GIS parcels layer 24, PIN 46802030007, owner Seasons at Prince Creek West Community Association, \"COMMON AREA 1\" (33.586192, -79.071152); the clubhouse addresses are batch 2026-10-a Seasons ledger row 15."
+        "seasons_clubhouse": "The center of the Seasons clubhouse parcel, Horry County GIS parcels layer 24, PIN 46802030007, owner Seasons at Prince Creek West Community Association, \"COMMON AREA 1\" (33.586192, -79.071152); the clubhouse addresses are batch 2026-10-a Seasons ledger row 15.",
+        "pond": "OpenStreetMap way 342121000 (natural=water), its center"
       },
       "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8802889.626175227%2C3972773.7381792786%2C-8801569.196307989%2C3973764.060579707&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "source_files": [
@@ -3124,6 +3154,66 @@
         }
       },
       "crops_note": "The share image of /buyers/affordable-places-to-live/. Center crops in each ratio, 1200 px wide, from the 1600 x 1200 labelled export (tools/photos.js makeCrops). Public domain base image."
+    },
+    {
+      "slug": "gated-communities",
+      "file": "images/buyers/gated-communities/myrtle-beach-golf-and-yacht-club-from-above-2023.webp",
+      "variants": {
+        "600": "images/buyers/gated-communities/myrtle-beach-golf-and-yacht-club-from-above-2023-600w.webp",
+        "1200": "images/buyers/gated-communities/myrtle-beach-golf-and-yacht-club-from-above-2023-1200w.webp"
+      },
+      "title": "Myrtle Beach Golf and Yacht Club from above (USDA NAIP 2023)",
+      "what": "Myrtle Beach Golf and Yacht Club from above: houses on curving streets among trees, with long strips of grass and ponds between them, seen from above in 2023, with 2 labels placed from coordinates: an address or a parcel for the name, and a mapped feature.",
+      "caption": "Myrtle Beach Golf and Yacht Club from above: houses on curving streets among trees, with long strips of grass and ponds between them.",
+      "alt": "Myrtle Beach Golf and Yacht Club from above, labelled: houses under trees on curving streets, long strips of grass and a pond between them, and a highway at the right; labels: Golf and Yacht Club and Entrance on Bay Road",
+      "place": {
+        "city": "Myrtle Beach",
+        "sublocation": "Myrtle Beach Golf and Yacht Club"
+      },
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307924_se_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+      "digital_source_type": "composite",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
+      "labels": [
+        "Golf and Yacht Club",
+        "Entrance on Bay Road"
+      ],
+      "annotation_sources": {
+        "golf_and_yacht_club": "U.S. Census geocoder: 6624 Wintergreen Pt, Myrtle Beach, SC 29588 (-79.050559, 33.646385); Horry County parcel MB GOLF & YACHT; LT JA-1 is beside it",
+        "entrance_on_bay_road": "Horry County roads layer 18: the end of Blue Heron Boulevard where it meets Bay Road (-79.043605, 33.647343); the gatehouse is seen there on the NAIP 2023 aerial"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8800822.413701862%2C3980886.88978466%2C-8798900.397755582%2C3982328.4017443694&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_files": [
+        "m_3307924_se_17_060_20230410"
+      ],
+      "frame": {
+        "bbox_wgs84": [
+          -79.059133,
+          33.64241,
+          -79.041867,
+          33.65319
+        ],
+        "width_m": 1600,
+        "note": "centered at (33.64780, -79.05050)"
+      },
+      "original_size": "2400x1800 exported (about 0.6 m a pixel), resized to 1600x1200 (Lanczos)",
+      "method": "scratchpad gated-r7: naip.py (export), label.py (resize, contrast, labels), mkrec.js (records)",
+      "share_alike": false,
+      "width": 1200,
+      "height": 900
     }
   ],
   "updated": "2026-10-13"
