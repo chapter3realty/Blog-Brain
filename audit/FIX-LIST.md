@@ -2700,7 +2700,7 @@ Fixed, or the page changed. Remove them from `audit/manual-findings.json`.
 - `/hoa/reserves/` and `/hoa/special-assessments/` each print a literal "%s" (found 2026-10-13, batch 2026-10-b no-HOA research).
 - `/buyers/golf-communities/`: the comparison table says "Gated 24/7 with a live guard" and "Gated with 24-hour security" for communities whose staffing no verified source shows; its FAQ said "Prestwick has a 24/7 staffed gate" and that Pawleys Plantation is gated (batch 2026-10-b gated-communities ledger; the FAQ fix is in batches/2026-10-b/gated-communities-links.diff, the table is not).
 - Site chrome: the search pop-up on every page promises "off-market homes before they hit the public sites" (claims-scan HIGH on 136 pages). The footer calls Chapter3 "the Myrtle Beach investor-focused brokerage" on buyer pages.
-
+- `/communities/55-plus/seasons-at-prince-creek-west/` (batch 2026-10-a spec, lines 124 and 220) and `data/55-plus-communities.json`: "About 10 minutes" to the beach ends at a Garden City boardwalk walkover with no parking. To the nearest access with parking (GARDEN CITY 45, free lot) it is about 13 minutes from the clubhouse (batch 2026-10-b gated row 176, verified). Change both to "About 13 minutes", with the best-neighborhoods 55+ row, and rebuild with batch 2026-10-b.
 ## When IDX arrives (owner, 2026-10-14)
 
 - Hook the IDX feed into /buyers/affordable-places-to-live/ first, then the other batch 2026-10-b pages (batches/2026-10-b/PLAN.md, "When IDX arrives").
