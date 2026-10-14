@@ -389,7 +389,7 @@ module.exports = {
     { h2: "What can you buy with no HOA fee for $750,000 and up?", toc: "$750,000 and up", id: "750000-and-up", html: (bg) =>
       h.p(`About ${Math.round(BAND["750k+"].houses / 10) * 10} houses, most of them near the ocean.`) +
       h.p("Some are on Ocean Boulevard in Myrtle Beach and North Myrtle Beach and on South Waccamaw Drive in Garden City. Others were listed with no fee in Pine Lakes and Plantation Point in Myrtle Beach and in Tilghman Estates in North Myrtle Beach.") +
-      h.p(`Most are big: the middle house is ${sqftWords(BAND["750k+"].medianSqft)}, from about ${BAND["750k+"].medianYearBuilt}.`) +
+      h.p(`Most are big: the middle house is ${sqftWords(BAND["750k+"].medianSqft)}.`) +
       h.cta("Get the homes with no HOA fee in your price band.", "Tell us your band and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
 
     entry("Aynor", "Aynor: new houses on about an acre", [
@@ -419,12 +419,12 @@ module.exports = {
     entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses within half a mile of the beach", [
       `Surfside Beach owns its ${h.ext(SURF_TOWN_PIER, "fishing pier")}: a concrete pier 814 feet long that ${h.ext(SURF_PIER, "opened in 2024")}, after a hurricane destroyed the old one. Walking out on it is free, and it has two restaurants and an ice cream shop.`,
       `Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. How a rice plantation called The Ark became Surfside Beach is in our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}.`,
-      "From Garden City, the MarshWalk restaurants are a short drive south.",
+      "From Garden City, the MarshWalk restaurants are about 5 minutes south by car.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
     entry("Murrells Inlet", "Murrells Inlet: bigger houses near the seafood restaurants and Brookgreen Gardens", [
       `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought a tract there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
-      `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. It is a 15-minute drive, and Huntington Beach State Park is closer.`,
+      `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. Inlet captains have long taken visiting anglers offshore on charter and party trips.`,
       `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest typical size on this list.`,
     ], INLET_PHOTO, "Murrells Inlet is not a town, and part of it is in Georgetown County, with its own tax bill and rules."),
 
