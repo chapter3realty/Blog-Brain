@@ -312,8 +312,8 @@ module.exports = {
   author: "devin",
   shortAnswer: [
     "About a quarter of the homes for sale around Myrtle Beach are listed with no homeowners association (HOA) fee. An HOA runs a neighborhood and collects a monthly fee.",
-    "Inland, near Aynor, Loris and Conway, most are new houses on country lots. Near the beach, most are older houses near the sand.",
-    `With no HOA, you can keep a boat or a work truck at home, within ${h.a("#boats-and-work-trucks", "each town's rules")}. Houses for sale with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}.`,
+    "Inland, near Aynor, Loris and Conway, most are houses on country lots, many of them new. Near the beach, most are older houses near the sand.",
+    `With no HOA, you can keep a boat or a work truck at home, within ${h.a("#boats-and-work-trucks", "each town's rules")}. Houses with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}.`,
   ],
   sections: [
     { h2: "Where are the homes with no HOA fee?", toc: "Where they are", html: () =>
@@ -321,7 +321,7 @@ module.exports = {
       h.p("Homes with no HOA fee are in eight areas, from country roads near Aynor and Loris to older streets near the beach. The numbers on the map match the list below.") +
       `<div class="c3-areamap">${MAP.html}</div>` +
       h.p(`For the most land, see ${go("Aynor")}, ${go("Loris")} and ${go("Conway")}. To live near the beach, see ${go("North Myrtle Beach")}, ${go("Surfside Beach and Garden City")}, ${go("Murrells Inlet")} and ${go("Myrtle Beach (not Carolina Forest)")}. For a boat near the waterway, see ${go("Little River")}.`) +
-      h.p("Carolina Forest is not on the list: every home for sale there has an HOA fee.") },
+      h.p("Every home for sale in Carolina Forest has an HOA fee.") },
 
     entry("Aynor", "an acre of land and room for a boat", [
       `Aynor is a small town about 25 minutes by car from downtown Conway. Most houses for sale here with no HOA fee are on country roads outside the town, on lots of ${lotOf("Aynor")}.`,
@@ -330,19 +330,19 @@ module.exports = {
     ], AYNOR_LOT, "the nearest beach is about 45 minutes away by car, and outside the town you arrange your own trash pickup."),
 
     entry("Loris", "three quarters of an acre and a new house", [
-      `Loris is a small town with a downtown on Main Street and a hospital, McLeod Loris, about 2 minutes from the center of town. Most houses for sale here with no HOA fee are outside the city limits, on lots of ${lotOf("Loris")}.`,
+      `Loris is a small town with a downtown on Main Street. Its hospital, McLeod Loris, is about 2 minutes from the center of town. Most houses for sale here with no HOA fee are outside the city limits, on lots of ${lotOf("Loris")}.`,
       "About 6 in 10 were built in 2024 or later. Almost none are in a subdivision, so most sit on their own lot along a country road. Outside the city, the county has no rule on where you keep a boat or a camper on your lot.",
     ], LORIS_PHOTO, "the nearest beach, in North Myrtle Beach, is about 35 minutes away by car."),
 
     entry("North Myrtle Beach", "an older beach house near the sand", [
-      "Almost all the houses for sale here with no HOA fee are in four older parts of town near the ocean: Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive. About 3 in 4 are within half a mile of the beach.",
+      "Almost all the houses for sale here with no HOA fee are in four older parts of town near the ocean. They are Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive. About 3 in 4 are within half a mile of the beach.",
       `About 6 in 10 were built before 1990, on lots of ${lotOf("North Myrtle Beach")}. Ocean Drive has the city's Main Street, where the city holds free Music on Main concerts on Thursdays in summer. Cherry Grove has a fishing pier, and some of its streets are on canals that run to the marsh.`,
       "Inside the city, a boat or a trailer goes behind the front of the house or in a carport.",
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. Check the home on ${h.ext(FEMA, "the government's flood map")} before you offer.`),
 
     entry("Surfside Beach and Garden City", "close to the ocean", [
-      "Surfside Beach and Garden City Beach sit side by side on the ocean, and each has a fishing pier. About 8 in 10 houses for sale here with no HOA fee are within half a mile of the beach. About 4 in 10 face the ocean, see it or are one row back.",
-      `The lots are small, ${lotOf("Surfside Beach and Garden City")}. From Garden City, the restaurants of the Murrells Inlet MarshWalk are about 5 minutes away by car, and so is the county's Stanley Drive boat landing.`,
+      "Surfside Beach and Garden City Beach sit side by side on the ocean. Each has a fishing pier. About 8 in 10 houses for sale here with no HOA fee are within half a mile of the beach. About 4 in 10 face the ocean, see it or are one row back.",
+      `The lots are small, ${lotOf("Surfside Beach and Garden City")}. From Garden City, the restaurants of the Murrells Inlet MarshWalk are about 5 minutes away by car. The county's Stanley Drive boat landing is about 5 minutes away, too.`,
       "Inside the town of Surfside Beach, a home can keep two boats or trailers outside.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
@@ -364,8 +364,8 @@ module.exports = {
     ], MB_PHOTO, "inside the city, a boat over 16 feet may not sit in the front yard."),
 
     entry("Little River", "a boat near the waterway", [
-      "Little River is on the Intracoastal Waterway, at the north end of the Grand Strand. It is not a town, so its houses for sale with no HOA fee follow the county's rules: you can keep a boat anywhere on your lot.",
-      `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} on the waterway is about 10 minutes from the center of Little River, and the beach in North Myrtle Beach is about 10 minutes away. The lots are ${lotOf("Little River")}, and about a third of the houses were built in 2024 or later.`,
+      "Little River is on the Intracoastal Waterway, at the north end of the Grand Strand. It is not a town. Outside the towns, the county has no rule on where you keep a boat on your lot.",
+      `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} on the waterway is about 10 minutes from the center of Little River. The beach in North Myrtle Beach is about 10 minutes away, too. The lots are ${lotOf("Little River")}, and about a third of the houses were built in 2024 or later.`,
     ], LR_PHOTO, "few homes for sale here have no HOA fee, about 1 in 10."),
 
     { h2: "How do the eight areas compare?", toc: "The areas side by side", html: (bg) =>
