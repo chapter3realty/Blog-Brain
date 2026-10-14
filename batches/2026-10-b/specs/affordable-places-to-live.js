@@ -73,6 +73,8 @@ const SCH = "https://schousing.sc.gov/homebuyers/programs-homebuyers";
 const DOI = "https://doi.sc.gov/614/Cost-of-Homeowners-Insurance";
 const OSRM = "https://project-osrm.org/";
 const SPEEDWAY = "https://www.wmbfnews.com/2024/07/10/old-myrtle-beach-speedway-being-transformed-into-townhome-community";
+/* The Sun News, 2024-06-26, Ben Morse, as republished by AOL (pending row 172). */
+const SUNNEWS = "https://www.aol.com/exclusive-myrtle-beach-closed-speedway-090000918.html";
 const WILDWING = "https://www.myrtlebeachgolftrips.com/news/time-to-come-home-why-you-need-to-play-wild-wing/";
 
 /* ---------------------------------------------------------------------------- */
@@ -98,20 +100,20 @@ const P = [
     homes: "New houses, built 2025 and 2026", size: "3 or 4 bedrooms, about 1,400 to 1,950 square feet, on about a quarter acre",
     fee: "About $120 a month, with high-speed internet", schools: "Daisy Elementary, Loris Middle, Loris High" },
   { id: "golf-and-yacht-club", tradeoff: "Older homes: insurers may require an updated roof, wiring, plumbing and heating.", year: 2100, name: "Myrtle Beach Golf and Yacht Club", map: "Golf and Yacht Club", lat: 33.649402, lon: -79.05007, price: 225000, mb: 22.9, beach: 15.0,
-    priceText: "About $225,000 in the older part; about $330,000 for the new houses in Sandpiper Place",
+    priceText: "About $225,000 (older part); about $330,000 for the new houses in Sandpiper Place",
     homes: "One-story houses, most built in the 1980s; new houses in Sandpiper Place", size: "About 1,350 square feet in the older part, on lots of about 6,500 square feet",
     fee: "About $95 a month in the older part, with security, the pool and the courts", schools: "St. James Elementary, Intermediate, Middle and High" },
-  { id: "forestbrook-village", tradeoff: "A few lots sold last year are in a high-risk flood zone, where a lender requires flood insurance. We check the flood map for each lot.", year: 3000, name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6,
-    homes: "New two-story townhomes, built 2026", size: "3 bedrooms, about 1,450 to 2,000 square feet, a 1-car garage",
+  { id: "forestbrook-village", tradeoff: "A few lots sold last year are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for each lot.", year: 3000, name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6,
+    homes: "New two-story townhomes, built 2026 and 2027", size: "3 bedrooms, about 1,450 to 2,000 square feet, a 1-car garage",
     fee: "About $170 a month, with internet", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
-  { id: "victory-point", tradeoff: "More building next door: another owner bought 21 acres of the speedway land in 2022 for hundreds more townhomes.", year: 3800, name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9,
+  { id: "victory-point", tradeoff: `Another owner bought the other 21 acres of the speedway land in 2022 and, in a ${h.ext(SUNNEWS, "2024 plan")}, said it would build 226 townhomes there.`, year: 3800, name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9,
     homes: "New townhomes, built 2025 and 2026", size: "3 bedrooms, about 1,450 square feet",
     fee: "About $235 a month, with the pool", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", tradeoff: "Listings say each owner will also pay a yearly insurance assessment, not yet set.", year: 2200, name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6,
     homes: "New townhomes, built 2025 and 2026", size: "3 bedrooms, about 1,400 square feet",
     fee: "About $100 a month", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
   { id: "villas-at-sandridge", tradeoff: "About 30 minutes to Myrtle Beach, and the highest HOA fee of the new communities here.", year: 4600, name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.5,
-    homes: "New two-story townhomes, built 2023 to 2026", size: "3 bedrooms, about 1,550 to 2,200 square feet, a 1-car garage",
+    homes: "Two-story townhomes, built 2023 to 2026", size: "3 bedrooms, about 1,500 to 1,900 square feet, a 1-car garage",
     fee: "About $300 a month", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", tradeoff: "Myrtle Beach is a long drive, though the beach is not.", year: 2000, name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2,
     homes: "New houses, built 2025 and 2026", size: "",
@@ -119,7 +121,7 @@ const P = [
   { id: "wynbrooke", tradeoff: "The highest HOA fee of the twelve.", year: 6500, name: "Wynbrooke", map: "Wynbrooke", lat: 33.584176, lon: -79.048446, price: 249500, mb: 19.8, beach: 8.9,
     homes: "Townhomes, built 2002 to 2005", size: "3 bedrooms, about 1,350 square feet",
     fee: "About $450 a month, usually with water, sewer, the pool and insurance on the buildings", schools: "St. James Elementary, Intermediate, Middle and High" },
-  { id: "polo-farms", tradeoff: "About half the houses sold last year are on lots in a high-risk flood zone, where a lender requires flood insurance.", year: 1300, name: "Polo Farms", map: "Polo Farms", lat: 33.917844, lon: -78.812061, price: 255000, mb: 36.0, beach: 22.0,
+  { id: "polo-farms", tradeoff: "About half the lots sold last year are in a high-risk flood zone, where a lender usually requires flood insurance.", year: 1300, name: "Polo Farms", map: "Polo Farms", lat: 33.917844, lon: -78.812061, price: 255000, mb: 36.0, beach: 22.0,
     homes: "One-story houses, built 2005 to 2017; every sale was a resale", size: "3 bedrooms, about 1,350 square feet, on about a fifth of an acre",
     fee: "About $20 a month", schools: "Daisy Elementary, Loris Middle, Loris High" },
 ];
@@ -144,7 +146,7 @@ const BARS_CSS = "<style>.c3-bars{margin:1.6rem 0 1.8rem;max-width:760px}"
   + "@media (max-width:599px){.c3-bars th{width:50%}.c3-bars .b{width:calc(var(--w) * .40)}}"
   + ".c3-bars figcaption{color:var(--muted);font-size:.95rem;line-height:1.6;margin-top:.8rem}</style>";
 function barChart(title, caption) {
-  const rows = P.map((p) => [`<a href="${A(p.id)}">${p.n}. ${p.name}</a>`, p.price, false]).concat([["A home in the city of Myrtle Beach (condos left out)", MB_HOUSE, true]]);
+  const rows = P.map((p) => [`<a href="${A(p.id)}">${p.n}. ${p.name}${p.id === "golf-and-yacht-club" ? " (older part)" : ""}</a>`, p.price, false]).concat([["A home in the city of Myrtle Beach (condos left out)", MB_HOUSE, true]]);
   const body = rows.map(([n, v, me]) => `<tr${me ? ' class="me"' : ""}><th scope="row">${n}</th>`
     + `<td><span class="t"><span class="b" style="--w:${(v / MB_HOUSE * 100).toFixed(1)}%" aria-hidden="true"></span><span class="v">${money(v)}</span></span></td></tr>`).join("");
   return BARS_CSS + `<figure class="c3-bars"><table><caption>${title}</caption><thead style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"><tr><th scope="col">Place</th><th scope="col">Homes usually sold for</th></tr></thead><tbody>${body}</tbody></table><figcaption>${caption}</figcaption></figure>`;
@@ -173,7 +175,7 @@ function facts(id) {
     ["What you get", p.homes],
     ["Size", p.size],
     ["HOA fee", p.fee],
-    ["HOA fee and tax a year", `About $${p.year.toLocaleString("en-US")}, besides the mortgage`],
+    ["HOA fee and tax a year", `About $${p.year.toLocaleString("en-US")}, besides the mortgage and insurance`],
     ["Drive", `About ${mins(p.beach)} minutes to the beach, ${mins(p.mb)} to Coastal Grand Mall`],
     ["Trade-off", p.tradeoff],
     ["Schools (district zones)", p.schools],
@@ -244,11 +246,11 @@ module.exports = {
       h.p("Farther inland, new houses in Collins Walk and Kingston Oaks near Conway, and in Warner Crossing near Loris, sold for less than some of the twelve. From those, the beach is 30 minutes or more away.") +
       barChart("What homes usually sold for in the past year, lowest first", "Chart of the middle sale price in each neighborhood, from the county's deed records. The dark bar is a home in the city of Myrtle Beach, condos left out, for comparison.") +
       MAP.html +
-      h.p("Drive times are from the middle of each neighborhood with no traffic. In our experience, rush hour adds 5 to 10 minutes.") },
+      h.p("Drive times are from the middle of each neighborhood with no traffic. In the owner's experience, rush hour adds 5 to 10 minutes.") },
 
     entry("parkview", "older gated townhomes inside Myrtle Beach", () =>
       h.p("Parkview is a gated community off 17th Avenue South, near Harrelson Boulevard. It is the only one of the twelve inside the city of Myrtle Beach, a few minutes from Coastal Grand Mall and the beach.") +
-      h.p("The price is low because these are small townhomes from the middle 2000s, many with two bedrooms, beside ponds.") +
+      h.p("These are small townhomes from the middle 2000s, many with two bedrooms, beside ponds.") +
       h.p("A different, new neighborhood near Surfside Beach is also recorded by the county as Parkview. Its new townhomes cost more.") +
       facts("parkview")),
 
@@ -256,31 +258,31 @@ module.exports = {
       h.p("The Fairways is a group of townhomes inside Wild Wing Plantation, whose entrance is on US 501 between Conway and Myrtle Beach.") +
       FAIRWAYS_PHOTO +
       h.p(`Wild Wing was once a golf resort with several courses. Three of them closed in 2004, and one later reopened with nine holes. The Avocet course, designed by Jeff Brauer and Larry Nelson, is ${h.ext(WILDWING, "still open")}, and some of these townhomes are near it.`) +
-      h.p("These are townhomes rather than houses, and most date from before 2010.") +
+      h.p("These are townhomes rather than houses, and many date from before 2010.") +
       facts("fairways-at-wild-wing")),
 
     entry("sawgrass-east", "townhomes off Carolina Forest Boulevard", () =>
       h.p("Sawgrass East is a townhome community off Carolina Forest Boulevard, a short drive north of US 501. The townhomes are around small ponds, with a clubhouse for the owners.") +
       SAWGRASS_PHOTO +
-      h.p("They date from 2005 and 2006, and some have only two bedrooms. They sold for less than the new townhomes at Victory Point, a few minutes away.") +
+      h.p("They date from 2005 and 2006, and some have only two bedrooms. They sold for less than the new townhomes at Victory Point, about 10 minutes away.") +
       facts("sawgrass-east")),
 
     entry("birchwood", "new houses off SC 905 near Longs", () =>
       h.p("Birchwood is a new neighborhood of houses off SC 905, north of SC 9 near Longs. The turn is beside the tall water tower.") +
-      h.p("Lennar built every house here, each on about a quarter acre. These are the lowest-priced new houses we found, and the reason is distance: this is open country north of Longs, far from the beachfront towns.") +
+      h.p("Lennar built every house here, most on about a quarter acre. These are the lowest-priced new houses we found, north of Longs and well inland.") +
       facts("birchwood")),
 
     entry("golf-and-yacht-club", "a gated community off Bay Road", () =>
       h.p("Myrtle Beach Golf and Yacht Club is a gated community off Bay Road, which leaves SC 707 near Socastee. A public boat ramp on the Intracoastal Waterway is close by.") +
       GOLF_YACHT_PHOTO +
       h.p("Listings describe 24-hour security at the gate. Inside are a pool, tennis and shuffleboard courts, a playground and a clubhouse, and the HOA has a storage area for RVs and trailers.") +
-      h.p(`Most houses in the older part are small and one story, on small lots, from the 1980s. That is why they sell for less. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more. Our guide to ${h.a("/buyers/gated-communities/", "gated communities near Myrtle Beach")} covers more.`) +
+      h.p(`Most houses in the older part are small and one story, on small lots, from the 1980s. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more. Our guide to ${h.a("/buyers/gated-communities/", "gated communities near Myrtle Beach")} covers more.`) +
       h.p(`We have the home inspector look at the roof, wiring, plumbing and heating of an older home before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`) +
       facts("golf-and-yacht-club")),
 
     entry("forestbrook-village", "new townhomes off Forestbrook Road", () =>
       h.p("Forestbrook Village is a new Lennar townhome community off Forestbrook Road, south of US 501. After Parkview, it is the closest to Coastal Grand Mall.") +
-      h.p("It is next to Forestbrook, an older neighborhood of houses, and its townhomes sold for less than those houses. Each townhome is two stories, with a one-car garage, and the fee includes internet.") +
+      h.p("It is next to the Forestbrook neighborhood, and its townhomes sold for less than the houses there. Each townhome is two stories, with a one-car garage, and the fee includes internet.") +
       facts("forestbrook-village")),
 
     entry("victory-point", "new townhomes on the old speedway land", () =>
@@ -292,18 +294,18 @@ module.exports = {
 
     entry("amber-bluff", "new townhomes near Coastal Carolina University", (bg) =>
       h.p("The Townes at Amber Bluff is a new townhome community off Savannah Bluff Road, on the Conway side of US 501. It is about a mile north of Brooks Stadium, Coastal Carolina University's football stadium.") +
-      h.p("D.R. Horton built every townhome here on one floor plan with three bedrooms, so the prices are close together. Each came with the builder's smart-home package for the front door lock, the thermostat and a video doorbell.") +
+      h.p("D.R. Horton built every townhome here. The listings show one floor plan, with three bedrooms, and the sales were close together in price. Each came with the builder's smart-home package for the front door lock, the thermostat and a video doorbell.") +
       facts("amber-bluff") +
       h.cta("Want the homes for sale in one of these neighborhoods?", "Tell us which ones you like and your price range. One of our agents will send you what is for sale there, with the HOA fee and the yearly tax for each home.", OFFER, CONTACT, bg)),
 
-    entry("villas-at-sandridge", "new townhomes off SC 90 near the waterway", () =>
-      h.p("Villas at Sandridge is a new townhome community off SC 90 near Little River, from Dream Finders Homes. The county records it as Village at Sandridge.") +
-      h.p("The Intracoastal Waterway, a marina and a boat launch are close by. Only Parkview is closer to a beach. They are townhomes, a few miles inland from the beachfront towns. That is why they cost less than houses by the water.") +
+    entry("villas-at-sandridge", "townhomes off SC 90 near the waterway", () =>
+      h.p("Villas at Sandridge is a townhome community off SC 90 near Little River, from Dream Finders Homes. Jome lists the builder's homes there as sold out. The county records it as Village at Sandridge.") +
+      h.p("The Intracoastal Waterway, a marina and a boat launch are close by. Only Parkview is closer to a beach. They are townhomes, a few miles inland from the beachfront towns.") +
       facts("villas-at-sandridge")),
 
     entry("indigo-grove", "new houses off SC 90", () =>
       h.p("Indigo Grove is a new neighborhood of houses off SC 90, south of Longs. Lennar sells it as The Overlook.") +
-      h.p("Lennar sold about 145 houses here in eleven months, the most of any neighborhood we found. They are between SC 90 and the Waccamaw River, far from the city, and they cost less for that distance. Of the three places near Longs, Indigo Grove has the shortest drive to the beach.") +
+      h.p("Lennar sold about 145 houses here in about ten months, the most of any place on this list. Of the three places near Longs, Indigo Grove has the shortest drive to the beach.") +
       facts("indigo-grove")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
@@ -319,7 +321,7 @@ module.exports = {
       facts("polo-farms")),
 
     { h2: "How do the towns compare?", toc: "The towns", id: "towns", html: () =>
-      h.p("Across the whole town, Loris and Conway cost about the same as these neighborhoods. Socastee, Longs, Little River and Myrtle Beach cost more. These are homes that resold in the past year, with builder sales and condos left out.") +
+      h.p("Across the whole town, Loris costs about the same as these neighborhoods, and Conway a little more. Socastee, Longs, Little River and Myrtle Beach cost more. These are homes that resold in the past year, with builder sales and condos left out.") +
       TOWNS +
       h.p(`Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself. To choose by what you want nearby, read our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}. Our guide to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")} covers one neighborhood in depth.`) },
 
