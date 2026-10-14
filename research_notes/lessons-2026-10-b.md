@@ -80,6 +80,8 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B33. Straight-line distance is not the drive.** A store "about a third of a mile away" was 0.7 mile by road; one "under a mile" was 1.2. For anything the reader drives to, give the drive time (CRAFT 2). `struck-check --batch` now also reads `rules/distance-words.json` and fails "a short drive", "close by", "a few blocks", "just across" and "a few minutes" when the sentence gives no number with a unit. On the round 10 previews it found 12, on three pages, after two verifier passes.
 
+**B34. A distance has two ends.** The gated page measured Huntington Beach State Park to a road deep inside the park (15 minutes); the entrance is 11. Seaside's "a quarter to a half mile from the ocean" came from one dot; measured over all 130 lots, half are farther than half a mile. Rule (CRAFT 2): say where the measure starts, end it where the reader arrives, and measure a range over every lot.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
