@@ -1,6 +1,12 @@
 /* /buyers/best-neighborhoods/ - the best neighborhoods in Myrtle Beach, by what the reader wants nearby.
  *
- * Batch 2026-10-b, page 1. Version 10, 2026-10-14 (round 10: review/ROUND-10.md, OWNER-EYE-9). Deerfield gains
+ * Batch 2026-10-b, page 1. Version 11, 2026-10-14 (round 11: OWNER-EYE-10, CRAFT 5 lesson B35). Facts from
+ * rows, sentences in our own words; method in the ledger. Forestbrook Estates: why a buyer picks it, the
+ * pool and garden, its schools and drives. One beach-parking trade-off (Deerfield); new trade-offs for
+ * Grande Dunes, Plantation Lakes and Tidewater. Barefoot's cabana and shuttle and The Farm's history now
+ * live on the gated and Farm pages (links); Barefoot gains its swing bridge. Table cells match the gated
+ * page. Rows 234 to 238, pending verification (round 11).
+ * Version 10, 2026-10-14 (round 10: review/ROUND-10.md, OWNER-EYE-9). Deerfield gains
  * the Deer Track golf resort, the 2006 sale, the court case and the new houses on the old courses;
  * Forestbrook Estates gains its county record (planned as Kingsland, 500 houses). A plain trade-off line
  * in Tidewater, Waterbridge, The Farm, Plantation Lakes, Berkshire Forest, Forestbrook Estates and The
@@ -331,7 +337,7 @@ const MID_CTA = (bg) => h.cta("Not sure which of these fits you? We will send th
   "Get three neighborhoods", OFFER, bg);
 const ENTRIES = [
   ENTRY(1, "tidewater", "Tidewater Plantation: golf between the waterway and the inlet in North Myrtle Beach", [
-    `Tidewater Plantation is between the Intracoastal Waterway and Cherry Grove Inlet, behind a guard house that visitors reach from Little River Neck Road. Tidewater Golf Club, a public course, winds between the homes, and our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} tells how it was built.`,
+    `Tidewater Plantation is between the Intracoastal Waterway and Cherry Grove Inlet, behind a guard house that visitors reach from Little River Neck Road. Tidewater Golf Club, a public course, winds between the homes, and our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} tells its history.`,
     "Most of its homes are houses, many along the fairways, with a few condo buildings. Owners share a clubhouse, a fitness center, courts for tennis, pickleball and bocce, and an oceanfront beach cabana with parking at Cherry Grove.",
     "The condos pay a much higher HOA fee than the houses, about $800 a month for two bedrooms.",
   ], "houses for sale were mostly built around 2000 and have about 2,700 square feet. Houses usually sell for about $625,000, and the homeowners association (HOA) fee is about $230 a month."),
@@ -345,7 +351,7 @@ const ENTRIES = [
   ENTRY(3, "barefoot-resort", "Barefoot Resort: four golf courses that opened on one day in North Myrtle Beach", [
     "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. The residential association's rules were recorded that day too, and neighborhoods grew up around the courses.",
     "Many streets carry seashell names, from Junonia Drive to Moonshell Drive. Barefoot Landing's shops and restaurants are across the swing bridge on the waterway.",
-    "That bridge was built in 1934 and moved here from Edenton, North Carolina, in 2000. The resort's developer restored it and gave it to the city of North Myrtle Beach.",
+    "That bridge dates from 1934 and was moved here from Edenton, North Carolina, the year the courses opened. The resort's developer restored it and gave it to the city of North Myrtle Beach.",
     `We check which association a home belongs to before you offer, because each association has its own pools and clubs. Our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} covers the resort's beach cabana, its shuttle and its gated sections.`,
   ], "homes for sale are mostly condos, a mix of older ones and new ones, and the new ones are larger. They usually sell for about $430,000, and the HOA fee is about $680 a month for a condo."),
 
@@ -370,7 +376,7 @@ const ENTRIES = [
   ], "homes in the three gated sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
   ENTRY(7, "the-farm", "The Farm at Carolina Forest: two pools at the lowest price in Carolina Forest", [
-    `D.R. Horton built The Farm from 2004, and our ${h.a(FARM, "guide to The Farm at Carolina Forest")} tells its history, its rules and the story behind its street names.`,
+    `D.R. Horton developed The Farm, and our ${h.a(FARM, "guide to The Farm at Carolina Forest")} tells its history, its rules and the story behind its street names.`,
     `It has ${h.ext(FARM_HOA, "two pools")}, a fitness room, an activity center, a basketball court and a playground, and the HOA fee includes cable TV and trash pickup.`,
     "Of the four Carolina Forest neighborhoods here, The Farm has the lowest house prices and the lowest HOA fee for a house.",
     "Townhomes and condos at The Farm cost less, but they pay a second HOA fee on top of The Farm's.",
@@ -378,7 +384,7 @@ const ENTRIES = [
 
   ENTRY(8, "plantation-lakes", "Plantation Lakes: a large lake and two pools on a point in Carolina Forest", [
     "Plantation Lakes is built around a large lake, with about 15 miles of shoreline, off Carolina Bays Parkway. Its developer was American Mining Company, and the owners' association holds about 185 acres of common areas.",
-    "Many homes back onto the lake, and the amenity area has a dock. That amenity area is on a point in the lake, with two pools and a clubhouse with a gym. Tennis and basketball courts are across the road.",
+    "Many homes back onto the lake, and the amenity area has a dock. That amenity area is on a point in the lake, with two pools joined by a waterfall and a clubhouse with a gym. Tennis and basketball courts and horseshoe pits are across the road.",
     "Of the fifteen, only Grande Dunes has houses that sell for more.",
   ], "houses for sale were mostly built in the 2000s and have about 3,400 square feet. Houses usually sell for about $740,000, and the HOA fee is about $125 a month.", MID_CTA),
 
@@ -395,9 +401,9 @@ const ENTRIES = [
   ], "houses for sale were mostly built since 2015 and have about 2,400 square feet. Homes usually sell for $540,000 to $670,000, and the HOA fee is about $95 a month for a house."),
 
   ENTRY(11, "forestbrook-estates", "Forestbrook Estates: newer houses, a pool and garden plots", [
-    "Forestbrook Estates is the pick for a house built in the last few years with a low HOA fee. Lennar built all 500 houses the county approved here, around ponds, with townhomes beside them.",
+    "Forestbrook Estates is the pick for a house from the last few years with a low HOA fee. Lennar built every house the county approved here, around ponds, with townhomes beside them.",
     "Owners swim at the community pool, and on the same grounds they can keep a plot in the community garden.",
-    "Every home here is zoned for Forestbrook Elementary, Forestbrook Middle and Socastee High. The elementary and middle schools are each about 6 minutes away by car, and so is a Food Lion.",
+    "Every home here is zoned for Forestbrook Elementary, Forestbrook Middle and Socastee High. The elementary and middle schools are each 5 to 6 minutes away by car, and a Food Lion is about the same.",
     "Its houses cost a little more than The Farm's, but they are newer.",
   ], "most of the few houses for sale here were built in the last few years and have about 2,300 square feet. Houses usually sell for about $395,000, and the HOA fee is under $90 a month."),
 
@@ -438,7 +444,8 @@ const NAMES = (ids) => ids.map((id) => h.a(A(id), N[id].name)).join(", ");
 const BEST_FOR = `<p style="color:var(--muted);line-height:1.8;max-width:720px;margin:0 0 1rem"><strong style="color:var(--navy)">Walk to the beach:</strong> ${NAMES(["cherry-grove", "surfside-beach"])}. <br/>`
   + `<strong style="color:var(--navy)">Golf:</strong> ${NAMES(["tidewater", "barefoot-resort", "wild-wing", "pine-lakes"])}. <br/>`
   + `<strong style="color:var(--navy)">Pools:</strong> ${NAMES(["waterbridge", "the-farm", "plantation-lakes", "berkshire-forest"])}. <br/>`
-  + `<strong style="color:var(--navy)">A lower price:</strong> ${NAMES(["the-farm", "deerfield", "forestbrook-estates"])}.</p>`;
+  + `<strong style="color:var(--navy)">A lower price:</strong> ${NAMES(["the-farm", "deerfield", "berkshire-forest"])}. <br/>`
+  + `<strong style="color:var(--navy)">A newer house:</strong> ${NAMES(["waterbridge", "wild-wing", "forestbrook-estates"])}.</p>`;
 
 const STORY = (bg) => story([
   "<strong>Example:</strong> A house at Pine Lakes will be Megan's second home until she moves here from up north.",

@@ -41,7 +41,7 @@
       "cells": {
         "price": "About $430,000, mostly condos",
         "fee": "About $680 for a condo",
-        "beach": "About 6 minutes"
+        "beach": "About 6; gated houses 8 to 10 minutes"
       },
       "rows": "price: row 115 (23 resales in these sections, 19 condos, middle $430,000); fee: row 116; beach: row 118; golf: row 171; flood: row 121; gated sections: gated row 9"
     },
@@ -83,7 +83,7 @@
       "cells": {
         "price": "About $1.5 million",
         "fee": "About $200 to $375",
-        "beach": "About 10 minutes"
+        "beach": "About 12 minutes"
       },
       "rows": "Round 3: one value with the gated page. The three gated sections of gated-communities-facts.md: price row 46 (11 sales, middle $1,501,500), fee row 34 ($199 to $375 in these sections), beach as the gated page; map point from data/gated-map.json. The neighborhoods ledger's rows 14 and 17 (other sections) are no longer used on this page."
     },
@@ -97,7 +97,7 @@
       "cells": {
         "price": "About $350,000 for a house",
         "fee": "$107",
-        "beach": "About 10 minutes"
+        "beach": "10 minutes from Farmers Rest Drive"
       },
       "rows": "the-farm-facts.md: price row 48 (61 detached, middle $352,000; Orchards townhomes $228,500; Planters Point condos $237,500); fee row 5 ($107 for every home; Orchards and Planters Point pay a second association, row 6); beach row 28 (about 10 minutes from the Farmers Rest Drive entrance); amenities: verifier's completeness wording; flood row 71"
     },
@@ -166,7 +166,7 @@
       "lon": -78.939592,
       "cells": {
         "price": "Houses $540,000, townhomes $398,000",
-        "fee": "About $300 to $700 for a townhome",
+        "fee": "About $300 to $680 for a townhome",
         "beach": "About 5 minutes"
       },
       "rows": "price: row 26 (26 houses middle $540,000; 20 townhomes middle $398,400); fee: row 28 (townhomes $300 to $683; one house $101); beach: row 30; grocery: row 31; flood: row 33 (11 of 838 in AE)"
@@ -207,9 +207,9 @@
       "lat": 33.588187,
       "lon": -79.059731,
       "cells": {
-        "price": "$315,000 to $620,000",
+        "price": "$315,000 to $620,000; Bellwood $850,000",
         "fee": "About $100 to $390, by section",
-        "beach": "About 11 minutes"
+        "beach": "About 11; Bellwood Landing 14 minutes"
       },
       "rows": "group: named sections outside Seasons at Prince Creek (row 145 corrected); price: row 147 (10 resales $315,000 to $620,000; new townhomes $300,000 to $356,000); fee: row 149; beach: row 151 (a free lot); grocery: row 152; hospital: row 153; flood: row 154"
     }
@@ -241,7 +241,7 @@
         "cells": {
           "price": "About $500,000",
           "fee": "About $340",
-          "beach": "About 10 minutes"
+          "beach": "About 13 minutes"
         }
       },
       {
