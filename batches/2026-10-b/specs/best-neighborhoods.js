@@ -375,7 +375,7 @@ const ENTRIES = [
   ], "houses for sale were mostly built from the 1960s to the 1980s and have about 1,900 square feet. Houses usually sell for about $695,000, and most homes for sale have no HOA fee."),
 
   ENTRY(3, "barefoot-resort", "Barefoot Resort: four golf courses that opened on one day in North Myrtle Beach", [
-    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000, and neighborhoods grew up around them.",
+    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. Neighborhoods grew up around them.",
     "Many streets carry seashell names, from Junonia Drive to Moonshell Drive. Barefoot Landing's shops and restaurants are across the swing bridge on the waterway.",
     "That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened.",
     `We check which association a home belongs to before you offer, because each association has its own pools and clubs. Our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} covers the resort's beach cabana, its shuttle and its gated sections.`,
