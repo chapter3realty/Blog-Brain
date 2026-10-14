@@ -239,3 +239,12 @@ node <blog-brain>/tools/site-upgrade.js chapter3realty            # dry run
 node <blog-brain>/tools/site-upgrade.js chapter3realty --write
 node build.js preflight
 ```
+
+## `mkpage-offer-box.patch`: the first offer as a box
+
+```
+cd <website-repo>
+git apply <blog-brain>/website-patches/mkpage-offer-box.patch
+```
+
+The owner, 2026-10-14: "make the first CTA more of a CTA". When a spec's `heroCta` has a `title`, the offer under the short answer is a box with the same look as `h.cta`: a headline that says what the reader gets, one sentence (`heroCta.text`) and the large button. A spec without a `title` keeps the button on its own, so no other page changes. Tested with `git apply --check` on a clean clone of the live branch.

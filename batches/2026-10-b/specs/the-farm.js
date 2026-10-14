@@ -161,12 +161,12 @@ module.exports = {
     { icon: "hospital", label: "Emergency room", text: "About 5 minutes" },
     { icon: "dollar", label: "HOA fee", text: "$107 a month" },
   ]),
-  heroCta: { label: "Get the list", href: "/contact/" },
+  heroCta: { title: "Get the list of homes for sale in The Farm.", text: "Tell us your price range, and we will send you the homes for sale in The Farm.", label: "Get the list", href: "/contact/" },
   author: "devin",
   shortAnswer: [
-    "The Farm at Carolina Forest has about 1,600 homes, and every lot has a home on it. Most are houses with three or four bedrooms.",
-    "Owners share two pools, an activity center, a clubhouse with a fitness room, a basketball court and a playground. The homeowners association (HOA) is the group that runs the neighborhood and collects the monthly fee. Its fee is $107 a month, with cable TV and trash pickup included.",
-    "Houses that sold here in the last year usually went for about $350,000. Every home is assigned to Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High.",
+    "The Farm at Carolina Forest has two pools, an activity center, a clubhouse with a fitness room, a basketball court and a playground. Most of its about 1,600 homes are houses with three or four bedrooms.",
+    "The homeowners association (HOA) runs the neighborhood and collects a monthly fee. The fee is $107 a month, with cable TV and trash pickup included.",
+    "Every home is assigned to Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. Houses that sold here in the last year usually went for about $350,000.",
   ],
   sections: [
     { h2: "What are the homes like in The Farm at Carolina Forest?", toc: "The homes", html:
@@ -229,7 +229,7 @@ module.exports = {
       h.p(`The HOA spends the largest share of the ${h.ext(BUDGET, "fee")} on cable TV from Spectrum. The HOA spends the rest on landscaping and the ponds, trash pickup, the management company, electricity, savings for repairs, the pools and insurance. The fee does not include internet.`) +
       h.p("Townhomes in The Orchards and condos in Planters Point also have their own HOA. In all, owners in The Orchards pay about $225 to $255 a month. Owners in Planters Point pay about $450 to $500 a month.") +
       h.p(`Every home in The Farm is outside the high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}. That means federal law does not make your lender require flood insurance. If you want a policy for a house anyway, one in this ZIP code usually costs about $600 a year.`) +
-      h.cta("Get the list of homes for sale in The Farm.", "Tell us your price range, and one of our agents will send you the homes for sale in The Farm now.", "Get the list", "/contact/", bg) +
+      h.cta("Get the list of homes for sale in The Farm.", "Tell us your price range, and we will send you the homes for sale in The Farm.", "Get the list", "/contact/", bg) +
       h.p(`If you would rather not pay an HOA fee, see ${h.a("/buyers/no-hoa-homes/", "where to find homes with no HOA near Myrtle Beach")}. For lower prices, see ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy near Myrtle Beach")}.`) },
 
     { h2: "What are the pros and cons of living in The Farm at Carolina Forest?", toc: "Pros and cons", html: (bg) =>
@@ -292,7 +292,7 @@ module.exports = {
   sourcesNote: "Not legal or tax advice. Home sizes, ages and the Orchards and Planters Point HOA totals are from recent listings. Drive times leave out traffic. The flood cost is FEMA's middle house policy price in ZIP code 29579. The Corps lists the land under the homes as Response Complete and Site Closeout (fiscal year 2024).",
   /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
   afterSources: () => ph.credits(),
-  bottomCta: { h2: "Get the list of homes for sale in The Farm.", p: "Tell us your price range, and one of our agents will send you the homes for sale in The Farm now.", label: "Get the list", href: "/contact/" },
+  bottomCta: { h2: "Get the list of homes for sale in The Farm.", p: "Tell us your price range, and we will send you the homes for sale in The Farm.", label: "Get the list", href: "/contact/" },
   keywords: "The Farm at Carolina Forest, The Farm Carolina Forest HOA, The Farm at Carolina Forest HOA fee, The Farm at Carolina Forest homes for sale, The Farm at Carolina Forest pool, The Farm at Carolina Forest rules",
   about: "The Farm at Carolina Forest, a neighborhood in unincorporated Horry County with a Myrtle Beach address, South Carolina",
 };
