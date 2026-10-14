@@ -290,6 +290,12 @@ const SHAG_LAW = "https://www.scstatehouse.gov/code/t01c001.php";
 const SCE = "https://www.scencyclopedia.org/sce/entries/";
 const MARSHWALK = "https://www.marshwalk.com/";
 const BLUE_CRAB = "https://www.bluecrabfestival.org/";
+const STUMP = "https://www.scencyclopedia.org/sce/entries/galivants-ferry-stump-meeting/";
+const LORIS_CLOCK = "https://www.scpictureproject.org/horry-county/loris-town-clock.html";
+const CITY_HALL = "https://schpr.sc.gov/index.php/Detail/objects/S10817726018";
+const SURF_PIER = "https://www.wmbfnews.com/2024/03/14/surfside-beach-pier-officially-open";
+const MB_STATE_PARK = "https://southcarolinaparks.com/myrtle-beach";
+const HC_PARKS = "https://www.horrycountysc.gov/departments/parksandrecreation/parks/";
 
 /* Words used more than once. */
 const loris = AREAS.find((a) => a.key === "Loris");
@@ -384,16 +390,19 @@ module.exports = {
     entry("Aynor", "Aynor: new houses on about an acre", [
       `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
       `Here you get land: most lots are about an acre, with room for a boat or a camper beside the house. The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 5 minutes from the center of town.`,
+      `Galivants Ferry is also home to the ${h.ext(STUMP, "Galivants Ferry Stump Meeting")}, a Democratic Party tradition since the 1880s. Candidates for county and state office speak beside the Holliday family store, with chicken bog and country music.`,
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
     entry("Loris", "Loris: new houses on three quarters of an acre, near a small downtown", [
       `Loris is a small city with City Hall downtown on Walnut Street. On the third Saturday in October, downtown fills for the ${h.ext(LORIS_CITY, "Loris Bog-Off")}, a festival centered on chicken bog: chicken, rice and sausage cooked together.`,
       "Loris has its own hospital, McLeod Loris, in town. Its lots fall between Aynor's acre and Conway's half acre.",
+      `Loris grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street, and the Bog-Off brings a parade, bands and fireworks.`,
     ], LORIS_PHOTO, "the nearest big mall, Coastal Grand in Myrtle Beach, is a drive of about 50 minutes."),
 
     entry("Conway", "Conway: half an acre near the Waccamaw River and an old downtown", [
       `Conway began in the 1730s as Kingston, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "later Conwayborough")}, then Conway. Its Riverwalk runs along the river downtown.`,
       "Lots are about half an acre, a little smaller than in Aynor or Loris, and you are closest to the beach of the three. About a third of the houses for sale were built in 2024 or later.",
+      `City Hall was the county courthouse, finished in 1825 and ${h.ext(CITY_HALL, "reputedly designed by Robert Mills")}. It is a two-story brick building with columns, at the center of the old downtown.`,
     ], CONWAY_PHOTO, "inside the city, a big business truck may not park on a city street."),
 
     entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
@@ -403,7 +412,7 @@ module.exports = {
 
     entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses a short walk from the ocean", [
       `Surfside Beach was part of a rice plantation called The Ark, later named Floral Beach. It was renamed Surfside Beach in 1952 and ${h.ext(SCE + "surfside-beach/", "became a town in 1964")}. The town limited building density, and through the 1980s single-family houses remained the norm.`,
-      "Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. Surfside Beach has a fishing pier.",
+      `Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. The town's fishing pier ${h.ext(SURF_PIER, "reopened in 2024")}, after a hurricane destroyed the old one.`,
       "From Garden City, the MarshWalk restaurants are a short drive south.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
@@ -416,11 +425,13 @@ module.exports = {
     entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near the ocean", [
       `Myrtle Beach began at the end of a logging railroad from Conway. In 1901 the railroad company ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought a large tract and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
       "Outside Carolina Forest, the houses for sale are mostly older: almost half were built before 1990, and almost half are close to the beach.",
+      `On the south side of the city, ${h.ext(MB_STATE_PARK, "Myrtle Beach State Park")} opened in 1936 as the first park in South Carolina's state park system. It has a stretch of beach with no buildings on it, a fishing pier and a nature trail.`,
     ], MB_PHOTO, "about half are inside the city, where the city's limits on boats and work trucks apply."),
 
     entry("Little River", "Little River: a boat on the Intracoastal Waterway", [
       `Little River is on the Intracoastal Waterway at the north end of the Grand Strand. Its waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day.`,
       `Little River is not a town, so the ${h.a("#boats-and-work-trucks", "county's rules")} apply to a boat on your lot. The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} on the waterway is about 10 minutes from the center, and so is the beach in North Myrtle Beach.`,
+      `${h.ext(HC_PARKS, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has about 3 miles of trails and boardwalks through forest and marsh. A piece of the colonial Kings Highway, the old road from Boston to Charleston, is still at its front.`,
     ], LR_PHOTO, "none of the houses for sale here is close enough to walk to the beach."),
 
     { h2: "How do the eight areas compare?", toc: "The areas side by side", html: () =>
