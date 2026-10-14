@@ -290,7 +290,6 @@ const SHAG_LAW = "https://www.scstatehouse.gov/code/t01c001.php";
 const SCE = "https://www.scencyclopedia.org/sce/entries/";
 const MARSHWALK = "https://www.marshwalk.com/";
 const BLUE_CRAB = "https://www.bluecrabfestival.org/";
-const STUMP = "https://www.scencyclopedia.org/sce/entries/galivants-ferry-stump-meeting/";
 const LORIS_CLOCK = "https://www.scpictureproject.org/horry-county/loris-town-clock.html";
 const CITY_HALL = "https://schpr.sc.gov/index.php/Detail/objects/S10817726018";
 const SURF_PIER = "https://www.wmbfnews.com/2024/03/14/surfside-beach-pier-officially-open";
@@ -388,9 +387,8 @@ module.exports = {
       h.cta("Get the homes with no HOA fee in your price band.", "Tell us your band and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
 
     entry("Aynor", "Aynor: new houses on about an acre", [
-      `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
+      `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979 to raise money for community projects. It celebrates the harvest season, and it still pays for projects in town. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
       `Here you get land: most lots are about an acre, with room for a boat or a camper beside the house. The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 5 minutes from the center of town.`,
-      `Galivants Ferry is also home to the ${h.ext(STUMP, "Galivants Ferry Stump Meeting")}, a Democratic Party tradition since the 1880s. Candidates for county and state office speak beside the Holliday family store, with chicken bog and country music.`,
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
     entry("Loris", "Loris: new houses on three quarters of an acre, near a small downtown", [

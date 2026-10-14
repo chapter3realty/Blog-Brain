@@ -324,7 +324,7 @@ const MID_CTA = (bg) => h.cta("Not sure which of these fits you? We will send th
   "Get three neighborhoods", OFFER, bg);
 const ENTRIES = [
   ENTRY(1, "tidewater", "Tidewater Plantation: golf between the waterway and the inlet in North Myrtle Beach", [
-    `Tidewater Plantation is between the Intracoastal Waterway and Cherry Grove Inlet, behind a ${h.a("/buyers/gated-communities/", "gatehouse at its entrance")}. Ken Tomlinson, a Columbia attorney who also designed golf courses, found the 600-acre site. Hurricane Hugo delayed the work, and Tidewater Golf Club opened in 1990.`,
+    `Tidewater Plantation is between the Intracoastal Waterway and Cherry Grove Inlet, behind a ${h.a("/buyers/gated-communities/", "gatehouse at its entrance")}. Ken Tomlinson, a Columbia attorney who also designed golf courses, found the site on the waterway. Hurricane Hugo delayed the work, and Tidewater Golf Club opened in 1990.`,
     "That year Golf Digest and Golf Magazine both named it the best new public course in America. Some holes meet the marsh of the waterway, and one looks across the inlet to Cherry Grove Beach.",
     "Many of its homes are houses along the fairways, with a few condo buildings. Owners share a clubhouse, a fitness center, courts for tennis, pickleball and bocce, and an oceanfront beach cabana with parking at Cherry Grove.",
   ], "houses for sale were mostly built around 2000 and have about 2,700 square feet. Houses usually sell for about $625,000, and the HOA fee is about $230 a month."),
