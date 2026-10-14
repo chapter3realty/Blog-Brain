@@ -211,7 +211,7 @@ const SECTIONS_PLACES = [
 
   entry("seaside-plantation", "lakes and shag festivals a few blocks from the ocean", [
     "Seaside Plantation is a small neighborhood of houses in North Myrtle Beach, two or three blocks from the ocean. Its houses are beside lakes, and it has a clubhouse, a pool and a hot tub.",
-    "Main Street is a golf cart ride away. Each fall the Society of Stranders holds its Fall Migration there, a shag dance festival a local paper expected to bring at least 10,000 people, and its Spring Safari comes each April.",
+    "Main Street is a golf cart ride away. Each fall the Society of Stranders holds its Fall Migration there, a shag dance festival for thousands of dancers. Its Spring Safari comes each April.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
   "a gate at the entrance, with rules the owners association has recorded with the county. Homes usually sell for about $740,000, and the HOA fee is about $210 a month. Only a handful sell each year."),
 
