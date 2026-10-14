@@ -196,12 +196,6 @@
     "use": "About 1,500 to 1,900 square feet."
   },
   {
-    "row": "affordable 166",
-    "pattern": "\\bIn our experience, rush hour",
-    "struck": "In our experience, rush hour adds 5 to 10 minutes.",
-    "use": "In the owner's experience, rush hour adds 5 to 10 minutes."
-  },
-  {
     "row": "affordable 169, 181",
     "pattern": "\\bbesides the mortgage\\b(?! and insurance)",
     "struck": "About $4,700 a year for the HOA fee and tax, besides the mortgage.",
