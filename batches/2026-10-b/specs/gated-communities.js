@@ -82,7 +82,7 @@
  */
 const { h, kit, data, placesMap, compareCards, wantPicker, prosCons, atAGlance, glance, story, photoSetB, BB } = require("./_kit.js");
 const path = require("path");
-const { regionMap, loadGeo2 } = require(path.join(BB, "tools", "area-map.js"));
+const { loadGeo2 } = require(path.join(BB, "tools", "area-map.js"));
 
 /* A town name the reader needs ("Myrtle Beach", "Pawleys Island"), added to a map the tool drew: the same
    helper as batches/2026-10-b/specs/best-neighborhoods.js (addTown), so both pages draw it alike. The point
@@ -177,12 +177,89 @@ function renumber(html, offset) {
     .replace(/(numbered )([^"]*?)(\.")/g, (m, a, list, b) => a + list.replace(/(^|; |and )(\d+)(, )/g, (x, p, n, s) => p + (+n + offset) + s) + b)
     .replace(/<ol class="c3-map-key"/g, `<ol start="${offset + 1}" class="c3-map-key"`);
 }
+/* Map 1 (round 13, OWNER-EYE-12 low 2; the same fix as best-neighborhoods d57b511 and affordable 8b99f94,
+   with no tool changed, lesson B20): a full map of the places from North Myrtle Beach to Murrells Inlet,
+   with a dashed box around the four in Murrells Inlet, and a closer map of those four, so every dot has
+   its name beside it. The shared tool numbers each map from 1, so the markers are renumbered to the list,
+   and one key lists 1 to 14. labelDots is the helper from best-neighborhoods.js (round 11), copied. */
+const AM = require(path.join(BB, "tools", "area-map.js"));
+const TW2 = AM.internals.tw2, SZ_MANY = AM.internals.SZ.many;
+function labelDots(res, forms, o = {}) {
+  const m = res.map, strip = new Set(o.strip || []), margin = o.margin == null ? 2 : o.margin;
+  let svg = res.html;
+  for (const num of strip) {
+    const re = new RegExp(`(<text class="nm"[^>]*>${num}</text>)<text class="l"[^>]*>[\\s\\S]*?</text>`);
+    if (!re.test(svg)) continue;
+    svg = svg.replace(re, "$1");
+    m.boxes = m.boxes.filter((b) => !(b.kind === "label" && b.owner === "lm" + (num - 1)));
+  }
+  const markers = m.boxes.filter((b) => b.kind === "marker");
+  const cen = (b) => [(b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2];
+  const LH = 17.5, out = [], missed = [];
+  for (const p of m.places) {
+    if (p.labelled && !strip.has(p.num)) continue;
+    const mk = markers.find((b) => b.owner === "lm" + (p.num - 1));
+    const [cx, cy] = cen(mk), r = (mk.x1 - mk.x0) / 2;
+    let best = null;
+    for (const lines of forms[p.name] || [[p.name]]) {
+      const w = Math.max(...lines.map((l) => TW2(l, SZ_MANY))) + 4, hh = lines.length * LH + 2;
+      for (let gap = 2; gap <= 14 && !best; gap += 2) for (let k = 0; k < 24 && !best; k++) {
+        const a = k * Math.PI / 12, ux = Math.cos(a), uy = Math.sin(a), px = cx + (r + gap) * ux, py = cy + (r + gap) * uy;
+        const x0 = ux > 0.3 ? px : ux < -0.3 ? px - w : px - w / 2, y0 = uy > 0.3 ? py : uy < -0.3 ? py - hh : py - hh / 2;
+        const b = { x0, x1: x0 + w, y0, y1: y0 + hh };
+        if (b.x0 < 4 || b.x1 > m.width - 4 || b.y0 < 4 || b.y1 > m.height - 4) continue;
+        if (m.boxes.some((q) => q !== mk && q.kind !== "water" && !(q.x1 + 1 < b.x0 || q.x0 - 1 > b.x1 || q.y1 + 1 < b.y0 || q.y0 - 1 > b.y1))) continue;
+        const d = (q) => { const [qx, qy] = cen(q); return Math.hypot(Math.max(b.x0 - qx, 0, qx - b.x1), Math.max(b.y0 - qy, 0, qy - b.y1)); };
+        if (markers.some((q) => q !== mk && d(q) <= d(mk) + margin)) continue;
+        best = { lines, b };
+      }
+      if (best) break;
+    }
+    if (!best) { missed.push(p.num); continue; }
+    const { lines, b } = best, x = (b.x0 + 2 - cx).toFixed(1), y = (b.y0 + 14 - cy).toFixed(1);
+    m.boxes.push(Object.assign({ kind: "label", owner: "lm" + (p.num - 1) }, b));
+    out.push(`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)})"><g class="k"><text class="l" x="${x}" y="${y}">`
+      + lines.map((l, i) => `<tspan x="${x}"${i ? ` dy="${LH}"` : ""}>${l}</tspan>`).join("") + `</text></g></g>`);
+  }
+  const i = svg.indexOf("</svg>");
+  if (i < 0) throw new Error("the map is not inline, so names cannot be added");
+  res.html = svg.slice(0, i) + out.join("") + svg.slice(i);
+  if (missed.length) console.warn(`gated-communities: no room on map 1 for the names of ${missed.join(", ")}; the key names them`);
+  return res;
+}
+const placeOf = (e) => ({ name: GEO_NAME(e), short: e.short, lat: e.lat, lon: e.lon, href: "#" + e.id });
+const renumberTo = (res, ids) => {
+  const nums = ids.map((id) => byId[id].n);
+  res.html = res.html.replace(/<ol[\s\S]*?<\/ol>/, "");
+  res.html = res.html.replace(/(<text class="nm"[^>]*>)(\d+)(<\/text>)/g, (m0, x, k, y) => x + nums[+k - 1] + y);
+  return res;
+};
+const MAP_FORMS = {
+  "Seaside Plantation": [["Seaside Plantation"], ["Seaside", "Plantation"], ["Seaside"]],
+  "The Bluffs on the Waterway": [["The Bluffs"], ["The", "Bluffs"]],
+  "Covington Lake East": [["Covington Lake East"], ["Covington", "Lake East"], ["Covington"]],
+  "Myrtle Beach Golf and Yacht Club": [["Golf and Yacht Club"], ["Golf and", "Yacht Club"]],
+};
+const CLUSTER_MI = ["prince-creek-55", "bellwood-landing", "wachesaw-plantation", "wachesaw-east"];
 const MAP_N = (() => {
-  const m = regionMap({ name: `Neighborhoods 1 to ${N_SPLIT}, North Myrtle Beach to Murrells Inlet`,
-    places: E.slice(0, N_SPLIT).map((e) => ({ name: GEO_NAME(e), short: e.short, lat: e.lat, lon: e.lon, href: "#" + e.id })) },
-    { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420 });
-  /* "Myrtle Beach" has no free spot near its own town point on this map, so the caption says where it is. */
-  return { html: kit.mapFigure(m.html, `Map of the neighborhoods 1 to ${N_SPLIT} on this page, from North Myrtle Beach (top right) to Murrells Inlet (bottom left). The city of Myrtle Beach is on the coast between Grande Dunes (4) and Prestwick (${byId.prestwick.n}).`, m.credit) + m.key };
+  const all = E.slice(0, N_SPLIT), outerIds = all.map((e) => e.id).filter((id) => !CLUSTER_MI.includes(id));
+  const INSET = renumberTo(placesMap("Murrells Inlet gated neighborhoods", CLUSTER_MI.map((id) => placeOf(byId[id])), {
+    caption: `Closer map of the four neighborhoods in Murrells Inlet, numbered as on this page.`,
+  }), CLUSTER_MI);
+  const OUTER = labelDots(placesMap("Gated neighborhoods, North Myrtle Beach to Murrells Inlet", outerIds.map((id) => placeOf(byId[id])), {
+    caption: `Map of the neighborhoods 1 to ${N_SPLIT} on this page, from North Myrtle Beach (top right) to Murrells Inlet (bottom left). The box marks the four in Murrells Inlet, on the closer map below.`,
+  }), MAP_FORMS);
+  {
+    const f = OUTER.map.frame, W = OUTER.map.width, H = OUTER.map.height, cl = CLUSTER_MI.map((id) => byId[id]), pad = 0.006;
+    const g = { west: Math.min(...cl.map((n) => n.lon)) - pad, east: Math.max(...cl.map((n) => n.lon)) + pad, north: Math.max(...cl.map((n) => n.lat)) + pad, south: Math.min(...cl.map((n) => n.lat)) - pad };
+    const x = (lon) => ((lon - f.west) / (f.east - f.west) * W).toFixed(1), y = (lat) => ((f.north - lat) / (f.north - f.south) * H).toFixed(1);
+    const rect = `<rect x="${x(g.west)}" y="${y(g.north)}" width="${(x(g.east) - x(g.west)).toFixed(1)}" height="${(y(g.south) - y(g.north)).toFixed(1)}" fill="none" stroke="#1f2a44" stroke-width="1.2" stroke-dasharray="4 3" opacity=".75"/>`;
+    const k = OUTER.html.indexOf("<g><g transform");
+    OUTER.html = k > 0 ? OUTER.html.slice(0, k) + rect + OUTER.html.slice(k) : OUTER.html.replace("</svg>", rect + "</svg>");
+    renumberTo(OUTER, outerIds);
+  }
+  const KEY = placesMap("Gated neighborhoods 1 to 14 key", all.map(placeOf), { caption: "Map key", key: true }).map.key;
+  return { html: OUTER.html + INSET.html + KEY };
 })();
 const MAP_S = (() => {
   const m = placesMap(`Neighborhoods ${N_SPLIT + 1} to ${E.length}, near Pawleys Island`, E.slice(N_SPLIT).map((e) => ({ name: GEO_NAME(e), short: e.short, lat: e.lat, lon: e.lon, href: "#" + e.id })), {
