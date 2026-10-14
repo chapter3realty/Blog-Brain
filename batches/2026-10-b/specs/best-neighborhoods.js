@@ -326,12 +326,12 @@ const ENTRIES = [
   ENTRY(1, "tidewater", "Tidewater Plantation: golf between the waterway and the inlet in North Myrtle Beach", [
     `Tidewater Plantation is between the Intracoastal Waterway and Cherry Grove Inlet, behind a ${h.a("/buyers/gated-communities/", "gatehouse at its entrance")}. Ken Tomlinson, a Columbia attorney who also designed golf courses, found the site on the waterway. Hurricane Hugo delayed the work, and Tidewater Golf Club opened in 1990.`,
     "That year Golf Digest and Golf Magazine both named it the best new public course in America. Some holes meet the marsh of the waterway, and one looks across the inlet to Cherry Grove Beach.",
-    "Many of its homes are houses along the fairways, with a few condo buildings. Owners share a clubhouse, a fitness center, courts for tennis, pickleball and bocce, and an oceanfront beach cabana with parking at Cherry Grove.",
+    "Most of its homes are houses, many along the fairways, with a few condo buildings. Owners share a clubhouse, a fitness center, courts for tennis, pickleball and bocce, and an oceanfront beach cabana with parking at Cherry Grove.",
   ], "houses for sale were mostly built around 2000 and have about 2,700 square feet. Houses usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
   ENTRY(2, "cherry-grove", "Cherry Grove: beach streets, canals and a 1950s pier in North Myrtle Beach", [
     `Cherry Grove Beach was made in 1950, when an inlet was filled to join Futch Beach to the Nixon family's Cherry Grove land. In 1968 it joined Ocean Drive, Crescent Beach and Windy Hill to form the city of North Myrtle Beach. Later, channels were dug into the marsh behind the beach, and those canals now run behind rows of houses.`,
-    "Cherry Grove Pier was built in the 1950s, and in 1964 a 1,780-pound tiger shark was landed from it, a world record at the time. From the middle of the neighborhood, a public beach access is a block or two away, the closest beach walk of the fifteen.",
+    "Cherry Grove Pier was built in the 1950s, and in 1964 a 1,780-pound tiger shark was landed from it, a world record at the time. From a home near the middle of the neighborhood, a public beach access is about 0.1 mile away, the closest of the fifteen.",
     "Russell Burgess Coastal Preserve, with a walkway and a pier, is a few blocks away. Almost every home here is in a high-risk flood zone. With a mortgage, flood insurance comes with the house.",
   ], "houses for sale were mostly built from the 1960s to the 1980s and have about 1,900 square feet. Houses usually sell for about $695,000, and most homes for sale have no HOA fee."),
 
@@ -347,10 +347,10 @@ const ENTRIES = [
     "Conway Medical Center and an ALDI grocery store are a short drive away. The beach is about 20 minutes away by car, the farthest of the fifteen.",
   ], "houses for sale were mostly built since 2014 and have about 2,900 square feet. Houses usually sell for about $600,000, and the HOA fee is about $135 a month."),
 
-  ENTRY(5, "waterbridge", "Waterbridge: 80 acres of lakes, canoes and a big pool in Carolina Forest", [
-    "Waterbridge was started by South Carolina Coastal Development, which sold its lakes and common areas to the homeowners association in 2010. Builders have added sections since. Over 80 acres of lakes and natural areas wind through it, with small pocket parks along the way.",
-    "Owners can take a canoe out on the lakes from the community's docks, and walking trails follow the water.",
-    "The pool complex and the clubhouse are inside a circle of streets. Next to them are a fitness center open around the clock and courts for tennis, pickleball, basketball and sand volleyball. A Food Lion and McLeod Health Carolina Forest's emergency department are close by.",
+  ENTRY(5, "waterbridge", "Waterbridge: 80 acres of lakes, a boat launch and a big pool in Carolina Forest", [
+    "Waterbridge was started by South Carolina Coastal Development, which sold open space and common areas to the homeowners association in 2010. The association looks after the lakes. Builders have added sections since. Over 80 acres of lakes and natural areas wind through it, with small pocket parks along the way.",
+    "Owners can launch a kayak or other non-motorized boat on the lakes from a boat launch with a floating dock, and walking paths cross the water on bridges.",
+    "The pool complex and the clubhouse are inside a circle of streets. The clubhouse has a fitness center open around the clock. Courts for tennis, pickleball, basketball and volleyball are a quarter mile away, on Fiddlehead Way. A Food Lion and McLeod Health Carolina Forest's emergency department are close by.",
   ], "houses for sale were mostly built in the last few years and have about 3,100 square feet. Houses usually sell for about $630,000, and the HOA fee is about $150 a month."),
 
   ENTRY(6, "grande-dunes", "Grande Dunes: gated sections between a beach club and a marina in Myrtle Beach", [
@@ -364,15 +364,15 @@ const ENTRIES = [
     `It has ${h.ext(FARM_HOA, "two pools")}, a fitness room, an activity center, a basketball court and a playground, and the HOA fee includes cable TV and trash pickup. Our ${h.a(FARM, "guide to The Farm at Carolina Forest")} covers the homes, the HOA and the rules.`,
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,200 square feet. Houses usually sell for about $350,000; townhomes and condos cost less and pay a second HOA fee. The HOA fee for a house is $107 a month."),
 
-  ENTRY(8, "plantation-lakes", "Plantation Lakes: one long lake and a pool on a point in Carolina Forest", [
-    "Plantation Lakes is built along one continuous lake off Carolina Bays Parkway. Its developer was American Mining Company, and the owners' association has held about 180 acres of common areas since 2007.",
-    "On a lakefront lot, the water is behind the house, and an owner can reach the amenity area by boat. The amenity area is on a point in the lake, with two pools and a dock. Tennis and basketball courts are across the road.",
+  ENTRY(8, "plantation-lakes", "Plantation Lakes: a large lake and two pools on a point in Carolina Forest", [
+    "Plantation Lakes is built around a large lake, with about 15 miles of shoreline, off Carolina Bays Parkway. Its developer was American Mining Company, and the owners' association holds about 185 acres of common areas, deeded to it in 2007 and 2008.",
+    "Many homes back onto the lake, and the amenity area has a dock. That amenity area is on a point in the lake, with two pools and a clubhouse with a gym. Tennis and basketball courts are across the road.",
     "Its houses for sale are the largest of the fifteen.",
   ], "houses for sale were mostly built in the 2000s and have about 3,400 square feet. Houses usually sell for about $740,000, and the HOA fee is about $125 a month.", MID_CTA),
 
-  ENTRY(9, "berkshire-forest", "Berkshire Forest: a lazy river, a water slide and two pool areas in Carolina Forest", [
+  ENTRY(9, "berkshire-forest", "Berkshire Forest: a water slide and two pool areas in Carolina Forest", [
     "Centex Homes developed the first sections of Berkshire Forest, such as Crestwood, Sutton Place and Cambridge. Pulte Homes later announced about 600 more houses, on land taken in from two neighboring developments.",
-    "The first pool complex, with a water slide, is beside a lake, with tennis and basketball courts and a play area next to it. The expansion added a second amenity area with a lazy river, another pool and pickleball courts.",
+    "The first pool complex, with a water slide, is beside a lake, with tennis and basketball courts and a play area next to it. The expansion added a second amenity area with a pool and courts for tennis or pickleball.",
   ], "houses for sale were mostly built in the 2000s and 2010s and have about 2,400 square feet. Houses usually sell for about $390,000, and the HOA fee is about $115 a month."),
 
   ENTRY(10, "pine-lakes", "Pine Lakes: homes beside the Granddaddy, Myrtle Beach's first golf course", [
@@ -382,8 +382,8 @@ const ENTRIES = [
   ], "houses for sale were mostly built since 2015 and have about 2,400 square feet. Homes usually sell for $540,000 to $670,000, and the HOA fee is about $95 a month for a house."),
 
   ENTRY(11, "forestbrook-estates", "Forestbrook Estates: houses around ponds, with a community garden", [
-    "Lennar built Forestbrook Estates, starting in 2018. Houses, and some townhomes, are built around ponds.",
-    "Beside the pool is a community garden, where owners can keep their own plot. Owners may drive golf carts in the neighborhood.",
+    "Lennar developed Forestbrook Estates, starting in 2018. Houses, and some townhomes, are built around ponds.",
+    "On the same grounds as the pool is a community garden with garden plots. Listings say golf carts are allowed.",
   ], "most of the few houses for sale here were built in the last few years and have about 2,300 square feet. Houses usually sell for about $395,000, and the HOA fee is under $90 a month."),
 
   ENTRY(12, "market-common", "The Market Common: a town center on the old Myrtle Beach Air Force Base", [
@@ -393,18 +393,18 @@ const ENTRIES = [
 
   ENTRY(13, "deerfield", "Deerfield Plantation area: wooded streets and lake and canal land near Surfside Beach", [
     "The Deerfield Plantation area is a wooded neighborhood near Surfside Beach. Its association owns the lakes and canals that run between the homes.",
-    "Beach parking takes planning. The closest beach access has parking for golf carts only, and the next one, with a pay lot, is about 8 minutes away by car.",
+    "Beach parking takes planning. The closest beach access has parking for golf carts only, and the next one, with a pay lot, is a short drive away.",
   ], "most of the few houses for sale here were built in the 1970s and 1980s and have about 2,000 square feet. Homes usually sell for about $355,000, and the HOA fee is under $90 a month for a house."),
 
   ENTRY(14, "surfside-beach", "Surfside Beach, ocean side: beach streets on an old rice plantation", [
-    "Surfside Beach began as part of a rice plantation called The Ark. In the 1920s George J. Holliday renamed it Floral Beach for his wife, Flora. The Hollidays built a pavilion, a general store and a few rental cottages for summer visitors, and later a fishing pier.",
+    "Surfside Beach began as part of a rice plantation called The Ark. In the 1920s George J. Holliday renamed it Floral Beach for his wife, Flora. The Hollidays built a pavilion, a general store and a few rental cottages for summer visitors. A fishing pier was built later.",
     "In 1952 new owners named it Surfside Beach after a town in Florida, and it became a town in 1964. On the ocean side of US 17 Business, streets of houses run to the beach.",
     "About 1 in 4 homes here is in a high-risk flood zone, and we check the flood zone of any home you like before you offer.",
   ], "houses for sale were built anywhere from the 1960s to the 2020s, and the middle one has about 1,900 square feet. Houses usually sell for about $705,000 and condos for about $405,000, and most homes for sale have no HOA fee."),
 
-  ENTRY(15, "prince-creek", "Prince Creek: homes and a 43-acre park beside a Tom Fazio course in Murrells Inlet", [
+  ENTRY(15, "prince-creek", "Prince Creek: homes beside a Tom Fazio course in Murrells Inlet", [
     "Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course that opened in 1999. Tom Watson won the Senior PGA Tour Championship there the next year.",
-    "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association was deeded The Park at Prince Creek West, 43 acres of shared land. It has two pools, tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
+    "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, 43 acres of mostly woods. Its amenity area has two pools and courts for tennis and pickleball, and listings add basketball, a playground and a covered pavilion.",
     "A Publix is just across the main road, and Tidelands Waccamaw Community Hospital is a short drive away. Builders sold new townhomes here in the past year, but few homes are sold by their owners.",
   ], "the few houses for sale here were built from about 2007 to 2015 and have about 2,400 square feet. Homes usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."),
 ];

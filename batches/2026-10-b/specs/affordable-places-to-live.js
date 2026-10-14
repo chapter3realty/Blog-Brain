@@ -11,6 +11,9 @@
  *   Kept: the tax in dollars (now one example, pending row 153), the down-payment help and the Dana
  *   example. Cut: the town entries, their photos, the pros and cons, the compare table (it repeated the
  *   entries). ItemList JSON-LD for the numbered entries.
+ * Version 9b, 2026-10-14: the verifier's notes on rows 155 to 171 (none wrong): cause wording without a row
+ *   cut; Victory Point's neighbor plan from the Sun News (row 172); Villas at Sandridge sold out and sized
+ *   (row 173); the Sawgrass East to Victory Point drive (row 174); wording fixes (row 175).
  * Version 9, 2026-10-14: the owner's-eye review (review/OWNER-EYE-8-affordable-places-to-live.md). Access
  *   roads only (no street lists, except Victory Point's racing names); the builder sentence twice; each
  *   entry says why the price is low; the facts table gains "HOA fee and tax a year" (pending row 169) and a
