@@ -208,15 +208,15 @@ module.exports = {
       h.p("The five places and Myrtle Beach follow, in the map's order. Drive times are from the center of each town with no traffic. In our experience, rush hour adds 5 to 10 minutes.") },
 
     { h2: "1. Georgetown: a harbor town with the lowest prices", toc: "1. Georgetown", id: "georgetown", html: () =>
-      h.p("Georgetown is a city almost 300 years old, on the water in Georgetown County. It is the southernmost place on this page. Its downtown is a walkable waterfront street of shops and restaurants in 18th- and 19th-century buildings.") +
+      h.p("Georgetown is a city almost 300 years old, on the water in Georgetown County. It is the southernmost place on this page. Its downtown is on the waterfront, with shops, restaurants and many buildings from the 1700s and 1800s.") +
       GEORGETOWN_PHOTO +
-      h.p("A Walmart Supercenter, a Food Lion and a Piggly Wiggly are in town, and the library is downtown. East Bay Park has sports fields, and Morgan Park is on the water. Tidelands Georgetown Memorial Hospital is a short drive from downtown.") +
+      h.p("A Walmart Supercenter, a Food Lion and a Piggly Wiggly are in town, and the county library is on Cleland Street. East Bay Park has sports fields, and Morgan Park is on the water. Tidelands Georgetown Memorial Hospital is a short drive from downtown.") +
       h.p(`Many homes in Georgetown are older. About one in five homes in the city is in a high-risk flood zone, where a lender requires flood insurance. ${drives("Georgetown", "on Pawleys Island")}`) +
       line("Georgetown") +
       tradeoff("the highest property tax on this page, and about 50 minutes to Myrtle Beach.") },
 
     { h2: "2. Loris: a small town with its own hospital", toc: "2. Loris", id: "loris", html: () =>
-      h.p("Loris is a small town in the north of Horry County, near the North Carolina line. Its downtown is a few blocks of brick shops on Main Street, with the town library among them.") +
+      h.p("Loris is a small town in the north of Horry County, near the North Carolina line. Its downtown is on Main Street, with shops and the library.") +
       LORIS_PHOTO +
       h.p("McLeod Loris Hospital is a short drive from the center of town. A Food Lion, an IGA and Hill's Food Store sell groceries, and Loris Nature Park is at the east edge of town.") +
       h.p(`Homes in Loris are houses, not condos, and many were built before 1980. About six in ten homes for sale have no HOA fee, the monthly fee to a homeowners association. Almost no buildings are in a high-risk flood zone. ${drives("Loris", "in North Myrtle Beach")}`) +
@@ -226,22 +226,22 @@ module.exports = {
     { h2: "3. Longs: new homes close to North Myrtle Beach", toc: "3. Longs", id: "longs", html: () =>
       h.p(`Longs is an area inland from North Myrtle Beach, outside any town. Builders are selling new homes here, on new streets of houses. From the center of Longs, the beach in North Myrtle Beach is about ${beach("Longs")} minutes away, the shortest drive of the five.`) +
       LONGS_PHOTO +
-      h.p("A Food Lion is a few blocks from the center of Longs. McLeod Seacoast, a hospital in Little River, is a short drive away. Almost no buildings near the center of Longs are in a high-risk flood zone.") +
+      h.p("A Food Lion is about a quarter mile from the center of Longs. McLeod Seacoast, a hospital in Little River, is a short drive away. Almost no buildings near the center of Longs are in a high-risk flood zone.") +
       h.p(`Longs is not a town, so homes there pay no town tax. Almost every home for sale has an HOA fee, typically about $80 a month. Myrtle Beach (Coastal Grand Mall) is about ${mall("Longs")} minutes away by car.`) +
       line("Longs") +
       tradeoff("almost every home has an HOA fee, and Myrtle Beach is about 40 minutes away.") },
 
     { h2: "4. Conway: a river town 25 minutes from Myrtle Beach", toc: "4. Conway", id: "conway", html: () =>
-      h.p("Conway is a city on the Waccamaw River, inland from Myrtle Beach. Much of its downtown was built in the early 1900s, under old live oak trees. A riverwalk runs along the river at the edge of downtown.") +
+      h.p("Conway is a city on the Waccamaw River, inland from Myrtle Beach. Much of its downtown was built in the early 1900s, near the Waccamaw River. A riverwalk runs along the river beside downtown.") +
       CONWAY_PHOTO +
-      h.p("A Food Lion, an IGA, the city library and the Conway Recreation Complex are in town. Conway Medical Center is a short drive from downtown.") +
+      h.p("A Food Lion, an IGA, the county library and the city recreation complex are in town. Conway Medical Center is a short drive from downtown.") +
       h.p(`Homes in Conway are newer than in Loris or Georgetown: half were built after about 2000. Builders are selling new homes here. Most homes for sale have an HOA fee, typically about $85 a month. ${drives("Conway", "in Myrtle Beach")}`) +
       h.p(`Some homes with a Conway address are outside the city and pay the lower county tax. Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself.`) +
       line("Conway", " With the typical HOA fee, the tax and the fee together come to about $2,900 a year, besides the mortgage.") +
       tradeoff("higher tax inside the city limits.") },
 
     { h2: "5. Aynor: a small town with houses on wide lots", toc: "5. Aynor", id: "aynor", html: () =>
-      h.p("Aynor is a small town in the west of Horry County. Its center has the town hall, a town park, an athletic complex, the library and a grocery store, KJ's Market. Around the center are houses on wide lots.") +
+      h.p("Aynor is a small town in the west of Horry County. Within about a mile of its center are the town hall, a park, an athletic complex, the library and a grocery store, KJ's Market. Around the center are houses on wide lots.") +
       AYNOR_PHOTO +
       h.p(`About two in three homes for sale in Aynor have no HOA fee. None of the buildings in Aynor is in a high-risk flood zone. Conway Medical Center is about half an hour away. ${drives("Aynor", "in Myrtle Beach")}`) +
       h.p("Few homes in Aynor sell each year, so there are few to choose from, and the typical value is less certain.") +
