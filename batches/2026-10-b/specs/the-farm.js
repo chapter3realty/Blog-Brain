@@ -295,7 +295,7 @@ module.exports = {
     { q: "How much is the HOA fee in The Farm at Carolina Forest?", a: "The HOA fee is $107 a month for every home, or about $1,300 a year. The HOA spends it on trash pickup, landscaping, the ponds and the pools. Townhomes in The Orchards and condos in Planters Point pay a second HOA fee too." },
     { q: "Can the HOA fee in The Farm go up?", a: "Yes. The HOA can raise the fee by up to 20 percent a year. The board can also add a one-time charge to owners by a majority vote." },
     { q: "Is The Farm at Carolina Forest a gated community?", a: "No. The streets in The Farm are public roads owned by Horry County. To add a gate, about three out of four owners would have to agree to ask a court first." },
-    { q: "When was The Farm at Carolina Forest built?", a: "The Farm was built in stages. D.R. Horton recorded its HOA rules in 2004 and recorded its last two sections, Phases 23B and 21, in 2017." },
+    { q: "When was The Farm at Carolina Forest built?", a: "The Farm was built in stages. D.R. Horton recorded its HOA rules in 2004 and added land until 2017, when the last two sections, Phases 23B and 21, were added. Most houses were built from 2004 to 2009, and most of the rest from 2014 to 2018." },
     { q: "What happens if you break an HOA rule in The Farm?", a: "You get a courtesy notice first. The HOA then charges a $25 fine, then a $50 fine, and then $50 a week until the problem is fixed." },
   ],
   sources: [
