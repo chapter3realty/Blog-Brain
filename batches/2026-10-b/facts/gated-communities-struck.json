@@ -173,7 +173,7 @@
     "row": "gated 99",
     "pattern": "restaurants of Carolina Forest Boulevard",
     "struck": "The shops and restaurants of Carolina Forest Boulevard are close by.",
-    "use": "Shops and restaurants are less than a mile away in a straight line."
+    "use": "(Cut the shops sentence: true of most of Carolina Forest.)"
   },
   {
     "row": "gated 112",
@@ -318,7 +318,7 @@
     "row": "gated 115, 153",
     "pattern": "\\bthousands of (?:shag )?dancers|shag dancers fill",
     "struck": "Both bring thousands of dancers to Main Street.",
-    "use": "Each fall the Society of Stranders holds its Fall Migration in North Myrtle Beach, which a local paper expected to bring at least 10,000 people; its Spring Safari comes each April."
+    "use": "Each fall the Society of Stranders holds its Fall Migration, a shag dance festival, in North Myrtle Beach, and its Spring Safari comes each April."
   },
   {
     "row": "gated 153",
@@ -522,7 +522,7 @@
     "row": "gated 150",
     "pattern": "\\bboat ramp[^.]{0,80}\\bis close by",
     "struck": "A public boat ramp on the Intracoastal Waterway is close by.",
-    "use": "A public boat ramp on the Intracoastal Waterway, Enterprise Landing, is about a mile and a half away in a straight line."
+    "use": "Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about 6 minutes away by car."
   },
   {
     "row": "gated 150",
@@ -546,7 +546,7 @@
     "row": "gated 154",
     "pattern": "\\ba gate at the entrance of each gated section",
     "struck": "The facts: a gate at the entrance of each gated section.",
-    "use": "The facts: listings mark Calais, Palermo, Tuscany Village and Villa Venezia as gated."
+    "use": "Only some sections of Grande Dunes are gated. Homes in Calais, Palermo and Villa Venezia usually sell for about $1.5 million."
   },
   {
     "row": "gated 155",
@@ -607,7 +607,7 @@
     "row": "gated 161",
     "pattern": "\\btrading post",
     "struck": "Kimbel's restaurant is on the bluff above the river. It was once a trading post, where Waccamaw people and English colonists traded deer and beaver skins for beads and tools.",
-    "use": "The bluff where Kimbel's restaurant stands was once the site of an outpost where, by one local history, Waccamaw Native Americans and English colonists would have traded animal skins for beads, tools, salt and rum."
+    "use": "The bluff where Kimbel's restaurant stands was once the site of an outpost."
   },
   {
     "row": "gated 161",
@@ -619,7 +619,7 @@
     "row": "gated 161",
     "pattern": "\\bcalled it the most extensive",
     "struck": "He called it the most extensive archaeological research done on any South Carolina plantation.",
-    "use": "Michie said the project was the most extensive archaeological research done on any South Carolina plantation."
+    "use": "Before the neighborhoods were planned, archaeologists, among them James Michie of the University of South Carolina, dug at Wachesaw."
   },
   {
     "row": "gated 161",
@@ -777,7 +777,7 @@
     "row": "gated 22",
     "pattern": "main entrance is at the light by Tidelands",
     "struck": "The main entrance is at the light by Tidelands Waccamaw Community Hospital, and the back gate on Wachesaw Road opens with a card key.",
-    "use": "Visitors turn in from the light by Tidelands Waccamaw Community Hospital, cross Old Kings Highway and reach the gate guard. One listing says the back gate on Wachesaw Road takes a card key only."
+    "use": "Visitors turn in from the light by Tidelands Waccamaw Community Hospital, cross Old Kings Highway and reach the gate guard."
   },
   {
     "row": "gated 162",
@@ -802,21 +802,21 @@
     "pattern": "Gator Hole Plaza[^.]{0,80}less than half a mile",
     "unless": "straight line",
     "struck": "A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are less than half a mile from the middle of the neighborhood.",
-    "use": "A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are less than half a mile from the middle of the neighborhood in a straight line."
+    "use": "A Walmart Supercenter, a Lowe's, the shops of Gator Hole Plaza and Main Street are each 3 to 5 minutes away by car."
   },
   {
     "row": "gated 174",
     "pattern": "Main Street's nearest block is 0\\.45 mile",
     "unless": "straight line",
     "struck": "Main Street's nearest block is 0.45 mile from the same spot.",
-    "use": "Main Street's nearest block is 0.45 mile from the same spot, also in a straight line."
+    "use": "A Walmart Supercenter, a Lowe's, the shops of Gator Hole Plaza and Main Street are each 3 to 5 minutes away by car."
   },
   {
     "row": "gated 93",
     "pattern": "boat ramp is less than a mile from the middle of the neighborhood",
     "unless": "straight line",
     "struck": "Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood.",
-    "use": "Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood in a straight line. By road it is about 5 miles."
+    "use": "Cherry Grove's public boat ramp is about 14 minutes away by car."
   },
   {
     "row": "gated 174",
@@ -908,7 +908,7 @@
     "pattern": "back gate on Wachesaw Road (?:takes|is|opens)[^.]{0,30}card key",
     "unless": "\\b(?:one|a|the) listing|\\blistings? (?:say|says|show|shows)\\b",
     "struck": "The back gate on Wachesaw Road takes a card key only.",
-    "use": "One listing says the back gate on Wachesaw Road takes a card key only. (Or cut it: the flat statement rests on one listing, MLS 2620244.)"
+    "use": "Visitors turn in from the light by Tidelands Waccamaw Community Hospital, cross Old Kings Highway and reach the gate guard."
   },
   {
     "row": "gated 176",
@@ -927,5 +927,53 @@
     "pattern": "nearest public beach access, from the middle of the homes",
     "struck": "All 20 neighborhoods: what homes sell for, the HOA fee and the drive to the nearest public beach access, from the middle of the homes, with no traffic",
     "use": "All 20 neighborhoods: what homes sell for, the HOA fee and the drive to the nearest public beach access, from a street inside each neighborhood, with no traffic"
+  },
+  {
+    "row": "gated 176",
+    "pattern": "back gate on Wachesaw Road takes a card key",
+    "struck": "The back gate on Wachesaw Road takes a card key only.",
+    "use": "(Cut it: one listing.)"
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\bMichie said\\b",
+    "struck": "Michie said the project was the most extensive archaeological research done on any South Carolina plantation.",
+    "use": "Before the neighborhoods were planned, archaeologists, among them James Michie of the University of South Carolina, dug at Wachesaw."
+  },
+  {
+    "row": "gated 161",
+    "pattern": "\\bBy one local history\\b",
+    "struck": "By one local history, Waccamaw Native Americans and English colonists would have traded animal skins there.",
+    "use": "The bluff where Kimbel's restaurant stands was once the site of an outpost."
+  },
+  {
+    "row": "gated 159",
+    "pattern": "\\bIn 2013 the builder (?:also )?listed",
+    "struck": "In 2013 the builder also listed a ballroom, a card room, an art studio, a billiards room and a full-time activities director.",
+    "use": "The clubhouse has indoor and outdoor pools and a fitness center, and there are tennis courts and bocce."
+  },
+  {
+    "row": "gated 154",
+    "pattern": "\\blistings mark\\b[^.]{0,80}\\bgated\\b|\\bno gate marked\\b",
+    "struck": "listings mark Calais, Palermo, Tuscany Village and Villa Venezia as gated; Living Dunes and Siena Park have no gate marked.",
+    "use": "Only some sections of Grande Dunes are gated."
+  },
+  {
+    "row": "gated 149",
+    "pattern": "\\blistings describe security\\b",
+    "struck": "a gatehouse at the entrance on Bay Road; listings describe security at the gate day and night.",
+    "use": "a gatehouse at the entrance on Bay Road."
+  },
+  {
+    "row": "gated 153",
+    "pattern": "\\bA local paper expected\\b",
+    "struck": "A local paper expected it to bring at least 10,000 people.",
+    "use": "Each fall the Society of Stranders holds its Fall Migration, a shag dance festival, in North Myrtle Beach."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "\\bin a straight line\\b",
+    "struck": "Measured in a straight line, Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood.",
+    "use": "Cherry Grove's public boat ramp is about 14 minutes away by car."
   }
 ]

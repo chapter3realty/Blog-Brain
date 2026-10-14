@@ -64,6 +64,8 @@ const cases = [
     "McLeod Health Carolina Forest cut its ribbon on August 27, 2026."],
   ["mortgage-rate-statements", "The national 30-year fixed averaged 6.55 percent that week.",
     "Rates change weekly; your lender quotes yours."],
+  ["conway-range-years", "The Army used part of it as a bombing and gunnery range from 1942 to 1947.",
+    "The Army used part of it as a bombing and gunnery range from 1942 to 1948."],
   /* Batch 2026-10-a (55+ pages): live hub, retirees and golf text on 2026-10-11, against the corrected wording. */
   ["seasons-gate", "Seasons at Prince Creek West in Murrells Inlet is gated.",
     "Seasons is deed-restricted and built around single-level plans and a full amenity program."],

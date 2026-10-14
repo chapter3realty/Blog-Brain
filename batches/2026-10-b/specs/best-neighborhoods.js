@@ -345,7 +345,7 @@ const ENTRIES = [
   ENTRY(2, "cherry-grove", "Cherry Grove: beach streets, canals and a 1950s pier in North Myrtle Beach", [
     `Cherry Grove Beach was made in 1950, when an inlet was filled to join Futch Beach to the Nixon family's Cherry Grove land. In 1968 it joined Ocean Drive, Crescent Beach and Windy Hill to form the city of North Myrtle Beach. Later, channels were dug into the marsh behind the beach, and those canals now run behind rows of houses.`,
     "Cherry Grove Pier was built in the 1950s, and in 1964 a 1,780-pound tiger shark was landed from it, a world record at the time. The beach is a short walk from the middle of the neighborhood, about 0.1 mile.",
-    `Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot. Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. With a mortgage, the lender requires flood insurance here.`,
+    `Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot. Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. With a mortgage, a lender usually requires flood insurance here.`,
   ], "houses for sale were mostly built from the 1960s to the 1980s and have about 1,900 square feet. Houses usually sell for about $695,000, and most homes for sale have no HOA fee."),
 
   ENTRY(3, "barefoot-resort", "Barefoot Resort: four golf courses that opened on one day in North Myrtle Beach", [
@@ -375,7 +375,7 @@ const ENTRIES = [
     "Grande Dunes is still being built, and most houses for sale are new or not yet finished.",
   ], "homes in the three gated sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
-  ENTRY(7, "the-farm", "The Farm at Carolina Forest: two pools at the lowest price in Carolina Forest", [
+  ENTRY(7, "the-farm", "The Farm at Carolina Forest: two pools at the lowest price of the four Carolina Forest picks", [
     `D.R. Horton developed The Farm, and our ${h.a(FARM, "guide to The Farm at Carolina Forest")} tells its history, its rules and the story behind its street names.`,
     `It has ${h.ext(FARM_HOA, "two pools")}, a fitness room, an activity center, a basketball court and a playground, and the HOA fee includes cable TV and trash pickup.`,
     "Of the four Carolina Forest neighborhoods here, The Farm has the lowest house prices and the lowest HOA fee for a house.",
