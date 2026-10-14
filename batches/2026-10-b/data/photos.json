@@ -2671,7 +2671,7 @@
       "author_type": "Organization",
       "license": "Public domain",
       "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
-      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in every tile name the service lists for this frame: m_3307809_se_17_060_20230410, m_3307809_sw_17_060_20230410, m_3307810_se_17_060_20230410, m_3307810_sw_17_060_20230410, m_3307817_ne_17_060_20230410, m_3307817_nw_17_060_20230410, m_3307818_ne_17_060_20230410, m_3307818_nw_17_060_20230410; the image service's catalog query for Year=2023 over the frame, read 2026-10-14). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request. Ledger row 93 (pending verification, round 8).",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in every tile name the service lists for this frame: m_3307809_se_17_060_20230410, m_3307809_sw_17_060_20230410, m_3307810_se_17_060_20230410, m_3307810_sw_17_060_20230410, m_3307817_ne_17_060_20230410, m_3307817_nw_17_060_20230410, m_3307818_ne_17_060_20230410, m_3307818_nw_17_060_20230410; the image service's catalog query for Year=2023 over the frame, read 2026-10-14). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request. Ledger rows 93 (verified) and 97 (round 10, pending verification).",
       "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
       "terms_urls": [
         "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
@@ -2703,9 +2703,9 @@
       ],
       "annotation_sources": {
         "outline": "Horry County GIS parcels layer 24, the 1,634 parcels of the-farm-facts.md method note 'Parcel set', joined and closed across the streets: the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json, area 'the-farm')",
-        "the_farm": "Label beside the outline's west edge (-78.8859, 33.765), inside the frame's core; it names the outlined area.",
-        "carolina_forest_blvd": "A vertex of the CAROLINA FOREST BLVD centerline in Horry County roads layer 18 (-78.92273, 33.759784). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18",
-        "us_501": "A vertex of the HWY 501 centerline in Horry County roads layer 18 (-78.921455, 33.713944). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18",
+        "the_farm": "Label above the outline's north edge (point -78.8763, 33.7734); it names the outlined area.",
+        "carolina_forest_blvd": "A dot on a vertex of the CAROLINA FOREST BLVD centerline in Horry County roads layer 18 (-78.92273, 33.759784), with a short leader line up to the label (round 10). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18",
+        "us_501": "A dot on a vertex of the HWY 501 centerline in Horry County roads layer 18 (-78.92544, 33.716822), about 400 m northwest of the waterway bridge so the dot sits on the road lanes, with a short leader line up to the label (round 10). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18",
         "publix": "Dot at the end point of ledger row 29 (Publix, 136 Sapwood Road, -78.870501, 33.751759); minutes from row 29 (OSRM, 2 min from the Farmers Rest Drive entrance, no traffic).",
         "emergency_room": "Dot at the end point of ledger row 30 (McLeod Health Carolina Forest emergency department, -78.852256, 33.757293); minutes from row 30 (OSRM, 5.2 min, no traffic). Two-line label (round 8, verifier on row 93), so every dot carries its drive time.",
         "beach": "Dot at the end point of ledger row 28 (City of Myrtle Beach beach access MYRTLE BEACH 101, -78.846516, 33.719685); minutes from row 28 (OSRM, 10 min, no traffic)."
@@ -2721,7 +2721,7 @@
         "ground_m_per_px_1200w": 11.05
       },
       "original_size": "2400x1800 (NAIP export, drawn on at 2x, colors adjusted, then resized)",
-      "method": "scratchpad farmw/scripts/render.py and fetch.py; config farmw/aerial/work/config.json, key the-farm-wide (round 8: a wide where-it-is view in place of the drawn region map; labels 46 px in 1200)",
+      "method": "scratchpad farmw/scripts/render.py and fetch.py; config farmw/aerial/work/config.json, key the-farm-wide (round 8: a wide where-it-is view in place of the drawn region map; labels 46 px in 1200; round 10: road labels tied to their roads with leader lines, labels may use the whole frame because the page shows this figure whole)",
       "width": 1200,
       "height": 900
     },
