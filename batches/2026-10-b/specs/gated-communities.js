@@ -307,7 +307,7 @@ const SECTIONS_PLACES = [
   ], P("prince-creek-55-clubhouse"), "The Seasons at Prince Creek West clubhouse and its outdoor pool from above, among the streets of Prince Creek West.",
   "a call box at the main entrance; a visitor calls the owner, who opens the gate. Homes usually sell for about $500,000."),
 
-  entry("bellwood-landing", "about 100 houses beside Prince Creek's park", [
+  entry("bellwood-landing", "houses on ponds beside Prince Creek's park", [
     "Bellwood Landing is a small neighborhood of houses in Prince Creek West, near Murrells Inlet. Some homes are on ponds, and Collins Creek winds through the woods and marsh just south of it.",
     "Its owners association recorded a gate policy with the county in 2024. Delivery and building trucks have an entrance of their own.",
     "Prince Creek West's road and park association owns The Park at Prince Creek West, 43 acres deeded to it in 2007. The park has tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
