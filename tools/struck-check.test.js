@@ -74,7 +74,7 @@ ok("sentences: no blocks are lost", pageSentences(page("One. Two.", "Three.")).l
   ok("cli: exit 0 on approved wording", cli(path.join(tmp, "batch", "facts", "clean-struck.json"), path.join(tmp, "preview", "clean.html")).status === 0);
   ok("cli: exit 2 on a missing file", cli(path.join(tmp, "nothing.json"), path.join(tmp, "preview", "clean.html")).status === 2);
   const b = cli("--batch", path.join(tmp, "batch"), "--preview", path.join(tmp, "preview"), "--strict");
-  ok("batch: checks every page, exit 1 on the dirty one", b.status === 1 && /dirty \(1 patterns\): 1 struck phrase/.test(b.stdout) && /clean \(1 patterns\): no struck wording/.test(b.stdout));
+  ok("batch: checks every page, exit 1 on the dirty one", b.status === 1 && /dirty \(\d+ patterns\): 1 struck phrase/.test(b.stdout) && /clean \(\d+ patterns\): no struck wording/.test(b.stdout));
   fs.unlinkSync(path.join(tmp, "preview", "dirty.html"));
   ok("batch: a missing page passes plain, fails --strict",
     runBatch(path.join(tmp, "batch"), path.join(tmp, "preview"), false).fail === false && runBatch(path.join(tmp, "batch"), path.join(tmp, "preview"), true).fail === true);
@@ -155,6 +155,34 @@ for (const [slug, text] of QUIET) {
   if (!lists[slug]) continue;
   const got = check(lists[slug], page(text));
   ok(`quiet (${slug}): ${text.slice(0, 70)}`, !got.length, got.map((h) => `${h.row} "${h.match}"`).join("; "));
+}
+
+/* rules/distance-words.json (CRAFT 2, lesson B31). Firing: the real unmeasured sentences from round 10.
+   Quiet: the measured rewrites, the CTA "what you want nearby", and the table heading "Also close by". */
+{
+  const { distanceWords } = require("./struck-check.js");
+  const D = distanceWords();
+  ok("distance: the list loads", D.length >= 5);
+  for (const e of D) {
+    ok(`distance fires: ${e.struck}`, check([e], page(e.struck)).length === 1);
+    ok(`distance quiet: ${e.use}`, check(D, page(e.use)).length === 0, JSON.stringify(check(D, page(e.use))));
+  }
+  const real = [
+    "In The Farm at Carolina Forest, the large pool and the activity center are a short walk apart.",
+    "For walking to the beach, Cherry Grove and the ocean side of Surfside Beach are a few blocks from the sand.",
+    "The two Ocean Bay schools are just outside The Farm's north-east side.",
+  ];
+  for (const t of real) ok(`distance fires on round 10 copy: ${t.slice(0, 50)}`, check(D, page(t)).length >= 1);
+  const quiet = [
+    "Tell us what you want nearby. We will send three neighborhoods that fit.",
+    "Tell us your price range and what you want close to home.",
+    "Russell Burgess Coastal Preserve is under half a mile on foot.",
+    "The agent shows her houses just outside the city, where the county has no rule on where she parks.",
+    "Cherry Grove: a short walk, about 0.1 mile.",
+  ];
+  for (const t of quiet) ok(`distance quiet on approved copy: ${t.slice(0, 50)}`, check(D, page(t)).length === 0, JSON.stringify(check(D, page(t))));
+  const h = `<!doctype html><html><body><main><h3>Also close by</h3><p>Carolina Forest Recreation Center is about 4 minutes by car.</p></main></body></html>`;
+  ok("distance quiet: the heading 'Also close by' over a table of drive times", check(D, h).length === 0, JSON.stringify(check(D, h)));
 }
 
 console.log(failures ? `\n${failures} control(s) failed` : "\nall controls pass");

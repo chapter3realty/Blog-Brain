@@ -1,0 +1,44 @@
+[
+  {
+    "row": "CRAFT 2",
+    "pattern": "\\b(?:a )?short (?:drive|walk|trip|ride)\\b",
+    "unless": "(?:\\d|\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|half|quarter|third)\\b)[^.]{0,25}\\b(?:miles?|minutes?|feet|yards?)\\b",
+    "struck": "Conway Medical Center and an ALDI grocery store are a short drive away.",
+    "use": "Conway Medical Center and an ALDI grocery store are about 6 minutes away by car."
+  },
+  {
+    "row": "CRAFT 2",
+    "pattern": "\\bclose by\\b",
+    "unless": "(?:\\d|\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|half|quarter|third)\\b)[^.]{0,25}\\b(?:miles?|minutes?|feet|yards?)\\b|^Also close by$",
+    "struck": "A Food Lion and McLeod Health Carolina Forest's emergency department are close by.",
+    "use": "A Food Lion and McLeod Health Carolina Forest's emergency department are each about 4 minutes away by car."
+  },
+  {
+    "row": "CRAFT 2",
+    "pattern": "\\b(?:a )?few blocks\\b",
+    "unless": "(?:\\d|\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|half|quarter|third)\\b)[^.]{0,25}\\b(?:miles?|minutes?|feet|yards?)\\b",
+    "struck": "Grand Park is a few blocks from the nearest homes.",
+    "use": "Grand Park is about 0.1 mile from the nearest homes."
+  },
+  {
+    "row": "CRAFT 2",
+    "pattern": "\\bjust (?:across|west|east|north|south|down|up|off|outside|beyond|past)\\b",
+    "unless": "(?:\\d|\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|half|quarter|third)\\b)[^.]{0,25}\\b(?:miles?|minutes?|feet|yards?)\\b|\\bjust outside the city\\b",
+    "struck": "A Lowes Foods and a Publix are just across SC 707.",
+    "use": "A Lowes Foods and a Publix are near SC 707, each about 2 minutes away by car."
+  },
+  {
+    "row": "CRAFT 2",
+    "pattern": "\\ba few minutes\\b",
+    "unless": "(?:\\d|\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|half|quarter|third)\\b)[^.]{0,25}\\b(?:miles?|minutes?|feet|yards?)\\b",
+    "struck": "A Food Lion and a Publix are each a few minutes by car.",
+    "use": "A Food Lion and a Publix are within about 8 minutes by car."
+  },
+  {
+    "row": "CRAFT 2",
+    "pattern": "\\b(?:walking distance|steps from|around the corner|golf cart ride)\\b",
+    "unless": "(?:\\d|\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|half|quarter|third)\\b)[^.]{0,25}\\b(?:miles?|minutes?|feet|yards?)\\b",
+    "struck": "The beach is a golf cart ride away.",
+    "use": "The beach is under 3 miles away by road."
+  }
+]

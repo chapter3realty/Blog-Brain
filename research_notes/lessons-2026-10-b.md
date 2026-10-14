@@ -78,7 +78,7 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B32. The frame moved, the photo did not.** Three affordable aerials were re-centered by changing the frame record and redrawing the labels for it, but the image was still the old export. Every name dot landed on the wrong houses, one in the neighborhood next door, and the captions read backwards. The verifier caught it by re-exporting both frames and matching pixels. `photos.js check` now fails a record whose `frame.bbox_wgs84` and `source_request` bbox differ by more than 2% of the frame; on the round 10 data it fails exactly those three.
 
-**B33. Straight-line distance is not the drive.** A store "about a third of a mile away" was 0.7 mile by road; one "under a mile" was 1.2. For anything the reader drives to, give the drive time (CRAFT 2).
+**B33. Straight-line distance is not the drive.** A store "about a third of a mile away" was 0.7 mile by road; one "under a mile" was 1.2. For anything the reader drives to, give the drive time (CRAFT 2). `struck-check --batch` now also reads `rules/distance-words.json` and fails "a short drive", "close by", "a few blocks", "just across" and "a few minutes" when the sentence gives no number with a unit. On the round 10 previews it found 12, on three pages, after two verifier passes.
 
 ## To add after the review
 

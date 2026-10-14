@@ -32,6 +32,9 @@
  * navigation and forms are left out. The sentences are split as tools/repeat-check.js splits them. Curly
  * quotes become straight quotes, so a pattern can use ' and ".
  *
+ * Batch mode also checks every page against rules/distance-words.json: distance words with no measure in
+ * the same sentence ("a short drive", "close by", "just across", "a few blocks"), CRAFT 2 and lesson B31.
+ *
  * Exit 1 if any struck wording is found. Exit 2 on a bad list or a missing file. With --strict, batch mode
  * also exits 1 when a list has no page or an entry lacks its row, pattern or struck wording.
  *
@@ -141,6 +144,12 @@ function report(file, hits) {
   return L.join("\n");
 }
 
+/* Distance words without a measure (CRAFT 2, lesson B31): "a short walk" was a mile, "just west" was a
+   mile, "just across SC 707" was the near side. rules/distance-words.json holds them; batch mode checks
+   every page for them, and a sentence that gives a number with miles, minutes, feet or yards passes. */
+const DISTANCE_WORDS = path.join(__dirname, "..", "rules", "distance-words.json");
+function distanceWords() { return fs.existsSync(DISTANCE_WORDS) ? loadList(DISTANCE_WORDS) : []; }
+
 function findPage(dir, slug) {
   for (const p of [path.join(dir, `${slug}.html`), path.join(dir, slug, "index.html")]) if (fs.existsSync(p)) return p;
   return null;
@@ -153,7 +162,7 @@ function runBatch(batchDir, previewDir, strict) {
   if (!lists.length) problems.push(`no *-struck.json in ${factsDir}`);
   for (const f of lists) {
     const slug = f.replace(/-struck\.json$/, "");
-    const list = loadList(path.join(factsDir, f));
+    const list = loadList(path.join(factsDir, f)).concat(distanceWords());
     for (const e of list) if (e.missing.length) problems.push(`${f}: entry ${e.row || e.pattern} lacks ${e.missing.join(", ")}`);
     const page = findPage(previewDir, slug);
     if (!page) { problems.push(`${f}: no page ${slug}.html in ${previewDir}`); results.push({ slug, list: f, page: null, patterns: list.length, hits: [] }); continue; }
@@ -162,7 +171,7 @@ function runBatch(batchDir, previewDir, strict) {
   return { results, problems, fail: results.some((r) => r.hits.length) || (strict && problems.length > 0) };
 }
 
-module.exports = { compile, loadList, pageSentences, check, report, runBatch };
+module.exports = { compile, loadList, pageSentences, check, report, runBatch, distanceWords, DISTANCE_WORDS };
 
 if (require.main === module) {
   const args = process.argv.slice(2);
