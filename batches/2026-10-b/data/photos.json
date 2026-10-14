@@ -780,9 +780,9 @@
         "1200": "images/buyers/best-neighborhoods/deerfield-from-above-1200w.webp"
       },
       "title": "Deerfield Plantation area from above, NAIP aerial, April 2023",
-      "what": "The Deerfield Plantation area near Surfside Beach from above on April 10, 2023: houses on wooded lots, ponds and green strips between the streets.",
-      "caption": "The Deerfield Plantation area from above: houses under tall trees, with ponds and green strips between the streets.",
-      "alt": "The Deerfield Plantation area from above: houses on wooded lots, with ponds and long green strips between the streets",
+      "what": "The Deerfield Plantation area near Surfside Beach from above on April 10, 2023: streets of houses under trees between two long open bands of the old Deer Track North Course, labelled, and a pond on the old course, labelled.",
+      "caption": "The Deerfield Plantation area from above: streets of houses between the open bands of the old North Course.",
+      "alt": "The Deerfield Plantation area from above: streets of houses under trees, with two long open grass bands labelled Old North Course land and a pond labelled Old course pond",
       "place": {
         "city": "Surfside Beach",
         "sublocation": "Deerfield Plantation area"
@@ -808,15 +808,21 @@
       "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
       "digital_source_type": "composite",
       "changes": "Chapter3 Realty cut this view from the NAIP service and adjusted the colors",
-      "labels": [],
-      "annotation_sources": {},
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8792302.809810868%2C3979484.5442891284%2C-8791389.997422246%2C3980173.9843685087&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "labels": [
+        "Old North Course land",
+        "Old course pond"
+      ],
+      "annotation_sources": {
+        "Old North Course land": "interior point of the county planning polygon DEERTRACK NORTH (pz_MajorResidentialDevelopments, NOTES none; the old Deer Track North Course), open fairway on the photo (-78.977604, 33.632984); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24 and the county planning layer pz_MajorResidentialDevelopments",
+        "Old course pond": "pond inside the DEERTRACK NORTH polygon; label placed above the water (-78.975868, 33.631351); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24 and the county planning layer pz_MajorResidentialDevelopments"
+      },
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8792002.241886482%2C3979350.846074005%2C-8791089.440096349%2C3980040.2781484267&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -78.9826,
-          33.631922,
-          -78.9744,
-          33.637078
+          -78.9799,
+          33.630922,
+          -78.9717,
+          33.636078
         ],
         "ground_m_per_px_1200w": 0.63
       },
@@ -833,9 +839,9 @@
         "1200": "images/buyers/best-neighborhoods/prince-creek-from-above-1200w.webp"
       },
       "title": "Prince Creek from above, NAIP aerial, April 2023",
-      "what": "Prince Creek in Murrells Inlet from above on April 10, 2023: townhomes and houses, the TPC Myrtle Beach golf course, labelled, and the Publix shopping center across Highway 707, labelled.",
-      "caption": "Prince Creek from above: homes beside the TPC Myrtle Beach golf course, and a Publix across the road.",
-      "alt": "Prince Creek from above: streets of townhomes and houses, a golf course labelled TPC Myrtle Beach golf course, and a Publix store labelled across the highway",
+      "what": "Prince Creek in Murrells Inlet from above on April 10, 2023: curving streets of houses at Stonegate at Prince Creek, two ponds, and the TPC Myrtle Beach golf course beside them, labelled.",
+      "caption": "Prince Creek from above: streets of houses beside the TPC Myrtle Beach golf course.",
+      "alt": "Prince Creek from above: curving streets of houses and two ponds, with the TPC Myrtle Beach golf course, labelled, at the left",
       "place": {
         "city": "Murrells Inlet",
         "sublocation": "Prince Creek"
@@ -863,22 +869,20 @@
       "digital_source_type": "composite",
       "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
       "labels": [
-        "TPC Myrtle Beach golf course",
-        "Publix"
+        "TPC Myrtle Beach golf course"
       ],
       "annotation_sources": {
-        "TPC Myrtle Beach golf course": "interior point of the golf parcel PIN 46800000005 (KAMINSKI TR-TPC GCOURSE, Founders Golf Mgmt LLC) (-79.060423, 33.585836); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27 and /24",
-        "Publix": "OpenStreetMap way 1079893614, Publix, 11920 Highway 707 (neighborhoods-facts row 152, verified); label 70 px above (-79.0547398, 33.5858115); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27 and /24"
+        "TPC Myrtle Beach golf course": "point inside the golf parcel PIN 46800000005 (KAMINSKI TR-TPC GCOURSE, Founders Golf Mgmt LLC); homes beside it are Stonegate at Prince Creek (county parcels) (-79.062322, 33.582945); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24 and the county planning layer pz_MajorResidentialDevelopments"
       },
-      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8801256.133940972%2C3973099.326766105%2C-8800247.791819064%2C3973860.9197082375&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8801375.071511343%2C3972494.2081318283%2C-8800462.812721074%2C3973183.230082687&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
       "frame": {
         "bbox_wgs84": [
-          -79.063029,
-          33.58415,
-          -79.053971,
-          33.58985
+          -79.064097,
+          33.579622,
+          -79.055903,
+          33.584778
         ],
-        "ground_m_per_px_1200w": 0.7
+        "ground_m_per_px_1200w": 0.63
       },
       "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
       "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",

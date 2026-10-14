@@ -141,12 +141,12 @@ const PHOTO = {
     "Forestbrook Estates from above: rows of houses around ponds, a pool labelled at the bottom, and cleared land at the left"),
   "market-common": AER("market-common-from-above", "The Market Common from the air: its homes, outlined in orange, The Reserve at the right, shops below and the airport at the bottom.",
     "The Market Common in Myrtle Beach from the air: townhomes and houses outlined in orange beside a lake, a second outlined group labelled The Reserve at Market Common at the right, shops below them, and the airport runway at the bottom"),
-  "deerfield": AER("deerfield-from-above", "The Deerfield Plantation area from above: houses under tall trees, with ponds and green strips between the streets.",
-    "The Deerfield Plantation area from above: houses on wooded lots, with ponds and long green strips between the streets"),
+  "deerfield": AER("deerfield-from-above", "The Deerfield Plantation area from above: streets of houses between the open bands of the old North Course.",
+    "The Deerfield Plantation area from above: streets of houses under trees, with two long open grass bands labelled Old North Course land and a pond labelled Old course pond"),
   "surfside-beach": ph.aerial("surfside-beach-from-above", "The ocean side of Surfside Beach from the air: streets of homes from US 17 Business, at the left, to the beach.",
     { alt: "Surfside Beach from the air: streets of houses under trees from a highway at the left to a wide beach and the ocean at the right, with a fishing pier and a public beach access marked" }),
-  "prince-creek": AER("prince-creek-from-above", "Prince Creek from above: homes beside the TPC Myrtle Beach golf course, and a Publix across the road.",
-    "Prince Creek from above: streets of townhomes and houses, a golf course labelled TPC Myrtle Beach golf course, and a Publix store labelled across the highway"),
+  "prince-creek": AER("prince-creek-from-above", "Prince Creek from above: streets of houses beside the TPC Myrtle Beach golf course.",
+    "Prince Creek from above: curving streets of houses and two ponds, with the TPC Myrtle Beach golf course, labelled, at the left"),
 };
 
 const SELF = "/buyers/best-neighborhoods/";
