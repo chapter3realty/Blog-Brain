@@ -4,7 +4,8 @@
  * rows, sentences in our own words; method in the ledger. Forestbrook Estates: why a buyer picks it, the
  * pool and garden, its schools and drives. One beach-parking trade-off (Deerfield); new trade-offs for
  * Grande Dunes, Plantation Lakes and Tidewater. Barefoot's cabana and shuttle and The Farm's history now
- * live on the gated and Farm pages (links); Barefoot gains its swing bridge. Table cells match the gated
+ * live on the gated and Farm pages (links); Barefoot gains its swing bridge. Round 11b: a voice pass
+ * (no deed, record or measuring words in the copy); rows 239 to 243. Table cells match the gated
  * page. Rows 234 to 238, pending verification (round 11). The overview is now two maps (the seven outer
  * places, then a closer map of the eight in Carolina Forest and Myrtle Beach), with one key; no tool changed.
  * Version 10, 2026-10-14 (round 10: review/ROUND-10.md, OWNER-EYE-9). Deerfield gains
@@ -369,12 +370,12 @@ const ENTRIES = [
 
   ENTRY(2, "cherry-grove", "Cherry Grove: beach streets, canals and a 1950s pier in North Myrtle Beach", [
     `Cherry Grove Beach was made in 1950, when an inlet was filled to join Futch Beach to the Nixon family's Cherry Grove land. In 1968 it joined Ocean Drive, Crescent Beach and Windy Hill to form the city of North Myrtle Beach. Later, channels were dug into the marsh behind the beach, and those canals now run behind rows of houses.`,
-    "Cherry Grove Pier was built in the 1950s, and in 1964 a 1,780-pound tiger shark was landed from it, a world record at the time. The beach is a short walk from the middle of the neighborhood, about 0.1 mile.",
+    "Cherry Grove Pier was built in the 1950s, and in 1964 a 1,780-pound tiger shark was landed from it, a world record at the time. From the center of Cherry Grove, the beach is a short walk, about 0.1 mile.",
     `Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot. Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. With a mortgage, a lender usually requires flood insurance here.`,
   ], "houses for sale were mostly built from the 1960s to the 1980s and have about 1,900 square feet. Houses usually sell for about $695,000, and most homes for sale have no HOA fee."),
 
   ENTRY(3, "barefoot-resort", "Barefoot Resort: four golf courses that opened on one day in North Myrtle Beach", [
-    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. The residential association's rules were recorded that day too, and neighborhoods grew up around the courses.",
+    "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. The residential association started the same day, and neighborhoods grew up around the courses.",
     "Many streets carry seashell names, from Junonia Drive to Moonshell Drive. Barefoot Landing's shops and restaurants are across the swing bridge on the waterway.",
     "That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened.",
     `We check which association a home belongs to before you offer, because each association has its own pools and clubs. Our ${h.a("/buyers/gated-communities/", "guide to gated communities near Myrtle Beach")} covers the resort's beach cabana, its shuttle and its gated sections.`,
@@ -409,7 +410,7 @@ const ENTRIES = [
 
   ENTRY(8, "plantation-lakes", "Plantation Lakes: a large lake and two pools on a point in Carolina Forest", [
     "Plantation Lakes is built around a lake with about 15 miles of shoreline, off Carolina Bays Parkway.",
-    "Many homes back onto the lake, and owners take pontoon boats out on the water. The amenity area, with a dock, is on a point in the lake, with two pools joined by waterfalls and a clubhouse with a gym and a great room with a fireplace. Tennis and basketball courts are across the road, and the community has horseshoe pits.",
+    "Many homes back onto the lake, and owners take pontoon boats out on the water. The amenity area, with a dock, is on a point in the lake. It has two pools joined by waterfalls, and a clubhouse with a gym and a great room with a fireplace. Tennis and basketball courts are across the road, and the community has horseshoe pits.",
     "The drive to the beach takes about 20 minutes, the longest of the four Carolina Forest neighborhoods here.",
   ], "houses for sale were mostly built in the 2000s and have about 3,400 square feet. Houses usually sell for about $740,000, and the HOA fee is about $125 a month.", MID_CTA),
 
