@@ -5,7 +5,8 @@
  * pool and garden, its schools and drives. One beach-parking trade-off (Deerfield); new trade-offs for
  * Grande Dunes, Plantation Lakes and Tidewater. Barefoot's cabana and shuttle and The Farm's history now
  * live on the gated and Farm pages (links); Barefoot gains its swing bridge. Table cells match the gated
- * page. Rows 234 to 238, pending verification (round 11).
+ * page. Rows 234 to 238, pending verification (round 11). The overview is now two maps (the seven outer
+ * places, then a closer map of the eight in Carolina Forest and Myrtle Beach), with one key; no tool changed.
  * Version 10, 2026-10-14 (round 10: review/ROUND-10.md, OWNER-EYE-9). Deerfield gains
  * the Deer Track golf resort, the 2006 sale, the court case and the new houses on the old courses;
  * Forestbrook Estates gains its county record (planned as Kingsland, 500 houses). A plain trade-off line
@@ -298,12 +299,13 @@ const INSET = renumber(kit.placesMap("Carolina Forest and Myrtle Beach neighborh
   caption: "Closer map of the eight neighborhoods in Carolina Forest and Myrtle Beach, numbered as on this page.",
 }), CLUSTER);
 const OUTER = labelDots(kit.placesMap("Neighborhoods", D.neighborhoods.filter((n) => !CLUSTER.includes(n.id)).map(placeOf), {
-  caption: "Map of the seven neighborhoods outside Carolina Forest and Myrtle Beach, numbered as on this page. The box shows the area of the closer map below.",
-}), { "Prince Creek": [["Prince Creek"], ["Prince", "Creek"]] });
-/* The closer map's area, as a dashed box on the full map (both frames are plain longitude and latitude
-   spans, so a straight scale places it). */
+  caption: "Map of the seven neighborhoods outside Carolina Forest and Myrtle Beach, numbered as on this page. The box marks the eight neighborhoods on the closer map below.",
+}), { "Prince Creek": [["Prince Creek"], ["Prince", "Creek"]], "Deerfield Plantation area": [["Deerfield"]], "Wild Wing Plantation": [["Wild Wing"]] }, { strip: [4, 5] });
+/* A dashed box on the full map around the eight places on the closer map (the frame is a plain longitude
+   and latitude span, so a straight scale places it). */
 {
-  const f = OUTER.map.frame, g = INSET.map.frame, W = OUTER.map.width, H = OUTER.map.height;
+  const f = OUTER.map.frame, W = OUTER.map.width, H = OUTER.map.height, cl = D.neighborhoods.filter((n) => CLUSTER.includes(n.id)), pad = 0.006;
+  const g = { west: Math.min(...cl.map((n) => n.lon)) - pad, east: Math.max(...cl.map((n) => n.lon)) + pad, north: Math.max(...cl.map((n) => n.lat)) + 0.0005 /* clear of the Wild Wing name above */, south: Math.min(...cl.map((n) => n.lat)) - pad };
   const x = (lon) => ((lon - f.west) / (f.east - f.west) * W).toFixed(1), y = (lat) => ((f.north - lat) / (f.north - f.south) * H).toFixed(1);
   const rect = `<rect x="${x(g.west)}" y="${y(g.north)}" width="${(x(g.east) - x(g.west)).toFixed(1)}" height="${(y(g.south) - y(g.north)).toFixed(1)}" fill="none" stroke="#1f2a44" stroke-width="1.2" stroke-dasharray="4 3" opacity=".75"/>`;
   const k = OUTER.html.indexOf("<g><g transform");
@@ -398,7 +400,7 @@ const ENTRIES = [
     "Grande Dunes is still being built, and most houses for sale are new or not yet finished.",
   ], "homes in the three gated sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
-  ENTRY(7, "the-farm", "The Farm at Carolina Forest: two pools at the lowest price of the four Carolina Forest picks", [
+  ENTRY(7, "the-farm", "The Farm at Carolina Forest: two pools and cable TV in the fee", [
     `D.R. Horton developed The Farm, and our ${h.a(FARM, "guide to The Farm at Carolina Forest")} tells its history, its rules and the story behind its street names.`,
     `It has ${h.ext(FARM_HOA, "two pools")}, a fitness room, an activity center, a basketball court and a playground, and the HOA fee includes cable TV and trash pickup.`,
     "Of the four Carolina Forest neighborhoods here, The Farm has the lowest house prices and the lowest HOA fee for a house.",
