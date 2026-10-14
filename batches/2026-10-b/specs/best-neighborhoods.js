@@ -399,7 +399,7 @@ const ENTRIES = [
   ENTRY(14, "surfside-beach", "Surfside Beach, ocean side: beach streets on an old rice plantation", [
     "Surfside Beach began as part of a rice plantation called The Ark. In the 1920s George J. Holliday renamed it Floral Beach for his wife, Flora. The Hollidays built a pavilion, a general store and a few rental cottages for summer visitors. A fishing pier was built later.",
     "In 1952 new owners named it Surfside Beach after a town in Florida, and it became a town in 1964. On the ocean side of US 17 Business, streets of houses run to the beach.",
-    "About 1 in 4 homes here is in a high-risk flood zone, and we check the flood zone of any home you like before you offer.",
+    "About a quarter of the homes here are in a high-risk flood zone, and we check the flood zone of any home you like before you offer.",
   ], "houses for sale were built anywhere from the 1960s to the 2020s, and the middle one has about 1,900 square feet. Houses usually sell for about $705,000 and condos for about $405,000, and most homes for sale have no HOA fee."),
 
   ENTRY(15, "prince-creek", "Prince Creek: homes beside a Tom Fazio course in Murrells Inlet", [
