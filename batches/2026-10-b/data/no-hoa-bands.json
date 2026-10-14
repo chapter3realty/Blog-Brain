@@ -5,8 +5,8 @@
  "asOf": "2026-10-13",
  "status": "research data for ledger rows 82 to 85 of batches/2026-10-b/facts/no-hoa-facts.md, pending verification (round 8)",
  "method": [
-  "Set: the 693 houses of no-hoa-lots.json with no HOA fee (detached, owned land, nine areas), with each listing page as re-opened on 2026-10-13 (price, Year Built, Total Heated SqFt, Neighborhood, Region, address in the page title, map point).",
-  "Bands by list price: under $250,000; $250,000 to $499,999; $500,000 to $749,999; $750,000 and up.",
+  "Set: the 688 houses of no-hoa-lots.json with no HOA fee (detached, owned land, nine areas), with each listing page as re-opened on 2026-10-13 (price, Year Built, Total Heated SqFt, Neighborhood, Region, address in the page title, map point).",
+  "Left out: the 5 Lakeside Crossing listings in Conway (leased land in a 55+ community; round 8 verifier). Bands by list price: under $250,000; $250,000 to $499,999; $500,000 to $749,999; $750,000 and up.",
   "Medians linear between values. Lot acres from the county parcel match (Horry County only), as no-hoa-lots.json. Beach distance: straight line from the listing map point to the OpenStreetMap shore in tools/geo/grand-strand.json, 804.67 m for half a mile.",
   "Streets: the street name from the listing address (house number dropped). Subdivisions: the MLS Neighborhood field, other than 'Not within a Subdivision'. A subdivision named here had a house listed with no HOA fee in that band; this says nothing about whether the subdivision has an association."
  ],
@@ -15,19 +15,19 @@
    "band": "under 250k",
    "min": 0,
    "max": 250000,
-   "houses": 62,
-   "medianPrice": 229700,
-   "medianSqft": 1263,
+   "houses": 57,
+   "medianPrice": 229500,
+   "medianSqft": 1232,
    "medianYearBuilt": 1984,
-   "medianLotAcres": 0.25,
-   "lotMatched": 53,
+   "medianLotAcres": 0.26,
+   "lotMatched": 48,
    "withinHalfMileOfBeach": 1,
    "builtSince2024": 8,
    "builtBefore1990": 40,
    "byArea": [
     [
      "Conway",
-     33
+     28
     ],
     [
      "Myrtle Beach (not Carolina Forest)",
@@ -58,10 +58,6 @@
     [
      "21d Conway Central Between 501& 9th Ave / South Of 501",
      9
-    ],
-    [
-     "23a Conway Area--South Of Conway Between 501 & Wacc. River",
-     5
     ],
     [
      "21e Conway Central--East Edge Of Conway / North & South Of 501",
@@ -98,6 +94,10 @@
     [
      "07a Loris To Longs Area--South Of 9 Between Loris & Longs",
      2
+    ],
+    [
+     "11a North Myrtle Beach Area--Cherry Grove",
+     1
     ]
    ],
    "subdivisions": [
@@ -118,23 +118,6 @@
       "1982",
       "1984",
       "1986"
-     ]
-    ],
-    [
-     "Lakeside Crossing",
-     5,
-     [
-      184000,
-      224900,
-      237500,
-      249600,
-      249900
-     ],
-     [
-      "2006",
-      "2007",
-      "2016",
-      "2023"
      ]
     ],
     [
@@ -272,6 +255,16 @@
      [
       "2008"
      ]
+    ],
+    [
+     "Snowhill Subdivision",
+     1,
+     [
+      225000
+     ],
+     [
+      "1972"
+     ]
     ]
    ],
    "streets": [
@@ -361,17 +354,17 @@
      1
     ],
     [
-     "Merrymount Dr.",
-     "Conway",
-     1
-    ],
-    [
      "15th Court",
      "Conway",
      1
     ],
     [
      "9th Ave.",
+     "Conway",
+     1
+    ],
+    [
+     "Highway 544",
      "Conway",
      1
     ]

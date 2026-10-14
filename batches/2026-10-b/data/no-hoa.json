@@ -915,32 +915,32 @@
   },
   "Conway": {
    "homes": {
-    "listings": 738,
-    "noHoaFee": 172,
+    "listings": 733,
+    "noHoaFee": 167,
     "withHoaFee": 566,
-    "shareNoHoaFeePct": 23.3,
-    "medianListPriceNoFee": 383600,
+    "shareNoHoaFeePct": 22.8,
+    "medianListPriceNoFee": 399000,
     "medianListPriceWithFee": 329900,
     "medianMonthlyHoaFee": 85,
     "hoaFeeP25": 63,
     "hoaFeeP75": 97,
     "hoaFeeMin": 9.0,
     "hoaFeeMax": 364.0,
-    "leasedLandNoFeeLeftOut": 0
+    "leasedLandNoFeeLeftOut": 5
    },
    "detachedHouses": {
-    "listings": 731,
-    "noHoaFee": 167,
+    "listings": 726,
+    "noHoaFee": 162,
     "withHoaFee": 564,
-    "shareNoHoaFeePct": 22.8,
-    "medianListPriceNoFee": 379900,
+    "shareNoHoaFeePct": 22.3,
+    "medianListPriceNoFee": 383600,
     "medianListPriceWithFee": 329945,
     "medianMonthlyHoaFee": 85,
     "hoaFeeP25": 63,
     "hoaFeeP75": 97,
     "hoaFeeMin": 9.0,
     "hoaFeeMax": 240.0,
-    "leasedLandNoFeeLeftOut": 0
+    "leasedLandNoFeeLeftOut": 5
    }
   },
   "Surfside Beach and Garden City": {
@@ -1125,32 +1125,32 @@
   },
   "allNineAreas": {
    "homes": {
-    "listings": 2676,
-    "noHoaFee": 716,
+    "listings": 2671,
+    "noHoaFee": 711,
     "withHoaFee": 1960,
-    "shareNoHoaFeePct": 26.8,
-    "medianListPriceNoFee": 525000,
+    "shareNoHoaFeePct": 26.6,
+    "medianListPriceNoFee": 528000,
     "medianListPriceWithFee": 414550,
     "medianMonthlyHoaFee": 96,
     "hoaFeeP25": 75,
     "hoaFeeP75": 137,
     "hoaFeeMin": 1.0,
     "hoaFeeMax": 12235.0,
-    "leasedLandNoFeeLeftOut": 82
+    "leasedLandNoFeeLeftOut": 87
    },
    "detachedHouses": {
-    "listings": 2620,
-    "noHoaFee": 693,
+    "listings": 2615,
+    "noHoaFee": 688,
     "withHoaFee": 1927,
-    "shareNoHoaFeePct": 26.5,
-    "medianListPriceNoFee": 514900,
+    "shareNoHoaFeePct": 26.3,
+    "medianListPriceNoFee": 520850,
     "medianListPriceWithFee": 414900,
     "medianMonthlyHoaFee": 95,
     "hoaFeeP25": 74,
     "hoaFeeP75": 135,
     "hoaFeeMin": 1.0,
     "hoaFeeMax": 1200.0,
-    "leasedLandNoFeeLeftOut": 82
+    "leasedLandNoFeeLeftOut": 87
    }
   }
  },
@@ -1261,7 +1261,7 @@
    ]
   },
   "Conway": {
-   "noFeeHomes": 172,
+   "noFeeHomes": 167,
    "notWithinSubdivision": 119,
    "byRegion": [
     [
@@ -1274,7 +1274,7 @@
     ],
     [
      "23a Conway Area--South Of Conway Between 501 & Wacc. River",
-     16
+     11
     ],
     [
      "21d Conway Central Between 501& 9th Ave / South Of 501",
@@ -2095,11 +2095,11 @@
  },
  "remarksOnNoFeeListings": {
   "homes": {
-   "remarks silent": 320,
-   "leased land or campground (neighborhood)": 82,
+   "remarks silent": 316,
+   "leased land or campground (neighborhood)": 87,
    "remarks say no HOA": 404,
    "voluntary or optional association": 7,
-   "remarks mention HOA, association or dues": 4
+   "remarks mention HOA, association or dues": 3
   },
   "condoClass": {
    "remarks say no HOA": 27,
@@ -55371,8 +55371,8 @@
    "23a Conway Area--South Of Conway Between 501 & Wacc. River",
    "Lakeside Crossing",
    "Horry",
-   false,
-   "remarks silent"
+   true,
+   "leased land or campground (neighborhood)"
   ],
   [
    "2621006",
@@ -55525,8 +55525,8 @@
    "23a Conway Area--South Of Conway Between 501 & Wacc. River",
    "Lakeside Crossing",
    "Horry",
-   false,
-   "remarks silent"
+   true,
+   "leased land or campground (neighborhood)"
   ],
   [
    "2600989",
@@ -55581,8 +55581,8 @@
    "23a Conway Area--South Of Conway Between 501 & Wacc. River",
    "Lakeside Crossing",
    "Horry",
-   false,
-   "remarks silent"
+   true,
+   "leased land or campground (neighborhood)"
   ],
   [
    "2614098",
@@ -55861,8 +55861,8 @@
    "23a Conway Area--South Of Conway Between 501 & Wacc. River",
    "Lakeside Crossing",
    "Horry",
-   false,
-   "remarks silent"
+   true,
+   "leased land or campground (neighborhood)"
   ],
   [
    "2613702",
@@ -56127,8 +56127,8 @@
    "23a Conway Area--South Of Conway Between 501 & Wacc. River",
    "Lakeside Crossing",
    "Horry",
-   false,
-   "remarks mention HOA, association or dues"
+   true,
+   "leased land or campground (neighborhood)"
   ],
   [
    "2620541",
@@ -89968,5 +89968,8 @@
    false,
    null
   ]
+ ],
+ "corrections": [
+  "2026-10-14 (round 8 verifier): the 5 Lakeside Crossing listings in Conway (MLS 2607950, 2605035, 2521654, 2615675, 2621733) are homes on leased land in a 55+ community with a monthly lease and a gate; marked leasedLand true and left out of ownedLandOnly (Conway and allNineAreas recomputed), whereNoFeeHomes.Conway and remarksOnNoFeeListings.homes. Their remarks class before: {\"remarks silent\": 4, \"remarks mention HOA, association or dues\": 1}."
  ]
 }

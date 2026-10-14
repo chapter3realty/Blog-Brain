@@ -102,9 +102,9 @@ const AREAS = [
    build, so the page never shows a number no verifier checked. */
 const VERIFIED = {
   share: { "Aynor": [30, 45], "Loris": [96, 160], "North Myrtle Beach": [141, 254], "Surfside Beach and Garden City": [59, 107], "Murrells Inlet": [60, 215],
-    "Conway": [172, 738], "Myrtle Beach (not Carolina Forest)": [136, 698], "Little River": [22, 201], "Carolina Forest": [0, 258] },
+    "Conway": [167, 733], "Myrtle Beach (not Carolina Forest)": [136, 698], "Little River": [22, 201], "Carolina Forest": [0, 258] },
   price: { "Aynor": [372000, 289490], "Loris": [368450, 279990], "North Myrtle Beach": [759900, 670000], "Surfside Beach and Garden City": [983450, 524900],
-    "Murrells Inlet": [811950, 534950], "Conway": [379900, 329945], "Myrtle Beach (not Carolina Forest)": [625000, 475875], "Little River": [429950, 399900] },
+    "Murrells Inlet": [811950, 534950], "Conway": [383600, 329945], "Myrtle Beach (not Carolina Forest)": [625000, 475875], "Little River": [429950, 399900] },
 };
 for (const a of AREAS) {
   const [no, all] = VERIFIED.share[a.key];
@@ -112,8 +112,8 @@ for (const a of AREAS) {
   if (VERIFIED.price[a.key] && (a.houses.medianListPriceNoFee !== VERIFIED.price[a.key][0] || a.houses.medianListPriceWithFee !== VERIFIED.price[a.key][1])) throw new Error(`${a.key}: the asking prices are not the verified ones`);
 }
 const ALL = OWNED.allNineAreas;
-if (ALL.homes.noHoaFee !== 716 || ALL.homes.listings !== 2676) throw new Error("the headline share is not the verified 716 of 2,676");
-if (ALL.detachedHouses.medianListPriceNoFee !== 514900 || ALL.detachedHouses.medianListPriceWithFee !== 414900) throw new Error("the overall asking prices are not the verified $514,900 and $414,900");
+if (ALL.homes.noHoaFee !== 711 || ALL.homes.listings !== 2671) throw new Error("the headline share is not 711 of 2,671 (Lakeside Crossing left out, round 8)");
+if (ALL.detachedHouses.medianListPriceNoFee !== 520850 || ALL.detachedHouses.medianListPriceWithFee !== 414900) throw new Error("the overall asking prices are not $520,850 and $414,900 (Lakeside Crossing left out, round 8)");
 const HOUSE_FEE = DATA.allNineAreas.detachedHouses;
 if (HOUSE_FEE.medianMonthlyHoaFee !== 95) throw new Error("the house fee is not the verified $95");
 
@@ -130,14 +130,14 @@ if (CONDO.count !== 2742 || CONDO.noFee !== 1 || CONDO.median !== 647) throw new
    check: if the file changes, the build stops until the rows and the copy are read again. */
 const PENDING = {
   /* Row 69: typical lot of a house with no HOA fee, by area (acres; county parcel area). */
-  lotAcres: { "Aynor": 1.06, "Loris": 0.71, "Conway": 0.51, "Myrtle Beach (not Carolina Forest)": 0.3, "Murrells Inlet": 0.24, "Little River": 0.23,
+  lotAcres: { "Aynor": 1.06, "Loris": 0.71, "Conway": 0.53, "Myrtle Beach (not Carolina Forest)": 0.3, "Murrells Inlet": 0.24, "Little River": 0.23,
     "Surfside Beach and Garden City": 0.18, "North Myrtle Beach": 0.16, "Carolina Forest": null },
   /* Rows 70, 72 and 73: the nine areas together. [group, field, value] */
   all: {
-    lotNoFee: ["noFee", "lotAcresMedian", 0.3], lotWithFee: ["withFee", "lotAcresMedian", 0.21],
-    halfAcreNoFee: ["noFee", "lotHalfAcreOrMore", 172], matchedNoFee: ["noFee", "parcelMatched", 509],
+    lotNoFee: ["noFee", "lotAcresMedian", 0.31], lotWithFee: ["withFee", "lotAcresMedian", 0.21],
+    halfAcreNoFee: ["noFee", "lotHalfAcreOrMore", 172], matchedNoFee: ["noFee", "parcelMatched", 504],
     halfAcreWithFee: ["withFee", "lotHalfAcreOrMore", 115], matchedWithFee: ["withFee", "parcelMatched", 1732],
-    oldNoFee: ["noFee", "builtBefore2000", 335], knownNoFee: ["noFee", "yearKnown", 693],
+    oldNoFee: ["noFee", "builtBefore2000", 335], knownNoFee: ["noFee", "yearKnown", 688],
     oldWithFee: ["withFee", "builtBefore2000", 190], knownWithFee: ["withFee", "yearKnown", 1926],
   },
 };
@@ -149,7 +149,7 @@ const L_ALL = LOTS.allNineAreas;
 for (const [k, v] of Object.entries(PENDING.all)) if (JSON.stringify(L_ALL[v[0]][v[1]]) !== JSON.stringify(v[2])) throw new Error(`lots: ${k} is ${JSON.stringify(L_ALL[v[0]][v[1]])}, not the ledger's ${JSON.stringify(v[2])}`);
 /* Row 71: inside or outside the town limits, houses with no HOA fee matched to a parcel. */
 const outsideTown = (key) => { const t = Object.fromEntries(LOTS.byArea[key].noFee.insideTown); return [t["outside any town"] || 0, Object.values(t).reduce((x, y) => x + y, 0)]; };
-for (const [k, want] of [["Aynor", [20, 23]], ["Loris", [54, 71]], ["Conway", [84, 126]]]) if (JSON.stringify(outsideTown(k)) !== JSON.stringify(want)) throw new Error(`${k}: outside the town ${outsideTown(k)} is not the ledger's ${want}`);
+for (const [k, want] of [["Aynor", [20, 23]], ["Loris", [54, 71]], ["Conway", [79, 121]]]) if (JSON.stringify(outsideTown(k)) !== JSON.stringify(want)) throw new Error(`${k}: outside the town ${outsideTown(k)} is not the ledger's ${want}`);
 /* Row 73: Surfside Beach and Garden City, oceanfront, ocean view or second row. */
 const SURF_OCEAN = [LOTS.byArea["Surfside Beach and Garden City"].noFee.oceanfrontViewOrSecondRow, LOTS.byArea["Surfside Beach and Garden City"].noFee.listings,
   LOTS.byArea["Surfside Beach and Garden City"].withFee.oceanfrontViewOrSecondRow, LOTS.byArea["Surfside Beach and Garden City"].withFee.listings];
@@ -162,7 +162,7 @@ const ROUND7 = [
   ["listings", "North Myrtle Beach", 135], ["builtBefore1990", "North Myrtle Beach", 84], ["withinHalfMileOfBeach", "North Myrtle Beach", 101],
   ["listings", "Surfside Beach and Garden City", 56], ["withinHalfMileOfBeach", "Surfside Beach and Garden City", 47],
   ["listings", "Murrells Inlet", 56], ["withinOneMileOfBeach", "Murrells Inlet", 28], ["heatedSqftMedian", "Murrells Inlet", 2433],
-  ["listings", "Conway", 167], ["builtSince2024", "Conway", 58], ["notInSubdivision", "Conway", 114],
+  ["listings", "Conway", 162], ["builtSince2024", "Conway", 58], ["notInSubdivision", "Conway", 114],
   ["listings", "Myrtle Beach (not Carolina Forest)", 131], ["builtBefore1990", "Myrtle Beach (not Carolina Forest)", 61], ["withinHalfMileOfBeach", "Myrtle Beach (not Carolina Forest)", 59],
   ["listings", "Little River", 22], ["builtSince2024", "Little River", 7],
 ];
@@ -171,14 +171,14 @@ for (const [area, want] of [["Little River", [17, 17]], ["Murrells Inlet", [24, 
 const HEATED_MI = LOTS.byArea["Murrells Inlet"].noFee.heatedSqftMedian;
 /* Rows 82 to 85 (round 8, pending verification): the four price bands. [houses, median sqft, median year,
    median lot acres, within half a mile of the beach, built 2024 or later] */
-const BAND_WANT = { "under 250k": [62, 1263, 1984, 0.25, 1, 8], "250k-500k": [279, 1623, 2008, 0.39, 32, 112],
+const BAND_WANT = { "under 250k": [57, 1232, 1984, 0.26, 1, 8], "250k-500k": [279, 1623, 2008, 0.39, 32, 112],
   "500k-750k": [131, 2067, 1996, 0.25, 47, 34], "750k+": [221, 3090, 2003, 0.28, 141, 47] };
 const BAND = Object.fromEntries(BANDS.map((b) => [b.band, b]));
 for (const [k, w] of Object.entries(BAND_WANT)) {
   const b = BAND[k], got = [b.houses, b.medianSqft, b.medianYearBuilt, b.medianLotAcres, b.withinHalfMileOfBeach, b.builtSince2024];
   if (JSON.stringify(got) !== JSON.stringify(w)) throw new Error(`price band ${k}: ${got} is not the ledger's ${w}`);
 }
-if (BANDS.reduce((t, b) => t + b.houses, 0) !== 693) throw new Error("the price bands do not add up to the 693 houses");
+if (BANDS.reduce((t, b) => t + b.houses, 0) !== 688) throw new Error("the price bands do not add up to the 688 houses");
 const sqftWords = (v) => `about ${(Math.round(v / 50) * 50).toLocaleString("en-US")} square feet`;
 if (Object.values(LOTS.byArea).some((v) => v.noFee.heatedSqftMedian > HEATED_MI)) throw new Error("Murrells Inlet is no longer the largest by heated area");
 
@@ -352,24 +352,24 @@ module.exports = {
       h.p("Every home for sale in Carolina Forest has an HOA fee.") },
 
     { h2: "What can you buy with no HOA fee for under $250,000?", toc: "Under $250,000", id: "under-250000", html: () =>
-      h.p(`About ${Math.round(BAND["under 250k"].houses / 10) * 10} houses, most of them older and smaller, and almost all inland. Half were in and around Conway. Some are on the older streets of central Conway, such as Temple Street and Cherry Street. Others are in Lakeside Crossing, south of town toward the Waccamaw River.`) +
-      h.p(`In Socastee, they were in Rosewood Estates and Bridge Creek, built in the 1980s. Near Loris, a row of new houses on Blue Moon Drive was listed in this band.`) +
+      h.p(`About ${Math.round(BAND["under 250k"].houses / 10) * 10} houses, most of them older and smaller, and almost all inland. About half were in and around Conway, some of them on streets in central Conway, such as Temple Street and Cherry Street.`) +
+      h.p(`In Socastee, they were in Rosewood Estates and Bridge Creek, built in the late 1970s and 1980s. Near Loris, a row of new houses on Blue Moon Drive was listed in this band.`) +
       h.p(`The typical one has ${sqftWords(BAND["under 250k"].medianSqft)} on ${acreWords(BAND["under 250k"].medianLotAcres).replace(/^about /, "about ")} and was built around ${BAND["under 250k"].medianYearBuilt}. Almost none were near the beach.`) },
 
     { h2: "What can you buy with no HOA fee for $250,000 to $500,000?", toc: "$250,000 to $500,000", id: "250000-to-500000", html: () =>
       h.p(`This is the biggest band, with about ${Math.round(BAND["250k-500k"].houses / 10) * 10} houses. It is where the land and the new houses are. About 4 in 10 in this band were built in 2024 or later.`) +
-      h.p("Around Loris, new houses were listed on Highway 66 and on the roads south of town. In Aynor, many are in and near the town itself.") +
+      h.p("Around Loris, new houses were listed on Highway 66. In Aynor, many are in and near the town itself.") +
       h.p("Near the beach, the same money buys an older house. In North Myrtle Beach, houses from the mid-1980s in Ocean Drive Estates, on 3rd Avenue South, were in this band.") +
-      h.p(`The typical one has ${sqftWords(BAND["250k-500k"].medianSqft)} on ${acreWords(BAND["250k-500k"].medianLotAcres).replace(/^about /, "about ")} and was built around ${BAND["250k-500k"].medianYearBuilt}.`) },
+      h.p(`The typical one has ${sqftWords(BAND["250k-500k"].medianSqft)} on a little over a third of an acre and was built around ${BAND["250k-500k"].medianYearBuilt}.`) },
 
     { h2: "What can you buy with no HOA fee for $500,000 to $750,000?", toc: "$500,000 to $750,000", id: "500000-to-750000", html: () =>
       h.p(`About ${Math.round(BAND["500k-750k"].houses / 10) * 10} houses. Here a beach house and a bigger inland house cost about the same. About 1 in 3 was within half a mile of the beach.`) +
-      h.p("In North Myrtle Beach, this band buys an older house in Cherry Grove, Windy Hill or Ocean Drive. In Murrells Inlet, most were in the Georgetown County part. In Conway, it buys a larger house from the late 1970s in Coastal Heights, south of town.") +
+      h.p("In North Myrtle Beach, this band buys a house in Cherry Grove, Windy Hill or Ocean Drive; in Cherry Grove most were built before 1990. In Murrells Inlet, most were in the Georgetown County part. In Conway, it buys a larger house from the 1970s in Coastal Heights, south of town.") +
       h.p(`The typical one has ${sqftWords(BAND["500k-750k"].medianSqft)} on ${acreWords(BAND["500k-750k"].medianLotAcres).replace(/^about /, "about ")} and was built around ${BAND["500k-750k"].medianYearBuilt}.`) },
 
     { h2: "What can you buy with no HOA fee for $750,000 and up?", toc: "$750,000 and up", id: "750000-and-up", html: (bg) =>
       h.p(`About ${Math.round(BAND["750k+"].houses / 10) * 10} houses, and about 2 in 3 of them within half a mile of the beach.`) +
-      h.p("They line Ocean Boulevard in Myrtle Beach and North Myrtle Beach and South Waccamaw Drive in Garden City. Others are in older neighborhoods: Pine Lakes and Plantation Point in Myrtle Beach, and Tilghman Estates in North Myrtle Beach.") +
+      h.p("Some are on Ocean Boulevard in Myrtle Beach and North Myrtle Beach and on South Waccamaw Drive in Garden City. Others were listed with no fee in Pine Lakes and Plantation Point in Myrtle Beach and in Tilghman Estates in North Myrtle Beach.") +
       h.p(`The typical one has ${sqftWords(BAND["750k+"].medianSqft)} and was built around ${BAND["750k+"].medianYearBuilt}.`) +
       h.cta("Get the homes with no HOA fee in your price band.", "Tell us your band and the areas you like. One of our agents sends the homes for sale, and we check the deed, the lot map and the HOA papers for any home you like.", LABEL, "/contact/", bg) },
 
@@ -385,29 +385,29 @@ module.exports = {
     ], LORIS_PHOTO, "the nearest beach, in North Myrtle Beach, is about 35 minutes away by car."),
 
     entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
-      `North Myrtle Beach began in 1968, when Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill joined as one city. Ocean Drive and Crescent Beach had a pavilion where people danced the ${h.ext(SCE + "shag/", "shag")}, which South Carolina made its ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
-      "The houses for sale are mostly in those old beach towns, and most are within half a mile of the sand. About 6 in 10 were built before 1990. In Cherry Grove, canals were dug through the marsh, and owners along them pay the city a yearly fee to dredge them. Cherry Grove also has a fishing pier.",
+      `North Myrtle Beach began in 1968, when Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill joined as one city. In the Ocean Drive and Crescent Beach area, a pavilion drew crowds who danced the ${h.ext(SCE + "shag/", "shag")}. South Carolina made it the ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
+      "The houses for sale are mostly in those old beach towns, and most are within half a mile of the sand. About 6 in 10 were built before 1990. In Cherry Grove, canals were dug through the marsh, and owners of about 400 properties in the canal district pay the city a yearly fee to dredge them. Cherry Grove also has a fishing pier.",
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
 
     entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses a short walk from the ocean", [
-      `Surfside Beach was a rice plantation called The Ark, then Floral Beach. Investors renamed it in 1952, after a town in Florida, and it ${h.ext(SCE + "surfside-beach/", "became a town in 1964")}. The town limited building density, and single-family houses stayed the norm.`,
+      `The land was part of a rice plantation called The Ark, later named Floral Beach. It was renamed Surfside Beach in 1952 and ${h.ext(SCE + "surfside-beach/", "became a town in 1964")}. The town limited building density, and through the 1980s single-family houses remained the norm.`,
       "Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. Surfside Beach has a fishing pier.",
       "From Garden City, the MarshWalk restaurants and the county's Stanley Drive boat landing are each about 5 minutes away.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
     entry("Murrells Inlet", "Murrells Inlet: bigger houses near the seafood restaurants and Brookgreen Gardens", [
-      `Murrells Inlet takes its name from John Morrall, who bought land on the inlet in 1731. Its ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} grew out of the oyster roasts and shore dinners of its founding families. Today the ${h.ext(MARSHWALK, "MarshWalk")}, a half-mile boardwalk along the water, links a row of them.`,
+      `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought land there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
       `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. It is about 15 minutes away by car, and Huntington Beach State Park about 10.`,
       `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, the largest typical size on this list. About half are within a mile of the beach. Murrells Inlet is not a town, and part of it is in Georgetown County.`,
     ], INLET_PHOTO, "the lots are smaller than inland."),
 
     entry("Conway", "Conway: half an acre near the Waccamaw River and an old downtown", [
-      `Conway began about 1735 as Kingston, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "renamed Conwayborough")}, then Conway. Its Riverwalk follows the river along downtown.`,
+      `Conway began in the 1730s as Kingston, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "later Conwayborough")}, then Conway. Its Riverwalk runs along the river downtown.`,
       `Most of the houses for sale here are outside the city limits and listed as not in a subdivision. About a third were built in 2024 or later. Horry County runs several ${h.ext(LANDINGS, "boat landings")} on the Waccamaw with a Conway address.`,
     ], CONWAY_PHOTO, "the nearest beach is about 25 minutes away by car."),
 
-    entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near Pine Lakes and the ocean", [
-      `Myrtle Beach began about 1900 at the end of a logging railroad from Conway. Its first owners ${h.ext(SCE + "myrtle-beach/", "sold oceanfront lots")} for $25 each. In the 1920s the Woodside family built the Pine Lakes golf course and the Ocean Forest Hotel.`,
+    entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near the ocean", [
+      `Myrtle Beach began about 1900 at the end of a logging railroad from Conway. In 1901 the railroad company ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought land and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
       "Outside Carolina Forest, the houses for sale are mostly older: almost half were built before 1990, and almost half are within half a mile of the beach. About half are inside the city, and most of the rest are outside any town.",
     ], MB_PHOTO, "inside the city, a long boat cannot sit in the front yard."),
 
