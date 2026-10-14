@@ -224,7 +224,7 @@ const SECTIONS_PLACES = [
 
   entry("grande-dunes", "golf above the Intracoastal Waterway and an oceanfront club", [
     "Burroughs & Chapin launched Grande Dunes and made its first sale in October 2000. Its Resort Course runs along the Intracoastal Waterway.",
-    "Grande Dunes covers about 2,200 acres, with walking and biking trails. Its gated sections of houses are Calais, Palermo and Villa Venezia; Palermo and Villa Venezia are beside the golf course, and Villa Venezia's houses for sale were built from 2016 on. Grande Dunes has the Ocean Club on the beach, with oceanfront pools and dining, and a deep-water marina on the waterway with restaurants beside it.",
+    "Grande Dunes covers about 2,200 acres, with walking and biking trails. Its gated sections of houses are Calais, Palermo and Villa Venezia. Palermo and Villa Venezia are beside the golf course, and Villa Venezia's houses for sale were built from 2016 on. Grande Dunes has the Ocean Club on the beach, with oceanfront pools and dining, and a deep-water marina on the waterway with restaurants beside it.",
   ], P("grande-dunes-villa-venezia"), "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right.",
   "a gate at the entrance of each gated section; other sections are open. Homes usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
