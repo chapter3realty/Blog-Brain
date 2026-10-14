@@ -160,7 +160,7 @@ const E = [
   { id: "the-reserve", name: "The Reserve", short: "The Reserve", lat: 33.49467, lon: -79.1133, gate: K.ask, fee: "About $320 a month on most homes", price: "About $1.3 million", beach: "About 8 minutes" },
   { id: "willbrook-plantation", name: "Willbrook Plantation", short: "Willbrook", lat: 33.48206, lon: -79.13519, gate: K.house, fee: "About $340 a month", price: "About $840,000", beach: "About 9 minutes" },
   { id: "litchfield-plantation", name: "Litchfield Plantation", short: "Litchfield Plantation", lat: 33.47674, lon: -79.1313, gate: K.house, fee: "About $230 a month on most homes", price: "About $800,000 to $1.8 million", beach: "About 8 minutes" },
-  { id: "litchfield-by-the-sea", name: "Litchfield by the Sea", short: "Litchfield by the Sea, River Club gate", lat: 33.471219, lon: -79.126112, gate: K.guard, fee: "Differs by building", price: "About $180,000 to $2.2 million for whole condos; houses about $750,000", beach: "On the ocean" },
+  { id: "litchfield-by-the-sea", name: "Litchfield by the Sea", short: "Litchfield by the Sea, River Club gate", lat: 33.471219, lon: -79.126112, gate: K.guard, fee: "Differs from home to home", price: "About $180,000 to $2.2 million for whole condos; about $750,000 for Oystercatcher Island houses", beach: "On the ocean" },
   { id: "heritage-plantation", name: "Heritage Plantation", short: "Heritage", lat: 33.44215, lon: -79.16353, gate: K.ask, fee: "About $325 a month", price: "About $710,000", beach: "About 10 minutes" },
   { id: "debordieu-colony", name: "DeBordieu Colony", short: "DeBordieu", lat: 33.3744, lon: -79.17446, gate: K.house, fee: "About $300 to $400 a month", price: "About $2 million", beach: "On the ocean" },
 ];
@@ -348,7 +348,7 @@ const SECTIONS_PLACES = [
   "a gate on Royal Bluff Drive, off River Oaks Boulevard. Homes usually sell for about $850,000, and the HOA fee is about $150 a month."),
 
   entry("covington-lake-east", "brick houses around ponds and a low HOA fee", [
-    "Covington Lake East is a small neighborhood of brick houses in Carolina Forest. Lots went on sale in 2006. Lennar built about 50 of its houses from 2015 to 2017, and many builders built the rest one lot at a time.",
+    "Covington Lake East is a small neighborhood of brick houses in Carolina Forest. Its developer began selling lots in 2006. Lennar built about 50 of its houses from 2015 to 2017, and many builders built the rest one lot at a time.",
     "Its curving streets lie among ponds, and most lots are about a quarter of an acre. The streets have sidewalks, and many of the houses have natural gas.",
     "The owners association owns the pool and clubhouse. For a gate, a pool and a clubhouse, the HOA fee is about $90 a month.",
     "It has no golf course or boat ramp of its own.",
@@ -391,7 +391,7 @@ const SECTIONS_PLACES = [
     "Its lots are big: most are close to half an acre, and some along Collins Creek are larger than an acre and a half. Houses for sale here were built from 2006 on, several of them custom-built. Homes here usually sell for about $810,000.",
     "The Park at Prince Creek West is about 4 minutes north by car. It covers 43 acres, with tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
     `For TPC Myrtle Beach and the rest of Prince Creek, see our ${h.a(BEST, "best neighborhoods in Myrtle Beach")}.`,
-    "Some lots have no house yet, and a few houses are brand new.",
+    "Some lots have no house yet, and the newest houses here date from 2025 and 2026.",
   ], P("bellwood-landing"), "Bellwood Landing from above: houses around a pond, beside the woods.",
   "a gate on TPC Boulevard. The HOA fee is about $160 a month."),
 
@@ -437,7 +437,7 @@ const SECTIONS_PLACES = [
     "Litchfield by the Sea lies between the marsh and the ocean. Its homes range from oceanfront houses to villas with marsh views and condos.",
     "It has about a mile of beach and an oceanfront Beach Club with a deck and a pavilion. Fishing and crabbing docks are on Osprey Lake, and paved paths run through the marsh and woods.",
     "Owners' cars use a barcode at the gate. The pool is at the River Club, across US 17 from the beach.",
-    "One-bedroom condos in Summerhouse sell for about $200,000, and homes in Breakers Reef for about $1.5 million to $2.2 million. The HOA fee differs from building to building, so we find out the fee for any home you like before you offer.",
+    "In the last year, one-bedroom condos in Summerhouse sold for about $200,000, and four homes in Breakers Reef for about $1.5 million to $2.2 million. The HOA fee differs from home to home, so we find out the fee for any home you like before you offer.",
   ], P("litchfield-by-the-sea"), "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right.",
   `a ${h.ext(LBTS_GUIDE, "guard day and night")} at the main gate on US 17. In the last year, whole condos here, not shared weeks, sold for about $180,000 to $2.2 million, and houses in its Oystercatcher Island section for about $750,000.`),
 
