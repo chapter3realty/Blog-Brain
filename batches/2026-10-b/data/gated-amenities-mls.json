@@ -8077,5 +8077,928 @@
     "m": 1784
    }
   ]
+ },
+ "grocery": {
+  "about": "The three closest stores of these chains (Food Lion, Walmart, Publix, Kroger, Lowes Foods, ALDI, Piggly Wiggly, Harris Teeter, The Fresh Market, Bi-Lo, Lidl) within 9 km of each reference point in OpenStreetMap (shop=supermarket), straight-line order, each with an OSRM driving route (router.project-osrm.org, no traffic). Read 2026-10-14. 'from' is the reference point: the address points of ledger rows 57 to 76, the Seasons clubhouse geocode, and the Litchfield by the Sea River Club gate (11 Club Cir).",
+  "stores": {
+   "Tidewater Plantation": {
+    "from": {
+     "address": "1200 Tidewater Dr, North Myrtle Beach, SC 29582",
+     "lat": 33.850259448709,
+     "lon": -78.623042759357,
+     "match": "1200 TIDEWATER DR, NORTH MYRTLE BEACH, SC, 29582"
+    },
+    "stores": [
+     {
+      "osm": "node/9225648821",
+      "name": "Food Lion",
+      "street": "US Highway 17",
+      "housenumber": "1699",
+      "lat": 33.8787529,
+      "lon": -78.611112,
+      "m": 3354,
+      "min": 13.3,
+      "mi": 6.0,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.623042759357,33.850259448709;-78.611112,33.8787529?overview=false"
+     },
+     {
+      "osm": "node/11578840179",
+      "name": "Publix",
+      "street": "US Highway 17 North",
+      "housenumber": "1576",
+      "lat": 33.842349,
+      "lon": -78.658193,
+      "m": 3363,
+      "min": 7.4,
+      "mi": 3.1,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.623042759357,33.850259448709;-78.658193,33.842349?overview=false"
+     },
+     {
+      "osm": "node/11682777732",
+      "name": "Food Lion",
+      "street": "US Highway 17 North",
+      "housenumber": "1000",
+      "lat": 33.8363492,
+      "lon": -78.6688429,
+      "m": 4504,
+      "min": 8.1,
+      "mi": 3.4,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.623042759357,33.850259448709;-78.6688429,33.8363492?overview=false"
+     }
+    ]
+   },
+   "Seaside Plantation": {
+    "from": {
+     "address": "504 Seafarer Way, North Myrtle Beach, SC 29582",
+     "lat": 33.826920397216,
+     "lon": -78.668785057415,
+     "match": "504 SEAFARER WAY, NORTH MYRTLE BEACH, SC, 29582"
+    },
+    "stores": [
+     {
+      "osm": "way/353969663",
+      "name": "Walmart Supercenter",
+      "street": "Highway 17 North",
+      "housenumber": "550",
+      "lat": 33.8296617,
+      "lon": -78.6713505,
+      "m": 386,
+      "min": 4.3,
+      "mi": 0.8,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.668785057415,33.826920397216;-78.6713505,33.8296617?overview=false"
+     },
+     {
+      "osm": "way/1085233964",
+      "name": "ALDI",
+      "street": "US Highway 17 North",
+      "housenumber": "244",
+      "lat": 33.8309273,
+      "lon": -78.6752538,
+      "m": 745,
+      "min": 4.3,
+      "mi": 1.2,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.668785057415,33.826920397216;-78.6752538,33.8309273?overview=false"
+     },
+     {
+      "osm": "relation/19221700",
+      "name": "Kroger",
+      "street": "Main Street",
+      "housenumber": "781",
+      "lat": 33.8265362,
+      "lon": -78.6799759,
+      "m": 1035,
+      "min": 5.6,
+      "mi": 1.6,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.668785057415,33.826920397216;-78.6799759,33.8265362?overview=false"
+     }
+    ]
+   },
+   "Leatherleaf": {
+    "from": {
+     "address": "5418 Pheasant Dr, North Myrtle Beach, SC 29582",
+     "lat": 33.810886191874,
+     "lon": -78.762092994821,
+     "match": "5418 PHEASANT DR, NORTH MYRTLE BEACH, SC, 29582"
+    },
+    "stores": [
+     {
+      "osm": "way/308478433",
+      "name": "Walmart Supercenter",
+      "street": "Kings Road",
+      "housenumber": "10820",
+      "lat": 33.7872412,
+      "lon": -78.7685572,
+      "m": 2696,
+      "min": 15.2,
+      "mi": 5.9,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.762092994821,33.810886191874;-78.7685572,33.7872412?overview=false"
+     },
+     {
+      "osm": "node/9742698794",
+      "name": "Food Lion",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.8035195,
+      "lon": -78.7297767,
+      "m": 3096,
+      "min": 11.2,
+      "mi": 3.5,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.762092994821,33.810886191874;-78.7297767,33.8035195?overview=false"
+     },
+     {
+      "osm": "way/331114869",
+      "name": "Kroger",
+      "street": "North Kings Highway",
+      "housenumber": "1",
+      "lat": 33.7768932,
+      "lon": -78.7930877,
+      "m": 4742,
+      "min": 16.4,
+      "mi": 6.8,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.762092994821,33.810886191874;-78.7930877,33.7768932?overview=false"
+     }
+    ]
+   },
+   "Dye Estates": {
+    "from": {
+     "address": "2112 Sanderling Dr, North Myrtle Beach, SC 29582",
+     "lat": 33.806336501751,
+     "lon": -78.74178543971,
+     "match": "2112 SANDERLING DR, NORTH MYRTLE BEACH, SC, 29582"
+    },
+    "stores": [
+     {
+      "osm": "node/9742698794",
+      "name": "Food Lion",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.8035195,
+      "lon": -78.7297767,
+      "m": 1153,
+      "min": 8.1,
+      "mi": 2.1,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.74178543971,33.806336501751;-78.7297767,33.8035195?overview=false"
+     },
+     {
+      "osm": "way/308478433",
+      "name": "Walmart Supercenter",
+      "street": "Kings Road",
+      "housenumber": "10820",
+      "lat": 33.7872412,
+      "lon": -78.7685572,
+      "m": 3260,
+      "min": 12.2,
+      "mi": 4.5,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.74178543971,33.806336501751;-78.7685572,33.7872412?overview=false"
+     },
+     {
+      "osm": "way/331114869",
+      "name": "Kroger",
+      "street": "North Kings Highway",
+      "housenumber": "1",
+      "lat": 33.7768932,
+      "lon": -78.7930877,
+      "m": 5761,
+      "min": 13.3,
+      "mi": 5.4,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.74178543971,33.806336501751;-78.7930877,33.7768932?overview=false"
+     }
+    ]
+   },
+   "Grande Dunes": {
+    "from": {
+     "address": "9367 Venezia Cir, Myrtle Beach, SC 29579",
+     "lat": 33.760263899026,
+     "lon": -78.830536445098,
+     "match": "9367 VENEZIA CIR, MYRTLE BEACH, SC, 29579"
+    },
+    "stores": [
+     {
+      "osm": "node/8068265451",
+      "name": "Food Lion",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.7487155,
+      "lon": -78.819418,
+      "m": 1645,
+      "min": 12.2,
+      "mi": 3.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.830536445098,33.760263899026;-78.819418,33.7487155?overview=false"
+     },
+     {
+      "osm": "way/700654129",
+      "name": "Publix",
+      "street": "North Kings Highway",
+      "housenumber": "7925",
+      "lat": 33.7510489,
+      "lon": -78.8160395,
+      "m": 1687,
+      "min": 11.2,
+      "mi": 3.2,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.830536445098,33.760263899026;-78.8160395,33.7510489?overview=false"
+     },
+     {
+      "osm": "node/7816585254",
+      "name": "The Fresh Market",
+      "street": "North Kings Highway",
+      "housenumber": "7747",
+      "lat": 33.749421,
+      "lon": -78.8177526,
+      "m": 1688,
+      "min": 11.7,
+      "mi": 3.6,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.830536445098,33.760263899026;-78.8177526,33.749421?overview=false"
+     }
+    ]
+   },
+   "Waterway Palms Plantation": {
+    "from": {
+     "address": "7004 Legare Pl, Myrtle Beach, SC 29579",
+     "lat": 33.742109919602,
+     "lon": -78.8760819787,
+     "match": "7004 LEGARE PL, MYRTLE BEACH, SC, 29579"
+    },
+    "stores": [
+     {
+      "osm": "way/1346088615",
+      "name": "Publix",
+      "street": "Sapwood Road",
+      "housenumber": "136",
+      "lat": 33.751747,
+      "lon": -78.8702737,
+      "m": 1199,
+      "min": 3.9,
+      "mi": 1.1,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.8760819787,33.742109919602;-78.8702737,33.751747?overview=false"
+     },
+     {
+      "osm": "node/5148415784",
+      "name": "Food Lion",
+      "street": "River Oaks Drive",
+      "housenumber": "4030",
+      "lat": 33.7540099,
+      "lon": -78.8647718,
+      "m": 1687,
+      "min": 4.1,
+      "mi": 1.3,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.8760819787,33.742109919602;-78.8647718,33.7540099?overview=false"
+     },
+     {
+      "osm": "node/557391244",
+      "name": "Food Lion",
+      "street": "38th Avenue North",
+      "housenumber": "1241",
+      "lat": 33.724684,
+      "lon": -78.869565,
+      "m": 2029,
+      "min": 11.5,
+      "mi": 5.1,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.8760819787,33.742109919602;-78.869565,33.724684?overview=false"
+     }
+    ]
+   },
+   "The Bluffs on the Waterway": {
+    "from": {
+     "address": "7069 Turtle Cove Dr, Myrtle Beach, SC 29579",
+     "lat": 33.746358325999,
+     "lon": -78.867298697648,
+     "match": "7069 TURTLE COVE DR, MYRTLE BEACH, SC, 29579"
+    },
+    "stores": [
+     {
+      "osm": "way/1346088615",
+      "name": "Publix",
+      "street": "Sapwood Road",
+      "housenumber": "136",
+      "lat": 33.751747,
+      "lon": -78.8702737,
+      "m": 659,
+      "min": 3.0,
+      "mi": 0.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.867298697648,33.746358325999;-78.8702737,33.751747?overview=false"
+     },
+     {
+      "osm": "node/5148415784",
+      "name": "Food Lion",
+      "street": "River Oaks Drive",
+      "housenumber": "4030",
+      "lat": 33.7540099,
+      "lon": -78.8647718,
+      "m": 882,
+      "min": 3.2,
+      "mi": 0.9,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.867298697648,33.746358325999;-78.8647718,33.7540099?overview=false"
+     },
+     {
+      "osm": "node/5032248245",
+      "name": "Lowes Foods",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.7598257,
+      "lon": -78.8552489,
+      "m": 1866,
+      "min": 5.1,
+      "mi": 1.6,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.867298697648,33.746358325999;-78.8552489,33.7598257?overview=false"
+     }
+    ]
+   },
+   "Covington Lake East": {
+    "from": {
+     "address": "805 Celene Ct, Myrtle Beach, SC 29579",
+     "lat": 33.755259394297,
+     "lon": -78.945747581937,
+     "match": "805 CELENE CT, MYRTLE BEACH, SC, 29579"
+    },
+    "stores": [
+     {
+      "osm": "way/756800024",
+      "name": "Publix",
+      "street": "Oakheart Road",
+      "housenumber": "2170",
+      "lat": 33.758514,
+      "lon": -78.9587332,
+      "m": 1254,
+      "min": 4.7,
+      "mi": 1.5,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.945747581937,33.755259394297;-78.9587332,33.758514?overview=false"
+     },
+     {
+      "osm": "node/550284929",
+      "name": "Kroger",
+      "street": "Renee Drive",
+      "housenumber": "3735",
+      "lat": 33.7608748,
+      "lon": -78.9664852,
+      "m": 2016,
+      "min": 5.7,
+      "mi": 2.0,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.945747581937,33.755259394297;-78.9664852,33.7608748?overview=false"
+     },
+     {
+      "osm": "node/4464109526",
+      "name": "Food Lion",
+      "street": "Belle Terre Boulevard",
+      "housenumber": "3501",
+      "lat": 33.7334068,
+      "lon": -78.9497128,
+      "m": 2457,
+      "min": 10.0,
+      "mi": 4.2,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.945747581937,33.755259394297;-78.9497128,33.7334068?overview=false"
+     }
+    ]
+   },
+   "Myrtle Trace": {
+    "from": {
+     "address": "101 Myrtle Trace Dr, Conway, SC 29526",
+     "lat": 33.778501726031,
+     "lon": -78.996617968677,
+     "match": "101 MYRTLE TRACE DR, CONWAY, SC, 29526"
+    },
+    "stores": [
+     {
+      "osm": "node/5315597965",
+      "name": "Walmart Supercenter",
+      "street": "Myrtle Ridge Drive",
+      "housenumber": "151",
+      "lat": 33.777583,
+      "lon": -78.989089,
+      "m": 703,
+      "min": 3.1,
+      "mi": 1.0,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.996617968677,33.778501726031;-78.989089,33.777583?overview=false"
+     },
+     {
+      "osm": "way/941156036",
+      "name": "Aldi",
+      "street": "Wild Wing Boulevard",
+      "housenumber": "101",
+      "lat": 33.7835951,
+      "lon": -78.9891989,
+      "m": 889,
+      "min": 3.3,
+      "mi": 1.0,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.996617968677,33.778501726031;-78.9891989,33.7835951?overview=false"
+     },
+     {
+      "osm": "node/3023834417",
+      "name": "Food Lion",
+      "street": "Highway 544",
+      "housenumber": "1904",
+      "lat": 33.7657102,
+      "lon": -79.0187955,
+      "m": 2495,
+      "min": 6.3,
+      "mi": 2.8,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.996617968677,33.778501726031;-79.0187955,33.7657102?overview=false"
+     }
+    ]
+   },
+   "Prestwick": {
+    "from": {
+     "address": "1344 Royal Devon Dr, Myrtle Beach, SC 29575",
+     "lat": 33.642582649075,
+     "lon": -78.956406807633,
+     "match": "1344 ROYAL DEVON DR, MYRTLE BEACH, SC, 29575"
+    },
+    "stores": [
+     {
+      "osm": "node/3018754836",
+      "name": "Walmart Neighborhood Market",
+      "street": "Maryport Drive",
+      "housenumber": "125",
+      "lat": 33.6325755,
+      "lon": -78.9612716,
+      "m": 1200,
+      "min": 4.9,
+      "mi": 1.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.956406807633,33.642582649075;-78.9612716,33.6325755?overview=false"
+     },
+     {
+      "osm": "way/685072678",
+      "name": "Walmart Supercenter",
+      "street": "Beaver Run Boulevard",
+      "housenumber": "2751",
+      "lat": 33.6470043,
+      "lon": -78.9811644,
+      "m": 2344,
+      "min": 6.8,
+      "mi": 2.3,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.956406807633,33.642582649075;-78.9811644,33.6470043?overview=false"
+     },
+     {
+      "osm": "node/2700411758",
+      "name": "Food Lion",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.6566617,
+      "lon": -78.9342362,
+      "m": 2581,
+      "min": 7.7,
+      "mi": 2.6,
+      "route": "https://router.project-osrm.org/route/v1/driving/-78.956406807633,33.642582649075;-78.9342362,33.6566617?overview=false"
+     }
+    ]
+   },
+   "Bellwood Landing": {
+    "from": {
+     "address": "139 Low Country Lp, Murrells Inlet, SC 29576",
+     "lat": 33.582184838378,
+     "lon": -79.07346993232,
+     "match": "139 LOW COUNTRY LOOP, MURRELLS INLET, SC, 29576"
+    },
+    "stores": [
+     {
+      "osm": "way/1079893614",
+      "name": "Publix",
+      "street": "Highway 707",
+      "housenumber": "11920",
+      "lat": 33.5858115,
+      "lon": -79.0547398,
+      "m": 1781,
+      "min": 5.2,
+      "mi": 1.6,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.07346993232,33.582184838378;-79.0547398,33.5858115?overview=false"
+     },
+     {
+      "osm": "way/641737050",
+      "name": "Lowes Foods",
+      "street": "Highway 707",
+      "housenumber": "11903",
+      "lat": 33.5876213,
+      "lon": -79.0526763,
+      "m": 2019,
+      "min": 5.6,
+      "mi": 1.9,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.07346993232,33.582184838378;-79.0526763,33.5876213?overview=false"
+     },
+     {
+      "osm": "node/2724334471",
+      "name": "Food Lion",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.5667433,
+      "lon": -79.0368941,
+      "m": 3799,
+      "min": 8.4,
+      "mi": 3.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.07346993232,33.582184838378;-79.0368941,33.5667433?overview=false"
+     }
+    ]
+   },
+   "Wachesaw Plantation": {
+    "from": {
+     "address": "4333 Hunters Wood Dr, Murrells Inlet, SC 29576",
+     "lat": 33.560796489362,
+     "lon": -79.073100513438,
+     "match": "4333 HUNTERS WOOD DR, MURRELLS INLET, SC, 29576"
+    },
+    "stores": [
+     {
+      "osm": "way/1079893614",
+      "name": "Publix",
+      "street": "Highway 707",
+      "housenumber": "11920",
+      "lat": 33.5858115,
+      "lon": -79.0547398,
+      "m": 3260,
+      "min": 9.5,
+      "mi": 3.5,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.073100513438,33.560796489362;-79.0547398,33.5858115?overview=false"
+     },
+     {
+      "osm": "node/2724334471",
+      "name": "Food Lion",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.5667433,
+      "lon": -79.0368941,
+      "m": 3419,
+      "min": 7.6,
+      "mi": 3.1,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.073100513438,33.560796489362;-79.0368941,33.5667433?overview=false"
+     },
+     {
+      "osm": "way/641737050",
+      "name": "Lowes Foods",
+      "street": "Highway 707",
+      "housenumber": "11903",
+      "lat": 33.5876213,
+      "lon": -79.0526763,
+      "m": 3532,
+      "min": 9.3,
+      "mi": 3.6,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.073100513438,33.560796489362;-79.0526763,33.5876213?overview=false"
+     }
+    ]
+   },
+   "Wachesaw East": {
+    "from": {
+     "address": "4520 Firethorne Dr, Murrells Inlet, SC 29576",
+     "lat": 33.558050278945,
+     "lon": -79.05848040056,
+     "match": "4520 FIRETHORNE DR, MURRELLS INLET, SC, 29576"
+    },
+    "stores": [
+     {
+      "osm": "node/2724334471",
+      "name": "Food Lion",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.5667433,
+      "lon": -79.0368941,
+      "m": 2221,
+      "min": 6.3,
+      "mi": 1.8,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.05848040056,33.558050278945;-79.0368941,33.5667433?overview=false"
+     },
+     {
+      "osm": "way/1079893614",
+      "name": "Publix",
+      "street": "Highway 707",
+      "housenumber": "11920",
+      "lat": 33.5858115,
+      "lon": -79.0547398,
+      "m": 3106,
+      "min": 9.8,
+      "mi": 3.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.05848040056,33.558050278945;-79.0547398,33.5858115?overview=false"
+     },
+     {
+      "osm": "way/641737050",
+      "name": "Lowes Foods",
+      "street": "Highway 707",
+      "housenumber": "11903",
+      "lat": 33.5876213,
+      "lon": -79.0526763,
+      "m": 3332,
+      "min": 9.6,
+      "mi": 3.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.05848040056,33.558050278945;-79.0526763,33.5876213?overview=false"
+     }
+    ]
+   },
+   "Willbrook Plantation": {
+    "from": {
+     "address": "49 Red Squirrel Ln, Pawleys Island, SC 29585",
+     "lat": 33.482059629805,
+     "lon": -79.135189511182,
+     "match": "49 RED SQUIRREL LN, PAWLEYS ISLAND, SC, 29585"
+    },
+    "stores": [
+     {
+      "osm": "node/5148415762",
+      "name": "Food Lion",
+      "street": "Willbrook Boulevard",
+      "housenumber": "115",
+      "lat": 33.4833811,
+      "lon": -79.0989276,
+      "m": 3366,
+      "min": 6.8,
+      "mi": 2.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.135189511182,33.482059629805;-79.0989276,33.4833811?overview=false"
+     },
+     {
+      "osm": "node/5148415753",
+      "name": "The Fresh Market",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.4502567,
+      "lon": -79.1202931,
+      "m": 3797,
+      "min": 9.8,
+      "mi": 5.5,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.135189511182,33.482059629805;-79.1202931,33.4502567?overview=false"
+     },
+     {
+      "osm": "node/5138543020",
+      "name": "Publix",
+      "street": "Ocean Highway",
+      "housenumber": "10225",
+      "lat": 33.4384867,
+      "lon": -79.1315625,
+      "m": 4857,
+      "min": 9.9,
+      "mi": 4.5,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.135189511182,33.482059629805;-79.1315625,33.4384867?overview=false"
+     }
+    ]
+   },
+   "Litchfield Plantation": {
+    "from": {
+     "address": "307 Tuckers Rd, Pawleys Island, SC 29585",
+     "lat": 33.477216557311,
+     "lon": -79.132656623287,
+     "match": "307 TUCKERS RD, PAWLEYS ISLAND, SC, 29585"
+    },
+    "stores": [
+     {
+      "osm": "node/5148415762",
+      "name": "Food Lion",
+      "street": "Willbrook Boulevard",
+      "housenumber": "115",
+      "lat": 33.4833811,
+      "lon": -79.0989276,
+      "m": 3202,
+      "min": 5.7,
+      "mi": 2.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.132656623287,33.477216557311;-79.0989276,33.4833811?overview=false"
+     },
+     {
+      "osm": "node/5148415753",
+      "name": "The Fresh Market",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.4502567,
+      "lon": -79.1202931,
+      "m": 3210,
+      "min": 7.2,
+      "mi": 3.4,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.132656623287,33.477216557311;-79.1202931,33.4502567?overview=false"
+     },
+     {
+      "osm": "node/5138543020",
+      "name": "Publix",
+      "street": "Ocean Highway",
+      "housenumber": "10225",
+      "lat": 33.4384867,
+      "lon": -79.1315625,
+      "m": 4308,
+      "min": 6.6,
+      "mi": 3.3,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.132656623287,33.477216557311;-79.1315625,33.4384867?overview=false"
+     }
+    ]
+   },
+   "Heritage Plantation": {
+    "from": {
+     "address": "90 Berwick Dr, Pawleys Island, SC 29585",
+     "lat": 33.442183435836,
+     "lon": -79.163747092017,
+     "match": "90 BERWICK DR, PAWLEYS ISLAND, SC, 29585"
+    },
+    "stores": [
+     {
+      "osm": "node/5138542965",
+      "name": "Lowes Foods",
+      "street": "Ocean Highway",
+      "housenumber": "9160",
+      "lat": 33.4282826,
+      "lon": -79.1465156,
+      "m": 2224,
+      "min": 7.1,
+      "mi": 2.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.163747092017,33.442183435836;-79.1465156,33.4282826?overview=false"
+     },
+     {
+      "osm": "node/1202153686",
+      "name": "Food Lion",
+      "street": "Ocean Highway",
+      "housenumber": "9380",
+      "lat": 33.4301517,
+      "lon": -79.1430727,
+      "m": 2339,
+      "min": 6.5,
+      "mi": 2.4,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.163747092017,33.442183435836;-79.1430727,33.4301517?overview=false"
+     },
+     {
+      "osm": "node/5138543020",
+      "name": "Publix",
+      "street": "Ocean Highway",
+      "housenumber": "10225",
+      "lat": 33.4384867,
+      "lon": -79.1315625,
+      "m": 3014,
+      "min": 8.0,
+      "mi": 3.2,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.163747092017,33.442183435836;-79.1315625,33.4384867?overview=false"
+     }
+    ]
+   },
+   "DeBordieu Colony": {
+    "from": {
+     "address": "280 Sanderling Ave, Georgetown, SC 29440",
+     "lat": 33.374612529037,
+     "lon": -79.17549862609,
+     "match": "280 SANDERLING AVE, GEORGETOWN, SC, 29440"
+    },
+    "stores": [
+     {
+      "osm": "node/5138542965",
+      "name": "Lowes Foods",
+      "street": "Ocean Highway",
+      "housenumber": "9160",
+      "lat": 33.4282826,
+      "lon": -79.1465156,
+      "m": 6546,
+      "min": 16.6,
+      "mi": 8.9,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.17549862609,33.374612529037;-79.1465156,33.4282826?overview=false"
+     },
+     {
+      "osm": "node/1202153686",
+      "name": "Food Lion",
+      "street": "Ocean Highway",
+      "housenumber": "9380",
+      "lat": 33.4301517,
+      "lon": -79.1430727,
+      "m": 6870,
+      "min": 16.6,
+      "mi": 9.2,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.17549862609,33.374612529037;-79.1430727,33.4301517?overview=false"
+     },
+     {
+      "osm": "node/5138543020",
+      "name": "Publix",
+      "street": "Ocean Highway",
+      "housenumber": "10225",
+      "lat": 33.4384867,
+      "lon": -79.1315625,
+      "m": 8190,
+      "min": 18.5,
+      "mi": 10.1,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.17549862609,33.374612529037;-79.1315625,33.4384867?overview=false"
+     }
+    ]
+   },
+   "Seasons at Prince Creek West": {
+    "from": {
+     "address": "130 Grand Cypress Way, Murrells Inlet, SC 29576 (clubhouse parcel, batch 2026-10-a row 15)",
+     "lat": 33.585419366945,
+     "lon": -79.071772155454
+    },
+    "stores": [
+     {
+      "osm": "way/1079893614",
+      "name": "Publix",
+      "street": "Highway 707",
+      "housenumber": "11920",
+      "lat": 33.5858115,
+      "lon": -79.0547398,
+      "m": 1578,
+      "min": 4.2,
+      "mi": 1.4,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.071772155454,33.585419366945;-79.0547398,33.5858115?overview=false"
+     },
+     {
+      "osm": "way/641737050",
+      "name": "Lowes Foods",
+      "street": "Highway 707",
+      "housenumber": "11903",
+      "lat": 33.5876213,
+      "lon": -79.0526763,
+      "m": 1786,
+      "min": 4.6,
+      "mi": 1.7,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.071772155454,33.585419366945;-79.0526763,33.5876213?overview=false"
+     },
+     {
+      "osm": "node/2724334471",
+      "name": "Food Lion",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.5667433,
+      "lon": -79.0368941,
+      "m": 3841,
+      "min": 7.4,
+      "mi": 3.4,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.071772155454,33.585419366945;-79.0368941,33.5667433?overview=false"
+     }
+    ]
+   },
+   "Litchfield by the Sea": {
+    "from": {
+     "lat": 33.471219,
+     "lon": -79.126112,
+     "address": "River Club gate"
+    },
+    "stores": [
+     {
+      "osm": "node/5148415753",
+      "name": "The Fresh Market",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.4502567,
+      "lon": -79.1202931,
+      "m": 2393,
+      "min": 7.1,
+      "mi": 2.4,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.126112,33.471219;-79.1202931,33.4502567?overview=false"
+     },
+     {
+      "osm": "node/5148415762",
+      "name": "Food Lion",
+      "street": "Willbrook Boulevard",
+      "housenumber": "115",
+      "lat": 33.4833811,
+      "lon": -79.0989276,
+      "m": 2861,
+      "min": 8.8,
+      "mi": 2.6,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.126112,33.471219;-79.0989276,33.4833811?overview=false"
+     },
+     {
+      "osm": "node/5138543020",
+      "name": "Publix",
+      "street": "Ocean Highway",
+      "housenumber": "10225",
+      "lat": 33.4384867,
+      "lon": -79.1315625,
+      "m": 3675,
+      "min": 8.5,
+      "mi": 3.6,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.126112,33.471219;-79.1315625,33.4384867?overview=false"
+     }
+    ]
+   },
+   "The Reserve": {
+    "from": {
+     "address": "545 Reserve Dr, Pawleys Island, SC 29585",
+     "lat": 33.491854553302,
+     "lon": -79.113780426534,
+     "match": "545 RESERVE DR, PAWLEYS ISLAND, SC, 29585"
+    },
+    "stores": [
+     {
+      "osm": "node/5148415762",
+      "name": "Food Lion",
+      "street": "Willbrook Boulevard",
+      "housenumber": "115",
+      "lat": 33.4833811,
+      "lon": -79.0989276,
+      "m": 1669,
+      "min": 6.4,
+      "mi": 2.3,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.113780426534,33.491854553302;-79.0989276,33.4833811?overview=false"
+     },
+     {
+      "osm": "node/5148415753",
+      "name": "The Fresh Market",
+      "street": null,
+      "housenumber": null,
+      "lat": 33.4502567,
+      "lon": -79.1202931,
+      "m": 4665,
+      "min": 9.3,
+      "mi": 5.1,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.113780426534,33.491854553302;-79.1202931,33.4502567?overview=false"
+     },
+     {
+      "osm": "node/5138543020",
+      "name": "Publix",
+      "street": "Ocean Highway",
+      "housenumber": "10225",
+      "lat": 33.4384867,
+      "lon": -79.1315625,
+      "m": 6159,
+      "min": 11.4,
+      "mi": 6.2,
+      "route": "https://router.project-osrm.org/route/v1/driving/-79.113780426534,33.491854553302;-79.1315625,33.4384867?overview=false"
+     }
+    ]
+   }
+  }
  }
 }

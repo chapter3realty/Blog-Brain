@@ -181,9 +181,34 @@ const ph = photoSetB({ aerialWidth: "720px" });
 /* The gate aerial (with crops) is the share image; it is shown in the safety section. */
 ph.share("prestwick-gate-from-above-2026");
 const LINE = (label, text) => `<p style="color:var(--muted);line-height:1.7;max-width:720px;margin:0 0 .5rem"><strong style="color:var(--navy);font-weight:600">${label}</strong> ${text}</p>`;
+/* A grocery store a few minutes away by car (OpenStreetMap store, OSRM route with no traffic; ledger row 113,
+   evidence in batches/2026-10-b/data/gated-amenities-mls.json "grocery"). Added to the entry's last paragraph. */
+const NEAR = {
+  "tidewater-plantation": "A Publix is about 7 minutes away by car.",
+  "seaside-plantation": "A Walmart Supercenter is about 4 minutes away by car.",
+  "barefoot-resort": "A Food Lion is about 8 minutes from Dye Estates and 11 minutes from Leatherleaf by car.",
+  "grande-dunes": "A Publix is about 11 minutes away by car.",
+  "waterway-palms-plantation": "A Publix is about 4 minutes away by car.",
+  "the-bluffs-on-the-waterway": "A Publix is about 3 minutes away by car.",
+  "covington-lake-east": "A Publix is about 5 minutes away by car.",
+  "myrtle-trace": "A Walmart Supercenter is about 3 minutes away by car.",
+  "prestwick": "A Walmart Neighborhood Market is about 5 minutes away by car.",
+  "seasons-at-prince-creek-west": "A Publix is about 4 minutes away by car.",
+  "bellwood-landing": "A Publix is about 5 minutes away by car.",
+  "wachesaw-plantation": "A Food Lion is about 8 minutes away by car.",
+  "wachesaw-east": "A Food Lion is about 6 minutes away by car.",
+  "the-reserve": "A Food Lion is about 6 minutes away by car.",
+  "willbrook-plantation": "A Food Lion is about 7 minutes away by car.",
+  "litchfield-plantation": "A Food Lion is about 6 minutes away by car.",
+  "litchfield-by-the-sea": "The Fresh Market is about 7 minutes from the River Club gate by car.",
+  "heritage-plantation": "A Food Lion is about 7 minutes away by car.",
+};
 function entry(id, head, o) {
   const e = byId[id];
-  const [first, ...rest] = o.paras;
+  const paras = o.paras.slice();
+  const at = o.nearAt === undefined ? paras.length - 1 : o.nearAt;
+  if (NEAR[id]) paras[at] += " " + NEAR[id];
+  const [first, ...rest] = paras;
   return { h2: `${e.n}. ${GEO_NAME(e).replace(/: .*/, "")}: ${head}`, toc: GEO_NAME(e), id, html: (bg) =>
     h.p(first) + ph.aerial(o.photo, o.caption, { closeUp: true }) + rest.map((t) => h.p(t)).join("")
     + LINE("The gate:", o.gate) + LINE("Price and fee:", o.price) + LINE("The trade-off:", o.tradeoff)
@@ -361,6 +386,7 @@ const SECTIONS_PLACES = [
       `Its oceanfront Beach Club has a deck and a pavilion. Owners also have pools, tennis and pickleball courts near the Beach Club, fishing and crabbing docks on Osprey Lake, and paved paths through the marsh and woods. The ${h.ext(LBTS_AMEN, "community's site")} lists them.`,
       "Litchfield by the Sea has many sections, and prices and HOA fees differ a lot from one to the next. We send the homes for sale in each section on request.",
     ],
+    nearAt: 1,
     photo: P("litchfield-by-the-sea"), caption: "Litchfield by the Sea from above: homes around a lake, condo buildings by the beach and the Atlantic Ocean at the right.",
     gate: `a ${h.ext(LBTS_GUIDE, "guard day and night")} at the main gate on US 17. The owner or rental manager must register guests before the visit.`,
     price: "in the last year, condos there sold for anywhere from under $200,000 to over $2 million. Houses in its Oystercatcher Island section sold for about $750,000. The HOA fee differs by section and unit.",
@@ -385,7 +411,7 @@ SECTIONS_PLACES.push({ h2: "19. DeBordieu Colony: the ocean, golf and a Beach Cl
   + h.p(`The ${h.ext(DEBORDIEU, "DeBordieu Club")} has a golf course designed by Pete and P.B. Dye, a Beach Club with a pool that looks out over the ocean, and a tennis center with eight clay courts, four pickleball courts and a hard court.`)
   + LINE("The gate:", "a gatehouse on Luvan Boulevard. Its real estate office is just before the gate.")
   + LINE("Price and fee:", "homes usually sell for about $2 million. The HOA fee is about $300 to $400 a month.")
-  + LINE("The trade-off:", "homes here cost the most on this page.") });
+  + LINE("The trade-off:", "homes here cost the most on this page, and a grocery store is about 17 minutes away by car.") });
 
 /* The places side by side, after the list: two tables, as the two maps (compare.js takes 15 rows). */
 const COLS = [
