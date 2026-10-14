@@ -23,7 +23,9 @@
  *
  * The checks:
  *   a. The same sentence twice. Case and punctuation are ignored. Identical: 6 or more words, the same
- *      words in the same order. Near: 8 or more words in each, and 85% or more of the longer sentence's
+ *      words in the same order; or the same sentence with only names and numbers changed, when 8 or more
+ *      of its words are neither ("Wachesaw was a rice plantation on the Waccamaw River ..." and
+ *      "Litchfield was a rice plantation ..."; not "[name] is about [number] minutes away by car"). Near: 8 or more words in each, and 85% or more of the longer sentence's
  *      words also in the other. Body against body is the finding. A body sentence repeated in an offer
  *      or the FAQ, and an offer repeated in another offer, are listed apart as low: an FAQ answer is
  *      written to stand alone, and the offer box is one component.
@@ -55,7 +57,7 @@ const fs = require("fs");
 const cheerio = require("cheerio");
 
 const T = {
-  identMinWords: 6, nearMinWords: 8, nearOverlap: 0.85,
+  identMinWords: 6, nearMinWords: 8, nearOverlap: 0.85, templateWords: 8,
   openLen: 4, closeLen: 3, gramLen: 5, shapeSections: 3, shapeStrict: 4,
   listMinEntries: 4, deviceShare: 0.40, deviceStrict: 0.60,
   thinWords: 90, themes: 10, factsLabelEntries: 3, phraseLen: 8, phraseTimes: 3,
@@ -227,7 +229,8 @@ function sameSentences(sents, vocab) {
     }
   };
   groupBy(pool, (s) => s.key, "identical");
-  groupBy(pool.filter((s) => s.tokens.length >= T.nearMinWords), (s) => words(marked(s.text, vocab)).map((t) => t.w).join(" "), "identical but for names and numbers");
+  const template = (s) => words(marked(s.text, vocab)).map((t) => t.w);
+  groupBy(pool.filter((s) => template(s).filter((w) => !/^[PNQ]$/.test(w)).length >= T.templateWords), (s) => template(s).join(" "), "identical but for names and numbers");
   const bag = (t) => { const m = new Map(); for (const w of t) m.set(w, (m.get(w) || 0) + 1); return m; };
   const long = pool.filter((s) => s.tokens.length >= T.nearMinWords).map((s) => ({ ...s, bag: bag(s.tokens) }));
   for (let a = 0; a < long.length; a++) for (let b = a + 1; b < long.length; b++) {

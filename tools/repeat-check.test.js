@@ -104,10 +104,11 @@ const B = {
     facts: "most of the few houses for sale here were built in the 1970s and 1980s. Homes usually sell for about $355,000.", label: "At a glance:" },
   aynor: { title: "Aynor: new houses on about an acre", paras: [
     "Aynor is a small town about 25 minutes by car from downtown Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. State law names the third Saturday in September for it.",
-    "Here you get land: most lots are about an acre, with room for a boat or a camper beside the house. The county's Galivants Ferry boat landing on the river is about 10 minutes from the center of Aynor."] },
+    "Here the land is the draw. More than half of the houses for sale were built in 2024 or later, and almost all are listed as not in a subdivision. Most are outside the town limits, so the county's rules apply to a boat or a camper on the lot.",
+    "The county's Galivants Ferry boat landing on the river is about 5 minutes from the center of Aynor."] },
   conway: { title: "Conway: half an acre near the Waccamaw River and an old downtown", paras: [
     "Conway began in the 1730s as Kingston, on a bluff of the Waccamaw River, and it is the county seat. It was later Conwayborough, then Conway. Its Riverwalk runs along the river downtown.",
-    "The older streets near downtown have houses on half-acre lots under big oaks, and some backyards run down to the river swamp. Coastal Carolina University's football stadium is about 10 minutes away."] },
+    "Most of the houses for sale here are outside the city limits and listed as not in a subdivision. About a third were built in 2024 or later. Horry County runs several boat landings on the Waccamaw with a Conway address."] },
 };
 
 /* ------------------------------------------------------------ a. the same sentence twice */
@@ -127,11 +128,12 @@ const B = {
   ok("a fires: a near match, 85% or more of the words (golf cart ride)", r.near.some((x) => /golf cart ride away/.test(x.text) && x.overlap >= 85), JSON.stringify(r.near));
 }
 {
-  /* Quiet: a drive time said twice in different sentences, a short sentence said twice, the facts line,
-     an FAQ answer that repeats the body, the offer box three times, table cells, sources, photo credits. */
-  const e1 = { title: "Myrtle Trace: a 55+ neighborhood near Conway since 1983", paras: ["Myrtle Trace is a 55+ neighborhood off Burning Ridge Road, near Conway. Conway Medical Center is about 10 minutes away by car. It has a pool.", "The HOA fee is $95 a month."], facts: "a gate at the entrance. Homes usually sell for about $300,000, and the HOA fee is about $95 a month." };
-  const e2 = { title: "Seasons at Prince Creek West: a 55+ clubhouse with indoor and outdoor pools", paras: ["Seasons has a clubhouse with an indoor pool and an outdoor pool. Market Common is about 10 minutes from the main gate. It has a pool."], facts: "a gate at the entrance. Homes usually sell for about $500,000, and the HOA fee is about $340 a month." };
-  const r = analyze(page({ entries: [e1, e2, G.tidewater], faq: [["How much is the HOA fee in Myrtle Trace?", "The HOA fee is $95 a month."], ["Is Myrtle Trace gated?", "Myrtle Trace has a gate at its back entrance."]], offers: 2, table: true }));
+  /* Quiet: a drive time said twice (Myrtle Trace and Seasons pages), a short sentence said twice (best
+     neighborhoods, Tidewater), the facts line, an FAQ answer that repeats the body (Myrtle Trace), the
+     offer box three times, table cells, sources, photo credits. */
+  const e1 = { title: "Myrtle Trace: a 55+ neighborhood near Conway since 1983", paras: ["Myrtle Trace has about 500 homes, and at least one person in each home must be 55 or older.", "Main Street in Conway is about 10 minutes away by car. The association has a pool.", "The HOA fee is $95 a month."], facts: "a gate at the entrance. Homes usually sell for about $300,000, and the HOA fee is $95 a month." };
+  const e2 = { title: "Seasons at Prince Creek West: a 55+ clubhouse with indoor and outdoor pools", paras: ["Owners in Seasons at Prince Creek West share a clubhouse with an indoor pool, an outdoor pool and a fitness center, plus tennis and bocce.", "The Murrells Inlet MarshWalk is about 10 minutes away by car. The association has a pool."], facts: "a gate at the entrance. Homes usually sell for about $500,000, and the HOA fee is about $340 a month." };
+  const r = analyze(page({ entries: [e1, e2, G.tidewater], faq: [["How much is the HOA fee in Myrtle Trace?", "The HOA fee is $95 a month."], ["Is Myrtle Trace gated?", "Myrtle Trace has gates only at its back entrance."]], offers: 2, table: true }));
   ok("a quiet: no identical or near sentence in the body", !r.identical.length && !r.near.length, JSON.stringify([r.identical, r.near]));
   ok("a quiet: the FAQ echo and the repeated offer are listed as low", r.low.some((x) => x.zones.includes("faq")) && r.low.some((x) => x.zones.every((z) => z === "offer")), JSON.stringify(r.low.map((x) => [x.kind, x.zones, x.text])));
   ok("a quiet: the facts line, table cells, sources, credits and JSON-LD are never quoted", !JSON.stringify(r).match(/gate at the entrance\.|About 5 minutes|USDA|county deeds/), JSON.stringify(r.low));
