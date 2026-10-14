@@ -506,5 +506,41 @@
     "pattern": "\\bfew homes are sold by their owners",
     "struck": "Builders sold new townhomes here in the past year, but few homes are sold by their owners.",
     "use": "(Cut the clause after 'but': 10 resales in about 260 homes in a year, and no row compares turnover with other places.)"
+  },
+  {
+    "row": "neighborhoods 239",
+    "pattern": "\\babout 20 minutes, the longest of the four",
+    "struck": "The drive to the beach takes about 20 minutes, the longest of the four Carolina Forest neighborhoods here.",
+    "use": "The drive to the beach takes about 15 to 20 minutes, about the same as from Waterbridge."
+  },
+  {
+    "row": "neighborhoods 241",
+    "pattern": "\\btook the name Pine Lakes in 1946",
+    "struck": "Pine Lakes Country Club opened in 1927 as Ocean Forest Country Club, Myrtle Beach's first golf course, and took the name Pine Lakes in 1946.",
+    "use": "Pine Lakes Country Club opened in 1927 as Ocean Forest Country Club, Myrtle Beach's first golf course, and took the name Pine Lakes in the 1940s."
+  },
+  {
+    "row": "neighborhoods 242",
+    "pattern": "\\btwo-minute walk from the nearest homes",
+    "struck": "Grand Park, with picnic shelters, ball fields and a playground, is a two-minute walk from the nearest homes.",
+    "use": "Grand Park, with picnic shelters, ball fields and a playground, is a two-minute walk from the middle of the neighborhood."
+  },
+  {
+    "row": "neighborhoods 242",
+    "pattern": "\\bgrew into an Air Force base after the war",
+    "struck": "The base began as an Army Air Corps field in World War II, grew into an Air Force base after the war, and closed in 1993.",
+    "use": "The base began as an Army Air Corps field in World War II, became an Air Force base in 1954, and closed in 1993."
+  },
+  {
+    "row": "neighborhoods 243",
+    "pattern": "\\bRiver Oaks Elementary School and the Berkshire Village section are both on Augusta Plantation Drive",
+    "struck": "River Oaks Elementary School and the Berkshire Village section are both on Augusta Plantation Drive.",
+    "use": "River Oaks Elementary School, on Augusta Plantation Drive, is a 2-minute drive from the Berkshire Village section."
+  },
+  {
+    "row": "neighborhoods 243",
+    "pattern": "\\bresidential association started the same day",
+    "struck": "The residential association started the same day, and neighborhoods grew up around the courses.",
+    "use": "The residential association's covenants were recorded the same day, and neighborhoods grew up around the courses."
   }
 ]

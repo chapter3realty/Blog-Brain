@@ -248,5 +248,11 @@
     "pattern": "\\bIn our experience, many HOAs here do not allow renting",
     "struck": "No HOA rule against renting the home out. In our experience, many HOAs here do not allow renting a house out at all.",
     "use": "No HOA rule against renting the home out."
+  },
+  {
+    "row": "no-hoa 111",
+    "pattern": "\\bUS 17 Business, the coast road",
+    "struck": "Many of the houses listed with no fee are on the ocean side of US 17 Business, the coast road, and houses there cost more.",
+    "use": "About a third of the houses listed with no fee are on the ocean side of US 17 Business, and they list at about $800,000, against about $435,000 for the others."
   }
 ]
