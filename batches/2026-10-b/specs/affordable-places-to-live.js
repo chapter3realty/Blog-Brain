@@ -312,9 +312,9 @@ module.exports = {
 
     entry("golf-and-yacht-club", "older houses off Bay Road", () =>
       strip("golf-and-yacht-club") +
-      h.p(`Myrtle Beach Golf and Yacht Club is a community of houses off Bay Road, which leaves SC 707 near Socastee. A gatehouse stands at the entrance on Bay Road; our ${h.a("/buyers/gated-communities/", "guide to gated communities")} covers its gate. Owners share a pool, tennis and shuffleboard courts, a playground and a clubhouse, and the HOA has a storage area for RVs and trailers. We check the HOA papers for what the fee covers.`) +
+      h.p(`Myrtle Beach Golf and Yacht Club is a community of houses off Bay Road, which leaves SC 707 near Socastee. A gatehouse stands at the entrance off Bay Road; our ${h.a("/buyers/gated-communities/", "guide to gated communities")} covers its gate. Owners share a pool, tennis and shuffleboard courts, a playground and a clubhouse, and the HOA has a storage area for RVs and trailers. We check the HOA papers for what the fee covers.`) +
       PH["golf-and-yacht-club"] +
-      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is about a seven-minute drive. Most houses in the older part are about 1,350 square feet, on lots of about 6,500 square feet. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
+      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is about a seven-minute drive. In the older part, houses typically have about 1,350 square feet, on lots of about 5,650. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
       h.p(`Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`)),
 
     entry("forestbrook-village", "new townhomes off Forestbrook Road", () =>
@@ -351,23 +351,23 @@ module.exports = {
       strip("indigo-grove") +
       h.p("Indigo Grove is a new neighborhood of houses off SC 90, south of Longs. Lennar sells it as The Overlook and sold about 145 houses here in about ten months.") +
       PH["indigo-grove"] +
-      h.p(`Lennar offers ${h.ext(OVERLOOK, "nine floor plans")} here. The smallest, the Beckman, is one story, with three bedrooms in about 1,260 square feet. The largest, the Columbia, has five bedrooms in about 2,360. Most lots are about 0.2 acre.`) +
+      h.p(`Lennar lists ${h.ext(OVERLOOK, "nine floor plans")} for The Overlook. The smallest, the Beckman, is one story, with three bedrooms in about 1,260 square feet. The largest, the Columbia, has five bedrooms in about 2,360. Most lots are about 0.2 acre.`) +
       h.p("The HOA owns about 22 acres of open space in the neighborhood, and the fee covers the common areas and trash pickup. None of the lots sold here last year is in a high-risk flood zone.") +
-      h.p("For work, North Myrtle Beach is about 12 minutes by car, and downtown Conway about 35.")),
+      h.p("North Myrtle Beach is about 12 minutes away by car, and downtown Conway about 35.")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
       strip("wynbrooke") +
-      h.p("Wynbrooke is a townhome community off SC 707, near Murrells Inlet. Its townhomes are around ponds, and some back onto the water. Most have about 1,350 square feet, and owners share a pool.") +
+      h.p("Wynbrooke is a townhome community off SC 707, near Murrells Inlet. Its townhomes are around ponds, and some back onto the water. Townhomes here are about 1,300 to 1,600 square feet, and owners share a pool.") +
       PH["wynbrooke"] +
       h.p("A Lowes Foods and a Publix are each about two minutes away. The nearest beach is in Garden City.") +
       h.p("The trade-off is the fee. Its HOA fee is the highest of the twelve. It usually includes water, sewer and the insurance on the buildings, but with the tax, a year here costs more than at Polo Farms, which sells for more.")),
 
     entry("polo-farms", "older houses with a small HOA fee", () =>
       strip("polo-farms") +
-      h.p("Polo Farms is a neighborhood of houses off SC 905, between SC 9 and SC 22, west of Longs. Simpson Creek runs along its southwest side. It was built in three phases, and Creekside Custom Homes began the last one in 2016.") +
+      h.p("Polo Farms is a neighborhood of houses off SC 905, between SC 9 and SC 22, west of Longs. Simpson Creek runs along its southwest side. It went up in three phases, and houses in the third went up from 2016.") +
       PH["polo-farms"] +
-      h.p(`The fee is small because the association has no pool or clubhouse. It owns two ponds, some woods and the strips along SC 905. Lots are about a fifth of an acre, many backyards are fenced, and several have their own pool. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
-      h.p(`Flood is the main concern here. A few houses flooded after Hurricane Matthew in 2016. After Hurricane Florence in 2018, when the Waccamaw River rose to historic heights, ${h.ext(POLO_FLOOD, "only a handful stayed dry")}. Half of last year's sales were on lots in a high-risk flood zone, and a lender usually requires flood insurance there. Before you make an offer, we look up the lot on FEMA's flood map.`)),
+      h.p(`There is no pool or clubhouse; the common land is two ponds, some woods and the strips along SC 905. Lots are about a fifth of an acre, many backyards are fenced, and several have their own pool. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
+      h.p(`Flood is a concern here. A few houses flooded after Hurricane Matthew in 2016. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. Half of last year's sales were on lots in a high-risk flood zone, and a lender usually requires flood insurance there. Before you make an offer, we look up the lot on FEMA's flood map.`)),
 
     { h2: "How do the twelve compare on schools and the drive?", toc: "Schools and the drive", id: "schools", html: () =>
       h.p("How far each place is from Myrtle Beach, by the drive to Coastal Grand Mall, and the zoned schools for each:") +
@@ -385,9 +385,9 @@ module.exports = {
       h.p(`These figures are for your main home, once the county gives it the lower rate for a home you live in. The county gives that rate only after an application, and our ${h.a("/buyers/property-taxes/", "property tax guide")} shows how it works.`) },
 
     { h2: "What help can you get with a down payment?", toc: "Down payment help", id: "down-payment", html: (bg) =>
-      h.p(`SC Housing, the state's housing agency, gives buyers in Horry and Georgetown counties $10,000 toward the down payment and closing costs. You do not pay it back if you keep living in the home for the full term. The program is called the ${h.ext(SCH, "Homebuyer Program")}.`) +
-      h.p("In these two counties, you do not have to be a first-time buyer, but you must not own a home when you close. For one or two people, household income must be under about $115,000, and a larger household may earn a little more. The home price can be up to $450,000.") +
-      h.p(`To apply, you go through a lender that works with SC Housing, and the lender checks that you qualify. SC Housing also runs Palmetto Home Advantage and County First. Our page on ${h.a("/buyers/programs/", "down-payment help programs")} covers all three and their terms.`) +
+      h.p(`SC Housing, the state's housing agency, gives buyers in Horry and Georgetown counties $10,000 toward the down payment and closing costs. You do not pay it back if you live in the home for 15 years. The program is called the ${h.ext(SCH, "Homebuyer Program")}.`) +
+      h.p("In these two counties, you do not have to be a first-time buyer, but you must not own a home when you close. Household income must be under about $115,000 for one or two people, and under about $134,000 for three or more. The home price can be up to $450,000.") +
+      h.p(`To apply, you go through a lender that works with SC Housing, and the lender checks that you qualify. SC Housing also runs Palmetto Home Advantage and County First. Our page on ${h.a("/buyers/programs/", "down-payment help programs")} explains the Homebuyer Program step by step, including the credit score it needs.`) +
       story([
         "<strong>Example:</strong> Dana rents an apartment in Myrtle Beach and wants a house of her own in Conway. She thinks she must save for years before she can buy.",
         "Her Chapter3 agent shows her SC Housing's Homebuyer Program, which helps buyers here pay the down payment. The agent puts her in touch with a lender that works with the program.",
@@ -410,9 +410,12 @@ module.exports = {
     { name: "OpenStreetMap drive times", href: OSRM },
     { name: "SC Housing", href: SCH },
     { name: "SC Department of Insurance", href: DOI },
-    { name: "WMBF News on the speedway", href: SPEEDWAY },
+    { name: "WMBF on the speedway", href: SPEEDWAY },
+    { name: "WMBF on Polo Farms", href: POLO_FLOOD },
+    { name: "Lennar", href: OVERLOOK },
+    { name: "county parks", href: CFRC },
   ],
-  sourcesNote: "Not legal, tax or loan advice. Prices: the middle recorded sale, October 2025 to September 2026, without condos, manufactured homes, multi-lot deeds or sales far below value. Each place has 10 or more sales and a beach within about 20 minutes. Home details from listings; schools from zones. Yearly tax for a home you live in, before the break at 65.",
+  sourcesNote: "Not legal, tax or loan advice. Prices: the middle recorded sale, October 2025 to September 2026, without condos, manufactured homes or multi-lot deeds. Each place has 10 or more sales. Home details from listings; schools from zones. Yearly tax for a home you live in, before the break at 65.",
   afterSources: () => ph.credits() + ITEMLIST(),
   bottomCta: { h2: "See what your budget buys in these neighborhoods.", p: "Tell us your price range and the places you like. One of our agents will send you the homes for sale there, and the down-payment programs that fit.", label: OFFER, href: CONTACT },
   keywords: "most affordable places to live near Myrtle Beach, cheapest neighborhoods Myrtle Beach, affordable townhomes Myrtle Beach, cheap homes near Myrtle Beach, new homes under 250000 Myrtle Beach, Parkview Myrtle Beach, Wild Wing Plantation townhomes, Victory Point Myrtle Beach, Forestbrook Village, Villas at Sandridge, Birchwood Longs SC, Indigo Grove Longs",
