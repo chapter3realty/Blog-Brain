@@ -228,9 +228,9 @@ const SECTIONS_PLACES = [
 
   entry("seaside-plantation", "lakes and shag festivals a few blocks from the ocean", [
     "Seaside Plantation is in the Tilghman Beach part of North Myrtle Beach, two or three blocks from the ocean. Many of its houses are brick, and many back up to its lakes.",
-    "Its clubhouse has a pool, a hot tub and parking for golf carts. A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are less than half a mile away. Main Street is a short trip by golf cart.",
+    "Its clubhouse has a pool, a hot tub and parking for golf carts. A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are less than half a mile away. Main Street is less than half a mile away in a straight line.",
     "Its property owners association recorded its gate access rules with the county in 2019.",
-    "Each fall the Society of Stranders holds its Fall Migration on Main Street, a shag dance festival, and its Spring Safari comes each April. Both bring thousands of dancers to Main Street, a short trip from the neighborhood.",
+    "Each fall the Society of Stranders holds its Fall Migration on Main Street, a shag dance festival, and its Spring Safari comes each April. Both bring thousands of dancers to Main Street.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
   "a gate at the entrance. Homes usually sell for about $740,000, and the HOA fee is about $210 a month. Only a handful sell each year."),
 
@@ -252,7 +252,7 @@ const SECTIONS_PLACES = [
 
   entry("waterway-palms-plantation", "Charleston-style houses on the west bank of the waterway", [
     "Waterway Palms Plantation is on the west side of the Intracoastal Waterway. Its plan was taken from Charleston's Battery: houses in the Charleston style of the 1700s, with high front porches and courtyards behind wrought-iron or white fences.",
-    "The clubhouse stands on a point in a pond, with gazebos for looking out over the water. Nearby are tennis and pickleball courts, a fitness center, a basketball court and a playground, and every street has sidewalks.",
+    "The clubhouse stands on a point in a pond, with gazebos for looking out over the water. The neighborhood also has tennis and pickleball courts, a fitness center, a basketball court and a playground, and every street has sidewalks.",
     "Boat owners have a ramp on the waterway, a day dock and a fenced storage yard for boats.",
     `Carolina Forest was land owned by International Paper, and the Army used part of it as a bombing and gunnery range from 1942 to 1947. Read that story in our ${h.a(FARM, "guide to The Farm")}.`,
     "Builders are still finishing new houses, so parts of the neighborhood are still under construction.",
@@ -270,7 +270,7 @@ const SECTIONS_PLACES = [
   entry("covington-lake-east", "brick houses around ponds and a low HOA fee", [
     "Covington Lake East is a small neighborhood of brick houses in Carolina Forest, built from about 2008. Its curving streets wind among ponds, and most lots are about a quarter of an acre.",
     "The streets have sidewalks, and listings call them friendly to golf carts. Many of the houses have natural gas.",
-    "It has a pool and a clubhouse on land its owners association holds. Shops and restaurants are less than a mile away, and Coastal Carolina University is a 12-minute drive.",
+    "It has a pool and a clubhouse on land its owners association holds. Shops and restaurants are less than a mile away in a straight line, and Coastal Carolina University is a 12-minute drive.",
     "It has no golf course or boat ramp of its own.",
   ], P("covington-lake-east"), "Covington Lake East from above: houses on curving streets, with ponds among them.",
   "a gate at the entrance. Homes usually sell for about $570,000, and the HOA fee is about $90 a month, the lowest here."),
@@ -286,7 +286,7 @@ const SECTIONS_PLACES = [
   entry("myrtle-beach-golf-and-yacht-club", "1980s houses among ponds and open land near Socastee", [
     "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, southwest of Myrtle Beach. Most of its houses are one story, built in the 1980s, with about 1,350 square feet. Its sections have their own names, such as Camelot, Ashley Cove, the Fairways and the Gardens at Heron Point.",
     "Wide strips of grass and woods, with ponds, wind between its streets. The association owns more than 60 acres of this open land, and the private streets of some sections.",
-    "The clubhouse has a pool, tennis and shuffleboard courts and a playground, and the association has a storage area for RVs and trailers. A public boat ramp on the Intracoastal Waterway is close by.",
+    "The clubhouse has a pool, tennis and shuffleboard courts and a playground, and the association has a storage area for RVs and trailers. Enterprise Landing, a boat ramp on the Intracoastal Waterway, is about a mile and a half away in a straight line.",
     "D.R. Horton is building new houses in a newer section, Sandpiper Place, which sell for more.",
     "Most houses here are older and smaller than in the other neighborhoods on this page.",
   ], P("myrtle-beach-golf-and-yacht-club"), "Myrtle Beach Golf and Yacht Club from above: houses on curving streets among trees, with long strips of grass and ponds between them.",
@@ -308,7 +308,7 @@ const SECTIONS_PLACES = [
   "a call box at the main entrance; a visitor calls the owner, who opens the gate. Homes usually sell for about $500,000."),
 
   entry("bellwood-landing", "houses on ponds beside Prince Creek's park", [
-    "Bellwood Landing is a small neighborhood of houses in Prince Creek West, near Murrells Inlet. Some homes are on ponds, and Collins Creek winds through the woods and marsh just south of it.",
+    "Bellwood Landing is a small neighborhood of houses in Prince Creek West, near Murrells Inlet. Some homes are on ponds, and Collins Creek winds through the woods and marsh south of it.",
     "Its owners association recorded a gate policy with the county in 2024, and the main gate is on TPC Boulevard.",
     "Prince Creek West's road and park association owns The Park at Prince Creek West, 43 acres deeded to it in 2007. The park has tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
     `For TPC Myrtle Beach and the rest of Prince Creek, see our ${h.a(BEST, "best neighborhoods in Myrtle Beach")}.`,
@@ -327,7 +327,7 @@ const SECTIONS_PLACES = [
   entry("wachesaw-east", "a course where the LPGA played", [
     "Clyde Johnston's Wachesaw Plantation East course opened in December 1996, and the LPGA tour played here from 1997 to 2000. In 1998, Meg Mallon shot a 62 here, the course record.",
     "The club calls the 18th, played around a pond, its signature hole. Its grill is the Toasted Tee Pub & Grub.",
-    "Houses line the fairways. Owners share tennis courts, a workout room and a clubhouse of their own. The main entrance is at the light by Tidelands Waccamaw Community Hospital, and the back gate on Wachesaw Road opens with a card key. Huntington Beach State Park and Brookgreen Gardens are a short drive.",
+    "Houses line the fairways. Owners share tennis courts, a workout room and a clubhouse of their own. The main entrance is at the light by Tidelands Waccamaw Community Hospital, and the back gate on Wachesaw Road opens with a card key. Huntington Beach State Park and Brookgreen Gardens are about 15 and 18 minutes away by car.",
     "Houses for sale here were built from 2000 to 2006.",
   ], P("wachesaw-east"), "Wachesaw East from above: houses along the fairways of its golf course.",
   "a gate at the main entrance. Homes usually sell for about $500,000, and the HOA fee is about $145 a month."),
@@ -335,7 +335,7 @@ const SECTIONS_PLACES = [
   entry("the-reserve", "Greg Norman's private course and a river marina", [
     "The Reserve Golf Club, designed by Greg Norman, opened in 1998 on 350 acres, about 160 of them wetlands. Its holes are cut through the woods, around ponds and marsh.",
     "The neighborhood's marina, on the Waccamaw River, is run by Safe Harbor. It has wet slips and dry storage, and its staff launch and haul boats kept in dry storage. Its Harbor Club has a restaurant.",
-    "Litchfield by the Sea's beach and Beach Club are close enough to reach by golf cart. The Reserve's houses on the market went up between 2005 and 2019.",
+    "The beach at Litchfield by the Sea is less than 3 miles away by road. The Reserve's houses on the market went up between 2005 and 2019.",
     "The golf club is private, and its membership is separate from owning a home. The Harbor Club is a separate membership too.",
   ], P("the-reserve"), "The Reserve from above: houses around a pond, with golf fairways cut through the woods.",
   "a gate at the entrance. Homes usually sell for about $1.35 million, and the HOA fee is about $320 a month on most homes."),
@@ -344,8 +344,8 @@ const SECTIONS_PLACES = [
     "Willbrook was part of a grant of 24,000 acres made in 1711. Enslaved people grew rice here; the 1850 census counted 149 at Willbrook. The loss of workers, rice grown farther west and hurricanes from 1893 to 1911 that wrecked the dikes ended rice growing on the Georgetown rivers.",
     "Before Dan Maples' course opened, archaeologists surveyed the land. Beside the course are a marked cemetery of enslaved people from nearby Oatland Plantation and brick remains at the site of the plantation house.",
     "Open fields, cut by straight ditches, lie along its west side. The neighborhood has a pool and a clubhouse.",
-    "The beach and crabbing docks of Litchfield by the Sea are a golf cart ride away.",
-    "Few homes sold here in the past year, so prices ranged widely around $1 million.",
+    "The beach at Litchfield by the Sea is about 3.5 miles away by road.",
+    "Few homes sold here in the past year, so the $1 million middle price is a rough guide.",
   ], P("willbrook-plantation"), "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left.",
   "a gatehouse at the entrance off Willbrook Boulevard. The HOA fee is about $340 a month."),
 
@@ -381,7 +381,7 @@ SECTIONS_PLACES.push({ h2: `${byId["debordieu-colony"].n}. DeBordieu Colony: an 
   + h.p("The colony covers 2,700 acres. At least 600 are a nature preserve, and 17,000 undeveloped acres border it to the south. Home sites are half an acre to five acres.")
   + h.p(`The ${h.ext(DEBORDIEU, "DeBordieu Club")} has a Pete and P.B. Dye course, a Beach Club with a pool over the ocean, and a tennis center with eight Har-Tru courts. Through the year it holds oyster roasts, dinner dances and barbecues.`)
   + h.p("The middle sale price here in the past year was about $2 million, among the highest on this page.")
-  + FACTS("a gatehouse on Luvan Boulevard, with the real estate office just before it. The HOA fee is about $300 to $400 a month.") });
+  + FACTS("a gatehouse on Luvan Boulevard, with the real estate office before it. The HOA fee is about $300 to $400 a month.") });
 
 /* The places side by side: one plain table, four short columns, so it stays short on a phone. */
 const TABLE = (() => {
@@ -485,7 +485,7 @@ module.exports = {
   ],
   faqTitle: "Gated communities FAQ",
   faq: [
-    { q: "Is there a gated community in Surfside Beach?", a: "No. Prestwick, just outside the town, is gated. Its nearest public beach access is in Surfside Beach, about 7 minutes away by car." },
+    { q: "Is there a gated community in Surfside Beach?", a: "No. Prestwick, outside the town, is gated. Its nearest public beach access is in Surfside Beach, about 7 minutes away by car." },
     { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet has a gate at its main entrance. Myrtle Trace near Conway has gates only at its back entrance." },
     { q: "Are there gated golf communities near Myrtle Beach?", a: "Yes. Ten gated neighborhoods near Myrtle Beach are golf communities. They are Barefoot Resort, Grande Dunes, Prestwick, Tidewater Plantation, Wachesaw Plantation, Wachesaw East, The Reserve, Heritage Plantation, Willbrook Plantation and DeBordieu Colony." },
     { q: "Is Barefoot Resort a gated community?", a: "Only in part. Most of Barefoot Resort in North Myrtle Beach is open; Leatherleaf and Dye Estates are among its gated neighborhoods." },
