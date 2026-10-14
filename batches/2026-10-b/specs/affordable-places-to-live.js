@@ -278,7 +278,7 @@ module.exports = {
       h.p("Parkview is a group of townhomes off 17th Avenue South, near Harrelson Boulevard. It is the only one of the twelve inside the city of Myrtle Beach. The townhomes date from the middle 2000s, many with two bedrooms, and are around ponds, with a pool for the owners.") +
       PH["parkview"] +
       h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own golf course")}, is a short walk from Parkview. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Myrtle Beach International Airport is across Harrelson Boulevard from the course.`) +
-      h.p("A Food Lion is close by. The Market Common, with its shops and restaurants, is about a 10-minute drive southwest. The trade-off is choice: few of these townhomes come up for sale in a year, so we watch for each new listing.")),
+      h.p("The Market Common, with its shops and restaurants, is about a 10-minute drive southwest. The trade-off is choice: few of these townhomes come up for sale in a year, so we watch for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes at a golf course off US 501", () =>
       strip("fairways-at-wild-wing") +
@@ -289,23 +289,23 @@ module.exports = {
 
     entry("sawgrass-east", "townhomes off Carolina Forest Boulevard", () =>
       strip("sawgrass-east") +
-      h.p("Sawgrass East is a townhome community off Carolina Forest Boulevard, a short drive north of US 501. Built in 2005 and 2006, the townhomes are around small ponds, with a pool and a clubhouse for the owners. Some have only two bedrooms.") +
+      h.p("Sawgrass East is a townhome community off Carolina Forest Boulevard, about 2.5 miles by road north of US 501. Built in 2005 and 2006, the townhomes are around small ponds, with a pool and a clubhouse for the owners. Some have only two bedrooms.") +
       PH["sawgrass-east"] +
-      h.p("They sold for less than the new townhomes at Victory Point, a 10-minute drive southwest. A Publix is under two miles west, and the Carolina Forest Recreation Center is a little over two miles east.") +
+      h.p("They sold for less than the new townhomes at Victory Point, about a mile and a half southwest. A Publix is under two miles west, and the Carolina Forest Recreation Center is a little over two miles east.") +
       h.p("The HOA fee is higher than at most places here, though it usually includes water and sewer. For a buyer who would pay those bills anyway, the gap is smaller than it looks.")),
 
     entry("birchwood", "new houses off SC 905 near Longs", () =>
       strip("birchwood") +
       h.p("Birchwood is a new neighborhood of houses off SC 905, southwest of Longs. The turn is beside the tall water tower. Lennar built every house here, most on about a quarter acre, and high-speed internet is included.") +
       PH["birchwood"] +
-      h.p("To the west and north are fields, woods and older homes on large lots; newer neighborhoods are to the east. The Food Lion in Longs, on SC 9, is a five-minute drive, and Simpson Creek Park is a few minutes' drive west.") +
+      h.p("To the west and north are fields, woods and older homes on large lots; newer neighborhoods are to the east. The Food Lion in Longs, on SC 9, is a five-minute drive.") +
       h.p("The trade-off is the drive to Myrtle Beach: Coastal Grand Mall is about 40 minutes away, by SC 9 and the Carolina Bays Parkway. The beach in North Myrtle Beach is closer, about 20 minutes.")),
 
     entry("golf-and-yacht-club", "older houses off Bay Road", () =>
       strip("golf-and-yacht-club") +
       h.p("Myrtle Beach Golf and Yacht Club is a community of houses off Bay Road, which leaves SC 707 near Socastee. Owners share a pool, tennis and shuffleboard courts, a playground and a clubhouse, and the HOA has a storage area for RVs and trailers. We check the HOA papers for what the fee covers, including any gate and security.") +
       PH["golf-and-yacht-club"] +
-      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is close by, and Socastee Recreation Park is to the northeast. Most houses in the older part are small and one story, on small lots, from the 1980s. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
+      h.p(`Enterprise Landing, a ${h.ext(ENTERPRISE, "public boat ramp")} off Bay Road onto the waterway, is about 2.5 miles by road, and Socastee Recreation Park is to the northeast. Most houses in the older part are small and one story, on small lots, from the 1980s. D.R. Horton is building new houses in a section called Sandpiper Place, which sell for more.`) +
       h.p(`Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`)),
 
     entry("forestbrook-village", "new townhomes off Forestbrook Road", () =>
@@ -320,7 +320,7 @@ module.exports = {
       h.p("Victory Point is a new Lennar townhome community off US 501, by Tanger Outlets. It is on part of the land of the old Myrtle Beach Speedway.") +
       PH["victory-point"] +
       h.p(`The track ${h.ext(RAMBI, "opened in 1958")} as RAMBI Raceway. Cars ran their ${h.ext(SPEEDWAY, "last laps there in 2020")}. Several streets have racing names: Speedway Street, Talladega Drive and Pit Crew Drive.`) +
-      h.p("Today Tanger Outlets are a short drive northwest, and a Food Lion and a Publix are within about 8 minutes by car. Some townhomes back onto a pond, and owners share a pool.") +
+      h.p("Today Tanger Outlets are about 5 minutes by car to the northwest, and a Food Lion and a Publix are within about 8 minutes by car. Some townhomes back onto a pond, and owners share a pool.") +
       h.p(`Expect more building next door. Another owner bought the other part of the speedway land, about 20 acres, in 2022 and plans ${h.ext(REV3, "194 townhomes for rent")} there, with leasing expected in 2027.`)),
 
     entry("amber-bluff", "new townhomes near Coastal Carolina University", (bg) =>
@@ -335,21 +335,21 @@ module.exports = {
       strip("villas-at-sandridge") +
       h.p("Villas at Sandridge is a new townhome community off SC 90 near Little River, from Dream Finders Homes. The county records it as Village at Sandridge, and new townhomes here were still selling in September 2026. Each is two stories, with a one-car garage.") +
       PH["villas-at-sandridge"] +
-      h.p("The North Myrtle Beach Park and Sports Complex, with ball fields and walking trails around a lake, is about a mile southwest, across the highway interchange. The Intracoastal Waterway, a marina and a boat launch are close by, and so is the beach in North Myrtle Beach. A Food Lion, an Aldi and a Kroger are 6 to 8 minutes by car.") +
+      h.p("The North Myrtle Beach Park and Sports Complex, with ball fields and walking trails around a lake, is about a mile southwest, across the highway interchange. Marinas on the Intracoastal Waterway are about two and a half miles east, in a straight line. A Food Lion, an Aldi and a Kroger are 6 to 8 minutes by car.") +
       h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly fee is also higher than at the other new communities here.")),
 
     entry("indigo-grove", "new houses off SC 90", () =>
       strip("indigo-grove") +
       h.p("Indigo Grove is a new neighborhood of houses off SC 90, south of Longs. Lennar sells it as The Overlook and sold about 145 houses here in about ten months.") +
       PH["indigo-grove"] +
-      h.p("Griffin's IGA, a grocery store on SC 90, is under a mile away. Riverside Elementary, the zoned elementary school, is under two miles east. None of the lots sold here last year is in a high-risk flood zone. The beach in North Myrtle Beach is about 15 minutes away.") +
+      h.p("Griffin's IGA, a grocery store on SC 90, is about 3 minutes by car. Riverside Elementary is the zoned elementary school. None of the lots sold here last year is in a high-risk flood zone. The beach in North Myrtle Beach is about 15 minutes away.") +
       h.p("Coastal Grand Mall, on the other hand, is a long drive. Before the houses, this land was fields and woods.")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
       strip("wynbrooke") +
       h.p("Wynbrooke is a townhome community off SC 707, near Murrells Inlet. Its townhomes went up in the early 2000s around ponds; some back onto the water. Owners share a pool.") +
       PH["wynbrooke"] +
-      h.p("Groceries are close: a Lowes Foods and a Publix are less than half a mile northwest, on SC 707. The TPC Myrtle Beach golf course is about a mile west, and the Murrells Inlet MarshWalk is farther south. The nearest beach is in Garden City.") +
+      h.p("Groceries are close: a Lowes Foods and a Publix are less than half a mile northwest, on SC 707. The TPC Myrtle Beach golf course is about a mile west, and the Murrells Inlet MarshWalk is about 5 minutes by car to the southeast. The nearest beach is in Garden City.") +
       h.p("The trade-off is the fee. Its HOA fee is the highest of the twelve. It usually includes water, sewer and the insurance on the buildings, but with the tax, a year here costs more than at Polo Farms, which sells for more.")),
 
     entry("polo-farms", "older houses with a small HOA fee", () =>
