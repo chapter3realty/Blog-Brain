@@ -92,7 +92,7 @@ Stop when the audit shows 0 errors for the page, the score is 90 or more with no
 
 **Say something new, and speak as the agents (owner, 2026-10-14).** Read CRAFT 5, "Say something new" and "We do the work". Before you hand in, read your page once only for repetition: list each section's new facts. If a section has none, or repeats an earlier one, cut or merge it. State the page's theme (the gate, the price) once at the top and once in each entry's facts line, not in every paragraph. Cut every sentence that would be true of any place, and every obvious or reassuring sentence. Never tell the reader to check, verify or ask; say what we check.
 
-Run `node <blog-brain>/tools/repeat-check.js <page> --strict` after every rewrite, and fix what it quotes before you hand in; a rewrite that cures one repetition often grows the next (batch 2026-10-b).
+Run `node <blog-brain>/tools/repeat-check.js <page> --strict` after every rewrite, and fix what it quotes before you hand in; a rewrite that cures one repetition often grows the next (batch 2026-10-b). A rewrite that cures repetition by cutting leaves thin entries: replace each cut with a new fact about that place. `--strict` fails an entry under 60 words or a median entry under 90.
 
 ---
 

@@ -68,6 +68,8 @@ Writers added 37 new rows to answer the readers. A separate verifier checked eac
 
 **B27. We do the work.** The owner: "never say in any page you check anything say we check." A page that teaches the reader the agent's job (how to check a deed for an HOA) is cut. One line says what we check.
 
+**B28. Cutting a repeat leaves a hole.** Round 9's review graded gated and affordable 7. Both cured round 8's repetition by cutting: the rice lines, the designer years, the street lists. Nothing new went in. Gated entries fell to a median of 78 words, three of them 39 to 47; affordable's places became 59-word spec sheets over a table that repeated them. The fix for repetition is a new fact, not a shorter entry. `repeat-check --strict` now fails an entry under 60 words, or a median under 90 on a list of four or more. Run on the round 9 pages, it failed exactly the three the reviewer failed and passed the two it passed.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.

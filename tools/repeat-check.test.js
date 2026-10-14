@@ -132,8 +132,8 @@ const B = {
   /* Quiet: a drive time said twice (Myrtle Trace and Seasons pages), a short sentence said twice (best
      neighborhoods, Tidewater), the facts line, an FAQ answer that repeats the body (Myrtle Trace), the
      offer box three times, table cells, sources, photo credits. */
-  const e1 = { title: "Myrtle Trace: a 55+ neighborhood near Conway since 1983", paras: ["Myrtle Trace has about 500 homes, and at least one person in each home must be 55 or older.", "Main Street in Conway is about 10 minutes away by car. The association has a pool.", "The HOA fee is $95 a month."], facts: "a gate at the entrance. Homes usually sell for about $300,000, and the HOA fee is $95 a month." };
-  const e2 = { title: "Seasons at Prince Creek West: a 55+ clubhouse with indoor and outdoor pools", paras: ["Owners in Seasons at Prince Creek West share a clubhouse with an indoor pool, an outdoor pool and a fitness center, plus tennis and bocce.", "The Murrells Inlet MarshWalk is about 10 minutes away by car. The association has a pool."], facts: "a gate at the entrance. Homes usually sell for about $500,000, and the HOA fee is about $340 a month." };
+  const e1 = { title: "Myrtle Trace: a 55+ neighborhood near Conway since 1983", paras: ["Myrtle Trace has about 500 homes, and at least one person in each home must be 55 or older.", "Main Street in Conway is about 10 minutes away by car. The association has a pool.", "Its clubhouse holds card nights, a library and dances, and a walking loop circles the pond behind it.", "The HOA fee is $95 a month."], facts: "a gate at the entrance. Homes usually sell for about $300,000, and the HOA fee is $95 a month." };
+  const e2 = { title: "Seasons at Prince Creek West: a 55+ clubhouse with indoor and outdoor pools", paras: ["Owners in Seasons at Prince Creek West share a clubhouse with an indoor pool, an outdoor pool and a fitness center, plus tennis and bocce.", "The Murrells Inlet MarshWalk is about 10 minutes away by car. The association has a pool.", "Del Webb did not build it; Kolter Homes opened its first section in 2012 on land that had been timber."], facts: "a gate at the entrance. Homes usually sell for about $500,000, and the HOA fee is about $340 a month." };
   const r = analyze(page({ entries: [e1, e2, G.tidewater], faq: [["How much is the HOA fee in Myrtle Trace?", "The HOA fee is $95 a month."], ["Is Myrtle Trace gated?", "Myrtle Trace has gates only at its back entrance."]], offers: 2, table: true }));
   ok("a quiet: no identical or near sentence in the body", !r.identical.length && !r.near.length, JSON.stringify([r.identical, r.near]));
   ok("a quiet: the FAQ echo and the repeated offer are listed as low", r.low.some((x) => x.zones.includes("faq")) && r.low.some((x) => x.zones.every((z) => z === "offer")), JSON.stringify(r.low.map((x) => [x.kind, x.zones, x.text])));
@@ -200,6 +200,23 @@ const B = {
   ok("d fires: Covington Lake East, 48 words in round 8", names.some((x) => /Covington/.test(x)));
   ok("d quiet: Tidewater, over 90 words, is not thin", !names.some((x) => /Tidewater/.test(x)));
   ok("d: the range is given", r.lengths.min > 0 && r.lengths.max > r.lengths.min && r.lengths.entries === 3);
+  ok("d fires: --strict fails on an entry under 60 words (Covington Lake East)", r.strict.reasons.some((x) => /under 60 words.*Covington/.test(x)), JSON.stringify(r.strict));
+  ok("d quiet: Bellwood, 56 words, is named too, Tidewater is not", r.strict.reasons.some((x) => /Bellwood/.test(x)) && !r.strict.reasons.some((x) => /Tidewater/.test(x)), JSON.stringify(r.strict));
+}
+{
+  /* Round 9: gated and affordable cured repetition by cutting; no entry was under 60 but the median was 78. */
+  const r = analyze(page({ entries: [G.willbrook, G.litchfield, B.deerfield, B.conway] }));
+  ok("d fires: --strict fails on a median entry under 90 words with 4 entries", r.strict.reasons.some((x) => /median entry \d+ words/.test(x)) && !r.strict.reasons.some((x) => /under 60/.test(x)), JSON.stringify(r.strict));
+}
+{
+  /* Quiet: one entry of 75 words among long ones is listed as thin but does not fail --strict. */
+  const r = analyze(page({ entries: [B.cherry, B.market, B.aynor, B.conway] }));
+  ok("d quiet: a 75-word entry with a median over 90 does not fail --strict", r.lengths.thin.some((x) => /Conway/.test(x.entry)) && !r.strict.reasons.some((x) => /under 60|median entry/.test(x)), JSON.stringify(r.strict));
+}
+{
+  /* Quiet: fewer than 4 entries never fail on the median. */
+  const r = analyze(page({ entries: [G.willbrook, B.conway] }));
+  ok("d quiet: a list of 2 does not fail on the median", !r.strict.reasons.some((x) => /median entry/.test(x)), JSON.stringify(r.strict));
 }
 
 /* ------------------------------------------------------------ e, the report, the command line */
@@ -213,7 +230,7 @@ ok("sentences: initials do not split a sentence", sentences("Its golf course, de
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "repeat-check-"));
   const bad = path.join(dir, "bad.html"), good = path.join(dir, "good.html");
   fs.writeFileSync(bad, page({ entries: [G.wachesaw, G.litchfield, G.covington, G.willbrook] }));
-  fs.writeFileSync(good, page({ h1: "What are the best neighborhoods in Myrtle Beach?", entries: [B.cherry, B.aynor, B.conway, G.tidewater, G.wachesaw] }));
+  fs.writeFileSync(good, page({ h1: "What are the best neighborhoods in Myrtle Beach?", entries: [B.cherry, B.aynor, B.conway, G.tidewater] }));
   const run = (args) => spawnSync(process.execPath, [path.join(__dirname, "repeat-check.js"), ...args], { encoding: "utf8" });
   const plain = run([bad]), strict = run([bad, "--strict"]), json = run([bad, "--json"]), pass = run([good, "--strict"]);
   ok("cli: the report exits 0 and quotes the sentence", plain.status === 0 && /Rice Culture survey/.test(plain.stdout) && /strict: fails/.test(plain.stdout), plain.stderr);

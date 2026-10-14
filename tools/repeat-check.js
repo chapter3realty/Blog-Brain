@@ -53,8 +53,11 @@
  *      left out ("rice 13" on the gated page). Information, not a finding.
  *
  * Exit 0 always, unless --strict: then exit 1 if (a) finds an identical body sentence, (b) finds a shape
- * in 4 or more sections, or (c) finds a device in more than 60% of the entries. Near matches, low
- * repeats, thin entries and theme words never fail --strict; a person reads them.
+ * in 4 or more sections, (c) finds a device in more than 60% of the entries, or (d) finds an entry under
+ * 60 words, or a median entry under 90 words on a list of 4 or more. (d) was added after round 9: two
+ * pages cured repetition by cutting and left entries of 35 to 50 words, the "surface level" the owner
+ * named. Cutting a repeat is half the fix; the other half is a new fact. Near matches, low repeats,
+ * entries of 60 to 89 words and theme words never fail --strict; a person reads them.
  *
  * Controls: tools/repeat-check.test.js. Tuned on batch 2026-10-b round 8 and the four 55+ pages.
  */
@@ -66,7 +69,7 @@ const T = {
   identMinWords: 6, nearMinWords: 8, nearOverlap: 0.85, templateWords: 8,
   openLen: 4, closeLen: 3, gramLen: 5, shapeSections: 3, shapeStrict: 4,
   listMinEntries: 4, deviceShare: 0.40, deviceMinEntries: 4, deviceStrict: 0.60,
-  thinWords: 90, themes: 10, factsLabelEntries: 3, phraseLen: 8, phraseTimes: 3,
+  thinWords: 90, thinStrict: 60, thinMedianMinEntries: 4, themes: 10, factsLabelEntries: 3, phraseLen: 8, phraseTimes: 3,
 };
 
 const STOP = new Set(("a an the and or but nor so yet if then than that this these those there here which who whom whose what when where why how " +
@@ -443,6 +446,9 @@ function analyze(html) {
   if (bStrict.length) strictReasons.push(`${bStrict.length} sentence shape${bStrict.length > 1 ? "s" : ""} in ${T.shapeStrict} or more sections`);
   const cStrict = c.found.filter((x) => x.share > T.deviceStrict);
   if (cStrict.length) strictReasons.push(`${cStrict.length} device${cStrict.length > 1 ? "s" : ""} in more than ${T.deviceStrict * 100}% of entries`);
+  const dStrict = d.rows.filter((r) => r.words < T.thinStrict);
+  if (dStrict.length) strictReasons.push(`${dStrict.length} entr${dStrict.length > 1 ? "ies" : "y"} under ${T.thinStrict} words (${dStrict.map((r) => r.entry.replace(/^\d+\.\s*/, "").split(":")[0]).join(", ")})`);
+  if (d.entries >= T.thinMedianMinEntries && d.median < T.thinWords) strictReasons.push(`median entry ${d.median} words, under ${T.thinWords}`);
   return {
     h1: ex.h1, subject: [...subject], sections: ex.sections.length - 1, sentences: ex.sents.length, entries: c.entries,
     identical: named(a.identical), near: named(a.near), low: named(a.low),
