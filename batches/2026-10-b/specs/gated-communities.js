@@ -204,13 +204,13 @@ function entry(id, head, paras, photo, caption, facts) {
 const SECTIONS_PLACES = [
   entry("tidewater-plantation", "a 1990 golf course beside the Cherry Grove marsh", [
     "Tidewater began with its golf course. Ken Tomlinson, a Columbia lawyer who also designed courses, found a 600-acre site on the Intracoastal Waterway. Hurricane Hugo delayed the work, and the course opened in 1990. Golf Digest and Golf Magazine both named it the best new public course in America that year.",
-    "Holes 3 and 12 meet the marsh of the waterway, and hole 4 looks across Cherry Grove Inlet. Many of its homes are houses along the fairways, with a few condo buildings among them.",
-    "It has pools with hot tubs, tennis and pickleball courts, bocce, and an oceanfront cabana with parking at Cherry Grove Beach. Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood.",
+    "Two of its holes meet the marsh of the waterway, and another looks across Cherry Grove Inlet. Many of its homes are houses along the fairways, with a few condo buildings among them.",
+    "Owners have their own oceanfront cabana, with parking, at Cherry Grove Beach. Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood.",
   ], P("tidewater-plantation"), "Tidewater Plantation from above: houses along the fairways of its golf course, with ponds among them.",
   "a gatehouse on Little River Neck Road. Homes usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
   entry("seaside-plantation", "lakes and shag festivals a few blocks from the ocean", [
-    "Seaside Plantation is a small neighborhood of houses in North Myrtle Beach, two or three blocks from the ocean. Its houses are beside lakes, and it has a clubhouse, a pool and a hot tub.",
+    "Seaside Plantation is a small neighborhood of houses in North Myrtle Beach, two or three blocks from the ocean, with its houses beside lakes.",
     "Main Street is a golf cart ride away. Each fall the Society of Stranders holds its Fall Migration there, a shag dance festival for thousands of dancers. Its Spring Safari comes each April.",
   ], P("seaside-plantation"), "Seaside Plantation from above: houses beside lakes.",
   "a gate at the entrance, with rules the owners association has recorded with the county. Homes usually sell for about $740,000, and the HOA fee is about $210 a month. Only a handful sell each year."),
@@ -223,26 +223,26 @@ const SECTIONS_PLACES = [
   "most of Barefoot Resort is open. Dye Estates has a guardhouse at its entrance, and Leatherleaf has a gate. In Leatherleaf, the few homes that sold went for about $700,000 to $975,000, and the HOA fee is about $390 a month."),
 
   entry("grande-dunes", "golf above the Intracoastal Waterway and an oceanfront club", [
-    "Burroughs & Chapin launched Grande Dunes. Its Resort Course, designed by Roger Rulewich, opened in 2001 above the Intracoastal Waterway.",
-    "Calais, Palermo and Villa Venezia are its gated sections of houses. Grande Dunes has the Ocean Club on the beach, with oceanfront pools and dining, and Har-Tru tennis courts. The marina on the waterway has restaurants beside it.",
+    "Burroughs & Chapin launched Grande Dunes and sold its first lots in October 2000, once its roads and utilities were in. Its Resort Course runs along the Intracoastal Waterway.",
+    "Its gated sections are small. Calais has 29 houses, Palermo about 60 lots, and Villa Venezia, the newest, has houses built since 2016 and a few empty lots. Grande Dunes has the Ocean Club on the beach, with oceanfront pools and dining, Har-Tru tennis courts, and a marina on the waterway with restaurants beside it.",
   ], P("grande-dunes-villa-venezia"), "Villa Venezia, a gated section of Grande Dunes, from above: houses beside golf fairways, with the Intracoastal Waterway at the lower right.",
   "a gate at the entrance of each gated section; other sections are open. Homes usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
   entry("waterway-palms-plantation", "a boat ramp and a clubhouse on a pond", [
     "Waterway Palms Plantation is on the Intracoastal Waterway in Carolina Forest. Carolina Forest was land owned by International Paper. The Army used part of it as a bombing and gunnery range during World War II, and Horry County approved its development agreement in 1997.",
-    "The clubhouse is on a point in a pond in the neighborhood, beside the pools. It has a boat ramp, a day dock and boat storage. It also has a fitness center, tennis and pickleball courts, a basketball court and a playground.",
+    "It is large, with about 745 home lots, and the HOA owns its ponds and a wetland. The clubhouse is on a point in a pond, beside the pools. It has a boat ramp, a day dock and boat storage, a fitness center, tennis and pickleball courts, a basketball court and a playground.",
   ], P("waterway-palms-plantation"), "Waterway Palms Plantation from above: houses on winding ponds, a large building, pools and tennis courts on a point in the water at the left, and the Intracoastal Waterway at the lower right.",
   "a gate at the entrance, where a visitor calls the owner to be let in. Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
   entry("the-bluffs-on-the-waterway", "two clubhouses and a boathouse on the water", [
-    "The Bluffs on the Waterway has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway with a day dock. It also has a boat ramp and a boat storage yard.",
-    "Away from the water there are a pool, tennis and pickleball courts, playgrounds and walking paths. Carolina Forest's bike park is less than a mile away.",
+    "The Bluffs on the Waterway has about 416 home lots, built in three phases since about 2006, and its HOA owns several lakes and an amenity area. It has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway with a day dock.",
+    "It also has a boat ramp, boat storage, a pool, tennis and pickleball courts, playgrounds and walking paths. The Carolina Forest bike park is within a mile.",
   ], P("the-bluffs-on-the-waterway"), "The Bluffs on the Waterway from above: houses on curving streets and ponds, with the Intracoastal Waterway in the lower right corner.",
   "a gate on Royal Bluff Drive, off River Oaks Boulevard. The few homes that sold went for about $700,000 to $975,000, and the HOA fee is about $150 a month."),
 
   entry("covington-lake-east", "a pool, ponds and a low HOA fee in Carolina Forest", [
-    "Covington Lake East is a neighborhood of houses in Carolina Forest, built from about 2008. Many houses back up to its ponds, and the streets have sidewalks.",
-    "It has a pool and a clubhouse. The shops and restaurants of Carolina Forest Boulevard are less than a mile away.",
+    "Covington Lake East is small: 178 home lots on curving streets around ponds, nearly all with a house, built from about 2008. The streets have sidewalks.",
+    "Its owners association owns the common land, and the shops and restaurants of Carolina Forest Boulevard are less than a mile away.",
   ], P("covington-lake-east"), "Covington Lake East from above: houses on curving streets, with ponds among them.",
   "a gate at the entrance. Homes usually sell for about $570,000, and the HOA fee is about $90 a month, the lowest here."),
 
@@ -259,65 +259,66 @@ const SECTIONS_PLACES = [
   "a gatehouse at the main gate off Highway 544. Homes usually sell for about $480,000, and the HOA fee is about $190 a month."),
 
   entry("prince-creek-55", "a 55+ clubhouse with indoor and outdoor pools", [
-    `Levitt and Sons deeded the first lot in Seasons at Prince Creek West in 2006, and a second builder deeded the last in 2016. Every occupied home must have a resident 55 or older. Our ${h.a(SEASONS, "guide to Seasons")} covers its rules.`,
+    `Levitt and Sons deeded the first lot in Seasons at Prince Creek West in 2006, and a second builder deeded the last in 2016. Like Myrtle Trace, it requires a resident 55 or older in every occupied home. Our ${h.a(SEASONS, "guide to Seasons")} covers its rules.`,
     "The clubhouse has indoor and outdoor pools, a fitness center, tennis and bocce. The HOA takes care of the grounds. Seasons is part of Prince Creek West, which owns a 43-acre park.",
   ], P("prince-creek-55-clubhouse"), "The Seasons at Prince Creek West clubhouse and its outdoor pool from above, among the streets of Prince Creek West.",
   "a call box at the main entrance; a visitor calls the owner, who opens the gate. Homes usually sell for about $500,000, and the HOA fee is about $340 a month."),
 
-  entry("bellwood-landing", "near the course that hosted Tom Watson's 2000 win", [
-    "Bellwood Landing is near TPC Myrtle Beach, a Tom Fazio course that opened in 1999. In 2000 it hosted the Senior PGA Tour Championship, which Tom Watson won.",
-    "Some homes are on ponds. The Park at Prince Creek, close by, has two pools, tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
+  entry("bellwood-landing", "about 100 houses beside Prince Creek's park", [
+    "Bellwood Landing is a small neighborhood in Prince Creek West, with 102 home lots in two phases. About one lot in ten had no house in the county's last count, and new houses are still being built.",
+    "Some homes are on ponds. The Park at Prince Creek has two pools, tennis and pickleball courts, basketball, a playground and a covered pavilion with grills.",
+    "Close by is TPC Myrtle Beach, a Tom Fazio course from 1999 that hosted the 2000 Senior PGA Tour Championship, won by Tom Watson.",
   ], P("bellwood-landing"), "Bellwood Landing from above: houses around a pond, beside the woods.",
   "a gate on TPC Boulevard. Homes usually sell for about $850,000, and the HOA fee is about $160 a month."),
 
-  entry("wachesaw-plantation", "a rice plantation on the Waccamaw River", [
-    "Wachesaw was a rice plantation on the Waccamaw River, and the state's Rice Culture survey of Georgetown County lists it. The Wachesaw Plantation Club, with its Tom Fazio course, was founded in 1985.",
-    "Club membership is optional. Members play golf and tennis and dine at Kimbel's, on the bluff above the river, and a new pool complex is being built. Wacca Wache Marina is less than a mile away.",
+  entry("wachesaw-plantation", "a private club on the Waccamaw River", [
+    "The Wachesaw Plantation Club, founded in 1985, is on the banks of the Waccamaw River. Club membership is optional.",
+    "Members dine at Kimbel's, on the bluff above the river, and the club is building a new restaurant, Magnolia's. Wacca Wache Marina is less than a mile away.",
   ], P("wachesaw-plantation"), "Wachesaw Plantation from above: houses among the fairways of its golf course, with ponds.",
   "a gatehouse at the main gate, reached from Riverwood Drive. Homes usually sell for about $650,000, and the HOA fee is about $150 a month on most homes."),
 
   entry("wachesaw-east", "a 1996 course that hosted the LPGA", [
-    "Clyde Johnston laid out the Wachesaw Plantation East course on a former rice plantation. It opened in December 1996 and held LPGA tour events from 1997 to 2000.",
-    "Houses line its fairways. It has a large pool, tennis courts, a workout room and a clubhouse, and the main entrance is at the light by Tidelands Waccamaw Community Hospital.",
+    "Clyde Johnston's Wachesaw Plantation East course opened in December 1996 and held LPGA tour events from 1997 to 2000. Its houses date from the early 2000s.",
+    "Houses line its fairways, and the main entrance is at the light by Tidelands Waccamaw Community Hospital. Huntington Beach State Park and Brookgreen Gardens are a short drive.",
   ], P("wachesaw-east"), "Wachesaw East from above: houses along the fairways of its golf course.",
   "a gate at the main entrance; the back gate on Wachesaw Road opens with a card key. Homes usually sell for about $500,000, and the HOA fee is about $145 a month."),
 
   entry("the-reserve", "Greg Norman's private course and a river marina", [
     "The Reserve Golf Club, designed by Greg Norman, opened in 1998 on 350 acres, about 160 of them wetlands. It is a private club, and membership is separate from owning a home.",
-    "The neighborhood has a marina on the Waccamaw River, and its Harbor Club has a pool and a restaurant for members. The beach and Beach Club at Litchfield by the Sea are a golf cart ride away.",
+    "The neighborhood has a marina on the Waccamaw River, with a restaurant at its Harbor Club for members. The beach and Beach Club at Litchfield by the Sea are a golf cart ride away.",
   ], P("the-reserve"), "The Reserve from above: houses around a pond, with golf fairways cut through the woods.",
   "a gate at the entrance. Homes usually sell for about $1.35 million, and the HOA fee is about $320 a month on most homes."),
 
   entry("willbrook-plantation", "rice-field history along a Dan Maples course", [
     "Willbrook was part of a land grant made in 1711. Enslaved people grew rice here; the 1850 census counted 149 at Willbrook. After the Civil War, hurricanes in the 1890s and 1900s wrecked the rice fields' dikes, and rice growing on these rivers ended.",
-    "Dan Maples' golf course opened in 1988. A marked cemetery of enslaved people and the brick remains of the plantation house are beside the course.",
-    "It has a pool and a clubhouse. The beach, Beach Club and crabbing docks at Litchfield by the Sea are a golf cart ride away.",
+    "Beside its golf course are a marked cemetery of enslaved people and the brick remains of the plantation house.",
+    "The beach and crabbing docks of Litchfield by the Sea are close by.",
   ], P("willbrook-plantation"), "Willbrook Plantation from above: houses among trees and golf fairways, with open fields at the left.",
   "a gatehouse at the entrance off Willbrook Boulevard. Few homes sold, so prices ranged widely around $1 million; the HOA fee is about $340 a month."),
 
-  entry("litchfield-plantation", "a 1700s rice plantation and its avenue of oaks", [
-    "Litchfield was a rice plantation on the Waccamaw River, and the state's Rice Culture survey of Georgetown County lists it. In the 1800s it belonged to the Tucker family, who also owned Willbrook.",
-    "The road in is lined with old live oaks, the Avenue of Oaks. It has a plantation house, built in the 1700s, and a pool that looks over the old rice fields. It also has an oceanfront beach house on Pawleys Island, and a private marina on the river is an optional extra.",
+  entry("litchfield-plantation", "a 1700s plantation house and its avenue of oaks", [
+    "Litchfield Plantation's house dates from the 1700s, and the road in is lined with old live oaks, the Avenue of Oaks. In the 1800s the plantation belonged to the Tucker family, who also owned Willbrook.",
+    "It has a pool that looks out over the marsh and an oceanfront beach house on Pawleys Island. A private marina on the river is an optional extra.",
   ], P("litchfield-plantation"), "Litchfield Plantation from above: houses under tall trees, with golf fairways and ponds at the right.",
   "a gatehouse on Kings River Road. Homes are mostly houses and townhouses. Few sold, so prices ranged widely around $1 million; the HOA fee is about $230 a month on most homes."),
 
   entry("litchfield-by-the-sea", "a mile of private beach and an oceanfront club", [
     "Litchfield by the Sea lies between the marsh and the ocean. Its homes range from oceanfront houses to villas with marsh views and condos.",
-    "It has about a mile of beach, an oceanfront Beach Club with a deck and a pavilion, and a pool at the River Club. Fishing and crabbing docks are on Osprey Lake, tennis and pickleball courts are near the Beach Club, and paved paths run through the marsh and woods.",
+    "It has about a mile of beach and an oceanfront Beach Club with a deck and a pavilion. Fishing and crabbing docks are on Osprey Lake, and paved paths run through the marsh and woods.",
     "Each of its many sections has its own prices and fees. We send the homes for sale in each section on request.",
   ], P("litchfield-by-the-sea"), "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right.",
   `a ${h.ext(LBTS_GUIDE, "guard day and night")} at the main gate on US 17; the owner or rental manager registers guests. In the last year, condos sold for anywhere from under $200,000 to over $2 million, and houses in its Oystercatcher Island section for about $750,000. The HOA fee differs by section and unit.`),
 
-  entry("heritage-plantation", "golf and a river marina on old rice land", [
-    "Heritage Plantation is on land that was part of former rice plantations. Dan Maples' Heritage Club course opened there in 1986, among live oaks and the old rice fields.",
-    `About 500 houses are among lakes and marsh between the Waccamaw River and the ocean, less than three miles from the beach. The ${h.ext(HERITAGE, "owners association")} runs a marina on the river, four tennis courts, four pickleball courts, a pool and a clubhouse with a fitness room.`,
+  entry("heritage-plantation", "golf among live oaks and a river marina", [
+    "Heritage Plantation's golf course is set among live oaks inside the community. Its marina on the Waccamaw River has a boat ramp and docks.",
+    `About 500 houses are among lakes and marsh, less than three miles from the beach.`,
   ], P("heritage-plantation"), "Heritage Plantation from above: houses along golf fairways, a pool and tennis courts near the label, and a river and marsh at the top.",
   "a gate off Kings River Road. Homes usually sell for about $710,000, and the HOA fee is about $325 a month."),
 ];
 
 /* DeBordieu keeps its NOAA 2026 aerial (rows 28, 70, 81). */
 SECTIONS_PLACES.push({ h2: "19. DeBordieu Colony: an old planters' colony on the ocean", toc: "DeBordieu Colony", id: "debordieu-colony", html: () =>
-  h.p("Before the Civil War, rice planters built a colony of summer homes at DeBordieu. Later owners of the land included Isaac Emerson, the Bromo-Seltzer maker, and the Vanderbilt family.")
+  h.p("Before the Civil War, planters built a colony of summer homes at DeBordieu. Later owners of the land included Isaac Emerson, the Bromo-Seltzer maker, and the Vanderbilt family.")
   + ph.aerial("debordieu-from-above-2026", "DeBordieu Colony and the beach to its east, from above. Golf fairways and ponds are among the homes, and a salt marsh is between many of the homes and the beach.", { closeUp: true })
   + h.p("The colony covers 2,700 acres. At least 600 are a nature preserve, and 17,000 undeveloped acres border it to the south. Home sites are half an acre to five acres.")
   + h.p(`The ${h.ext(DEBORDIEU, "DeBordieu Club")} has a Pete and P.B. Dye course, a Beach Club with a pool over the ocean, and a tennis center with eight Har-Tru courts.`)
@@ -369,17 +370,17 @@ module.exports = {
   eyebrow: "Gated communities",
   h1: "Where are the gated communities in Myrtle Beach?",
   h1em: "From North Myrtle Beach to Pawleys Island.",
-  sub: "Nineteen gated neighborhoods, from old rice plantations on the Waccamaw River to golf courses on the Intracoastal Waterway.",
+  sub: "Nineteen gated neighborhoods, from Tidewater on the Cherry Grove marsh to DeBordieu Colony on the ocean south of Pawleys Island.",
   heroMedia: glance([
     { icon: "beach", label: "On the ocean", text: "DeBordieu Colony, Litchfield by the Sea" },
     { icon: "golf", label: "Golf", text: "Ten of the 19 are golf communities" },
-    { icon: "home", label: "Homes sell for", text: "About $480,000 to $2 million" },
+    { icon: "dock", label: "On the water", text: "The Intracoastal Waterway or the Waccamaw River" },
   ]),
   heroCta: { title: "Get this week's list of homes for sale in gated neighborhoods.", text: OFFER_SHORT, label: OFFER_LABEL, href: OFFER },
   author: "devin",
   shortAnswer: [
-    "Gated neighborhoods near Myrtle Beach run from North Myrtle Beach to Pawleys Island. Ten are golf communities, two are on the ocean, and several sit on old rice plantations along the Waccamaw River.",
-    `In most, the fee to the homeowners association (HOA) is about $90 to $400 a month, and homes sell for about $480,000 to $2 million. A gate controls who drives in. It is not a guard at each home: ${h.a("#what-a-gate-does", "what a gate does")}.`,
+    "Tidewater Plantation, Barefoot Resort's Dye Estates, Grande Dunes, Prestwick, Wachesaw Plantation and DeBordieu Colony are among the 19 gated neighborhoods near Myrtle Beach. Ten are golf communities, and two are on the ocean.",
+    `In most, the fee to the homeowners association (HOA) is about $90 to $400 a month, and homes sell for about $480,000 to $2 million. A gate controls who drives in. It is not a guard at each home. ${h.a("#what-a-gate-does", "Read what a gate does")}.`,
   ],
   sections: [
     { h2: "Where are the gated neighborhoods near Myrtle Beach?", toc: "Maps", html: () =>
@@ -406,7 +407,7 @@ module.exports = {
     { h2: "What are the pros and cons of a gated community?", toc: "Pros and cons", html: (bg) =>
       prosCons([
         "Drivers cannot use your streets as a shortcut.",
-        "Many have a pool, a clubhouse or a dock that the owners share.",
+        "Some are on the ocean or have a marina on the Waccamaw River.",
         "You can live on the ocean, on the Intracoastal Waterway or on an old plantation.",
       ], [
         { text: "You pay for the gate and the private streets through the HOA fee.", act: `We find out what the fee covers before you offer. Our guide to ${h.a("/hoa/benefits/", "what HOA fees pay for")} lists the usual items.` },
@@ -414,8 +415,7 @@ module.exports = {
         { text: "Guests and workers come through the gate.", act: "We find out how the gate lets visitors in for the home you like." },
       ], { bg }) },
 
-    { h2: "What should you know about the gate before you buy?", toc: "Before you buy", html: (bg) =>
-      h.p("In Barefoot Resort and Grande Dunes only some sections are gated, and Myrtle Trace has gates only at its back entrance.") +
+    { h2: "How did one buyer find a 55+ home behind a gate?", toc: "A buyer's story", html: (bg) =>
       story([
         "<strong>Example:</strong> Joan is moving from Ohio, and she wants a 55+ home behind a gate. She finds a house in Myrtle Trace, near Conway.",
         "Her Chapter3 agent drives her in by the front entrance. That entrance has no gate, and the gates are only at the back.",
@@ -425,9 +425,10 @@ module.exports = {
   ],
   faqTitle: "Gated communities FAQ",
   faq: [
-    { q: "Is there a gated community in Surfside Beach?", a: "Prestwick, just outside the town, is gated. Its nearest public beach access is in Surfside Beach, about 7 minutes away by car." },
+    { q: "Is there a gated community in Surfside Beach?", a: "No. Prestwick, just outside the town, is gated. Its nearest public beach access is in Surfside Beach, about 7 minutes away by car." },
     { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet has a gate at its main entrance. Myrtle Trace near Conway has gates only at its back entrance." },
     { q: "Are there gated golf communities near Myrtle Beach?", a: "Yes. Ten gated neighborhoods near Myrtle Beach are golf communities. They are Barefoot Resort, Grande Dunes, Prestwick, Tidewater Plantation, Wachesaw Plantation, Wachesaw East, The Reserve, Heritage Plantation, Willbrook Plantation and DeBordieu Colony." },
+    { q: "Is Barefoot Resort a gated community?", a: "Only in part. Most of Barefoot Resort in North Myrtle Beach is open; Leatherleaf and Dye Estates are among its gated neighborhoods." },
     { q: "Is Grande Dunes a gated community?", a: "Only in part. Some sections of Grande Dunes are gated, including Calais, Palermo and Villa Venezia." },
   ],
   sources: [
