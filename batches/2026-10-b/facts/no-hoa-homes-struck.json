@@ -236,5 +236,11 @@
     "pattern": "\\bIn those years it was also a farm center",
     "struck": "In those years it was also a farm center for the country around it.",
     "use": "In the late 1800s it was also a farm center for the country around it."
+  },
+  {
+    "row": "no-hoa 107",
+    "pattern": "\\bInlet captains have long taken",
+    "struck": "Inlet captains have long taken visiting anglers offshore on charter and party trips.",
+    "use": "In the twentieth century a fleet of charter and party boats grew up at the inlet, and its captains took visiting anglers offshore."
   }
 ]

@@ -297,5 +297,23 @@
     "pattern": "\\binsurance charge for the buildings|\\bAge is the main question|\\bFlood is the concern here|\\bEach came with the builder's",
     "struck": "One cost is not yet set: a yearly insurance charge for the buildings. Age is the main question here. Flood is the concern here. Each came with the builder's smart-home package.",
     "use": "Listings say each owner will pay a yearly insurance assessment that is not yet set. Age matters here. Flood is a concern here."
+  },
+  {
+    "row": "affordable 185",
+    "pattern": "^About 8 minutes$",
+    "struck": "About 8 minutes",
+    "use": "About 7 minutes"
+  },
+  {
+    "row": "affordable 185",
+    "pattern": "\\babout an eight-minute drive",
+    "struck": "Enterprise Landing, a public boat ramp off Bay Road onto the waterway, is about an eight-minute drive.",
+    "use": "Enterprise Landing, a public boat ramp off Bay Road onto the waterway, is about a seven-minute drive."
+  },
+  {
+    "row": "affordable 185",
+    "pattern": "\\bRecreation Center seven minutes east",
+    "struck": "A Publix is six minutes west by car, and the Carolina Forest Recreation Center seven minutes east.",
+    "use": "A Publix is six minutes west by car, and the Carolina Forest Recreation Center six minutes east."
   }
 ]

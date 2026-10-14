@@ -422,5 +422,17 @@
     "pattern": "\\bgrew up around the Deer Track|\\btwo investors|\\bcourts found the land|\\bpark right at the beach",
     "struck": "The Deerfield Plantation area grew up around the Deer Track golf resort near Surfside Beach. In 2006 two investors bought the golf course land. The courts found the land carried no such restriction. So an owner with a golf cart can park right at the beach.",
     "use": "The Deerfield Plantation area is built around the old Deer Track golf courses near Surfside Beach. In 2006 two buyers bought the golf course. A special referee found no such restriction on the land, and the state Court of Appeals affirmed in 2012. The closest beach access has three parking spaces, for golf carts only."
+  },
+  {
+    "row": "neighborhoods 233",
+    "pattern": "\\brenovation[^.]{0,60}rebuilt its greens and bunkers",
+    "struck": "A recent renovation, led by Brauer himself, rebuilt its greens and bunkers.",
+    "use": "A recent renovation, led by Brauer himself, gave it new greens and refreshed bunkers."
+  },
+  {
+    "row": "neighborhoods 233",
+    "pattern": "^A short walk, about 0\\.4 mile$",
+    "struck": "A short walk, about 0.4 mile",
+    "use": "About 0.4 mile, a 9-minute walk"
   }
 ]

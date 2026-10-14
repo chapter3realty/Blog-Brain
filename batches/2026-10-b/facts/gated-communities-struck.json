@@ -312,7 +312,7 @@
     "row": "gated 115, 153",
     "pattern": "Tilghman Beach",
     "struck": "Seaside Plantation is in the Tilghman Beach part of North Myrtle Beach, a few blocks from the ocean.",
-    "use": "Seaside Plantation is in North Myrtle Beach, a quarter to a half mile from the ocean."
+    "use": "Seaside Plantation is in North Myrtle Beach, a quarter to three-quarters of a mile from the ocean."
   },
   {
     "row": "gated 115, 153",
@@ -324,7 +324,7 @@
     "row": "gated 153",
     "pattern": "\\b(?:two or three|a few) blocks from the (?:ocean|beach|Atlantic)",
     "struck": "Seaside Plantation is two or three blocks from the ocean.",
-    "use": "Seaside Plantation is in North Myrtle Beach, a quarter to a half mile from the ocean."
+    "use": "Seaside Plantation is in North Myrtle Beach, a quarter to three-quarters of a mile from the ocean."
   },
   {
     "row": "gated 153",
@@ -492,7 +492,7 @@
     "row": "gated 144",
     "pattern": "Brookgreen Gardens (?:are|is) a short drive",
     "struck": "Huntington Beach State Park and Brookgreen Gardens are a short drive.",
-    "use": "Huntington Beach State Park and Brookgreen Gardens are about 15 and 18 minutes away by car."
+    "use": "Huntington Beach State Park's entrance is about 11 minutes away by car, and Brookgreen Gardens about 16 minutes to its parking."
   },
   {
     "row": "gated 145, 154",
@@ -595,7 +595,7 @@
     "row": "gated 160",
     "pattern": "\\bbeside Prince Creek's park|\\bwoods and marsh just south",
     "struck": "Bellwood Landing: houses on ponds beside Prince Creek's park. Collins Creek winds through the woods and marsh just south of it.",
-    "use": "Bellwood Landing: houses on ponds in Prince Creek West. Collins Creek runs through the woods just south of it."
+    "use": "Bellwood Landing: houses on ponds in Prince Creek West. Collins Creek runs through the woods along its south edge."
   },
   {
     "row": "gated 160",
@@ -728,7 +728,8 @@
     "row": "gated 167",
     "pattern": "\\bfloating docks",
     "struck": "Forty boat slips are on four floating docks.",
-    "use": "The marina has 40 boat slips."
+    "use": "Its marina has about 40 boat slips on four floating docks (the association's Amenities page, row 173).",
+    "unless": "about 40 boat slips|approximately 40"
   },
   {
     "row": "gated 167",
@@ -746,13 +747,13 @@
     "row": "gated 167",
     "pattern": "\\bby the day or the year|\\bkeeping a boat here costs extra",
     "struck": "Slips at the marina are rented by the day or the year, so keeping a boat here costs extra.",
-    "use": "Slips are rented, mostly on long-term contracts, and the marina is open to people who do not live in Heritage Plantation."
+    "use": "Boats can be moored by the day, the month or the year."
   },
   {
     "row": "gated 167",
     "pattern": "\\bleads to Winyah Bay",
     "struck": "From the docks, the river leads to Winyah Bay and the ocean.",
-    "use": "The marina is on the Intracoastal Waterway and the Waccamaw River."
+    "use": "The marina is on the Waccamaw River, part of the Intracoastal Waterway."
   },
   {
     "row": "gated 169",
@@ -765,5 +766,141 @@
     "pattern": "golf fairways and ponds at the right",
     "struck": "Litchfield Plantation from above, with golf fairways and ponds at the right.",
     "use": "Litchfield Plantation from above, with a neighboring golf course and its ponds at the right."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "\\b15 and 18 minutes",
+    "struck": "Huntington Beach State Park and Brookgreen Gardens are about 15 and 18 minutes away by car.",
+    "use": "Huntington Beach State Park's entrance is about 11 minutes away by car, and Brookgreen Gardens about 16 minutes to its parking."
+  },
+  {
+    "row": "gated 22",
+    "pattern": "main entrance is at the light by Tidelands",
+    "struck": "The main entrance is at the light by Tidelands Waccamaw Community Hospital, and the back gate on Wachesaw Road opens with a card key.",
+    "use": "Visitors turn in from the light by Tidelands Waccamaw Community Hospital, cross Old Kings Highway and reach the gate guard. The back gate on Wachesaw Road takes a card key only."
+  },
+  {
+    "row": "gated 162",
+    "pattern": "Houses for sale here were built from 2000 to 2006|houses date from the early 2000s",
+    "struck": "Houses for sale here were built from 2000 to 2006.",
+    "use": "Houses listed here in the past year were built from 2000 to 2006."
+  },
+  {
+    "row": "gated 163",
+    "pattern": "went up between 2005 and 2019|Most houses for sale were built from 2005",
+    "struck": "The Reserve's houses on the market went up between 2005 and 2019.",
+    "use": "The 12 houses listed here were built from 2005 to 2019."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "quarter to a half mile from the ocean",
+    "struck": "Seaside Plantation is in North Myrtle Beach, a quarter to a half mile from the ocean.",
+    "use": "Seaside Plantation is in North Myrtle Beach, a quarter to three-quarters of a mile from the ocean."
+  },
+  {
+    "row": "gated 153",
+    "pattern": "Gator Hole Plaza[^.]{0,80}less than half a mile",
+    "unless": "straight line",
+    "struck": "A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are less than half a mile from the middle of the neighborhood.",
+    "use": "A Walmart Supercenter, a Lowe's and the shops of Gator Hole Plaza are less than half a mile from the middle of the neighborhood in a straight line."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "Main Street's nearest block is 0\\.45 mile",
+    "unless": "straight line",
+    "struck": "Main Street's nearest block is 0.45 mile from the same spot.",
+    "use": "Main Street's nearest block is 0.45 mile from the same spot, also in a straight line."
+  },
+  {
+    "row": "gated 93",
+    "pattern": "boat ramp is less than a mile from the middle of the neighborhood",
+    "unless": "straight line",
+    "struck": "Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood.",
+    "use": "Cherry Grove's public boat ramp is less than a mile from the middle of the neighborhood in a straight line. By road it is about 5 miles."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "Park at Prince Creek West lies about half a mile",
+    "struck": "The Park at Prince Creek West lies about half a mile north.",
+    "use": "The Park at Prince Creek West lies about three-quarters of a mile north of the middle of the neighborhood."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "Conway Medical Center is 0\\.8 mile",
+    "struck": "Conway Medical Center is 0.8 mile by road.",
+    "use": "Conway Medical Center is less than a mile by road."
+  },
+  {
+    "row": "gated 173",
+    "pattern": "less than three miles from the ocean",
+    "struck": "Heritage Plantation lies between the Waccamaw River and the beaches of Pawleys Island, less than three miles from the ocean.",
+    "use": "Heritage Plantation lies between the Waccamaw River and the beaches of Pawleys Island, about three miles from the ocean."
+  },
+  {
+    "row": "gated 173",
+    "pattern": "stay for up to 30 days|open to people who do not live in Heritage|mostly on long-term contracts",
+    "struck": "Visiting boats can stay for up to 30 days. Slips are rented, mostly on long-term contracts, and the marina is open to people who do not live in Heritage Plantation.",
+    "use": "Visiting boats are welcome. Boats can be moored by the day, the month or the year."
+  },
+  {
+    "row": "gated 173",
+    "pattern": "marina, on the Intracoastal Waterway and the Waccamaw River",
+    "struck": "Its marina, on the Intracoastal Waterway and the Waccamaw River, has a dock master at the dock house and 40 boat slips.",
+    "use": "Its marina, on the Waccamaw River, part of the Intracoastal Waterway, has a full-time dock master at the dock house and about 40 boat slips on four floating docks."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "beach house is on Pawleys Island, across US 17",
+    "struck": "Its oceanfront beach house is on Pawleys Island, across US 17.",
+    "use": "Its oceanfront beach house is on Pawleys Island, about 4 miles away by road."
+  },
+  {
+    "row": "gated 175",
+    "pattern": "Sandpiper Place is behind the Bay Road gate is not shown",
+    "struck": "Whether a home in Sandpiper Place is behind the Bay Road gate is not shown, so we check that before you make an offer.",
+    "use": "Sandpiper Place, where D.R. Horton is building, is reached from the same entrance on Bay Road, and we confirm whether a home is behind the gate before you make an offer."
+  },
+  {
+    "row": "gated 159",
+    "pattern": "clubhouse with a ballroom and an art studio",
+    "struck": "Seasons at Prince Creek West: a 55+ clubhouse with a ballroom and an art studio",
+    "use": "Seasons at Prince Creek West: a 55+ clubhouse with indoor and outdoor pools"
+  },
+  {
+    "row": "gated 175",
+    "pattern": "Prestwick, outside the town, is gated\\.",
+    "struck": "No. Prestwick, outside the town, is gated.",
+    "use": "No. Prestwick, outside the town, is the gated neighborhood on this page nearest Surfside Beach."
+  },
+  {
+    "row": "gated 95",
+    "pattern": "Leatherleaf[^.]{0,120}golf fairways on both sides",
+    "struck": "Leatherleaf, from above: one loop of houses around a pond, with golf fairways on both sides.",
+    "use": "Leatherleaf, from above: one loop of houses around a pond, with the Love course on every side."
+  },
+  {
+    "row": "gated 175",
+    "pattern": "\\bsouthwest of Myrtle Beach",
+    "unless": "west-southwest",
+    "struck": "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, southwest of Myrtle Beach.",
+    "use": "Myrtle Beach Golf and Yacht Club is off Bay Road near Socastee, west-southwest of Myrtle Beach."
+  },
+  {
+    "row": "gated 174",
+    "pattern": "Litchfield by the Sea is about 3\\.5 miles",
+    "struck": "By road, the beach at Litchfield by the Sea is about 3.5 miles away.",
+    "use": "By road, the beach at Litchfield by the Sea is about 3.4 miles away."
+  },
+  {
+    "row": "gated 95",
+    "pattern": "shuttle[^.]{0,40}to the resort's beach cabana",
+    "struck": "A free shuttle goes in season to the resort's beach cabana.",
+    "use": "In season, a shuttle runs from the resort to the beach."
+  },
+  {
+    "row": "gated 160",
+    "pattern": "Collins Creek[^.]{0,60}just south",
+    "struck": "Collins Creek runs through the woods just south of it.",
+    "use": "Collins Creek runs through the woods along its south edge."
   }
 ]

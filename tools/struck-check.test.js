@@ -123,7 +123,7 @@ for (const [slug, text, row] of FIRE) {
 
 /* Approved wording from the round 10 previews. Several fired on the first drafts of these patterns. */
 const QUIET = [
-  ["gated-communities", "Seaside Plantation is in North Myrtle Beach, a quarter to a half mile from the ocean."],
+  ["gated-communities", "Seaside Plantation is in North Myrtle Beach, a quarter to three-quarters of a mile from the ocean."],
   ["gated-communities", "Some of its houses are all brick, and some look onto its lakes."],
   ["gated-communities", "Its Resort Course runs along the Intracoastal Waterway."],
   ["gated-communities", "Wachesaw Plantation: a private club on a bluff above the Waccamaw River"],
@@ -135,7 +135,7 @@ const QUIET = [
   ["gated-communities", "Covington Lake East is a small neighborhood of brick houses in Carolina Forest, built since the mid-2000s."],
   ["gated-communities", "Black Creek runs through the woods along its west side."],
   ["gated-communities", "Its gated sections of houses include Calais, Palermo, Tuscany Village and Villa Venezia."],
-  ["gated-communities", "A free shuttle goes in season to the resort's beach cabana, which has showers and gated parking, and the North Tower Pool is on the waterway."],
+  ["gated-communities", "In season, a shuttle runs from the resort to the beach. The resort also has a beach cabana with showers and gated parking, and the North Tower Pool is on the waterway."],
   ["gated-communities", "On the property are Native American burial mounds, an Avenue of the Oaks, a Civil War-era fort and a cemetery of enslaved people."],
   ["gated-communities", "Its clubhouse has a pool, a hot tub and parking for golf carts."],
   ["gated-communities", "The HOA's rules allow a golf cart to be parked only in an enclosed garage."],
