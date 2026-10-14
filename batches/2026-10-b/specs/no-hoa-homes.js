@@ -294,6 +294,8 @@ const LORIS_CLOCK = "https://www.scpictureproject.org/horry-county/loris-town-cl
 const CITY_HALL = "https://schpr.sc.gov/index.php/Detail/objects/S10817726018";
 const SURF_PIER = "https://www.wmbfnews.com/2024/03/14/surfside-beach-pier-officially-open";
 const MB_STATE_PARK = "https://southcarolinaparks.com/myrtle-beach";
+const CANALS = "https://www.myhorrynews.com/news/local/north_myrtle_beach/residents-still-paying-for-cherry-grove-dredge/article_1eb5bb32-3b9a-11e9-93e7-9f8ad503b643.html";
+const SURF_TOWN_PIER = "https://www.surfsidebeach.org/212/Surfside-Beach-Fishing-Pier";
 const HC_PARKS = "https://www.horrycountysc.gov/departments/parksandrecreation/parks/";
 
 /* Words used more than once. */
@@ -358,7 +360,7 @@ module.exports = {
   sections: [
     { h2: "Where are the homes with no HOA fee?", toc: "Where they are", html: () =>
       CSS + ENTRY_CSS +
-      h.p("Houses listed with no HOA fee are spread over eight areas, from big lots inland to old beach streets. The numbers on the map match the list below.") +
+      h.p("Houses listed with no HOA fee are spread over eight areas, from big lots inland to old beach streets.") +
       `<div class="c3-areamap">${MAP.html}</div>` +
       h.p(`To live near the beach, see ${go("North Myrtle Beach")}, ${go("Surfside Beach and Garden City")}, ${go("Murrells Inlet")} and ${go("Myrtle Beach (not Carolina Forest)")}. For a boat near the waterway, see ${go("Little River")}.`) +
       h.p("Every home for sale in Carolina Forest has an HOA fee.") +
@@ -376,7 +378,7 @@ module.exports = {
       h.p(`Half were built in ${BAND["250k-500k"].medianYearBuilt} or later. The middle house has a little over a third of an acre and ${sqftWords(BAND["250k-500k"].medianSqft)}.`) },
 
     { h2: "What can you buy with no HOA fee for $500,000 to $750,000?", toc: "$500,000 to $750,000", id: "500000-to-750000", html: () =>
-      h.p(`About ${Math.round(BAND["500k-750k"].houses / 10) * 10} houses. Here a beach house and a bigger inland house cost about the same. About 1 in 3 was within half a mile of the beach; in the next band up, 2 in 3 were.`) +
+      h.p(`About ${Math.round(BAND["500k-750k"].houses / 10) * 10} houses. Here a beach house and a bigger inland house cost about the same. About 1 in 3 was half a mile or less from the beach; in the next band up, 2 in 3 were.`) +
       h.p("In North Myrtle Beach, this band buys a house in Cherry Grove, Windy Hill or Ocean Drive; in Cherry Grove most were built before 1990. In Murrells Inlet, most were in the Georgetown County part. In Conway, it buys a larger house from the 1970s in Coastal Heights, south of town.") +
       h.p(`The middle house here dates from about ${BAND["500k-750k"].medianYearBuilt}, with ${sqftWords(BAND["500k-750k"].medianSqft)} on ${acreWords(BAND["500k-750k"].medianLotAcres).replace(/^about /, "about ")}.`) },
 
@@ -389,29 +391,30 @@ module.exports = {
     entry("Aynor", "Aynor: new houses on about an acre", [
       `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
       `Here you get land: most lots are about an acre, with room for a boat or a camper beside the house. The county's ${h.ext(LANDINGS, "Galivants Ferry boat landing")} on the river is about 5 minutes from the center of town.`,
-      "On FEMA's flood map, none of the 400 homes we sampled inside the town is in a high-risk flood zone.",
+      "Almost no home inside the town of Aynor is in a high-risk flood zone on FEMA's flood map.",
     ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
 
     entry("Loris", "Loris: new houses on three quarters of an acre, near a small downtown", [
-      `Loris is a small city with City Hall downtown on Walnut Street. On the third Saturday in October, downtown fills for the ${h.ext(LORIS_CITY, "Loris Bog-Off")}, a festival centered on chicken bog: chicken, rice and sausage cooked together.`,
+      `Loris grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. In those years it was also a farm center for the country around it. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street.`,
+      `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and two stages of live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
       "Loris has its own hospital, McLeod Loris, in town. Its lots fall between Aynor's acre and Conway's half acre.",
-      `Loris grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street, and the Bog-Off brings vendors, a car show and two stages of live music.`,
     ], LORIS_PHOTO, "Coastal Grand Mall in Myrtle Beach is a drive of about 50 minutes."),
 
     entry("Conway", "Conway: half an acre near the Waccamaw River and an old downtown", [
       `Conway began in the 1730s as Kingston, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "later Conwayborough")}, then Conway. Its Riverwalk runs along the river downtown.`,
       "Lots are about half an acre, a little smaller than in Aynor or Loris, and you are closest to the beach of the three. About a third of the houses for sale were built in 2024 or later.",
-      `City Hall was the county courthouse, finished in 1825 and ${h.ext(CITY_HALL, "reputedly designed by Robert Mills")}. It is a two-story brick building with columns, at the center of the old downtown.`,
+      `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. It is a two-story brick building with columns in the old downtown.`,
     ], CONWAY_PHOTO, "inside the city, a big business truck may not park on a city street."),
 
     entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
       `North Myrtle Beach began in 1968, when Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill joined as one city. In the Ocean Drive and Crescent Beach area, a pavilion drew crowds who danced the ${h.ext(SCE + "shag/", "shag")}. South Carolina made it the ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
-      "The houses for sale are mostly in those old beach towns, and most are within half a mile of the beach. About 6 in 10 were built before 1990. In Cherry Grove, canals were dug through the marsh, and owners of about 415 properties in the canal district pay the city a yearly fee to dredge them. Cherry Grove also has a fishing pier.",
+      "The houses for sale are mostly in those old beach towns, and most are within half a mile of the beach. About 6 in 10 were built before 1990. Cherry Grove also has a fishing pier.",
+      `Cherry Grove's canals were ${h.ext(CANALS, "dug through the marsh in the 1950s and 1960s")}. By the 1970s, some were filling with silt. Left alone, they would have turned back into mudflats. The city has dredged them twice since 2016, so boats can reach House Creek and the Intracoastal Waterway at any tide. Owners of about 415 properties in the canal district pay the city about $1,700 a year for that work, on the tax bill.`,
     ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
 
     entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses within half a mile of the beach", [
-      `Surfside Beach was part of a rice plantation called The Ark, later named Floral Beach. It was renamed Surfside Beach in 1952 and ${h.ext(SCE + "surfside-beach/", "became a town in 1964")}. The town limited building density, and through the 1980s single-family houses remained the norm.`,
-      `Most houses for sale here are that close, and about 4 in 10 face the ocean, see it or are one row back. The town's fishing pier ${h.ext(SURF_PIER, "reopened in 2024")}, after a hurricane destroyed the old one.`,
+      `Surfside Beach owns its ${h.ext(SURF_TOWN_PIER, "fishing pier")}: a concrete pier 814 feet long that ${h.ext(SURF_PIER, "opened in 2024")}, after a hurricane destroyed the old wooden one. Walking out on it is free, and it has two restaurants and an ice cream shop.`,
+      `Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. How a rice plantation called The Ark became Surfside Beach is in our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}.`,
       "From Garden City, the MarshWalk restaurants are a short drive south.",
     ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
 
@@ -423,7 +426,7 @@ module.exports = {
 
     entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses near the ocean", [
       `Myrtle Beach began at the end of a logging railroad from Conway. In 1901 the railroad company ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought a large tract and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
-      "Outside Carolina Forest, the houses for sale are mostly older: almost half date from before 1990.",
+      "Outside Carolina Forest, almost half of the houses for sale date from before 1990.",
       `On the south side of the city, ${h.ext(MB_STATE_PARK, "Myrtle Beach State Park")} opened in 1936, the first of South Carolina's state parks to open. It has a mile of undeveloped beach, a fishing pier and a nature trail.`,
     ], MB_PHOTO, "about half are inside the city, where the city's limits on boats and work trucks apply."),
 
@@ -447,9 +450,9 @@ module.exports = {
       ], [
         "No shared pool, clubhouse or common areas. On a house, an HOA fee often includes these.",
         "No HOA rules for the houses next door either.",
-        { text: "A home with no HOA can still have deed restrictions.", act: "The closing attorney's search finds them before you buy." },
+        "A home with no HOA can still have deed restrictions.",
       ], { bg }) +
-      h.p(`If you want a pool, a clubhouse or a gate, you pay an HOA fee for them. Our guides to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods for what you want nearby")} and to ${h.a("/buyers/gated-communities/", "gated communities around Myrtle Beach")} show where to look. In Carolina Forest, every home for sale has an HOA fee; our guide to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")} shows one of its neighborhoods.`) },
+      h.p(`If you want a pool, a clubhouse or a gate, you pay an HOA fee for them. Our guides to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods for what you want nearby")} and to ${h.a("/buyers/gated-communities/", "gated communities around Myrtle Beach")} show where to look. Our guide to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")} shows one Carolina Forest neighborhood.`) },
 
     { h2: "Can you keep a boat or a work truck at a home with no HOA?", toc: "Boats and work trucks", id: "boats-and-work-trucks", html: (bg) =>
       h.p(`Yes, on your own lot. Outside the towns, the county has no rule on where you keep your own boat, trailer or camper on your lot. If you run a business from the house, the county allows ${h.ext(HORRY_927, "two service vehicles per acre")} on most lots. Inside a town, the town's limits in the table apply.`) +
@@ -473,12 +476,12 @@ module.exports = {
 
     { h2: "What is a typical HOA fee in Myrtle Beach?", toc: "Typical HOA fees", html: () =>
       h.p(`The typical HOA fee is $${HOUSE_FEE.medianMonthlyHoaFee} a month on a house and about $${Math.round(CONDO.median / 50) * 50} a month on a condo. A condo fee is higher because it includes the building's insurance, water and sewer, trash and a pool.`) +
-      h.p(`Two fees of the same size can cover different things. Our guides to ${h.a("/hoa/", "what HOA fees cover")}, ${h.a("/hoa/reserves/", "HOA savings for big repairs")} and ${h.a("/hoa/special-assessments/", "special assessments")} explain each part.`) },
+      h.p(`Our guides to ${h.a("/hoa/", "what HOA fees cover")}, ${h.a("/hoa/reserves/", "HOA savings for big repairs")} and ${h.a("/hoa/special-assessments/", "special assessments")} explain each part.`) },
 
   ],
   faqTitle: "Homes with no HOA FAQ",
   faq: [
-    { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot. Inside the city of Myrtle Beach, a boat over 16 feet may not sit in the front yard, and boats and trailers may not park on residential streets. Outside the towns, you can keep your own boat, trailer or camper anywhere on your lot." },
+    { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot. Inside the city of Myrtle Beach, a boat over 16 feet may not be kept in the front yard. Boats and trailers may not park on residential streets. Outside the towns, you can keep your own boat, trailer or camper anywhere on your lot." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "Why are HOA fees so high in Myrtle Beach?", a: "Condo fees are high because they include the cost of the building: its insurance, water and sewer, trash and a pool. Fees on houses are much lower, because most include only shared areas, trash and a pool." },
     { q: "Where can you buy a house with land and no HOA near Myrtle Beach?", a: "Inland. A house for sale with no HOA fee in Aynor usually sits on about an acre. In Loris it is about three quarters of an acre, and in Conway about half an acre. About 1 in 3 houses with no HOA fee has half an acre or more." },
