@@ -340,7 +340,7 @@ module.exports = {
       h.p(`SC Housing, the state's housing agency, gives buyers in Horry and Georgetown counties $10,000 toward the down payment and closing costs. The help is forgivable: you do not pay it back if you live in the home for 15 years. The program is called the ${h.ext(SCH, "Homebuyer Program")}.`) +
       h.p("In these two counties, you do not have to be a first-time buyer. You must not own a home when you close. Your household income must be under about $115,000 for one or two people, or about $134,000 for three or more.") +
       h.p("You also need a credit score of 640 or more, and a homebuyer class before the loan is approved. The home price can be up to $450,000.") +
-      h.p("Palmetto Home Advantage, a second SC Housing program, is open to first-time and repeat buyers at any price. It gives up to 4 percent of the loan. On a $250,000 loan, that is up to $10,000. It is forgivable over 10 years.") +
+      h.p("Palmetto Home Advantage, a second SC Housing program, is open to first-time and repeat buyers at any price. It gives up to 4 percent of the loan, forgivable over 10 years.") +
       h.p("County First is a third program for Horry, Georgetown and some other counties. It also gives forgivable help, with the same limits as the Homebuyer Program.") +
       h.p(`To apply, you go through a lender that works with SC Housing. The lender checks that you qualify and holds the money for you. Our page on ${h.a("/buyers/programs/", "down-payment help programs")} explains the steps.`) +
       story([
