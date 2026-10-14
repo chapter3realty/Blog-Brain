@@ -100,3 +100,7 @@ Run `node <blog-brain>/tools/repeat-check.js <page> --strict` after every rewrit
 Brief: <path>
 Facts: <path>
 Owner answers: <path>
+
+## Applying a verifier's correction
+
+Take the fact from the row, not its wording. Write what the fact means for the buyer, once, in your own sentence. The measure, the sample and the source go in the ledger and the sources line. A sentence that names its own method ("in a straight line", "listings say", "recorded in the past year") is a note, not copy; keep one only when the reader needs it to act (CRAFT 5, lesson B35).
