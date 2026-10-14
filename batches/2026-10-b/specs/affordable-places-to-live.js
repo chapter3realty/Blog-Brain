@@ -335,7 +335,7 @@ module.exports = {
       strip("villas-at-sandridge") +
       h.p("Villas at Sandridge is a new townhome community off SC 90 near Little River, from Dream Finders Homes. The county records it as Village at Sandridge, and new townhomes here were still selling in September 2026. Each is two stories, with a one-car garage.") +
       PH["villas-at-sandridge"] +
-      h.p("The North Myrtle Beach Park and Sports Complex has ball fields and walking trails around a lake. It is about five minutes by car to the southwest, across the highway interchange. Marinas on the Intracoastal Waterway are six or seven minutes east by car. A Food Lion, an Aldi and a Kroger are six to eight minutes away.") +
+      h.p("The North Myrtle Beach Park and Sports Complex has ball fields and walking trails around a lake. It is about five minutes by car to the southwest, across the highway interchange. Marinas on the Intracoastal Waterway are six to eight minutes east by car. A Food Lion, an Aldi and a Kroger are six to eight minutes away.") +
       h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly fee is also higher than at the other new communities here.")),
 
     entry("indigo-grove", "new houses off SC 90", () =>
@@ -343,7 +343,7 @@ module.exports = {
       h.p("Indigo Grove is a new neighborhood of houses off SC 90, south of Longs. Lennar sells it as The Overlook and sold about 145 houses here in about ten months.") +
       PH["indigo-grove"] +
       h.p("Griffin's IGA, a grocery store on SC 90, is a three-minute drive. Riverside Elementary is the zoned elementary school. None of the lots sold here last year is in a high-risk flood zone.") +
-      h.p("Coastal Grand Mall, on the other hand, is a long drive. Of the three places on this list near Longs, Indigo Grove has the shortest drive to the beach. Before the houses, this land was fields and woods.")),
+      h.p("Coastal Grand Mall, on the other hand, is a long drive. Of the three of the twelve near Longs, Indigo Grove has the shortest drive to the beach. Before the houses, this land was fields and woods.")),
 
     entry("wynbrooke", "townhomes on ponds off SC 707", () =>
       strip("wynbrooke") +
