@@ -109,6 +109,19 @@ for (const [id, m] of mutations) {
   check(`${id}: fires`, r.credit !== null && r.credit < 1, `(${r.credit}: ${r.detail})`);
 }
 
+/* question-h2: a numbered list of places (owner, 2026-10-14) is left out of the count; the other headings still count. */
+{
+  const entries = ["1. Surfside Beach: condos close to the sand", "2. Garden City: buildings on the marsh", "3. North Myrtle Beach: newer towers"]
+    .map((t) => `<section><div class="wrap"><h2>${t}</h2><p>Buildings here charge assessments for roofs.</p></div></section>`).join("");
+  const withList = base.replace("</main>", entries + "</main>");
+  check("question-h2: the numbered entries landed", withList.includes("3. North Myrtle Beach: newer towers"));
+  check("question-h2: a numbered list of 3 places does not lower the share", credit(withList, "question-h2").credit === 1, `(${credit(withList, "question-h2").detail})`);
+  const statements = withList.replace("What is a special assessment?", "Special assessments defined").replace("Who pays it when the unit sells?", "The seller and the buyer");
+  check("question-h2: other statement headings still fire beside a numbered list", credit(statements, "question-h2").credit < 1, `(${credit(statements, "question-h2").detail})`);
+  const two = base.replace("</main>", entries.split("</section>").slice(0, 2).join("</section>") + "</section></main>");
+  check("question-h2: two numbered headings are not a list and still count", credit(two, "question-h2").detail === "3 of 5", `(${credit(two, "question-h2").detail})`);
+}
+
 /* A person may be the visible author (owner 2026-10-05). */
 check("byline: a person's byline passes", credit(base.replace("By <strong>Chapter3 Realty</strong>", "By <strong>Devin Day</strong>, Operations Officer"), "byline").credit === 1);
 check("article-schema: a Person author passes", credit(gold({ author: { "@type": "Person", name: "Devin Day", url: "https://chapter3realty.com/about/" } }), "article-schema").credit === 1);

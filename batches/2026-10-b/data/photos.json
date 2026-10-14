@@ -794,6 +794,79 @@
       "method": "scratchpad farmw/scripts/mosaic.py, eri_fetch.py and render_eri.py (no outline, no labels); config farmw/aerial/work/config.json, key the-farm-street",
       "width": 1200,
       "height": 900
+    },
+    {
+      "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+      "source_name": "The National Map (USGS)",
+      "author": "USDA Farm Service Agency, NAIP",
+      "author_type": "Organization",
+      "license": "Public domain",
+      "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11.",
+      "terms_urls": [
+        "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+        "https://www.fsa.usda.gov/help/policies-and-links/",
+        "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+      ],
+      "taken": "2023-04-10",
+      "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile names). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/aynor-downtown-from-above.webp",
+      "variants": {
+        "600": "images/buyers/affordable/aynor-downtown-from-above-600w.webp",
+        "1200": "images/buyers/affordable/aynor-downtown-from-above-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Downtown Aynor from above (USDA NAIP 2023)",
+      "what": "The center of Aynor from above: stores and parking along the main streets, the town park's ball field, and houses on wide lots around them.",
+      "caption": "Downtown Aynor from above, with houses on wide lots around it.",
+      "alt": "Aerial view of downtown Aynor, South Carolina: stores and parking lots along crossing streets, a ball field, and houses on wide grassy lots",
+      "place": {
+        "city": "Aynor"
+      },
+      "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS).",
+      "digital_source_type": "digitalCapture",
+      "changes": "Chapter3 Realty exported this view from the NAIP image service and resized it; no labels",
+      "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8817233.92668687%2C4028305.2173530376%2C-8816269.899896601%2C4029030.29688393&bboxSR=3857&imageSR=3857&size=1400%2C1050&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+      "frame": {
+        "bbox_wgs84": [
+          -79.20656,
+          33.9963,
+          -79.1979,
+          34.0017
+        ],
+        "note": "around the Aynor town point (USGS GNIS, 33.9998881, -79.1994874) and Aynor Town Hall"
+      },
+      "share_alike": false
+    },
+    {
+      "slug": "affordable-places-to-live",
+      "file": "images/buyers/affordable/myrtle-beach-beach-and-pier.webp",
+      "variants": {
+        "600": "images/buyers/affordable/myrtle-beach-beach-and-pier-600w.webp",
+        "1200": "images/buyers/affordable/myrtle-beach-beach-and-pier-1200w.webp"
+      },
+      "width": 1200,
+      "height": 900,
+      "title": "Myrtle Beach Pier in August 2022",
+      "what": "The beach, the dunes and a fishing pier in Myrtle Beach, seen from a high balcony.",
+      "alt": "A long fishing pier over the ocean in Myrtle Beach, with the beach and palm trees below",
+      "place": {
+        "city": "Myrtle Beach"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_Pier_in_August_2022.jpg",
+      "source_name": "Wikimedia Commons",
+      "commons_page": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_Pier_in_August_2022.jpg",
+      "author": "DiscoA340",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Photo: DiscoA340, CC BY-SA 4.0, via Wikimedia Commons",
+      "provenance": "own work",
+      "taken": "2022-08-14",
+      "original_size": "3264x2448",
+      "share_alike": true,
+      "reused_from": "batches/2026-10-a/data/photos.json record myrtle-beach-pier-from-above (same files, renamed so the two records do not share a name)"
     }
   ],
   "updated": "2026-10-13"

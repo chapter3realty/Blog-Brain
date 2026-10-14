@@ -103,7 +103,7 @@ const PLACES = [
   { name: "Longs", lat: 33.9385051, lon: -78.7330737, href: "#longs" },
   { name: "Conway", lat: 33.8360035, lon: -79.0478143, href: "#conway" },
   { name: "Aynor", lat: 33.9998881, lon: -79.1994874, href: "#aynor" },
-  { name: "Myrtle Beach", lat: 33.6890603, lon: -78.8866943, href: "/submarkets/myrtle-beach/" },
+  { name: "Myrtle Beach", lat: 33.6890603, lon: -78.8866943, href: "#myrtle-beach" },
   /* Coastal Grand Mall: the county address point for 2000 Coastal Grand Circle (row 46). */
   { name: "Coastal Grand Mall", lat: 33.702315, lon: -78.923261, href: "#compare" },
 ];
@@ -136,7 +136,7 @@ function barChart(title, caption) {
 }
 
 const MAP = placesMap("Affordable places near Myrtle Beach", PLACES, {
-  caption: "Map of the five most affordable places, numbered from the lowest typical value, with Myrtle Beach and Coastal Grand Mall.",
+  caption: "Map of the five most affordable places and Myrtle Beach, numbered as in the list below, with Coastal Grand Mall.",
 });
 
 /* The comparison: five places and Myrtle Beach. One price measure (rows 2 to 8), the drive to
@@ -164,10 +164,13 @@ const GEORGETOWN_PHOTO = ph.aerial("georgetown-harbor", "Boats at the harbor in 
 const LORIS_PHOTO = ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true });
 const LONGS_PHOTO = ph.aerial("longs-new-streets-from-above", "New streets of houses near the center of Longs, from above.", { closeUp: true });
 const CONWAY_PHOTO = ph.aerial("conway-riverwalk-boardwalk", "The riverwalk in Conway, on the Waccamaw River.", { closeUp: true, alt: "A wooden boardwalk with a black railing, shaded by trees, beside old wooden buildings in Conway" });
+const AYNOR_PHOTO = ph.aerial("aynor-downtown-from-above", "Downtown Aynor from above, with houses on wide lots around it.", { closeUp: true });
+const MB_PHOTO = ph.aerial("myrtle-beach-beach-and-pier", "The beach and a fishing pier in Myrtle Beach.", { closeUp: true });
 ph.share("georgetown-harbor");
 
-/* One place's facts line: the value against Myrtle Beach, then the two drives. */
-const valueLine = (p) => `A typical home in ${p} is worth about ${val(p)}.`;
+/* One place's price and tax line, and its trade-off line (round 7: each in one line). */
+const line = (p, more = "") => `<p style="color:var(--muted);line-height:1.7;max-width:720px;margin:0 0 .5rem"><strong style="color:var(--navy);font-weight:600">Price and tax:</strong> a typical home in ${p} is worth about ${val(p)}, with about ${tax(p)} a year in property tax.${more}</p>`;
+const tradeoff = (t) => `<p style="color:var(--muted);line-height:1.7;max-width:720px;margin:0 0 1rem"><strong style="color:var(--navy);font-weight:600">The trade-off:</strong> ${t}</p>`;
 const drives = (p, beachWhere) => `From the center of ${p}, Myrtle Beach (Coastal Grand Mall) is about ${mall(p)} minutes away by car. The nearest beach, ${beachWhere}, is about ${beach(p)} minutes away.`;
 
 module.exports = {
@@ -188,7 +191,7 @@ module.exports = {
     { icon: "beach", label: "To the beach", text: "15 to 45 min" },
     { icon: "key", label: "Down payment help", text: "$10,000" },
   ]),
-  heroCta: { label: OFFER, href: CONTACT, text: "Tell us your price range. We send you the homes for sale in each place. The form asks for your name, email and phone." },
+  heroCta: { title: "See what your budget buys in each place.", label: OFFER, href: CONTACT, text: "Tell us your price range. One of our agents will send you the homes for sale in each place, and the down-payment programs that fit. The form asks for your name, email and phone." },
   author: "devin",
   shortAnswer: [
     `The most affordable places to buy a home near Myrtle Beach are Georgetown, Loris, Longs, Conway and Aynor. A typical home in Georgetown is worth about ${val("Georgetown")}, and in Loris about ${val("Loris")}. In Myrtle Beach, a typical home is worth about ${val("Myrtle Beach")}.`,
@@ -200,53 +203,62 @@ module.exports = {
       h.p(`Homes cost the least in Georgetown and Loris. Longs, Conway and Aynor come next, at about ${val("Longs")} to ${val("Aynor")}.`) +
       h.p("These figures are what a typical home in each place is worth. A home can sell for more or less.") +
       barChart("What a typical home is worth, lowest first", `Chart of typical home values, from ${h.ext(ZILLOW, "Zillow's home value data")}. Myrtle Beach is the dark bar.`) +
-      h.p("Little River, Socastee and Carolina Forest are areas outside any town. Socastee is just west of Myrtle Beach, and Carolina Forest just north of it. Little River is north of North Myrtle Beach, near the North Carolina line.") +
-      h.p("Little River and the Socastee area cost about the same as Myrtle Beach. The beach towns to the north and south cost more. This page covers Horry County and the Georgetown County coast.") +
+      h.p("Little River, Socastee and Carolina Forest are areas outside any town. Socastee is just west of Myrtle Beach, and Carolina Forest just north of it. Little River is north of North Myrtle Beach, near the North Carolina line. Little River and the Socastee area cost about the same as Myrtle Beach.") +
       MAP.html +
-      h.p("In the table, drive times are from the center of each town with no traffic. In our experience, rush hour adds 5 to 10 minutes. An HOA is the homeowners association, the group that runs a neighborhood and collects a monthly fee.") +
+      h.p("The five places and Myrtle Beach follow, in the map's order. Drive times are from the center of each town with no traffic. In our experience, rush hour adds 5 to 10 minutes.") },
+
+    { h2: "1. Georgetown: a harbor town with the lowest prices", toc: "1. Georgetown", id: "georgetown", html: () =>
+      h.p("Georgetown is a city almost 300 years old, on the water in Georgetown County. It is the southernmost place on this page. Its downtown is a walkable waterfront street of shops and restaurants in 18th- and 19th-century buildings.") +
+      GEORGETOWN_PHOTO +
+      h.p("A Walmart Supercenter, a Food Lion and a Piggly Wiggly are in town, and the library is downtown. East Bay Park has sports fields, and Morgan Park is on the water. Tidelands Georgetown Memorial Hospital is a short drive from downtown.") +
+      h.p(`Many homes in Georgetown are older. About one in five homes in the city is in a high-risk flood zone, where a lender requires flood insurance. ${drives("Georgetown", "on Pawleys Island")}`) +
+      line("Georgetown") +
+      tradeoff("the highest property tax on this page, and about 50 minutes to Myrtle Beach.") },
+
+    { h2: "2. Loris: a small town with its own hospital", toc: "2. Loris", id: "loris", html: () =>
+      h.p("Loris is a small town in the north of Horry County, near the North Carolina line. Its downtown is a few blocks of brick shops on Main Street, with the town library among them.") +
+      LORIS_PHOTO +
+      h.p("McLeod Loris Hospital is a short drive from the center of town. A Food Lion, an IGA and Hill's Food Store sell groceries, and Loris Nature Park is at the east edge of town.") +
+      h.p(`Homes in Loris are houses, not condos, and many were built before 1980. About six in ten homes for sale have no HOA fee, the monthly fee to a homeowners association. Almost no buildings are in a high-risk flood zone. ${drives("Loris", "in North Myrtle Beach")}`) +
+      line("Loris") +
+      tradeoff("about 50 minutes to Myrtle Beach, higher tax inside the town, and few homes for sale.") },
+
+    { h2: "3. Longs: new homes close to North Myrtle Beach", toc: "3. Longs", id: "longs", html: () =>
+      h.p(`Longs is an area inland from North Myrtle Beach, outside any town. Builders are selling new homes here, on new streets of houses. From the center of Longs, the beach in North Myrtle Beach is about ${beach("Longs")} minutes away, the shortest drive of the five.`) +
+      LONGS_PHOTO +
+      h.p("A Food Lion is a few blocks from the center of Longs. McLeod Seacoast, a hospital in Little River, is a short drive away. Almost no buildings near the center of Longs are in a high-risk flood zone.") +
+      h.p(`Longs is not a town, so homes there pay no town tax. Almost every home for sale has an HOA fee, typically about $80 a month. Myrtle Beach (Coastal Grand Mall) is about ${mall("Longs")} minutes away by car.`) +
+      line("Longs") +
+      tradeoff("almost every home has an HOA fee, and Myrtle Beach is about 40 minutes away.") },
+
+    { h2: "4. Conway: a river town 25 minutes from Myrtle Beach", toc: "4. Conway", id: "conway", html: () =>
+      h.p("Conway is a city on the Waccamaw River, inland from Myrtle Beach. Much of its downtown was built in the early 1900s, under old live oak trees. A riverwalk runs along the river at the edge of downtown.") +
+      CONWAY_PHOTO +
+      h.p("A Food Lion, an IGA, the city library and the Conway Recreation Complex are in town. Conway Medical Center is a short drive from downtown.") +
+      h.p(`Homes in Conway are newer than in Loris or Georgetown: half were built after about 2000. Builders are selling new homes here. Most homes for sale have an HOA fee, typically about $85 a month. ${drives("Conway", "in Myrtle Beach")}`) +
+      h.p(`Some homes with a Conway address are outside the city and pay the lower county tax. Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself.`) +
+      line("Conway", " With the typical HOA fee, the tax and the fee together come to about $2,900 a year, besides the mortgage.") +
+      tradeoff("higher tax inside the city limits.") },
+
+    { h2: "5. Aynor: a small town with houses on wide lots", toc: "5. Aynor", id: "aynor", html: () =>
+      h.p("Aynor is a small town in the west of Horry County. Its center has the town hall, a town park, an athletic complex, the library and a grocery store, KJ's Market. Around the center are houses on wide lots.") +
+      AYNOR_PHOTO +
+      h.p(`About two in three homes for sale in Aynor have no HOA fee. None of the buildings in Aynor is in a high-risk flood zone. Conway Medical Center is about half an hour away. ${drives("Aynor", "in Myrtle Beach")}`) +
+      h.p("Few homes in Aynor sell each year, so there are few to choose from, and the typical value is less certain.") +
+      line("Aynor") +
+      tradeoff("the longest drive to the beach of the five, and few homes for sale.") },
+
+    { h2: "6. Myrtle Beach: the point of comparison", toc: "6. Myrtle Beach", id: "myrtle-beach", html: () =>
+      h.p(`Myrtle Beach is the city on the beach, in the middle of the area on this page. From downtown, a public beach access is about a minute away, and Coastal Grand Mall about ${mall("Myrtle Beach")} minutes.`) +
+      MB_PHOTO +
+      h.p("Most homes that sell in Myrtle Beach are condos. A house there usually sells for about $420,000. To spend less, look at condos: a condo usually sells for about $165,000. Almost every condo has an HOA fee, typically about $650 a month.") +
+      line("Myrtle Beach") +
+      tradeoff("a typical home costs more than in the five places above.") },
+
+    { h2: "How do the places compare?", toc: "Compare", id: "table", html: () =>
+      h.p("The five places and Myrtle Beach, side by side.") +
       TABLE +
       h.p(`To choose a neighborhood by what you want nearby, read our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}. Our other guides cover ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}, ${h.a("/buyers/gated-communities/", "gated communities")} and ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")}.`) },
-
-    { h2: "What does about $250,000 buy near Myrtle Beach?", toc: "What $250,000 buys", id: "what-it-buys", html: () =>
-      h.p("In Loris, Aynor and Conway, a typical home is a house, not a condo. Nearly every home that sold in these towns in the past year was a house.") +
-      h.p("In Myrtle Beach, most homes that sell are condos. A house there usually sells for about $420,000.") +
-      h.p("Houses in Loris and Georgetown are older: many were built before 1980. In Conway, half the homes were built after about 2000.") +
-      h.p("To spend less, look at condos. In Myrtle Beach, a condo usually sells for about $165,000. Almost every condo here has a monthly HOA fee. The typical condo fee is about $650 a month.") },
-
-    { h2: "What is it like to buy in Georgetown?", toc: "Georgetown", id: "georgetown", html: () =>
-      h.p(`${valueLine("Georgetown")} Georgetown is a city in Georgetown County, at the south end of the area on this page.`) +
-      h.p(drives("Georgetown", "on Pawleys Island") + " Tidelands Georgetown Memorial Hospital is a short drive from downtown.") +
-      GEORGETOWN_PHOTO +
-      h.p(`Georgetown has the lowest typical value on this page and the highest property tax. A typical home you live in pays about ${tax("Georgetown")} a year.`) +
-      h.p("Many homes in Georgetown are older. About one in five homes in the city is in a high-risk flood zone, where a lender requires flood insurance.") },
-
-    { h2: "What is it like to buy in Loris?", toc: "Loris", id: "loris", html: () =>
-      h.p(`${valueLine("Loris")} Loris is a small town in the north of Horry County, near the North Carolina line.`) +
-      LORIS_PHOTO +
-      h.p(drives("Loris", "in North Myrtle Beach") + " McLeod Loris Hospital is a short drive from the center of town.") +
-      h.p(`A typical home you live in inside the town pays about ${tax("Loris")} a year in property tax. Most homes for sale in Loris have no HOA fee: about six in ten.`) +
-      h.p("Few homes in Loris come up for sale, and many were built before 1980. Almost no buildings in Loris are in a high-risk flood zone.") },
-
-    { h2: "What is it like to buy in Longs?", toc: "Longs", id: "longs", html: () =>
-      h.p(`${valueLine("Longs")} Longs is an area inland from North Myrtle Beach, outside any town.`) +
-      h.p(drives("Longs", "in North Myrtle Beach") + "") +
-      h.p(`Longs is not a town, so homes there pay no town tax. A typical home you live in pays about ${tax("Longs")} a year, the lowest on this page. Almost every home for sale in Longs has an HOA fee, typically about $80 a month.`) +
-      h.p("You can find new homes in Longs: builders are selling homes there.") +
-      LONGS_PHOTO +
-      h.p("Almost no buildings near the center of Longs are in a high-risk flood zone.") },
-
-    { h2: "What is it like to buy in Conway?", toc: "Conway", id: "conway", html: () =>
-      h.p(`${valueLine("Conway")} Conway is a city on the Waccamaw River, inland from Myrtle Beach.`) +
-      h.p(drives("Conway", "in Myrtle Beach") + "") +
-      CONWAY_PHOTO +
-      h.p(`A typical home you live in inside the city pays about ${tax("Conway")} a year in property tax. Most homes for sale in Conway have an HOA fee, typically about $85 a month. The tax and the fee together come to about $2,900 a year, besides the mortgage.`) +
-      h.p(`Homes in Conway are newer than in Loris or Georgetown, and builders are selling new homes there. Some homes with a Conway address are outside the city and pay the lower county tax. Our ${h.a("/submarkets/conway/", "guide to Conway")} covers the town itself.`) },
-
-    { h2: "What is it like to buy in Aynor?", toc: "Aynor", id: "aynor", html: () =>
-      h.p(`${valueLine("Aynor")} Aynor is a small town in the west of Horry County.`) +
-      h.p(drives("Aynor", "in Myrtle Beach") + "") +
-      h.p(`A typical home you live in inside the town pays about ${tax("Aynor")} a year in property tax. Most homes for sale in Aynor have no HOA fee: about two in three.`) +
-      h.p("Few homes in Aynor sell each year, so there are few to choose from, and the typical value is less certain. None of the buildings in Aynor is in a high-risk flood zone.") },
 
     { h2: "What do you give up when you buy farther from Myrtle Beach?", toc: "Pros and cons", id: "pros-and-cons", html: (bg) =>
       h.p("Homes inland cost less, and in most inland places few buildings are in a flood zone. The drives to Myrtle Beach and the beach are longer.") +
@@ -261,7 +273,7 @@ module.exports = {
       ], { bg }) },
 
     { h2: "How much property tax will you pay in each place?", toc: "Property tax", id: "property-tax", html: () =>
-      h.p("Property tax on a typical home you live in is lowest in Longs and highest in Georgetown, as the table shows.") +
+      h.p("Property tax on a typical home you live in is lowest in Longs and highest in Georgetown.") +
       h.p(`Homes outside town and city limits pay the lowest rate, at ${h.ext(LEVY, "the county's tax rates")}. Inside a town, you pay the town's tax too, so a home just outside town can pay less each year.`) +
       h.p("When you buy, the county values the home at about what it is worth that year. The new value shows up on the next year's tax bill.") +
       h.p(`These figures are for your main home, once the county gives it the lower rate for a home you live in. You apply for that rate; it is not automatic. Our ${h.a("/buyers/property-taxes/", "property tax guide")} shows how to apply.`) },

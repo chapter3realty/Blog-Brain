@@ -248,3 +248,12 @@ git apply <blog-brain>/website-patches/mkpage-offer-box.patch
 ```
 
 The owner, 2026-10-14: "make the first CTA more of a CTA". When a spec's `heroCta` has a `title`, the offer under the short answer is a box with the same look as `h.cta`: a headline that says what the reader gets, one sentence (`heroCta.text`) and the large button. A spec without a `title` keeps the button on its own, so no other page changes. Tested with `git apply --check` on a clean clone of the live branch.
+
+## `build-place-entries.patch`: a numbered list of places is not counted as section questions
+
+```
+cd <website-repo>
+git apply <blog-brain>/website-patches/build-place-entries.patch
+```
+
+The owner, 2026-10-14, on a list of places: "it counts 1. 2. 3. 4. 5. all the way to 15", each place with its own headline. A headline such as "1. Georgetown: a harbor town with the lowest prices" is an entry of one list, not a section question. `build.js audit` (PLAYBOOK A22, 60 percent of section headings are questions) now leaves out a run of 3 or more headlines numbered in order (`1. Place: words`, `2. Place: words`, ...). Every other heading still counts, and the first section heading must still be a question. Blog-Brain's `score.js` rule A4 does the same, with controls in `score.test.js`. On the live branch no page has such a run, so no other page's result changes. Tested with `git apply --check` on a clean clone of the live branch.

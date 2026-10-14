@@ -462,10 +462,23 @@ rule("verdict", "AEO", 3, "A yes/no question is answered yes/no in the first wor
   return fail(`asks "${q.replace(/\s*\|.*$/, "")}" but the short answer opens "${first.slice(0, 70)}"`);
 });
 
-rule("question-h2", "AEO", 2, "60%+ of section headings are questions", (p, f) => {
-  if (!f.contentH2.length) return na("no content sections");
-  const q = f.contentH2.filter(h => /\?$/.test(h.text)).length, r = q / f.contentH2.length;
-  return part(r >= .6 ? 1 : r / .6, `${q} of ${f.contentH2.length}`);
+/* A list of places is read one place at a time (owner, 2026-10-14; CRAFT 3): each place gets a
+   numbered headline, "1. Georgetown: a harbor town with the lowest prices". Those headlines are
+   entries of one list, not section questions, so a run of 3 or more numbered in order (1, 2, 3 ...)
+   is left out of the count. Every other heading must still be a question. */
+const ENTRY_H2 = /^(\d{1,2})\.\s+[^:]{2,60}:\s+\S/;
+function placeEntries(h2s) {
+  const nums = h2s.map(h => { const m = h.text.match(ENTRY_H2); return m ? +m[1] : 0; });
+  const run = [];
+  for (let i = 0; i < nums.length; i++) if (nums[i] && nums[i] === run.length + 1) run.push(i);
+  return run.length >= 3 ? new Set(run) : new Set();
+}
+rule("question-h2", "AEO", 2, "60%+ of section headings are questions (a numbered list of places excepted)", (p, f) => {
+  const entries = placeEntries(f.contentH2);
+  const heads = f.contentH2.filter((_, i) => !entries.has(i));
+  if (!heads.length) return na(entries.size ? `${entries.size} numbered place entries, no other sections` : "no content sections");
+  const q = heads.filter(h => /\?$/.test(h.text)).length, r = q / heads.length;
+  return part(r >= .6 ? 1 : r / .6, `${q} of ${heads.length}` + (entries.size ? ` (${entries.size} numbered place entries left out)` : ""));
 }, { applies: isArticle });
 
 rule("section-leads", "AEO", 3, "Each section opens with a quotable sentence (30 words or fewer, no 'this/it/they' opener)", (p, f) => {
