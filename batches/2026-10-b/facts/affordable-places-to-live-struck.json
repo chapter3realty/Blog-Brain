@@ -756,5 +756,41 @@
     "pattern": "^To qualify:?$",
     "struck": "You do not have to be a first-time buyer. To qualify:",
     "use": "You do not have to be a first-time buyer. The program has these limits:"
+  },
+  {
+    "row": "affordable 226",
+    "pattern": "\\bHOA fee includes the internet and the pool\\b",
+    "struck": "There are about 200 townhomes here, and the HOA fee includes the internet and the pool.",
+    "use": "There are about 200 townhomes here, and the HOA fee includes water, sewer, grounds care and the pool."
+  },
+  {
+    "row": "affordable 226",
+    "pattern": "\\brent (?:its |the )?clubhouse for a party\\b|\\bclubhouse (?:owners )?can rent for a party\\b",
+    "struck": "Owners at Sawgrass East can rent its clubhouse for a party, and they share a pool.",
+    "use": "Owners at Sawgrass East share a pool, and the clubhouse can be rented to members [listing remarks, two listings; no HOA source]."
+  },
+  {
+    "row": "affordable 226",
+    "pattern": "\\bone of the highest on this list because it covers more\\b",
+    "struck": "Its HOA fee is one of the highest on this list because it covers more.",
+    "use": "Its HOA fee is one of the highest on this list; it usually includes the insurance on the buildings, the water, sewer and trash, and the lawn care."
+  },
+  {
+    "row": "affordable 226",
+    "pattern": "\\bstreet names still say so\\b",
+    "struck": "Myrtle Beach Golf and Yacht Club was built for golf and boating. Its street names still say so: Augusta Crescent and Pebble Beach Crescent, Snowy Egret Trail and Wood Duck Cove.",
+    "use": "Some of its street names are golf courses, Augusta Crescent and Pebble Beach Crescent, and others are birds, Snowy Egret Trail and Wood Duck Cove. (No street name in the older part refers to boating.)"
+  },
+  {
+    "row": "affordable 226",
+    "pattern": "\\bno pool or clubhouse, which keeps the fee small\\b",
+    "struck": "There is no pool or clubhouse, which keeps the fee small; the common land is two ponds, some woods and the strips along the highway.",
+    "use": "There is no pool or clubhouse; the common land is two ponds, some woods and the strips along the highway."
+  },
+  {
+    "row": "affordable 226",
+    "pattern": "\\bin Lennar's section\\b",
+    "struck": "Most of the houses are Lennar's, in Lennar's section, The Overlook.",
+    "use": "Most of the houses are Lennar's, which sells them as The Overlook."
   }
 ]
