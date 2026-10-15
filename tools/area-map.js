@@ -1214,18 +1214,29 @@ function areasOf(spec) {
     const name = text(a, "name", 32), note = text(a, "note", 32);
     if (seen.has(name)) throw new Error(`area-map: area ${name} is on the map twice`);
     seen.add(name);
+    /* Optional a.mark (opt-in, batch 2026-10-b round 14): the number or letter the area's badge shows,
+       in place of its place in spec.areas, so a map split into panels (an overview and a close-up)
+       keeps the page's entry numbers on every panel. 1 to 3 capital letters or digits. */
+    if (a.mark !== undefined && !(typeof a.mark === "string" && /^[A-Z0-9]{1,3}$/.test(a.mark))) throw new Error(`area-map: area ${name}: mark is 1 to 3 capital letters or digits`);
+    const mark = a.mark;
+    /* Optional a.markAt { lat, lon } (opt-in, with areaLabels "numbers"): where the badge goes when the
+       middle of the area would put it on another area's badge (a town circle inside a country outline).
+       The point must be inside the area. */
+    const markAt = a.markAt === undefined ? null : ll(a, a.markAt && a.markAt.lat, a.markAt && a.markAt.lon);
     if (Array.isArray(a.polygon)) {
       if (a.radius !== undefined) throw new Error(`area-map: area ${name}: give a radius or a polygon, not both`);
       if (a.polygon.length < 3 || a.polygon.length > 400) throw new Error(`area-map: area ${name}: a polygon has 3 to 400 points`);
       const pts = a.polygon.map((q) => (Array.isArray(q) ? ll(a, q[1], q[0]) : ll(a, q && q.lat, q && q.lon)));
       const c = { lat: pts.reduce((t, q) => t + q.lat, 0) / pts.length, lon: pts.reduce((t, q) => t + q.lon, 0) / pts.length };
-      return { name, note, shape: "polygon", pts, lat: c.lat, lon: c.lon };
+      if (markAt && !inPoly([markAt.lon, markAt.lat], pts.map((q) => [q.lon, q.lat]))) throw new Error(`area-map: area ${name}: markAt is outside the area`);
+      return Object.assign({ name, note, shape: "polygon", pts, lat: c.lat, lon: c.lon }, mark ? { mark } : {}, markAt ? { markAt } : {});
     }
     const c = ll(a, a.lat, a.lon), r = +a.radius;
     if (!(r >= 150 && r <= 15000)) throw new Error(`area-map: area ${name}: radius is in meters, 150 to 15,000`);
     const dLat = r / 110570, dLon = r / (111320 * Math.cos(c.lat * Math.PI / 180));
     const pts = [[0, 1], [1, 0], [0, -1], [-1, 0]].map(([x, y]) => ({ lat: c.lat + y * dLat, lon: c.lon + x * dLon }));
-    return { name, note, shape: "circle", radius: r, pts, lat: c.lat, lon: c.lon };
+    if (markAt && km(markAt, c) * 1000 > r) throw new Error(`area-map: area ${name}: markAt is outside the area`);
+    return Object.assign({ name, note, shape: "circle", radius: r, pts, lat: c.lat, lon: c.lon }, mark ? { mark } : {}, markAt ? { markAt } : {});
   });
 }
 
@@ -1567,8 +1578,9 @@ function regionMap(spec, opts = {}) {
     }
     if (best) { L.add(best.b, "label", owner); areaLabels.push({ ap, i, x: best.x, y: best.y, w, h, lines }); return; }
     /* No room: the area's own number (its place in spec.areas), or a letter beside numbered places. */
-    L.add(rect2(ap.cx, ap.cy, 24, 24), "marker", owner);
-    areaBadges.push({ ap, i, mark: lms.length ? String.fromCharCode(65 + i) : String(i + 1) });
+    const [bx, by] = ap.a.markAt ? P(ap.a.markAt.lon, ap.a.markAt.lat) : [ap.cx, ap.cy];
+    L.add(rect2(bx, by, 24, 24), "marker", owner);
+    areaBadges.push({ ap, i, bx, by, mark: ap.a.mark || (lms.length ? String.fromCharCode(65 + i) : String(i + 1)) });
   });
 
   /* Landmarks, in the caller's order of importance. */
@@ -1855,7 +1867,7 @@ function regionMap(spec, opts = {}) {
       + txt("al", dx, top + AN * 0.86, "middle", esc(al.lines[0]))
       + (al.lines[1] ? txt("an", dx, top + AN + 2 + AT * 0.92, "middle", esc(al.lines[1])) : "")));
   }
-  for (const ab of areaBadges) mk.push(g(ab.ap.cx, ab.ap.cy, `<circle r="11" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/><text class="ab" y="${r1(SZ.num * 0.36)}" text-anchor="middle">${ab.mark}</text>`));
+  for (const ab of areaBadges) mk.push(g(ab.bx, ab.by, `<circle r="11" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/><text class="ab" y="${r1(SZ.num * 0.36)}" text-anchor="middle">${ab.mark}</text>`));
   for (const b of bare) mk.push(markerSvg(b, R, sym, g, txt));
   if (!many) {
     const y = hc.y + HLH - 4;

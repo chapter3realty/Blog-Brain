@@ -49,7 +49,8 @@ for (const f of PHOTO_FILES) for (const r of JSON.parse(fs.readFileSync(f, "utf8
 }
 const MAP_DIR = path.join(__dirname, "..", "chapter3realty", "images", "maps");
 const kit = PK.create({ h, theme: "glass", photos: PHOTOS, mapDir: MAP_DIR, mapSrc: "/images/maps" });
-const { story, placesMap } = kit;
+const { story } = kit;
+const { regionMap } = require(path.join(BB, "tools", "area-map.js"));
 const ph = kit.photoSet({ aerialWidth: "760px" });
 /* One picture per area where we have a lawful one of the place itself (photos.json records; the photo
    partner's ground photos will replace them). Made at load time: mkpage reads pageImages first. */
@@ -133,14 +134,40 @@ for (const k of ORDER) for (const s of A[k].mapShapes) {
   if (s.polygon) a.polygon = s.polygon; else Object.assign(a, { lat: s.lat, lon: s.lon, radius: s.radius });
   MAP_AREAS.push(a);
 }
-/* The guide below names every area with its number, so it is the map's key; the kit's own key would list
-   the 16 names a second time before the first area (CRAFT 3, "No preamble"). */
+/* The map: one figure in three panels, so every area is drawn and no number touches another on a phone
+   (coordinator, round 14: "circle them"; "no number may touch another"). The first panel shows the inland
+   areas and two boxes; A and B are close-ups of the coast. Each area keeps its entry number on every
+   panel (area-map.js a.mark), and the guide below lists the names by number. */
+const areaOf = (k) => { const a = A[k], s = a.mapShapes[0], o = { name: s.name, mark: String(num(k)) };
+  if (s.polygon) o.polygon = s.polygon; else Object.assign(o, { lat: s.lat, lon: s.lon, radius: s.radius });
+  /* The country around Loris holds the Loris circle; its number goes in its west part, off the town's. */
+  if (k === "loris-country") o.markAt = { lat: 34.03, lon: -78.98 };
+  return o; };
+const PANEL = {
+  south: ["mb-downtown", "mb-myrtle-heights", "mb-pine-lakes", "mb-plantation-point", "surfside", "garden-city"],
+  north: ["windy-hill", "crescent-beach", "ocean-drive", "cherry-grove", "little-river"],
+  inland: ["socastee", "conway", "loris", "loris-country", "aynor"],
+};
+if (Object.values(PANEL).flat().sort().join() !== ORDER.slice().sort().join()) throw new Error("every area is on exactly one map panel");
 const MAP = (() => {
-  const m = placesMap("Homes with no HOA around Myrtle Beach", [], { areas: MAP_AREAS, areaLabels: "numbers",
-    caption: "Map of the 16 areas where most homes have no HOA fee, numbered as in the guide below." });
-  const key = m.map.areaKey || "";
-  if (m.map.areasUnlabelled.length !== ORDER.length || ORDER.some((k, i) => !m.map.areas[i] || m.map.areas[i].mark !== String(i + 1))) throw new Error("the map's numbers no longer match the entries");
-  return key ? m.html.replace(key, "") : m.html;
+  const draw = (name, areas) => {
+    const m = regionMap({ name, areas, areaLabels: "numbers" }, { dir: MAP_DIR, src: "/images/maps", glass: true });
+    const mk = m.boxes.filter((b) => b.kind === "marker");
+    for (let i = 0; i < mk.length; i++) for (let j = i + 1; j < mk.length; j++) { const a = mk[i], b = mk[j];
+      if (!(a.x1 + 1 < b.x0 || b.x1 + 1 < a.x0 || a.y1 + 1 < b.y0 || b.y1 + 1 < a.y0)) throw new Error(`${name}: two area numbers touch`); }
+    return m;
+  };
+  const south = draw("Homes with no HOA, coast close-up A", PANEL.south.map(areaOf));
+  const north = draw("Homes with no HOA, coast close-up B", PANEL.north.map(areaOf));
+  const box = (name, mark, f) => ({ name, mark, polygon: [[f.west, f.south], [f.east, f.south], [f.east, f.north], [f.west, f.north]] });
+  const inland = draw("Homes with no HOA around Myrtle Beach", PANEL.inland.map(areaOf).concat([box("Close-up A", "A", south.frame), box("Close-up B", "B", north.frame)]));
+  const panel = (m, label) => `<div class="c3-nh-panel"><p class="c3-nh-label">${label}</p>${m.html}</div>`;
+  const css = "<style>.c3-nh-maps{display:grid;gap:.9rem}.c3-nh-panel img,.c3-nh-panel svg{display:block;width:100%;height:auto}"
+    + ".c3-nh-label{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);margin:0 0 .35rem!important}"
+    + "@media (min-width:900px){.c3-nh-maps{grid-template-columns:repeat(3,1fr);align-items:start}}"
+    + ".c3-areamap figure{max-width:1136px!important}</style>";
+  return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-maps">${panel(inland, "The whole area")}${panel(south, "A. Myrtle Beach to Garden City")}${panel(north, "B. North Myrtle Beach and Little River")}</div>`,
+    "Map of the 16 areas where most homes have no HOA fee, numbered as in the guide below. Boxes A and B are the two close-ups of the coast.", inland.credit, "no-hoa map") + `</div>`;
 })();
 
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
@@ -224,6 +251,8 @@ const LABEL = "Get the list";
 
 module.exports = GL.page({
   theme: "glass",
+  /* No "On this page" list: the guide under the map does that job (coordinator, round 14). */
+  toc: false,
   url: SELF,
   hub: { name: "Buyers", url: "/buyers/" },
   /* The Aynor lot aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
@@ -314,7 +343,7 @@ module.exports = GL.page({
       "Over half the homes for sale in Cherry Grove carry no HOA dues, and so does every one outside a named subdivision.",
       `Canals were dug through the Cherry Grove marsh as early as the 1950s. The city ${h.ext(CANALS, "dredges them")}, so owners on the canals can take a boat to House Creek and the Intracoastal Waterway at high and low tide.`,
       `Without a canal lot, use the city's ${h.ext(NMB_RAMP, "boat ramp at 53rd Avenue North")}, 5 minutes away. It has a two-lane boat launch, a kayak launch, a fishing pier, a floating boat dock and a fish cleaning station. City residents can register to park there free.`,
-      "Heritage Shores Nature Preserve, an island in the Cherry Grove marsh, is reached on elevated boardwalks. An angler on the Cherry Grove Pier landed the largest tiger shark ever taken from land in the U.S.",
+      "Heritage Shores Nature Preserve, an island in the Cherry Grove marsh, is reached on elevated boardwalks.",
       "Almost every home here is in a high-risk flood zone. Owners on the canals also pay the city about $1,700 a year for the dredging.",
       `A house here costs about ${priceOf("cherry-grove")} at its asking price.`,
     ]),
