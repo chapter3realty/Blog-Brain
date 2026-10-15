@@ -344,7 +344,7 @@
     "row": "affordable 189",
     "pattern": "\\bMost houses in the older part are about 1,350|\\blots of about 6,500 square feet",
     "struck": "Most houses in the older part are about 1,350 square feet, on lots of about 6,500 square feet.",
-    "use": "Houses in the older part are typically about 1,350 square feet, on lots of about 5,650 square feet."
+    "use": "Houses in the older part are typically about 1,200 square feet, on lots of about 5,650 square feet."
   },
   {
     "row": "affordable 189",
@@ -374,7 +374,7 @@
     "row": "affordable 189, 194",
     "pattern": "\\bIn the older part, most houses have about 1,350",
     "struck": "In the older part, most houses have about 1,350 square feet, on about an eighth of an acre.",
-    "use": "In the older part, houses typically have about 1,350 square feet, on about an eighth of an acre."
+    "use": "In the older part, houses typically have about 1,200 square feet, on about an eighth of an acre."
   },
   {
     "row": "affordable 133, 194",
@@ -792,5 +792,59 @@
     "pattern": "\\bin Lennar's section\\b",
     "struck": "Most of the houses are Lennar's, in Lennar's section, The Overlook.",
     "use": "Most of the houses are Lennar's, which sells them as The Overlook."
+  },
+  {
+    "row": "affordable 228",
+    "pattern": "\\bTheir streets are named for golf courses and birds\\b",
+    "struck": "Their streets are named for golf courses and birds, such as Augusta Crescent and Snowy Egret Trail.",
+    "use": "Some of its streets are named for golf courses, such as Augusta Crescent, and some for birds, such as Snowy Egret Trail."
+  },
+  {
+    "row": "affordable 228",
+    "pattern": "\\bhouses on streets named for golf courses\\b",
+    "struck": "Myrtle Beach Golf and Yacht Club: one-story houses on streets named for golf courses",
+    "use": "Myrtle Beach Golf and Yacht Club: one-story houses with a pool and tennis courts"
+  },
+  {
+    "row": "affordable 228",
+    "pattern": "\\bone-story, golf streets\\b",
+    "struck": "5. Golf and Yacht Club · one-story, golf streets",
+    "use": "5. Golf and Yacht Club · one-story, pool and tennis"
+  },
+  {
+    "row": "affordable 228",
+    "pattern": "\\btypically (?:have )?about 1,350 square feet\\b",
+    "struck": "They typically have about 1,350 square feet, on about an eighth of an acre, and many have a porch or a patio.",
+    "use": "They typically have about 1,200 square feet, on about an eighth of an acre, and many have a porch or a patio."
+  },
+  {
+    "row": "affordable 228",
+    "pattern": "\\bIndigo Creek Golf Club[^.]{0,40}\\bis about as close\\b",
+    "struck": "Indigo Creek Golf Club, for a round of golf, is about as close.",
+    "use": "Indigo Creek Golf Club, for a round of golf, is also within about 15 minutes by car."
+  },
+  {
+    "row": "affordable 228",
+    "pattern": "\\bThe ones on the market lately have had vaulted ceilings\\b",
+    "struck": "The ones on the market lately have had vaulted ceilings, a covered front porch and a screened back porch.",
+    "use": "Many have vaulted ceilings and a front porch, and some have a screened porch."
+  },
+  {
+    "row": "affordable 228",
+    "pattern": "\\bThe ones on the market lately have had a one-car garage\\b",
+    "struck": "The ones on the market lately have had a one-car garage, the main bedroom downstairs and a back porch.",
+    "use": "Many of the three-bedroom ones have a one-car garage and the main bedroom downstairs."
+  },
+  {
+    "row": "affordable 228",
+    "pattern": "\\ba little over two miles from US 501\\b",
+    "struck": "The neighborhood is off Carolina Forest Boulevard, a little over two miles from US 501.",
+    "use": "The neighborhood is off Carolina Forest Boulevard, about two and a half miles by road from US 501."
+  },
+  {
+    "row": "affordable 228",
+    "pattern": "\\bAbout half Myrtle Beach prices\\b",
+    "struck": "About half Myrtle Beach prices",
+    "use": "About half the price of a Myrtle Beach home"
   }
 ]
