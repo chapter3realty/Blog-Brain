@@ -924,5 +924,108 @@
     "pattern": "\\bin Warbird Park nearby",
     "struck": "Three Air Force jets stand in Warbird Park nearby, on loan to the city, among them an A-10 Warthog.",
     "use": "Three Air Force jets stand in Warbird Park, on loan to the city, among them an A-10 Warthog. The park is about a 3-minute drive from the middle of The Market Common."
+  },
+  {
+    "row": "neighborhoods 276, 14, 136; gated 41, 44, 45, 277",
+    "pattern": "\\bonly Grande Dunes and Plantation Lakes have homes that resell for more",
+    "unless": "\\b(?:priced|sections)\\b",
+    "struck": "Living by the pier costs more. Of the 15 neighborhoods here, only Grande Dunes and Plantation Lakes have homes that resell for more.",
+    "use": "Among the sections priced here, Grande Dunes (about $1.6 million) and Plantation Lakes (about $739,000) are the two where houses resell for more than on the ocean side of Surfside Beach (about $705,000) [deed index]. (Bellwood Landing in Prince Creek and Dye Estates and Leatherleaf in Barefoot resell for more and are not in the priced sections, so do not say 'only' of the 15.)"
+  },
+  {
+    "row": "neighborhoods 14, 15, 277",
+    "pattern": "\\bThe seven homes that resold went for",
+    "struck": "The seven homes that resold went for $1.2 million to $2.9 million.",
+    "use": "Seven homes resold in the sections the county files under Grande Dunes, for $1.2 million to $2.9 million. (Most of Grande Dunes is filed under other names; those sections resold about 44 homes for a middle of about $1.5 million [row 14 note, own calculation]. Say which sections, or give the gated page's figure for Calais, Palermo and Villa Venezia.)"
+  },
+  {
+    "row": "neighborhoods 14, 15, 277",
+    "pattern": "^New about \\$680,000; resales \\$1\\.2 to \\$2\\.9 million$",
+    "struck": "New about $680,000; resales $1.2 to $2.9 million",
+    "use": "(say which sections: rows 14 and 15 cover only the sections the county files under Grande Dunes, Villa Venezia, The Village and Bal Harbor, not most of Grande Dunes)"
+  },
+  {
+    "row": "neighborhoods 272, 277",
+    "pattern": "\\bhave about 1,600 square feet",
+    "struck": "The ones listed now were built from 2000 to 2006 and have about 1,600 square feet, on lots of about a sixth of an acre.",
+    "use": "The ones listed now were built from 2000 to 2006 and have about 1,700 square feet, on lots of about a sixth of an acre. (The 13 listings run from 1,050 to 2,200; the middle is 1,720.)"
+  },
+  {
+    "row": "neighborhoods 3, 4, 1, 277",
+    "pattern": "\\bFew houses come up for sale",
+    "struck": "Few houses come up for sale in the two sections, so a buyer may need to wait for the right one.",
+    "use": "(cut it: no row says so; 252 homes, 17 resold in the past year and 13 were listed on 2026-10-13)"
+  },
+  {
+    "row": "neighborhoods 147, 145, 277",
+    "pattern": "\\bFive houses resold in Prince Creek's sections",
+    "struck": "Five houses resold in Prince Creek's sections in the past year, at a middle price of about $558,000.",
+    "use": "Five houses resold in the Prince Creek sections we priced in the past year, at a middle price of about $558,000. (Row 147 leaves out the Bays of Prince Creek, Creek Harbour and Bellwood Landing; with them there were 57 resales.)"
+  },
+  {
+    "row": "neighborhoods 147, 145, 277",
+    "pattern": "^Five house resales, middle about \\$558,000$",
+    "struck": "Five house resales, middle about $558,000",
+    "use": "Five house resales in the sections priced, middle about $558,000"
+  },
+  {
+    "row": "neighborhoods 274, 63, 76, 277",
+    "pattern": "\\bAvalon, the one that costs less, is about 18\\b",
+    "struck": "Avalon, the one that costs less, is about 18.",
+    "use": "Avalon, the one that costs less, is about 20. (18.2 minutes; CRAFT 2 rounds a drive over 15 minutes to the nearest 5; Plantation Lakes at 17.3 and Waterbridge at 17.0 say 15 to 20.)"
+  },
+  {
+    "row": "neighborhoods 274, 63, 76, 277",
+    "pattern": "^About 18 minutes$",
+    "struck": "About 18 minutes",
+    "use": "About 20 minutes"
+  },
+  {
+    "row": "neighborhoods 14, 200, 277",
+    "pattern": "\\bthe choice is small\\b",
+    "struck": "If you want a lived-in house with a settled yard, the choice is small: most houses for sale here are new or not yet finished.",
+    "use": "(cut 'the choice is small': about 50 houses resold in the past year, row 14 and its note; say only what the listings show, that most houses for sale on 2026-10-14 are new or not yet finished)"
+  },
+  {
+    "row": "neighborhoods 149, 277",
+    "pattern": "\\beach with its own rules and HOA fee",
+    "struck": "Prince Creek is a set of separate sections, each with its own rules and HOA fee, from about $100 to $390 a month.",
+    "use": "Prince Creek is a set of separate sections, each with its own HOA fee, from about $100 to $390 a month [listings, named sections]."
+  },
+  {
+    "row": "neighborhoods 269, 277",
+    "pattern": "\\bAfterward, Wishbones",
+    "struck": "Afterward, Wishbones Bar and Grill, open to the public, has a full bar and two indoor TrackMan golf simulators.",
+    "use": "Wishbones Bar and Grill, open to the public, has a full bar and two indoor TrackMan golf simulators."
+  },
+  {
+    "row": "neighborhoods 242, 248, 277",
+    "pattern": "\\bso many errands can be done on foot",
+    "struck": "The houses and townhomes are beside a district of shops and offices, so many errands can be done on foot.",
+    "use": "The houses and townhomes are beside a district of shops and offices."
+  },
+  {
+    "row": "neighborhoods 202, 277",
+    "pattern": "\\bon the marsh behind Cherry Grove Inlet",
+    "struck": "Tidewater is on the marsh behind Cherry Grove Inlet, not on the ocean, so a beach day starts in the car.",
+    "use": "Tidewater is between the Intracoastal Waterway and Cherry Grove Inlet, on the marsh, not on the ocean, so a beach day starts in the car."
+  },
+  {
+    "row": "neighborhoods 264, 274, 277",
+    "pattern": "^The Farm: nearer the beach$",
+    "struck": "The Farm: nearer the beach",
+    "use": "(name the comparison in 24 characters or fewer: The Farm is the nearest to the beach of the four Carolina Forest picks, about 12 minutes; Deerfield, in the same group, is about 7)"
+  },
+  {
+    "row": "neighborhoods 156, 277",
+    "pattern": "\\binside the city of Conway, so the ocean",
+    "struck": "Wild Wing is inside the city of Conway, so the ocean is about 20 minutes away by car.",
+    "use": "Wild Wing is inside the city of Conway. The ocean is about 20 minutes away by car."
+  },
+  {
+    "row": "neighborhoods 200, 220, 277",
+    "pattern": "\\bCarolina Forest for newer neighborhoods",
+    "struck": "The city of Myrtle Beach is better for being close to the beach, and Carolina Forest for newer neighborhoods, several of them built around lakes.",
+    "use": "The city of Myrtle Beach is better for being close to the beach, and Carolina Forest for big neighborhood pools and lakes."
   }
 ]

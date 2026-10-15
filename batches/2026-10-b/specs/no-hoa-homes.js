@@ -186,12 +186,13 @@ const shareWords = (k) => { const a = A[k], p = a.noFee / a.total;
   /* "Almost all" needs 90% or more (v6, D11 and D34). The country around Loris says "most": its map
      outline holds more fee houses than its MLS areas (row 129). */
   if (k === "loris-country") return "most homes for sale";
+  if (Math.round(p * 100) === 60) return "6 in 10 homes for sale";
   return p === 1 ? "every home for sale" : p >= 0.9 ? "almost all homes for sale" : p >= 0.85 ? "nearly 9 in 10 homes for sale"
     : p >= 0.6 ? "most homes for sale" : "more than half the homes for sale"; };
 /* One line on price, in the chip under the heading (the owner: "one line about the average price"). One
    measure for all 16 (owner's eye 14d, medium 3): the typical list price of the houses for sale with no fee
    (data/no-hoa-areas.json), as the sources line says. */
-const priceWords = (k) => `Houses for sale here are listed at about ${A[k].medianNoFeeHousePrice >= 1e6 ? millions(A[k].medianNoFeeHousePrice) : priceOf(k)}`;
+const priceWords = (k) => `Houses with no HOA fee here are listed at about ${A[k].medianNoFeeHousePrice >= 1e6 ? millions(A[k].medianNoFeeHousePrice) : priceOf(k)}`;
 const CHIP_CSS = "<style>.c3-nh-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:-.2rem 0 1rem}.c3-nh-chip{display:inline-block;padding:.3rem .8rem;border-radius:999px;font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);box-shadow:0 6px 18px -10px rgba(28,32,40,.35)}</style>";
 const chip = (k) => `<div class="c3-nh-chips"><span class="c3-nh-chip">Listed with no HOA fee: ${shareWords(k)}</span><span class="c3-nh-chip">${priceWords(k)}</span></div>`;
 function entry(k, headline, paras) {
@@ -245,6 +246,7 @@ const AYNOR_TOWN = "https://www.townofaynor.gov/community";
 const AYNOR_APPEAL = "https://www.townofaynor.gov/appeal";
 const GALIVANTS_NR = "https://npgallery.nps.gov/GetAsset/aa6c6bf6-8036-4d76-84bb-d1eb0e3431fd";
 const MB_STATE_PARK = "https://southcarolinaparks.com/myrtle-beach";
+const HC_PARCELS = "https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24";
 const USGS_LPD = "https://waterdata.usgs.gov/monitoring-location/02135000/";
 const NPS_MH = "https://npgallery.nps.gov/AssetDetail/NRIS/96001217";
 const MB_SWASH = "https://www.cityofmyrtlebeach.com/i_want_to/find/photos_of_the_week/pow040618.php";
@@ -296,24 +298,24 @@ const RULE_ICON = {
 const RULE_WORDS = { boat: "A boat or camper", truck: "A work truck", rent: "Renting it out", shed: "A shed or fence" };
 const RULES = [
   { name: "Outside the towns", note: "Horry County", rules: {
-    boat: "Yes, anywhere on your own lot.",
-    truck: "Yes. A business run from home may keep two work vehicles per acre.",
-    rent: "The county code does not name it. We check the lot's zoning before you buy.",
-    shed: "Yes. A small shed can sit 5 feet from the line, and a fence can be 8 feet tall." } },
+    boat: "County zoning names no limit on where you park a boat, but some districts bar storage in front of the house. We check the address.",
+    truck: "A business run from home may keep two service vehicles per acre, and three per home on small farm-zoned lots.",
+    rent: "County zoning does not name it, and short stays pay county taxes. We check the lot's zoning before you buy.",
+    shed: "One small shed can sit 5 feet from the line. Fences can be 8 feet tall; over 7 feet needs a permit." } },
   { name: "Myrtle Beach", href: "/submarkets/myrtle-beach/", rules: {
-    boat: "Yes, but a boat over 16 feet stays out of the front yard.",
-    truck: "Yes, one, of one ton or less.",
-    rent: "Not on single-family streets. We check the address for you.",
-    shed: "Yes, with a permit. Fences are 4 feet in front and up to 8 in back." } },
+    boat: "A boat over 16 feet, or a camper of any size, stays out of the front yard.",
+    truck: "Yes, one, and no vehicle over one ton.",
+    rent: "Only in the resort and business zones and one residential zone. We check the address.",
+    shed: "Yes, with a permit. Fences are 4 feet in front and up to 8 in back, but 4 feet all around on an oceanfront lot." } },
   { name: "North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", rules: {
     boat: "Yes, behind the front of the house or under a carport.",
     truck: "Yes, up to 18,500 pounds.",
-    rent: "Yes in most of the city, with a business license. Some neighborhood rules forbid it, so we check.",
-    shed: "Yes, one shed up to 150 square feet, behind the house." } },
+    rent: "City zoning does not generally limit it. You need a business license, and it does not pass to you when the home sells.",
+    shed: "One shed up to 150 square feet, behind the house, in most home zones. East of Ocean Boulevard, side-yard fences are not allowed." } },
   { name: "Surfside Beach", href: "/submarkets/surfside-beach/", rules: {
-    boat: "Yes, up to two boats or trailers.",
+    boat: "Yes, up to two boats or trailers. An unlicensed boat goes in a garage or under a cover.",
     truck: "Yes, one van or pickup up to 21 feet long and 7 feet 11 inches high.",
-    rent: "Only in a few zones, not the single-family ones. We check the address.",
+    rent: "Only in two zones. We check the address.",
     shed: "Yes, in the back yard, with a permit. Fences are 4 feet in front and 6 in back." } },
   { name: "Conway", href: "/submarkets/conway/", rules: {
     boat: "Yes, in the side or back yard, or under a carport.",
@@ -321,10 +323,10 @@ const RULES = [
     rent: "Only in the downtown and business areas, not on home streets.",
     shed: "Yes, with a permit, in the back yard. Fences are 4 feet in front and up to 8 in back." } },
   { name: "Loris", rules: {
-    boat: "Yes. A boat over 17 feet stays back from the edges of the lot.",
+    boat: "A boat over 17 feet stays out of the front and side setbacks and 5 feet from the back line.",
     truck: "Yes, one, up to 2 tons.",
-    rent: "No. The town's zoning does not allow it.",
-    shed: "Yes, up to two, in the side or back yard." } },
+    rent: "Not a listed use in city zoning. We ask the city about the address.",
+    shed: "Up to two buildings, a garage or carport included, in the side or back yard." } },
   { name: "Aynor", rules: {
     boat: "The town's zoning does not limit it. We check this for the lot you choose.",
     truck: "No limit in the town's zoning.",
@@ -361,7 +363,7 @@ const about10 = (b) => Math.round(BAND[b].houses / 10) * 10;
 const bandList = () => h.ul([
   `About ${about10("under 250k")} houses for sale under $250,000, most of them built before 1990 and about half in and around Conway.`,
   `About ${about10("500k-750k")} from $500,000 to $750,000, a third of them within half a mile of the beach.`,
-  `About ${about10("750k+")} at $750,000 and up, two-thirds of them within half a mile of the beach.`,
+  `About ${about10("750k+")} at $750,000 and up, about 2 in 3 of them within half a mile of the beach.`,
 ]);
 
 /* The example (rows 59, 64 and 68; the services Chapter3 records: stories.json "hoa-rental-bans-filtered"). */
@@ -401,7 +403,7 @@ module.exports = GL.page({
     text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
   author: "devin",
   shortAnswer: [
-    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are on older beach streets, in river towns and on country land, in the areas below.",
+    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the areas below, on beach streets, in river towns and on country land.",
   ],
 
   sections: [
@@ -409,13 +411,13 @@ module.exports = GL.page({
       ph.css() + CHIP_CSS + MAP +
       `<style>.c3-nh-guide{margin-top:-.3rem}.c3-nh-guide p{margin:0 0 .4rem!important;line-height:1.4}</style><div class="c3-nh-guide">` +
       h.p(`<strong>A boat at home:</strong> ${go("cherry-grove")}, ${go("little-river")}, ${go("socastee")} and ${go("garden-city", "Garden City")}.`) +
-      h.p(`<strong>A 10-minute walk to a beach access:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
+      h.p(`<strong>Most houses a 10-minute walk from a beach access:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
       h.p(`<strong>An old town center:</strong> ${go("mb-downtown", "Downtown Myrtle Beach")}, ${go("conway")} and ${go("loris")}.`) +
-      h.p(`<strong>Room to spread out:</strong> half an acre in ${go("mb-pine-lakes")} and ${go("mb-plantation-point")}; an acre in ${go("aynor")} and ${go("loris-country", "around Loris")}.`) +
+      h.p(`<strong>Room to spread out:</strong> half an acre in ${go("mb-pine-lakes")} and ${go("mb-plantation-point")}; more in ${go("aynor")} and ${go("loris-country", "around Loris")}.`) +
       `</div>` },
 
     entry("mb-downtown", "older streets by Withers Swash", [
-      `Downtown is the old town by the sea. A wooden boardwalk follows Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}. The ${h.ext(MB_NRMPS, "Withers Cemetery")} off Collins Street is the only known trace of the early settlement that gave the swash its name.`,
+      `Downtown is the old town by the sea. A trail with a wooden boardwalk is beside Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}, from Third Avenue South to Broadway and Collins Street. The ${h.ext(MB_NRMPS, "Withers Cemetery")} off Collins Street is the only known trace of the early settlement that gave the swash its name.`,
       `From Collins Street, the oceanfront ${h.ext(MB_BOARDWALK2, "boardwalk")} is about a quarter hour away on foot. From the day after Labor Day through April, you can ride a bike or walk a dog on it at any hour.`,
       `On summer Wednesdays, Plyler Park on the oceanfront has free live music and ${h.ext(MB_SUMMER, "fireworks")}. Peaches Corner has served on Ocean Boulevard since 1937, and ${h.ext(MB_LIBRARY, "Chapin Memorial Library")} is the only city-owned library in South Carolina.`,
       `Closer to home, Spivey Park is on Collins Street, and so is the New Town Bark Park. On Broadway, the ${h.ext(MB_DEPOT, "Myrtle Beach Train Depot")} was built in 1937 and is on the National Register of Historic Places.`,
@@ -423,7 +425,7 @@ module.exports = GL.page({
       "Lots are small here, typically about 0.2 acre.",
     ]),
 
-    entry("mb-myrtle-heights", "older beach houses in a historic district", [
+    entry("mb-myrtle-heights", "a historic district beside the beach", [
       `Myrtle Heights is the southern part of the ${h.ext(NPS_MH, "Myrtle Heights-Oak Park Historic District")}, up to 40th Avenue North. Its lots and public spaces still follow the plan of the mid-1930s.`,
       "That plan set oceanfront houses at least 75 feet back from the beach, which gives these lots their deep front yards. Each avenue was laid out to reach the sand, and those street ends are now public beach paths.",
       "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage apartment. Look for porches, coquina rock walls and wood awnings painted to look like striped canvas.",
@@ -432,10 +434,9 @@ module.exports = GL.page({
       `The trade-off is the review: on an oceanfront house, any change to the outside, even the paint color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}.`,
     ]),
 
-    entry("mb-pine-lakes", "half-acre lots on old golf land", [
-      `The older Pine Lakes streets were built on golf land. In 1946, the club ${h.ext(PL_SHPO, "sold 18 of its 27 holes")} for homes and kept nine.`,
-      "That is why the lots are big: typically almost half an acre, more than twice a downtown lot. There is room for a workshop or a boat beside the house.",
-      `The course itself is ${h.ext(PL_CLUB, "less than half a mile from the ocean")}, on rolling land. The club's Robert White Pub is open to the public for breakfast and lunch.`,
+    entry("mb-pine-lakes", "half-acre lots by the golf course", [
+      `The older Pine Lakes streets have big lots in the middle of the city: typically almost half an acre, more than twice a downtown lot. There is room for a workshop or a boat beside the house.`,
+      `The streets are around the golf course, which is ${h.ext(PL_CLUB, "less than half a mile from the ocean")}, on rolling land.`,
       `The beach is about 0.6 mile on foot, at the Seaside Place street end, one of the city's fully accessible beach paths. Two small city parks are on the way: ${h.ext(MB_PARK_OF, "Ocean Forest Memorial Park")}, with a walking path, and McLeod Park, with a picnic shelter.`,
       "North Ocean Boulevard has bike lanes, and each December Santa rides through the Pine Lakes neighborhood with the city's firefighters.",
       "The newer Preserve at Pine Lakes has an HOA. We check which section a house is in before you make an offer.",
@@ -443,7 +444,7 @@ module.exports = GL.page({
 
     entry("mb-plantation-point", "half an acre outside the city limits", [
       `Plantation Point gives you a half-acre lot in the middle of the Grand Strand. Its streets share their names with old Georgetown County ${h.ext(PP_ANNANDALE, "rice plantations")}, such as Annandale and Brookgreen.`,
-      "The houses date from the late 1980s on, on lots typically about half an acre, outside the Myrtle Beach city limits. Plantation Point has a voluntary HOA.",
+      `The houses date from the late 1980s on, on lots typically about half an acre, outside the Myrtle Beach city limits. An HOA owns the ${h.ext(HC_PARCELS, "common areas")}, and we check what it charges for any home.`,
       "Room is the reason to choose it. A half-acre lot leaves space for a garden, a pool or a long driveway.",
       `By car, Broadway at the Beach is about 8 minutes away, Coastal Grand Mall and Grand Strand Medical Center about 12, and the ocean about 10.`,
       `For a day on the water, Rosewood and Socastee county landings are each about 20 minutes. The county's ${h.ext(HC_PARKS, "Bike and Run Park")}, with 7 miles of trails, is about 15, and ${h.ext(MB_STATE_PARK, "Myrtle Beach State Park")}, with an ocean fishing pier, about 23.`,
@@ -515,8 +516,8 @@ module.exports = GL.page({
       "The trade-off is flood risk. About 1 in 4 homes on the ocean side is in a high-risk flood zone. There, with a mortgage, your lender will almost always require flood insurance.",
     ]),
 
-    entry("garden-city", "marsh creeks and free beach parking", [
-      `The county's ${h.ext(SALT_LANDINGS, "boat ramp on Main Creek")}, at Stanley Drive, puts your boat in the Murrells Inlet marsh.`,
+    entry("garden-city", "a free pier walk and free beach parking", [
+      `The county's ${h.ext(LANDINGS, "Stanley Drive landing")} is about 2 miles by road from the center of Garden City.`,
       `${h.ext(GC_PIER, "The Pier at Garden City")} is always free to walk, and on summer nights live bands play at both ends of it. A pier pass covers fishing, so you need no state license. Its Hugo burger is named for the 1989 hurricane that destroyed the pier.`,
       `Every oceanfront beach access in Garden City has ${h.ext(HC_BEACH, "free parking all year")}. Each July 4, decorated boats start at the point of Garden City Beach and parade through Murrells Inlet.`,
       `Across the marsh, Murrells Inlet is known as the ${h.ext(SCE + "murrells-inlet/", "Seafood Capital of South Carolina")}, and its MarshWalk restaurants are about 3 miles by road.`,
@@ -536,16 +537,16 @@ module.exports = GL.page({
     entry("loris", "a small town with its own hospital", [
       `Loris grew up around a railroad depot and became a town in 1902. It was called the ${h.ext(LORIS_HISTORY, "Gate City")}, the first town on the railroad south of the North Carolina line.`,
       `The town ${h.ext(SCE + "chicken-bog/", "chose chicken bog")} as its festival theme in 1979. On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and live music.`,
-      "Chicken bog is chicken, rice and sausage cooked together. No other place in the country is named Loris.",
+      "Its namesake dish is chicken bog: chicken, rice and sausage. No other place in the country is named Loris.",
       `The Main Street ${h.ext(LORIS_LIBRARY, "library")} has been in its building for 50 years. It lends cake pans, state park passes and Wi-Fi hotspots.`,
       "Downtown has a city clock with a carillon, and its first brick building was the Bank of Loris, opened in 1907.",
       "Older houses here are mostly from the 1960s, on lots of about 0.4 acre. McLeod Loris, a hospital with an emergency room, is in town.",
       "You drive more from here: the beach is about 35 minutes by car.",
     ]),
 
-    entry("loris-country", "new houses on almost an acre", [
-      `Horry was long a county of ${h.ext(SCE + "horry-county/", "small family farms")}, and the country west and south of Loris is still farm and forest land. ${h.ext(HC_CULTURAL, "Tobacco barns")} still stand on the older farms.`,
-      "The houses for sale here are on lots of typically about 0.9 acre, and most of them are new, built in 2024 or later.",
+    entry("loris-country", "new houses on large lots", [
+      `Horry was long a county of ${h.ext(SCE + "horry-county/", "small family farms")}, and ${h.ext(HC_CULTURAL, "tobacco barns")} still stand on the older farms around Loris.`,
+      "Most of the houses for sale here are new, built in 2024 or later, on lots of typically about 0.7 acre.",
       "With that much land and no town limits, there is room for a boat, a camper and a shop, under the county's rules.",
       `The ${h.ext(WACCAMAW_PRESERVE, "Waccamaw River Heritage Preserve")} protects 28 miles of the Waccamaw River, with riverside camping on its land. McLeod Loris hospital is about 9 minutes away by car.`,
       "Farms here once shipped strawberries, sweet potatoes, lettuce and poultry to northern markets. North Carolina is close, too: Tabor City is about 10 miles away by road.",
@@ -563,14 +564,14 @@ module.exports = GL.page({
     ]),
 
     { h2: "What can you do at home with no HOA?", toc: "What you can do at home", id: "boats-and-work-trucks", html: (bg) =>
-      h.p(`With no HOA, the only limits on your lot are the town's, or the county's outside the towns. The cards give each one's answer for a boat, a work truck, renting the home out and a shed or fence. Most of the homes with no HOA fee around Conway, Loris and Aynor are outside the town limits, under the county's answers.`) +
+      h.p(`With no HOA, the limits on parking, rentals and buildings on your lot are the town's, or the county's outside the towns, along with any deed restriction. The cards give each one's answer for a boat, a work truck, renting the home out and a shed or fence. Most of the homes with no HOA fee around Conway, Loris and Aynor are outside the town limits, under the county's answers.`) +
       homeRules() +
       h.p(`In ${h.ext(MB_STR, "Myrtle Beach")}, ${h.ext(NMB_RENTAL, "North Myrtle Beach")} and ${h.ext(SSB_STR, "Surfside Beach")}, renting out a home needs a business license. In the towns, you can leave a boat in the driveway for a day to load and unload. On county roads, the county ${h.ext(HORRY_CODE, "bans parking")} only where it posts a sign.`) +
-      h.p(`We check the rules for the address, and the ${h.ext(CLOSING, "closing attorney")}'s title search finds any deed restriction, before you buy.`) +
+      h.p(`We check the rules for the address, and we check the deed for restrictions before you make an offer.`) +
       story(STORY, "", bg) },
 
     { h2: "What does a house with no HOA fee cost?", toc: "Prices", id: "prices", html: (bg) =>
-      h.p(`Most are listed from $250,000 to $500,000: about ${about10("250k-500k")} houses for sale, most of them around Conway, Loris and Aynor. The rest:`) +
+      h.p(`The largest group, about ${about10("250k-500k")} houses, is listed from $250,000 to $500,000, most of them around Conway, Loris and Aynor. The rest:`) +
       bandList() +
       h.p(`Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
       h.cta("Get the homes with no HOA fee in your price range.", "Tell us your range and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
@@ -586,7 +587,7 @@ module.exports = GL.page({
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "What is a typical HOA fee in Myrtle Beach?", a: `About $${DATA.allNineAreas.detachedHouses.medianMonthlyHoaFee} a month on a house. A condo fee is much higher because it includes the building's insurance, water and sewer, trash and a pool.` },
     { q: "Can you buy a condo with no HOA fee in Myrtle Beach?", a: `Almost never. Of about 2,700 condos for sale around Myrtle Beach, only one was listed with no HOA fee. South Carolina law makes condo owners share the cost of the building.` },
-    { q: "Does a listing with no HOA fee mean the home has no HOA?", a: "Not always. A blank fee means no fee was listed. A few homes listed with no fee are in a neighborhood with a club you can choose to join and pay. We check the deed and the county records for an HOA before you make an offer." },
+    { q: "Does a listing with no HOA fee mean the home has no HOA?", a: "Not always. A blank fee means no fee was listed. We check the deed and the county records for an HOA before you make an offer." },
     { q: "Who picks up trash at a home with no HOA?", a: "Inside the towns, the town does. Outside them, you hire a hauler or use one of the county's drop-off centers, because the Solid Waste Authority does not pick up at the curb there." },
     { q: "Is a campground home with no HOA fee a no-HOA home?", a: "No. A campground home has no HOA fee, but it sits on leased land, and you pay a yearly lease for the land under it." },
   ],

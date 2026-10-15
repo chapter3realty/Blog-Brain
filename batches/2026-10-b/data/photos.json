@@ -3331,9 +3331,9 @@
     "1200": "images/buyers/gated-communities/tidewater-plantation-marsh-from-above-2023-1200w.webp"
    },
    "title": "Tidewater Plantation from above (USDA NAIP 2023)",
-   "what": "Tidewater Plantation from above: golf holes along the salt marsh, seen from above in 2023, with 2 labels placed from coordinates.",
-   "caption": "Tidewater Plantation from above, with its golf holes along the marsh labelled.",
-   "alt": "Tidewater Plantation from above, labelled: golf fairways along the edge of a wide salt marsh with winding creeks, houses above them, and canal homes at the lower right; labels: Golf holes along the marsh and Tidewater Plantation",
+   "what": "Tidewater Plantation from above: golf holes along the tidal water at Cherry Grove Inlet, seen from above in 2023, with 2 labels placed from coordinates.",
+   "caption": "Tidewater Plantation from above, with its golf holes along the inlet labelled.",
+   "alt": "Tidewater Plantation from above, labelled: golf fairways along the edge of the tidal water behind Cherry Grove Inlet, with winding creeks, houses above them, and canal homes at the lower right; labels: Golf holes along the inlet and Tidewater Plantation",
    "place": {
     "city": "North Myrtle Beach",
     "sublocation": "Tidewater Plantation"
@@ -3356,11 +3356,11 @@
    "digital_source_type": "composite",
    "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
    "labels": [
-    "Golf holes along the marsh",
+    "Golf holes along the inlet",
     "Tidewater Plantation"
    ],
    "annotation_sources": {
-    "golf_holes": "A fairway of Tidewater Golf Club on the edge of the salt marsh, seen on the NAIP 2023 aerial (33.84521, -78.62408); the course is OpenStreetMap relation of Tidewater Golf Club, ledger row 114",
+    "golf_holes": "A fairway of Tidewater Golf Club on the edge of the tidal water, seen on the NAIP 2023 aerial (33.84521, -78.62408); the course is OpenStreetMap relation of Tidewater Golf Club, ledger row 114",
     "tidewater_plantation": "Houses on the street above the fairways (33.84631, -78.62033), inside Tidewater Plantation (ledger rows 20, 58)"
    },
    "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8753291.184370976%2C4007044.599298334%2C-8751364.784398913%2C4008489.39927738&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
