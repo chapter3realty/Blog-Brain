@@ -1264,6 +1264,11 @@ function placesSpec(spec) {
   if (spec.areas !== undefined) out.areas = spec.areas;
   if (spec.areaLabels !== undefined) out.areaLabels = spec.areaLabels;
   if (spec.maxRatio !== undefined) out.maxRatio = spec.maxRatio;
+  /* Optional spec.tidyLeaders true (opt-in, batch 2026-10-b round 14e): see placeMany, o.strict. */
+  if (spec.tidyLeaders !== undefined) {
+    if (spec.tidyLeaders !== true) throw new Error("area-map: tidyLeaders is true or left out");
+    out.tidyLeaders = true;
+  }
   /* Optional spec.placeNames false (opt-in, batch 2026-10-b round 14d): numbers only, no names beside the
      markers, for a small overview strip whose key is a list on the page. Left out, names are placed as before. */
   if (spec.placeNames !== undefined) {
@@ -1282,30 +1287,62 @@ function placesSpec(spec) {
    map (m.key). Returns { labels, dropped, bare } like placeCallouts, plus the bare markers. */
 function placeMany(L, F, lms, R, between, o = {}) {
   const NS = SZ.many, LH = NS + 2.5;
-  const marks = [];
-  lms.forEach((lm, i) => {
-    const owner = "lm" + i, own = (it) => it.owner === owner;
-    const [tx, ty] = F.P(lm.lon, lm.lat);
-    const x0 = Math.max(R + 4, Math.min(F.W - R - 4, tx)), y0 = Math.max(R + 4, Math.min(F.H - R - 4, ty));
-    let found = null;
-    for (const r of [0, 7, 14, 21, 28, 36, 45, 56, 70]) {
-      const n = r === 0 ? 1 : Math.max(8, Math.round(2 * Math.PI * r / 8));
-      for (let k = 0; k < n && !found; k++) {
-        const a = k * 2 * Math.PI / n, x = x0 + r * Math.cos(a), y = y0 + r * Math.sin(a);
-        if (x < R + 4 || x > F.W - R - 4 || y < R + 4 || y > F.H - R - 4) continue;
-        const mb = rectXY(x - R - 1, y - R - 1, x + R + 1, y + R + 1);
-        if (!L.fits(mb, 2, (it) => own(it) || it.kind === "area")) continue;
-        const moved = Math.hypot(x - tx, y - ty) > 3, seg = segBox([tx, ty], [x, y]);
-        if (moved && L.items.some((it) => !own(it) && !["dot", "furniture", "area"].includes(it.kind) && satOverlap(seg, it))) continue;
-        found = { x, y, mb, moved, seg };
+  /* One pass over the places in a given order. Optional o.strict (opt-in, spec.tidyLeaders, batch
+     2026-10-b round 14e, OWNER-EYE-14d M2): a leader line may not cross another place's true spot or
+     marker, and a marker moves at most 45 units from its spot; several orders are tried and the one
+     with the shortest leader lines in all is kept. Left out, the one pass runs as before. */
+  const pass = (order, strict) => {
+    const marks = [];
+    for (const i of order) {
+      const lm = lms[i];
+      const owner = "lm" + i, own = (it) => it.owner === owner;
+      const [tx, ty] = F.P(lm.lon, lm.lat);
+      const x0 = Math.max(R + 4, Math.min(F.W - R - 4, tx)), y0 = Math.max(R + 4, Math.min(F.H - R - 4, ty));
+      let found = null;
+      for (const r of strict ? (process.env.AM_R ? JSON.parse(process.env.AM_R) : [0, 7, 14, 21, 28, 36, 45]) : [0, 7, 14, 21, 28, 36, 45, 56, 70]) {
+        const n = r === 0 ? 1 : Math.max(8, Math.round(2 * Math.PI * r / 8));
+        for (let k = 0; k < n && !found; k++) {
+          const a = k * 2 * Math.PI / n, x = x0 + r * Math.cos(a), y = y0 + r * Math.sin(a);
+          if (x < R + 4 || x > F.W - R - 4 || y < R + 4 || y > F.H - R - 4) continue;
+          const mb = rectXY(x - R - 1, y - R - 1, x + R + 1, y + R + 1);
+          if (!L.fits(mb, 2, (it) => own(it) || it.kind === "area")) continue;
+          const moved = Math.hypot(x - tx, y - ty) > 3, seg = segBox([tx, ty], [x, y]);
+          if (moved && L.items.some((it) => !own(it) && !["dot", "furniture", "area"].includes(it.kind) && satOverlap(seg, it))) continue;
+          if (strict && moved && L.items.some((it) => !own(it) && it.kind === "dot" && satOverlap(seg, inflate(it, 2)))) continue;
+          found = { x, y, mb, moved, seg };
+        }
+        if (found) break;
       }
-      if (found) break;
+      if (!found) return null;
+      L.add(found.mb, "marker", owner);
+      if (found.moved) L.add(found.seg, "leader", owner);
+      marks[i] = { m: { lm, kind: "pin", tx, ty, x: found.x, y: found.y, moved: found.moved }, owner };
     }
-    if (!found) throw new Error(`area-map: no room on the map for ${lm.name}, even as a number. Show fewer places, or split the map.`);
-    L.add(found.mb, "marker", owner);
-    if (found.moved) L.add(found.seg, "leader", owner);
-    marks.push({ m: { lm, kind: "pin", tx, ty, x: found.x, y: found.y, moved: found.moved }, owner });
-  });
+    return marks;
+  };
+  const base = lms.map((_, i) => i);
+  let marks = null;
+  if (o.strict) {
+    const keep = L.items.length;
+    let best = null, seed = 7;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const orders = [base, base.slice().reverse()];
+    for (let t = 0; t < 300; t++) { const a = base.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } orders.push(a); }
+    for (const order of orders) {
+      const got = pass(order, true);
+      if (got) {
+        const cost = got.reduce((t, k) => t + Math.hypot(k.m.x - k.m.tx, k.m.y - k.m.ty), 0);
+        if (!best || cost < best.cost) best = { cost, order, items: L.items.slice(keep) };
+      }
+      L.items.length = keep;
+    }
+    if (!best) throw new Error("area-map: no layout of the places with leader lines that cross no other place. Show fewer places, or split the map.");
+    marks = pass(best.order, true);
+  } else {
+    marks = pass(base, false);
+    if (!marks) { const i = lms.findIndex((_, k) => !L.items.some((it) => it.owner === "lm" + k && it.kind === "marker")); throw new Error(`area-map: no room on the map for ${lms[Math.max(0, i)].name}, even as a number. Show fewer places, or split the map.`); }
+  }
+  marks = marks.filter(Boolean);
   if (between) between();
   const labels = [], dropped = [], bare = [];
   /* A place marked first (places[i].first: the page's own pick) is named before the others, so it
@@ -1672,7 +1709,7 @@ function regionMap(spec, opts = {}) {
       leaderTowns.push({ t, ...best, size });
     }
   };
-  const { labels: lmLabels, dropped, bare = [] } = many ? placeMany(L, F, lms, R, spec.leaders ? townLeaders : null, { names: spec.placeNames }) : placeCallouts(L, F, lms, R, "lm");
+  const { labels: lmLabels, dropped, bare = [] } = many ? placeMany(L, F, lms, R, spec.leaders ? townLeaders : null, { names: spec.placeNames, strict: !!spec.tidyLeaders }) : placeCallouts(L, F, lms, R, "lm");
   const marks = lmLabels.map((l) => l.m).concat(bare.map((b) => b.m));
 
   /* Ocean label: in the ocean, clear of the coast; a size smaller (still a place size) when a
