@@ -133,6 +133,8 @@ const AREAS = [
   ["nmb", "North Myrtle Beach"], ["mb", "Myrtle Beach and Carolina Forest"],
   ["south", "Socastee to Murrells Inlet"], ["pawleys", "Pawleys Island to DeBordieu"],
 ];
+/* Map pills: 32 letters at most (area-map.js), so a short name and the entry numbers. */
+const MAP_NAME = { nmb: "North Myrtle Beach", mb: "Myrtle Beach", south: "Murrells Inlet side", pawleys: "Pawleys Island" };
 const nums = (a) => {
   const ns = E.filter((e) => e.area === a).map((e) => e.n);
   return ns.length === 1 ? String(ns[0]) : ns.length === 2 ? `${ns[0]} and ${ns[1]}` : `${ns[0]} to ${ns[ns.length - 1]}`;
@@ -143,7 +145,7 @@ const MAP = (() => {
     const pts = E.filter((e) => e.area === a);
     const lat = pts.reduce((s, e) => s + e.lat, 0) / pts.length, lon = pts.reduce((s, e) => s + e.lon, 0) / pts.length;
     const radius = Math.round(Math.min(15000, 800 + 1000 * Math.max(...pts.map((e) => km(lat, lon, e.lat, e.lon)))));
-    return { name: `${label}, ${nums(a)}`, lat, lon, radius };
+    return { name: `${MAP_NAME[a]}, ${nums(a)}`, lat, lon, radius };
   });
   const MAPDIR = { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420, glass: true };
   const m = regionMap({ name: "Where the 18 gated neighborhoods are", areas }, MAPDIR);
@@ -215,7 +217,7 @@ const SECTIONS_PLACES = [
 
   entry("grande-dunes", "an oceanfront club and a marina for big boats", [
     "In Myrtle Beach, many Grande Dunes homes come with a household membership to the Ocean Club, a private club on the beach. It has towel and bar service at its pool and cabanas on the sand. We confirm it for each home you look at.",
-    "The private Members Club is a separate membership from the home, and its course was designed by Nick Price, a member of golf's Hall of Fame, with Craig Schreiner. The clubhouse has golf simulators, and the calendar includes themed dinners, wine tastings and a Fourth of July cookout.",
+    "The private Members Club is a separate membership from the home. Its course was designed by Nick Price, a member of golf's Hall of Fame, with Craig Schreiner. The clubhouse has golf simulators, and the calendar includes themed dinners, wine tastings and a Fourth of July cookout.",
     "Grande Dunes Marina, on the Intracoastal Waterway, has 126 slips and takes boats up to 120 feet long, with fuel and a store. A two-mile trail along the waterway is open to the public.",
     "Grande Dunes has a security company on contract, with guard houses and an officer on patrol. Only some sections are gated, among them Calais, Palermo and Villa Venezia.",
   ], "Homes in those three sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
@@ -297,7 +299,7 @@ const SECTIONS_PLACES = [
   ["litchfield-by-the-sea-from-above-2023", "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right."]),
 
   entry("heritage-plantation", "a dock master and a crow's nest over the river", [
-    "Near Pawleys Island, Heritage Plantation's marina has a full-time dock master and a dock house built over the Waccamaw River, with a crow's nest and a swing on its roof. The marina also has a deck over the water, bordered by cypress trees, that serves as a daily sunset gathering place.",
+    "Heritage Plantation, near Pawleys Island, has a marina with a full-time dock master. Its dock house is built over the Waccamaw River, with a crow's nest and a swing on its roof. The marina also has a deck over the water, bordered by cypress trees, that serves as a daily sunset gathering place.",
     `The HOA fee includes cable TV, home internet, the dock master and 24-hour security, and the association lists a separate phone line for the main gate.`,
     "Many mornings are reserved for league play on four green-clay Har-Tru courts and four pickleball courts. The Heritage Club, a public par-71 course by Dan Maples, lies among the live oaks on land that was once the True Blue and Midway plantations.",
     "Trash pickup costs extra, and boat slips are rented by the day, the month or the year.",
@@ -305,7 +307,7 @@ const SECTIONS_PLACES = [
 
   entry("debordieu-colony", "a planters' colony with its own beach and club", [
     "Before the Civil War, rice planters built a colony of summer homes at DeBordieu, on the ocean south of Pawleys Island. Later owners of the land included Isaac Emerson, the Bromo-Seltzer maker, and the Vanderbilt family. Locals say \"Debidue\".",
-    "The DeBordieu Club, open only to owners and a separate membership from the home, has a Pete and P.B. Dye course that has hosted the Carolinas Mid-Amateur, and eight Har-Tru tennis courts. Its places to eat include the Beanery cafe and the Beach Club, with three dining spaces. On the Fourth of July the colony holds a parade.",
+    "The DeBordieu Club is open only to owners, and it is a separate membership from the home. It has a Pete and P.B. Dye course that has hosted the Carolinas Mid-Amateur, and eight Har-Tru tennis courts. Its places to eat include the Beanery cafe and the Beach Club, with three dining spaces. On the Fourth of July the colony holds a parade.",
     "Every car comes through one gate. Guests are registered online, in an app or by phone, and a guest pass lasts up to a week. The colony covers 2,700 acres, and at least 600 of them are a nature preserve.",
     "South Carolina spends public money to rebuild a beach only where the public has full access to it, and DeBordieu does not qualify. Its owners pay for their beach themselves, through assessments to a beach fund they voted to set up. Boats cannot stay at the community dock overnight.",
   ], "Homes here usually sell for about $2 million, and the HOA fee is about $300 to $400 a month.",
@@ -344,6 +346,7 @@ const ITEMLIST = `<script type="application/ld+json">${JSON.stringify({ "@contex
   itemListElement: E.map((e) => ({ "@type": "ListItem", position: e.n, name: e.name, url: `https://chapter3realty.com${SELF}#${e.id}` })) })}</script>`;
 
 const OFFER_TEXT = "Tell us the neighborhoods you like and your price range. One of our agents will email you this week's homes for sale there, with the HOA fee and what it covers.";
+const OFFER_MID = "Pick two or three of these places and tell us your price range. We will send you the homes for sale in each, side by side.";
 const OFFER_SHORT = "Tell us the places and your price range. One of our agents will email you this week's homes.";
 
 module.exports = G.page({
@@ -376,6 +379,7 @@ module.exports = G.page({
 
     { h2: "What do homes sell for, and what is the HOA fee?", toc: "Prices", id: "compare", html: (bg) =>
       `<div class="c3g-where">${TABLE}${MAP}</div>` +
+      h.cta("Want the homes for sale in more than one of these?", OFFER_MID, OFFER_LABEL, OFFER, bg) +
       h.p(`For neighborhoods without a gate, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods in Myrtle Beach")}, ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}, ${h.a("/buyers/golf-communities/", "golf communities")} and ${h.a("/buyers/55-plus-communities/", "55+ communities")}.`) },
 
 
@@ -408,7 +412,6 @@ module.exports = G.page({
     { name: "Heritage Plantation association", href: HERITAGE },
     { name: "SC Clean Marina, Reserve Harbor", href: RESERVE_MARINA },
     { name: "Wachesaw Plantation Club", href: WACHESAW },
-    { name: "Horry County land development rules", href: CODE },
   ],
   sourcesNote: "Also the associations' and clubs' own documents, county records and local news. Each price is the past year's middle sale, checked against the MLS and the county deed index, and Horry County prices leave out builder sales. A price from few sales is a rough guide, and drive times assume no traffic. Not legal advice.",
   afterSources: () => ph.credits() + ITEMLIST,

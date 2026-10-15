@@ -2022,5 +2022,124 @@
     "pattern": "\\bWillbrook Plantation from above: houses among trees and golf fairways\\b",
     "struck": "Willbrook Plantation from above: houses among trees and golf fairways, with open fields cut by straight ditches at the left.",
     "use": "Willbrook Plantation from above: its houses in the middle and at the right beside golf fairways, with open fields cut by straight ditches at the left; the houses at the lower left are in Litchfield Plantation."
+  },
+  {
+    "row": "gated 63, 70 (v9)",
+    "pattern": "\\bnorth myrtle beach down to pawleys island\\b",
+    "struck": "These 18 gated neighborhoods run from North Myrtle Beach down to Pawleys Island, most of them on a golf course or on the water.",
+    "use": "These 18 gated neighborhoods run from North Myrtle Beach down to DeBordieu Colony, south of Pawleys Island, most of them on a golf course or on the water. (The title, the search description and the share title say \"to Pawleys Island\" too.)"
+  },
+  {
+    "row": "gated 174, 542 (v9)",
+    "pattern": "\\bUnder half a mile from Main Street\\b",
+    "unless": "\\bby road\\b|\\bstraight line\\b",
+    "struck": "Under half a mile from Main Street: 2. Seaside Plantation",
+    "use": "Main Street by golf cart: about two-thirds of a mile by road from the Sea Island Way end of Seaside Plantation."
+  },
+  {
+    "row": "gated 545 (v9)",
+    "pattern": "\\bsix smaller associations[^.]{0,100}\\beach with its own rules\\b",
+    "struck": "Tidewater is one master association of 664 houses with six smaller associations under it, so a house may answer to two associations, each with its own rules.",
+    "use": "Tidewater is one master association of 664 houses with six smaller associations under it, so a house may answer to two associations."
+  },
+  {
+    "row": "gated 542 (v9)",
+    "pattern": "\\bFrom Seaside Plantation, Main Street[^.]{0,80}two-thirds of a mile\\b",
+    "unless": "\\bSea Island Way\\b|\\bfar end\\b|\\bfarther\\b",
+    "struck": "From Seaside Plantation, Main Street in North Myrtle Beach is about two-thirds of a mile by road, on two side streets, with no main highway to cross.",
+    "use": "From the Sea Island Way end of Seaside Plantation, Main Street in North Myrtle Beach is about two-thirds of a mile by road, on two side streets, with no main highway to cross; from the far end of the neighborhood it is about 1.2 miles."
+  },
+  {
+    "row": "gated 540 (v9)",
+    "pattern": "\\bgolf cart with a state permit use streets posted at 35 mph or less\\b",
+    "unless": "\\bsecondary\\b",
+    "struck": "The city lets a golf cart with a state permit use streets posted at 35 mph or less, from sunrise to sunset.",
+    "use": "The city lets a golf cart with a state permit use secondary roads posted at 35 mph or less, from sunrise to sunset."
+  },
+  {
+    "row": "gated 205 (v9)",
+    "pattern": "\\bassociation owns three lakes\\b",
+    "struck": "The owners association owns three lakes, about 13 acres in all, and some houses look onto them.",
+    "use": "The owners association owns three lake parcels of about 13 acres in all, and some houses look onto the lakes."
+  },
+  {
+    "row": "gated 115 (v9)",
+    "pattern": "\\bcrowds and traffic to Main Street\\b",
+    "struck": "Festival weeks bring crowds and traffic to Main Street.",
+    "use": "Festival weeks bring crowds to Main Street."
+  },
+  {
+    "row": "gated 405 (v9)",
+    "pattern": "\\bguard houses and an officer on patrol\\b",
+    "struck": "Grande Dunes has a security company on contract, with guard houses and an officer on patrol.",
+    "use": "Grande Dunes has a security company on contract, with a main guard house, a north guard house and an Ocean Club guard house; which one serves a section is not shown."
+  },
+  {
+    "row": "gated 155 (v9)",
+    "pattern": "\\bcopies the look of Charleston",
+    "struck": "Waterway Palms Plantation copies the look of Charleston's Battery district, and its clubhouse stands on a point in a pond, with water on three sides.",
+    "use": "Waterway Palms Plantation's plan was patterned after Charleston's Battery district, and its clubhouse stands on a point in a pond, with water on three sides."
+  },
+  {
+    "row": "gated 563, 98 (v9)",
+    "pattern": "\\bwaterfront lot of more than 6 acres, with day docks\\b",
+    "struck": "Its boat ramp sits on a waterfront lot of more than 6 acres, with day docks and boat storage.",
+    "use": "Its boat ramp sits on a waterfront lot of more than 6 acres. Boat owners also have day docks and boat storage."
+  },
+  {
+    "row": "gated 253 (v9)",
+    "pattern": "\\bOne side of the neighborhood is on a main highway\\b",
+    "struck": "One side of the neighborhood is on a main highway.",
+    "use": "S.C. 31 runs along one side of the neighborhood."
+  },
+  {
+    "row": "gated 259, 149 (v9)",
+    "pattern": "\\bAll of that comes with an HOA fee\\b",
+    "struck": "All of that comes with an HOA fee of about $95 a month.",
+    "use": "The HOA fee is about $95 a month."
+  },
+  {
+    "row": "gated 151, 530 (v9)",
+    "pattern": "\\bassociation owns the wide strips of grass and woods between the streets\\b",
+    "unless": "\\b62 acres\\b",
+    "struck": "The owners' association owns the wide strips of grass and woods between the streets.",
+    "use": "The owners' association owns about 62 acres of open land, most of it wide strips of grass and woods between the streets."
+  },
+  {
+    "row": "gated 334, 335 (v9)",
+    "pattern": "\\bvacation-ownership resort\\b|\\bbelong to Festiva's\\b",
+    "struck": "The course and its grill belong to Festiva's vacation-ownership resort, Ellington at Wachesaw Plantation East, not to the owners.",
+    "use": "Festiva Real Estate Holdings bought the course and its grill in 2017, and the course is part of the Ellington at Wachesaw Plantation East resort."
+  },
+  {
+    "row": "gated photo, Willbrook (v9)",
+    "pattern": "\\bits houses are in the middle and at the right, beside golf fairways\\b",
+    "struck": "Willbrook Plantation from above: its houses are in the middle and at the right, beside golf fairways. The houses at the lower left are in Litchfield Plantation, and open fields cut by straight ditches are at the upper left.",
+    "use": "Willbrook Plantation from above: its houses are in the middle and at the upper right, beside golf fairways. The houses at the lower left are in Litchfield Plantation."
+  },
+  {
+    "row": "gated 393, 81 (v9)",
+    "pattern": "\\bplanters' colony with its own beach and club\\b",
+    "struck": "DeBordieu Colony: a planters' colony with its own beach and club",
+    "use": "DeBordieu Colony: a planters' colony with a Dye course and a private beach club"
+  },
+  {
+    "row": "gated 92, 380 (v9)",
+    "pattern": "\\bown fee and rules\\b|\\bthe HOA fee and the rules change from one to the next\\b",
+    "struck": "At Litchfield by the Sea, each neighborhood inside the gates has its own sub-association, with its own fee and rules.",
+    "use": "At Litchfield by the Sea, each neighborhood inside the gates has its own sub-association, and the HOA fee differs from section to section and from unit to unit."
+  },
+  {
+    "row": "gated 13 (v9)",
+    "pattern": "\\bA gate keeps cars that are only passing through off the streets\\b",
+    "struck": "A gate keeps cars that are only passing through off the streets, and a guard, a code or the owner lets each visitor in.",
+    "use": "A guard, a code or the owner lets each visitor in."
+  },
+  {
+    "row": "gated 212 (v9)",
+    "pattern": "\\bguest at the second gate can pick the owner's name on the keypad, and the owner opens the gate by phone\\b",
+    "unless": "\\bgate code\\b|\\bGate Access Code\\b|\\bif the owner\\b",
+    "struck": "In Dye Estates, for example, a guest at the second gate can pick the owner's name on the keypad, and the owner opens the gate by phone.",
+    "use": "In Dye Estates, for example, if the owner has filed the gate code form, a guest at the second gate can pick the owner's name on the keypad, and the owner opens the gate by phone."
   }
 ]
