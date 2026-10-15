@@ -452,7 +452,7 @@ module.exports = GL.page({
     entry("mb-myrtle-heights", "a beach path at the end of each avenue", [
       `In Myrtle Heights, the plan of the mid-1930s carried the avenues through to the beach, and those ends now give public access to the sand. From every house for sale here, a beach access is less than 5 minutes away on foot.`,
       `The same plan set a minimum setback of 75 feet for oceanfront houses. The district is on the ${h.ext(NPS_MH, "National Register of Historic Places")}.`,
-      "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment. You will see porches, some with coquina or brick walls, and wood awnings painted solid or striped to look like canvas.",
+      "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment. You will see porches and wood awnings painted solid or striped to look like canvas. A few houses keep old walls of coquina rock or brick.",
       "Back yards along Ocean Boulevard often have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
       "Sea Captain's House, a restaurant in a 1930 beach cottage, is about a 9-minute walk from the middle of Myrtle Heights.",
       `The trade-off is the review: on an oceanfront house, a change to the outside, including its color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}. Ordinary repair does not.`,
@@ -469,9 +469,9 @@ module.exports = GL.page({
     ]),
 
     entry("windy-hill", "free day docks at Barefoot Landing", [
-      `Windy Hill is 3 minutes by car from Barefoot Landing on the Intracoastal Waterway, where you can ${h.ext(BF_DOCKS, "tie up a boat")} at the docks free for the day.`,
+      `Windy Hill is 3 minutes by car from Barefoot Landing on the Intracoastal Waterway. Come by boat, and you can ${h.ext(BF_DOCKS, "use the finger docks")} free for the day while you shop or eat.`,
       "The Alabama Theatre and House of Blues are on the same grounds. Barefoot Landing welcomes leashed pets all year, and many of its shops let them inside.",
-      "Most houses for sale here are within a 10-minute walk of a public beach access.",
+      "Most houses for sale here are within a 10-minute walk of a public beach access. Inside North Myrtle Beach, a work truck up to 18,500 pounds may park at home.",
       `On 41st Avenue South, a ${h.ext(NMB_41ST, "pocket park")} with garden plantings, two pergolas and a walking path is on the site of the old water tower.`,
       "Flood is the cost here. About half of these houses are in a high-risk flood zone, and with a mortgage your lender will almost always require flood insurance.",
     ]),
@@ -490,7 +490,7 @@ module.exports = GL.page({
       `In the Ocean Drive and Crescent Beach area, a pavilion and amusement park drew crowds who danced the shag.`,
       `A Saturday here can start with breakfast at ${h.ext(HOSKINS, "Hoskins Restaurant")} on Main Street, which opened in 1948.`,
       `The ${h.ext(NMB_MUSEUM, "North Myrtle Beach Area Historical Museum")} is free, and its exhibits include beach music artists and shag dancing. ${h.ext(NMB_MCLEAN, "McLean Park")}, a quarter mile from Hoskins on foot, has a two-acre lake and a half-mile paved walking path.`,
-      "Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe. Each December, a nighttime Christmas parade comes up Main Street.",
+      "Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe. Each December, a nighttime Christmas parade comes up Main Street. A lender will not require flood insurance on any of the houses for sale here with no fee.",
       "Crowds come with it: on concert nights Main Street closes to cars in the afternoon, and the St. Patrick's festival draws about 40,000 people.",
     ]),
 
@@ -498,17 +498,17 @@ module.exports = GL.page({
       `Cherry Grove's canals were created as early as the 1950s. The city ${h.ext(CANALS, "has dredged canals there twice since 2016")}, to give owners boat access to House Creek and the Intracoastal Waterway at high and low tide.`,
       `The city's ${h.ext(NMB_RAMP, "boat ramp at 53rd Avenue North")} reaches both the marsh and the open ocean through Hog Inlet. It has a two-lane boat launch, a kayak launch, a fishing pier, a floating boat dock and a fish cleaning station.`,
       "North Myrtle Beach residents park free at the ramp when they register with the city. It is also the way in to Heritage Shores Nature Preserve, an island in the marsh reached on elevated boardwalks.",
-      "Across Hog Inlet, Waties Island has almost three miles of undeveloped beach, open to the public by kayak.",
+      "Many of the canal houses have their own docks, so the boat stays behind the house. Across Hog Inlet, Waties Island has almost three miles of undeveloped beach.",
       "Each July 4, the city's free fireworks go up at the Cherry Grove Pier. The homes here with an HOA fee are all in named subdivisions.",
       "The trade-offs are flood risk and a dredging fee. Almost every home here is in a high-risk flood zone. Owners of about 415 properties in the canal district pay the city about $1,700 a year for the dredging, on the county tax bill.",
     ]),
 
     entry("little-river", "the old fishing village on the waterway", [
-      `The houses on Little River's old waterfront streets are within half a mile of the docks on Mineola Avenue, on the Intracoastal Waterway. Local boatmen began ${h.ext(LR_FISHING, "taking visitors fishing for a fee")} there in the early 1920s, the first organized offshore trips of that kind in South Carolina.`,
+      `The houses on Little River's old waterfront streets are less than a mile from the docks on Mineola Avenue, on the Intracoastal Waterway. Local boatmen began ${h.ext(LR_FISHING, "taking visitors fishing for a fee")} there, probably in the early 1920s. They ran the first organized offshore fishing trips for visitors in South Carolina.`,
       `${h.ext(JUELS, "Hurricane Juel's")}, with a view of the waterway, has been family owned since 1945.`,
       `The waterfront holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May and ${h.ext(SHRIMPFEST, "ShrimpFest")} each October. On the Saturday after Thanksgiving, a ${h.ext(REGATTA, "lighted boat parade")} leaves Little River Inlet and heads down the waterway.`,
-      `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway in town. Since the inlet's jetties were finished in 1983, boats can cross the bar at any time of day. The state keeps an ${h.ext(DNR_REEFS, "artificial fishing reef")} off the inlet.`,
-      `${h.ext(VEREEN, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has about 3 miles of trails and boardwalks through forest and marsh. Some of the houses for sale are new, on Mineola and Ellis Avenues; others are on McCorsley Avenue and Bayshore Drive.`,
+      `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway in town. After the inlet's jetties were finished in 1983, boats could cross the bar at any time of day. The state keeps an ${h.ext(DNR_REEFS, "artificial fishing reef")} off the inlet.`,
+      `${h.ext(VEREEN, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has about 3 miles of trails and boardwalks through its gardens and along the water. Some of the houses for sale are new, on Mineola and Ellis Avenues; others are on McCorsley Avenue and Bayshore Drive.`,
       "The beach takes a drive: none of these houses is within a mile of the ocean.",
     ]),
 
@@ -521,12 +521,12 @@ module.exports = GL.page({
     ]),
 
     entry("surfside", "two boats at home and golf carts on the streets", [
-      `In Surfside Beach, the town allows two boats or trailers at a home. A permitted golf cart may be driven in daylight within four miles of home, on streets posted at 35 miles an hour or less.`,
+      `In Surfside Beach, the town allows up to two boats or trailers at a home, and only one over 21 feet. A permitted golf cart may be driven in daylight within four miles of home, on streets posted at 35 miles an hour or less.`,
       `The town has ${h.ext(SCE + "surfside-beach/", "live oaks well over a century old")} and ${h.ext(SSB_BEACHES, "36 public beach accesses")}.`,
       `The town holds a ${h.ext(SSB_MARKET, "farmers market")} on Tuesdays from spring into December in Memorial Park, and free Sunday afternoon concerts there from late May through August. Each July 4, a ${h.ext(SSB_PARADE, "golf cart parade")} goes down Ocean Boulevard.`,
       "Each October, the fall festival has more than 100 craft vendors. Fireworks may be set off on the sand from sunset on July 4 and on New Year's Eve, but not within 500 feet of the pier.",
       "The town picks up trash at the curb, and it has more than nine miles of sidewalk.",
-      "One cost to know: about 1 in 4 homes on the ocean side needs flood insurance if you buy with a mortgage.",
+      "One cost to know on the ocean side: about 1 in 4 homes there needs flood insurance if you buy with a mortgage.",
     ]),
 
     entry("garden-city", "a free pier walk and free beach parking", [
@@ -537,10 +537,10 @@ module.exports = GL.page({
       "The trade-off is flood insurance: with a mortgage, a lender will almost always require it on most of these houses.",
     ]),
 
-    entry("murrells-inlet", "creek lots by the county boat ramp", [
-      `At the north end of Murrells Inlet, the houses are on streets beside the creeks of the inlet. The county's ${h.ext(MI_LANDING, "boat landing on Stanley Drive")} is a 4-minute drive, and several houses on the market lately have their own floating dock.`,
+    entry("murrells-inlet", "by the creeks and the county boat ramp", [
+      `At the north end of Murrells Inlet, some of the houses for sale are on the creeks of the inlet, and the rest are a few streets back. The county's ${h.ext(MI_LANDING, "boat landing on Stanley Drive")} is a 4-minute drive, and several houses on the market lately have their own floating dock.`,
       `People first came to the inlet for oyster roasts and fried shore dinners, and seafood restaurants followed. The ${h.ext(MARSHWALK, "MarshWalk")}, a half-mile wooden boardwalk along the salt marsh with a row of restaurants, is about 6 minutes away by car.`,
-      `${h.ext(HB_PARK, "Huntington Beach State Park")} and ${h.ext(BROOKGREEN, "Brookgreen Gardens")} are both within a 20-minute drive.`,
+      `The free pier walk and free beach parking at Garden City Beach are a 6-minute drive across the marsh. ${h.ext(HB_PARK, "Huntington Beach State Park")} and ${h.ext(BROOKGREEN, "Brookgreen Gardens")} are both within a 20-minute drive.`,
       "Murrells Inlet is not a town, so the county's rules apply on most of these streets. The south part is in Georgetown County. There, a vehicle or travel trailer without current plates has to be kept in a closed building.",
       "Flood is the honest cost: more than half of these houses are in a high-risk flood zone.",
     ]),
@@ -549,16 +549,16 @@ module.exports = GL.page({
       `Conway's older streets ${h.ext(CONWAY_OAKS, "were designed around its live oaks")}, on a bluff of the Waccamaw River. The Riverwalk follows the river downtown, and the Waccamaw is a federal ${h.ext(BLUE_TRAIL, "National Water Trail")}.`,
       "In town, lots are about 15,000 square feet. Inside the city, a camper or a trailer can go in the side or back yard or under a carport. A shed goes in back, with a permit.",
       `The oldest streets form a ${h.ext(CONWAY_RHD, "National Register district")}. Its houses range from Greek Revival and Carpenter Gothic through Queen Anne to 1920s bungalows, one of them with a porch around three sides.`,
-      `The ${h.ext(HC_MUSEUM, "Horry County Museum")} is in the restored 1905 Burroughs School, about a quarter hour on foot from downtown. ${h.ext(RIVERFEST, "Riverfest")} brings music and fireworks to the river on the Saturday before the Fourth of July weekend.`,
+      `The ${h.ext(HC_MUSEUM, "Horry County Museum")} is in the restored 1905 Burroughs School, about a quarter hour on foot from downtown. ${h.ext(RIVERFEST, "Riverfest")} brings music and fireworks to the river on the Saturday before the Fourth of July weekend, and the Celebration of Lights opens each December.`,
       `${h.ext(LANDINGS, "Billy Witherspoon Landing")}, a county ramp on the Waccamaw, is a 6-minute drive. Conway Medical Center is a 12-minute drive.`,
       "The trade-off is the beach, a 25-minute drive.",
     ]),
 
     entry("loris", "a small town with its own hospital", [
-      "Loris is a small town with its own hospital: McLeod Loris, with an emergency room, is in town. Most of the older houses date from the 1960s, on lots of about 0.4 acre.",
-      "City zoning allows up to two buildings beside the house, a garage or carport included, so there is room for a workshop.",
+      "Loris is a small town with its own hospital: McLeod Loris, with an emergency room, is in town. The older houses were built from the 1940s to the 1970s, on lots of about 0.4 acre.",
+      "City zoning allows up to two buildings beside the house, a garage or carport included, so there is room for a workshop. A work truck up to 2 tons may park at home.",
       `The Main Street ${h.ext(LORIS_LIBRARY, "library")} lends cake pans, state park passes and Wi-Fi hotspots.`,
-      `On the third Saturday in October, the city holds the ${h.ext(LORIS_CITY, "Loris Bog-Off")} downtown, with vendors, a car show and live music. The town's dish is chicken bog: chicken, rice and sausage.`,
+      `On the third Saturday in October, the city holds the ${h.ext(LORIS_CITY, "Loris Bog-Off")} downtown, with vendors, a car show and live music. The festival's dish is chicken bog: chicken, rice and sausage.`,
       "You drive more from here: the beach is about 35 minutes by car.",
     ]),
 
@@ -566,7 +566,7 @@ module.exports = GL.page({
       "Around Loris, most houses for sale are new, built in 2024 or later, outside any town limits. Many of the new houses are on lots of about 0.7 acre, with room for a camper, a trailer and a shop under the county's rules.",
       `The ${h.ext(WACCAMAW_PRESERVE, "Waccamaw River Heritage Preserve")} protects 28 miles of the Waccamaw River, with riverside camping on its land.`,
       "For a work truck, the county lets a business run from home keep three service vehicles on a farm-zoned lot under an acre and a half. McLeod Loris hospital is about 9 minutes away by car.",
-      "Outside the towns, the Solid Waste Authority provides no curbside trash pickup. You hire a hauler or use a county drop-off center.",
+      "Outside the towns, a small shed can go 5 feet from the line, and fences can be 8 feet tall. The Solid Waste Authority provides no curbside trash pickup there, so you hire a hauler or use a county drop-off center.",
     ]),
 
     entry("aynor", "an acre and a river landing", [

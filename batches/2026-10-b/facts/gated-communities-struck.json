@@ -2290,7 +2290,7 @@
     "row": "gated 607 (v10)",
     "pattern": "\\bhouses in Breakers Reef\\b",
     "struck": "One-bedroom condos in Summerhouse usually sell for about $200,000, and houses in Breakers Reef for about $1.5 million to $2.2 million.",
-    "use": "One-bedroom condos in Summerhouse usually sell for about $200,000, and villas in Breakers Reef for about $1.5 million to $2.2 million."
+    "use": "One-bedroom condos in Summerhouse usually sell for about $200,000. Four villas in Breakers Reef sold last year for about $1.5 million to $2.2 million. (v11: four sales are stated as sales, as rows 90 and 199 require.)"
   },
   {
     "row": "gated 611 (v10)",
@@ -2423,5 +2423,119 @@
     "pattern": "\\bevery section's fee covers\\b",
     "struck": "In Litchfield by the Sea, every section's fee covers the common areas, grounds, pool and security.",
     "use": "In Litchfield by the Sea, the lists in each section name the common areas, grounds, pool and security, but the lists differ inside a section."
+  },
+  {
+    "row": "gated 200 (v11)",
+    "pattern": "Tidewater Golf Club No\\. 39 among America's 100 Greatest Public",
+    "struck": "Golf Digest has ranked Tidewater Golf Club No. 39 among America's 100 Greatest Public Courses.",
+    "use": "Golf Digest ranks Tidewater Golf Club No. 38 among the best public courses you can play in South Carolina [Golf Digest, Best in State 2025-26]. (Do not call it a national rank: Golf Digest's page shows the course on the America's 100 Greatest Public list only from 2003 to 2012, highest 41st.)"
+  },
+  {
+    "row": "gated 200 (v11)",
+    "pattern": "golf course ranked among the best you can play in America",
+    "struck": "Tidewater, in North Myrtle Beach, has a golf course ranked among the best you can play in America.",
+    "use": "Tidewater, in North Myrtle Beach, has a golf course that Golf Digest ranks among the best public courses in South Carolina; in 1990 Golf Digest and Golf Magazine named it the best new public course in America."
+  },
+  {
+    "row": "gated 594 (v11)",
+    "pattern": "custom homes,? most about 3,000 to 3,800 square feet",
+    "struck": "Most houses sold here lately are new, and they are large: custom homes, most about 3,000 to 3,800 square feet.",
+    "use": "Many are large custom homes of about 3,000 to 3,800 square feet; most are between about 2,800 and 4,000 square feet [listings, all 188 read: 92 of 188 in 3,000 to 3,800, 123 in 2,800 to 4,000]."
+  },
+  {
+    "row": "gated 571 (v11)",
+    "pattern": "lots on that edge sit about 200 feet from a highway",
+    "struck": "The Carolina Bays Parkway (S.C. 31) runs along one side, so lots on that edge sit about 200 feet from a highway.",
+    "use": "(Say the nearest lots sit about 280 feet from S.C. 31 [county parcels; OpenStreetMap], or cut the distance. The 59 m of v9 was to a parcel that is not a lot.)"
+  },
+  {
+    "row": "gated 607 (v11)",
+    "pattern": "The houses are in Charlestowne Grant, Compass Point and River Club",
+    "struck": "The houses are in Charlestowne Grant, Compass Point and River Club; Charlestowne Grant's are raised beach houses.",
+    "use": "The association also lists single-family homes in Charlestowne Grant (45), Compass Point (20), River Club (about 250) and Oystercatcher Island, so these are not the only places with houses [association's community pages]."
+  },
+  {
+    "row": "gated 607 (v11)",
+    "pattern": "Charlestowne Grant's are raised beach houses",
+    "struck": "Charlestowne Grant's are raised beach houses.",
+    "use": "Many of Charlestowne Grant's houses are raised beach houses [MLS: all 8 listings read]."
+  },
+  {
+    "row": "gated 569 (v11)",
+    "pattern": "Socastee to Murrells Inlet",
+    "struck": "Socastee to Murrells Inlet, 7 to 12 (heading and map pill).",
+    "use": "Name the area so it covers Prestwick too: Socastee, Surfside Beach and Murrells Inlet (7 to 12). Prestwick is near Surfside Beach, about 12 km from Murrells Inlet."
+  },
+  {
+    "row": "gated 572 (v11)",
+    "pattern": "Typical sale prices in them are about \\$200,000 to \\$2\\.2 million",
+    "struck": "Typical sale prices in them are about $200,000 to $2.2 million.",
+    "use": "Typical sale prices in them run from about $200,000 to about $2 million. ($2.2 million is the top of four Breakers Reef sales, not a typical price.)"
+  },
+  {
+    "row": "gated 594 (v11)",
+    "pattern": "Most houses sold here lately are new\\b",
+    "struck": "Most houses sold here lately are new, and they are large.",
+    "use": "Most houses sold here lately were built since 2020 [127 of 188 listings]."
+  },
+  {
+    "row": "gated 594 (v11)",
+    "pattern": "lots on the Intracoastal Waterway have a private dock",
+    "struck": "Lots on the Intracoastal Waterway have a private dock.",
+    "use": "Lots on the Intracoastal Waterway often have a private dock [19 of the 22 waterway listings name one]."
+  },
+  {
+    "row": "gated 632 (v11)",
+    "pattern": "so expect new houses going up",
+    "struck": "The lots are small, and about one in five has no house on the county roll yet, so expect new houses going up.",
+    "use": "The lots are small, and about one in five has no house on the county roll yet. (Cut the forecast, or say a house may go up on a nearby lot.)"
+  },
+  {
+    "row": "gated 570 (v11)",
+    "pattern": "was built around its clubhouse|a clubhouse built for a social calendar",
+    "struck": "Seasons at Prince Creek West, in Murrells Inlet, was built around its clubhouse.",
+    "use": "Seasons at Prince Creek West, in Murrells Inlet, has a clubhouse with a full-time activities director [builder's 2013 release]."
+  },
+  {
+    "row": "gated 159 (v11)",
+    "pattern": "clubhouse was built with a ballroom",
+    "struck": "The clubhouse was built with a ballroom, a card room, an art studio and a billiards room.",
+    "use": "The builder listed a ballroom, a card room, an art studio and a billiards room in the clubhouse [builder's 2013 release]."
+  },
+  {
+    "row": "gated 102 (v11)",
+    "pattern": "Today the clubhouse has indoor and outdoor pools",
+    "struck": "Today the clubhouse has indoor and outdoor pools, a fitness center, tennis and bocce.",
+    "use": "Today the community has a clubhouse, indoor and outdoor pools, a fitness center, tennis and bocce [management company, 2024]."
+  },
+  {
+    "row": "gated 611 (v11)",
+    "pattern": "Condo and villa fees are about \\$620 a month",
+    "struck": "Condo and villa fees are about $620 a month, up to about $1,880 for an oceanfront condo.",
+    "use": "In the sections whose sales we read, condo and villa fees run from about $620 a month to about $1,880 for an oceanfront condo [listings, 11 sections]."
+  },
+  {
+    "row": "gated 611 (v11)",
+    "pattern": ", and Charlestowne Grant's houses pay about \\$520 to \\$630",
+    "struck": "Condo and villa fees are about $620 a month, up to about $1,880 for an oceanfront condo, and Charlestowne Grant's houses pay about $520 to $630.",
+    "use": "Most of Charlestowne Grant's houses pay about $520 to $630, and one of the eight we read pays about $820 [listings]."
+  },
+  {
+    "row": "gated 90 (v11)",
+    "pattern": "usually sell for about \\$200,000, and villas in Breakers Reef",
+    "struck": "One-bedroom condos in Summerhouse usually sell for about $200,000, and villas in Breakers Reef for about $1.5 million to $2.2 million.",
+    "use": "One-bedroom condos in Summerhouse usually sell for about $200,000. Four Breakers Reef villas sold last year for about $1.5 million to $2.2 million."
+  },
+  {
+    "row": "gated 608 (v11)",
+    "pattern": "Some lots look over the old rice fields",
+    "struck": "Some lots look over the old rice fields toward the river.",
+    "use": "A few lots look over the old rice fields toward the river [2 of the 83 listings; Golf Digest says the course runs beside long-abandoned rice fields]."
+  },
+  {
+    "row": "gated 570 (v11)",
+    "pattern": "Several gates have staff",
+    "struck": "Several gates have staff: a guard day and night at some, a gatehouse or a watch desk at others.",
+    "use": "Several gates have a guard on duty day and night; others have a gatehouse or a watch desk."
   }
 ]

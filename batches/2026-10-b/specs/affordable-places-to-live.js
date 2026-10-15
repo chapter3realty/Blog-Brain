@@ -248,7 +248,7 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "Twelve affordable places near Myrtle Beach where homes sell for about half the typical price.",
+  sub: "Twelve affordable places where homes sell for about half the typical price of a Myrtle Beach house.",
   toc: false,
   heroCta: { title: "See any of them in person.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
@@ -277,7 +277,7 @@ module.exports = G.page({
     entry("sawgrass-east", "three-bedroom townhomes with a garage", () =>
       h.p("Many Sawgrass East townhomes have three bedrooms. Many of the three-bedroom ones have a one-car garage and the main bedroom downstairs. The HOA fee usually covers the insurance on the buildings, the lawn care, and the water, sewer and trash.") +
       h.p("There are about 255 townhomes, built in the mid-2000s, around three small lakes that the HOA owns. Owners share a pool and a clubhouse. The neighborhood is off Carolina Forest Boulevard, about two and a half miles by road from US 501.") +
-      h.p("The county's Carolina Forest library and recreation center share a campus on the same boulevard. Sawgrass East's HOA fee is the second highest here, after Wynbrooke's.")),
+      h.p("The county's Carolina Forest library and recreation center are on the same boulevard. Sawgrass East's HOA fee is the second highest here, after Wynbrooke's.")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
       h.p("Birchwood is small: 77 lots, with new Lennar houses on lots of about a quarter acre and about 12 acres of open space. A quarter acre gives a new house a real backyard at this price.") +
@@ -288,7 +288,7 @@ module.exports = G.page({
     entry("golf-and-yacht-club", "one-story houses behind a gate", () =>
       h.p("The older part of Myrtle Beach Golf and Yacht Club has about 470 houses behind a gate, most of them one story. Owners share a pool and hot tub, tennis courts and a community center.") +
       h.p("Most houses there were built in the 1980s, with two or three bedrooms and two baths. They typically have about 1,200 square feet, on about an eighth of an acre, and many have a porch or a patio.") +
-      h.p("From mid-April to mid-October, the pool opens at 8 a.m. for lap swimming, then an exercise hour, then open swim until 8 p.m. or sundown. Osprey Marina, on the Intracoastal Waterway, is about four miles away by road.") +
+      h.p("From mid-April to mid-October, the pool opens at 8 a.m. for lap swimming, then an exercise hour, then open swim until 8 p.m. or sundown. Osprey Marina, with wet slips and dry boat storage on the Intracoastal Waterway, is about four miles away by road.") +
       h.p("Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy.")),
 
     entry("forestbrook-village", "new townhome plans up to 2,400 square feet", () =>
