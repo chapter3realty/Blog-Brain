@@ -83,32 +83,77 @@
    ]
   },
   {
-   "name": "Pine Lakes, Myrtle Heights and Plantation Point",
+   "name": "Myrtle Heights",
    "spec": {
     "nbhds": [
-     "Pine Lakes",
-     "Myrtle Heights - MB 31st-40th Ave North",
-     "Plantation Point"
+     "Myrtle Heights - MB 31st-40th Ave North"
     ]
    },
    "kind": "res",
-   "noFee": 17,
-   "total": 17,
+   "noFee": 4,
+   "total": 4,
    "share": 100,
-   "medianNoFeeHousePrice": 979900.0,
-   "noFeeHouses": 17,
-   "lotAcresMedian": 0.4515,
-   "lotMatched": 16,
-   "yearBuiltMedian": 1993.0,
+   "medianNoFeeHousePrice": 1632500.0,
+   "noFeeHouses": 4,
+   "lotAcresMedian": 0.37,
+   "lotMatched": 4,
+   "yearBuiltMedian": 1965.0,
    "since2024": 1,
-   "before1990": 7,
-   "yearKnown": 17,
-   "key": "mb-north",
+   "before1990": 3,
+   "yearKnown": 4,
+   "key": "mb-myrtle-heights",
    "measure": {
     "nbhds": [
-     "Pine Lakes",
-     "Myrtle Heights - MB 31st-40th Ave North",
-     "Plantation Point"
+     "Myrtle Heights - MB 31st-40th Ave North"
+    ]
+   },
+   "mapShapes": [
+    {
+     "name": "Myrtle Heights",
+     "lat": 33.713,
+     "lon": -78.8575,
+     "radius": 700
+    }
+   ],
+   "noFeeMls": [
+    "2529233",
+    "2618544",
+    "2623815",
+    "2624037"
+   ],
+   "withFeeMls": [],
+   "floodHighRisk": [
+    0,
+    4
+   ],
+   "withinHalfMileOfShore": [
+    4,
+    4
+   ]
+  },
+  {
+   "name": "Pine Lakes",
+   "spec": {
+    "nbhds": [
+     "Pine Lakes"
+    ]
+   },
+   "kind": "res",
+   "noFee": 6,
+   "total": 6,
+   "share": 100,
+   "medianNoFeeHousePrice": 929950.0,
+   "noFeeHouses": 6,
+   "lotAcresMedian": 0.448,
+   "lotMatched": 5,
+   "yearBuiltMedian": 1996.0,
+   "since2024": 0,
+   "before1990": 3,
+   "yearKnown": 6,
+   "key": "mb-pine-lakes",
+   "measure": {
+    "nbhds": [
+     "Pine Lakes"
     ]
    },
    "mapShapes": [
@@ -116,14 +161,53 @@
      "name": "Pine Lakes",
      "lat": 33.7315,
      "lon": -78.8395,
-     "radius": 600
-    },
-    {
-     "name": "Myrtle Heights",
-     "lat": 33.713,
-     "lon": -78.8575,
-     "radius": 700
-    },
+     "radius": 650
+    }
+   ],
+   "noFeeMls": [
+    "2529749",
+    "2619121",
+    "2619701",
+    "2622128",
+    "2623977",
+    "2624074"
+   ],
+   "withFeeMls": [],
+   "floodHighRisk": [
+    0,
+    5
+   ],
+   "withinHalfMileOfShore": [
+    3,
+    5
+   ]
+  },
+  {
+   "name": "Plantation Point",
+   "spec": {
+    "nbhds": [
+     "Plantation Point"
+    ]
+   },
+   "kind": "res",
+   "noFee": 7,
+   "total": 7,
+   "share": 100,
+   "medianNoFeeHousePrice": 1199000.0,
+   "noFeeHouses": 7,
+   "lotAcresMedian": 0.458,
+   "lotMatched": 7,
+   "yearBuiltMedian": 1998.0,
+   "since2024": 0,
+   "before1990": 1,
+   "yearKnown": 7,
+   "key": "mb-plantation-point",
+   "measure": {
+    "nbhds": [
+     "Plantation Point"
+    ]
+   },
+   "mapShapes": [
     {
      "name": "Plantation Point",
      "lat": 33.7285,
@@ -132,47 +216,23 @@
     }
    ],
    "noFeeMls": [
-    "2529233",
-    "2529749",
     "2611539",
     "2612037",
     "2615400",
-    "2618544",
-    "2619121",
-    "2619701",
     "2620279",
     "2621303",
-    "2622128",
     "2623603",
-    "2623815",
-    "2623977",
-    "2624037",
-    "2624074",
     "2624780"
    ],
    "withFeeMls": [],
    "floodHighRisk": [
     0,
-    16
+    7
    ],
    "withinHalfMileOfShore": [
-    7,
-    16
-   ],
-   "byNeighborhood": {
-    "Pine Lakes": [
-     6,
-     6
-    ],
-    "Myrtle Heights - MB 31st-40th Ave North": [
-     4,
-     4
-    ],
-    "Plantation Point": [
-     7,
-     7
-    ]
-   }
+    0,
+    7
+   ]
   },
   {
    "name": "Windy Hill",
