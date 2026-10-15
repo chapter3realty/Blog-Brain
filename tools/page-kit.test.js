@@ -136,6 +136,12 @@ check("glass bars: the feature sits beside the name, the price at the end of the
 check("glass bars: bars start at 0 and the reference bar is neutral", /--f:1"/.test(chart) && /--f:0\.451"/.test(chart) && /class="ref"/.test(chart));
 check("glass bars: a feature about people is refused (fair housing)", throws(() => G.bars([{ name: "A", value: 1, feature: "great for families" }, { name: "B", value: 2 }], { caption: "x" }), /fair-housing|describes people/));
 check("glass bars: a feature over 48 letters is refused", throws(() => G.bars([{ name: "A", value: 1, feature: "x".repeat(49) }, { name: "B", value: 2 }], { caption: "x" }), /48 or fewer/));
+{
+  const rows = [{ name: "Parkview", value: 190000, feature: "walk to Whispering Pines golf", href: "#parkview" }, { name: "Wynbrooke", value: 249500 }];
+  const plainChart = G.bars(rows, { caption: "What homes usually sold for" }), compactChart = G.bars(rows, { caption: "What homes usually sold for", compact: true });
+  check("glass bars compact: opt-in only; without it the chart has no compact class or style", !/c3-gchart-compact|<style>/.test(plainChart));
+  check("glass bars compact: the compact chart carries its own rules and the same rows", /^<style>[^<]*c3-gchart-compact[^<]*<\/style><figure class="c3-gchart c3-gchart-compact">/.test(compactChart) && compactChart.endsWith(plainChart.replace('<figure class="c3-gchart">', "").slice(-200)));
+}
 const pill = G.offer("Parkview");
 check("glass offer: a pill to the contact form with the place named", pill === '<p class="c3-offer"><a class="c3-offer-pill" href="/contact/?place=Parkview">Book a showing in Parkview<span class="c3-offer-ar" aria-hidden="true">' + pill.split('aria-hidden="true">')[1].split("</span>")[0] + "</span></a></p>");
 check("glass offer: the place name is encoded in the link", /href="\/contact\/\?place=The%20Fairways%20at%20Wild%20Wing"/.test(G.offer("The Fairways at Wild Wing")));

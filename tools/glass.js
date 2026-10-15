@@ -336,8 +336,18 @@ function bars(rows, o = {}) {
   }).join("");
   const head = `<div role="rowgroup" class="sr"><div role="row"><span role="columnheader">${esc(o.nameLabel || "Place")}${anyFeature ? `, ${esc(o.featureLabel || "best feature")}` : ""}</span><span role="columnheader">${esc(o.valueLabel || "Typical price")}</span></div></div>`;
   const note = o.note ? `<figcaption>${esc(plainText("the chart note", o.note, 400))}</figcaption>` : "";
+  /* o.compact (opt-in): a tighter chart for a page whose opening must stay short (CRAFT 3, "No preamble";
+     owner's-eye round 14: the 13-row chart was 1.7 phone screens). Each place is one row: the name and
+     its feature on one line, a thin bar and the price on the next, closer together. Text stays at the
+     reading size. Without o.compact the chart is byte for byte what it was. */
+  if (o.compact) return `<style>${COMPACT_CHART_RULES}</style><figure class="c3-gchart c3-gchart-compact"><div role="table" aria-label="${esc(caption)}"><span class="cap" aria-hidden="true">${esc(caption)}</span>${head}<div role="rowgroup">${body}</div></div>${note}</figure>`;
   return `<figure class="c3-gchart"><div role="table" aria-label="${esc(caption)}"><span class="cap" aria-hidden="true">${esc(caption)}</span>${head}<div role="rowgroup">${body}</div></div>${note}</figure>`;
 }
+const CC = "main#main .c3-gchart.c3-gchart-compact";
+const COMPACT_CHART_RULES = `${CC}{padding-top:1rem;padding-bottom:.85rem}${CC} .cap{margin-bottom:.7rem}`
+  + `${CC} [role=rowgroup]{gap:.5rem}${CC} [role=row]{gap:.1rem .9rem}${CC} [role=rowheader]{line-height:1.3}`
+  + `${CC} .b{height:.5rem;min-width:.5rem}${CC} .v{line-height:1.25}${CC} figcaption{margin-top:.8rem}`
+  + `@media (max-width:699px){${CC} [role=rowgroup]{gap:.45rem}${CC} [role=row]{gap:.05rem}}`;
 const chartCss = () => `<style>${CHART_RULES}</style>`;
 
 /* ---------------------------------------------------------------------------- */
