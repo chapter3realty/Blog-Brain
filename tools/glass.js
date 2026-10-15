@@ -340,6 +340,10 @@ function bars(rows, o = {}) {
      owner's-eye round 14: the 13-row chart was 1.7 phone screens). Each place is one row: the name and
      its feature on one line, a thin bar and the price on the next, closer together. Text stays at the
      reading size. Without o.compact the chart is byte for byte what it was. */
+  /* o.phoneList (opt-in, with compact): on a phone, no bars. Each place is its name with the price at the
+     end of the same line, and its feature on the line under it; the bars return from 700 px. The bars of
+     twelve close prices look the same length on a phone and only add height (owner's eye 14c, H1). */
+  if (o.compact && o.phoneList) return `<style>${COMPACT_CHART_RULES}${PHONE_LIST_RULES}</style><figure class="c3-gchart c3-gchart-compact c3-gchart-list"><div role="table" aria-label="${esc(caption)}"><span class="cap" aria-hidden="true">${esc(caption)}</span>${head}<div role="rowgroup">${body}</div></div>${note}</figure>`;
   if (o.compact) return `<style>${COMPACT_CHART_RULES}</style><figure class="c3-gchart c3-gchart-compact"><div role="table" aria-label="${esc(caption)}"><span class="cap" aria-hidden="true">${esc(caption)}</span>${head}<div role="rowgroup">${body}</div></div>${note}</figure>`;
   return `<figure class="c3-gchart"><div role="table" aria-label="${esc(caption)}"><span class="cap" aria-hidden="true">${esc(caption)}</span>${head}<div role="rowgroup">${body}</div></div>${note}</figure>`;
 }
@@ -348,6 +352,9 @@ const COMPACT_CHART_RULES = `${CC}{padding-top:1rem;padding-bottom:.85rem}${CC} 
   + `${CC} [role=rowgroup]{gap:.5rem}${CC} [role=row]{gap:.1rem .9rem}${CC} [role=rowheader]{line-height:1.3}`
   + `${CC} .b{height:.5rem;min-width:.5rem}${CC} .v{line-height:1.25}${CC} figcaption{margin-top:.8rem}`
   + `@media (max-width:699px){${CC} [role=rowgroup]{gap:.45rem}${CC} [role=row]{gap:.05rem}}`;
+const CL = "main#main .c3-gchart.c3-gchart-list";
+const PHONE_LIST_RULES = `@media (max-width:699px){${CL} [role=row]{grid-template-columns:minmax(0,1fr) auto;column-gap:.8rem;align-items:start}`
+  + `${CL} .b{display:none}${CL} .dot{display:none}${CL} .f{display:block}${CL} [role=cell]{justify-content:flex-end}}`;
 const chartCss = () => `<style>${CHART_RULES}</style>`;
 
 /* ---------------------------------------------------------------------------- */
