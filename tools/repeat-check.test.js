@@ -226,6 +226,18 @@ const B = {
   ok("e: theme bigrams are counted, names left out", r.themes.some((x) => x.bigram === "golf course" && x.count >= 2) && !r.themes.some((x) => /tom|fazio/i.test(x.bigram)), JSON.stringify(r.themes));
 }
 ok("sentences: initials do not split a sentence", sentences("Its golf course, designed by Pete Dye and his son P.B. Dye, opened in 1989. D.R. Horton built it.").length === 2);
+/* The glass offer pill (tools/glass.js offer()) in every entry is the offer zone, not body copy: quiet with
+   its class; the same words as a plain paragraph still fire as a device and a shape. */
+{
+  const pill = (cls, name) => `<p${cls ? ' class="c3-offer"' : ""}><a${cls ? ' class="c3-offer-pill"' : ""} href="/contact/?place=${encodeURIComponent(name)}">Book a showing in ${name}</a></p>`;
+  const withPills = (cls) => { let i = 0; const names = ["Tidewater Plantation", "Barefoot Resort", "Prestwick", "Bellwood Landing"];
+    return page({ entries: [G.tidewater, G.barefoot, G.prestwick, G.bellwood] }).replace(/<\/figure>/g, (m) => m + pill(cls, names[i++])); };
+  const quiet = analyze(withPills(true)), loud = analyze(withPills(false));
+  const showing = (r) => r.devices.some((x) => x.device === "showing" || x.also.includes("showing"));
+  ok("offer pill quiet: \"Book a showing in X\" in a .c3-offer is not a device or a shape", !showing(quiet) && !quiet.shapes.some((x) => /showing/.test(x.shape || JSON.stringify(x))), JSON.stringify(quiet.devices.map((x) => x.device)));
+  ok("offer pill fires: the same line as a plain paragraph is a device", showing(loud), JSON.stringify(loud.devices.map((x) => x.device)));
+}
+
 {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "repeat-check-"));
   const bad = path.join(dir, "bad.html"), good = path.join(dir, "good.html");
