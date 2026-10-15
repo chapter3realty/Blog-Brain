@@ -107,7 +107,7 @@ const P = [
   { id: "parkview", name: "Parkview", map: "Parkview", lat: 33.686431, lon: -78.910360, price: 190000, mb: 6.1, beach: 4.0, year: 4700,
     feature: "4 min to the beach, golf", schools: "Myrtle Beach Elementary, Middle and High" },
   { id: "fairways-at-wild-wing", name: "The Fairways at Wild Wing", map: "Fairways at Wild Wing", lat: 33.787649, lon: -78.986234, price: 215000, mb: 16.5, beach: 17.8, year: 6100,
-    feature: "own garage, golf community", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "own garage, golf", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "sawgrass-east", name: "Sawgrass East", map: "Sawgrass East", lat: 33.756167, lon: -78.929975, price: 222500, mb: 16.7, beach: 17.9, year: 6000,
     feature: "garage, pool, clubhouse", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "birchwood", name: "Birchwood", map: "Birchwood", lat: 33.925885, lon: -78.754012, price: 223825, mb: 41.6, beach: 20.2, year: 2400,
@@ -123,7 +123,7 @@ const P = [
   { id: "villas-at-sandridge", name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46, year: 4600,
     feature: "7 min to the beach", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2, year: 2000,
-    feature: "new, 22 acres open space", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
+    feature: "22 acres of open space", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
   { id: "wynbrooke", name: "Wynbrooke", map: "Wynbrooke", lat: 33.584176, lon: -79.048446, price: 249500, mb: 19.8, beach: 8.9, year: 6500,
     feature: "5 min to the MarshWalk", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "polo-farms", name: "Polo Farms", map: "Polo Farms", lat: 33.917844, lon: -78.812061, price: 255000, mb: 36.0, beach: 22.0, year: 1300,
@@ -139,10 +139,10 @@ const pr = (id) => money(N[id].price);
 /* The selection guide: the glass price chart, each place's best feature beside its price (row 212, 222). The
    gray Myrtle Beach bar comes first, so the point is clear before the list: these cost about half. Compact rows
    (glass.js bars o.compact), so the first place starts sooner on a phone (owner's eye 14, H1). */
-const GUIDE = G.bars([{ name: "A Myrtle Beach home, to compare", value: MB_HOUSE, valueText: money(MB_HOUSE), reference: true }]
+const GUIDE = G.bars([{ name: "A Myrtle Beach home", value: MB_HOUSE, valueText: money(MB_HOUSE), reference: true }]
   .concat(P.map((p) => ({ name: `${p.n}. ${p.chart || p.map}`, value: p.price, valueText: money(p.price), feature: p.feature, href: A(p.id) }))), {
-  caption: "These usually sold for about half what a Myrtle Beach home did",
-  note: "Tap a name to read about the place. Prices are the middle recorded sale in the past year, condos left out.",
+  caption: "About half the price of a Myrtle Beach home",
+  note: "Tap a name to read about it. Prices: the middle sale last year, condos left out.",
   max: MB_HOUSE, featureLabel: "best feature", valueLabel: "Usually sold for", compact: true, phoneList: true,
 });
 
@@ -229,13 +229,13 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "Twelve affordable places near Myrtle Beach, ranked by what homes sold for in the county's deed records.",
+  sub: "Affordable places near Myrtle Beach, ranked by the county's deed records.",
   toc: false,
   heroCta: { title: "Book a showing in these neighborhoods.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
   author: "devin",
   shortAnswer: [
-    `Within about 20 minutes of a beach, these twelve neighborhoods had the lowest prices last year. Homes in them usually sold for about ${pr("parkview")} to ${pr("polo-farms")}, against about ${money(MB_HOUSE)} for a Myrtle Beach home that is not a condo. Four of the twelve are neighborhoods of houses; the rest are townhomes.`,
+    `Within about 20 minutes of a beach, these twelve neighborhoods near Myrtle Beach had the lowest prices last year. Homes in them usually sold for about ${pr("parkview")} to ${pr("polo-farms")}, against about ${money(MB_HOUSE)} for a Myrtle Beach home that is not a condo. Four of the twelve are neighborhoods of houses; the rest are townhomes.`,
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "The twelve at a glance", id: "compare", html: () =>
@@ -302,7 +302,7 @@ module.exports = G.page({
       h.p(`Indigo Grove is a new Lennar neighborhood south of Longs, and its association owns about 22 acres of open space. Lennar sells it as The Overlook. ${h.ext(OVERLOOK, "Lennar lists nine floor plans")} with three to five bedrooms, some of them one story, on lots of about a fifth of an acre.`) +
       h.p("Every lot is outside the high-risk flood zone, so a lender usually will not require flood insurance on a home here.") +
       h.p("Griffin's IGA, a grocery store on SC 90, is three minutes away, and trash pickup is included.") +
-      h.p(`The nearest beach is about ${mins(N["indigo-grove"].beach)} minutes away by car, and Coastal Grand Mall about ${mins(N["indigo-grove"].mb)}.`)),
+      h.p(`The nearest beach is about ${mins(N["indigo-grove"].beach)} minutes away by car.`)),
 
     entry("wynbrooke", "townhomes by the Murrells Inlet MarshWalk", () =>
       h.p(`The ${h.ext(MARSHWALK, "Murrells Inlet MarshWalk")} is five minutes from Wynbrooke. It is a half-mile boardwalk along the marsh, lined with restaurants, with live music every night and no cover charge.`) +
