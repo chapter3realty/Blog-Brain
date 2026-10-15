@@ -297,7 +297,7 @@ module.exports = GL.page({
     entry("crescent-beach", "almost no HOA, and a maritime forest", [
       "Almost every home for sale in Crescent Beach is listed with no HOA dues. This is the middle of North Myrtle Beach, from about 9th to 27th Avenue South.",
       "Each of those houses is half a mile or less from the ocean, on streets such as Hillside Drive, Holly Drive, Perrin Drive and Strand Avenue.",
-      `${h.ext(INGRAM, "Ingram Dunes Nature Preserve")}, on Hillside Drive at 9th Avenue South, keeps the city's last maritime forest. Its dunes are 30 feet tall, and it has a half-mile nature trail.`,
+      `${h.ext(INGRAM, "Ingram Dunes Nature Preserve")}, on Hillside Drive at 9th Avenue South, is the city's last remaining maritime forest. It has native dunes 30 feet tall and an interpretive half-mile nature trail.`,
       "Unlike Cherry Grove, few houses here would need flood insurance for a mortgage. Lots are small: about a sixth of an acre.",
       `Expect to pay about ${priceOf("crescent-beach")} for a house here.`,
     ]),
@@ -313,8 +313,8 @@ module.exports = GL.page({
     entry("cherry-grove", "a boat on the canals", [
       "Over half the homes for sale in Cherry Grove carry no HOA dues, and so does every one outside a named subdivision.",
       `Canals were dug through the Cherry Grove marsh as early as the 1950s. The city ${h.ext(CANALS, "dredges them")}, so owners on the canals can take a boat to House Creek and the Intracoastal Waterway at high and low tide.`,
-      `Without a canal lot, use the city's ${h.ext(NMB_RAMP, "boat ramp at 53rd Avenue North")}, 5 minutes away. It has two launch lanes, a floating dock and a fish cleaning station, and city residents can register to park there free.`,
-      "From the same lot, boardwalks cross the marsh to Heritage Shores Nature Preserve. An angler on the Cherry Grove Pier landed the largest tiger shark ever taken from land in the U.S.",
+      `Without a canal lot, use the city's ${h.ext(NMB_RAMP, "boat ramp at 53rd Avenue North")}, 5 minutes away. It has a two-lane boat launch, a kayak launch, a fishing pier, a floating boat dock and a fish cleaning station. City residents can register to park there free.`,
+      "Heritage Shores Nature Preserve, an island in the Cherry Grove marsh, is reached on elevated boardwalks. An angler on the Cherry Grove Pier landed the largest tiger shark ever taken from land in the U.S.",
       "Almost every home here is in a high-risk flood zone. Owners on the canals also pay the city about $1,700 a year for the dredging.",
       `A house here costs about ${priceOf("cherry-grove")} at its asking price.`,
     ]),

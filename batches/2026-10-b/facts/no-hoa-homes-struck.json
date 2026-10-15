@@ -260,5 +260,17 @@
     "pattern": "Myrtle Heights[^.]{0,160}\\bfrom the 1920s to the 1940s|\\bfrom the 1920s to the 1940s[^.]{0,80}Myrtle Heights|National Register[^.]{0,80}from the 1920s to the 1940s",
     "struck": "It is on the National Register of Historic Places for its houses from the 1920s to the 1940s.",
     "use": "Myrtle Heights is on the National Register for houses from 1925 to 1949 [NPS, NRIS 96001217]."
+  },
+  {
+    "row": "no-hoa 121",
+    "pattern": "keeps the city's last maritime forest|Ingram Dunes[^.]{0,120}\\bkeeps\\b",
+    "struck": "Ingram Dunes Nature Preserve, on Hillside Drive at 9th Avenue South, keeps the city's last maritime forest.",
+    "use": "Ingram Dunes Nature Preserve is the last remaining maritime forest in North Myrtle Beach, with native dunes 30 feet tall and an interpretive half-mile nature trail [nmb.us]."
+  },
+  {
+    "row": "no-hoa 123",
+    "pattern": "\\btwo launch lanes\\b|\\bFrom the same lot, boardwalks",
+    "struck": "It has two launch lanes, a floating dock and a fish cleaning station. From the same lot, boardwalks cross the marsh to Heritage Shores Nature Preserve.",
+    "use": "The ramp has a two-lane boat launch, a kayak launch, a fishing pier, a floating boat dock and a fish cleaning station; the park gives access and parking for Heritage Shores Nature Preserve, an island in the marsh reached by elevated boardwalks (parking at the west end of 53rd Avenue North, about 4 blocks from the preserve entrance) [nmb.us]."
   }
 ]
