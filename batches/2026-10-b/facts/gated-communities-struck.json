@@ -1742,5 +1742,92 @@
     "pattern": "gated community cannot get public money|gated communit(?:y|ies) (?:cannot|can't|can not) (?:get|receive)[^.]{0,30}public",
     "struck": "A gated community cannot get public money to rebuild a beach, so in 2017 they voted to create a beach fund, paid by assessments.",
     "use": "DeBordieu, a gated community, does not qualify for public renourishment money; in 2017 the owners voted to set up a beach preservation fund, paid by assessments."
+  },
+  {
+    "row": "gated 222",
+    "pattern": "\\bfrom wine dinners to\\b",
+    "struck": "The clubhouse has two Trackman simulators that play more than 260 courses, and the calendar runs from wine dinners to a Fourth of July cookout.",
+    "use": "The calendar runs from themed dinners and wine tastings to a Fourth of July cookout [Members Club lifestyle page]."
+  },
+  {
+    "row": "gated 259",
+    "pattern": "Community Watch desk covers the neighborhood",
+    "struck": "Its Community Watch desk covers the neighborhood 24 hours a day, seven days a week.",
+    "use": "The HOA lists Community Watch Desk coverage 24 hours a day, seven days a week, and a gatehouse phone line [HOA website]."
+  },
+  {
+    "row": "gated 262",
+    "pattern": "calendar lists (?:bingo|yoga|aerobics)",
+    "struck": "The community calendar lists bingo, yoga, Zumba, mahjong, card groups and a book club.",
+    "use": "The community calendar has categories for bingo, yoga, Zumba, mahjong, card groups and a book club; its events show only after a login [HOA calendar]."
+  },
+  {
+    "row": "gated 290",
+    "pattern": "carries Dye's marks|\\bdeep bunkers around (?:the )?greens",
+    "unless": "\\bseveral of Dye|\\bsome of Dye",
+    "struck": "It carries Dye's marks: wooden bulkheads along many of its water banks, deep bunkers around greens that are often raised, and fast greens.",
+    "use": "It carries several of Dye's marks: wooden bulkheads along many water banks, deep-faced bunkers around often-elevated greens, and fast TifEagle greens [MyHorryNews, July 2025]."
+  },
+  {
+    "row": "gated 302",
+    "pattern": "About 30 lots (?:are )?(?:on|at) the edge of a pond",
+    "struck": "About 30 lots are on the edge of a pond.",
+    "use": "About 30 lots lie within 10 meters (about 33 feet) of a mapped pond [county parcels, OpenStreetMap]."
+  },
+  {
+    "row": "gated 304",
+    "pattern": "Tom Fazio course that Golf Digest gave five stars",
+    "unless": "\\b2008\\b",
+    "struck": "TPC Myrtle Beach, a Tom Fazio course that Golf Digest gave five stars, is about 100 meters from the nearest lot.",
+    "use": "TPC Myrtle Beach, a Tom Fazio course that Golf Digest gave five stars in 2008 (the club's account), is about 100 meters from the nearest lot."
+  },
+  {
+    "row": "gated 346",
+    "pattern": "\\ba designated hurricane hole",
+    "struck": "It is a designated hurricane hole, a sheltered harbor for riding out storms.",
+    "use": "The S.C. Clean Marina Program describes it as designated a Hurricane Hole by the U.S. Coast Guard, a sheltered harbor for riding out storms."
+  },
+  {
+    "row": "gated 356",
+    "pattern": "\\bone (?:car|vehicle) barcode (?:covers|opens)[^.]{0,40}\\bgates",
+    "struck": "Its residents have Litchfield by the Sea's private beach and Beach Club, and one car barcode covers both communities' gates.",
+    "use": "One vehicle barcode is issued for the owner's gated community and for Litchfield by the Sea access [Litchfield by the Sea resources page]."
+  },
+  {
+    "row": "gated 369",
+    "pattern": "\\bthat is the daily sunset gathering place",
+    "struck": "The marina also has a deck over the water, bordered by cypress trees, that is the daily sunset gathering place.",
+    "use": "The marina also has a deck over the water, bordered by cypress trees, that serves as a daily sunset gathering place."
+  },
+  {
+    "row": "gated 370",
+    "pattern": "\\bhave not needed a special assessment",
+    "unless": "\\bsays?\\b",
+    "struck": "Owners have run the association since 2002 and have not needed a special assessment in that time.",
+    "use": "Owners have run the association since 2002 and say they have not needed a special assessment in that time [association site]."
+  },
+  {
+    "row": "gated 376",
+    "pattern": "\\bcheck the surf\\b",
+    "struck": "From home you can check the surf on the association's live cameras on the clubhouse deck and the north and south beaches.",
+    "use": "From home you can look at the beach on the association's live cameras on a clubhouse deck and on the north and south beaches."
+  },
+  {
+    "row": "gated 393",
+    "pattern": "As a gated community,? DeBordieu (?:does not|doesn't) qualify",
+    "struck": "As a gated community, DeBordieu does not qualify for public money to rebuild it.",
+    "use": "DeBordieu, a gated community, does not qualify for public renourishment money [Coastal Observer, 2021]; South Carolina pays for renourishment only where the public has full access to the beach [S.C. Reg. 30-21]."
+  },
+  {
+    "row": "gated 44",
+    "pattern": "Dye Estates homes have resold for about \\$1\\.4 million to \\$2\\.5 million",
+    "struck": "Dye Estates homes have resold for about $1.4 million to $2.5 million.",
+    "use": "Two Dye Estates homes were resold in the past year, at about $1.4 million and about $2.5 million [Horry County Register of Deeds]."
+  },
+  {
+    "row": "gated 92, 199",
+    "pattern": "^Differs by section$",
+    "struck": "Differs by section",
+    "use": "Differs from home to home"
   }
 ]
