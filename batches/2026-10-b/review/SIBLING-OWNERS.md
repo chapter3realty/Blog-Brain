@@ -26,6 +26,8 @@ The owner, third read: "the same information was given to gated communities as y
 | Cherry Grove | The canal dredging fee and the flood zone | No HOA | Best: one short trade-off line in different words, or a different trade-off |
 | Surfside Beach | The pier and its history | Best | No HOA: parking rules, beach access, town trash pickup |
 | Pine Lakes | The club history (1927, Sports Illustrated) | Best | No HOA: the older streets, what you can keep at home, city trash pickup |
+| The Farm | Cable TV in the fee, the pools, the activity center | The Farm | Best: a different fact for its one Farm entry, such as a normal day on the trails, or the price for what you get |
+| Carolina Forest Recreation Center and library, Bike and Run Park, East Coast Greenway trailhead | The rock wall, the gym, the trails | The Farm | Affordable (Sawgrass East): lead with the home itself (the garage, the pool), and mention the recreation center at most once, briefly |
 | Sports complex, North Myrtle Beach | The park and Shark Wake Park | Affordable | No other page |
 
 ## The rule for next time
