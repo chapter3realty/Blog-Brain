@@ -553,7 +553,7 @@
     "row": "neighborhoods 245 (via 189, 232)",
     "pattern": "\\ba walkway and a pier over the marsh",
     "struck": "Russell Burgess Coastal Preserve, with a walkway and a pier over the marsh, is under half a mile on foot.",
-    "use": "Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot. (Cut \"over the marsh\": no row says it.)"
+    "use": "From a home near the middle of Cherry Grove, Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot. (Cut \"over the marsh\": no row says it.)"
   },
   {
     "row": "neighborhoods 245 (via 182)",
@@ -644,5 +644,155 @@
     "pattern": "\\bolder than the new houses in Waterbridge",
     "struck": "Most houses for sale here were built in the 2000s and 2010s, so they are older than the new houses in Waterbridge.",
     "use": "Most houses for sale here were built in the 2000s and 2010s, which is older than most houses for sale in Waterbridge, built since 2023."
+  },
+  {
+    "row": "neighborhoods 147, 258",
+    "pattern": "\\bHouses in Prince Creek usually sell for",
+    "struck": "Houses in Prince Creek usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section.",
+    "use": "Ten resales in Prince Creek's named sections, houses and townhouses together, sold for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."
+  },
+  {
+    "row": "neighborhoods 71, 72, 258",
+    "pattern": "\\bHouses in Waterbridge usually sell for",
+    "struck": "Houses in Waterbridge usually sell for about $630,000, and the HOA fee is about $150 a month.",
+    "use": "Resales in Waterbridge sold at a middle of about $630,000, and new houses from builders at about $550,000. The HOA fee is about $150 a month."
+  },
+  {
+    "row": "neighborhoods 125, 258",
+    "pattern": "\\bHouses in the Deerfield Plantation area usually sell for about \\$355,000",
+    "struck": "Houses in the Deerfield Plantation area usually sell for about $355,000, and the HOA fee is under $90 a month.",
+    "use": "Homes in the Deerfield Plantation area usually sell for about $355,000 (houses alone, about $360,000), and the HOA fee is under $90 a month for a house."
+  },
+  {
+    "row": "neighborhoods 48, 258",
+    "pattern": "\\bHouses in Berkshire Forest usually sell for about \\$390,000",
+    "struck": "Houses in Berkshire Forest usually sell for about $390,000, and the HOA fee is about $115 a month.",
+    "use": "Homes in Berkshire Forest usually sell for about $370,000 to $390,000, and the HOA fee is about $115 a month."
+  },
+  {
+    "row": "neighborhoods 3, 258",
+    "pattern": "\\bHouses in these two sections usually sell for",
+    "struck": "Houses in these two sections usually sell for $540,000 to $670,000, and the HOA fee is about $95 a month.",
+    "use": "About 17 resales in The Preserve and Pine Lakes Estates sold mostly between $540,000 and $670,000, and the HOA fee is about $95 a month for a house."
+  },
+  {
+    "row": "neighborhoods 169, 257, 258",
+    "pattern": "\\bolder streets near the club, the homes for sale have no HOA fee",
+    "unless": "\\blistings\\b",
+    "struck": "On the older streets near the club, the homes for sale have no HOA fee.",
+    "use": "Listings for the older streets near the club show no HOA fee."
+  },
+  {
+    "row": "neighborhoods 182, 258",
+    "pattern": "\\bproperties on the (?:Cherry Grove )?canals (?:also )?pay\\b",
+    "struck": "More than 400 properties on the canals also pay the city about $1,700 a year now to dredge them.",
+    "use": "About 415 properties in the Cherry Grove Improvement District pay the city about $1,700 a year now, set each year, for dredging canals."
+  },
+  {
+    "row": "neighborhoods 255, 258",
+    "pattern": "\\bThe Surfside Beach Fishing Pier is about 4 miles away by road",
+    "struck": "The Surfside Beach Fishing Pier is about 4 miles away by road.",
+    "use": "The Surfside Beach Fishing Pier is about 4 miles by road, about 10 minutes by car, from the middle of the Deerfield Plantation area."
+  },
+  {
+    "row": "neighborhoods 258 (the-farm 27, 28; neighborhoods 40)",
+    "pattern": "\\bfrom the middle of each neighborhood",
+    "unless": "Farmers Rest Drive|entrance",
+    "struck": "Drive times are by car with no traffic, from the middle of each neighborhood, to the nearest public beach access.",
+    "use": "Drive times are by car with no traffic, from the middle of each neighborhood (The Farm: from the Farmers Rest Drive entrance) to the nearest public beach access."
+  },
+  {
+    "row": "neighborhoods 258 (the-farm 27, 28; neighborhoods 40)",
+    "pattern": "^About 10 minutes$",
+    "struck": "About 10 minutes",
+    "use": "About 10 minutes from the Farmers Rest Drive entrance; about 12 from the middle"
+  },
+  {
+    "row": "neighborhoods 223, 258",
+    "pattern": "^The nearest public beach access is about 0\\.1 mile away",
+    "unless": "\\bmiddle\\b",
+    "struck": "The nearest public beach access is about 0.1 mile away.",
+    "use": "From a home near the middle of Cherry Grove, a public beach access is about 0.1 mile away."
+  },
+  {
+    "row": "neighborhoods 232, 258",
+    "pattern": "\\bRussell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot",
+    "unless": "\\bmiddle\\b",
+    "struck": "Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot.",
+    "use": "From a home near the middle of Cherry Grove, Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot."
+  },
+  {
+    "row": "neighborhoods 245, 258",
+    "pattern": "\\bCherry Grove Pier[^.]{0,120}\\b12-minute walk away",
+    "struck": "Cherry Grove Pier was built in the 1950s and is about a 12-minute walk away.",
+    "use": "Cherry Grove Pier was built in the 1950s and is about a 12-minute walk, about half a mile, from the middle of Cherry Grove."
+  },
+  {
+    "row": "neighborhoods 140, 246, 258",
+    "pattern": "^The pier is about a 9-minute walk",
+    "unless": "\\bmiddle\\b",
+    "struck": "The pier is about a 9-minute walk, about 0.4 mile, and the sand is the same distance.",
+    "use": "From the middle of the ocean side, the pier is about a 9-minute walk, about 0.4 mile, and the sand is the same distance."
+  },
+  {
+    "row": "neighborhoods 252, 258",
+    "pattern": "\\bMarshWalk is a 7-minute drive from Prince Creek",
+    "struck": "The Murrells Inlet MarshWalk is a 7-minute drive from Prince Creek, and the entrance to Huntington Beach State Park is 12 minutes by car.",
+    "use": "From the middle of Prince Creek, the Murrells Inlet MarshWalk is about 7 minutes by car and the entrance to Huntington Beach State Park about 12."
+  },
+  {
+    "row": "neighborhoods 253, 258",
+    "pattern": "\\bminutes from Wild Wing by car",
+    "struck": "Coastal Carolina University is about 10 minutes from Wild Wing by car, Conway Medical Center about 8, and the Conway Riverwalk about 15.",
+    "use": "From the middle of Wild Wing, Coastal Carolina University is about 10 minutes by car, Conway Medical Center about 8, and the Conway Riverwalk about 15."
+  },
+  {
+    "row": "neighborhoods 256, 258",
+    "pattern": "\\bfree shuttle runs from the neighborhoods|\\bIt runs on weekends in April and May",
+    "struck": "A free shuttle runs from the neighborhoods to a public beach access on Ocean Boulevard. It runs on weekends in April and May and every day from June to early September.",
+    "use": "In 2026 a free shuttle ran from the neighborhoods to the public beach access at 46th Street on weekends from April 4, then every day from June 1 to September 6."
+  },
+  {
+    "row": "neighborhoods 10 (the-farm), 60 (the-farm), 258",
+    "pattern": "\\bIt also pays for[^.]{0,60}\\bfitness room",
+    "struck": "It also pays for two pools, a fitness room, an activity center, a basketball court and a playground.",
+    "use": "The HOA's amenities include two pools, an activity center, a clubhouse with a fitness room, a basketball court and a playground."
+  },
+  {
+    "row": "neighborhoods 247, 258",
+    "pattern": "\\bflytrap preserve next door",
+    "struck": "13. The Farm at Carolina Forest: two pools and a flytrap preserve next door",
+    "use": "13. The Farm at Carolina Forest: two pools and land the state bought for a flytrap preserve"
+  },
+  {
+    "row": "neighborhoods 216, 217, 258",
+    "pattern": "\\bpaddle kayaks on their own lakes",
+    "struck": "Waterbridge owners paddle kayaks on their own lakes.",
+    "use": "Waterbridge owners can put a kayak or other non-motorized boat on the neighborhood's lakes from a boat launch with a floating dock."
+  },
+  {
+    "row": "neighborhoods 46 (gated), 257, 258",
+    "pattern": "\\bthose three gated sections",
+    "struck": "Homes in those three gated sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month.",
+    "use": "Homes in Calais, Palermo and Villa Venezia, three of its gated sections, usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."
+  },
+  {
+    "row": "neighborhoods 200, 257, 258",
+    "pattern": "^New homes and big pools$",
+    "struck": "New homes and big pools",
+    "use": "Newer homes and big pools"
+  },
+  {
+    "row": "neighborhoods 258 (no row compares size with price)",
+    "pattern": "^Room for the money$",
+    "struck": "Room for the money",
+    "use": "(rename it: no row compares house size with price. 'Lower prices' matches the FAQ.)"
+  },
+  {
+    "row": "neighborhoods 177, 178, 258",
+    "pattern": "\\bmost homes for sale (?:on the ocean side )?have no (?:homeowners association \\(HOA\\) |HOA )fee",
+    "unless": "\\blisted\\b",
+    "struck": "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale have no homeowners association (HOA) fee.",
+    "use": "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale are listed with no homeowners association (HOA) fee."
   }
 ]
