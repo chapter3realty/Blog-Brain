@@ -408,7 +408,7 @@ module.exports = G.page({
     { q: "Does a gate make a neighborhood safer?", a: "We do not rate any neighborhood as safe or unsafe. A guard, a code or the owner lets each visitor in, and how that works differs from one gate to the next." },
     { q: "How do guests get through the gate?", a: "Each neighborhood has its own way: a guard with a guest list, a call box at the gate, or a code from the owner. Plan a visit with the owner first." },
     { q: "Is there a gated community in Surfside Beach?", a: "No, not inside the town. Prestwick, just outside it, is the gated neighborhood on this page nearest Surfside Beach." },
-    { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet is the 55+ gated community on this page." },
+    { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet is the 55+ community on this page, and visitors use a call box at its main entrance." },
     { q: "Are there gated golf communities near Myrtle Beach?", a: "Yes. Most of the gated neighborhoods on this page are built around a golf course, from North Myrtle Beach down to DeBordieu Colony." },
     { q: "Is Barefoot Resort a gated community?", a: "Only in part. Barefoot Resort in North Myrtle Beach is mostly open, with a few gated neighborhoods inside it." },
     { q: "Is Grande Dunes a gated community?", a: "Only in part. Grande Dunes in Myrtle Beach is a large planned community, and only some of its sections have gates." },
