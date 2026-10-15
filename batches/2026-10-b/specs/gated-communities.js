@@ -134,7 +134,7 @@ const AREAS = [
   ["south", "Socastee to Murrells Inlet"], ["pawleys", "Pawleys Island to DeBordieu"],
 ];
 /* Map pills: 32 letters at most (area-map.js), so a short name and the entry numbers. */
-const MAP_NAME = { nmb: "North Myrtle Beach", mb: "Myrtle Beach", south: "South of Myrtle Beach", pawleys: "Pawleys Island" };
+const MAP_NAME = { nmb: "North Myrtle Beach", mb: "Myrtle Beach", south: "Socastee to Murrells Inlet", pawleys: "Pawleys Island" };
 const nums = (a) => {
   const ns = E.filter((e) => e.area === a).map((e) => e.n);
   return ns.length === 1 ? String(ns[0]) : ns.length === 2 ? `${ns[0]} and ${ns[1]}` : `${ns[0]} to ${ns[ns.length - 1]}`;
@@ -145,7 +145,7 @@ const MAP = (() => {
     const pts = E.filter((e) => e.area === a);
     const lat = pts.reduce((s, e) => s + e.lat, 0) / pts.length, lon = pts.reduce((s, e) => s + e.lon, 0) / pts.length;
     const radius = Math.round(Math.min(15000, 800 + 1000 * Math.max(...pts.map((e) => km(lat, lon, e.lat, e.lon)))));
-    return { name: `${MAP_NAME[a]}, ${nums(a)}`, lat, lon, radius };
+    return { name: `${MAP_NAME[a]}, ${nums(a).replace(" to ", "-")}`, lat, lon, radius };
   });
   const MAPDIR = { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420, glass: true };
   const m = regionMap({ name: "Where the 18 gated neighborhoods are", areas }, MAPDIR);
