@@ -564,5 +564,167 @@
     "unless": "first[- ]floor",
     "struck": "Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings and energy-efficient windows.",
     "use": "Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings on the first floor and energy-efficient windows."
+  },
+  {
+    "row": "affordable 223",
+    "pattern": "golf resort with several courses; one is still open",
+    "struck": "Wild Wing was once a golf resort with several courses; one is still open, and some Fairways townhomes are near it.",
+    "use": "Wild Wing was once a golf resort with several courses; two of them, an 18-hole course and a nine-hole course, are still open, and some Fairways townhomes are near them."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "water and sewer at Parkview, and usually at the Fairways",
+    "struck": "The HOA fee includes water and sewer at Parkview, and usually at the Fairways, Sawgrass East and Wynbrooke.",
+    "use": "The HOA fee includes water and sewer at Parkview, and usually at Sawgrass East and Wynbrooke. At the Fairways, only some homes list them in the fee."
+  },
+  {
+    "row": "affordable 223",
+    "pattern": "\\bhomes cost the least in the twelve neighborhoods",
+    "struck": "Near Myrtle Beach, homes cost the least in the twelve neighborhoods below.",
+    "use": "Of the neighborhoods within about 20 minutes' drive of a public beach access where at least 10 homes sold last year, the twelve below have the lowest prices."
+  },
+  {
+    "row": "affordable 223",
+    "pattern": "\\bwhere homes sell for the least\\b",
+    "struck": "Twelve neighborhoods near Myrtle Beach where homes sell for the least, and what living in each one gives you: the beach, golf, parks, new homes and the drive.",
+    "use": "The twelve lowest-priced neighborhoods within about 20 minutes of the beach, and what living in each one gives you: the beach, golf, parks, new homes and the drive."
+  },
+  {
+    "row": "affordable 223",
+    "pattern": "\\b77 new Lennar houses\\b",
+    "struck": "Birchwood is small: 77 new Lennar houses on lots of about a quarter acre, with about 12 acres of open space.",
+    "use": "Birchwood is small: 77 lots, with new Lennar houses on lots of about a quarter acre, and about 12 acres of open space."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "\\banswer the video doorbell\\b",
+    "struck": "Every townhome at Amber Bluff came with a smart-home package: you can lock the front door, change the thermostat and answer the video doorbell from your phone.",
+    "use": "Every townhome at Amber Bluff came with a smart-home package: you can control the front door lock, the thermostat and the video doorbell from your phone [D.R. Horton listing text]."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "townhomes a mile from the football stadium",
+    "struck": "The Townes at Amber Bluff: smart-home townhomes a mile from the football stadium",
+    "use": "The Townes at Amber Bluff: smart-home townhomes about 6 minutes from the football stadium"
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "Brooks Stadium[^.]{0,80}about a mile south",
+    "struck": "On game days, Brooks Stadium, where the Chanticleers play football, is about a mile south.",
+    "use": "On game days, Brooks Stadium, where the Chanticleers play football, is about a 6-minute drive, 1.2 miles south in a straight line."
+  },
+  {
+    "row": "affordable 220",
+    "pattern": "They have two stories and a screened porch, many with a loft, and some have a one-car garage",
+    "struck": "They have two stories and a screened porch, many with a loft, and some have a one-car garage.",
+    "use": "The ones we found for sale had two stories and a screened porch, most with a loft, and some with a garage."
+  },
+  {
+    "row": "affordable 220",
+    "pattern": "insurance on the buildings and all outside maintenance",
+    "struck": "Wynbrooke's HOA fee is the highest of the twelve, though it usually pays for the insurance on the buildings and all outside maintenance.",
+    "use": "Wynbrooke's HOA fee is the highest of the twelve, though it usually pays for the insurance on the buildings and for the grounds care."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "\\bwith that fee of about \\$450",
+    "struck": "Townhomes in Wynbrooke usually went for about $250,000, with that fee of about $450 a month.",
+    "use": "Townhomes in Wynbrooke usually went for about $250,000, with an HOA fee of about $450 a month."
+  },
+  {
+    "row": "affordable 217",
+    "pattern": "Most are three-bedroom, two-story townhomes",
+    "struck": "Most are three-bedroom, two-story townhomes with a one-car garage.",
+    "use": "The ones we found for sale were three-bedroom, two-story townhomes with a one-car garage."
+  },
+  {
+    "row": "affordable 215",
+    "pattern": "The townhomes have two stories, two or three bedrooms",
+    "struck": "The townhomes have two stories, two or three bedrooms and two and a half baths.",
+    "use": "The townhomes we found for sale have two stories, two or three bedrooms and two and a half baths."
+  },
+  {
+    "row": "affordable 215",
+    "pattern": "the three-bedroom plan puts the main bedroom downstairs",
+    "struck": "The ones we have seen for sale had vaulted ceilings, a covered front porch and a screened back porch, and the three-bedroom plan puts the main bedroom downstairs.",
+    "use": "The ones we have seen for sale had vaulted ceilings, a covered front porch and a screened back porch, and the three-bedroom one we saw had the main bedroom downstairs."
+  },
+  {
+    "row": "affordable 218",
+    "pattern": "\\bfrom the late 1980s",
+    "struck": "Most houses there are from the late 1980s, with two or three bedrooms and two baths.",
+    "use": "Most houses there were built in the 1980s, with two or three bedrooms and two baths."
+  },
+  {
+    "row": "affordable 221",
+    "pattern": "\\bForestbrook Village has the biggest townhomes on this list|\\bthe biggest new townhomes on this list",
+    "struck": "Forestbrook Village has the biggest townhomes on this list.",
+    "use": "Forestbrook Village has the largest townhome plan on this list: Lennar's Thatcher has 2,400 square feet, and its plans run from about 1,450 to 2,400."
+  },
+  {
+    "row": "affordable 221",
+    "pattern": "^the biggest townhomes$",
+    "struck": "the biggest townhomes",
+    "use": "plans up to 2,400 sq ft"
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "\\bExpect to pay about \\$215,000",
+    "struck": "Expect to pay about $215,000 for a Fairways townhome, plus an HOA fee of about $390 a month.",
+    "use": "Fairways townhomes usually sold for about $215,000 last year, and the HOA fee is about $390 a month."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "\\bSawgrass East townhome usually costs about",
+    "struck": "A Sawgrass East townhome usually costs about $225,000, and the HOA fee is about $425 a month.",
+    "use": "Sawgrass East townhomes usually went for about $225,000 last year, and the HOA fee is about $425 a month."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "\\bNew houses in Birchwood went for about",
+    "struck": "New houses in Birchwood went for about $225,000 last year; the HOA fee is about $120 a month.",
+    "use": "New houses in Birchwood usually sold for about $225,000 last year; the HOA fee is about $120 a month."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "\\bLennar's townhomes here went for about",
+    "struck": "Lennar's townhomes here went for about $230,000, with an HOA fee of about $170 a month.",
+    "use": "Lennar's townhomes here usually sold for about $230,000 last year, with an HOA fee of about $170 a month."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "\\bThese townhomes went for about",
+    "struck": "These townhomes went for about $240,000 last year, with an HOA fee of about $100 a month.",
+    "use": "These townhomes usually went for about $240,000 last year, with an HOA fee of about $100 a month."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "\\bNew houses here went for about",
+    "struck": "New houses here went for about $245,000 last year, with an HOA fee of about $80 a month.",
+    "use": "New houses here usually went for about $245,000 last year, with an HOA fee of about $80 a month."
+  },
+  {
+    "row": "affordable 200",
+    "pattern": "\\bFor work, Conway Medical Center",
+    "struck": "For work, Conway Medical Center is a six-minute drive, and Horry-Georgetown Technical College and Coastal Carolina University are each about a seven-minute trip.",
+    "use": "Conway Medical Center is a six-minute drive, and Horry-Georgetown Technical College and Coastal Carolina University are each about a seven-minute trip."
+  },
+  {
+    "row": "affordable 219",
+    "pattern": "Most are three-bedroom houses with two baths",
+    "struck": "Most are three-bedroom houses with two baths, and the ones we saw for sale had an attached two-car garage.",
+    "use": "Most are three-bedroom houses. The two we saw for sale had two baths and an attached two-car garage."
+  },
+  {
+    "row": "affordable 222",
+    "pattern": "^new, low flood risk$",
+    "struck": "new, low flood risk",
+    "use": "new, no high-risk flood lots"
+  },
+  {
+    "row": "affordable 217",
+    "pattern": "a townhome comes with its own one-car garage",
+    "struck": "At Sawgrass East, a townhome comes with its own one-car garage.",
+    "use": "The two Sawgrass East townhomes we found for sale each had a one-car garage."
   }
 ]
