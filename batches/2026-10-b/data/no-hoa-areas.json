@@ -262,7 +262,8 @@
    "withinHalfMileOfShore": [
     0,
     7
-   ]
+   ],
+   "offPage": "Cut from the page in round 14f (coordinator's decision 1): the county parcel record shows an HOA owning the common areas (ledger rows 148 and 171), and no source settles what owners pay. Kept here for the record."
   },
   {
    "name": "Windy Hill",
@@ -1168,6 +1169,202 @@
    ]
   },
   {
+   "name": "Murrells Inlet, north end",
+   "spec": {
+    "circle": [
+     33.5784294,
+     -79.013078,
+     1.0
+    ],
+    "regions": [
+     "27b",
+     "40a"
+    ],
+    "mailing": "Murrells Inlet"
+   },
+   "kind": "detached",
+   "noFee": 12,
+   "total": 13,
+   "share": 92,
+   "medianNoFeeHousePrice": 822000.0,
+   "noFeeHouses": 12,
+   "lotAcresMedian": 0.242,
+   "lotMatched": 7,
+   "yearBuiltMedian": 1990.0,
+   "since2024": 3,
+   "before1990": 6,
+   "yearKnown": 12,
+   "key": "murrells-inlet",
+   "measure": {
+    "circle": [
+     33.5784294,
+     -79.013078,
+     1.0
+    ],
+    "regions": [
+     "27b",
+     "40a"
+    ],
+    "mailing": "Murrells Inlet",
+    "points": "listing map points (each property page's schema geo, re-opened 2026-10-15), not county address points: 5 of the 13 are in Georgetown County, which the Horry address layer does not cover"
+   },
+   "status": "pending verification (round 14f)",
+   "mapShapes": [
+    {
+     "name": "Murrells Inlet",
+     "polygon": [
+      [
+       -79.02806,
+       33.56985
+      ],
+      [
+       -79.02797,
+       33.56926
+      ],
+      [
+       -79.0277,
+       33.56872
+      ],
+      [
+       -79.02727,
+       33.56825
+      ],
+      [
+       -79.02578,
+       33.5672
+      ],
+      [
+       -79.02522,
+       33.56684
+      ],
+      [
+       -79.02457,
+       33.56662
+      ],
+      [
+       -79.02388,
+       33.56654
+      ],
+      [
+       -79.02318,
+       33.56662
+      ],
+      [
+       -79.02253,
+       33.56684
+      ],
+      [
+       -79.0199,
+       33.568
+      ],
+      [
+       -79.0078,
+       33.57389
+      ],
+      [
+       -79.00724,
+       33.57425
+      ],
+      [
+       -79.00706,
+       33.57442
+      ],
+      [
+       -79.00663,
+       33.57489
+      ],
+      [
+       -79.00636,
+       33.57543
+      ],
+      [
+       -79.00627,
+       33.57602
+      ],
+      [
+       -79.00636,
+       33.5766
+      ],
+      [
+       -79.00663,
+       33.57715
+      ],
+      [
+       -79.00706,
+       33.57762
+      ],
+      [
+       -79.00762,
+       33.57798
+      ],
+      [
+       -79.00827,
+       33.5782
+      ],
+      [
+       -79.01675,
+       33.58069
+      ],
+      [
+       -79.01744,
+       33.58077
+      ],
+      [
+       -79.01814,
+       33.58069
+      ],
+      [
+       -79.01879,
+       33.58047
+      ],
+      [
+       -79.01935,
+       33.58011
+      ],
+      [
+       -79.02471,
+       33.57497
+      ],
+      [
+       -79.02514,
+       33.57451
+      ],
+      [
+       -79.0277,
+       33.57098
+      ],
+      [
+       -79.02797,
+       33.57043
+      ]
+     ]
+    }
+   ],
+   "noFeeMls": [
+    "2605257",
+    "2606223",
+    "2614966",
+    "2616244",
+    "2619248",
+    "2619706",
+    "2620104",
+    "2620142",
+    "2620203",
+    "2621457",
+    "2621585",
+    "2621659"
+   ],
+   "withFeeMls": [
+    "2610388"
+   ],
+   "floodHighRisk": [
+    7,
+    12
+   ],
+   "floodNote": "Horry County layer 19 for the 8 Horry houses (AE: 2605257, 2606223, 2619248, 2621585); FEMA NFHL layer 28 for the 4 Georgetown houses (AE: 2614966, 2621659, 2621457; X: 2619706)",
+   "lotNote": "county parcel acres for the 7 Horry houses matched in no-hoa-lots.json (0.173 to 0.626, middle 0.242); the 5 Georgetown houses and 2 First Avenue South houses have no matched parcel"
+  },
+  {
    "name": "Conway in town",
    "spec": {
     "circle": [
@@ -1855,6 +2052,48 @@
    [
     9.4,
     4.29
+   ]
+  ],
+  "murrells-inlet -> Stanley Drive Landing": [
+   [
+    33.573485,
+    -79.018298
+   ],
+   [
+    33.5784294,
+    -79.013078
+   ],
+   [
+    4.25,
+    1.16
+   ]
+  ],
+  "murrells-inlet -> MarshWalk": [
+   [
+    33.573485,
+    -79.018298
+   ],
+   [
+    33.5578779,
+    -79.0318225
+   ],
+   [
+    6.28,
+    2.14
+   ]
+  ],
+  "murrells-inlet -> Brookgreen Gardens": [
+   [
+    33.573485,
+    -79.018298
+   ],
+   [
+    33.5211073,
+    -79.0921611
+   ],
+   [
+    18.67,
+    8.25
    ]
   ]
  }

@@ -81,11 +81,11 @@
    "lat": 33.588187,
    "lon": -79.059731,
    "cells": {
-    "price": "Five house resales, middle about $558,000",
+    "price": "About $490,000",
     "fee": "About $100 to $390, by section",
     "beach": "About 11 minutes"
    },
-   "rows": "group: named sections outside Seasons at Prince Creek (row 145 corrected); price: row 147 (10 resales $315,000 to $620,000; new townhomes $300,000 to $356,000); fee: row 149; beach: row 151 (a free lot); grocery: row 152; hospital: row 153; flood: row 154; round 14d (2026-10-15): Bellwood Landing's price and time cut (the gated page owns Bellwood); price cell per v7 D9 (row 147: five house resales, middle $558,000)"
+   "rows": "group: named sections outside Seasons at Prince Creek (row 145 corrected); price: row 147 (10 resales $315,000 to $620,000; new townhomes $300,000 to $356,000); fee: row 149; beach: row 151 (a free lot); grocery: row 152; hospital: row 153; flood: row 154; round 14d (2026-10-15): Bellwood Landing's price and time cut (the gated page owns Bellwood); price cell per v7 D9 (row 147: five house resales, middle $558,000); round 14e (2026-10-15): price is all of Prince Creek outside Seasons, 57 resales, middle $490,000 (row 278, from the note of row 147, v8 N5)"
   },
   {
    "id": "wild-wing",
@@ -109,11 +109,11 @@
    "lat": 33.768492,
    "lon": -78.813809,
    "cells": {
-    "price": "New about $680,000; resales $1.2 to $2.9 million",
+    "price": "About $1.5 million",
     "fee": "About $200 to $400 for a house",
     "beach": "About 9 to 10 minutes"
    },
-   "rows": "Round 14d (2026-10-15): the whole community, in this page's own shape (the gated page owns the three gated sections and their price). Sections whose county description names Grande Dunes: builder sales row 15 (55 deeds, middle $678,000 to $678,500; 'sales by builders such as Lennar and Dream Finders'), resales row 14 (7 resales, $1,190,000 to $2,910,000, middle $1,632,000), fee row 17 (detached listings $199 to $400, most often $347), beach row 19 (9.4 min, 'about 9 to 10 minutes'), map point row 13 (the reference point)."
+   "rows": "Round 14d (2026-10-15): the whole community, in this page's own shape (the gated page owns the three gated sections and their price). Sections whose county description names Grande Dunes: builder sales row 15 (55 deeds, middle $678,000 to $678,500; 'sales by builders such as Lennar and Dream Finders'), resales row 14 (7 resales, $1,190,000 to $2,910,000, middle $1,632,000), fee row 17 (detached listings $199 to $400, most often $347), beach row 19 (9.4 min, 'about 9 to 10 minutes'), map point row 13 (the reference point).; round 14e (2026-10-15): price is all of Grande Dunes, about 51 resales, middle about $1.5 million (row 278, from the notes of rows 14 and 277, v8 N2)"
   },
   {
    "id": "plantation-lakes",
@@ -180,10 +180,10 @@
    "lon": -78.916767,
    "cells": {
     "price": "About $290,000 for a house",
-    "fee": "About $85 for a house",
-    "beach": "About 18 minutes"
+    "fee": "About $84 for a house",
+    "beach": "About 20 minutes"
    },
-   "rows": "Round 14d (2026-10-15), replaces Berkshire Forest. neighborhoods-facts.md rows 270 to 274, pending verification (round 14d): group, lots and reference point row 270 (729 houses, median lot 0.16 acre, 2513 Sugar Creek Ct); price row 271 (27 resales, middle $292,000); fee and homes row 272 (13 detached listings, most often $84); amenity area row 273; beach row 274 (18.2 min)."
+   "rows": "Round 14d (2026-10-15), replaces Berkshire Forest. neighborhoods-facts.md rows 270 to 274, pending verification (round 14d): group, lots and reference point row 270 (729 houses, median lot 0.16 acre, 2513 Sugar Creek Ct); price row 271 (27 resales, middle $292,000); fee and homes row 272 (13 detached listings, most often $84); amenity area row 273; beach row 274 (18.2 min).; round 14e: price $290,000 in the entry and the table (L1); fee $84, the most common (O5); beach about 20 minutes, 18.2 rounded to the nearest 5 (v8 N6)"
   },
   {
    "id": "deerfield",

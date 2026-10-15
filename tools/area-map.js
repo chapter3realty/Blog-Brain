@@ -1223,20 +1223,25 @@ function areasOf(spec) {
        middle of the area would put it on another area's badge (a town circle inside a country outline).
        The point must be inside the area. */
     const markAt = a.markAt === undefined ? null : ll(a, a.markAt && a.markAt.lat, a.markAt && a.markAt.lon);
+    /* Optional a.label false (opt-in, batch 2026-10-b round 14f): the area is drawn with no name pill and
+       no badge, because a numbered place on the same map names it (a marker with its name, or a name
+       with a leader line over the ocean). Left out, the area is named as before. */
+    if (a.label !== undefined && a.label !== false) throw new Error(`area-map: area ${name}: label is false or left out`);
+    const bare = a.label === false ? { bare: true } : {};
     if (Array.isArray(a.polygon)) {
       if (a.radius !== undefined) throw new Error(`area-map: area ${name}: give a radius or a polygon, not both`);
       if (a.polygon.length < 3 || a.polygon.length > 400) throw new Error(`area-map: area ${name}: a polygon has 3 to 400 points`);
       const pts = a.polygon.map((q) => (Array.isArray(q) ? ll(a, q[1], q[0]) : ll(a, q && q.lat, q && q.lon)));
       const c = { lat: pts.reduce((t, q) => t + q.lat, 0) / pts.length, lon: pts.reduce((t, q) => t + q.lon, 0) / pts.length };
       if (markAt && !inPoly([markAt.lon, markAt.lat], pts.map((q) => [q.lon, q.lat]))) throw new Error(`area-map: area ${name}: markAt is outside the area`);
-      return Object.assign({ name, note, shape: "polygon", pts, lat: c.lat, lon: c.lon }, mark ? { mark } : {}, markAt ? { markAt } : {});
+      return Object.assign({ name, note, shape: "polygon", pts, lat: c.lat, lon: c.lon }, mark ? { mark } : {}, markAt ? { markAt } : {}, bare);
     }
     const c = ll(a, a.lat, a.lon), r = +a.radius;
     if (!(r >= 150 && r <= 15000)) throw new Error(`area-map: area ${name}: radius is in meters, 150 to 15,000`);
     const dLat = r / 110570, dLon = r / (111320 * Math.cos(c.lat * Math.PI / 180));
     const pts = [[0, 1], [1, 0], [0, -1], [-1, 0]].map(([x, y]) => ({ lat: c.lat + y * dLat, lon: c.lon + x * dLon }));
     if (markAt && km(markAt, c) * 1000 > r) throw new Error(`area-map: area ${name}: markAt is outside the area`);
-    return Object.assign({ name, note, shape: "circle", radius: r, pts, lat: c.lat, lon: c.lon }, mark ? { mark } : {}, markAt ? { markAt } : {});
+    return Object.assign({ name, note, shape: "circle", radius: r, pts, lat: c.lat, lon: c.lon }, mark ? { mark } : {}, markAt ? { markAt } : {}, bare);
   });
 }
 
@@ -1575,6 +1580,7 @@ function regionMap(spec, opts = {}) {
   if (lms.length && areas.length > 26) throw new Error("area-map: beside numbered places, areas are lettered A to Z: 26 at most");
   if (spec.areaLabels !== undefined && !numbersOnly) throw new Error('area-map: areaLabels is "numbers" or left out');
   areaPx.forEach((ap, i) => {
+    if (ap.a.bare) return;
     const owner = "area" + i, own = (it) => it.owner === owner;
     let best = null, lines = null, w = 0, h = 0;
     /* The name and its note, then the name alone (the note is in the page's text too). */
@@ -1949,10 +1955,10 @@ function regionMap(spec, opts = {}) {
   }
   if (areas.length) {
     m.areas = areas.map((a, i) => { const b = areaBadges.find((x) => x.i === i), al = areaLabels.find((x) => x.i === i);
-      return { name: a.name, note: a.note, shape: a.shape, labelled: !b, noteShown: !!(al && al.lines[1]), mark: b ? b.mark : "" }; });
-    m.areasUnlabelled = m.areas.filter((a) => !a.labelled).map((a) => a.name);
+      return Object.assign({ name: a.name, note: a.note, shape: a.shape, labelled: !b && !a.bare, noteShown: !!(al && al.lines[1]), mark: b ? b.mark : "" }, a.bare ? { bare: true } : {}); });
+    m.areasUnlabelled = m.areas.filter((a) => !a.labelled && !a.bare).map((a) => a.name);
     m.areaKey = m.areasUnlabelled.length ? `<ul class="c3-map-key" role="list" style="list-style:none;margin:.4rem 0 1.4rem;padding:0;max-width:760px;columns:2 14rem;column-gap:2rem;color:var(--muted);font-size:var(--read,1.0625rem);line-height:1.5">`
-      + m.areas.filter((a) => !a.labelled).map((a) => `<li style="margin:0 0 .35rem"><strong style="color:var(--navy)">${esc(a.mark)}.</strong> ${esc(a.name)}${a.note ? `, ${esc(a.note)}` : ""}</li>`).join("") + `</ul>` : "";
+      + m.areas.filter((a) => !a.labelled && !a.bare).map((a) => `<li style="margin:0 0 .35rem"><strong style="color:var(--navy)">${esc(a.mark)}.</strong> ${esc(a.name)}${a.note ? `, ${esc(a.note)}` : ""}</li>`).join("") + `</ul>` : "";
   }
   return emit2(m, Object.assign({ slug: home.area || home.name }, opts), "region");
 }
