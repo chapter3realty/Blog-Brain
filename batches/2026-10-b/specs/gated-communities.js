@@ -201,7 +201,7 @@ const SECTIONS_PLACES = [
 
   entry("seaside-plantation", "lakes inside the gate, near Main Street", [
     "Seaside Plantation is a small gated neighborhood with lakes inside the gate. The owners association owns them, three parcels of about 13 acres in all, and some houses look onto them.",
-    "The association runs its gate by written rules. Besides its gate access rules, it has recorded policies for contractors, service providers and real estate agents. Its rules for who comes through, and how, are in writing.",
+    "In 2019 the association recorded its Gate Access Rules with the county. Entrance gate and security policies for contractors, service providers and real estate agents were recorded that year too. We get the current rules for any home you like.",
     "Main Street in North Myrtle Beach is less than half a mile away, close enough to reach by golf cart. Each spring and fall the Society of Stranders brings its shag dance festivals, the Spring Safari and the Fall Migration, to Main Street and Ocean Drive.",
     "The ocean is a quarter to three-quarters of a mile from the houses, not at the back door, and festival weeks bring crowds to Main Street.",
   ], "Homes here usually sell for about $720,000, with an HOA fee of about $210 a month.",
@@ -236,17 +236,17 @@ const SECTIONS_PLACES = [
 
   entry("covington-lake-east", "a gated street of brick houses at a lower price", [
     "Covington Lake East is a small gated street of brick houses in Carolina Forest, for an HOA fee of about $90 a month, the lowest of the 20.",
-    "Its curving streets lie among ponds, yet no lot touches a FEMA flood zone on the current map. By that map, a lender will not require flood insurance on any of its houses. It has no golf club or marina.",
+    "Its curving streets lie among ponds, yet FEMA's current map puts every lot in its area of minimal flood hazard. None is in a high-risk zone, the only kind where federal rules make a lender require flood insurance. It has no golf club or marina.",
   ], "Homes in Covington Lake East usually sell for about $570,000."),
 
-  entry("myrtle-trace", "high ground, run by its owners", [
-    "Myrtle Trace sits on a ridge, and no lot touches a FEMA flood zone; the nearest high-risk zone is about half a mile from the nearest home. A lender will not require flood insurance on any home here by the current map.",
-    `It is a 55+ neighborhood, and the owners run it themselves, with volunteers and no management company. Volunteers keep a library and a computer at the clubhouse, two owners notarize papers for neighbors at no charge, and residents write the monthly newsletter. Our ${h.a(MT, "guide to Myrtle Trace")} covers its age rule and its fees.`,
-    "Gates stand only at the back entrance, to keep out cut-through traffic; the front entrance is open. The help is volunteer help: a problem with the back gates goes to owners whose numbers are in the community directory, not to a guard.",
+  entry("myrtle-trace", "minimal flood hazard, run by its owners", [
+    "FEMA's current map puts every Myrtle Trace lot in its area of minimal flood hazard. The nearest high-risk zone is about half a mile from the nearest home. By that map, no lender is required to make you carry flood insurance here.",
+    `It is a 55+ neighborhood, and the owners run it themselves, with volunteers and no management company. The HOA's contact list has a library coordinator and notaries who charge residents nothing, and the HOA site keeps a word-of-mouth list of companies residents have used. Our ${h.a(MT, "guide to Myrtle Trace")} covers its age rule and its fees.`,
+    "Gates stand only at the back entrance, to keep out cut-through traffic; the front entrance is open. A problem with the back gates goes to two residents named in the HOA's gate rules, not to a guard.",
   ], "Homes usually sell for about $300,000, and the HOA fee is $95 a month."),
 
   entry("myrtle-beach-golf-and-yacht-club", "green space the owners own", [
-    "At Myrtle Beach Golf and Yacht Club the owners own their green space. In 2020 the association took title to 62.54 acres of open land, the wide strips of grass and woods, with ponds, that lie between its streets.",
+    "At Myrtle Beach Golf and Yacht Club the owners own their green space. In 2020 the association took title to six tracts, 62.54 acres in all, by one deed. About 59.5 acres of it is the wide strips of grass and woods, with ponds, between its streets.",
     "There is a gatehouse at the entrance and Community Watch desk coverage around the clock, for an HOA fee of about $95 a month. The association also has a storage area for RVs and trailers. Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance.",
     "Despite the name, there is no golf course or yacht club anymore. Its course, Heron Point, closed in 2014. Sandpiper Place, where D.R. Horton is building new houses, has its own association and shares the entrance. Before you make an offer, we find out the association a home belongs to, since each has its own fee and rules.",
   ], "In the older part, homes usually sell for about $225,000.",

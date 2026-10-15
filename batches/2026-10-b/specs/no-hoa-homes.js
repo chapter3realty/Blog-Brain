@@ -158,18 +158,19 @@ const MAP = (() => {
       if (!(a.x1 + 1 < b.x0 || b.x1 + 1 < a.x0 || a.y1 + 1 < b.y0 || b.y1 + 1 < a.y0)) throw new Error(`${name}: two area names or numbers touch: ${a.owner} ${b.owner}`); }
     return m;
   };
-  const south = draw("Homes with no HOA, coast close-up A", PANEL.south.map(areaOf), { maxRatio: 0.95 });
-  const north = draw("Homes with no HOA, coast close-up B", PANEL.north.map(areaOf));
-  const box = (name, mark, f) => ({ name, mark, polygon: [[f.west, f.south], [f.east, f.south], [f.east, f.north], [f.west, f.north]] });
-  /* The whole area carries four inland areas and two boxes: a wide, short frame (area-map.js maxRatio). */
-  const inland = draw("Homes with no HOA around Myrtle Beach", PANEL.inland.map(areaOf).concat([box("Close-up A", "A", south.frame), box("Close-up B", "B", north.frame)]), { maxRatio: 0.7 });
+  /* Three panels, each sized to its own areas so the names fit, and short enough that the whole map is
+     under a phone screen (owner's eye 14d, high 2). */
+  const RATIO = process.env.NH_RATIO ? JSON.parse(process.env.NH_RATIO) : { south: 0.8, north: 0.7, inland: 0.5 };
+  const south = draw("Homes with no HOA, Myrtle Beach to Garden City", PANEL.south.map(areaOf), { maxRatio: RATIO.south });
+  const north = draw("Homes with no HOA, North Myrtle Beach and Little River", PANEL.north.map(areaOf), { maxRatio: RATIO.north });
+  const inland = draw("Homes with no HOA, Conway, Loris and Aynor", PANEL.inland.map(areaOf), { maxRatio: RATIO.inland });
   const panel = (m, label) => `<div class="c3-nh-panel"><p class="c3-nh-label">${label}</p>${m.html}</div>`;
-  const css = "<style>.c3-nh-maps{display:grid;gap:.9rem}.c3-nh-panel img,.c3-nh-panel svg{display:block;width:100%;height:auto}"
-    + ".c3-nh-label{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);margin:0 0 .35rem!important}"
+  const css = "<style>.c3-nh-maps{display:grid;gap:.6rem}.c3-nh-panel img,.c3-nh-panel svg{display:block;width:100%;height:auto}"
+    + ".c3-nh-label{font-family:var(--sans);font-size:.9rem;font-weight:600;color:var(--navy);margin:0 0 .2rem!important;line-height:1.3}"
     + "@media (min-width:900px){.c3-nh-maps{grid-template-columns:repeat(3,1fr);align-items:start}}"
     + ".c3-areamap figure{max-width:1136px!important}</style>";
-  return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-maps">${panel(inland, "The whole area")}${panel(south, "A. Myrtle Beach to Garden City")}${panel(north, "B. North Myrtle Beach")}</div>`,
-    "Map of the areas where most homes have no HOA fee, numbered as in the list below. A and B are close-ups of the coast.", inland.credit, "no-hoa map") + `</div>`;
+  return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-maps">${panel(south, "Myrtle Beach to Garden City")}${panel(north, "North Myrtle Beach and Little River")}${panel(inland, "Conway, Loris and Aynor")}</div>`,
+    "Map of the areas where most homes have no HOA fee, numbered as in the list below.", south.credit, "no-hoa map") + `</div>`;
 })();
 
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,

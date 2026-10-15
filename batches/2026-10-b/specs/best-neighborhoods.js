@@ -243,7 +243,7 @@ const ENTRIES = [
   ], "Five houses resold in Prince Creek's sections in the past year, at a middle price of about $558,000. New townhouses from builders sold for less."),
 
   ENTRY("wild-wing", "a Monday night golf league", [
-    `On summer Monday nights, Wild Wing runs a ${h.ext(WW_LEAGUE, "community golf league")}: nine holes on its Hummingbird course, in teams, with a playoff at the end of the season. Afterward, Wishbones Bar and Grill, open to the public, has a full bar and two indoor TrackMan golf simulators.`,
+    `On summer Monday nights, Wild Wing runs a ${h.ext(WW_LEAGUE, "community golf league")}. Teams play nine holes on its Hummingbird course, with a playoff at the end of the season. Afterward, Wishbones Bar and Grill, open to the public, has a full bar and two indoor TrackMan golf simulators.`,
     "The club's main course, the Avocet, was designed by Jeff Brauer and Larry Nelson. Many streets are named for water birds, such as Wood Stork Drive and Black Skimmer Drive.",
     "Wild Wing is inside the city of Conway, so the ocean is about 20 minutes away by car.",
   ], "Houses in Wild Wing usually sell for about $600,000, and the HOA fee is about $135 a month."),
