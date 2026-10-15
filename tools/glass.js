@@ -104,6 +104,12 @@ function themeRules() {
   r.push(`${S}>section[style*="background:var(--ivory"],${S} .detail-hero{background:transparent!important}`);
   r.push(`${S} .detail-hero{border-bottom:0}${S} .detail-hero.bg-grid{background-image:none}`);
   r.push(`${S}>section[style*="background:var(--ivory"]+section[style*="background:var(--ivory"]{border-top:1px solid rgba(255,255,255,.7)}`);
+  /* One field, not bands of color, so the space between two sections is both their paddings: about
+     two thirds of the site's, still airy (owner's eye, round 14: a big gap before entry 1 on a phone).
+     The short answer keeps the site's small top padding under the hero. */
+  const SEC = `${S}>section[style*="background:var(--ivory"]`;
+  r.push(`${SEC}{padding-bottom:2.25rem}${SEC}:not(.detail-hero+section){padding-top:2.25rem}`);
+  r.push(`@media (min-width:700px){${SEC}{padding-bottom:3.5rem}${SEC}:not(.detail-hero+section){padding-top:3.5rem}}`);
   /* Brass words, darker on glass (contrast, see T). */
   r.push(`${S} .eyebrow,${S} p[style*="color:var(--brass)"]{color:var(--g-ink)!important}`);
   r.push(`${S} .detail-h1 em{color:var(--g-ink-lg)!important}`);
@@ -141,8 +147,15 @@ function themeRules() {
   r.push(`${S} .c3ph-card figure,${S} .c3ph-gal>figure .c3ph-f{box-shadow:none}${S} .c3ph-card{overflow:hidden}`);
   r.push(`${S} .c3ph-card figure{background:none;border:0;padding:0}`);
   /* The offer bands: a dark glass panel floating on the field, not a full-width band. */
-  r.push(`${S}>section[style^="background:var(--navy)"]{background:transparent!important;padding:2.4rem 0!important}`);
-  r.push(`${S}>section[style^="background:var(--navy)"]>.wrap{${DARK};${BLUR};border-radius:28px;padding:2.6rem 1.6rem;width:calc(100% - 32px);box-sizing:border-box}`);
+  /* It sits about 24 to 32 px from the text above and below it (owner's eye, round 14: 100 to 120 px of
+     blank field around it pushed entry 1 down on a phone): the band's own padding is small, and the
+     sections on either side give up the padding on the band's side. */
+  const BAND = `${S}>section[style^="background:var(--navy)"]`;
+  r.push(`${BAND}{background:transparent!important;padding:.9rem 0!important}`);
+  r.push(`${S}>section:has(+section[style^="background:var(--navy)"]){padding-bottom:0!important}`);
+  r.push(`${BAND}+section{padding-top:1.1rem!important}`);
+  r.push(`${BAND}>.wrap{${DARK};${BLUR};border-radius:28px;padding:2.2rem 1.6rem;width:calc(100% - 32px);box-sizing:border-box}`);
+  r.push(`@media (max-width:699px){${BAND}>.wrap{padding:1.6rem 1.2rem 1.7rem;border-radius:24px}${BAND}>.wrap>:first-child{font-size:1.5rem!important;line-height:1.25;margin-bottom:.7rem!important}${BAND}>.wrap>p{margin-bottom:1.1rem!important}}`);
   /* Buttons: a brass pill with a light top edge. Navy on brass is 4.7:1 at the bar's darkest. */
   /* Sentence case, so a long label ("Send me the homes for sale") fits one line on a phone, and wraps
      cleanly, centred, when it does not. */

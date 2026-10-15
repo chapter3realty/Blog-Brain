@@ -10,7 +10,7 @@
  *   you, with new research (rows 197 to 212): the Air Force base course and The Market Common by Parkview,
  *   the hospital and college drives from the Fairways and Amber Bluff, Lewis Ocean Bay's flytraps near
  *   Sawgrass East, the Lennar features and warranty, the Nicklaus course near Longs, the Golf and Yacht
- *   Club's lost course and its HOA, the 162-acre park and wake park near Villas at Sandridge, the MarshWalk
+ *   Club's lost course and its HOA, the North Myrtle Beach park and wake park near Villas at Sandridge, the MarshWalk
  *   and Huntington Beach by Wynbrooke.
  *   Shape (CRAFT 3, "No preamble"): the short answer, one offer band, then the selection guide (the glass
  *   price chart, each place's best feature beside its price; it is the only list of names before the
@@ -97,7 +97,7 @@ const mins = (m) => `${m < 15 ? Math.max(1, Math.round(m)) : Math.round(m / 5) *
    (row 212). */
 const P = [
   { id: "parkview", name: "Parkview", map: "Parkview", lat: 33.686431, lon: -78.910360, price: 190000, mb: 6.1, beach: 4.0, year: 4700,
-    feature: "golf course across the street, beach 4 min", schools: "Myrtle Beach Elementary, Middle and High" },
+    feature: "city golf course, beach 4 min", schools: "Myrtle Beach Elementary, Middle and High" },
   { id: "fairways-at-wild-wing", name: "The Fairways at Wild Wing", map: "Fairways at Wild Wing", lat: 33.787649, lon: -78.986234, price: 215000, mb: 16.5, beach: 17.8, year: 6100,
     feature: "golf community, hospital 6 min", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "sawgrass-east", name: "Sawgrass East", map: "Sawgrass East", lat: 33.756167, lon: -78.929975, price: 222500, mb: 16.7, beach: 17.9, year: 6000,
@@ -105,15 +105,15 @@ const P = [
   { id: "birchwood", name: "Birchwood", map: "Birchwood", lat: 33.925885, lon: -78.754012, price: 223825, mb: 41.6, beach: 20.2, year: 2400,
     feature: "new house on a quarter acre", schools: "Daisy Elementary, Loris Middle, Loris High" },
   { id: "golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", chart: "Golf and Yacht Club (older part)", map: "Golf and Yacht Club", lat: 33.649402, lon: -79.05007, price: 225000, mb: 22.9, beach: 15.0, year: 2100,
-    feature: "gated, boat ramp 7 min", schools: "St. James Elementary, Intermediate, Middle and High" },
+    feature: "gated, boat ramp 4 min from the gate", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "forestbrook-village", name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6, year: 3000,
-    feature: "new townhome, schools 5 min", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
+    feature: "new townhome, schools 4 to 5 min", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
   { id: "victory-point", name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9, year: 3800,
-    feature: "on the old speedway, by Tanger Outlets", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "part of the old speedway, by Tanger Outlets", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6, year: 2200,
     feature: "smart home, university 6 min", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
   { id: "villas-at-sandridge", name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46, year: 4600,
-    feature: "beach 7 min, 162-acre park 5 min", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
+    feature: "beach 7 min, wake park 5 min", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2, year: 2000,
     feature: "new house, no high-risk flood lots", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
   { id: "wynbrooke", name: "Wynbrooke", map: "Wynbrooke", lat: 33.584176, lon: -79.048446, price: 249500, mb: 19.8, beach: 8.9, year: 6500,
@@ -290,16 +290,16 @@ module.exports = G.page({
   author: "devin",
   shortAnswer: [
     `Near Myrtle Beach, homes cost the least in the twelve neighborhoods below. Homes in them usually sold for about ${pr("parkview")} to ${pr("polo-farms")} last year, against about ${money(MB_HOUSE)} for a Myrtle Beach home that is not a condo.`,
-    "That money still buys a good life. Parkview is a four-minute drive from the beach, Villas at Sandridge is five minutes from a 162-acre park, and Birchwood's new houses are on a quarter acre.",
+    "That money still buys a good life. Parkview is a four-minute drive from the beach, Villas at Sandridge is five minutes from a park with a lake and a cable wake park, and Birchwood's new houses are on a quarter acre.",
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "The twelve at a glance", id: "compare", html: () =>
       PHOTO_CSS + PHONE_CSS + COSTS_CSS + GUIDE },
 
-    entry("parkview", "a four-minute beach drive, across from the city's golf course", () =>
+    entry("parkview", "a four-minute beach drive, by the city's golf course", () =>
       h.p("Parkview has the shortest beach drive on this list, a four-minute trip. Its gated townhomes are off 17th Avenue South, inside the city of Myrtle Beach, around ponds and a pool for owners.") +
       PH["parkview"] +
-      h.p(`Across the road is Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Residents of Horry, Georgetown and Brunswick counties play a round there for $45 plus tax, with a cart.`) +
+      h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}, is less than a quarter mile from Parkview. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Residents of Horry, Georgetown and Brunswick counties play a round there for $45 plus tax, with a cart.`) +
       h.p(`The rest of the ${h.ext(BASE, "old base is now The Market Common")}, a ten-minute trip by car. It has shops, restaurants and a 14-screen movie theater, and Grand Park's trails are next door. The airport terminal is a six-minute drive.`) +
       h.p("The HOA fee covers water, sewer, the grounds and the pool. The trade-off is choice: few of these townhomes come up for sale in a year, so we watch for each new listing.") +
       costs("parkview")),
@@ -319,7 +319,7 @@ module.exports = G.page({
       h.p("The townhomes are off Carolina Forest Boulevard, a little over two miles up the boulevard from US 501. They are around small ponds, with a pool and a clubhouse, and most have about 1,300 to 1,600 square feet.") +
       h.p(`The county's ${h.ext(CFRC, "Carolina Forest Recreation Center")}, with a gym, a fitness room and a climbing wall, is a six-minute drive. The county library shares its campus.`) +
       h.p("The HOA fee is higher than at most places here, though it usually includes water and sewer. For a buyer who would pay those bills anyway, the gap is smaller than it looks.") +
-      h.p("Resales here went for less than the new townhomes at Victory Point, a ten-minute trip.") +
+      h.p("Resales here went for less than the new townhomes at Victory Point, an eleven-minute trip.") +
       costs("sawgrass-east")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
@@ -331,11 +331,11 @@ module.exports = G.page({
       costs("birchwood")),
 
     entry("golf-and-yacht-club", "a gated community near a waterway boat ramp", () =>
-      h.p("Enterprise Landing, a public boat ramp off Bay Road onto the Intracoastal Waterway, is about a seven-minute drive from the Golf and Yacht Club.") +
+      h.p("Enterprise Landing, a public boat ramp off Bay Road onto the Intracoastal Waterway, is about a four-minute drive from the Golf and Yacht Club's entrance.") +
       PH["golf-and-yacht-club"] +
       h.p(`The community once had its own golf course, ${h.ext(HERON, "Heron Point, which announced in 2014 that it would close")}. Today the HOA has a pool and hot tub, tennis courts, a pavilion and a community center.`) +
       h.p(`The ${h.ext(MBGYC, "HOA")} has a community watch desk covered 24 hours a day, and a gatehouse phone line. From mid-April to mid-October, the pool opens at 8 a.m. for lap swimming, then exercise, then open swim until 8 p.m. or sundown. Our ${h.a("/buyers/gated-communities/", "guide to gated communities")} covers the gate.`) +
-      h.p("In the older part, houses typically have about 1,350 square feet, on about an eighth of an acre. D.R. Horton's newer houses at Sandpiper Place, inside the community, went for about $330,000.") +
+      h.p("In the older part, houses typically have about 1,350 square feet, on about an eighth of an acre. D.R. Horton's newer houses at Sandpiper Place, inside the community, usually went for about $330,000.") +
       h.p(`Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`) +
       costs("golf-and-yacht-club")),
 
@@ -347,7 +347,7 @@ module.exports = G.page({
       h.p("The trade-off is flood. Some lots here are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for the lot of any home you like.") +
       costs("forestbrook-village")),
 
-    entry("victory-point", "new townhomes on the old speedway", () =>
+    entry("victory-point", "new townhomes on part of the old speedway", () =>
       h.p(`Victory Point is built on part of the old Myrtle Beach Speedway. The track ${h.ext(RAMBI, "opened in 1958")} as RAMBI Raceway, and cars ran their ${h.ext(SPEEDWAY, "last laps there in 2020")}. Several streets have racing names: Speedway Street, Talladega Drive and Pit Crew Drive.`) +
       PH["victory-point"] +
       h.p("Lennar built the townhomes off US 501, by Tanger Outlets. The community has a pool, a playground, a picnic area and a pond, and some townhomes back onto the water.") +
@@ -359,14 +359,14 @@ module.exports = G.page({
       h.p("Coastal Carolina University and Horry-Georgetown Technical College are each a six-minute trip from Amber Bluff, and Conway Medical Center a seven-minute one. Brooks Stadium, where the Chanticleers play football, is about a mile south.") +
       PH["amber-bluff"] +
       h.p(`${h.ext(DRH, "D.R. Horton built every townhome here")}, off Savannah Bluff Road. Each came with a smart-home package for the front door lock, the thermostat and a video doorbell, plus granite counters and stainless steel appliances.`) +
-      h.p("The ones we have seen for sale all share one floor plan with three bedrooms, so prices are close together. Downtown Conway and its riverwalk on the Waccamaw River are an eight-minute drive.") +
+      h.p("The ones we have seen for sale all share one floor plan with three bedrooms, so prices are close together. Downtown Conway, with its riverwalk on the Waccamaw River, is about a seven-minute drive.") +
       h.p("Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.") +
       costs("amber-bluff")),
 
-    entry("villas-at-sandridge", "a seven-minute beach trip and a 162-acre park", () =>
-      h.p(`The ${h.ext(NMBPARK, "North Myrtle Beach Park and Sports Complex")}, a five-minute drive, covers 162 acres, with a 25-acre lake, walking trails and two dog parks. Shark Wake Park, inside the complex, pulls wakeboard riders across the water on a cable.`) +
+    entry("villas-at-sandridge", "a seven-minute beach trip, five minutes from a wake park", () =>
+      h.p(`The ${h.ext(NMBPARK, "North Myrtle Beach Park and Sports Complex")}, a five-minute drive, has a lake, walking trails, two dog parks and an accessible playground. Shark Wake Park, inside the complex, pulls wakeboard riders across the water on a cable.`) +
       PH["villas-at-sandridge"] +
-      h.p(`A ${h.ext(NMBEXP, "new section of the park")} has added 11 ball fields, ponds, trails and two more playgrounds. The nearest beach is a seven-minute trip by car.`) +
+      h.p(`The city's ${h.ext(NMBEXP, "new section of the park")} has added soccer and baseball fields, ponds, trails and two more playgrounds. The nearest beach is a seven-minute trip by car.`) +
       h.p("Villas at Sandridge is a small community of 79 townhomes off SC 90 near Little River, with about 8 acres of shared open space. Dream Finders Homes built them with two stories and a one-car garage, and some plans have the main bedroom on the first floor.") +
       h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly dues are also higher than at the other new communities here.") +
       costs("villas-at-sandridge")),

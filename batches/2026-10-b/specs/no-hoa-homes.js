@@ -254,7 +254,7 @@ module.exports = GL.page({
 
     entry("mb-downtown", "older streets near the Boardwalk", [
       "Most houses for sale within a mile of downtown Myrtle Beach list no HOA dues, and most are half a mile or less from the ocean.",
-      `The oceanfront ${h.ext(MB_BOARDWALK, "Boardwalk")} is downtown, with a pier at each end. A second wooden boardwalk follows Withers Swash, one of the city's oldest waterways, to Broadway and Collins Street.`,
+      `The oceanfront ${h.ext(MB_BOARDWALK, "Boardwalk")} begins at the 2nd Avenue Pier. A second wooden boardwalk follows Withers Swash, one of the city's oldest waterways, to Broadway and Collins Street.`,
       "On Collins Street and Chester Street, the houses for sale were built in the 1950s and 1960s. Nearby, a row of new houses was listed, also with no HOA dues.",
       "The trade-off is room: a lot here is typically about 0.2 acre.",
       `A house here is typically listed at about ${priceOf("mb-downtown")}.`,

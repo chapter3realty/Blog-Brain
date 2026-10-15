@@ -412,5 +412,144 @@
     "pattern": "\\bNearly half (?:its|of its) lots",
     "struck": "Nearly half its lots are in a high-risk flood zone, where a lender usually requires flood insurance.",
     "use": "More than four in ten of its lots are in a high-risk flood zone, where a lender usually requires flood insurance."
+  },
+  {
+    "row": "affordable 197",
+    "pattern": "\\bLocals play a round there for \\$45",
+    "struck": "Locals play a round there for $45.",
+    "use": "Residents of Horry, Georgetown and Brunswick counties can play a round there for $45, plus tax, with a cart."
+  },
+  {
+    "row": "affordable 200",
+    "pattern": "Coastal Carolina University an eight-minute",
+    "struck": "Horry-Georgetown Technical College is a seven-minute trip, and Coastal Carolina University an eight-minute one.",
+    "use": "Coastal Carolina University is 6 to 8 minutes by car from the Fairways, depending on where on campus you stop."
+  },
+  {
+    "row": "affordable 201",
+    "pattern": "Golf Digest gave it (?:four|4) stars",
+    "struck": "It has a double green and a double fairway, and Golf Digest gave it four stars in its Places to Play ratings.",
+    "use": "It has double greens and dual fairways. (Cut the Golf Digest rating: secondary source only.)"
+  },
+  {
+    "row": "affordable 202",
+    "pattern": "\\b15 minutes up International Drive",
+    "struck": "Lewis Ocean Bay Heritage Preserve is about 15 minutes up International Drive from Sawgrass East.",
+    "use": "Lewis Ocean Bay Heritage Preserve is about 15 minutes by car from Sawgrass East, on International Drive. (Only the last 4.8 km of the 12.2 km drive is on International Drive.)"
+  },
+  {
+    "row": "affordable 202",
+    "pattern": "\\bholds the largest group of Carolina bays",
+    "struck": "It holds the largest group of Carolina bays in the state.",
+    "use": "It holds one of the largest groups of Carolina bays in the state. (SCDNR alone says 'the largest'; one source.)"
+  },
+  {
+    "row": "affordable 204",
+    "pattern": "\\b9-foot ceilings downstairs",
+    "struck": "9-foot ceilings downstairs",
+    "use": "9-foot ceilings (both plan pages read are single-level homes; the source says 'first floor')"
+  },
+  {
+    "row": "affordable 204",
+    "pattern": "\\bLennar's houses here come with",
+    "struck": "Lennar's houses here come with granite counters, stainless steel appliances, 9-foot ceilings downstairs and energy-efficient windows.",
+    "use": "Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings and energy-efficient windows; the features in each house are in the purchase agreement."
+  },
+  {
+    "row": "affordable 205",
+    "pattern": "\\bwiring, plumbing and heating for two",
+    "struck": "the wiring, plumbing and heating for two",
+    "use": "the electrical, plumbing and mechanical systems for two"
+  },
+  {
+    "row": "affordable 206",
+    "pattern": "\\bLong Bay Club(?:'s Nicklaus course|,? a golf course designed by Jack Nicklaus)",
+    "struck": "Long Bay Club, a golf course designed by Jack Nicklaus, is a seven-minute trip. / Long Bay Club's Nicklaus course is about 13 minutes by car.",
+    "use": "Long Bay Club, a golf course in Longs, is a seven-minute trip. / Long Bay Club is about 13 minutes by car. (Designer: no primary source found; drop it.)"
+  },
+  {
+    "row": "affordable 207",
+    "pattern": "\\bInside the gate today",
+    "struck": "Inside the gate today, owners have a pool and hot tub, tennis courts, a pavilion and a community center.",
+    "use": "The HOA lists a pool and hot tub, tennis courts, a pavilion and a community center."
+  },
+  {
+    "row": "affordable 207",
+    "pattern": "\\bkeeps a watch desk at the gatehouse",
+    "struck": "The HOA keeps a watch desk at the gatehouse around the clock.",
+    "use": "The HOA lists Community Watch Desk coverage 24 hours a day, seven days a week, and a gatehouse phone line."
+  },
+  {
+    "row": "affordable 207",
+    "pattern": "\\bthen open swim until dark",
+    "struck": "the pool opens each morning for lap swimming, then exercise, then open swim until dark",
+    "use": "the pool has lap swimming 8 to 9 a.m., exercise 9 to 10, then open swim from 10 until 8 p.m. or sundown"
+  },
+  {
+    "row": "affordable 207",
+    "pattern": "\\bHeron Point, which closed in 2014",
+    "struck": "its own golf course, Heron Point, which closed in 2014",
+    "use": "its own golf course, Heron Point, which announced in October 2014 that it would close by December"
+  },
+  {
+    "row": "affordable 208",
+    "pattern": "\\bBroadway at the Beach is 13 minutes",
+    "struck": "For a night out, Broadway at the Beach is 13 minutes away",
+    "use": "For a night out, Broadway at the Beach is 12 minutes away"
+  },
+  {
+    "row": "affordable 208",
+    "pattern": "\\bBroadway at the Beach 15\\b",
+    "struck": "Coastal Carolina University 12 and Broadway at the Beach 15",
+    "use": "Coastal Carolina University 12 and Broadway at the Beach 14"
+  },
+  {
+    "row": "affordable 209",
+    "pattern": "Downtown Conway and its riverwalk[^.]{0,80}eight-minute drive",
+    "struck": "Downtown Conway and its riverwalk on the Waccamaw River are an eight-minute drive.",
+    "use": "Downtown Conway is about a seven-minute drive, and the riverwalk on the Waccamaw River seven to eight, depending on where you join it."
+  },
+  {
+    "row": "affordable 210",
+    "pattern": "\\b162-acre|covers 162 acres",
+    "unless": "original",
+    "struck": "The North Myrtle Beach Park and Sports Complex covers 162 acres. (Also the 162-acre label in the short answer, the chart and the entry heading.)",
+    "use": "The park is big enough for a lake, trails and dog parks, and the city's 90-acre expansion was finished in November 2025. (If the figure stays: 'The original park covers 162 acres.')"
+  },
+  {
+    "row": "affordable 210",
+    "pattern": "\\b25-acre lake",
+    "struck": "A 25-acre lake.",
+    "use": "a lake (SC Trails says 25 acres, SC tourism says 20)"
+  },
+  {
+    "row": "affordable 210",
+    "pattern": "\\b11 ball fields",
+    "struck": "A new section of the park has added 11 ball fields.",
+    "use": "A new section of the park has added 5 soccer fields, 6 baseball fields, ponds, trails and two more playgrounds."
+  },
+  {
+    "row": "affordable 212",
+    "pattern": "golf course across the street|Across the road is Whispering Pines",
+    "struck": "Parkview: golf course across the street.",
+    "use": "golf course under a quarter mile away"
+  },
+  {
+    "row": "affordable 212",
+    "pattern": "new townhome, schools 5 min",
+    "struck": "Forestbrook Village: new townhome, schools 5 min.",
+    "use": "new townhome, schools 4 to 5 min"
+  },
+  {
+    "row": "affordable 212",
+    "pattern": "gated, boat ramp 7 min|seven-minute drive from the Golf and Yacht Club",
+    "struck": "Golf and Yacht Club: gated, boat ramp 7 min. Enterprise Landing is about a seven-minute drive from the Golf and Yacht Club.",
+    "use": "gated, boat ramp 4 min from the gate. Enterprise Landing is about a four-minute drive from the entrance."
+  },
+  {
+    "row": "affordable 213",
+    "pattern": "Victory Point, a ten-minute trip",
+    "struck": "Resales here went for less than the new townhomes at Victory Point, a ten-minute trip.",
+    "use": "Resales here went for less than the new townhomes at Victory Point, an eleven-minute trip."
   }
 ]
