@@ -453,7 +453,7 @@
     "row": "affordable 204",
     "pattern": "\\bLennar's houses here come with",
     "struck": "Lennar's houses here come with granite counters, stainless steel appliances, 9-foot ceilings downstairs and energy-efficient windows.",
-    "use": "Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings and energy-efficient windows; the features in each house are in the purchase agreement."
+    "use": "Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings on the first floor and energy-efficient windows; the features in each house are in the purchase agreement."
   },
   {
     "row": "affordable 205",
@@ -551,5 +551,18 @@
     "pattern": "Victory Point, a ten-minute trip",
     "struck": "Resales here went for less than the new townhomes at Victory Point, a ten-minute trip.",
     "use": "Resales here went for less than the new townhomes at Victory Point, an eleven-minute trip."
+  },
+  {
+    "row": "affordable 214",
+    "pattern": "Lennar's warranty covers",
+    "struck": "Lennar's warranty covers the workmanship for a year, the electrical, plumbing and mechanical systems for two, and the structure for ten.",
+    "use": "Lennar's limited warranty covers the workmanship for a year, the electrical, plumbing and mechanical systems for two, and the structure for ten."
+  },
+  {
+    "row": "affordable 214",
+    "pattern": "\\bLennar's plans here list[^.]{0,90}\\b9-foot ceilings and\\b",
+    "unless": "first[- ]floor",
+    "struck": "Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings and energy-efficient windows.",
+    "use": "Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings on the first floor and energy-efficient windows."
   }
 ]
