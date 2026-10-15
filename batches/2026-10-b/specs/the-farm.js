@@ -382,7 +382,7 @@ module.exports = G.page({
     { name: "DoD cleanup", href: DEP },
     { name: "DoD safety", href: UXO },
   ],
-  sourcesNote: "Not legal or tax advice. Home sizes, ages and second HOA fees are from listings. Drives, without traffic, start at the Farmers Rest entrance (the preserve's at Wheatfield Drive; the beach 12 from the middle). The flood cost is FEMA's middle policy in ZIP code 29579. The Corps status is for fiscal year 2024.",
+  sourcesNote: "Not legal or tax advice. Home sizes, ages and second HOA fees are from listings. Drives, without traffic, start at the Farmers Rest Drive entrance (the preserve's at Wheatfield Drive). The flood cost is FEMA's middle policy in ZIP code 29579. The Corps status is for fiscal year 2024.",
   /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
   afterSources: () => ph.credits(),
   bottomCta: END,
