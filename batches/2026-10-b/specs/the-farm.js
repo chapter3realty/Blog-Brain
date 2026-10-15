@@ -66,6 +66,7 @@
  *   Publix and the beach each said once or twice; the school map loses its floating high school note (photos.json);
  *   the tax FAQ cut; Range III without a status year; the compare line just before the FAQ; v7 D1 to D4 applied; the
  *   end box promises a search, not homes; the HOA-rules link is now a place pill.
+ *   Then (coordinator): hunting in the preserve as a con (S.C. Code Regs. 123-40, pending row 108).
  *
  * Reader: a buyer, often from out of state, who has seen a listing in The Farm or heard the name and
  * wants to picture living there and decide whether to look. They do not know Carolina Forest, the
@@ -315,6 +316,7 @@ module.exports = G.page({
         { text: `The large pool has sunk into the ground more than it should, and the HOA board has not decided whether to repair or replace it. By a majority vote, the board can add a one-time charge to owners, called a ${h.a(SPECIAL, "special assessment")}.`, act: "We read the board's latest minutes on the pool for you." },
         { text: "Cars may not be parked on the street or the lawn.", act: "We check that the garage and driveway fit all your cars." },
         { text: "Townhomes and condos pay a second HOA fee.", act: "We show you both fees side by side for any townhome or condo." },
+        { text: "The preserve is a state wildlife management area, and hunting is allowed there in season. Deer season runs from mid-September to January 1.", act: "We show you on the map how far any house is from the preserve." },
       ], { bg }) },
 
     { h2: "What are the HOA rules in The Farm at Carolina Forest?", toc: "HOA rules", html: (bg) =>

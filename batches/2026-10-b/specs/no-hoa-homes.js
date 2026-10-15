@@ -305,15 +305,15 @@ module.exports = GL.page({
     text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
   author: "devin",
   shortAnswer: [
-    "The surest sign is the address. Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and most of those are in the areas below.",
-    "Age is another sign: about three in four houses for sale built before 1990 had no HOA fee listed, and fewer than one in five built since.",
+    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee. Most of those are in the areas below.",
+    "Age is a sign too: about three in four houses for sale built before 1990 had no HOA fee listed, and fewer than one in five built since.",
   ],
 
   sections: [
     { h2: "Where are the homes with no HOA fee?", toc: "The map and the guide", id: "where", html: () =>
       ph.css() + CHIP_CSS + MAP +
       h.p(`<strong>A boat at home:</strong> ${go("cherry-grove")} on the canals; ${go("little-river")}, ${go("socastee")} and ${go("garden-city")} by a county landing.`) +
-      h.p(`<strong>A 10-minute walk to the beach:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
+      h.p(`<strong>A 10-minute walk to a beach access:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
       h.p(`<strong>An old town center:</strong> ${go("mb-downtown", "Downtown Myrtle Beach")}, ${go("conway")} and ${go("loris")}.`) +
       h.p(`<strong>Half-acre lots:</strong> ${go("mb-pine-lakes")} and ${go("mb-plantation-point")}.`) +
       h.p(`<strong>An acre and a new house:</strong> ${go("aynor")} and ${go("loris-country", "the country around Loris")}.`) },
