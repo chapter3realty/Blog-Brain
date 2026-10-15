@@ -309,9 +309,9 @@ module.exports = G.page({
       h.p("For a longer outing, the county's Bike and Run Park has 7 miles of mountain bike and hiking trails, about 4 minutes by car. Its parking area is a trailhead on the East Coast Greenway, a walking and biking route from Maine to Florida.") },
 
     { h2: "What are the homes like in The Farm at Carolina Forest?", toc: "The homes", html: (bg) =>
-      h.p("Most houses here give you three or four bedrooms and a back yard of your own, on a lot of about a fifth of an acre.") +
+      h.p("Most houses here give you three or four bedrooms and a back yard of your own. A typical lot is about a fifth of an acre.") +
       OVER +
-      h.p("Some houses have five bedrooms or more. Most have about 1,450 to 3,200 square feet, on one or two stories.") +
+      h.p("Some houses have five bedrooms or more. Most have about 1,450 to 3,200 square feet. Some are one story and some are two.") +
       h.p("The Orchards has about 200 townhomes, and Planters Point has about 70 condos, most with two or three bedrooms.") +
       h.p("Most houses here are about 20 years old. On any house you tour, we check how old the roof and the air conditioner are.") +
       h.p("Over the past year, a typical townhome in The Orchards sold for about $230,000, and a condo in Planters Point about $240,000.") +
@@ -361,7 +361,7 @@ module.exports = G.page({
       ], { bg }) },
 
     { h2: "What are the HOA rules in The Farm at Carolina Forest?", toc: "HOA rules", html: (bg) =>
-      h.p(`Under the ${h.ext(RULES, "HOA rules")}, owners can rent their homes with a written lease, and the HOA's governing documents set no cap on how many homes are rented.`) +
+      h.p(`Under the ${h.ext(RULES, "HOA rules")}, owners can rent their homes with a written lease, and the HOA's governing documents have no cap on how many homes are rented.`) +
       atAGlance([
         { icon: "gate", label: "A fence or shed", text: "Needs the HOA's approval first, with a land surveyor's drawing of the lot." },
         { icon: "dock", label: "Cars and boats", text: "Cars go in the garage or driveway, not on the street or lawn. A boat, trailer or camper needs the HOA's written approval to stay outside." },
