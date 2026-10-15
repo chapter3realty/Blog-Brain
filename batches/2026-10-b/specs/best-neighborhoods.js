@@ -208,14 +208,14 @@ const ENTRY = (id, headline, paras, price) => {
 const ENTRIES = [
   ENTRY("cherry-grove", "a fishing pier, the salt marsh and dogs on the beach", [
     `In Cherry Grove, a dog can come to the beach with you. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the sand")} all year, except from 10 a.m. to 4 p.m. between May 15 and Labor Day.`,
-    "From the middle of Cherry Grove, a public beach access is about 0.1 mile away. Behind the beach, channels were dug into the salt marsh, and those canals now run behind rows of houses. Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot.",
-    "Cherry Grove Pier was built in the 1950s and is about a 12-minute walk from the middle of the neighborhood. In 1964 a 1,780-pound tiger shark was landed from it, a world record at the time.",
+    "In Cherry Grove, a public beach access is about 0.1 mile away. Behind the beach, channels were dug into the salt marsh, and those canals now run behind rows of houses. Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot.",
+    "Cherry Grove Pier was built in the 1950s and is about a 12-minute walk away. In 1964 a 1,780-pound tiger shark was landed from it, a world record at the time.",
     `Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. A lender will usually require flood insurance. More than 400 properties on the canals also pay the city about $1,700 a year now to dredge them.`,
   ], "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale have no homeowners association (HOA) fee."),
 
   ENTRY("surfside-beach", "a free concrete pier with two restaurants", [
     `The ocean side of Surfside Beach has its own town pier, and ${h.ext(SSB_PIER, "walking onto it is free")}. The concrete pier reaches 814 feet into the ocean, with two restaurants, an ice cream shop and a bait and tackle shop. From April through October it is open until 1 a.m.`,
-    "From the middle of the neighborhood, the pier is about a 9-minute walk, about 0.4 mile, and the sand is the same distance. Streets of houses run from US 17 Business to the beach.",
+    "The pier is about a 9-minute walk, about 0.4 mile, and the sand is the same distance. Streets of houses run from US 17 Business to the beach.",
     "Surfside Beach began as part of a rice plantation called The Ark. Later, George J. Holliday renamed it Floral Beach for his wife, Flora. The Hollidays built a pavilion, a general store and a few rental cottages for summer visitors.",
     "About a quarter of the homes here are in a high-risk flood zone. We check the flood zone of any home you like before you offer.",
   ], "Houses on the ocean side of Surfside Beach usually sell for about $705,000 and condos for about $405,000. Most homes for sale have no HOA fee."),
@@ -236,14 +236,14 @@ const ENTRIES = [
 
   ENTRY("barefoot-resort", "four golf courses that opened on one day", [
     "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. Neighborhoods grew up around them, and many streets carry seashell names, from Junonia Drive to Moonshell Drive.",
-    "Owners in the residential association have their own beach cabana on the ocean, with parking, a kitchen and showers. A free shuttle runs from the neighborhoods to a public beach access on Ocean Boulevard, on weekends in April and May and every day from June to early September.",
+    "Owners in the residential association have their own beach cabana on the ocean, with parking, a kitchen and showers. A free shuttle runs from the neighborhoods to a public beach access on Ocean Boulevard. It runs on weekends in April and May and every day from June to early September.",
     "Barefoot Landing's shops and restaurants are across a swing bridge on the waterway. The drive is about 6 minutes from the condo neighborhoods and about 8 from the gated houses. That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened.",
     `Most homes for sale here are condos, and a condo pays about $680 a month in HOA fees. Each association has its own amenities and rules, so we check which one a home belongs to before you offer. Our ${h.a(GATED, "guide to gated communities")} covers the resort's gated sections.`,
   ], "Homes for sale in these Barefoot sections, mostly condos, usually sell for about $430,000."),
 
   ENTRY("prince-creek", "a Tom Fazio course near the Murrells Inlet MarshWalk", [
     "Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course that opened in 1999. Tom Watson won the Senior PGA Tour Championship there the next year.",
-    "From the middle of Prince Creek, the Murrells Inlet MarshWalk is a 7-minute drive, and the entrance to Huntington Beach State Park is 12 minutes by car. A Publix is about 2 minutes away.",
+    "The Murrells Inlet MarshWalk is a 7-minute drive from Prince Creek, and the entrance to Huntington Beach State Park is 12 minutes by car. A Publix is about 2 minutes away.",
     "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, a park of mostly woods. Its amenity area has two pools and courts for tennis and pickleball.",
     "The HOA fee changes from section to section, so we compare the fee on each home you like. Bellwood Landing, behind its own gate, sells for more, about $810,000.",
   ], "Houses in Prince Creek usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."),
@@ -251,7 +251,7 @@ const ENTRIES = [
   ENTRY("wild-wing", "27 holes of golf and a pool on the lake near Conway", [
     "Wild Wing's Avocet course, designed by Jeff Brauer and Larry Nelson, opened in 1993. A recent renovation, led by Brauer himself, gave it new greens and refreshed bunkers. The club also has the nine-hole Hummingbird course.",
     "Many streets are named for water birds, such as Wood Stork Drive and Black Skimmer Drive. The owners' amenity area, beside a lake, has a pool complex, courts for tennis or pickleball, a basketball court and a playground.",
-    "From the middle of Wild Wing, Coastal Carolina University is about 10 minutes by car, Conway Medical Center about 8, and the Conway Riverwalk about 15.",
+    "Coastal Carolina University is about 10 minutes from Wild Wing by car, Conway Medical Center about 8, and the Conway Riverwalk about 15.",
     "The ocean is about 20 minutes away by car.",
   ], "Houses in Wild Wing usually sell for about $600,000, and the HOA fee is about $135 a month."),
 
@@ -308,7 +308,7 @@ const ENTRIES = [
   ENTRY("deerfield", "wooded streets around an old golf resort near Surfside Beach", [
     "The Deerfield Plantation area is built around the old Deer Track golf courses near Surfside Beach. Its older streets are wooded, and the owners' association owns lake and canal land among the homes.",
     "In 2006 two buyers bought the golf course, and homeowners sued to keep it a golf course. The court sent the case to a special referee, who found no rule on that land that kept it a golf course. The state Court of Appeals upheld that finding.",
-    "The old South Course is now a neighborhood of new houses. From the middle of the area, the Surfside Beach Fishing Pier is about 4 miles by road.",
+    "The old South Course is now a neighborhood of new houses. The Surfside Beach Fishing Pier is about 4 miles away by road.",
     "On the old North Course, building has only begun, so homes near it are beside a building site. The closest beach access has three parking spaces, for golf carts only. By car, owners use the next access, which has a pay lot.",
   ], "Houses in the Deerfield Plantation area usually sell for about $355,000, and the HOA fee is under $90 a month."),
 ];
