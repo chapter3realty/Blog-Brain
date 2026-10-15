@@ -194,14 +194,14 @@ const SECTIONS_PLACES = [
   entry("tidewater-plantation", "nine holes along Cherry Grove Inlet", [
     "Tidewater's golf course is ranked among the best you can play in America. Golf Digest put Tidewater Golf Club at No. 39 on its list of America's 100 Greatest Public Courses for 2023 to 2024. Nine of its holes play along the tidal inlet at Cherry Grove.",
     "The course opened in 1990, and Golf Digest and Golf Magazine both named it the best new public course in America that year. Joey's Clubhouse Grille looks out over the fairways for lunch after a round.",
-    "Residents' cars open the gates with a tag read as the car pulls up, and visitors check in at the gatehouse. The neighborhood also keeps a beach cabana with its own parking at Cherry Grove Beach.",
+    "Visitors check in at the gatehouse. Residents switched from key fobs to a tag on each car, read as the car comes up, and we confirm what the gates use today. The neighborhood also keeps a beach cabana with its own parking at Cherry Grove Beach.",
     "Tidewater sits on the marsh of the Intracoastal Waterway, not the ocean; the nearest public beach access is about an 8-minute drive.",
   ], "Homes at Tidewater usually sell for about $625,000. The HOA fee is about $230 a month.",
   ["tidewater-plantation-from-above-2023", "Tidewater Plantation from above, with its golf club labelled: houses along the fairways of its golf course, with ponds among them."]),
 
   entry("seaside-plantation", "lakes inside the gate, near Main Street", [
-    "Seaside Plantation is a small gated neighborhood built around its lakes, about 13 acres of water that belong to the owners association, and some houses look onto them.",
-    "The association runs its gate by written rules. Besides its gate access rules, it has recorded policies for contractors, service providers and real estate agents. So the rules for who comes through, and how, are in writing.",
+    "Seaside Plantation is a small gated neighborhood with lakes inside the gate. The owners association owns them, three parcels of about 13 acres in all, and some houses look onto them.",
+    "The association runs its gate by written rules. Besides its gate access rules, it has recorded policies for contractors, service providers and real estate agents. Its rules for who comes through, and how, are in writing.",
     "Main Street in North Myrtle Beach is less than half a mile away, close enough to reach by golf cart. Each spring and fall the Society of Stranders brings its shag dance festivals, the Spring Safari and the Fall Migration, to Main Street and Ocean Drive.",
     "The ocean is a quarter to three-quarters of a mile from the houses, not at the back door, and festival weeks bring crowds to Main Street.",
   ], "Homes here usually sell for about $720,000, with an HOA fee of about $210 a month.",
@@ -219,7 +219,7 @@ const SECTIONS_PLACES = [
     "Many Grande Dunes homes come with a household membership to the Ocean Club, a private club on the beach. It has towel and bar service at its pool and cabanas on the sand. We confirm it for each home you look at.",
     "Its private Members Club course was designed by Nick Price, a member of golf's Hall of Fame, with Craig Schreiner. The clubhouse has two Trackman simulators that play more than 260 courses, and the calendar includes themed dinners, wine tastings and a Fourth of July cookout.",
     "Grande Dunes Marina, on the Intracoastal Waterway, has 126 slips and takes boats up to 120 feet long, with fuel and a store. The two-mile Waterway Trail, open to the public, starts on Marina Parkway.",
-    "Grande Dunes has its own contract security, with guard houses and a roving officer. Only some sections are gated, among them Calais, Palermo and Villa Venezia, and Palermo and Villa Venezia sit beside the golf course.",
+    "Grande Dunes has its own contract security, with guard houses and a roving officer. Only some sections are gated, among them Calais, Palermo and Villa Venezia.",
   ], "Homes in those three sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
   entry("waterway-palms-plantation", "a boat ramp inside the gate", [
@@ -255,7 +255,7 @@ const SECTIONS_PLACES = [
   entry("prestwick", "a Pete and P.B. Dye course named Course of the Year", [
     "Prestwick's course, by Pete Dye and his son P.B. Dye, was named the 2025 Myrtle Beach Area Golf Course of the Year. It carries several of Dye's marks: wooden bulkheads along many water banks, deep-faced bunkers around greens that are often raised, and fast greens.",
     "Prestwick opened in 1989 as a private club, founded by the Jackson family, who also created Ocean Lakes. The Gatlin Brothers once lived here and held a charity golf tournament each year.",
-    "The course is public, so golfers who come to play drive in through the guard gate to reach the clubhouse. More cars pass the gatehouse than at a neighborhood with a private club.",
+    "In December 2015 the club said it would end golf memberships and become a daily-fee course, and its site lists no membership today. Golfers who do not live here come to play, so we find out how the gate is run today before you offer.",
   ], "Homes usually sell for about $480,000, and the HOA fee is about $190 a month.",
   ["prestwick-from-above-2023", "Prestwick from above: houses among the fairways of its golf course, with a lake at the left."]),
 
@@ -316,7 +316,7 @@ const SECTIONS_PLACES = [
 
   entry("heritage-plantation", "a dock master and a crow's nest over the river", [
     "Heritage Plantation's marina has a full-time dock master and a dock house built over the Waccamaw River, with a crow's nest and a swing on its roof. The marina also has a deck over the water, bordered by cypress trees, that serves as a daily sunset gathering place.",
-    `The ${h.ext(HERITAGE, "HOA fee")} includes cable TV, home internet, the dock master and 24-hour security. The board hires a security company to staff the guardhouse at the main gate. Owners have run the association since 2002.`,
+    `The ${h.ext(HERITAGE, "HOA fee")} includes cable TV, home internet, the dock master and 24-hour security. The board hires a security company, and the main gate has a guardhouse. Owners have run the association since 2002.`,
     "Many mornings are reserved for league play on the four Har-Tru courts, a green clay, and four pickleball courts. The Heritage Club, a public par-71 course by Dan Maples, lies among the live oaks on land that was once the True Blue and Midway plantations.",
     "Trash pickup costs extra, and boat slips are rented by the day, the month or the year.",
   ], "Homes usually sell for about $710,000, and the HOA fee is about $325 a month."),
@@ -392,7 +392,7 @@ module.exports = G.page({
         "At Heritage Plantation, the HOA fee includes cable TV, home internet and a full-time dock master.",
         "At Litchfield Plantation, the owners own the plantation house at the end of the Avenue of Live Oaks.",
       ], [
-        { text: "None of the private clubs here publishes what it costs to join or its yearly dues.", act: "We ask the club for the current figures before you offer." },
+        { text: "The private clubs we checked list their kinds of membership but not their prices.", act: "We ask the club for the current figures before you offer." },
         { text: "At DeBordieu, the owners pay to rebuild their own beach, through assessments to a beach fund." },
         { text: "In Dye Estates, lots are still for sale with no deadline to build, so a house can go up next door." },
         { text: `In Horry County outside city limits, the HOA, not the county, maintains ${h.ext(CODE, "private streets")}.`, act: `We check the HOA's savings, so you know before you offer whether a one-time charge to every owner, a ${h.a("/hoa/special-assessments/", "special assessment")}, is likely.` },
@@ -402,7 +402,7 @@ module.exports = G.page({
   faqTitle: "Gated communities FAQ",
   faq: [
     { q: "Does a gate make a neighborhood safer?", a: "A gate keeps through traffic off the streets. A guard, a code or the owner lets each visitor in. We do not rate any neighborhood as safe or unsafe." },
-    { q: "How do guests get through the gate?", a: "It differs from one neighborhood to the next: a guard with a guest list, a call box at the gate, or a code from the owner. We find out the gate's rules for guests and deliveries for any home before you offer." },
+    { q: "How do guests get through the gate?", a: "Each neighborhood has its own way: a guard with a guest list, a call box at the gate, or a code from the owner. We find out the gate's rules for guests and deliveries for any home before you offer." },
     { q: "Is there a gated community in Surfside Beach?", a: "No. Prestwick, outside the town, is the gated neighborhood on this page nearest Surfside Beach. Its nearest public beach access is in Surfside Beach, about 7 minutes away by car." },
     { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet has a gate at its main entrance. Myrtle Trace near Conway has gates only at its back entrance." },
     { q: "Are there gated golf communities near Myrtle Beach?", a: "Yes. Ten of the 20 gated neighborhoods on this page are golf communities, from Tidewater in North Myrtle Beach to DeBordieu Colony south of Pawleys Island." },
