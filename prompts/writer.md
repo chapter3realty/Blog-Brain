@@ -114,4 +114,6 @@ A few listings describe the homes we saw, not every home. Describe what the home
 
 When a number or repeat gate fails, first add selling prose that is not numbers: what people do there, why they chose it, what the street is like. Then cut filler. Never pass a gate by thinning an entry (lesson B50).
 
+When every entry needs the same kind of fact (the homes, the gate, the price), give it in that entry's own words and shape, and not always in the same place. Read three entries in a row aloud; no two may sound alike (lesson B51).
+
 After every change, however small, run `node build.js audit` in the website worktree as well as the Blog-Brain gates. In batch 2026-10-b a one-line fix in the last round passed score, repeat-check and struck-check but failed the audit's 28-word sentence limit, and the package stopped at preflight.
