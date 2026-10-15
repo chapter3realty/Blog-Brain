@@ -32,6 +32,8 @@
  *   parcels and builder plans, one listing detail said once in three entries (row 226). Fairways, Sawgrass East, Golf
  *   and Yacht Club and Indigo Grove lead with a fact of their own; each entry has a normal day. v6 D16 to D20 applied;
  *   every price box says "usually sold for". Wynbrooke aerial cut; town names on the map; one Parkview FAQ cut.
+ * Version 14e-2, 2026-10-15: verifier v7 (row 227) D21 to D26 applied; the Conway Main Street photo (Pubdog, public
+ *   domain, review/PHOTOS-FREE.md) placed in Amber Bluff's downtown Conway paragraph.
  * Versions 1 to 12, 2026-10-13 and 14: git history. Version 8 found the twelve by joining the county deed
  *   index to the parcels (rows 116 and 155); later rounds added the aerials, the drives and the flood checks.
  *
