@@ -13,7 +13,7 @@ Files are in `batches/2026-10-b/images/<folder>/`, served as `/images/buyers/<fo
 
 ## No-HOA homes (`no-hoa/`)
 
-Before: 4 of 16 areas had a picture (Cherry Grove, Conway, Loris, Aynor). Now 9 of 16 have one. Cherry Grove and Conway each gain a second choice.
+Before: 4 of 16 areas had a picture (Cherry Grove, Conway, Loris, Aynor). Now 10 of 16 have one. Cherry Grove and Conway each gain a second choice.
 
 | Area | File | What it shows | License | Caption |
 |---|---|---|---|---|
@@ -73,7 +73,7 @@ Not found: Parkview and the Whispering Pines golf course, Wild Wing, and the Nor
 
 | Page | New photos | Areas still without a free photo |
 |---|---|---|
-| No-HOA homes | 8 (5 new areas, 2 second choices, plus Myrtle Heights) | Plantation Point, Windy Hill, Ocean Drive, Little River, Socastee, country around Loris |
+| No-HOA homes | 8 (6 new areas, 2 second choices); 10 of 16 areas now have a picture | Plantation Point, Windy Hill, Ocean Drive, Little River, Socastee, country around Loris |
 | Gated communities | 2 | Clubhouses, marinas and courses of all eight named communities |
 | Best neighborhoods | 1 (and 3 from no-HOA that fit) | Grande Dunes, Waterbridge, Wild Wing, Deerfield, Tidewater, Plantation Lakes, Barefoot bridge |
 | Affordable | 1 | Parkview / Whispering Pines, Wild Wing, North Myrtle Beach Park and Sports Complex |
