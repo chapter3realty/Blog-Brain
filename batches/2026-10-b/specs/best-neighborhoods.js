@@ -1,5 +1,9 @@
 /* /buyers/best-neighborhoods/ - the best neighborhoods in Myrtle Beach, by what each one does best.
  *
+ * Round 14c, 2026-10-15 (rewrite check v6, row 258; OWNER-EYE-14; SIBLING-OWNERS.md): picks in the short answer; on a
+ * phone the map comes before the guide; Tidewater, Barefoot and Grande Dunes lead with facts the gated page does
+ * not own (rows 259 to 262); The Farm without the preserve; Berkshire Forest, Deerfield and Forestbrook Estates
+ * rebuilt on lot sizes (row 263); one compact table; a two-line yearly cost; five unclear aerials cut.
  * Batch 2026-10-b, page 1. Version 14, 2026-10-15 (round 14: review/ROUND-14.md; the owner's third read in
  * voice/VERDICTS.md, 2026-10-14; lessons B39 to B44; CRAFT 1, 3, 4 and 5). A rebuild, not a patch.
  *
@@ -131,7 +135,7 @@ const GROUPS = [
     ["tidewater", "golf and brunch on the marsh"],
     ["barefoot-resort", "a swing bridge to the shops"],
     ["prince-creek", "a TPC course"],
-    ["wild-wing", "27 holes"],
+    ["wild-wing", "a renovated course"],
     ["grande-dunes", "a course of the year"]] },
   { icon: "dock", label: "A boat or a paddle", items: [
     ["plantation-lakes", "a pontoon-boat lake"],
@@ -261,15 +265,15 @@ const ENTRIES = [
   ENTRY("grande-dunes", "South Florida looks on the Intracoastal Waterway", [
     `Grande Dunes was built to look like South Florida. Its ${h.ext(GD_SUN, "first houses followed the style")} of the Florida builder Addison Mizner, with tile roofs, stucco, columns and arches, and many of its most expensive houses still do.`,
     "Its first house sold in October 2000 for $1.15 million. It was the first home in Myrtle Beach away from the oceanfront to sell for more than a million dollars.",
-    "The Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. The National Golf Course Owners Association named it course of the year in 2009.",
+    "The Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. The National Golf Course Owners Association has named it its course of the year.",
     "Across Grande Dunes, most houses for sale are new or not yet finished. Calais, Palermo and Villa Venezia are among its gated sections.",
   ], "Homes in Calais, Palermo and Villa Venezia, three of its gated sections, usually sell for about $1.5 million. The HOA fee there is about $200 to $375 a month."),
 
   ENTRY("plantation-lakes", "pontoon boats on a lake with 15 miles of shoreline", [
     "Owners at Plantation Lakes take pontoon boats out on a lake with about 15 miles of shoreline. Many homes back onto the water, and the amenity area, with a dock, is on a point in the lake.",
     "On a cool evening, the clubhouse has a great room with a fireplace and a reading and card room. Two pools, joined by waterfalls, are beside it, and the community has horseshoe pits.",
-    "Plantation Lakes has 748 homes and lots, off Carolina Bays Parkway. Its houses for sale are the largest on this page, and they cost more than in the other Carolina Forest neighborhoods here.",
-    "The drive to a beach access with parking is about 15 to 20 minutes.",
+    "Plantation Lakes has 748 homes and lots. Its houses for sale are the largest on this page, and they cost more than in the other Carolina Forest neighborhoods here.",
+    "Plantation Lakes is inland, so a beach day starts with a drive.",
   ], "Houses in Plantation Lakes usually sell for about $740,000, and the HOA fee is about $125 a month."),
 
   ENTRY("waterbridge", "lakes to paddle and a full clubhouse calendar", [
@@ -309,7 +313,7 @@ const ENTRIES = [
 
   ENTRY("deerfield", "bigger wooded lots near Surfside Beach", [
     "In the Deerfield Plantation area, a typical lot is about a third of an acre. That is close to twice a typical lot at The Farm or Berkshire Forest. Its older streets are wooded, and the owners' association owns lake and canal land among the homes.",
-    "The area grew up around the old Deer Track golf courses near Surfside Beach, and the old South Course is now a neighborhood of new houses. The Surfside Beach Fishing Pier is about 4 miles away by road.",
+    "The area grew up around the old Deer Track golf courses near Surfside Beach, and the old South Course is now a neighborhood of new houses. The Surfside Beach Fishing Pier is about a 10-minute drive.",
     "On the old North Course, building has only begun, so homes near it are beside a building site.",
   ], "Homes in the Deerfield Plantation area usually sell for about $355,000, and the HOA fee is under $90 a month."),
 ];
