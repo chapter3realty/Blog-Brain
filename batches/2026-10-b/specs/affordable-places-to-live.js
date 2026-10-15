@@ -43,7 +43,7 @@ const BB = [path.join(__dirname, "..", "tools", "blog-brain-2026-10-b"), process
 if (!BB) throw new Error("Blog-Brain tools not found (tools/glass.js)");
 const PK = require(path.join(BB, "tools", "page-kit.js"));
 const AM = require(path.join(BB, "tools", "area-map.js"));
-const G = require(path.join(BB, "tools", "glass.js"));
+const G = PK.glass;
 
 /* This batch's files: the website's data/2026-10-b/ (where the upload package puts them), else the
    batch folder in Blog-Brain. Photo records: batch 2026-10-a's (the website's data/photos.json), then this batch's. */
@@ -51,7 +51,7 @@ const DATA = [path.join(__dirname, "..", "data", "2026-10-b"), path.join(BB, "ba
   "/home/user/Blog-Brain/batches/2026-10-b/data"].find((d) => fs.existsSync(path.join(d, "photos.json")));
 if (!DATA) throw new Error("batch 2026-10-b photos.json not found");
 const PHOTO_FILES = [path.join(__dirname, "..", "data", "photos.json"), path.join(DATA, "photos.json")].filter((f) => fs.existsSync(f));
-const kit = PK.create({ h, photos: PHOTO_FILES.flatMap((f) => JSON.parse(fs.readFileSync(f, "utf8")).photos),
+const kit = PK.create({ h, theme: "glass", photos: PHOTO_FILES.flatMap((f) => JSON.parse(fs.readFileSync(f, "utf8")).photos),
   mapDir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), mapSrc: "/images/maps" });
 const { story, placesMap, photoSet } = kit;
 
