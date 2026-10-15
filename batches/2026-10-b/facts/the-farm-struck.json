@@ -221,5 +221,35 @@
     "pattern": "\\bAt closing, you pay the HOA a one-time fee of \\$250",
     "struck": "At closing, you pay the HOA a one-time fee of $250.",
     "use": "On an ordinary sale, the buyer pays the HOA a one-time $250 transfer fee at closing."
+  },
+  {
+    "row": "the-farm 105",
+    "pattern": "\\bdirt roads\\b|park and walk its dirt",
+    "struck": "Visitors park and walk its dirt roads.",
+    "use": "SCDNR asks visitors to park their vehicles and walk the preserve's well-maintained roads [SCDNR Public Lands property page]."
+  },
+  {
+    "row": "the-farm 28, 29 (tiles, v8)",
+    "pattern": "^(?:Beach|Publix) (?:About )?\\d+ min$",
+    "struck": "Beach 10 min",
+    "use": "Beach About 10 min by car (and Publix About 2 min by car) [OSRM from the Farmers Rest Drive entrance: 10.1 and 1.5 min]."
+  },
+  {
+    "row": "the-farm 109",
+    "pattern": "strongest points|\\bmain drawbacks\\b",
+    "struck": "The fee and the flood map are The Farm's strongest points. The pool repair and the parking rule are its main drawbacks.",
+    "use": "(cut the opener, or list all four cons: the pool, the parking rule, a second HOA fee for townhomes and condos, and hunting at the preserve; no ranking)"
+  },
+  {
+    "row": "the-farm 89",
+    "pattern": "\\bis the part the Corps\\b|\\bthe part the Corps[^.]{0,40}investigation",
+    "struck": "Range III, a section that borders The Farm, is the part the Corps still lists as under investigation.",
+    "use": "Range III, a section that borders The Farm, is listed by the Corps as under investigation [Corps FUDS data, fiscal year 2024]."
+  },
+  {
+    "row": "the-farm 109",
+    "pattern": "\\bshow you any you like\\b",
+    "struck": "We will look for the homes for sale that fit and show you any you like.",
+    "use": "We will look for the homes for sale that fit and set up showings for the ones you choose."
   }
 ]

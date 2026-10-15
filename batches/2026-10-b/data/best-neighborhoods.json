@@ -1,5 +1,5 @@
 {
- "_comment": "The neighborhoods, map points and table cells on /buyers/best-neighborhoods/ (batch 2026-10-b, page 1). Every cell comes from a verified row in batches/2026-10-b/facts/neighborhoods-facts.md (the verifier's 'OK to use on the page as' wording and the corrected beach rows), except The Farm (batches/2026-10-b/facts/the-farm-facts.md, rows 5, 28, 47, 48, 71), Tidewater's price and fee (batches/2026-10-b/facts/gated-communities-facts.md rows 20 and 43, so the gated page and this page show one value) and the four 55+ communities (batches/2026-10-a/data/55-plus-communities.json, by reference). Prices: the middle recorded resale, October 2025 to September 2026, rounded; a range (the verifier's middle half or full range) where fewer than 20 sold; houses and other types apart where one figure blends them. Fees: the fee sellers entered on listings in October 2026 (The Farm: the HOA's 2026 budget). Beach: minutes by car with no traffic from the neighborhood's middle to the nearest public beach access (The Farm: from the Farmers Rest Drive entrance). Map points: the reference point of each neighborhood (a county address point near the middle of its homes; the address is never shown), The Farm at the middle of its 1,634 parcels. Round 2 (2026-10-13): fees rounded to one figure where the verifier's 'most often' value exists (ROUND-2 item 5); 'Ask us' replaced by rows 177 and 178; the beach column says 'by car, no traffic' in its heading. Round 3 (2026-10-13): Grande Dunes uses the gated page's group and values (one fact, one value); the Cherry Grove HOA cell in the yearly cost table reads 'None on most homes' (row 177: 52 of 89 listed with no fee). Round 14 (2026-10-15): the neighborhoods are in the order of the selection guide (walk to the beach, golf, the water, a town center, new homes and big pools, room and value), which is the order of the entries and the map numbers.",
+ "_comment": "The neighborhoods, map points and table cells on /buyers/best-neighborhoods/ (batch 2026-10-b, page 1). Every cell comes from a verified row in batches/2026-10-b/facts/neighborhoods-facts.md (the verifier's 'OK to use on the page as' wording and the corrected beach rows), except The Farm (batches/2026-10-b/facts/the-farm-facts.md, rows 5, 28, 47, 48, 71), Tidewater's price and fee (batches/2026-10-b/facts/gated-communities-facts.md rows 20 and 43, so the gated page and this page show one value) and the four 55+ communities (batches/2026-10-a/data/55-plus-communities.json, by reference). Prices: the middle recorded resale, October 2025 to September 2026, rounded; a range (the verifier's middle half or full range) where fewer than 20 sold; houses and other types apart where one figure blends them. Fees: the fee sellers entered on listings in October 2026 (The Farm: the HOA's 2026 budget). Beach: minutes by car with no traffic from the neighborhood's middle to the nearest public beach access (The Farm: from the Farmers Rest Drive entrance). Map points: the reference point of each neighborhood (a county address point near the middle of its homes; the address is never shown), The Farm at the middle of its 1,634 parcels. Round 2 (2026-10-13): fees rounded to one figure where the verifier's 'most often' value exists (ROUND-2 item 5); 'Ask us' replaced by rows 177 and 178; the beach column says 'by car, no traffic' in its heading. Round 3 (2026-10-13): Grande Dunes uses the gated page's group and values (one fact, one value); the Cherry Grove HOA cell in the yearly cost table reads 'None on most homes' (row 177: 52 of 89 listed with no fee). Round 14 (2026-10-15): the neighborhoods are in the order of the selection guide (walk to the beach, golf, the water, a town center, new homes and big pools, room and value), which is the order of the entries and the map numbers. Round 14d (2026-10-15): Berkshire Forest replaced by Avalon (rows 266 to 270, pending verification); Grande Dunes is the whole community in this page's own shape; Prince Creek without Bellwood Landing; order: walk to the beach, golf, a boat, a town center, lower prices. The yearly cost table is replaced by the yearly HOA fee by guide group (fee_by_group, row 271).",
  "as_of": "2026-10-13",
  "ledger": "batches/2026-10-b/facts/neighborhoods-facts.md",
  "neighborhoods": [
@@ -81,11 +81,11 @@
    "lat": 33.588187,
    "lon": -79.059731,
    "cells": {
-    "price": "Houses about $560,000; Bellwood $810,000",
+    "price": "Five house resales, middle about $558,000",
     "fee": "About $100 to $390, by section",
-    "beach": "About 11; Bellwood Landing 14 minutes"
+    "beach": "About 11 minutes"
    },
-   "rows": "group: named sections outside Seasons at Prince Creek (row 145 corrected); price: row 147 (10 resales $315,000 to $620,000; new townhomes $300,000 to $356,000); fee: row 149; beach: row 151 (a free lot); grocery: row 152; hospital: row 153; flood: row 154"
+   "rows": "group: named sections outside Seasons at Prince Creek (row 145 corrected); price: row 147 (10 resales $315,000 to $620,000; new townhomes $300,000 to $356,000); fee: row 149; beach: row 151 (a free lot); grocery: row 152; hospital: row 153; flood: row 154; round 14d (2026-10-15): Bellwood Landing's price and time cut (the gated page owns Bellwood); price cell per v7 D9 (row 147: five house resales, middle $558,000)"
   },
   {
    "id": "wild-wing",
@@ -106,14 +106,14 @@
    "name": "Grande Dunes",
    "short": "Grande Dunes",
    "area": "myrtle-beach",
-   "lat": 33.75879,
-   "lon": -78.82911,
+   "lat": 33.768492,
+   "lon": -78.813809,
    "cells": {
-    "price": "About $1.5 million",
-    "fee": "About $200 to $375",
-    "beach": "About 12 minutes"
+    "price": "New about $680,000; resales $1.2 to $2.9 million",
+    "fee": "About $200 to $400 for a house",
+    "beach": "About 9 to 10 minutes"
    },
-   "rows": "Round 3: one value with the gated page. The three gated sections of gated-communities-facts.md: price row 46 (11 sales, middle $1,501,500), fee row 34 ($199 to $375 in these sections), beach as the gated page; map point from data/gated-map.json. The neighborhoods ledger's rows 14 and 17 (other sections) are no longer used on this page."
+   "rows": "Round 14d (2026-10-15): the whole community, in this page's own shape (the gated page owns the three gated sections and their price). Sections whose county description names Grande Dunes: builder sales row 15 (55 deeds, middle $678,000 to $678,500; 'sales by builders such as Lennar and Dream Finders'), resales row 14 (7 resales, $1,190,000 to $2,910,000, middle $1,632,000), fee row 17 (detached listings $199 to $400, most often $347), beach row 19 (9.4 min, 'about 9 to 10 minutes'), map point row 13 (the reference point)."
   },
   {
    "id": "plantation-lakes",
@@ -172,32 +172,18 @@
    "rows": "price: row 84 (29 house resales, middle $395,000); fee: row 85; beach: row 87; grocery: row 88; flood: row 90"
   },
   {
-   "id": "the-farm",
-   "name": "The Farm at Carolina Forest",
-   "short": "The Farm",
+   "id": "avalon",
+   "name": "Avalon",
+   "short": "Avalon",
    "area": "inland",
-   "lat": 33.7635,
-   "lon": -78.8765,
+   "lat": 33.768138,
+   "lon": -78.916767,
    "cells": {
-    "price": "About $350,000 for a house",
-    "fee": "$107",
-    "beach": "About 12 minutes"
+    "price": "About $290,000 for a house",
+    "fee": "About $85 for a house",
+    "beach": "About 18 minutes"
    },
-   "rows": "the-farm-facts.md: price row 48 (61 detached, middle $352,000; Orchards townhomes $228,500; Planters Point condos $237,500); fee row 5 ($107 for every home; Orchards and Planters Point pay a second association, row 6); beach row 28 (about 10 minutes from the Farmers Rest Drive entrance); amenities: verifier's completeness wording; flood row 71"
-  },
-  {
-   "id": "berkshire-forest",
-   "name": "Berkshire Forest",
-   "short": "Berkshire Forest",
-   "area": "inland",
-   "lat": 33.742759,
-   "lon": -78.90081,
-   "cells": {
-    "price": "About $370,000 to $390,000",
-    "fee": "About $115",
-    "beach": "About 15 minutes"
-   },
-   "rows": "price: row 48 (24 resales, middle $388,000); fee: row 49; beach: row 51 corrected (14.8 min, 6.5 mi); grocery: row 52; flood: row 55"
+   "rows": "Round 14d (2026-10-15), replaces Berkshire Forest. neighborhoods-facts.md rows 266 to 270, pending verification (round 14d): group and lots row 266 (775 parcels named Avalon, 729 houses, median lot 0.16 acre); price row 267 (27 resales, middle $292,000, middle half $269,900 to $335,000); fee and homes row 268 (13 detached listings, most often $84); amenity area row 269; beach row 270 (18.2 min to MYRTLE BEACH 116, 18.2 to 101 with a lot)."
   },
   {
    "id": "deerfield",
@@ -212,6 +198,20 @@
     "beach": "About 7 minutes"
    },
    "rows": "price: row 125 (41 resales, middle $354,900); fee: row 127; beach: row 129 (nearest access golf-cart parking only; the next, a pay lot, 7.8 min); grocery: row 130; flood: row 132"
+  },
+  {
+   "id": "the-farm",
+   "name": "The Farm at Carolina Forest",
+   "short": "The Farm",
+   "area": "inland",
+   "lat": 33.7635,
+   "lon": -78.8765,
+   "cells": {
+    "price": "About $350,000 for a house",
+    "fee": "$107",
+    "beach": "About 12 minutes"
+   },
+   "rows": "the-farm-facts.md: price row 48 (61 detached, middle $352,000; Orchards townhomes $228,500; Planters Point condos $237,500); fee row 5 ($107 for every home; Orchards and Planters Point pay a second association, row 6); beach row 28 (about 10 minutes from the Farmers Rest Drive entrance); amenities: verifier's completeness wording; flood row 71"
   }
  ],
  "fifty_five_plus": {
@@ -255,35 +255,28 @@
    }
   ]
  },
- "yearly_cost": {
-  "_comment": "The yearly cost table (round 2, coordinator item 1): writer's arithmetic on verified rows and round 2 pending rows 176, 177, 179 and 181 of neighborhoods-facts.md; the working is under that ledger's round 2 table. Verifier round 2 (2026-10-13): The Farm's tax is $1,286.60 (the stormwater fee is a fee, not tax), total about $2,600; Cherry Grove flood uses the primary-residence middle $1,258 (row 179), total about $4,400; Cherry Grove's flat bill fee of about $1,700 (row 181) is said in the text, not added.",
+ "fee_by_group": {
+  "_comment": "Round 14d: the yearly HOA fee for a house, by guide group: the monthly listing fees of each neighborhood's verified fee row (and row 268 for Avalon) times 12, rounded to the hundred. Working in neighborhoods-facts.md row 271.",
   "rows": [
    {
-    "name": "Cherry Grove house, about $695,000",
-    "cells": {
-     "hoa": "None on most homes",
-     "tax": "About $3,100",
-     "flood": "About $1,300",
-     "total": "About $4,400"
-    }
+    "group": "Walk to the beach",
+    "fee": "None on most homes"
    },
    {
-    "name": "The Farm house, about $350,000",
-    "cells": {
-     "hoa": "About $1,300",
-     "tax": "About $1,300",
-     "flood": "Not required",
-     "total": "About $2,600"
-    }
+    "group": "Golf at the door",
+    "fee": "About $1,100 to $4,800 for a house; about $8,200 for a Barefoot condo"
    },
    {
-    "name": "Tidewater house, about $625,000",
-    "cells": {
-     "hoa": "About $2,800",
-     "tax": "About $2,800",
-     "flood": "Not required for most",
-     "total": "About $5,600"
-    }
+    "group": "A boat or a paddle",
+    "fee": "About $1,500 to $1,800"
+   },
+   {
+    "group": "A town center you can walk",
+    "fee": "About $3,600 to $8,200 for a townhome"
+   },
+   {
+    "group": "Lower prices",
+    "fee": "About $800 to $1,300"
    }
   ]
  }
