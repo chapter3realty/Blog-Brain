@@ -3882,6 +3882,372 @@
    "share_alike": false,
    "width": 1200,
    "height": 900
+  },
+  {
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "digital_source_type": "digitalCapture",
+   "display_credit": "U.S. government aerial photo",
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/surfside-beach-pier.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/surfside-beach-pier-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/surfside-beach-pier-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Surfside Beach Pier from the air with a label, NOAA, January 2026",
+   "what": "The ocean side of Surfside Beach from the air on January 12, 2026: the town pier running out from the beach into the ocean, labelled, with streets of beach houses behind the sand.",
+   "caption": "The Surfside Beach Pier from the air, with streets of beach houses behind the sand.",
+   "alt": "Surfside Beach from the air: a long pier labelled Surfside Beach Pier runs from the beach into a green ocean, with rows of houses on the streets behind the sand",
+   "place": {
+    "city": "Surfside Beach",
+    "sublocation": "between US 17 Business and the ocean"
+   },
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185159_0112261658253_036_RGB1, flown 2026-01-12 at about 16:58 UTC (the frame name carries 011226 1658; the exterior orientation file 0122026_RGB_1_Oblique_EO.txt, event 201, puts the camera at 33.6108, -78.9802, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
+   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added labels",
+   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit), never by eye: 'Surfside Beach Pier' at the centroid of the Horry County OpenData Parks polygon 'Surfside Pier', 11 S Ocean Blvd (-78.971344, 33.604653; neighborhoods-facts.md rows 196 and 246). Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json 'surfside-beach-pier', surfside-beach-pier.labels.json).",
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.jpg",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.geom"
+   ],
+   "frame": {
+    "raw_pixels": [
+     0,
+     2400,
+     8800,
+     9000
+    ],
+    "raw_size": "14204x10652",
+    "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the right"
+   },
+   "original_size": "8800x6600 pixels of the raw frame, resized to 2400 wide, colors adjusted, labels drawn",
+   "crop_source": [
+    5900,
+    3850,
+    9700,
+    6700
+   ],
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/best-neighborhoods/surfside-beach-pier-1x1.webp",
+     "width": 1200,
+     "height": 1200
+    },
+    "4x3": {
+     "path": "images/buyers/best-neighborhoods/surfside-beach-pier-4x3.webp",
+     "width": 1200,
+     "height": 900
+    },
+    "16x9": {
+     "path": "images/buyers/best-neighborhoods/surfside-beach-pier-16x9.webp",
+     "width": 1200,
+     "height": 675
+    }
+   }
+  },
+  {
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "digital_source_type": "digitalCapture",
+   "display_credit": "U.S. government aerial photo",
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/market-common-valor-park.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/market-common-valor-park-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/market-common-valor-park-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "The Market Common from the air with labels, NOAA, January 2026",
+   "what": "The Market Common in Myrtle Beach from the air on January 12, 2026: its homes outlined in orange, Valor Park marked, and Grand Park with its ball fields and lake, each labelled.",
+   "caption": "The Market Common from the air: its homes, outlined, Valor Park, where the Saturday market is held, and Grand Park.",
+   "alt": "The Market Common from the air: streets of homes outlined in orange beside a lake, a dot labelled Valor Park at the edge of the shops, and ball fields and a lake labelled Grand Park",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "The Market Common"
+   },
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185148_0112261657106_036_RGB2, flown 2026-01-12 at about 16:57 UTC (exterior orientation file 0122026_RGB_2_Oblique_EO.txt, camera within 1 km of The Market Common's reference point, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
+   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added an outline and labels",
+   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom), never by eye: 'The Market Common' among the outlined home parcels (layer 24); 'Valor Park' at the centroid of the county Parks polygon 'Valor Garden', 1120 Farrow Pkwy, the address of Valor Park where the farmers market is held (rows 195, 248); 'Grand Park' at the centroid of the county Parks polygon 'Grand Park' (row 195), shifted onto the park. Outline: the Market Common home parcels, The Reserve at Market Common left out. Script: scratchpad wb-best-work/eri (config.json 'market-common-valor-park').",
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.jpg",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.geom"
+   ],
+   "frame": {
+    "raw_pixels": [
+     1500,
+     1600,
+     13500,
+     10600
+    ],
+    "raw_size": "14204x10652",
+    "note": "a raw frame, tilted about 20 degrees from straight down, not a map"
+   },
+   "original_size": "12000x9000 pixels of the raw frame, resized to 2400 wide, colors adjusted, outline and labels drawn",
+   "crop_source": [
+    2600,
+    1700,
+    11400,
+    8300
+   ]
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/tidewater-golf-course.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/tidewater-golf-course-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/tidewater-golf-course-1200w.webp"
+   },
+   "title": "Tidewater Plantation from above with a label, NAIP aerial, April 2023",
+   "what": "Tidewater Plantation in North Myrtle Beach from above on April 10, 2023: houses under trees between the fairways of its golf course, labelled.",
+   "caption": "Tidewater from above: houses under the trees, with golf fairways on both sides of them.",
+   "alt": "Tidewater Plantation from above: houses under tall trees along curving streets, with green golf fairways and greens on both sides, one labelled Golf course",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Tidewater Plantation"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (tiles m_3307811_ne_17_060_20230410, m_3307812_nw_17_060_20230410; the service gives acquisition_date 2023-04-10). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "naip_tiles": [
+    "m_3307811_ne_17_060_20230410",
+    "m_3307812_nw_17_060_20230410"
+   ],
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
+   "labels": [
+    "Golf course"
+   ],
+   "annotation_sources": {
+    "Golf course": "interior point of the golf course parcel PIN 35100000007 (W/S GOLF COURSE, KSM South Carolina LLC), 42 m from its edge (-78.624428, 33.850595); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8752724.419819523%2C4008226.5713886106%2C-8751953.812848525%2C4008808.6048248145&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "frame": {
+    "bbox_wgs84": [
+     -78.627061,
+     33.846629,
+     -78.620139,
+     33.850971
+    ],
+    "ground_m_per_px_1200w": 0.53
+   },
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
+   "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/plantation-lakes-docks.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/plantation-lakes-docks-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/plantation-lakes-docks-1200w.webp"
+   },
+   "title": "Plantation Lakes from above with labels, NAIP aerial, April 2023",
+   "what": "Plantation Lakes in Carolina Forest from above on April 10, 2023: houses along the lake, the lake labelled, and the boat docks at the amenity area marked.",
+   "caption": "Plantation Lakes from above: houses along the lake, and the boat docks at the owners’ amenity area.",
+   "alt": "Plantation Lakes from above: houses with back yards on a dark winding lake labelled Lake, and a small boat dock, marked Boat docks, beside two pools",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Plantation Lakes"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (tiles m_3307809_se_17_060_20230410, m_3307817_ne_17_060_20230410; the service gives acquisition_date 2023-04-10). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "naip_tiles": [
+    "m_3307809_se_17_060_20230410",
+    "m_3307817_ne_17_060_20230410"
+   ],
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
+   "labels": [
+    "Lake",
+    "Boat docks"
+   ],
+   "annotation_sources": {
+    "Lake": "a point on the open water of the lake (-78.91735, 33.751769), read from the image: the water is the dark area; the lake is the Plantation Lakes POA common area, Horry County GIS layer 24",
+    "Boat docks": "the dock structure on the Plantation Lakes POA amenity parcel PIN 41901010015 (-78.915459, 33.749948), read from the image; the recorded boating rules list 'day/overnight docks, boat ramp' at the amenity center (neighborhoods-facts.md row 239 note)"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8785138.425440706%2C3995143.6998587428%2C-8784416.806461664%2C3995688.7330465857&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "frame": {
+    "bbox_wgs84": [
+     -78.918241,
+     33.748965,
+     -78.911759,
+     33.753035
+    ],
+    "ground_m_per_px_1200w": 0.5
+   },
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
+   "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/prince-creek-tpc.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/prince-creek-tpc-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/prince-creek-tpc-1200w.webp"
+   },
+   "title": "Prince Creek from above with a label, NAIP aerial, April 2023",
+   "what": "Prince Creek in Murrells Inlet from above on April 10, 2023: streets of houses beside the TPC Myrtle Beach golf course, labelled.",
+   "caption": "Prince Creek from above: streets of houses beside the TPC Myrtle Beach golf course.",
+   "alt": "Prince Creek from above: curving streets of houses and ponds beside green golf fairways and greens, labelled TPC Myrtle Beach",
+   "place": {
+    "city": "Murrells Inlet",
+    "sublocation": "Prince Creek"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (tiles m_3307932_ne_17_060_20230410, m_3307932_nw_17_060_20230410; the service gives acquisition_date 2023-04-10). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "naip_tiles": [
+    "m_3307932_ne_17_060_20230410",
+    "m_3307932_nw_17_060_20230410"
+   ],
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
+   "labels": [
+    "TPC Myrtle Beach"
+   ],
+   "annotation_sources": {
+    "TPC Myrtle Beach": "point inside the golf parcel PIN 46800000005 (KAMINSKI TR-TPC GCOURSE, Founders Golf Mgmt LLC) (-79.062322, 33.582945); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8801375.071511343%2C3972494.2081318283%2C-8800462.812721074%2C3973183.230082687&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "frame": {
+    "bbox_wgs84": [
+     -79.064097,
+     33.579622,
+     -79.055903,
+     33.584778
+    ],
+    "ground_m_per_px_1200w": 0.63
+   },
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
+   "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/cherry-grove-pier.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/cherry-grove-pier-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/cherry-grove-pier-1200w.webp"
+   },
+   "title": "Cherry Grove Pier from above with a label, NAIP aerial, April 2023",
+   "what": "Cherry Grove in North Myrtle Beach from above on April 10, 2023: Cherry Grove Pier running from the beach out past the surf, labelled, with beach houses along the streets behind the sand.",
+   "caption": "Cherry Grove Pier from above, running out past the surf, with beach houses behind the sand.",
+   "alt": "Cherry Grove from above: a long wooden pier labelled Cherry Grove Pier runs from a blue building on the beach out past the waves, with rows of beach houses along the streets behind the sand",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Cherry Grove"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (tiles m_3307811_ne_17_060_20230410, m_3307812_nw_17_060_20230410; the service gives acquisition_date 2023-04-10). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "naip_tiles": [
+    "m_3307811_ne_17_060_20230410"
+   ],
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
+   "labels": [
+    "Cherry Grove Pier"
+   ],
+   "annotation_sources": {
+    "Cherry Grove Pier": "midpoint of the OpenStreetMap way 'Cherry Grove Pier' (man_made=pier), ends -78.633376,33.830027 and -78.631976,33.827436 (api.openstreetmap.org via Overpass); the pier is in neighborhoods-facts.md rows 203 and 245"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8753826.394965447%2C4005601.8384339157%2C-8753055.961183332%2C4006179.6637705034&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "frame": {
+    "bbox_wgs84": [
+     -78.63696,
+     33.827044,
+     -78.63004,
+     33.831356
+    ],
+    "ground_m_per_px_1200w": 0.53
+   },
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
+   "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
+   "width": 1200,
+   "height": 900
   }
  ],
  "updated": "2026-10-13"

@@ -195,23 +195,23 @@ function entry(id, head, paras, price, photo) {
 const SECTIONS_PLACES = [
   entry("tidewater-plantation", "nine holes along Cherry Grove Inlet", [
     "Tidewater, in North Myrtle Beach, has a golf course ranked among the best you can play in America. Golf Digest put Tidewater Golf Club at No. 39 on its list of America's 100 Greatest Public Courses for 2023 to 2024. Nine of its holes play along the tidal inlet at Cherry Grove.",
-    "The course opened in 1990, and Golf Digest and Golf Magazine both named it the best new public course in America that year. Golf membership is a separate purchase, open to anyone in the area. Most houses are custom homes of about 2,300 to 3,200 square feet from the 1990s and 2000s, and about half the lots are on the course.",
+    "The course opened in 1990, and Golf Digest and Golf Magazine both named it the best new public course in America that year. Golf membership is a separate purchase, open to anyone in the area. Most houses are custom homes from the 1990s and 2000s, and about half the lots are on the course.",
     "Tidewater is inside North Myrtle Beach's city limits, with city services. It is on the Intracoastal Waterway, not the ocean, but the neighborhood keeps its own beach cabana, with parking, at Cherry Grove Beach.",
-    "Tidewater is one master association of 664 houses with six smaller associations under it, so a house may answer to two associations, each with its own rules.",
+    "Tidewater is one master association of 664 houses with six smaller associations under it, so a house may answer to two associations.",
   ], "Homes at Tidewater usually sell for about $625,000. The HOA fee is about $230 a month.",
   ["tidewater-plantation-marsh-from-above-2023", "Tidewater Plantation from above, with its golf holes along the inlet labelled. Houses line the street above the fairways."]),
 
   entry("seaside-plantation", "Main Street by golf cart", [
-    "From Seaside Plantation, Main Street in North Myrtle Beach is about two-thirds of a mile by road, on two side streets, with no main highway to cross. The city lets a golf cart with a state permit use streets posted at 35 mph or less, from sunrise to sunset.",
-    "Its houses, built in the 2000s, are traditional homes of about 2,400 to 3,200 square feet, some of them brick. Each spring and fall the Society of Stranders brings its shag dance festivals, the Spring Safari and the Fall Migration, to Main Street and Ocean Drive. The ocean is a quarter to three-quarters of a mile from the houses, and some houses look onto the neighborhood's lakes.",
-    "Festival weeks bring crowds and traffic to Main Street.",
+    "From the south end of Seaside Plantation, Main Street in North Myrtle Beach is about two-thirds of a mile by road. The way runs on two side streets, with no main highway to cross. The city lets a golf cart with a state permit use its smaller streets, those posted at 35 mph or less, from sunrise to sunset.",
+    "Its houses date from the 2000s, traditional homes, some of them brick. Each spring and fall the Society of Stranders brings its shag dance festivals, the Spring Safari and the Fall Migration, to Main Street and Ocean Drive. The ocean is a quarter to three-quarters of a mile from the houses, and some houses look onto the neighborhood's lakes.",
+    "Festival weeks bring crowds to Main Street.",
   ], "Homes here usually sell for about $720,000, with an HOA fee of about $210 a month."),
 
   entry("barefoot-resort", "the course that hosts the Monday After the Masters", [
-    "Dye Estates, a gated neighborhood inside Barefoot Resort in North Myrtle Beach, surrounds the Dye Course, home of the Monday After the Masters. Hootie & the Blowfish host the charity pro-am each spring, and it brings celebrities and PGA Tour players to the course. Its houses are large custom homes, most built after 2010, on lots of about an acre. At Barefoot a golf membership belongs to certain houses, not to the owner, and the buyer can take it over at closing.",
+    "Dye Estates, a gated neighborhood inside Barefoot Resort in North Myrtle Beach, surrounds the Dye Course, home of the Monday After the Masters. Hootie & the Blowfish host the charity pro-am each spring, and it brings celebrities and PGA Tour players to the course. Its houses are large custom homes, most built after 2010, on lots of about an acre.",
     `Its gate is staffed. A guard works the main gate 24 hours a day, and owners drive through a resident lane with a barcode on the car. A guest gets in only when the owner has given the guard the guest's name and the date. At the second gate, an owner who has set up a gate code can let a guest in by phone. The guest calls from the keypad, and the owner presses 9.`,
-    "Leatherleaf, the other gated neighborhood here, has 62 houses with the Love Course on every side. Davis Love III designed that course with Pinehurst No. 2 in mind, and Leatherleaf's Residents' Club has a lifestyle director who plans events. Its houses, from the 2000s, run about 3,100 to 3,500 square feet, many of them brick.",
-    "In summer a free shuttle runs to the owners' beach cabana, which has key-fob parking, showers and a pet-washing station. In these two neighborhoods you call the driver 15 minutes ahead.",
+    "Leatherleaf, the other gated neighborhood here, has 62 houses with the Love Course on every side. Davis Love III designed that course with Pinehurst No. 2 in mind, and Leatherleaf's Residents' Club has a lifestyle director who plans events. Its houses, from the 2000s, are large, and many are brick.",
+    "In summer a free shuttle runs to the owners' beach cabana, which has key-fob parking, showers and a pet-washing station. In these two neighborhoods you call the driver 15 minutes ahead. At Barefoot a golf membership belongs to certain houses, not to the owner, and the buyer can take it over at closing.",
     "Most of Barefoot Resort has no gate. In Dye Estates no one may swim, boat or fish in the ponds. Lots there are still for sale with no deadline to build, so a house can go up next door at any time.",
   ], "Leatherleaf homes usually sell for about $700,000 to $975,000, with an HOA fee of about $390 a month. Two Dye Estates homes resold in the past year, at about $1.4 million and $2.5 million."),
 
@@ -219,65 +219,66 @@ const SECTIONS_PLACES = [
     "In Myrtle Beach, many Grande Dunes homes come with a household membership to the Ocean Club, a private club on the beach. It has towel and bar service at its pool and cabanas on the sand. We confirm it for each home you look at.",
     "The private Members Club is a separate membership from the home. Its course was designed by Nick Price, a member of golf's Hall of Fame, with Craig Schreiner. The clubhouse has golf simulators, and the calendar includes themed dinners, wine tastings and a Fourth of July cookout.",
     "Grande Dunes Marina, on the Intracoastal Waterway, has 126 slips and takes boats up to 120 feet long, with fuel and a store. A two-mile trail along the waterway is open to the public. In the three gated sections, most houses are one-story Mediterranean-style homes, and many have a private pool.",
-    "Grande Dunes has a security company on contract, with guard houses and an officer on patrol. Only some sections are gated, among them Calais, Palermo and Villa Venezia.",
+    "Grande Dunes has a security company on contract, with a main guard house, a north guard house and a guard house at the Ocean Club. Only some sections are gated, among them Calais, Palermo and Villa Venezia.",
   ], "Homes in those three sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
   entry("waterway-palms-plantation", "a Charleston-style plan on a 15-acre lake", [
-    "Waterway Palms Plantation, in Carolina Forest, copies the look of Charleston's Battery district. At its center the association owns a 15-acre lake, and the clubhouse stands on a point in it, with water on three sides.",
-    "Most houses are new, built since 2020, and they are large: custom homes of about 3,700 to 4,300 square feet with five or six bedrooms. Many rise two or three stories, many have an elevator, and the best lots sit on the Intracoastal Waterway with a private dock. The neighborhood also has its own boat ramp on the waterway, so a boat can go in without a trip across town.",
-    "The lots are small, about a fifth of an acre, and about one in five still has no house, so building will go on nearby for some years.",
+    "Waterway Palms Plantation, in Carolina Forest, was planned to echo Charleston's Battery district. At its center the association owns a 15-acre lake, and the clubhouse stands on a point in it, with water on three sides.",
+    "Most houses are new, built since 2020, and they are large: custom homes of about 3,700 to 4,300 square feet. Many rise two or three stories, many have an elevator, and the best lots sit on the Intracoastal Waterway with a private dock. The neighborhood also has its own boat ramp on the waterway, so a boat can go in without a trip across town.",
+    "The lots are small, and about one in five still has no house, so building will go on nearby for some years.",
   ], "Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
   entry("the-bluffs-on-the-waterway", "a boathouse clubhouse on the waterway", [
-    "The Bluffs on the Waterway, in Carolina Forest, has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway. Its boat ramp sits on a waterfront lot of more than 6 acres, with day docks and boat storage. Grande Dunes Marina is about 2.5 miles away by water.",
-    "Most houses were built since 2010, and many are custom Mediterranean-style homes in stucco of about 3,200 to 4,200 square feet. Black Creek runs through the woods along the west side, and the county's bike park is less than a mile away.",
-    "One side of the neighborhood is on a main highway.",
+    "The Bluffs on the Waterway, in Carolina Forest, has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway. Its boat ramp sits on a waterfront lot of more than 6 acres. Grande Dunes Marina is about 2.5 miles away by water.",
+    "Most houses went up after 2010, and many are custom Mediterranean-style homes in stucco. Black Creek runs through the woods along the west side, and the county's bike park is less than a mile away.",
+    "One side of the neighborhood runs beside S.C. 31.",
   ], "Homes here usually sell for about $850,000; the HOA fee is about $150 a month."),
 
   entry("myrtle-beach-golf-and-yacht-club", "room for the boat and the camper", [
     "Myrtle Beach Golf and Yacht Club, in Socastee south of Myrtle Beach, has room for the boat and the camper. The association keeps a storage area for RVs and trailers. Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance.",
-    "The owners' association owns the wide strips of grass and woods between the streets, and its Community Watch desk is covered 24 hours a day. All of that comes with an HOA fee of about $95 a month.",
+    "The owners' association owns about 62 acres of open land, most of it the wide strips of grass and woods between the streets. Its Community Watch desk is covered 24 hours a day, and the HOA fee is about $95 a month.",
     "Despite the name, there is no golf or yacht club anymore; Heron Point, its golf club, closed years ago. Sandpiper Place, where D.R. Horton is building new houses, shares the entrance but has its own owners association, so it matters which one a home belongs to.",
   ], "In the older part, homes usually sell for about $225,000."),
 
   entry("prestwick", "a Pete and P.B. Dye course named Course of the Year", [
     "Prestwick, near Surfside Beach, has a course by Pete Dye and his son P.B. Dye that was named the 2025 Myrtle Beach Area Golf Course of the Year. It carries several of Dye's marks: wooden bulkheads along many water banks, deep-faced bunkers around greens that are often raised, and fast greens.",
     "Prestwick opened in 1989 as a private club, founded by the Jackson family, who also created Ocean Lakes. The Gatlin Brothers once lived here and held a charity golf tournament each year. When the club ended its memberships, the owners association took over the pools and the tennis center. Owners have two pools and two hard courts, and the eleven clay courts take their own membership.",
-    "Its houses, mostly from the 1990s, are traditional two-story homes of about 2,500 to 3,700 square feet, many of them brick. More than half the lots are on the course, and the best look over Lake Prestwick to the 9th and 18th holes.",
+    "Its houses, mostly from the 1990s, are traditional two-story homes, many of them brick. More than half the lots are on the course, and the best look over Lake Prestwick to the course.",
     "The course is fully public now, so you share the fairways with visiting golfers.",
   ], "Homes usually sell for about $480,000, and the HOA fee is about $190 a month.",
   ["prestwick-course-from-above-2023", "Prestwick from above, with its Dye golf course labelled: houses among the fairways, with a long lake at the left."]),
 
   entry("prince-creek-55", "a finished neighborhood with 107 acres of common land", [
     "Seasons at Prince Creek West, in Murrells Inlet, is finished: every lot has a house, so no building is going on next door. Its association owns about 107 acres of common land, a large share for about 450 homes.",
-    "The homes are one-story builder homes from 2006 to 2016, most of them about 1,800 to 2,300 square feet with three bedrooms, and the best lots back onto a pond. Days center on the clubhouse, with indoor and outdoor pools and a fitness center, and the Murrells Inlet MarshWalk is about a 10-minute drive.",
+    "The homes are one-story builder homes, most of them about 1,800 to 2,300 square feet. The best lots back onto a pond. Days center on the clubhouse, with indoor and outdoor pools and a fitness center, and the Murrells Inlet MarshWalk is about a 10-minute drive.",
     `Every occupied home must have a resident ${h.a(SEASONS, "55 or older")}, and visitors use a call box at the main gate.`,
     "The lots are small, about a fifth of an acre. The yards are small too, and the association's lawn care keeps them.",
   ], "Homes usually sell for about $500,000, and the HOA fee, about $340 a month, includes internet, trash pickup and lawn care."),
 
   entry("bellwood-landing", "big lots along Collins Creek", [
-    "Bellwood Landing, in Murrells Inlet, has bigger lots than its gated neighbor across TPC Boulevard. The middle lot is close to half an acre, against about a fifth of an acre at Seasons across the road, and 17 lots are an acre or more.",
-    "Many of the houses are custom homes built from about 2010 on, often two stories of about 2,600 to 3,200 square feet with four bedrooms. About a dozen lots back onto Collins Creek, which runs through a wide band of woods.",
+    "Bellwood Landing, in Murrells Inlet, has bigger lots than its gated neighbor across TPC Boulevard. The middle lot is close to half an acre, against about a fifth of an acre at Seasons across the road. Seventeen lots are an acre or more.",
+    "Many of the houses are custom homes built from about 2010 on, often two stories. About a dozen lots back onto Collins Creek, which runs through a wide band of woods.",
     "Beyond the woods lies TPC Myrtle Beach, a Tom Fazio design that has hosted the PGA Tour's Monday qualifier for the Myrtle Beach Classic. A lot that size puts real space between neighbors.",
   ], "Homes here usually sell for about $810,000, and the HOA fee is about $160 a month."),
 
   entry("wachesaw-plantation", "a members' club on a bluff above the river", [
     "Before the neighborhoods were planned, archaeologists dug at Wachesaw, on the Waccamaw River in Murrells Inlet. Their University of South Carolina study of Wachesaw and the neighboring Richmond Hill plantation found more than half a million artifacts. Some finds are on display in the clubhouse.",
     `The Wachesaw Plantation Club is owned by its members, and membership is separate from the home. Its Tom Fazio course has hosted Carolinas Golf Association championships. Each March the members host the Can-Am Junior Team Matches.`,
-    "Most houses date from the late 1980s to the early 2000s, about 2,100 to 3,300 square feet, and the best lots look down a fairway or out over the river. Kimbels, the club's restaurant, is on the bluff above the waterway and the 18th green, with a Tavern Room, open decks and an enclosed porch. Wachesaw's eight clay tennis courts and its book clubs and card groups fill the rest of the week. The main gate has a guard, and Wacca Wache Marina, outside the gates, has about 100 wet slips and indoor racks.",
+    "Most houses date from the late 1980s to the early 2000s, and the best lots look down a fairway or out over the river.",
+    "Kimbels, the club's restaurant, is on the bluff above the waterway and the 18th green, with a Tavern Room, open decks and an enclosed porch. Wachesaw's eight clay tennis courts and its book clubs and card groups fill the rest of the week. The main gate has a guard, and Wacca Wache Marina, outside the gates, has about 100 wet slips and indoor racks.",
     "The club is rebuilding its pool and its Magnolia's restaurant, so part of the club is a work site for now.",
   ], "Homes usually sell for about $700,000, and the HOA fee on most homes is about $150 a month."),
 
   entry("wachesaw-east", "where the LPGA played four years", [
-    "Wachesaw East, in Murrells Inlet, has a course that hosted four televised LPGA Tour events, from 1997 to 2000. Karrie Webb won the first two, and in 1998 she finished 19 under par.",
-    "Clyde Johnston laid out the course on a former rice plantation, past freshwater lakes and wetlands, and houses line the fairways behind the gate. They went up from 2000 to 2006, mostly one-story builder homes of about 1,650 to 2,650 square feet. The club's grill, the Toasted Tee Pub & Grub, has held happy hours with live music and $5 small plates.",
-    "The course and its grill belong to Festiva's vacation-ownership resort, Ellington at Wachesaw Plantation East, not to the owners.",
+    "Wachesaw East, in Murrells Inlet, has a course that hosted four televised LPGA Tour events, from 1997 to 2000. Karrie Webb won the first two.",
+    "Clyde Johnston laid out the course on a former rice plantation, past freshwater lakes and wetlands, and houses line the fairways behind the gate. Most are one-story builder homes from the early 2000s. The club's grill, the Toasted Tee Pub & Grub, has held happy hours with live music and $5 small plates.",
+    "The course and its grill are run by Festiva, a real estate company, not by the homeowners.",
   ], "Homes usually sell for about $500,000, and the HOA fee is about $145 a month."),
 
   entry("the-reserve", "Greg Norman's private course and a marina with dry storage", [
     `Near Pawleys Island, The Reserve's marina sits at the southern tip of Sandy Island, where Thoroughfare Creek meets the Waccamaw River. Staff launch and haul boats from a dry storage building that holds about 200. The marina also has a fuel dock, and a boardwalk runs through a cypress forest to the river.`,
     "The Reserve Golf Club is a private Greg Norman course of up to 7,200 yards, set among 160 acres of wetlands. It has hosted the Carolinas Mid-Amateur twice, and a golf membership includes the club's dining and social events.",
-    "Many houses are custom homes of about 3,500 to 5,000 square feet, most built from 2005 on, and the best lots look over a pond or lake. Each fall the Pawleys Island Festival of Music & Art puts up its tent at the golf club, and the neighborhood has private beach access with parking.",
+    "Many houses are large custom homes, most built from 2005 on, and the best lots look over a pond or lake. Each fall the Pawleys Island Festival of Music & Art puts up its tent at the golf club, and the neighborhood has private beach access with parking.",
     "Dry storage takes boats up to 27 feet. A bigger boat needs a wet slip or a side tie.",
   ], "Homes usually sell for about $1.3 million, and the HOA fee on most homes is about $320 a month."),
 
@@ -291,7 +292,7 @@ const SECTIONS_PLACES = [
   entry("litchfield-plantation", "the owners own the plantation house", [
     "Near Pawleys Island, at the end of the Avenue of Live Oaks, stands Litchfield Plantation's house, and the owners own it. For about 50 years the developer controlled the association. In 2018 the owners took control after court challenges, and the house, its pool and about 7 acres passed to the association.",
     "The house and its avenue of oaks appear on a map of the land drawn in 1794. After taking it over, the owners repaired it and set up a club room, and it has hosted weddings to help pay for its upkeep. A terrace off the main room overlooks the old rice fields.",
-    "About half the houses were built since 2017, mostly two stories of about 2,700 to 4,000 square feet. The gatehouse stands on the avenue. The association also owns a beach house on Pawleys Island, about 4 miles away by road, and a private marina on the river is an optional extra.",
+    "About half the houses are new since 2017, mostly two stories. The gatehouse stands on the avenue. The association also owns a beach house on Pawleys Island, about 4 miles away by road, and a private marina on the river is an optional extra.",
     "The old rice fields beside the community, about 330 acres, still belong to the original development company, not to the owners.",
   ], "Houses here usually sell for about $800,000 to $1.8 million. The HOA fee on most homes is about $230 a month."),
 
@@ -300,7 +301,7 @@ const SECTIONS_PLACES = [
     `A guard works the main gate day and night. Owners' cars come in with a barcode, and each guest must be registered by the owner before the visit.`,
     "A normal week can include Tai Chi on Wednesday and yoga on Thursday at the Beach Club. In between there is crabbing off the docks on Osprey Lake and a walk on the paved paths through the marsh.",
     "Most homes are condos and villas from the 1980s to the 2000s, and the Beach Club comes with the home. The few houses, on Oystercatcher Island, are raised three-bedroom homes that look across the lake.",
-    "It is many neighborhoods inside the gates, each with its own sub-association, so the HOA fee changes from one to the next: about $620 a month for a small condo, up to about $1,880 for an oceanfront one.",
+    "It is many neighborhoods inside the gates, each with its own sub-association, and the HOA fee differs from section to section and from unit to unit. It runs from about $620 a month for a small condo to about $1,880 for an oceanfront one.",
   ], "One-bedroom condos in Summerhouse usually sell for about $200,000, and houses in Breakers Reef for about $1.5 million to $2.2 million.",
   ["litchfield-by-the-sea-from-above-2023", "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right."]),
 
@@ -308,14 +309,14 @@ const SECTIONS_PLACES = [
     "Heritage Plantation, near Pawleys Island, has a marina with a full-time dock master. Its dock house is built over the Waccamaw River, with a crow's nest and a swing on its roof. The marina also has a deck over the water, bordered by cypress trees, that serves as a daily sunset gathering place.",
     `The HOA fee includes cable TV, home internet, the dock master and 24-hour security, and the association lists a separate phone line for the main gate.`,
     "Many mornings are reserved for league play on four green-clay Har-Tru courts and four pickleball courts. The Heritage Club, a public par-71 course by Dan Maples, lies among the live oaks on land that was once the True Blue and Midway plantations.",
-    "Most houses are one-story brick homes from the 1990s, about 2,000 to 2,700 square feet, and the best look onto the golf course or over the old rice fields toward the river.",
+    "Most houses are one-story brick homes from the 1990s, and the best look onto the golf course or over the old rice fields toward the river.",
     "Trash pickup costs extra, and boat slips are rented by the day, the month or the year.",
   ], "Homes usually sell for about $710,000, and the HOA fee is about $325 a month."),
 
-  entry("debordieu-colony", "a planters' colony with its own beach and club", [
+  entry("debordieu-colony", "a planters' colony with a Dye course and a private beach club", [
     "Before the Civil War, rice planters built a colony of summer homes at DeBordieu, on the ocean south of Pawleys Island. Later owners of the land included Isaac Emerson, the Bromo-Seltzer maker, and the Vanderbilt family. Locals say \"Debidue\".",
-    "The DeBordieu Club is open only to owners, and it is a separate membership from the home. Only owners may buy a membership. It has a Pete and P.B. Dye course that has hosted the Carolinas Mid-Amateur, and eight Har-Tru tennis courts. Its places to eat include the Beanery cafe and the Beach Club, with three dining spaces. On the Fourth of July the colony holds a parade.",
-    "Many houses are raised beach houses of three levels with an elevator, about 3,500 to 4,500 square feet, and the best lots are on the ocean. Every car comes through one gate. Guests are registered online, in an app or by phone, and a guest pass lasts up to a week. The colony covers 2,700 acres, and at least 600 of them are a nature preserve.",
+    "The DeBordieu Club is open only to owners, and it is a separate membership from the home. Memberships are sold only to DeBordieu property owners. The club has a Pete and P.B. Dye course that has hosted the Carolinas Mid-Amateur, and eight Har-Tru tennis courts. Its places to eat include the Beanery cafe and the Beach Club, with three dining spaces. On the Fourth of July the colony holds a parade.",
+    "Many houses are raised beach houses with an elevator, and the best lots are on the ocean. Every car comes through one gate. Guests are registered online, in an app or by phone, and a guest pass lasts up to a week. The colony covers 2,700 acres, and at least 600 of them are a nature preserve.",
     "South Carolina spends public money to rebuild a beach only where the public has full access to it, and DeBordieu does not qualify. Its owners pay for their beach themselves, through assessments to a beach fund they voted to set up. Boats cannot stay at the community dock overnight.",
   ], "Homes here usually sell for about $2 million, and the HOA fee is about $300 to $400 a month.",
   ["debordieu-beach-houses-from-the-ocean-2011", "DeBordieu Colony from over the ocean in 2011: large houses behind the dunes, each with a walkway to the beach, and the salt marsh beyond."]),
@@ -353,7 +354,7 @@ const ITEMLIST = `<script type="application/ld+json">${JSON.stringify({ "@contex
   itemListElement: E.map((e) => ({ "@type": "ListItem", position: e.n, name: e.name, url: `https://chapter3realty.com${SELF}#${e.id}` })) })}</script>`;
 
 const OFFER_TEXT = "Tell us the neighborhoods you like and your price range. One of our agents will email you this week's homes for sale there, with the HOA fee and what it covers.";
-const OFFER_MID = "Pick two or three of these places and tell us your price range. We will send you the homes for sale in each, side by side.";
+const OFFER_MID = "Pick two or three of these places and tell us your price range. One of our agents will send you the homes for sale in each, side by side.";
 const OFFER_SHORT = "Tell us the places and your price range. One of our agents will email you this week's homes.";
 
 module.exports = G.page({
@@ -362,7 +363,7 @@ module.exports = G.page({
   hub: { name: "Buyers", url: "/buyers/" },
   pageImages: () => ph.pageImages(),
   title: "Gated Communities in Myrtle Beach: 18 Neighborhoods | Chapter3",
-  description: "Eighteen gated neighborhoods from North Myrtle Beach to Pawleys Island: their clubs, marinas, beach clubs and history, how each gate works, and what homes cost.",
+  description: "Eighteen gated neighborhoods from North Myrtle Beach to DeBordieu, south of Pawleys Island: their clubs, marinas, history, homes and prices.",
   ogTitle: "Gated communities near Myrtle Beach: what each of the 18 does best",
   crumb: "Gated Communities",
   eyebrow: "Gated communities",
@@ -374,7 +375,7 @@ module.exports = G.page({
   author: "devin",
   toc: false,
   shortAnswer: [
-    `These 18 gated neighborhoods run from North Myrtle Beach down to Pawleys Island, most of them on a golf course or on the water. Homes in them sell for about $200,000 to $2.2 million, and most homeowners association (HOA) fees are about $95 to $400 a month. A golf or beach club is usually a separate membership with its own dues; we ask the club for the current dues.`,
+    `These 18 gated neighborhoods run from North Myrtle Beach down to DeBordieu Colony, south of Pawleys Island, most of them on a golf course or on the water. Homes in them sell for about $200,000 to $2.2 million, and most homeowners association (HOA) fees are about $95 to $400 a month. A golf or beach club is usually a separate membership with its own dues; we ask the club for the current dues.`,
   ],
   sections: [
     { id: "choose", html: () =>
@@ -404,7 +405,7 @@ module.exports = G.page({
   ],
   faqTitle: "Gated communities FAQ",
   faq: [
-    { q: "Does a gate make a neighborhood safer?", a: "We do not rate any neighborhood as safe or unsafe. A gate keeps cars that are only passing through off the streets, and a guard, a code or the owner lets each visitor in." },
+    { q: "Does a gate make a neighborhood safer?", a: "We do not rate any neighborhood as safe or unsafe. A guard, a code or the owner lets each visitor in, and how that works differs from one gate to the next." },
     { q: "How do guests get through the gate?", a: "Each neighborhood has its own way: a guard with a guest list, a call box at the gate, or a code from the owner. Plan a visit with the owner first." },
     { q: "Is there a gated community in Surfside Beach?", a: "No, not inside the town. Prestwick, just outside it, is the gated neighborhood on this page nearest Surfside Beach." },
     { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet is the 55+ gated community on this page." },
