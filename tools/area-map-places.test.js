@@ -182,6 +182,18 @@ check("areas: a town inside an area is not named twice", !/>CONWAY</.test(am.svg
   check("areas: every pill sits beside its own circle", !far.length, far.join()); }
 const num = regionMap({ name: "Areas numbered", areas: AREAS, areaLabels: "numbers" }, { inlineMax: 1e9 });
 check("areas: numbers mode numbers every area in its order and lists them in the key", num.areas.every((a, i) => !a.labelled && a.mark === String(i + 1)) && (num.areaKey.match(/<li /g) || []).length === AREAS.length);
+/* a.mark and a.markAt (opt-in, batch 2026-10-b round 14): a map split into panels keeps the page's numbers,
+   and a badge can sit off another area's badge. */
+const MARKED = AREAS.map((a, i) => Object.assign({}, a, { mark: String(i + 11) }));
+const mk = regionMap({ name: "Areas marked", areas: MARKED, areaLabels: "numbers" }, { inlineMax: 1e9 });
+check("areas: a.mark replaces the number on the badge and in the key", mk.areas.every((a, i) => a.mark === String(i + 11)) && mk.svg.includes(">11<") && !/>1</.test(mk.svg.replace(/>1[0-9]</g, "")));
+check("areas: without a.mark the numbers are unchanged", num.areas[0].mark === "1");
+check("areas: a mark that is not 1 to 3 capital letters or digits is refused", throws(() => regionMap({ name: "Bad mark", areas: [Object.assign({}, AREAS[0], { mark: "x1" })], areaLabels: "numbers" }, { inlineMax: 1e9 }), /mark is 1 to 3/));
+const C0 = AREAS.find((a) => a.radius);
+const at = regionMap({ name: "Mark at", areas: [Object.assign({}, C0, { markAt: { lat: C0.lat + 0.004, lon: C0.lon } })], areaLabels: "numbers" }, { inlineMax: 1e9 });
+const plain0 = regionMap({ name: "Mark at", areas: [C0], areaLabels: "numbers" }, { inlineMax: 1e9 });
+check("areas: a.markAt moves the badge inside its area", at.svg !== plain0.svg && at.areas[0].mark === "1");
+check("areas: a.markAt outside its area is refused", throws(() => regionMap({ name: "Bad at", areas: [Object.assign({}, C0, { markAt: { lat: C0.lat + 0.5, lon: C0.lon } })], areaLabels: "numbers" }, { inlineMax: 1e9 }), /markAt is outside/));
 const mixed = regionMap({ name: "Areas and places", places: PLACES.slice(0, 3), areas: AREAS.slice(0, 2), areaLabels: "numbers" }, { inlineMax: 1e9 });
 check("areas: beside numbered places an area is lettered", mixed.areas.map((a) => a.mark).join() === "A,B");
 check("areas: a radius out of range is refused", throws(() => regionMap({ name: "x", areas: [AREA("Conway", "", 20)] }), /radius is in meters/));

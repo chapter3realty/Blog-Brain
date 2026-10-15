@@ -60,7 +60,7 @@ const PHOTO = {
   "mb-pine-lakes": ph.aerial("myrtle-beach-older-streets-from-above", "Houses on the older Pine Lakes streets between US 17 Business and the beach, from the air."),
   "cherry-grove": ph.aerial("cherry-grove-canal-streets-from-above", "Houses on the Cherry Grove canals from the air. Almost every home here is in a high-risk flood zone."),
   "little-river": ph.aerial("little-river-waterway-from-above", "Little River from the air: streets of houses beside the salt marsh and the Intracoastal Waterway."),
-  "surfside": ph.aerial("surfside-beach-pier-from-above", "The ocean side of Surfside Beach from the air in 2023, with the new pier being built. It opened in 2024."),
+  "surfside": ph.aerial("surfside-beach-pier-from-above", "The ocean side of Surfside Beach from the air in 2023, from the streets to the beach."),
   "conway": ph.aerial("conway-riverwalk-boardwalk", "The Riverwalk in downtown Conway, on the Waccamaw River.", { closeUp: true }),
   "loris": ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true }),
   "aynor": ph.aerial("aynor-country-lot", "Houses on lots of about an acre along a country road outside Aynor, from the air. The orange line is one lot.", { closeUp: true }),
@@ -144,9 +144,9 @@ const areaOf = (k) => { const a = A[k], s = a.mapShapes[0], o = { name: s.name, 
   if (k === "loris-country") o.markAt = { lat: 34.03, lon: -78.98 };
   return o; };
 const PANEL = {
-  south: ["mb-downtown", "mb-myrtle-heights", "mb-pine-lakes", "mb-plantation-point", "surfside", "garden-city"],
+  south: ["mb-downtown", "mb-myrtle-heights", "mb-pine-lakes", "mb-plantation-point", "socastee", "surfside", "garden-city"],
   north: ["windy-hill", "crescent-beach", "ocean-drive", "cherry-grove", "little-river"],
-  inland: ["socastee", "conway", "loris", "loris-country", "aynor"],
+  inland: ["conway", "loris", "loris-country", "aynor"],
 };
 if (Object.values(PANEL).flat().sort().join() !== ORDER.slice().sort().join()) throw new Error("every area is on exactly one map panel");
 const MAP = (() => {
@@ -166,7 +166,7 @@ const MAP = (() => {
     + ".c3-nh-label{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);margin:0 0 .35rem!important}"
     + "@media (min-width:900px){.c3-nh-maps{grid-template-columns:repeat(3,1fr);align-items:start}}"
     + ".c3-areamap figure{max-width:1136px!important}</style>";
-  return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-maps">${panel(inland, "The whole area")}${panel(south, "A. Myrtle Beach to Garden City")}${panel(north, "B. North Myrtle Beach and Little River")}</div>`,
+  return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-maps">${panel(inland, "The whole area")}${panel(south, "A. Myrtle Beach, Socastee and Garden City")}${panel(north, "B. North Myrtle Beach and Little River")}</div>`,
     "Map of the 16 areas where most homes have no HOA fee, numbered as in the guide below. Boxes A and B are the two close-ups of the coast.", inland.credit, "no-hoa map") + `</div>`;
 })();
 
@@ -299,10 +299,10 @@ module.exports = GL.page({
       "Houses here were listed from about $750,000 to $5.8 million, the highest prices on this list.",
     ]),
 
-    entry("mb-pine-lakes", "Myrtle Beach's first golf course", [
+    entry("mb-pine-lakes", "half-acre lots by the city's first golf course", [
       "Every house for sale on the older Pine Lakes streets pays no HOA dues, and lots there are typically almost half an acre. That is more than twice a downtown lot.",
-      `The houses are on the streets around ${h.ext(PINE_LAKES, "Pine Lakes Country Club")}, Myrtle Beach's first golf course. It opened in 1927, and Robert White, the first president of the PGA of America, designed it.`,
-      "Its clubhouse is on the National Register of Historic Places, and Sports Illustrated was born there.",
+      `These are the streets around ${h.ext(PINE_LAKES, "Pine Lakes Country Club")}, Myrtle Beach's first golf course. Two of the houses for sale are on the ocean side of Kings Highway.`,
+      "Inside the city, the city picks up trash, recycling and yard waste at the curb once a week, for about $34 a month on the utility bill.",
       "The newer Preserve at Pine Lakes next door has an HOA. The older streets are inside the city, so you pay city property tax on top of the county's.",
       `Expect asking prices of about ${priceOf("mb-pine-lakes")}.`,
     ]),
@@ -311,7 +311,7 @@ module.exports = GL.page({
       "Not one house for sale in Plantation Point pays HOA dues. It is outside the city limits, west of Kings Highway, so the county's rules apply.",
       "Lots are typically about half an acre, on streets such as Annandale, Arundel and Brookgreen Drive. The houses date from the late 1980s on.",
       "Outside the city, nothing in the county code says where on your own lot a boat or camper must go. The flood map puts none of these houses at high risk.",
-      "The trade-off is the beach: it is about 10 minutes away by car.",
+      "The trade-off is the beach: it is on the far side of Kings Highway, too far to walk.",
       `Houses here were listed at about ${millions(A["mb-plantation-point"].medianNoFeeHousePrice)}.`,
     ]),
 
@@ -365,11 +365,11 @@ module.exports = GL.page({
       `At about ${priceOf("socastee")}, these are the lowest prices on this list.`,
     ]),
 
-    entry("surfside", "the town's ocean-side streets", [
+    entry("surfside", "room for two boats on the ocean side", [
       "On the ocean side of Surfside Beach, almost every home for sale is free of HOA dues. Most are within half a mile of the beach.",
-      `The town began as a rice plantation called The Ark. In the 1920s George J. Holliday renamed it ${h.ext(SCE + "surfside-beach/", "Floral Beach")} for his wife, Flora, and in 1952 new owners named it Surfside Beach.`,
-      `The town owns its ${h.ext(SURF_PIER, "fishing pier")}, a concrete pier 814 feet long that opened in 2024. Walking out on it is free. Fuller Park, with tennis courts and a playground, is among the ocean-side streets.`,
-      "The town allows two boats or trailers at a home. About 1 in 4 homes on the ocean side would need flood insurance with a mortgage.",
+      "The town allows two boats or trailers at a home, and one work van or pickup up to 21 feet long overnight.",
+      "From the middle of the ocean-side streets, the nearest public beach access is about a minute by car. Fuller Park, with tennis courts and a playground, is among those streets.",
+      "The town picks up trash at the curb, which the county does not do outside the towns. About 1 in 4 homes on the ocean side would need flood insurance with a mortgage.",
       `Houses on the ocean side list for about ${priceOf("surfside")}.`,
     ]),
 
