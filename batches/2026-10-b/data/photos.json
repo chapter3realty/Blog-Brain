@@ -3375,7 +3375,7 @@
      -78.614847,
      33.84859
     ],
-    "width_m": 1600.0,
+    "width_m": 1600,
     "note": "centered at (33.84320, -78.62350)"
    },
    "original_size": "2400x1800 exported (about 0.6 m a pixel), resized to 1600x1200 (Lanczos)",
@@ -3435,7 +3435,7 @@
      -78.948857,
      33.647296
     ],
-    "width_m": 1400.0,
+    "width_m": 1400,
     "note": "centered at (33.64258, -78.95641)"
    },
    "original_size": "2400x1800 exported (about 0.6 m a pixel), resized to 1600x1200 (Lanczos)",
@@ -3443,6 +3443,259 @@
    "share_alike": false,
    "width": 1200,
    "height": 900
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/myrtle-heights-older-house-on-ocean-boulevard.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/myrtle-heights-older-house-on-ocean-boulevard-600w.webp",
+    "1200": "images/buyers/no-hoa/myrtle-heights-older-house-on-ocean-boulevard-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Myrtle Heights-Oak Park Historic District 3701 N. Ocean Blvd. Jun 10",
+   "what": "An older two-story white wood house with columns and a brick chimney on North Ocean Boulevard in Myrtle Heights, Myrtle Beach.",
+   "caption": "An older two-story house on North Ocean Boulevard in Myrtle Heights. It is part of the Myrtle Heights-Oak Park Historic District.",
+   "alt": "An older two-story white wood house with tall columns, black shutters and a brick chimney, on a grassy rise above North Ocean Boulevard in Myrtle Heights",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Myrtle Heights, North Ocean Boulevard at 37th Avenue North"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Myrtle_Heights-Oak_Park_Historic_District_3701_N._Ocean_Blvd._Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Myrtle_Heights-Oak_Park_Historic_District_3701_N._Ocean_Blvd._Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). Made from the Commons 1920 px rendering of the original.",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15."
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/downtown-myrtle-beach-pleasant-inn.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/downtown-myrtle-beach-pleasant-inn-600w.webp",
+    "1200": "images/buyers/no-hoa/downtown-myrtle-beach-pleasant-inn-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Pleasant Inn Myrtle Beach SC Jun 10",
+   "what": "The Pleasant Inn, a two-story wood guest house from about 1927 with porches on both floors, under live oaks on Broadway Street in downtown Myrtle Beach.",
+   "caption": "The Pleasant Inn, a wood guest house from about 1927, on Broadway Street in downtown Myrtle Beach.",
+   "alt": "A two-story white wood house with long porches on both floors, shaded by big oak trees with Spanish moss, on Broadway Street in downtown Myrtle Beach",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Downtown, 200 Broadway Street"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Pleasant_Inn_Myrtle_Beach_SC_Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Pleasant_Inn_Myrtle_Beach_SC_Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). The Pleasant Inn is listed on the National Register of Historic Places (1996) at 200 Broadway; built about 1927 as a boarding house (Wikipedia, Pleasant Inn).",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15."
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/pine-lakes-clubhouse.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/pine-lakes-clubhouse-600w.webp",
+    "1200": "images/buyers/no-hoa/pine-lakes-clubhouse-1200w.webp"
+   },
+   "width": 1200,
+   "height": 675,
+   "title": "Ocean Forest Country Club Jun 10",
+   "what": "The white 1927 clubhouse of the Pine Lakes golf course in Myrtle Beach, with its columned porch and dormer windows.",
+   "caption": "The 1927 clubhouse of the Pine Lakes golf course, in the Pine Lakes neighborhood of Myrtle Beach.",
+   "alt": "The large white Pine Lakes clubhouse with a row of tall columns, black shutters and dormer windows in a gray roof",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Pine Lakes, Granddaddy Drive"
+   },
+   "changes": "Chapter3 Realty cropped this photo to the building, leaving out the pool in front, and resized it",
+   "source": "https://commons.wikimedia.org/wiki/File:Ocean_Forest_Country_Club_Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Ocean_Forest_Country_Club_Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). The building is the Pine Lakes clubhouse, listed on the National Register as Ocean Forest Country Club (Commons categories: built 1927, architect Raymond Hood). Cut from the Commons 1920 px rendering to 1264 x 711 px (16:9) so no person at the pool is in the frame.",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15."
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/surfside-beach-houses-from-the-sand.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/surfside-beach-houses-from-the-sand-600w.webp",
+    "1200": "images/buyers/no-hoa/surfside-beach-houses-from-the-sand-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Surfside Beach Shoreline",
+   "what": "Two- and three-story beach houses in a row behind the dunes at Surfside Beach, seen from the wide sand beach.",
+   "caption": "Beach houses along the sand at Surfside Beach.",
+   "alt": "A row of two- and three-story beach houses in blue, yellow and gray behind low dunes, seen across a wide sand beach under a blue sky at Surfside Beach",
+   "place": {
+    "city": "Surfside Beach",
+    "sublocation": "Oceanfront"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Surfside_Beach_Shoreline.jpg",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Surfside_Beach_Shoreline.jpg",
+   "author": "BullDawg2021",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "credit": "Photo: BullDawg2021, CC BY-SA 4.0, via Wikimedia Commons",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author BullDawg2021). Made from the Commons 3840 px rendering. The same file is used in batch 2026-10-a (images/55-plus/seasons-at-prince-creek-west/surfside-beach-shoreline.webp).",
+   "taken": "2023-07-16",
+   "original_size": "4032x3024",
+   "share_alike": true
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/garden-city-beach-and-marsh-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/garden-city-beach-and-marsh-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/no-hoa/garden-city-beach-and-marsh-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "Garden City Beach, USGS oblique aerial photo, August 24, 2011",
+   "what": "Garden City Beach seen from a plane over the ocean: the beach, rows of beach houses, and the marsh and tidal creeks behind them, with docks on the far shore.",
+   "caption": "Garden City Beach from over the ocean in 2011: beach houses, and the marsh and creeks behind them.",
+   "alt": "Beach houses in rows between the ocean beach and a wide marsh with tidal creeks and boat docks at Garden City Beach, seen from a plane over the ocean",
+   "place": {
+    "city": "Garden City",
+    "sublocation": "Garden City Beach, south end"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_175537d.jpg from 11CCH03_0824_175500.zip; aircraft position 33.568493 N, 78.997795 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/crescent-beach-streets-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/crescent-beach-streets-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/no-hoa/crescent-beach-streets-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "Crescent Beach, North Myrtle Beach, USGS oblique aerial photo, August 24, 2011",
+   "what": "The Crescent Beach section of North Myrtle Beach seen from a plane over the ocean: the beach, a few oceanfront buildings, and streets of beach houses among trees behind them.",
+   "caption": "Crescent Beach in North Myrtle Beach from over the ocean in 2011, with streets of beach houses behind the oceanfront.",
+   "alt": "Streets of two-story beach houses among trees behind the oceanfront at Crescent Beach in North Myrtle Beach, seen from a plane over the ocean",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Crescent Beach"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_180608d.jpg from 11CCH03_0824_180500.zip; aircraft position 33.803372 N, 78.695848 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/cherry-grove-canals-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/cherry-grove-canals-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/no-hoa/cherry-grove-canals-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "Cherry Grove, North Myrtle Beach, USGS oblique aerial photo, August 24, 2011",
+   "what": "Cherry Grove in North Myrtle Beach seen from a plane over the ocean: oceanfront houses, then streets of houses on canals with boat docks, and the marsh behind.",
+   "caption": "Cherry Grove in North Myrtle Beach from over the ocean in 2011: houses on the canals, with the marsh behind.",
+   "alt": "Rows of houses on long canals with boat docks, running back from the beach to a wide green marsh at Cherry Grove, seen from a plane over the ocean",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Cherry Grove"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_181208d.jpg from 11CCH03_0824_181000.zip; aircraft position 33.829343 N, 78.622223 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/conway-older-house-and-oak.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/conway-older-house-and-oak-600w.webp",
+    "1200": "images/buyers/no-hoa/conway-older-house-and-oak-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Conway Residential Historic District Jun 10",
+   "what": "An older white wood house with black shutters behind a big oak tree and a driveway, on a shaded street in the Conway Residential Historic District.",
+   "caption": "An older house with a driveway and a big oak, in the residential historic district of Conway.",
+   "alt": "An older white wood house with black shutters behind a large oak tree, with a paved driveway, a low brick planter and thick shrubs, on a shaded street in Conway",
+   "place": {
+    "city": "Conway",
+    "sublocation": "Conway Residential Historic District"
+   },
+   "changes": "Chapter3 Realty blurred the house number and resized the photo",
+   "source": "https://commons.wikimedia.org/wiki/File:Conway_Residential_Historic_District_Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Conway_Residential_Historic_District_Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). Made from the Commons 1920 px rendering; the house number sign was blurred (shot-list rule: no readable house numbers).",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15."
   }
  ],
  "updated": "2026-10-13"
