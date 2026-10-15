@@ -20,7 +20,7 @@ The owner, third read: "the same information was given to gated communities as y
 | Barefoot | The four courses opened at once, the Dye and Love courses, the Monday After the Masters, the cabana and shuttle | Gated | Best: daily life for someone who loves golf, from a different fact |
 | Grande Dunes | The marina's 126 slips, the Ocean Club, the Waterway Trail | Gated | Best: a different fact. Both pages must agree on whether Ocean Club membership comes with the house. |
 | Golf and Yacht Club | Enterprise Landing, Heron Point, the watch desk, Sandpiper Place | Gated | Affordable: the older homes themselves and what the price buys; at most one line on the gate |
-| The Farm | The flytrap preserve, the bombing range, the street names | The Farm | Best: one line, a different fact (for example the pools or the activity center). Affordable (Sawgrass East): do not lead with the preserve. |
+| The Farm | The flytrap preserve, the bombing range, the street names | The Farm | Best: one entry with a different fact (see the next The Farm row). Affordable (Sawgrass East): do not lead with the preserve. |
 | Wild Wing / Fairways | The Avocet course and its designers | Best | Affordable: the homes and what the price buys |
 | Cherry Grove | The pier tiger shark, the dog rule | Best | No HOA: the canals, the ramp, the dredging fee (a cost of a boat at home), the flood zone |
 | Cherry Grove | The canal dredging fee and the flood zone | No HOA | Best: one short trade-off line in different words, or a different trade-off |
