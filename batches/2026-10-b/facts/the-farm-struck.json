@@ -197,5 +197,29 @@
     "pattern": "\\bThe tax is based on about what you pay for the house",
     "struck": "The tax is based on about what you pay for the house, and the new amount starts the year after you buy.",
     "use": "After you buy, the county sets the home's value at about what a buyer would pay on the open market. In an ordinary sale that is close to the price paid, and the new amount first appears on the tax bill the year after you buy."
+  },
+  {
+    "row": "the-farm 100",
+    "pattern": "\\bThe state keeps (?:it|the preserve) healthy with controlled burns",
+    "struck": "The state keeps it healthy with controlled burns.",
+    "use": "The state manages the preserve with controlled burns, which SCDNR says are essential to the preserve's health."
+  },
+  {
+    "row": "the-farm 81",
+    "pattern": "\\bfirst official East Coast Greenway trailhead",
+    "struck": "Its parking area is South Carolina's first official East Coast Greenway trailhead.",
+    "use": "Its parking area is a trailhead on the East Coast Greenway."
+  },
+  {
+    "row": "the-farm 10",
+    "pattern": "^It also covers landscaping and the ponds",
+    "struck": "Cable TV from Spectrum is the largest share of the fee. It also covers landscaping and the ponds, trash pickup and the pools.",
+    "use": "The fee also covers landscaping and the ponds, trash pickup and the pools."
+  },
+  {
+    "row": "the-farm 15",
+    "pattern": "\\bAt closing, you pay the HOA a one-time fee of \\$250",
+    "struck": "At closing, you pay the HOA a one-time fee of $250.",
+    "use": "On an ordinary sale, the buyer pays the HOA a one-time $250 transfer fee at closing."
   }
 ]
