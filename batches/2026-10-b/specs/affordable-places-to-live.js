@@ -81,6 +81,7 @@ const NMBPARK = "https://www.sctrails.net/trails/trail/north-myrtle-beach-park-a
 const NMBEXP = "https://nmb.us/802/North-Myrtle-Beach-Park-Sports-Complex-E";
 const MARSHWALK = "https://www.marshwalk.com/";
 const HBSP = "https://southcarolinaparks.com/huntington-beach";
+const WILDWING = "https://www.wildwing.com/";
 const DRH = "https://www.drhorton.com/south-carolina/myrtle-beach/conway/the-townes-at-amber-bluff";
 
 /* ---------------------------------------------------------------------------- */
@@ -298,22 +299,22 @@ module.exports = G.page({
     entry("parkview", "a four-minute beach drive, across from the city's golf course", () =>
       h.p("Parkview has the shortest beach drive on this list, a four-minute trip. Its gated townhomes are off 17th Avenue South, inside the city of Myrtle Beach, around ponds and a pool for owners.") +
       PH["parkview"] +
-      h.p(`Across the road is Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Locals play a round there for $45.`) +
+      h.p(`Across the road is Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Residents of Horry, Georgetown and Brunswick counties play a round there for $45 plus tax, with a cart.`) +
       h.p(`The rest of the ${h.ext(BASE, "old base is now The Market Common")}, a ten-minute trip by car. It has shops, restaurants and a 14-screen movie theater, and Grand Park's trails are next door. The airport terminal is a six-minute drive.`) +
       h.p("The HOA fee covers water, sewer, the grounds and the pool. The trade-off is choice: few of these townhomes come up for sale in a year, so we watch for each new listing.") +
       costs("parkview")),
 
     entry("fairways-at-wild-wing", "a golf community by the hospital and two colleges", () =>
-      h.p("Conway Medical Center is a six-minute drive from the Fairways. Horry-Georgetown Technical College is a seven-minute trip, and Coastal Carolina University an eight-minute one.") +
+      h.p("Conway Medical Center is a six-minute drive from the Fairways. Horry-Georgetown Technical College and Coastal Carolina University are each about seven minutes away.") +
       PH["fairways-at-wild-wing"] +
       h.p("The townhomes are off Wild Wing Boulevard, inside Wild Wing Plantation on US 501. Wild Wing was once a golf resort with several courses. Three of them closed in 2004, and one later reopened with nine holes.") +
-      h.p("The Avocet course, by Larry Nelson and Jeff Brauer, is still open. It has a double green and a double fairway, and Golf Digest gave it four stars in its Places to Play ratings. Some Fairways townhomes are near it.") +
+      h.p(`The ${h.ext(WILDWING, "Avocet course")}, by Larry Nelson and Jeff Brauer, is still open. It is known for its double greens and dual fairways, and some Fairways townhomes are near it.`) +
       h.p("The HOA fee includes internet, and usually water and sewer. An Aldi is a three-minute trip up Wild Wing Boulevard.") +
       h.p("The trade-off is tax. The Fairways is inside Conway's city limits, so its yearly tax is higher than outside a town.") +
       costs("fairways-at-wild-wing")),
 
     entry("sawgrass-east", "a pool and clubhouse in Carolina Forest", () =>
-      h.p(`${h.ext(LOB, "Lewis Ocean Bay Heritage Preserve")} is about 15 minutes up International Drive from Sawgrass East. It holds the largest group of Carolina bays in the state, oval wetlands found along this coast, and South Carolina's largest wild population of Venus flytraps.`) +
+      h.p(`${h.ext(LOB, "Lewis Ocean Bay Heritage Preserve")}, on International Drive, is about 15 minutes by car from Sawgrass East. It holds one of the largest groups of Carolina bays in the state, oval wetlands found along this coast. South Carolina's largest Venus flytrap population, the only one with long-term viability, is centered there.`) +
       PH["sawgrass-east"] +
       h.p("The townhomes are off Carolina Forest Boulevard, a little over two miles up the boulevard from US 501. They are around small ponds, with a pool and a clubhouse, and most have about 1,300 to 1,600 square feet.") +
       h.p(`The county's ${h.ext(CFRC, "Carolina Forest Recreation Center")}, with a gym, a fitness room and a climbing wall, is a six-minute drive. The county library shares its campus.`) +
@@ -322,18 +323,18 @@ module.exports = G.page({
       costs("sawgrass-east")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
-      h.p("Birchwood's houses are brand new, on lots of about a quarter acre. Lennar's houses here come with granite counters, stainless steel appliances, 9-foot ceilings downstairs and energy-efficient windows.") +
+      h.p("Birchwood's houses are brand new, on lots of about a quarter acre. Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings and energy-efficient windows.") +
       PH["birchwood"] +
-      h.p(`${h.ext(LENNAR_WARRANTY, "Lennar's warranty")} covers the workmanship for a year, the wiring, plumbing and heating for two, and the structure for ten. High-speed internet is included in the monthly dues.`) +
-      h.p("Birchwood is off SC 905, southwest of Longs, and the turn is beside the tall water tower. It has only 77 lots, with about 12 acres of open space. Long Bay Club, a golf course designed by Jack Nicklaus, is a seven-minute trip.") +
+      h.p(`${h.ext(LENNAR_WARRANTY, "Lennar's warranty")} covers the workmanship for a year, the electrical, plumbing and mechanical systems for two, and the structure for ten. High-speed internet is included in the monthly dues.`) +
+      h.p("Birchwood is off SC 905, southwest of Longs, and the turn is beside the tall water tower. It has only 77 lots, with about 12 acres of open space. Long Bay Club, a golf course in Longs, is a seven-minute trip.") +
       h.p(`The trade-off is the distance to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by SC 9 and the Carolina Bays Parkway. North Myrtle Beach is about 20.`) +
       costs("birchwood")),
 
     entry("golf-and-yacht-club", "a gated community near a waterway boat ramp", () =>
       h.p("Enterprise Landing, a public boat ramp off Bay Road onto the Intracoastal Waterway, is about a seven-minute drive from the Golf and Yacht Club.") +
       PH["golf-and-yacht-club"] +
-      h.p(`The community once had its own golf course, ${h.ext(HERON, "Heron Point, which closed in 2014")}. Inside the gate today, owners have a pool and hot tub, tennis courts, a pavilion and a community center.`) +
-      h.p(`The ${h.ext(MBGYC, "HOA")} keeps a watch desk at the gatehouse around the clock. In season, the pool opens each morning for lap swimming, then exercise, then open swim until dark. Our ${h.a("/buyers/gated-communities/", "guide to gated communities")} covers the gate.`) +
+      h.p(`The community once had its own golf course, ${h.ext(HERON, "Heron Point, which announced in 2014 that it would close")}. Today the HOA has a pool and hot tub, tennis courts, a pavilion and a community center.`) +
+      h.p(`The ${h.ext(MBGYC, "HOA")} has a community watch desk covered 24 hours a day, and a gatehouse phone line. From mid-April to mid-October, the pool opens at 8 a.m. for lap swimming, then exercise, then open swim until 8 p.m. or sundown. Our ${h.a("/buyers/gated-communities/", "guide to gated communities")} covers the gate.`) +
       h.p("In the older part, houses typically have about 1,350 square feet, on about an eighth of an acre. D.R. Horton's newer houses at Sandpiper Place, inside the community, went for about $330,000.") +
       h.p(`Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy. See our ${h.a("/buyers/coastal-insurance/", "guide to home insurance near the coast")}.`) +
       costs("golf-and-yacht-club")),
@@ -342,15 +343,15 @@ module.exports = G.page({
       h.p("Forestbrook Elementary and Forestbrook Middle are each four to five minutes from Forestbrook Village by car.") +
       PH["forestbrook-village"] +
       h.p("Lennar is building the townhomes off Forestbrook Road, south of US 501, next to the older Forestbrook neighborhood. They have about 1,450 to 2,400 square feet, and owners have a pool and a playground. Internet and grounds care are included.") +
-      h.p(`For a night out, Broadway at the Beach is 13 minutes away, and Coastal Grand Mall ${mins(N["forestbrook-village"].mb)}.`) +
+      h.p(`For a night out, Broadway at the Beach is 12 minutes away, and Coastal Grand Mall ${mins(N["forestbrook-village"].mb)}.`) +
       h.p("The trade-off is flood. Some lots here are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for the lot of any home you like.") +
       costs("forestbrook-village")),
 
     entry("victory-point", "new townhomes on the old speedway", () =>
       h.p(`Victory Point is built on part of the old Myrtle Beach Speedway. The track ${h.ext(RAMBI, "opened in 1958")} as RAMBI Raceway, and cars ran their ${h.ext(SPEEDWAY, "last laps there in 2020")}. Several streets have racing names: Speedway Street, Talladega Drive and Pit Crew Drive.`) +
       PH["victory-point"] +
-      h.p("Lennar built the townhomes off US 501, by Tanger Outlets. Owners share a pool, a playground, a picnic area and a pond, and some townhomes back onto the water.") +
-      h.p("From here, a Publix is five minutes away, Coastal Carolina University 12 and Broadway at the Beach 15. Lennar lists Victory Point as sold out for now, so we watch for resales.") +
+      h.p("Lennar built the townhomes off US 501, by Tanger Outlets. The community has a pool, a playground, a picnic area and a pond, and some townhomes back onto the water.") +
+      h.p("From here, a Publix is five minutes away, Coastal Carolina University 12 and Broadway at the Beach 14. Lennar lists Victory Point as sold out for now, so we watch for resales.") +
       h.p(`Expect more building next door. Another owner plans ${h.ext(REV3, "194 townhomes for rent")} on about 20 acres of the old speedway land beside it.`) +
       costs("victory-point")),
 
@@ -390,7 +391,7 @@ module.exports = G.page({
       h.p("Polo Farms has the smallest HOA fee on this list, about $20 a month, for one-story houses on lots of about a fifth of an acre. Many backyards are fenced, and several have their own pool.") +
       PH["polo-farms"] +
       h.p("The houses are off SC 905, between SC 9 and SC 22, west of Longs, and were built in three phases. Simpson Creek runs along the neighborhood's southwest side. There is no pool or clubhouse; the common land is two ponds, some woods and the strips along SC 905.") +
-      h.p(`Long Bay Club's Nicklaus course is about 13 minutes by car. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
+      h.p(`Long Bay Club's golf course is about 13 minutes by car. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
       h.p(`Flood is a concern here. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone. Before you make an offer, we look up the lot on FEMA's flood map.`) +
       costs("polo-farms")),
 

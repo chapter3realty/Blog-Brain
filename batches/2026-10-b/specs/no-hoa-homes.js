@@ -102,7 +102,7 @@ const COUNTED = (([y, m, d]) => `${MONTHS[m - 1]} ${d}, ${y}`)(DATA.asOf.split("
 
 const ORDER = AREAS.areas.map((a) => a.key);
 const ENTRY = {
-  "mb-downtown": { name: "Downtown Myrtle Beach", id: "downtown-myrtle-beach", place: "Downtown Myrtle Beach" },
+  "mb-downtown": { name: "Downtown Myrtle Beach", id: "downtown-myrtle-beach", place: "downtown Myrtle Beach" },
   "mb-myrtle-heights": { name: "Myrtle Heights", id: "myrtle-heights", place: "Myrtle Heights" },
   "mb-pine-lakes": { name: "Pine Lakes", id: "pine-lakes", place: "Pine Lakes" },
   "mb-plantation-point": { name: "Plantation Point", id: "plantation-point", place: "Plantation Point" },
@@ -121,7 +121,7 @@ const ENTRY = {
 };
 if (ORDER.length !== 16 || ORDER.some((k) => !ENTRY[k])) throw new Error("the entries do not match the data file's areas");
 const num = (k) => ORDER.indexOf(k) + 1;
-const go = (k, text) => h.a(`#${ENTRY[k].id}`, text || ENTRY[k].name);
+const go = (k, text) => `${h.a(`#${ENTRY[k].id}`, text || ENTRY[k].name)} (${num(k)})`;
 
 /* The one map: every area circled or outlined and named (owner: "circle them"). The shapes are the data
    file's mapShapes (row 115). */
@@ -131,8 +131,15 @@ for (const k of ORDER) for (const s of A[k].mapShapes) {
   if (s.polygon) a.polygon = s.polygon; else Object.assign(a, { lat: s.lat, lon: s.lon, radius: s.radius });
   MAP_AREAS.push(a);
 }
-const MAP = placesMap("Homes with no HOA around Myrtle Beach", [], { areas: MAP_AREAS, areaLabels: "numbers",
-  caption: "Map of the 16 areas where most homes have no HOA fee, numbered as in the list below." }).html;
+/* The guide below names every area with its number, so it is the map's key; the kit's own key would list
+   the 16 names a second time before the first area (CRAFT 3, "No preamble"). */
+const MAP = (() => {
+  const m = placesMap("Homes with no HOA around Myrtle Beach", [], { areas: MAP_AREAS, areaLabels: "numbers",
+    caption: "Map of the 16 areas where most homes have no HOA fee, numbered as in the guide below." });
+  const key = m.map.areaKey || "";
+  if (m.map.areasUnlabelled.length !== ORDER.length || ORDER.some((k, i) => !m.map.areas[i] || m.map.areas[i].mark !== String(i + 1))) throw new Error("the map's numbers no longer match the entries");
+  return key ? m.html.replace(key, "") : m.html;
+})();
 
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
    linked to the contact form with the area named. */
@@ -240,15 +247,15 @@ module.exports = GL.page({
       ph.css() + MAP +
       h.p(`<strong>A boat at home.</strong> ${go("cherry-grove")} has canals to the inlet. ${go("little-river")}, ${go("socastee")} and ${go("garden-city")} each have a county boat landing within 10 minutes.`) +
       h.p(`<strong>The beach on foot.</strong> In ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}, most houses are within half a mile of the sand.`) +
-      h.p(`<strong>An old town center.</strong> ${go("mb-downtown")}, ${go("conway")} and ${go("loris")} have older streets near downtown.`) +
+      h.p(`<strong>An old town center.</strong> ${go("mb-downtown", "Downtown Myrtle Beach")}, ${go("conway")} and ${go("loris")}: older houses within a mile and a half of the center.`) +
       h.p(`<strong>Half-acre lots in Myrtle Beach.</strong> ${go("mb-pine-lakes")}, by the golf course, and ${go("mb-plantation-point")}.`) +
       h.p(`<strong>An acre and a new house.</strong> ${go("aynor")} and ${go("loris-country", "the country around Loris")}.`) +
-      h.p(`<strong>Under $300,000.</strong> ${go("socastee")} and ${go("conway")}.`) },
+      h.p(`<strong>Under $300,000.</strong> ${h.a("#socastee", "Socastee")} and ${h.a("#conway", "Conway")}.`) },
 
     entry("mb-downtown", "older streets near the Boardwalk", [
       "Most houses for sale within a mile of downtown Myrtle Beach list no HOA dues, and most are half a mile or less from the ocean.",
-      `The ${h.ext(MB_BOARDWALK, "Boardwalk")} is 1.3 miles long, from the 2nd Avenue Pier to 16th Avenue North. A second wooden boardwalk follows Withers Swash, one of the city's oldest waterways, to Broadway and Collins Street.`,
-      "On Collins Street, Chester Street and 13th Avenue South, the houses for sale were built in the 1950s and 1960s. On 12th Avenue South, a row of new houses was listed, also with no HOA dues.",
+      `The oceanfront ${h.ext(MB_BOARDWALK, "Boardwalk")} is downtown, with a pier at each end. A second wooden boardwalk follows Withers Swash, one of the city's oldest waterways, to Broadway and Collins Street.`,
+      "On Collins Street and Chester Street, the houses for sale were built in the 1950s and 1960s. Nearby, a row of new houses was listed, also with no HOA dues.",
       "The trade-off is room: a lot here is typically about 0.2 acre.",
       `A house here is typically listed at about ${priceOf("mb-downtown")}.`,
     ]),
@@ -256,7 +263,7 @@ module.exports = GL.page({
     entry("mb-myrtle-heights", "beach houses on the National Register", [
       "Every house for sale in Myrtle Heights was listed with no HOA fee, and every one is within half a mile of the ocean.",
       `${h.ext(NPS_MH, "Myrtle Heights")} is along Ocean Boulevard from about 32nd to 46th Avenue North. It is on the National Register of Historic Places for its houses from the 1920s to the 1940s.`,
-      "Those houses were built in the Craftsman and Colonial Revival styles. Two of the houses for sale date from 1938 and 1946, and a new oceanfront house was listed beside them.",
+      "Those houses were built in the Craftsman and Colonial Revival styles. Two of the houses for sale are from that era, and a new oceanfront house was listed beside them.",
       "Myrtle Heights is inside the city, so the city's limits on boats and work trucks apply.",
       "Houses here were listed from about $750,000 to $5.8 million, the highest prices on this list.",
     ]),
@@ -264,20 +271,20 @@ module.exports = GL.page({
     entry("mb-pine-lakes", "Myrtle Beach's first golf course", [
       "Every house for sale on the older Pine Lakes streets pays no HOA dues, and lots there are typically almost half an acre. That is more than twice a downtown lot.",
       `The houses are on the streets around ${h.ext(PINE_LAKES, "Pine Lakes Country Club")}, Myrtle Beach's first golf course. It opened in 1927, and Robert White, the first president of the PGA of America, designed it.`,
-      "Its clubhouse is on the National Register of Historic Places, and Sports Illustrated was born there. The houses for sale were built from the 1960s to 2016.",
+      "Its clubhouse is on the National Register of Historic Places, and Sports Illustrated was born there.",
       "The newer Preserve at Pine Lakes next door has an HOA. The older streets are inside the city, so you pay city property tax on top of the county's.",
       `Expect asking prices of about ${priceOf("mb-pine-lakes")}.`,
     ]),
 
     entry("mb-plantation-point", "half an acre outside the city limits", [
       "Not one house for sale in Plantation Point pays HOA dues. It is outside the city limits, west of Kings Highway, so the county's rules apply.",
-      "Lots are typically about half an acre, on streets such as Annandale, Arundel and Brookgreen Drive. The houses were built from 1987 to 2021.",
+      "Lots are typically about half an acre, on streets such as Annandale, Arundel and Brookgreen Drive. The houses date from the late 1980s on.",
       "Outside the city, nothing in the county code says where on your own lot a boat or camper must go. The flood map puts none of these houses at high risk.",
       "The trade-off is the beach: it is about 10 minutes away by car.",
       `Houses here were listed at about ${millions(A["mb-plantation-point"].medianNoFeeHousePrice)}.`,
     ]),
 
-    entry("windy-hill", "beach houses 3 minutes from Barefoot Landing", [
+    entry("windy-hill", "the south end, near Barefoot Landing", [
       "Six in 10 homes for sale in Windy Hill list no HOA fee, and so does every one in the Windy Hill Beach subdivision. Almost all are half a mile or less from the sand.",
       "Windy Hill is the south end of North Myrtle Beach. It was one of four beach towns that joined in 1968 to form the city.",
       "Barefoot Landing, the shops and restaurants on the Intracoastal Waterway, is a 3-minute drive. Most of the houses for sale here were built before 1990.",
@@ -295,7 +302,7 @@ module.exports = GL.page({
 
     entry("ocean-drive", "Main Street and the shag", [
       "More than half of the homes for sale in Ocean Drive show no HOA fee on their listings. Ocean Drive is the part of North Myrtle Beach around Main Street.",
-      `Its pavilion drew crowds to dance the shag, which South Carolina made its ${h.ext(SHAG_LAW, "official state dance")} in 1984. Every Thursday from June through September, the city holds free Music on Main concerts at the Horseshoe on Main Street.`,
+      `Its pavilion drew crowds to dance the shag, which South Carolina made its ${h.ext(SHAG_LAW, "official state dance")}. Every Thursday from June through September, the city holds free Music on Main concerts at the Horseshoe on Main Street.`,
       "In Ocean Drive Estates, houses from the mid-1980s were listed at about $300,000. None of the houses for sale here would need flood insurance for a mortgage.",
       "Inside the city, a camper or trailer goes beside or behind the house, or under a carport.",
       `The middle asking price here is about ${priceOf("ocean-drive")}.`,
@@ -313,7 +320,7 @@ module.exports = GL.page({
     entry("little-river", "the old fishing village on the waterway", [
       "Every house for sale on the old streets by the Little River waterfront was listed with no HOA fee, which is rare here. Almost every Little River subdivision has an HOA.",
       `Little River was the first permanent settlement in Horry County. In the early 1920s, its boatmen began ${h.ext(LR_FISHING, "taking visitors fishing offshore")}, the first boats in South Carolina to do it for a fee.`,
-      `The waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day. Since the inlet's jetties were finished in 1983, boats can cross the bar at any time of day.`,
+      `The waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day. Since the inlet's jetties were built, boats can cross the bar at any time of day.`,
       `Little River is not a town, so the county's rules apply, and the county has no rule on where you keep your own boat on your lot. The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway here.`,
       "The trade-off: none of these houses is within a mile of the ocean.",
       `Half of these houses are listed for less than about ${priceOf("little-river")}, and the new ones on Mineola Avenue at $450,000.`,
@@ -356,7 +363,7 @@ module.exports = GL.page({
       "Almost every house for sale within a mile of downtown Loris shows no HOA fee in its listing. Most are older houses, typically from the 1960s, on about 0.4 acre.",
       `Loris grew up around a railroad depot and became a town in 1902. In the late 1800s it was a farm center for the country around it.`,
       `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
-      "McLeod Loris, the town's hospital, is about 2 minutes from the middle of town.",
+      "McLeod Loris, the town's hospital, is in town.",
       "You give up the beach next door: it is about 35 minutes by car, and Coastal Grand Mall about 50.",
       `Homes here are typically priced around ${priceOf("loris")}.`,
     ]),
@@ -371,7 +378,7 @@ module.exports = GL.page({
 
     entry("aynor", "an acre and a September festival", [
       "About 2 in 3 homes for sale with an Aynor address show no HOA fee, and so does every one in and around the town itself.",
-      `Each September, Aynor holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
+      `Each September, Aynor holds the Aynor Harvest Hoe-Down, a festival started by the Pilot Club of Aynor. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
       `Lots are typically about an acre, with room beside the house for a boat or a camper. ${h.ext(LANDINGS, "Galivants Ferry Landing")}, a county ramp on the Pee Dee River, is about 6 minutes from the center of town. More than half of the houses for sale here are new.`,
       "The drive is the trade-off: about 45 minutes to the beach, and about 30 to the nearest hospital, Conway Medical Center.",
       `Plan on about ${priceOf("aynor")} for a house here.`,
@@ -384,7 +391,7 @@ module.exports = GL.page({
       story(STORY, "", bg) },
 
     { h2: "What does a house with no HOA fee cost?", toc: "Prices", id: "prices", html: (bg) =>
-      h.p(`It depends on the area more than on the fee. Near the ocean, most cost $750,000 or more. Inland, most cost $250,000 to $500,000. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
+      h.p(`It depends on the area more than on the fee. Near the ocean, most are listed at $750,000 or more. Inland, most are listed at $250,000 to $500,000. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
       bandTable() +
       h.cta("Get the homes with no HOA fee in your price range.", "Tell us your range and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
 
