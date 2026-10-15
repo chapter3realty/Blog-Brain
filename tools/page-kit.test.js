@@ -126,6 +126,16 @@ check("glass: reduced transparency and reduced motion are respected", /prefers-r
 check("glass: blur is on a few large surfaces only", G.BIG.length <= 6 && !G.CARDS.some((c) => G.BIG.includes(c)) && (sheet.match(/backdrop-filter:var\(--g-blur\)/g) || []).length === 4);
 check("glass: every rule but the dots is scoped to main#main", sheet.replace(/<\/?style[^>]*>/g, "").split("}").filter((r) => /\{/.test(r) && !/^\s*@/.test(r)).every((r) => /main#main|#c3-particles|^\s*[.:a-z]/.test(r)));
 check("glass: the dark band sits close to the text around it (round 14: 100 to 120 px of blank space)", /section:has\(\+section\[style\^="background:var\(--navy\)"\]\)\{padding-bottom:0!important\}/.test(sheet) && /background:var\(--navy\)"\]\{background:transparent!important;padding:\.9rem 0!important\}/.test(sheet));
+{ /* The compact top offer (round 14: the first place sat 3 to 4 phone screens under the H1). */
+  const HC = { title: "Get the homes for sale in the ones you like.", text: "Tell us the places and your price range.", label: "Get the list", href: "/contact/" };
+  const base = Object.assign({}, SPEC, { theme: "glass", heroCta: HC });
+  const c = G.page(base), band = G.page(Object.assign({}, base, { topOffer: "band" }));
+  check("glass top offer: compact by default, the line and the button only, still to /contact/", JSON.stringify(c.heroCta) === JSON.stringify({ title: HC.title, label: HC.label, href: "/contact/" }) && c.heroCta.text === undefined);
+  check("glass top offer: the compact bar's rules style only the first band, not the end band", c.heroMedia.includes('section[style^="background:var(--navy)"]:not(:last-child)>.wrap{') && !band.heroMedia.includes(":not(:last-child)"));
+  check("glass top offer: band keeps mkpage's full first offer", band.heroCta === HC);
+  check("glass top offer: topOfferLine replaces the bar's line", G.page(Object.assign({}, base, { topOfferLine: "Homes for sale, this week." })).heroCta.title === "Homes for sale, this week.");
+  check("glass top offer: an unknown value throws, and so does a line with no bar", throws(() => G.page(Object.assign({}, base, { topOffer: "slim" })), /compact" or "band/) && throws(() => G.page(Object.assign({}, base, { topOffer: "band", topOfferLine: "x" })), /topOfferLine/));
+  check("glass top offer: a page without the theme is untouched", G.page(Object.assign({}, SPEC, { heroCta: HC })).heroCta === HC); }
 const chart = G.bars([
   { name: "Parkview", href: "#parkview", feature: "walk to Whispering Pines golf", value: 190000 },
   { name: "Polo Farms", feature: "a one-story house on a big lot", value: 255000 },

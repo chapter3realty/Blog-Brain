@@ -23,6 +23,22 @@ module.exports = G.page({
 - Map names in glass pills: make the kit with `PK.create({ h, theme: "glass", ... })`. A batch kit that is shared (`_kit.js`) can instead pass `glass: true` to each `placesMap()` call.
 - With no `theme`, or `theme: "plain"`, the spec comes back unchanged.
 
+**The top offer is a slim glass bar (round 14).** On a glass page the first offer, right after the short answer, is one line with the button beside it (under it on a phone). It is about 133 px on a 390 px phone and 80 px on a desktop. It still links to exactly `/contact/`, with the same brass button. The dark band stays as the offer at the end of the page.
+
+- It is the default, so no spec needs a change. To say it in the spec, add one line next to `theme: "glass"`:
+
+  ```js
+  topOffer: "compact",            // the slim bar; "band" keeps the full dark band at the top
+  ```
+- The bar shows `heroCta.title` and the button. `heroCta.text` is left out. Keep the title to one short line, under about 55 letters.
+- `topOfferLine: "..."` replaces the bar's line when the title is too long for it.
+- Why the no-HOA band was 550 px and the gated band 290: the band grows with its second line. No-HOA's `heroCta.text` is two sentences, five lines on a phone, against three lines on gated. The old section padding was also larger. The bar drops the second line, so every page's bar is the same height.
+- Measured at 390 px:
+  - Gated: the first offer went from 292 to 133 px. Entry 1 moved up 159 px, from 2,896 to 2,737 px (2.96 to 2.78 screens below the H1).
+  - No-HOA: the first offer went from 353 to 133 px. Entry 1 moved up 220 px, from 3,673 to 3,453 px.
+  - These are with this round's spacing. The 290 and 550 px heights the leads reported were measured before it.
+- Checks on both pages: structure-check `--strict` passes; score.js gives gated 100 and no-HOA 98. No-HOA's one miss is S8, inbound links, which the upload's link diffs add. build.js audit gives the same results as before the change. The bar sits above the 20% mark, so it was never the audit's mid-page boxed offer.
+
 What the theme changes, all inside `<main>`:
 
 - The ivory bands become one soft, warm field.
@@ -164,6 +180,9 @@ In `batches/2026-10-b/review/glass/`:
   - `gated-before-390-top.png`, `gated-before-390-map.png`
   - `gated-glass-390-top.png`, `gated-glass-390-map.png`, `gated-glass-1280-map.png`
   - On a 390 px phone, entry 1 moved up from 3,196 px to 2,925 px (3.79 to 3.47 screens). The space between the dark band and the text above and below it went from 117 and 100 px to 32 and 31 px.
+- **The compact top offer:**
+  - `gated-topoffer-before-390.png`, `gated-topoffer-after-390.png`
+  - `gated-topoffer-after-1280.png`, `nohoa-topoffer-after-390.png`
 - **The blocks:**
   - `blocks-chart-390.png`: the chart with feature labels;
   - `blocks-offer-1280.png`: the offer pills and an offer box;
