@@ -419,7 +419,7 @@
   },
   {
     "row": "no-hoa 103",
-    "pattern": "\\bCherry Grove has canals to the inlet",
+    "pattern": "\\bcanals to the inlet",
     "struck": "A boat at home. Cherry Grove has canals to the inlet.",
     "use": "Cherry Grove has canals with boat access to House Creek and the Intracoastal Waterway."
   },
@@ -548,5 +548,11 @@
     "pattern": "\\$34 a month on the utility bill",
     "struck": "Inside the city, the city picks up trash, recycling and yard waste at the curb once a week, for about $34 a month on the utility bill.",
     "use": "Inside the city, the city picks up trash, recycling and yard waste at the curb once a week, for $33.93 a month for a home."
+  },
+  {
+    "row": "no-hoa 117",
+    "pattern": "\\bPreserve at Pine Lakes next door",
+    "struck": "The newer Preserve at Pine Lakes next door has an HOA.",
+    "use": "The newer Preserve at Pine Lakes, from about 0.2 to 0.5 mile away, has an HOA."
   }
 ]

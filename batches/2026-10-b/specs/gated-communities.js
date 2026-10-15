@@ -106,9 +106,9 @@ const GUIDE_CSS = `<style>
 .c3g-guide{display:grid;gap:1rem;max-width:960px;margin:.4rem 0 0}
 @media(min-width:900px){.c3g-guide{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start}}
 main#main .c3-want.c3g-list{list-style:none;margin:0;padding:.3rem 1rem}
-main#main .c3-want.c3g-list>li{padding:.55rem 0;line-height:1.45;background:none;box-shadow:none;border:0!important;border-bottom:1px solid rgba(28,32,40,.12)!important;border-radius:0!important}
+main#main .c3-want.c3g-list>li{padding:.45rem 0;line-height:1.45;background:none;box-shadow:none;border:0!important;border-bottom:1px solid rgba(28,32,40,.12)!important;border-radius:0!important}
 main#main .c3-want.c3g-list>li:last-child{border-bottom:0!important}
-.c3-want b{display:block;color:var(--navy);font-weight:600}
+.c3-want b{color:var(--navy);font-weight:600;margin-right:.45rem}
 .c3-want a{color:var(--navy);text-decoration:underline;text-underline-offset:.18em}
 .c3-want .sep{color:var(--muted);padding:0 .35rem}
 .c3g-map{margin:0}
@@ -136,13 +136,13 @@ const MAP = (() => {
     const pts = E.filter((e) => e.area === a);
     const lat = pts.reduce((s, e) => s + e.lat, 0) / pts.length, lon = pts.reduce((s, e) => s + e.lon, 0) / pts.length;
     const radius = Math.round(Math.min(15000, 800 + 1000 * Math.max(...pts.map((e) => km(lat, lon, e.lat, e.lon)))));
-    return { name: label, note: (pts.length === 1 ? "Number " : "Numbers ") + nums(a), lat, lon, radius };
+    return { name: label, lat, lon, radius };
   });
   const MAPDIR = { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420, glass: true };
   const m = regionMap({ name: "Where the 20 gated neighborhoods are", areas }, MAPDIR);
   if (m.areasUnlabelled && m.areasUnlabelled.length) console.warn(`gated-communities: no room on the map for ${m.areasUnlabelled.length} area names; the key names them`);
   const key = m.areasUnlabelled && m.areasUnlabelled.length ? m.areaKey : "";
-  return `<figure class="c3g-map">${m.html}${key}<figcaption>The five areas, with the numbers of the neighborhoods in each. ${m.credit}</figcaption></figure>`;
+  return `<figure class="c3g-map">${m.html}${key}<figcaption>Where the five areas are along the coast. ${m.credit}</figcaption></figure>`;
 })();
 
 /* The selection guide: every place once, under what it does best (features, never people). */
@@ -154,20 +154,19 @@ const GUIDE_GROUPS = [
   ["History you live inside", ["litchfield-plantation", "willbrook-plantation"]],
   ["Under half a mile from Main Street", ["seaside-plantation"]],
   ["55+", ["myrtle-trace", "prince-creek-55"]],
-  ["A fee under $100 a month", ["covington-lake-east", "myrtle-beach-golf-and-yacht-club"]],
   ["Lots of nearly half an acre", ["bellwood-landing"]],
+  ["A fee under $100 a month", ["covington-lake-east", "myrtle-beach-golf-and-yacht-club"]],
 ];
 {
   const seen = GUIDE_GROUPS.flatMap(([, ids]) => ids);
   if (seen.length !== E.length || new Set(seen).size !== E.length) throw new Error("gated-communities: the guide must list each place once");
 }
 /* The guide is also the page's contents (score H14): the rest of the page, by each section's short label. */
-const MORE = [["#compare", "Prices"], ["#what-a-gate-does", "What a gate does"], ["#yearly-cost", "Yearly cost"],
-  ["#pros-and-cons", "Pros and cons"], ["#a-buyers-story", "An example"], ["#gated-communities-faq", "Gated communities FAQ"]];
+const MORE = [["#compare", "Prices"], ["#yearly-cost", "Yearly cost"], ["#pros-and-cons", "Pros and cons"], ["#gated-communities-faq", "Gated communities FAQ"]];
 const GUIDE = `<div class="c3g-guide c3-guide-map"><ul class="c3-want c3g-list">`
-  + GUIDE_GROUPS.map(([want, ids]) => `<li><b>${want}</b>${ids.map((id) => byId[id]).sort((a, b) => a.n - b.n)
+  + GUIDE_GROUPS.map(([want, ids]) => `<li><b>${want}:</b> ${ids.map((id) => byId[id]).sort((a, b) => a.n - b.n)
     .map((e) => `<a href="#${e.id}">${e.n}. ${e.name}</a>`).join('<span class="sep" aria-hidden="true">&middot;</span> ')}</li>`).join("")
-  + `<li><b>More on this page</b>${MORE.map(([href, label]) => `<a href="${href}">${label}</a>`).join('<span class="sep" aria-hidden="true">&middot;</span> ')}</li>`
+  + `<li><b>More on this page:</b> ${MORE.map(([href, label]) => `<a href="${href}">${label}</a>`).join('<span class="sep" aria-hidden="true">&middot;</span> ')}</li>`
   + `</ul>${MAP}</div>`;
 
 /* ---------------------------------------------------------------------------- */
@@ -335,16 +334,16 @@ const SECTIONS_PLACES = [
 /* The places side by side: one plain table after the entries, three columns. */
 const TABLE = (() => {
   const td = "padding:.45rem .6rem;border-bottom:1px solid var(--line,#e3dccf);vertical-align:top;text-align:left";
-  const rows = E.map((e) => `<tr><td style="${td}"><a href="#${e.id}">${e.n}. ${e.name}</a></td><td style="${td}">${e.price}</td><td style="${td}">${e.fee}</td></tr>`).join("");
-  return `<div style="overflow-x:auto;max-width:760px"><table style="border-collapse:collapse;width:100%;font-size:var(--read,1.0625rem);line-height:1.45"><caption style="text-align:left;font-weight:600;color:var(--navy);padding:.3rem 0 .5rem">What homes usually sell for, and the HOA fee a month</caption><thead><tr><th scope="col" style="${td}">Neighborhood</th><th scope="col" style="${td}">Homes sell for</th><th scope="col" style="${td}">HOA fee a month</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  const rows = E.map((e) => `<tr><td style="${td}"><a href="#${e.id}" style="color:var(--navy);text-decoration:underline;text-underline-offset:.18em">${e.n}. ${e.name}</a></td><td style="${td}" data-l="Homes sell for">${e.price}</td><td style="${td}" data-l="HOA fee a month">${e.fee}</td></tr>`).join("");
+  /* On a phone each row becomes a short card: the name, then the two figures with their labels, so
+     nothing is cut off at 390 px (owner's eye 14, M10). */
+  const css = `<style>@media(max-width:640px){.c3g-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.c3g-table tr{display:block;padding:.5rem 0;border-bottom:1px solid var(--line,#e3dccf)}.c3g-table td{display:block;border:0!important;padding:.1rem .2rem!important}.c3g-table td[data-l]::before{content:attr(data-l) ": ";color:var(--muted)}}</style>`;
+  return `${css}<div style="max-width:760px"><table class="c3g-table" style="border-collapse:collapse;width:100%;font-size:var(--read,1.0625rem);line-height:1.45"><thead><tr><th scope="col" style="${td}">Neighborhood</th><th scope="col" style="${td}">Homes sell for</th><th scope="col" style="${td}">HOA fee a month</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 })();
 
 /* ItemList schema for the numbered entries. */
 const ITEMLIST = `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList", name: "Gated communities near Myrtle Beach", numberOfItems: E.length,
   itemListElement: E.map((e) => ({ "@type": "ListItem", position: e.n, name: e.name, url: `https://chapter3realty.com${SELF}#${e.id}` })) })}</script>`;
-
-const GATE_PHOTO = () => ph.aerial("prestwick-gate-from-above-2026",
-  "An entrance to Prestwick from above. A small building, the gatehouse, is between the two lanes, with a gate arm across each lane.");
 
 const OFFER_TEXT = "Tell us the neighborhoods you like and your price range. One of our agents will email you this week's homes for sale there, with the HOA fee and what it covers.";
 const OFFER_SHORT = "Tell us the places and your price range. One of our agents will email you this week's homes.";
@@ -361,12 +360,12 @@ module.exports = G.page({
   eyebrow: "Gated communities",
   h1: "Where are the gated communities near Myrtle Beach?",
   h1em: "From the Cherry Grove marsh to the ocean at DeBordieu.",
-  sub: "What each gated community does best, from a beach club at Pawleys Island to a marina with a dock master, then what homes cost.",
+  sub: "Of these gated communities, two sit on the ocean, two have a staffed marina and ten have golf, from North Myrtle Beach to Pawleys Island.",
   heroCta: { title: "Get the homes for sale in the ones you like.", text: OFFER_SHORT, label: OFFER_LABEL, href: OFFER },
   author: "devin",
   toc: false,
   shortAnswer: [
-    `Twenty gated neighborhoods line this coast. Two are on the ocean, and ten are golf communities. Homes in them sell for about $200,000 to $2.2 million, and the HOA fee in most is about $90 to $400 a month. A gate controls who drives in; ${h.a("#what-a-gate-does", "see what a gate does and does not do")}.`,
+    `Here are 20 gated neighborhoods along this coast. Homes in them sell for about $200,000 to $2.2 million, and the HOA fee in most is about $90 to $400 a month. Where there is a golf or beach club, it is usually a separate membership from the HOA, with its own dues. ${h.a("#gated-communities-faq", "Read what a gate does and does not do")}.`,
   ],
   sections: [
     { id: "choose", html: () =>
@@ -377,15 +376,10 @@ module.exports = G.page({
 
     ...SECTIONS_PLACES,
 
-    { h2: "How do the 20 compare on price?", toc: "Prices", id: "compare", html: (bg) =>
+    { h2: "What do homes sell for, and what is the HOA fee?", toc: "Prices", id: "compare", html: (bg) =>
       TABLE +
       h.cta("Want the homes for sale in more than one of these?", OFFER_TEXT, OFFER_LABEL, OFFER, bg) +
       h.p(`For neighborhoods without a gate, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods in Myrtle Beach")}, ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}, ${h.a("/buyers/golf-communities/", "golf communities")} and ${h.a("/buyers/55-plus-communities/", "55+ communities")}.`) },
-
-    { h2: "Does a gate make a neighborhood safer?", toc: "What a gate does", id: "what-a-gate-does", html: () =>
-      h.p("A gate keeps through traffic off the streets behind it, and a guard or the owner lets each visitor in. We do not rate any neighborhood as safe or unsafe.") +
-      GATE_PHOTO() +
-      h.p(`The state's ${h.ext(SLED, "crime data site")} shows crime reported to each police department and sheriff, by year and type.`) },
 
     { h2: "What does a gated neighborhood cost to live in each year?", toc: "Yearly cost", id: "yearly-cost", html: () =>
       h.p("In Myrtle Trace, the HOA fee and county tax for a home you live in come to about $2,300 a year, besides the mortgage. In Seasons at Prince Creek West, they come to about $6,100.") +
@@ -402,17 +396,10 @@ module.exports = G.page({
         { text: "Guests and workers come through the gate, so a visit can need a call box or a guest list." },
       ], { bg }) },
 
-    { h2: "How did one couple plan for guests behind a gate?", toc: "An example", id: "a-buyers-story", html: (bg) =>
-      story([
-        "<strong>Example:</strong> Every July, Ray and Linda's grandchildren come to the beach for a week.",
-        "The couple like a condo in Litchfield by the Sea, behind its guarded gate, and ask how their guests will get in.",
-        "Their Chapter3 agent reads the association's guest guide. A guest who is not on the owner's list waits at the gate until security confirms the visit.",
-        "Ray and Linda make their offer. Once the condo is theirs, they register each guest before the visit, and the guard at the main gate checks the list.",
-      ], "", bg,
-      `We ${h.a(OFFER, "find out how the gate works")} for any home you like before you make an offer.`) },
   ],
   faqTitle: "Gated communities FAQ",
   faq: [
+    { q: "Does a gate make a neighborhood safer?", a: "A gate keeps through traffic off the streets and lets a guard, a code or the owner decide who comes in. We do not rate any neighborhood as safe or unsafe." },
     { q: "Is there a gated community in Surfside Beach?", a: "No. Prestwick, outside the town, is the gated neighborhood on this page nearest Surfside Beach. Its nearest public beach access is in Surfside Beach, about 7 minutes away by car." },
     { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet has a gate at its main entrance. Myrtle Trace near Conway has gates only at its back entrance." },
     { q: "Are there gated golf communities near Myrtle Beach?", a: "Yes. Ten of the 20 gated neighborhoods on this page are golf communities, from Tidewater in North Myrtle Beach to DeBordieu Colony south of Pawleys Island." },
@@ -428,7 +415,7 @@ module.exports = G.page({
     { name: "Horry County land development rules", href: CODE },
     { name: "SLED crime data", href: SLED },
   ],
-  sourcesNote: "Not legal advice. Facts: associations, clubs, marinas, county records, news, the state. Prices: the past year's middle sale, checked against the MLS and deed index; Horry prices leave out builder sales. Few sales: a rough guide. Drives: no traffic.",
+  sourcesNote: "Also the associations' and clubs' own documents, county records and local news. Each price is the past year's middle sale, checked against the MLS and the county deed index, and Horry County prices leave out builder sales. A price from few sales is a rough guide, and drive times assume no traffic. Not legal advice.",
   afterSources: () => ph.credits() + ITEMLIST,
   bottomCta: { h2: "Get this week's homes for sale in the gated neighborhoods you like.", p: OFFER_TEXT, label: OFFER_LABEL, href: OFFER },
   keywords: "gated communities Myrtle Beach, gated communities North Myrtle Beach, gated communities Murrells Inlet, gated communities Pawleys Island, 55+ gated communities Myrtle Beach, gated golf communities Myrtle Beach, homes for sale in gated communities Myrtle Beach",

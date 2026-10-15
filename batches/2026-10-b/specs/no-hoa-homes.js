@@ -138,7 +138,10 @@ for (const k of ORDER) for (const s of A[k].mapShapes) {
    (coordinator, round 14: "circle them"; "no number may touch another"). The first panel shows the inland
    areas and two boxes; A and B are close-ups of the coast. Each area keeps its entry number on every
    panel (area-map.js a.mark), and the guide below lists the names by number. */
-const areaOf = (k) => { const a = A[k], s = a.mapShapes[0], o = { name: s.name, mark: String(num(k)) };
+const MAPNAME = { "mb-downtown": "Downtown", "little-river": "Little River", "garden-city": "Garden City" };
+/* Each area's name on the map is its entry number and a short name ("8 Cherry Grove"); where the name has
+   no room, the tool shows the number alone (a.mark). */
+const areaOf = (k) => { const a = A[k], s = a.mapShapes[0], o = { name: `${num(k)} ${MAPNAME[k] || s.name}`, mark: String(num(k)) };
   if (s.polygon) o.polygon = s.polygon; else Object.assign(o, { lat: s.lat, lon: s.lon, radius: s.radius });
   /* The country around Loris holds the Loris circle; its number goes in its west part, off the town's. */
   if (k === "loris-country") o.markAt = { lat: 34.03, lon: -78.98 };
@@ -150,24 +153,25 @@ const PANEL = {
 };
 if (Object.values(PANEL).flat().sort().join() !== ORDER.slice().sort().join()) throw new Error("every area is on exactly one map panel");
 const MAP = (() => {
-  const draw = (name, areas) => {
-    const m = regionMap({ name, areas, areaLabels: "numbers" }, { dir: MAP_DIR, src: "/images/maps", glass: true });
-    const mk = m.boxes.filter((b) => b.kind === "marker");
+  const draw = (name, areas, more = {}) => {
+    const m = regionMap(Object.assign({ name, areas }, more), { dir: MAP_DIR, src: "/images/maps", glass: true });
+    const mk = m.boxes.filter((b) => b.kind === "marker" || b.kind === "label");
     for (let i = 0; i < mk.length; i++) for (let j = i + 1; j < mk.length; j++) { const a = mk[i], b = mk[j];
-      if (!(a.x1 + 1 < b.x0 || b.x1 + 1 < a.x0 || a.y1 + 1 < b.y0 || b.y1 + 1 < a.y0)) throw new Error(`${name}: two area numbers touch`); }
+      if (!(a.x1 + 1 < b.x0 || b.x1 + 1 < a.x0 || a.y1 + 1 < b.y0 || b.y1 + 1 < a.y0)) throw new Error(`${name}: two area names or numbers touch: ${a.owner} ${b.owner}`); }
     return m;
   };
-  const south = draw("Homes with no HOA, coast close-up A", PANEL.south.map(areaOf));
+  const south = draw("Homes with no HOA, coast close-up A", PANEL.south.map(areaOf), { maxRatio: 0.95 });
   const north = draw("Homes with no HOA, coast close-up B", PANEL.north.map(areaOf));
   const box = (name, mark, f) => ({ name, mark, polygon: [[f.west, f.south], [f.east, f.south], [f.east, f.north], [f.west, f.north]] });
-  const inland = draw("Homes with no HOA around Myrtle Beach", PANEL.inland.map(areaOf).concat([box("Close-up A", "A", south.frame), box("Close-up B", "B", north.frame)]));
+  /* The whole area carries four inland areas and two boxes: a wide, short frame (area-map.js maxRatio). */
+  const inland = draw("Homes with no HOA around Myrtle Beach", PANEL.inland.map(areaOf).concat([box("Close-up A", "A", south.frame), box("Close-up B", "B", north.frame)]), { maxRatio: 0.8 });
   const panel = (m, label) => `<div class="c3-nh-panel"><p class="c3-nh-label">${label}</p>${m.html}</div>`;
   const css = "<style>.c3-nh-maps{display:grid;gap:.9rem}.c3-nh-panel img,.c3-nh-panel svg{display:block;width:100%;height:auto}"
     + ".c3-nh-label{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);margin:0 0 .35rem!important}"
     + "@media (min-width:900px){.c3-nh-maps{grid-template-columns:repeat(3,1fr);align-items:start}}"
     + ".c3-areamap figure{max-width:1136px!important}</style>";
-  return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-maps">${panel(inland, "The whole area")}${panel(south, "A. Myrtle Beach, Socastee and Garden City")}${panel(north, "B. North Myrtle Beach and Little River")}</div>`,
-    "Map of the 16 areas where most homes have no HOA fee, numbered as in the guide below. Boxes A and B are the two close-ups of the coast.", inland.credit, "no-hoa map") + `</div>`;
+  return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-maps">${panel(inland, "The whole area")}${panel(south, "A. Myrtle Beach to Garden City")}${panel(north, "B. North Myrtle Beach")}</div>`,
+    "Map of the areas where most homes have no HOA fee, numbered as in the list below. A and B are close-ups of the coast.", inland.credit, "no-hoa map") + `</div>`;
 })();
 
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
@@ -264,24 +268,23 @@ module.exports = GL.page({
   eyebrow: "Buying a home",
   h1: "Where can you buy a home with no HOA near Myrtle Beach?",
   h1em: "16 areas where most homes have no fee.",
-  sub: "16 areas of older beach streets, river towns and country land, where you can keep a boat or a work truck at home.",
+  sub: "Older beach streets, river towns and country land from Little River to Aynor, where you can keep a boat or a work truck at home.",
   heroCta: { title: "Get the homes with no HOA fee in the areas you like.", label: LABEL, href: "/contact/",
     text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
   author: "devin",
   shortAnswer: [
-    "Almost every house on a street outside a named subdivision has no homeowners association (HOA) fee. Around Myrtle Beach, most are in the 16 areas below.",
+    "Almost every house on a street outside a named subdivision has no homeowners association (HOA) fee. Around Myrtle Beach, most of them are in the areas below.",
     "Age is the best sign. About 3 in 4 houses for sale built before 1990 have no HOA fee. Of those built since, fewer than 1 in 5 do.",
-    `With no HOA, you can keep a boat, a camper or a work truck at home, within ${h.a("#boats-and-work-trucks", "each town's rules")}.`,
   ],
+
   sections: [
     { h2: "Where are the homes with no HOA fee?", toc: "The map and the guide", id: "where", html: () =>
       ph.css() + MAP +
-      h.p(`<strong>A boat at home.</strong> ${go("cherry-grove")} has canals to the inlet. ${go("little-river")}, ${go("socastee")} and ${go("garden-city")} each have a county boat landing within 10 minutes.`) +
-      h.p(`<strong>The beach on foot.</strong> In ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}, most houses are within half a mile of the sand.`) +
-      h.p(`<strong>An old town center.</strong> ${go("mb-downtown", "Downtown Myrtle Beach")}, ${go("conway")} and ${go("loris")}: older houses within a mile and a half of the center.`) +
-      h.p(`<strong>Half-acre lots in Myrtle Beach.</strong> ${go("mb-pine-lakes")}, by the golf course, and ${go("mb-plantation-point")}.`) +
-      h.p(`<strong>An acre and a new house.</strong> ${go("aynor")} and ${go("loris-country", "the country around Loris")}.`) +
-      h.p(`<strong>Under $300,000.</strong> ${h.a("#socastee", "Socastee")} and ${h.a("#conway", "Conway")}.`) },
+      h.p(`<strong>A boat at home:</strong> ${go("cherry-grove")} on the canals; ${go("little-river")}, ${go("socastee")} and ${go("garden-city")} by a county landing.`) +
+      h.p(`<strong>The beach on foot:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
+      h.p(`<strong>An old town center:</strong> ${go("mb-downtown", "Downtown Myrtle Beach")}, ${go("conway")} and ${go("loris")}.`) +
+      h.p(`<strong>Half-acre lots in Myrtle Beach:</strong> ${go("mb-pine-lakes")} and ${go("mb-plantation-point")}.`) +
+      h.p(`<strong>An acre and a new house:</strong> ${go("aynor")} and ${go("loris-country", "the country around Loris")}.`) },
 
     entry("mb-downtown", "older streets near the Boardwalk", [
       "Most houses for sale within a mile of downtown Myrtle Beach list no HOA dues, and most are half a mile or less from the ocean.",

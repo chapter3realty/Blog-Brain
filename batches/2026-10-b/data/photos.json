@@ -2438,9 +2438,9 @@
     "1200": "images/buyers/the-farm/the-farm-where-from-above-1200w.webp"
    },
    "title": "Where The Farm at Carolina Forest is, NAIP aerial, April 2023",
-   "what": "A wide view from above of Carolina Forest and Myrtle Beach on April 10, 2023, with The Farm outlined in orange and six labels: The Farm, Carolina Forest Boulevard, US 501, the Publix about 2 minutes from the entrance, McLeod Health's emergency room about 5 minutes away and the beach about 10 minutes away. The ocean is at the lower right.",
-   "caption": "Where The Farm is. The orange line is its edge.",
-   "alt": "Carolina Forest and Myrtle Beach from above, with The Farm outlined in orange and labels for The Farm, Carolina Forest Boulevard, US 501, Publix 2 minutes away, the emergency room 5 minutes away and the beach 10 minutes away",
+   "what": "A wide view from above of Carolina Forest and Myrtle Beach on April 10, 2023, with The Farm outlined in orange, the 353-acre tract the state bought for the Lewis Ocean Bay Heritage Preserve shaded green along its north edge, and seven labels: the tract, The Farm, Carolina Forest Boulevard, US 501, the Publix about 2 minutes from the entrance, McLeod Health's emergency room about 5 minutes away and the beach about 10 minutes away. The ocean is at the lower right.",
+   "caption": "Where The Farm is. The orange line is its edge, and the green area is the land the state bought for a nature preserve.",
+   "alt": "Carolina Forest and Myrtle Beach from above, with The Farm outlined in orange, the land the state bought for a nature preserve shaded green along its north edge, and labels for The Farm, Carolina Forest Boulevard, US 501, Publix 2 minutes away, the emergency room 5 minutes away and the beach 10 minutes away",
    "place": {
     "city": "Myrtle Beach",
     "sublocation": "The Farm at Carolina Forest"
@@ -2472,8 +2472,9 @@
    "display_credit": "U.S. government aerial photo",
    "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
    "digital_source_type": "composite",
-   "changes": "Chapter3 Realty drew The Farm's outline from Horry County GIS parcels, added six labels placed from county data and ledger rows, and adjusted the colors",
+   "changes": "Chapter3 Realty drew The Farm's outline from Horry County GIS parcels, shaded the state's 353-acre tract from the same parcels, added seven labels placed from county data and ledger rows, and adjusted the colors",
    "labels": [
+    "Bought by the state for a nature preserve",
     "The Farm",
     "Carolina Forest Blvd",
     "US 501",
@@ -2483,7 +2484,8 @@
    ],
    "annotation_sources": {
     "outline": "Horry County GIS parcels layer 24, the 1,634 parcels of the-farm-facts.md method note 'Parcel set', joined and closed across the streets: the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json, area 'the-farm')",
-    "the_farm": "Label above the outline's north edge (point -78.8763, 33.7734); it names the outlined area.",
+    "the_farm": "Label inside the outline (center -78.879, 33.7655, a smaller pill so the emergency room and road labels keep their places; round 14c); it names the outlined area.",
+    "preserve_tract": "Green shading and edge: Horry County GIS parcels layer 24, PIN 39600000001 (owner SOUTH CAROLINA DEPARTMENT OF NATURAL RESOURCES, CAROLINA FOREST; REM TRACT 20, 353.25 acres), one ring of 34 points, fetched 2026-10-15 (ledger row 79: the tract touches three HOA open-space parcels on The Farm's north edge; SCDNR bought it from Conway Medical Center for the Lewis Ocean Bay Heritage Preserve and says it will be dedicated as part of the preserve, so the label says bought for a preserve, not preserve land). Label to the left of the tract's west edge (-78.8874, 33.7812), with a green mark. https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24",
     "carolina_forest_blvd": "A dot on a vertex of the CAROLINA FOREST BLVD centerline in Horry County roads layer 18 (-78.92273, 33.759784), with a short leader line up to the label (round 10). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18",
     "us_501": "A dot on a vertex of the HWY 501 centerline in Horry County roads layer 18 (-78.92544, 33.716822), about 400 m northwest of the waterway bridge so the dot sits on the road lanes, with a short leader line up to the label (round 10). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18",
     "publix": "Dot at the end point of ledger row 29 (Publix, 136 Sapwood Road, -78.870501, 33.751759); minutes from row 29 (OSRM, 2 min from the Farmers Rest Drive entrance, no traffic).",
@@ -2501,7 +2503,7 @@
     "ground_m_per_px_1200w": 11.05
    },
    "original_size": "2400x1800 (NAIP export, drawn on at 2x, colors adjusted, then resized)",
-   "method": "scratchpad farmw/scripts/render.py and fetch.py; config farmw/aerial/work/config.json, key the-farm-wide (round 8: a wide where-it-is view in place of the drawn region map; labels 46 px in 1200; round 10: road labels tied to their roads with leader lines, labels may use the whole frame because the page shows this figure whole)",
+   "method": "scratchpad farmw/scripts/render.py and fetch.py; config farmw/aerial/work/config.json, key the-farm-wide (round 14c: the state tract as a zonePolys entry from farm-v6/tract.geojson.json and a zone-style label; round 8: a wide where-it-is view in place of the drawn region map; labels 46 px in 1200; round 10: road labels tied to their roads with leader lines, labels may use the whole frame because the page shows this figure whole)",
    "width": 1200,
    "height": 900
   },
