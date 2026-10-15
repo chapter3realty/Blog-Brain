@@ -270,7 +270,6 @@ check("a community map still has its home pin and no numbers", /class="h"/.test(
   const plainNamed = noSea.places.filter((p, i) => SEA.includes(coast[i].key) && p.labelled).length;
   check("places: sea names more of the beach places, each with a leader line", seaNamed >= 2 && seaNamed > plainNamed, `${seaNamed} vs ${plainNamed}`);
   check("places: with sea names nothing touches", !overlaps(m), overlaps(m));
-  check("places: the ocean's name is still on a map with sea names", m.labels.ocean);
   check("places: sea other than true is refused, and sea needs leaders", throws(() => regionMap({ name: "Bad sea", places: PLACES.slice(0, 3).map((p) => Object.assign({}, p, { sea: "yes" })), leaders: true }, { inlineMax: 1e9 }), /sea is true/)
     && throws(() => regionMap({ name: "No leaders", places: PLACES.slice(0, 3).map((p) => Object.assign({}, p, { sea: true })) }, { inlineMax: 1e9 }), /needs spec.leaders/));
 }

@@ -451,7 +451,7 @@ module.exports = GL.page({
     entry("mb-myrtle-heights", "a beach path at the end of each avenue", [
       `In Myrtle Heights, the plan of the mid-1930s carried the avenues through to the beach, and those ends now give public access to the sand. From every house for sale here, a beach access is less than 5 minutes away on foot.`,
       `The same plan set a minimum setback of 75 feet for oceanfront houses. The district is on the ${h.ext(NPS_MH, "National Register of Historic Places")}.`,
-      "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment. You will see porches and wood awnings painted solid or striped to look like canvas, and a few houses keep old walls of coquina rock or brick.",
+      "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment. You will see porches, some with coquina or brick walls, and wood awnings painted solid or striped to look like canvas.",
       "Back yards along Ocean Boulevard often have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
       "Sea Captain's House, a restaurant in a 1930 beach cottage, is about a 9-minute walk from the middle of Myrtle Heights.",
       `The trade-off is the review: on an oceanfront house, a change to the outside, including its color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}. Ordinary repair does not.`,
@@ -475,7 +475,7 @@ module.exports = GL.page({
     ]),
 
     entry("crescent-beach", "a beach access from every house", [
-      `Every house for sale in Crescent Beach that we could place on the map is less than half a mile on foot from a public beach access. From 6th to 27th Avenue South, the beach is a ${h.ext(NMB_SURF, "summer surf zone")}, open to boards all day.`,
+      `Every house for sale in Crescent Beach that we could place on the map is less than half a mile on foot from a public beach access. From 6th to 27th Avenue South, the beach is one of the city's three ${h.ext(NMB_SURF, "surf zones")}. From mid-May to mid-September, boards are banned from 9 to 4 on the rest of the beach, but you can surf here.`,
       `${h.ext(INGRAM, "Ingram Dunes Nature Preserve")}, on Hillside Drive, is the city's last remaining maritime forest. It has native dunes 30 feet tall and an interpretive half-mile nature trail.`,
       "Most of the houses were built before 1990, on streets such as Hillside Drive, Holly Drive, Perrin Drive and Strand Avenue.",
       `In the middle of Crescent Beach, the ${h.ext(NMB_18TH, "18th and Edge pocket park")} has benches and a fountain. ${h.ext(NMB_CENTRAL, "Central Park")}, 20 acres with lighted tennis courts, pickleball courts and a paved walking path, is about 0.7 mile away.`,
@@ -496,7 +496,7 @@ module.exports = GL.page({
       `Cherry Grove's canals were created as early as the 1950s. The city ${h.ext(CANALS, "has dredged canals there twice since 2016")}, to give owners boat access to House Creek and the Intracoastal Waterway at high and low tide.`,
       `The city's ${h.ext(NMB_RAMP, "boat ramp at 53rd Avenue North")} reaches both the marsh and the open ocean through Hog Inlet. It has a two-lane boat launch, a kayak launch, a fishing pier, a floating boat dock and a fish cleaning station.`,
       "North Myrtle Beach residents park free at the ramp when they register with the city. It is also the way in to Heritage Shores Nature Preserve, an island in the marsh reached on elevated boardwalks.",
-      `On Duffy Street, the ${h.ext(NMB_BURGESS, "Russell Burgess Coastal Preserve")} has a boardwalk out over the Cherry Grove marsh, two blocks from the beach. You can fish and crab there from the ground.`,
+      "Across Hog Inlet, Waties Island has almost three miles of undeveloped beach, open to the public by kayak.",
       "Each July 4, the city's free fireworks go up at the Cherry Grove Pier. The homes here with an HOA fee are all in named subdivisions.",
       "The trade-offs are flood risk and a dredging fee. Almost every home here is in a high-risk flood zone. Owners of about 415 properties in the canal district pay the city about $1,700 a year for the dredging, on the county tax bill.",
     ]),
@@ -520,10 +520,10 @@ module.exports = GL.page({
 
     entry("surfside", "two boats at home and golf carts on the streets", [
       `In Surfside Beach, the town allows two boats or trailers at a home. A permitted golf cart may be driven in daylight within four miles of home, on streets posted at 35 miles an hour or less.`,
-      `The town has more than nine miles of sidewalk, and its low-density neighborhoods have mature trees and quiet roads. It has ${h.ext(SCE + "surfside-beach/", "live oaks well over a century old")} and ${h.ext(SSB_BEACHES, "36 public beach accesses")}.`,
+      `The town has ${h.ext(SCE + "surfside-beach/", "live oaks well over a century old")} and ${h.ext(SSB_BEACHES, "36 public beach accesses")}. Its low-density neighborhoods have mature trees and quiet roads.`,
       `The town holds a ${h.ext(SSB_MARKET, "farmers market")} on Tuesdays from spring into December in Memorial Park, and free Sunday afternoon concerts there from late May through August. Each July 4, a ${h.ext(SSB_PARADE, "golf cart parade")} goes down Ocean Boulevard.`,
       "Each October, the fall festival has more than 100 craft vendors. Fireworks may be set off on the sand from sunset on July 4 and on New Year's Eve, but not within 500 feet of the pier.",
-      "The town's housing grew from 1970 to 2000, fastest in the 1980s. The town picks up trash at the curb.",
+      "The town picks up trash at the curb, and it has more than nine miles of sidewalk.",
       "One cost to know: about 1 in 4 homes on the ocean side needs flood insurance if you buy with a mortgage.",
     ]),
 
@@ -597,7 +597,7 @@ module.exports = GL.page({
   faq: [
     { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot, within the rule of the town it is in; the table under What can you do at home gives each one." },
     { q: "Which areas near Myrtle Beach almost always have an HOA?", a: "Carolina Forest, the Grande Dunes, the Market Common and Burgess: almost every home for sale there has an HOA fee. Almost all homes for sale in Little River's named subdivisions have an HOA fee too. Longs and the country around Conway look rural, but most homes for sale there have an HOA fee too." },
-    { q: "Are there homes with no HOA in Murrells Inlet?", a: "Yes, but only about 1 in 4 homes for sale with a Murrells Inlet address is listed with no HOA fee. At the north end of the inlet, by the creeks and the Stanley Drive landing, almost every house for sale has none." },
+    { q: "Are there homes with no HOA in Murrells Inlet?", a: "Yes, but only a little more than 1 in 4 homes for sale with a Murrells Inlet address is listed with no HOA fee. At the north end of the inlet, by the creeks and the Stanley Drive landing, almost every house for sale has none." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "What is a typical HOA fee in Myrtle Beach?", a: `About $${DATA.allNineAreas.detachedHouses.medianMonthlyHoaFee} a month on a house. A condo fee is much higher because it includes the building's insurance, water and sewer, trash and a pool.` },
     { q: "Can you buy a condo with no HOA fee in Myrtle Beach?", a: `Almost never. Of about 2,700 condos for sale around Myrtle Beach, only one was listed with no HOA fee. South Carolina law makes condo owners share the cost of the building.` },

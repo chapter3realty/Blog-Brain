@@ -2141,5 +2141,287 @@
     "unless": "\\bgate code\\b|\\bGate Access Code\\b|\\bif the owner\\b",
     "struck": "In Dye Estates, for example, a guest at the second gate can pick the owner's name on the keypad, and the owner opens the gate by phone.",
     "use": "In Dye Estates, for example, if the owner has filed the gate code form, a guest at the second gate can pick the owner's name on the keypad, and the owner opens the gate by phone."
+  },
+  {
+    "row": "gated 581 (v10)",
+    "pattern": "\\bcustom homes from the 1990s and 2000s, and about half the lots are on the course\\b",
+    "struck": "Most houses are custom homes from the 1990s and 2000s, and about half the lots are on the course.",
+    "use": "About seven in ten of Tidewater's house lots touch the golf course [Horry County parcels: 398 of 572]."
+  },
+  {
+    "row": "gated 581 (v10)",
+    "pattern": "\\bMost houses are custom homes from the 1990s\\b",
+    "struck": "Most houses are custom homes from the 1990s and 2000s, and about half the lots are on the course.",
+    "use": "Many houses are custom homes, and most were built in the 1990s and 2000s [67 of 89 listings]."
+  },
+  {
+    "row": "gated 624 (v10)",
+    "pattern": "\\bseparate purchase, open to anyone in the area\\b",
+    "struck": "Golf membership is a separate purchase, open to anyone in the area.",
+    "use": "Golf membership is a separate purchase, sold to residents and property owners of Horry, Georgetown and Brunswick counties."
+  },
+  {
+    "row": "gated 583 (v10)",
+    "pattern": "\\bIts houses date from the 2000s, traditional homes\\b",
+    "struck": "Its houses date from the 2000s, traditional homes, some of them brick.",
+    "use": "Most of its houses date from the 2000s (21 of 26 listings; the rest 2011 to 2017), and most are traditional in style."
+  },
+  {
+    "row": "gated 586 (v10)",
+    "pattern": "\\blarge custom homes, most built after 2010, on lots of about an acre\\b",
+    "struck": "Its houses are large custom homes, most built after 2010, on lots of about an acre.",
+    "use": "Many of its houses are large custom homes built after 2010, on lots of about two-thirds of an acre; a few are over an acre [county outlines: middle lot 0.70 acre]."
+  },
+  {
+    "row": "gated 620 (v10)",
+    "pattern": "\\bthe buyer can take it over at closing\\b",
+    "struck": "At Barefoot a golf membership belongs to certain houses, not to the owner, and the buyer can take it over at closing.",
+    "use": "At Barefoot a golf membership belongs to certain houses, not to the owner: the seller gives it up at closing, and the buyer can take it over by enrolling within 60 days, for a transfer fee."
+  },
+  {
+    "row": "gated 593 (v10)",
+    "pattern": "\\bIn the three gated sections\\b",
+    "struck": "In the three gated sections, most houses are one-story Mediterranean-style homes, and many have a private pool.",
+    "use": "In Calais, Palermo and Villa Venezia, most houses are one-story Mediterranean-style homes, and many have a private pool."
+  },
+  {
+    "row": "gated 631 (v10)",
+    "pattern": "\\bowns a 15-acre lake\\b",
+    "struck": "At its center the association owns a 15-acre lake, and the clubhouse stands on a point in it, with water on three sides.",
+    "use": "At its center the association owns a lake parcel of about 15 acres, and the clubhouse stands on a point in it, with water on three sides."
+  },
+  {
+    "row": "gated 594 (v10)",
+    "pattern": "\\babout 3,700 to 4,300 square feet\\b",
+    "struck": "Most houses are new, built since 2020, and they are large: custom homes of about 3,700 to 4,300 square feet.",
+    "use": "Most houses sold here lately are large custom homes of about 3,000 to 3,800 square feet."
+  },
+  {
+    "row": "gated 594 (v10)",
+    "pattern": "\\bmany have an elevator\\b",
+    "struck": "Many rise two or three stories, many have an elevator, and the best lots sit on the Intracoastal Waterway with a private dock.",
+    "use": "Many rise two or three stories, some have an elevator, and houses on the waterway lots often have a private dock."
+  },
+  {
+    "row": "gated 594 (v10)",
+    "pattern": "\\bMost houses are new, built since 2020\\b",
+    "struck": "Most houses are new, built since 2020, and they are large: custom homes of about 3,700 to 4,300 square feet.",
+    "use": "Most houses sold here lately were built since 2020, and they are large."
+  },
+  {
+    "row": "gated 632 (v10)",
+    "pattern": "\\bbuilding will go on nearby for some years\\b",
+    "struck": "The lots are small, and about one in five still has no house, so building will go on nearby for some years.",
+    "use": "The lots are small, and about one in five has no building on the county roll."
+  },
+  {
+    "row": "gated 150 (v10)",
+    "pattern": "\\bhas room for the boat and the camper\\b",
+    "struck": "Myrtle Beach Golf and Yacht Club, in Socastee south of Myrtle Beach, has room for the boat and the camper.",
+    "use": "Myrtle Beach Golf and Yacht Club, in Socastee, has storage for RVs, trailers and boats when space is open, for a fee."
+  },
+  {
+    "row": "gated 569 (v10)",
+    "pattern": "\\bSocastee south of Myrtle Beach\\b",
+    "struck": "Myrtle Beach Golf and Yacht Club, in Socastee south of Myrtle Beach, has room for the boat and the camper.",
+    "use": "Myrtle Beach Golf and Yacht Club is off Bay Road in Socastee."
+  },
+  {
+    "row": "gated 598 (v10)",
+    "pattern": "\\btraditional two-story homes\\b",
+    "struck": "Its houses, mostly from the 1990s, are traditional two-story homes, many of them brick.",
+    "use": "Its houses, mostly from the 1990s, are traditional homes, many of them two stories and many of them brick."
+  },
+  {
+    "row": "gated 598 (v10)",
+    "pattern": "\\bMore than half the lots are on the course\\b",
+    "struck": "More than half the lots are on the course, and the best look over Lake Prestwick to the course.",
+    "use": "About half the lots are on the course, and a few look over Lake Prestwick."
+  },
+  {
+    "row": "gated 598 (v10)",
+    "pattern": "\\bthe best look over Lake Prestwick\\b",
+    "struck": "More than half the lots are on the course, and the best look over Lake Prestwick to the course.",
+    "use": "About half the lots are on the course, and a few look over Lake Prestwick."
+  },
+  {
+    "row": "gated 600 (v10)",
+    "pattern": "\\bmost of them about 1,800 to 2,300 square feet\\b",
+    "struck": "The homes are one-story builder homes, most of them about 1,800 to 2,300 square feet.",
+    "use": "Most homes are one-story builder homes, and about half are between 1,750 and 2,350 square feet."
+  },
+  {
+    "row": "gated 600 (v10)",
+    "pattern": "\\bThe best lots back onto a pond\\b",
+    "struck": "The best lots back onto a pond.",
+    "use": "A few lots back onto a pond."
+  },
+  {
+    "row": "gated 633 (v10)",
+    "pattern": "\\bno building is going on next door\\b",
+    "struck": "Seasons at Prince Creek West, in Murrells Inlet, is finished: every lot has a house, so no building is going on next door.",
+    "use": "Seasons at Prince Creek West, in Murrells Inlet, is finished: the county roll shows a house on every lot."
+  },
+  {
+    "row": "gated 603 (v10)",
+    "pattern": "\\bone-story builder homes from the early 2000s\\b",
+    "struck": "Most are one-story builder homes from the early 2000s.",
+    "use": "Most are one-story houses from the early 2000s."
+  },
+  {
+    "row": "gated 334 (v10)",
+    "pattern": "\\bare run by Festiva\\b",
+    "struck": "The course and its grill are run by Festiva, a real estate company, not by the homeowners.",
+    "use": "Festiva Real Estate Holdings, a real estate company, bought the course and its grill in 2017; the homeowners do not own them."
+  },
+  {
+    "row": "gated 607 (v10)",
+    "pattern": "\\bThe few houses, on Oystercatcher Island\\b",
+    "struck": "The few houses, on Oystercatcher Island, are raised three-bedroom homes that look across the lake.",
+    "use": "Houses on Oystercatcher Island are raised three-bedroom homes that look across the lake; the association also lists single-family homes in Charlestowne Grant and Compass Point."
+  },
+  {
+    "row": "gated 607 (v10)",
+    "pattern": "\\bMost homes are condos and villas\\b",
+    "struck": "Most homes are condos and villas from the 1980s to the 2000s, and the Beach Club comes with the home.",
+    "use": "Many homes are condos and villas from the 1980s to the 2000s, and the Beach Club comes with the home."
+  },
+  {
+    "row": "gated 607 (v10)",
+    "pattern": "\\bhouses in Breakers Reef\\b",
+    "struck": "One-bedroom condos in Summerhouse usually sell for about $200,000, and houses in Breakers Reef for about $1.5 million to $2.2 million.",
+    "use": "One-bedroom condos in Summerhouse usually sell for about $200,000, and villas in Breakers Reef for about $1.5 million to $2.2 million."
+  },
+  {
+    "row": "gated 611 (v10)",
+    "pattern": "\\bIt runs from about \\$620 a month for a small condo to about \\$1,880\\b",
+    "struck": "It runs from about $620 a month for a small condo to about $1,880 for an oceanfront one.",
+    "use": "In the ten sections whose sales we read, the fee runs from about $620 a month for a small condo to about $1,880 for an oceanfront one; the houses in Charlestowne Grant are about $520 to $630."
+  },
+  {
+    "row": "gated 611 (v10)",
+    "pattern": "^About \\$620 to \\$1,880$",
+    "struck": "About $620 to $1,880",
+    "use": "(label the range as condos and villas: Charlestowne Grant's houses are about $520 to $630)"
+  },
+  {
+    "row": "gated 608 (v10)",
+    "pattern": "\\bMost houses are one-story brick homes from the 1990s\\b",
+    "struck": "Most houses are one-story brick homes from the 1990s, and the best look onto the golf course or over the old rice fields toward the river.",
+    "use": "Most houses were built in the 1990s or 2000s, and about seven in ten are brick; some look onto the golf course or over the old rice fields toward the river."
+  },
+  {
+    "row": "gated 620 (v10)",
+    "pattern": "\\bA golf or beach club is usually a separate membership\\b",
+    "struck": "A golf or beach club is usually a separate membership, with its own dues on top of the HOA fee.",
+    "use": "A golf club is usually a separate membership, with its own dues on top of the HOA fee; a beach club often comes with the home."
+  },
+  {
+    "row": "gated 569 (v10)",
+    "pattern": "\\bPrestwick, just outside it\\b",
+    "struck": "Prestwick, just outside it, is the gated neighborhood on this page nearest Surfside Beach.",
+    "use": "Prestwick, about a mile outside it, is the gated neighborhood on this page nearest Surfside Beach."
+  },
+  {
+    "row": "gated 569 (v10)",
+    "pattern": "\\bhomes behind one sell for about \\$200,000 to \\$2\\.2 million\\b",
+    "struck": "A gate here is not only for the top of the market: homes behind one sell for about $200,000 to $2.2 million.",
+    "use": "A gate here is not only for the top of the market: typical sale prices behind one run from about $200,000 to $2.2 million."
+  },
+  {
+    "row": "gated 628 (v10)",
+    "pattern": "\\bGolf membership is separate and open to any golfer\\b",
+    "struck": "Golf membership is separate and open to any golfer.",
+    "use": "Golf membership is separate, and the club accepts applications from any golfer."
+  },
+  {
+    "row": "gated 569 (v10)",
+    "pattern": "\\beach with a walkway to the beach\\b",
+    "struck": "DeBordieu Colony from over the ocean in 2011: large houses behind the dunes, each with a walkway to the beach, and the salt marsh beyond.",
+    "use": "DeBordieu Colony from over the ocean in 2011: large houses behind the dunes, with walkways over the dunes to the beach, and the salt marsh beyond."
+  },
+  {
+    "row": "gated 540 (v10)",
+    "pattern": "\\bits smaller streets, those posted at 35 mph or less\\b",
+    "struck": "The city lets a golf cart with a state permit use its smaller streets, those posted at 35 mph or less, from sunrise to sunset.",
+    "use": "The city lets a golf cart with a state permit use secondary roads posted at 35 mph or less, from sunrise to sunset."
+  },
+  {
+    "row": "gated 569 (v10)",
+    "pattern": "\\bMurrells Inlet side, 7 to 12\\b",
+    "struck": "Murrells Inlet side, 7 to 12",
+    "use": "(name the area for entries 7 to 12 so it covers Socastee, Surfside Beach and Murrells Inlet)"
+  },
+  {
+    "row": "gated 596 (v10)",
+    "pattern": "\\b1,250 to 1,500 square feet\\b",
+    "struck": "The older part of Myrtle Beach Golf and Yacht Club has small one-story ranch houses, built from the mid-1980s to the 2000s, about 1,250 to 1,500 square feet with two or three bedrooms.",
+    "use": "The older part of Myrtle Beach Golf and Yacht Club has small one-story ranch houses, mostly built in the 1980s, about 1,100 to 1,400 square feet with two or three bedrooms."
+  },
+  {
+    "row": "gated 587 (v10)",
+    "pattern": "\\blook onto the Fazio golf course\\b",
+    "struck": "Most lots look onto the Fazio golf course or a pond.",
+    "use": "Many lots look onto the golf course or a pond."
+  },
+  {
+    "row": "gated 598 (v10)",
+    "pattern": "\\bmost with four bedrooms\\b",
+    "struck": "They are traditional two-story homes, many of them brick, about 2,500 to 3,700 square feet, most with four bedrooms.",
+    "use": "They are traditional homes, many of them brick, with three or four bedrooms."
+  },
+  {
+    "row": "gated 598 (v10)",
+    "pattern": "\\b2,500 to 3,700 square feet\\b",
+    "struck": "They are traditional two-story homes, many of them brick, about 2,500 to 3,700 square feet, most with four bedrooms.",
+    "use": "They are traditional homes, many of them brick, about 2,000 to 3,200 square feet."
+  },
+  {
+    "row": "gated 595 (v10)",
+    "pattern": "\\babout 3,200 to 4,200 square feet\\b",
+    "struck": "They are custom Mediterranean-style homes of about 3,200 to 4,200 square feet with four or five bedrooms, on one or two floors.",
+    "use": "They are Mediterranean-style homes of about 2,600 to 3,800 square feet with four or five bedrooms, on one or two floors."
+  },
+  {
+    "row": "gated 589 (v10)",
+    "pattern": "\\bviews are of the pool and back yard\\b",
+    "struck": "The lots are not on the golf course; the views are of the pool and back yard.",
+    "use": "(cut it: nothing shows what the Calais views are)"
+  },
+  {
+    "row": "gated 602 (v10)",
+    "pattern": "\\babout 2,100 to 3,300 square feet\\b",
+    "struck": "Listings show one or two stories of about 2,100 to 3,300 square feet.",
+    "use": "Listings show one or two stories of about 2,500 to 4,000 square feet."
+  },
+  {
+    "row": "gated 603 (v10)",
+    "pattern": "\\babout 1,650 to 2,650 square feet\\b",
+    "struck": "Listings show mostly one-story builder homes of about 1,650 to 2,650 square feet.",
+    "use": "Listings show mostly one-story houses of about 1,600 to 2,200 square feet."
+  },
+  {
+    "row": "gated 609 (v10)",
+    "pattern": "\\babout 3,500 to 4,500 square feet\\b",
+    "struck": "Listings show many raised beach houses of three levels with an elevator, about 3,500 to 4,500 square feet.",
+    "use": "Listings show many raised beach houses with an elevator, about 3,200 to 4,400 square feet."
+  },
+  {
+    "row": "gated 581 (v10)",
+    "pattern": "\\babout 2,300 to 3,200 square feet\\b",
+    "struck": "They are custom homes of about 2,300 to 3,200 square feet, most with three or four bedrooms.",
+    "use": "They are houses of about 2,000 to 2,900 square feet, most with three or four bedrooms."
+  },
+  {
+    "row": "gated 586 (v10)",
+    "pattern": "\\bmiddle lot is a little over an acre\\b",
+    "struck": "The middle lot is a little over an acre.",
+    "use": "The middle lot is about two-thirds of an acre [county outlines: 0.70]."
+  },
+  {
+    "row": "gated 612 (v10)",
+    "pattern": "\\bevery section's fee covers\\b",
+    "struck": "In Litchfield by the Sea, every section's fee covers the common areas, grounds, pool and security.",
+    "use": "In Litchfield by the Sea, the lists in each section name the common areas, grounds, pool and security, but the lists differ inside a section."
   }
 ]
