@@ -159,12 +159,12 @@ const MAP = (() => {
     .concat(INLAND.map((k) => shape(k, Object.assign({ name: `${num(k)} ${shortName(k)}`, mark: String(num(k)) },
       /* The country around Loris holds the Loris circle; its badge goes in its west part, off the town's. */
       k === "loris-country" ? { markAt: { lat: 34.03, lon: -78.98 } } : {}))));
-  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", places, areas, leaders: true, placeNames: false, maxRatio: 0.85 },
+  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", places, areas, leaders: true, placeNames: false, maxRatio: 0.9 },
     { dir: MAP_DIR, src: "/images/maps", glass: true });
   const mk = m.boxes.filter((b) => b.kind === "marker" || b.kind === "label");
   for (let i = 0; i < mk.length; i++) for (let j = i + 1; j < mk.length; j++) { const a = mk[i], b = mk[j];
     if (!(a.x1 + 1 < b.x0 || b.x1 + 1 < a.x0 || a.y1 + 1 < b.y0 || b.y1 + 1 < a.y0)) throw new Error(`no-hoa map: two area names or numbers touch: ${a.owner} ${b.owner}`); }
-  const css = "<style>.c3-nh-map img,.c3-nh-map svg{display:block;width:100%;height:auto}.c3-areamap figure{max-width:760px!important}</style>";
+  const css = "<style>.c3-nh-map img,.c3-nh-map svg{display:block;width:100%;height:auto}.c3-areamap figure{max-width:760px!important;margin:1rem 0 1.1rem!important}.c3-areamap figcaption{line-height:1.4!important;margin-top:.4rem!important}</style>";
   return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-map">${m.html}</div>`,
     "Map: numbers as in the list below.", m.credit, "no-hoa map") + `</div>`;
 })();
