@@ -270,6 +270,15 @@ check("a community map still has its home pin and no numbers", /class="h"/.test(
   const plainNamed = noSea.places.filter((p, i) => SEA.includes(coast[i].key) && p.labelled).length;
   check("places: sea names more of the beach places, each with a leader line", seaNamed >= 2 && seaNamed > plainNamed, `${seaNamed} vs ${plainNamed}`);
   check("places: with sea names nothing touches", !overlaps(m), overlaps(m));
+  /* a.nested true (opt-in, round 14g, OWNER-EYE-14f M1): Loris the town, inside the country outline around it,
+     gets its own name pill beside its circle; without it, the town keeps only a badge. */
+  const nestSpec = (nested) => { const sp = spec(["cherry-grove", "murrells-inlet"], true); sp.maxRatio = 0.75;
+    const lo = sp.areas.find((a) => /Loris$/.test(a.name) && !/Around/.test(a.name)); if (nested) lo.nested = true; return sp; };
+  const nst = regionMap(nestSpec(true), { inlineMax: 1e9, glass: true, width: 440 }), plainN = regionMap(nestSpec(false), { inlineMax: 1e9, glass: true, width: 440 });
+  const loris = (mm) => mm.areas.find((a) => /^14 /.test(a.name));
+  check("areas: a.nested names a town inside a larger area in its own pill", loris(nst).labelled && !loris(plainN).labelled, `${loris(nst).labelled} / ${loris(plainN).labelled}`);
+  check("areas: with a.nested nothing touches", !overlaps(nst), overlaps(nst));
+  check("areas: a.nested other than true is refused", throws(() => regionMap({ name: "Bad nested", areas: [Object.assign({}, AREAS[0], { nested: "yes" })] }, { inlineMax: 1e9 }), /nested is true/));
   check("places: sea other than true is refused, and sea needs leaders", throws(() => regionMap({ name: "Bad sea", places: PLACES.slice(0, 3).map((p) => Object.assign({}, p, { sea: "yes" })), leaders: true }, { inlineMax: 1e9 }), /sea is true/)
     && throws(() => regionMap({ name: "No leaders", places: PLACES.slice(0, 3).map((p) => Object.assign({}, p, { sea: true })) }, { inlineMax: 1e9 }), /needs spec.leaders/));
 }

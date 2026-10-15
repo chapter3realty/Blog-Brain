@@ -158,7 +158,7 @@ const pr = (id) => money(N[id].price);
    (glass.js bars o.compact), so the first place starts sooner on a phone (owner's eye 14, H1). */
 const GUIDE = G.bars([{ name: "A Myrtle Beach home", value: MB_HOUSE, valueText: money(MB_HOUSE), reference: true }]
   .concat(P.map((p) => ({ name: `${p.n}. ${p.chart || p.map}`, value: p.price, valueText: money(p.price), feature: p.feature, href: A(p.id) }))), {
-  caption: "About half Myrtle Beach prices",
+  caption: "About half the price of a Myrtle Beach home",
   note: "Tap a name to read about it.",
   max: MB_HOUSE, featureLabel: "best feature", valueLabel: "Usually sold for", compact: true, phoneList: true,
 });
@@ -262,7 +262,7 @@ module.exports = G.page({
 
     entry("parkview", "townhomes by the city's golf course, near the beach", () =>
       h.p("Parkview is a four-minute drive from the beach. Its townhomes are off 17th Avenue South, inside the city of Myrtle Beach, around ponds and a pool for owners.") +
-      h.p("Built in the mid-2000s, the townhomes have about 1,050 to 1,350 square feet and two or three bedrooms. The ones on the market lately have had vaulted ceilings, a covered front porch and a screened back porch.") +
+      h.p("Built in the mid-2000s, the townhomes have about 1,050 to 1,350 square feet and two or three bedrooms. Many have vaulted ceilings and a front porch, and some have a screened porch.") +
       PH["parkview"] +
       h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}, is less than a quarter mile from Parkview. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Residents of Horry, Georgetown and Brunswick counties play a round there for $45 plus tax, with a cart.`) +
       h.p("There are about 200 townhomes here, and the HOA fee includes water, sewer, grounds care and the pool. For dinner and a movie, The Market Common has shops, restaurants and a theater.") +
@@ -275,8 +275,8 @@ module.exports = G.page({
       h.p("The Fairways is inside Conway's city limits, where the yearly tax is higher than outside a town.")),
 
     entry("sawgrass-east", "three-bedroom townhomes with a garage", () =>
-      h.p("Many Sawgrass East townhomes have three bedrooms. The ones on the market lately have had a one-car garage, the main bedroom downstairs and a back porch. The HOA fee usually covers the insurance on the buildings, the lawn care, and the water, sewer and trash.") +
-      h.p("There are about 255 townhomes, built in the mid-2000s, around three small lakes that the HOA owns. Owners share a pool and a clubhouse. The neighborhood is off Carolina Forest Boulevard, a little over two miles from US 501.") +
+      h.p("Many Sawgrass East townhomes have three bedrooms. Many of the three-bedroom ones have a one-car garage and the main bedroom downstairs. The HOA fee usually covers the insurance on the buildings, the lawn care, and the water, sewer and trash.") +
+      h.p("There are about 255 townhomes, built in the mid-2000s, around three small lakes that the HOA owns. Owners share a pool and a clubhouse. The neighborhood is off Carolina Forest Boulevard, about two and a half miles by road from US 501.") +
       h.p("The county's Carolina Forest library and recreation center share a campus on the same boulevard. Sawgrass East's HOA fee is the second highest here, after Wynbrooke's.")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
@@ -287,7 +287,7 @@ module.exports = G.page({
 
     entry("golf-and-yacht-club", "one-story houses behind a gate", () =>
       h.p("The older part of Myrtle Beach Golf and Yacht Club has about 470 houses behind a gate, most of them one story. Owners share a pool and hot tub, tennis courts and a community center.") +
-      h.p("Most houses there were built in the 1980s, with two or three bedrooms and two baths. They typically have about 1,350 square feet, on about an eighth of an acre, and many have a porch or a patio.") +
+      h.p("Most houses there were built in the 1980s, with two or three bedrooms and two baths. They typically have about 1,200 square feet, on about an eighth of an acre, and many have a porch or a patio.") +
       h.p("From mid-April to mid-October, the pool opens at 8 a.m. for lap swimming, then an exercise hour, then open swim until 8 p.m. or sundown. Osprey Marina, on the Intracoastal Waterway, is about four miles away by road.") +
       h.p("Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy.")),
 

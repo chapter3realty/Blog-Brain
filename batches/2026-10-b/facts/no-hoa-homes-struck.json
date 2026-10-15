@@ -847,7 +847,7 @@
     "row": "no-hoa 153 (v8 N21)",
     "pattern": "its stage has free live music",
     "struck": "You can tie up a boat at its docks free for the day, and on fall weekends its stage has free live music.",
-    "use": "You can tie up a boat at its docks free for the day, and in October its stage has live music on Friday and Saturday afternoons."
+    "use": "You can tie up a boat at its docks free for the day, and in October its stage has live music on Friday evenings and Saturday afternoons."
   },
   {
     "row": "no-hoa 153 (v8 N22)",
@@ -1034,5 +1034,91 @@
     "pattern": "Yes, up to two boats or trailers\\.$",
     "struck": "Yes, up to two boats or trailers.",
     "use": "Yes, up to two boats or trailers, but a licensed trailer over 21 feet counts as one per home."
+  },
+  {
+    "row": "no-hoa 129 (v9 P1)",
+    "pattern": "\\bolder houses (?:here are mostly from|date from) the 1960s",
+    "struck": "Most of the older houses date from the 1960s, on lots of about 0.4 acre.",
+    "use": "The older houses here were built from the 1940s to the 1970s, on lots of about 0.4 acre."
+  },
+  {
+    "row": "no-hoa 153 (v9 P2)",
+    "pattern": "live music on Friday and Saturday afternoons",
+    "struck": "In October, its stage has live music on Friday and Saturday afternoons.",
+    "use": "In October, its stage has live music on Friday evenings and Saturday afternoons."
+  },
+  {
+    "row": "no-hoa 150 (v9 P3)",
+    "pattern": "\\bporches, some with coquina",
+    "struck": "You will see porches, some with coquina or brick walls, and wood awnings painted solid or striped to look like canvas.",
+    "use": "You will see porches and wood awnings painted solid or striped to look like canvas, and a few houses keep old walls of coquina rock or brick."
+  },
+  {
+    "row": "no-hoa 156 (v9 P4)",
+    "pattern": "\\bWaties Island[^.]{0,120}\\bopen to the public",
+    "struck": "Across Hog Inlet, Waties Island has almost three miles of undeveloped beach, open to the public by kayak.",
+    "use": "Across Hog Inlet, Waties Island has almost three miles of undeveloped beach."
+  },
+  {
+    "row": "no-hoa 124 (v9 P5)",
+    "pattern": "\\bwithin half a mile of the docks on Mineola",
+    "struck": "The houses on Little River's old waterfront streets are within half a mile of the docks on Mineola Avenue, on the Intracoastal Waterway.",
+    "use": "The houses on Little River's old waterfront streets are less than a mile from the docks on Mineola Avenue, on the Intracoastal Waterway."
+  },
+  {
+    "row": "no-hoa 102 (v9 P6)",
+    "pattern": "\\btrails and boardwalks through forest and marsh",
+    "struck": "Vereen Memorial Historical Gardens, a county park on the waterway, has about 3 miles of trails and boardwalks through forest and marsh.",
+    "use": "Vereen Memorial Historical Gardens, a county park on the waterway, has about 3 miles of trails and boardwalks through gardens and along the water, on more than 115 acres of forest and marsh."
+  },
+  {
+    "row": "no-hoa 62 (v9 P7)",
+    "pattern": "\\bIn Surfside Beach, the town allows two boats or trailers at a home\\.",
+    "unless": "21 feet",
+    "struck": "In Surfside Beach, the town allows two boats or trailers at a home.",
+    "use": "In Surfside Beach, the town allows up to two boats or trailers at a home, and only one over 21 feet."
+  },
+  {
+    "row": "no-hoa 153 (v9 P8)",
+    "pattern": "\\btie up a boat at the docks free for the day\\b",
+    "unless": "\\b(?:shop|dine|dining)\\b",
+    "struck": "Windy Hill is 3 minutes by car from Barefoot Landing on the Intracoastal Waterway, where you can tie up a boat at the docks free for the day.",
+    "use": "Windy Hill is 3 minutes by car from Barefoot Landing on the Intracoastal Waterway, where you can use the finger docks for the day for free while you shop or dine."
+  },
+  {
+    "row": "no-hoa 124 (v9 P9)",
+    "pattern": "\\btaking visitors fishing for a fee there in the early 1920s",
+    "struck": "Local boatmen began taking visitors fishing for a fee there in the early 1920s, the first organized offshore trips of that kind in South Carolina.",
+    "use": "Local boatmen began taking visitors fishing for a fee there, probably in the early 1920s, the first organized offshore recreational fishing in South Carolina."
+  },
+  {
+    "row": "no-hoa 124 (v9 P10)",
+    "pattern": "\\bboats can cross the bar at any time of day",
+    "struck": "Since the inlet's jetties were finished in 1983, boats can cross the bar at any time of day.",
+    "use": "After the inlet's jetties were finished in 1983, boats could cross the bar at any time of day."
+  },
+  {
+    "row": "no-hoa 176 (v9 P11)",
+    "pattern": "\\bBrookgreen Gardens[^.]{0,150}\\babout 20 minutes",
+    "struck": "Brookgreen Gardens, created in 1931 by the sculptor Anna Hyatt Huntington and her husband on four former rice plantations, is about 20 minutes away.",
+    "use": "Brookgreen Gardens, created in 1931 by the sculptor Anna Hyatt Huntington and her husband on four former rice plantations, is about 15 minutes away."
+  },
+  {
+    "row": "no-hoa 175 (v9 P12)",
+    "pattern": "\\bMurrells Inlet's north end: creek lots by the county boat ramp",
+    "struck": "12. Murrells Inlet's north end: creek lots by the county boat ramp",
+    "use": "(change the heading: 5 of the 12 houses name creek or inlet frontage or a view, and the others are inland; for example 'by the creeks and the county boat ramp')"
+  },
+  {
+    "row": "no-hoa 160 (v9 P13)",
+    "pattern": "\\bGarden City grew up in the 1950s",
+    "struck": "Garden City grew up in the 1950s.",
+    "use": "Garden City did not develop until the 1950s, according to a state survey."
+  },
+  {
+    "row": "no-hoa 162 (v9 P14)",
+    "pattern": "\\bThe town'?s dish is chicken bog",
+    "struck": "The town's dish is chicken bog: chicken, rice and sausage.",
+    "use": "The festival's dish is chicken bog: chicken, rice and sausage."
   }
 ]

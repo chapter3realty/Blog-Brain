@@ -151,7 +151,7 @@ const shortName = (k) => ENTRY[k].short || ENTRY[k].name;
    and the guide under the map lists every area by its number. */
 const COAST = ORDER.slice(0, 12), INLAND = ORDER.slice(12);
 if (COAST.some((k) => ["conway", "loris", "loris-country", "aynor"].includes(k)) || INLAND.length !== 4) throw new Error("the first 12 entries are the coast, the last 4 inland");
-const SEA = new Set(["crescent-beach", "ocean-drive", "cherry-grove", "surfside", "murrells-inlet"]);
+const SEA = new Set(["cherry-grove", "murrells-inlet"]);
 const middle = (s) => (s.polygon ? { lat: s.polygon.reduce((t, q) => t + q[1], 0) / s.polygon.length, lon: s.polygon.reduce((t, q) => t + q[0], 0) / s.polygon.length } : { lat: s.lat, lon: s.lon });
 const shape = (k, o) => { const s = A[k].mapShapes[0]; if (s.polygon) o.polygon = s.polygon; else Object.assign(o, { lat: s.lat, lon: s.lon, radius: s.radius }); return o; };
 const MAP = (() => {
@@ -160,8 +160,9 @@ const MAP = (() => {
     .concat(INLAND.map((k) => shape(k, Object.assign({ name: `${num(k)} ${shortName(k)}`, mark: String(num(k)) },
       /* The country around Loris holds the Loris circle; its badge goes in its west part, off the town's. */
       k === "loris-country" ? { markAt: { lat: 34.03, lon: -78.98 } } : k === "loris" ? { nested: true } : {}))));
-  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", places, areas, leaders: true, placeNames: false, maxRatio: 0.9 },
-    { dir: MAP_DIR, src: "/images/maps", glass: true });
+  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", places, areas, leaders: true, placeNames: false, maxRatio: 0.75 },
+    /* 440 units wide (round 14g): room for 15 of the 16 names; on a phone the names show at about 12 px. */
+    { dir: MAP_DIR, src: "/images/maps", glass: true, width: 440 });
   const mk = m.boxes.filter((b) => b.kind === "marker" || b.kind === "label");
   for (let i = 0; i < mk.length; i++) for (let j = i + 1; j < mk.length; j++) { const a = mk[i], b = mk[j];
     if (!(a.x1 + 1 < b.x0 || b.x1 + 1 < a.x0 || a.y1 + 1 < b.y0 || b.y1 + 1 < a.y0)) throw new Error(`no-hoa map: two area names or numbers touch: ${a.owner} ${b.owner}`); }
@@ -178,7 +179,7 @@ const GUIDE_CSS = "<style>.c3-nh-guide{margin:.1rem 0 0}.c3-nh-guide p{margin:0 
 const go = (k) => h.a(`#${ENTRY[k].id}`, `<span class="c3-nh-n" data-n="${num(k)}" aria-hidden="true"></span>${ENTRY[k].guide || (shortName(k) === "Downtown" ? "Downtown Myrtle Beach" : shortName(k))}`);
 const list = (ks) => ks.length === 1 ? go(ks[0]) : ks.slice(0, -1).map(go).join(", ") + " and " + go(ks.at(-1));
 const GUIDE = [
-  ["A boat at home, or a boat ramp within 10 minutes", ["cherry-grove", "little-river", "socastee", "surfside", "murrells-inlet"]],
+  ["A boat at home, or a ramp within 10 minutes", ["cherry-grove", "little-river", "socastee", "surfside", "murrells-inlet"]],
   ["Within half a mile of the sand", ["mb-downtown", "mb-myrtle-heights", "windy-hill", "crescent-beach", "ocean-drive", "garden-city"]],
   ["Room to spread out", ["mb-pine-lakes", "loris-country", "aynor"]],
   ["A small town with old streets", ["conway", "loris"]],
@@ -540,7 +541,7 @@ module.exports = GL.page({
       `At the north end of Murrells Inlet, the houses are on streets beside the creeks of the inlet. The county's ${h.ext(MI_LANDING, "boat landing on Stanley Drive")} is a 4-minute drive, and several houses on the market lately have their own floating dock.`,
       `People first came to the inlet for oyster roasts and fried shore dinners, and seafood restaurants followed. The ${h.ext(MARSHWALK, "MarshWalk")}, a half-mile wooden boardwalk along the salt marsh with a row of restaurants, is about 6 minutes away by car.`,
       `${h.ext(HB_PARK, "Huntington Beach State Park")} and ${h.ext(BROOKGREEN, "Brookgreen Gardens")} are both within a 20-minute drive.`,
-      "Murrells Inlet is not a town, so the county's rules apply on most of these streets. County zoning names no limit on where you park a boat, but not in front of the house. The south part is in Georgetown County. There, a vehicle or travel trailer without current plates has to be kept in a closed building.",
+      "Murrells Inlet is not a town, so the county's rules apply on most of these streets. The south part is in Georgetown County. There, a vehicle or travel trailer without current plates has to be kept in a closed building.",
       "Flood is the honest cost: more than half of these houses are in a high-risk flood zone.",
     ]),
 
@@ -562,7 +563,7 @@ module.exports = GL.page({
     ]),
 
     entry("loris-country", "new houses on large lots", [
-      "Around Loris, most houses for sale are new, built in 2024 or later, outside any town limits. Many of the new houses are on lots of about 0.7 acre, with room for a boat, a camper and a shop under the county's rules.",
+      "Around Loris, most houses for sale are new, built in 2024 or later, outside any town limits. Many of the new houses are on lots of about 0.7 acre, with room for a camper, a trailer and a shop under the county's rules.",
       `The ${h.ext(WACCAMAW_PRESERVE, "Waccamaw River Heritage Preserve")} protects 28 miles of the Waccamaw River, with riverside camping on its land.`,
       "For a work truck, the county lets a business run from home keep three service vehicles on a farm-zoned lot under an acre and a half. McLeod Loris hospital is about 9 minutes away by car.",
       "Outside the towns, the Solid Waste Authority provides no curbside trash pickup. You hire a hauler or use a county drop-off center.",
@@ -572,7 +573,7 @@ module.exports = GL.page({
       `Around Aynor, lots are typically about an acre, with room beside the house for a boat or a camper. More than half of the houses for sale here are new.`,
       `Galivants Ferry Landing, a county ramp on the ${h.ext(USGS_LPD, "Little Pee Dee River")}, is about 6 minutes from the center of town. The Little Pee Dee is ${h.ext(AYNOR_APPEAL, "popular with canoes, kayaks and small powerboats")}.`,
       `At ${h.ext(GALIVANTS_NR, "Galivants Ferry")}, the old farm houses have full-width front porches on brick piers. Some were built from wood cut on the farm itself, and the district has log tobacco barns.`,
-      `On the third Saturday in September, ${h.ext(AYNOR_TOWN, "almost 25,000 people")} come to the Aynor Harvest Hoe-Down, a festival started by the Pilot Club of Aynor. Inside the town, zoning has no rule on a camper or a work truck at home.`,
+      `On the third Saturday in September, ${h.ext(AYNOR_TOWN, "almost 25,000 people")} come to the Aynor Harvest Hoe-Down, a festival started by the Pilot Club of Aynor. The town's zoning does not limit a camper or a work truck at home.`,
       "The drive is the trade-off: about 45 minutes to the beach, and about 30 to the nearest hospital, Conway Medical Center.",
     ]),
 
