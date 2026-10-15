@@ -62,7 +62,7 @@ He would still send it back, for two reasons in his own words:
 ## High findings
 
 **H1. The page is called "Where are the gated communities", and most entries never say where they are.**
-- Location: 12 of the 18 entries never name a town, an area or a landmark a newcomer knows: 3 Barefoot, 4 Grande Dunes, 5 Waterway Palms, 6 The Bluffs, 8 Prestwick, 10 Bellwood Landing, 11 Wachesaw, 12 Wachesaw East, 14 Willbrook, 16 Litchfield by the Sea, 17 Heritage and 18 DeBordieu. Prestwick, Seasons and Barefoot are placed only in the FAQ. A reader new to the area does not know that Wachesaw or Bellwood Landing is anywhere near Murrells Inlet.
+- Location: 12 of the 18 entries never name a town, an area or a landmark a newcomer knows: 3 Barefoot, 4 Grande Dunes, 5 Waterway Palms, 6 The Bluffs, 8 Prestwick, 10 Bellwood Landing, 11 Wachesaw, 12 Wachesaw East, 14 Willbrook, 16 Litchfield by the Sea, 17 Heritage and 18 DeBordieu. Prestwick and Barefoot are placed only in the FAQ. A reader new to the area does not know that Wachesaw or Bellwood Landing is anywhere near Murrells Inlet.
 - The map does not help. It sits after the price table, about 30 screens down, and shows four circles ("North Myrtle Beach", "Myrtle Beach", "Surfside to Murrells Inlet", "Pawleys Island to DeBordieu") with no entry numbers. The guide's last row sends the reader to it: "On a map: where the four areas are, after the places."
 - Do instead:
   - Put the area in each entry's first or second sentence, in words a newcomer knows: the town, and one landmark from a verified row (the river, the beach, the MarshWalk). One clause, not a sentence of its own.
