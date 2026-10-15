@@ -194,6 +194,12 @@ const at = regionMap({ name: "Mark at", areas: [Object.assign({}, C0, { markAt: 
 const plain0 = regionMap({ name: "Mark at", areas: [C0], areaLabels: "numbers" }, { inlineMax: 1e9 });
 check("areas: a.markAt moves the badge inside its area", at.svg !== plain0.svg && at.areas[0].mark === "1");
 check("areas: a.markAt outside its area is refused", throws(() => regionMap({ name: "Bad at", areas: [Object.assign({}, C0, { markAt: { lat: C0.lat + 0.5, lon: C0.lon } })], areaLabels: "numbers" }, { inlineMax: 1e9 }), /markAt is outside/));
+/* spec.maxRatio (opt-in, round 14c): a wide, short overview panel. */
+const tall = regionMap({ name: "Ratio", areas: AREAS, areaLabels: "numbers" }, { inlineMax: 1e9 });
+const wide = regionMap({ name: "Ratio", areas: AREAS, areaLabels: "numbers", maxRatio: 0.55 }, { inlineMax: 1e9 });
+check("areas: maxRatio makes the map no taller than the ratio given", wide.height <= Math.round(wide.width * 0.55) + 1 && wide.height < tall.height, `${wide.height} vs ${tall.height}`);
+check("areas: without maxRatio the frame is unchanged", tall.svg === num.svg.replace(/Areas numbered/g, "Ratio").replace(/areas-numbered/g, "ratio") || tall.height === num.height);
+check("areas: a maxRatio outside 0.4 to 1.2 is refused", throws(() => regionMap({ name: "Bad ratio", areas: AREAS, maxRatio: 0.2 }, { inlineMax: 1e9 }), /maxRatio/));
 const mixed = regionMap({ name: "Areas and places", places: PLACES.slice(0, 3), areas: AREAS.slice(0, 2), areaLabels: "numbers" }, { inlineMax: 1e9 });
 check("areas: beside numbered places an area is lettered", mixed.areas.map((a) => a.mark).join() === "A,B");
 check("areas: a radius out of range is refused", throws(() => regionMap({ name: "x", areas: [AREA("Conway", "", 20)] }), /radius is in meters/));

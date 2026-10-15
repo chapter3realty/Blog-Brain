@@ -284,5 +284,269 @@
     "pattern": "Garden City Beach is a strip of land",
     "struck": "Garden City Beach is a strip of land between the ocean and the salt marsh of Murrells Inlet.",
     "use": "(cut it: the row cites OpenStreetMap, which the verifier did not open; keep the shore distance and the landing)"
+  },
+  {
+    "row": "no-hoa 118",
+    "pattern": "\\bMyrtle Heights(?!-)[^.]{0,60}\\b32nd to 46th",
+    "struck": "Myrtle Heights is along Ocean Boulevard from about 32nd to 46th Avenue North.",
+    "use": "The Myrtle Heights-Oak Park Historic District is along Ocean Boulevard from about 32nd to 46th Avenue North. Myrtle Heights is its southern part, from 32nd to 40th."
+  },
+  {
+    "row": "no-hoa 118",
+    "pattern": "\\bhouses built from 1925 to 1949\\b",
+    "struck": "Its houses built from 1925 to 1949 put it on the National Register of Historic Places.",
+    "use": "The district's houses were built from about 1925 to 1945, and it is on the National Register of Historic Places [NRHP nomination, 1998]."
+  },
+  {
+    "row": "no-hoa 118",
+    "pattern": "\\bbuilt in the Craftsman and Colonial Revival styles",
+    "struck": "Those houses were built in the Craftsman and Colonial Revival styles.",
+    "use": "The most common style is Colonial Revival, with some Bungalow and Craftsman touches [NRHP nomination, 1998]."
+  },
+  {
+    "row": "no-hoa 118",
+    "pattern": "\\boceanfront house was listed beside them",
+    "struck": "Two of the houses for sale are from that era, and a new oceanfront house was listed beside them.",
+    "use": "(cut 'beside them': the new 2026 oceanfront house at 3604 N Ocean Blvd is about 160 m from the 1938 house and about 300 m from the 1946 house, which is on Kings Highway)"
+  },
+  {
+    "row": "no-hoa 117",
+    "pattern": "\\$5\\.8 million, the highest prices on this list",
+    "struck": "Houses here were listed from about $750,000 to $5.8 million, the highest prices on this list.",
+    "use": "Houses here were listed from about $750,000 to $5.8 million. The typical price, about $1.6 million, is the highest of the 16 areas."
+  },
+  {
+    "row": "no-hoa 125",
+    "pattern": "\\bthese are the lowest prices on this list",
+    "struck": "At about $250,000, these are the lowest prices on this list.",
+    "use": "At about $250,000, this is the lowest typical price on this list."
+  },
+  {
+    "row": "no-hoa 131",
+    "pattern": "\\bBoardwalk begins at the 2nd Avenue Pier",
+    "struck": "The oceanfront Boardwalk begins at the 2nd Avenue Pier.",
+    "use": "(cut it, or add a primary row for the Boardwalk's ends: the cited city page says only 'from pier to pier' and 'to 16th Avenue North')"
+  },
+  {
+    "row": "no-hoa 116",
+    "pattern": "\\bOn Collins Street and Chester Street, the houses for sale were built in the 1950s and 1960s",
+    "struck": "On Collins Street and Chester Street, the houses for sale were built in the 1950s and 1960s.",
+    "use": "On Collins Street, Chester Street, Dunbar Street and 13th Avenue South, four houses for sale were built from 1955 to 1960."
+  },
+  {
+    "row": "no-hoa 116",
+    "pattern": "\\bNearby, a row of new houses",
+    "struck": "Nearby, a row of new houses was listed, also with no HOA dues.",
+    "use": "On 12th Avenue South, 8 new houses in The Villages at Withers Heights were listed, also with no HOA fee."
+  },
+  {
+    "row": "no-hoa 116",
+    "pattern": "\\bolder houses within a mile and a half of the center",
+    "struck": "Downtown Myrtle Beach, Conway and Loris: older houses within a mile and a half of the center.",
+    "use": "Downtown Myrtle Beach (older streets and some new houses), Conway and Loris: houses within a mile and a half of the center."
+  },
+  {
+    "row": "no-hoa 1",
+    "pattern": "\\boutside a named subdivision has no homeowners association",
+    "struck": "Almost every house on a street outside a named subdivision has no homeowners association (HOA) fee.",
+    "use": "Almost every house listed on a street outside a named subdivision shows no homeowners association (HOA) fee."
+  },
+  {
+    "row": "no-hoa 85",
+    "pattern": "\\bPlantation Point pays HOA dues|\\bolder Pine Lakes streets pays no HOA dues",
+    "struck": "Not one house for sale in Plantation Point pays HOA dues.",
+    "use": "Every house for sale in Plantation Point was listed with no HOA fee."
+  },
+  {
+    "row": "no-hoa 1",
+    "pattern": "\\bmost houses for sale come without an HOA fee",
+    "struck": "Around Rosewood Drive in Socastee, most houses for sale come without an HOA fee.",
+    "use": "Around Rosewood Drive in Socastee, most houses for sale are listed with no HOA fee."
+  },
+  {
+    "row": "no-hoa 120",
+    "pattern": "\\bAlmost every home for sale in Crescent Beach",
+    "struck": "Almost every home for sale in Crescent Beach is listed with no HOA dues.",
+    "use": "Nearly 9 in 10 homes for sale in Crescent Beach are listed with no HOA dues."
+  },
+  {
+    "row": "no-hoa 120",
+    "pattern": "\\bCrescent Beach: almost no HOA",
+    "struck": "6. Crescent Beach: almost no HOA, and a maritime forest",
+    "use": "6. Crescent Beach: nearly 9 in 10 with no HOA fee, and a maritime forest"
+  },
+  {
+    "row": "no-hoa 127",
+    "pattern": "\\bSurfside Beach, almost every home",
+    "struck": "On the ocean side of Surfside Beach, almost every home for sale is free of HOA dues.",
+    "use": "On the ocean side of Surfside Beach, 6 in 7 homes for sale are listed with no HOA fee."
+  },
+  {
+    "row": "no-hoa 128",
+    "pattern": "\\bdowntown Conway, almost every house",
+    "struck": "Within a mile and a half of downtown Conway, almost every house for sale has no HOA fee.",
+    "use": "Within a mile and a half of downtown Conway, 20 of 23 houses for sale are listed with no HOA fee."
+  },
+  {
+    "row": "no-hoa 130",
+    "pattern": "\\bAge is the best sign",
+    "struck": "Age is the best sign.",
+    "use": "Age is one sign: a house built before 1990 is far more likely to be listed with no HOA fee."
+  },
+  {
+    "row": "no-hoa 135 (neighborhoods 168)",
+    "pattern": "\\bMyrtle Beach's first golf course|\\bcity's first golf course",
+    "struck": "These are the streets around Pine Lakes Country Club, Myrtle Beach's first golf course.",
+    "use": "These are the streets around Pine Lakes Country Club, a golf course that opened in 1927."
+  },
+  {
+    "row": "no-hoa 103",
+    "pattern": "\\bdug through the (?:Cherry Grove )?marsh",
+    "struck": "Canals were dug through the Cherry Grove marsh as early as the 1950s.",
+    "use": "Cherry Grove's canals were created as early as the 1950s."
+  },
+  {
+    "row": "no-hoa 103",
+    "pattern": "\\bThe city dredges them\\b|\\bso owners on the canals can take a boat",
+    "struck": "The city dredges them, so owners on the canals can take a boat to House Creek and the Intracoastal Waterway at high and low tide.",
+    "use": "The city has dredged canals there twice since 2016, to give owners boat access to House Creek and the Intracoastal Waterway at high and low tide."
+  },
+  {
+    "row": "no-hoa 88",
+    "pattern": "\\bOwners on the canals also pay",
+    "struck": "Owners on the canals also pay the city about $1,700 a year for the dredging.",
+    "use": "Owners of about 415 properties in the canal district pay the city about $1,700 a year for that work, on the county tax bill."
+  },
+  {
+    "row": "no-hoa 103",
+    "pattern": "\\bCherry Grove has canals to the inlet",
+    "struck": "A boat at home. Cherry Grove has canals to the inlet.",
+    "use": "Cherry Grove has canals with boat access to House Creek and the Intracoastal Waterway."
+  },
+  {
+    "row": "no-hoa 123",
+    "pattern": "\\bCity residents can register to park there free",
+    "struck": "City residents can register to park there free.",
+    "use": "North Myrtle Beach residents can register for free parking there, for a limited number of vehicles."
+  },
+  {
+    "row": "no-hoa 124",
+    "pattern": "\\bAlmost every Little River subdivision has an HOA|\\balmost all of Little River's named subdivisions",
+    "struck": "Almost every Little River subdivision has an HOA.",
+    "use": "In Little River's named subdivisions, 179 of 192 homes for sale list an HOA fee."
+  },
+  {
+    "row": "no-hoa 124",
+    "pattern": "\\bIn the early 1920s, its boatmen began",
+    "struck": "In the early 1920s, its boatmen began taking visitors fishing offshore, the first boats in South Carolina to do it for a fee.",
+    "use": "In about the early 1920s, Little River's boatmen began taking visitors fishing for a fee, the first organized offshore trips of that kind in South Carolina."
+  },
+  {
+    "row": "no-hoa 124",
+    "pattern": "\\bSince the inlet's jetties were built",
+    "struck": "Since the inlet's jetties were built, boats can cross the bar at any time of day.",
+    "use": "After the jetties were finished in 1983, boats could cross the inlet bar at any time of day."
+  },
+  {
+    "row": "no-hoa 126",
+    "pattern": "\\btwo oldest swing bridges on South Carolina",
+    "struck": "It is one of the two oldest swing bridges on South Carolina's highways.",
+    "use": "It is one of the two oldest of the seven swing-span highway bridges in the state's historic bridge inventory."
+  },
+  {
+    "row": "no-hoa 125",
+    "pattern": "\\bSocastee Recreation Park[^.]{0,30}ball fields",
+    "struck": "Socastee Recreation Park has ball fields, a disc golf course, trails and a playground.",
+    "use": "Socastee Recreation Park has multi-purpose fields, picnic areas, a disc-golf course, trails and a playground."
+  },
+  {
+    "row": "no-hoa 132",
+    "pattern": "\\bStanley Drive boat landing is 5 minutes",
+    "struck": "The county's Stanley Drive boat landing is 5 minutes from the middle of Garden City.",
+    "use": "The county's Stanley Drive boat landing is about 6 minutes from the middle of Garden City."
+  },
+  {
+    "row": "no-hoa 132",
+    "pattern": "\\bbetween the ocean and the marsh",
+    "struck": "12. Garden City Beach: between the ocean and the marsh",
+    "use": "(cut it: the row cites OpenStreetMap, which no verifier opened; head the entry with what the area gives a buyer)"
+  },
+  {
+    "row": "no-hoa 134",
+    "pattern": "\\bwhere a lender requires it",
+    "struck": "Flood insurance is the cost of the view: most houses here are in a high-risk flood zone, where a lender requires it.",
+    "use": "Most houses here are in a high-risk flood zone, where with a mortgage your lender will almost always require flood insurance."
+  },
+  {
+    "row": "no-hoa 81",
+    "pattern": "\\bthe beach next door",
+    "struck": "You give up the beach next door: it is about 35 minutes by car, and Coastal Grand Mall about 50.",
+    "use": "The beach is about 35 minutes by car, and Coastal Grand Mall about 50."
+  },
+  {
+    "row": "no-hoa 43",
+    "pattern": "\\bno public service picks up trash|\\bwhich the county does not do outside the towns",
+    "struck": "Outside the towns, no public service picks up trash at the curb.",
+    "use": "Outside the towns, the Solid Waste Authority provides no curbside trash pickup."
+  },
+  {
+    "row": "no-hoa 88",
+    "pattern": "\\bIts pavilion drew crowds",
+    "struck": "Its pavilion drew crowds to dance the shag, which South Carolina made its official state dance.",
+    "use": "In the Ocean Drive and Crescent Beach area, a pavilion and amusement park drew crowds who danced the shag. South Carolina made the shag its official state dance in 1984."
+  },
+  {
+    "row": "no-hoa 81",
+    "pattern": "\\bEvery Thursday from June through September, the city holds",
+    "struck": "Every Thursday from June through September, the city holds free Music on Main concerts at the Horseshoe on Main Street.",
+    "use": "Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe on Main Street, on a schedule the city sets."
+  },
+  {
+    "row": "no-hoa 122",
+    "pattern": "\\bOcean Drive Estates, houses from the mid-1980s were listed at about \\$300,000",
+    "struck": "In Ocean Drive Estates, houses from the mid-1980s were listed at about $300,000.",
+    "use": "In Ocean Drive Estates, five houses from the mid-1980s were listed from $255,000 to $369,000."
+  },
+  {
+    "row": "no-hoa 122",
+    "pattern": "\\bNone of the houses for sale here would need flood insurance",
+    "struck": "None of the houses for sale here would need flood insurance for a mortgage.",
+    "use": "None of the 15 houses we placed on the county map would need flood insurance for a mortgage."
+  },
+  {
+    "row": "no-hoa 120",
+    "pattern": "\\bEach of those houses is half a mile or less from the ocean",
+    "struck": "Each of those houses is half a mile or less from the ocean, on streets such as Hillside Drive.",
+    "use": "Each of the 25 houses we placed on the county map is half a mile or less from the ocean, on streets such as Hillside Drive."
+  },
+  {
+    "row": "no-hoa 95",
+    "pattern": "\\bThe beach on foot\\b",
+    "struck": "The beach on foot. In Crescent Beach, Windy Hill, Ocean Drive, Myrtle Heights and Surfside Beach, most houses are within half a mile of the sand.",
+    "use": "Near the beach. In Crescent Beach, Windy Hill, Ocean Drive, Myrtle Heights and Surfside Beach, most houses are within half a mile of the ocean shore, in a straight line."
+  },
+  {
+    "row": "no-hoa 117",
+    "pattern": "\\b3\\.7-mile drive",
+    "struck": "The trade-off is the beach: it is on the far side of Kings Highway, a 3.7-mile drive and too far to walk.",
+    "use": "The trade-off is the beach: it is on the far side of Kings Highway, about 10 minutes away by car and too far to walk."
+  },
+  {
+    "row": "no-hoa 135 (neighborhoods 196)",
+    "pattern": "\\bFuller Park, with tennis courts",
+    "struck": "Fuller Park, with tennis courts and a playground, is among those streets.",
+    "use": "Fuller Park, with a playground, is about 0.1 mile from the middle of those streets."
+  },
+  {
+    "row": "no-hoa 62",
+    "pattern": "\\bone work van or pickup up to 21 feet long overnight",
+    "struck": "The town allows two boats or trailers at a home, and one work van or pickup up to 21 feet long overnight.",
+    "use": "The town allows two boats or trailers at a home, and one work van or pickup up to 21 feet long and 7 feet 11 inches high overnight."
+  },
+  {
+    "row": "no-hoa 135 (row 45)",
+    "pattern": "\\$34 a month on the utility bill",
+    "struck": "Inside the city, the city picks up trash, recycling and yard waste at the curb once a week, for about $34 a month on the utility bill.",
+    "use": "Inside the city, the city picks up trash, recycling and yard waste at the curb once a week, for $33.93 a month for a home."
   }
 ]

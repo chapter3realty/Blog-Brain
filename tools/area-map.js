@@ -1263,6 +1263,7 @@ function placesSpec(spec) {
     landmarks: list.map((p, i) => ({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region", first: !!p.first })) };
   if (spec.areas !== undefined) out.areas = spec.areas;
   if (spec.areaLabels !== undefined) out.areaLabels = spec.areaLabels;
+  if (spec.maxRatio !== undefined) out.maxRatio = spec.maxRatio;
   validate(out, loadGeo2().bbox, WIDEN2);
   return out;
 }
@@ -1363,7 +1364,12 @@ function regionMap(spec, opts = {}) {
   if (homeTown && km(home, homeTown) < 15) pts.push(homeTown);
   if (area) { const [a, b, c, d] = bbOf(area.outline); pts.push({ lon: a, lat: b }, { lon: c, lat: d }); }
   for (const a of areas) pts.push(...a.pts);
-  const F = frame2(pts, { W, padFrac: 0.07, padKm: 1, minSpanKm: spec.minSpanKm || 12, M: { l: 24, r: 24, t: 46, b: 30 }, rMin: 0.8, rMax: 1.2 });
+  /* Optional spec.maxRatio (opt-in, batch 2026-10-b round 14c): the tallest the map may be, as height over
+     width, from 0.4 to 1.2. A small number makes a wide, short map, for an overview panel that must not
+     take a phone screen. Left out, the map is framed exactly as before (0.8 to 1.2). */
+  if (spec.maxRatio !== undefined && !(typeof spec.maxRatio === "number" && spec.maxRatio >= 0.4 && spec.maxRatio <= 1.2)) throw new Error("area-map: maxRatio is a number from 0.4 to 1.2");
+  const rMax = spec.maxRatio === undefined ? 1.2 : spec.maxRatio, rMin = Math.min(0.8, rMax);
+  const F = frame2(pts, { W, padFrac: 0.07, padKm: 1, minSpanKm: spec.minSpanKm || 12, M: { l: 24, r: 24, t: 46, b: 30 }, rMin, rMax });
   const { H, P } = F, view = F.view;
   const id = opts.id || "c3r-" + slug(home.name);
   const L = new Layout2(W, F.H);

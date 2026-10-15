@@ -222,7 +222,9 @@ const COMPACT_RULES = `${TOP}{padding:.9rem 0!important}`
   + "text-align:left!important;padding:.9rem 1rem .9rem 1.25rem;width:calc(100% - 32px);box-sizing:border-box}"
   + `${TOP}>.wrap>p:first-child{flex:1 1 13rem;margin:0!important;font-family:var(--sans)!important;font-size:var(--read,1.0625rem)!important;font-weight:600;line-height:1.35!important;color:var(--navy)!important}`
   + `${TOP}>.wrap>a.btn{flex:none;margin:0;padding:.7rem 1.25rem;min-height:44px}`
-  + `@media (max-width:699px){${TOP}>.wrap{padding:.85rem 1rem .9rem;border-radius:18px}${TOP}>.wrap>p:first-child{font-size:var(--read,1.0625rem)!important;line-height:1.35!important}}`
+  /* On a wide screen the bar lines up with the text column (the site's .wrap: 1200 px, 2rem padding). */
+  + `@media (min-width:700px){${TOP}>.wrap{margin-left:max(16px,calc((100% - 1200px) / 2 + 2rem))!important;margin-right:auto!important}}`
+  + `@media (max-width:699px){${TOP}>.wrap{padding:.8rem 1rem .85rem;gap:.55rem 1rem;border-radius:18px}${TOP}>.wrap>a.btn{padding:.6rem 1.15rem}${TOP}>.wrap>p:first-child{font-size:var(--read,1.0625rem)!important;line-height:1.35!important}}`
   + `@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){${TOP}>.wrap{background:${T.solid}!important}}`
   + `@media (prefers-reduced-transparency:reduce){${TOP}>.wrap{background:${T.solid}!important}}`;
 const css = (o = {}) => `<style id="c3-glass">${themeRules()}${o.compact ? COMPACT_RULES : ""}${OFFER_RULES}${CHART_RULES}</style>`;
