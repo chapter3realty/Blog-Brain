@@ -128,9 +128,11 @@ const PLACES = {
     { id: "airport", lat: 33.6825, lon: -78.924023 },
   ],
 };
-const kit = PK.create({ h, places: PLACES, photos: PHOTO_FILES.flatMap((f) => JSON.parse(fs.readFileSync(f, "utf8")).photos),
+const kit = PK.create({ h, theme: "glass", places: PLACES, photos: PHOTO_FILES.flatMap((f) => JSON.parse(fs.readFileSync(f, "utf8")).photos),
   mapDir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), mapSrc: "/images/maps" });
 const { maps, glance, prosCons, atAGlance, story, photoSet } = kit;
+/* Round 14: the liquid glass theme and the offer pill (tools/glass.js, batches/2026-10-b/DESIGN-GLASS.md). */
+const G = kit.glass || require(path.join(BB, "tools", "glass.js"));
 
 const HUB = "/submarkets/carolina-forest/";
 const SELF = "/submarkets/carolina-forest/the-farm/";
@@ -181,7 +183,8 @@ const OFFER = {
   href: "/contact/",
 };
 
-module.exports = {
+module.exports = G.page({
+  theme: "glass",
   url: SELF,
   hub: { name: "Carolina Forest", url: HUB },
   /* No datePublished: mkpage gives a new page the day it is first built for the live site, and keeps it. */
@@ -221,7 +224,7 @@ module.exports = {
       h.p("In The Orchards, each townhome comes with its own small lot. In Planters Point, each owner owns a condo unit and shares the buildings and land with the other owners.") +
       h.p("The Orchards has about 200 townhomes, and Planters Point has about 70 condos. Most of them have two or three bedrooms.") +
       h.p(`The Farm has no gate. Its streets are public roads owned by Horry County, not by the HOA. If you want a gate, see ${h.a("/buyers/gated-communities/", "which neighborhoods near Myrtle Beach are gated")}.`) +
-      h.cta(OFFER.title, OFFER.text, OFFER.label, OFFER.href, bg) },
+      G.offer("The Farm", { label: "Book a showing in The Farm" }) },
 
     { h2: "What is there to do in The Farm at Carolina Forest?", toc: "Pools and things to do", html:
       h.p("Owners in The Farm at Carolina Forest swim in two pools, work out in the fitness room and reserve the activity center for parties.") +
@@ -339,4 +342,4 @@ module.exports = {
   bottomCta: { h2: OFFER.title, p: OFFER.text, label: OFFER.label, href: OFFER.href },
   keywords: "The Farm at Carolina Forest, The Farm Carolina Forest HOA, The Farm at Carolina Forest HOA fee, The Farm at Carolina Forest homes for sale, The Farm at Carolina Forest pool, The Farm at Carolina Forest rules",
   about: "The Farm at Carolina Forest, a neighborhood in unincorporated Horry County with a Myrtle Beach address, South Carolina",
-};
+});
