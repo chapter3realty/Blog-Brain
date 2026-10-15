@@ -71,7 +71,7 @@ const PHOTO = {
 };
 /* A second photo, after an entry's third paragraph (Conway: the older houses the paragraph describes). */
 const PHOTO_LATE = {
-  "conway": ph.aerial("conway-older-house-and-oak", "An older house behind a big oak in Conway's residential historic district, where the streets were laid out around the live oaks.", { closeUp: true }),
+  "conway": ph.aerial("conway-older-house-and-oak", "An older house behind a big oak in Conway's residential historic district, on streets designed around the live oaks.", { closeUp: true }),
 };
 ph.share("aynor-country-lot");
 
@@ -258,6 +258,7 @@ const AYNOR_APPEAL = "https://www.townofaynor.gov/appeal";
 const GALIVANTS_NR = "https://npgallery.nps.gov/GetAsset/aa6c6bf6-8036-4d76-84bb-d1eb0e3431fd";
 const MB_STATE_PARK = "https://southcarolinaparks.com/myrtle-beach";
 const HC_PARCELS = "https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24";
+const PELICANS = "https://www.milb.com/myrtle-beach/ballpark/pelicans-ballpark-a-z";
 const USGS_LPD = "https://waterdata.usgs.gov/monitoring-location/02135000/";
 const NPS_MH = "https://npgallery.nps.gov/AssetDetail/NRIS/96001217";
 const MB_SWASH = "https://www.cityofmyrtlebeach.com/i_want_to/find/photos_of_the_week/pow040618.php";
@@ -450,6 +451,7 @@ module.exports = GL.page({
       `The streets are around the golf course, which is ${h.ext(PL_CLUB, "less than half a mile from the ocean")}, on rolling land.`,
       `The beach is about 0.6 mile on foot, at the Seaside Place street end, one of the city's fully accessible beach paths. Two small city parks are on the way: ${h.ext(MB_PARK_OF, "Ocean Forest Memorial Park")}, with a walking path, and McLeod Park, with a picnic shelter.`,
       "North Ocean Boulevard has bike lanes, and each December Santa rides through the Pine Lakes neighborhood with the city's firefighters.",
+      `Inside the city, owners get the free resident beach parking decal, and it also parks you free at ${h.ext(PELICANS, "Pelicans baseball games")}.`,
       "The newer Preserve at Pine Lakes has an HOA. We check which section a house is in before you make an offer.",
     ]),
 
@@ -540,7 +542,7 @@ module.exports = GL.page({
       `Conway is the county seat, on a bluff of the Waccamaw River. Its ${h.ext(CONWAY_OAKS, "streets were designed around its live oaks")}, and the Riverwalk follows the river downtown.`,
       `The Waccamaw is a federal ${h.ext(BLUE_TRAIL, "National Water Trail")}, and the Riverwalk is a stop on it. At the foot of Main Street, the old riverboat warehouses still stand, among them the steamer terminal from about 1880. Main Street's brick storefronts mostly went up after a fire in 1897.`,
       `The oldest streets form a ${h.ext(CONWAY_RHD, "National Register district")}. Its houses range from Greek Revival and Carpenter Gothic through Queen Anne to 1920s bungalows, one of them with a porch around three sides.`,
-      `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. The ${h.ext(HC_MUSEUM, "Horry County Museum")} is free, in the restored 1905 Burroughs School, about a quarter hour on foot from downtown.`,
+      `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. The ${h.ext(HC_MUSEUM, "Horry County Museum")} is in the restored 1905 Burroughs School, about a quarter hour on foot from downtown.`,
       `${h.ext(RIVERFEST, "Riverfest")} brings music and fireworks to the river on the Saturday before the Fourth of July weekend, and the Celebration of Lights opens each December. ${h.ext(LANDINGS, "Billy Witherspoon Landing")} is a 6-minute drive.`,
       "The trade-off is the beach, a 25-minute drive.",
     ]),

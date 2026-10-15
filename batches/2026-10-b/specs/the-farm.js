@@ -74,6 +74,17 @@
  *   said from the entrance by the large pool, the starts in the sources line; the burns and the bombing range out of
  *   the selling section (the burns join the hunting con, the range years go to its own section); hunting with the
  *   row's seasons; repeats cut (private pools, pool season, the minutes line, what the fee covers); v8 D1 to D5.
+ * Version 12, 2026-10-15 (round 14e, OWNER-EYE-14e-the-farm.md, grade 8; a fresh writer; rewrite check v9,
+ *   facts/r14/farm-verify-v9.md): the day rewritten as a week, the longest selling section (a spring Saturday in the
+ *   preserve first, then the 5:30 workout, the pool after work with its palm islands, row 112, the library and rock
+ *   wall, the trails); the board meeting and the sidewalk out of the day; the preserve's visiting facts moved from the
+ *   first section into the day; the first section says what the woods mean for an owner (state law: a heritage
+ *   preserve is never put to private use, pending row 114); the subtitle an agent's line; "two pools" once at the top
+ *   (the Pools tile is now "Preserve, next door"); the short answer opens on the healthcare plan the state bought out;
+ *   the pros are the reasons to live here; the cons cut to three (the parking con is the rules card) and shorter; the
+ *   hunting con in two plain seasons (v9 D2, D3); the "built" FAQ with two years; the second-fee paragraph with two
+ *   figures (pending row 116); internet is something we confirm (row 11); the beach 10 to 12 minutes (pending row
+ *   115, best neighborhoods row 264); v9 D4 to D6 applied; the Defense Department monitoring line cut; plain card labels.
  *
  * Reader: a buyer, often from out of state, who has seen a listing in The Farm or heard the name and
  * wants to picture living there and decide whether to look. They do not know Carolina Forest, the
@@ -235,15 +246,15 @@ module.exports = G.page({
   pageImages: () => ph.pageImages(),
   title: "The Farm at Carolina Forest: HOA Fee, Pools, Rules | Chapter3",
   description: "Living in The Farm at Carolina Forest, Myrtle Beach: land the state bought for a nature preserve, two pools, the $107 HOA fee, home prices, schools and rules.",
-  ogTitle: "Living in The Farm at Carolina Forest: two pools, the beach 10 minutes away and land the state bought for a nature preserve on its north edge",
+  ogTitle: "Living in The Farm at Carolina Forest: two pools, the beach 10 to 12 minutes away and woods the state bought for a nature preserve on its north edge",
   crumb: "The Farm",
   eyebrow: "Carolina Forest, Myrtle Beach",
   h1: "What is it like to live in The Farm at Carolina Forest?",
-  h1em: "Two pools, cable in the fee, flytrap habitat along its north edge.",
+  h1em: "Two pools for summer evenings, and the beach for weekends.",
   sub: "The Farm is a finished neighborhood of houses, townhomes and condos in Carolina Forest, with a Myrtle Beach mailing address.",
   heroMedia: glance([
-    { icon: "beach", label: "Beach", text: "10 min drive" },
-    { icon: "pool", label: "Pools", text: "Two" },
+    { icon: "trail", label: "Preserve", text: "Next door" },
+    { icon: "beach", label: "Beach", text: "10 to 12 min drive" },
     { icon: "grocery", label: "Publix", text: "2 min drive" },
     { icon: "dollar", label: "HOA fee", text: "$107/mo" },
   ]),
