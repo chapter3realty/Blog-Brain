@@ -1,0 +1,74 @@
+[
+  {
+    "row": "gated 282",
+    "pattern": "(?:summer ends|season (?:closed|ended)) with a (?:poolside )?potluck|potluck by the water",
+    "struck": "The summer ends with a potluck by the water.",
+    "use": "In 2026 the Music and Moonlight evenings closed with a poolside potluck on September 26; the pool itself closed September 30 [Myrtle Trace newsletter, October 2026]."
+  },
+  {
+    "row": "gated 284",
+    "pattern": "board has decided not to seek a change before|decided not to seek a change",
+    "struck": "The board has decided not to seek a change before the covenants renew in 2033.",
+    "use": "In 2026 the board voted 5 to 0 not to pursue a change now; the current ten-year period ends in 2033 [Myrtle Trace newsletter, October 2026]."
+  },
+  {
+    "row": "gated 285",
+    "pattern": "(?<!\\[)\\bLocals knew the land as a ridge",
+    "struck": "Locals knew the land as a ridge, and it stands about 40 feet above sea level.",
+    "use": "The HOA's history calls the land a ridge that locals knew [HOA 40th anniversary paper, 2023, an unsigned typescript]; it stands about 42 feet above sea level [USGS]."
+  },
+  {
+    "row": "gated 286",
+    "pattern": "about 14 feet at the oceanfront",
+    "struck": "against about 14 feet at the oceanfront downtown.",
+    "use": "against about 15 feet along the oceanfront downtown (7 to 17 feet within 100 meters) [USGS 3DEP]."
+  },
+  {
+    "row": "gated 290",
+    "pattern": "bulkheads along the water\\b(?! banks)|deep bunkers around raised greens",
+    "struck": "It carries Dye's marks: wooden bulkheads along the water, deep bunkers around raised greens and fast greens.",
+    "use": "It has several of Dye's marks [MyHorryNews, July 2025]: wooden bulkheads along many water banks, deep-faced bunkers around often-elevated greens and fast TifEagle greens."
+  },
+  {
+    "row": "gated 293",
+    "pattern": "owners association took over the large pool|clay courts need a tennis membership",
+    "struck": "When the club ended its memberships, the owners association took over the large pool, a smaller pool and the tennis center, with eleven clay courts and two hard courts. The clay courts need a tennis membership of their own.",
+    "use": "(In 2015 the club's owner offered to lease or convey the tennis and swim facilities to the owners association for $1 each [Club + Resort Business, 2015]. A 2016 report says the association purchased them, and also says a third-party operator ran the tennis club, with the pool and two hard courts open to residents and the 11 clay courts on a club membership [Club + Resort Business, February 2016]. Whether this still holds is not verified: state it as 2016, or cut it.)"
+  },
+  {
+    "row": "gated 300",
+    "pattern": "Seasons lot backs onto TPC[^.]{0,40}across the road",
+    "struck": "no Seasons lot backs onto TPC Myrtle Beach across the road.",
+    "use": "The nearest Seasons lot is about 560 meters, a little over a third of a mile, from the TPC Myrtle Beach course [county parcels, OpenStreetMap]."
+  },
+  {
+    "row": "gated 301",
+    "pattern": "\\b14\\b[^.]{0,30}\\breach(?:es)? Collins Creek",
+    "struck": "half-acre lots, and 14 that reach Collins Creek",
+    "use": "half-acre lots, and 14 within 30 meters of Collins Creek [county parcels, USGS creek line]; only 3 touch the mapped creek line."
+  },
+  {
+    "row": "gated 302",
+    "pattern": "About 30 lots back onto a pond",
+    "struck": "About 30 lots back onto a pond.",
+    "use": "About 30 lots lie within 10 meters of a mapped pond [county parcels, OpenStreetMap]."
+  },
+  {
+    "row": "gated 304",
+    "pattern": "TPC Myrtle Beach[^.]{0,20}next to (?:Bellwood|Seasons)",
+    "struck": "TPC Myrtle Beach, next to Bellwood Landing and Seasons, was given 5 stars by Golf Digest in 2008.",
+    "use": "TPC Myrtle Beach was given 5 stars by Golf Digest in 2008 [club's account]. Its course is about 100 meters from the nearest Bellwood Landing lot and about 560 meters from the nearest Seasons lot."
+  },
+  {
+    "row": "gated 306",
+    "pattern": "Across the road is TPC Myrtle Beach",
+    "struck": "Across the road is TPC Myrtle Beach, a Tom Fazio course that Golf Digest gave five stars in 2008.",
+    "use": "TPC Myrtle Beach, a Tom Fazio course, lies about 100 meters from the nearest Bellwood Landing lot (a road between them is not confirmed)."
+  },
+  {
+    "row": "gated 306",
+    "pattern": "ninth year in 2024|ninth consecutive year[^.]{0,30}2024",
+    "struck": "the Dustin Johnson World Junior Championship each spring (its ninth year in 2024, 90 players)",
+    "use": "(cut it: the club says it began hosting in 2015 and the news post is undated, so 2024 is not supported; the page does not use it)"
+  }
+]
