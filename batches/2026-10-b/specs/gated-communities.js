@@ -190,7 +190,7 @@ const SECTIONS_PLACES = [
   ], "Homes at Tidewater usually sell for about $625,000. The HOA fee is about $230 a month."),
 
   entry("seaside-plantation", "a golf cart ride to Main Street", [
-    "Seaside Plantation is the gated neighborhood closest to Main Street in North Myrtle Beach, the home of the shag. Main Street is a golf cart ride away.",
+    "Of the 20 neighborhoods here, Seaside Plantation is the closest to Main Street in North Myrtle Beach. Main Street is a golf cart ride away.",
     "Each spring and fall the Society of Stranders brings its shag dance festivals, the Spring Safari and the Fall Migration, to Main Street and Ocean Drive. The Fall Migration runs for 11 days each September.",
     "Back home, the lakes behind many of the houses, about 13 acres of water, belong to the neighborhood. The clubhouse has a hot tub and parking for golf carts, and a Walmart Supercenter, a Lowe's and Gator Hole Plaza are a 3- to 5-minute drive.",
     "The ocean is a quarter to three-quarters of a mile from the houses, not at the back door, and festival weeks bring crowds to Main Street.",
@@ -215,18 +215,18 @@ const SECTIONS_PLACES = [
     "Waterway Palms Plantation has its own boat ramp on the Intracoastal Waterway, inside the gate, along with a day dock and boat storage. You launch at home instead of towing the boat across town.",
     "The plan copies the look of Charleston's Battery district. The clubhouse stands on a point in a pond, beside the pools, and the neighborhood has tennis and pickleball courts, a fitness center and sidewalks throughout.",
     `The land was part of Carolina Forest, which the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Read that story in our ${h.a(FARM, "guide to The Farm at Carolina Forest")}.`,
-    "Builders are still finishing new houses, so parts of the neighborhood are still under construction.",
+    "The developer sold most of the lots in 2004 to 2006, and after 2008 many went through court-ordered sales. That is why builders are still finishing houses here, and some streets still have empty lots.",
   ], "Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
   entry("the-bluffs-on-the-waterway", "a boathouse clubhouse on the waterway", [
     "The Bluffs on the Waterway has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway. The neighborhood has day docks, a boat ramp and boat storage.",
     "Many of the houses are custom Mediterranean-style homes in stucco, and many look onto ponds with fountains. Black Creek runs through the woods along its west side, and the county's bike park is less than a mile away.",
-    "There are tennis and pickleball courts and a playground, and the lakes belong to the neighborhood's association.",
-    "About 40 of its lots still have no house, so building will go on for a while.",
+    "Its first lots sold in 2001, before most of Carolina Forest's newer neighborhoods. There are tennis and pickleball courts and a playground, and the lakes belong to the neighborhood's association.",
+    "S.C. 31 runs along one side of the neighborhood, and about 40 lots still have no house, so building will go on for a while.",
   ], "Homes here usually sell for about $850,000; the HOA fee is about $150 a month."),
 
   entry("covington-lake-east", "a gate, a pool and a clubhouse for about $90 a month", [
-    "Covington Lake East has the lowest HOA fee of the 20: about $90 a month for a gate, a pool and a clubhouse. The association also keeps the private road.",
+    "Covington Lake East has the lowest HOA fee of the 20: about $90 a month for a gate, a pool and a clubhouse.",
     "It is a small neighborhood of brick houses in Carolina Forest, on curving streets among ponds. Most lots are about a quarter of an acre, the streets have sidewalks, and many of the houses have natural gas.",
     "Lennar built about 50 of the houses from 2015 to 2017, and many builders built the rest one lot at a time, so the houses differ from street to street.",
     "It has no golf club or boat ramp of its own.",
@@ -239,11 +239,11 @@ const SECTIONS_PLACES = [
     "The gates are only at the back entrance, to keep out cut-through traffic; the front entrance is open. Trucks may not park in driveways, and the board has decided not to seek a change before the covenants renew in 2033.",
   ], "Homes usually sell for about $300,000, and the HOA fee is $95 a month."),
 
-  entry("myrtle-beach-golf-and-yacht-club", "a gatehouse for about $95 a month", [
-    "Myrtle Beach Golf and Yacht Club pairs a gatehouse on Bay Road with one of the lowest fees on this page, about $95 a month. Wide strips of grass and woods, with ponds, lie between its streets, and the association owns about 62 acres of that open land.",
-    "Its sections have their own names, such as Camelot, Ashley Cove, the Fairways and the Gardens at Heron Point. There is a clubhouse with tennis and shuffleboard courts and a playground, and the association has a storage area for RVs and trailers.",
-    "Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance.",
-    "Most of its houses are older, and Sandpiper Place, where D.R. Horton is building new houses, shares the entrance on Bay Road. We confirm whether a home is behind the gate before you make an offer.",
+  entry("myrtle-beach-golf-and-yacht-club", "a watch desk at the gate, day and night, for about $95 a month", [
+    "For an HOA fee of about $95 a month, Myrtle Beach Golf and Yacht Club has a Community Watch desk at its gatehouse on Bay Road, staffed 24 hours a day, seven days a week. The association also has its own maintenance staff on weekdays.",
+    "From mid-April to mid-October the pool opens at 8 for lap swimming, with an exercise hour at 9. The calendar adds bingo, yoga, Zumba, mahjong, card groups and a book club. Wide strips of grass and woods, with ponds, lie between the streets, and the association owns about 62 acres of that open land.",
+    "Its sections have their own names, such as Camelot, Ashley Cove, the Fairways and the Gardens at Heron Point. The association has a storage area for RVs and trailers, and Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance.",
+    "Despite the name, there is no golf course or yacht club anymore. Its course, Heron Point, closed in 2014. Sandpiper Place, where D.R. Horton is building new houses, has its own association and shares the entrance on Bay Road, so we confirm whether a home is behind the gate before you make an offer.",
   ], "In the older part, homes usually sell for about $225,000."),
 
   entry("prestwick", "a Pete and P.B. Dye course named Course of the Year", [
