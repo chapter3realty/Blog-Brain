@@ -323,9 +323,9 @@ module.exports = G.page({
       costs("sawgrass-east")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
-      h.p("Birchwood's houses are brand new, on lots of about a quarter acre. Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings and energy-efficient windows.") +
+      h.p("Birchwood's houses are brand new, on lots of about a quarter acre. Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings on the first floor and energy-efficient windows.") +
       PH["birchwood"] +
-      h.p(`${h.ext(LENNAR_WARRANTY, "Lennar's warranty")} covers the workmanship for a year, the electrical, plumbing and mechanical systems for two, and the structure for ten. High-speed internet is included in the monthly dues.`) +
+      h.p(`${h.ext(LENNAR_WARRANTY, "Lennar's limited warranty")} covers the workmanship for a year, the electrical, plumbing and mechanical systems for two, and the structure for ten. High-speed internet is included in the monthly dues.`) +
       h.p("Birchwood is off SC 905, southwest of Longs, and the turn is beside the tall water tower. It has only 77 lots, with about 12 acres of open space. Long Bay Club, a golf course in Longs, is a seven-minute trip.") +
       h.p(`The trade-off is the distance to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by SC 9 and the Carolina Bays Parkway. North Myrtle Beach is about 20.`) +
       costs("birchwood")),
