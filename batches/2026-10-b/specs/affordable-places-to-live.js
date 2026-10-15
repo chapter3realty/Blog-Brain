@@ -105,29 +105,29 @@ const mins = (m) => `${m < 15 ? Math.max(1, Math.round(m)) : Math.round(m / 5) *
    (row 212). */
 const P = [
   { id: "parkview", name: "Parkview", map: "Parkview", lat: 33.686431, lon: -78.910360, price: 190000, mb: 6.1, beach: 4.0, year: 4700,
-    feature: "beach 4 min", schools: "Myrtle Beach Elementary, Middle and High" },
+    feature: "4 min to the beach, golf", schools: "Myrtle Beach Elementary, Middle and High" },
   { id: "fairways-at-wild-wing", name: "The Fairways at Wild Wing", map: "Fairways at Wild Wing", lat: 33.787649, lon: -78.986234, price: 215000, mb: 16.5, beach: 17.8, year: 6100,
-    feature: "garage", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "own garage, golf community", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "sawgrass-east", name: "Sawgrass East", map: "Sawgrass East", lat: 33.756167, lon: -78.929975, price: 222500, mb: 16.7, beach: 17.9, year: 6000,
-    feature: "garage, pool", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "pool, gym 6 min away", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "birchwood", name: "Birchwood", map: "Birchwood", lat: 33.925885, lon: -78.754012, price: 223825, mb: 41.6, beach: 20.2, year: 2400,
-    feature: "new, quarter acre", schools: "Daisy Elementary, Loris Middle, Loris High" },
+    feature: "new house, quarter acre", schools: "Daisy Elementary, Loris Middle, Loris High" },
   { id: "golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", map: "Golf and Yacht Club", lat: 33.649402, lon: -79.05007, price: 225000, mb: 22.9, beach: 15.0, year: 2100,
-    feature: "gated", schools: "St. James Elementary, Intermediate, Middle and High" },
+    feature: "gated, one-story homes", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "forestbrook-village", name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6, year: 3000,
-    feature: "big plans", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
+    feature: "the biggest townhomes", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
   { id: "victory-point", name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9, year: 3800,
-    feature: "old speedway land", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "new, by Tanger Outlets", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6, year: 2200,
-    feature: "smart homes", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
+    feature: "smart homes, game days", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
   { id: "villas-at-sandridge", name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46, year: 4600,
-    feature: "beach 7 min", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
+    feature: "7 min to the beach", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2, year: 2000,
-    feature: "low flood risk", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
+    feature: "new, low flood risk", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
   { id: "wynbrooke", name: "Wynbrooke", map: "Wynbrooke", lat: 33.584176, lon: -79.048446, price: 249500, mb: 19.8, beach: 8.9, year: 6500,
-    feature: "MarshWalk 5 min", schools: "St. James Elementary, Intermediate, Middle and High" },
+    feature: "5 min to the MarshWalk", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "polo-farms", name: "Polo Farms", map: "Polo Farms", lat: 33.917844, lon: -78.812061, price: 255000, mb: 36.0, beach: 22.0, year: 1300,
-    feature: "$20 HOA fee", schools: "Daisy Elementary, Loris Middle, Loris High" },
+    feature: "one-story, $20 HOA fee", schools: "Daisy Elementary, Loris Middle, Loris High" },
 ];
 const N = Object.fromEntries(P.map((p, i) => [p.id, Object.assign(p, { n: i + 1 })]));
 const A = (id) => "#" + id;
@@ -139,7 +139,7 @@ const pr = (id) => money(N[id].price);
 /* The selection guide: the glass price chart, each place's best feature beside its price (row 212, 222). The
    gray Myrtle Beach bar comes first, so the point is clear before the list: these cost about half. Compact rows
    (glass.js bars o.compact), so the first place starts sooner on a phone (owner's eye 14, H1). */
-const GUIDE = G.bars([{ name: "A Myrtle Beach home: these cost about half", value: MB_HOUSE, valueText: money(MB_HOUSE), reference: true }]
+const GUIDE = G.bars([{ name: "A Myrtle Beach home", feature: "these cost about half", value: MB_HOUSE, valueText: money(MB_HOUSE), reference: true }]
   .concat(P.map((p) => ({ name: `${p.n}. ${p.chart || p.map}`, value: p.price, valueText: money(p.price), feature: p.feature, href: A(p.id) }))), {
   caption: "What homes usually sold for, and the best thing about each place",
   note: "Tap a name to read about the place. Prices are the middle recorded sale in the past year, condos left out.",
@@ -187,6 +187,9 @@ ph.share("old-speedway-and-victory-point-labelled-from-above");
    price and the HOA fee in one plain sentence, then the pill, "Book a showing in X". The sentence sits in the
    offer box (div.c3-place-cta), as on the gated and best-neighborhoods pages: it is the reader's next fact
    before they act, and repeat-check reads it as the offer. The yearly fee and tax are in the table. */
+/* On a phone each place's best feature takes its own line under the name, whole, so no label breaks
+   in the middle (the name, the label, then the thin bar and the price). */
+const GUIDE_PHONE_CSS = "<style>@media (max-width:699px){main#main .c3-gchart-compact .dot{display:none}main#main .c3-gchart-compact .f{display:block}}</style>";
 const PLACE_CSS = "<style>main#main .c3-place-cta{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.2rem;max-width:760px;margin:1.6rem 0 .4rem;padding:1rem 1.2rem;border-radius:20px;"
   + "background:linear-gradient(180deg,rgba(255,255,255,.76),rgba(255,255,255,.52));border:1px solid var(--g-edge,rgba(255,255,255,.8));box-shadow:var(--g-hi,none),var(--g-sh,none)}"
   + "main#main .c3-place-cta>p:first-child{flex:1 1 18rem;margin:0;color:var(--navy);font-size:var(--read,1.0625rem);line-height:1.55}"
@@ -239,7 +242,7 @@ module.exports = G.page({
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "The twelve at a glance", id: "compare", html: () =>
-      PHOTO_CSS + PLACE_CSS + GUIDE },
+      PHOTO_CSS + PLACE_CSS + GUIDE_PHONE_CSS + GUIDE },
 
     entry("parkview", "a four-minute beach drive, by the city's golf course", () =>
       h.p("Parkview has the shortest beach drive on this list, a four-minute trip. Its gated townhomes are off 17th Avenue South, inside the city of Myrtle Beach.") +
