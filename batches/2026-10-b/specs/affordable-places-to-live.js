@@ -242,7 +242,7 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "Each affordable place near Myrtle Beach ends with a showing offer.",
+  sub: "Affordable neighborhoods near Myrtle Beach where a budget still buys a garage, a pool or a new house.",
   toc: false,
   heroCta: { title: "See any of them in person.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
@@ -256,7 +256,7 @@ module.exports = G.page({
 
     entry("parkview", "townhomes by the city's golf course, near the beach", () =>
       h.p("Parkview is a four-minute drive from the beach. Its townhomes are off 17th Avenue South, inside the city of Myrtle Beach, around ponds and a pool for owners.") +
-      h.p("Built in the mid-2000s, the townhomes have about 1,050 to 1,350 square feet and two or three bedrooms. Many have vaulted ceilings, a covered front porch and a screened back porch.") +
+      h.p("Built in the mid-2000s, the townhomes have about 1,050 to 1,350 square feet and two or three bedrooms. The ones on the market lately have had vaulted ceilings, a covered front porch and a screened back porch.") +
       PH["parkview"] +
       h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}, is less than a quarter mile from Parkview. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Residents of Horry, Georgetown and Brunswick counties play a round there for $45 plus tax, with a cart.`) +
       h.p("There are about 200 townhomes here, and the HOA fee includes water, sewer, grounds care and the pool. On a weekday evening, the shops, restaurants and movie theater at The Market Common are a ten-minute trip.") +
@@ -269,7 +269,7 @@ module.exports = G.page({
       h.p("The yearly tax is higher here than outside a town, because the Fairways is inside Conway's city limits.")),
 
     entry("sawgrass-east", "three-bedroom townhomes with a garage", () =>
-      h.p("Many Sawgrass East townhomes have three bedrooms, a one-car garage and the main bedroom downstairs. Some have a loft above and a screened or covered back porch. The HOA fee usually covers the insurance on the buildings, the lawn care, and the water, sewer and trash.") +
+      h.p("Many Sawgrass East townhomes have three bedrooms. The ones on the market lately have had a one-car garage, the main bedroom downstairs and a back porch. The HOA fee usually covers the insurance on the buildings, the lawn care, and the water, sewer and trash.") +
       h.p("There are about 255 townhomes, built in the mid-2000s, around three small lakes that the HOA owns. Owners share a pool and a clubhouse. The neighborhood is off Carolina Forest Boulevard, a little over two miles from US 501.") +
       h.p("For a workout or a library book, the county's Carolina Forest Recreation Center and library share a campus, a six-minute drive from home.")),
 
@@ -327,7 +327,7 @@ module.exports = G.page({
     entry("polo-farms", "one-story houses with fenced yards", () =>
       h.p("Many backyards in Polo Farms are fenced, and several have their own pool. Most of the houses are one story, with three bedrooms, on lots of about a fifth of an acre.") +
       PH["polo-farms"] +
-      h.p("Many have an attached two-car garage. The houses are off SC 905, west of Longs, and were built in three phases, from the mid-2000s on.") +
+      h.p("The houses are off SC 905, west of Longs, and were built in three phases, from the mid-2000s on.") +
       h.p("The neighborhood has no shared pool or clubhouse; its common land is two ponds, some woods and the strips along the highway.") +
       h.p(`Flood is a concern here. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone. Before you make an offer, we look up the lot on FEMA's flood map.`)),
 
