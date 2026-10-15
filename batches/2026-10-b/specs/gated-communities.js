@@ -112,7 +112,7 @@ const GUIDE_CSS = `<style>
 .c3g-guide{display:grid;gap:1rem;max-width:960px;margin:.4rem 0 0}
 @media(min-width:900px){.c3g-guide{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start}}
 main#main .c3-want.c3g-list{list-style:none;margin:0;padding:.3rem 1rem}
-main#main .c3-want.c3g-list>li{padding:.45rem 0;line-height:1.45;background:none;box-shadow:none;border:0!important;border-bottom:1px solid rgba(28,32,40,.12)!important;border-radius:0!important}
+main#main .c3-want.c3g-list>li{padding:.35rem 0;line-height:1.45;background:none;box-shadow:none;border:0!important;border-bottom:1px solid rgba(28,32,40,.12)!important;border-radius:0!important}
 main#main .c3-want.c3g-list>li:last-child{border-bottom:0!important}
 .c3-want b{color:var(--navy);font-weight:600;margin-right:.45rem}
 .c3-want a{color:var(--navy);text-decoration:underline;text-underline-offset:.18em}
@@ -148,7 +148,7 @@ const MAP = (() => {
   const m = regionMap({ name: "Where the 20 gated neighborhoods are", areas }, MAPDIR);
   if (m.areasUnlabelled && m.areasUnlabelled.length) console.warn(`gated-communities: no room on the map for ${m.areasUnlabelled.length} area names; the key names them`);
   const key = m.areasUnlabelled && m.areasUnlabelled.length ? m.areaKey : "";
-  return `<figure class="c3g-map">${m.html}${key}<figcaption>Where the five areas are along the coast. ${m.credit}</figcaption></figure>`;
+  return `<figure class="c3g-map">${m.html}${key}<figcaption>${m.credit}</figcaption></figure>`;
 })();
 
 /* The selection guide: every place once, under what it does best (features, never people). */
@@ -274,7 +274,7 @@ const SECTIONS_PLACES = [
   entry("wachesaw-plantation", "a members' club on a bluff above the river", [
     "Before the neighborhoods were planned, archaeologists dug at Wachesaw. Their University of South Carolina study of Wachesaw and the neighboring Richmond Hill plantation found more than half a million artifacts. Some finds are on display in the clubhouse.",
     `The ${h.ext(WACHESAW, "Wachesaw Plantation Club")} is owned by its members. Its Tom Fazio course has hosted Carolinas Golf Association championships. Each March the members host the Can-Am Junior Team Matches, an event they saved when its first home closed.`,
-    "Kimbels, the club's restaurant, is on the bluff above the waterway and the 18th green, with a Tavern Room, open decks and an enclosed porch. Wachesaw's eight clay tennis courts, five of them lit, and its book clubs and card groups fill the rest of the week. Visitors stop at security at the gate, and Wacca Wache Marina, outside the gates, has about 100 wet slips and indoor racks.",
+    "Kimbels, the club's restaurant, is on the bluff above the waterway and the 18th green, with a Tavern Room, open decks and an enclosed porch. Wachesaw's eight clay tennis courts and its book clubs and card groups fill the rest of the week. Visitors stop at security at the gate, and Wacca Wache Marina, outside the gates, has about 100 wet slips and indoor racks.",
     "The club is rebuilding its pool and its Magnolia's restaurant, so part of the club is a work site for now.",
   ], "Homes usually sell for about $700,000, and the HOA fee on most homes is about $150 a month."),
 
@@ -288,7 +288,7 @@ const SECTIONS_PLACES = [
     `The Reserve's marina sits at the southern tip of Sandy Island, where Thoroughfare Creek meets the Waccamaw River. Staff launch and haul boats from ${h.ext(RESERVE_MARINA, "a dry storage building that holds about 200")}. The marina also has a fuel dock, and a boardwalk runs through a cypress forest to the river.`,
     "The Reserve Golf Club is a private Greg Norman course of up to 7,200 yards, set among 160 acres of wetlands. It has hosted the Carolinas Mid-Amateur twice, and a golf membership includes the club's dining and social events.",
     "Each fall the Pawleys Island Festival of Music & Art puts up its tent at the golf club, and the neighborhood has private beach access with parking.",
-    "Dry storage takes boats up to 27 feet. A bigger boat needs a wet slip, which takes 29 to 35 feet, or a side tie of up to 60 feet.",
+    "Dry storage takes boats up to 27 feet. A bigger boat needs a wet slip or a side tie.",
   ], "Homes usually sell for about $1.3 million, and the HOA fee on most homes is about $320 a month."),
 
   entry("willbrook-plantation", "a neighborhood on three rice plantations", [
@@ -361,12 +361,13 @@ module.exports = G.page({
   eyebrow: "Gated communities",
   h1: "Where are the gated communities near Myrtle Beach?",
   h1em: "From the Cherry Grove marsh to the ocean at DeBordieu.",
-  sub: "Of these gated communities, two sit on the ocean, two have a staffed marina and ten have golf, from North Myrtle Beach to Pawleys Island.",
+  sub: "Two of these gated communities sit on the ocean, and ten have golf.",
   heroCta: { title: "Get this week's homes for sale in these gated neighborhoods", text: OFFER_SHORT, label: OFFER_LABEL, href: OFFER },
+  topOfferLine: "This week's gated homes for sale",
   author: "devin",
   toc: false,
   shortAnswer: [
-    `Here are 20 gated neighborhoods along this coast. Homes in them sell for about $200,000 to $2.2 million, and the HOA fee in most is about $90 to $400 a month. Where there is a golf or beach club, it is usually a separate membership from the HOA, with its own dues. ${h.a("#gated-communities-faq", "Read what a gate does and does not do")}.`,
+    `Homes in these 20 gated neighborhoods sell for about $200,000 to $2.2 million, and most HOA fees are about $90 to $400 a month. A golf or beach club is usually a separate membership with its own dues, and we ask the club for the current figures.`,
   ],
   sections: [
     { id: "choose", html: () =>

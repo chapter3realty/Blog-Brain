@@ -162,7 +162,7 @@ const MAP = (() => {
   const north = draw("Homes with no HOA, coast close-up B", PANEL.north.map(areaOf));
   const box = (name, mark, f) => ({ name, mark, polygon: [[f.west, f.south], [f.east, f.south], [f.east, f.north], [f.west, f.north]] });
   /* The whole area carries four inland areas and two boxes: a wide, short frame (area-map.js maxRatio). */
-  const inland = draw("Homes with no HOA around Myrtle Beach", PANEL.inland.map(areaOf).concat([box("Close-up A", "A", south.frame), box("Close-up B", "B", north.frame)]), { maxRatio: 0.8 });
+  const inland = draw("Homes with no HOA around Myrtle Beach", PANEL.inland.map(areaOf).concat([box("Close-up A", "A", south.frame), box("Close-up B", "B", north.frame)]), { maxRatio: 0.7 });
   const panel = (m, label) => `<div class="c3-nh-panel"><p class="c3-nh-label">${label}</p>${m.html}</div>`;
   const css = "<style>.c3-nh-maps{display:grid;gap:.9rem}.c3-nh-panel img,.c3-nh-panel svg{display:block;width:100%;height:auto}"
     + ".c3-nh-label{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);margin:0 0 .35rem!important}"
@@ -306,16 +306,16 @@ module.exports = GL.page({
   author: "devin",
   shortAnswer: [
     "The surest sign is the address. Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and most of those are in the areas below.",
-    "Age is another sign. Of the houses for sale built before 1990, about three in four had no HOA fee in the listing. Of those built since, fewer than one in five did.",
+    "Age is another sign: about three in four houses for sale built before 1990 had no HOA fee listed, and fewer than one in five built since.",
   ],
 
   sections: [
     { h2: "Where are the homes with no HOA fee?", toc: "The map and the guide", id: "where", html: () =>
       ph.css() + CHIP_CSS + MAP +
       h.p(`<strong>A boat at home:</strong> ${go("cherry-grove")} on the canals; ${go("little-river")}, ${go("socastee")} and ${go("garden-city")} by a county landing.`) +
-      h.p(`<strong>Most houses a 10-minute walk from the beach:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
+      h.p(`<strong>A 10-minute walk to the beach:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
       h.p(`<strong>An old town center:</strong> ${go("mb-downtown", "Downtown Myrtle Beach")}, ${go("conway")} and ${go("loris")}.`) +
-      h.p(`<strong>Half-acre lots with a Myrtle Beach address:</strong> ${go("mb-pine-lakes")} and ${go("mb-plantation-point")}.`) +
+      h.p(`<strong>Half-acre lots:</strong> ${go("mb-pine-lakes")} and ${go("mb-plantation-point")}.`) +
       h.p(`<strong>An acre and a new house:</strong> ${go("aynor")} and ${go("loris-country", "the country around Loris")}.`) },
 
     entry("mb-downtown", "older streets by Withers Swash", [

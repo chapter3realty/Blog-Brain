@@ -698,9 +698,9 @@
   {
     "row": "neighborhoods 258 (the-farm 27, 28; neighborhoods 40)",
     "pattern": "\\bfrom the middle of each neighborhood",
-    "unless": "Farmers Rest Drive|entrance|names another start|^Times are by car with no traffic, from the middle of each neighborhood to the nearest public beach acces",
+    "unless": "Farmers Rest Drive|entrance|names another start|^Times are by car with no traffic[^.]{0,80}from the middle of each neighborhood to the nearest public beach acces",
     "struck": "Drive times are by car with no traffic, from the middle of each neighborhood, to the nearest public beach access.",
-    "use": "Times are by car with no traffic, from the middle of each neighborhood to the nearest public beach access (The Farm's cell is now its middle, about 12 minutes). (Lead's voice decision, 2026-10-15.)"
+    "use": "Times are by car with no traffic, except Cherry Grove and Surfside Beach, which are on foot, from the middle of each neighborhood to the nearest public beach access (The Farm's cell is now its middle, about 12 minutes). (Lead's voice decision, 2026-10-15; verifier v7 added the walking exception, because two cells in the same table are walks.)"
   },
   {
     "row": "neighborhoods 258 (the-farm 27, 28; neighborhoods 40)",
@@ -795,5 +795,134 @@
     "unless": "\\blisted\\b",
     "struck": "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale have no homeowners association (HOA) fee.",
     "use": "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale are listed with no homeowners association (HOA) fee."
+  },
+  {
+    "row": "neighborhoods 260, 265",
+    "pattern": "\\bOwners have a storage yard for boats, campers and RVs at no extra charge",
+    "struck": "Owners have a storage yard for boats, campers and RVs at no extra charge.",
+    "use": "Tidewater has a fenced storage area for owners' boats, trailers and RVs, with a limited number of spaces assigned by a yearly lottery, one per household [Tidewater Plantation Community Association rules, 2011 copy]."
+  },
+  {
+    "row": "neighborhoods 260, 265",
+    "pattern": "\\bgolf, brunch and a boat yard on the marsh side",
+    "struck": "4. Tidewater Plantation: golf, brunch and a boat yard on the marsh side",
+    "use": "(rename it: the association rules describe a limited storage area, not a boat yard; head the entry with the golf and the brunch)"
+  },
+  {
+    "row": "neighborhoods 260, 265",
+    "pattern": "\\bSouth Island section, across a wooden bridge",
+    "struck": "The South Island section, across a wooden bridge, has its own dock and a clubhouse with a pool.",
+    "use": "South Island has its own pool, for South Island residents and their guests [Tidewater Plantation Community Association rules, 2011 copy]. Listings from 2020 and 2024 also mention a neighborhood dock."
+  },
+  {
+    "row": "neighborhoods 261, 265",
+    "pattern": "\\bthe first home in Myrtle Beach away from the oceanfront to sell for more than a million dollars",
+    "struck": "It was the first home in Myrtle Beach away from the oceanfront to sell for more than a million dollars.",
+    "use": "(cut it: one source, the developer's former sales director, and the article says it of the development, not of this house; a superlative needs two sources)"
+  },
+  {
+    "row": "neighborhoods 207, 261, 265",
+    "pattern": "\\bOwners Association has named it its course of the year",
+    "unless": "\\b2009\\b",
+    "struck": "The National Golf Course Owners Association has named it its course of the year.",
+    "use": "The National Golf Course Owners Association named the Resort Club course its course of the year in 2009."
+  },
+  {
+    "row": "neighborhoods 207, 261, 265",
+    "pattern": "^Grande Dunes: a course of the year$",
+    "struck": "Grande Dunes: a course of the year",
+    "use": "(add the year or cut it: the award is from 2009, and 'a course of the year' reads as recent)"
+  },
+  {
+    "row": "neighborhoods 86 (the-farm), 176, 265",
+    "pattern": "\\ba house costs about \\$2,600 a year at The Farm",
+    "unless": "\\byou live in\\b",
+    "struck": "Besides the mortgage, a house costs about $2,600 a year at The Farm and about $5,600 at Tidewater Plantation.",
+    "use": "Besides the mortgage, a house you live in costs about $2,600 a year at The Farm, at a price of about $350,000, and about $5,600 at Tidewater Plantation, at about $625,000. That counts the HOA fee, the property tax and flood insurance where it is required."
+  },
+  {
+    "row": "neighborhoods 243, 228, 265",
+    "pattern": "\\ba school half a mile away",
+    "struck": "14. Berkshire Forest: a school half a mile away and a water slide",
+    "use": "(narrow it: half a mile is the drive from the middle of the Berkshire Village section; from a typical Berkshire Forest home River Oaks Elementary is about 1 mile by road, and the heading and the guide line speak for all of Berkshire Forest)"
+  },
+  {
+    "row": "neighborhoods 259, 265",
+    "pattern": "\\bbrunch is down the street",
+    "struck": "At Tidewater Plantation, brunch is down the street.",
+    "use": "Joey's Clubhouse Grille is about 3 minutes by car from a typical Tidewater home, and no more than about 6 from the farthest [OSRM, no traffic, 90 homes sampled]."
+  },
+  {
+    "row": "neighborhoods 263, 228, 265",
+    "pattern": "\\bhave more than 1,100 homes together, on lots of about a fifth of an acre",
+    "struck": "Berkshire Forest and its Berkshire Village section have more than 1,100 homes together, on lots of about a fifth of an acre.",
+    "use": "Berkshire Forest and its Berkshire Village section have more than 1,100 homes together, on lots of about 0.17 acre, about a sixth of an acre [county parcels, median of 1,174 lots with a house]."
+  },
+  {
+    "row": "neighborhoods 147, 265",
+    "pattern": "\\bHouses in Prince Creek sold for about \\$560,000",
+    "struck": "Houses in Prince Creek sold for about $560,000 in the past year, and townhouses for less.",
+    "use": "Five house resales in Prince Creek's named sections sold for a middle of about $558,000 in the past year, and five townhouse resales for a middle of about $354,000 [deed index, October 2025 to September 2026]."
+  },
+  {
+    "row": "neighborhoods 147, 265",
+    "pattern": "^Houses about \\$560,000; Bellwood \\$810,000$",
+    "struck": "Houses about $560,000; Bellwood $810,000",
+    "use": "(say 'five house resales, middle about $558,000' or give the range: five sales is a small sample)"
+  },
+  {
+    "row": "neighborhoods 3, 265",
+    "pattern": "\\bThe middle home sale in these two sections in the past year was about \\$600,000",
+    "struck": "The middle home sale in these two sections in the past year was about $600,000, and half sold for $540,000 to $670,000.",
+    "use": "Of about 17 resales in The Preserve and Pine Lakes Estates in the past year, the middle sold for $600,000 and half sold between $540,000 and $670,000 [deed index]."
+  },
+  {
+    "row": "neighborhoods 4, 265",
+    "pattern": "\\bOwners in the two sections pay an HOA fee of about \\$95",
+    "struck": "Owners in the two sections pay an HOA fee of about $95 a month.",
+    "use": "Listings in The Preserve show an HOA fee of about $95 a month [12 detached listings, $95 to $98, October 2026]; the listings in Pine Lakes Estates show none."
+  },
+  {
+    "row": "neighborhoods 258, 264, 265",
+    "pattern": "^Times are by car with no traffic",
+    "unless": "\\bon foot\\b",
+    "struck": "Times are by car with no traffic, from the middle of each neighborhood to the nearest public beach access.",
+    "use": "Times are by car with no traffic, except Cherry Grove and Surfside Beach, which are on foot, from the middle of each neighborhood to the nearest public beach access."
+  },
+  {
+    "row": "neighborhoods 264, 265",
+    "pattern": "\\bits neighborhoods here are 10 to 20 minutes from the beach by car",
+    "struck": "Carolina Forest has almost no homes in a high-risk flood zone, and its neighborhoods here are 10 to 20 minutes from the beach by car.",
+    "use": "The four Carolina Forest neighborhoods here are 12 to 20 minutes from the beach by car."
+  },
+  {
+    "row": "neighborhoods 55, 67, 80 and the-farm 71, 265",
+    "pattern": "\\bCarolina Forest has almost no homes in a high-risk flood zone",
+    "struck": "Carolina Forest has almost no homes in a high-risk flood zone, and its neighborhoods here are 10 to 20 minutes from the beach by car.",
+    "use": "Of the homes in the four Carolina Forest neighborhoods here, only 14, all in Waterbridge, are in a high-risk flood zone [county copy of the FEMA flood map]."
+  },
+  {
+    "row": "neighborhoods 259, 265",
+    "pattern": "\\bThe tables look out over the course",
+    "struck": "The tables look out over the course.",
+    "use": "Joey's Clubhouse Grille has a view of the golf course [Tidewater Golf Club]."
+  },
+  {
+    "row": "neighborhoods 215, 265",
+    "pattern": "\\bThe golf course winds between the homes",
+    "struck": "The golf course winds between the homes.",
+    "use": "Many of Tidewater's houses are along the fairways."
+  },
+  {
+    "row": "neighborhoods 220, 234, 265",
+    "pattern": "newer houses and a garden plot of your own|^Forestbrook Estates: a garden plot$",
+    "struck": "12. Forestbrook Estates: newer houses and a garden plot of your own",
+    "use": "(rename it: the garden is a community garden with plots on the pool grounds, from listings and the 2023 aerial; no owner document says every owner can have a plot)"
+  },
+  {
+    "row": "neighborhoods 249, 265",
+    "pattern": "\\bin Warbird Park nearby",
+    "struck": "Three Air Force jets stand in Warbird Park nearby, on loan to the city, among them an A-10 Warthog.",
+    "use": "Three Air Force jets stand in Warbird Park, on loan to the city, among them an A-10 Warthog. The park is about a 3-minute drive from the middle of The Market Common."
   }
 ]
