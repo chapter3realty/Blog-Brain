@@ -174,6 +174,12 @@ check("areas: no area name touches another label or mark", !overlaps(am), overla
 check("areas: a name outside its area is nearer it than any other area", am.boxes.filter((b) => /^area\d+$/.test(b.owner) && b.kind === "label").length >= AREAS.length - 1);
 check("areas: the alt text names the circled areas", /Circled areas: Conway, Loris, Aynor, Little River, Surfside Beach and Socastee\./.test(am.alt));
 check("areas: a town inside an area is not named twice", !/>CONWAY</.test(am.svg) && !/>LORIS</.test(am.svg));
+{ /* Each pill beside its own circle (round 14: a name sat top center, its circle top right): the label box's
+     nearest point is within 14 units of its circle's edge, from the circle's middle and radius in the svg. */
+  const circ = [...am.svg.match(/<g class="ar"[^>]*>([\s\S]*?)<\/g>/)[1].matchAll(/<circle cx="([\d.-]+)" cy="([\d.-]+)" r="([\d.]+)"\/>/g)].map((m) => m.slice(1).map(Number));
+  const far = am.boxes.filter((b) => b.kind === "label" && /^area\d+$/.test(b.owner)).filter((b) => { const c = circ[+b.owner.slice(4)]; if (!c) return false;
+    const dx = Math.max(b.x0 - c[0], 0, c[0] - b.x1), dy = Math.max(b.y0 - c[1], 0, c[1] - b.y1); return Math.hypot(dx, dy) - c[2] > 15; }).map((b) => b.owner);
+  check("areas: every pill sits beside its own circle", !far.length, far.join()); }
 const num = regionMap({ name: "Areas numbered", areas: AREAS, areaLabels: "numbers" }, { inlineMax: 1e9 });
 check("areas: numbers mode numbers every area in its order and lists them in the key", num.areas.every((a, i) => !a.labelled && a.mark === String(i + 1)) && (num.areaKey.match(/<li /g) || []).length === AREAS.length);
 const mixed = regionMap({ name: "Areas and places", places: PLACES.slice(0, 3), areas: AREAS.slice(0, 2), areaLabels: "numbers" }, { inlineMax: 1e9 });

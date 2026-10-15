@@ -1522,28 +1522,46 @@ function regionMap(spec, opts = {}) {
       lines = ls;
       w = Math.max(tw2(ap.a.name, AN) * 1.03, ls[1] ? tw2(ls[1], AT) : 0) + APX * 2;
       h = AN + 2 + (ls[1] ? AT + 3 : 0) + APY * 2;
-      /* Inside, when the area holds the pill with room to spare (so its edge still shows); else just
-         outside the edge, the pill's near side 3 to 23 units off it, top first. Never over a small
-         area's middle, which would hide the circle. */
+      /* Inside, when the area holds the pill with room to spare (so its edge still shows). Else beside
+         the area, its near side 4 (then 10) units off the edge: right, left, below, above, the first that
+         is inside the frame and clear of every other pill, circle and mark, slid along its side when it
+         needs to; then the four corners. Never over a small area's middle, which would hide the circle. A pill further off read as
+         another area's (owner's eye, round 14: "North Myrtle Beach" sat top center, its circle top right). */
       const roomy = ap.r * 2 >= w + 16 && ap.r * 2 >= h * 2.4;
-      const rings = (roomy ? [[0, 0], [0.35, 0]] : []).concat([[1, 3], [1, 13], [1, 23]]);
-      for (const [f, gap] of rings) {
-        const n = f === 0 ? 1 : 16;
-        for (let k = 0; k < n && !best; k++) {
-          const ang = -Math.PI / 2 + k * 2 * Math.PI / n, co = Math.cos(ang), si = Math.sin(ang);
-          const rr = gap ? ap.r + Math.abs(co) * w / 2 + Math.abs(si) * h / 2 + gap : ap.r * f;
-          const x = ap.cx + rr * co, y = ap.cy + rr * si;
-          const b = rect2(x, y, w, h);
-          if (!L.fits(b, 2, own)) continue;
-          /* Inside its own area, or just outside it and clearly nearer it than any other area, so it
-             is never read as another area's name. */
-          if (!inAreaPx(ap, x, y)) {
-            const dOwn = edgeDist(ap, b);
-            if (dOwn > 26 || areaPx.some((o) => o !== ap && edgeDist(o, b) < dOwn + 10)) continue;
-          }
-          best = { x, y, b };
-        }
+      const SIDES = [0, Math.PI, Math.PI / 2, -Math.PI / 2], CORNERS = [-Math.PI / 4, -3 * Math.PI / 4, Math.PI / 4, 3 * Math.PI / 4];
+      const cands = (roomy ? [[0, 0, 0], [0.35, 0, -Math.PI / 2], [0.35, 0, Math.PI / 2]] : [])
+        .concat(...[SIDES, CORNERS].flatMap((set) => [4, 10].map((gap) => set.map((ang) => [1, gap, ang]))));
+      for (const [f, gap, ang] of cands) for (const shift of gap && Math.abs(Math.cos(ang)) < 0.1 || gap && Math.abs(Math.sin(ang)) < 0.1 ? [0, -8, 8, -16, 16, -24, 24, -32, 32, -44, 44, -56, 56] : [0]) {
         if (best) break;
+        const co = Math.cos(ang), si = Math.sin(ang);
+        /* A side: the pill's middle on the line out from the area's middle, slid along that side by
+           shift units (into the frame, or clear of a mark) while it still spans the area's middle. A
+           corner: the pill's corner just off the edge at 45 degrees. */
+        const corner = gap && Math.abs(co) > 0.1 && Math.abs(si) > 0.1;
+        const rr = gap ? ap.r + Math.abs(co) * w / 2 + Math.abs(si) * h / 2 + gap : ap.r * f;
+        let x = corner ? ap.cx + ap.r * co + Math.sign(co) * (w / 2 + gap * 0.7) : ap.cx + rr * co;
+        let y = corner ? ap.cy + ap.r * si + Math.sign(si) * (h / 2 + gap * 0.7) : ap.cy + rr * si;
+        if (gap && !corner) {
+          const M = EDGE + 1;
+          if (Math.abs(si) > 0.5) { if (Math.abs(shift) > w / 2 - 4) continue; x = Math.max(M + w / 2, Math.min(F.W - M - w / 2, x + shift)); if (Math.abs(x - ap.cx) > w / 2 - 4) continue; }
+          else {
+            if (Math.abs(shift) > h / 2 - 2) continue;
+            y = Math.max(M + h / 2, Math.min(F.H - M - h / 2, y + shift)); if (Math.abs(y - ap.cy) > h / 2 - 2) continue;
+            /* A wide pill at a frame edge may come back over its own area's edge, up to a third of its
+               width, so it sits on its own circle rather than far from it. */
+            const nx = Math.max(M + w / 2, Math.min(F.W - M - w / 2, x));
+            if (Math.abs(nx - x) > Math.min(ap.r, w / 3)) continue;
+            x = nx;
+          }
+        }
+        const b = rect2(x, y, w, h);
+        if (!L.fits(b, 2, own)) continue;
+        /* Inside its own area, or beside it and clearly nearer it than any other area. */
+        if (!inAreaPx(ap, x, y)) {
+          const dOwn = edgeDist(ap, b);
+          if (dOwn > 14 || areaPx.some((o) => o !== ap && edgeDist(o, b) < dOwn + 10)) continue;
+        }
+        best = { x, y, b };
       }
       if (best) break;
     }

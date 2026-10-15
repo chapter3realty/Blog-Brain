@@ -254,5 +254,11 @@
     "pattern": "\\bUS 17 Business, the coast road",
     "struck": "Many of the houses listed with no fee are on the ocean side of US 17 Business, the coast road, and houses there cost more.",
     "use": "About a third of the houses listed with no fee are on the ocean side of US 17 Business, and they list at about $800,000, against about $435,000 for the others."
+  },
+  {
+    "row": "no-hoa 118",
+    "pattern": "Myrtle Heights[^.]{0,160}\\bfrom the 1920s to the 1940s|\\bfrom the 1920s to the 1940s[^.]{0,80}Myrtle Heights|National Register[^.]{0,80}from the 1920s to the 1940s",
+    "struck": "It is on the National Register of Historic Places for its houses from the 1920s to the 1940s.",
+    "use": "Myrtle Heights is on the National Register for houses from 1925 to 1949 [NPS, NRIS 96001217]."
   }
 ]

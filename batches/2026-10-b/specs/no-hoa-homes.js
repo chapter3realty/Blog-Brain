@@ -54,7 +54,9 @@ const ph = kit.photoSet({ aerialWidth: "760px" });
 /* One picture per area where we have a lawful one of the place itself (photos.json records; the photo
    partner's ground photos will replace them). Made at load time: mkpage reads pageImages first. */
 const PHOTO = {
-  "mb-downtown": ph.aerial("myrtle-beach-older-streets-from-above", "Houses on older streets between US 17 Business and the beach in Myrtle Beach, from the air."),
+  /* The frame is centered at 33.7305, -78.836 (its source_request bbox): the Pine Lakes streets east of
+     US 17 Business, where two of the six Pine Lakes listings are, not downtown (lesson B29). */
+  "mb-pine-lakes": ph.aerial("myrtle-beach-older-streets-from-above", "Houses on the older Pine Lakes streets between US 17 Business and the beach, from the air."),
   "cherry-grove": ph.aerial("cherry-grove-canal-streets-from-above", "Houses on the Cherry Grove canals from the air. Almost every home here is in a high-risk flood zone."),
   "little-river": ph.aerial("little-river-waterway-from-above", "Little River from the air: streets of houses beside the salt marsh and the Intracoastal Waterway."),
   "surfside": ph.aerial("surfside-beach-pier-from-above", "The ocean side of Surfside Beach from the air in 2023, with the new pier being built. It opened in 2024."),
@@ -262,7 +264,7 @@ module.exports = GL.page({
 
     entry("mb-myrtle-heights", "beach houses on the National Register", [
       "Every house for sale in Myrtle Heights was listed with no HOA fee, and every one is within half a mile of the ocean.",
-      `${h.ext(NPS_MH, "Myrtle Heights")} is along Ocean Boulevard from about 32nd to 46th Avenue North. It is on the National Register of Historic Places for its houses from the 1920s to the 1940s.`,
+      `${h.ext(NPS_MH, "Myrtle Heights")} is along Ocean Boulevard from about 32nd to 46th Avenue North. Its houses built from 1925 to 1949 put it on the National Register of Historic Places.`,
       "Those houses were built in the Craftsman and Colonial Revival styles. Two of the houses for sale are from that era, and a new oceanfront house was listed beside them.",
       "Myrtle Heights is inside the city, so the city's limits on boats and work trucks apply.",
       "Houses here were listed from about $750,000 to $5.8 million, the highest prices on this list.",
