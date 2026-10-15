@@ -288,7 +288,7 @@ const ENTRIES = [
 
   ENTRY("avalon", "the lowest house price on this page", [
     "Of the 15 neighborhoods here, Avalon, in Carolina Forest, has the lowest house prices.",
-    "An evening softball game needs no drive. The owners' association holds a 9-acre amenity area in the middle of the neighborhood. It has a baseball and softball field, a beach volleyball court, a basketball court and a covered picnic pavilion.",
+    "An evening ball game needs no drive. The owners' association holds a 9-acre amenity area in the middle of the neighborhood. It has a baseball field, soccer fields and a beach volleyball court.",
     "The houses are older and smaller than in the newer neighborhoods here. The ones listed now were built from 2000 to 2006 and have about 1,600 square feet, on lots of about a sixth of an acre.",
   ], "Houses in Avalon resold for a middle price of about $292,000 in the past year, and the HOA fee is about $85 a month."),
 
