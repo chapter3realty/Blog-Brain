@@ -113,7 +113,11 @@ G.offer("Parkview")
 G.offer("Indigo Grove", { label: "Get the homes for sale in Indigo Grove" })
 ```
 
-- **The link format.** `/contact/?place=<the place, URL-encoded>`, for example `/contact/?place=The%20Fairways%20at%20Wild%20Wing`. The contact form does not read `place` yet. The link still names the place, and a one-line change to the contact page can fill the form from it later.
+- **The link format.** `/contact/?place=<the place, URL-encoded>`, for example `/contact/?place=The%20Fairways%20at%20Wild%20Wing`. With `website-patches/contact-place-prefill.patch` (in this batch's upload), the contact form reads `place`:
+  - the message starts with the place, for example "Wachesaw Plantation: ";
+  - "Buying a home" is ticked when nothing else is.
+  
+  The place is read with URLSearchParams and set as plain text, never as markup. It is cut to 80 characters, and a message already typed is kept.
 - The label must name the place, and must read as a request.
   - The default is "Book a showing in X".
   - "Get the homes for sale in X" and "Ask about homes in X" are fine.

@@ -262,3 +262,21 @@ git apply <blog-brain>/website-patches/build-place-entries.patch
 ```
 
 The owner, 2026-10-14, on a list of places: "it counts 1. 2. 3. 4. 5. all the way to 15", each place with its own headline. A headline such as "1. Georgetown: a harbor town with the lowest prices" is an entry of one list, not a section question. `build.js audit` (PLAYBOOK A22, 60 percent of section headings are questions) now leaves out a run of 3 or more headlines numbered in order (`1. Place: words`, `2. Place: words`, ...). Every other heading still counts, and the first section heading must still be a question. Blog-Brain's `score.js` rule A4 does the same, with controls in `score.test.js`. On the live branch no page has such a run, so no other page's result changes. Tested with `git apply --check` on a clean clone of the live branch.
+
+## `contact-place-prefill.patch`: the contact form names the place (batch 2026-10-b)
+
+Each place on a guide page ends with its own offer, a link to `/contact/?place=<place>` (`tools/glass.js` `offer`). This patch adds one script to `chapter3realty/contact/index.html`, after `submitContact`:
+
+- It reads `place` with URLSearchParams.
+- It removes control characters and cuts the place to 80 characters.
+- It starts the message box with "<place>: " by setting the box's `.value`, never as markup. A message already typed is kept.
+- It ticks "Buying a home" when no interest is chosen.
+
+**Tested** on a clean copy of the live branch (commit 39036014):
+
+- `git apply --check` passes, alone and after the batch's other two patches.
+- `node build.js check` and `node build.js audit` pass, with the same output as without the patch.
+- The four 55+ pages rebuild byte for byte.
+- In Chromium, `?place=Wachesaw%20Plantation` gives "Wachesaw Plantation: ".
+- An `<img onerror>` place stays plain text, and no element is added.
+- A 200-character place is cut to 80.
