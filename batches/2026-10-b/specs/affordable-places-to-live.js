@@ -307,7 +307,7 @@ module.exports = G.page({
       h.p("Conway Medical Center is a six-minute drive from the Fairways. Horry-Georgetown Technical College is a seven-minute trip, and Coastal Carolina University an eight-minute one.") +
       PH["fairways-at-wild-wing"] +
       h.p("The townhomes are off Wild Wing Boulevard, inside Wild Wing Plantation on US 501. Wild Wing was once a golf resort with several courses. Three of them closed in 2004, and one later reopened with nine holes.") +
-      h.p("The one that stayed whole is the Avocet, by Larry Nelson and Jeff Brauer. It has a double green and a double fairway, and Golf Digest gave it four stars in its Places to Play ratings. Some Fairways townhomes are near it.") +
+      h.p("The Avocet course, by Larry Nelson and Jeff Brauer, is still open. It has a double green and a double fairway, and Golf Digest gave it four stars in its Places to Play ratings. Some Fairways townhomes are near it.") +
       h.p("The HOA fee includes internet, and usually water and sewer. An Aldi is a three-minute trip up Wild Wing Boulevard.") +
       h.p("The trade-off is tax. The Fairways is inside Conway's city limits, so its yearly tax is higher than outside a town.") +
       costs("fairways-at-wild-wing")),
@@ -363,7 +363,7 @@ module.exports = G.page({
       costs("amber-bluff")),
 
     entry("villas-at-sandridge", "a seven-minute beach trip and a 162-acre park", () =>
-      h.p(`The ${h.ext(NMBPARK, "North Myrtle Beach Park and Sports Complex")}, a five-minute drive, covers 162 acres, with a 25-acre lake, walking trails and two dog parks. Shark Wake Park is on the lake, where a cable pulls riders across the water on wakeboards.`) +
+      h.p(`The ${h.ext(NMBPARK, "North Myrtle Beach Park and Sports Complex")}, a five-minute drive, covers 162 acres, with a 25-acre lake, walking trails and two dog parks. Shark Wake Park, inside the complex, pulls wakeboard riders across the water on a cable.`) +
       PH["villas-at-sandridge"] +
       h.p(`A ${h.ext(NMBEXP, "new section of the park")} has added 11 ball fields, ponds, trails and two more playgrounds. The nearest beach is a seven-minute trip by car.`) +
       h.p("Villas at Sandridge is a small community of 79 townhomes off SC 90 near Little River, with about 8 acres of shared open space. Dream Finders Homes built them with two stories and a one-car garage, and some plans have the main bedroom on the first floor.") +

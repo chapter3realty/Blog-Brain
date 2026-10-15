@@ -29,9 +29,8 @@ const BB = [path.join(__dirname, "..", "tools", "blog-brain-2026-10-b"), process
   .find((d) => fs.existsSync(path.join(d, "tools", "page-kit.js")));
 if (!BB) throw new Error("Blog-Brain tools not found (tools/page-kit.js)");
 const PK = require(path.join(BB, "tools", "page-kit.js"));
-const GL = require(path.join(BB, "tools", "glass.js"));
+const GL = PK.glass;
 const { compareCards } = require(path.join(BB, "tools", "compare.js"));
-const { regionMap } = require(path.join(BB, "tools", "area-map.js"));
 
 /* This batch's files: the website's data/2026-10-b/ (where the upload package puts them), else the
    batch folder in Blog-Brain. */
@@ -49,8 +48,8 @@ for (const f of PHOTO_FILES) for (const r of JSON.parse(fs.readFileSync(f, "utf8
   if (!PHOTOS.some((x) => JSON.stringify(x.variants || x.file) === k)) PHOTOS.push(r);
 }
 const MAP_DIR = path.join(__dirname, "..", "chapter3realty", "images", "maps");
-const kit = PK.create({ h, photos: PHOTOS, mapDir: MAP_DIR, mapSrc: "/images/maps" });
-const { story } = kit;
+const kit = PK.create({ h, theme: "glass", photos: PHOTOS, mapDir: MAP_DIR, mapSrc: "/images/maps" });
+const { story, placesMap } = kit;
 const ph = kit.photoSet({ aerialWidth: "760px" });
 /* One picture per area where we have a lawful one of the place itself (photos.json records; the photo
    partner's ground photos will replace them). Made at load time: mkpage reads pageImages first. */
@@ -132,10 +131,8 @@ for (const k of ORDER) for (const s of A[k].mapShapes) {
   if (s.polygon) a.polygon = s.polygon; else Object.assign(a, { lat: s.lat, lon: s.lon, radius: s.radius });
   MAP_AREAS.push(a);
 }
-const MAP = (() => {
-  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", areas: MAP_AREAS }, { dir: MAP_DIR, src: "/images/maps", glass: true });
-  return PK.mapFigure(h, m.html, "Map of the 16 areas where most homes have no HOA fee, each one circled and named.", m.credit, "no-hoa map") + (m.areaKey || "");
-})();
+const MAP = placesMap("Homes with no HOA around Myrtle Beach", [], { areas: MAP_AREAS, areaLabels: "numbers",
+  caption: "Map of the 16 areas where most homes have no HOA fee, numbered as in the list below." }).html;
 
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
    linked to the contact form with the area named. */
@@ -246,8 +243,7 @@ module.exports = GL.page({
       h.p(`<strong>An old town center.</strong> ${go("mb-downtown")}, ${go("conway")} and ${go("loris")} have older streets near downtown.`) +
       h.p(`<strong>Half-acre lots in Myrtle Beach.</strong> ${go("mb-pine-lakes")}, by the golf course, and ${go("mb-plantation-point")}.`) +
       h.p(`<strong>An acre and a new house.</strong> ${go("aynor")} and ${go("loris-country", "the country around Loris")}.`) +
-      h.p(`<strong>Under $300,000.</strong> ${go("socastee")} and ${go("conway")}.`) +
-      h.p("Almost every home in Carolina Forest, the Grande Dunes, the Market Common and Burgess has an HOA fee.") },
+      h.p(`<strong>Under $300,000.</strong> ${go("socastee")} and ${go("conway")}.`) },
 
     entry("mb-downtown", "older streets near the Boardwalk", [
       "Most houses for sale within a mile of downtown Myrtle Beach list no HOA dues, and most are half a mile or less from the ocean.",
@@ -399,6 +395,7 @@ module.exports = GL.page({
   faqTitle: "Homes with no HOA FAQ",
   faq: [
     { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot. Inside the city of Myrtle Beach, a boat over 16 feet may not be kept in the front yard. Boats and trailers may not park on residential streets. Outside the towns, you can keep your own boat, trailer or camper anywhere on your lot." },
+    { q: "Which areas near Myrtle Beach almost always have an HOA?", a: "Carolina Forest, the Grande Dunes, the Market Common and Burgess. Almost every home for sale there has an HOA fee, and so do almost all of the newer subdivisions in Little River." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "What is a typical HOA fee in Myrtle Beach?", a: `About $${DATA.allNineAreas.detachedHouses.medianMonthlyHoaFee} a month on a house. A condo fee is much higher because it includes the building's insurance, water and sewer, trash and a pool.` },
     { q: "Can you buy a condo with no HOA fee in Myrtle Beach?", a: `Almost never. Of about 2,700 condos for sale around Myrtle Beach, only one was listed with no HOA fee. South Carolina law makes condo owners share the cost of the building.` },
