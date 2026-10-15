@@ -171,10 +171,10 @@ const MAP = (() => {
 
 /* The guide under the map: every area once, by what it does best (by feature only), with its number in a
    badge drawn from data-n (CSS), so the number matches the map without adding a figure to the prose. */
-const GUIDE_CSS = "<style>.c3-nh-guide{margin:.2rem 0 0}.c3-nh-guide p{margin:0 0 .45rem!important;line-height:1.5}"
+const GUIDE_CSS = "<style>.c3-nh-guide{margin:.1rem 0 0}.c3-nh-guide p{margin:0 0 .35rem!important;line-height:1.45}"
   + ".c3-nh-guide a{white-space:nowrap}"
   + ".c3-nh-n::before{content:attr(data-n);display:inline-flex;align-items:center;justify-content:center;min-width:1.45em;height:1.45em;margin:0 .3em 0 .05em;border-radius:999px;font-size:.78em;font-weight:700;line-height:1;color:var(--navy);background:rgba(255,255,255,.85);border:1.5px solid var(--brass-ink,#8a5a2b);vertical-align:.12em}</style>";
-const go = (k) => `<a href="#${ENTRY[k].id}"><span class="c3-nh-n" data-n="${num(k)}" aria-hidden="true"></span>${shortName(k) === "Downtown" ? "Downtown Myrtle Beach" : shortName(k)}</a>`;
+const go = (k) => h.a(`#${ENTRY[k].id}`, `<span class="c3-nh-n" data-n="${num(k)}" aria-hidden="true"></span>${shortName(k) === "Downtown" ? "Downtown Myrtle Beach" : shortName(k)}`);
 const list = (ks) => ks.length === 1 ? go(ks[0]) : ks.slice(0, -1).map(go).join(", ") + " and " + go(ks.at(-1));
 const GUIDE = [
   ["A boat at home, or a boat ramp within 10 minutes", ["cherry-grove", "little-river", "socastee", "surfside", "murrells-inlet"]],
@@ -431,7 +431,7 @@ module.exports = GL.page({
     text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
   author: "devin",
   shortAnswer: [
-    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the areas below, on beach streets, in river towns and on country land.",
+    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the 16 areas below, from beach streets to country land.",
   ],
 
   sections: [

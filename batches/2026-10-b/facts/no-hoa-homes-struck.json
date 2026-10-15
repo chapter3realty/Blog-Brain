@@ -722,5 +722,317 @@
     "pattern": "\\bis still farm and forest land\\b",
     "struck": "The country west and south of Loris is still farm and forest land.",
     "use": "(cut it, or add a row with a land-use source)"
+  },
+  {
+    "row": "no-hoa 149 (v8 N1)",
+    "pattern": "is the only known trace of the early settlement",
+    "struck": "The Withers Cemetery off Collins Street is the only known trace of the early settlement that gave the swash its name.",
+    "use": "The Withers Cemetery off Collins Street is the only known remaining site from the Withers family's early days here, according to the city's National Register study of the 1990s."
+  },
+  {
+    "row": "no-hoa 149 (v8 N2)",
+    "pattern": "On summer Wednesdays, Plyler Park",
+    "struck": "On summer Wednesdays, Plyler Park on the oceanfront has free live music and fireworks.",
+    "use": "Plyler Park on the oceanfront has free live music and a fireworks show on Wednesdays in summer (the city's Hot Summer Nights, June 8 to September 4 in 2026)."
+  },
+  {
+    "row": "no-hoa 149 (v8 N3)",
+    "pattern": "a few new ones stand among them",
+    "struck": "The older houses on Collins, Chester and Dunbar Streets date from the late 1950s, and a few new ones stand among them.",
+    "use": "The older houses on Collins, Chester and Dunbar Streets date from the 1950s and 1960s."
+  },
+  {
+    "row": "no-hoa 150 (v8 N4)",
+    "pattern": "at least 75 feet back from the beach",
+    "struck": "That plan set oceanfront houses at least 75 feet back from the beach, which gives these lots their deep front yards.",
+    "use": "That plan set a minimum setback of 75 feet for oceanfront houses."
+  },
+  {
+    "row": "no-hoa 150 (v8 N5)",
+    "pattern": "Each avenue was laid out to reach the sand",
+    "struck": "Each avenue was laid out to reach the sand, and those street ends are now public beach paths.",
+    "use": "The plan carried the avenues through to the beach, and those extensions now give public access."
+  },
+  {
+    "row": "no-hoa 150 (v8 N6)",
+    "pattern": "coquina rock walls and wood awnings painted to look like striped canvas",
+    "struck": "Look for porches, coquina rock walls and wood awnings painted to look like striped canvas.",
+    "use": "Look for porches and wood awnings painted solid or striped to look like canvas; a few houses keep old walls of coquina rock or brick."
+  },
+  {
+    "row": "no-hoa 150 (v8 N7)",
+    "pattern": "Many yards still have native wax myrtles",
+    "struck": "Many yards still have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
+    "use": "Back yards along Ocean Boulevard often keep native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks."
+  },
+  {
+    "row": "no-hoa 150 (v8 N8)",
+    "pattern": "mostly two-story frame homes, many with a garage apartment",
+    "struck": "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage apartment.",
+    "use": "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment."
+  },
+  {
+    "row": "no-hoa 150 (v8 N9)",
+    "pattern": "allows kayaks and surfboards in summer",
+    "struck": "From 34th to 47th Avenue North, the city allows kayaks and surfboards in summer, which it bans on most of its beach.",
+    "use": "From 34th to 47th Avenue North, the city allows kayaks and surfboards from May 1 through Labor Day, between 10 a.m. and 5 p.m.; it allows them at only five stretches of its beach."
+  },
+  {
+    "row": "no-hoa 150 (v8 N10)",
+    "pattern": "is about a 9-minute walk\\.?$",
+    "struck": "Sea Captain's House, in a 1930 beach cottage, is about a 9-minute walk.",
+    "use": "Sea Captain's House, in a 1930 beach cottage, is about a 9-minute walk from the middle of Myrtle Heights."
+  },
+  {
+    "row": "no-hoa 150 (v8 N11)",
+    "pattern": "any change to the outside, even the paint color",
+    "struck": "The trade-off is the review: on an oceanfront house, any change to the outside, even the paint color, needs the city's Community Appearance Board.",
+    "use": "The trade-off is the review: on an oceanfront house, a change to the outside, including its color, needs the city's Community Appearance Board; ordinary repair does not."
+  },
+  {
+    "row": "no-hoa 151 (v8 N12)",
+    "pattern": "Two small city parks are on the way",
+    "struck": "Two small city parks are on the way: Ocean Forest Memorial Park, with a walking path, and McLeod Park, with a picnic shelter.",
+    "use": "Ocean Forest Memorial Park, with a walking path, is at the Haskell Circle beach access, about half a mile on foot."
+  },
+  {
+    "row": "no-hoa 151 (v8 N13)",
+    "pattern": "each December Santa rides through the Pine Lakes neighborhood",
+    "struck": "North Ocean Boulevard has bike lanes, and each December Santa rides through the Pine Lakes neighborhood with the city's firefighters.",
+    "use": "North Ocean Boulevard has bike lanes, and in December the city's firefighters take Santa on a ride-along through city neighborhoods; in 2025 Pine Lakes was on the route."
+  },
+  {
+    "row": "no-hoa 174 (v8 N14)",
+    "pattern": "owners get the free resident beach parking decal",
+    "struck": "Inside the city, owners get the free resident beach parking decal, and it also parks you free at Pelicans baseball games.",
+    "use": "Inside the city, a resident whose vehicle is registered and taxed in the city gets a decal that parks free at city meters and beach street ends, and at Pelicans baseball games."
+  },
+  {
+    "row": "no-hoa 171 (v8 N15)",
+    "pattern": "An HOA owns the common areas",
+    "struck": "An HOA owns the common areas, and we check what it charges for any home.",
+    "use": "An HOA owns a common-area parcel, and we check what it charges for any home."
+  },
+  {
+    "row": "no-hoa 152 (v8 N16)",
+    "pattern": "Medical Center about 12, and the ocean about 10",
+    "struck": "By car, Broadway at the Beach is about 8 minutes away, Coastal Grand Mall and Grand Strand Medical Center about 12, and the ocean about 10.",
+    "use": "(use one start for every time: from Annandale Drive the ocean at 38th Avenue North is 8 minutes)"
+  },
+  {
+    "row": "no-hoa 152 (v8 N17)",
+    "pattern": "Myrtle Beach State Park, with an ocean fishing pier, about 23",
+    "struck": "The county's Bike and Run Park, with 7 miles of trails, is about 15, and Myrtle Beach State Park, with an ocean fishing pier, about 23.",
+    "use": "Myrtle Beach State Park, with an ocean fishing pier, is about 25 minutes away."
+  },
+  {
+    "row": "no-hoa 152 (v8 N18)",
+    "pattern": "Bike and Run Park, with 7 miles of trails",
+    "struck": "The county's Bike and Run Park, with 7 miles of trails, is about 15, and Myrtle Beach State Park, with an ocean fishing pier, about 23.",
+    "use": "The county's Bike and Run Park is about 15 minutes away."
+  },
+  {
+    "row": "no-hoa 152 (v8 N19)",
+    "pattern": "a non-resident placard costs \\$100 a year",
+    "struck": "One cost of living outside the city: its free beach parking decal is for city residents only, and a non-resident placard costs $100 a year.",
+    "use": "One cost of living outside the city: its free beach parking decal is for city residents only, and a non-resident placard, good only at some metered spaces and street ends, costs $100 a year."
+  },
+  {
+    "row": "no-hoa 153 (v8 N20)",
+    "pattern": "boards are banned from 9 to 4 on most of the city's beach",
+    "struck": "From mid-May to mid-September, when boards are banned from 9 to 4 on most of the city's beach, you can still surf and skimboard here.",
+    "use": "From mid-May to mid-September, boards are banned from 9 to 4 outside the city's three surf zones, and Windy Hill's beach is in one of them."
+  },
+  {
+    "row": "no-hoa 153 (v8 N21)",
+    "pattern": "its stage has free live music",
+    "struck": "You can tie up a boat at its docks free for the day, and on fall weekends its stage has free live music.",
+    "use": "You can tie up a boat at its docks free for the day, and in October its stage has live music on Friday and Saturday afternoons."
+  },
+  {
+    "row": "no-hoa 153 (v8 N22)",
+    "pattern": "so a show is close to home",
+    "struck": "The Alabama Theatre and House of Blues are on the same grounds, so a show is close to home.",
+    "use": "The Alabama Theatre and House of Blues are on the same grounds."
+  },
+  {
+    "row": "no-hoa 154 (v8 N23)",
+    "pattern": "From every house here, a public beach access is less than half a mile on foot",
+    "struck": "From every house here, a public beach access is less than half a mile on foot.",
+    "use": "From the 25 houses we could place on the county map, a public beach access is less than half a mile on foot."
+  },
+  {
+    "row": "no-hoa 154 (v8 N24)",
+    "pattern": "lighted tennis and pickleball courts",
+    "struck": "Central Park, 20 acres with lighted tennis and pickleball courts and a paved walking path, is about 0.7 mile away.",
+    "use": "Central Park, 20 acres with lighted tennis courts, pickleball courts and a paved walking path, is about 0.7 mile away."
+  },
+  {
+    "row": "no-hoa 155 (v8 N25)",
+    "pattern": "Ocean Drive is where the shag grew up",
+    "struck": "Ocean Drive is where the shag grew up.",
+    "use": "(cut it; the next sentence, a pavilion and amusement park drew crowds who danced the shag, is what the source says)"
+  },
+  {
+    "row": "no-hoa 155 (v8 N26)",
+    "pattern": "run by the same family for three generations",
+    "struck": "A Saturday here can start with breakfast at Hoskins Restaurant, open on Main Street since 1948 and run by the same family for three generations.",
+    "use": "A Saturday here can start with breakfast at Hoskins Restaurant, which Hubert and Leona Hoskins opened in 1948 and which is at 405 Main Street."
+  },
+  {
+    "row": "no-hoa 155 (v8 N27)",
+    "pattern": "is free and tells the story of beach music and the shag",
+    "struck": "The North Myrtle Beach Area Historical Museum is free and tells the story of beach music and the shag.",
+    "use": "The North Myrtle Beach Area Historical Museum is free, and its exhibits include beach music artists and shag dancing."
+  },
+  {
+    "row": "no-hoa 155 (v8 N28)",
+    "pattern": "lake ringed by a half-mile walking path",
+    "struck": "McLean Park, a quarter mile from Hoskins on foot, has a lake ringed by a half-mile walking path.",
+    "use": "McLean Park, a quarter mile from Hoskins on foot, has a two-acre lake and a half-mile paved walking path."
+  },
+  {
+    "row": "no-hoa 156 (v8 N29)",
+    "pattern": "Waties Island[^.]{0,120}with no public access",
+    "struck": "Across Hog Inlet, Waties Island has almost three miles of undeveloped beach, with no public access.",
+    "use": "Across Hog Inlet, Waties Island has almost three miles of undeveloped beach."
+  },
+  {
+    "row": "no-hoa 157 (v8 N30)",
+    "pattern": "where people once waited for the fishing boats to come in",
+    "struck": "A large live oak stands over the riverfront at the end of Mineola Avenue, where people once waited for the fishing boats to come in.",
+    "use": "A very large live oak dominated the riverfront at the end of Mineola Avenue, according to a 2001 state history."
+  },
+  {
+    "row": "no-hoa 157 (v8 N31)",
+    "pattern": "has served dinner on the waterway since 1945",
+    "struck": "Hurricane Juel's has served dinner on the waterway since 1945.",
+    "use": "Hurricane Juel's has been family owned and operated since 1945, with a view of the waterway."
+  },
+  {
+    "row": "no-hoa 157 (v8 N32)",
+    "pattern": "South Carolina's casino boats sail from Mineola Avenue",
+    "struck": "South Carolina's casino boats sail from Mineola Avenue, and the state keeps an artificial fishing reef off the inlet.",
+    "use": "The Big M casino boats sail from the Little River waterfront, and the state keeps an artificial fishing reef off the inlet."
+  },
+  {
+    "row": "no-hoa 158 (v8 N33)",
+    "pattern": "It was left as it was when it closed in 1932",
+    "struck": "It was left as it was when it closed in 1932.",
+    "use": "It is largely as it was when it closed in 1932."
+  },
+  {
+    "row": "no-hoa 159 (v8 N34)",
+    "pattern": "streets between US 17 Business and the beach have mature trees",
+    "struck": "Its streets between US 17 Business and the beach have mature trees, low traffic and more than nine miles of sidewalk.",
+    "use": "The town has more than nine miles of sidewalk, and its low-density neighborhoods have mature trees and quiet roads."
+  },
+  {
+    "row": "no-hoa 159 (v8 N35)",
+    "pattern": "Most houses were built from 1970 to 2000",
+    "struck": "Most houses were built from 1970 to 2000, and the busiest decade was the 1980s.",
+    "use": "The town's housing grew between 1970 and 2000, and the busiest decade was the 1980s, with more than 1,600 homes."
+  },
+  {
+    "row": "no-hoa 159 (v8 N36)",
+    "pattern": "Permitted golf carts may drive town streets in daylight, and the speed limit is 25",
+    "struck": "Permitted golf carts may drive town streets in daylight, and the speed limit is 25.",
+    "use": "A permitted golf cart may be driven in daylight within four miles of its registered address, on streets posted at 35 mph or less; the speed limit in town is 25 except where posted."
+  },
+  {
+    "row": "no-hoa 159 (v8 N37)",
+    "pattern": "free Sunday evening concerts",
+    "struck": "The town holds a farmers market on Tuesdays from spring into December in Memorial Park, and free Sunday evening concerts there from late May through August.",
+    "use": "The town holds a farmers market on Tuesdays from spring into December in Memorial Park, and free Sunday afternoon concerts there, from 4 to 7 p.m., from late May through August."
+  },
+  {
+    "row": "no-hoa 159 (v8 N38)",
+    "pattern": "Each April brings a kite festival",
+    "struck": "Each April brings a kite festival, and each October a fall festival with more than 125 craft vendors.",
+    "use": "A kite festival began in April 2025, and each October a fall festival has over 100 craft vendors."
+  },
+  {
+    "row": "no-hoa 159 (v8 N39)",
+    "pattern": "on July 4 and New Year's Eve you may set off fireworks on the beach",
+    "struck": "The town allows two boats or trailers at a home, and on July 4 and New Year's Eve you may set off fireworks on the beach.",
+    "use": "The town allows two boats or trailers at a home. Fireworks may be set off on the sand from sunset on July 4 and on New Year's Eve, but not within 500 feet of the pier."
+  },
+  {
+    "row": "no-hoa 160 (v8 N40)",
+    "pattern": "recorded its 1950s cottages",
+    "struck": "Garden City grew up in the 1950s, and a state survey recorded its 1950s cottages, many with porches added over the years.",
+    "use": "Garden City did not develop until the 1950s, according to a state survey."
+  },
+  {
+    "row": "no-hoa 161 (v8 N41)",
+    "pattern": "old riverboat warehouses still stand",
+    "struck": "At the foot of Main Street, the old riverboat warehouses still stand, among them the steamer terminal from about 1880.",
+    "use": "At the foot of Main Street, three old river warehouses stand, among them the steamer terminal from about 1880."
+  },
+  {
+    "row": "no-hoa 161 (v8 N42)",
+    "pattern": "brick storefronts mostly went up after a fire in 1897",
+    "struck": "Main Street's brick storefronts mostly went up after a fire in 1897.",
+    "use": "Many of Main Street's brick storefronts went up soon after an 1897 fire destroyed several businesses."
+  },
+  {
+    "row": "no-hoa 163 (v8 N43)",
+    "pattern": "tobacco barns still stand on the older farms around Loris",
+    "struck": "Horry was long a county of small family farms, and tobacco barns still stand on the older farms around Loris.",
+    "use": "Horry was long a county of small family farms, and tobacco barns still dot its farms."
+  },
+  {
+    "row": "no-hoa 172 (v8 N44)",
+    "pattern": "on lots of typically about 0\\.7 acre",
+    "struck": "Most of the houses for sale here are new, built in 2024 or later, on lots of typically about 0.7 acre.",
+    "use": "Most of the houses for sale here are new, built in 2024 or later. The 19 new ones we could match to county lots have a middle of about 0.7 acre."
+  },
+  {
+    "row": "no-hoa 164 (v8 N45)",
+    "pattern": "log tobacco barns still stand",
+    "struck": "Some were built from wood cut on the farm itself, and log tobacco barns still stand.",
+    "use": "Some were built from wood cut on the farm itself, and the district has log tobacco barns."
+  },
+  {
+    "row": "no-hoa 173 (v8 N46)",
+    "pattern": "The 1927 clubhouse, a few streets from the older houses",
+    "struck": "The 1927 clubhouse, a few streets from the older houses.",
+    "use": "The Pine Lakes clubhouse, beside the golf course."
+  },
+  {
+    "row": "no-hoa 173 (v8 N47)",
+    "pattern": "the older streets of beach houses behind the oceanfront",
+    "struck": "Crescent Beach from over the ocean in 2011: the older streets of beach houses behind the oceanfront.",
+    "use": "Crescent Beach from over the ocean in 2011: streets of beach houses behind the oceanfront."
+  },
+  {
+    "row": "no-hoa 173 (v8 N48)",
+    "pattern": "big oak in Conway's residential historic district, on streets designed around the live oaks",
+    "struck": "An older house behind a big oak in Conway's residential historic district, on streets designed around the live oaks.",
+    "use": "An older house behind a big oak in Conway's residential historic district."
+  },
+  {
+    "row": "no-hoa 170 (v8 N49)",
+    "pattern": "names no limit on where you park a boat, but some districts bar storage",
+    "struck": "County zoning names no limit on where you park a boat, but some districts bar storage in front of the house. We check the address.",
+    "use": "County zoning names no limit on where you park a boat, but accessory uses and outdoor storage may not sit in front of the house. We check the address."
+  },
+  {
+    "row": "no-hoa 170 (v8 N50)",
+    "pattern": "side-yard fences are not allowed\\.?$",
+    "struck": "One shed up to 150 square feet, behind the house, in most home zones. East of Ocean Boulevard, side-yard fences are not allowed.",
+    "use": "One shed up to 150 square feet, behind the house, in most home zones. East of Ocean Boulevard, side-yard fences are not allowed, except low rail fences, pool fences and glass-topped fences."
+  },
+  {
+    "row": "no-hoa 170 (v8 N51)",
+    "pattern": "^Not a listed use in city zoning\\.$",
+    "struck": "Not a listed use in city zoning.",
+    "use": "Not a listed use in city zoning, and a use not listed is not permitted."
+  },
+  {
+    "row": "no-hoa 170 (v8 N52)",
+    "pattern": "^Yes, up to two boats or trailers\\.$",
+    "struck": "Yes, up to two boats or trailers.",
+    "use": "Yes, up to two boats or trailers, but a licensed trailer over 21 feet counts as one per home."
   }
 ]

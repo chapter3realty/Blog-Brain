@@ -346,12 +346,12 @@ module.exports = G.page({
   eyebrow: "Choosing a neighborhood",
   h1: "What are the best neighborhoods in Myrtle Beach?",
   h1em: "Pick by what you love.",
-  sub: "Fifteen neighborhoods near the beach, with the homes and a normal day in each.",
+  sub: "Fifteen neighborhoods, the homes and a normal day in each.",
   toc: false,
   author: "devin",
-  heroCta: { title: "Tell us what you want close to home. We will send three neighborhoods that fit.", text: "One of our agents sends the list, with the homes for sale in each. There is no charge.", label: "Get three neighborhoods", href: OFFER },
+  heroCta: { title: "Tell us what you want nearby. We will send three neighborhoods.", text: "One of our agents sends the list, with the homes for sale in each. There is no charge.", label: "Get three neighborhoods", href: OFFER },
   shortAnswer: [
-    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove, with a fishing pier and dogs allowed on the sand. For golf at the door, Pine Lakes. For a boat, Plantation Lakes. For more house for the money, Avalon in Carolina Forest.",
+    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For golf at the door, Pine Lakes. For a boat, Plantation Lakes. For more house for the money, Avalon.",
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "What each does best", id: "choose", html:
