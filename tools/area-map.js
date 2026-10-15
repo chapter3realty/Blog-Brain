@@ -1299,7 +1299,7 @@ function placeMany(L, F, lms, R, between, o = {}) {
       const [tx, ty] = F.P(lm.lon, lm.lat);
       const x0 = Math.max(R + 4, Math.min(F.W - R - 4, tx)), y0 = Math.max(R + 4, Math.min(F.H - R - 4, ty));
       let found = null;
-      for (const r of strict ? (process.env.AM_R ? JSON.parse(process.env.AM_R) : [0, 7, 14, 21, 28, 36, 45]) : [0, 7, 14, 21, 28, 36, 45, 56, 70]) {
+      for (const r of strict ? [0, 7, 14, 21, 28, 36, 45] : [0, 7, 14, 21, 28, 36, 45, 56, 70]) {
         const n = r === 0 ? 1 : Math.max(8, Math.round(2 * Math.PI * r / 8));
         for (let k = 0; k < n && !found; k++) {
           const a = k * 2 * Math.PI / n, x = x0 + r * Math.cos(a), y = y0 + r * Math.sin(a);

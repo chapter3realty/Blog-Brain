@@ -220,5 +220,27 @@ check("areas: a map without areas has no area group", !/class="ar"/.test(regionM
 const one = regionMap({ home: { name: "Myrtle Trace", lat: 33.778502, lon: -78.996618, town: "Conway" }, landmarks: [{ name: "Beach", kind: "beach", lat: 33.6906919, lon: -78.8804377, minutes: 15 }] });
 check("a community map still has its home pin and no numbers", /class="h"/.test(one.svg) && !/class="nm"/.test(one.svg) && one.places === undefined);
 
+
+/* spec.tidyLeaders true (opt-in, round 14e, OWNER-EYE-14d M2): on the 15-place overview of batch 2026-10-b, no
+   leader line crosses another leader or passes over another place's spot, and no marker sits more than 45
+   units from its spot. Without it, the same strip at its old shape sent The Farm's number far from its spot. */
+{
+  const BN = require(path.join(__dirname, "..", "batches", "2026-10-b", "data", "best-neighborhoods.json")).neighborhoods;
+  const places = BN.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: "#" + n.id }));
+  const leaders = (svg) => [...svg.matchAll(/<path d="M([\d.]+) ([\d.]+)L([\d.]+) ([\d.]+)" stroke="[^"]+" stroke-width="1\.1"\/>/g)].map((m) => m.slice(1, 5).map(Number));
+  const cross = (a, b) => { const o = (p, q, r) => Math.sign((q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]));
+    const [p1, p2, p3, p4] = [[a[0], a[1]], [a[2], a[3]], [b[0], b[1]], [b[2], b[3]]];
+    return o(p1, p2, p3) * o(p1, p2, p4) < 0 && o(p3, p4, p1) * o(p3, p4, p2) < 0; };
+  const near = (s, x, y) => { const [x1, y1, x2, y2] = s, dx = x2 - x1, dy = y2 - y1, t = Math.max(0, Math.min(1, ((x - x1) * dx + (y - y1) * dy) / (dx * dx + dy * dy || 1)));
+    return Math.hypot(x1 + t * dx - x, y1 + t * dy - y); };
+  const tidy = regionMap({ name: "Tidy", places, placeNames: false, maxRatio: 0.75, tidyLeaders: true }, { inlineMax: 1e9, width: 320 });
+  const T1 = leaders(tidy.svg);
+  const bad = T1.filter((a, i) => T1.some((b, j) => j !== i && (cross(a, b) || near(a, b[0], b[1]) < 4)));
+  check("places: tidyLeaders leaves no leader crossing another or passing over another place's spot", bad.length === 0, JSON.stringify(bad));
+  check("places: tidyLeaders keeps every marker within 45 units of its spot", T1.every((s) => Math.hypot(s[2] - s[0], s[3] - s[1]) <= 45.5), JSON.stringify(T1));
+  const old = regionMap({ name: "Old strip", places, placeNames: false, maxRatio: 0.6 }, { inlineMax: 1e9, width: 320 });
+  check("places: without tidyLeaders the old strip had a marker moved more than 45 units (the fault this fixes)", leaders(old.svg).some((s) => Math.hypot(s[2] - s[0], s[3] - s[1]) > 45.5));
+  check("places: tidyLeaders other than true is refused", throws(() => regionMap({ name: "Bad tidy", places: places.slice(0, 3), tidyLeaders: "yes" }, { inlineMax: 1e9 }), /tidyLeaders/));
+}
 console.log(failures ? `\n${failures} control(s) failed` : "\nall controls pass");
 process.exitCode = failures ? 1 : 0;

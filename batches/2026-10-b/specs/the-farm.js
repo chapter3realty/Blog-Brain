@@ -85,6 +85,13 @@
  *   hunting con in two plain seasons (v9 D2, D3); the "built" FAQ with two years; the second-fee paragraph with two
  *   figures (pending row 116); internet is something we confirm (row 11); the beach 10 to 12 minutes (pending row
  *   115, best neighborhoods row 264); v9 D4 to D6 applied; the Defense Department monitoring line cut; plain card labels.
+ * Version 13, 2026-10-15 (round 14f, OWNER-EYE-14f-the-farm.md, grade 8; rewrite check v10, facts/r14/farm-verify-v10.md):
+ *   the subtitle on the flytrap woods; the purchase said once (short answer), the first section opens on what it means
+ *   (v10 D1 law wording); the fitness room, rock wall, library and trails once each, in the day; the day gains Publix and
+ *   River Oaks Pizzeria (pending row 119), the commute to Grand Strand Medical Center and rush hour, loses the events line,
+ *   and varies its openers; the beach with both starts (v10 D2, D3; tile 10 min from the entrance); the schools sentence
+ *   with the Wheatfield Drive sidewalk (row 110); the emergency room named; two offer labels; v10 D4 to D7 and watch
+ *   items; the gym pro cut (three pros). Wording in pending row 120.
  *
  * Reader: a buyer, often from out of state, who has seen a listing in The Farm or heard the name and
  * wants to picture living there and decide whether to look. They do not know Carolina Forest, the
@@ -282,7 +289,7 @@ module.exports = G.page({
       h.p("From March through June, a Saturday here can start with a walk in the preserve, among pitcher plants and wildflowers in bloom.") +
       h.p("The preserve is open in daylight all year, and the state asks visitors to park and walk its roads. Its main entrance is about 6 minutes by car from The Farm's entrance by the schools.") +
       h.p("Residents can start a weekday with a workout in the clubhouse fitness room, which opens at 5:30 a.m.") +
-      h.p("The drive to work at Grand Strand Medical Center, a large hospital, takes about 12 minutes. In our experience, rush hour adds 5 to 10 minutes to any drive here.") +
+      h.p("A commute to Grand Strand Medical Center, a large hospital, takes about 12 minutes. In our experience, rush hour adds 5 to 10 minutes to any drive here.") +
       h.p("The pools stay open until 9 p.m. in season, so there is time for a swim after work. The large pool curves around two small islands of palms, and its wide deck is beside a pond. Owners can also reserve the activity center near it for a private party.") +
       h.p("Publix is a 2-minute drive, and River Oaks Pizzeria is next to it.") +
       h.p(`On a free afternoon, the county library and the ${h.ext(PARKS, "Carolina Forest Recreation Center")} share one campus, about 3 minutes by car from the entrance nearest the large pool. The center has a rock climbing wall and a full gym.`) +
