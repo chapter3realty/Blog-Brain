@@ -64,3 +64,5 @@ Edit only the status and note columns of the ledger, and the page's struck list.
 <path to facts file here>
 
 When you give a safe wording, it states the limit of the claim (which homes, which year, how firm). Write it as a plain claim with the attribution in brackets, for example: "Leases must be at least a year long [declaration, recorded 2006]". The writer turns it into the page's voice; attribution never goes in the body (CRAFT 5).
+
+**Rankings and awards (lesson B53).** Verify a ranking, award or "best" claim only at the publisher's own list, and record its year and scope (state or national). A winner's page, a club page or a news story is not enough. If the publisher's page cannot be read, mark the row pending.

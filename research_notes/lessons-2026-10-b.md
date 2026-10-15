@@ -131,6 +131,8 @@ The struck list catches old wording coming back. It cannot catch new wording tha
 
 **B52. The first page of listings is not a sample.** The gated researchers described the homes in each community from the first 40 listings a search returned. Searches sort new and large homes first. Read across all 1,205 listings, half the home facts were wrong: Waterway Palms' "3,700 to 4,300 square feet" fit 26% of homes, "many have an elevator" was 13%, and Heritage's "most one-story brick 1990s" was 20%. Rule (researcher prompt): to describe what homes are like, use every listing in the search, or the county parcel data, never the first page. Record the count read beside each claim.
 
+**B53. An award is checked at the body that gave it, not at the winner's page.** Row 200 passed Tidewater's "No. 39 among America's 100 Greatest Public Courses" from the club's own page. The final check read Golf Digest. The No. 39 was 2023-24 on the South Carolina list, Tidewater is No. 38 there now, and the national list had it only from 2003 to 2012. Rule (verifier prompt): a ranking, award or "best" claim is verified only at the publisher's own list, with its year and its scope (state or national). If the publisher's page cannot be read, the claim is pending, not verified.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
