@@ -134,7 +134,7 @@ const AREAS = [
   ["south", "Socastee to Murrells Inlet"], ["pawleys", "Pawleys Island to DeBordieu"],
 ];
 /* Map pills: 32 letters at most (area-map.js), so a short name and the entry numbers. */
-const MAP_NAME = { nmb: "North Myrtle Beach", mb: "Myrtle Beach", south: "Socastee to Murrells Inlet", pawleys: "Pawleys Island" };
+const MAP_NAME = { nmb: "North Myrtle Beach", mb: "Myrtle Beach", south: "Surfside-Murrells Inlet", pawleys: "Pawleys Island" };
 const nums = (a) => {
   const ns = E.filter((e) => e.area === a).map((e) => e.n);
   return ns.length === 1 ? String(ns[0]) : ns.length === 2 ? `${ns[0]} and ${ns[1]}` : `${ns[0]} to ${ns[ns.length - 1]}`;
@@ -194,7 +194,7 @@ function entry(id, head, paras, price, photo) {
 
 const SECTIONS_PLACES = [
   entry("tidewater-plantation", "nine holes along Cherry Grove Inlet", [
-    "Tidewater, in North Myrtle Beach, has a golf course ranked among the best you can play in America. Golf Digest has ranked Tidewater Golf Club No. 39 among America's 100 Greatest Public Courses. Nine of its holes play along the tidal inlet at Cherry Grove.",
+    "Tidewater, in North Myrtle Beach, has one of the best public courses in South Carolina: Golf Digest ranks it No. 38 in the state. Nine of its holes play along the tidal inlet at Cherry Grove.",
     "The course opened in 1990, and Golf Digest and Golf Magazine both named it the best new public course in America that year. About seven in ten of the house lots touch the course. Golf membership is sold to residents and property owners of Horry, Georgetown and Brunswick counties.",
     "Tidewater is inside North Myrtle Beach's city limits, with city services. It is on the Intracoastal Waterway, not the ocean, but the neighborhood keeps its own beach cabana, with parking, at Cherry Grove Beach.",
     "Tidewater has about 580 houses and one master association, with six smaller associations under it, so a house may answer to two associations. We check both for any home you like.",
@@ -224,14 +224,14 @@ const SECTIONS_PLACES = [
 
   entry("waterway-palms-plantation", "a Charleston-style plan around a lake", [
     "Waterway Palms Plantation, in Carolina Forest, was planned to echo Charleston's Battery district. At its center the association owns a lake parcel of about 15 acres, and the clubhouse stands on a point in the lake, with water on three sides.",
-    "Most houses sold here lately are new, and they are large: custom homes, most about 3,000 to 3,800 square feet. Many rise two or three stories, some have an elevator, and lots on the Intracoastal Waterway have a private dock. The neighborhood also has its own boat ramp on the waterway, so a boat can go in without a trip across town.",
-    "The lots are small, and about one in five has no house on the county roll yet, so expect new houses going up.",
+    "Most houses sold here lately were built since 2020, and they are large: many are custom homes of about 3,000 to 3,800 square feet. Many rise two or three stories, some have an elevator, and lots on the Intracoastal Waterway often have a private dock. The neighborhood also has its own boat ramp on the waterway, so a boat can go in without a trip across town.",
+    "The lots are small, and about one in five has no house on the county roll yet.",
   ], "Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
   entry("the-bluffs-on-the-waterway", "a boathouse clubhouse on the waterway", [
     "The Bluffs on the Waterway, in Carolina Forest, has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway. Its boat ramp sits on a waterfront lot of more than 6 acres. Grande Dunes Marina is about 2.5 miles away by water.",
     "Many of its houses are custom Mediterranean-style homes in stucco. Black Creek runs through the woods along the west side, and the county's bike park is less than a mile away.",
-    "The Carolina Bays Parkway (S.C. 31) runs along one side, so lots on that edge sit about 200 feet from a highway.",
+    "The Carolina Bays Parkway (S.C. 31) runs along one side; the nearest lots are about 280 feet from it.",
   ], "Homes here usually sell for about $850,000; the HOA fee is about $150 a month."),
 
   entry("myrtle-beach-golf-and-yacht-club", "room for the boat and the camper", [
@@ -247,9 +247,9 @@ const SECTIONS_PLACES = [
   ], "Homes usually sell for about $480,000, and the HOA fee is about $190 a month.",
   ["prestwick-course-from-above-2023", "Prestwick from above, with its Dye golf course labelled: houses among the fairways, with a long lake at the left and an RV lot at the lower right."]),
 
-  entry("prince-creek-55", "a clubhouse built for a social calendar", [
-    "Seasons at Prince Creek West, in Murrells Inlet, was built around its clubhouse. The clubhouse was built with a ballroom, a card room, an art studio and a billiards room.",
-    "Today the clubhouse has indoor and outdoor pools, a fitness center, tennis and bocce. The Murrells Inlet MarshWalk is about a 10-minute drive.",
+  entry("prince-creek-55", "a clubhouse, indoor and outdoor pools and bocce", [
+    "At Seasons at Prince Creek West, in Murrells Inlet, the builder listed a ballroom, a card room, an art studio and a billiards room in the clubhouse.",
+    "Today the community has a clubhouse, indoor and outdoor pools, a fitness center, tennis and bocce. The Murrells Inlet MarshWalk is about a 10-minute drive.",
     `Every occupied home must have a resident ${h.a(SEASONS, "55 or older")}. Most are one-story builder homes, about half of them 1,750 to 2,350 square feet, on lots of about a fifth of an acre, so the yards are small. The county roll shows a house on every lot.`,
   ], "Homes usually sell for about $500,000, and the HOA fee, about $340 a month, includes internet, trash pickup and lawn care."),
 
@@ -298,16 +298,16 @@ const SECTIONS_PLACES = [
     "Litchfield by the Sea, near Pawleys Island, has about a mile of its own beach, with an oceanfront Beach Club, a deck and a pavilion.",
     `A guard works the main gate day and night. Owners' cars come in with a barcode, and each guest must be registered by the owner before the visit.`,
     "A normal week can include Tai Chi on Wednesday and yoga on Thursday at the Beach Club. In between there is crabbing off the docks on Osprey Lake and a walk on the paved paths through the marsh.",
-    "Many homes are condos and villas from the 1980s to the 2000s, and the Beach Club comes with the home. The houses are in Charlestowne Grant, Compass Point and River Club; Charlestowne Grant's are raised beach houses.",
-    "It is many neighborhoods inside the gates, each with its own sub-association, and the HOA fee differs from section to section and from unit to unit. Condo and villa fees are about $620 a month, up to about $1,880 for an oceanfront condo, and Charlestowne Grant's houses pay about $520 to $630.",
-  ], "One-bedroom condos in Summerhouse usually sell for about $200,000, and villas in Breakers Reef for about $1.5 million to $2.2 million.",
+    "Many homes are condos and villas from the 1980s to the 2000s, and the Beach Club comes with the home. The association also lists single-family homes in Oystercatcher Island, Charlestowne Grant, Compass Point and River Club. Many of Charlestowne Grant's houses are raised beach houses.",
+    "It is many neighborhoods inside the gates, each with its own sub-association, and the HOA fee differs from section to section and from unit to unit. In the sections whose sales we read, condo and villa fees range from about $620 a month to about $1,880 for an oceanfront condo. Most of Charlestowne Grant's houses pay about $520 to $630.",
+  ], "One-bedroom condos in Summerhouse usually sell for about $200,000, and four villas in Breakers Reef sold last year for about $1.5 million to $2.2 million.",
   ["litchfield-by-the-sea-from-above-2023", "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right."]),
 
   entry("heritage-plantation", "a dock master and a crow's nest over the river", [
     "Heritage Plantation, near Pawleys Island, has a marina with a full-time dock master. Its dock house is built over the Waccamaw River, with a crow's nest and a swing on its roof. The marina also has a deck over the water, bordered by cypress trees, that serves as a daily sunset gathering place.",
     `The HOA fee includes cable TV, home internet, the dock master and 24-hour security, and the association lists a separate phone line for the main gate.`,
     "Many mornings are reserved for league play on four green-clay Har-Tru courts and four pickleball courts. The Heritage Club, a public par-71 course by Dan Maples, lies among the live oaks on land that was once the True Blue and Midway plantations.",
-    "Some lots look over the old rice fields toward the river.",
+    "A few lots look over the old rice fields toward the river.",
     "Trash pickup costs extra, and boat slips are rented by the day, the month or the year.",
   ], "Homes usually sell for about $710,000, and the HOA fee is about $325 a month."),
 
@@ -343,7 +343,7 @@ const TABLE = (() => {
 
 /* A small heading above the first entry of each area, north to south (owner's eye 14e, H1): the page
    asks "where", and the entries already run in map order. Each is a slim section of its own. */
-const AREA_FIRST = MAP_NAME;
+const AREA_FIRST = { ...MAP_NAME, south: "Surfside Beach and Murrells Inlet" };
 function withAreas(list) {
   const out = []; const seen = new Set();
   for (const s of list) {
@@ -383,7 +383,7 @@ module.exports = G.page({
   author: "devin",
   toc: false,
   shortAnswer: [
-    `These 18 gated neighborhoods run from North Myrtle Beach down to DeBordieu Colony, south of Pawleys Island, most of them on a golf course or on the water. Typical sale prices in them are about $200,000 to $2.2 million, and most homeowners association (HOA) fees are about $95 to $400 a month. Golf clubs here are usually a separate membership with their own dues, and we ask the club for the current dues; some beach clubs come with the home.`,
+    `These 18 gated neighborhoods run from North Myrtle Beach to DeBordieu Colony, south of Pawleys Island, most of them on a golf course or on the water. Typical sale prices in them are about $200,000 to about $2 million, and most homeowners association (HOA) fees are about $95 to $400 a month. Golf clubs here are usually a separate membership with their own dues, and we ask the club for the current dues; some beach clubs come with the home.`,
   ],
   sections: [
     { id: "choose", html: () =>
@@ -402,7 +402,7 @@ module.exports = G.page({
       prosCons([
         "Most of these neighborhoods are built around something you use: a golf course, a marina, a boat ramp or a beach club.",
         "Some HOA fees cover more than the gate, such as security, cable or internet.",
-        "Several gates have staff: a guard day and night at some, a gatehouse or a watch desk at others.",
+        "Several gates have a guard on duty day and night; others have a gatehouse or a watch desk.",
       ], [
         { text: "Every guest, contractor and delivery has to get through the gate, so a party or a repair takes some planning." },
         { text: "Only two of the 18 are on the ocean, so from most of them a beach day starts in the car." },
