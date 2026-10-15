@@ -160,7 +160,7 @@ const MAP = (() => {
   };
   /* Three panels, each sized to its own areas so the names fit, and short enough that the whole map is
      under a phone screen (owner's eye 14d, high 2). */
-  const RATIO = process.env.NH_RATIO ? JSON.parse(process.env.NH_RATIO) : { south: 0.8, north: 0.7, inland: 0.5 };
+  const RATIO = { south: 0.8, north: 0.65, inland: 0.4 };
   const south = draw("Homes with no HOA, Myrtle Beach to Garden City", PANEL.south.map(areaOf), { maxRatio: RATIO.south });
   const north = draw("Homes with no HOA, North Myrtle Beach and Little River", PANEL.north.map(areaOf), { maxRatio: RATIO.north });
   const inland = draw("Homes with no HOA, Conway, Loris and Aynor", PANEL.inland.map(areaOf), { maxRatio: RATIO.inland });
@@ -170,7 +170,7 @@ const MAP = (() => {
     + "@media (min-width:900px){.c3-nh-maps{grid-template-columns:repeat(3,1fr);align-items:start}}"
     + ".c3-areamap figure{max-width:1136px!important}</style>";
   return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-maps">${panel(south, "Myrtle Beach to Garden City")}${panel(north, "North Myrtle Beach and Little River")}${panel(inland, "Conway, Loris and Aynor")}</div>`,
-    "Map of the areas where most homes have no HOA fee, numbered as in the list below.", south.credit, "no-hoa map") + `</div>`;
+    "Map numbered as in the list below.", south.credit, "no-hoa map") + `</div>`;
 })();
 
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
@@ -188,13 +188,10 @@ const shareWords = (k) => { const a = A[k], p = a.noFee / a.total;
   if (k === "loris-country") return "most homes for sale";
   return p === 1 ? "every home for sale" : p >= 0.9 ? "almost all homes for sale" : p >= 0.85 ? "nearly 9 in 10 homes for sale"
     : p >= 0.6 ? "most homes for sale" : "more than half the homes for sale"; };
-/* One line on price, in the chip under the heading (the owner: "one line about the average price"). Cherry
-   Grove and Surfside give the recorded sales price of houses, as the best neighborhoods page does
-   (neighborhoods-facts.md rows 94 and 136); every other area gives the typical asking price of its houses
-   listed with no fee (data/no-hoa-areas.json). */
-const SOLD = { "cherry-grove": [695000, "Houses"], "surfside": [705000, "Houses on the ocean side"] };
-const priceWords = (k) => SOLD[k] ? `${SOLD[k][1]} usually sell for about ${money(SOLD[k][0])}`
-  : `Houses list for about ${A[k].medianNoFeeHousePrice >= 1e6 ? millions(A[k].medianNoFeeHousePrice) : priceOf(k)}`;
+/* One line on price, in the chip under the heading (the owner: "one line about the average price"). One
+   measure for all 16 (owner's eye 14d, medium 3): the typical list price of the houses for sale with no fee
+   (data/no-hoa-areas.json), as the sources line says. */
+const priceWords = (k) => `Houses for sale here are listed at about ${A[k].medianNoFeeHousePrice >= 1e6 ? millions(A[k].medianNoFeeHousePrice) : priceOf(k)}`;
 const CHIP_CSS = "<style>.c3-nh-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:-.2rem 0 1rem}.c3-nh-chip{display:inline-block;padding:.3rem .8rem;border-radius:999px;font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);box-shadow:0 6px 18px -10px rgba(28,32,40,.35)}</style>";
 const chip = (k) => `<div class="c3-nh-chips"><span class="c3-nh-chip">Listed with no HOA fee: ${shareWords(k)}</span><span class="c3-nh-chip">${priceWords(k)}</span></div>`;
 function entry(k, headline, paras) {
@@ -240,32 +237,84 @@ const MB_STR = MUNI + "myrtle_beach/codes/code_of_ordinances?nodeId=COOR_APXAZO_
 const SSB_STR = MUNI + "surfside_beach/codes/code_of_ordinances?nodeId=VOII_CH17ZO_ARTIIIDIUSRE_DIV11USRE_S17-396.10TRRELOTERE";
 const NMB_RENTAL = "https://www.nmb.us/DocumentCenter/View/6133/Rental-Property-Quick-Reference";
 
-/* What you can do at home, by town (owner's eye 14, decision 1): the boat and truck rules (ledger rows 58
-   to 64, verified) and the short-term rental, shed and fence rules (rows 137 to 144, pending verification,
-   round 14c). Legal information from the codes as written; each cell says a rule once. */
-const homeRules = () => compareCards([
-  { name: "Outside the towns, Horry County", icon: "home", cells: { boat: "Anywhere on your lot", truck: "Two per acre for a home business", str: "Not named in county zoning", shed: "Small shed 5 ft from line; fence 8 ft" } },
-  { name: "Myrtle Beach", href: "/submarkets/myrtle-beach/", icon: "town", cells: { boat: "Over 16 ft, not in the front yard", truck: "One, and none over one ton", str: "Not in single-family zones", shed: "Shed 5 ft from line; fence 4 to 8 ft" } },
-  { name: "North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", icon: "town", cells: { boat: "Behind the house front, or a carport", truck: "None over 18,500 pounds", str: "Not limited by zoning in general", shed: "One shed to 150 sq ft in most home zones" } },
-  { name: "Surfside Beach", href: "/submarkets/surfside-beach/", icon: "town", cells: { boat: "Two boats or trailers, outside a garage", truck: "One up to 21 ft long and 7 ft 11 in high", str: "Only in the R-3 and C-3 zones", shed: "Shed in the back yard; fence 4 to 6 ft" } },
-  { name: "Conway", href: "/submarkets/conway/", icon: "town", cells: { boat: "Side yard, back yard or carport", truck: "Big work trucks not on city streets", str: "Only in the CC, CBD and WRD zones", shed: "Shed 5 ft from line; fence 4 to 8 ft" } },
-  { name: "Loris", icon: "town", cells: { boat: "Over 17 ft, away from the lot's edges", truck: "One, up to 2 tons", str: "Not listed in zoning, so not allowed", shed: "Two sheds at most, 5 ft from line" } },
-  { name: "Aynor", icon: "town", cells: { boat: "No rule in town zoning", truck: "No rule in town zoning", str: "Not named in town zoning", shed: "Shed in the back yard, 5 ft from line" } },
-  { name: "Georgetown County, outside towns", icon: "home", cells: { boat: "Untagged trailers only in a building", truck: "Untagged vehicles only in a building", str: "Listed for the RC and GRR zones", shed: "Shed 5 ft from back line; fence 6 ft" } },
-], [
-  { key: "boat", label: "A boat or camper" },
-  { key: "truck", label: "A work truck" },
-  { key: "str", label: "Short-term rental" },
-  { key: "shed", label: "A shed or fence" },
-], { caption: "What you can do at home, by town", nameLabel: "Where the home is" });
+/* What you can do at home, by town (owner's eye 14, decision 1; 14d, high 3): one glass card per place
+   with four plain answers, each by its own icon (a boat, a work truck, renting it out, a shed or fence).
+   No zone codes: the codes are in ledger rows 137 to 144. The boat and truck answers are rows 58 to 64. */
+const { icon: ICON } = require(path.join(BB, "tools", "icons.js"));
+const svg = (d) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${d}</svg>`;
+const RULE_ICON = {
+  boat: ICON("dock", { size: 22 }),
+  truck: svg('<path d="M2 6h11v10H2zM13 9h4.5L21 12.5V16h-8"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>'),
+  rent: ICON("key", { size: 22 }),
+  shed: svg('<path d="M3 11l9-6 9 6M5 10v10h14V10M10 20v-5h4v5"/>'),
+};
+const RULE_WORDS = { boat: "A boat or camper", truck: "A work truck", rent: "Renting it out", shed: "A shed or fence" };
+const RULES = [
+  { name: "Outside the towns", note: "Horry County", rules: {
+    boat: "Yes, anywhere on your own lot.",
+    truck: "Yes. A business run from home may keep two work vehicles per acre.",
+    rent: "The county code does not name it. We check the lot's zoning before you buy.",
+    shed: "Yes. A small shed can sit 5 feet from the line, and a fence can be 8 feet tall." } },
+  { name: "Myrtle Beach", href: "/submarkets/myrtle-beach/", rules: {
+    boat: "Yes, but a boat over 16 feet stays out of the front yard.",
+    truck: "Yes, one, of one ton or less.",
+    rent: "Not on single-family streets. We check the address for you.",
+    shed: "Yes, with a permit. Fences are 4 feet in front and up to 8 in back." } },
+  { name: "North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", rules: {
+    boat: "Yes, behind the front of the house or under a carport.",
+    truck: "Yes, up to 18,500 pounds.",
+    rent: "Yes in most of the city, with a business license. Some neighborhood rules forbid it, so we check.",
+    shed: "Yes, one shed up to 150 square feet, behind the house." } },
+  { name: "Surfside Beach", href: "/submarkets/surfside-beach/", rules: {
+    boat: "Yes, up to two boats or trailers.",
+    truck: "Yes, one van or pickup up to 21 feet long and 7 feet 11 inches high.",
+    rent: "Only in a few zones, not the single-family ones. We check the address.",
+    shed: "Yes, in the back yard, with a permit. Fences are 4 feet in front and 6 in back." } },
+  { name: "Conway", href: "/submarkets/conway/", rules: {
+    boat: "Yes, in the side or back yard, or under a carport.",
+    truck: "Yes, but a big work truck may not park on a city street.",
+    rent: "Only in the downtown and business areas, not on home streets.",
+    shed: "Yes, with a permit, in the back yard. Fences are 4 feet in front and up to 8 in back." } },
+  { name: "Loris", rules: {
+    boat: "Yes. A boat over 17 feet stays back from the edges of the lot.",
+    truck: "Yes, one, up to 2 tons.",
+    rent: "No. The town's zoning does not allow it.",
+    shed: "Yes, up to two, in the side or back yard." } },
+  { name: "Aynor", rules: {
+    boat: "The town's zoning does not limit it. We check this for the lot you choose.",
+    truck: "No limit in the town's zoning.",
+    rent: "The town's zoning does not name it, so we ask the town for the lot you choose.",
+    shed: "Yes, in the back yard, 5 feet from the line." } },
+];
+/* A real table (STANDARD A6), drawn as one glass card per place on a phone: four plain lines, each by its icon. */
+const RULES_CSS = "<style>.c3-nh-rules{width:100%;max-width:1100px;border-collapse:separate;border-spacing:0 .7rem;margin:1rem 0 1.2rem}"
+  + ".c3-nh-rules caption{text-align:left;font-family:var(--sans);font-weight:600;color:var(--navy);font-size:1rem;margin-bottom:.2rem}"
+  + ".c3-nh-rules th,.c3-nh-rules td{vertical-align:top;text-align:left;font-size:1rem;line-height:1.45;padding:.75rem .8rem;background:rgba(255,255,255,.62);border-top:1px solid rgba(255,255,255,.95);border-bottom:1px solid rgba(255,255,255,.95)}"
+  + ".c3-nh-rules thead th{background:none;border:0;font-family:var(--sans);font-weight:600;color:var(--navy);font-size:.95rem;padding:.2rem .8rem}"
+  + ".c3-nh-rules thead th .ic{margin-right:.45rem;vertical-align:middle}"
+  + ".c3-nh-rules tbody th{font-family:var(--serif);font-size:1.15rem;color:var(--navy);border-left:1px solid rgba(255,255,255,.95);border-radius:18px 0 0 18px;white-space:nowrap}"
+  + ".c3-nh-rules tbody td:last-child{border-right:1px solid rgba(255,255,255,.95);border-radius:0 18px 18px 0}"
+  + ".c3-nh-rules tbody th small{display:block;font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--muted)}"
+  + ".c3-nh-rules td .ic{display:none}"
+  + ".c3-nh-rules .ic{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:11px;color:var(--brass);background:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.95);box-shadow:0 6px 14px -10px rgba(28,32,40,.4)}"
+  + ".c3-nh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}"
+  + "@media (max-width:899px){.c3-nh-rules,.c3-nh-rules tbody,.c3-nh-rules tr,.c3-nh-rules th,.c3-nh-rules td{display:block;width:auto}.c3-nh-rules thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}"
+  + ".c3-nh-rules tbody tr{margin:0 0 .9rem;border-radius:22px;padding:.9rem 1rem .5rem;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,.56));border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 18px 40px -28px rgba(28,32,40,.45)}"
+  + ".c3-nh-rules tbody th,.c3-nh-rules tbody td{background:none;border:0!important;border-radius:0!important;padding:0;white-space:normal}.c3-nh-rules tbody th{margin:0 0 .55rem}"
+  + ".c3-nh-rules tbody td{display:grid;grid-template-columns:32px 1fr;gap:.6rem;align-items:start;margin:0 0 .55rem}.c3-nh-rules td .ic{display:inline-flex}}</style>";
+const KEYS = ["boat", "truck", "rent", "shed"];
+const homeRules = () => RULES_CSS + `<table class="c3-nh-rules"><caption>What you can do at home, by town</caption><thead><tr><th scope="col"><span class="c3-nh-sr">Where the home is</span></th>`
+  + KEYS.map((k) => `<th scope="col"><span class="ic" aria-hidden="true">${RULE_ICON[k]}</span>${RULE_WORDS[k]}</th>`).join("") + "</tr></thead><tbody>"
+  + RULES.map((t) => `<tr><th scope="row">${t.href ? h.a(t.href, t.name) : t.name}${t.note ? `<small>${t.note}</small>` : ""}</th>`
+    + KEYS.map((k) => `<td><span class="ic" aria-hidden="true" title="${RULE_WORDS[k]}">${RULE_ICON[k]}</span><span>${t.rules[k]}</span></td>`).join("") + "</tr>").join("")
+  + "</tbody></table>";
 
 /* The price bands, for the reader who starts from a budget (rows 82 to 85, verified), as plain lines
    (owner's eye 14, low 5). */
 const BAND = Object.fromEntries(BANDS.map((b) => [b.band, b]));
 const about10 = (b) => Math.round(BAND[b].houses / 10) * 10;
 const bandList = () => h.ul([
-  `About ${about10("under 250k")} under $250,000, most of them built before 1990 and about half in and around Conway.`,
-  `About ${about10("250k-500k")} from $250,000 to $500,000, the largest group, most of them around Conway, Loris and Aynor.`,
+  `About ${about10("under 250k")} houses for sale under $250,000, most of them built before 1990 and about half in and around Conway.`,
   `About ${about10("500k-750k")} from $500,000 to $750,000, a third of them within half a mile of the beach.`,
   `About ${about10("750k+")} at $750,000 and up, two-thirds of them within half a mile of the beach.`,
 ]);
@@ -301,23 +350,24 @@ module.exports = GL.page({
   eyebrow: "Buying a home",
   h1: "Where can you buy a home with no HOA near Myrtle Beach?",
   h1em: "16 areas where most homes have no fee.",
-  sub: "Older beach streets, river towns and country land from Little River to Aynor, where you can keep a boat or a work truck at home.",
+  sub: "Room for a boat, a work truck and a shed, from Little River to Aynor.",
+  topOfferLine: "Homes with no HOA fee, by area.",
   heroCta: { title: "Get the homes with no HOA fee in the areas you like.", label: LABEL, href: "/contact/",
     text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
   author: "devin",
   shortAnswer: [
-    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee. Most of those are in the areas below.",
-    "Age is a sign too: about three in four houses for sale built before 1990 had no HOA fee listed, and fewer than one in five built since.",
+    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the areas below.",
   ],
 
   sections: [
-    { h2: "Where are the homes with no HOA fee?", toc: "The map and the guide", id: "where", html: () =>
+    { h2: "Where are no-HOA homes?", toc: "The map and the guide", id: "where", html: () =>
       ph.css() + CHIP_CSS + MAP +
-      h.p(`<strong>A boat at home:</strong> ${go("cherry-grove")} on the canals; ${go("little-river")}, ${go("socastee")} and ${go("garden-city")} by a county landing.`) +
+      `<style>.c3-nh-guide p{margin:0 0 .5rem!important;line-height:1.45}</style><div class="c3-nh-guide">` +
+      h.p(`<strong>A boat at home:</strong> ${go("cherry-grove")}, ${go("little-river")}, ${go("socastee")} and ${go("garden-city")}.`) +
       h.p(`<strong>A 10-minute walk to a beach access:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
       h.p(`<strong>An old town center:</strong> ${go("mb-downtown", "Downtown Myrtle Beach")}, ${go("conway")} and ${go("loris")}.`) +
-      h.p(`<strong>Half-acre lots:</strong> ${go("mb-pine-lakes")} and ${go("mb-plantation-point")}.`) +
-      h.p(`<strong>An acre and a new house:</strong> ${go("aynor")} and ${go("loris-country", "the country around Loris")}.`) },
+      h.p(`<strong>Room to spread out:</strong> half an acre in ${go("mb-pine-lakes")} and ${go("mb-plantation-point")}; an acre in ${go("aynor")} and ${go("loris-country", "around Loris")}.`) +
+      `</div>` },
 
     entry("mb-downtown", "older streets by Withers Swash", [
       `A wooden boardwalk follows Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}, from Third Avenue South to Broadway and Collins Street. Most of the houses here are within half a mile of the ocean shore.`,
@@ -433,15 +483,16 @@ module.exports = GL.page({
     ]),
 
     { h2: "What can you do at home with no HOA?", toc: "What you can do at home", id: "boats-and-work-trucks", html: (bg) =>
-      h.p(`With no HOA, the limits on your lot are in the town's code, or the county's code outside the towns. The table gives each one's rule for a boat, a work truck, a short-term rental and a shed or fence.`) +
+      h.p(`With no HOA, the only limits on your lot are the town's, or the county's outside the towns. The cards give each one's answer for a boat, a work truck, renting the home out and a shed or fence. Most of the homes with no HOA fee around Conway, Loris and Aynor are outside the town limits, under the county's answers.`) +
       homeRules() +
-      h.p(`Short-term means under 90 days in ${h.ext(MB_STR, "Myrtle Beach")}, 90 or fewer in North Myrtle Beach and under 30 in ${h.ext(SSB_STR, "Surfside Beach")}. In those three towns, ${h.ext(NMB_RENTAL, "renting out a home")}, short or long term, needs a business license.`) +
-      h.p(`In the towns, you can leave a boat in the driveway for a day to load and unload. On county roads, the county ${h.ext(HORRY_CODE, "bans parking")} only where it posts a sign. The ${h.ext(CLOSING, "closing attorney")}'s title search finds any deed restriction before you buy. The zoning office can tell you how a rule applies to a given lot.`) +
+      h.p(`In ${h.ext(MB_STR, "Myrtle Beach")}, ${h.ext(NMB_RENTAL, "North Myrtle Beach")} and ${h.ext(SSB_STR, "Surfside Beach")}, renting out a home needs a business license. In the towns, you can leave a boat in the driveway for a day to load and unload. On county roads, the county ${h.ext(HORRY_CODE, "bans parking")} only where it posts a sign.`) +
+      h.p(`We check the rules for the address, and the ${h.ext(CLOSING, "closing attorney")}'s title search finds any deed restriction, before you buy.`) +
       story(STORY, "", bg) },
 
     { h2: "What does a house with no HOA fee cost?", toc: "Prices", id: "prices", html: (bg) =>
-      h.p(`It depends on the area more than on the fee. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
+      h.p(`Most are listed from $250,000 to $500,000: about ${about10("250k-500k")} houses for sale, most of them around Conway, Loris and Aynor. The rest:`) +
       bandList() +
+      h.p(`Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
       h.cta("Get the homes with no HOA fee in your price range.", "Tell us your range and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
 
     { h2: "What do you give up with no HOA?", toc: "What you give up", html: () =>

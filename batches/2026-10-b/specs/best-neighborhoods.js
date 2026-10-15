@@ -106,7 +106,7 @@ const PHOTO = {
 const RMAP = AM.regionMap({ name: "Neighborhoods", maxRatio: 0.6, placeNames: false,
   places: D.neighborhoods.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: `#${n.id}` })) },
   { dir: MAP_DIR, src: "/images/maps", glass: true, width: 320 });
-const MAP_HTML = PK.mapFigure(h, RMAP.html, "Map of the 15 neighborhoods. The numbers match the guide.", RMAP.credit, "Neighborhoods");
+const MAP_HTML = PK.mapFigure(h, RMAP.html, "Map of the 15. The numbers match the guide.", RMAP.credit, "Neighborhoods");
 
 /* ---------------------------------------------------------------------------- */
 /* The selection guide (CRAFT 3, "No preamble"): each place once, under the thing it does best, in words a   */
@@ -174,10 +174,17 @@ const GUIDE_CSS = "<style>"
   + "@media (max-width:979px){.c3-guide{display:flex;flex-direction:column}.c3-guide>figure,.c3-guide>.c3-map-figure{order:-1;margin:0 0 .8rem}}"
   /* No preamble (CRAFT 3): on a phone the sections sit closer, the offer band is shorter, and the guide's
      cards are tighter, so the first entry starts sooner. Nothing is hidden. */
-  + "@media (max-width:699px){main>section{padding-top:2.4rem!important;padding-bottom:2.4rem!important}"
+  + "@media (max-width:699px){main>section{padding-top:2rem!important;padding-bottom:2rem!important}"
   + "main>section[style^='background:var(--navy)'] p[style*='font-size:1.7rem'],main>section[style^='background:var(--navy)'] h2{font-size:1.4rem!important}"
-  + ".c3-guide-grid{display:block}.c3-guide-card{padding:0;background:none;border:0;box-shadow:none;margin:0 0 .55rem}.c3-guide-card h3{font-size:1rem;margin-bottom:.05rem}"
-  + ".c3-guide-card h3 .i{width:1.6rem;height:1.6rem}.c3-gi{font-size:.97rem;margin-bottom:0;white-space:nowrap}.c3-gi a{padding:.12rem 0}}"
+  + ".c3-guide-grid{display:block}.c3-guide-card{padding:0;background:none;border:0;box-shadow:none;margin:0 0 .4rem}.c3-guide-card h3{font-size:1rem;margin-bottom:0}"
+  + ".c3-guide-card h3 .i{width:1.5rem;height:1.5rem}.c3-gi{font-size:.97rem;line-height:1.3;margin-bottom:0;white-space:nowrap}.c3-gi a{padding:.08rem 0}}"
+  /* Round 14d: on a phone each aerial runs the full width of the screen, so its drawn labels show at 12 px or
+     more (OWNER-EYE-14c M5; the labels are part of the image). */
+  + "@media (max-width:699px){main#main .c3-aerial .c3ph-hero{margin-left:-24px!important;margin-right:-24px!important;width:calc(100% + 48px)!important;max-width:none!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:none!important}"
+  + "main#main .c3-aerial .c3ph-f,main#main .c3-aerial img{border-radius:0!important}main#main .c3-aerial figcaption{padding:0 24px}"
+  /* The map strip runs the full width too, so its numbers and scale show at 12 px or more (it is drawn 320 wide). */
+  + "main#main .c3-guide>figure{margin-left:-24px!important;margin-right:-24px!important;width:calc(100% + 48px)!important;max-width:none!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important}"
+  + "main#main .c3-guide>figure svg,main#main .c3-guide>figure img{border-radius:0!important;border-left:0!important;border-right:0!important;max-width:none!important}main#main .c3-guide>figure figcaption{padding:0 24px}}"
   + "</style>";
 const GUIDE = GUIDE_CSS + `<div class="c3-guide c3-guide-map"><div class="c3-guide-grid">`
   + GROUPS.map((g) => `<div class="c3-guide-card"><h3><span class="i">${IC.icon(g.icon, { size: 20 })}</span>${g.label}</h3>`
@@ -205,7 +212,7 @@ const ENTRIES = [
   ENTRY("cherry-grove", "a fishing pier with a world record", [
     "In 1964 a 1,780-pound tiger shark was landed from Cherry Grove Pier, a world record at the time. The pier was built in the 1950s.",
     `Mornings here can start on the sand. A public beach access is about 0.1 mile from the middle of Cherry Grove. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the beach")} all year, except in the middle of the day in summer.`,
-    "For an evening walk, Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot.",
+    "For an evening walk on foot, Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile away.",
     "The trade-off is the house itself. Most for sale here were built from the 1960s to the 1980s, and they are smaller than in the newer neighborhoods.",
   ], "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale are listed with no homeowners association (HOA) fee."),
 
@@ -227,7 +234,7 @@ const ENTRIES = [
     `At Tidewater Plantation, the club grille has a plan for every night. ${h.ext(TW_SPECIALS, "Joey's Clubhouse Grille")}, a public restaurant at Tidewater Golf Club, runs a dinner special each day. Mondays are Calabash shrimp, Fridays are flounder all day, and Saturdays are ribs.`,
     "Happy hour is every afternoon, and brunch is on Saturdays and Sundays. The grille is a 3-minute drive from a typical Tidewater home.",
     "Many of Tidewater's houses are along the fairways.",
-    "Tidewater is on the marsh behind Cherry Grove Inlet, not on the ocean, so a beach day starts with a short drive.",
+    "Tidewater is on the marsh behind Cherry Grove Inlet, not on the ocean, so a beach day starts in the car.",
   ], "Houses in Tidewater usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
   ENTRY("barefoot-resort", "a swing bridge to the shops", [
@@ -250,7 +257,7 @@ const ENTRIES = [
 
   ENTRY("grande-dunes", "a South Florida look on the waterway", [
     `Grande Dunes was built to look like South Florida. Its ${h.ext(GD_SUN, "first houses followed the style")} of the Florida builder Addison Mizner, with tile roofs, stucco, columns and arches, and many of its most expensive houses still do. The first completed house sold in October 2000 for $1.15 million.`,
-    "For a golfer, the Resort Club course, a Roger Rulewich design, sits on a bluff over the Intracoastal Waterway. The National Golf Course Owners Association named it its course of the year in 2009.",
+    "For a golfer, the Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. The National Golf Course Owners Association named it its course of the year in 2009.",
     "If you want a lived-in house with a settled yard, the choice is small: most houses for sale here are new or not yet finished.",
   ], "New houses from builders such as Lennar and Dream Finders sold for about $680,000 in the past year. The seven homes that resold went for $1.2 million to $2.9 million. A house pays an HOA fee of about $200 to $400 a month."),
 
@@ -316,15 +323,15 @@ module.exports = G.page({
   eyebrow: "Choosing a neighborhood",
   h1: "What are the best neighborhoods in Myrtle Beach?",
   h1em: "Pick by what you love.",
-  sub: "Fifteen neighborhoods from North Myrtle Beach to Murrells Inlet, each under the thing it does best.",
+  sub: "Fifteen neighborhoods near Myrtle Beach, each under the thing it does best.",
   toc: false,
   author: "devin",
   heroCta: { title: "Tell us what you want close to home. We will send three neighborhoods that fit.", text: "One of our agents sends the list, with the homes for sale in each. There is no charge.", label: "Get three neighborhoods", href: OFFER },
   shortAnswer: [
-    "For a walk to the beach, the best neighborhood in Myrtle Beach is Cherry Grove, with a fishing pier and dogs allowed on the sand. For golf at the door, Pine Lakes, beside the city's first course. For a boat, Plantation Lakes, where owners take pontoon boats out on the lake. For a lower price, Avalon in Carolina Forest.",
+    "For a walk to the beach, the best neighborhood in Myrtle Beach is Cherry Grove, with a fishing pier and dogs allowed on the sand. For golf at the door, Pine Lakes. For a boat, Plantation Lakes. For a lower price, Avalon in Carolina Forest.",
   ],
   sections: [
-    { h2: "Which Myrtle Beach neighborhood fits what you love?", toc: "Choose by what you love", id: "choose", html:
+    { h2: "Which neighborhood fits what you love?", toc: "Choose by what you love", id: "choose", html:
       CSS + GUIDE },
     ...ENTRIES,
     /* One compact table after the entries (ROUND-14; OWNER-EYE-14 H5): the price and the time to the beach,
