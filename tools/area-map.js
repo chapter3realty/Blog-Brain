@@ -1264,6 +1264,12 @@ function placesSpec(spec) {
   if (spec.areas !== undefined) out.areas = spec.areas;
   if (spec.areaLabels !== undefined) out.areaLabels = spec.areaLabels;
   if (spec.maxRatio !== undefined) out.maxRatio = spec.maxRatio;
+  /* Optional spec.placeNames false (opt-in, batch 2026-10-b round 14d): numbers only, no names beside the
+     markers, for a small overview strip whose key is a list on the page. Left out, names are placed as before. */
+  if (spec.placeNames !== undefined) {
+    if (spec.placeNames !== false) throw new Error("area-map: placeNames is false or left out");
+    out.placeNames = false;
+  }
   validate(out, loadGeo2().bbox, WIDEN2);
   return out;
 }
@@ -1274,7 +1280,7 @@ function placesSpec(spec) {
    than to any other marker or true spot, clear of every mark, label and line. A name with no room
    is left off and the marker keeps its number: the reader finds the name in the key under the
    map (m.key). Returns { labels, dropped, bare } like placeCallouts, plus the bare markers. */
-function placeMany(L, F, lms, R, between) {
+function placeMany(L, F, lms, R, between, o = {}) {
   const NS = SZ.many, LH = NS + 2.5;
   const marks = [];
   lms.forEach((lm, i) => {
@@ -1306,6 +1312,7 @@ function placeMany(L, F, lms, R, between) {
      gets the room beside its marker in a crowded cluster; the rest keep their order. */
   for (const k of marks.filter((k) => k.m.lm.first).concat(marks.filter((k) => !k.m.lm.first))) {
     const { m, owner } = k, own = (it) => it.owner === owner;
+    if (o.names === false) { dropped.push(m.lm); bare.push({ m }); continue; }
     /* One line first, then the name on two lines, which fits a tighter spot. */
     const text = m.lm.short || m.lm.name;
     let best = null;
@@ -1665,7 +1672,7 @@ function regionMap(spec, opts = {}) {
       leaderTowns.push({ t, ...best, size });
     }
   };
-  const { labels: lmLabels, dropped, bare = [] } = many ? placeMany(L, F, lms, R, spec.leaders ? townLeaders : null) : placeCallouts(L, F, lms, R, "lm");
+  const { labels: lmLabels, dropped, bare = [] } = many ? placeMany(L, F, lms, R, spec.leaders ? townLeaders : null, { names: spec.placeNames }) : placeCallouts(L, F, lms, R, "lm");
   const marks = lmLabels.map((l) => l.m).concat(bare.map((b) => b.m));
 
   /* Ocean label: in the ocean, clear of the coast; a size smaller (still a place size) when a

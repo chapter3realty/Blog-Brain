@@ -200,6 +200,12 @@ const wide = regionMap({ name: "Ratio", areas: AREAS, areaLabels: "numbers", max
 check("areas: maxRatio makes the map no taller than the ratio given", wide.height <= Math.round(wide.width * 0.55) + 1 && wide.height < tall.height, `${wide.height} vs ${tall.height}`);
 check("areas: without maxRatio the frame is unchanged", tall.svg === num.svg.replace(/Areas numbered/g, "Ratio").replace(/areas-numbered/g, "ratio") || tall.height === num.height);
 check("areas: a maxRatio outside 0.4 to 1.2 is refused", throws(() => regionMap({ name: "Bad ratio", areas: AREAS, maxRatio: 0.2 }, { inlineMax: 1e9 }), /maxRatio/));
+/* spec.placeNames false (opt-in, round 14d): numbers only on a small overview strip. */
+const named5 = regionMap({ name: "Names on", places: PLACES.slice(0, 5) }, { inlineMax: 1e9 });
+const bare5 = regionMap({ name: "Names off", places: PLACES.slice(0, 5), placeNames: false }, { inlineMax: 1e9 });
+check("places: placeNames false leaves every name off the map and keeps every number", bare5.unlabelled.length === 5 && PLACES.slice(0, 5).every((p) => !bare5.svg.includes(">" + (p.short || p.name) + "<")), bare5.unlabelled.join());
+check("places: without placeNames the names are placed as before", named5.unlabelled.length < 5);
+check("places: placeNames other than false is refused", throws(() => regionMap({ name: "Bad names", places: PLACES.slice(0, 3), placeNames: true }, { inlineMax: 1e9 }), /placeNames/));
 const mixed = regionMap({ name: "Areas and places", places: PLACES.slice(0, 3), areas: AREAS.slice(0, 2), areaLabels: "numbers" }, { inlineMax: 1e9 });
 check("areas: beside numbered places an area is lettered", mixed.areas.map((a) => a.mark).join() === "A,B");
 check("areas: a radius out of range is refused", throws(() => regionMap({ name: "x", areas: [AREA("Conway", "", 20)] }), /radius is in meters/));
