@@ -165,12 +165,12 @@ const MAP = (() => {
   const north = draw("Homes with no HOA, North Myrtle Beach and Little River", PANEL.north.map(areaOf), { maxRatio: RATIO.north });
   const inland = draw("Homes with no HOA, Conway, Loris and Aynor", PANEL.inland.map(areaOf), { maxRatio: RATIO.inland });
   const panel = (m, label) => `<div class="c3-nh-panel"><p class="c3-nh-label">${label}</p>${m.html}</div>`;
-  const css = "<style>.c3-nh-maps{display:grid;gap:.6rem}.c3-nh-panel img,.c3-nh-panel svg{display:block;width:100%;height:auto}"
+  const css = "<style>.c3-nh-maps{display:grid;gap:.45rem}.c3-nh-panel img,.c3-nh-panel svg{display:block;width:100%;height:auto}"
     + ".c3-nh-label{font-family:var(--sans);font-size:.9rem;font-weight:600;color:var(--navy);margin:0 0 .2rem!important;line-height:1.3}"
     + "@media (min-width:900px){.c3-nh-maps{grid-template-columns:repeat(3,1fr);align-items:start}}"
     + ".c3-areamap figure{max-width:1136px!important}</style>";
   return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-maps">${panel(south, "Myrtle Beach to Garden City")}${panel(north, "North Myrtle Beach and Little River")}${panel(inland, "Conway, Loris and Aynor")}</div>`,
-    "Map numbered as in the list below.", south.credit, "no-hoa map") + `</div>`;
+    "Map: numbers as in the list below.", south.credit, "no-hoa map") + `</div>`;
 })();
 
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
@@ -350,20 +350,20 @@ module.exports = GL.page({
   eyebrow: "Buying a home",
   h1: "Where can you buy a home with no HOA near Myrtle Beach?",
   h1em: "16 areas where most homes have no fee.",
-  sub: "Room for a boat, a work truck and a shed, from Little River to Aynor.",
+  sub: "Room for a boat, a truck and a shed, from Little River to Aynor.",
   topOfferLine: "Homes with no HOA fee, by area.",
   heroCta: { title: "Get the homes with no HOA fee in the areas you like.", label: LABEL, href: "/contact/",
     text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
   author: "devin",
   shortAnswer: [
-    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the areas below.",
+    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are on older beach streets, in river towns and on country land, in the areas below.",
   ],
 
   sections: [
-    { h2: "Where are no-HOA homes?", toc: "The map and the guide", id: "where", html: () =>
+    { h2: "Where are they?", toc: "The map and the guide", id: "where", html: () =>
       ph.css() + CHIP_CSS + MAP +
-      `<style>.c3-nh-guide p{margin:0 0 .5rem!important;line-height:1.45}</style><div class="c3-nh-guide">` +
-      h.p(`<strong>A boat at home:</strong> ${go("cherry-grove")}, ${go("little-river")}, ${go("socastee")} and ${go("garden-city")}.`) +
+      `<style>.c3-nh-guide{margin-top:-.3rem}.c3-nh-guide p{margin:0 0 .4rem!important;line-height:1.4}</style><div class="c3-nh-guide">` +
+      h.p(`<strong>A boat at home:</strong> ${go("cherry-grove")}, ${go("little-river")}, ${go("socastee")} and ${go("garden-city", "Garden City")}.`) +
       h.p(`<strong>A 10-minute walk to a beach access:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
       h.p(`<strong>An old town center:</strong> ${go("mb-downtown", "Downtown Myrtle Beach")}, ${go("conway")} and ${go("loris")}.`) +
       h.p(`<strong>Room to spread out:</strong> half an acre in ${go("mb-pine-lakes")} and ${go("mb-plantation-point")}; an acre in ${go("aynor")} and ${go("loris-country", "around Loris")}.`) +

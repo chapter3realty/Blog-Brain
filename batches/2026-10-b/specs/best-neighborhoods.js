@@ -146,7 +146,7 @@ const GUIDE_CSS = "<style>"
   + ".c3-guide-grid{margin:0 0 1rem}"
   + "@media (min-width:640px){.c3-guide-grid{columns:2;column-gap:.8rem}.c3-guide-card{break-inside:avoid;margin:0 0 .8rem}}"
   /* On a wide screen the map sits beside the cards, so the guide and its map are read together. */
-  + "@media (min-width:980px){.c3-guide{max-width:1180px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:1.4rem;align-items:start}.c3-guide .c3-guide-grid{margin:0}.c3-guide figure{margin-top:0}}"
+  + "@media (min-width:980px){.c3-guide{max-width:1180px;display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:1.4rem;align-items:start}.c3-guide .c3-guide-grid{margin:0}.c3-guide figure{margin-top:0}}"
   /* Glass cards (tools/glass.js tokens: --g-edge, --g-hi, --g-sh), on the theme's field. */
   + ".c3-guide-card{background:linear-gradient(180deg,rgba(255,255,255,.76),rgba(255,255,255,.52));border:1px solid var(--g-edge,rgba(255,255,255,.8));box-shadow:var(--g-hi,none),var(--g-sh,none);border-radius:16px;padding:.75rem 1rem .55rem}"
   + ".c3-guide-card h3{display:flex;align-items:center;gap:.55rem;font-family:var(--sans);font-size:1.05rem;font-weight:600;color:var(--navy);margin:0 0 .35rem}"
