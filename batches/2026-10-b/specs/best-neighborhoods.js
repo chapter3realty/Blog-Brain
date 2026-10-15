@@ -217,7 +217,7 @@ const ENTRIES = [
     "Away from the condo towers on the ocean, Cherry Grove's streets hold about 1,700 houses. Most are raised beach houses with four bedrooms or more, a porch and a deck.",
     "In 1950 an inlet was filled to join Futch Beach to the Nixon family's Cherry Grove land, and the joined place was named Cherry Grove Beach. Later, Cherry Grove joined Ocean Drive, Crescent Beach and Windy Hill to form the city of North Myrtle Beach.",
     "The trade-off is flood insurance. Almost every home here is in a high-risk flood zone, where a lender usually requires flood insurance.",
-  ], "Houses in Cherry Grove usually sold for about $695,000 last year, and more than half of the homes for sale here are listed with no homeowners association (HOA) fee."),
+  ], "Houses in Cherry Grove usually sold for about $695,000 last year. More than half of the homes for sale here are listed with no homeowners association (HOA) fee."),
 
   ENTRY("surfside-beach", "a free concrete pier with two restaurants", [
     `The ocean side of Surfside Beach has its own town pier, and ${h.ext(SSB_PIER, "walking onto it is free")}. The concrete pier runs 814 feet into the ocean, with two restaurants, an ice cream shop and a bait and tackle shop.`,
