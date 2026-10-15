@@ -118,5 +118,84 @@
     "pattern": "\\brecorded its last two sections",
     "struck": "D.R. Horton recorded its HOA rules in 2004 and recorded its last two sections, Phases 23B and 21, in 2017.",
     "use": "D.R. Horton recorded its HOA rules in 2004 and added land in stages until 2017, when the last two sections, Phases 23B and 21, were added."
+  },
+  {
+    "row": "the-farm 43",
+    "pattern": "\\bsquare feet, on a lot of about a fifth of an acre",
+    "struck": "Both one-story and two-story houses are for sale here. Most have about 1,450 to 3,200 square feet, on a lot of about a fifth of an acre.",
+    "use": "Most have about 1,450 to 3,200 square feet. A typical house lot is about a fifth of an acre."
+  },
+  {
+    "row": "the-farm 102",
+    "pattern": "\\bholds about 7,400 square feet|7,400 square feet of water",
+    "struck": "The large pool holds about 7,400 square feet of water.",
+    "use": "The large pool covers about 7,400 square feet [county building footprint of the in-ground pool]."
+  },
+  {
+    "row": "the-farm 98",
+    "pattern": "\\bdeck faces a pond",
+    "struck": "Its wide deck faces a pond, and the activity center is about 400 feet away.",
+    "use": "Its wide deck is beside a pond, and the activity center is about 400 feet away."
+  },
+  {
+    "row": "the-farm 48",
+    "pattern": "\\busually sells? for about \\$350,000",
+    "struck": "Houses here usually sell for about $350,000.",
+    "use": "Houses in The Farm sold for a middle price of about $352,000 in the 12 months to September 2026, with half between $307,500 and $388,000."
+  },
+  {
+    "row": "the-farm 48",
+    "pattern": "\\bTownhomes and condos usually sell for about \\$230,000",
+    "struck": "Townhomes and condos usually sell for about $230,000 to $240,000.",
+    "use": "Orchards townhomes sold for a middle price of $228,500 (13 sales) and Planters Point condos for $237,500 (9 sales) in the 12 months to September 2026."
+  },
+  {
+    "row": "the-farm 86",
+    "pattern": "\\bplan on about \\$2,600 a year to own it",
+    "struck": "Beyond the mortgage and home insurance, plan on about $2,600 a year to own it.",
+    "use": "For a $350,000 house you live in, the HOA fee and the county property tax come to about $2,600 a year, beyond the mortgage and home insurance. The county adds a stormwater fee of about $90."
+  },
+  {
+    "row": "the-farm 79",
+    "pattern": "\\bpreserve land\\b|\\bland for a nature preserve\\b",
+    "struck": "State preserve land borders its north edge.",
+    "use": "Land the state bought for the Lewis Ocean Bay Heritage Preserve borders its north edge. The state says it will be dedicated as part of the preserve and open for outdoor recreation."
+  },
+  {
+    "row": "the-farm 99",
+    "pattern": "\\bmedical center was once planned|\\bonce planned a large medical center",
+    "struck": "Conway Medical Center once planned a large medical center on that land.",
+    "use": "Conway Medical Center had meant the land for a $160 million healthcare facility."
+  },
+  {
+    "row": "the-farm 10",
+    "pattern": "\\bfee includes two pools, a fitness room",
+    "struck": "The $107 HOA fee includes two pools, a fitness room, cable TV and trash pickup.",
+    "use": "The $107 HOA fee pays for the pools, cable TV and trash pickup. Owners can use the HOA's fitness room."
+  },
+  {
+    "row": "the-farm 69",
+    "pattern": "\\bEvery year, The Farm also joins",
+    "struck": "Every year, The Farm also joins other Carolina Forest neighborhoods in a food drive.",
+    "use": "The Farm is one of the neighborhoods in the 16th annual Carolina Forest food drive on October 24, 2026."
+  },
+  {
+    "row": "the-farm 27",
+    "pattern": "\\bshare one campus about 3 minutes away by car|\\bBike and Run Park, about 4 minutes away",
+    "unless": "\\bentrance\\b",
+    "struck": "The county library and the Carolina Forest Recreation Center share one campus about 3 minutes away by car.",
+    "use": "The county library and the Carolina Forest Recreation Center share one campus, about 3 minutes by car from the Farmers Rest Drive entrance."
+  },
+  {
+    "row": "the-farm 89",
+    "pattern": "\\bCorps is still investigating Range III|\\bRange III, a section next door",
+    "struck": "The Corps is still investigating Range III, a section next door.",
+    "use": "The Corps' 2024 map data lists Range III, a section that borders The Farm, as under investigation."
+  },
+  {
+    "row": "the-farm 85",
+    "pattern": "\\bThe tax is based on about what you pay for the house",
+    "struck": "The tax is based on about what you pay for the house, and the new amount starts the year after you buy.",
+    "use": "After you buy, the county sets the home's value at about what a buyer would pay on the open market. In an ordinary sale that is close to the price paid, and the new amount first appears on the tax bill the year after you buy."
   }
 ]
