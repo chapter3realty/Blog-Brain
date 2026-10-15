@@ -966,10 +966,13 @@ function placeCallouts(L, F, lms, R, prefix, o = {}) {
   return { labels, dropped };
 }
 
-function markerSvg(lab, R, sym, g, txt) {
+function markerSvg(lab, R, sym, g, txt, pill) {
   const { m, c, lines, mins, LH, MS } = lab;
   let inner = `<circle r="${R}" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/>` + (m.lm.num ? numSvg(m.lm.num) : sym(m.kind, -R * 0.67, -R * 0.67, R * 1.34, C2.navy));
   if (!c) return g(m.x, m.y, inner);
+  /* opts.glass: the name sits in a glass pill (batch 2026-10-b). The pill is the label's own box, so
+     it never covers another mark. */
+  if (pill) inner = pillSvg(c.anchor === "start" ? c.x : c.anchor === "end" ? c.x - lab.w : c.x - lab.w / 2, c.y, lab.w, lab.h) + inner;
   const y = c.y + LH - 2.5;
   inner += txt("l", c.x, y, c.anchor, lines.map((l, i) => `<tspan x="${r1(c.x)}"${i ? ` dy="${LH}"` : ""}>${esc(l)}</tspan>`).join(""));
   if (mins) inner += txt("m", c.x, y + (lines.length - 1) * LH + MS + 2.5, c.anchor, esc(mins));
@@ -978,6 +981,14 @@ function markerSvg(lab, R, sym, g, txt) {
 
 /* The number inside a marker on a map of many places (regionMap with spec.places). */
 const numSvg = (n) => `<text class="nm" y="${r1(SZ.num * 0.36)}" text-anchor="middle">${n}</text>`;
+
+/* A glass pill behind a label box (x, y its top left, w by h): a faint shadow, a light fill and a
+   white edge (opts.glass and area names, batch 2026-10-b). */
+const pillSvg = (x, y, w, h) => {
+  const X = x - 2, Y = y - 1, Wd = w + 4, Hd = h + 2, rx = r1(Math.min(Hd / 2, 10));
+  return `<rect x="${r1(X)}" y="${r1(Y + 1.3)}" width="${r1(Wd)}" height="${r1(Hd)}" rx="${rx}" fill="${C2.navy}" fill-opacity=".1"/>`
+    + `<rect x="${r1(X)}" y="${r1(Y)}" width="${r1(Wd)}" height="${r1(Hd)}" rx="${rx}" fill="${C2.white}" fill-opacity=".9" stroke="${C2.white}" stroke-width=".8"/>`;
+};
 
 const leaderSvg = (m) => `<path d="M${r1(m.tx)} ${r1(m.ty)}L${r1(m.x)} ${r1(m.y)}" stroke="${C2.navy}" stroke-width="1.1"/><circle cx="${r1(m.tx)}" cy="${r1(m.ty)}" r="2.4" fill="${C2.navy}"/>`;
 
@@ -1172,6 +1183,52 @@ function shieldSvg(sp) {
   return shape + `<text class="r" y="${r1(SZ.shield * (sp.type === "US" ? 0.28 : 0.36))}" text-anchor="middle">${sp.num}${sp.suf ? `<tspan class="q" dx="2">${sp.suf}</tspan>` : ""}</text>`;
 }
 
+/* Named areas (spec.areas, opt-in, batch 2026-10-b round 14). The owner, on the no-HOA page: "get as
+   many areas in and around the city circle them". Each area is drawn as a circle (a center and a radius
+   in meters) or an outline (a polygon), with its name, and an optional short note, in a pill:
+     { name, note?, lat, lon, radius }            radius in meters, 150 to 15,000
+     { name, note?, polygon: [[lon, lat], ...] }  3 to 400 points, longitude first (GeoJSON order);
+                                                  { lat, lon } objects are taken too
+   name: 32 letters or fewer; note: 32 or fewer ("Almost all have no HOA"). Up to AREAS_MAX areas, on a
+   map of many places (regionMap({ name, places, areas })), on one with areas and no places
+   (regionMap({ name, areas })), or on a community map. A name with no room near its area is left off,
+   the area gets a number (a letter when the map also numbers places) and the name goes in m.areaKey.
+   A map without spec.areas draws exactly as before. */
+const AREAS_MAX = 30;
+function areasOf(spec) {
+  if (!spec || spec.areas === undefined) return [];
+  if (!Array.isArray(spec.areas) || !spec.areas.length || spec.areas.length > AREAS_MAX) throw new Error(`area-map: areas is a list of 1 to ${AREAS_MAX} areas`);
+  const seen = new Set();
+  const text = (a, k, max) => {
+    const v = a[k];
+    if (v === undefined && k === "note") return "";
+    if (typeof v !== "string" || !v.trim() || /[<>&]/.test(v) || v.trim().length > max) throw new Error(`area-map: area ${a.name || "?"}: ${k} is plain text of 1 to ${max} letters`);
+    return v.trim();
+  };
+  const ll = (a, lat, lon) => {
+    if (!(lat > 32 && lat < 35.5 && lon > -80.5 && lon < -77.5)) throw new Error(`area-map: area ${a.name}: a point is outside the Grand Strand (${lat}, ${lon}); a polygon point is [lon, lat]`);
+    return { lat: +lat, lon: +lon };
+  };
+  return spec.areas.map((a) => {
+    if (!a || typeof a !== "object") throw new Error("area-map: an area is an object");
+    const name = text(a, "name", 32), note = text(a, "note", 32);
+    if (seen.has(name)) throw new Error(`area-map: area ${name} is on the map twice`);
+    seen.add(name);
+    if (Array.isArray(a.polygon)) {
+      if (a.radius !== undefined) throw new Error(`area-map: area ${name}: give a radius or a polygon, not both`);
+      if (a.polygon.length < 3 || a.polygon.length > 400) throw new Error(`area-map: area ${name}: a polygon has 3 to 400 points`);
+      const pts = a.polygon.map((q) => (Array.isArray(q) ? ll(a, q[1], q[0]) : ll(a, q && q.lat, q && q.lon)));
+      const c = { lat: pts.reduce((t, q) => t + q.lat, 0) / pts.length, lon: pts.reduce((t, q) => t + q.lon, 0) / pts.length };
+      return { name, note, shape: "polygon", pts, lat: c.lat, lon: c.lon };
+    }
+    const c = ll(a, a.lat, a.lon), r = +a.radius;
+    if (!(r >= 150 && r <= 15000)) throw new Error(`area-map: area ${name}: radius is in meters, 150 to 15,000`);
+    const dLat = r / 110570, dLon = r / (111320 * Math.cos(c.lat * Math.PI / 180));
+    const pts = [[0, 1], [1, 0], [0, -1], [-1, 0]].map(([x, y]) => ({ lat: c.lat + y * dLat, lon: c.lon + x * dLon }));
+    return { name, note, shape: "circle", radius: r, pts, lat: c.lat, lon: c.lon };
+  });
+}
+
 /* A map of many places (spec.places): 2 to 15 neighborhoods or towns, each a numbered marker with
    its name beside it, and no home pin. The places are turned into a home-less spec: the "home" is
    the middle of the places, used only to frame the map and to choose which roads and water to
@@ -1180,16 +1237,20 @@ const MANY_MAX = 15;
 function placesSpec(spec) {
   const list = spec.places;
   if (!spec.name || typeof spec.name !== "string") throw new Error("area-map: a map of many places needs a name (spec.name), for its id and its file");
-  if (list.length < 2 || list.length > MANY_MAX) throw new Error(`area-map: a map of many places shows 2 to ${MANY_MAX} places`);
+  /* A map of named areas (spec.areas) may have no numbered places at all. */
+  const nAreas = Array.isArray(spec.areas) ? spec.areas.length : 0;
+  if ((list.length < 2 && !(nAreas && !list.length)) || list.length > MANY_MAX) throw new Error(`area-map: a map of many places shows 2 to ${MANY_MAX} places${nAreas ? ", or none beside its areas" : ""}`);
   const names = new Set();
   for (const p of list) {
     if (p && p.minutes !== undefined) throw new Error(`area-map: ${p.name}: a map of many places has no home, so no drive minutes; give minutes in the text or a table`);
     if (p && names.has(p.name)) throw new Error(`area-map: ${p.name} is on the map twice`);
     if (p) names.add(p.name);
   }
-  const lat = list.reduce((t, p) => t + (+p.lat || 0), 0) / list.length, lon = list.reduce((t, p) => t + (+p.lon || 0), 0) / list.length;
+  const mid = list.length ? list : areasOf(spec).map((a) => ({ lat: a.lat, lon: a.lon }));
+  const lat = mid.reduce((t, p) => t + (+p.lat || 0), 0) / mid.length, lon = mid.reduce((t, p) => t + (+p.lon || 0), 0) / mid.length;
   const out = { home: { name: spec.name, lat, lon }, many: true, coast: spec.coast, minSpanKm: spec.minSpanKm, alt: spec.alt, caption: spec.caption, leaders: spec.leaders === true ? { places: true } : spec.leaders || null,
     landmarks: list.map((p, i) => ({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region", first: !!p.first })) };
+  if (spec.areas !== undefined) out.areas = spec.areas;
   validate(out, loadGeo2().bbox, WIDEN2);
   return out;
 }
@@ -1264,8 +1325,11 @@ function placesKeyHtml(places) {
 }
 
 function regionMap(spec, opts = {}) {
+  /* A map of named areas with no places: { name, areas }. */
+  if (spec && !spec.home && !spec.places && Array.isArray(spec.areas)) spec = Object.assign({}, spec, { places: [] });
   const many = !!(spec && Array.isArray(spec.places));
   if (many) spec = placesSpec(spec); else validate2(spec);
+  const areas = areasOf(spec), glass = !!opts.glass;
   const geo = loadGeo2();
   const W = opts.width || 360;
   const home = spec.home;
@@ -1286,6 +1350,7 @@ function regionMap(spec, opts = {}) {
   }
   if (homeTown && km(home, homeTown) < 15) pts.push(homeTown);
   if (area) { const [a, b, c, d] = bbOf(area.outline); pts.push({ lon: a, lat: b }, { lon: c, lat: d }); }
+  for (const a of areas) pts.push(...a.pts);
   const F = frame2(pts, { W, padFrac: 0.07, padKm: 1, minSpanKm: spec.minSpanKm || 12, M: { l: 24, r: 24, t: 46, b: 30 }, rMin: 0.8, rMax: 1.2 });
   const { H, P } = F, view = F.view;
   const id = opts.id || "c3r-" + slug(home.name);
@@ -1336,6 +1401,28 @@ function regionMap(spec, opts = {}) {
   for (const t of [3, 2, 1]) if (tierD[t].length) { roadG.push(`<path class="c${t}" d="${tierD[t].join("")}" stroke="${RS[t][0]}"/>`); strokes["c" + t] = RS[t][1]; }
   for (const t of [3, 2, 1]) if (tierD[t].length) { roadG.push(`<path class="f${t}" d="${tierD[t].join("")}" stroke="${RS[t][2]}"/>`); strokes["f" + t] = RS[t][3]; }
   if (roadG.length) geom.push(`<g fill="none" stroke-linecap="round" stroke-linejoin="round">${roadG.join("")}</g>`);
+
+  /* Named areas (spec.areas): a soft fill and a firm edge, above the roads, under every label. */
+  const areaPx = areas.map((a) => {
+    const [cx, cy] = P(a.lon, a.lat);
+    if (a.shape === "circle") return { a, cx, cy, r: a.radius / 1000 * F.s, ring: null };
+    const ring = a.pts.map((q) => P(q.lon, q.lat));
+    return { a, cx, cy, r: Math.max(...ring.map(([x, y]) => Math.hypot(x - cx, y - cy))), ring };
+  });
+  const inAreaPx = (ap, x, y) => (ap.ring ? inPoly([x, y], ap.ring) : Math.hypot(x - ap.cx, y - ap.cy) <= ap.r);
+  /* How far a label box is from an area's edge (0 when it touches or overlaps it). */
+  const edgeDist = (ap, b) => {
+    if (!ap.ring) return Math.max(0, boxDist(b, ap.cx, ap.cy) - ap.r);
+    if (inAreaPx(ap, b.cx, b.cy)) return 0;
+    let d = Infinity;
+    for (let i = 0; i < ap.ring.length; i++) {
+      const [x1, y1] = ap.ring[i], [x2, y2] = ap.ring[(i + 1) % ap.ring.length], n = Math.max(1, Math.ceil(Math.hypot(x2 - x1, y2 - y1) / 3));
+      for (let k = 0; k <= n; k++) d = Math.min(d, boxDist(b, x1 + (x2 - x1) * k / n, y1 + (y2 - y1) * k / n));
+    }
+    return d;
+  };
+  if (areaPx.length) geom.push(`<g class="ar" fill="${C2.brass}" fill-opacity=".13" stroke="${C2.brassInk}" stroke-width="1.8" stroke-linejoin="round">`
+    + areaPx.map((ap) => (ap.ring ? `<path d="${pathRel(ap.ring, true)}"/>` : `<circle cx="${r1(ap.cx)}" cy="${r1(ap.cy)}" r="${r1(ap.r)}"/>`)).join("") + `</g>`);
 
   /* ---------- labels ---------- */
   const furn = furniture2(L, F, [1, 2, 3, 5, 10]);
@@ -1389,6 +1476,7 @@ function regionMap(spec, opts = {}) {
   const homeIn = (t) => t.outline.some((r) => inPoly([home.lon, home.lat], r));
   const placeTown = (t, big) => {
     if (lms.some((l) => l.name === t.name) || townLabels.some((x) => x.t === t)) return;
+    if (areaPx.length) { const [x, y] = P(t.lon, t.lat); if (areaPx.some((ap) => inAreaPx(ap, x, y))) return; }
     /* A small place the home sits in, when the page names another town, would only confuse. */
     if (t.rank > 1 && t !== homeTown && homeIn(t)) return;
     const [x, y] = P(t.lon, t.lat);
@@ -1411,6 +1499,58 @@ function regionMap(spec, opts = {}) {
     }
   };
   if (homeTown) placeTown(homeTown, homeTown.rank === 1);
+
+  /* Area names, in pills, before the places: inside the area first, then just outside its edge,
+     where no other area is. A name with no room keeps a number (a letter beside numbered places). */
+  const areaLabels = [], areaBadges = [];
+  const AN = SZ.many, AT = SZ.mins, APX = 7, APY = 4;
+  /* A small or middle-sized area keeps other names off it, so its edge stays in view (a marker may
+     still sit on it). A large one does not: a small area inside it must have room for its name. */
+  areaPx.forEach((ap, i) => { if (ap.r <= 45) L.add(rect2(ap.cx, ap.cy, ap.r * 1.5, ap.r * 1.5), "area", "area" + i); });
+  /* spec.areaLabels "numbers": every area gets a number at its middle (a letter beside numbered places),
+     for a map of many areas whose names are the page's numbered entries; m.areaKey lists them all. */
+  const numbersOnly = spec.areaLabels === "numbers";
+  if (lms.length && areas.length > 26) throw new Error("area-map: beside numbered places, areas are lettered A to Z: 26 at most");
+  if (spec.areaLabels !== undefined && !numbersOnly) throw new Error('area-map: areaLabels is "numbers" or left out');
+  areaPx.forEach((ap, i) => {
+    const owner = "area" + i, own = (it) => it.owner === owner;
+    let best = null, lines = null, w = 0, h = 0;
+    /* The name and its note, then the name alone (the note is in the page's text too). */
+    const tries = numbersOnly ? [] : [[ap.a.name].concat(ap.a.note ? [ap.a.note] : [])].concat(ap.a.note ? [[ap.a.name]] : []);
+    for (const ls of tries) {
+      lines = ls;
+      w = Math.max(tw2(ap.a.name, AN) * 1.03, ls[1] ? tw2(ls[1], AT) : 0) + APX * 2;
+      h = AN + 2 + (ls[1] ? AT + 3 : 0) + APY * 2;
+      /* Inside, when the area holds the pill with room to spare (so its edge still shows); else just
+         outside the edge, the pill's near side 3 to 23 units off it, top first. Never over a small
+         area's middle, which would hide the circle. */
+      const roomy = ap.r * 2 >= w + 16 && ap.r * 2 >= h * 2.4;
+      const rings = (roomy ? [[0, 0], [0.35, 0]] : []).concat([[1, 3], [1, 13], [1, 23]]);
+      for (const [f, gap] of rings) {
+        const n = f === 0 ? 1 : 16;
+        for (let k = 0; k < n && !best; k++) {
+          const ang = -Math.PI / 2 + k * 2 * Math.PI / n, co = Math.cos(ang), si = Math.sin(ang);
+          const rr = gap ? ap.r + Math.abs(co) * w / 2 + Math.abs(si) * h / 2 + gap : ap.r * f;
+          const x = ap.cx + rr * co, y = ap.cy + rr * si;
+          const b = rect2(x, y, w, h);
+          if (!L.fits(b, 2, own)) continue;
+          /* Inside its own area, or just outside it and clearly nearer it than any other area, so it
+             is never read as another area's name. */
+          if (!inAreaPx(ap, x, y)) {
+            const dOwn = edgeDist(ap, b);
+            if (dOwn > 26 || areaPx.some((o) => o !== ap && edgeDist(o, b) < dOwn + 10)) continue;
+          }
+          best = { x, y, b };
+        }
+        if (best) break;
+      }
+      if (best) break;
+    }
+    if (best) { L.add(best.b, "label", owner); areaLabels.push({ ap, i, x: best.x, y: best.y, w, h, lines }); return; }
+    /* No room: the area's own number (its place in spec.areas), or a letter beside numbered places. */
+    L.add(rect2(ap.cx, ap.cy, 24, 24), "marker", owner);
+    areaBadges.push({ ap, i, mark: lms.length ? String.fromCharCode(65 + i) : String(i + 1) });
+  });
 
   /* Landmarks, in the caller's order of importance. */
   /* Names with a leader line (spec.leaders, a map of many places only). A main town whose name has
@@ -1676,12 +1816,27 @@ function regionMap(spec, opts = {}) {
   const mk = [];
   for (const m of marks) if (m.moved) mk.push(leaderSvg(m));
   for (const l of lmLabels) if (l && l.lead) mk.push(`<path d="M${r1(l.m.x)} ${r1(l.m.y)}L${r1(l.lead.ex)} ${r1(l.lead.ey)}" stroke="${C2.navy}" stroke-width="1"/>`);
-  for (const l of lmLabels) if (l) mk.push(markerSvg(l, R, sym, g, txt));
+  for (const l of lmLabels) if (l) mk.push(markerSvg(l, R, sym, g, txt, glass));
   for (const l of lmLabels) if (l && l.lead) {
     const lh = l.LH, y0 = -(l.lines.length * lh) / 2 + SZ.many * 0.85;
     const ox = l.lead.lb.cx - l.lead.ex, oy = l.lead.lb.cy - l.lead.ey;
-    mk.push(g(l.lead.ex, l.lead.ey, txt("l", ox, oy + y0, "middle", l.lines.map((t, i) => `<tspan x="${r1(ox)}"${i ? ` dy="${lh}"` : ""}>${esc(t)}</tspan>`).join(""))));
+    const lw = l.lead.lb.x1 - l.lead.lb.x0, lhh = l.lead.lb.y1 - l.lead.lb.y0;
+    mk.push(g(l.lead.ex, l.lead.ey, (glass ? pillSvg(ox - lw / 2, oy - lhh / 2, lw, lhh) : "") + txt("l", ox, oy + y0, "middle", l.lines.map((t, i) => `<tspan x="${r1(ox)}"${i ? ` dy="${lh}"` : ""}>${esc(t)}</tspan>`).join(""))));
   }
+  /* Area names in their pills, and a number or letter for an area whose name had no room. */
+  for (const al of areaLabels) {
+    /* The group's origin is the point of the pill nearest its area (its middle when it sits inside),
+       so on a wide screen, where css2 shrinks each group about its origin, the pill shrinks toward its
+       own area and not toward another one. */
+    const inside = inAreaPx(al.ap, al.x, al.y);
+    const ox = inside ? al.x : Math.max(al.x - al.w / 2, Math.min(al.ap.cx, al.x + al.w / 2));
+    const oy = inside ? al.y : Math.max(al.y - al.h / 2, Math.min(al.ap.cy, al.y + al.h / 2));
+    const dx = al.x - ox, dy = al.y - oy, top = dy - al.h / 2 + APY;
+    mk.push(g(ox, oy, pillSvg(dx - al.w / 2 + 2, dy - al.h / 2 + 1, al.w - 4, al.h - 2)
+      + txt("al", dx, top + AN * 0.86, "middle", esc(al.lines[0]))
+      + (al.lines[1] ? txt("an", dx, top + AN + 2 + AT * 0.92, "middle", esc(al.lines[1])) : "")));
+  }
+  for (const ab of areaBadges) mk.push(g(ab.ap.cx, ab.ap.cy, `<circle r="11" fill="${C2.white}" stroke="${C2.brassInk}" stroke-width="1.6"/><text class="ab" y="${r1(SZ.num * 0.36)}" text-anchor="middle">${ab.mark}</text>`));
   for (const b of bare) mk.push(markerSvg(b, R, sym, g, txt));
   if (!many) {
     const y = hc.y + HLH - 4;
@@ -1690,10 +1845,12 @@ function regionMap(spec, opts = {}) {
   }
 
   const shown = many ? lms : lms.filter((l) => !dropped.includes(l));
-  const alt = spec.alt || (many ? describePlaces(home.name, lms) : describeRegion(Object.assign({}, spec, { landmarks: shown }), geo, shown));
+  let alt = spec.alt || (many ? (lms.length ? describePlaces(home.name, lms) : `A map of ${home.name}.`) : describeRegion(Object.assign({}, spec, { landmarks: shown }), geo, shown));
+  if (areas.length && !spec.alt) alt += ` Circled areas: ${areas.length > 1 ? areas.slice(0, -1).map((a) => a.name).join(", ") + " and " + areas.at(-1).name : areas[0].name}.`;
   /* Names a size larger on a map of many places (15 units, about 14 px on a 390 px phone), and the
      numbers in the markers. */
-  const css = css2(id, many ? `#${id} .l{font-size:${SZ.many}px}#${id} .nm{font-size:${SZ.num}px;font-weight:700;stroke:none;fill:${C2.navy}}` : "", strokes);
+  const areaCss = areas.length ? `#${id} .al{font-size:${AN}px;font-weight:600;stroke:none;fill:${C2.navy}}#${id} .an{font-size:${AT}px;font-weight:500;stroke:none;fill:${C2.brassInk}}#${id} .ab{font-size:${SZ.num}px;font-weight:700;stroke:none;fill:${C2.navy}}` : "";
+  const css = css2(id, (many ? `#${id} .l{font-size:${SZ.many}px}#${id} .nm{font-size:${SZ.num}px;font-weight:700;stroke:none;fill:${C2.navy}}` : "") + areaCss, strokes);
   const body = `<defs>${defs}${wdefs}</defs>${geom.join("")}${furn}${lab.join("")}<g>${mk.join("")}</g>`;
   const m = {
     kind: "region", name: home.name, svg: svgShell(id, F, alt, css, body), alt, width: W, height: H,
@@ -1708,6 +1865,13 @@ function regionMap(spec, opts = {}) {
     m.labels.townLeaders = leaderTowns.map((t) => t.t.name);
     m.unlabelled = m.places.filter((p) => !p.labelled).map((p) => p.name);
     m.key = placesKeyHtml(m.places);
+  }
+  if (areas.length) {
+    m.areas = areas.map((a, i) => { const b = areaBadges.find((x) => x.i === i), al = areaLabels.find((x) => x.i === i);
+      return { name: a.name, note: a.note, shape: a.shape, labelled: !b, noteShown: !!(al && al.lines[1]), mark: b ? b.mark : "" }; });
+    m.areasUnlabelled = m.areas.filter((a) => !a.labelled).map((a) => a.name);
+    m.areaKey = m.areasUnlabelled.length ? `<ul class="c3-map-key" role="list" style="list-style:none;margin:.4rem 0 1.4rem;padding:0;max-width:760px;columns:2 14rem;column-gap:2rem;color:var(--muted);font-size:var(--read,1.0625rem);line-height:1.5">`
+      + m.areas.filter((a) => !a.labelled).map((a) => `<li style="margin:0 0 .35rem"><strong style="color:var(--navy)">${esc(a.mark)}.</strong> ${esc(a.name)}${a.note ? `, ${esc(a.note)}` : ""}</li>`).join("") + `</ul>` : "";
   }
   return emit2(m, Object.assign({ slug: home.area || home.name }, opts), "region");
 }
@@ -2227,7 +2391,7 @@ function refreshGeo(rawDir) {
 
 module.exports = {
   /* version 2 */
-  regionMap, closeMap, communityMaps, mapLinksHtml, loadGeo2, describeRegion, cleanStreet, CREDIT2, GEO2_FILE, INLINE_MAX, FILE_MAX, MANY_MAX,
+  regionMap, closeMap, communityMaps, mapLinksHtml, loadGeo2, describeRegion, cleanStreet, CREDIT2, GEO2_FILE, INLINE_MAX, FILE_MAX, MANY_MAX, AREAS_MAX,
   internals: { LEADER_MAX, satOverlap, curvedLabel, chainPieces, Layout2, rect2, frame2, linePieces, tw2, SZ, EDGE, TOWN_REACH, nameAirport, amenityOf },
   /* version 1, kept for older specs */
   areaMap, areaMapSvg, liveMapHtml, describe, CREDIT, GEO_FILE, DATA_BBOX, MAX_BYTES, loadGeo, buildGeo,

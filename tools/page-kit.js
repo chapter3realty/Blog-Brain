@@ -23,6 +23,8 @@
  *   kit.story(paras, meaning, bg, offer)   the labelled example in a card (same as PK.story)
  *   kit.glance(items)             the icon row in the hero (same as PK.glance)
  *   kit.prosCons(pros, cons, o)   the two lists of pros and cons (same as PK.prosCons)
+ *   kit.glass                     tools/glass.js: the "liquid glass" theme (glass.page(spec)), the
+ *                                 price chart with feature labels (bars) and the offer pill (offer)
  *
  * story, glance and prosCons need no batch data, so they are also exported alone.
  * Comparison tables and the "I want X" block are in tools/compare.js.
@@ -49,6 +51,7 @@ const { communityMaps, regionMap, CREDIT2 } = require("./area-map.js");
 const { atAGlance, icon } = require("./icons.js");
 const P = require("./photos.js");
 const storyCheck = require("./story-check.js");
+const glass = require("./glass.js");
 
 /* ---------------------------------------------------------------------------- */
 /* The example story                                                              */
@@ -222,14 +225,23 @@ function makeMaps(ctx) {
  *   o.key      true shows the key even when every name is on the map.
  *   o.leaders  names with a leader line where they have no room by their spot (area-map.js
  *              spec.leaders): { places: true, towns: ["Myrtle Beach"] }.
+ *   o.areas    named areas drawn as circles or outlines with their names in pills (area-map.js
+ *              spec.areas, batch 2026-10-b); places may then be [] for a map of areas alone.
+ *   o.areaLabels  "numbers": every area numbered, its name in result.map.areaKey.
+ *   o.glass    the names in glass pills; on by default when the kit was made with theme "glass".
  * Returns { html, map }: the figure (and key), and the regionMap result.
  */
 function makePlacesMap(ctx) {
   const { h, mapDir, mapSrc } = ctx;
   return function placesMap(name, places, o = {}) {
-    const m = regionMap({ name, places, leaders: o.leaders }, { dir: mapDir, src: mapSrc });
+    /* The new options go in only when set, so a map without them is drawn exactly as before. */
+    const spec = { name, places, leaders: o.leaders }, opts = { dir: mapDir, src: mapSrc };
+    if (o.areas !== undefined) spec.areas = o.areas;
+    if (o.areaLabels !== undefined) spec.areaLabels = o.areaLabels;
+    if (o.glass === undefined ? ctx.theme === "glass" : o.glass) opts.glass = true;
+    const m = regionMap(spec, opts);
     const fig = mapFigure(h, m.html, o.caption, m.credit, name);
-    return { html: fig + (o.key || m.unlabelled.length ? m.key : ""), map: m };
+    return { html: fig + (o.key || m.unlabelled.length ? m.key : "") + (m.areaKey || ""), map: m };
   };
 }
 
@@ -367,11 +379,14 @@ function makePhotoSet(ctx) {
 
 /* ---------------------------------------------------------------------------- */
 
-/* The kit for one batch. ctx: { h, places?, photos?, notUsed?, mapDir?, mapSrc? }. */
+/* The kit for one batch. ctx: { h, places?, photos?, notUsed?, mapDir?, mapSrc?, theme? }. theme "glass"
+   (batch 2026-10-b) puts map names in glass pills; the page itself switches the theme on with
+   glass.page(spec) (tools/glass.js), which the kit also carries as kit.glass. */
 function create(ctx = {}) {
   if (!ctx.h || typeof ctx.h.figure !== "function") throw new Error("page-kit: create() needs the website's mkpage helpers: create({ h })");
-  return { h: ctx.h, maps: makeMaps(ctx), placesMap: makePlacesMap(ctx), photoSet: makePhotoSet(ctx), story, glance, prosCons, atAGlance, icon, CREDIT2,
+  if (ctx.theme !== undefined && !["glass", "plain"].includes(ctx.theme)) throw new Error(`page-kit: no theme named "${ctx.theme}"`);
+  return { h: ctx.h, maps: makeMaps(ctx), placesMap: makePlacesMap(ctx), photoSet: makePhotoSet(ctx), story, glance, prosCons, atAGlance, icon, CREDIT2, glass,
     mapFigure: (html, words, credit) => mapFigure(ctx.h, html, words, credit) };
 }
 
-module.exports = { create, story, glance, prosCons, mapFigure, KIT_CSS, atAGlance, icon, CREDIT2 };
+module.exports = { create, story, glance, prosCons, mapFigure, KIT_CSS, atAGlance, icon, CREDIT2, glass };
