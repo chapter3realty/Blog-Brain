@@ -208,14 +208,14 @@ const ENTRY = (id, headline, paras, price) => {
 const ENTRIES = [
   ENTRY("cherry-grove", "a fishing pier, the salt marsh and dogs on the beach", [
     `In Cherry Grove, a dog can come to the beach with you. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the sand")} all year, except from 10 a.m. to 4 p.m. between May 15 and Labor Day.`,
-    "The nearest public beach access is about 0.1 mile away. Behind the beach, channels were dug into the salt marsh, and those canals now run behind rows of houses. Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot.",
-    "Cherry Grove Pier was built in the 1950s and is about a 12-minute walk away. In 1964 a 1,780-pound tiger shark was landed from it, a world record at the time.",
+    "A public beach access is about 0.1 mile away, the closest walk to the sand of the 15 neighborhoods here. Behind the beach, channels were dug into the salt marsh, and those canals now run behind rows of houses. On foot, Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile away.",
+    "Cherry Grove Pier, built in the 1950s, is about a 12-minute walk. In 1964 a 1,780-pound tiger shark was landed from it, a world record at the time.",
     `Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. A lender will usually require flood insurance. About 415 properties in the Cherry Grove Improvement District also pay the city about $1,700 a year now for canal dredging.`,
   ], "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale are listed with no homeowners association (HOA) fee."),
 
   ENTRY("surfside-beach", "a free concrete pier with two restaurants", [
     `The ocean side of Surfside Beach has its own town pier, and ${h.ext(SSB_PIER, "walking onto it is free")}. The concrete pier reaches 814 feet into the ocean, with two restaurants, an ice cream shop and a bait and tackle shop. From April through October it is open until 1 a.m.`,
-    "The pier is about a 9-minute walk, about 0.4 mile, and the sand is the same distance. Streets of houses run from US 17 Business to the beach.",
+    "Walking to the pier takes about 9 minutes, about 0.4 mile, and the sand is the same distance. Streets of houses run from US 17 Business to the beach.",
     "Surfside Beach began as part of a rice plantation called The Ark. Later, George J. Holliday renamed it Floral Beach for his wife, Flora. The Hollidays built a pavilion, a general store and a few rental cottages for summer visitors.",
     "About a quarter of the homes here are in a high-risk flood zone. We check the flood zone of any home you like before you offer.",
   ], "Houses on the ocean side of Surfside Beach usually sell for about $705,000 and condos for about $405,000. Most homes for sale here are listed with no HOA fee."),
@@ -236,14 +236,14 @@ const ENTRIES = [
 
   ENTRY("barefoot-resort", "four golf courses that opened on one day", [
     "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. Neighborhoods grew up around them, and many streets carry seashell names, from Junonia Drive to Moonshell Drive.",
-    "Owners in the residential association have their own beach cabana on the ocean, with parking, a kitchen and showers. A free shuttle runs from the neighborhoods to a public beach access on Ocean Boulevard. In 2026 it ran on weekends from April 4, then every day from June 1 to September 6.",
+    "Owners in the residential association have their own beach cabana on the ocean, with parking, a kitchen and showers. In 2026 a free shuttle ran from the neighborhoods to a public beach access on Ocean Boulevard. It ran on weekends from April 4, then every day from June 1 to September 6.",
     "Barefoot Landing's shops and restaurants are across a swing bridge on the waterway. The drive is about 6 minutes from the condo neighborhoods and about 8 from the gated houses. That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened.",
     `Most homes for sale here are condos, and a condo pays about $680 a month in HOA fees. Each association has its own amenities and rules, so we check which one a home belongs to before you offer. Our ${h.a(GATED, "guide to gated communities")} covers the resort's gated sections.`,
   ], "Homes for sale in these Barefoot sections, mostly condos, usually sell for about $430,000."),
 
   ENTRY("prince-creek", "a Tom Fazio course near the Murrells Inlet MarshWalk", [
     "Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course that opened in 1999. Tom Watson won the Senior PGA Tour Championship there the next year.",
-    "The Murrells Inlet MarshWalk is a 7-minute drive from Prince Creek, and the entrance to Huntington Beach State Park is 12 minutes by car. A Publix is about 2 minutes away.",
+    "The Murrells Inlet MarshWalk is about 7 minutes away by car, and the entrance to Huntington Beach State Park about 12. A Publix is about 2 minutes away.",
     "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, a park of mostly woods. Its amenity area has two pools and courts for tennis and pickleball.",
     "The HOA fee changes from section to section, so we compare the fee on each home you like. Bellwood Landing, behind its own gate, sells for more, about $810,000.",
   ], "Houses in Prince Creek sold for about $560,000 in the past year, and townhouses for less. The HOA fee is about $100 to $390 a month, by section."),
@@ -251,7 +251,7 @@ const ENTRIES = [
   ENTRY("wild-wing", "27 holes of golf and a pool on the lake near Conway", [
     "Wild Wing's Avocet course, designed by Jeff Brauer and Larry Nelson, opened in 1993. A recent renovation, led by Brauer himself, gave it new greens and refreshed bunkers. The club also has the nine-hole Hummingbird course.",
     "Many streets are named for water birds, such as Wood Stork Drive and Black Skimmer Drive. The owners' amenity area, beside a lake, has a pool complex, courts for tennis or pickleball, a basketball court and a playground.",
-    "Coastal Carolina University is about 10 minutes from Wild Wing by car, Conway Medical Center about 8, and the Conway Riverwalk about 15.",
+    "By car, Coastal Carolina University is about 10 minutes away, Conway Medical Center about 8, and the Conway Riverwalk about 15.",
     "The ocean is about 20 minutes away by car.",
   ], "Houses in Wild Wing usually sell for about $600,000, and the HOA fee is about $135 a month."),
 
@@ -260,7 +260,7 @@ const ENTRIES = [
     "The Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. The National Golf Course Owners Association named it course of the year in 2009. Nick Price and Craig Schreiner designed the Members Club course. The clubs also offer memberships.",
     `The two-mile Waterway Trail is open to the public from sunrise to sunset. Calais, Palermo and Villa Venezia are among its ${h.a(GATED, "gated sections")}.`,
     "Across Grande Dunes, most houses for sale are new or not yet finished.",
-  ], "Homes in Calais, Palermo and Villa Venezia, three of its gated sections, usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
+  ], "Homes in Calais, Palermo and Villa Venezia, three of its gated sections, usually sell for about $1.5 million. The HOA fee there is about $200 to $375 a month."),
 
   ENTRY("plantation-lakes", "pontoon boats on a lake with 15 miles of shoreline", [
     "Owners at Plantation Lakes take pontoon boats out on a lake with about 15 miles of shoreline. Many homes back onto the water, and the amenity area, with a dock, is on a point in the lake.",
@@ -301,7 +301,7 @@ const ENTRIES = [
   ENTRY("berkshire-forest", "a water slide and two pool areas", [
     "Berkshire Forest's first pool complex has a water slide. It is beside a lake, with a tennis court, a basketball court and a play area next to it. The expansion added a second amenity area with a pool and courts for tennis or pickleball.",
     "Centex Homes developed the first sections, such as Crestwood, Sutton Place and Cambridge. Pulte Homes later added land from two neighboring developments. Berkshire Forest and its Berkshire Village section have more than 1,100 homes together.",
-    "River Oaks Elementary School, on Augusta Plantation Drive, is a 2-minute drive from the Berkshire Village section.",
+    "River Oaks Elementary School, on Augusta Plantation Drive, is about half a mile by road from the Berkshire Village section.",
     "Most houses for sale here were built in the 2000s and 2010s, earlier than most of those for sale in Waterbridge, built since 2023.",
   ], "Homes in Berkshire Forest usually sell for about $370,000 to $390,000, and the HOA fee is about $115 a month."),
 

@@ -655,7 +655,8 @@
     "row": "neighborhoods 71, 72, 258",
     "pattern": "\\bHouses in Waterbridge usually sell for",
     "struck": "Houses in Waterbridge usually sell for about $630,000, and the HOA fee is about $150 a month.",
-    "use": "Resales in Waterbridge sold at a middle of about $630,000, and new houses from builders at about $550,000. The HOA fee is about $150 a month."
+    "use": "Resale houses in Waterbridge usually sell for about $630,000, and new ones from the builders sold for about $550,000 in the past year. (Lead's voice decision, 2026-10-15: resale and new named apart.)",
+    "unless": "\\bResale houses in Waterbridge usually sell for about \\$630,000, and new ones from the builders"
   },
   {
     "row": "neighborhoods 125, 258",
@@ -697,9 +698,9 @@
   {
     "row": "neighborhoods 258 (the-farm 27, 28; neighborhoods 40)",
     "pattern": "\\bfrom the middle of each neighborhood",
-    "unless": "Farmers Rest Drive|entrance",
+    "unless": "Farmers Rest Drive|entrance|names another start|^Times are by car with no traffic, from the middle of each neighborhood to the nearest public beach acces",
     "struck": "Drive times are by car with no traffic, from the middle of each neighborhood, to the nearest public beach access.",
-    "use": "Drive times are by car with no traffic, from the middle of each neighborhood (The Farm: from the Farmers Rest Drive entrance) to the nearest public beach access."
+    "use": "Times are by car with no traffic, from the middle of each neighborhood to the nearest public beach access (The Farm's cell is now its middle, about 12 minutes). (Lead's voice decision, 2026-10-15.)"
   },
   {
     "row": "neighborhoods 258 (the-farm 27, 28; neighborhoods 40)",
@@ -712,39 +713,39 @@
     "pattern": "^The nearest public beach access is about 0\\.1 mile away",
     "unless": "\\bmiddle\\b",
     "struck": "The nearest public beach access is about 0.1 mile away.",
-    "use": "From a home near the middle of Cherry Grove, a public beach access is about 0.1 mile away."
+    "use": "A public beach access is about 0.1 mile away, the closest walk to the sand of the 15 neighborhoods here. (Lead's voice decision, 2026-10-15: the start of every time is stated once, in the table note and the sources line.)"
   },
   {
     "row": "neighborhoods 232, 258",
     "pattern": "\\bRussell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot",
     "unless": "\\bmiddle\\b",
     "struck": "Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot.",
-    "use": "From a home near the middle of Cherry Grove, Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot."
+    "use": "On foot, Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile away. (Lead's voice decision, 2026-10-15: the start of every time is stated once, in the table note and the sources line.)"
   },
   {
     "row": "neighborhoods 245, 258",
     "pattern": "\\bCherry Grove Pier[^.]{0,120}\\b12-minute walk away",
     "struck": "Cherry Grove Pier was built in the 1950s and is about a 12-minute walk away.",
-    "use": "Cherry Grove Pier was built in the 1950s and is about a 12-minute walk, about half a mile, from the middle of Cherry Grove."
+    "use": "Cherry Grove Pier, built in the 1950s, is about a 12-minute walk. (Lead's voice decision, 2026-10-15: the start of every time is stated once, in the table note and the sources line.)"
   },
   {
     "row": "neighborhoods 140, 246, 258",
     "pattern": "^The pier is about a 9-minute walk",
     "unless": "\\bmiddle\\b",
     "struck": "The pier is about a 9-minute walk, about 0.4 mile, and the sand is the same distance.",
-    "use": "From the middle of the ocean side, the pier is about a 9-minute walk, about 0.4 mile, and the sand is the same distance."
+    "use": "Walking to the pier takes about 9 minutes, about 0.4 mile, and the sand is the same distance. (Lead's voice decision, 2026-10-15: the start of every time is stated once, in the table note and the sources line.)"
   },
   {
     "row": "neighborhoods 252, 258",
     "pattern": "\\bMarshWalk is a 7-minute drive from Prince Creek",
     "struck": "The Murrells Inlet MarshWalk is a 7-minute drive from Prince Creek, and the entrance to Huntington Beach State Park is 12 minutes by car.",
-    "use": "From the middle of Prince Creek, the Murrells Inlet MarshWalk is about 7 minutes by car and the entrance to Huntington Beach State Park about 12."
+    "use": "The Murrells Inlet MarshWalk is about 7 minutes away by car, and the entrance to Huntington Beach State Park about 12. (Lead's voice decision, 2026-10-15: the start of every time is stated once, in the table note and the sources line.)"
   },
   {
     "row": "neighborhoods 253, 258",
     "pattern": "\\bminutes from Wild Wing by car",
     "struck": "Coastal Carolina University is about 10 minutes from Wild Wing by car, Conway Medical Center about 8, and the Conway Riverwalk about 15.",
-    "use": "From the middle of Wild Wing, Coastal Carolina University is about 10 minutes by car, Conway Medical Center about 8, and the Conway Riverwalk about 15."
+    "use": "By car, Coastal Carolina University is about 10 minutes away, Conway Medical Center about 8, and the Conway Riverwalk about 15. (Lead's voice decision, 2026-10-15: the start of every time is stated once, in the table note and the sources line.)"
   },
   {
     "row": "neighborhoods 256, 258",

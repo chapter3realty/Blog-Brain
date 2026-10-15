@@ -210,7 +210,22 @@ const CHART_RULES = ".c3-gchart{margin:1.6rem 0 2rem;max-width:820px;padding:1.2
   + ".c3-gchart figcaption{color:var(--muted);font-size:.95rem;line-height:1.55;margin:1.1rem 0 0;padding:0}"
   + "@media (max-width:699px){.c3-gchart{padding:1rem .95rem .9rem}.c3-gchart .b{width:calc((100% - 6.2rem) * var(--f))}}";
 
-const css = () => `<style id="c3-glass">${themeRules()}${OFFER_RULES}${CHART_RULES}</style>`;
+/* The compact top offer (topOffer "compact", the default on a glass page). mkpage draws the first offer
+   as the same navy band as the last one (website patch mkpage-offer-box.patch); it was 290 to 550 px tall
+   on a phone, and the first place sat 3 to 4 phone screens under the H1 (reviewers, round 14). page()
+   keeps only its one line and its button, and these rules draw that band as a slim glass bar, the line
+   with the button beside it, or under it on a narrow screen: about 100 to 140 px on a phone. The band at
+   the end of the page is the last section of <main> and keeps the full dark panel. */
+const TOP = `${S}>section[style^="background:var(--navy)"]:not(:last-child)`;
+const COMPACT_RULES = `${TOP}{padding:.9rem 0!important}`
+  + `${TOP}>.wrap{${SURF};${BLUR};border-radius:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.7rem 1.2rem;`
+  + "text-align:left!important;padding:.9rem 1rem .9rem 1.25rem;width:calc(100% - 32px);box-sizing:border-box}"
+  + `${TOP}>.wrap>p:first-child{flex:1 1 13rem;margin:0!important;font-family:var(--sans)!important;font-size:var(--read,1.0625rem)!important;font-weight:600;line-height:1.35!important;color:var(--navy)!important}`
+  + `${TOP}>.wrap>a.btn{flex:none;margin:0;padding:.7rem 1.25rem;min-height:44px}`
+  + `@media (max-width:699px){${TOP}>.wrap{padding:.85rem 1rem .9rem;border-radius:18px}${TOP}>.wrap>p:first-child{font-size:var(--read,1.0625rem)!important;line-height:1.35!important}}`
+  + `@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){${TOP}>.wrap{background:${T.solid}!important}}`
+  + `@media (prefers-reduced-transparency:reduce){${TOP}>.wrap{background:${T.solid}!important}}`;
+const css = (o = {}) => `<style id="c3-glass">${themeRules()}${o.compact ? COMPACT_RULES : ""}${OFFER_RULES}${CHART_RULES}</style>`;
 const offerCss = () => `<style>${OFFER_RULES}</style>`;
 
 /* ---------------------------------------------------------------------------- */
@@ -231,7 +246,18 @@ function page(spec) {
   if (!Array.isArray(spec.sections) || !spec.sections.length) throw new Error("glass.js: page() needs the spec's sections");
   const wrap = (v) => (typeof v === "function" ? (...a) => glassIcons(v(...a)) : glassIcons(v));
   const out = Object.assign({}, spec, { sections: spec.sections.map((s) => Object.assign({}, s, { html: wrap(s.html) })) });
-  const sheet = css();
+  /* The top offer: "compact" (the default) is a slim glass bar with one line and the button; "band" keeps
+     mkpage's full dark band. topOfferLine replaces the bar's line (heroCta.title); keep it short. */
+  const top = spec.topOffer === undefined ? "compact" : spec.topOffer;
+  if (!["compact", "band"].includes(top)) throw new Error(`glass.js: topOffer is "compact" or "band", not "${top}"`);
+  const compact = top === "compact" && !!(spec.heroCta && spec.heroCta.title);
+  if (spec.topOfferLine !== undefined && !compact) throw new Error("glass.js: topOfferLine needs the compact top offer and a heroCta with a title");
+  if (compact) {
+    const line = spec.topOfferLine === undefined ? spec.heroCta.title : plainText("topOfferLine", spec.topOfferLine, 80);
+    /* mkpage leaves the band's second line out when the first offer has no text. */
+    out.heroCta = { title: line, label: spec.heroCta.label, href: spec.heroCta.href };
+  }
+  const sheet = css({ compact });
   const has = (v) => typeof v === "string" && v.includes('<style id="c3-glass">');
   if (has(spec.heroMedia) || spec.sections.some((s) => has(s.html))) throw new Error("glass.js: the theme is on this page twice");
   /* As early in <main> as a spec can reach: the hero's media row, else the first section. */
