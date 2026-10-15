@@ -58,6 +58,14 @@
  *   street and pool aerials cut; the board-seat history one FAQ line; the food drive cut (one dated flyer, row 69);
  *   the top offer is the compact glass bar with its own line, the end box has its own words, and the two pills go to
  *   /contact/?place=The Farm at Carolina Forest.
+ * Version 10, 2026-10-15 (round 14c, OWNER-EYE-14c-the-farm.md, grade 8; rewrite check v7, facts/r14/farm-verify-v7.md):
+ *   the subtitle cut to 8 words; tiles shortened; the preserve as an owner uses it (open in daylight, the main entrance
+ *   off International Drive, the spring bloom, the burns and the road closure; pending rows 105 to 107); the day leads
+ *   with the rock wall and the trails, the pools in one sentence, the pool rules moved to the HOA cards; the private
+ *   pool rule is the first card; the school zone, "before you make an offer", "for any home you like", the 353 acres,
+ *   Publix and the beach each said once or twice; the school map loses its floating high school note (photos.json);
+ *   the tax FAQ cut; Range III without a status year; the compare line just before the FAQ; v7 D1 to D4 applied; the
+ *   end box promises a search, not homes; the HOA-rules link is now a place pill.
  *
  * Reader: a buyer, often from out of state, who has seen a listing in The Farm or heard the name and
  * wants to picture living there and decide whether to look. They do not know Carolina Forest, the
@@ -246,7 +254,7 @@ module.exports = G.page({
       ph.css() +
       h.p(`Conway Medical Center planned a $160 million healthcare facility on the 353 acres along The Farm's north edge. In 2025, the state bought the land instead, for the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")}.`) +
       h.p("The preserve is home to South Carolina's largest wild population of Venus flytraps, and the new land holds habitat for them too. From March through June, its pitcher plants and wildflowers bloom.") +
-      h.p("The preserve is open in daylight all year. Its main entrance, with parking, is off International Drive, about 6 minutes by car from Wheatfield Drive. Visitors park and walk its dirt roads.") +
+      h.p("The preserve is open in daylight all year. Its main entrance, with parking, is off International Drive, about 6 minutes by car from The Farm's Wheatfield Drive entrance. Visitors park and walk its dirt roads.") +
       h.p("The state manages the preserve with controlled burns. On burn days, International Drive can close between SC 90 and Ocean Bay Elementary because of the smoke.") +
       h.p("The Farm's own land has a past: from 1942 to 1948, the Army Air Force used it as a bombing and gunnery range. Its streets now follow a farm theme, from Scarecrow Way to Pumpkin Patch Lane.") },
 
@@ -276,7 +284,7 @@ module.exports = G.page({
       ]) },
 
     { h2: "Which schools is The Farm at Carolina Forest zoned for?", toc: "Schools", html:
-      h.p("Both Ocean Bay schools are at The Farm's north-east edge, by Wheatfield Drive. Carolina Forest High is about 15 minutes west by car.") +
+      h.p("Both Ocean Bay schools are at The Farm's north-east edge, by Wheatfield Drive.") +
       SCHOOLS +
       h.table(["School", "Grades", "Drive from the entrance"], [
         ["Ocean Bay Elementary", "K to 5", "About 6 minutes"],
@@ -298,6 +306,7 @@ module.exports = G.page({
       G.offer("The Farm", { label: "Get the homes for sale in The Farm", href: PLACE_HREF }) },
 
     { h2: "What are the pros and cons of living in The Farm at Carolina Forest?", toc: "Pros and cons", html: (bg) =>
+      h.p("The fee and the flood map are The Farm's strongest points. The pool repair and the parking rule are its main drawbacks.") +
       prosCons([
         "The $107 HOA fee covers the pools, cable TV and trash pickup.",
         "Every home is outside the high-risk flood zone.",
@@ -309,13 +318,13 @@ module.exports = G.page({
       ], { bg }) },
 
     { h2: "What are the HOA rules in The Farm at Carolina Forest?", toc: "HOA rules", html: (bg) =>
-      h.p(`The rule that surprises buyers most: under the ${h.ext(RULES, "HOA rules")}, no lot in The Farm may have its own swimming pool.`) +
+      h.p(`The ${h.ext(RULES, "HOA rules")} that change daily life most are in the cards below.`) +
       atAGlance([
+        { icon: "pool", label: "Private pools", text: "No lot may have its own swimming pool. Hot tubs need the HOA committee's approval." },
         { icon: "key", label: "Renting", text: "Allowed, with no limit on how many homes are rented. The lease must be in writing, and the manager gets a copy within 10 days." },
         { icon: "gate", label: "Fences and sheds", text: "A fence, shed or other outdoor structure needs the HOA's approval first. The request needs a land surveyor's drawing of the lot." },
         { icon: "dock", label: "Parking and boats", text: "Cars go in the garage or driveway. Boats, trailers and campers need the HOA's written OK to stay outside." },
         { icon: "pets", label: "Pets", text: "Up to three dogs and cats in all. Dogs stay on a leash outside." },
-        { icon: "pool", label: "Private pools", text: "Not allowed on any lot. A hot tub is allowed with the HOA committee's approval." },
         { icon: "pool", label: "The HOA's pools", text: "Open April 15 to October 15, with no lifeguard. Each home can bring up to six guests, with the owner there." },
       ], { bg, min: "13rem" }) +
       story([
