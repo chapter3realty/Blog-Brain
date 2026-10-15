@@ -242,5 +242,37 @@ check("a community map still has its home pin and no numbers", /class="h"/.test(
   check("places: without tidyLeaders the old strip had a marker moved more than 45 units (the fault this fixes)", leaders(old.svg).some((s) => Math.hypot(s[2] - s[0], s[3] - s[1]) > 45.5));
   check("places: tidyLeaders other than true is refused", throws(() => regionMap({ name: "Bad tidy", places: places.slice(0, 3), tidyLeaders: "yes" }, { inlineMax: 1e9 }), /tidyLeaders/));
 }
+
+/* a.label false and places[i].sea true (opt-in, batch 2026-10-b round 14f, OWNER-EYE-14e M4), on the no-HOA
+   overview: the coast's areas are drawn with no pill or badge of their own, because a numbered place names
+   each one; a beach place marked sea gets its name over the ocean with a leader line. */
+{
+  const NH = require(path.join(__dirname, "..", "batches", "2026-10-b", "data", "no-hoa-areas.json")).areas.filter((a) => a.key !== "mb-plantation-point");
+  const coast = NH.slice(0, 12), inland = NH.slice(12);
+  const mid = (s) => (s.polygon ? { lat: s.polygon.reduce((t, q) => t + q[1], 0) / s.polygon.length, lon: s.polygon.reduce((t, q) => t + q[0], 0) / s.polygon.length } : { lat: s.lat, lon: s.lon });
+  const shape = (a, o) => { const s = a.mapShapes[0]; if (s.polygon) o.polygon = s.polygon; else Object.assign(o, { lat: s.lat, lon: s.lon, radius: s.radius }); return o; };
+  const SEA = ["crescent-beach", "cherry-grove", "murrells-inlet"];
+  const placesOf = (sea) => coast.map((a) => Object.assign({ name: a.mapShapes[0].name }, mid(a.mapShapes[0]), sea.includes(a.key) ? { sea: true } : {}));
+  const areasOf = (bare) => coast.map((a) => shape(a, Object.assign({ name: a.mapShapes[0].name }, bare ? { label: false } : {})))
+    .concat(inland.map((a, i) => shape(a, { name: `${13 + i} ${a.mapShapes[0].name}`, mark: String(13 + i) })));
+  const spec = (sea, bare) => ({ name: "No HOA overview", places: placesOf(sea), areas: areasOf(bare), leaders: true, placeNames: false, maxRatio: 0.9 });
+  const m = regionMap(spec(SEA, true), { inlineMax: 1e9, glass: true });
+  const drawn = ((m.svg.match(/<g class="ar"[^>]*>([\s\S]*?)<\/g>/) || [, ""])[1].match(/<circle |<path /g) || []).length;
+  check("areas: a.label false still draws every area", drawn === coast.length + inland.length, `${drawn}`);
+  check("areas: a.label false gives the area no pill, no badge and no line in the key", m.areas.slice(0, 12).every((a) => a.bare && !a.labelled && !a.mark) && !m.areasUnlabelled.some((n) => coast.some((a) => a.mapShapes[0].name === n)) && !/class="ab"[^>]*>[A-Z]</.test(m.svg));
+  /* Without a.label, the coast's own pills and letters take the room the numbered places need. */
+  let pillsErr = "";
+  try { regionMap(spec(SEA, false), { inlineMax: 1e9, glass: true }); } catch (e) { pillsErr = e.message; }
+  check("areas: without a.label the same map has no room for the numbered places (the fault this fixes)", /no room on the map/.test(pillsErr), pillsErr);
+  check("areas: a.label other than false is refused", throws(() => regionMap({ name: "Bad label", areas: [Object.assign({}, AREAS[0], { label: true })] }, { inlineMax: 1e9 }), /label is false/));
+  const seaNamed = m.places.filter((p, i) => SEA.includes(coast[i].key) && p.labelled && p.leader).length;
+  const noSea = regionMap(spec([], true), { inlineMax: 1e9, glass: true });
+  const plainNamed = noSea.places.filter((p, i) => SEA.includes(coast[i].key) && p.labelled).length;
+  check("places: sea names more of the beach places, each with a leader line", seaNamed >= 2 && seaNamed > plainNamed, `${seaNamed} vs ${plainNamed}`);
+  check("places: with sea names nothing touches", !overlaps(m), overlaps(m));
+  check("places: the ocean's name is still on a map with sea names", m.labels.ocean);
+  check("places: sea other than true is refused, and sea needs leaders", throws(() => regionMap({ name: "Bad sea", places: PLACES.slice(0, 3).map((p) => Object.assign({}, p, { sea: "yes" })), leaders: true }, { inlineMax: 1e9 }), /sea is true/)
+    && throws(() => regionMap({ name: "No leaders", places: PLACES.slice(0, 3).map((p) => Object.assign({}, p, { sea: true })) }, { inlineMax: 1e9 }), /needs spec.leaders/));
+}
 console.log(failures ? `\n${failures} control(s) failed` : "\nall controls pass");
 process.exitCode = failures ? 1 : 0;
