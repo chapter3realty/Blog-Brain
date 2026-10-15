@@ -59,9 +59,9 @@ const PHOTO = {
      Commons, the USGS 2011 oblique survey) and CC BY-SA 4.0 (Surfside). The photo partner's shots replace
      them (photo-request-abdulla.html). Private homes: the caption names the street or district, no number. */
   "mb-downtown": ph.aerial("downtown-myrtle-beach-pleasant-inn", "The Pleasant Inn, a wood guest house from about 1927, under the live oaks on Broadway Street, in the old town by Withers Swash.", { closeUp: true }),
-  "mb-myrtle-heights": ph.aerial("myrtle-heights-older-house-on-ocean-boulevard", "An older two-story house with columns on North Ocean Boulevard, in the Myrtle Heights-Oak Park Historic District, set well back from the street.", { closeUp: true }),
+  "mb-myrtle-heights": ph.aerial("myrtle-heights-older-house-on-ocean-boulevard", "An older two-story house with columns on North Ocean Boulevard, in the Myrtle Heights-Oak Park Historic District, on a rise above the street.", { closeUp: true }),
   "mb-pine-lakes": ph.aerial("pine-lakes-clubhouse", "The 1927 clubhouse, a few streets from the older houses.", { closeUp: true }),
-  "crescent-beach": ph.aerial("crescent-beach-streets-from-the-ocean-2011", "Crescent Beach from over the ocean in 2011: streets of beach houses behind the oceanfront, the houses this area is known for."),
+  "crescent-beach": ph.aerial("crescent-beach-streets-from-the-ocean-2011", "Crescent Beach from over the ocean in 2011: the older streets of beach houses behind the oceanfront."),
   "cherry-grove": ph.aerial("cherry-grove-canals-from-the-ocean-2011", "Cherry Grove from over the ocean in 2011: houses on the canals, many with their own docks, and the marsh behind."),
   "surfside": ph.aerial("surfside-beach-houses-from-the-sand", "Beach houses behind the low dunes on the ocean side of Surfside Beach, seen from the sand.", { closeUp: true }),
   "garden-city": ph.aerial("garden-city-beach-and-marsh-from-the-ocean-2011", "Garden City Beach from over the ocean in 2011: rows of houses between the beach and the marsh, with docks on the creeks behind."),
