@@ -85,15 +85,18 @@ node <blog-brain>/tools/claims-scan.js chapter3realty/<url>/index.html
 node <blog-brain>/tools/facts-check.js .
 node <blog-brain>/tools/site-audit.js .
 node <blog-brain>/tools/repeat-check.js chapter3realty/<url>/index.html --strict
+node <blog-brain>/tools/structure-check.js chapter3realty/<url>/index.html --strict
 node <blog-brain>/tools/struck-check.js <blog-brain>/batches/<batch>/facts/<slug>-struck.json chapter3realty/<url>/index.html
 ```
 
-Stop when the audit shows 0 errors for the page, the score is 90 or more with no blockers, and the claims, facts, site and struck checks report nothing for the page. The struck check finds wording a verifier struck in the ledger that a rewrite put back (lesson B30); use the row's approved wording it prints. Then hand the page to the reviewer.
+Stop when the audit shows 0 errors for the page, the score is 90 or more with no blockers, the claims, facts, site and struck checks report nothing for the page, and the structure check passes `--strict`. The struck check finds wording a verifier struck in the ledger that a rewrite put back (lesson B30); use the row's approved wording it prints. Then hand the page to the reviewer.
 
 
 **Say something new, and speak as the agents (owner, 2026-10-14).** Read CRAFT 5, "Say something new" and "We do the work". Before you hand in, read your page once only for repetition: list each section's new facts. If a section has none, or repeats an earlier one, cut or merge it. State the page's theme (the gate, the price) once at the top and once in each entry's facts line, not in every paragraph. Cut every sentence that would be true of any place, and every obvious or reassuring sentence. Never tell the reader to check, verify or ask; say what we check.
 
 Run `node <blog-brain>/tools/repeat-check.js <page> --strict` after every rewrite, and fix what it quotes before you hand in; a rewrite that cures one repetition often grows the next (batch 2026-10-b). A rewrite that cures repetition by cutting leaves thin entries: replace each cut with a new fact about that place. `--strict` fails an entry under 60 words or a median entry under 90.
+
+Run `node <blog-brain>/tools/structure-check.js <page> --strict` after every rewrite too (CRAFT 3 and 5, lessons B41 to B43). On a list of places it fails: more than 350 words between the H1 and the first place; the list of places in more than one block before the first place (the selection guide is the one; a map with name labels, a glance row, a chart or a legend that names half the places is another), or in more than one block after the last (one comparison table); a label line in an entry ("The facts:", "At a glance:", any bold label with a colon); and an entry with no link or button to the contact form whose text names the place or says homes, a showing or a tour. Cut a block rather than shrink it, and write the price in a sentence a person would say.
 
 ---
 

@@ -26,9 +26,10 @@
  *        CHECKLIST-AFTER-DEPLOY.md  what to look at once it is live
  *   6. Test the package the way the owner will use it, on a second fresh clone: copy,
  *      apply, mkpage each spec, build.js rehash, dates, llmsfull, check, audit, then a
- *      local commit (never pushed) and build.js preflight. Then this repo's score.js
- *      and struck-check.js (each page), claims-scan.js, facts-check.js and site-audit.js,
- *      compared with the clean live branch. The results go into README-UPLOAD.md.
+ *      local commit (never pushed) and build.js preflight. Then this repo's score.js,
+ *      struck-check.js and structure-check.js --strict (each page), claims-scan.js,
+ *      facts-check.js and site-audit.js, compared with the clean live branch. The results
+ *      go into README-UPLOAD.md.
  *
  * Exit 1 if any step or gate fails. The package is still written, with the failure
  * in its README, so the cause can be read.
@@ -434,6 +435,12 @@ for (const p of report.pages) {
   const list = path.join(BATCH, "facts", `${p.spec.replace(/\.js$/, "")}-struck.json`);
   if (!fs.existsSync(list)) { T(`struck-check.js ${p.url}`, { code: 0, out: `no struck list (${path.relative(BB, list)})` }); continue; }
   T(`struck-check.js ${p.url}`, run(process.execPath, [path.join(BB, "tools", "struck-check.js"), list, pageFile(B, p.url)], BB), undefined, 30);
+}
+/* Page shape (CRAFT 3 and 5, lessons B41 to B43): on a list of places, a short opening, the list shown once,
+   no label lines, an offer for each place. A page that is not a list passes. --no-px: the pixel distance is
+   information and needs a browser. */
+for (const p of report.pages) {
+  T(`structure-check.js --strict ${p.url}`, run(process.execPath, [path.join(BB, "tools", "structure-check.js"), pageFile(B, p.url), "--strict", "--no-px"], BB), undefined, 16);
 }
 const scan = (tool, args, dir) => run(process.execPath, [path.join(BB, "tools", tool), dir, ...args], BB, scoreEnv);
 const key = (f) => `${f.url}|${f.rule || f.fact || f.check}|${f.sentence || f.text || f.detail || f.match}`;
