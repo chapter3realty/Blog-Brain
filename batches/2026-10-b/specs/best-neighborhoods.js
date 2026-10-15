@@ -210,7 +210,7 @@ const ENTRY = (id, headline, paras, price) => {
 const ENTRIES = [
   ENTRY("cherry-grove", "a fishing pier with a world-record shark", [
     "In 1964 a 1,780-pound tiger shark was landed from Cherry Grove Pier, a world record at the time. The pier is about a 14-minute walk from the middle of Cherry Grove.",
-    `Mornings here can start on the sand. A public beach access is about a tenth of a mile from the middle of the neighborhood. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the beach")} all year, except at midday in summer.`,
+    `Mornings here can start on the sand. A public beach access is about a tenth of a mile from the center of the neighborhood. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the beach")} all year, except at midday in summer.`,
     "The beach itself was made in 1950, when an inlet was filled to join Futch Beach to the Nixon family's Cherry Grove land. Later, Cherry Grove joined Ocean Drive, Crescent Beach and Windy Hill to form the city of North Myrtle Beach.",
     "Cherry Grove is mostly houses, about 1,700 of them, with only a few dozen condos. The ones on the market lately were mostly built before 1990.",
     "The trade-off is flood insurance. Almost every home here is in a high-risk flood zone, so a mortgage lender will require a policy.",
@@ -226,7 +226,7 @@ const ENTRIES = [
 
   ENTRY("pine-lakes", "where Sports Illustrated was planned", [
     `${h.ext(PINE_LAKES, "Sports Illustrated was planned at Pine Lakes")}. In 1954 a group of Time-Life executives came to play the course and plan a new weekly sports magazine.`,
-    "Pine Lakes Country Club opened in 1927 as Myrtle Beach's first golf course. Robert White, a native of St. Andrews, Scotland, and the first president of the PGA of America, designed it. Golfers still call it The Granddaddy.",
+    "Pine Lakes Country Club opened in 1927 as Myrtle Beach's first golf course. Robert White, a native of St. Andrews, Scotland, and the first president of the PGA of America, designed it. The club is known as The Granddaddy.",
     "The Preserve at Pine Lakes and Pine Lakes Estates are two sections of 250 houses beside the club. Owners in The Preserve share their own pool, and a city bike route along Grissom Parkway is about a fifth of a mile away. Barc Park North, a city park with a pond and trails, is a little over half a mile away.",
     "The houses are much newer than the club: most on the market lately went up after 2015. Few of them are on the course itself, since only 13 lots border it.",
   ], "Houses here usually sold for about $600,000 last year, and a house in The Preserve pays an HOA fee of about $95 a month."),
@@ -249,7 +249,7 @@ const ENTRIES = [
   ENTRY("prince-creek", "a course where the pros played", [
     `Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course. Tom Watson won the Senior PGA Tour Championship there in 2000, and ${h.ext(TPC, "Lee Trevino and Gary Player")} have played it too.`,
     "From the center of Prince Creek, a Publix is about two minutes by car. The Murrells Inlet MarshWalk is a seven-minute drive, and the entrance to Huntington Beach State Park is 12 minutes by car.",
-    "Prince Creek mixes houses and townhomes, in sections of their own. Most of its houses sit beside woods or ponds: only nine of about 120 lots border the course. Builders have also sold new townhomes here for about $320,000.",
+    "Prince Creek mixes houses and townhomes, in sections of their own. Most of its houses are not on the course itself: only nine of about 120 lots border it. Builders have also sold new townhomes here for about $320,000.",
     "The HOA fee is about $100 to $390 a month, depending on the section. Our agents check which section a home is in, and its fee, before you make an offer.",
   ], "Homes in Prince Creek usually sold for about $490,000 last year."),
 
@@ -265,7 +265,7 @@ const ENTRIES = [
     `Grande Dunes was built to look like South Florida. Its ${h.ext(GD_SUN, "first houses followed the style")} of the Florida builder Addison Mizner, with tile roofs, stucco, columns and arches. Many of its most expensive houses still do.`,
     "The first completed house sold in 2000 for $1.15 million.",
     "For a golfer, the Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. The National Golf Course Owners Association named it its course of the year in 2009.",
-    "Builders such as Lennar and Dream Finders are still selling new houses here. Across Grande Dunes, most houses for sale were built or are being built since 2024.",
+    "Builders such as Lennar and Dream Finders are still selling new houses here.",
     "Most houses for sale here are new or not yet finished. If you want an older house with a grown yard, we watch the resales for you.",
   ], "Homes in Grande Dunes usually resold for about $1.5 million last year, and the HOA fee for a house is about $200 to $400 a month."),
 
@@ -297,20 +297,20 @@ const ENTRIES = [
     "The neighborhood was once known as Kingsland. Lennar began building it in 2018, and every house the county approved is now built: 500 houses, with about 105 townhomes beside them.",
     "The houses are built around ponds, and every home here is outside the high-risk flood zone. Listings say golf carts are allowed, and our agents check the HOA rules before you offer. A Food Lion is about six minutes away by car.",
     "Rosewood Landing, a county boat ramp on the Intracoastal Waterway, is about two miles away.",
-    "The ponds are for looking at. There is no lake here you can take a boat on.",
+    "The trade-off for a boater: the neighborhood has ponds, not a lake.",
   ], "Houses in Forestbrook Estates usually sold for about $395,000 last year, and the HOA fee is under $90 a month."),
 
   ENTRY("avalon", "ball fields in the middle of the neighborhood", [
     "In the middle of Avalon, the owners' association holds about nine acres of amenity land with a baseball field, soccer fields and a beach volleyball court. A ball game needs no drive.",
     "The same grounds have a playground, and the association holds a second, smaller amenity area too. Avalon is in Carolina Forest, about a 20-minute drive from the beach. A Food Lion and a Publix are each about ten minutes away by car.",
     "Avalon has about 730 houses, and almost every one is outside the high-risk flood zone. Those for sale lately were built between 2000 and 2006 and have about 1,700 square feet.",
-    "The trade-off is age. Those houses are more than twenty years old, so our agents check the age of the roof and the air conditioner for you.",
+    "The trade-off is age: these houses are more than twenty years old, so our agents check the age of the roof and the air conditioner for you.",
   ], "Houses in Avalon usually sold for about $290,000 last year, and the HOA fee is about $84 a month."),
 
   ENTRY("deerfield", "golf-cart parking at the beach", [
     "At the beach access closest to the Deerfield Plantation area, all three parking spaces are for golf carts. By car, the beach is about seven minutes away.",
     "Deerfield grew up around the old Deer Track golf resort near Surfside Beach. After the golf land was sold in 2006, homeowners went to court to keep it as golf. A special referee found no such restriction on the land, and the state Court of Appeals affirmed in 2012. The old South Course is now a neighborhood of new houses.",
-    "Its older streets are wooded, and the owners' association owns about 13 acres of lake and canals among the homes. The Surfside Beach pier is a ten-minute drive.",
+    "Its older streets are wooded, and the owners' association owns about 13 acres of lake and canals among the homes.",
     "Deerfield has about 830 houses, and the lots are generous: a typical one is about a third of an acre.",
     "On the old North Course, building has only begun, so homes near it are beside a building site.",
   ], "Homes in the Deerfield Plantation area usually sold for about $355,000 last year, and the HOA fee is under $90 a month."),

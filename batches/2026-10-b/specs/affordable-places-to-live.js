@@ -34,6 +34,11 @@
  *   every price box says "usually sold for". Wynbrooke aerial cut; town names on the map; one Parkview FAQ cut.
  * Version 14e-2, 2026-10-15: verifier v7 (row 227) D21 to D26 applied; the Conway Main Street photo (Pubdog, public
  *   domain, review/PHOTOS-FREE.md) placed in Amber Bluff's downtown Conway paragraph.
+ * Version 14g, 2026-10-15: owner's eye 14f (grade 8), a fresh writer (lesson B49). The home is back in Parkview, Sawgrass
+ *   East, Golf and Yacht Club, Wynbrooke and Polo Farms, from rows 129 to 139, 151, 189, 192 and 215 to 220, with listing
+ *   details as "many" or "some". Sawgrass East leads with the home and what the fee covers; Golf and Yacht Club with its
+ *   older one-story houses (gated owns the RV storage, Enterprise Landing and Heron Point). One grocery line (the Fairways'
+ *   Aldi). No rank as a lead. Chart labels as benefits. A shorter dek, top offer title and chart note. Row 228.
  * Versions 1 to 12, 2026-10-13 and 14: git history. Version 8 found the twelve by joining the county deed
  *   index to the parcels (rows 116 and 155); later rounds added the aerials, the drives and the flood checks.
  *
@@ -115,25 +120,25 @@ const P = [
   { id: "fairways-at-wild-wing", name: "The Fairways at Wild Wing", map: "Fairways at Wild Wing", lat: 33.787649, lon: -78.986234, price: 215000, mb: 16.5, beach: 17.8, year: 6100,
     feature: "golf, lawn care included", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "sawgrass-east", name: "Sawgrass East", map: "Sawgrass East", lat: 33.756167, lon: -78.929975, price: 222500, mb: 16.7, beach: 17.9, year: 6000,
-    feature: "garages, three small lakes", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "garages, three lakes", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "birchwood", name: "Birchwood", map: "Birchwood", lat: 33.925885, lon: -78.754012, price: 223825, mb: 41.6, beach: 20.2, year: 2400,
     feature: "new house, quarter acre", schools: "Daisy Elementary, Loris Middle, Loris High" },
   { id: "golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", map: "Golf and Yacht Club", lat: 33.649402, lon: -79.05007, price: 225000, mb: 22.9, beach: 15.0, year: 2100,
-    feature: "one-story houses, golf streets", schools: "St. James Elementary, Intermediate, Middle and High" },
+    feature: "one-story, golf streets", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "forestbrook-village", name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6, year: 3000,
     feature: "plans up to 2,400 sq ft", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
   { id: "victory-point", name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9, year: 3800,
     feature: "new, by Tanger Outlets", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6, year: 2200,
-    feature: "new smart homes near CCU", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
+    feature: "smart homes near CCU", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
   { id: "villas-at-sandridge", name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46, year: 4600,
     feature: "5 min to a wake park", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2, year: 2000,
-    feature: "new houses, ponds, woods", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
+    feature: "new, ponds and woods", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
   { id: "wynbrooke", name: "Wynbrooke", map: "Wynbrooke", lat: 33.584176, lon: -79.048446, price: 249500, mb: 19.8, beach: 8.9, year: 6500,
     feature: "5 min to the MarshWalk", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "polo-farms", name: "Polo Farms", map: "Polo Farms", lat: 33.917844, lon: -78.812061, price: 255000, mb: 36.0, beach: 22.0, year: 1300,
-    feature: "a house for a $20 HOA fee", schools: "Daisy Elementary, Loris Middle, Loris High" },
+    feature: "a house for a $20 fee", schools: "Daisy Elementary, Loris Middle, Loris High" },
 ];
 const N = Object.fromEntries(P.map((p, i) => [p.id, Object.assign(p, { n: i + 1 })]));
 const A = (id) => "#" + id;
@@ -147,8 +152,8 @@ const pr = (id) => money(N[id].price);
    (glass.js bars o.compact), so the first place starts sooner on a phone (owner's eye 14, H1). */
 const GUIDE = G.bars([{ name: "A Myrtle Beach home", value: MB_HOUSE, valueText: money(MB_HOUSE), reference: true }]
   .concat(P.map((p) => ({ name: `${p.n}. ${p.chart || p.map}`, value: p.price, valueText: money(p.price), feature: p.feature, href: A(p.id) }))), {
-  caption: "About half the price of a Myrtle Beach home",
-  note: "Tap a name to read about it. Prices: the middle sale last year, condos left out.",
+  caption: "About half Myrtle Beach prices",
+  note: "Tap a name to read about it.",
   max: MB_HOUSE, featureLabel: "best feature", valueLabel: "Usually sold for", compact: true, phoneList: true,
 });
 
@@ -237,9 +242,9 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "Each of these affordable places near Myrtle Beach has its own Book a showing button.",
+  sub: "Each affordable place near Myrtle Beach ends with a showing offer.",
   toc: false,
-  heroCta: { title: "Book a showing in these neighborhoods.", label: OFFER, href: CONTACT,
+  heroCta: { title: "See any of them in person.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
   author: "devin",
   shortAnswer: [
@@ -259,7 +264,7 @@ module.exports = G.page({
 
     entry("fairways-at-wild-wing", "townhomes in a golf community", () =>
       h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf community with 27 holes, and some are near the course. The HOA fee usually includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work.") +
-      h.p("Most Fairways townhomes have two stories and three or four bedrooms. Most have their own garage, some with room for two cars, and some put the main bedroom downstairs.") +
+      h.p("Fairways townhomes usually have two stories and three or four bedrooms. Most have their own garage, some with room for two cars, and some put the main bedroom downstairs.") +
       h.p("Conway Medical Center is a six-minute drive, and an Aldi is three minutes away for groceries on the way home.") +
       h.p("The yearly tax is higher here than outside a town, because the Fairways is inside Conway's city limits.")),
 
@@ -323,7 +328,7 @@ module.exports = G.page({
       h.p("Many backyards in Polo Farms are fenced, and several have their own pool. Most of the houses are one story, with three bedrooms, on lots of about a fifth of an acre.") +
       PH["polo-farms"] +
       h.p("Many have an attached two-car garage. The houses are off SC 905, west of Longs, and were built in three phases, from the mid-2000s on.") +
-      h.p("There is no pool or clubhouse; the common land is two ponds, some woods and the strips along the highway.") +
+      h.p("The neighborhood has no shared pool or clubhouse; its common land is two ponds, some woods and the strips along the highway.") +
       h.p(`Flood is a concern here. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone. Before you make an offer, we look up the lot on FEMA's flood map.`)),
 
     { h2: "How do the twelve compare on yearly cost, the beach and schools?", toc: "Cost, beach and schools", id: "schools", html: () =>
