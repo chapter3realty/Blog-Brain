@@ -80,7 +80,7 @@
  *   wall, the trails); the board meeting and the sidewalk out of the day; the preserve's visiting facts moved from the
  *   first section into the day; the first section says what the woods mean for an owner (state law: a heritage
  *   preserve is never put to private use, pending row 114); the subtitle an agent's line; "two pools" once at the top
- *   (the Pools tile is now "Preserve, on the north edge"); the short answer opens on the healthcare plan the state bought out;
+ *   (the Pools tile is now "Preserve, north edge"); the short answer opens on the healthcare plan the state bought out;
  *   the pros are the reasons to live here; the cons cut to three (the parking con is the rules card) and shorter; the
  *   hunting con in two plain seasons (v9 D2, D3); the "built" FAQ with two years; the second-fee paragraph with two
  *   figures (pending row 116); internet is something we confirm (row 11); the beach 10 to 12 minutes (pending row
@@ -255,7 +255,7 @@ module.exports = G.page({
   h1em: "Two pools for summer evenings, and the beach for weekends.",
   sub: "The Farm is a finished neighborhood of houses, townhomes and condos in Carolina Forest, with a Myrtle Beach mailing address.",
   heroMedia: glance([
-    { icon: "trail", label: "Preserve", text: "On the north edge" },
+    { icon: "trail", label: "Preserve", text: "North edge" },
     { icon: "beach", label: "Beach", text: "10 to 12 min drive" },
     { icon: "grocery", label: "Publix", text: "2 min drive" },
     { icon: "dollar", label: "HOA fee", text: "$107/mo" },
@@ -284,6 +284,7 @@ module.exports = G.page({
       h.p("In season, the pools stay open until 9 p.m., so there is time for a swim after work. The large pool curves around two small islands of palms, and its wide deck is beside a pond.") +
       h.p("Owners can reserve the activity center near the large pool for a private party. The HOA's events include a fall yard sale and a Community Appreciation Day.") +
       h.p(`On a free afternoon, the county library and the ${h.ext(PARKS, "Carolina Forest Recreation Center")} share one campus, about 3 minutes by car from the entrance nearest the large pool. The center has a rock climbing wall and a full gym.`) +
+      h.p("On a summer weekend, the beach is 10 to 12 minutes away by car.") +
       h.p("For a longer outing, the county's Bike and Run Park has 7 miles of mountain bike and hiking trails, about 4 minutes by car. Its parking area is a trailhead on the East Coast Greenway, a walking and biking route from Maine to Florida.") },
 
     { h2: "What are the homes like in The Farm at Carolina Forest?", toc: "The homes", html: (bg) =>
@@ -330,23 +331,23 @@ module.exports = G.page({
 
     { h2: "What are the pros and cons of living in The Farm at Carolina Forest?", toc: "Pros and cons", html: (bg) =>
       prosCons([
-        "Woods on the north edge bought for a state preserve with wild Venus flytraps.",
-        "A gym, a rock wall, a library and 7 miles of trails 3 to 4 minutes away by car.",
-        "A house with its own yard for about $350,000, with two pools in the $107 monthly fee.",
-        "Every home has the same three public schools and is outside the high-risk flood zone.",
+        "Woods on the north edge bought for the state's flytrap preserve.",
+        "A gym, a rock wall, a library and trails 3 to 4 minutes away.",
+        "A house with a yard for about $350,000, with two pools in the fee.",
+        "The same three public schools for every home, and no high-risk flood zone.",
       ], [
-        { text: `The large pool has sunk into the ground more than it should, and the HOA board has not decided whether to repair or replace it. By a majority vote, the board can add a one-time charge to owners, called a ${h.a(SPECIAL, "special assessment")}.`, act: "We read the board's latest minutes on the pool for you." },
+        { text: `The large pool has sunk more than it should, and the HOA board has not decided whether to repair or replace it. The board can vote a one-time charge to owners, called a ${h.a(SPECIAL, "special assessment")}.`, act: "We read the board's latest minutes on the pool for you." },
         { text: "Townhomes and condos pay a second HOA fee.", act: "We show you both fees side by side for any townhome or condo." },
-        { text: "The preserve is a state wildlife management area, and it allows both hiking and hunting. Bow season opens in mid-September, and gun seasons run from mid-October through New Year's Day. On burn days, the road to the preserve's entrance can close because of the smoke.", act: "We show you how far any house is from the preserve's hunting land." },
+        { text: "The preserve allows both hiking and hunting. Bow season opens in mid-September, and gun seasons run from mid-October through New Year's Day. On burn days, the road to its entrance can close because of the smoke.", act: "We show you how far any house is from the preserve's hunting land." },
       ], { bg }) },
 
     { h2: "What are the HOA rules in The Farm at Carolina Forest?", toc: "HOA rules", html: (bg) =>
       h.p(`Under the ${h.ext(RULES, "HOA rules")}, owners can rent their homes with a written lease, and the HOA has no cap on how many homes are rented.`) +
       atAGlance([
-        { icon: "gate", label: "A fence or shed", text: "A fence, shed or other outdoor building needs the HOA's approval first, with a land surveyor's drawing of the lot." },
-        { icon: "dock", label: "Cars and boats", text: "Cars go in the garage or driveway, not on the street or the lawn. A boat, trailer or camper needs the HOA's written OK to stay outside." },
+        { icon: "gate", label: "A fence or shed", text: "Needs the HOA's approval first, with a land surveyor's drawing of the lot." },
+        { icon: "dock", label: "Cars and boats", text: "Cars go in the garage or driveway, not on the street or lawn. A boat, trailer or camper needs the HOA's written approval to stay outside." },
         { icon: "pets", label: "Pets", text: "Up to three dogs and cats in all. Dogs stay on a leash outside." },
-        { icon: "pool", label: "The pools", text: "Open from April 15 to October 15, with no lifeguard. Each home can bring up to six guests, with the owner there." },
+        { icon: "pool", label: "The pools", text: "Open April 15 to October 15, with no lifeguard. Up to six guests per home, with the owner there." },
       ], { bg, min: "13rem" }) +
       story([
         "<strong>Example:</strong> The house Rachel and Luis found in The Farm has a big back yard, and they picture a pool in it.",
