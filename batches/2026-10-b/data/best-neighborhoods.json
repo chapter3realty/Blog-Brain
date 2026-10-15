@@ -39,7 +39,7 @@
    "lat": 33.736161,
    "lon": -78.846794,
    "cells": {
-    "price": "$540,000 to $670,000",
+    "price": "About $600,000",
     "fee": "About $95 for a house",
     "beach": "About 6 minutes"
    },
@@ -81,7 +81,7 @@
    "lat": 33.588187,
    "lon": -79.059731,
    "cells": {
-    "price": "$315,000 to $620,000; Bellwood $810,000",
+    "price": "Houses about $560,000; Bellwood $810,000",
     "fee": "About $100 to $390, by section",
     "beach": "About 11; Bellwood Landing 14 minutes"
    },
@@ -151,7 +151,7 @@
    "lat": 33.768498,
    "lon": -78.904092,
    "cells": {
-    "price": "About $630,000",
+    "price": "About $630,000; new about $550,000",
     "fee": "About $150",
     "beach": "About 15 to 20 minutes"
    },
@@ -181,7 +181,7 @@
    "cells": {
     "price": "About $350,000 for a house",
     "fee": "$107",
-    "beach": "About 10 minutes"
+    "beach": "About 12 minutes"
    },
    "rows": "the-farm-facts.md: price row 48 (61 detached, middle $352,000; Orchards townhomes $228,500; Planters Point condos $237,500); fee row 5 ($107 for every home; Orchards and Planters Point pay a second association, row 6); beach row 28 (about 10 minutes from the Farmers Rest Drive entrance); amenities: verifier's completeness wording; flood row 71"
   },
@@ -193,7 +193,7 @@
    "lat": 33.742759,
    "lon": -78.90081,
    "cells": {
-    "price": "About $390,000",
+    "price": "About $370,000 to $390,000",
     "fee": "About $115",
     "beach": "About 15 minutes"
    },
