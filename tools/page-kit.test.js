@@ -109,5 +109,41 @@ check("the 55+ kit loads page-kit.js and keeps no copy of the moved helpers",
   /require\(path\.join\(BB, "tools", "page-kit\.js"\)\)/.test(kit55) && !/function (?:story|glance|photoSet|prosCons|maps)\b|const KIT_CSS|PC_CSS/.test(kit55));
 check("the 55+ kit keeps its exports", /module\.exports = \{ h, maps, story, glance, photoSet, compareTable, atAGlance, icon, CREDIT2, prosCons \}/.test(kit55));
 
+/* ---- glass.js: the "liquid glass" theme (batch 2026-10-b round 14), opt-in ---- */
+const G = PK.glass;
+const SPEC = { url: "/x/", heroMedia: "<ul>" + PK.icon("golf") + "</ul>", sections: [{ h2: "A?", html: "<p>a</p>" }, { h2: "B?", html: (bg) => `<p>${bg}</p>${PK.icon("beach")}` }] };
+check("glass: a spec without a theme comes back as the same object", G.page(SPEC) === SPEC && G.page(Object.assign({}, SPEC, { theme: "plain" })).sections === SPEC.sections);
+const gp = G.page(Object.assign({}, SPEC, { theme: "glass" }));
+check("glass: the theme's stylesheet goes once, at the top of the hero media", gp.heroMedia.startsWith('<style id="c3-glass">') && (gp.heroMedia + gp.sections[0].html + gp.sections[1].html("ivory")).split('id="c3-glass"').length === 2);
+check("glass: the glass icon set is swapped in, in strings and in section functions", gp.heroMedia.includes(require("./icons.js").ICONS_GLASS.golf.d) && gp.sections[1].html("ivory").includes(require("./icons.js").ICONS_GLASS.beach.d) && gp.sections[1].html("ivory").includes("<p>ivory</p>"));
+{ const noHero = G.page({ theme: "glass", sections: [{ h2: "A?", html: (bg) => "<p>" + bg + "</p>" }] });
+  check("glass: with no hero media the stylesheet opens the first section", noHero.sections[0].html("ivory").startsWith('<style id="c3-glass">')); }
+check("glass: an unknown theme throws", throws(() => G.page(Object.assign({}, SPEC, { theme: "glas" })), /no theme named/));
+check("glass: the theme twice on one page throws", throws(() => G.page(Object.assign({}, gp, { theme: "glass" })), /twice/));
+const sheet = G.css();
+check("glass: blur has the -webkit- prefix and a solid fallback", /-webkit-backdrop-filter:var\(--g-blur\)/.test(sheet) && /@supports not \(\(-webkit-backdrop-filter:blur\(1px\)\) or \(backdrop-filter:blur\(1px\)\)\)/.test(sheet));
+check("glass: reduced transparency and reduced motion are respected", /prefers-reduced-transparency:reduce/.test(sheet) && /prefers-reduced-motion:reduce/.test(sheet));
+check("glass: blur is on a few large surfaces only", G.BIG.length <= 6 && !G.CARDS.some((c) => G.BIG.includes(c)) && (sheet.match(/backdrop-filter:var\(--g-blur\)/g) || []).length === 4);
+check("glass: every rule but the dots is scoped to main#main", sheet.replace(/<\/?style[^>]*>/g, "").split("}").filter((r) => /\{/.test(r) && !/^\s*@/.test(r)).every((r) => /main#main|#c3-particles|^\s*[.:a-z]/.test(r)));
+const chart = G.bars([
+  { name: "Parkview", href: "#parkview", feature: "walk to Whispering Pines golf", value: 190000 },
+  { name: "Polo Farms", feature: "a one-story house on a big lot", value: 255000 },
+  { name: "A home in the city of Myrtle Beach", value: 421250, reference: true },
+], { caption: "What homes usually sold for", note: "Bars start at $0." });
+check("glass bars: a table to a screen reader, a row per place", /role="table" aria-label="What homes usually sold for"/.test(chart) && (chart.match(/role="row"/g) || []).length === 4 && (chart.match(/role="rowheader"/g) || []).length === 3);
+check("glass bars: the feature sits beside the name, the price at the end of the bar", /<a href="#parkview">Parkview<\/a><\/span><span class="dot" aria-hidden="true">&middot;<\/span><span class="f">walk to Whispering Pines golf<\/span>/.test(chart) && /<span class="v">\$190,000<\/span>/.test(chart));
+check("glass bars: bars start at 0 and the reference bar is neutral", /--f:1"/.test(chart) && /--f:0\.451"/.test(chart) && /class="ref"/.test(chart));
+check("glass bars: a feature about people is refused (fair housing)", throws(() => G.bars([{ name: "A", value: 1, feature: "great for families" }, { name: "B", value: 2 }], { caption: "x" }), /fair-housing|describes people/));
+check("glass bars: a feature over 48 letters is refused", throws(() => G.bars([{ name: "A", value: 1, feature: "x".repeat(49) }, { name: "B", value: 2 }], { caption: "x" }), /48 or fewer/));
+const pill = G.offer("Parkview");
+check("glass offer: a pill to the contact form with the place named", pill === '<p class="c3-offer"><a class="c3-offer-pill" href="/contact/?place=Parkview">Book a showing in Parkview<span class="c3-offer-ar" aria-hidden="true">' + pill.split('aria-hidden="true">')[1].split("</span>")[0] + "</span></a></p>");
+check("glass offer: the place name is encoded in the link", /href="\/contact\/\?place=The%20Fairways%20at%20Wild%20Wing"/.test(G.offer("The Fairways at Wild Wing")));
+check("glass offer: a label that promises what a form cannot do is refused (build.js CTA_PROMISE)", throws(() => G.offer("Parkview", { label: "See homes in Parkview" }), /promises/));
+check("glass offer: a label that does not name the place is refused", throws(() => G.offer("Parkview", { label: "Book a showing" }), /must name the place/));
+check("glass offer: a link off the contact page is refused", throws(() => G.offer("Parkview", { href: "/buyers/" }), /goes to \/contact\//));
+{ const k = PK.create({ h, theme: "glass" });
+  check("glass: a kit made with theme glass puts map names in pills", /fill-opacity=".9" stroke="#ffffff"/.test(k.placesMap("Pill test", [{ name: "Conway", lat: 33.836, lon: -79.048 }, { name: "Loris", lat: 34.056, lon: -78.89 }], { caption: "Map test." }).html));
+  check("glass: an unknown kit theme throws", throws(() => PK.create({ h, theme: "dark" }), /no theme/)); }
+
 console.log(failures ? `\n${failures} control(s) failed` : "\nall controls pass");
 process.exitCode = failures ? 1 : 0;

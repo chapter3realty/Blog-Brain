@@ -25,7 +25,8 @@
  *   G.css()             the theme stylesheet alone; G.offerCss() the pill's rules alone, for a page
  *                       without the theme.
  *
- * What the theme does (all scoped to main#main, so the header and footer are untouched):
+ * What the theme does (scoped to main#main, so the header and footer are untouched; the one rule
+ * outside it hides the site's floating dots, #c3-particles, on a glass page):
  *   - The ivory sections become one soft field: a warm gradient with large, faint blobs.
  *   - Cards, icon chips, the selection guide, the offer boxes, the tables, the figures (maps,
  *     photos, charts) and their captions get a translucent fill, a 1 px light edge, a soft shadow,
@@ -35,6 +36,7 @@
  *     cards sit on a smooth gradient, where blur shows nothing and costs paint time.
  *   - With no backdrop-filter, or with prefers-reduced-transparency, every surface is a solid,
  *     slightly lighter panel. With prefers-reduced-motion, nothing moves.
+ *   - Buttons are brass pills in sentence case, so a long label fits a phone line or wraps cleanly.
  *   - Brass text is a darker brass on glass (--g-ink, --g-ink-lg), so every word keeps WCAG AA
  *     contrast on the field; the bars and accents keep the site's brass.
  *
@@ -142,13 +144,18 @@ function themeRules() {
   r.push(`${S}>section[style^="background:var(--navy)"]{background:transparent!important;padding:2.4rem 0!important}`);
   r.push(`${S}>section[style^="background:var(--navy)"]>.wrap{${DARK};${BLUR};border-radius:28px;padding:2.6rem 1.6rem;width:calc(100% - 32px);box-sizing:border-box}`);
   /* Buttons: a brass pill with a light top edge. Navy on brass is 4.7:1 at the bar's darkest. */
-  r.push(`${S} .btn{border-radius:999px}`);
+  /* Sentence case, so a long label ("Send me the homes for sale") fits one line on a phone, and wraps
+     cleanly, centred, when it does not. */
+  r.push(`${S} .btn{border-radius:999px;text-transform:none;letter-spacing:.01em;font-size:1rem;font-weight:600;line-height:1.3;white-space:normal;text-align:center;justify-content:center;max-width:100%;box-sizing:border-box}`);
   r.push(`${S} .btn-brass{background:linear-gradient(180deg,${T.brass2},${T.brass});border-color:rgba(255,255,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 18px -10px rgba(145,89,43,.7);color:${T.navy}}`);
   /* Fallbacks: no backdrop-filter, or a reader who asks for less transparency: solid panels. */
   const solid = `${BIG.join(",")}{background:${T.solid}!important;-webkit-backdrop-filter:none;backdrop-filter:none}`
     + `${S}>section[style^="background:var(--navy)"]>.wrap{background:${T.navy2}!important;-webkit-backdrop-filter:none;backdrop-filter:none}`;
   r.push(`@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){${solid}}`);
   r.push(`@media (prefers-reduced-transparency:reduce){${solid}${CARDS.join(",")}{background:${T.solid}!important}}`);
+  /* The site's floating dots (#c3-particles, a canvas outside <main>) are noise behind glass and
+     cost a frame loop on a phone: off on a glass page. Only this rule reaches outside <main>. */
+  r.push(`body #c3-particles{display:none!important}`);
   /* Nothing new moves; with reduced motion, nothing moves at all. */
   r.push(`@media (prefers-reduced-motion:reduce){${S} *{transition:none!important;animation:none!important}}`);
   return r.join("");

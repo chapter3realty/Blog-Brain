@@ -1201,7 +1201,7 @@ function areasOf(spec) {
   const seen = new Set();
   const text = (a, k, max) => {
     const v = a[k];
-    if (v === undefined && k === "note") return "";
+    if ((v === undefined || v === "") && k === "note") return "";
     if (typeof v !== "string" || !v.trim() || /[<>&]/.test(v) || v.trim().length > max) throw new Error(`area-map: area ${a.name || "?"}: ${k} is plain text of 1 to ${max} letters`);
     return v.trim();
   };
@@ -1251,6 +1251,7 @@ function placesSpec(spec) {
   const out = { home: { name: spec.name, lat, lon }, many: true, coast: spec.coast, minSpanKm: spec.minSpanKm, alt: spec.alt, caption: spec.caption, leaders: spec.leaders === true ? { places: true } : spec.leaders || null,
     landmarks: list.map((p, i) => ({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region", first: !!p.first })) };
   if (spec.areas !== undefined) out.areas = spec.areas;
+  if (spec.areaLabels !== undefined) out.areaLabels = spec.areaLabels;
   validate(out, loadGeo2().bbox, WIDEN2);
   return out;
 }

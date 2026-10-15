@@ -5,7 +5,7 @@
  *   node tools/icons.test.js
  */
 "use strict";
-const { icon, atAGlance, ICON_NAMES, ICONS } = require("./icons.js");
+const { icon, iconInner, atAGlance, ICON_NAMES, ICONS, ICONS_GLASS } = require("./icons.js");
 let failures = 0;
 const check = (name, cond, extra = "") => { if (!cond) { failures++; console.log(`FAIL  ${name} ${extra}`); } else console.log(`ok    ${name}`); };
 
@@ -39,6 +39,13 @@ check("glance bg option picks the other ivory", /background:var\(--ivory\);borde
 check("glance rejects a bad min width", !/minmax\(1px;/.test(atAGlance(items, { min: "1px;color:red" })));
 check("an empty list throws", (() => { try { atAGlance([]); return false; } catch { return true; } })());
 check("no em dash", !/\u2014/.test(g + all.join("")));
+
+/* The glass set (batch 2026-10-b): opt-in, so the default drawings, and every page built without the theme, are unchanged. */
+check("glass: the default golf icon is still the old drawing", icon("golf").includes(`d="${ICONS.golf.d}"`) && !icon("golf").includes(ICONS_GLASS.golf.d));
+check("glass: set glass draws the refined golf icon", icon("golf", { set: "glass" }).includes(`d="${ICONS_GLASS.golf.d}"`));
+check("glass: an icon with no glass drawing is the same in both sets", icon("pool", { set: "glass" }) === icon("pool") && iconInner("key", "glass") === iconInner("key"));
+check("glass: every glass icon replaces a real icon and stays on the 24 px grid", Object.keys(ICONS_GLASS).every((k) => ICONS[k]) && Object.values(ICONS_GLASS).every((ic) => (ic.d.match(/-?\d*\.?\d+/g) || []).every((n) => Math.abs(+n) <= 24)));
+check("glass: glass icons are small and hidden from screen readers", Object.keys(ICONS_GLASS).every((k) => { const s = icon(k, { set: "glass" }); return s.length < 700 && /aria-hidden="true"/.test(s); }));
 
 console.log(failures ? `\n${failures} control(s) failed` : "\nall controls pass");
 process.exitCode = failures ? 1 : 0;

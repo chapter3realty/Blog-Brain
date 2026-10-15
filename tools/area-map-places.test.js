@@ -162,6 +162,30 @@ const P8 = PLACES.slice(0, 8), bare8 = regionMap({ name: "First test", places: P
 const firstName = bare8[0], f8 = regionMap({ name: "First test", places: P8.map((p) => Object.assign({}, p, { first: p.name === firstName })) }, { inlineMax: 1e9 });
 check("first: a place left without a name is named when it is marked first", firstName && !f8.unlabelled.includes(firstName) && !overlaps(f8), `${firstName}: ${f8.unlabelled.join()}`);
 
+/* Named areas (spec.areas, batch 2026-10-b round 14): circles and outlines with their names in pills. */
+const AREA = (n, note, r) => ({ name: n, note, lat: T[n].lat, lon: T[n].lon, radius: r });
+const AREAS = [AREA("Conway", "Almost all no HOA", 3000), AREA("Loris", "Almost all no HOA", 2000), AREA("Aynor", "Almost all no HOA", 1600),
+  AREA("Little River", "Most no HOA", 2500), AREA("Surfside Beach", "Most no HOA", 1500),
+  { name: "Socastee", note: "Most no HOA", polygon: [[-79.03, 33.70], [-78.98, 33.70], [-78.97, 33.67], [-79.02, 33.66]] }];
+const am = regionMap({ name: "Areas test", areas: AREAS }, { inlineMax: 1e9 });
+check("areas: a map of areas alone draws a circle or outline for each", (am.svg.match(/<g class="ar"[^>]*>([\s\S]*?)<\/g>/) || [, ""])[1].match(/<circle |<path /g).length === AREAS.length);
+check("areas: each name is on the map in a pill or keeps a number in the key", am.areas.length === AREAS.length && am.areas.every((a) => a.labelled ? am.svg.includes(`>${a.name}<`) : am.areaKey.includes(a.name)));
+check("areas: no area name touches another label or mark", !overlaps(am), overlaps(am));
+check("areas: a name outside its area is nearer it than any other area", am.boxes.filter((b) => /^area\d+$/.test(b.owner) && b.kind === "label").length >= AREAS.length - 1);
+check("areas: the alt text names the circled areas", /Circled areas: Conway, Loris, Aynor, Little River, Surfside Beach and Socastee\./.test(am.alt));
+check("areas: a town inside an area is not named twice", !/>CONWAY</.test(am.svg) && !/>LORIS</.test(am.svg));
+const num = regionMap({ name: "Areas numbered", areas: AREAS, areaLabels: "numbers" }, { inlineMax: 1e9 });
+check("areas: numbers mode numbers every area in its order and lists them in the key", num.areas.every((a, i) => !a.labelled && a.mark === String(i + 1)) && (num.areaKey.match(/<li /g) || []).length === AREAS.length);
+const mixed = regionMap({ name: "Areas and places", places: PLACES.slice(0, 3), areas: AREAS.slice(0, 2), areaLabels: "numbers" }, { inlineMax: 1e9 });
+check("areas: beside numbered places an area is lettered", mixed.areas.map((a) => a.mark).join() === "A,B");
+check("areas: a radius out of range is refused", throws(() => regionMap({ name: "x", areas: [AREA("Conway", "", 20)] }), /radius is in meters/));
+check("areas: a polygon given lat first is refused", throws(() => regionMap({ name: "x", areas: [{ name: "Bad", polygon: [[33.7, -79], [33.7, -78.9], [33.6, -78.9]] }] }), /outside the Grand Strand/));
+check("areas: a name with a tag is refused", throws(() => regionMap({ name: "x", areas: [AREA("Conway", "<b>x</b>", 2000)] }), /plain text/));
+check("areas: a map of places alone needs 2 places", throws(() => regionMap({ name: "x", places: [PLACES[0]] }), /2 to 15 places/));
+check("glass: opts.glass puts place names in pills; without it there are none", /fill-opacity=".9" stroke="#ffffff"/.test(regionMap({ name: "Pills", places: PLACES.slice(0, 4) }, { inlineMax: 1e9, glass: true }).svg)
+  && !/fill-opacity=".9" stroke="#ffffff"/.test(regionMap({ name: "Pills", places: PLACES.slice(0, 4) }, { inlineMax: 1e9 }).svg));
+check("areas: a map without areas has no area group", !/class="ar"/.test(regionMap({ name: "Plain", places: PLACES.slice(0, 4) }, { inlineMax: 1e9 }).svg));
+
 /* The community map is unchanged by the new mode (the four 55+ pages rebuilt byte for byte). */
 const one = regionMap({ home: { name: "Myrtle Trace", lat: 33.778502, lon: -78.996618, town: "Conway" }, landmarks: [{ name: "Beach", kind: "beach", lat: 33.6906919, lon: -78.8804377, minutes: 15 }] });
 check("a community map still has its home pin and no numbers", /class="h"/.test(one.svg) && !/class="nm"/.test(one.svg) && one.places === undefined);
