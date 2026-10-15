@@ -201,6 +201,51 @@ function entry(k, headline, paras) {
 }
 
 /* Sources. */
+/* Round 14d sources (rows 149 to 165, pending verification). */
+const MB_NRMPS = "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/64500568_text";
+const MB_BOARDWALK2 = "https://www.myrtlebeachboardwalk.com/";
+const MB_SUMMER = "https://www.cityofmyrtlebeach.com/news_detail_T6_R2620.php";
+const MB_LIBRARY = "https://www.cityofmyrtlebeach.com/i_want_to/find/chapin_memorial_library.php";
+const MB_BEACHLAW = "https://cityofmyrtlebeach.com/i_want_to/learn_about/beach_conditions.php";
+const MB_BOARDS = "https://cityofmyrtlebeach.com/government/boards_and_committees/";
+const PL_CLUB = "https://www.pinelakes.com/";
+const MB_PARK_OF = "https://www.myrtlebeachprst.com/_T4_R41.php";
+const PP_ANNANDALE = "https://schpr.sc.gov/index.php/Detail/objects/S108042003700007";
+const MB_DECAL = "https://cityofmyrtlebeach.com/i_want_to/apply_for/resident_parking_decal.php";
+const NMB_SURF = "https://www.nmb.us/219/Surfing-Rules-Regulations";
+const NMB_41ST = "https://www.nmb.us/474/41st-Avenue-South-Pocket-Park";
+const BF_DOCKS = "https://www.bflanding.com/plan-your-visit/day-docking/";
+const NMB_18TH = "https://www.nmb.us/782/18th-Edge-Pocket-Park";
+const NMB_CENTRAL = "https://www.nmb.us/475/Central-Park";
+const NMB_PARKREG = "https://www.nmb.us/545/Parking-Registration-Information";
+const FAT_HAROLDS = "https://www.fatharolds.com";
+const HOSKINS = "https://www.hoskinsrestaurant.com";
+const NMB_MUSEUM = "https://www.northmyrtlebeachmuseum.com/";
+const NMB_MCLEAN = "https://www.nmb.us/493/McLean-Park";
+const NMB_BURGESS = "https://www.nmb.us/495/Russell-Burgess-Coastal-Preserve";
+const NMB_TURBINE = "https://www.nmb.us/489/Cherry-Grove-Oceanfront-Park";
+const JUELS = "https://www.hurricanejuels.com/";
+const SHRIMPFEST = "https://littlerivershrimpfest.org/";
+const REGATTA = "https://www.christmasregatta.com/";
+const DNR_REEFS = "https://www.dnr.sc.gov/marine/pub/seascience/reefloc.html";
+const SOCASTEE_NR = "https://npgallery.nps.gov/GetAsset/474cf1ff-3f32-413f-be71-37eea026b32a";
+const SSB_BEACHES = "https://www.surfsidebeach.org/200/Beaches";
+const SSB_PARADE = "https://www.surfsidebeach.org/367/4th-of-July-Golf-Cart-Parade";
+const SSB_MARKET = "https://www.surfsidebeach.org/325/Surfside-Beach-Farmers-Market";
+const GC_PIER = "https://www.gardencitypier.com/";
+const GC_SURVEY = "https://scdah.sc.gov/sites/scdah/files/Documents/Historic%20Preservation%20(SHPO)/Research/HC26001.pdf";
+const BLUE_TRAIL = "https://www.conwaysc.gov/Waccamaw-River-Blue-Trail-Waterproof-Booklet-2020-Digital.pdf";
+const CONWAY_RHD = "https://schpr.sc.gov/index.php/Detail/objects/S10817726031";
+const HC_MUSEUM = "https://www.horrycountymuseum.org/";
+const RIVERFEST = "https://www.conwayriverfest.com/";
+const LORIS_HISTORY = "https://www.lorischamber.com/history-of-loris";
+const LORIS_LIBRARY = "https://www.horrycountysc.gov/news/articles/rooted-in-community-loris-library-celebrates-50-years-on-main-street/";
+const HC_CULTURAL = "https://www.horrycountysc.gov/media/4ujjy1oh/cultural-resources-element-2015.pdf";
+const AYNOR_TOWN = "https://www.townofaynor.gov/community";
+const AYNOR_APPEAL = "https://www.townofaynor.gov/appeal";
+const GALIVANTS_NR = "https://npgallery.nps.gov/GetAsset/aa6c6bf6-8036-4d76-84bb-d1eb0e3431fd";
+const MB_STATE_PARK = "https://southcarolinaparks.com/myrtle-beach";
+const USGS_LPD = "https://waterdata.usgs.gov/monitoring-location/02135000/";
 const NPS_MH = "https://npgallery.nps.gov/AssetDetail/NRIS/96001217";
 const MB_SWASH = "https://www.cityofmyrtlebeach.com/i_want_to/find/photos_of_the_week/pow040618.php";
 const MB_DEPOT = "https://www.cityofmyrtlebeach.com/i_want_to/find/myrtle_beach_train_depot.php";
@@ -370,115 +415,150 @@ module.exports = GL.page({
       `</div>` },
 
     entry("mb-downtown", "older streets by Withers Swash", [
-      `A wooden boardwalk follows Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}, from Third Avenue South to Broadway and Collins Street. Most of the houses here are within half a mile of the ocean shore.`,
-      `On Broadway, the ${h.ext(MB_DEPOT, "Myrtle Beach Train Depot")} was built in 1937 and is on the National Register of Historic Places. The city restored it and reopened it.`,
-      "On Collins, Chester and Dunbar Streets, older houses for sale were built from 1955 to 1960. On 12th Avenue South, eight new houses in The Villages at Withers Heights had no HOA fee in their listings either.",
+      `Downtown is the old town by the sea. A wooden boardwalk follows Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}. The ${h.ext(MB_NRMPS, "Withers Cemetery")} off Collins Street is the only known trace of the early settlement that gave the swash its name.`,
+      `From Collins Street, the oceanfront ${h.ext(MB_BOARDWALK2, "boardwalk")} is about a quarter hour away on foot. From the day after Labor Day through April, you can ride a bike or walk a dog on it at any hour.`,
+      `On summer Wednesdays, Plyler Park on the oceanfront has free live music and ${h.ext(MB_SUMMER, "fireworks")}. Peaches Corner has served on Ocean Boulevard since 1937, and ${h.ext(MB_LIBRARY, "Chapin Memorial Library")} is the only city-owned library in South Carolina.`,
+      `Closer to home, Spivey Park is on Collins Street, and so is the New Town Bark Park. On Broadway, the ${h.ext(MB_DEPOT, "Myrtle Beach Train Depot")} was built in 1937 and is on the National Register of Historic Places.`,
+      "The older houses on Collins, Chester and Dunbar Streets date from the late 1950s, and a few new ones stand among them.",
       "Lots are small here, typically about 0.2 acre.",
     ]),
 
     entry("mb-myrtle-heights", "older beach houses in a historic district", [
-      `The ${h.ext(NPS_MH, "Myrtle Heights-Oak Park Historic District")} is along Ocean Boulevard, and Myrtle Heights is its southern part, up to 40th Avenue North.`,
-      "The district's houses were built from about 1925 to 1945. Colonial Revival is the most common style, with some Bungalow and Craftsman touches.",
-      "Two of the houses for sale were built before 1950, and a new oceanfront house was listed too. From each one, a public beach access is less than 5 minutes away on foot.",
-      "The trade-off is price: the typical price here is the highest of any area on this list.",
+      `Myrtle Heights is the southern part of the ${h.ext(NPS_MH, "Myrtle Heights-Oak Park Historic District")}, up to 40th Avenue North. Its lots and public spaces still follow the plan of the mid-1930s.`,
+      "That plan set oceanfront houses at least 75 feet back from the beach, which gives these lots their deep front yards. Each avenue was laid out to reach the sand, and those street ends are now public beach paths.",
+      "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage apartment. Look for porches, coquina rock walls and wood awnings painted to look like striped canvas.",
+      "Many yards still have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
+      `From 34th to 47th Avenue North, the city allows ${h.ext(MB_BEACHLAW, "kayaks and surfboards")} in summer, which it bans on most of its beach. Sea Captain's House, in a 1930 beach cottage, is about a 9-minute walk.`,
+      `The trade-off is the review: on an oceanfront house, any change to the outside, even the paint color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}.`,
     ]),
 
     entry("mb-pine-lakes", "half-acre lots on old golf land", [
       `The older Pine Lakes streets were built on golf land. In 1946, the club ${h.ext(PL_SHPO, "sold 18 of its 27 holes")} for homes and kept nine.`,
-      "That is why the lots are big: typically almost half an acre, more than twice a downtown lot. The houses for sale were built from the 1960s on.",
-      `These streets are around ${h.ext(PINE_LAKES, "Pine Lakes Country Club")}, which opened in 1927.`,
+      "That is why the lots are big: typically almost half an acre, more than twice a downtown lot. There is room for a workshop or a boat beside the house.",
+      `The course itself is ${h.ext(PL_CLUB, "less than half a mile from the ocean")}, on rolling land. The club's Robert White Pub is open to the public for breakfast and lunch.`,
+      `The beach is about 0.6 mile on foot, at the Seaside Place street end, one of the city's fully accessible beach paths. Two small city parks are on the way: ${h.ext(MB_PARK_OF, "Ocean Forest Memorial Park")}, with a walking path, and McLeod Park, with a picnic shelter.`,
+      "North Ocean Boulevard has bike lanes, and each December Santa rides through the Pine Lakes neighborhood with the city's firefighters.",
       "The newer Preserve at Pine Lakes has an HOA. We check which section a house is in before you make an offer.",
     ]),
 
     entry("mb-plantation-point", "half an acre outside the city limits", [
-      "Plantation Point is outside the Myrtle Beach city limits, on streets such as Annandale, Arundel and Brookgreen Drive. Its lots are typically about half an acre, and the houses date from the late 1980s on.",
-      "Plantation Point has a voluntary HOA, and none of the houses for sale here listed a fee.",
-      "The beach is not close: the nearest public beach accesses are about 3 miles away by road, too far to walk.",
+      `Plantation Point gives you a half-acre lot in the middle of the Grand Strand. Its streets share their names with old Georgetown County ${h.ext(PP_ANNANDALE, "rice plantations")}, such as Annandale and Brookgreen.`,
+      "The houses date from the late 1980s on, on lots typically about half an acre, outside the Myrtle Beach city limits. Plantation Point has a voluntary HOA.",
+      "Room is the reason to choose it. A half-acre lot leaves space for a garden, a pool or a long driveway.",
+      `By car, Broadway at the Beach is about 8 minutes away, Coastal Grand Mall and Grand Strand Medical Center about 12, and the ocean about 10.`,
+      `For a day on the water, Rosewood and Socastee county landings are each about 20 minutes. The county's ${h.ext(HC_PARKS, "Bike and Run Park")}, with 7 miles of trails, is about 15, and ${h.ext(MB_STATE_PARK, "Myrtle Beach State Park")}, with an ocean fishing pier, about 23.`,
+      `One cost of living outside the city: its free beach parking decal is for city residents only, and a ${h.ext(MB_DECAL, "non-resident placard")} costs $100 a year.`,
     ]),
 
-    entry("windy-hill", "beach streets near Barefoot Landing", [
-      `Windy Hill Beach was ${h.ext(SCE + "north-myrtle-beach/", "developed by Conway investors")} after World War II, and joined North Myrtle Beach in 1968. Most of the houses for sale here were built before 1990.`,
-      `Most are within a 10-minute walk of a public beach access. The city keeps ${h.ext(NMB_ACCESS, "beach accesses")} at the ends of the streets.`,
-      `Barefoot Landing, the shops and restaurants on the Intracoastal Waterway, is a 3-minute drive. ${h.ext(NMB_YOW, "Yow Park")}, a 1.5-acre city park, is among the Windy Hill streets.`,
+    entry("windy-hill", "surf zone and Barefoot Landing", [
+      `Windy Hill's beach is one of North Myrtle Beach's ${h.ext(NMB_SURF, "surf zones")}. From mid-May to mid-September, when boards are banned from 9 to 4 on most of the city's beach, you can still surf and skimboard here.`,
+      `Windy Hill was developed by ${h.ext(SCE + "north-myrtle-beach/", "Conway investors")} after World War II, and the city keeps beach accesses at the ends of its avenues. It joined North Myrtle Beach in 1968.`,
+      `On 41st Avenue South, a ${h.ext(NMB_41ST, "pocket park")} with garden plantings, two pergolas and a walking path stands where the old water tower was. A round, grassy mound marks the spot.`,
+      `Barefoot Landing, on the Intracoastal Waterway, is a 3-minute drive. You can ${h.ext(BF_DOCKS, "tie up a boat")} at its docks free for the day, and on fall weekends its stage has free live music.`,
+      "The Alabama Theatre and House of Blues are on the same grounds, so a show is close to home. Barefoot Landing welcomes leashed pets all year, and many of its shops let them inside.",
       "The typical lot is small, about 7,900 square feet.",
     ]),
 
     entry("crescent-beach", "a maritime forest and 30-foot dunes", [
       `${h.ext(INGRAM, "Ingram Dunes Nature Preserve")}, on Hillside Drive, is the city's last remaining maritime forest. It has native dunes 30 feet tall and an interpretive half-mile nature trail.`,
-      "Crescent Beach is the middle of North Myrtle Beach, from about 9th to 27th Avenue South. Each house we placed on the county map is less than half a mile on foot from a public beach access.",
-      "Most of the houses for sale were built before 1990, on streets such as Hillside Drive, Holly Drive, Perrin Drive and Strand Avenue.",
-      "Lots are small: the typical one is about 7,600 square feet.",
+      "Crescent Beach is the middle of North Myrtle Beach, from about 9th to 27th Avenue South. Most of its houses were built before 1990, on streets such as Hillside Drive, Holly Drive, Perrin Drive and Strand Avenue.",
+      "From every house here, a public beach access is less than half a mile on foot. From 6th to 27th Avenue South, the beach is a summer surf zone too, open to boards all day.",
+      `In the middle of Crescent Beach, the ${h.ext(NMB_18TH, "18th and Edge pocket park")} is a quiet green space with benches and a fountain. ${h.ext(NMB_CENTRAL, "Central Park")}, 20 acres with lighted tennis and pickleball courts and a paved walking path, is about 0.7 mile away.`,
+            `Parking costs in season: city beach lots charge from March through October. ${h.ext(NMB_PARKREG, "Residents register their plates")} each year for free passes.`,
     ]),
 
     entry("ocean-drive", "Main Street and the shag", [
-      "Ocean Drive is the part of North Myrtle Beach around Main Street. In the Ocean Drive and Crescent Beach area, a pavilion and amusement park drew crowds who danced the shag.",
-      `South Carolina made the shag its ${h.ext(SHAG_LAW, "official state dance")} in 1984. Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe on Main Street.`,
-      "In Ocean Drive Estates, five houses from the mid-1980s were listed for less than $370,000.",
-      "Some houses here are farther from the sand. Of the 15 houses we placed on the county map, 9 are within a 10-minute walk of a beach access.",
+      "Ocean Drive is where the shag grew up. In the Ocean Drive and Crescent Beach area, a pavilion and amusement park drew crowds who danced it.",
+      `South Carolina made the shag its ${h.ext(SHAG_LAW, "official state dance")} in 1984. ${h.ext(FAT_HAROLDS, "Fat Harold's Beach Club")} on Main Street still calls itself the Home of the Shag and teaches the dance free on Tuesday nights.`,
+      `A Saturday here can start with breakfast at ${h.ext(HOSKINS, "Hoskins Restaurant")}, open on Main Street since 1948 and run by the same family for three generations.`,
+      `The ${h.ext(NMB_MUSEUM, "North Myrtle Beach Area Historical Museum")} is free and tells the story of beach music and the shag. ${h.ext(NMB_MCLEAN, "McLean Park")}, a quarter mile from Hoskins on foot, has a lake ringed by a half-mile walking path.`,
+      "Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe. Each March, the St. Patrick's Day parade fills Main Street, and each December a nighttime Christmas parade comes up it.",
+      "Crowds come with it: on concert nights Main Street closes to cars in the afternoon, and the St. Patrick's festival draws about 40,000 people.",
     ]),
 
     entry("cherry-grove", "a boat on the canals", [
       `Cherry Grove's canals were created as early as the 1950s. The city ${h.ext(CANALS, "has dredged canals there twice since 2016")}, to give owners boat access to House Creek and the Intracoastal Waterway at high and low tide.`,
-      `Without a canal lot, use the city's ${h.ext(NMB_RAMP, "boat ramp at 53rd Avenue North")}. It has a two-lane boat launch, a kayak launch, a fishing pier, a floating boat dock and a fish cleaning station.`,
-      "North Myrtle Beach residents can register for free parking there, for a limited number of vehicles. Heritage Shores Nature Preserve, an island in the Cherry Grove marsh, is reached on elevated boardwalks.",
-      "Every home for sale outside a named subdivision here was listed with no HOA fee.",
+      `The city's ${h.ext(NMB_RAMP, "boat ramp at 53rd Avenue North")} reaches both the marsh and the open ocean through Hog Inlet. It has a two-lane launch, a kayak launch, a fishing pier, a floating dock and a fish cleaning station.`,
+      `On Duffy Street, the ${h.ext(NMB_BURGESS, "Russell Burgess Coastal Preserve")} has a boardwalk out over the Cherry Grove marsh, two blocks from the beach. You can fish and crab there from the ground.`,
+      "Heritage Shores Nature Preserve, an island in the marsh, is reached on elevated boardwalks. Across Hog Inlet, Waties Island has almost three miles of undeveloped beach, with no public access.",
+      `South Carolina's first ${h.ext(NMB_TURBINE, "wind turbine on the power grid")} stands at Cherry Grove Oceanfront Park. Each July 4, the city's free fireworks go up at the Cherry Grove Pier.`,
+      "The homes here with an HOA fee are all in named subdivisions.",
       "The trade-offs are flood risk and a dredging fee. Almost every home here is in a high-risk flood zone. Owners of about 415 properties in the canal district pay the city about $1,700 a year for the dredging, on the county tax bill.",
     ]),
 
     entry("little-river", "the old fishing village on the waterway", [
       `Little River was the first permanent settlement in Horry County. In about the early 1920s, its boatmen began ${h.ext(LR_FISHING, "taking visitors fishing for a fee")}, the first organized offshore trips of that kind in South Carolina.`,
-      `The waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day. After the inlet's jetties were finished in 1983, boats could cross the bar at any time of day.`,
-      `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway in Little River. In Little River's named subdivisions, almost all homes for sale list an HOA fee, so these older waterfront streets stand out.`,
-      "None of these houses is within a mile of the ocean.",
+      "A large live oak stands over the riverfront at the end of Mineola Avenue, where people once waited for the fishing boats to come in.",
+      `${h.ext(JUELS, "Hurricane Juel's")} has served dinner on the waterway since 1945. The waterfront holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May and ${h.ext(SHRIMPFEST, "ShrimpFest")} each October, with seafood from the waterfront restaurants.`,
+      `On the Saturday after Thanksgiving, a ${h.ext(REGATTA, "lighted boat parade")} leaves Little River Inlet and heads down the waterway. After the inlet's jetties were finished in 1983, boats could cross the bar at any time of day.`,
+      `South Carolina's casino boats sail from Mineola Avenue, and the state keeps an ${h.ext(DNR_REEFS, "artificial fishing reef")} off the inlet. The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway in town.`,
+      "Almost all homes for sale in Little River's named subdivisions list an HOA fee, so these older waterfront streets stand out.",
+      "The ocean is 14 minutes away by car, at Cherry Grove.",
     ]),
 
     entry("socastee", "1980s houses by the waterway", [
-      `${h.ext(LANDINGS, "Rosewood Landing")}, a county boat ramp on the Intracoastal Waterway, is 2 minutes by car from the streets around Rosewood Drive. Socastee Landing and Park, a second county ramp, is about 5 minutes.`,
-      "Most houses for sale here were built from 1979 to 1986, in Rosewood Estates and Cimerron Plantation.",
+      `Socastee is where the Intracoastal Waterway was finished in South Carolina. The bridge here completed it, so the waterway's ${h.ext(SOCASTEE_NR, "opening celebration")} was held in Socastee in April 1936.`,
       `The ${h.ext(SWING, "Socastee Swing Bridge")} over the waterway was built in the mid-1930s. It is one of the two oldest of the seven swing-span highway bridges in the state's historic bridge inventory.`,
-      `${h.ext(HC_PARKS, "Socastee Recreation Park")} has multi-purpose fields, picnic areas, a disc golf course, trails and a playground.`,
-      "The beach takes a drive: the Surfside Beach pier is about 15 minutes by car.",
+      `In the Socastee Historic District on SC 544, a 1905 country store still has its post office counter and wire cage. It was left as it was when it closed in 1932.`,
+      `${h.ext(LANDINGS, "Rosewood Landing")}, a county boat ramp on the waterway, is 2 minutes by car from the streets around Rosewood Drive. Socastee Landing and Park has a second ramp and a new accessible playground.`,
+      `Most houses for sale here were built from 1979 to 1986, in Rosewood Estates and Cimerron Plantation. ${h.ext(HC_PARKS, "Socastee Recreation Park")} has fields, picnic areas, disc golf, trails and a playground.`,
+      "Market Common and Coastal Grand Mall are each about 10 minutes away. The beach takes a drive: Surfside Beach is about 15 minutes by car.",
     ]),
 
-    entry("surfside", "room for two boats on the ocean side", [
-      "The town allows two boats or trailers at a home, and a work van or pickup overnight within the size limit in the table below.",
-      "Most houses here are within a 10-minute walk of a public beach access. Fuller Park, with a playground, is about 0.1 mile from the middle of the ocean side.",
-      "The town picks up trash at the curb.",
+    entry("surfside", "live oaks, sidewalks and 36 beach accesses", [
+      `Surfside Beach has ${h.ext(SSB_BEACHES, "36 public beach accesses")}. Its streets between US 17 Business and the beach have mature trees, low traffic and more than nine miles of sidewalk.`,
+      `The town has ${h.ext(SCE + "surfside-beach/", "live oaks well over a century old")}. Most houses were built from 1970 to 2000, and the busiest decade was the 1980s.`,
+      `Permitted golf carts may drive town streets in daylight, and the speed limit is 25. Each July 4, a ${h.ext(SSB_PARADE, "golf cart parade")} rolls down Ocean Boulevard.`,
+      `The town holds a ${h.ext(SSB_MARKET, "farmers market")} on Tuesdays from spring into December in Memorial Park, and free Sunday evening concerts there from late May through August.`,
+      "Each April brings a kite festival, and each October a fall festival with more than 125 craft vendors.",
+      "The town allows two boats or trailers at a home, and on July 4 and New Year's Eve you may set off fireworks on the beach.",
       "The trade-off is flood risk. About 1 in 4 homes on the ocean side is in a high-risk flood zone. There, with a mortgage, your lender will almost always require flood insurance.",
     ]),
 
     entry("garden-city", "marsh creeks and free beach parking", [
-      `The county's ${h.ext(SALT_LANDINGS, "Garden City boat ramp")} is on Main Creek, in the Murrells Inlet marsh. The Stanley Drive landing is about 2 miles by road from the center of Garden City.`,
-      `Every oceanfront beach access in Garden City has ${h.ext(HC_BEACH, "free parking all year")}. Most houses for sale here are within half a mile of the beach.`,
-      `The MarshWalk restaurants in Murrells Inlet are about 3 miles south by road. ${h.ext(HB_PARK, "Huntington Beach State Park")}, farther south, is known for its birding and surf fishing.`,
+      `The county's ${h.ext(SALT_LANDINGS, "boat ramp on Main Creek")}, at Stanley Drive, puts your boat in the Murrells Inlet marsh.`,
+      `${h.ext(GC_PIER, "The Pier at Garden City")} is always free to walk, and on summer nights live bands play at both ends of it. A pier pass covers fishing, so you need no state license. Its Hugo burger is named for the 1989 hurricane that destroyed the pier.`,
+      `Every oceanfront beach access in Garden City has ${h.ext(HC_BEACH, "free parking all year")}. Each July 4, decorated boats start at the point of Garden City Beach and parade through Murrells Inlet.`,
+      `Across the marsh, Murrells Inlet is known as the ${h.ext(SCE + "murrells-inlet/", "Seafood Capital of South Carolina")}, and its MarshWalk restaurants are about 3 miles by road.`,
+      `Garden City grew up in the 1950s, and a ${h.ext(GC_SURVEY, "state survey")} recorded its 1950s cottages, many with porches added over the years. ${h.ext(HB_PARK, "Huntington Beach State Park")} is known for birding and surf fishing.`,
       "Most houses here are in a high-risk flood zone, so a lender will almost always require flood insurance with a mortgage.",
     ]),
 
     entry("conway", "live oaks and the Waccamaw River", [
-      `Conway is the county seat, on a bluff of the Waccamaw River. Its ${h.ext(CONWAY_OAKS, "streets were designed around its live oaks")}, and the Riverwalk runs along the river downtown.`,
-      `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. ${h.ext(LANDINGS, "Billy Witherspoon Landing")}, a county ramp on the Waccamaw, is a 6-minute drive from these streets.`,
-      "The typical house for sale within a mile and a half of downtown was built about 1970.",
+      `Conway is the county seat, on a bluff of the Waccamaw River. Its ${h.ext(CONWAY_OAKS, "streets were designed around its live oaks")}, and the Riverwalk follows the river downtown.`,
+      `The Waccamaw is a federal ${h.ext(BLUE_TRAIL, "National Water Trail")}, and the Riverwalk is a stop on it. At the foot of Main Street, the old riverboat warehouses still stand, among them the steamer terminal from about 1880. Main Street's brick storefronts mostly went up after a fire in 1897.`,
+      `The oldest streets form a ${h.ext(CONWAY_RHD, "National Register district")}. Its houses range from Greek Revival and Carpenter Gothic through Queen Anne to 1920s bungalows, one of them with a porch around three sides.`,
+      `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. The ${h.ext(HC_MUSEUM, "Horry County Museum")} is free, in the restored 1905 Burroughs School, about a quarter hour on foot from downtown.`,
+      `${h.ext(RIVERFEST, "Riverfest")} brings music and fireworks to the river on the Saturday before the Fourth of July weekend, and the Celebration of Lights opens each December. ${h.ext(LANDINGS, "Billy Witherspoon Landing")} is a 6-minute drive.`,
       "The trade-off is the beach, a 25-minute drive.",
     ]),
 
     entry("loris", "a small town with its own hospital", [
-      `Loris grew up around a railroad depot and became a town in 1902. Soon after, ${h.ext(SCE + "horry-county/", "tobacco markets were thriving")} in Conway and Loris.`,
-      `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
-      "Most of the houses for sale within a mile of downtown are older, typically from the 1960s, on about 0.4 acre. McLeod Loris hospital is in town, about 2 minutes by car from the center.",
+      `Loris grew up around a railroad depot and became a town in 1902. It was called the ${h.ext(LORIS_HISTORY, "Gate City")}, the first town on the railroad south of the North Carolina line.`,
+      `The town ${h.ext(SCE + "chicken-bog/", "chose chicken bog")} as its festival theme in 1979. On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and live music.`,
+      "Chicken bog is chicken, rice and sausage cooked together. No other place in the country is named Loris.",
+      `The Main Street ${h.ext(LORIS_LIBRARY, "library")} has been in its building for 50 years. It lends cake pans, state park passes and Wi-Fi hotspots.`,
+      "Downtown has a city clock with a carillon, and its first brick building was the Bank of Loris, opened in 1907.",
+      "Older houses here are mostly from the 1960s, on lots of about 0.4 acre. McLeod Loris, a hospital with an emergency room, is in town.",
       "You drive more from here: the beach is about 35 minutes by car.",
     ]),
 
     entry("loris-country", "new houses on almost an acre", [
-      `Horry was long a county of ${h.ext(SCE + "horry-county/", "small family farms")}, and the country west and south of Loris is still farm and forest land. The houses for sale here are on lots of typically about 0.9 acre.`,
-      "Most of them are new, built in 2024 or later. With that much land and no town limits, there is room for a boat, a camper and a shop.",
-      `The ${h.ext(WACCAMAW_PRESERVE, "Waccamaw River Heritage Preserve")} protects 28 miles of the Waccamaw River, with riverside camping on its land. McLeod Loris hospital is a 9-minute drive from the middle of these houses.`,
+      `Horry was long a county of ${h.ext(SCE + "horry-county/", "small family farms")}, and the country west and south of Loris is still farm and forest land. ${h.ext(HC_CULTURAL, "Tobacco barns")} still stand on the older farms.`,
+      "The houses for sale here are on lots of typically about 0.9 acre, and most of them are new, built in 2024 or later.",
+      "With that much land and no town limits, there is room for a boat, a camper and a shop, under the county's rules.",
+      `The ${h.ext(WACCAMAW_PRESERVE, "Waccamaw River Heritage Preserve")} protects 28 miles of the Waccamaw River, with riverside camping on its land. McLeod Loris hospital is about 9 minutes away by car.`,
+      "Farms here once shipped strawberries, sweet potatoes, lettuce and poultry to northern markets. North Carolina is close, too: Tabor City is about 10 miles away by road.",
+      `${h.ext(LANDINGS, "Chris Anderson Landing")} on SC 9 puts a boat on the Waccamaw, about half an hour away.`,
       "Outside the towns, the Solid Waste Authority provides no curbside trash pickup. You hire a hauler or use a county drop-off center.",
     ]),
 
     entry("aynor", "an acre and a September festival", [
-      `Each September, Aynor holds the Aynor Harvest Hoe-Down, a festival started by the Pilot Club of Aynor. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
-      `Lots are typically about an acre, with room beside the house for a boat or a camper. ${h.ext(LANDINGS, "Galivants Ferry Landing")}, a county ramp on the Pee Dee River, is about 6 minutes from the center of town.`,
-      "More than half of the houses for sale here are new. In and around the town itself, every home for sale had no HOA fee in its listing.",
+      `Each September, Aynor holds the Aynor Harvest Hoe-Down, a festival started by the Pilot Club of Aynor. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it, and ${h.ext(AYNOR_TOWN, "it draws")} almost 25,000 people.`,
+      `Lots are typically about an acre, with room beside the house for a boat or a camper. Galivants Ferry Landing, a county ramp on the ${h.ext(USGS_LPD, "Little Pee Dee River")}, is about 6 minutes from the center of town.`,
+      `The Little Pee Dee is ${h.ext(AYNOR_APPEAL, "popular with canoes, kayaks and small powerboats")}.`,
+      `At ${h.ext(GALIVANTS_NR, "Galivants Ferry")}, the old farm houses have full-width front porches on brick piers. Some were built from wood cut on the farm itself, and log tobacco barns still stand. The big red barn on US 501 there has long told beach travelers that the ocean is near.`,
+      "More than half of the houses for sale here are new.",
       "The drive is the trade-off: about 45 minutes to the beach, and about 30 to the nearest hospital, Conway Medical Center.",
     ]),
 
