@@ -3375,7 +3375,7 @@
      -78.614847,
      33.84859
     ],
-    "width_m": 1600,
+    "width_m": 1600.0,
     "note": "centered at (33.84320, -78.62350)"
    },
    "original_size": "2400x1800 exported (about 0.6 m a pixel), resized to 1600x1200 (Lanczos)",
@@ -3435,7 +3435,7 @@
      -78.948857,
      33.647296
     ],
-    "width_m": 1400,
+    "width_m": 1400.0,
     "note": "centered at (33.64258, -78.95641)"
    },
    "original_size": "2400x1800 exported (about 0.6 m a pixel), resized to 1600x1200 (Lanczos)",
