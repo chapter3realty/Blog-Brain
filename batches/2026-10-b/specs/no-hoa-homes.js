@@ -61,7 +61,7 @@ const ph = kit.photoSet({ aerialWidth: "760px" });
 const PHOTO = {
   "mb-downtown": ph.aerial("downtown-myrtle-beach-pleasant-inn", "The Pleasant Inn, a wood guest house from about 1927, under the live oaks on Broadway Street, in the old town by Withers Swash.", { closeUp: true }),
   "mb-myrtle-heights": ph.aerial("myrtle-heights-older-house-on-ocean-boulevard", "An older two-story house with columns on North Ocean Boulevard, in the Myrtle Heights-Oak Park Historic District.", { closeUp: true }),
-  "crescent-beach": ph.aerial("crescent-beach-streets-from-the-ocean-2011", "Crescent Beach from over the ocean in 2011: the older streets of beach houses behind the oceanfront."),
+  "crescent-beach": ph.aerial("crescent-beach-streets-from-the-ocean-2011", "Crescent Beach from over the ocean in 2011: streets of beach houses behind the oceanfront."),
   "cherry-grove": ph.aerial("cherry-grove-canals-from-the-ocean-2011", "Cherry Grove from over the ocean in 2011: houses on the canals, many with their own docks, and the marsh behind."),
   "little-river": ph.aerial("little-river-waterway-from-above", "The old Little River waterfront from the air: streets of houses beside the salt marsh and the Intracoastal Waterway.", { closeUp: true }),
   "garden-city": ph.aerial("garden-city-beach-and-marsh-from-the-ocean-2011", "Garden City Beach from over the ocean in 2011: rows of houses between the beach and the marsh, with docks on the creeks behind."),
@@ -73,7 +73,7 @@ if (PHOTOS.some((r) => /surfside-beach-houses-row/.test(JSON.stringify(r.variant
   PHOTO["surfside"] = ph.aerial("surfside-beach-houses-row", "Beach houses behind the low dunes on the ocean side of Surfside Beach.", { closeUp: true });
 /* A second photo, after an entry's third paragraph (Conway: the older houses the paragraph describes). */
 const PHOTO_LATE = {
-  "conway": ph.aerial("conway-older-house-and-oak", "An older house behind a big oak in Conway's residential historic district, on streets designed around the live oaks.", { closeUp: true }),
+  "conway": ph.aerial("conway-older-house-and-oak", "An older house behind a big oak in Conway's residential historic district.", { closeUp: true }),
 };
 ph.share("aynor-country-lot");
 
@@ -323,7 +323,7 @@ const RULE_ICON = {
 const RULE_WORDS = { boat: "Boat", truck: "Work truck", rent: "Short-term rental", shed: "Shed or fence" };
 const RULES = [
   { name: "Outside the towns", note: "Horry County", rules: {
-    boat: "County zoning names no limit on where you park a boat, but some districts bar storage in front of the house.",
+    boat: "County zoning names no limit on where you park a boat, but outdoor storage may not be in front of the house.",
     truck: "A business run from home may keep two service vehicles per acre, and three per home on small farm-zoned lots.",
     rent: "County zoning does not name it, and short stays pay county taxes.",
     shed: "One small shed can sit 5 feet from the line. Fences can be 8 feet tall; over 7 feet needs a permit." } },
@@ -336,9 +336,9 @@ const RULES = [
     boat: "Yes, behind the front of the house or under a carport.",
     truck: "Yes, up to 18,500 pounds.",
     rent: "City zoning does not generally limit it. You need a business license, and it does not pass to you when the home sells.",
-    shed: "One shed up to 150 square feet, behind the house, in most home zones. East of Ocean Boulevard, side-yard fences are not allowed." } },
+    shed: "One shed up to 150 square feet, behind the house, in most home zones. East of Ocean Boulevard, side-yard fences are not allowed, except low rail fences, pool fences and glass-topped fences." } },
   { name: "Surfside Beach", href: "/submarkets/surfside-beach/", rules: {
-    boat: "Yes, up to two boats or trailers. An unlicensed boat goes in a garage or under a cover.",
+    boat: "Yes, up to two boats or trailers, but a licensed trailer over 21 feet counts as one per home. An unlicensed boat goes in a garage or under a cover.",
     truck: "Yes, one van or pickup up to 21 feet long and 7 feet 11 inches high.",
     rent: "Only in two zones.",
     shed: "Yes, in the back yard, with a permit. Fences are 4 feet in front and 6 in back." } },
@@ -350,7 +350,7 @@ const RULES = [
   { name: "Loris", rules: {
     boat: "A boat over 17 feet stays out of the front and side setbacks and 5 feet from the back line.",
     truck: "Yes, one, up to 2 tons.",
-    rent: "Not a listed use in city zoning.",
+    rent: "Not a listed use in city zoning, and a use not listed is not permitted.",
     shed: "Up to two buildings, a garage or carport included, in the side or back yard." } },
   { name: "Aynor", rules: {
     boat: "The town's zoning does not limit it.",
@@ -431,7 +431,7 @@ module.exports = GL.page({
     text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
   author: "devin",
   shortAnswer: [
-    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the 16 areas below, from beach streets to country land.",
+    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the areas below, from beach streets to country land.",
   ],
 
   sections: [
@@ -442,52 +442,52 @@ module.exports = GL.page({
     entry("mb-downtown", "the boardwalk on foot", [
       `From the older streets downtown, you can walk to the oceanfront ${h.ext(MB_BOARDWALK2, "boardwalk")}. From Collins Street it is about a quarter hour on foot. From the day after Labor Day through April, you can ride a bike or walk a dog on it at any hour.`,
       "Most of the houses for sale here with no HOA fee are within half a mile of the beach.",
-      `On summer Wednesdays, Plyler Park on the oceanfront has free live music and ${h.ext(MB_SUMMER, "fireworks")}. Closer to home, Spivey Park and the New Town Bark Park are on Collins Street.`,
+      `Plyler Park on the oceanfront has free live music and a ${h.ext(MB_SUMMER, "fireworks show")} on Wednesdays in summer. Closer to home, Spivey Park and the New Town Bark Park are on Collins Street.`,
       `A trail with a wooden boardwalk is beside Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}, from Third Avenue South to Broadway and Collins Street.`,
-      "The older houses on Collins, Chester and Dunbar Streets date from the late 1950s, and a few new houses are among them.",
+      "The older houses on Collins, Chester and Dunbar Streets date from the 1950s and 1960s.",
       "Lots are small here, typically about 0.2 acre.",
     ]),
 
     entry("mb-myrtle-heights", "a beach path at the end of each avenue", [
-      `In Myrtle Heights, each avenue was laid out to reach the sand, and those street ends are now public beach paths. From every house for sale here, a beach access is less than 5 minutes away on foot.`,
-      `The plan of the mid-1930s set oceanfront houses at least 75 feet back from the beach, which gives these lots their deep front yards. The district's houses were built from about 1925 to 1945, and it is on the ${h.ext(NPS_MH, "National Register of Historic Places")}.`,
-      "Many are two-story frame homes, and many have a garage apartment. You will see porches, coquina rock walls and wood awnings painted to look like striped canvas.",
-      "Many yards still have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
-      "Sea Captain's House, a restaurant in a 1930 beach cottage, is about a 9-minute walk.",
-      `The trade-off is the review: on an oceanfront house, any change to the outside, even the paint color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}.`,
+      `In Myrtle Heights, the plan of the mid-1930s carried the avenues through to the beach, and those ends now give public access to the sand. From every house for sale here, a beach access is less than 5 minutes away on foot.`,
+      `The same plan set a minimum setback of 75 feet for oceanfront houses. The district is on the ${h.ext(NPS_MH, "National Register of Historic Places")}.`,
+      "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment. You will see porches and wood awnings painted solid or striped to look like canvas, and a few houses keep old walls of coquina rock or brick.",
+      "Back yards along Ocean Boulevard often have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
+      "Sea Captain's House, a restaurant in a 1930 beach cottage, is about a 9-minute walk from the middle of Myrtle Heights.",
+      `The trade-off is the review: on an oceanfront house, a change to the outside, including its color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}. Ordinary repair does not.`,
     ]),
 
     entry("mb-pine-lakes", "almost half an acre in the middle of the city", [
       "The older Pine Lakes streets have big lots in the middle of the city: typically almost half an acre, more than twice a downtown lot. There is room for a workshop or a boat beside the house.",
       `The streets are around the golf course, which is ${h.ext(PL_CLUB, "less than half a mile from the ocean")}, on rolling land. The beach is about 0.6 mile on foot, at the Seaside Place street end, one of the city's fully accessible beach paths.`,
-      `Two small city parks are on the way: ${h.ext(MB_PARK_OF, "Ocean Forest Memorial Park")}, with a walking path, and McLeod Park, with a picnic shelter. North Ocean Boulevard has bike lanes.`,
-      `Inside the city, owners get the free resident beach parking decal, and it also parks you free at ${h.ext(PELICANS, "Pelicans baseball games")}. The city picks up trash, recycling and yard waste at the curb each week, for about $34 a month.`,
-      "Each December, Santa rides through the Pine Lakes neighborhood with the city's firefighters.",
+      `${h.ext(MB_PARK_OF, "Ocean Forest Memorial Park")}, with a walking path, is at the Haskell Circle beach access, about half a mile on foot. North Ocean Boulevard has bike lanes.`,
+      `A resident whose car is registered and taxed in the city gets a decal for free parking at city meters, at beach street ends and at ${h.ext(PELICANS, "Pelicans baseball games")}.`,
+      "The city picks up trash, recycling and yard waste at the curb each week, for about $34 a month.",
       "One section is different: the newer Preserve at Pine Lakes has an HOA fee.",
     ]),
 
     entry("windy-hill", "free day docks at Barefoot Landing", [
-      `Windy Hill is 3 minutes by car from Barefoot Landing on the Intracoastal Waterway, where you can ${h.ext(BF_DOCKS, "tie up a boat")} at the docks free for the day. On fall weekends, its stage has free live music.`,
-      "The Alabama Theatre and House of Blues are on the same grounds, so a show is close to home. Barefoot Landing welcomes leashed pets all year, and many of its shops let them inside.",
+      `Windy Hill is 3 minutes by car from Barefoot Landing on the Intracoastal Waterway, where you can ${h.ext(BF_DOCKS, "tie up a boat")} at the docks free for the day. In October, its stage has live music on Friday and Saturday afternoons.`,
+      "The Alabama Theatre and House of Blues are on the same grounds. Barefoot Landing welcomes leashed pets all year, and many of its shops let them inside.",
       "Most houses for sale here are within a 10-minute walk of a public beach access.",
       `On 41st Avenue South, a ${h.ext(NMB_41ST, "pocket park")} with garden plantings, two pergolas and a walking path is on the site of the old water tower.`,
       "Flood is the cost here. About half of these houses are in a high-risk flood zone, and with a mortgage your lender will almost always require flood insurance.",
     ]),
 
     entry("crescent-beach", "a beach access from every house", [
-      `From every house for sale in Crescent Beach, a public beach access is less than half a mile on foot. From 6th to 27th Avenue South, the beach is a ${h.ext(NMB_SURF, "summer surf zone")}, open to boards all day.`,
+      `Every house for sale in Crescent Beach that we could place on the map is less than half a mile on foot from a public beach access. From 6th to 27th Avenue South, the beach is a ${h.ext(NMB_SURF, "summer surf zone")}, open to boards all day.`,
       `${h.ext(INGRAM, "Ingram Dunes Nature Preserve")}, on Hillside Drive, is the city's last remaining maritime forest. It has native dunes 30 feet tall and an interpretive half-mile nature trail.`,
       "Most of the houses were built before 1990, on streets such as Hillside Drive, Holly Drive, Perrin Drive and Strand Avenue.",
-      `In the middle of Crescent Beach, the ${h.ext(NMB_18TH, "18th and Edge pocket park")} has benches and a fountain. ${h.ext(NMB_CENTRAL, "Central Park")}, 20 acres with lighted tennis and pickleball courts and a paved walking path, is about 0.7 mile away.`,
+      `In the middle of Crescent Beach, the ${h.ext(NMB_18TH, "18th and Edge pocket park")} has benches and a fountain. ${h.ext(NMB_CENTRAL, "Central Park")}, 20 acres with lighted tennis courts, pickleball courts and a paved walking path, is about 0.7 mile away.`,
       `City beach lots charge for parking from March through October. ${h.ext(NMB_PARKREG, "Residents register their plates")} each year for free passes.`,
       "The typical lot is small, about 7,600 square feet."
     ]),
 
     entry("ocean-drive", "Main Street and the shag", [
-      `Ocean Drive is where the shag grew up, and you can still learn it free. ${h.ext(FAT_HAROLDS, "Fat Harold's Beach Club")} on Main Street calls itself the Home of the Shag and teaches the dance on Tuesday nights.`,
+      `On Main Street in Ocean Drive, you can learn the shag free on Tuesday nights. ${h.ext(FAT_HAROLDS, "Fat Harold's Beach Club")} calls itself the Home of the Shag and teaches the dance.`,
       `In the Ocean Drive and Crescent Beach area, a pavilion and amusement park drew crowds who danced the shag. South Carolina made it the ${h.ext(SHAG_LAW, "official state dance")} in 1984.`,
-      `A Saturday here can start with breakfast at ${h.ext(HOSKINS, "Hoskins Restaurant")}, open on Main Street since 1948 and run by the same family for three generations.`,
-      `The ${h.ext(NMB_MUSEUM, "North Myrtle Beach Area Historical Museum")} is free and tells the story of beach music and the shag. ${h.ext(NMB_MCLEAN, "McLean Park")}, a quarter mile from Hoskins on foot, has a lake ringed by a half-mile walking path.`,
+      `A Saturday here can start with breakfast at ${h.ext(HOSKINS, "Hoskins Restaurant")} on Main Street, which opened in 1948.`,
+      `The ${h.ext(NMB_MUSEUM, "North Myrtle Beach Area Historical Museum")} is free, and its exhibits include beach music artists and shag dancing. ${h.ext(NMB_MCLEAN, "McLean Park")}, a quarter mile from Hoskins on foot, has a two-acre lake and a half-mile paved walking path.`,
       "Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe. Each December, a nighttime Christmas parade comes up Main Street.",
       "Crowds come with it: on concert nights Main Street closes to cars in the afternoon, and the St. Patrick's festival draws about 40,000 people.",
     ]),
@@ -503,7 +503,7 @@ module.exports = GL.page({
 
     entry("little-river", "the old fishing village on the waterway", [
       `The houses on Little River's old waterfront streets are within half a mile of the docks on Mineola Avenue, on the Intracoastal Waterway. Local boatmen began ${h.ext(LR_FISHING, "taking visitors fishing for a fee")} there in the early 1920s, the first organized offshore trips of that kind in South Carolina.`,
-      `A large live oak stands over the riverfront at the end of Mineola Avenue, where people once waited for the fishing boats to come in. ${h.ext(JUELS, "Hurricane Juel's")} has served dinner on the waterway since 1945.`,
+      `${h.ext(JUELS, "Hurricane Juel's")}, with a view of the waterway, has been family owned since 1945.`,
       `The waterfront holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May and ${h.ext(SHRIMPFEST, "ShrimpFest")} each October. On the Saturday after Thanksgiving, a ${h.ext(REGATTA, "lighted boat parade")} leaves Little River Inlet and heads down the waterway.`,
       `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway in town. Since the inlet's jetties were finished in 1983, boats can cross the bar at any time of day. The state keeps an ${h.ext(DNR_REEFS, "artificial fishing reef")} off the inlet.`,
       `${h.ext(VEREEN, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has about 3 miles of trails and boardwalks through forest and marsh. Some of the houses for sale are new, on Mineola and Ellis Avenues; others are on McCorsley Avenue and Bayshore Drive.`,
@@ -519,18 +519,18 @@ module.exports = GL.page({
     ]),
 
     entry("surfside", "two boats at home and golf carts on the streets", [
-      `In Surfside Beach, the town allows two boats or trailers at a home. Permitted golf carts may drive town streets in daylight, and the speed limit is 25.`,
-      `Its streets between US 17 Business and the beach have mature trees, low traffic and more than nine miles of sidewalk. The town has ${h.ext(SCE + "surfside-beach/", "live oaks well over a century old")} and ${h.ext(SSB_BEACHES, "36 public beach accesses")}.`,
-      `The town holds a ${h.ext(SSB_MARKET, "farmers market")} on Tuesdays from spring into December in Memorial Park, and free Sunday evening concerts there from late May through August. Each July 4, a ${h.ext(SSB_PARADE, "golf cart parade")} goes down Ocean Boulevard.`,
-      "The town holds a kite festival each April and a fall festival each October, with more than 125 craft vendors. On July 4 and New Year's Eve, you may set off fireworks on the beach.",
-      "Most houses were built from 1970 to 2000, and the busiest decade was the 1980s. The town picks up trash at the curb.",
+      `In Surfside Beach, the town allows two boats or trailers at a home. A permitted golf cart may be driven in daylight within four miles of home, on streets posted at 35 miles an hour or less.`,
+      `The town has more than nine miles of sidewalk, and its low-density neighborhoods have mature trees and quiet roads. It has ${h.ext(SCE + "surfside-beach/", "live oaks well over a century old")} and ${h.ext(SSB_BEACHES, "36 public beach accesses")}.`,
+      `The town holds a ${h.ext(SSB_MARKET, "farmers market")} on Tuesdays from spring into December in Memorial Park, and free Sunday afternoon concerts there from late May through August. Each July 4, a ${h.ext(SSB_PARADE, "golf cart parade")} goes down Ocean Boulevard.`,
+      "Each October, the fall festival has more than 100 craft vendors. Fireworks may be set off on the sand from sunset on July 4 and on New Year's Eve, but not within 500 feet of the pier.",
+      "The town's housing grew from 1970 to 2000, fastest in the 1980s. The town picks up trash at the curb.",
       "One cost to know: about 1 in 4 homes on the ocean side needs flood insurance if you buy with a mortgage.",
     ]),
 
     entry("garden-city", "a free pier walk and free beach parking", [
       `${h.ext(GC_PIER, "The Pier at Garden City")} is always free to walk, and every oceanfront beach access in Garden City has ${h.ext(HC_BEACH, "free parking all year")}. On summer nights, live bands play at both ends of the pier.`,
       "A pier pass covers fishing, so you need no state license. Its Hugo burger is named for the 1989 hurricane that destroyed the pier.",
-      "Most of the houses for sale here are within half a mile of the shore. Garden City grew up in the 1950s, and many of its 1950s cottages have porches added over the years.",
+      "Most of the houses for sale here are within half a mile of the shore. Garden City grew up in the 1950s.",
       `${h.ext(HB_PARK, "Huntington Beach State Park")} is known for birding and surf fishing.`,
       "Flood is the cost here: with a mortgage, a lender will almost always require flood insurance on most of these houses.",
     ]),
@@ -546,7 +546,7 @@ module.exports = GL.page({
 
     entry("conway", "live oaks and the Waccamaw River", [
       `Conway's older streets ${h.ext(CONWAY_OAKS, "were designed around its live oaks")}, on a bluff of the Waccamaw River. The Riverwalk follows the river downtown, and the Waccamaw is a federal ${h.ext(BLUE_TRAIL, "National Water Trail")}.`,
-      "At the foot of Main Street, the old riverboat warehouses still stand, among them the steamer terminal from about 1880. Main Street's brick storefronts mostly went up after a fire in 1897.",
+      "At the foot of Main Street, three old river warehouses stand, among them the steamer terminal from about 1880. Many of Main Street's brick storefronts went up soon after an 1897 fire destroyed several businesses.",
       `The oldest streets form a ${h.ext(CONWAY_RHD, "National Register district")}. Its houses range from Greek Revival and Carpenter Gothic through Queen Anne to 1920s bungalows, one of them with a porch around three sides.`,
       `The ${h.ext(HC_MUSEUM, "Horry County Museum")} is in the restored 1905 Burroughs School, about a quarter hour on foot from downtown. ${h.ext(RIVERFEST, "Riverfest")} brings music and fireworks to the river on the Saturday before the Fourth of July weekend.`,
       `${h.ext(LANDINGS, "Billy Witherspoon Landing")} is a 6-minute drive. In town, the houses for sale are on a little over a third of an acre, and most were built before 1990.`,
@@ -562,16 +562,16 @@ module.exports = GL.page({
     ]),
 
     entry("loris-country", "new houses on large lots", [
-      "Around Loris, most houses for sale are new, on lots of typically about 0.7 acre, outside any town limits. There is room for a boat, a camper and a shop, under the county's rules.",
+      "Around Loris, most houses for sale are new, built in 2024 or later, outside any town limits. The new lots we could measure are typically about 0.7 acre, with room for a boat, a camper and a shop under the county's rules.",
       `The ${h.ext(WACCAMAW_PRESERVE, "Waccamaw River Heritage Preserve")} protects 28 miles of the Waccamaw River, with riverside camping on its land. From ${h.ext(LANDINGS, "Chris Anderson Landing")} on SC 9, about half an hour away, you can put a boat on the Waccamaw.`,
-      `Horry was long a county of ${h.ext(SCE + "horry-county/", "small family farms")}, and ${h.ext(HC_CULTURAL, "tobacco barns")} still stand on the older farms around Loris. McLeod Loris hospital is about 9 minutes away by car.`,
+      `Horry was long a county of ${h.ext(SCE + "horry-county/", "small family farms")}, and its farms still have ${h.ext(HC_CULTURAL, "tobacco barns")}. McLeod Loris hospital is about 9 minutes away by car.`,
       "Outside the towns, the Solid Waste Authority provides no curbside trash pickup. You hire a hauler or use a county drop-off center.",
     ]),
 
     entry("aynor", "an acre and a river landing", [
       `Around Aynor, lots are typically about an acre, with room beside the house for a boat or a camper. More than half of the houses for sale here are new.`,
       `Galivants Ferry Landing, a county ramp on the ${h.ext(USGS_LPD, "Little Pee Dee River")}, is about 6 minutes from the center of town. The Little Pee Dee is ${h.ext(AYNOR_APPEAL, "popular with canoes, kayaks and small powerboats")}.`,
-      `At ${h.ext(GALIVANTS_NR, "Galivants Ferry")}, the old farm houses have full-width front porches on brick piers. Some were built from wood cut on the farm itself, and log tobacco barns still stand.`,
+      `At ${h.ext(GALIVANTS_NR, "Galivants Ferry")}, the old farm houses have full-width front porches on brick piers. Some were built from wood cut on the farm itself, and the district has log tobacco barns.`,
       `Each September, Aynor holds the Aynor Harvest Hoe-Down, a festival started by the Pilot Club of Aynor. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it, and ${h.ext(AYNOR_TOWN, "almost 25,000 people")} come.`,
       "The drive is the trade-off: about 45 minutes to the beach, and about 30 to the nearest hospital, Conway Medical Center.",
     ]),

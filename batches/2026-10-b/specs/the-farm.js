@@ -99,6 +99,11 @@
  *   the map only); the start point said once, in the map caption and the sources line; four drive times in the day;
  *   rush hour in the v11 scope; the schools tile; the sidewalk to the schools in one sentence; the fitness room named
  *   as the HOA's; new pros, not restated facts; the D.R. Horton board line cut; v11 D2 and D3. Wording in pending row 122.
+ * Version 15, 2026-10-15 (final pass, OWNER-EYE-14h-the-farm.md, grade 9; rewrite check v12, facts/r14/farm-verify-v12.md):
+ *   v12 D1 (the preserve entrance from the page's one start, 10 minutes), D2 (pool season), D3 (governing documents);
+ *   the stronger law sentence; the homes section leads with what the houses give; the short answer names the trails
+ *   and the rock wall only; the map caption names its one drive; the schools and the sidewalk in two sentences.
+ *   Wording in pending row 124.
  *
  * Reader: a buyer, often from out of state, who has seen a listing in The Farm or heard the name and
  * wants to picture living there and decide whether to look. They do not know Carolina Forest, the
@@ -217,7 +222,7 @@ const OVER = ph.aerial("the-farm-from-above", "The Farm at Carolina Forest from 
 /* Round 14c: the winter street aerial and the pool aerial are cut (OWNER-EYE-14 finding 6). */
 /* Round 8 (owner, 2026-10-14): a wide, labelled aerial for "where it is" in place of the drawn region map, and a
    school zone aerial from Horry County Schools' zone layers (ledger rows 92 and 93, pending verification). */
-const WIDE = ph.aerial("the-farm-where-from-above", "Where The Farm is, with drive times from the entrance nearest the large pool. The orange line is its edge.", { closeUp: true });
+const WIDE = ph.aerial("the-farm-where-from-above", "Where The Farm is. The drive to the emergency room starts at the entrance nearest the large pool. The orange line is its edge.", { closeUp: true });
 const SCHOOLS = ph.aerial("the-farm-school-zones-from-above", "The Farm, outlined in orange, sits inside the blue area zoned for the three schools.", { closeUp: true });
 const M = maps("the-farm", [
   { id: "beach_mb101", name: "the beach in Myrtle Beach", short: "Beach", kind: "beach" },
@@ -282,7 +287,7 @@ module.exports = G.page({
   /* No contents list (round 14c, as on the four sibling pages): it was most of the second phone screen, before the first section. */
   toc: false,
   shortAnswer: [
-    "Living in The Farm means a swim after work and spring walks among wildflowers in a state nature preserve. The county's gym, library and trails are minutes away by car.",
+    "Living in The Farm means a swim after work in pool season and spring walks among wildflowers in a state nature preserve. The county's trails and a rock wall are minutes away by car.",
     "Houses with yards usually sold for about $350,000 in the past year.",
   ],
   sections: [
@@ -290,12 +295,12 @@ module.exports = G.page({
       ph.css() +
       h.p(`Conway Medical Center planned a $160 million healthcare facility on the 353 acres along The Farm's north edge. The state bought the land instead, for the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")}.`) +
       h.p("The preserve is home to South Carolina's largest wild population of Venus flytraps, and the new land holds habitat for them too.") +
-      h.p(`${h.ext(HERITAGE, "State law")} bars any private use of a heritage preserve, which rules out building homes there once the land is dedicated. The state has said it will dedicate it.`) +
+      h.p(`${h.ext(HERITAGE, "State law")} says a heritage preserve may not be taken for any private use. Once the land is dedicated, that rules out private homes on it. The state has said it will dedicate it.`) +
       h.p("Back inside The Farm, the streets follow its farm theme, from Scarecrow Way to Pumpkin Patch Lane.") },
 
     { h2: "What is a normal day like in The Farm at Carolina Forest?", toc: "A normal day", html:
       h.p("From March through June, a Saturday here can start with a walk in the preserve, among pitcher plants and wildflowers in bloom.") +
-      h.p("The preserve is open in daylight all year, and the state asks visitors to park and walk its roads. Its main entrance is about 6 minutes away by car.") +
+      h.p("The preserve is open in daylight all year, and the state asks visitors to park and walk its roads. Its main entrance is about 10 minutes by car.") +
       h.p("Residents can start a weekday with a workout in the HOA's fitness room, which opens at 5:30 a.m.") +
       h.p("A commute to Grand Strand Medical Center, a large hospital, takes about 12 minutes. In our experience, rush hour adds 5 to 10 minutes to the drive times on this page.") +
       h.p("The pools stay open until 9 p.m. in season, so there is time for a swim after work. The large pool curves around two small islands of palms, and its wide deck is beside a pond. Owners can also reserve the activity center near it for a private party.") +
@@ -304,9 +309,10 @@ module.exports = G.page({
       h.p("For a longer outing, the county's Bike and Run Park has 7 miles of mountain bike and hiking trails, about 4 minutes by car. Its parking area is a trailhead on the East Coast Greenway, a walking and biking route from Maine to Florida.") },
 
     { h2: "What are the homes like in The Farm at Carolina Forest?", toc: "The homes", html: (bg) =>
-      h.p("Most homes are houses with three or four bedrooms and their own yards. The Orchards has about 200 townhomes, and Planters Point has about 70 condos. Most of those have two or three bedrooms.") +
+      h.p("Most houses here give you three or four bedrooms and a back yard of your own, on a lot of about a fifth of an acre.") +
       OVER +
-      h.p("Houses for sale here have one or two stories, and most have about 1,450 to 3,200 square feet. A typical house lot is about a fifth of an acre.") +
+      h.p("Some houses have five bedrooms or more. Most have about 1,450 to 3,200 square feet, on one or two stories.") +
+      h.p("The Orchards has about 200 townhomes, and Planters Point has about 70 condos, most with two or three bedrooms.") +
       h.p("Most houses here are about 20 years old. On any house you tour, we check how old the roof and the air conditioner are.") +
       h.p("Over the past year, a typical townhome in The Orchards sold for about $230,000, and a condo in Planters Point about $240,000.") +
       G.offer("The Farm", { label: "Book a showing in The Farm", href: PLACE_HREF }) },
@@ -322,7 +328,7 @@ module.exports = G.page({
       ]) },
 
     { h2: "Which schools is The Farm at Carolina Forest zoned for?", toc: "Schools", html:
-      h.p("A sidewalk runs along Wheatfield Drive from inside The Farm to International Drive, where both Ocean Bay schools are.") +
+      h.p("Both Ocean Bay schools are on International Drive at The Farm's edge. A sidewalk runs along Wheatfield Drive to International Drive.") +
       SCHOOLS +
       h.table(["School", "Grades", "Drive by car"], [
         ["Ocean Bay Elementary", "K to 5", "About 6 minutes"],
@@ -355,7 +361,7 @@ module.exports = G.page({
       ], { bg }) },
 
     { h2: "What are the HOA rules in The Farm at Carolina Forest?", toc: "HOA rules", html: (bg) =>
-      h.p(`Under the ${h.ext(RULES, "HOA rules")}, owners can rent their homes with a written lease, and the HOA's rules set no cap on how many are rented.`) +
+      h.p(`Under the ${h.ext(RULES, "HOA rules")}, owners can rent their homes with a written lease, and the HOA's governing documents set no cap on how many homes are rented.`) +
       atAGlance([
         { icon: "gate", label: "A fence or shed", text: "Needs the HOA's approval first, with a land surveyor's drawing of the lot." },
         { icon: "dock", label: "Cars and boats", text: "Cars go in the garage or driveway, not on the street or lawn. A boat, trailer or camper needs the HOA's written approval to stay outside." },
@@ -394,7 +400,7 @@ module.exports = G.page({
     { name: "DoD cleanup", href: DEP },
     { name: "DoD safety", href: UXO },
   ],
-  sourcesNote: "Not legal or tax advice. Sizes, ages and second HOA fees are from listings. Drives start at the Farmers Rest Drive entrance, without traffic (the preserve's at Wheatfield Drive). The flood cost is FEMA's middle policy in ZIP 29579. Corps status: fiscal year 2024.",
+  sourcesNote: "Not legal or tax advice. Sizes, ages and second HOA fees are from listings. Drives start at the Farmers Rest Drive entrance, without traffic. The flood cost is FEMA's middle policy in ZIP 29579. Corps status: fiscal year 2024.",
   /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
   afterSources: () => ph.credits(),
   bottomCta: END,

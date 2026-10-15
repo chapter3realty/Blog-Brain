@@ -737,7 +737,7 @@
   },
   {
     "row": "no-hoa 149 (v8 N3)",
-    "pattern": "a few new ones stand among them",
+    "pattern": "a few new (?:ones|houses) (?:stand|are) among them",
     "struck": "The older houses on Collins, Chester and Dunbar Streets date from the late 1950s, and a few new ones stand among them.",
     "use": "The older houses on Collins, Chester and Dunbar Streets date from the 1950s and 1960s."
   },
@@ -767,7 +767,7 @@
   },
   {
     "row": "no-hoa 150 (v8 N8)",
-    "pattern": "mostly two-story frame homes, many with a garage apartment",
+    "pattern": "many (?:with|have) a garage apartment",
     "struck": "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage apartment.",
     "use": "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment."
   },
@@ -797,7 +797,7 @@
   },
   {
     "row": "no-hoa 151 (v8 N13)",
-    "pattern": "each December Santa rides through the Pine Lakes neighborhood",
+    "pattern": "December,? Santa rides through the Pine Lakes neighborhood",
     "struck": "North Ocean Boulevard has bike lanes, and each December Santa rides through the Pine Lakes neighborhood with the city's firefighters.",
     "use": "North Ocean Boulevard has bike lanes, and in December the city's firefighters take Santa on a ride-along through city neighborhoods; in 2025 Pine Lakes was on the route."
   },
@@ -857,7 +857,7 @@
   },
   {
     "row": "no-hoa 154 (v8 N23)",
-    "pattern": "From every house here, a public beach access is less than half a mile on foot",
+    "pattern": "From every house (?:here|for sale in Crescent Beach), a public beach access is less than half a mile on foot",
     "struck": "From every house here, a public beach access is less than half a mile on foot.",
     "use": "From the 25 houses we could place on the county map, a public beach access is less than half a mile on foot."
   },
@@ -947,19 +947,19 @@
   },
   {
     "row": "no-hoa 159 (v8 N38)",
-    "pattern": "Each April brings a kite festival",
+    "pattern": "(?:Each April brings a kite festival|kite festival each April)",
     "struck": "Each April brings a kite festival, and each October a fall festival with more than 125 craft vendors.",
     "use": "A kite festival began in April 2025, and each October a fall festival has over 100 craft vendors."
   },
   {
     "row": "no-hoa 159 (v8 N39)",
-    "pattern": "on July 4 and New Year's Eve you may set off fireworks on the beach",
+    "pattern": "July 4 and New Year's Eve,? you may set off fireworks on the beach",
     "struck": "The town allows two boats or trailers at a home, and on July 4 and New Year's Eve you may set off fireworks on the beach.",
     "use": "The town allows two boats or trailers at a home. Fireworks may be set off on the sand from sunset on July 4 and on New Year's Eve, but not within 500 feet of the pier."
   },
   {
     "row": "no-hoa 160 (v8 N40)",
-    "pattern": "recorded its 1950s cottages",
+    "pattern": "1950s cottages[^.]{0,60}porches",
     "struck": "Garden City grew up in the 1950s, and a state survey recorded its 1950s cottages, many with porches added over the years.",
     "use": "Garden City did not develop until the 1950s, according to a state survey."
   },
@@ -1025,13 +1025,13 @@
   },
   {
     "row": "no-hoa 170 (v8 N51)",
-    "pattern": "^Not a listed use in city zoning\\.$",
+    "pattern": "Not a listed use in city zoning\\.$",
     "struck": "Not a listed use in city zoning.",
     "use": "Not a listed use in city zoning, and a use not listed is not permitted."
   },
   {
     "row": "no-hoa 170 (v8 N52)",
-    "pattern": "^Yes, up to two boats or trailers\\.$",
+    "pattern": "Yes, up to two boats or trailers\\.$",
     "struck": "Yes, up to two boats or trailers.",
     "use": "Yes, up to two boats or trailers, but a licensed trailer over 21 feet counts as one per home."
   }
