@@ -343,7 +343,7 @@ const RULES_CSS = "<style>.c3-nh-rules{width:100%;max-width:1100px;border-collap
   + ".c3-nh-rules td .ic{display:none}"
   + ".c3-nh-rules .ic{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:11px;color:var(--brass);background:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.95);box-shadow:0 6px 14px -10px rgba(28,32,40,.4)}"
   + ".c3-nh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}"
-  + "@media (max-width:899px){.c3-nh-rules,.c3-nh-rules tbody,.c3-nh-rules tr,.c3-nh-rules th,.c3-nh-rules td{display:block;width:auto}.c3-nh-rules thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}"
+  + "@media (max-width:899px){.c3-nh-rules,.c3-nh-rules tbody,.c3-nh-rules tr,.c3-nh-rules th,.c3-nh-rules td{display:block;width:auto}.c3-nh-rules thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.c3-nh-rules caption{display:block;width:auto;margin-bottom:.7rem}"
   + ".c3-nh-rules tbody tr{margin:0 0 .9rem;border-radius:22px;padding:.9rem 1rem .5rem;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,.56));border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 18px 40px -28px rgba(28,32,40,.45)}"
   + ".c3-nh-rules tbody th,.c3-nh-rules tbody td{background:none;border:0!important;border-radius:0!important;padding:0;white-space:normal}.c3-nh-rules tbody th{margin:0 0 .55rem}"
   + ".c3-nh-rules tbody td{display:grid;grid-template-columns:32px 1fr;gap:.6rem;align-items:start;margin:0 0 .55rem}.c3-nh-rules td .ic{display:inline-flex}}</style>";

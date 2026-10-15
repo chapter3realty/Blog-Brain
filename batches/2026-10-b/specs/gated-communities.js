@@ -63,7 +63,6 @@ const { regionMap } = require(path.join(BB, "tools", "area-map.js"));
 const G = require(path.join(BB, "tools", "glass.js"));
 
 const SELF = "/buyers/gated-communities/";
-const MT = "/buyers/55-plus-communities/myrtle-trace/";
 const SEASONS = "/buyers/55-plus-communities/seasons-at-prince-creek-west/";
 const FARM = "/submarkets/carolina-forest/the-farm/";
 const OFFER = "/contact/";
@@ -88,8 +87,6 @@ const E = [
   { id: "grande-dunes", name: "Grande Dunes", full: "the gated sections of Grande Dunes", lat: 33.75879, lon: -78.82911, area: "mb", price: "About $1.5 million", fee: "About $200 to $375" },
   { id: "waterway-palms-plantation", name: "Waterway Palms Plantation", lat: 33.742110, lon: -78.876082, area: "mb", price: "About $780,000", fee: "About $150" },
   { id: "the-bluffs-on-the-waterway", name: "The Bluffs on the Waterway", lat: 33.746358, lon: -78.867299, area: "mb", price: "About $850,000", fee: "About $150" },
-  { id: "covington-lake-east", name: "Covington Lake East", lat: 33.75485, lon: -78.94557, area: "mb", price: "About $570,000", fee: "About $90" },
-  { id: "myrtle-trace", name: "Myrtle Trace", label: "Myrtle Trace (55+)", href: MT, lat: 33.77765, lon: -78.99495, area: "conway", price: "About $300,000", fee: "$95" },
   { id: "myrtle-beach-golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", lat: 33.646385, lon: -79.050559, area: "south", price: "About $225,000 in the older part", fee: "About $95" },
   { id: "prestwick", name: "Prestwick", lat: 33.64245, lon: -78.95602, area: "south", price: "About $480,000", fee: "About $190" },
   { id: "prince-creek-55", name: "Seasons at Prince Creek West", label: "Seasons at Prince Creek West (55+)", href: SEASONS, lat: 33.585419, lon: -79.071772, area: "south", price: "About $500,000", fee: "About $340" },
@@ -109,8 +106,9 @@ const byId = Object.fromEntries(E.map((e) => [e.id, e]));
 /* ---------------------------------------------------------------------------- */
 /* The look. TODO(design): replace with the liquid glass theme's classes (DESIGN-GLASS.md). */
 const GUIDE_CSS = `<style>
-.c3g-guide{display:grid;gap:1rem;max-width:960px;margin:.4rem 0 0}
-@media(min-width:900px){.c3g-guide{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start}}
+.c3g-guide{max-width:760px;margin:.4rem 0 0}
+.c3g-where{display:grid;gap:1.2rem;align-items:start}
+@media(min-width:900px){.c3g-where{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}}
 main#main .c3-want.c3g-list{list-style:none;margin:0;padding:.3rem 1rem}
 main#main .c3-want.c3g-list>li{padding:.35rem 0;line-height:1.45;background:none;box-shadow:none;border:0!important;border-bottom:1px solid rgba(28,32,40,.12)!important;border-radius:0!important}
 main#main .c3-want.c3g-list>li:last-child{border-bottom:0!important}
@@ -129,7 +127,7 @@ main#main .c3-want.c3g-list>li:last-child{border-bottom:0!important}
    with the entry numbers it holds (area-map.js spec.areas, batch 2026-10-b round 14). The circle's middle
    is the middle of its places' dots; its radius reaches the farthest of them, plus 0.8 km. */
 const AREAS = [
-  ["nmb", "North Myrtle Beach"], ["mb", "Myrtle Beach"], ["conway", "Conway"],
+  ["nmb", "North Myrtle Beach"], ["mb", "Myrtle Beach"],
   ["south", "Surfside to Murrells Inlet"], ["pawleys", "Pawleys Island to DeBordieu"],
 ];
 const nums = (a) => {
@@ -145,10 +143,10 @@ const MAP = (() => {
     return { name: label, lat, lon, radius };
   });
   const MAPDIR = { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420, glass: true };
-  const m = regionMap({ name: "Where the 20 gated neighborhoods are", areas }, MAPDIR);
+  const m = regionMap({ name: "Where the 18 gated neighborhoods are", areas }, MAPDIR);
   if (m.areasUnlabelled && m.areasUnlabelled.length) console.warn(`gated-communities: no room on the map for ${m.areasUnlabelled.length} area names; the key names them`);
   const key = m.areasUnlabelled && m.areasUnlabelled.length ? m.areaKey : "";
-  return `<figure class="c3g-map">${m.html}${key}<figcaption>${m.credit}</figcaption></figure>`;
+  return `<figure class="c3g-map" id="gated-map">${m.html}${key}<figcaption>${m.credit}</figcaption></figure>`;
 })();
 
 /* The selection guide: every place once, under what it does best (features, never people). */
@@ -159,21 +157,20 @@ const GUIDE_GROUPS = [
   ["A famous golf course", ["tidewater-plantation", "barefoot-resort", "prestwick", "wachesaw-plantation", "wachesaw-east"]],
   ["History you live inside", ["litchfield-plantation", "willbrook-plantation"]],
   ["Under half a mile from Main Street", ["seaside-plantation"]],
-  ["55+", ["myrtle-trace", "prince-creek-55"]],
+  ["55+", ["prince-creek-55"]],
   ["Lots of nearly half an acre", ["bellwood-landing"]],
-  ["A fee under $100 a month", ["covington-lake-east", "myrtle-beach-golf-and-yacht-club"]],
+  ["A fee under $100 a month", ["myrtle-beach-golf-and-yacht-club"]],
 ];
 {
   const seen = GUIDE_GROUPS.flatMap(([, ids]) => ids);
   if (seen.length !== E.length || new Set(seen).size !== E.length) throw new Error("gated-communities: the guide must list each place once");
 }
-/* The guide is also the page's contents (score H14): the rest of the page, by each section's short label. */
-const MORE = [["#compare", "Prices"], ["#yearly-cost", "Yearly cost"], ["#pros-and-cons", "Pros and cons"], ["#gated-communities-faq", "Gated communities FAQ"]];
+/* The guide links to the entries, and its last line to the map, which now sits beside the price table after the entries (owner's eye 14d, H3). */
 const GUIDE = `<div class="c3g-guide c3-guide-map"><ul class="c3-want c3g-list">`
   + GUIDE_GROUPS.map(([want, ids]) => `<li><b>${want}:</b> ${ids.map((id) => byId[id]).sort((a, b) => a.n - b.n)
     .map((e) => `<a href="#${e.id}">${e.n}. ${e.name}</a>`).join('<span class="sep" aria-hidden="true">&middot;</span> ')}</li>`).join("")
-  + `<li><b>More on this page:</b> ${MORE.map(([href, label]) => `<a href="${href}">${label}</a>`).join('<span class="sep" aria-hidden="true">&middot;</span> ')}</li>`
-  + `</ul>${MAP}</div>`;
+  + `<li><b>On a map:</b> <a href="#gated-map">where the four areas are</a>, after the places</li>`
+  + `</ul></div>`;
 
 /* ---------------------------------------------------------------------------- */
 /* One entry: an H2, the paragraphs, an optional photo under the first paragraph, then the place's own
@@ -354,9 +351,9 @@ module.exports = G.page({
   url: SELF,
   hub: { name: "Buyers", url: "/buyers/" },
   pageImages: () => ph.pageImages(),
-  title: "Gated Communities in Myrtle Beach: 20 Neighborhoods | Chapter3",
-  description: "Twenty gated neighborhoods from North Myrtle Beach to Pawleys Island: their clubs, marinas, beach clubs and history, how each gate works, and what homes cost.",
-  ogTitle: "Gated communities near Myrtle Beach: what each of the 20 does best",
+  title: "Gated Communities in Myrtle Beach: 18 Neighborhoods | Chapter3",
+  description: "Eighteen gated neighborhoods from North Myrtle Beach to Pawleys Island: their clubs, marinas, beach clubs and history, how each gate works, and what homes cost.",
+  ogTitle: "Gated communities near Myrtle Beach: what each of the 18 does best",
   crumb: "Gated Communities",
   eyebrow: "Gated communities",
   h1: "Where are the gated communities near Myrtle Beach?",
@@ -367,7 +364,7 @@ module.exports = G.page({
   author: "devin",
   toc: false,
   shortAnswer: [
-    `Homes in these 20 gated neighborhoods sell for about $200,000 to $2.2 million, and most HOA fees are about $90 to $400 a month. A golf or beach club is usually a separate membership with its own dues, and we ask the club for the current figures.`,
+    `These 18 gated neighborhoods run from North Myrtle Beach down to Pawleys Island, most of them on a golf course or on the water. Homes in them sell for about $200,000 to $2.2 million, and most homeowners association (HOA) fees are about $95 to $400 a month. A golf or beach club is usually a separate membership with its own dues; we ask the club for the current dues.`,
   ],
   sections: [
     { id: "choose", html: () =>
@@ -378,13 +375,10 @@ module.exports = G.page({
     ...SECTIONS_PLACES,
 
     { h2: "What do homes sell for, and what is the HOA fee?", toc: "Prices", id: "compare", html: (bg) =>
-      TABLE +
+      `<div class="c3g-where">${TABLE}${MAP}</div>` +
       h.cta("Want the homes for sale in more than one of these?", OFFER_TEXT, OFFER_LABEL, OFFER, bg) +
       h.p(`For neighborhoods without a gate, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods in Myrtle Beach")}, ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}, ${h.a("/buyers/golf-communities/", "golf communities")} and ${h.a("/buyers/55-plus-communities/", "55+ communities")}.`) },
 
-    { h2: "What does a gated neighborhood cost to live in each year?", toc: "Yearly cost", id: "yearly-cost", html: () =>
-      h.p("In Myrtle Trace, the HOA fee and county tax for a home you live in come to about $2,300 a year, besides the mortgage. In Seasons at Prince Creek West, they come to about $6,100.") +
-      h.p(`Our ${h.a("/buyers/coastal-insurance/", "guide to home insurance on the coast")} covers storms and flooding.`) },
 
     { h2: "What are the pros and cons of a gated community?", toc: "Pros and cons", id: "pros-and-cons", html: (bg) =>
       prosCons([
@@ -393,20 +387,19 @@ module.exports = G.page({
         "At Heritage Plantation, the HOA fee includes cable TV, home internet and a full-time dock master.",
         "At Litchfield Plantation, the owners own the plantation house at the end of the Avenue of Live Oaks.",
       ], [
-        { text: "The private clubs we checked list their kinds of membership but not their prices.", act: "We ask the club for the current figures before you offer." },
         { text: "At DeBordieu, the owners pay to rebuild their own beach, through assessments to a beach fund." },
         { text: "In Dye Estates, lots are still for sale with no deadline to build, so a house can go up next door." },
-        { text: `In Horry County outside city limits, the HOA, not the county, maintains ${h.ext(CODE, "private streets")}.`, act: `We check the HOA's savings, so you know before you offer whether a one-time charge to every owner, a ${h.a("/hoa/special-assessments/", "special assessment")}, is likely.` },
+        { text: "At Litchfield by the Sea, each neighborhood inside the gates has its own sub-association, with its own fee and rules." },
       ], { bg }) },
 
   ],
   faqTitle: "Gated communities FAQ",
   faq: [
-    { q: "Does a gate make a neighborhood safer?", a: "A gate keeps through traffic off the streets. A guard, a code or the owner lets each visitor in. We do not rate any neighborhood as safe or unsafe." },
+    { q: "Does a gate make a neighborhood safer?", a: "We do not rate any neighborhood as safe or unsafe. A gate keeps cars that are only passing through off the streets, and a guard, a code or the owner lets each visitor in." },
     { q: "How do guests get through the gate?", a: "Each neighborhood has its own way: a guard with a guest list, a call box at the gate, or a code from the owner. We find out the gate's rules for guests and deliveries for any home before you offer." },
     { q: "Is there a gated community in Surfside Beach?", a: "No. Prestwick, outside the town, is the gated neighborhood on this page nearest Surfside Beach. Its nearest public beach access is in Surfside Beach, about 7 minutes away by car." },
-    { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet has a gate at its main entrance. Myrtle Trace near Conway has gates only at its back entrance." },
-    { q: "Are there gated golf communities near Myrtle Beach?", a: "Yes. Ten of the 20 gated neighborhoods on this page are golf communities, from Tidewater in North Myrtle Beach to DeBordieu Colony south of Pawleys Island." },
+    { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet is a 55+ community, and visitors use a call box at its main gate." },
+    { q: "Are there gated golf communities near Myrtle Beach?", a: "Yes. Ten of the 18 gated neighborhoods on this page are golf communities, from Tidewater in North Myrtle Beach to DeBordieu Colony south of Pawleys Island." },
     { q: "Is Barefoot Resort a gated community?", a: "Only in part. Most of Barefoot Resort in North Myrtle Beach is open; Leatherleaf and Dye Estates are among its gated neighborhoods." },
     { q: "Is Grande Dunes a gated community?", a: "Only in part. Some sections of Grande Dunes are gated, including Calais, Palermo and Villa Venezia." },
   ],

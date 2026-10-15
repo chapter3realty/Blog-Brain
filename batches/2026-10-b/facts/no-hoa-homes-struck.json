@@ -554,5 +554,173 @@
     "pattern": "\\bPreserve at Pine Lakes next door",
     "struck": "The newer Preserve at Pine Lakes next door has an HOA.",
     "use": "The newer Preserve at Pine Lakes, from about 0.2 to 0.5 mile away, has an HOA."
+  },
+  {
+    "row": "no-hoa 143 (v7 V8)",
+    "pattern": "\\banywhere on your (?:own )?lot\\b",
+    "struck": "Yes, anywhere on your own lot.",
+    "use": "The county's zoning names no limit on where you park a boat on your lot. We check the lot's zoning."
+  },
+  {
+    "row": "no-hoa 143 (v7 R2)",
+    "pattern": "\\bThe county code does not name it\\b",
+    "struck": "The county code does not name it. We check the lot's zoning before you buy.",
+    "use": "County zoning does not name it, and the zoning administrator decides where it fits. We check the lot's zoning before you buy."
+  },
+  {
+    "row": "no-hoa 143 (v7 R1)",
+    "pattern": "\\bmay keep two work vehicles per acre\\b",
+    "struck": "A business run from home may keep two work vehicles per acre.",
+    "use": "A business run from home may keep two service vehicles per acre, and three per home on small farm-zoned lots."
+  },
+  {
+    "row": "no-hoa 137 (v7 R4)",
+    "pattern": "\\ba boat over 16 feet stays out of the front yard\\b",
+    "struck": "Yes, but a boat over 16 feet stays out of the front yard.",
+    "use": "A boat over 16 feet, or a camper of any size, stays out of the front yard."
+  },
+  {
+    "row": "no-hoa 137 (v7 R3)",
+    "pattern": "\\bNot on single-family streets\\b|\\bNot in single-family zones\\b",
+    "struck": "Not on single-family streets.",
+    "use": "Not in the R zones except RMV, and allowed only in the resort and commercial zones the city lists. We check the address."
+  },
+  {
+    "row": "no-hoa 139 (v7 V9)",
+    "pattern": "\\bfew zones, not the single-family ones\\b",
+    "struck": "Only in a few zones, not the single-family ones.",
+    "use": "Only in the R-3 and C-3 zones, not in R-1 or R-2. We check the address."
+  },
+  {
+    "row": "no-hoa 141 (v7 V10)",
+    "pattern": "\\bNo\\. The town's zoning does not allow it\\b|\\bNot listed in zoning, so not allowed\\b",
+    "struck": "No. The town's zoning does not allow it.",
+    "use": "Not a listed use in city zoning, and a use not listed is not permitted. We ask the city about the address."
+  },
+  {
+    "row": "no-hoa 141 (v7 R7)",
+    "pattern": "\\bYes, up to two, in the side or back yard\\b|\\bTwo sheds at most\\b",
+    "struck": "Yes, up to two, in the side or back yard.",
+    "use": "Two outbuildings at most, a garage included, in the side or back yard and 5 feet from the lines."
+  },
+  {
+    "row": "no-hoa 144 (v7 R8)",
+    "pattern": "\\bUntagged (?:trailers|vehicles) only in a building\\b",
+    "struck": "Untagged trailers only in a building.",
+    "use": "Cars and camper trailers without current plates only in a completely enclosed building."
+  },
+  {
+    "row": "no-hoa 138 (v7 R10)",
+    "pattern": "\\bSome neighborhood rules forbid it\\b",
+    "struck": "Yes in most of the city, with a business license. Some neighborhood rules forbid it, so we check.",
+    "use": "The city's zoning does not generally restrict it, with a business license. Some planned developments, development agreements and HOA documents may limit it, so we check."
+  },
+  {
+    "row": "no-hoa 143 (v7 V11)",
+    "pattern": "\\bthe only limits on your lot are\\b",
+    "struck": "With no HOA, the only limits on your lot are the town's, or the county's outside the towns.",
+    "use": "The limits on parking, rentals and buildings on your lot are the town's, or the county's outside the towns, along with any deed restriction."
+  },
+  {
+    "row": "no-hoa 65 (v7 V12)",
+    "pattern": "\\btitle search finds any deed restriction\\b",
+    "struck": "The closing attorney's title search finds any deed restriction before you buy.",
+    "use": "The closing attorney's title search covers the recorded deed restrictions before you buy."
+  },
+  {
+    "row": "no-hoa 135 (v7 V1)",
+    "pattern": "\\bsold 18 of its 27 holes\\b|\\bkept nine\\b",
+    "struck": "In 1946, the club sold 18 of its 27 holes for homes and kept nine.",
+    "use": "(cut it: the nomination says the present 18-hole course dates to 1946; no source says holes were sold for homes)"
+  },
+  {
+    "row": "no-hoa 135 (v7 V2)",
+    "pattern": "\\bThat is why the lots are big\\b",
+    "struck": "That is why the lots are big: typically almost half an acre.",
+    "use": "(cut it: no source gives a reason for the lot size)"
+  },
+  {
+    "row": "no-hoa 135 (v7 V22)",
+    "pattern": "\\bPine Lakes Country Club, which opened in 1927\\b",
+    "struck": "These streets are around Pine Lakes Country Club, which opened in 1927.",
+    "use": "(cut it: the club's history is best neighborhoods' fact, SIBLING-OWNERS)"
+  },
+  {
+    "row": "no-hoa 148 (v7 V5)",
+    "pattern": "\\bPlantation Point has a voluntary HOA\\b",
+    "struck": "Plantation Point has a voluntary HOA, and none of the houses for sale here listed a fee.",
+    "use": "Plantation Point has an HOA that owns common land, and none of the houses for sale here listed a fee. We check whether membership is optional."
+  },
+  {
+    "row": "no-hoa 132 (v7 V4)",
+    "pattern": "\\bGarden City boat ramp is on Main Creek\\b|\\bin the Murrells Inlet marsh\\b",
+    "struck": "The county's Garden City boat ramp is on Main Creek, in the Murrells Inlet marsh.",
+    "use": "(cut it: the county's own list names only the Stanley Drive landing, 292 Stanley Dr, Garden City)"
+  },
+  {
+    "row": "no-hoa 85, 83 (v7 V3)",
+    "pattern": "\\bMost are listed from \\$250,000 to \\$500,000\\b",
+    "struck": "Most are listed from $250,000 to $500,000: about 280 houses for sale.",
+    "use": "The largest group, about 280 houses, is listed from $250,000 to $500,000."
+  },
+  {
+    "row": "no-hoa 148 (v7 V6)",
+    "pattern": "\\bHouses for sale here are listed at about\\b",
+    "struck": "Houses for sale here are listed at about $435,000.",
+    "use": "Houses with no HOA fee here are listed at about $435,000."
+  },
+  {
+    "row": "no-hoa 129 (v7 V7)",
+    "pattern": "\\blots of typically about 0\\.9 acre\\b|\\bnew houses on almost an acre\\b|\\ban acre in [^.]{0,40}around Loris\\b|\\ban acre and a new house\\b",
+    "struck": "The houses for sale here are on lots of typically about 0.9 acre.",
+    "use": "Of the 27 houses we could match to county lots, the middle lot is about 0.9 acre, and about 0.7 acre for the 19 new ones."
+  },
+  {
+    "row": "no-hoa 146 (v7 V13)",
+    "pattern": "\\bA 10-minute walk to a beach access:",
+    "struck": "A 10-minute walk to a beach access: Crescent Beach, Windy Hill, Ocean Drive, Myrtle Heights and Surfside Beach.",
+    "use": "Most houses within a 10-minute walk of a beach access: Crescent Beach, Windy Hill, Ocean Drive, Myrtle Heights and Surfside Beach."
+  },
+  {
+    "row": "no-hoa 131 (v7 V14)",
+    "pattern": "\\bwooden boardwalk follows Withers Swash\\b",
+    "struck": "A wooden boardwalk follows Withers Swash, one of the city's oldest waterways, from Third Avenue South to Broadway and Collins Street.",
+    "use": "A trail extension with a wooden boardwalk runs beside Withers Swash, one of the city's oldest waterways, from Third Avenue South to Broadway and Collins Streets."
+  },
+  {
+    "row": "no-hoa 130, 147 (v7 V15)",
+    "pattern": "\\bMost are on older beach streets\\b",
+    "struck": "Most are on older beach streets, in river towns and on country land, in the areas below.",
+    "use": "Most are in the areas below, on beach streets, in river towns and on country land."
+  },
+  {
+    "row": "no-hoa 87 (v7 V16)",
+    "pattern": "\\bchicken, rice and sausage cooked together\\b",
+    "struck": "Its namesake dish is chicken bog: chicken, rice and sausage cooked together.",
+    "use": "Its namesake dish is chicken bog: chicken, rice and sausage."
+  },
+  {
+    "row": "no-hoa 85 (v7 V19)",
+    "pattern": "\\ba club you can choose to join and pay\\b",
+    "struck": "A few homes listed with no fee are in a neighborhood with a club you can choose to join and pay.",
+    "use": "(cut the club clause, or name a primary source)"
+  },
+  {
+    "row": "no-hoa 85 (v7 V18)",
+    "pattern": "\\btwo-thirds of them within half a mile\\b",
+    "struck": "About 220 at $750,000 and up, two-thirds of them within half a mile of the beach.",
+    "use": "About 220 at $750,000 and up, 141 of them (64 percent) within half a mile of the beach."
+  },
+  {
+    "row": "no-hoa 118 (v7 V20)",
+    "pattern": "\\bolder beach houses in a historic district\\b",
+    "struck": "2. Myrtle Heights: older beach houses in a historic district",
+    "use": "2. Myrtle Heights: a historic district beside the beach"
+  },
+  {
+    "row": "no-hoa 129 (v7 V21)",
+    "pattern": "\\bis still farm and forest land\\b",
+    "struck": "The country west and south of Loris is still farm and forest land.",
+    "use": "(cut it, or add a row with a land-use source)"
   }
 ]

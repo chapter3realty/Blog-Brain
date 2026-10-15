@@ -151,7 +151,7 @@ const placeOf = (p) => ({ name: p.map, lat: p.lat, lon: p.lon, href: A(p.id) });
 /* Town names as a small label layer (owner's eye 14d, M3): the map tool's town leaders, with no place leaders. */
 const MAP = placesMap("Affordable neighborhoods near Myrtle Beach", P.map(placeOf), {
   caption: "Map of the twelve neighborhoods, numbered as on this page, with the nearest towns.",
-  leaders: { places: false, towns: ["Conway", "Myrtle Beach", "North Myrtle Beach", "Little River"] },
+  leaders: { places: false, towns: ["North Myrtle Beach", "Myrtle Beach", "Conway", "Little River"] },
 });
 /* Numbers only, the same for every dot (owner's eye 14c, L3: three dots had no name and nine did): the tool's
    name pills and their leader lines come off, and the table under the map names each number. */
@@ -230,7 +230,7 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "Affordable neighborhoods near Myrtle Beach where a budget still buys a garage, a pool, new construction or a four-minute beach drive.",
+  sub: "Affordable neighborhoods near Myrtle Beach with garages, pools, new houses and a four-minute beach drive.",
   toc: false,
   heroCta: { title: "Book a showing in these neighborhoods.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
@@ -246,31 +246,30 @@ module.exports = G.page({
       h.p("Parkview has the shortest beach drive on this list, a four-minute trip. Its townhomes are off 17th Avenue South, inside the city of Myrtle Beach, around ponds and a pool for owners.") +
       PH["parkview"] +
       h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}, is less than a quarter mile from Parkview. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Residents of Horry, Georgetown and Brunswick counties play a round there for $45 plus tax, with a cart.`) +
-      h.p("There are about 200 townhomes here, and the HOA fee includes the internet and the pool. On a weekday evening, the shops, restaurants and 14-screen movie theater at The Market Common are a ten-minute trip.") +
+      h.p("There are about 200 townhomes here, and the HOA fee includes the internet and the pool. On a weekday evening, the shops, restaurants and movie theater at The Market Common are a ten-minute trip.") +
       h.p("Few of these townhomes come up for sale in a year, so one of our agents watches for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes in a golf community", () =>
       h.p("At the Fairways, the HOA fee includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work. Wild Wing Plantation, the golf community around it, has 27 holes, and some Fairways townhomes are near the course.") +
-      h.p("There are about 180 townhomes here. The ones on the market lately have had their own garage, and some have room for two cars.") +
+      h.p("The townhomes on the market here lately have had their own garage, and some have room for two cars.") +
       h.p("Errands on a weekday are quick: an Aldi is a three-minute trip for groceries on the way home.") +
       h.p("The yearly tax is higher here than outside a town, because the Fairways is inside Conway's city limits.")),
 
     entry("sawgrass-east", "townhomes with a clubhouse owners can rent", () =>
       h.p("Owners at Sawgrass East can rent its clubhouse for a party, and they share a pool. There are about 255 townhomes, set around three small lakes that the HOA owns.") +
-      h.p("Its HOA fee is one of the highest on this list because it covers more. It usually includes the insurance on the buildings, the water, sewer and trash, and the lawn care, bills an owner would pay anyway.") +
-      h.p("A Saturday here can be the pool in the morning and the beach after lunch, about 20 minutes away by car.") +
-      h.p("Sawgrass East is off Carolina Forest Boulevard, a little over two miles up the boulevard from US 501.")),
+      h.p("Its HOA fee is one of the highest on this list because it covers more. It usually includes the insurance on the buildings, the water, sewer and trash, and the lawn care, bills an owner would pay anyway. Compare the fee with what those bills would cost you, not with a lower fee somewhere else.") +
+      h.p("A Saturday here can be the pool in the morning and the beach after lunch, a twenty-minute drive away.")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
       h.p("Birchwood is small: 77 lots, with new Lennar houses on lots of about a quarter acre and about 12 acres of open space. A quarter acre gives a new house a real backyard at this price.") +
       h.p("The turn off SC 905, southwest of Longs, is beside the tall water tower. High-speed internet is included in the monthly dues, and Lennar's plans here list 9-foot ceilings on the first floor.") +
-      h.p("After work, Long Bay Club, a golf course designed by Jack Nicklaus, is a seven-minute trip.") +
-      h.p(`The long drive is to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by the Carolina Bays Parkway.`)),
+      h.p("After work, Long Bay Club, a golf course in Longs, is a seven-minute trip.") +
+      h.p(`The long drive is to Myrtle Beach: Coastal Grand Mall is about a forty-minute drive, by the Carolina Bays Parkway.`)),
 
     entry("golf-and-yacht-club", "older houses built for golf and boating", () =>
       h.p("Myrtle Beach Golf and Yacht Club was built for golf and boating. Its street names still say so: Augusta Crescent and Pebble Beach Crescent, Snowy Egret Trail and Wood Duck Cove.") +
       h.p("Its own course and yacht club are gone, but both are still near. On a Saturday, Osprey Marina, on the Intracoastal Waterway, is an 11-minute drive, and Indigo Creek Golf Club a 14-minute one.") +
-      h.p("The older part has about 470 houses, most on about an eighth of an acre. The houses for sale there lately have all been one story.") +
+      h.p("The older part has about 470 houses, most of them on eighth-acre lots. The houses for sale there lately have all been one story.") +
       h.p("Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy.")),
 
     entry("forestbrook-village", "new townhome plans up to 2,400 square feet", () =>
@@ -288,7 +287,7 @@ module.exports = G.page({
 
     entry("amber-bluff", "smart-home townhomes about 6 minutes from the football stadium", () =>
       h.p("Every townhome at Amber Bluff came with a smart-home package: you can control the front door lock, the thermostat and the video doorbell from your phone.") +
-      h.p(`Off Savannah Bluff Road, ${h.ext(DRH, "D.R. Horton builds one plan")}, the Pearson. It has three bedrooms and two and a half baths over two stories, with a one-car garage, in about 1,420 square feet. With one plan, prices are close together.`) +
+      h.p(`Off Savannah Bluff Road, ${h.ext(DRH, "D.R. Horton builds one plan")}, the Pearson. It has three bedrooms over two stories and a one-car garage, in about 1,420 square feet. With one plan, prices are close together.`) +
       h.p("On game days, Brooks Stadium, where the Chanticleers play football, is about a six-minute drive. Coastal Carolina University and Horry-Georgetown Technical College are each a six-minute trip, and downtown Conway, with its riverwalk on the Waccamaw River, about a seven-minute drive.") +
       h.p("Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.")),
 
@@ -302,18 +301,18 @@ module.exports = G.page({
       h.p("Indigo Grove keeps about 22 acres as open space, owned by its HOA. It holds three new ponds, one with a small island of trees, and strips of woods along a creek. Most lots back onto that open space.") +
       h.p(`Most of the houses are Lennar's, in Lennar's section, The Overlook. ${h.ext(OVERLOOK, "Lennar lists nine floor plans")} with three to five bedrooms, some of them one story, on lots of about a fifth of an acre.`) +
       h.p("Every lot is outside the high-risk flood zone, so a lender usually will not require flood insurance on a home here.") +
-      h.p(`A weekday is simple: Griffin's IGA, a grocery store on SC 90, is three minutes away, and trash pickup is included. The nearest beach is about ${mins(N["indigo-grove"].beach)} minutes away by car.`)),
+      h.p(`A weekday is simple: Griffin's IGA, a grocery store on SC 90, is a three-minute trip, and trash pickup is included.`)),
 
     entry("wynbrooke", "townhomes five minutes from the Murrells Inlet MarshWalk", () =>
       h.p(`The ${h.ext(MARSHWALK, "Murrells Inlet MarshWalk")} is five minutes from Wynbrooke. It is a half-mile boardwalk along the marsh, lined with restaurants, with live music every night and no cover charge.`) +
-      h.p(`${h.ext(HBSP, "Huntington Beach State Park")}, with three miles of beach and a lake where you can see alligators, is 10 minutes away, and Brookgreen Gardens about 15. The nearest public beach, in Garden City, is about ${mins(N.wynbrooke.beach)} minutes by car.`) +
-      h.p("Wynbrooke has about 260 townhomes off SC 707, around ponds, and some back onto the water. A Lowes Foods and a Publix are each about two minutes away.") +
+      h.p(`${h.ext(HBSP, "Huntington Beach State Park")}, with three miles of beach and a lake where you can see alligators, is 10 minutes away. The nearest public beach, in Garden City, is about ${mins(N.wynbrooke.beach)} minutes by car.`) +
+      h.p("The townhomes are off SC 707, around ponds, and some back onto the water. A Lowes Foods and a Publix are each about two minutes away.") +
       h.p("Wynbrooke's HOA fee is the highest of the twelve, though it usually pays for the insurance on the buildings and for the grounds care. With the tax, a year here costs more than at Polo Farms, which sells for more.")),
 
     entry("polo-farms", "houses with a $20 fee", () =>
       h.p("Polo Farms has the smallest HOA fee on this list, about $20 a month, for houses on lots of about a fifth of an acre. Many backyards are fenced, and several have their own pool.") +
       PH["polo-farms"] +
-      h.p("It has 173 houses, off SC 905 west of Longs, built in three phases. The ones on the market lately have been one story.") +
+      h.p("The houses are off SC 905, west of Longs, and were built in three phases. Those on the market lately have been one story.") +
       h.p("There is no pool or clubhouse, which keeps the fee small; the common land is two ponds, some woods and the strips along the highway.") +
       h.p(`Flood is a concern here. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone. Before you make an offer, we look up the lot on FEMA's flood map.`)),
 
@@ -322,7 +321,8 @@ module.exports = G.page({
       COMPARE },
 
     { h2: "How much property tax will you pay?", toc: "Property tax", id: "property-tax", html: () =>
-      h.p(`Take a $240,000 home that is your main home. Outside a town, or in Myrtle Beach, ${h.ext(LEVY, "its yearly tax")} is about $970. It is a little more in Polo Farms and Wynbrooke. Inside ${h.a("/submarkets/conway/", "Conway")}, it is about $1,570.`) +
+      h.p(`Take a $240,000 home that is your main home. ${h.ext(LEVY, "Its yearly tax")} depends on where it is:`) +
+      h.ul(["Outside a town, or in Myrtle Beach: about $970.", "In Polo Farms and Wynbrooke: a little more.", `Inside ${h.a("/submarkets/conway/", "Conway")}: about $1,570.`]) +
       h.p(`When you buy, the county values the home at about what it is worth that year, and the new value shows up on the next year's bill. These figures use the county's lower rate for a home you live in, which our ${h.a("/buyers/property-taxes/", "property tax guide")} explains.`) },
 
     { h2: "What help can you get with a down payment?", toc: "Down payment help", id: "down-payment", html: (bg) =>

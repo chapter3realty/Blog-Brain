@@ -1913,5 +1913,114 @@
     "pattern": "from 1 to 10 percent of each lot",
     "struck": "Three lots touch the edge of zone AE, from 1 to 10 percent of each lot.",
     "use": "Three lots touch the edge of zone AE, from less than 1 to about 10 percent of each lot; touching the zone does not put the house in it."
+  },
+  {
+    "row": "gated 169, 202 (v8)",
+    "pattern": "Tidewater sits on the marsh[^.]{0,60}\\bnot the ocean",
+    "struck": "Tidewater sits on the marsh of the Intracoastal Waterway, not the ocean; the nearest public beach access is about an 8-minute drive.",
+    "use": "Tidewater is on the Intracoastal Waterway, not the ocean; the nearest public beach access is about an 8-minute drive. (The marsh behind Cherry Grove Inlet is the best-neighborhoods page's angle: SIBLING-OWNERS.)"
+  },
+  {
+    "row": "gated 204 (v8)",
+    "pattern": "Joey's Clubhouse Grille[^.]{0,80}\\bfor lunch after a round",
+    "struck": "Joey's Clubhouse Grille looks out over the fairways for lunch after a round.",
+    "use": "Joey's Clubhouse Grille, a public restaurant, looks out over the course. (Or cut it: the best-neighborhoods page leads with Joey's.)"
+  },
+  {
+    "row": "gated 20, 401 (v8)",
+    "pattern": "\\bVisitors check in at the gatehouse\\b",
+    "unless": "Little River Neck",
+    "struck": "Visitors check in at the gatehouse.",
+    "use": "Listings show Tidewater as gated, and their directions name a guard house on Little River Neck Road."
+  },
+  {
+    "row": "gated 17, 205 (v8)",
+    "pattern": "\\blakes inside the gate\\b",
+    "struck": "Seaside Plantation is a small gated neighborhood with lakes inside the gate.",
+    "use": "Seaside Plantation is a small neighborhood that listings show as gated, and its owners association owns three lake parcels of about 13 acres in all. (No source says where the gate stands.)"
+  },
+  {
+    "row": "gated 522 (v8)",
+    "pattern": "\\bWe get the current rules\\b",
+    "struck": "We get the current rules for any home you like.",
+    "use": "We ask the association for its current gate rules for any home you like."
+  },
+  {
+    "row": "gated 405 (v8)",
+    "pattern": "\\bown contract security[^.]{0,60}guard houses[^.]{0,40}roving officer",
+    "struck": "Grande Dunes has its own contract security, with guard houses and a roving officer.",
+    "use": "The master association's February 2026 contact sheet names Allied Security as its contract security company and lists a main guard house, a north guard house, an Ocean Club guard house and a rover line. It does not say which serves Calais, Palermo or Villa Venezia."
+  },
+  {
+    "row": "gated 146 (v8)",
+    "pattern": "\\bstill finishing new houses[^.]{0,80}\\bwork trucks\\b",
+    "struck": "Builders are still finishing new houses, so some streets still have empty lots and work trucks.",
+    "use": "Builders are still finishing new houses, so some streets still have empty lots."
+  },
+  {
+    "row": "gated 29, 148 (v8)",
+    "pattern": "\\bsmall gated street\\b|\\bgated street of brick houses\\b",
+    "struck": "Covington Lake East is a small gated street of brick houses in Carolina Forest, for an HOA fee of about $90 a month, the lowest of the 20.",
+    "use": "Covington Lake East is a small neighborhood of brick houses in Carolina Forest, shown as gated in listings, for an HOA fee of about $90 a month, the lowest of the 20."
+  },
+  {
+    "row": "gated 157 (v8)",
+    "pattern": "\\bno golf club or marina\\b",
+    "struck": "It has no golf club or marina.",
+    "use": "It has no golf course or boat ramp of its own."
+  },
+  {
+    "row": "gated 527 (v8)",
+    "pattern": "\\bback gates goes to two residents[^.]{0,80}\\bnot to a guard\\b",
+    "struck": "A problem with the back gates goes to two residents named in the HOA's gate rules, not to a guard.",
+    "use": "A problem with the back gates goes to two residents named in the HOA's gate guidelines; their numbers are on the back page of the community telephone directory."
+  },
+  {
+    "row": "gated 175, 269 (v8)",
+    "pattern": "\\bthe association a home belongs to, since each has its own fee\\b",
+    "struck": "Before you make an offer, we find out the association a home belongs to, since each has its own fee and rules.",
+    "use": "Sandpiper Place has its own owners association, so before you make an offer we find out which association a home belongs to."
+  },
+  {
+    "row": "gated 102, 179 (v8)",
+    "pattern": "\\bindoor pool for the cooler months\\b",
+    "struck": "One bill covers the Seasons dues and the dues of the larger associations, and the clubhouse has an indoor pool for the cooler months.",
+    "use": "One bill covers the Seasons dues and the dues of the larger associations, and the clubhouse has indoor and outdoor pools and a fitness center."
+  },
+  {
+    "row": "gated 321, 21 (v8)",
+    "pattern": "\\bVisitors stop at security at the gate\\b",
+    "struck": "Visitors stop at security at the gate, and Wacca Wache Marina, outside the gates, has about 100 wet slips and indoor racks.",
+    "use": "Listings show Wachesaw Plantation as gated, with a main guard gate reached from Riverwood Drive. Wacca Wache Marina, outside the gates, has about 100 wet slips and indoor racks."
+  },
+  {
+    "row": "gated 22 (v8)",
+    "pattern": "\\bvisitors check in with a guard at the main gate\\b",
+    "struck": "Houses line the fairways, and visitors check in with a guard at the main gate.",
+    "use": "Houses line the fairways. Two listings show Wachesaw East as gated, and one listing's directions send agents past a gate guard."
+  },
+  {
+    "row": "gated 346, 347 (v8)",
+    "pattern": "\\bfull-service marina\\b",
+    "struck": "Greg Norman's private course and a full-service marina",
+    "use": "Greg Norman's private course and a marina with dry storage, a fuel dock and staff launch and haul"
+  },
+  {
+    "row": "gated 442 (v8)",
+    "pattern": "\\bthe main gate has a guardhouse\\b",
+    "struck": "The board hires a security company, and the main gate has a guardhouse.",
+    "use": "The board hires a security company, and the association lists a separate phone line for the main entrance gate."
+  },
+  {
+    "row": "gated 481, 489 (v8)",
+    "pattern": "\\bprivate clubs we checked list their kinds of membership\\b",
+    "struck": "The private clubs we checked list their kinds of membership but not their prices.",
+    "use": "The private clubs we checked print no membership prices."
+  },
+  {
+    "row": "gated photo, Willbrook (v8)",
+    "pattern": "\\bWillbrook Plantation from above: houses among trees and golf fairways\\b",
+    "struck": "Willbrook Plantation from above: houses among trees and golf fairways, with open fields cut by straight ditches at the left.",
+    "use": "Willbrook Plantation from above: its houses in the middle and at the right beside golf fairways, with open fields cut by straight ditches at the left; the houses at the lower left are in Litchfield Plantation."
   }
 ]
