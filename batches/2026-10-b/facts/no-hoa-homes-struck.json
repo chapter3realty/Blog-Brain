@@ -272,5 +272,17 @@
     "pattern": "\\btwo launch lanes\\b|\\bFrom the same lot, boardwalks",
     "struck": "It has two launch lanes, a floating dock and a fish cleaning station. From the same lot, boardwalks cross the marsh to Heritage Shores Nature Preserve.",
     "use": "The ramp has a two-lane boat launch, a kayak launch, a fishing pier, a floating boat dock and a fish cleaning station; the park gives access and parking for Heritage Shores Nature Preserve, an island in the marsh reached by elevated boardwalks (parking at the west end of 53rd Avenue North, about 4 blocks from the preserve entrance) [nmb.us]."
+  },
+  {
+    "row": "no-hoa 128",
+    "pattern": "\\btree care ordinance\\b|streets were laid out around",
+    "struck": "Its streets were laid out around its live oaks, and the city has a tree care ordinance.",
+    "use": "Conway's streets were designed around its live oaks [City of Conway news]. (Cut the ordinance: its text was not opened.)"
+  },
+  {
+    "row": "no-hoa 132",
+    "pattern": "Garden City Beach is a strip of land",
+    "struck": "Garden City Beach is a strip of land between the ocean and the salt marsh of Murrells Inlet.",
+    "use": "(cut it: the row cites OpenStreetMap, which the verifier did not open; keep the shore distance and the landing)"
   }
 ]

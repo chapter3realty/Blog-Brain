@@ -346,7 +346,7 @@ module.exports = GL.page({
 
     entry("garden-city", "between the ocean and the marsh", [
       "In Garden City Beach, 3 in 4 homes for sale carry no HOA fee. Garden City is not a town, so the county's rules apply.",
-      "Garden City Beach is a strip of land between the ocean and the salt marsh of Murrells Inlet. Most houses for sale here are within half a mile of the beach.",
+      "Most houses for sale here are within half a mile of the beach.",
       `The county's ${h.ext(LANDINGS, "Stanley Drive boat landing")} is 5 minutes from the middle of Garden City. The MarshWalk restaurants in Murrells Inlet are about 7 minutes south.`,
       "Flood insurance is the cost of the view: most houses here are in a high-risk flood zone, where a lender requires it.",
       `At about ${millions(A["garden-city"].medianNoFeeHousePrice)}, a house here costs more than anywhere on this list but Myrtle Heights.`,
@@ -354,7 +354,7 @@ module.exports = GL.page({
 
     entry("conway", "live oaks and the Waccamaw River", [
       "Within a mile and a half of downtown Conway, almost every house for sale has no HOA fee. The typical one was built about 1970, on a little over a third of an acre.",
-      `Conway is the county seat, on a bluff of the Waccamaw River. Its ${h.ext(CONWAY_OAKS, "streets were laid out around its live oaks")}, and the city has a tree care ordinance.`,
+      `Conway is the county seat, on a bluff of the Waccamaw River. Its ${h.ext(CONWAY_OAKS, "streets were designed around its live oaks")}.`,
       `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. The Riverwalk follows the river downtown.`,
       `${h.ext(LANDINGS, "Billy Witherspoon Landing")}, a county ramp on the Waccamaw, is a 6-minute drive, and Conway Medical Center is 12.`,
       "The beach is a 25-minute drive. Inside the city, a big business truck may not park on a city street.",
