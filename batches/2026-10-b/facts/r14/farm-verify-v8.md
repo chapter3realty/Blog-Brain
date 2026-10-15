@@ -20,7 +20,7 @@ Sources I opened myself:
 - **Rows 105 to 108: 3 verified as stated (106, 107, 108), 1 verified with corrected wording (105).** Every number in them matched.
 - Rewrite check: **29 fact-bearing units changed or newly stated since `7da0736`. 24 match, 5 drift** (4 distinct fact drifts in 5 units, because one drift is two tiles) **plus 1 promise that promises an outcome.** Five distinct drifts in all (D1 to D5).
 - The four v7 corrections (D1 to D4 of v7) are applied exactly as the safe wording gave them. No v7 wording came back.
-- `node tools/struck-check.js --batch batches/2026-10-b --preview scratchpad/preview/b --strict`, before my entries: **the-farm (44 patterns): no struck wording.** After my 5 entries (49 patterns), the five struck phrases fire on the page, one per entry. (The same run reports 23 struck phrases on `neighborhoods`; that is another page.)
+- `node tools/struck-check.js --batch batches/2026-10-b --preview scratchpad/preview/b --strict`, before my entries: **the-farm (44 patterns): no struck wording.** After my 5 entries (49 patterns), the Farm page fires 7 phrases from the 5 entries (the tile entry fires on both tiles, the pros-and-cons entry on both of its sentences). (The same run reports 23 struck phrases on `neighborhoods`; that is another page.)
 - `node tools/struck-check.test.js`: "all controls pass".
 - Distance words: no banned word on the page, and no walk time. The only distance-word hit in `rules/distance-words.json` is the allowed table head "Also close by". The drive times all match OSRM (table below). The tiles fail CRAFT 2 in another way (D2).
 
@@ -154,7 +154,7 @@ All of these are actions an agent can do, with no promised outcome, except the o
 
 ## Struck entries added
 
-Five, in `the-farm-struck.json`: D1 (row 105), D2 (rows 28 and 29), D3 (pros and cons opener), D4 (row 89) and D5 (end box). `node tools/struck-check.test.js`: "all controls pass". `--strict` on the preview: before the entries the Farm page was quiet (44 patterns); after them, five phrases fire, one per entry, and each goes quiet on its approved wording.
+Five, in `the-farm-struck.json`: D1 (row 105), D2 (rows 28 and 29), D3 (pros and cons opener), D4 (row 89) and D5 (end box). `node tools/struck-check.test.js`: "all controls pass". `--strict` on the preview: before the entries the Farm page was quiet (44 patterns); after them, 7 phrases fire (5 entries), and each goes quiet on its approved wording.
 
 ## Status
 
