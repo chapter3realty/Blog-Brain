@@ -454,7 +454,7 @@ module.exports = GL.page({
       "Many are two-story frame homes, and many have a garage apartment. You will see porches, coquina rock walls and wood awnings painted to look like striped canvas.",
       "Many yards still have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
       "Sea Captain's House, a restaurant in a 1930 beach cottage, is about a 9-minute walk.",
-      `The one catch is the review: on an oceanfront house, any change to the outside, even the paint color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}.`,
+      `The trade-off is the review: on an oceanfront house, any change to the outside, even the paint color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}.`,
     ]),
 
     entry("mb-pine-lakes", "almost half an acre in the middle of the city", [

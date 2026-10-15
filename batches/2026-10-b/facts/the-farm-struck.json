@@ -348,5 +348,25 @@
     "pattern": "\\bflytrap woods on (?:its|the) north edge\\b",
     "struck": "Flytrap woods on its north edge, and two pools in the fee.",
     "use": "Woods with flytrap habitat on its north edge, and two pools in the fee. [SCDNR news release, June 10, 2025: the tract \"includes critical habitat for the ... Venus flytrap\"]"
+  },
+  {
+    "row": "the-farm 123 (v12 D1), 122d, 106",
+    "pattern": "\\bmain entrance is about 6 minutes\\b",
+    "unless": "\\b(?:from|Wheatfield|Farmers Rest|middle)\\b",
+    "struck": "Its main entrance is about 6 minutes away by car.",
+    "use": "Its main entrance is about 6 minutes by car from the Wheatfield Drive end of The Farm, and about 10 from the Farmers Rest Drive entrance. [SCDNR Public Lands, entrance 1 on Old Kingston Road; OSRM 5.96 min from Wheatfield Drive, 10.16 from Farmers Rest Drive, 8.84 from 2884 Scarecrow Way] (Or give one start only: about 10 minutes by car from the Farmers Rest Drive entrance.)"
+  },
+  {
+    "row": "the-farm 123 (v12 D2), 122b, 61",
+    "pattern": "\\bmeans a swim after work\\b",
+    "unless": "\\b(?:in (?:pool )?season|pool season|April 15|from April)\\b",
+    "struck": "Living in The Farm means a swim after work and spring walks among wildflowers in a state nature preserve.",
+    "use": "Living in The Farm means a swim after work in pool season and spring walks among wildflowers in a state nature preserve. [HOA amenity rules: the pools are open April 15 to October 15, 9 a.m. to 9 p.m.; SCDNR: pitcher plants and wildflowers bloom March through June]"
+  },
+  {
+    "row": "the-farm 123 (v12 D3), 122i, 51",
+    "pattern": "\\bthe HOA's rules set no cap\\b",
+    "struck": "Under the HOA rules, owners can rent their homes with a written lease, and the HOA's rules set no cap on how many are rented.",
+    "use": "Under the HOA rules, owners can rent their homes with a written lease. The HOA's governing documents have no cap on how many homes are rented [board minutes, May 18, 2026]."
   }
 ]
