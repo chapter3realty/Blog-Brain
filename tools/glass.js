@@ -153,7 +153,7 @@ function themeRules() {
   const BAND = `${S}>section[style^="background:var(--navy)"]`;
   r.push(`${BAND}{background:transparent!important;padding:.9rem 0!important}`);
   r.push(`${S}>section:has(+section[style^="background:var(--navy)"]){padding-bottom:0!important}`);
-  r.push(`${BAND}+section{padding-top:1.1rem!important}`);
+  r.push(`${BAND}+section{padding-top:.95rem!important}`);
   r.push(`${BAND}>.wrap{${DARK};${BLUR};border-radius:28px;padding:2.2rem 1.6rem;width:calc(100% - 32px);box-sizing:border-box}`);
   r.push(`@media (max-width:699px){${BAND}>.wrap{padding:1.6rem 1.2rem 1.7rem;border-radius:24px}${BAND}>.wrap>:first-child{font-size:1.5rem!important;line-height:1.25;margin-bottom:.7rem!important}${BAND}>.wrap>p{margin-bottom:1.1rem!important}}`);
   /* Buttons: a brass pill with a light top edge. Navy on brass is 4.7:1 at the bar's darkest. */
