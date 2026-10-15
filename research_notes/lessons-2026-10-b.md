@@ -106,6 +106,17 @@ Our own reviewers graded four pages 9 of 10. The owner read them and found each 
 
 **B44. Design is part of trust.** The owner called the graphs and icons dated. A page that looks old reads as old information. Rule (CRAFT 4): batch 2026-10-b pages use the modern "liquid glass" style (translucent panels, soft blur, light borders) for the background, cards, icons, maps and charts, with contrast checked. A chart says one thing a reader wants at a glance, and can carry each place's best feature, not only its price.
 
+## Round 14 rebuild
+
+**B45. A correction is a new sentence, and it needs its own check.** In round 14 two fresh verifiers read only the sentences writers had reworded after a correction. On affordable, 2 of 18 had drifted. On gated, 13 of 46 had drifted. The drifts were small:
+- "the" in place of "a" ("the daily sunset gathering place");
+- a dropped "several" or "native";
+- "covers the neighborhood" where the source says only "coverage is 24 hours";
+- a source's one sentence turned into a general rule;
+- two resales written as a price range.
+
+The struck list catches old wording coming back. It cannot catch new wording that goes past the source. Rule (CRAFT 8, WORKFLOW): after a writer applies corrections, a verifier who has not seen the page before reads every corrected sentence against the source before the review. Writers do not hedge a claim they cannot stand behind, for example with "(the club's account)". They state the part the source supports, or cut the claim.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
