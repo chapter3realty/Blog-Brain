@@ -1,0 +1,100 @@
+[
+  {
+    "row": "gated 201",
+    "pattern": "\\$3,765[^.]{0,80}\\$25 (?:cart )?(?:fee )?(?:a|per) round(?! each)",
+    "unless": "\\beach\\b",
+    "struck": "A 2026 annual membership is $2,685 for one person or $3,765 for two, plus a $25 cart fee a round.",
+    "use": "Annual membership is $2,685 for one person, plus a $25 cart fee a round, or $3,765 for two, plus $25 a round each [club membership page, 2026]."
+  },
+  {
+    "row": "gated 205",
+    "pattern": "\\b13 acres of water\\b",
+    "struck": "the lakes behind many of the houses, about 13 acres of water, belong to the neighborhood",
+    "use": "the association owns three lake parcels of about 13 acres in all [Horry County parcel records]"
+  },
+  {
+    "row": "gated 212",
+    "pattern": "\\bcall (?:the )?(?:owner|resident)[^.]{0,40}keypad[^.]{0,80}\\bpress(?:es|ing) 9|(?:keypad|directory)[^.]{0,80}\\bCall\\b[^.]{0,80}\\bpress(?:es|ing) 9",
+    "unless": "Gate Access Code|form|otherwise",
+    "struck": "At the second gate, a guest can call the owner from the keypad, and the owner presses 9 on the phone to open it.",
+    "use": "If the owner has filed the Gate Access Code form, a guest can pick the owner's name at the second gate's keypad and the owner presses 9 on the phone to open it; if not, the keypad calls the guard house [Dye Estates rules V3.0, 3.1.2]."
+  },
+  {
+    "row": "gated 217",
+    "pattern": "key fob for[^.]{0,60}\\bbeach gate\\b",
+    "struck": "Owners use a key fob for its parking lot and for the beach gate.",
+    "use": "The cabana has owner parking with key fob entry and key fob entry with private access to the beach [Barefoot HOA amenities page]."
+  },
+  {
+    "row": "gated 219",
+    "pattern": "(?:ponds?|lakes)[^.]{0,40}\\b(?:are )?(?:only )?for looking at\\b",
+    "struck": "In Dye Estates the ponds are only for looking at: no swimming, boating, fishing or docks.",
+    "use": "Swimming, flotation devices, boating and fishing are banned on the Dye Estates lakes and retention ponds, and owners may not build piers or docks on them [Dye Estates rules V3.0, 7.1]."
+  },
+  {
+    "row": "gated 220",
+    "pattern": "\\b(?:course )?opened in 2005\\b",
+    "struck": "The Grande Dunes Members Club course opened in 2005.",
+    "use": "The course was constructed in 2005 [Members Club golf page]."
+  },
+  {
+    "row": "gated 222",
+    "pattern": "dining room and patio look out on the 18th",
+    "struck": "Its dining room and patio look out on the 18th green.",
+    "use": "The club has indoor and outdoor dining seating with views of the 18th green [Members Club lifestyle page]."
+  },
+  {
+    "row": "gated 223",
+    "pattern": "\\b(?:about )?800 members\\b",
+    "struck": "The club says about 800 members belong.",
+    "use": "The club's home page says '800 of your fellow neighbors' have made it their home away from home; it gives no member count."
+  },
+  {
+    "row": "gated 225",
+    "pattern": "\\b(?:takes|take) boats of 120 feet or more",
+    "struck": "Grande Dunes Marina takes boats of 120 feet or more.",
+    "use": "Grande Dunes Marina takes vessels up to 120 feet, and the marina says 'or more' [marina description on grandedunes.com and the master association page]."
+  },
+  {
+    "row": "gated 229",
+    "pattern": "Waterway Trail starts nearby",
+    "struck": "The public two-mile Waterway Trail starts nearby.",
+    "use": "The public two-mile Waterway Trail has its trailhead on Marina Parkway, near the Grissom Parkway overpass [grandedunes.com]. (Say nearby only after measuring the distance from the marina.)"
+  },
+  {
+    "row": "gated 242",
+    "pattern": "\\b46 more\\b|\\b183\\b[^.]{0,40}\\b(?:Master in Equity|court)",
+    "struck": "137 Master in Equity deeds from 2010 through 2012, and 46 more in other years from 2008 to 2023 (183 in all).",
+    "use": "The county recorded 182 Master in Equity deeds here from 2008 to 2023: 137 in 2010 to 2012 and 45 in other years [Register of Deeds index]."
+  },
+  {
+    "row": "gated 242",
+    "pattern": "after 2008 many went through court-ordered sales\\. That is why",
+    "struck": "after 2008 many went through court-ordered sales. That is why builders are still finishing houses here",
+    "use": "(cut 'That is why': no source ties court-ordered sales to the builders. Say each fact on its own.)"
+  },
+  {
+    "row": "gated 253",
+    "pattern": "county measured[^.]{0,80}\\b370 feet",
+    "struck": "the county measured The Bluffs as 370 feet from a proposed brewery site",
+    "use": "A 2023 Post and Courier story puts The Bluffs 370 feet from a proposed brewery site across S.C. 31 [Post and Courier, June 2023]."
+  },
+  {
+    "row": "gated 259",
+    "pattern": "Community Watch desk (?:at|in) (?:its |the )?gatehouse[^.]{0,60}\\bstaffed\\b",
+    "struck": "a Community Watch desk at its gatehouse on Bay Road, staffed 24 hours a day, seven days a week",
+    "use": "The HOA lists Community Watch Desk coverage 24 hours a day, seven days a week, and a gatehouse phone line [HOA website]."
+  },
+  {
+    "row": "gated 260",
+    "pattern": "\\bits own maintenance staff\\b|\\bown maintenance staff on weekdays",
+    "struck": "The association also has its own maintenance staff on weekdays.",
+    "use": "The HOA lists maintenance coverage Monday through Friday, 7:00 a.m. to 3:30 p.m. [HOA website]."
+  },
+  {
+    "row": "gated 262",
+    "pattern": "calendar adds bingo|calendar has recurring (?:aerobics|yoga)",
+    "struck": "The calendar adds bingo, yoga, Zumba, mahjong, card groups and a book club.",
+    "use": "The HOA calendar has categories for aerobics, weekly bingo, yoga, Zumba, women's and men's cards, a book club, mahjong and crafts; the events are behind a login [HOA calendar]."
+  }
+]
