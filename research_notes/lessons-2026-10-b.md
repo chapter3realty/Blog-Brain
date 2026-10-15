@@ -117,6 +117,10 @@ Our own reviewers graded four pages 9 of 10. The owner read them and found each 
 
 The struck list catches old wording coming back. It cannot catch new wording that goes past the source. Rule (CRAFT 8, WORKFLOW): after a writer applies corrections, a verifier who has not seen the page before reads every corrected sentence against the source before the review. Writers do not hedge a claim they cannot stand behind, for example with "(the club's account)". They state the part the source supports, or cut the claim.
 
+**B46. Five leads wrote five pages in parallel, and the same facts landed on two or three of them.** Each lead researched its own places. Nobody owned the places the pages share: Tidewater, Barefoot, Grande Dunes, the Golf and Yacht Club, The Farm, Cherry Grove, Surfside and Pine Lakes. The round 14 reviewers found the gated page's club facts on best neighborhoods nearly word for word, and the flytrap preserve leading three pages. The owner had named this: "the same information was given to gated communities as you gave to affordable communities". Rule (CRAFT 3, WORKFLOW): before writing a batch, list every place two pages share and assign each shared fact to one page, by which reader cares most. The other page takes its own angle. The record is `batches/<batch>/review/SIBLING-OWNERS.md`.
+
+**B47. Every page ran 3 to 4 phone screens before its first place.** The order the brief set was the hero, the short answer, the offer box, the guide, the map, then the first place. Each part was useful, but together they were too long. The dark offer band alone was about 300 to 550 px, and three stacked map panels were 1.8 screens. Rule (CRAFT 3): measure the top in pixels before writing it. A top offer is a slim bar, and the big band goes at the end. A map on a phone is short and wide. The page says its count of places once.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.

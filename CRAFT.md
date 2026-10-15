@@ -128,6 +128,10 @@ For a subject that fits no kind, find the main relation in the content: place, a
 
 **One clear offer, tied to the page's gap.** The call to action offers the one thing the reader cannot easily get alone, ideally what the page could not fully answer. Keep one label. Several vague calls read as sales. The first offer on the page looks like an offer, not a link: a box with a headline that says what the reader gets, one sentence, and a large button (owner, 2026-10-14: "make the first CTA more of a CTA"). Use the same box component as the last offer.
 
+**Siblings share places, not facts.** When pages in a batch name the same place, decide before writing which page owns each fact about it. Choose by the reader who cares most. Each other page gives its own angle on the place (lesson B46; `batches/<batch>/review/SIBLING-OWNERS.md`).
+
+**Measure the top.** On a phone, the top of the page runs from the H1 to the first place. Add up the hero, the short answer, the offer, the guide and the map, in pixels, before you write. A top offer is a slim bar, and the full offer band goes at the end. A map on a phone is short and wide. Say the count of places once (lesson B47).
+
 ## 4. Show it
 
 **Ask for the photo you need.** Chapter3 has a photo partner who drives the area (owner, 2026-10-13). When a page needs a photo of a real place or thing, send him a shot list (`templates/photo-request-email.md`) instead of settling for a distant aerial or no picture. Ask for as much as the page needs.
