@@ -287,5 +287,48 @@
     "pattern": "\\bThe Farm has no gate\\b",
     "struck": "No. The Farm has no gate, and the streets in The Farm are public roads owned by Horry County.",
     "use": "No. The Farm is not gated, and its roads are county-owned [HOA FAQ; HOA board minutes, May 18, 2026]."
+  },
+  {
+    "row": "the-farm 114",
+    "pattern": "(?:preserve can never be put to private use|no one may build (?:houses|homes) there)",
+    "struck": "Under state law, a heritage preserve can never be put to private use. Once the new land joins the preserve, no one may build houses there.",
+    "use": "State law bars any private use of a heritage preserve, and another public use needs the approval of both the Department of Natural Resources board and the governor [S.C. Code 51-17-80]. It applies once the land is dedicated, which the state says it will be [SCDNR news release, June 10, 2025]."
+  },
+  {
+    "row": "the-farm 115",
+    "pattern": "\\bsummer weekend\\b[^.]{0,80}\\bbeach\\b",
+    "struck": "On a summer weekend, the beach is 10 to 12 minutes away by car.",
+    "use": "The beach is about 10 minutes by car from the Farmers Rest Drive entrance, without traffic [OSRM, no traffic]."
+  },
+  {
+    "row": "the-farm 115",
+    "pattern": "\\bbeach\\b[^.]{0,40}\\b10 to 12 min",
+    "unless": "\\bentrance\\b|\\bmiddle\\b",
+    "struck": "Beach 10 to 12 min drive",
+    "use": "The beach is 10 minutes by car from the Farmers Rest Drive entrance and about 12 from the middle of The Farm [OSRM, no traffic]. (Or give one number with its start: Beach 10 min drive, from the entrance.)"
+  },
+  {
+    "row": "the-farm 116",
+    "pattern": "\\bowners pay up to about \\$255\\b",
+    "struck": "In all, owners pay up to about $255 a month in The Orchards and up to about $500 in Planters Point.",
+    "use": "Listings in 2026 show total HOA fees of about $225 to $255 a month in The Orchards and about $450 to $500 in Planters Point [listings, Coastal Carolinas MLS; 8 and 5 listings]."
+  },
+  {
+    "row": "the-farm 117b, 108",
+    "pattern": "\\bgun seasons run from mid-October through New Year",
+    "struck": "Bow season opens in mid-September, and gun seasons run from mid-October through New Year's Day.",
+    "use": "Deer season runs from mid-September to January 1, and small game to March 1 [S.C. Code Regs. 123-40, section 1.1 D, item 19]."
+  },
+  {
+    "row": "the-farm 117g, 99",
+    "pattern": "\\bthe state's flytrap preserve\\b",
+    "struck": "Woods on the north edge bought for the state's flytrap preserve.",
+    "use": "Woods on the north edge bought for a state nature preserve with Venus flytraps [SCDNR news release, June 10, 2025]."
+  },
+  {
+    "row": "the-farm 117g, 48",
+    "pattern": "\\bA house with a yard for about \\$350,000\\b",
+    "struck": "A house with a yard for about $350,000, with two pools in the fee.",
+    "use": "Houses with yards typically sold for about $350,000 in the past year, with two pools in the fee [county deed records, October 2025 to September 2026]."
   }
 ]

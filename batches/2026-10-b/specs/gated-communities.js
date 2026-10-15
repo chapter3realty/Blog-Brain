@@ -279,7 +279,7 @@ const SECTIONS_PLACES = [
     "By the 8th hole is the Oatland cemetery of enslaved people, protected inside the community. After rice, the land was used for duck and quail hunting.",
     "Willbrook is a gated neighborhood of about 250 houses inside Litchfield by the Sea, with its own clubhouse and social calendar. Its residents have Litchfield by the Sea's private beach and Beach Club, and one car barcode is issued for both.",
   ], "Homes usually sell for about $840,000, and the HOA fee is about $340 a month.",
-  ["willbrook-plantation-from-above-2023", "Willbrook Plantation from above: its houses are in the middle and at the right, beside golf fairways. The houses at the lower left are in Litchfield Plantation, and open fields cut by straight ditches are at the upper left."]),
+  ["willbrook-plantation-named-from-above-2023", "Willbrook Plantation from above: its houses are in the middle and at the upper right, beside golf fairways. The houses at the lower left are in Litchfield Plantation."]),
 
   entry("litchfield-plantation", "the owners own the plantation house", [
     "Near Pawleys Island, at the end of the Avenue of Live Oaks, stands Litchfield Plantation's house, and the owners own it. For about 50 years the developer controlled the association. In 2018 the owners took control after court challenges, and the house, its pool and about 7 acres passed to the association.",
@@ -309,7 +309,7 @@ const SECTIONS_PLACES = [
     "Every car comes through one gate. Guests are registered online, in an app or by phone, and a guest pass lasts up to a week. The colony covers 2,700 acres, and at least 600 of them are a nature preserve.",
     "South Carolina spends public money to rebuild a beach only where the public has full access to it, and DeBordieu does not qualify. Its owners pay for their beach themselves, through assessments to a beach fund they voted to set up. Boats cannot stay at the community dock overnight.",
   ], "Homes here usually sell for about $2 million, and the HOA fee is about $300 to $400 a month.",
-  ["debordieu-from-above-2026", "DeBordieu Colony and the beach to its east, from above. Golf fairways and ponds are among the homes, and a salt marsh is between many of the homes and the beach."]),
+  ["debordieu-beach-houses-from-the-ocean-2011", "DeBordieu Colony from over the ocean in 2011: large houses behind the dunes, each with a walkway to the beach, and the salt marsh beyond."]),
 ];
 
 /* ---------------------------------------------------------------------------- */
