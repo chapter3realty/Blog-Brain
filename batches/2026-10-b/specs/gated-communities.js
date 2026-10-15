@@ -269,7 +269,7 @@ const SECTIONS_PLACES = [
 
   entry("wachesaw-east", "where the LPGA played four years", [
     "Wachesaw East, in Murrells Inlet, has a course that hosted four televised LPGA Tour events, from 1997 to 2000. Karrie Webb won the first two.",
-    "Clyde Johnston laid out the course on a former rice plantation, past freshwater lakes and wetlands, and houses, most of them one story and from the early 2000s, line the fairways behind the gate. The club's grill, the Toasted Tee Pub & Grub, has hosted happy hours with live music.",
+    "Clyde Johnston laid out the course on a former rice plantation, past freshwater lakes and wetlands. Houses line the fairways behind the gate, most of them one story and from the early 2000s. The club's grill, the Toasted Tee Pub & Grub, has hosted happy hours with live music.",
     "The course and its grill are a business of their own, not the homeowners': Festiva Real Estate Holdings bought them in 2017.",
   ], "Homes usually sell for about $500,000, and the HOA fee is about $145 a month."),
 
@@ -299,7 +299,7 @@ const SECTIONS_PLACES = [
     `A guard works the main gate day and night. Owners' cars come in with a barcode, and each guest must be registered by the owner before the visit.`,
     "A normal week can include Tai Chi on Wednesday and yoga on Thursday at the Beach Club. In between there is crabbing off the docks on Osprey Lake and a walk on the paved paths through the marsh.",
     "Many homes are condos and villas from the 1980s to the 2000s, and the Beach Club comes with the home. The houses are in Charlestowne Grant, Compass Point and River Club; Charlestowne Grant's are raised beach houses.",
-    "It is many neighborhoods inside the gates, each with its own sub-association, and the HOA fee differs from section to section and from unit to unit. Condo and villa fees run from about $620 a month to about $1,880 for an oceanfront condo, and Charlestowne Grant's houses pay about $520 to $630.",
+    "It is many neighborhoods inside the gates, each with its own sub-association, and the HOA fee differs from section to section and from unit to unit. Condo and villa fees are about $620 a month, up to about $1,880 for an oceanfront condo, and Charlestowne Grant's houses pay about $520 to $630.",
   ], "One-bedroom condos in Summerhouse usually sell for about $200,000, and villas in Breakers Reef for about $1.5 million to $2.2 million.",
   ["litchfield-by-the-sea-from-above-2023", "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right."]),
 
@@ -383,7 +383,7 @@ module.exports = G.page({
   author: "devin",
   toc: false,
   shortAnswer: [
-    `These 18 gated neighborhoods run from North Myrtle Beach down to DeBordieu Colony, south of Pawleys Island, most of them on a golf course or on the water. Typical sale prices in them run from about $200,000 to $2.2 million, and most homeowners association (HOA) fees are about $95 to $400 a month. Golf clubs here are usually a separate membership with their own dues, and we ask the club for the current dues; some beach clubs come with the home.`,
+    `These 18 gated neighborhoods run from North Myrtle Beach down to DeBordieu Colony, south of Pawleys Island, most of them on a golf course or on the water. Typical sale prices in them are about $200,000 to $2.2 million, and most homeowners association (HOA) fees are about $95 to $400 a month. Golf clubs here are usually a separate membership with their own dues, and we ask the club for the current dues; some beach clubs come with the home.`,
   ],
   sections: [
     { id: "choose", html: () =>
