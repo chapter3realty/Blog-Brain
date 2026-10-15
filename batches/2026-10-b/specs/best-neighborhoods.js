@@ -59,7 +59,7 @@ for (const f of PHOTO_FILES) for (const r of JSON.parse(fs.readFileSync(f, "utf8
   const k = JSON.stringify(r.variants || r.file);
   if (!PHOTOS.some((x) => JSON.stringify(x.variants || x.file) === k)) PHOTOS.push(r);
 }
-const kit = PK.create({ h, photos: PHOTOS, mapDir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), mapSrc: "/images/maps" });
+const kit = PK.create({ h, theme: "glass", photos: PHOTOS, mapDir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), mapSrc: "/images/maps" });
 
 const D = JSON.parse(fs.readFileSync(path.join(BATCH_DATA, "best-neighborhoods.json"), "utf8"));
 const N = Object.fromEntries(D.neighborhoods.map((n) => [n.id, n]));
@@ -208,9 +208,9 @@ const ENTRY = (id, headline, paras, price) => {
 const ENTRIES = [
   ENTRY("cherry-grove", "a fishing pier, the salt marsh and dogs on the beach", [
     `In Cherry Grove, a dog can come to the beach with you. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the sand")} all year, except from 10 a.m. to 4 p.m. between May 15 and Labor Day.`,
-    "From the middle of Cherry Grove, a public beach access is about 0.1 mile away. Behind the beach, channels were dug into the salt marsh, and those canals now run behind rows of houses. Russell Burgess Coastal Preserve, with a walkway and a pier over the marsh, is under half a mile on foot.",
-    "Cherry Grove Pier was built in the 1950s and is about a 14-minute walk from the middle of the neighborhood. In 1964 a 1,780-pound tiger shark was landed from it, a world record at the time.",
-    `Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. A lender will usually require flood insurance. About 400 canal homes also pay the city about $1,700 a year to dredge the canals.`,
+    "From the middle of Cherry Grove, a public beach access is about 0.1 mile away. Behind the beach, channels were dug into the salt marsh, and those canals now run behind rows of houses. Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot.",
+    "Cherry Grove Pier was built in the 1950s and is about a 12-minute walk from the middle of the neighborhood. In 1964 a 1,780-pound tiger shark was landed from it, a world record at the time.",
+    `Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. A lender will usually require flood insurance. More than 400 properties on the canals also pay the city about $1,700 a year now to dredge them.`,
   ], "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale have no homeowners association (HOA) fee."),
 
   ENTRY("surfside-beach", "a free concrete pier with two restaurants", [
@@ -220,30 +220,30 @@ const ENTRIES = [
     "About a quarter of the homes here are in a high-risk flood zone. We check the flood zone of any home you like before you offer.",
   ], "Houses on the ocean side of Surfside Beach usually sell for about $705,000 and condos for about $405,000. Most homes for sale have no HOA fee."),
 
-  ENTRY("pine-lakes", "new houses beside Myrtle Beach's first golf course", [
+  ENTRY("pine-lakes", "newer houses beside Myrtle Beach's first golf course", [
     "Sports Illustrated was planned at Pine Lakes. In 1954 a group of Time-Life executives came to play the course and plan a new weekly sports magazine. The clubhouse is now on the National Register of Historic Places.",
     "Pine Lakes Country Club opened in 1927 as Ocean Forest Country Club, Myrtle Beach's first golf course. Robert White, a native of St. Andrews, Scotland, and the first president of the PGA of America, designed it.",
     "The Preserve at Pine Lakes and Pine Lakes Estates are two sections of houses beside the course. Most houses for sale there were built since 2015. A Myrtle Beach bike trail along Grissom Parkway is about 0.2 mile away.",
-    "The homes are inside the city of Myrtle Beach, so owners pay city property tax on top of the county's. Homes on the older streets near the club have no HOA fee.",
+    "The homes are inside the city of Myrtle Beach, so owners pay city property tax on top of the county's. On the older streets near the club, the homes for sale have no HOA fee.",
   ], "Houses in these two sections usually sell for $540,000 to $670,000, and the HOA fee is about $95 a month."),
 
-  ENTRY("tidewater", "golf holes over the salt marsh, behind a guard house", [
-    "At Tidewater Plantation, two of the golf holes play over the salt marsh, facing Cherry Grove across the water. Tidewater Golf Club, a public course, opened in 1990. That year Golf Digest and Golf Magazine both named it the best new public course in America.",
-    "Tidewater is between the Intracoastal Waterway and Cherry Grove Inlet, behind a guard house that visitors reach from Little River Neck Road. Most of its homes are houses along the fairways, with a few condo buildings.",
-    "Owners share three pools with hot tubs, courts for tennis, pickleball and bocce, a fitness center and a clubhouse. They also have an oceanfront beach cabana with its own parking at Cherry Grove Beach. For a boat, Cherry Grove's public boat ramp is about 5 miles away by road.",
+  ENTRY("tidewater", "golf on the salt marsh, behind a guard house", [
+    "At Tidewater Plantation, some of the golf holes meet the salt marsh of the waterway, and one looks across the inlet to Cherry Grove Beach. Tidewater Golf Club, a public course, opened in 1990. That year Golf Digest and Golf Magazine both named it the best new public course in America.",
+    "Tidewater is between the Intracoastal Waterway and Cherry Grove Inlet, behind a guard house that visitors reach from Little River Neck Road. Most of its homes are houses, many along the fairways, with a few condo buildings.",
+    "Owners share pools with hot tubs, courts for tennis, pickleball and bocce, a fitness center and a clubhouse. They also have an oceanfront beach cabana with its own parking at Cherry Grove Beach. For a boat, Cherry Grove's public boat ramp is about 5 miles away by road.",
     `Tidewater is on the marsh, not the ocean, so owners drive to the beach. Our ${h.a(GATED, "guide to gated communities near Myrtle Beach")} tells the course's history.`,
   ], "Houses in Tidewater usually sell for about $625,000, and the HOA fee is about $230 a month."),
 
   ENTRY("barefoot-resort", "four golf courses that opened on one day", [
     "Barefoot Resort's four golf courses, by Pete Dye, Tom Fazio, Davis Love III and Greg Norman, all opened on the same spring day in 2000. Neighborhoods grew up around them, and many streets carry seashell names, from Junonia Drive to Moonshell Drive.",
-    "Owners in the residential association have their own beach cabana on the ocean, with parking, a kitchen and showers. From spring to early September, a free shuttle runs from the neighborhoods to a public beach access on Ocean Boulevard.",
-    "Barefoot Landing's shops and restaurants are about 6 minutes by car, across a swing bridge on the waterway. That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened.",
+    "Owners in the residential association have their own beach cabana on the ocean, with parking, a kitchen and showers. A free shuttle runs from the neighborhoods to a public beach access on Ocean Boulevard, on weekends in April and May and every day from June to early September.",
+    "Barefoot Landing's shops and restaurants are across a swing bridge on the waterway. The drive is about 6 minutes from the condo neighborhoods and about 8 from the gated houses. That bridge dates from the 1930s and was moved here from Edenton, North Carolina, the year the courses opened.",
     `Most homes for sale here are condos, and a condo pays about $680 a month in HOA fees. Each association has its own amenities and rules, so we check which one a home belongs to before you offer. Our ${h.a(GATED, "guide to gated communities")} covers the resort's gated sections.`,
   ], "Homes for sale in these Barefoot sections, mostly condos, usually sell for about $430,000."),
 
   ENTRY("prince-creek", "a Tom Fazio course near the Murrells Inlet MarshWalk", [
     "Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course that opened in 1999. Tom Watson won the Senior PGA Tour Championship there the next year.",
-    "On a Saturday, the Murrells Inlet MarshWalk is a 7-minute drive, and the entrance to Huntington Beach State Park is 12 minutes by car. A Publix is about 2 minutes from the middle of the neighborhood.",
+    "From the middle of Prince Creek, the Murrells Inlet MarshWalk is a 7-minute drive, and the entrance to Huntington Beach State Park is 12 minutes by car. A Publix is about 2 minutes away.",
     "Bellwood Landing, Creekhaven, Longwood Bluffs and Wilderness Pointe are among the neighborhoods of Prince Creek West. Their road and park association owns The Park at Prince Creek West, a park of mostly woods. Its amenity area has two pools and courts for tennis and pickleball.",
     "The HOA fee changes from section to section, so we compare the fee on each home you like. Bellwood Landing, behind its own gate, sells for more, about $810,000.",
   ], "Houses in Prince Creek usually sell for $315,000 to $620,000, and the HOA fee is about $100 to $390 a month, by section."),
@@ -251,16 +251,16 @@ const ENTRIES = [
   ENTRY("wild-wing", "27 holes of golf and a pool on the lake near Conway", [
     "Wild Wing's Avocet course, designed by Jeff Brauer and Larry Nelson, opened in 1993. A recent renovation, led by Brauer himself, gave it new greens and refreshed bunkers. The club also has the nine-hole Hummingbird course.",
     "Many streets are named for water birds, such as Wood Stork Drive and Black Skimmer Drive. The owners' amenity area, beside a lake, has a pool complex, courts for tennis or pickleball, a basketball court and a playground.",
-    "From Wild Wing, Coastal Carolina University is about 11 minutes by car, Conway Medical Center about 8, and the Conway Riverwalk about 15.",
+    "From the middle of Wild Wing, Coastal Carolina University is about 10 minutes by car, Conway Medical Center about 8, and the Conway Riverwalk about 15.",
     "The ocean is about 20 minutes away by car.",
   ], "Houses in Wild Wing usually sell for about $600,000, and the HOA fee is about $135 a month."),
 
   ENTRY("grande-dunes", "a marina on the waterway and a beach club on the ocean", [
-    "Grande Dunes has a club on the ocean and a marina on the Intracoastal Waterway. The Ocean Club gives residents private oceanfront access and dining. The marina has 126 wet slips and is open to the public, with restaurants beside it.",
-    "The Resort Club course is a Roger Rulewich design on a bluff over the waterway. The National Golf Course Owners Association named it course of the year in 2009. Nick Price and Craig Schreiner designed the Members Club course. The clubs offer memberships, and we find out which homes include one.",
-    `The two-mile Waterway Trail is open to the public from sunrise to sunset. Calais, Palermo and Villa Venezia are three of its sections with ${h.a(GATED, "a gate at the entrance")}.`,
+    "Grande Dunes has a club on the ocean and a marina on the Intracoastal Waterway. The Ocean Club offers residents private oceanfront access and dining, and we find out which homes include it. The marina has 126 wet slips and is open to the public, with restaurants beside it.",
+    "The Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. The National Golf Course Owners Association named it course of the year in 2009. Nick Price and Craig Schreiner designed the Members Club course. The clubs also offer memberships.",
+    `The two-mile Waterway Trail is open to the public from sunrise to sunset. Calais, Palermo and Villa Venezia are among its ${h.a(GATED, "gated sections")}.`,
     "Across Grande Dunes, most houses for sale are new or not yet finished.",
-  ], "Homes in the three gated sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
+  ], "Homes in those three gated sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
   ENTRY("plantation-lakes", "pontoon boats on a lake with 15 miles of shoreline", [
     "Owners at Plantation Lakes take pontoon boats out on a lake with about 15 miles of shoreline. Many homes back onto the water, and the amenity area, with a dock, is on a point in the lake.",
@@ -279,19 +279,19 @@ const ENTRIES = [
 
   ENTRY("waterbridge", "lakes to paddle and a full clubhouse calendar", [
     "Waterbridge owners paddle kayaks on their own lakes. The neighborhood is built around more than 80 acres of lakes and natural areas. A boat launch with a floating dock takes kayaks and other boats with no motor.",
-    "Walking paths cross the water on bridges, and the HOA's calendar holds card nights, bunco, mahjong, a book club, potluck Thursdays and food trucks. The pool complex and the clubhouse are inside a circle of streets, and the fitness center is open around the clock.",
+    "Walking paths cross the water on bridges, and the HOA's calendar holds card nights, bunco, mahjong, a book club and potluck Thursdays. The pool complex and the clubhouse are inside a circle of streets, and the fitness center is open around the clock.",
     "Owners also have a storage area for boats and jet skis. It is full now, so we ask about a space before you offer. Courts for tennis, pickleball, basketball and volleyball are a quarter mile from the clubhouse, on Fiddlehead Way.",
     "Builders are still selling new houses here, and some of the newest streets are still filling in.",
   ], "Houses in Waterbridge usually sell for about $630,000, and the HOA fee is about $150 a month."),
 
   ENTRY("forestbrook-estates", "newer houses, a pool and garden plots", [
-    "Forestbrook Estates owners can keep a plot in a community garden on the same grounds as the pool. The houses were built in the last few years, and Lennar built nearly every home here, around ponds, with townhomes beside the houses.",
+    "Forestbrook Estates owners can keep a plot in a community garden on the same grounds as the pool. Lennar began building here in 2018 and built nearly every home, around ponds, with townhomes beside the houses.",
     `Every home here is zoned for Forestbrook Elementary, Forestbrook Middle and Socastee High, and our page on ${h.a("/buyers/relocating/schools/", "schools near Myrtle Beach")} covers them. The elementary and middle schools and a Food Lion are each 5 to 6 minutes away by car.`,
     "Rosewood Landing, a county boat ramp on the Intracoastal Waterway, is about 5 miles away by road.",
     "The neighborhood has ponds, not a lake. Its houses cost a little more than The Farm's, but they are newer.",
   ], "Houses in Forestbrook Estates usually sell for about $395,000, and the HOA fee is under $90 a month."),
 
-  ENTRY("the-farm", "two pools and wild flytraps next door", [
+  ENTRY("the-farm", "two pools and a flytrap preserve next door", [
     `Along The Farm's north side, the state has bought land for the Lewis Ocean Bay Heritage Preserve, and it plans to open that land to the public. That land holds ${h.ext(SCDNR_LOB, "habitat for the wild Venus flytrap")}, and the state's largest population of the plant is centered in the preserve.`,
     `The Farm's HOA fee includes cable TV and trash pickup. It also pays for ${h.ext(FARM_HOA, "two pools")}, a fitness room, an activity center, a basketball court and a playground.`,
     `From the Farmers Rest Drive entrance, a Publix is 2 minutes by car and the beach about 10. D.R. Horton developed The Farm, and our ${h.a(FARM, "guide to The Farm at Carolina Forest")} tells its history and its rules.`,
@@ -302,13 +302,13 @@ const ENTRIES = [
     "Berkshire Forest's first pool complex has a water slide. It is beside a lake, with a tennis court, a basketball court and a play area next to it. The expansion added a second amenity area with a pool and courts for tennis or pickleball.",
     "Centex Homes developed the first sections, such as Crestwood, Sutton Place and Cambridge. Pulte Homes later added land from two neighboring developments. Berkshire Forest and its Berkshire Village section have more than 1,100 homes together.",
     "River Oaks Elementary School, on Augusta Plantation Drive, is a 2-minute drive from the Berkshire Village section.",
-    "Most houses for sale here were built in the 2000s and 2010s, so they are older than the new houses in Waterbridge.",
+    "Most houses for sale here were built in the 2000s and 2010s, earlier than most of those for sale in Waterbridge, built since 2023.",
   ], "Houses in Berkshire Forest usually sell for about $390,000, and the HOA fee is about $115 a month."),
 
   ENTRY("deerfield", "wooded streets around an old golf resort near Surfside Beach", [
     "The Deerfield Plantation area is built around the old Deer Track golf courses near Surfside Beach. Its older streets are wooded, and the owners' association owns lake and canal land among the homes.",
     "In 2006 two buyers bought the golf course, and homeowners sued to keep it a golf course. The court sent the case to a special referee, who found no rule on that land that kept it a golf course. The state Court of Appeals upheld that finding.",
-    "The old South Course is now a neighborhood of new houses. The Surfside Beach Fishing Pier is about 4 miles away by road.",
+    "The old South Course is now a neighborhood of new houses. From the middle of the area, the Surfside Beach Fishing Pier is about 4 miles by road.",
     "On the old North Course, building has only begun, so homes near it are beside a building site. The closest beach access has three parking spaces, for golf carts only. By car, owners use the next access, which has a pay lot.",
   ], "Houses in the Deerfield Plantation area usually sell for about $355,000, and the HOA fee is under $90 a month."),
 ];
@@ -366,7 +366,7 @@ module.exports = G.page({
       h.p("Besides the mortgage, a house in Cherry Grove, The Farm or Tidewater Plantation costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance.") +
       compareCards(D.yearly_cost.rows.map((r) => ({ name: r.name, cells: r.cells })), COST_COLS,
         { caption: "A house you live in: the yearly cost", nameLabel: "House", css: false }) +
-      h.p(`The tax is for a home you live in, and in North Myrtle Beach it includes the city's share. When a home sells, the county ${h.ext(SC_TAX, "values it again")}, usually close to the price paid, and taxes the new value the next year. Cherry Grove canal homes also pay the city about $1,700 a year to ${h.ext(CG_CANALS, "dredge the canals")}, on top of these totals.`) +
+      h.p(`The tax is for a home you live in, and in North Myrtle Beach it includes the city's share. When a home sells, the county ${h.ext(SC_TAX, "values it again")}, usually close to the price paid, and taxes the new value the next year. Properties on the Cherry Grove canals also pay the city about $1,700 a year to ${h.ext(CG_CANALS, "dredge the canals")}, on top of these totals.`) +
       h.p(`Homeowners insurance comes on top of all this, and our guide to ${h.a("/buyers/coastal-insurance/", "insurance near the coast")} shows what it costs. If price matters most, see ${h.a("/buyers/affordable-places-to-live/", "the most affordable places near Myrtle Beach")}.`) +
       h.p(`For a home with no HOA fee at all, see ${h.a("/buyers/no-hoa-homes/", "homes with no HOA near Myrtle Beach")}. For a community with a 55+ age rule, our ${h.a("/buyers/55-plus-communities/", "guide to 55+ communities near Myrtle Beach")} compares four of them.`) },
   ],

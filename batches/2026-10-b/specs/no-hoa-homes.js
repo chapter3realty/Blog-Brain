@@ -76,7 +76,7 @@ const WANT = [
   ["mb-downtown", 17, 20, 435000], ["mb-myrtle-heights", 4, 4, 1632500], ["mb-pine-lakes", 6, 6, 929950], ["mb-plantation-point", 7, 7, 1199000],
   ["windy-hill", 24, 40, 746450], ["crescent-beach", 34, 39, 754900],
   ["ocean-drive", 23, 41, 664450], ["cherry-grove", 52, 89, 847700], ["little-river", 8, 8, 419250], ["socastee", 11, 14, 249900],
-  ["surfside", 36, 42, 939450], ["garden-city", 41, 55, 1442000], ["conway", 20, 23, 287000], ["loris", 31, 44, 339997],
+  ["surfside", 36, 42, 939450], ["garden-city", 41, 55, 1442000], ["conway", 20, 23, 287000], ["loris", 15, 16, 319000],
   ["loris-country", 74, 82, 414100], ["aynor", 30, 45, 372000],
 ];
 for (const [k, n, t, p] of WANT) {
@@ -353,7 +353,7 @@ module.exports = GL.page({
     ]),
 
     entry("loris", "a small town with its own hospital", [
-      "In and around the town of Loris, 7 in 10 homes for sale have no HOA fee, on lots of about half an acre.",
+      "Almost every house for sale within a mile of downtown Loris shows no HOA fee in its listing. Most are older houses, typically from the 1960s, on about 0.4 acre.",
       `Loris grew up around a railroad depot and became a town in 1902. In the late 1800s it was a farm center for the country around it.`,
       `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
       "McLeod Loris, the town's hospital, is about 2 minutes from the middle of town.",
@@ -362,7 +362,7 @@ module.exports = GL.page({
     ]),
 
     entry("loris-country", "new houses on almost an acre", [
-      "West and south of Loris, 9 in 10 houses for sale list no HOA dues. Most of them are new, built in 2024 or later.",
+      "In the country west and south of Loris, most houses for sale list no HOA dues. Most of them are new, built in 2024 or later.",
       `The typical lot is about 0.9 acre, with no town limits. Park the boat, the camper and the work truck where you like on your own land, within the county rules below.`,
       "McLeod Loris hospital is a 9-minute drive from the middle of these houses.",
       `Outside the towns, no public service picks up trash at the curb. You hire a hauler or use a county drop-off center.`,
@@ -395,7 +395,7 @@ module.exports = GL.page({
   faqTitle: "Homes with no HOA FAQ",
   faq: [
     { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot. Inside the city of Myrtle Beach, a boat over 16 feet may not be kept in the front yard. Boats and trailers may not park on residential streets. Outside the towns, you can keep your own boat, trailer or camper anywhere on your lot." },
-    { q: "Which areas near Myrtle Beach almost always have an HOA?", a: "Carolina Forest, the Grande Dunes, the Market Common and Burgess. Almost every home for sale there has an HOA fee, and so do almost all of the newer subdivisions in Little River." },
+    { q: "Which areas near Myrtle Beach almost always have an HOA?", a: "Carolina Forest, the Grande Dunes, the Market Common and Burgess. Almost every home for sale there has an HOA fee, and so do almost all of Little River's named subdivisions." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "What is a typical HOA fee in Myrtle Beach?", a: `About $${DATA.allNineAreas.detachedHouses.medianMonthlyHoaFee} a month on a house. A condo fee is much higher because it includes the building's insurance, water and sewer, trash and a pool.` },
     { q: "Can you buy a condo with no HOA fee in Myrtle Beach?", a: `Almost never. Of about 2,700 condos for sale around Myrtle Beach, only one was listed with no HOA fee. South Carolina law makes condo owners share the cost of the building.` },

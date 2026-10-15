@@ -152,7 +152,7 @@ const GUIDE_GROUPS = [
   ["A boat ramp at home", ["waterway-palms-plantation", "the-bluffs-on-the-waterway"]],
   ["A famous golf course", ["tidewater-plantation", "barefoot-resort", "prestwick", "wachesaw-plantation", "wachesaw-east"]],
   ["History you live inside", ["litchfield-plantation", "willbrook-plantation"]],
-  ["A golf cart ride to Main Street", ["seaside-plantation"]],
+  ["Under half a mile from Main Street", ["seaside-plantation"]],
   ["55+", ["myrtle-trace", "prince-creek-55"]],
   ["A fee under $100 a month", ["covington-lake-east", "myrtle-beach-golf-and-yacht-club"]],
   ["Big lots by a creek", ["bellwood-landing"]],
@@ -193,8 +193,8 @@ const SECTIONS_PLACES = [
     "The course is public, so you share it with visitors, and a golf membership costs extra; any Horry County resident can buy one.",
   ], "Homes at Tidewater usually sell for about $625,000. The HOA fee is about $230 a month."),
 
-  entry("seaside-plantation", "a golf cart ride to Main Street", [
-    "Of the 20 neighborhoods here, Seaside Plantation is the closest to Main Street in North Myrtle Beach. Main Street is a golf cart ride away.",
+  entry("seaside-plantation", "under half a mile from Main Street", [
+    "Of the 20 neighborhoods here, Seaside Plantation is the closest to Main Street in North Myrtle Beach. Main Street is less than half a mile away, close enough to reach by golf cart.",
     "Each spring and fall the Society of Stranders brings its shag dance festivals, the Spring Safari and the Fall Migration, to Main Street and Ocean Drive. The Fall Migration runs for 11 days each September.",
     "Back home, the owners association owns the lakes, about 13 acres in all, and some houses look onto them. The clubhouse has a hot tub and parking for golf carts, and a Walmart Supercenter, a Lowe's and Gator Hole Plaza are a 3- to 5-minute drive.",
     "The ocean is a quarter to three-quarters of a mile from the houses, not at the back door, and festival weeks bring crowds to Main Street.",
@@ -317,14 +317,14 @@ const SECTIONS_PLACES = [
   entry("heritage-plantation", "a dock master and a crow's nest over the river", [
     "Heritage Plantation's marina has a full-time dock master and a dock house built over the Waccamaw River, with a crow's nest and a swing on its roof. The marina also has a deck over the water, bordered by cypress trees, that is the daily sunset gathering place.",
     `The ${h.ext(HERITAGE, "HOA fee")} includes cable TV, home internet, 24-hour security, the pool, the courts and the dock master. Owners have run the association since 2002 and have not needed a special assessment in that time.`,
-    "Many mornings are reserved for league play on the four Har-Tru tennis courts and four pickleball courts. The calendar adds concerts, lectures, car shows and sunset gatherings at the marina. The Heritage Club, a public par-71 course by Dan Maples, lies among the live oaks on the former True Blue and Midway plantations.",
+    "Many mornings are reserved for league play on the four Har-Tru tennis courts and four pickleball courts. The calendar adds concerts, lectures, car shows and sunset gatherings at the marina. The Heritage Club, a public par-71 course by Dan Maples, lies among the live oaks on land that was once the True Blue and Midway plantations.",
     "Golf membership is not part of the HOA fee, trash pickup costs extra, and slips are rented by the day, the month or the year.",
   ], "Homes usually sell for about $710,000, and the HOA fee is about $325 a month."),
 
   entry("debordieu-colony", "a planters' colony where owners keep their own beach", [
     "Before the Civil War, rice planters built a colony of summer homes at DeBordieu. Later owners of the land included Isaac Emerson, the Bromo-Seltzer maker, and the Vanderbilt family. Locals say \"Debidue\".",
     "The owners pay for their own beach. As a gated community, DeBordieu does not qualify for public money to rebuild it. In 2017 the owners voted to start a beach fund, paid by assessments.",
-    "The DeBordieu Club, open only to owners, has a Pete and P.B. Dye course that has hosted the Carolinas Mid-Amateur, and eight Har-Tru tennis courts. Its places to eat include the Beanery cafe and dining steps from the sand, with ocean views. On the Fourth of July a parade lines up at DeBordieu and Luvan boulevards.",
+    "The DeBordieu Club, open only to owners, has a Pete and P.B. Dye course that has hosted the Carolinas Mid-Amateur, and eight Har-Tru tennis courts. Its places to eat include the Beanery cafe and three dining rooms at the Beach Club. On the Fourth of July a parade lines up at DeBordieu and Luvan boulevards.",
     `Every car comes through one gate. Guests are registered online, in an app or by phone, and a guest pass lasts up to a week (${h.ext(DEBORDIEU_PACKET, "owners' welcome packet")}). The colony covers 2,700 acres, and at least 600 of them are a nature preserve.`,
     "Club membership is separate from the association and its fee, and boats cannot stay at the community dock overnight.",
   ], "Homes here usually sell for about $2 million, and the HOA fee is about $300 to $400 a month.",
