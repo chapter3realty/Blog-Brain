@@ -2456,9 +2456,9 @@
     "1200": "images/buyers/the-farm/the-farm-where-from-above-1200w.webp"
    },
    "title": "Where The Farm at Carolina Forest is, NAIP aerial, April 2023",
-   "what": "A wide view from above of Carolina Forest and Myrtle Beach on April 10, 2023, with The Farm outlined in orange, the 353-acre tract the state bought for the Lewis Ocean Bay Heritage Preserve shaded green along its north edge, and seven labels: the tract, The Farm, Carolina Forest Boulevard, US 501, the Publix about 2 minutes from the entrance, McLeod Health's emergency room about 5 minutes away and the beach about 10 minutes away. The ocean is at the lower right.",
-   "caption": "Where The Farm is. The orange line is its edge, and the green area is the land the state bought for a nature preserve.",
-   "alt": "Carolina Forest and Myrtle Beach from above: The Farm outlined in orange, the land the state bought for a nature preserve shaded green on its north edge, and labels for Publix 2 minutes, the emergency room 5 minutes and the beach 10 minutes away",
+   "what": "A wide view from above of Carolina Forest and Myrtle Beach on April 10, 2023, with The Farm outlined in orange, the 353-acre tract set to join the Lewis Ocean Bay Heritage Preserve shaded green along its north edge, and seven labels: the tract (\"Set to join the preserve\"), The Farm, Carolina Forest Boulevard, US 501, Publix, McLeod Health's emergency room about 5 minutes away and the beach. The ocean is at the lower right.",
+   "caption": "Where The Farm is, with drive times from the entrance nearest the large pool. The orange line is its edge.",
+   "alt": "Carolina Forest and Myrtle Beach from above: The Farm outlined in orange, the land set to join the preserve shaded green on its north edge, and labels for Publix, the emergency room 5 minutes away and the beach",
    "place": {
     "city": "Myrtle Beach",
     "sublocation": "The Farm at Carolina Forest"
@@ -2492,13 +2492,13 @@
    "digital_source_type": "composite",
    "changes": "Chapter3 Realty drew The Farm's outline from Horry County GIS parcels, shaded the state's 353-acre tract from the same parcels, added seven labels placed from county data and ledger rows, and adjusted the colors",
    "labels": [
-    "Bought by the state for a nature preserve",
+    "Set to join the preserve",
     "The Farm",
     "Carolina Forest Blvd",
     "US 501",
-    "Publix, about 2 min",
+    "Publix",
     "Emergency room, about 5 min",
-    "Beach, about 10 min"
+    "Beach"
    ],
    "annotation_sources": {
     "outline": "Horry County GIS parcels layer 24, the 1,634 parcels of the-farm-facts.md method note 'Parcel set', joined and closed across the streets: the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json, area 'the-farm')",
@@ -2508,7 +2508,8 @@
     "us_501": "A dot on a vertex of the HWY 501 centerline in Horry County roads layer 18 (-78.92544, 33.716822), about 400 m northwest of the waterway bridge so the dot sits on the road lanes, with a short leader line up to the label (round 10). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18",
     "publix": "Dot at the end point of ledger row 29 (Publix, 136 Sapwood Road, -78.870501, 33.751759); minutes from row 29 (OSRM, 2 min from the Farmers Rest Drive entrance, no traffic).",
     "emergency_room": "Dot at the end point of ledger row 30 (McLeod Health Carolina Forest emergency department, -78.852256, 33.757293); minutes from row 30 (OSRM, 5.2 min, no traffic). Two-line label (round 8, verifier on row 93), so every dot carries its drive time.",
-    "beach": "Dot at the end point of ledger row 28 (City of Myrtle Beach beach access MYRTLE BEACH 101, -78.846516, 33.719685); minutes from row 28 (OSRM, 10 min, no traffic)."
+    "beach": "Dot at the end point of ledger row 28 (City of Myrtle Beach beach access MYRTLE BEACH 101, -78.846516, 33.719685); minutes from row 28 (OSRM, 10 min, no traffic).",
+    "round_14g": "Round 14g (OWNER-EYE-14g finding 2): the Publix and beach labels lost their minutes, which the page gives once in its tiles; the tract label says 'Set to join the preserve' (ledger row 79: the state says it will be dedicated), so the purchase is told once on the page. Positions unchanged."
    },
    "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8789299.666563476%2C3988567.15750783%2C-8773353.756909711%2C4000526.589748156&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
    "frame": {
