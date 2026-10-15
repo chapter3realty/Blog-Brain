@@ -636,6 +636,8 @@ const TOWN_REACH = 12;
 /* The longest leader line from a name to its town or marker (spec.leaders), in map units: about a
    sixth of the map's width. A longer line read as pointing at something else. */
 const LEADER_MAX = 80;
+/* The longest leader line from a name in the ocean to its marker (places[i].sea), in map units. */
+const SEA_REACH = 130;
 const SZ = { home: 17, place: 14, mins: 13, town: 14, water: 14, ocean: 15, state: 11.5, shield: 11, suf: 8, furn: 11, street: 12.5, name: 14, amenity: 14.5, sub: 12.5, many: 15, num: 12.5 };
 
 /* A label's room. textWidth fits DM Sans within about 5 percent; a phone that shows a
@@ -1265,7 +1267,12 @@ function placesSpec(spec) {
   const mid = list.length ? list : areasOf(spec).map((a) => ({ lat: a.lat, lon: a.lon }));
   const lat = mid.reduce((t, p) => t + (+p.lat || 0), 0) / mid.length, lon = mid.reduce((t, p) => t + (+p.lon || 0), 0) / mid.length;
   const out = { home: { name: spec.name, lat, lon }, many: true, coast: spec.coast, minSpanKm: spec.minSpanKm, alt: spec.alt, caption: spec.caption, leaders: spec.leaders === true ? { places: true } : spec.leaders || null,
-    landmarks: list.map((p, i) => ({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region", first: !!p.first })) };
+    landmarks: list.map((p, i) => Object.assign({ name: p.name, short: p.short, kind: "pin", lat: p.lat, lon: p.lon, num: i + 1, href: p.href, map: "region", first: !!p.first }, p.sea ? { sea: true } : {})) };
+  /* Optional places[i].sea true (opt-in, batch 2026-10-b round 14f, OWNER-EYE-14e M4): the place's name goes
+     in the open ocean with a leader line to its marker (spec.leaders), not beside the marker, so a row of
+     beach areas along the coast can each be named. Left out, names are placed as before. */
+  for (const p of list) if (p && p.sea !== undefined && p.sea !== true) throw new Error(`area-map: ${p.name}: sea is true or left out`);
+  if (list.some((p) => p && p.sea) && !spec.leaders) throw new Error("area-map: places[i].sea needs spec.leaders");
   if (spec.areas !== undefined) out.areas = spec.areas;
   if (spec.areaLabels !== undefined) out.areaLabels = spec.areaLabels;
   if (spec.maxRatio !== undefined) out.maxRatio = spec.maxRatio;
@@ -1354,7 +1361,7 @@ function placeMany(L, F, lms, R, between, o = {}) {
      gets the room beside its marker in a crowded cluster; the rest keep their order. */
   for (const k of marks.filter((k) => k.m.lm.first).concat(marks.filter((k) => !k.m.lm.first))) {
     const { m, owner } = k, own = (it) => it.owner === owner;
-    if (o.names === false) { dropped.push(m.lm); bare.push({ m }); continue; }
+    if (o.names === false || m.lm.sea) { dropped.push(m.lm); bare.push({ m }); continue; }
     /* One line first, then the name on two lines, which fits a tighter spot. */
     const text = m.lm.short || m.lm.name;
     let best = null;
@@ -1652,13 +1659,15 @@ function regionMap(spec, opts = {}) {
   /* The open spot nearest (ax, ay) for a w x h name, on a 3-unit grid within LEADER_MAX: clear of
      everything but the owner's own marks, and with a line from (ax, ay), starting `from` units out,
      that crosses no mark, name or line. */
-  const spot = (ax, ay, w, h, own, from = 0) => {
+  const spot = (ax, ay, w, h, own, from = 0, sea = false) => {
     let best = null;
-    const reach = LEADER_MAX + from;
+    const reach = (sea ? SEA_REACH : LEADER_MAX) + from;
     for (let cy = ay - reach - h / 2; cy <= ay + reach + h / 2; cy += 3) for (let cx = ax - reach - w / 2; cx <= ax + reach + w / 2; cx += 3) {
       const lb = rect2(cx, cy, w, h);
       const ex = Math.max(lb.x0, Math.min(ax, lb.x1)), ey = Math.max(lb.y0, Math.min(ay, lb.y1)), d = Math.hypot(ex - ax, ey - ay);
       if (d <= from + 4 || d > reach || (best && d >= best.d)) continue;
+      /* A name for the ocean (places[i].sea) lies wholly on the water. */
+      if (sea && !(oceanPx.length > 2 && lb.pts.concat([[lb.cx, lb.cy]]).every((q) => inPoly(q, oceanPx)))) continue;
       /* Six units clear of other names: at three, two names on one line read as one ("Wild Wing The Farm"). */
       if (!L.fits(lb, 3, own) || L.items.some((it) => !own(it) && (it.kind === "label" || it.kind === "town") && satOverlap(inflate(lb, 7), it))) continue;
       /* Not beside another marker, where it would read as that place's name. */
@@ -1721,7 +1730,10 @@ function regionMap(spec, opts = {}) {
   /* Ocean label: in the ocean, clear of the coast; a size smaller (still a place size) when a
      narrow strip of ocean has no room for the larger one. */
   let oceanLabel = null;
-  if (oceanPx.length > 2) for (const size of [SZ.ocean, SZ.place]) {
+  /* With names in the ocean (places[i].sea), the ocean's own name is placed after them, in the water they
+     leave open. */
+  const seaNames = lms.some((l) => l.sea);
+  const placeOcean = () => { if (oceanPx.length > 2) for (const size of [SZ.ocean, SZ.place]) {
     const text = "Atlantic Ocean", w = tw2(text, size, 0.06) + 6, h = size + 4;
     let best = null;
     for (let y = 12; y < H - 12; y += 4) for (let x = 12; x < W - 12; x += 4) {
@@ -1733,7 +1745,8 @@ function regionMap(spec, opts = {}) {
       if (!best || score > best.score) best = { x, y, b, score };
     }
     if (best) { L.add(best.b, "water", "ocean"); oceanLabel = { x: best.x, y: best.y, text, size }; break; }
-  }
+  } };
+  if (!seaNames) placeOcean();
 
   /* Water labels along the river and the waterway. */
   const waterLabels = [];
@@ -1756,14 +1769,17 @@ function regionMap(spec, opts = {}) {
 
   if (many && spec.leaders) {
     /* Places: from the edge of the marker. */
-    for (const b of spec.leaders.places === false ? [] : bare.slice()) {
+    /* Names for the ocean (places[i].sea) go first, east to west, so a name near the open water does not
+       block the line of one further up the coast; then the rest, as before. */
+    const order = seaNames ? bare.filter((b) => b.m.lm.sea).sort((a, b) => b.m.x - a.m.x).concat(bare.filter((b) => !b.m.lm.sea)) : bare.slice();
+    for (const b of spec.leaders.places === false ? [] : order) {
       const m = b.m, owner = "lm" + (m.lm.num - 1), own = (it) => it.owner === owner;
       const NS = SZ.many, LH = NS + 2.5, text = m.lm.short || m.lm.name;
       let best = null, lines = null;
       for (const ls of [[text], wrap2(text, 10)]) {
         if (best) break;
         const w = Math.max(...ls.map((l) => tw2(l, NS))) + 4, h = ls.length * LH + 2;
-        best = spot(m.x, m.y, w, h, own, R);
+        best = spot(m.x, m.y, w, h, own, R, !!m.lm.sea);
         lines = ls;
       }
       if (!best) continue;
@@ -1778,6 +1794,7 @@ function regionMap(spec, opts = {}) {
       leaderNames.push(m.lm.name);
     }
   }
+  if (seaNames) placeOcean();
 
   /* Route markers: the routes a newcomer drives, near the home first. One marker a route and
      four at most: readers found a map full of road numbers hard to read. */
