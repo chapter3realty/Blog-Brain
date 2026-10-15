@@ -235,6 +235,8 @@ module.exports = G.page({
   /* The slim glass bar at the top (tools/glass.js topOffer "compact", the default): its one line. */
   topOfferLine: "Tell us your price range, and we will send you the homes for sale in The Farm.",
   author: "devin",
+  /* No contents list (round 14c, as on the four sibling pages): it was most of the second phone screen, before the first section. */
+  toc: false,
   shortAnswer: [
     "A day here can start in the fitness room at 5:30 a.m. and end in one of the two pools, open until 9 p.m. in season.",
     "Every home is zoned for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High.",
@@ -242,9 +244,9 @@ module.exports = G.page({
   sections: [
     { h2: "What makes The Farm at Carolina Forest different?", toc: "What makes it different", html: (bg) =>
       ph.css() +
-      h.p(`The 353 acres along The Farm's north edge were meant for a $160 million healthcare facility. In 2025, the state bought them from Conway Medical Center for the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")}, and plans to open them for outdoor recreation.`) +
-      h.p("The preserve is home to South Carolina's largest wild population of Venus flytraps, and the new land holds habitat for them too. The state keeps the preserve healthy with controlled burns.") +
-      h.p("The Farm's own land has a past: from 1942 to 1948, the Army Air Force used it as a bombing and gunnery range. Today its streets follow a farm theme, with names like Scarecrow Way, Haystack Way, Pumpkin Patch Lane and Wheatfield Drive.") },
+      h.p(`Conway Medical Center had meant the 353 acres along The Farm's north edge for a $160 million healthcare facility. In 2025, the state bought them for the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")} instead, and plans to open them for outdoor recreation.`) +
+      h.p("The preserve is home to South Carolina's largest wild population of Venus flytraps, and the new land holds habitat for them too. The state keeps it healthy with controlled burns.") +
+      h.p("The Farm's own land has a past: from 1942 to 1948, the Army Air Force used it as a bombing and gunnery range. Its streets now follow a farm theme, from Scarecrow Way to Pumpkin Patch Lane.") },
 
     { h2: "What is a normal day like in The Farm at Carolina Forest?", toc: "A normal day", html:
       h.p("Besides the fitness room in the clubhouse, owners share a basketball court, open from dawn to dusk, and a playground.") +
@@ -309,7 +311,7 @@ module.exports = G.page({
       h.p(`To compare, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods near Myrtle Beach")}, ${h.a("/buyers/gated-communities/", "the gated neighborhoods")}, ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} and ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy")}.`) },
 
     { h2: "What are the HOA rules in The Farm at Carolina Forest?", toc: "HOA rules", html: (bg) =>
-      h.p(`In The Farm at Carolina Forest, you can rent out your home and keep up to three dogs and cats under the ${h.ext(RULES, "HOA rules")}. A fence needs the HOA's approval first.`) +
+      h.p(`In The Farm at Carolina Forest, the ${h.ext(RULES, "rules")} allow you to rent out your home and keep up to three dogs and cats.`) +
       atAGlance([
         { icon: "key", label: "Renting", text: "Allowed, with no limit on how many homes are rented. The lease must be in writing, and the manager gets a copy within 10 days." },
         { icon: "gate", label: "Fences and sheds", text: "A fence, shed or other outdoor structure needs the HOA's approval first. The request needs a land surveyor's drawing of the lot." },
