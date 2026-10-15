@@ -33,7 +33,8 @@ What the theme changes, all inside `<main>`:
   - the offer boxes (`h.cta`);
   - the tables (`h.table`, `compareCards`);
   - every figure: maps, photos, drawings and charts, with the caption inside the frame.
-- The navy offer bands become a dark glass panel.
+- The navy offer bands become a dark glass panel, about 24 to 32 px from the text above and below it.
+- The sections take about two thirds of the site's top and bottom padding. The page is now one field, so two paddings meet between sections.
 - Buttons become brass pills in sentence case, so "Send me the homes for sale" fits a phone line, and wraps cleanly when it does not.
 - Brass words (eyebrows, the H1's second line) are a slightly darker brass, so they keep WCAG AA contrast on the field.
 - The site's floating dots (`#c3-particles`) are off on a glass page. This is the only rule that reaches outside `<main>`.
@@ -96,7 +97,7 @@ MAP.html   // the figure, and the key for any area whose name had no room
 - Up to 30 areas. Areas and numbered places can share a map.
 - Where the name goes:
   - inside a large area;
-  - else just outside its edge, nearer it than any other area;
+  - else beside it, just off its edge, nearer it than any other area. It tries the right, left, bottom and top, in that order, and takes the first side that is inside the frame and clear of other pills, circles and marks. It may slide along that side, or onto its own circle's edge at a frame edge. The corners come last.
   - with the note dropped when only the name fits.
 - A name with no room gets the area's number at its middle (a letter, beside numbered places). The name then goes in the key under the map.
 - `areaLabels: "numbers"` numbers every area in the order given. Use it when the areas are the page's numbered entries and the map is crowded.
@@ -159,6 +160,10 @@ In `batches/2026-10-b/review/glass/`:
   - `farm-glass-390.png`: the top of the page, on a phone;
   - `farm-glass-1280.png`: the pools section, on a desktop;
   - `farm-glass-390-offer.png`: the offer panel at the end, on a phone.
+- **The gated page, round 14 polish:**
+  - `gated-before-390-top.png`, `gated-before-390-map.png`
+  - `gated-glass-390-top.png`, `gated-glass-390-map.png`, `gated-glass-1280-map.png`
+  - On a 390 px phone, entry 1 moved up from 3,196 px to 2,925 px (3.79 to 3.47 screens). The space between the dark band and the text above and below it went from 117 and 100 px to 32 and 31 px.
 - **The blocks:**
   - `blocks-chart-390.png`: the chart with feature labels;
   - `blocks-offer-1280.png`: the offer pills and an offer box;
