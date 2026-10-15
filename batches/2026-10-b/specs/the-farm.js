@@ -80,7 +80,7 @@
  *   wall, the trails); the board meeting and the sidewalk out of the day; the preserve's visiting facts moved from the
  *   first section into the day; the first section says what the woods mean for an owner (state law: a heritage
  *   preserve is never put to private use, pending row 114); the subtitle an agent's line; "two pools" once at the top
- *   (the Pools tile is now "Preserve, next door"); the short answer opens on the healthcare plan the state bought out;
+ *   (the Pools tile is now "Preserve, on the north edge"); the short answer opens on the healthcare plan the state bought out;
  *   the pros are the reasons to live here; the cons cut to three (the parking con is the rules card) and shorter; the
  *   hunting con in two plain seasons (v9 D2, D3); the "built" FAQ with two years; the second-fee paragraph with two
  *   figures (pending row 116); internet is something we confirm (row 11); the beach 10 to 12 minutes (pending row
@@ -221,6 +221,8 @@ const M = maps("the-farm", [
 const SCDNR = "https://www.dnr.sc.gov/news/2025/Jun/jun10-lewisoceanbay.php";
 const LIBRARY = "https://www.horrycountysc.gov/departments/libraries/";
 const PARKS = "https://www.horrycountysc.gov/departments/parksandrecreation/parks";
+/* Round 14e: the Heritage Trust Act, S.C. Code 51-17-80 (pending row 114). */
+const HERITAGE = "https://www.scstatehouse.gov/code/t51c017.php";
 
 /* The offers (round 14c, coordinator): the top bar and the end box are the page's main offers and go to /contact/;
    every other offer is the place pill (G.offer), which links to the form with The Farm named. No offer text repeats. */
@@ -253,7 +255,7 @@ module.exports = G.page({
   h1em: "Two pools for summer evenings, and the beach for weekends.",
   sub: "The Farm is a finished neighborhood of houses, townhomes and condos in Carolina Forest, with a Myrtle Beach mailing address.",
   heroMedia: glance([
-    { icon: "trail", label: "Preserve", text: "Next door" },
+    { icon: "trail", label: "Preserve", text: "On the north edge" },
     { icon: "beach", label: "Beach", text: "10 to 12 min drive" },
     { icon: "grocery", label: "Publix", text: "2 min drive" },
     { icon: "dollar", label: "HOA fee", text: "$107/mo" },
@@ -265,24 +267,24 @@ module.exports = G.page({
   /* No contents list (round 14c, as on the four sibling pages): it was most of the second phone screen, before the first section. */
   toc: false,
   shortAnswer: [
-    "A day here can start in the fitness room and end in one of the two pools, open until 9 p.m. in season. A rock climbing wall and the county's trails are within about 4 minutes by car.",
-    "Every home is zoned for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High.",
+    "Conway Medical Center planned a $160 million healthcare facility on the woods along The Farm's north edge. The state bought those woods for a nature preserve instead.",
+    "A day here can start in the clubhouse fitness room. A library, a rock climbing wall and the county's trails are 3 to 4 minutes away by car.",
   ],
   sections: [
     { h2: "What makes The Farm at Carolina Forest different?", toc: "What makes it different", html: (bg) =>
       ph.css() +
-      h.p(`Conway Medical Center planned a $160 million healthcare facility on the 353 acres along The Farm's north edge. In 2025, the state bought the land instead, for the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")}.`) +
-      h.p("The preserve is home to South Carolina's largest wild population of Venus flytraps, and the new land holds habitat for them too. From March through June, its pitcher plants and wildflowers bloom.") +
-      h.p("The preserve is open in daylight all year. Its main entrance, with parking, is off International Drive, about 6 minutes by car from The Farm's entrance by the schools. The state asks visitors to park and walk the preserve's roads.") +
+      h.p(`The state says the 353 acres along The Farm's north edge will become part of the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")}. The preserve is home to South Carolina's largest wild population of Venus flytraps, and the new land holds habitat for them too.`) +
+      h.p(`Under ${h.ext(HERITAGE, "state law")}, a heritage preserve can never be put to private use. Once the new land joins the preserve, no one may build houses there.`) +
       h.p("Back inside The Farm, the streets follow its farm theme, from Scarecrow Way to Pumpkin Patch Lane.") },
 
     { h2: "What is a normal day like in The Farm at Carolina Forest?", toc: "A normal day", html:
-      h.p("The fitness room is in the HOA's clubhouse, open to owners from 5:30 a.m. to 9 p.m. The HOA also keeps a basketball court, open from dawn to dusk, and a playground.") +
-      h.p("The large pool curves around two small islands of palms and has a wide deck, and the small pool is in the north part of The Farm. The activity center, about 400 feet from the large pool, is where the HOA board meets each month. Owners can also reserve it for a private party.") +
-      h.p("The HOA's events include a fall yard sale and a Community Appreciation Day.") +
-      h.p("A sidewalk runs along Wheatfield Drive from the north-east corner of The Farm to International Drive.") +
-      h.p(`Outside The Farm, the county's ${h.ext(PARKS, "Carolina Forest Recreation Center")} has a rock climbing wall and a full gym, about 3 minutes away by car. The county library shares its campus.`) +
-      h.p("The county's Bike and Run Park has 7 miles of mountain bike and hiking trails, about 4 minutes by car. Its parking area is a trailhead on the East Coast Greenway, a walking and biking route from Maine to Florida.") },
+      h.p("From March through June, a Saturday here can start with a walk in the preserve, among pitcher plants and wildflowers in bloom.") +
+      h.p("The preserve is open in daylight all year, and the state asks visitors to park and walk its roads. Its main entrance is about 6 minutes by car from The Farm's entrance by the schools.") +
+      h.p("On weekdays, residents can start with a workout in the clubhouse fitness room, which opens at 5:30 a.m.") +
+      h.p("In season, the pools stay open until 9 p.m., so there is time for a swim after work. The large pool curves around two small islands of palms, and its wide deck is beside a pond.") +
+      h.p("Owners can reserve the activity center near the large pool for a private party. The HOA's events include a fall yard sale and a Community Appreciation Day.") +
+      h.p(`On a free afternoon, the county library and the ${h.ext(PARKS, "Carolina Forest Recreation Center")} share one campus, about 3 minutes by car from the entrance nearest the large pool. The center has a rock climbing wall and a full gym.`) +
+      h.p("For a longer outing, the county's Bike and Run Park has 7 miles of mountain bike and hiking trails, about 4 minutes by car. Its parking area is a trailhead on the East Coast Greenway, a walking and biking route from Maine to Florida.") },
 
     { h2: "What are the homes like in The Farm at Carolina Forest?", toc: "The homes", html: (bg) =>
       h.p("Most homes are houses with three or four bedrooms and their own yards. The Orchards has about 200 townhomes, and Planters Point has about 70 condos. Most of those have two or three bedrooms.") +
@@ -293,7 +295,7 @@ module.exports = G.page({
       G.offer("The Farm", { label: "Book a showing in The Farm", href: PLACE_HREF }) },
 
     { h2: "Where is The Farm at Carolina Forest?", toc: "Where it is", html: (bg) =>
-      h.p(`The Farm is in ${h.a(HUB, "Carolina Forest")}, on Carolina Forest Boulevard, outside the Myrtle Beach city limits. The map shows drive times by car from the entrance by the large pool.`) +
+      h.p(`The Farm is in ${h.a(HUB, "Carolina Forest")}, on Carolina Forest Boulevard, outside the Myrtle Beach city limits. The map shows drive times by car from the entrance nearest the large pool.`) +
       h.p("In our experience, rush hour adds 5 to 10 minutes.") +
       WIDE +
       M.where.slice(M.region.length) +
@@ -305,7 +307,7 @@ module.exports = G.page({
       ]) },
 
     { h2: "Which schools is The Farm at Carolina Forest zoned for?", toc: "Schools", html:
-      h.p("Both Ocean Bay schools are at The Farm's north-east edge, by Wheatfield Drive.") +
+      h.p("Both Ocean Bay schools are at The Farm's north-east edge.") +
       SCHOOLS +
       h.table(["School", "Grades", "Drive from the entrance"], [
         ["Ocean Bay Elementary", "K to 5", "About 6 minutes"],
@@ -321,31 +323,30 @@ module.exports = G.page({
         ["County property tax", "$1,300"],
         ["Total", "$2,600"],
       ]) +
-      h.p("The county also adds a stormwater fee of about $90 a year to the tax bill. On an ordinary sale, the buyer pays the HOA a one-time $250 transfer fee at closing.") +
-      h.p(`Cable TV from Spectrum is the largest share of the ${h.ext(BUDGET, "fee")}. The fee also covers landscaping and the ponds, trash pickup and the pools. It does not include internet.`) +
-      h.p("Townhomes in The Orchards and condos in Planters Point also have their own HOA. In all, owners in The Orchards pay about $225 to $255 a month. Owners in Planters Point pay about $450 to $500 a month.") +
+      h.p(`Cable TV from Spectrum is the largest share of the ${h.ext(BUDGET, "fee")}. The fee also covers landscaping and the ponds, trash pickup and the pools. We confirm with the HOA whether internet is in the fee.`) +
+      h.p("Townhomes in The Orchards and condos in Planters Point pay a second HOA fee as well. In all, owners pay up to about $255 a month in The Orchards and up to about $500 in Planters Point.") +
+      h.p("The county adds a stormwater fee of about $90 a year to the tax bill. On an ordinary sale, the buyer pays the HOA a one-time $250 transfer fee at closing.") +
       G.offer("The Farm", { label: "Get the homes for sale in The Farm", href: PLACE_HREF }) },
 
     { h2: "What are the pros and cons of living in The Farm at Carolina Forest?", toc: "Pros and cons", html: (bg) =>
-      h.p("Most of The Farm's drawbacks are HOA matters. One comes from the preserve along its north edge.") +
       prosCons([
-        "The HOA fee is the same $107 a month for every home.",
-        "Every home is outside the high-risk flood zone.",
-        "There is no city tax.",
+        "Woods on the north edge bought for a state preserve with wild Venus flytraps.",
+        "A gym, a rock wall, a library and 7 miles of trails 3 to 4 minutes away by car.",
+        "A house with its own yard for about $350,000, with two pools in the $107 monthly fee.",
+        "Every home has the same three public schools and is outside the high-risk flood zone.",
       ], [
         { text: `The large pool has sunk into the ground more than it should, and the HOA board has not decided whether to repair or replace it. By a majority vote, the board can add a one-time charge to owners, called a ${h.a(SPECIAL, "special assessment")}.`, act: "We read the board's latest minutes on the pool for you." },
-        { text: "Cars may not be parked on the street or the lawn.", act: "We check that the garage and driveway fit all your cars." },
         { text: "Townhomes and condos pay a second HOA fee.", act: "We show you both fees side by side for any townhome or condo." },
-        { text: "The preserve is a state wildlife management area. Hunting is allowed in season: bows from mid-September, guns from October 21 to January 1, and small game to March 1. If you walk the preserve's roads in the fall, you share them with hunters in season. The state also manages the preserve with controlled burns, and on burn days International Drive can close between SC 90 and Ocean Bay Elementary.", act: "We show you how far any house is from the preserve's hunting land." },
+        { text: "The preserve is a state wildlife management area, and it allows both hiking and hunting. Bow season opens in mid-September, and gun seasons run from mid-October through New Year's Day. On burn days, the road to the preserve's entrance can close because of the smoke.", act: "We show you how far any house is from the preserve's hunting land." },
       ], { bg }) },
 
     { h2: "What are the HOA rules in The Farm at Carolina Forest?", toc: "HOA rules", html: (bg) =>
-      h.p(`Under the ${h.ext(RULES, "HOA rules")}, you can rent out your home, with no limit on how many homes are rented.`) +
+      h.p(`Under the ${h.ext(RULES, "HOA rules")}, owners can rent their homes with a written lease, and the HOA has no cap on how many homes are rented.`) +
       atAGlance([
-        { icon: "gate", label: "Fences and sheds", text: "A fence, shed or other outdoor structure needs the HOA's approval first. The request needs a land surveyor's drawing of the lot." },
-        { icon: "dock", label: "Parking and boats", text: "Cars go in the garage or driveway. Boats, trailers and campers need the HOA's written OK to stay outside." },
+        { icon: "gate", label: "A fence or shed", text: "A fence, shed or other outdoor building needs the HOA's approval first, with a land surveyor's drawing of the lot." },
+        { icon: "dock", label: "Cars and boats", text: "Cars go in the garage or driveway, not on the street or the lawn. A boat, trailer or camper needs the HOA's written OK to stay outside." },
         { icon: "pets", label: "Pets", text: "Up to three dogs and cats in all. Dogs stay on a leash outside." },
-        { icon: "pool", label: "The HOA's pools", text: "Open from April 15 to October 15, with no lifeguard. Each home can bring up to six guests, with the owner there." },
+        { icon: "pool", label: "The pools", text: "Open from April 15 to October 15, with no lifeguard. Each home can bring up to six guests, with the owner there." },
       ], { bg, min: "13rem" }) +
       story([
         "<strong>Example:</strong> The house Rachel and Luis found in The Farm has a big back yard, and they picture a pool in it.",
@@ -355,7 +356,7 @@ module.exports = G.page({
       G.offer("The Farm", { label: "Talk to us about a home in The Farm", href: PLACE_HREF }) },
 
     { h2: "Was The Farm at Carolina Forest part of an old bombing range?", toc: "Old bombing range", html:
-      h.p("Yes. From 1942 to 1948, the Army Air Force used the land as a bombing and gunnery range, along with other parts of Carolina Forest. The Army Corps of Engineers has finished the cleanup work on the land under every home in The Farm. The Defense Department or a later owner may keep monitoring that land.") +
+      h.p("Yes. From 1942 to 1948, the Army Air Force used the land as a bombing and gunnery range, along with other parts of Carolina Forest. The Army Corps of Engineers has finished the cleanup work on the land under every home in The Farm.") +
       h.p("The Corps lists Range III, a section that borders The Farm, as under investigation. It touches some of The Farm's open land, but no home lot.") +
       h.p(`We check the ${h.ext(FUDS, "Corps' map")} for every lot we show you. If you ever find something that looks like old ammunition, the ${h.ext(UXO, "Defense Department's advice")} is to leave it alone, move away and call 911.`) +
       h.p(`To compare, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods near Myrtle Beach")}, ${h.a("/buyers/gated-communities/", "the gated neighborhoods")}, ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} and ${h.a("/buyers/affordable-places-to-live/", "the most affordable places to buy")}.`) },
@@ -363,24 +364,25 @@ module.exports = G.page({
   faqTitle: "The Farm at Carolina Forest FAQ",
   faq: [
     { q: "How much is the HOA fee in The Farm at Carolina Forest?", a: "The HOA fee is $107 a month, or about $1,300 a year. The HOA can raise it by up to 20 percent a year." },
-    { q: "Is The Farm at Carolina Forest a gated community?", a: "No. The Farm has no gate, and the streets in The Farm are public roads owned by Horry County." },
-    { q: "When was The Farm at Carolina Forest built?", a: "The Farm was built in stages. D.R. Horton recorded its HOA rules in 2004 and added land until 2017. Most houses were built from 2004 to 2009, and most of the rest from 2014 to 2018. D.R. Horton has not controlled the HOA board since 2019, when it gave up its right to appoint a majority of the board." },
+    { q: "Is The Farm at Carolina Forest a gated community?", a: "No. The Farm is not gated, and its roads are county-owned. Entry to the HOA's pools is by key card." },
+    { q: "When was The Farm at Carolina Forest built?", a: "The Farm was built in stages, on land D.R. Horton added over the years. Most houses were built from 2004 to 2009, and most of the rest about a decade later. D.R. Horton no longer names a majority of the HOA board." },
     { q: "Is The Farm at Carolina Forest in a high-risk flood zone?", a: "No. Every home in The Farm is outside the high-risk flood zone on the government's flood map. That means federal law does not make your lender require flood insurance. If you want a policy for a house anyway, one in this ZIP code usually costs about $600 a year." },
   ],
   sources: [
     { name: "HOA documents", href: HOA_DOCS },
     { name: "HOA budget", href: BUDGET },
-    { name: "County deed records", href: DEEDS },
-    { name: "School zone lookup", href: ZONES },
+    { name: "Deed records", href: DEEDS },
+    { name: "School zones", href: ZONES },
     { name: "FEMA flood map", href: FEMA },
     { name: "County tax levies", href: LEVY },
     { name: "SCDNR preserve", href: SCDNR },
+    { name: "Preserve law", href: HERITAGE },
     { name: "Libraries", href: LIBRARY },
     { name: "Corps map", href: FUDS },
     { name: "DoD cleanup", href: DEP },
     { name: "DoD safety", href: UXO },
   ],
-  sourcesNote: "Not legal or tax advice. Home sizes, ages and the second HOA fees are from listings. Drives start at the Farmers Rest Drive entrance (the preserve's at Wheatfield Drive), without traffic. The flood cost is FEMA's middle house policy in ZIP code 29579. The Corps status is for fiscal year 2024.",
+  sourcesNote: "Not legal or tax advice. Home sizes, ages and second HOA fees are from listings. Drives, without traffic, start at the Farmers Rest entrance (the preserve's at Wheatfield Drive; the beach 12 from the middle). The flood cost is FEMA's middle policy in ZIP code 29579. The Corps status is for fiscal year 2024.",
   /* The photo credits sit with the sources line, after the FAQ (website mkpage-photos.patch). */
   afterSources: () => ph.credits(),
   bottomCta: END,
