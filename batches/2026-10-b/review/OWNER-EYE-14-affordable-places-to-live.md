@@ -32,7 +32,7 @@ This is the best version of this page so far. Every place ends with its own offe
 | Affordable places | 4,613 | 12 | 12, all aerials, 5 show woods or dirt where the homes are now | 7 of 8 (room to grow is thin) | 43 | 3.5 | 12 of 12 |
 | Best neighborhoods | 4,825 | 14 | 14, aerials | Most | 42 | 3.2 | 15 of 15 |
 | Gated communities | 5,383 | 3 | 3 | Most (club, water, gate, guests) | 46 | 3.2 | 20 of 20 |
-| No HOA homes | 4,125 | 7 | 7 | Most | 36 | 4.2 | 0 found with my text pass; check |
+| No HOA homes | 4,125 | 7 | 7 | Most | 36 | 4.2 | 16 of 16 ("Get the homes for sale in ...") |
 | The Farm | 2,708 | 5 | 5 | n/a (one place) | 24 | n/a | 1 |
 
 Audience brief items for this page (ROUND-14): amenities, new-home features, parks, commute, schools, shops, river or beach close by, room to grow. All but room to grow are on the page.
