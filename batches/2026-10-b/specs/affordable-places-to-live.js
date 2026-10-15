@@ -126,7 +126,7 @@ const P = [
   { id: "fairways-at-wild-wing", name: "The Fairways at Wild Wing", map: "Fairways at Wild Wing", lat: 33.787649, lon: -78.986234, price: 215000, mb: 16.5, beach: 17.8, year: 6100,
     feature: "golf, lawn care included", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "sawgrass-east", name: "Sawgrass East", map: "Sawgrass East", lat: 33.756167, lon: -78.929975, price: 222500, mb: 16.7, beach: 17.9, year: 6000,
-    feature: "lawn, insurance in fee", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "garage, lawn care in fee", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "birchwood", name: "Birchwood", map: "Birchwood", lat: 33.925885, lon: -78.754012, price: 223825, mb: 41.6, beach: 20.2, year: 2400,
     feature: "new house, quarter acre", schools: "Daisy Elementary, Loris Middle, Loris High" },
   { id: "golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", map: "Golf and Yacht Club", lat: 33.649402, lon: -79.05007, price: 225000, mb: 22.9, beach: 15.0, year: 2100,
@@ -136,11 +136,11 @@ const P = [
   { id: "victory-point", name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9, year: 3800,
     feature: "new, by Tanger Outlets", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6, year: 2200,
-    feature: "smart homes, CCU 6 min", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
+    feature: "smart home near campus", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
   { id: "villas-at-sandridge", name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46, year: 4600,
     feature: "5 min to a wake park", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2, year: 2000,
-    feature: "new, ponds and woods", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
+    feature: "new, beach 13 min", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
   { id: "wynbrooke", name: "Wynbrooke", map: "Wynbrooke", lat: 33.584176, lon: -79.048446, price: 249500, mb: 19.8, beach: 8.9, year: 6500,
     feature: "5 min to the MarshWalk", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "polo-farms", name: "Polo Farms", map: "Polo Farms", lat: 33.917844, lon: -78.812061, price: 255000, mb: 36.0, beach: 22.0, year: 1300,
@@ -248,7 +248,7 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "Affordable places near Myrtle Beach worth a closer look.",
+  sub: "Twelve affordable places near Myrtle Beach where homes sell for about half the typical price.",
   toc: false,
   heroCta: { title: "See any of them in person.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
@@ -282,7 +282,7 @@ module.exports = G.page({
     entry("birchwood", "a new house on a quarter acre", () =>
       h.p("Birchwood is small: 77 lots, with new Lennar houses on lots of about a quarter acre and about 12 acres of open space. A quarter acre gives a new house a real backyard at this price.") +
       h.p("Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings on the first floor and energy-efficient windows. High-speed internet is included in the monthly dues.") +
-      h.p("Birchwood is off SC 905, southwest of Longs. Long Bay Club, a golf course, is in Longs too, and North Myrtle Beach and its beaches are about 20 minutes by car.") +
+      h.p("A new house here sells for about what a 1980s house does in the Golf and Yacht Club, closer to Myrtle Beach. Birchwood is off SC 905, southwest of Longs, and North Myrtle Beach and its beaches are about 20 minutes by car.") +
       h.p(`The long drive is to Myrtle Beach: Coastal Grand Mall is about a forty-minute drive, by the Carolina Bays Parkway.`)),
 
     entry("golf-and-yacht-club", "one-story houses behind a gate", () =>
@@ -316,15 +316,13 @@ module.exports = G.page({
       h.p("Villas at Sandridge is a small community of 79 townhomes off SC 90 near Little River, with about 8 acres of shared open space. Dream Finders Homes built them with two stories and a one-car garage, and some plans have the main bedroom on the first floor.") +
       h.p(`The ${h.ext(NMBPARK, "North Myrtle Beach Park and Sports Complex")}, a five-minute drive, has a lake, walking trails, two dog parks and an accessible playground. At Shark Wake Park, inside the complex, a cable pulls wakeboard riders across the water.`) +
       h.p(`The city's ${h.ext(NMBEXP, "new section of the park")} has added soccer and baseball fields, ponds, trails and two more playgrounds. The nearest beach is a seven-minute trip by car.`) +
-      h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly dues are also higher than at the other new communities here.")),
+      h.p("The trade-off is the dues: they are higher than at the other new communities here.")),
 
-    entry("indigo-grove", "new houses around 22 acres of ponds and woods", () =>
-      h.p("Indigo Grove is off SC 90, about 12 minutes by car from North Myrtle Beach and 13 from the beach. Its homes are zoned for Riverside Elementary and North Myrtle Beach Middle and High.") +
-      h.p("Indigo Grove keeps about 22 acres as open space, owned by its HOA. It holds three new ponds, one with a small island of trees, and strips of woods along a creek. Most lots back onto that open space.") +
-      h.p(`Most of the houses are Lennar's, which sells them as The Overlook. ${h.ext(OVERLOOK, "Lennar lists nine floor plans")} with three to five bedrooms, some of them one story, on lots of about a fifth of an acre.`) +
-      h.p("Every lot is outside the high-risk flood zone, so a lender usually will not require flood insurance on a home here.") +
-      h.p(`${h.ext(LENNAR_WARRANTY, "Lennar's limited warranty")} covers the workmanship for a year, the electrical, plumbing and mechanical systems for two, and the structure for ten.`) +
-      h.p("Myrtle Beach itself is farther off: Coastal Grand Mall is about 35 minutes by car.")),
+    entry("indigo-grove", "new houses on open land, 13 minutes from the beach", () =>
+      h.p("Most of Indigo Grove's new houses back onto open land that the HOA owns: about 22 acres of ponds and woods. The beach is about 13 minutes away by car.") +
+      h.p("The open land holds three new ponds, one with a small island of trees, and strips of woods along a creek. The neighborhood is off SC 90, and its homes are zoned for Riverside Elementary and North Myrtle Beach Middle and High.") +
+      h.p(`Most of the houses are Lennar's, which sells them as The Overlook. ${h.ext(OVERLOOK, "Lennar lists nine floor plans")} with three to five bedrooms, some of them one story, on lots of about a fifth of an acre. Lennar shows most of them as coming soon, so the plan you want may not be for sale yet.`) +
+      h.p("Every lot is outside the high-risk flood zone, so a lender usually will not require flood insurance on a home here.")),
 
     entry("wynbrooke", "townhomes five minutes from the Murrells Inlet MarshWalk", () =>
       h.p(`At the ${h.ext(MARSHWALK, "Murrells Inlet MarshWalk")}, five minutes from Wynbrooke, the restaurants on the marsh have live music every night, and there is never a cover charge.`) +
@@ -345,7 +343,7 @@ module.exports = G.page({
 
     { h2: "How much property tax will you pay?", toc: "Property tax", id: "property-tax", html: () =>
       h.p(`Take a $240,000 home that is your main home. ${h.ext(LEVY, "Its yearly tax")} depends on where it is:`) +
-      h.ul(["Outside a town, or in Myrtle Beach: about $970.", "In Polo Farms and Wynbrooke: a little more.", `Inside ${h.a("/submarkets/conway/", "Conway")}: about $1,570.`]) +
+      h.ul(["Outside a town, or in Myrtle Beach: about $970.", "In Polo Farms: about $980. In Wynbrooke: about $1,030.", `Inside ${h.a("/submarkets/conway/", "Conway")}: about $1,570.`]) +
       h.p(`When you buy, the county values the home at about what it is worth that year, and the new value shows up on the next year's bill. These figures use the county's lower rate for a home you live in, which our ${h.a("/buyers/property-taxes/", "property tax guide")} explains.`) },
 
     { h2: "What help can you get with a down payment?", toc: "Down payment help", id: "down-payment", html: (bg) =>
