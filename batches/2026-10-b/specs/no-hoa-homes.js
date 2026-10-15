@@ -121,7 +121,8 @@ const ENTRY = {
 };
 if (ORDER.length !== 16 || ORDER.some((k) => !ENTRY[k])) throw new Error("the entries do not match the data file's areas");
 const num = (k) => ORDER.indexOf(k) + 1;
-const go = (k, text) => `${h.a(`#${ENTRY[k].id}`, text || ENTRY[k].name)} (${num(k)})`;
+/* The guide names each area and links to its entry; the map labels carry the numbers (owner: fewer numbers). */
+const go = (k, text) => h.a(`#${ENTRY[k].id}`, text || ENTRY[k].name);
 
 /* The one map: every area circled or outlined and named (owner: "circle them"). The shapes are the data
    file's mapShapes (row 115). */
@@ -262,16 +263,16 @@ const homeRules = () => compareCards([
 const BAND = Object.fromEntries(BANDS.map((b) => [b.band, b]));
 const about10 = (b) => Math.round(BAND[b].houses / 10) * 10;
 const bandList = () => h.ul([
-  `About ${about10("under 250k")} under $250,000. Most were built before 1990, and about half are in and around Conway.`,
-  `About ${about10("250k-500k")} from $250,000 to $500,000, the largest group. Most are around Conway, Loris and Aynor, and about 4 in 10 are new.`,
-  `About ${about10("500k-750k")} from $500,000 to $750,000. About 1 in 3 is within half a mile of the beach.`,
-  `About ${about10("750k+")} at $750,000 and up, and 2 in 3 of those are within half a mile of the beach.`,
+  `About ${about10("under 250k")} under $250,000, most of them built before 1990 and about half in and around Conway.`,
+  `About ${about10("250k-500k")} from $250,000 to $500,000, the largest group, most of them around Conway, Loris and Aynor.`,
+  `About ${about10("500k-750k")} from $500,000 to $750,000, a third of them within half a mile of the beach.`,
+  `About ${about10("750k+")} at $750,000 and up, two-thirds of them within half a mile of the beach.`,
 ]);
 
 /* The example (rows 59, 64 and 68; the services Chapter3 records: stories.json "hoa-rental-bans-filtered"). */
 const STORY = [
   "<strong>Example:</strong> Teresa wants a home with no HOA and room for her 20-foot boat. She likes a house on a small lot with a Myrtle Beach address.",
-  "Her Chapter3 agent finds the house on the county map, inside the city of Myrtle Beach. The city's front-yard rule covers her boat, and that lot has no other room for it.",
+  "Her Chapter3 agent finds the house on the county map, inside the city of Myrtle Beach. The city's front-yard rule applies to her boat, and that lot has no other room for it.",
   "The agent shows her houses outside the city limits, under the county's rules. Teresa makes an offer on one with a wide side yard.",
 ];
 
@@ -305,7 +306,7 @@ module.exports = GL.page({
   author: "devin",
   shortAnswer: [
     "The surest sign is the address. Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and most of those are in the areas below.",
-    "Age is another sign. Of the houses for sale built before 1990, about 3 in 4 had no HOA fee in the listing. Of those built since, fewer than 1 in 5 did.",
+    "Age is another sign. Of the houses for sale built before 1990, about three in four had no HOA fee in the listing. Of those built since, fewer than one in five did.",
   ],
 
   sections: [
@@ -319,21 +320,21 @@ module.exports = GL.page({
 
     entry("mb-downtown", "older streets by Withers Swash", [
       `A wooden boardwalk follows Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}, from Third Avenue South to Broadway and Collins Street. Most of the houses here are within half a mile of the ocean shore.`,
-      `On Broadway, the ${h.ext(MB_DEPOT, "Myrtle Beach Train Depot")} was built in 1937 and is on the National Register of Historic Places. It was restored and reopened in 2004.`,
-      "On Collins Street, Chester Street, Dunbar Street and 13th Avenue South, older houses for sale were built from 1955 to 1960. On 12th Avenue South, eight new houses in The Villages at Withers Heights had no HOA fee in their listings either.",
+      `On Broadway, the ${h.ext(MB_DEPOT, "Myrtle Beach Train Depot")} was built in 1937 and is on the National Register of Historic Places. The city restored it and reopened it.`,
+      "On Collins, Chester and Dunbar Streets, older houses for sale were built from 1955 to 1960. On 12th Avenue South, eight new houses in The Villages at Withers Heights had no HOA fee in their listings either.",
       "Lots are small here, typically about 0.2 acre.",
     ]),
 
     entry("mb-myrtle-heights", "older beach houses in a historic district", [
-      `The ${h.ext(NPS_MH, "Myrtle Heights-Oak Park Historic District")} is along Ocean Boulevard from about 32nd to 46th Avenue North. Myrtle Heights is its southern part, to 40th Avenue North.`,
+      `The ${h.ext(NPS_MH, "Myrtle Heights-Oak Park Historic District")} is along Ocean Boulevard, and Myrtle Heights is its southern part, up to 40th Avenue North.`,
       "The district's houses were built from about 1925 to 1945. Colonial Revival is the most common style, with some Bungalow and Craftsman touches.",
-      "Two of the houses for sale were built in 1938 and 1946, and a new oceanfront house was listed too. From each one, a public beach access is less than 5 minutes away on foot.",
-      "The trade-off is price: the typical price here is the highest of the 16 areas.",
+      "Two of the houses for sale were built before 1950, and a new oceanfront house was listed too. From each one, a public beach access is less than 5 minutes away on foot.",
+      "The trade-off is price: the typical price here is the highest of any area on this list.",
     ]),
 
     entry("mb-pine-lakes", "half-acre lots on old golf land", [
       `The older Pine Lakes streets were built on golf land. In 1946, the club ${h.ext(PL_SHPO, "sold 18 of its 27 holes")} for homes and kept nine.`,
-      "That is why the lots are big: typically almost half an acre, more than twice a downtown lot. The houses for sale were built from the 1960s to 2016.",
+      "That is why the lots are big: typically almost half an acre, more than twice a downtown lot. The houses for sale were built from the 1960s on.",
       `These streets are around ${h.ext(PINE_LAKES, "Pine Lakes Country Club")}, which opened in 1927.`,
       "The newer Preserve at Pine Lakes has an HOA. We check which section a house is in before you make an offer.",
     ]),
@@ -346,14 +347,14 @@ module.exports = GL.page({
 
     entry("windy-hill", "beach streets near Barefoot Landing", [
       `Windy Hill Beach was ${h.ext(SCE + "north-myrtle-beach/", "developed by Conway investors")} after World War II, and joined North Myrtle Beach in 1968. Most of the houses for sale here were built before 1990.`,
-      `Most are within a 10-minute walk of a public beach access. The city keeps ${h.ext(NMB_ACCESS, "beach accesses")} at the street ends, among them 33rd, 39th, 45th, 46th and 47th Avenue South.`,
+      `Most are within a 10-minute walk of a public beach access. The city keeps ${h.ext(NMB_ACCESS, "beach accesses")} at the ends of the streets.`,
       `Barefoot Landing, the shops and restaurants on the Intracoastal Waterway, is a 3-minute drive. ${h.ext(NMB_YOW, "Yow Park")}, a 1.5-acre city park, is among the Windy Hill streets.`,
       "The typical lot is small, about 7,900 square feet.",
     ]),
 
     entry("crescent-beach", "a maritime forest and 30-foot dunes", [
-      `${h.ext(INGRAM, "Ingram Dunes Nature Preserve")}, on Hillside Drive between 9th and 10th Avenue South, is the city's last remaining maritime forest. It has native dunes 30 feet tall and an interpretive half-mile nature trail.`,
-      "Crescent Beach is the middle of North Myrtle Beach, from about 9th to 27th Avenue South. Each of the 25 houses we placed on the county map is less than half a mile on foot from a public beach access.",
+      `${h.ext(INGRAM, "Ingram Dunes Nature Preserve")}, on Hillside Drive, is the city's last remaining maritime forest. It has native dunes 30 feet tall and an interpretive half-mile nature trail.`,
+      "Crescent Beach is the middle of North Myrtle Beach, from about 9th to 27th Avenue South. Each house we placed on the county map is less than half a mile on foot from a public beach access.",
       "Most of the houses for sale were built before 1990, on streets such as Hillside Drive, Holly Drive, Perrin Drive and Strand Avenue.",
       "Lots are small: the typical one is about 7,600 square feet.",
     ]),
@@ -361,7 +362,7 @@ module.exports = GL.page({
     entry("ocean-drive", "Main Street and the shag", [
       "Ocean Drive is the part of North Myrtle Beach around Main Street. In the Ocean Drive and Crescent Beach area, a pavilion and amusement park drew crowds who danced the shag.",
       `South Carolina made the shag its ${h.ext(SHAG_LAW, "official state dance")} in 1984. Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe on Main Street.`,
-      "In Ocean Drive Estates, five houses from the mid-1980s were listed from $255,000 to $369,000.",
+      "In Ocean Drive Estates, five houses from the mid-1980s were listed for less than $370,000.",
       "Some houses here are farther from the sand. Of the 15 houses we placed on the county map, 9 are within a 10-minute walk of a beach access.",
     ]),
 
@@ -376,20 +377,20 @@ module.exports = GL.page({
     entry("little-river", "the old fishing village on the waterway", [
       `Little River was the first permanent settlement in Horry County. In about the early 1920s, its boatmen began ${h.ext(LR_FISHING, "taking visitors fishing for a fee")}, the first organized offshore trips of that kind in South Carolina.`,
       `The waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day. After the inlet's jetties were finished in 1983, boats could cross the bar at any time of day.`,
-      `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway in Little River. In Little River's named subdivisions, 179 of 192 homes for sale list an HOA fee, so these older waterfront streets stand out.`,
+      `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway in Little River. In Little River's named subdivisions, almost all homes for sale list an HOA fee, so these older waterfront streets stand out.`,
       "None of these houses is within a mile of the ocean.",
     ]),
 
     entry("socastee", "1980s houses by the waterway", [
       `${h.ext(LANDINGS, "Rosewood Landing")}, a county boat ramp on the Intracoastal Waterway, is 2 minutes by car from the streets around Rosewood Drive. Socastee Landing and Park, a second county ramp, is about 5 minutes.`,
       "Most houses for sale here were built from 1979 to 1986, in Rosewood Estates and Cimerron Plantation.",
-      `The ${h.ext(SWING, "Socastee Swing Bridge")} over the waterway was built in 1934 and 1935. It is one of the two oldest of the seven swing-span highway bridges in the state's historic bridge inventory.`,
+      `The ${h.ext(SWING, "Socastee Swing Bridge")} over the waterway was built in the mid-1930s. It is one of the two oldest of the seven swing-span highway bridges in the state's historic bridge inventory.`,
       `${h.ext(HC_PARKS, "Socastee Recreation Park")} has multi-purpose fields, picnic areas, a disc golf course, trails and a playground.`,
       "The beach takes a drive: the Surfside Beach pier is about 15 minutes by car.",
     ]),
 
     entry("surfside", "room for two boats on the ocean side", [
-      "The town allows two boats or trailers at a home, and one work van or pickup up to 21 feet long and 7 feet 11 inches high overnight.",
+      "The town allows two boats or trailers at a home, and a work van or pickup overnight within the size limit in the table below.",
       "Most houses here are within a 10-minute walk of a public beach access. Fuller Park, with a playground, is about 0.1 mile from the middle of the ocean side.",
       "The town picks up trash at the curb.",
       "The trade-off is flood risk. About 1 in 4 homes on the ocean side is in a high-risk flood zone. There, with a mortgage, your lender will almost always require flood insurance.",
@@ -404,20 +405,20 @@ module.exports = GL.page({
 
     entry("conway", "live oaks and the Waccamaw River", [
       `Conway is the county seat, on a bluff of the Waccamaw River. Its ${h.ext(CONWAY_OAKS, "streets were designed around its live oaks")}, and the Riverwalk runs along the river downtown.`,
-      `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. ${h.ext(LANDINGS, "Billy Witherspoon Landing")}, a county ramp on the Waccamaw, is a 6-minute drive from these streets, and Conway Medical Center 12.`,
+      `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. ${h.ext(LANDINGS, "Billy Witherspoon Landing")}, a county ramp on the Waccamaw, is a 6-minute drive from these streets.`,
       "The typical house for sale within a mile and a half of downtown was built about 1970.",
       "The trade-off is the beach, a 25-minute drive.",
     ]),
 
     entry("loris", "a small town with its own hospital", [
-      `Loris grew up around a railroad depot and became a town in 1902. By 1903, ${h.ext(SCE + "horry-county/", "tobacco markets were thriving")} in Conway and Loris.`,
+      `Loris grew up around a railroad depot and became a town in 1902. Soon after, ${h.ext(SCE + "horry-county/", "tobacco markets were thriving")} in Conway and Loris.`,
       `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
       "Most of the houses for sale within a mile of downtown are older, typically from the 1960s, on about 0.4 acre. McLeod Loris hospital is in town, about 2 minutes by car from the center.",
-      "You drive more from here: the beach is about 35 minutes by car, and Coastal Grand Mall about 50.",
+      "You drive more from here: the beach is about 35 minutes by car.",
     ]),
 
     entry("loris-country", "new houses on almost an acre", [
-      `Horry was long a county of ${h.ext(SCE + "horry-county/", "small family farms")}, and the country west and south of Loris is still farm and forest land. The houses for sale here sit on lots of typically about 0.9 acre.`,
+      `Horry was long a county of ${h.ext(SCE + "horry-county/", "small family farms")}, and the country west and south of Loris is still farm and forest land. The houses for sale here are on lots of typically about 0.9 acre.`,
       "Most of them are new, built in 2024 or later. With that much land and no town limits, there is room for a boat, a camper and a shop.",
       `The ${h.ext(WACCAMAW_PRESERVE, "Waccamaw River Heritage Preserve")} protects 28 miles of the Waccamaw River, with riverside camping on its land. McLeod Loris hospital is a 9-minute drive from the middle of these houses.`,
       "Outside the towns, the Solid Waste Authority provides no curbside trash pickup. You hire a hauler or use a county drop-off center.",
@@ -438,7 +439,7 @@ module.exports = GL.page({
       story(STORY, "", bg) },
 
     { h2: "What does a house with no HOA fee cost?", toc: "Prices", id: "prices", html: (bg) =>
-      h.p(`It depends on the area more than on the fee. Near the ocean, most are listed at $750,000 or more. Inland, most are listed at $250,000 to $500,000. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
+      h.p(`It depends on the area more than on the fee. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
       bandList() +
       h.cta("Get the homes with no HOA fee in your price range.", "Tell us your range and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
 
@@ -449,7 +450,7 @@ module.exports = GL.page({
   faqTitle: "Homes with no HOA FAQ",
   faq: [
     { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot, within the rule of the town it is in; the table under What can you do at home gives each one." },
-    { q: "Which areas near Myrtle Beach almost always have an HOA?", a: "Carolina Forest, the Grande Dunes, the Market Common and Burgess: almost every home for sale there has an HOA fee. In Little River's named subdivisions, 179 of 192 homes for sale list one. Longs and the country around Conway look rural, but most homes for sale there have an HOA fee too." },
+    { q: "Which areas near Myrtle Beach almost always have an HOA?", a: "Carolina Forest, the Grande Dunes, the Market Common and Burgess: almost every home for sale there has an HOA fee. Almost all homes for sale in Little River's named subdivisions have an HOA fee too. Longs and the country around Conway look rural, but most homes for sale there have an HOA fee too." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
     { q: "What is a typical HOA fee in Myrtle Beach?", a: `About $${DATA.allNineAreas.detachedHouses.medianMonthlyHoaFee} a month on a house. A condo fee is much higher because it includes the building's insurance, water and sewer, trash and a pool.` },
     { q: "Can you buy a condo with no HOA fee in Myrtle Beach?", a: `Almost never. Of about 2,700 condos for sale around Myrtle Beach, only one was listed with no HOA fee. South Carolina law makes condo owners share the cost of the building.` },
