@@ -37,13 +37,16 @@
  * prices, fees and the yearly cost. The struck list is batches/2026-10-b/facts/best-neighborhoods-struck.json.
  *
  * Pictures: one map of the 15, numbered in the guide's order, inside the guide; 14 aerials, each under the
- * sentence it shows (data/photos.json names the points). Design: plain until DESIGN-GLASS.md lands.
+ * sentence it shows (data/photos.json names the points). Design: the liquid glass theme (tools/glass.js),
+ * with glass guide cards, a glass offer strip per place and the theme's "Book a showing in X" pill.
  */
 const fs = require("fs"), path = require("path");
 const { h, story, BB } = require("./_kit.js");
 const PK = require(path.join(BB, "tools", "page-kit.js"));
 const AM = require(path.join(BB, "tools", "area-map.js"));
 const IC = require(path.join(BB, "tools", "icons.js"));
+/* Round 14: the liquid glass theme and the per-place offer pill (tools/glass.js; CRAFT 4, "Look modern"). */
+const G = require(path.join(BB, "tools", "glass.js"));
 
 /* This batch's files: the website's data/2026-10-b/ (where the upload package puts them), else the
    batch folder in Blog-Brain. Photo records: batch 2026-10-a's (the website's data/photos.json), then this batch's. */
@@ -159,17 +162,21 @@ const GUIDE_CSS = "<style>"
   + "@media (min-width:640px){.c3-guide-grid{grid-template-columns:1fr 1fr}}"
   /* On a wide screen the map sits beside the cards, so the guide and its map are read together. */
   + "@media (min-width:980px){.c3-guide{max-width:1180px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:1.4rem;align-items:start}.c3-guide .c3-guide-grid{margin:0}.c3-guide figure{margin-top:0}}"
-  + ".c3-guide-card{background:rgba(255,255,255,.6);border:1px solid var(--rule);border-radius:12px;padding:.75rem 1rem .55rem}"
+  /* Glass cards (tools/glass.js tokens: --g-edge, --g-hi, --g-sh), on the theme's field. */
+  + ".c3-guide-card{background:linear-gradient(180deg,rgba(255,255,255,.76),rgba(255,255,255,.52));border:1px solid var(--g-edge,rgba(255,255,255,.8));box-shadow:var(--g-hi,none),var(--g-sh,none);border-radius:16px;padding:.75rem 1rem .55rem}"
   + ".c3-guide-card h3{display:flex;align-items:center;gap:.55rem;font-family:var(--sans);font-size:1.05rem;font-weight:600;color:var(--navy);margin:0 0 .35rem}"
-  + ".c3-guide-card h3 .i{flex:none;display:inline-flex;width:2rem;height:2rem;border-radius:50%;background:var(--ivory-2);color:var(--brass-ink);align-items:center;justify-content:center}"
+  + ".c3-guide-card h3 .i{flex:none;display:inline-flex;width:2rem;height:2rem;border-radius:50%;align-items:center;justify-content:center;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(232,201,154,.55));border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 #fff,0 3px 10px -4px rgba(145,89,43,.45);color:var(--brass-ink)}"
   /* Each place is a row, not a list item: its number is drawn from data-n (CSS), so the number matches the
      map and the entry without adding a figure to the prose (score.js P2), and a group of links is not read
      as an "On this page" list that must name every section (score.js H14). */
   + ".c3-gi{position:relative;padding-left:1.7rem;color:var(--muted);font-size:1rem;line-height:1.35;margin:0 0 .3rem}"
-  + ".c3-gi::before{content:attr(data-n);position:absolute;left:0;top:.2rem;color:var(--brass-ink);font-weight:600}"
+  + ".c3-gi::before{content:attr(data-n);position:absolute;left:0;top:.2rem;color:var(--g-ink,var(--brass-ink));font-weight:600}"
   + ".c3-gi a{display:inline-block;padding:.2rem 0;color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:.18em}"
-  + ".c3-place-cta{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;max-width:760px;margin:1.4rem 0 .4rem;padding:1rem 1.2rem;background:rgba(255,255,255,.6);border:1px solid var(--rule);border-radius:12px}"
-  + ".c3-place-cta p{flex:1 1 18rem;margin:0;color:var(--navy);font-size:var(--read,1.0625rem);line-height:1.55}"
+  + ".c3-place-cta{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.2rem;max-width:760px;margin:1.6rem 0 .4rem;padding:1rem 1.2rem;border-radius:20px;"
+  + "background:linear-gradient(180deg,rgba(255,255,255,.76),rgba(255,255,255,.52));border:1px solid var(--g-edge,rgba(255,255,255,.8));box-shadow:var(--g-hi,none),var(--g-sh,none);"
+  + "-webkit-backdrop-filter:var(--g-blur,none);backdrop-filter:var(--g-blur,none)}"
+  + ".c3-place-cta>p:first-child{flex:1 1 18rem;margin:0;color:var(--navy);font-size:var(--read,1.0625rem);line-height:1.55}"
+  + "main#main .c3-place-cta .c3-offer{margin:0;flex:0 1 auto}"
   /* No preamble (CRAFT 3): on a phone the sections sit closer, the offer band is shorter, and the guide's
      cards are tighter, so the first entry starts sooner. Nothing is hidden. */
   + "@media (max-width:699px){main>section{padding-top:2.6rem!important;padding-bottom:2.6rem!important}"
@@ -188,7 +195,10 @@ const GUIDE = GUIDE_CSS + `<div class="c3-guide c3-guide-map"><div class="c3-gui
 /* have guessed, then a normal day and why people choose it, then one honest trade-off, then the place's own */
 /* offer strip with the price and fee in one plain sentence. Every claim is a ledger row (header comment).   */
 
-const placeOffer = (id, line) => `<div class="c3-place-cta"><p>${line}</p><a class="btn btn-brass" href="${OFFER}?place=${encodeURIComponent(N[id].name)}">Book a showing in ${N[id].short}</a></div>`;
+/* The place's own offer (CRAFT 3, "Every place gets its own offer"): one glass strip that holds the price
+   and fee in one plain sentence and the theme's pill, "Book a showing in X", to the contact form with the
+   place named. The price is the reader's next fact before they act, so it sits with the offer. */
+const placeOffer = (id, line) => `<div class="c3-place-cta"><p>${line}</p>${G.offer(N[id].short, { href: `${OFFER}?place=${encodeURIComponent(N[id].name)}` })}</div>`;
 const ENTRY = (id, headline, paras, price) => {
   const num = ORDER.indexOf(id) + 1;
   return { h2: `${num}. ${N[id].name}: ${headline}`, toc: N[id].name, id,
@@ -196,9 +206,9 @@ const ENTRY = (id, headline, paras, price) => {
 };
 
 const ENTRIES = [
-  ENTRY("cherry-grove", "the pier, the marsh and the beach at the end of the street", [
+  ENTRY("cherry-grove", "a fishing pier, the salt marsh and dogs on the beach", [
     `In Cherry Grove, a dog can come to the beach with you. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the sand")} all year, except from 10 a.m. to 4 p.m. between May 15 and Labor Day.`,
-    "Cherry Grove's streets end at the ocean, and from the middle of the neighborhood a public beach access is about 0.1 mile away. Behind the beach, channels were dug into the salt marsh, and those canals now run behind rows of houses. Russell Burgess Coastal Preserve, with a walkway and a pier over the marsh, is under half a mile on foot.",
+    "From the middle of Cherry Grove, a public beach access is about 0.1 mile away. Behind the beach, channels were dug into the salt marsh, and those canals now run behind rows of houses. Russell Burgess Coastal Preserve, with a walkway and a pier over the marsh, is under half a mile on foot.",
     "Cherry Grove Pier was built in the 1950s and is about a 14-minute walk from the middle of the neighborhood. In 1964 a 1,780-pound tiger shark was landed from it, a world record at the time.",
     `Almost every home here is in a high-risk flood zone, land that ${h.ext(FEMA, "FEMA's flood map")} marks as likely to flood. A lender will usually require flood insurance. About 400 canal homes also pay the city about $1,700 a year to dredge the canals.`,
   ], "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale have no homeowners association (HOA) fee."),
@@ -262,7 +272,7 @@ const ENTRIES = [
   ENTRY("market-common", "a town center you can walk, on the old Air Force base", [
     `From the middle of The Market Common, you can walk to a farmers market, the shops and a large city park. ${h.ext(MARKET, "The farmers market")} is held at Valor Park on Saturdays from April to mid-December, about a 5-minute walk away.`,
     "Grand Park, with picnic shelters, ball fields and a playground, is a two-minute walk from the middle of the neighborhood. The houses and townhomes are beside a district of shops and offices, and the beach is a 5-minute drive.",
-    "The Market Common is built on the old Myrtle Beach Air Force Base. The base began as an Army Air Corps field in World War II and closed for good in 1993.",
+    "The Market Common is built on the old Myrtle Beach Air Force Base. The base began as an Army Air Corps field in World War II and closed in 1993.",
     "Three Air Force jets stand in Warbird Park, on loan to the city: an F-100 Super Sabre, an A-7D Corsair and an A-10 Warthog. The park is about a 3-minute drive away.",
     "A townhome here pays about $300 to $680 a month in HOA fees.",
   ], "Houses in The Market Common usually sell for about $540,000 and townhomes for about $398,000."),
@@ -321,7 +331,8 @@ const COST_COLS = [
   { key: "total", label: "In all, a year", num: true },
 ];
 
-module.exports = {
+module.exports = G.page({
+  theme: "glass",
   url: SELF,
   hub: { name: "Buyers", url: "/buyers/" },
   /* The Surfside Beach aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
@@ -361,7 +372,7 @@ module.exports = {
   ],
   faqTitle: "Best neighborhoods in Myrtle Beach: FAQ",
   faq: [
-    { q: "What are the best neighborhoods in Myrtle Beach?", a: "For walking to the beach, Cherry Grove and the ocean side of Surfside Beach. For golf, Pine Lakes and Tidewater Plantation. For a boat, Grande Dunes and Plantation Lakes. For a town center you can walk, The Market Common. For the most house for the money, The Farm." },
+    { q: "What are the best neighborhoods in Myrtle Beach?", a: "For walking to the beach, Cherry Grove and the ocean side of Surfside Beach. For golf, Pine Lakes and Tidewater Plantation. For a boat, Grande Dunes and Plantation Lakes. For a town center you can walk, The Market Common. For a lower price, The Farm and the Deerfield Plantation area." },
     { q: "How much does it cost each year to own a home in Myrtle Beach?", a: "Besides the mortgage, a house in Cherry Grove, The Farm or Tidewater Plantation costs about $2,600 to $5,600 a year in HOA fees, property tax and flood insurance. A house in Cherry Grove costs about $4,400, mostly tax and flood insurance." },
     { q: "Which neighborhoods near Myrtle Beach have no HOA?", a: "Most homes for sale on the ocean side of Surfside Beach and in Cherry Grove are listed with no HOA fee. Homes on the older streets near Pine Lakes Country Club are listed with no HOA fee too." },
     { q: "Are there 55+ communities near Myrtle Beach?", a: "Yes. Del Webb North Myrtle Beach, Del Webb at Grande Dunes, Seasons at Prince Creek West and Myrtle Trace are 55+ communities. Each has a pool and a clubhouse." },
@@ -379,4 +390,4 @@ module.exports = {
   bottomCta: { h2: "Tell us what you want close to home. We will send three neighborhoods.", p: "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each.", label: "Get three neighborhoods", href: OFFER },
   keywords: "best neighborhoods in Myrtle Beach, best places to live in Myrtle Beach, best areas to live in Myrtle Beach, best communities in Myrtle Beach, best neighborhoods in North Myrtle Beach, best neighborhoods in Surfside Beach, Myrtle Beach neighborhoods map, Carolina Forest vs Myrtle Beach",
   about: "Residential neighborhoods in and around Myrtle Beach, South Carolina, from North Myrtle Beach to Murrells Inlet and inland to Carolina Forest and Conway",
-};
+});

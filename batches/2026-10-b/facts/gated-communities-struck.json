@@ -413,12 +413,6 @@
   },
   {
     "row": "gated 129",
-    "pattern": "\\b2,400[- ]acres?",
-    "struck": "Willbrook: part of a 2,400-acre grant to Robert Daniel in 1711.",
-    "use": "Willbrook was part of a 24,000-acre grant made by the Lords Proprietors to Robert Daniel in 1711."
-  },
-  {
-    "row": "gated 129",
     "pattern": "\\b140 enslaved",
     "struck": "By 1850, 140 enslaved people worked its rice fields.",
     "use": "The 1850 census counted 149 enslaved people at Willbrook."
@@ -1378,5 +1372,375 @@
     "pattern": "\\bSummerhouse sell for about \\$200,000",
     "struck": "One-bedroom condos in Summerhouse sell for about $200,000, and homes in Breakers Reef for about $1.5 million to $2.2 million. (Four sales stated as what homes sell for.)",
     "use": "In the last year, one-bedroom condos in Summerhouse sold for about $200,000, and four homes in Breakers Reef for about $1.5 million to $2.2 million."
+  },
+  {
+    "row": "gated 201",
+    "pattern": "\\$3,765[^.]{0,80}\\$25 (?:cart )?(?:fee )?(?:a|per) round(?! each)",
+    "unless": "\\beach\\b",
+    "struck": "A 2026 annual membership is $2,685 for one person or $3,765 for two, plus a $25 cart fee a round.",
+    "use": "Annual membership is $2,685 for one person, plus a $25 cart fee a round, or $3,765 for two, plus $25 a round each [club membership page, 2026]."
+  },
+  {
+    "row": "gated 205",
+    "pattern": "\\b13 acres of water\\b",
+    "struck": "the lakes behind many of the houses, about 13 acres of water, belong to the neighborhood",
+    "use": "the association owns three lake parcels of about 13 acres in all [Horry County parcel records]"
+  },
+  {
+    "row": "gated 212",
+    "pattern": "\\bcall (?:the )?(?:owner|resident)[^.]{0,40}keypad[^.]{0,80}\\bpress(?:es|ing) 9|(?:keypad|directory)[^.]{0,80}\\bCall\\b[^.]{0,80}\\bpress(?:es|ing) 9",
+    "unless": "Gate Access Code|form|otherwise",
+    "struck": "At the second gate, a guest can call the owner from the keypad, and the owner presses 9 on the phone to open it.",
+    "use": "If the owner has filed the Gate Access Code form, a guest can pick the owner's name at the second gate's keypad and the owner presses 9 on the phone to open it; if not, the keypad calls the guard house [Dye Estates rules V3.0, 3.1.2]."
+  },
+  {
+    "row": "gated 217",
+    "pattern": "key fob for[^.]{0,60}\\bbeach gate\\b",
+    "struck": "Owners use a key fob for its parking lot and for the beach gate.",
+    "use": "The cabana has owner parking with key fob entry and key fob entry with private access to the beach [Barefoot HOA amenities page]."
+  },
+  {
+    "row": "gated 219",
+    "pattern": "(?:ponds?|lakes)[^.]{0,40}\\b(?:are )?(?:only )?for looking at\\b",
+    "struck": "In Dye Estates the ponds are only for looking at: no swimming, boating, fishing or docks.",
+    "use": "Swimming, flotation devices, boating and fishing are banned on the Dye Estates lakes and retention ponds, and owners may not build piers or docks on them [Dye Estates rules V3.0, 7.1]."
+  },
+  {
+    "row": "gated 220",
+    "pattern": "\\b(?:course )?opened in 2005\\b",
+    "struck": "The Grande Dunes Members Club course opened in 2005.",
+    "use": "The course was constructed in 2005 [Members Club golf page]."
+  },
+  {
+    "row": "gated 222",
+    "pattern": "dining room and patio look out on the 18th",
+    "struck": "Its dining room and patio look out on the 18th green.",
+    "use": "The club has indoor and outdoor dining seating with views of the 18th green [Members Club lifestyle page]."
+  },
+  {
+    "row": "gated 223",
+    "pattern": "\\b(?:about )?800 members\\b",
+    "struck": "The club says about 800 members belong.",
+    "use": "The club's home page says '800 of your fellow neighbors' have made it their home away from home; it gives no member count."
+  },
+  {
+    "row": "gated 225",
+    "pattern": "\\b(?:takes|take) boats of 120 feet or more",
+    "struck": "Grande Dunes Marina takes boats of 120 feet or more.",
+    "use": "Grande Dunes Marina takes vessels up to 120 feet, and the marina says 'or more' [marina description on grandedunes.com and the master association page]."
+  },
+  {
+    "row": "gated 229",
+    "pattern": "Waterway Trail starts nearby",
+    "struck": "The public two-mile Waterway Trail starts nearby.",
+    "use": "The public two-mile Waterway Trail has its trailhead on Marina Parkway, near the Grissom Parkway overpass [grandedunes.com]. (Say nearby only after measuring the distance from the marina.)"
+  },
+  {
+    "row": "gated 242",
+    "pattern": "\\b46 more\\b|\\b183\\b[^.]{0,40}\\b(?:Master in Equity|court)",
+    "struck": "137 Master in Equity deeds from 2010 through 2012, and 46 more in other years from 2008 to 2023 (183 in all).",
+    "use": "The county recorded 182 Master in Equity deeds here from 2008 to 2023: 137 in 2010 to 2012 and 45 in other years [Register of Deeds index]."
+  },
+  {
+    "row": "gated 242",
+    "pattern": "\\bThat is why builders are still finishing",
+    "struck": "after 2008 many went through court-ordered sales. That is why builders are still finishing houses here",
+    "use": "(cut 'That is why': no source ties court-ordered sales to the builders. Say each fact on its own.)"
+  },
+  {
+    "row": "gated 253",
+    "pattern": "county measured[^.]{0,80}\\b370 feet",
+    "struck": "the county measured The Bluffs as 370 feet from a proposed brewery site",
+    "use": "A 2023 Post and Courier story puts The Bluffs 370 feet from a proposed brewery site across S.C. 31 [Post and Courier, June 2023]."
+  },
+  {
+    "row": "gated 259",
+    "pattern": "Community Watch desk (?:at|in) (?:its |the )?gatehouse[^.]{0,60}\\bstaffed\\b",
+    "struck": "a Community Watch desk at its gatehouse on Bay Road, staffed 24 hours a day, seven days a week",
+    "use": "The HOA lists Community Watch Desk coverage 24 hours a day, seven days a week, and a gatehouse phone line [HOA website]."
+  },
+  {
+    "row": "gated 260",
+    "pattern": "\\bits own maintenance staff\\b|\\bown maintenance staff on weekdays",
+    "struck": "The association also has its own maintenance staff on weekdays.",
+    "use": "The HOA lists maintenance coverage Monday through Friday, 7:00 a.m. to 3:30 p.m. [HOA website]."
+  },
+  {
+    "row": "gated 262",
+    "pattern": "calendar adds bingo|calendar has recurring (?:aerobics|yoga)",
+    "struck": "The calendar adds bingo, yoga, Zumba, mahjong, card groups and a book club.",
+    "use": "The HOA calendar has categories for aerobics, weekly bingo, yoga, Zumba, women's and men's cards, a book club, mahjong and crafts; the events are behind a login [HOA calendar]."
+  },
+  {
+    "row": "gated 282",
+    "pattern": "(?:summer ends|season (?:closed|ended)) with a (?:poolside )?potluck|potluck by the water",
+    "struck": "The summer ends with a potluck by the water.",
+    "use": "In 2026 the Music and Moonlight evenings closed with a poolside potluck on September 26; the pool itself closed September 30 [Myrtle Trace newsletter, October 2026]."
+  },
+  {
+    "row": "gated 284",
+    "pattern": "board has decided not to seek a change before|decided not to seek a change",
+    "struck": "The board has decided not to seek a change before the covenants renew in 2033.",
+    "use": "In 2026 the board voted 5 to 0 not to pursue a change now; the current ten-year period ends in 2033 [Myrtle Trace newsletter, October 2026]."
+  },
+  {
+    "row": "gated 285",
+    "pattern": "(?<!\\[)\\bLocals knew the land as a ridge",
+    "struck": "Locals knew the land as a ridge, and it stands about 40 feet above sea level.",
+    "use": "The HOA's history calls the land a ridge that locals knew [HOA 40th anniversary paper, 2023, an unsigned typescript]; it stands about 42 feet above sea level [USGS]."
+  },
+  {
+    "row": "gated 286",
+    "pattern": "about 14 feet at the oceanfront",
+    "struck": "against about 14 feet at the oceanfront downtown.",
+    "use": "against about 15 feet along the oceanfront downtown (7 to 17 feet within 100 meters) [USGS 3DEP]."
+  },
+  {
+    "row": "gated 290",
+    "pattern": "bulkheads along the water\\b(?! banks)|deep bunkers around raised greens",
+    "struck": "It carries Dye's marks: wooden bulkheads along the water, deep bunkers around raised greens and fast greens.",
+    "use": "It has several of Dye's marks [MyHorryNews, July 2025]: wooden bulkheads along many water banks, deep-faced bunkers around often-elevated greens and fast TifEagle greens."
+  },
+  {
+    "row": "gated 293",
+    "pattern": "owners association took over the large pool|clay courts need a tennis membership",
+    "struck": "When the club ended its memberships, the owners association took over the large pool, a smaller pool and the tennis center, with eleven clay courts and two hard courts. The clay courts need a tennis membership of their own.",
+    "use": "(In 2015 the club's owner offered to lease or convey the tennis and swim facilities to the owners association for $1 each [Club + Resort Business, 2015]. A 2016 report says the association purchased them, and also says a third-party operator ran the tennis club, with the pool and two hard courts open to residents and the 11 clay courts on a club membership [Club + Resort Business, February 2016]. Whether this still holds is not verified: state it as 2016, or cut it.)"
+  },
+  {
+    "row": "gated 300",
+    "pattern": "Seasons lot backs onto TPC[^.]{0,40}across the road",
+    "struck": "no Seasons lot backs onto TPC Myrtle Beach across the road.",
+    "use": "The nearest Seasons lot is about 560 meters, a little over a third of a mile, from the TPC Myrtle Beach course [county parcels, OpenStreetMap]."
+  },
+  {
+    "row": "gated 301",
+    "pattern": "\\b14\\b[^.]{0,30}\\breach(?:es)? Collins Creek",
+    "struck": "half-acre lots, and 14 that reach Collins Creek",
+    "use": "half-acre lots, and 14 within 30 meters of Collins Creek [county parcels, USGS creek line]; only 3 touch the mapped creek line."
+  },
+  {
+    "row": "gated 302",
+    "pattern": "About 30 lots back onto a pond",
+    "struck": "About 30 lots back onto a pond.",
+    "use": "About 30 lots lie within 10 meters of a mapped pond [county parcels, OpenStreetMap]."
+  },
+  {
+    "row": "gated 304",
+    "pattern": "TPC Myrtle Beach[^.]{0,20}next to (?:Bellwood|Seasons)",
+    "struck": "TPC Myrtle Beach, next to Bellwood Landing and Seasons, was given 5 stars by Golf Digest in 2008.",
+    "use": "TPC Myrtle Beach was given 5 stars by Golf Digest in 2008 [club's account]. Its course is about 100 meters from the nearest Bellwood Landing lot and about 560 meters from the nearest Seasons lot."
+  },
+  {
+    "row": "gated 306",
+    "pattern": "Across the road is TPC Myrtle Beach",
+    "struck": "Across the road is TPC Myrtle Beach, a Tom Fazio course that Golf Digest gave five stars in 2008.",
+    "use": "TPC Myrtle Beach, a Tom Fazio course, lies about 100 meters from the nearest Bellwood Landing lot (a road between them is not confirmed)."
+  },
+  {
+    "row": "gated 306",
+    "pattern": "ninth year in 2024|ninth consecutive year[^.]{0,30}2024",
+    "struck": "the Dustin Johnson World Junior Championship each spring (its ninth year in 2024, 90 players)",
+    "use": "(cut it: the club says it began hosting in 2015 and the news post is undated, so 2024 is not supported; the page does not use it)"
+  },
+  {
+    "row": "gated 322",
+    "pattern": "Women's Amateur[^.]{0,20}2014|2014[^.]{0,30}Women's Amateur",
+    "struck": "the Carolinas Women's Amateur (2014)",
+    "use": "the Carolinas Women's Four-Ball (2005)"
+  },
+  {
+    "row": "gated 328",
+    "pattern": "archaeologists dug at Wachesaw and found|digs at Wachesaw found",
+    "struck": "Before anyone built here, archaeologists dug at Wachesaw and found more than half a million artifacts.",
+    "use": "A University of South Carolina study of Wachesaw and the neighboring Richmond Hill plantation found more than half a million artifacts [Michie, quoted in the Horry Independent]."
+  },
+  {
+    "row": "gated 324",
+    "pattern": "Dinner is at Kimbels",
+    "struck": "Dinner is at Kimbels, on the bluff above the waterway.",
+    "use": "Kimbels, the club's formal restaurant, is on the bluff above the waterway and the 18th green."
+  },
+  {
+    "row": "gated 335",
+    "pattern": "takes public tee times|(?:is|are) open to the public[^.]{0,40}Wachesaw East|Wachesaw East[^.]{0,60}open to the public",
+    "struck": "The course takes public tee times, so you share it with visitors.",
+    "use": "Tee times are booked online on the club's site, and SC Golf lists the course as semi-private."
+  },
+  {
+    "row": "gated 341",
+    "pattern": "one of McConnell's 17 clubs|members can play the other McConnell",
+    "struck": "It is one of McConnell's 17 clubs, and members can play the other McConnell clubs.",
+    "use": "McConnell Golf lists 17 properties in four states, and Reserve members get reciprocal privileges at its sister clubs [club site]."
+  },
+  {
+    "row": "gated 342",
+    "pattern": "membership covers the family's dining",
+    "struck": "A golf membership covers the family's dining and social events.",
+    "use": "A golf membership includes access to the club's dining and social events, for the member's family and dependents up to age 25 [club site]."
+  },
+  {
+    "row": "gated 343",
+    "pattern": "cut through the woods",
+    "struck": "a private Greg Norman course of 7,200 yards, cut through the woods and around the marsh.",
+    "use": "a private Greg Norman course of up to 7,200 yards, laid out through 160 acres of natural wetlands [club site; course architect's site]."
+  },
+  {
+    "row": "gated 346",
+    "pattern": "Coast Guard (?:calls|designates|names) it|Coast Guard calls it a hurricane hole",
+    "struck": "the U.S. Coast Guard calls it a hurricane hole.",
+    "use": "the S.C. Clean Marina Program describes it as designated a Hurricane Hole by the U.S. Coast Guard [SC Clean Marina Program, 2024]."
+  },
+  {
+    "row": "gated 353",
+    "pattern": "\\bsix markers",
+    "struck": "six markers along it tell that history hole by hole.",
+    "use": "five markers along it tell that history, at the 4th, 5th and 8th holes, near the 9th green and on the way to the 1st tee [course operator's site]."
+  },
+  {
+    "row": "gated 354",
+    "pattern": "cemetery of enslaved people, with 38 graves|containing 38 graves",
+    "unless": "community counts|counts 38",
+    "struck": "By the 8th hole is the Oatland cemetery of enslaved people, with 38 graves, protected inside the community.",
+    "use": "By the 8th hole is the Oatland cemetery of enslaved people, which the community counts at 38 graves [Litchfield by the Sea]."
+  },
+  {
+    "row": "gated 356",
+    "pattern": "barcode opens both",
+    "struck": "One car barcode opens both gates on the way to Litchfield by the Sea's beach.",
+    "use": "One vehicle barcode is issued for the owner's gated community and for Litchfield by the Sea access [Litchfield by the Sea]."
+  },
+  {
+    "row": "gated 358",
+    "pattern": "bought the land in 1926 for|bought the three plantations for duck",
+    "struck": "a Pennsylvania businessman bought the land in 1926 for duck and quail hunting.",
+    "use": "in 1926 a Pennsylvania businessman bought the three tracts, which were used for duck and quail hunting [Chicora Foundation, RS11]."
+  },
+  {
+    "row": "gated 359",
+    "pattern": "golf course crosses the land of three|course across three rice plantations|crosses the land of three rice plantations",
+    "struck": "Willbrook's golf course crosses the land of three rice plantations, Willbrook, Oatland and Turkey Hill.",
+    "use": "Willbrook was built on the land of three rice plantations, Willbrook, Oatland and Turkey Hill [Chicora, RS11], and its golf course crosses two of them [course site]."
+  },
+  {
+    "row": "gated 359",
+    "pattern": "water (?:is )?on 15 of (?:the course's )?18 holes, most of it",
+    "struck": "Water is on 15 of the course's 18 holes, most of it along the edges.",
+    "use": "There is water on 15 of 18 holes, often on the edge of the layout [course site]."
+  },
+  {
+    "row": "gated 129",
+    "pattern": "24,000[- ]acres?",
+    "struck": "Willbrook was part of a 24,000-acre grant made by the Lords Proprietors to Robert Daniel in 1711.",
+    "use": "A 2,400-acre tract was granted to Robert Daniel in 1711, of which 1,490 acres lay on Waccamaw Neck [Chicora Foundation, RS11, PDF p. 48]. (Publish no acreage if the page does not need it. The old struck pattern for 2,400 is itself wrong.)"
+  },
+  {
+    "row": "gated 360",
+    "pattern": "deed to the association was recorded|recorded (?:on )?July 10, 2018",
+    "struck": "The deed to the association was recorded July 10, 2018.",
+    "use": "The county shows the transfer to the association on July 10, 2018 (deed book 3308, page 40)."
+  },
+  {
+    "row": "gated 363",
+    "pattern": "hosts (?:a few|several|a handful of|some) weddings",
+    "struck": "The house hosts a few weddings a year to help pay for its upkeep.",
+    "use": "It has hosted a limited number of weddings to help pay for upkeep (as of 2019; ask the association what it hosts now)."
+  },
+  {
+    "row": "gated 365",
+    "pattern": "beach house on the ocean|beach house[^.]{0,30}\\boceanfront\\b",
+    "struck": "The association also owns a beach house on the ocean at Pawleys Island.",
+    "use": "The association also owns a beach house on Pawleys Island."
+  },
+  {
+    "row": "gated 369",
+    "pattern": "Next to it, a deck over the water|dock house[^.]{0,80}next to it",
+    "struck": "Next to it, a deck over the water, bordered by cypress trees, is where owners gather at sunset.",
+    "use": "The marina also has a deck over the water, bordered by cypress trees, that serves as a daily sunset gathering place."
+  },
+  {
+    "row": "gated 370",
+    "pattern": "never (?:needed|had|levied|required)[^.]{0,30}special assessment",
+    "struck": "Owners have run the association since 2002 and say they have never needed a special assessment.",
+    "use": "Owners have run the association since 2002 and say they have not needed a special assessment in that time."
+  },
+  {
+    "row": "gated 368",
+    "pattern": "rice plantations?[^.]{0,40}(?:True Blue|Midway)|(?:True Blue|Midway)[^.]{0,40}\\brice\\b",
+    "struck": "on the land of two old rice plantations, True Blue and Midway",
+    "use": "on the former True Blue and Midway plantations"
+  },
+  {
+    "row": "gated 372",
+    "pattern": "owners (?:may|can) (?:buy|join|get)[^.]{0,30}membership|Heritage Club[^.]{0,80}Golf Digest",
+    "struck": "Owners may buy a membership in the Heritage Club.",
+    "use": "Memberships in the Heritage Club are available for Heritage Plantation residents."
+  },
+  {
+    "row": "gated 374",
+    "pattern": "(?:In the morning|Mornings?),? leagues (?:play|have)|busiest in the morning",
+    "struck": "In the morning, leagues play on the four Har-Tru tennis courts and four pickleball courts.",
+    "use": "Many mornings are reserved for league play: tennis Monday to Saturday, pickleball Tuesday, Wednesday, Friday and Saturday."
+  },
+  {
+    "row": "gated 376",
+    "pattern": "cameras on the Beach Club deck|Beach Club deck and the north",
+    "struck": "the association's live cameras on the Beach Club deck and the north and south beaches",
+    "use": "the association's live cameras on a clubhouse deck and on the north and south beaches"
+  },
+  {
+    "row": "gated 380",
+    "pattern": "many neighborhoods inside one gate",
+    "struck": "It is many neighborhoods inside one gate, each with its own association.",
+    "use": "It is many neighborhoods inside the community's gates, each with its own sub-association."
+  },
+  {
+    "row": "gated 382",
+    "pattern": "Debidue[^.]{0,40}a pronunciation that comes from the Gullah",
+    "struck": "Locals say \"Debidue\", a pronunciation that comes from the Gullah dialect.",
+    "use": "Locals say \"Debidue\" (the community association traces the pronunciation to the local Gullah dialect)."
+  },
+  {
+    "row": "gated 385",
+    "pattern": "Joining the club costs extra",
+    "struck": "Joining the club costs extra, beyond the association fee.",
+    "use": "The club is a separate organization from the association, and its dues are not posted."
+  },
+  {
+    "row": "gated 386",
+    "pattern": "7,032 yards",
+    "struck": "The course plays 7,032 yards.",
+    "use": "The course plays 7,284 yards from the championship tees."
+  },
+  {
+    "row": "gated 387",
+    "pattern": "oceanfront dining",
+    "struck": "places to eat from the Beanery cafe to oceanfront dining steps from the sand",
+    "use": "places to eat from the Beanery cafe to a restaurant steps from the sand with ocean views"
+  },
+  {
+    "row": "gated 390",
+    "pattern": "(?:two|2)[^.]{0,30}barcodes?[^.]{0,20}\\bfree\\b",
+    "unless": "assessments",
+    "struck": "Each home gets two owner barcodes free.",
+    "use": "Each home gets two barcodes free if its assessments are paid."
+  },
+  {
+    "row": "gated 392",
+    "pattern": "parade (?:down|along|on) DeBordieu Boulevard|parade at 10 a\\.m\\. from DeBordieu|Each Fourth of July brings a parade",
+    "struck": "Each Fourth of July brings a parade down DeBordieu Boulevard.",
+    "use": "The July 4 parade lines up at DeBordieu and Luvan boulevards at 9 a.m. and begins at 10 a.m."
+  },
+  {
+    "row": "gated 392",
+    "pattern": "beach sweep each September",
+    "struck": "a beach sweep each September",
+    "use": "owners take part in the statewide Beach Sweep, held the third Saturday in September"
+  },
+  {
+    "row": "gated 393",
+    "pattern": "gated community cannot get public money|gated communit(?:y|ies) (?:cannot|can't|can not) (?:get|receive)[^.]{0,30}public",
+    "struck": "A gated community cannot get public money to rebuild a beach, so in 2017 they voted to create a beach fund, paid by assessments.",
+    "use": "DeBordieu, a gated community, does not qualify for public renourishment money; in 2017 the owners voted to set up a beach preservation fund, paid by assessments."
   }
 ]

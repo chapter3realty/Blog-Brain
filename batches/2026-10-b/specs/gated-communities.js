@@ -84,12 +84,12 @@ const E = [
   { id: "the-bluffs-on-the-waterway", name: "The Bluffs on the Waterway", lat: 33.746358, lon: -78.867299, area: "mb", price: "About $850,000", fee: "About $150" },
   { id: "covington-lake-east", name: "Covington Lake East", lat: 33.75485, lon: -78.94557, area: "mb", price: "About $570,000", fee: "About $90" },
   { id: "myrtle-trace", name: "Myrtle Trace", label: "Myrtle Trace (55+)", href: MT, lat: 33.77765, lon: -78.99495, area: "conway", price: "About $300,000", fee: "$95" },
-  { id: "myrtle-beach-golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", lat: 33.646385, lon: -79.050559, area: "socastee", price: "About $225,000 in the older part", fee: "About $95" },
-  { id: "prestwick", name: "Prestwick", lat: 33.64245, lon: -78.95602, area: "socastee", price: "About $480,000", fee: "About $190" },
-  { id: "prince-creek-55", name: "Seasons at Prince Creek West", label: "Seasons at Prince Creek West (55+)", href: SEASONS, lat: 33.585419, lon: -79.071772, area: "mi", price: "About $500,000", fee: "About $340" },
-  { id: "bellwood-landing", name: "Bellwood Landing", lat: 33.582185, lon: -79.073470, area: "mi", price: "About $810,000", fee: "About $160" },
-  { id: "wachesaw-plantation", name: "Wachesaw Plantation", lat: 33.560796, lon: -79.073101, area: "mi", price: "About $700,000", fee: "About $150 on most homes" },
-  { id: "wachesaw-east", name: "Wachesaw East", lat: 33.558050, lon: -79.058480, area: "mi", price: "About $500,000", fee: "About $145" },
+  { id: "myrtle-beach-golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", lat: 33.646385, lon: -79.050559, area: "south", price: "About $225,000 in the older part", fee: "About $95" },
+  { id: "prestwick", name: "Prestwick", lat: 33.64245, lon: -78.95602, area: "south", price: "About $480,000", fee: "About $190" },
+  { id: "prince-creek-55", name: "Seasons at Prince Creek West", label: "Seasons at Prince Creek West (55+)", href: SEASONS, lat: 33.585419, lon: -79.071772, area: "south", price: "About $500,000", fee: "About $340" },
+  { id: "bellwood-landing", name: "Bellwood Landing", lat: 33.582185, lon: -79.073470, area: "south", price: "About $810,000", fee: "About $160" },
+  { id: "wachesaw-plantation", name: "Wachesaw Plantation", lat: 33.560796, lon: -79.073101, area: "south", price: "About $700,000", fee: "About $150 on most homes" },
+  { id: "wachesaw-east", name: "Wachesaw East", lat: 33.558050, lon: -79.058480, area: "south", price: "About $500,000", fee: "About $145" },
   { id: "the-reserve", name: "The Reserve", lat: 33.49467, lon: -79.1133, area: "pawleys", price: "About $1.3 million", fee: "About $320 on most homes" },
   { id: "willbrook-plantation", name: "Willbrook Plantation", lat: 33.48206, lon: -79.13519, area: "pawleys", price: "About $840,000", fee: "About $340" },
   { id: "litchfield-plantation", name: "Litchfield Plantation", lat: 33.47674, lon: -79.1313, area: "pawleys", price: "About $800,000 to $1.8 million", fee: "About $230 on most homes" },
@@ -105,11 +105,12 @@ const byId = Object.fromEntries(E.map((e) => [e.id, e]));
 const GUIDE_CSS = `<style>
 .c3g-guide{display:grid;gap:1rem;max-width:960px;margin:.4rem 0 0}
 @media(min-width:900px){.c3g-guide{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start}}
-.c3-want{list-style:none;margin:0;padding:.3rem .9rem;border:1px solid var(--line,#e3dccf);border-radius:14px;background:rgba(255,255,255,.55)}
-.c3-want>li{padding:.55rem 0;border-bottom:1px solid var(--line,#e3dccf);line-height:1.45}
-.c3-want>li:last-child{border-bottom:0}
+main#main .c3-want.c3g-list{list-style:none;margin:0;padding:.3rem 1rem}
+main#main .c3-want.c3g-list>li{padding:.55rem 0;line-height:1.45;background:none;box-shadow:none;border:0!important;border-bottom:1px solid rgba(28,32,40,.12)!important;border-radius:0!important}
+main#main .c3-want.c3g-list>li:last-child{border-bottom:0!important}
 .c3-want b{display:block;color:var(--navy);font-weight:600}
-.c3-want a{color:var(--navy);text-decoration:underline;text-underline-offset:.18em;margin-right:.7rem;white-space:nowrap}
+.c3-want a{color:var(--navy);text-decoration:underline;text-underline-offset:.18em}
+.c3-want .sep{color:var(--muted);padding:0 .35rem}
 .c3g-map{margin:0}
 .c3g-map figcaption{color:var(--muted);font-size:.95rem;line-height:1.5;margin-top:.4rem}
 .c3-place-cta{margin:1.2rem 0 .4rem;max-width:720px}
@@ -118,52 +119,55 @@ const GUIDE_CSS = `<style>
 
 
 /* ---------------------------------------------------------------------------- */
-/* The one map: six areas along the coast, each named with the entry numbers it holds. The area's mark
-   is the middle of its places' dots. The tool numbers its marks 1 to 6; those numbers would read as
-   entries, so they are removed and the name carries the entry numbers. */
+/* The one map: five areas along the coast, each a soft circle around its places, named in a glass pill
+   with the entry numbers it holds (area-map.js spec.areas, batch 2026-10-b round 14). The circle's middle
+   is the middle of its places' dots; its radius reaches the farthest of them, plus 0.8 km. */
 const AREAS = [
-  ["nmb", "North Myrtle Beach"], ["mb", "Myrtle Beach and Carolina Forest"], ["conway", "Conway"],
-  ["socastee", "Near Surfside Beach"], ["mi", "Murrells Inlet"], ["pawleys", "Pawleys Island to DeBordieu"],
+  ["nmb", "North Myrtle Beach"], ["mb", "Myrtle Beach"], ["conway", "Conway"],
+  ["south", "Surfside to Murrells Inlet"], ["pawleys", "Pawleys Island to DeBordieu"],
 ];
 const nums = (a) => {
   const ns = E.filter((e) => e.area === a).map((e) => e.n);
   return ns.length === 1 ? String(ns[0]) : ns.length === 2 ? `${ns[0]} and ${ns[1]}` : `${ns[0]} to ${ns[ns.length - 1]}`;
 };
+const km = (lat1, lon1, lat2, lon2) => Math.hypot((lat2 - lat1) * 111.2, (lon2 - lon1) * 111.2 * Math.cos(lat1 * Math.PI / 180));
 const MAP = (() => {
-  const places = AREAS.map(([a, label]) => {
+  const areas = AREAS.map(([a, label]) => {
     const pts = E.filter((e) => e.area === a);
     const lat = pts.reduce((s, e) => s + e.lat, 0) / pts.length, lon = pts.reduce((s, e) => s + e.lon, 0) / pts.length;
-    return { name: `${label}, ${nums(a)}`, lat, lon };
+    const radius = Math.round(Math.min(15000, 800 + 1000 * Math.max(...pts.map((e) => km(lat, lon, e.lat, e.lon)))));
+    return { name: label, note: (pts.length === 1 ? "Number " : "Numbers ") + nums(a), lat, lon, radius };
   });
-  const MAPDIR = { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420 };
-  const m = regionMap({ name: "Where the 20 gated neighborhoods are", places }, MAPDIR);
-  const spoken = AREAS.map(([a, label]) => `${label}, numbers ${nums(a)}`).join("; ");
-  const svg = m.html
-    .replace(/(<text class="nm"[^>]*>)\d+(<\/text>)/g, "$1$2")
-    .replace(/aria-label="[^"]*"/, `aria-label="Map of the coast from North Myrtle Beach to DeBordieu, with the 20 gated neighborhoods in six areas: ${spoken}."`);
-  if (/<text class="nm"[^>]*>\d/.test(svg)) throw new Error("gated-communities: a map number was left on an area mark");
-  return `<figure class="c3g-map">${svg}<figcaption>Where they are, by area and number. ${m.credit}</figcaption></figure>`;
+  const MAPDIR = { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420, glass: true };
+  const m = regionMap({ name: "Where the 20 gated neighborhoods are", areas }, MAPDIR);
+  if (m.areasUnlabelled && m.areasUnlabelled.length) console.warn(`gated-communities: no room on the map for ${m.areasUnlabelled.length} area names; the key names them`);
+  const key = m.areasUnlabelled && m.areasUnlabelled.length ? m.areaKey : "";
+  return `<figure class="c3g-map">${m.html}${key}<figcaption>The five areas, with the numbers of the neighborhoods in each. ${m.credit}</figcaption></figure>`;
 })();
 
 /* The selection guide: every place once, under what it does best (features, never people). */
 const GUIDE_GROUPS = [
-  ["On the ocean, or with an oceanfront club", ["litchfield-by-the-sea", "debordieu-colony", "grande-dunes"]],
-  ["A marina on the river with staff", ["the-reserve", "heritage-plantation"]],
-  ["Your own boat ramp on the Intracoastal Waterway", ["waterway-palms-plantation", "the-bluffs-on-the-waterway"]],
-  ["A golf course with a name", ["tidewater-plantation", "barefoot-resort", "prestwick", "wachesaw-plantation", "wachesaw-east"]],
-  ["History you can live inside", ["litchfield-plantation", "willbrook-plantation"]],
+  ["The ocean, or an oceanfront club", ["litchfield-by-the-sea", "debordieu-colony", "grande-dunes"]],
+  ["A marina with staff", ["the-reserve", "heritage-plantation"]],
+  ["A boat ramp at home", ["waterway-palms-plantation", "the-bluffs-on-the-waterway"]],
+  ["A famous golf course", ["tidewater-plantation", "barefoot-resort", "prestwick", "wachesaw-plantation", "wachesaw-east"]],
+  ["History you live inside", ["litchfield-plantation", "willbrook-plantation"]],
   ["A golf cart ride to Main Street", ["seaside-plantation"]],
-  ["55+, with a gate", ["myrtle-trace", "prince-creek-55"]],
-  ["A gate for under $100 a month", ["covington-lake-east", "myrtle-beach-golf-and-yacht-club"]],
+  ["55+", ["myrtle-trace", "prince-creek-55"]],
+  ["A fee under $100 a month", ["covington-lake-east", "myrtle-beach-golf-and-yacht-club"]],
   ["Big lots by a creek", ["bellwood-landing"]],
 ];
 {
   const seen = GUIDE_GROUPS.flatMap(([, ids]) => ids);
   if (seen.length !== E.length || new Set(seen).size !== E.length) throw new Error("gated-communities: the guide must list each place once");
 }
-const GUIDE = `<div class="c3g-guide c3-guide-map"><ul class="c3-want">`
+/* The guide is also the page's contents (score H14): the rest of the page, by each section's short label. */
+const MORE = [["#compare", "Prices side by side"], ["#what-a-gate-does", "What a gate does"], ["#yearly-cost", "The yearly cost"],
+  ["#pros-and-cons", "Pros and cons"], ["#a-buyers-story", "A buyer's story"], ["#gated-communities-faq", "Gated communities FAQ"]];
+const GUIDE = `<div class="c3g-guide c3-guide-map"><ul class="c3-want c3g-list">`
   + GUIDE_GROUPS.map(([want, ids]) => `<li><b>${want}</b>${ids.map((id) => byId[id]).sort((a, b) => a.n - b.n)
-    .map((e) => `<a href="#${e.id}">${e.n}. ${e.name}</a>`).join(" ")}</li>`).join("")
+    .map((e) => `<a href="#${e.id}">${e.n}. ${e.name}</a>`).join('<span class="sep" aria-hidden="true">&middot;</span> ')}</li>`).join("")
+  + `<li><b>More on this page</b>${MORE.map(([href, label]) => `<a href="${href}">${label}</a>`).join('<span class="sep" aria-hidden="true">&middot;</span> ')}</li>`
   + `</ul>${MAP}</div>`;
 
 /* ---------------------------------------------------------------------------- */
@@ -176,9 +180,9 @@ ph.share("prestwick-gate-from-above-2026");
 function entry(id, head, paras, price, photo) {
   const e = byId[id];
   const [first, ...rest] = paras;
-  return { h2: `${e.n}. ${e.label || e.name}: ${head}`, id, html: () =>
+  return { h2: `${e.n}. ${e.label || e.name}: ${head}`, toc: `${e.n}. ${e.name}`, id, html: () =>
     h.p(first) + (photo ? ph.aerial(photo[0], photo[1], { closeUp: true }) : "") + rest.map((t) => h.p(t)).join("")
-    + `<div class="c3-place-cta">${h.p(price)}${G.offer(e.name)}</div>` };
+    + `<div class="c3-place-cta" style="padding:.15rem 0 .15rem 1rem;border-left:3px solid var(--brass)">${h.p(price)}${G.offer(e.name)}</div>` };
 }
 
 const SECTIONS_PLACES = [
@@ -192,30 +196,30 @@ const SECTIONS_PLACES = [
   entry("seaside-plantation", "a golf cart ride to Main Street", [
     "Of the 20 neighborhoods here, Seaside Plantation is the closest to Main Street in North Myrtle Beach. Main Street is a golf cart ride away.",
     "Each spring and fall the Society of Stranders brings its shag dance festivals, the Spring Safari and the Fall Migration, to Main Street and Ocean Drive. The Fall Migration runs for 11 days each September.",
-    "Back home, the lakes behind many of the houses, about 13 acres of water, belong to the neighborhood. The clubhouse has a hot tub and parking for golf carts, and a Walmart Supercenter, a Lowe's and Gator Hole Plaza are a 3- to 5-minute drive.",
+    "Back home, the owners association owns the lakes, about 13 acres in all, and some houses look onto them. The clubhouse has a hot tub and parking for golf carts, and a Walmart Supercenter, a Lowe's and Gator Hole Plaza are a 3- to 5-minute drive.",
     "The ocean is a quarter to three-quarters of a mile from the houses, not at the back door, and festival weeks bring crowds to Main Street.",
   ], "Homes here usually sell for about $720,000, with an HOA fee of about $210 a month."),
 
   entry("barefoot-resort", "the course that hosts the Monday After the Masters", [
-    "Dye Estates, a gated neighborhood inside Barefoot Resort, surrounds the Dye Course, home of the Monday After the Masters. Hootie & the Blowfish host the charity pro-am each spring, and it brings celebrities and PGA Tour players; in 2025 its tickets sold out.",
-    `Its gate is staffed. A guard works the main gate ${h.ext(DYE_RULES, "24 hours a day")}, owners drive through a resident lane with a barcode on the car, and a guest gets in only when the owner has given the guard the guest's name and the date. At the second gate, a guest can call the owner from the keypad, and the owner presses 9 on the phone to open it.`,
-    "Leatherleaf, the other gated neighborhood here, is 62 houses around a pond with the Love Course on every side. Davis Love III designed that course with Pinehurst No. 2 in mind. Leatherleaf has the Residents' Club too, with a pool, a weight room, a library and a lifestyle director who plans events.",
+    "Dye Estates, a gated neighborhood inside Barefoot Resort, surrounds the Dye Course, home of the Monday After the Masters. Hootie & the Blowfish host the charity pro-am each spring, and it brings celebrities and PGA Tour players to the course.",
+    `Its gate is staffed. A guard works the main gate ${h.ext(DYE_RULES, "24 hours a day")}, and owners drive through a resident lane with a barcode on the car. A guest gets in only when the owner has given the guard the guest's name and the date. At the second gate, an owner who has set up a gate code can let a guest in by phone: the guest calls from the keypad, and the owner presses 9.`,
+    "Leatherleaf, the other gated neighborhood here, is 62 houses around a pond with the Love Course on every side. Davis Love III designed that course with Pinehurst No. 2 in mind. Leatherleaf has the Residents' Club too, with a weight room, a library, courts and a lifestyle director who plans events.",
     "In summer a free shuttle runs to the resort's oceanfront cabana, which has key-fob parking, showers and a pet-washing station. In these two neighborhoods you call the driver 15 minutes ahead.",
-    "Most of Barefoot Resort has no gate. In Dye Estates the ponds are only for looking at: no swimming, boating, fishing or docks. Lots there are still for sale with no deadline to build, so a house can go up next door at any time.",
+    "Most of Barefoot Resort has no gate. In Dye Estates no one may swim, boat or fish in the ponds, and no docks may be built on them. Lots there are still for sale with no deadline to build, so a house can go up next door at any time.",
   ], "Leatherleaf homes sold for about $700,000 to $975,000 in the past year, with an HOA fee of about $390 a month. Dye Estates homes have resold for about $1.4 million to $2.5 million."),
 
   entry("grande-dunes", "an oceanfront club that comes with the house", [
     "In Grande Dunes, a household membership to the Ocean Club comes with the home at no extra charge. The club is on the beach, with towel and bar service at its pool and cabanas on the sand.",
     "Its private Members Club course was designed by Nick Price, a member of golf's Hall of Fame, with Craig Schreiner. The clubhouse has two Trackman simulators that play more than 260 courses, and the calendar runs from wine dinners to a Fourth of July cookout. That club is a separate membership.",
-    "Grande Dunes Marina, on the Intracoastal Waterway, has 126 slips and takes boats of 120 feet or more, with fuel and a store. The public two-mile Waterway Trail starts nearby.",
+    "Grande Dunes Marina, on the Intracoastal Waterway, has 126 slips and takes boats up to 120 feet long, with fuel and a store. The two-mile Waterway Trail, open to the public, starts on Marina Parkway.",
     "Only some sections of Grande Dunes are gated, among them Calais, Palermo and Villa Venezia. Palermo and Villa Venezia sit beside the golf course.",
-  ], "Homes in those three sections usually sell for about $1.5 million, and the HOA fee runs about $200 to $375 a month."),
+  ], "Homes in those three sections usually sell for about $1.5 million, and the HOA fee is about $200 to $375 a month."),
 
   entry("waterway-palms-plantation", "a boat ramp inside the gate", [
-    "Waterway Palms Plantation has its own boat ramp on the Intracoastal Waterway, inside the gate, along with a day dock and boat storage. You launch at home instead of towing the boat across town.",
+    "Waterway Palms Plantation has its own boat ramp on the Intracoastal Waterway, inside the gate, plus a day dock and boat storage. You launch at home instead of towing the boat across town.",
     "The plan copies the look of Charleston's Battery district. The clubhouse stands on a point in a pond, beside the pools, and the neighborhood has tennis and pickleball courts, a fitness center and sidewalks throughout.",
     `The land was part of Carolina Forest, which the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Read that story in our ${h.a(FARM, "guide to The Farm at Carolina Forest")}.`,
-    "The developer sold most of the lots in 2004 to 2006, and after 2008 many went through court-ordered sales. That is why builders are still finishing houses here, and some streets still have empty lots.",
+    "The developer sold most of the lots from 2004 to 2006, and after 2008 many went through court-ordered sales. Builders are still finishing houses here, and some streets still have empty lots.",
   ], "Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
   entry("the-bluffs-on-the-waterway", "a boathouse clubhouse on the waterway", [
@@ -228,49 +232,49 @@ const SECTIONS_PLACES = [
   entry("covington-lake-east", "a gate, a pool and a clubhouse for about $90 a month", [
     "Covington Lake East has the lowest HOA fee of the 20: about $90 a month for a gate, a pool and a clubhouse.",
     "It is a small neighborhood of brick houses in Carolina Forest, on curving streets among ponds. Most lots are about a quarter of an acre, the streets have sidewalks, and many of the houses have natural gas.",
-    "Lennar built about 50 of the houses from 2015 to 2017, and many builders built the rest one lot at a time, so the houses differ from street to street.",
+    "Lennar built about 50 of the houses from 2015 to 2017. Many builders built the rest one lot at a time, so the houses differ from street to street.",
     "It has no golf club or boat ramp of its own.",
   ], "Homes in Covington Lake East usually sell for about $570,000."),
 
   entry("myrtle-trace", "high ground, run by its owners", [
-    "Myrtle Trace sits on high ground. Locals knew the land as a ridge, and it stands about 40 feet above sea level, against about 14 feet at the oceanfront downtown.",
+    "Myrtle Trace sits on high ground, about 40 feet above sea level, against about 15 feet along the oceanfront downtown.",
     `It is a 55+ neighborhood: every occupied home must have a resident 55 or older. The owners run the HOA themselves, with volunteers and no management company, and residents write the monthly newsletter. Our ${h.a(MT, "guide to Myrtle Trace")} covers its rules.`,
-    "The pool logged more than 4,000 visits in the 2026 season, with morning exercise and evening volleyball, and the summer ends with a potluck by the water. Fifteen ponds lie among the streets, and residents may fish from the common land if every fish goes back.",
-    "The gates are only at the back entrance, to keep out cut-through traffic; the front entrance is open. Trucks may not park in driveways, and the board has decided not to seek a change before the covenants renew in 2033.",
+    "The pool logged more than 4,000 visits in the 2026 season, with morning exercise and evening volleyball. Fifteen ponds lie among the streets, and residents may fish from the common land if every fish goes back.",
+    "The gates are only at the back entrance, to keep out cut-through traffic; the front entrance is open. Trucks may not park in driveways, and the board voted not to pursue a change for now; the current ten-year period of the rules ends in 2033.",
   ], "Homes usually sell for about $300,000, and the HOA fee is $95 a month."),
 
-  entry("myrtle-beach-golf-and-yacht-club", "a watch desk at the gate, day and night, for about $95 a month", [
-    "For an HOA fee of about $95 a month, Myrtle Beach Golf and Yacht Club has a Community Watch desk at its gatehouse on Bay Road, staffed 24 hours a day, seven days a week. The association also has its own maintenance staff on weekdays.",
-    "From mid-April to mid-October the pool opens at 8 for lap swimming, with an exercise hour at 9. The calendar adds bingo, yoga, Zumba, mahjong, card groups and a book club. Wide strips of grass and woods, with ponds, lie between the streets, and the association owns about 62 acres of that open land.",
-    "Its sections have their own names, such as Camelot, Ashley Cove, the Fairways and the Gardens at Heron Point. The association has a storage area for RVs and trailers, and Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance.",
-    "Despite the name, there is no golf course or yacht club anymore. Its course, Heron Point, closed in 2014. Sandpiper Place, where D.R. Horton is building new houses, has its own association and shares the entrance on Bay Road, so we confirm whether a home is behind the gate before you make an offer.",
+  entry("myrtle-beach-golf-and-yacht-club", "a community watch desk around the clock", [
+    "For an HOA fee of about $95 a month, Myrtle Beach Golf and Yacht Club has a gatehouse on Bay Road and a Community Watch desk that covers the neighborhood 24 hours a day, seven days a week. The HOA also has maintenance coverage on weekdays.",
+    "From mid-April to mid-October the pool opens at 8 for lap swimming, with an exercise hour at 9. The community calendar lists bingo, yoga, Zumba, mahjong, card groups and a book club. Wide strips of grass and woods, with ponds, lie between the streets, and the association owns about 62 acres of that open land.",
+    "Its sections have their own names, such as Camelot, Ashley Cove, the Fairways and the Gardens at Heron Point. The association has a storage area for RVs and trailers. Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance.",
+    "Despite the name, there is no golf course or yacht club anymore. Its course, Heron Point, closed in 2014. Sandpiper Place, where D.R. Horton is building new houses, has its own association and shares the entrance on Bay Road. We confirm whether a home is behind the gate before you make an offer.",
   ], "In the older part, homes usually sell for about $225,000."),
 
   entry("prestwick", "a Pete and P.B. Dye course named Course of the Year", [
-    "Prestwick's course, by Pete Dye and his son P.B. Dye, was named the 2025 Myrtle Beach Area Golf Course of the Year. It carries Dye's marks: wooden bulkheads along the water, deep bunkers around raised greens and fast greens.",
+    "Prestwick's course, by Pete Dye and his son P.B. Dye, was named the 2025 Myrtle Beach Area Golf Course of the Year. It carries Dye's marks: wooden bulkheads along many of its water banks, deep bunkers around greens that are often raised, and fast greens.",
     "Prestwick opened in 1989 as a private club, founded by the Jackson family, who also created Ocean Lakes. The Gatlin Brothers once lived here and held a charity golf tournament each year.",
-    "When the club ended its memberships, the owners association took over the large pool, a smaller pool and the tennis center, with eleven clay courts and two hard courts. The clay courts need a tennis membership of their own. Visitors come in through the gatehouse at the main gate off Highway 544.",
+    "The owners association has a large pool, a smaller pool and a tennis center with clay and hard courts. Visitors come in through the gatehouse at the main gate off Highway 544.",
     "The course has been fully public since 2016, so golfers who do not live here play it too.",
   ], "Homes usually sell for about $480,000, and the HOA fee is about $190 a month."),
 
-  entry("prince-creek-55", "a 55+ clubhouse with an indoor pool", [
-    "Seasons at Prince Creek West has a clubhouse with indoor and outdoor pools and a fitness center, plus tennis and bocce. In 2013 Where to Retire magazine named it one of the 50 best master-planned communities in the country.",
-    `Every occupied home must have a resident 55 or older. One bill covers the Seasons dues and the dues of the larger associations, and the HOA fee includes internet, trash pickup and lawn care. Its rules are in our ${h.a(SEASONS, "guide to Seasons")}.`,
-    "Visitors use a call box at the gate on the main entrance. The Park at Prince Creek West, 43 acres with courts, a playground and a pavilion, belongs to the wider Prince Creek West associations, and the Murrells Inlet MarshWalk is about a 10-minute drive.",
-    "The covenants allow a golf cart to be parked only in an enclosed garage, and no Seasons lot backs onto TPC Myrtle Beach across the road.",
+  entry("prince-creek-55", "a 55+ fee that covers internet and lawn care", [
+    "At Seasons at Prince Creek West, the HOA fee includes internet, trash pickup and lawn care, and one bill covers the Seasons dues and the dues of the larger associations. The clubhouse has indoor and outdoor pools and a fitness center, plus tennis and bocce.",
+    `Every occupied home must have a resident 55 or older. Its rules are in our ${h.a(SEASONS, "guide to Seasons")}.`,
+    "Visitors use a call box at the gate on the main entrance. The Park at Prince Creek West, 43 acres with courts, a playground and a pavilion, belongs to the wider Prince Creek West associations. The Murrells Inlet MarshWalk is about a 10-minute drive.",
+    "The HOA's rules allow a golf cart to be parked only in an enclosed garage. TPC Myrtle Beach is close by, but no Seasons lot backs onto it; the nearest is about a third of a mile away.",
   ], "Homes usually sell for about $500,000, and the HOA fee is about $340 a month."),
 
-  entry("bellwood-landing", "half-acre lots, and 14 that reach Collins Creek", [
-    "Bellwood Landing has room. Most lots are close to half an acre, 14 of its 102 lots reach Collins Creek, and some along the creek are larger than an acre and a half.",
-    "Across the road is TPC Myrtle Beach, a Tom Fazio course that Golf Digest gave five stars in 2008. In May 2026 it hosted the PGA Tour's Monday qualifier for the Myrtle Beach Classic.",
-    "About 30 lots back onto a pond. The Park at Prince Creek West, with tennis and pickleball courts, basketball, a playground and a covered pavilion with grills, is about 4 minutes north by car.",
-    "No lot touches the golf course; the nearest is about 100 meters from it. Some lots still have no house, and the newest houses date from 2025 and 2026.",
+  entry("bellwood-landing", "half-acre lots by Collins Creek", [
+    "Bellwood Landing has room. Most lots are close to half an acre, and 14 of its 102 lots come within about 100 feet of Collins Creek. Some along the creek are larger than an acre and a half.",
+    "TPC Myrtle Beach, a Tom Fazio course that Golf Digest gave five stars, is about 100 meters from the nearest lot. It has hosted the PGA Tour's Monday qualifier for the Myrtle Beach Classic.",
+    "About 30 lots are on the edge of a pond. The Park at Prince Creek West, with tennis and pickleball courts, basketball, a playground and a covered pavilion with grills, is about 4 minutes north by car.",
+    "No lot backs onto the golf course itself. Some lots still have no house, and new houses are still going up.",
   ], "Homes here usually sell for about $810,000. The gate is on TPC Boulevard, and the HOA fee is about $160 a month."),
 
   entry("wachesaw-plantation", "a members' club on a bluff above the river", [
-    "Before anyone built here, archaeologists dug at Wachesaw and found more than half a million artifacts. The University of South Carolina published the study in 1987, and some finds are on display in the clubhouse.",
-    `The ${h.ext(WACHESAW, "Wachesaw Plantation Club")} is owned by its members. Its Tom Fazio course has hosted Carolinas Golf Association championships, and each March the members host the Can-Am Junior Team Matches, an event they saved when its first home closed.`,
-    "Dinner is at Kimbels, on the bluff above the waterway and the 18th green, with a Tavern Room, open decks and an enclosed porch. Wachesaw's eight clay tennis courts, five of them lit, and its book clubs and card groups fill the rest of the week. Wacca Wache Marina, outside the gates, has about 100 wet slips and indoor racks.",
+    "Before the neighborhoods were planned, archaeologists dug at Wachesaw. Their University of South Carolina study of Wachesaw and the neighboring Richmond Hill plantation, published in 1987, found more than half a million artifacts, and some finds are on display in the clubhouse.",
+    `The ${h.ext(WACHESAW, "Wachesaw Plantation Club")} is owned by its members. Its Tom Fazio course has hosted Carolinas Golf Association championships. Each March the members host the Can-Am Junior Team Matches, an event they saved when its first home closed.`,
+    "Kimbels, the club's restaurant, is on the bluff above the waterway and the 18th green, with a Tavern Room, open decks and an enclosed porch. Wachesaw's eight clay tennis courts, five of them lit, and its book clubs and card groups fill the rest of the week. Wacca Wache Marina, outside the gates, has about 100 wet slips and indoor racks.",
     "Club membership is a separate cost on top of the HOA fee, and the club is rebuilding its pool and its Magnolia's restaurant.",
   ], "Homes usually sell for about $700,000. The HOA fee on most homes is about $150 a month, and the gatehouse is at the main gate, reached from Riverwood Drive."),
 
@@ -278,51 +282,51 @@ const SECTIONS_PLACES = [
     "Wachesaw East's course hosted four televised LPGA Tour events, from 1997 to 2000. Karrie Webb won the first two, and in 1998 she finished 19 under par.",
     "Clyde Johnston laid out the course on a former rice plantation, past freshwater lakes and wetlands, and it opened in December 1996. The Toasted Tee opens at 7 every morning for breakfast.",
     "Houses line the fairways, and the neighborhood has its own large pool, tennis courts, workout room and clubhouse. You turn in at the light by Tidelands Waccamaw Community Hospital and cross Old Kings Highway to reach the gate guard. The entrance to Huntington Beach State Park is an 11-minute drive.",
-    "The course takes public tee times, so you share it with visitors.",
+    "Tee times are sold online, so you share the course with visitors.",
   ], "Homes usually sell for about $500,000, and the HOA fee is about $145 a month."),
 
   entry("the-reserve", "Greg Norman's private course and a hurricane-hole marina", [
-    `The Reserve's marina sits at the southern tip of Sandy Island, where Thoroughfare Creek meets the Waccamaw River, and the U.S. Coast Guard calls it a ${h.ext(RESERVE_MARINA, "hurricane hole")}. Staff launch and haul boats from a dry storage building that holds about 200, and a boardwalk runs through a cypress forest to the river.`,
-    "The Reserve Golf Club is a private Greg Norman course of 7,200 yards, cut through the woods and around the marsh. Golf Digest ranked it No. 7 among the best new private courses in 1999, and it has hosted the Carolinas Mid-Amateur twice. A golf membership covers the family's dining and social events.",
+    `The Reserve's marina sits at the southern tip of Sandy Island, where Thoroughfare Creek meets the Waccamaw River. It is a designated ${h.ext(RESERVE_MARINA, "hurricane hole")}, a sheltered harbor for riding out storms. Staff launch and haul boats from a dry storage building that holds about 200, and a boardwalk runs through a cypress forest to the river.`,
+    "The Reserve Golf Club is a private Greg Norman course of up to 7,200 yards, set among 160 acres of wetlands. It has hosted the Carolinas Mid-Amateur twice, and a golf membership includes the club's dining and social events.",
     "Each fall the Pawleys Island Festival of Music & Art puts up its tent at the golf club, and the neighborhood has private beach access with parking.",
-    "The golf club, the marina and the HOA are three separate businesses, each with its own fees.",
+    "The golf club and the marina are run by separate companies, and each is a membership of its own, apart from the HOA.",
   ], "Homes usually sell for about $1.3 million, and the HOA fee on most homes is about $320 a month."),
 
-  entry("willbrook-plantation", "a course across three rice plantations", [
-    "Willbrook's golf course crosses the land of three rice plantations, Willbrook, Oatland and Turkey Hill, and six markers along it tell that history hole by hole. Under the live oaks by the 5th hole are brick remains at the site of the plantation house, which burned in 1895 and was rebuilt that year.",
-    "By the 8th hole is the Oatland cemetery of enslaved people, with 38 graves, protected inside the community. After rice, a Pennsylvania businessman bought the land in 1926 for duck and quail hunting.",
-    "Willbrook is a gated neighborhood of about 250 houses inside Litchfield by the Sea, with its own clubhouse and social calendar. One car barcode opens both gates on the way to Litchfield by the Sea's beach and Beach Club.",
+  entry("willbrook-plantation", "a neighborhood on three rice plantations", [
+    "Willbrook was built on the land of three rice plantations, Willbrook, Oatland and Turkey Hill, and its golf course crosses two of them. Five markers along the course tell that history hole by hole. Under the live oaks by the 5th hole are brick remains at the site of the plantation house, which burned in 1895 and was rebuilt that year.",
+    "By the 8th hole is the Oatland cemetery of enslaved people, protected inside the community. After rice, the land was used for duck and quail hunting; a Pennsylvania businessman bought it in 1926.",
+    "Willbrook is a gated neighborhood of about 250 houses inside Litchfield by the Sea, with its own clubhouse and social calendar. Its residents have Litchfield by the Sea's private beach and Beach Club, and one car barcode covers both communities' gates.",
     "The course and its restaurant belong to a golf company and are open to the public, so the neighborhood does not set the tee times or the prices.",
   ], "Homes usually sell for about $840,000, and the HOA fee is about $340 a month."),
 
   entry("litchfield-plantation", "the owners own the plantation house", [
     "At Litchfield Plantation, the owners own the plantation house. For about 50 years the developer controlled the association. In 2018 the owners took control after court challenges, and the house, its pool and about 7 acres passed to the association.",
-    "The house and its avenue of oaks appear on a plat drawn in 1794. After taking it over, the owners repaired it and set up a club room, and a terrace off the main room looks over the old rice fields at sunset. The house hosts a few weddings a year to help pay for its upkeep.",
-    "The road in is lined with old live oaks, the Avenue of Live Oaks, and the gatehouse stands on it. The association also owns a beach house on the ocean at Pawleys Island, about 4 miles away by road, and a private marina on the river is an optional extra.",
+    "The house and its avenue of oaks appear on a map of the land drawn in 1794. After taking it over, the owners repaired it and set up a club room, and it has hosted weddings to help pay for its upkeep. A terrace off the main room overlooks the old rice fields.",
+    "The road in is lined with old live oaks, the Avenue of Live Oaks, and the gatehouse stands on it. The association also owns a beach house on Pawleys Island, about 4 miles away by road. A private marina on the river is an optional extra.",
     "The old rice fields beside the community, about 330 acres, still belong to the original development company, not to the owners.",
   ], "In the last year, houses here sold for about $800,000 to $1.8 million. The HOA fee on most homes is about $230 a month."),
 
-  entry("litchfield-by-the-sea", "a mile of beach and a guard at the gate day and night", [
-    "Litchfield by the Sea has about a mile of its own beach, with an oceanfront Beach Club, a deck and a pavilion. From home you can check the surf on the association's live cameras on the Beach Club deck and the north and south beaches.",
-    `A guard works the main gate on US 17 ${h.ext(LBTS_GUIDE, "day and night")}. Owners' cars come in with a barcode, and each guest must be registered by the owner before the visit. In 2026 the association added a second patrol car and hired a director of security.`,
-    "A normal week can include Tai Chi on Wednesday and yoga on Thursday at the Beach Club, crabbing off the docks on Osprey Lake and a walk on the paved paths through the marsh. The pool is at the River Club, across US 17.",
-    "It is many neighborhoods inside one gate, each with its own association, so the HOA fee and the rules change from one section to the next. We find out the fee for any home you like before you offer.",
+  entry("litchfield-by-the-sea", "a mile of beach and a guard around the clock", [
+    "Litchfield by the Sea has about a mile of its own beach, with an oceanfront Beach Club, a deck and a pavilion. From home you can check the surf on the association's live cameras on the clubhouse deck and the north and south beaches.",
+    `A guard works the main gate on US 17 ${h.ext(LBTS_GUIDE, "day and night")}. Owners' cars come in with a barcode, and each guest must be registered by the owner before the visit. The association has added a second patrol car and a director of security.`,
+    "A normal week can include Tai Chi on Wednesday and yoga on Thursday at the Beach Club. In between there is crabbing off the docks on Osprey Lake and a walk on the paved paths through the marsh. The pool is at the River Club, across US 17.",
+    "It is many neighborhoods inside the community's gates, each with its own sub-association, so the HOA fee and the rules change from one to the next. We find out the fee for any home you like before you offer.",
   ], "Over the past year, one-bedroom condos in Summerhouse sold for about $200,000, and four homes in Breakers Reef went for about $1.5 million to $2.2 million.",
   ["litchfield-by-the-sea-from-above-2023", "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right."]),
 
   entry("heritage-plantation", "a dock master and a crow's nest over the river", [
-    "Heritage Plantation's marina has a full-time dock master and a dock house built over the Waccamaw River, with a crow's nest and a swing on its roof. Next to it, a deck over the water, bordered by cypress trees, is where owners gather at sunset.",
-    `The ${h.ext(HERITAGE, "HOA fee")} includes cable TV, home internet, 24-hour security, the pool, the courts and the dock master. Owners have run the association since 2002 and say they have never needed a special assessment.`,
-    "In the morning, leagues play on the four Har-Tru tennis courts and four pickleball courts. The calendar adds concerts, lectures, car shows and sunset gatherings at the marina. The Heritage Club, a public par-71 course by Dan Maples, runs among the live oaks on the land of two old rice plantations, True Blue and Midway.",
+    "Heritage Plantation's marina has a full-time dock master and a dock house built over the Waccamaw River, with a crow's nest and a swing on its roof. The marina also has a deck over the water, bordered by cypress trees, that is the daily sunset gathering place.",
+    `The ${h.ext(HERITAGE, "HOA fee")} includes cable TV, home internet, 24-hour security, the pool, the courts and the dock master. Owners have run the association since 2002 and have not needed a special assessment in that time.`,
+    "Many mornings are reserved for league play on the four Har-Tru tennis courts and four pickleball courts. The calendar adds concerts, lectures, car shows and sunset gatherings at the marina. The Heritage Club, a public par-71 course by Dan Maples, lies among the live oaks on the former True Blue and Midway plantations.",
     "Golf membership is not part of the HOA fee, trash pickup costs extra, and slips are rented by the day, the month or the year.",
   ], "Homes usually sell for about $710,000, and the HOA fee is about $325 a month."),
 
   entry("debordieu-colony", "a planters' colony where owners keep their own beach", [
-    "Before the Civil War, rice planters built a colony of summer homes at DeBordieu. Later owners of the land included Isaac Emerson, the Bromo-Seltzer maker, and the Vanderbilt family. Locals say \"Debidue\", a pronunciation that comes from the Gullah dialect.",
-    "The owners take care of their own beach. A gated community cannot get public money to rebuild a beach, so in 2017 they voted to create a beach fund, paid by assessments.",
-    "The DeBordieu Club, open only to owners, has a Pete and P.B. Dye course that has hosted the Carolinas Mid-Amateur, eight Har-Tru tennis courts, and places to eat from the Beanery cafe to oceanfront dining steps from the sand. Each Fourth of July brings a parade down DeBordieu Boulevard.",
+    "Before the Civil War, rice planters built a colony of summer homes at DeBordieu. Later owners of the land included Isaac Emerson, the Bromo-Seltzer maker, and the Vanderbilt family. Locals say \"Debidue\".",
+    "The owners pay for their own beach. As a gated community, DeBordieu does not qualify for public money to rebuild it. In 2017 the owners voted to start a beach fund, paid by assessments.",
+    "The DeBordieu Club, open only to owners, has a Pete and P.B. Dye course that has hosted the Carolinas Mid-Amateur, and eight Har-Tru tennis courts. Its places to eat include the Beanery cafe and dining steps from the sand, with ocean views. On the Fourth of July a parade lines up at DeBordieu and Luvan boulevards.",
     `Every car comes through one gate. Guests are registered online, in an app or by phone, and a guest pass lasts up to a week (${h.ext(DEBORDIEU_PACKET, "owners' welcome packet")}). The colony covers 2,700 acres, and at least 600 of them are a nature preserve.`,
-    "Joining the club costs extra, beyond the association fee, and boats cannot stay at the community dock overnight.",
+    "Club membership is separate from the association and its fee, and boats cannot stay at the community dock overnight.",
   ], "Homes here usually sell for about $2 million, and the HOA fee is about $300 to $400 a month.",
   ["debordieu-from-above-2026", "DeBordieu Colony and the beach to its east, from above. Golf fairways and ponds are among the homes, and a salt marsh is between many of the homes and the beach."]),
 ];
@@ -342,10 +346,11 @@ const ITEMLIST = `<script type="application/ld+json">${JSON.stringify({ "@contex
 const GATE_PHOTO = () => ph.aerial("prestwick-gate-from-above-2026",
   "An entrance to Prestwick from above. A small building, the gatehouse, is between the two lanes, with a gate arm across each lane.");
 
-const OFFER_TEXT = "Tell us the neighborhoods you like and your price range. We will email you this week's homes for sale there, with the HOA fee and what it covers.";
-const OFFER_SHORT = "Tell us the places you like and your price range. We email you this week's homes for sale there.";
+const OFFER_TEXT = "Tell us the neighborhoods you like and your price range. One of our agents will email you this week's homes for sale there, with the HOA fee and what it covers.";
+const OFFER_SHORT = "Tell us the places and your price range. One of our agents will email you this week's homes.";
 
-module.exports = {
+module.exports = G.page({
+  theme: "glass",
   url: SELF,
   hub: { name: "Buyers", url: "/buyers/" },
   pageImages: () => ph.pageImages(),
@@ -356,36 +361,37 @@ module.exports = {
   eyebrow: "Gated communities",
   h1: "Where are the gated communities near Myrtle Beach?",
   h1em: "Twenty of them, from Cherry Grove to DeBordieu.",
-  sub: "What each one does best, from a beach club to a marina with a dock master, then what homes there cost.",
-  heroCta: { title: "Tell us which ones you like. We will send you the homes for sale there.", text: OFFER_SHORT, label: OFFER_LABEL, href: OFFER },
+  sub: "What each of the 20 gated communities does best, from a beach club at Pawleys Island to a marina with a dock master, then what homes cost.",
+  heroCta: { title: "Get the homes for sale in the ones you like.", text: OFFER_SHORT, label: OFFER_LABEL, href: OFFER },
   author: "devin",
   toc: false,
   shortAnswer: [
     `Twenty gated neighborhoods line the coast from North Myrtle Beach to the ocean south of Pawleys Island. Two are on the ocean, and ten are golf communities. Homes in them usually sell for about $225,000 to $2 million, and the HOA fee in most is about $90 to $400 a month. A gate controls who drives in; ${h.a("#what-a-gate-does", "see what a gate does and does not do")}.`,
   ],
   sections: [
-    { h2: "Which gated community fits the way you want to live?", id: "choose", html: () =>
-      GUIDE_CSS + G.offerCss() + ph.css() +
-      h.p("Pick what matters most to you. Each neighborhood is listed once, under what it does best.") +
+    { id: "choose", html: () =>
+      GUIDE_CSS + ph.css() +
+      `<p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Choose by what you want</p>` +
+      h.p("Each one is listed once, under what it does best.") +
       GUIDE },
 
     ...SECTIONS_PLACES,
 
-    { h2: "How do the 20 compare on price?", id: "compare", html: (bg) =>
+    { h2: "How do the 20 compare on price?", toc: "Prices side by side", id: "compare", html: (bg) =>
       TABLE +
       h.cta("Want the homes for sale in more than one of these?", OFFER_TEXT, OFFER_LABEL, OFFER, bg) +
       h.p(`For neighborhoods without a gate, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods in Myrtle Beach")}, ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}, ${h.a("/buyers/golf-communities/", "golf communities")} and ${h.a("/buyers/55-plus-communities/", "55+ communities")}.`) },
 
-    { h2: "Does a gate make a neighborhood safer?", id: "what-a-gate-does", html: () =>
+    { h2: "Does a gate make a neighborhood safer?", toc: "What a gate does", id: "what-a-gate-does", html: () =>
       h.p("A gate keeps through traffic off the streets behind it, and a guard or the owner lets each visitor in. We do not rate any neighborhood as safe or unsafe.") +
       GATE_PHOTO() +
       h.p(`The state's ${h.ext(SLED, "crime data site")} shows crime reported to each police department and sheriff, by year and type.`) },
 
-    { h2: "What does a gated neighborhood cost to live in each year?", html: () =>
+    { h2: "What does a gated neighborhood cost to live in each year?", toc: "The yearly cost", id: "yearly-cost", html: () =>
       h.p("In Myrtle Trace, the HOA fee and county tax for a home you live in come to about $2,300 a year, besides the mortgage. In Seasons at Prince Creek West, they come to about $6,100.") +
       h.p(`Our ${h.a("/buyers/coastal-insurance/", "guide to home insurance on the coast")} covers storms and flooding.`) },
 
-    { h2: "What are the pros and cons of a gated community?", html: (bg) =>
+    { h2: "What are the pros and cons of a gated community?", toc: "Pros and cons", id: "pros-and-cons", html: (bg) =>
       prosCons([
         "Many have a clubhouse and a pool inside the gate.",
         "You can live on the ocean, by a river marina, beside a famous course or on an old plantation.",
@@ -396,7 +402,7 @@ module.exports = {
         { text: "Guests and workers come through the gate, so a visit can need a call box or a guest list." },
       ], { bg }) },
 
-    { h2: "How did one couple plan for guests behind a gate?", toc: "A buyer's story", html: (bg) =>
+    { h2: "How did one couple plan for guests behind a gate?", toc: "A buyer's story", id: "a-buyers-story", html: (bg) =>
       story([
         "<strong>Example:</strong> Every July, Ray and Linda's grandchildren come to the beach for a week.",
         "The couple like a condo in Litchfield by the Sea, behind its guarded gate, and ask how their guests will get in.",
@@ -427,4 +433,4 @@ module.exports = {
   bottomCta: { h2: "Get this week's homes for sale in the gated neighborhoods you like.", p: OFFER_TEXT, label: OFFER_LABEL, href: OFFER },
   keywords: "gated communities Myrtle Beach, gated communities North Myrtle Beach, gated communities Murrells Inlet, gated communities Pawleys Island, 55+ gated communities Myrtle Beach, gated golf communities Myrtle Beach, homes for sale in gated communities Myrtle Beach",
   about: "Gated residential neighborhoods along the Grand Strand, from North Myrtle Beach to Pawleys Island, South Carolina",
-};
+});
