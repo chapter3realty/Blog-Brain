@@ -204,7 +204,7 @@ const SECTIONS_PLACES = [
     "Dye Estates, a gated neighborhood inside Barefoot Resort, surrounds the Dye Course, home of the Monday After the Masters. Hootie & the Blowfish host the charity pro-am each spring, and it brings celebrities and PGA Tour players to the course.",
     `Its gate is staffed. A guard works the main gate ${h.ext(DYE_RULES, "24 hours a day")}, and owners drive through a resident lane with a barcode on the car. A guest gets in only when the owner has given the guard the guest's name and the date. At the second gate, an owner who has set up a gate code can let a guest in by phone. The guest calls from the keypad, and the owner presses 9.`,
     "Leatherleaf, the other gated neighborhood here, is 62 houses around a pond with the Love Course on every side. Davis Love III designed that course with Pinehurst No. 2 in mind. Leatherleaf has the Residents' Club too, with a weight room, a library, courts and a lifestyle director who plans events.",
-    "In summer a free shuttle runs to the beach at 46th Avenue, where owners have a cabana just south of the street, with key-fob parking, showers and a pet-washing station. In these two neighborhoods you call the driver 15 minutes ahead.",
+    "In summer a free shuttle runs to the beach at 46th Avenue. The owners' cabana there has key-fob parking, showers and a pet-washing station. In these two neighborhoods you call the driver 15 minutes ahead.",
     "Most of Barefoot Resort has no gate. In Dye Estates no one may swim, boat or fish in the ponds, and no docks may be built on them. Lots there are still for sale with no deadline to build, so a house can go up next door at any time.",
   ], "Leatherleaf homes sold for about $700,000 to $975,000 in the past year, with an HOA fee of about $390 a month. Two Dye Estates homes resold in the past year, at about $1.4 million and $2.5 million."),
 
@@ -286,7 +286,7 @@ const SECTIONS_PLACES = [
   ], "Homes usually sell for about $500,000, and the HOA fee is about $145 a month."),
 
   entry("the-reserve", "Greg Norman's private course and a hurricane-hole marina", [
-    `The Reserve's marina sits at the southern tip of Sandy Island, where Thoroughfare Creek meets the Waccamaw River. Staff launch and haul boats from ${h.ext(RESERVE_MARINA, "a dry storage building that holds about 200")}, the marina has a fuel dock, and a boardwalk runs through a cypress forest to the river.`,
+    `The Reserve's marina sits at the southern tip of Sandy Island, where Thoroughfare Creek meets the Waccamaw River. Staff launch and haul boats from ${h.ext(RESERVE_MARINA, "a dry storage building that holds about 200")}. The marina also has a fuel dock, and a boardwalk runs through a cypress forest to the river.`,
     "The Reserve Golf Club is a private Greg Norman course of up to 7,200 yards, set among 160 acres of wetlands. It has hosted the Carolinas Mid-Amateur twice, and a golf membership includes the club's dining and social events.",
     "Each fall the Pawleys Island Festival of Music & Art puts up its tent at the golf club, and the neighborhood has private beach access with parking.",
     "The golf club and the marina are run by separate companies, and each is a membership of its own, apart from the HOA.",
