@@ -235,7 +235,7 @@ const ENTRIES = [
     "At Tidewater Plantation, about seven of every ten houses have lots that border the golf course. Most stand under tall trees, with a fairway beside them or behind them.",
     "Tidewater is between the Intracoastal Waterway and Cherry Grove Inlet, on the marsh. The golf course is inside the neighborhood, and many streets curve between two fairways. A Publix is about seven minutes away by car.",
     "Tidewater has about 580 houses and a few condo buildings. Most of the houses for sale lately date from around 2000, and some streets carry sailing names, such as Spinnaker Drive and Topsail Lane.",
-    "The trade-off of a public course: golfers who do not live here play past the back yards.",
+    "The trade-off of a public course: golfers who do not live here play past the back yards. The few condos and villas also pay a higher HOA fee, about $780 to $800 a month.",
   ], "Houses in Tidewater usually sold for about $625,000 last year, and the HOA fee for a house is about $230 a month."),
 
   ENTRY("barefoot-resort", "a swing bridge to the shops", [
