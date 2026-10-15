@@ -1,0 +1,20 @@
+[
+  {
+    "row": "affordable 197",
+    "pattern": "\\bLocals play a round there for \\$45",
+    "struck": "Locals play a round there for $45.",
+    "use": "Residents of Horry, Georgetown and Brunswick counties can play a round there for $45, plus tax, with a cart."
+  },
+  {
+    "row": "affordable 200",
+    "pattern": "Coastal Carolina University an eight-minute",
+    "struck": "Horry-Georgetown Technical College is a seven-minute trip, and Coastal Carolina University an eight-minute one.",
+    "use": "Coastal Carolina University is 6 to 8 minutes by car from the Fairways, depending on where on campus you stop."
+  },
+  {
+    "row": "affordable 201",
+    "pattern": "Golf Digest gave it (?:four|4) stars",
+    "struck": "It has a double green and a double fairway, and Golf Digest gave it four stars in its Places to Play ratings.",
+    "use": "It has double greens and dual fairways. (Cut the Golf Digest rating: secondary source only.)"
+  }
+]
