@@ -532,7 +532,7 @@ module.exports = GL.page({
     entry("garden-city", "a free pier walk and free beach parking", [
       `${h.ext(GC_PIER, "The Pier at Garden City")} is always free to walk, and every oceanfront beach access in Garden City has ${h.ext(HC_BEACH, "free parking all year")}. On summer nights, live bands play at both ends of the pier.`,
       "A pier pass covers fishing, so you need no state license. Its Hugo burger is named for the 1989 hurricane that destroyed the pier.",
-      "Most of the houses for sale here are within half a mile of the shore, on streets that grew up in the 1950s. The county's Stanley Drive landing is a 5-minute drive.",
+      "Garden City did not develop until the 1950s, and most of the houses for sale here are within half a mile of the shore. The county's Stanley Drive landing is a 5-minute drive.",
       "Each July 4, decorated boats start at the point of Garden City Beach and parade through Murrells Inlet.",
       "The trade-off is flood insurance: with a mortgage, a lender will almost always require it on most of these houses.",
     ]),
@@ -540,7 +540,7 @@ module.exports = GL.page({
     entry("murrells-inlet", "by the creeks and the county boat ramp", [
       `At the north end of Murrells Inlet, some of the houses for sale are on the creeks of the inlet, and the rest are a few streets back. The county's ${h.ext(MI_LANDING, "boat landing on Stanley Drive")} is a 4-minute drive, and several houses on the market lately have their own floating dock.`,
       `People first came to the inlet for oyster roasts and fried shore dinners, and seafood restaurants followed. The ${h.ext(MARSHWALK, "MarshWalk")}, a half-mile wooden boardwalk along the salt marsh with a row of restaurants, is about 6 minutes away by car.`,
-      `The free pier walk and free beach parking at Garden City Beach are a 6-minute drive across the marsh. ${h.ext(HB_PARK, "Huntington Beach State Park")} and ${h.ext(BROOKGREEN, "Brookgreen Gardens")} are both within a 20-minute drive.`,
+      `The free pier walk and free beach parking at Garden City Beach are a 6-minute drive across the marsh. ${h.ext(BROOKGREEN, "Brookgreen Gardens")}, with its sculpture gardens on four former rice plantations, is about 15 minutes away by car.`,
       "Murrells Inlet is not a town, so the county's rules apply on most of these streets. The south part is in Georgetown County. There, a vehicle or travel trailer without current plates has to be kept in a closed building.",
       "Flood is the honest cost: more than half of these houses are in a high-risk flood zone.",
     ]),
