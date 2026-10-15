@@ -233,7 +233,7 @@ const ENTRIES = [
 
   ENTRY("tidewater", "houses along the fairways", [
     "At Tidewater Plantation, about seven of every ten houses have lots that border the golf course. Most stand under tall trees, with a fairway beside them or behind them.",
-    "Tidewater is between the Intracoastal Waterway and Cherry Grove Inlet, on the marsh. For a walk over that marsh, Heritage Shores Nature Preserve has three walkways and two piers, under a mile from the middle of Tidewater. It sits on an island in the marsh, reached by a boardwalk.",
+    "Tidewater is between the Intracoastal Waterway and Cherry Grove Inlet, on the marsh. Golf course land runs right through the neighborhood, so many streets curve between two fairways. A Publix is about seven minutes away by car.",
     "Tidewater has about 580 houses and a few condo buildings. Most of the houses for sale lately date from around 2000, and some streets carry sailing names, such as Spinnaker Drive and Topsail Lane.",
     "The trade-off of a public course: golfers who do not live here play past the back yards.",
   ], "Houses in Tidewater usually sold for about $625,000 last year, and the HOA fee for a house is about $230 a month."),
@@ -296,7 +296,7 @@ const ENTRIES = [
     "Forestbrook Estates has a community garden with plots for owners, on the same grounds as the community pool.",
     "The neighborhood was once known as Kingsland. Lennar began building it in 2018, and every house the county approved is now built: 500 houses, with about 105 townhomes beside them.",
     "The houses are built around ponds, and every home here is outside the high-risk flood zone. Listings say golf carts are allowed, and our agents check the HOA rules before you offer. A Food Lion is about six minutes away by car.",
-    "Rosewood Landing, a county boat ramp on the Intracoastal Waterway, is about two miles away.",
+    "A house lot here is about a sixth of an acre, and the whole neighborhood fits on about 81 acres.",
     "The trade-off for a boater: the neighborhood has ponds, not a lake.",
   ], "Houses in Forestbrook Estates usually sold for about $395,000 last year, and the HOA fee is under $90 a month."),
 

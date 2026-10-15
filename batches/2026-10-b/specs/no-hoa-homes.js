@@ -159,7 +159,7 @@ const MAP = (() => {
     .concat(INLAND.map((k) => shape(k, Object.assign({ name: `${num(k)} ${shortName(k)}`, mark: String(num(k)) },
       /* The country around Loris holds the Loris circle; its badge goes in its west part, off the town's. */
       k === "loris-country" ? { markAt: { lat: 34.03, lon: -78.98 } } : {}))));
-  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", places, areas, leaders: true, placeNames: false, maxRatio: 0.9 },
+  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", places, areas, leaders: true, placeNames: false, maxRatio: 0.85 },
     { dir: MAP_DIR, src: "/images/maps", glass: true });
   const mk = m.boxes.filter((b) => b.kind === "marker" || b.kind === "label");
   for (let i = 0; i < mk.length; i++) for (let j = i + 1; j < mk.length; j++) { const a = mk[i], b = mk[j];
@@ -431,7 +431,7 @@ module.exports = GL.page({
     text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
   author: "devin",
   shortAnswer: [
-    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the areas below, from beach streets to country land.",
+    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the areas below, from beach streets and river towns to country land.",
   ],
 
   sections: [
@@ -461,7 +461,7 @@ module.exports = GL.page({
       "The older Pine Lakes streets have big lots in the middle of the city: typically almost half an acre, more than twice a downtown lot. There is room for a workshop or a boat beside the house.",
       `The streets are around the golf course, which is ${h.ext(PL_CLUB, "less than half a mile from the ocean")}, on rolling land. The beach is about 0.6 mile on foot, at the Seaside Place street end, one of the city's fully accessible beach paths.`,
       `${h.ext(MB_PARK_OF, "Ocean Forest Memorial Park")}, with a walking path, is at the Haskell Circle beach access, about half a mile on foot. North Ocean Boulevard has bike lanes.`,
-      `A resident whose car is registered and taxed in the city gets a decal for free parking at city meters, at beach street ends and at ${h.ext(PELICANS, "Pelicans baseball games")}.`,
+      `A resident whose car is registered and taxed in the city gets a free parking decal. With it, you park free at city meters, at beach street ends and at ${h.ext(PELICANS, "Pelicans baseball games")}.`,
       "The city picks up trash, recycling and yard waste at the curb each week, for about $34 a month.",
       "One section is different: the newer Preserve at Pine Lakes has an HOA fee.",
     ]),
