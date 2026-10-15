@@ -204,9 +204,9 @@ const ENTRY = (id, headline, paras, price) => {
 const ENTRIES = [
   ENTRY("cherry-grove", "a fishing pier with a world record", [
     "In 1964 a 1,780-pound tiger shark was landed from Cherry Grove Pier, a world record at the time. The pier was built in the 1950s.",
-    `Mornings here can start on the sand. A public beach access is about 0.1 mile from the middle of Cherry Grove, and North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the beach")} all year, except in the middle of the day in summer.`,
+    `Mornings here can start on the sand. A public beach access is about 0.1 mile from the middle of Cherry Grove. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the beach")} all year, except in the middle of the day in summer.`,
     "For an evening walk, Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot.",
-    "The trade-off is the house itself: most for sale here were built from the 1960s to the 1980s, and they are smaller than the houses in the newer neighborhoods.",
+    "The trade-off is the house itself. Most for sale here were built from the 1960s to the 1980s, and they are smaller than in the newer neighborhoods.",
   ], "Houses in Cherry Grove usually sell for about $695,000, and most homes for sale are listed with no homeowners association (HOA) fee."),
 
   ENTRY("surfside-beach", "a free concrete pier with two restaurants", [
@@ -224,7 +224,7 @@ const ENTRIES = [
   ], "Of about 17 resales in The Preserve and Pine Lakes Estates in the past year, the middle sold for $600,000. A house in The Preserve pays an HOA fee of about $95 a month."),
 
   ENTRY("tidewater", "supper at the club grille, any night of the week", [
-    `At Tidewater Plantation, the club grille has a plan for every night. ${h.ext(TW_SPECIALS, "Joey's Clubhouse Grille")}, a public restaurant at Tidewater Golf Club, runs a dinner special each day: Calabash shrimp on Mondays, a cheeseburger night on Wednesdays, flounder all day on Fridays and ribs on Saturdays.`,
+    `At Tidewater Plantation, the club grille has a plan for every night. ${h.ext(TW_SPECIALS, "Joey's Clubhouse Grille")}, a public restaurant at Tidewater Golf Club, runs a dinner special each day. Mondays are Calabash shrimp, Fridays are flounder all day, and Saturdays are ribs.`,
     "Happy hour is every afternoon, and brunch is on Saturdays and Sundays. The grille is a 3-minute drive from a typical Tidewater home.",
     "Many of Tidewater's houses are along the fairways.",
     "Tidewater is on the marsh behind Cherry Grove Inlet, not on the ocean, so a beach day starts with a short drive.",
@@ -252,10 +252,10 @@ const ENTRIES = [
     `Grande Dunes was built to look like South Florida. Its ${h.ext(GD_SUN, "first houses followed the style")} of the Florida builder Addison Mizner, with tile roofs, stucco, columns and arches, and many of its most expensive houses still do. The first completed house sold in October 2000 for $1.15 million.`,
     "For a golfer, the Resort Club course, a Roger Rulewich design, sits on a bluff over the Intracoastal Waterway. The National Golf Course Owners Association named it its course of the year in 2009.",
     "If you want a lived-in house with a settled yard, the choice is small: most houses for sale here are new or not yet finished.",
-  ], "New houses from builders such as Lennar and Dream Finders sold for about $680,000 in the past year, and the seven homes that resold went for $1.2 million to $2.9 million. A house pays an HOA fee of about $200 to $400 a month."),
+  ], "New houses from builders such as Lennar and Dream Finders sold for about $680,000 in the past year. The seven homes that resold went for $1.2 million to $2.9 million. A house pays an HOA fee of about $200 to $400 a month."),
 
   ENTRY("plantation-lakes", "pontoon boats on a lake with 15 miles of shoreline", [
-    `Owners at Plantation Lakes ${h.ext(PL_POA, "take pontoon boats out")} on a lake with about 15 miles of shoreline. On a lakefront lot, the water is behind the house, and an owner can take the boat to the amenity area, which has day and overnight docks and a boat ramp.`,
+    `Owners at Plantation Lakes ${h.ext(PL_POA, "take pontoon boats out")} on a lake with about 15 miles of shoreline. On a lakefront lot, the water is behind the house. An owner can take the boat to the amenity area, which has day and overnight docks and a boat ramp.`,
     "On a cool evening, the clubhouse has a great room with a fireplace and a reading and card room.",
     "The lake is for small boats: the recorded rules allow boats of 19 feet or shorter, with small motors.",
   ], "Houses in Plantation Lakes usually sell for about $740,000, the most of the Carolina Forest neighborhoods here, and the HOA fee is about $125 a month."),
@@ -281,8 +281,8 @@ const ENTRIES = [
 
   ENTRY("avalon", "the lowest house price on this page", [
     "Of the 15 neighborhoods here, Avalon, in Carolina Forest, has the lowest house prices.",
-    "An evening softball game needs no drive. The owners' association holds a 9-acre amenity area in the middle of the neighborhood, with a baseball and softball field, a beach volleyball court, a basketball court and a covered picnic pavilion.",
-    "The houses are older and smaller than in the newer neighborhoods here: the ones listed now were built from 2000 to 2006 and have about 1,600 square feet, on lots of about a sixth of an acre.",
+    "An evening softball game needs no drive. The owners' association holds a 9-acre amenity area in the middle of the neighborhood. It has a baseball and softball field, a beach volleyball court, a basketball court and a covered picnic pavilion.",
+    "The houses are older and smaller than in the newer neighborhoods here. The ones listed now were built from 2000 to 2006 and have about 1,600 square feet, on lots of about a sixth of an acre.",
   ], "Houses in Avalon resold for a middle price of about $292,000 in the past year, and the HOA fee is about $85 a month."),
 
   ENTRY("deerfield", "bigger wooded lots near Surfside Beach", [
@@ -292,7 +292,7 @@ const ENTRIES = [
   ], "Homes in the Deerfield Plantation area usually sell for about $355,000, and the HOA fee is under $90 a month."),
 
   ENTRY("the-farm", "the Carolina Forest pick nearest the beach", [
-    "Of the four Carolina Forest neighborhoods on this page, The Farm is the nearest the beach: about 12 minutes by car from the middle of the neighborhood. Avalon, the one that costs less, is about 18. So The Farm is the pick here for a Carolina Forest house with beach days in the plan.",
+    "Of the four Carolina Forest neighborhoods on this page, The Farm is the nearest the beach: about 12 minutes by car from the middle of the neighborhood. Avalon, the one that costs less, is about 18. For a Carolina Forest house with beach days in the plan, The Farm is the pick here.",
     `Our ${h.a(FARM, "guide to The Farm at Carolina Forest")} covers the rest: its trails, its amenities and its rules.`,
   ], "Houses at The Farm usually sell for about $350,000, and the HOA fee for a house is $107 a month."),
 ];
@@ -333,7 +333,7 @@ module.exports = G.page({
       `<div class="c3-mini"><table><caption>The 15 neighborhoods: price and time to the beach</caption><thead><tr><th scope="col">Neighborhood</th><th scope="col">Homes usually sell for</th><th scope="col">To the beach</th></tr></thead><tbody>`
       + D.neighborhoods.map((n, i) => `<tr><th scope="row"><a href="#${n.id}">${i + 1}. ${n.short}</a></th><td>${n.cells.price}</td><td>${n.cells.beach}</td></tr>`).join("")
       + `</tbody></table></div>` +
-      h.p("Times are by car with no traffic, except Cherry Grove and Surfside Beach, which are on foot, from the middle of each neighborhood to the nearest public beach access.") },
+      h.p("Cherry Grove and Surfside Beach are walks; the rest are by car with no traffic. Each is from the middle of the neighborhood to the nearest public beach access.") },
     /* OWNER-EYE-14c M7 and the coordinator's round 14d decision: not the sibling pages' yearly cost shape and
        not The Farm's figure, but the yearly HOA fee by guide group (data fee_by_group, row 275). */
     { h2: "What does the HOA fee come to in a year?", toc: "HOA fee by kind of place", id: "hoa-fee", html:
