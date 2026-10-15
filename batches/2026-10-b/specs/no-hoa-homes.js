@@ -474,7 +474,7 @@ module.exports = GL.page({
       "Flood is the cost here. About half of these houses are in a high-risk flood zone, and with a mortgage your lender will almost always require flood insurance.",
     ]),
 
-    entry("crescent-beach", "a beach access from every house", [
+    entry("crescent-beach", "half a mile on foot to a beach access", [
       `Every house for sale in Crescent Beach that we could place on the map is less than half a mile on foot from a public beach access. From 6th to 27th Avenue South, the beach is one of the city's three ${h.ext(NMB_SURF, "surf zones")}. From mid-May to mid-September, boards are banned from 9 to 4 on the rest of the beach, but you can surf here.`,
       `${h.ext(INGRAM, "Ingram Dunes Nature Preserve")}, on Hillside Drive, is the city's last remaining maritime forest. It has native dunes 30 feet tall and an interpretive half-mile nature trail.`,
       "Most of the houses were built before 1990, on streets such as Hillside Drive, Holly Drive, Perrin Drive and Strand Avenue.",
@@ -532,7 +532,7 @@ module.exports = GL.page({
       "A pier pass covers fishing, so you need no state license. Its Hugo burger is named for the 1989 hurricane that destroyed the pier.",
       "Most of the houses for sale here are within half a mile of the shore. Garden City grew up in the 1950s.",
       `${h.ext(HB_PARK, "Huntington Beach State Park")} is known for birding and surf fishing.`,
-      "Flood is the cost here: with a mortgage, a lender will almost always require flood insurance on most of these houses.",
+      "The trade-off is flood insurance: with a mortgage, a lender will almost always require it on most of these houses.",
     ]),
 
     entry("murrells-inlet", "creek lots by the county boat ramp", [
