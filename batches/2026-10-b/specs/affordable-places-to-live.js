@@ -28,6 +28,10 @@
  *   place's offer box; the fee and tax a year in the one table after the entries, with the water and sewer note.
  *   Five aerials of bare land cut (on the photo partner's list). One map, no key, no "Where else" list. The chart
  *   is compact (glass.js bars o.compact), the gray Myrtle Beach bar first. Row 222 holds the wording changes.
+ * Version 14e, 2026-10-15: owner's eye 14d (grade 8) and verifier v6 (row 225). No sample voice: homes from county
+ *   parcels and builder plans, one listing detail said once in three entries (row 226). Fairways, Sawgrass East, Golf
+ *   and Yacht Club and Indigo Grove lead with a fact of their own; each entry has a normal day. v6 D16 to D20 applied;
+ *   every price box says "usually sold for". Wynbrooke aerial cut; town names on the map; one Parkview FAQ cut.
  * Versions 1 to 12, 2026-10-13 and 14: git history. Version 8 found the twelve by joining the county deed
  *   index to the parcels (rows 116 and 155); later rounds added the aerials, the drives and the flood checks.
  *
