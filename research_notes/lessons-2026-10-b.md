@@ -129,6 +129,8 @@ The struck list catches old wording coming back. It cannot catch new wording tha
 
 **B51. "Every entry needs X" builds a template sentence.** I asked for one sentence on the homes in every gated entry. The writer wrote the same sentence 14 times: "Most houses are [style] from the [decade], and the best lots look onto [view]." It had four in a row, and two of them were ponds. repeat-check missed it because the words changed each time. Rule (writer prompt): when a brief says every entry needs a kind of fact, give it in that entry's own words and shape, and in a different place in the entry. Read three entries in a row aloud before handing on.
 
+**B52. The first page of listings is not a sample.** The gated researchers described the homes in each community from the first 40 listings a search returned. Searches sort new and large homes first. Read across all 1,205 listings, half the home facts were wrong: Waterway Palms' "3,700 to 4,300 square feet" fit 26% of homes, "many have an elevator" was 13%, and Heritage's "most one-story brick 1990s" was 20%. Rule (researcher prompt): to describe what homes are like, use every listing in the search, or the county parcel data, never the first page. Record the count read beside each claim.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.

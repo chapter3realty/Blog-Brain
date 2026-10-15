@@ -74,3 +74,7 @@ You are researching facts for one page on chapter3realty.com. Chapter3 is a real
 ---
 
 <brief here>
+
+## Describing the homes in a place (lesson B52)
+
+To say what homes are like (size, age, style, features), read every listing the search returns, or use county parcel data for all homes. Never use the first page: searches sort new and large homes first. Record the count read and the count that has the feature beside each claim, for example "25 of 188 listings mention an elevator".
