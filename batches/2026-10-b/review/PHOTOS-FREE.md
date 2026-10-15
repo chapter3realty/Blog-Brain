@@ -37,3 +37,45 @@ Notes for the writer:
 - The Pine Lakes clubhouse photo is wide (16:9). It suits a wide slot better than a 4:3 card.
 - The three USGS photos are 2011. Most houses are the same today, but a reader should see the year, so it is in each caption.
 - None of these has the 1x1, 4x3 and 16x9 crops a hero needs. If one becomes a page's hero, run `node tools/photos.js crops`.
+
+## Gated communities (`gated-communities/`)
+
+Both are taken from over the ocean, outside any gate, and were published by the U.S. government.
+
+| Community | File | What it shows | License | Caption |
+|---|---|---|---|---|
+| DeBordieu Colony | `debordieu-beach-houses-from-the-ocean-2011` | Large beach houses behind the dunes, more houses among live oaks, and the salt marsh behind. | Public domain (U.S. Geological Survey, 2011) | DeBordieu Colony from over the ocean in 2011: houses behind the dunes, with the salt marsh beyond. |
+| Litchfield by the Sea | `litchfield-by-the-sea-oceanfront-from-the-ocean-2011` | Condominium buildings and pools by the beach, tennis courts, and villas around the lakes. Matches the "large buildings by the beach" in the current aerial. | Public domain (U.S. Geological Survey, 2011) | Litchfield by the Sea from over the ocean in 2011: condominium buildings and pools by the beach, with tennis courts and villas around the lakes behind. |
+
+Not found: a free photo of any clubhouse, marina or course at Heritage Plantation, The Reserve, Litchfield Plantation, Wachesaw, Barefoot, Grande Dunes or Tidewater. Commons has none from the uploader's own camera. The only Grande Dunes photos are of the Marriott hotel, whose subject is a brand. Tidewater sits behind the marsh at Hog Inlet; in the 2011 flight it is too far back to see.
+
+## Best neighborhoods (`best-neighborhoods/`)
+
+| Neighborhood | File | What it shows | License | Caption |
+|---|---|---|---|---|
+| Market Common | `market-common-warbird-park-jets` | Warbird Park: two jets from the old Myrtle Beach Air Force Base on a round plaza under tall pines. No people. 16:9, cut from the left. | Public domain (Carol M. Highsmith, 2017, Library of Congress) | Warbird Park at The Market Common, with jets from the old Myrtle Beach Air Force Base. |
+
+The no-HOA photos above can also serve this page: `cherry-grove-canals-from-the-ocean-2011` (Cherry Grove), `pine-lakes-clubhouse` (Pine Lakes), `surfside-beach-houses-from-the-sand` (Surfside Beach).
+
+Not found: Grande Dunes (only the Marriott hotel), Waterbridge, Wild Wing, Deerfield, Tidewater, Plantation Lakes, and the Barefoot swing bridge. Commons has no own-work photo of any of them, and the USGS flight follows the beach, not the waterway.
+
+## Affordable places to live (`affordable/`)
+
+| Place | File | What it shows | License | Caption |
+|---|---|---|---|---|
+| Conway area | `conway-main-street-downtown` | Main Street at Third Avenue: two-story brick and stone shops, trees, parked cars. Shop names are small and not the subject. | Public domain (Pubdog, own work, 2010) | Main Street in downtown Conway. |
+
+`conway-older-house-and-oak` (no-HOA folder) also fits a Conway entry.
+
+Not found: Parkview and the Whispering Pines golf course, Wild Wing, and the North Myrtle Beach Park and Sports Complex. Commons has no own-work photo of them, and the Library of Congress and U.S. agencies have none I could find.
+
+## Counts
+
+| Page | New photos | Areas still without a free photo |
+|---|---|---|
+| No-HOA homes | 8 (5 new areas, 2 second choices, plus Myrtle Heights) | Plantation Point, Windy Hill, Ocean Drive, Little River, Socastee, country around Loris |
+| Gated communities | 2 | Clubhouses, marinas and courses of all eight named communities |
+| Best neighborhoods | 1 (and 3 from no-HOA that fit) | Grande Dunes, Waterbridge, Wild Wing, Deerfield, Tidewater, Plantation Lakes, Barefoot bridge |
+| Affordable | 1 | Parkview / Whispering Pines, Wild Wing, North Myrtle Beach Park and Sports Complex |
+
+The photo partner's shot list covers every place in the "not found" lists.
