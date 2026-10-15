@@ -90,7 +90,7 @@ const ph = kit.photoSet({ aerialWidth: "760px" });
 const CSS = ph.css();
 const PIC = (name, caption, alt) => ph.aerial(name, caption, { alt, closeUp: true });
 const PHOTO = {
-  "cherry-grove": PIC("cherry-grove-pier", "Cherry Grove Pier from above, running out past the surf, with beach houses behind the sand.",
+  "cherry-grove": PIC("cherry-grove-pier-from-above", "Cherry Grove Pier from above, running out past the surf, with beach houses behind the sand.",
     "Cherry Grove from above: a long wooden pier labelled Cherry Grove Pier runs from a blue building on the beach out past the waves, with rows of beach houses behind the sand"),
   "surfside-beach": ph.aerial("surfside-beach-pier", "The Surfside Beach Pier from the air, with streets of beach houses behind the sand.",
     { alt: "Surfside Beach from the air: a long pier labelled Surfside Beach Pier runs from the beach into a green ocean, with rows of houses on the streets behind the sand" }),
