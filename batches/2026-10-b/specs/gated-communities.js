@@ -197,7 +197,7 @@ const SECTIONS_PLACES = [
   ["tidewater-plantation-marsh-from-above-2023", "Tidewater Plantation from above, with its golf holes along the inlet labelled. Houses line the street above the fairways."]),
 
   entry("seaside-plantation", "Main Street by golf cart", [
-    "From Seaside Plantation, Main Street in North Myrtle Beach is about two-thirds of a mile by road, on two side streets, with no main highway to cross. Owners may drive golf carts on Seaside's own streets, and the city lets a cart with a state permit use its streets posted at 35 mph or less, from sunrise to sunset.",
+    "From Seaside Plantation, Main Street in North Myrtle Beach is about two-thirds of a mile by road, on two side streets, with no main highway to cross. The city lets a golf cart with a state permit use streets posted at 35 mph or less, from sunrise to sunset.",
     "The owners association owns three lakes, about 13 acres in all, and some houses look onto them. We ask the association for its current gate rules for any home you like.",
     "Each spring and fall the Society of Stranders brings its shag dance festivals, the Spring Safari and the Fall Migration, to Main Street and Ocean Drive. The ocean is a quarter to three-quarters of a mile from the houses.",
     "Festival weeks bring crowds and traffic to Main Street.",
@@ -220,19 +220,19 @@ const SECTIONS_PLACES = [
 
   entry("waterway-palms-plantation", "a Charleston-style plan and a ramp of its own", [
     "Waterway Palms Plantation copies the look of Charleston's Battery district, and its clubhouse stands on a point in a pond, with water on three sides.",
-    "The neighborhood's boat ramp sits on its own lot on the Intracoastal Waterway, with a day dock and boat storage. From the ramp, Grande Dunes Marina is about 4 miles up the waterway.",
+    "Its boat ramp sits on its own lot on the Intracoastal Waterway. From there, Grande Dunes Marina is about 4 miles up the waterway and Barefoot Marina about 9. A day on the water starts at home, not at a public ramp across town.",
   ], "Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
 
   entry("the-bluffs-on-the-waterway", "a boathouse clubhouse on the waterway", [
-    "The Bluffs on the Waterway has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway. Its boat ramp sits on a waterfront lot of more than 6 acres, with day docks and boat storage, and Grande Dunes Marina is about 2.5 miles away by water.",
+    "The Bluffs on the Waterway has two clubhouses, and one of them is a boathouse on the Intracoastal Waterway. Its boat ramp sits on a waterfront lot of more than 6 acres, with day docks and boat storage. Grande Dunes Marina is about 2.5 miles away by water.",
     "Many of the houses are custom Mediterranean-style homes in stucco. Black Creek runs through the woods along the west side, and the county's bike park is less than a mile away.",
-    "A main highway runs along one side of the neighborhood.",
+    "One side of the neighborhood is on a main highway.",
   ], "Homes here usually sell for about $850,000; the HOA fee is about $150 a month."),
 
   entry("myrtle-beach-golf-and-yacht-club", "a watch desk covered around the clock", [
-    "At Myrtle Beach Golf and Yacht Club, the HOA's Community Watch desk is covered 24 hours a day, seven days a week, and the gatehouse at the entrance has its own phone line. All of that comes with an HOA fee of about $95 a month.",
-    "The owners' association owns the wide strips of grass and woods between the streets. The association also keeps a storage area for RVs and trailers, and Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance.",
-    "Despite the name, there is no golf course or yacht club anymore; its course, Heron Point, closed years ago. Sandpiper Place, where D.R. Horton is building new houses, shares the entrance but has its own owners association, so it matters which one a home belongs to.",
+    "At Myrtle Beach Golf and Yacht Club, the HOA's Community Watch desk is covered 24 hours a day, seven days a week. The gatehouse at the entrance has its own phone line. All of that comes with an HOA fee of about $95 a month.",
+    "The owners' association owns the wide strips of grass and woods between the streets. The association also keeps a storage area for RVs and trailers. Enterprise Landing, a public boat ramp on the Intracoastal Waterway, is about a 4-minute drive from the entrance.",
+    "Despite the name, there is no golf or yacht club anymore; Heron Point, its golf club, closed years ago. Sandpiper Place, where D.R. Horton is building new houses, shares the entrance but has its own owners association, so it matters which one a home belongs to.",
   ], "In the older part, homes usually sell for about $225,000."),
 
   entry("prestwick", "a Pete and P.B. Dye course named Course of the Year", [
@@ -249,7 +249,7 @@ const SECTIONS_PLACES = [
 
   entry("bellwood-landing", "big lots along Collins Creek", [
     "Bellwood Landing has room. Most lots are close to half an acre, and some along Collins Creek are larger than an acre and a half.",
-    "About a dozen lots back onto Collins Creek, which winds through a wide band of woods. Beyond the woods lies TPC Myrtle Beach, a Tom Fazio course that has hosted the PGA Tour's Monday qualifier for the Myrtle Beach Classic.",
+    "About a dozen lots back onto Collins Creek, which runs through a wide band of woods. Beyond the woods lies TPC Myrtle Beach, a Tom Fazio design that has hosted the PGA Tour's Monday qualifier for the Myrtle Beach Classic.",
   ], "Homes here usually sell for about $810,000, and the HOA fee is about $160 a month."),
 
   entry("wachesaw-plantation", "a members' club on a bluff above the river", [
@@ -379,7 +379,7 @@ module.exports = G.page({
   faqTitle: "Gated communities FAQ",
   faq: [
     { q: "Does a gate make a neighborhood safer?", a: "We do not rate any neighborhood as safe or unsafe. A gate keeps cars that are only passing through off the streets, and a guard, a code or the owner lets each visitor in." },
-    { q: "How do guests get through the gate?", a: "Each neighborhood has its own way: a guard with a guest list, a call box at the gate, or a code from the owner. In Dye Estates, for example, a guest can call the owner from the keypad, and the owner presses 9 to open the gate." },
+    { q: "How do guests get through the gate?", a: "Each neighborhood has its own way: a guard with a guest list, a call box at the gate, or a code from the owner. In Dye Estates, for example, a guest at the second gate can pick the owner's name on the keypad, and the owner opens the gate by phone." },
     { q: "Is there a gated community in Surfside Beach?", a: "No. Prestwick, outside the town, is the gated neighborhood on this page nearest Surfside Beach. Its nearest public beach access is in Surfside Beach, about 7 minutes away by car." },
     { q: "Are there 55+ gated communities near Myrtle Beach?", a: "Yes. Seasons at Prince Creek West in Murrells Inlet is a 55+ community, and visitors use a call box at its main gate." },
     { q: "Are there gated golf communities near Myrtle Beach?", a: "Yes. Ten of the 18 gated neighborhoods on this page are golf communities, from Tidewater in North Myrtle Beach to DeBordieu Colony south of Pawleys Island." },

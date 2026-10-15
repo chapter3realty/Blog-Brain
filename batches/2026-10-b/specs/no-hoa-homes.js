@@ -55,12 +55,23 @@ const ph = kit.photoSet({ aerialWidth: "760px" });
 /* One picture per area where we have a lawful one of the place itself (photos.json records; the photo
    partner's ground photos will replace them). Made at load time: mkpage reads pageImages first. */
 const PHOTO = {
-  /* Pine Lakes, Little River and Surfside lost their aerials (owner's eye 14: their point did not show);
-     the photo partner's list asks for each (photo-request-abdulla.html). */
-  "cherry-grove": ph.aerial("cherry-grove-canal-streets-from-above", "Houses on the Cherry Grove canals, from the air."),
+  /* Free-licensed photos found for round 14d (review/PHOTOS-FREE.md): public domain (Pubdog's own work on
+     Commons, the USGS 2011 oblique survey) and CC BY-SA 4.0 (Surfside). The photo partner's shots replace
+     them (photo-request-abdulla.html). Private homes: the caption names the street or district, no number. */
+  "mb-downtown": ph.aerial("downtown-myrtle-beach-pleasant-inn", "The Pleasant Inn, a wood guest house from about 1927, under the live oaks on Broadway Street, in the old town by Withers Swash.", { closeUp: true }),
+  "mb-myrtle-heights": ph.aerial("myrtle-heights-older-house-on-ocean-boulevard", "An older two-story house with columns on North Ocean Boulevard, in the Myrtle Heights-Oak Park Historic District, set well back from the street.", { closeUp: true }),
+  "mb-pine-lakes": ph.aerial("pine-lakes-clubhouse", "The 1927 clubhouse, a few streets from the older houses.", { closeUp: true }),
+  "crescent-beach": ph.aerial("crescent-beach-streets-from-the-ocean-2011", "Crescent Beach from over the ocean in 2011: streets of beach houses behind the oceanfront, the houses this area is known for."),
+  "cherry-grove": ph.aerial("cherry-grove-canals-from-the-ocean-2011", "Cherry Grove from over the ocean in 2011: houses on the canals, many with their own docks, and the marsh behind."),
+  "surfside": ph.aerial("surfside-beach-houses-from-the-sand", "Beach houses behind the low dunes on the ocean side of Surfside Beach, seen from the sand.", { closeUp: true }),
+  "garden-city": ph.aerial("garden-city-beach-and-marsh-from-the-ocean-2011", "Garden City Beach from over the ocean in 2011: rows of houses between the beach and the marsh, with docks on the creeks behind."),
   "conway": ph.aerial("conway-riverwalk-boardwalk", "The Riverwalk in downtown Conway, on the Waccamaw River.", { closeUp: true }),
   "loris": ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true }),
   "aynor": ph.aerial("aynor-country-lot", "Houses on lots of about an acre along a country road outside Aynor, from the air. The orange line is one lot.", { closeUp: true }),
+};
+/* A second photo, after an entry's third paragraph (Conway: the older houses the paragraph describes). */
+const PHOTO_LATE = {
+  "conway": ph.aerial("conway-older-house-and-oak", "An older house behind a big oak in Conway's residential historic district, where the streets were laid out around the live oaks.", { closeUp: true }),
 };
 ph.share("aynor-country-lot");
 
@@ -198,7 +209,7 @@ const chip = (k) => `<div class="c3-nh-chips"><span class="c3-nh-chip">Listed wi
 function entry(k, headline, paras) {
   const n = num(k);
   return { h2: `${n}. ${ENTRY[k].name}: ${headline}`, toc: `${n}. ${ENTRY[k].short || ENTRY[k].name}`, id: ENTRY[k].id,
-    html: () => chip(k) + h.p(paras[0]) + (PHOTO[k] || "") + paras.slice(1).map((t) => h.p(t)).join("") + offer(k) };
+    html: () => chip(k) + h.p(paras[0]) + (PHOTO[k] || "") + paras.slice(1).map((t, i) => h.p(t) + (i === 1 && PHOTO_LATE[k] ? PHOTO_LATE[k] : "")).join("") + offer(k) };
 }
 
 /* Sources. */
