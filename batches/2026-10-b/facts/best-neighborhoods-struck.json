@@ -542,5 +542,23 @@
     "pattern": "\\bresidential association started the same day",
     "struck": "The residential association started the same day, and neighborhoods grew up around the courses.",
     "use": "The residential association's covenants were recorded the same day, and neighborhoods grew up around the courses."
+  },
+  {
+    "row": "neighborhoods 245",
+    "pattern": "Cherry Grove Pier[^.]{0,120}\\b14-minute walk",
+    "struck": "Cherry Grove Pier was built in the 1950s and is about a 14-minute walk from the middle of the neighborhood.",
+    "use": "Cherry Grove Pier was built in the 1950s and is about a 12-minute walk, about half a mile, from the middle of the neighborhood."
+  },
+  {
+    "row": "neighborhoods 245 (via 189, 232)",
+    "pattern": "\\ba walkway and a pier over the marsh",
+    "struck": "Russell Burgess Coastal Preserve, with a walkway and a pier over the marsh, is under half a mile on foot.",
+    "use": "Russell Burgess Coastal Preserve, with a walkway and a pier, is under half a mile on foot. (Cut \"over the marsh\": no row says it.)"
+  },
+  {
+    "row": "neighborhoods 245 (via 182)",
+    "pattern": "\\bAbout 400 canal homes",
+    "struck": "About 400 canal homes also pay the city about $1,700 a year to dredge the canals.",
+    "use": "About 415 properties in Cherry Grove pay the city about $1,700 a year now, set each year, to dredge the canals."
   }
 ]
