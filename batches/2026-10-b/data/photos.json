@@ -2078,7 +2078,25 @@
    "method": "scratchpad gated-r7: naip.py (export), label.py (resize, contrast, labels), mkrec.js (records)",
    "share_alike": false,
    "width": 1200,
-   "height": 900
+   "height": 900,
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/gated-communities/litchfield-by-the-sea-from-above-2023-1x1.webp",
+     "width": 1200,
+     "height": 1200
+    },
+    "4x3": {
+     "path": "images/buyers/gated-communities/litchfield-by-the-sea-from-above-2023-4x3.webp",
+     "width": 1200,
+     "height": 900
+    },
+    "16x9": {
+     "path": "images/buyers/gated-communities/litchfield-by-the-sea-from-above-2023-16x9.webp",
+     "width": 1200,
+     "height": 675
+    }
+   },
+   "crop_source": "the same labelled view at 1600 x 1200 (scratchpad gated-r7/lab/litchfield-by-the-sea.png), cut to 1x1, 4x3 and 16x9 from the center with tools/photos.js crops (round 14c, the page share image)"
   },
   {
    "slug": "gated-communities",
@@ -2440,7 +2458,7 @@
    "title": "Where The Farm at Carolina Forest is, NAIP aerial, April 2023",
    "what": "A wide view from above of Carolina Forest and Myrtle Beach on April 10, 2023, with The Farm outlined in orange, the 353-acre tract the state bought for the Lewis Ocean Bay Heritage Preserve shaded green along its north edge, and seven labels: the tract, The Farm, Carolina Forest Boulevard, US 501, the Publix about 2 minutes from the entrance, McLeod Health's emergency room about 5 minutes away and the beach about 10 minutes away. The ocean is at the lower right.",
    "caption": "Where The Farm is. The orange line is its edge, and the green area is the land the state bought for a nature preserve.",
-   "alt": "Carolina Forest and Myrtle Beach from above, with The Farm outlined in orange, the land the state bought for a nature preserve shaded green along its north edge, and labels for The Farm, Carolina Forest Boulevard, US 501, Publix 2 minutes away, the emergency room 5 minutes away and the beach 10 minutes away",
+   "alt": "Carolina Forest and Myrtle Beach from above: The Farm outlined in orange, the land the state bought for a nature preserve shaded green on its north edge, and labels for Publix 2 minutes, the emergency room 5 minutes and the beach 10 minutes away",
    "place": {
     "city": "Myrtle Beach",
     "sublocation": "The Farm at Carolina Forest"

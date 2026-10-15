@@ -55,12 +55,9 @@ const ph = kit.photoSet({ aerialWidth: "760px" });
 /* One picture per area where we have a lawful one of the place itself (photos.json records; the photo
    partner's ground photos will replace them). Made at load time: mkpage reads pageImages first. */
 const PHOTO = {
-  /* The frame is centered at 33.7305, -78.836 (its source_request bbox): the Pine Lakes streets east of
-     US 17 Business, where two of the six Pine Lakes listings are, not downtown (lesson B29). */
-  "mb-pine-lakes": ph.aerial("myrtle-beach-older-streets-from-above", "Houses on the older Pine Lakes streets between US 17 Business and the beach, from the air."),
-  "cherry-grove": ph.aerial("cherry-grove-canal-streets-from-above", "Houses on the Cherry Grove canals from the air. Almost every home here is in a high-risk flood zone."),
-  "little-river": ph.aerial("little-river-waterway-from-above", "Little River from the air: streets of houses beside the salt marsh and the Intracoastal Waterway."),
-  "surfside": ph.aerial("surfside-beach-pier-from-above", "The ocean side of Surfside Beach from the air in 2023, from the streets to the beach."),
+  /* Pine Lakes, Little River and Surfside lost their aerials (owner's eye 14: their point did not show);
+     the photo partner's list asks for each (photo-request-abdulla.html). */
+  "cherry-grove": ph.aerial("cherry-grove-canal-streets-from-above", "Houses on the Cherry Grove canals, from the air."),
   "conway": ph.aerial("conway-riverwalk-boardwalk", "The Riverwalk in downtown Conway, on the Waccamaw River.", { closeUp: true }),
   "loris": ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true }),
   "aynor": ph.aerial("aynor-country-lot", "Houses on lots of about an acre along a country road outside Aynor, from the air. The orange line is one lot.", { closeUp: true }),
@@ -119,7 +116,7 @@ const ENTRY = {
   "garden-city": { name: "Garden City Beach", id: "garden-city-beach", place: "Garden City Beach" },
   "conway": { name: "Conway", id: "conway", place: "Conway" },
   "loris": { name: "Loris", id: "loris", place: "Loris" },
-  "loris-country": { name: "The Country Around Loris", id: "country-around-loris", place: "the country around Loris", short: "Around Loris", offerName: "Loris", label: "Get the homes for sale in the country around Loris" },
+  "loris-country": { name: "The country around Loris", id: "country-around-loris", place: "the country around Loris", short: "Around Loris", offerName: "Loris", label: "Get the homes for sale in the country around Loris" },
   "aynor": { name: "Aynor", id: "aynor", place: "Aynor" },
 };
 if (ORDER.length !== 16 || ORDER.some((k) => !ENTRY[k])) throw new Error("the entries do not match the data file's areas");
@@ -180,10 +177,18 @@ const offer = (k) => GL.offer(ENTRY[k].offerName || ENTRY[k].place, { label: ENT
   href: `/contact/?place=${encodeURIComponent(ENTRY[k].place)}` });
 
 /* One numbered area: the share first, the sell, the trade-off, one line on price, the offer. */
+/* The share of homes for sale with no HOA fee, in a chip under each heading (owner's eye 14, medium 2), so
+   the first sentence can sell. Words from the measured share (rows 116 to 130). The country around Loris
+   says "most": its map outline holds more fee houses than its MLS areas (row 129). */
+const shareWords = (k) => { const a = A[k], p = a.noFee / a.total;
+  if (k === "loris-country") return "most of the homes for sale";
+  return p === 1 ? "every home for sale" : p >= 0.85 ? "almost every home for sale" : p >= 0.6 ? "most of the homes for sale" : "more than half of the homes for sale"; };
+const CHIP_CSS = "<style>.c3-nh-chip{display:inline-block;margin:-.2rem 0 .9rem;padding:.3rem .8rem;border-radius:999px;font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);box-shadow:0 6px 18px -10px rgba(28,32,40,.35)}</style>";
+const chip = (k) => `<div class="c3-nh-chip">No HOA fee on ${shareWords(k)}</div>`;
 function entry(k, headline, paras) {
   const n = num(k);
   return { h2: `${n}. ${ENTRY[k].name}: ${headline}`, toc: `${n}. ${ENTRY[k].short || ENTRY[k].name}`, id: ENTRY[k].id,
-    html: () => h.p(paras[0]) + (PHOTO[k] || "") + paras.slice(1).map((t) => h.p(t)).join("") + offer(k) };
+    html: () => chip(k) + h.p(paras[0]) + (PHOTO[k] || "") + paras.slice(1).map((t) => h.p(t)).join("") + offer(k) };
 }
 
 /* Sources. */
@@ -279,7 +284,7 @@ module.exports = GL.page({
 
   sections: [
     { h2: "Where are the homes with no HOA fee?", toc: "The map and the guide", id: "where", html: () =>
-      ph.css() + MAP +
+      ph.css() + CHIP_CSS + MAP +
       h.p(`<strong>A boat at home:</strong> ${go("cherry-grove")} on the canals; ${go("little-river")}, ${go("socastee")} and ${go("garden-city")} by a county landing.`) +
       h.p(`<strong>The beach on foot:</strong> ${go("crescent-beach")}, ${go("windy-hill")}, ${go("ocean-drive")}, ${go("mb-myrtle-heights")} and ${go("surfside")}.`) +
       h.p(`<strong>An old town center:</strong> ${go("mb-downtown", "Downtown Myrtle Beach")}, ${go("conway")} and ${go("loris")}.`) +

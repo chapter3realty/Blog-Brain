@@ -130,20 +130,6 @@
    "rows": "price: row 59 (40 resales, middle $739,131); fee: row 61; beach: row 63 corrected (17.3 min, 7.8 mi; nearest access has no parking); flood: row 67"
   },
   {
-   "id": "market-common",
-   "name": "The Market Common",
-   "short": "Market Common",
-   "area": "myrtle-beach",
-   "lat": 33.666315,
-   "lon": -78.939592,
-   "cells": {
-    "price": "Houses $540,000, townhomes $398,000",
-    "fee": "About $300 to $680 for a townhome",
-    "beach": "About 5 minutes"
-   },
-   "rows": "price: row 26 (26 houses middle $540,000; 20 townhomes middle $398,400); fee: row 28 (townhomes $300 to $683; one house $101); beach: row 30; grocery: row 31; flood: row 33 (11 of 838 in AE)"
-  },
-  {
    "id": "waterbridge",
    "name": "Waterbridge",
    "short": "Waterbridge",
@@ -156,6 +142,20 @@
     "beach": "About 15 to 20 minutes"
    },
    "rows": "price: row 71 (58 resales, middle $632,500); new homes: row 72 (middle $553,220); fee: row 74; beach: row 76 (nearest access has no parking); flood: row 80"
+  },
+  {
+   "id": "market-common",
+   "name": "The Market Common",
+   "short": "Market Common",
+   "area": "myrtle-beach",
+   "lat": 33.666315,
+   "lon": -78.939592,
+   "cells": {
+    "price": "Houses $540,000, townhomes $398,000",
+    "fee": "About $300 to $680 for a townhome",
+    "beach": "About 5 minutes"
+   },
+   "rows": "price: row 26 (26 houses middle $540,000; 20 townhomes middle $398,400); fee: row 28 (townhomes $300 to $683; one house $101); beach: row 30; grocery: row 31; flood: row 33 (11 of 838 in AE)"
   },
   {
    "id": "forestbrook-estates",

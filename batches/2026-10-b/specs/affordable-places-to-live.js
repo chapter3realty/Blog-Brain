@@ -179,16 +179,27 @@ ph.share("old-speedway-and-victory-point-labelled-from-above");
    price and the HOA fee in one plain sentence, then the pill, "Book a showing in X". The sentence sits in the
    offer box (div.c3-place-cta), as on the gated and best-neighborhoods pages: it is the reader's next fact
    before they act, and repeat-check reads it as the offer. The yearly fee and tax are in the table. */
-const KIND = { "parkview": "Townhomes here", "fairways-at-wild-wing": "These townhomes", "sawgrass-east": "Townhomes here",
-  "birchwood": "New houses here", "golf-and-yacht-club": "Houses in the older part", "forestbrook-village": "New townhomes here",
-  "victory-point": "Townhomes in Victory Point", "amber-bluff": "These townhomes", "villas-at-sandridge": "These townhomes",
-  "indigo-grove": "New houses here", "wynbrooke": "Townhomes here", "polo-farms": "Houses in Polo Farms" };
 const PLACE_CSS = "<style>main#main .c3-place-cta{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.2rem;max-width:760px;margin:1.6rem 0 .4rem;padding:1rem 1.2rem;border-radius:20px;"
   + "background:linear-gradient(180deg,rgba(255,255,255,.76),rgba(255,255,255,.52));border:1px solid var(--g-edge,rgba(255,255,255,.8));box-shadow:var(--g-hi,none),var(--g-sh,none)}"
   + "main#main .c3-place-cta>p:first-child{flex:1 1 18rem;margin:0;color:var(--navy);font-size:var(--read,1.0625rem);line-height:1.55}"
   + "main#main .c3-place-cta .c3-offer{margin:0;flex:0 1 auto}"
   + "@media (prefers-reduced-transparency:reduce){main#main .c3-place-cta{background:#fbf8f3}}</style>";
-const placeCta = (id) => `<div class="c3-place-cta"><p>${KIND[id]} usually went for about ${pr(id)} in the past year, and the HOA fee is about $${FEE[id]} a month.</p>${G.offer(N[id].name)}</div>`;
+/* The price sentence for each place, written by hand so twelve offers do not read as one template. */
+const PRICE = {
+  "parkview": `Townhomes here usually went for about ${pr("parkview")} last year, with an HOA fee of about $325 a month.`,
+  "fairways-at-wild-wing": `Expect to pay about ${pr("fairways-at-wild-wing")} for a Fairways townhome, plus an HOA fee of about $390 a month.`,
+  "sawgrass-east": `A Sawgrass East townhome usually costs about ${pr("sawgrass-east")}, and the HOA fee is about $425 a month.`,
+  "birchwood": `New houses in Birchwood went for about ${pr("birchwood")} last year; the HOA fee is about $120 a month.`,
+  "golf-and-yacht-club": `Houses in the older part usually went for about ${pr("golf-and-yacht-club")} last year.`,
+  "forestbrook-village": `Lennar's townhomes here went for about ${pr("forestbrook-village")}, with an HOA fee of about $170 a month.`,
+  "victory-point": `Townhomes in Victory Point usually sold for about ${pr("victory-point")}, and the HOA fee is about $235 a month.`,
+  "amber-bluff": `These townhomes went for about ${pr("amber-bluff")} last year, with an HOA fee of about $100 a month.`,
+  "villas-at-sandridge": `These townhomes usually went for about ${pr("villas-at-sandridge")}, and the dues are about $300 a month.`,
+  "indigo-grove": `New houses here went for about ${pr("indigo-grove")} last year, with an HOA fee of about $80 a month.`,
+  "wynbrooke": `Townhomes in Wynbrooke usually went for about ${pr("wynbrooke")}, with that fee of about $450 a month.`,
+  "polo-farms": `Houses in Polo Farms usually went for about ${pr("polo-farms")} last year.`,
+};
+const placeCta = (id) => `<div class="c3-place-cta"><p>${PRICE[id]}</p>${G.offer(N[id].name)}</div>`;
 const entry = (id, short, html) => ({ h2: `${N[id].n}. ${N[id].name}: ${short}`, toc: N[id].map, id,
   html: (bg) => html(bg) + placeCta(id) });
 
@@ -209,7 +220,7 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "New houses, a gate, a garage, a four-minute beach drive: what the lowest prices near the beach still buy.",
+  sub: "Affordable places where a budget still buys a new house, a gate, a garage or a four-minute beach drive.",
   toc: false,
   heroCta: { title: "Book a showing in these neighborhoods.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
@@ -225,13 +236,13 @@ module.exports = G.page({
     entry("parkview", "a four-minute beach drive, by the city's golf course", () =>
       h.p("Parkview has the shortest beach drive on this list, a four-minute trip. Its gated townhomes are off 17th Avenue South, inside the city of Myrtle Beach.") +
       PH["parkview"] +
-      h.p("The townhomes have two floors, two or three bedrooms and two and a half baths. The ones we have seen for sale had vaulted ceilings, a covered front porch and a screened back porch, and the three-bedroom plan puts the main bedroom downstairs.") +
+      h.p("The townhomes have two stories, two or three bedrooms and two and a half baths. The ones we have seen for sale had vaulted ceilings, a covered front porch and a screened back porch, and the three-bedroom plan puts the main bedroom downstairs.") +
       h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}, is less than a quarter mile from Parkview. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Residents of Horry, Georgetown and Brunswick counties play a round there for $45 plus tax, with a cart.`) +
-      h.p(`The rest of the ${h.ext(BASE, "old base is now The Market Common")}, a ten-minute trip. It has shops, restaurants and a 14-screen movie theater, and Grand Park's trails are next door. The airport terminal is a six-minute drive.`) +
+      h.p(`The rest of the ${h.ext(BASE, "old base is now The Market Common")}, a ten-minute trip. It has shops, restaurants and a 14-screen movie theater, and the city's Grand Park, with its trails, borders it. The airport terminal is a six-minute drive.`) +
       h.p("The trade-off is choice: few of these townhomes come up for sale in a year, so we watch for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes with their own garage, in a golf community", () =>
-      h.p("Every Fairways townhome we found for sale had its own garage, and some had room for two cars. Most have three or four bedrooms over two floors, and some put the main bedroom on the first floor.") +
+      h.p("Every Fairways townhome we found for sale had its own garage, and some had room for two cars. Most are two-story, with three or four bedrooms, and some put the main bedroom downstairs.") +
       PH["fairways-at-wild-wing"] +
       h.p("The townhomes are off Wild Wing Boulevard, inside Wild Wing Plantation on US 501. Wild Wing was once a golf resort with several courses; one is still open, and some Fairways townhomes are near it.") +
       h.p("The HOA fee includes internet, and an Aldi is a three-minute trip up Wild Wing Boulevard. For work, Conway Medical Center is a six-minute drive, and Horry-Georgetown Technical College and Coastal Carolina University are each about a seven-minute trip.") +
@@ -241,38 +252,38 @@ module.exports = G.page({
       h.p(`Six minutes from Sawgrass East, the county's ${h.ext(CFRC, "Carolina Forest Recreation Center")} has a gym, a fitness room and a climbing wall, and the county library shares its campus.`) +
       PH["sawgrass-east"] +
       h.p("The townhomes are off Carolina Forest Boulevard, a little over two miles up the boulevard from US 501, around small ponds with a pool and a clubhouse.") +
-      h.p("Most have three bedrooms over two floors and a one-car garage. Some put the main bedroom on the first floor with a loft above, and some have a screened or covered back porch.") +
+      h.p("Most are three-bedroom, two-story townhomes with a one-car garage. Some put the main bedroom downstairs with a loft above, and some have a screened or covered back porch.") +
       h.p("The trade-off is the HOA fee, one of the highest on this list.")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
       h.p("Birchwood is small: 77 new Lennar houses on lots of about a quarter acre, with about 12 acres of open space. The turn off SC 905, southwest of Longs, is beside the tall water tower.") +
       h.p(`Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings on the first floor and energy-efficient windows. ${h.ext(LENNAR_WARRANTY, "Lennar's limited warranty")} covers the workmanship for a year, the electrical, plumbing and mechanical systems for two, and the structure for ten.`) +
       h.p("High-speed internet is included in the monthly dues. Long Bay Club, a golf course in Longs, is a seven-minute trip.") +
-      h.p(`The trade-off is the distance to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by SC 9 and the Carolina Bays Parkway. North Myrtle Beach is about 20.`)),
+      h.p(`The trade-off is the distance to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by SC 9 and the Carolina Bays Parkway.`)),
 
     entry("golf-and-yacht-club", "one-story houses behind a gate", () =>
-      h.p("In the older part of Myrtle Beach Golf and Yacht Club, a one-story house comes with a gate, a pool and hot tub, tennis courts and a community center, for an HOA fee of about $95 a month.") +
+      h.p("In the older part of Myrtle Beach Golf and Yacht Club, a one-story house comes with a gate and an HOA fee of about $95 a month. The HOA has a pool and hot tub, tennis courts and a community center.") +
       PH["golf-and-yacht-club"] +
       h.p("Most houses there are from the late 1980s, with two or three bedrooms and two baths. In the older part, houses typically have about 1,350 square feet, on about an eighth of an acre.") +
-      h.p("Each one we saw for sale had a porch or a patio, and the HOA has a storage area for RVs and trailers. The nearest public beach access is about 15 minutes away by car.") +
+      h.p("Each one we saw for sale had a porch or a patio, and the HOA has a storage area for RVs and trailers.") +
       h.p("Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy.")),
 
     entry("forestbrook-village", "the biggest new townhomes on this list", () =>
-      h.p("Forestbrook Village has the biggest townhomes on this list. Lennar's plans here run from about 1,450 to 2,400 square feet, with three bedrooms over two floors.") +
+      h.p("Forestbrook Village has the biggest townhomes on this list. Lennar's plans here run from about 1,450 to 2,400 square feet, each a three-bedroom townhome over two stories.") +
       h.p("The townhomes are off Forestbrook Road, south of US 501, next to the older Forestbrook neighborhood. Owners have a pool and a playground, and internet and grounds care are included.") +
-      h.p("Forestbrook Elementary and Forestbrook Middle are each four to five minutes away by car, and Broadway at the Beach is 12.") +
+      h.p("Forestbrook Elementary and Forestbrook Middle are each four to five minutes away by car.") +
       h.p("The trade-off is flood. Some lots here are in a high-risk flood zone, where a lender usually requires flood insurance. We check the flood map for the lot of any home you like.")),
 
     entry("victory-point", "new townhomes on part of the old speedway", () =>
       h.p(`Victory Point is built on part of the old Myrtle Beach Speedway. The track ${h.ext(RAMBI, "opened in 1958")} as RAMBI Raceway, and cars ran their ${h.ext(SPEEDWAY, "last laps there in 2020")}. Several streets have racing names: Speedway Street, Talladega Drive and Pit Crew Drive.`) +
       PH["victory-point"] +
       h.p("Lennar built the townhomes off US 501, by Tanger Outlets. The community has a pool, a playground, a picnic area and a pond, and some townhomes back onto the water.") +
-      h.p("From here, a Publix is five minutes away, Coastal Carolina University 12 and Broadway at the Beach 14. Lennar lists Victory Point as sold out for now.") +
-      h.p(`Expect more building next door. Another owner plans ${h.ext(REV3, "194 townhomes for rent")} on about 20 acres of the old speedway land beside it.`)),
+      h.p("A Publix is a five-minute trip, and Lennar lists Victory Point as sold out for now.") +
+      h.p(`Expect more building. Another owner plans ${h.ext(REV3, "194 townhomes for rent")} on about 20 acres of the old speedway land beside it.`)),
 
     entry("amber-bluff", "smart-home townhomes a mile from the football stadium", () =>
       h.p("Every townhome at Amber Bluff came with a smart-home package: you can lock the front door, change the thermostat and answer the video doorbell from your phone.") +
-      h.p(`${h.ext(DRH, "D.R. Horton built every townhome here")}, off Savannah Bluff Road, with granite counters and stainless steel appliances. The ones we have seen for sale all share one floor plan with three bedrooms, so prices are close together.`) +
+      h.p(`${h.ext(DRH, "D.R. Horton built every townhome here")}, off Savannah Bluff Road, with granite counters and stainless steel appliances. The ones we have seen for sale all share one three-bedroom floor plan, so prices are close together.`) +
       h.p("On game days, Brooks Stadium, where the Chanticleers play football, is about a mile south. Coastal Carolina University and Horry-Georgetown Technical College are each a six-minute trip, and downtown Conway, with its riverwalk on the Waccamaw River, about a seven-minute drive.") +
       h.p("Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.")),
 
@@ -292,18 +303,18 @@ module.exports = G.page({
       h.p(`The ${h.ext(MARSHWALK, "Murrells Inlet MarshWalk")} is five minutes from Wynbrooke. It is a half-mile boardwalk along the marsh, lined with restaurants, with live music every night and no cover charge.`) +
       PH["wynbrooke"] +
       h.p(`${h.ext(HBSP, "Huntington Beach State Park")}, with 3 miles of beach and a lake where you can see alligators, is 10 minutes away, and Brookgreen Gardens about 15. The nearest public beach, in Garden City, is about ${mins(N.wynbrooke.beach)} minutes by car.`) +
-      h.p("The townhomes are off SC 707, around ponds, and some back onto the water. They have two floors and a screened porch, many with a loft, and some have a one-car garage. A Lowes Foods and a Publix are each about two minutes away.") +
+      h.p("The townhomes are off SC 707, around ponds, and some back onto the water. They have two stories and a screened porch, many with a loft, and some have a one-car garage. A Lowes Foods and a Publix are each about two minutes away.") +
       h.p("The trade-off is the fee. Wynbrooke's HOA fee is the highest of the twelve, though it usually pays for the insurance on the buildings and all outside maintenance. With the tax, a year here costs more than at Polo Farms, which sells for more.")),
 
     entry("polo-farms", "one-story houses with a $20 fee", () =>
       h.p("Polo Farms has the smallest HOA fee on this list, about $20 a month, for one-story houses on lots of about a fifth of an acre. Many backyards are fenced, and several have their own pool.") +
       PH["polo-farms"] +
-      h.p("Most houses have three bedrooms and two baths, and the ones we saw for sale had an attached two-car garage. They are off SC 905, between SC 9 and SC 22, west of Longs, and were built in three phases.") +
-      h.p("Simpson Creek runs along the neighborhood's southwest side. There is no pool or clubhouse; the common land is two ponds, some woods and the strips along SC 905. Long Bay Club's golf course is about 13 minutes away.") +
+      h.p("Most are three-bedroom houses with two baths, and the ones we saw for sale had an attached two-car garage. They are off SC 905, between SC 9 and SC 22, west of Longs, and were built in three phases.") +
+      h.p("Simpson Creek runs along the neighborhood's southwest side. There is no pool or clubhouse; the common land is two ponds, some woods and the strips along SC 905. Long Bay Club's golf course is a 13-minute trip.") +
       h.p(`Flood is a concern here. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone. Before you make an offer, we look up the lot on FEMA's flood map.`)),
 
     { h2: "How do the twelve compare on yearly cost, the beach and schools?", toc: "Cost, beach and schools", id: "schools", html: () =>
-      h.p(`The map shows where each place is, and the table gives the HOA fee and tax a year, the drive to a beach and the zoned schools. To choose by what you want nearby instead, read our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}; for no HOA fee at all, see our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}.`) +
+      h.p(`The map shows where each place is, and the table gives the HOA fee and tax a year, the drive to a beach and the zoned schools. To choose by what you want nearby, read our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}. For no HOA fee at all, see our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}.`) +
       COMPARE },
 
     { h2: "How much property tax will you pay?", toc: "Property tax", id: "property-tax", html: () =>

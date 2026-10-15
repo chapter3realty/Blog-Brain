@@ -175,7 +175,7 @@ const GUIDE = `<div class="c3g-guide c3-guide-map"><ul class="c3-want c3g-list">
    which links to /contact/?place=<place>). The two sit together in one box, as an agent closes: what it
    costs, then "let me show you". */
 const ph = photoSetB({ aerialWidth: "720px" });
-ph.share("prestwick-gate-from-above-2026");
+ph.share("litchfield-by-the-sea-from-above-2023");
 function entry(id, head, paras, price, photo) {
   const e = byId[id];
   const [first, ...rest] = paras;
@@ -361,7 +361,7 @@ module.exports = G.page({
   h1: "Where are the gated communities near Myrtle Beach?",
   h1em: "From the Cherry Grove marsh to the ocean at DeBordieu.",
   sub: "Of these gated communities, two sit on the ocean, two have a staffed marina and ten have golf, from North Myrtle Beach to Pawleys Island.",
-  heroCta: { title: "Get the homes for sale in the ones you like.", text: OFFER_SHORT, label: OFFER_LABEL, href: OFFER },
+  heroCta: { title: "Get this week's homes for sale in any of these gated communities", text: OFFER_SHORT, label: OFFER_LABEL, href: OFFER },
   author: "devin",
   toc: false,
   shortAnswer: [
@@ -371,7 +371,6 @@ module.exports = G.page({
     { id: "choose", html: () =>
       GUIDE_CSS + ph.css() +
       `<p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Choose by what you want</p>` +
-      h.p("Each one is listed once, under what it does best.") +
       GUIDE },
 
     ...SECTIONS_PLACES,
