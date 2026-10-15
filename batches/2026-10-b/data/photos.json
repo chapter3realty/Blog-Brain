@@ -3696,6 +3696,134 @@
    "original_size": "2592x1944",
    "share_alike": false,
    "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15."
+  },
+  {
+   "slug": "gated-communities",
+   "file": "images/buyers/gated-communities/debordieu-beach-houses-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/gated-communities/debordieu-beach-houses-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/gated-communities/debordieu-beach-houses-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "DeBordieu Colony, USGS oblique aerial photo, August 24, 2011",
+   "what": "DeBordieu Colony near Georgetown seen from a plane over the ocean: large beach houses behind the dunes with walkways to the sand, more houses among live oaks, and the salt marsh behind.",
+   "caption": "DeBordieu Colony from over the ocean in 2011: houses behind the dunes, with the salt marsh beyond.",
+   "alt": "Large beach houses with walkways over the dunes, more houses among dark green oaks behind them, and a wide salt marsh with creeks at the top, at DeBordieu Colony seen from a plane over the ocean",
+   "place": {
+    "city": "Georgetown",
+    "sublocation": "DeBordieu Colony, oceanfront"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_174830d.jpg from 11CCH03_0824_174500.zip; aircraft position 33.369547 N, 79.145355 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "gated-communities",
+   "file": "images/buyers/gated-communities/litchfield-by-the-sea-oceanfront-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/gated-communities/litchfield-by-the-sea-oceanfront-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/gated-communities/litchfield-by-the-sea-oceanfront-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "Litchfield by the Sea, USGS oblique aerial photo, August 24, 2011",
+   "what": "The oceanfront of Litchfield by the Sea in Pawleys Island seen from a plane over the ocean: the beach, large condominium buildings with pools, tennis courts, and villas around lakes behind them.",
+   "caption": "Litchfield by the Sea from over the ocean in 2011: condominium buildings and pools by the beach, with tennis courts and villas around the lakes behind.",
+   "alt": "Large condominium buildings with pools behind the dunes, a beach walkway, rows of tennis courts, and villas around two lakes, at Litchfield by the Sea seen from a plane over the ocean",
+   "place": {
+    "city": "Pawleys Island",
+    "sublocation": "Litchfield by the Sea, oceanfront"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_175156d.jpg from 11CCH03_0824_175000.zip; aircraft position 33.474742 N, 79.087478 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/market-common-warbird-park-jets.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/market-common-warbird-park-jets-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/market-common-warbird-park-jets-1200w.webp"
+   },
+   "width": 1200,
+   "height": 675,
+   "title": "Exhibit at Warbird Park, Myrtle Beach (Carol M. Highsmith, 2017)",
+   "what": "Warbird Park at The Market Common in Myrtle Beach: jets from the former Myrtle Beach Air Force Base on a round plaza, with tall pines behind.",
+   "caption": "Warbird Park at The Market Common, with jets from the old Myrtle Beach Air Force Base.",
+   "alt": "Two camouflage-painted jet planes on display on a round plaza with small plaques, under tall pine trees at Warbird Park in The Market Common",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "The Market Common, Warbird Park"
+   },
+   "source": "https://www.loc.gov/item/2017880876/",
+   "taken": "2017-06-23",
+   "original_size": "8688x3940 (Library of Congress TIFF); this copy is the Library's 25% rendering, 2172x985",
+   "provenance": "Carol M. Highsmith's America Project, Library of Congress Prints and Photographs Division, LC-DIG-highsm-43994. Downloaded from the Library's IIIF service at 25% (2172 px wide). The aircraft are display pieces, not artwork, and no person is in the frame. Cropped to 1751 x 985 px (16:9) from the left, leaving out a fourth jet at the far left edge.",
+   "source_name": "Library of Congress",
+   "author": "Carol M. Highsmith",
+   "license": "Public domain",
+   "license_url": "https://www.loc.gov/rr/print/res/482_high.html",
+   "credit": "Photo: Carol M. Highsmith, public domain, via the Library of Congress. Credit not required; give it anyway.",
+   "license_note": "Library of Congress record: Rights Advisory 'No known restrictions on publication.' The rights page it links (Carol M. Highsmith, Rights and Restrictions Information) says the photographer has placed her photographs in the public domain. Credit line asked for by the Library: 'Photographs in Carol M. Highsmith's America Project in the Carol M. Highsmith Archive, Library of Congress, Prints and Photographs Division.'",
+   "share_alike": false,
+   "changes": "Chapter3 Realty cropped the left side of this photo to a 16:9 frame and resized it"
+  },
+  {
+   "slug": "affordable",
+   "file": "images/buyers/affordable/conway-main-street-downtown.webp",
+   "variants": {
+    "600": "images/buyers/affordable/conway-main-street-downtown-600w.webp",
+    "1200": "images/buyers/affordable/conway-main-street-downtown-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Conway Downtown Historic District Jun 10",
+   "what": "Main Street in downtown Conway at Third Avenue, with two-story brick and stone shop buildings, trees and parked cars.",
+   "caption": "Main Street in downtown Conway.",
+   "alt": "Main Street in downtown Conway, South Carolina, with a row of two-story brick and stone shop buildings, street trees and parked cars under a blue sky",
+   "place": {
+    "city": "Conway",
+    "sublocation": "Main Street at Third Avenue"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Conway_Downtown_Historic_District_Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Conway_Downtown_Historic_District_Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). Made from the Commons 1920 px rendering. The same file is used in batch 2026-10-a (images/55-plus/myrtle-trace/conway-main-street.webp).",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15."
   }
  ],
  "updated": "2026-10-13"
