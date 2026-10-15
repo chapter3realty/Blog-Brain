@@ -38,6 +38,14 @@
  *   100; the library and recreation center campus, row 101); the pool cards became a normal day in prose; the yearly
  *   cost is a table with a total; the offer is "See homes for sale in The Farm" at the top, after the homes, after
  *   the costs and at the end. Audience list and the top three results: the ledger, "Round 14" section.
+ * Version 8, 2026-10-15 (round 14, rewrite check v6, facts/r14/farm-verify-v6.md, ledger row 103): D1 a typical
+ *   lot (median, row 43); D2 the pool "covers" its footprint (row 102); D3 the deck "beside" a pond (row 98); D4 a
+ *   typical house sold for about $350,000 in the past year, the townhome and condo medians said apart (row 48); D5
+ *   the $2,600 is the HOA fee and county tax for a house you live in (row 86); D6a the state bought the land for the
+ *   preserve, not yet "preserve land" (row 79); D6b a $160 million healthcare facility (row 99); D7 the fee covers
+ *   the pools, cable TV and trash, the fitness room said apart (rows 10, 60); D8 the 2026 food drive only (row 69);
+ *   D9 the drive times from the Farmers Rest Drive entrance (row 27); D10 Range III as of 2024 (row 89); D11 the
+ *   county's market value after a sale (row 85).
  *
  * Reader: a buyer, often from out of state, who has seen a listing in The Farm or heard the name and
  * wants to picture living there and decide whether to look. They do not know Carolina Forest, the
@@ -68,7 +76,8 @@
  *             the page calls the entrance next to the large pool; "nearest" dropped), traffic from
  *             stories.json "traffic-timing" (labelled as our experience), 79 (the preserve land).
  *   Schools:  rows 36 to 39 (zoned schools, minutes, the schools just outside the north-east side).
- *   Costs:    rows 47 to 49 (houses about $350,000; townhomes and condos about $230,000 to $240,000),
+ *   Costs:    rows 47 to 49 (a typical house about $350,000; a typical Orchards townhome about $230,000 and
+ *             Planters Point condo about $240,000, each in the past year),
  *             5 to 9 ($107 for every home; second HOA in The Orchards and Planters Point with listing
  *             totals), 10 safe wording and 12 (what the fee pays for; cable from Spectrum, about $42 of
  *             it), 11 note (no internet), 13 and 14 (FAQ: increase cap, special assessment), 15 ($250
@@ -192,11 +201,11 @@ module.exports = G.page({
   pageImages: () => ph.pageImages(),
   title: "The Farm at Carolina Forest: HOA Fee, Pools, Rules | Chapter3",
   description: "Living in The Farm at Carolina Forest, Myrtle Beach: two pools, the $107 HOA fee and what it includes, home prices, zoned schools, rules, pros and cons.",
-  ogTitle: "Living in The Farm at Carolina Forest: two pools, the beach 10 minutes away and preserve land on its north edge",
+  ogTitle: "Living in The Farm at Carolina Forest: two pools, the beach 10 minutes away and land the state bought for a nature preserve on its north edge",
   crumb: "The Farm",
   eyebrow: "Carolina Forest, Myrtle Beach",
   h1: "What is it like to live in The Farm at Carolina Forest?",
-  h1em: "Two pools, the beach 10 minutes away, and preserve land along its north edge.",
+  h1em: "Two pools, the beach 10 minutes away, and land the state bought for a nature preserve on its north edge.",
   sub: "The Farm is a finished neighborhood of houses, townhomes and condos in Carolina Forest, with a Myrtle Beach mailing address.",
   heroMedia: glance([
     { icon: "beach", label: "Beach", text: "About 10 minutes" },
@@ -208,8 +217,8 @@ module.exports = G.page({
   author: "devin",
   shortAnswer: [
     "The Farm at Carolina Forest gives you two pools, a fitness room and an activity center. The beach is about 10 minutes away by car, and a Publix about 2.",
-    "The homeowners association (HOA) fee is $107 a month, and it includes cable TV and trash pickup. Along the north edge, the state bought land for a nature preserve where a medical center was once planned.",
-    "Every home is zoned for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. Houses here usually sell for about $350,000.",
+    "The homeowners association (HOA) fee is $107 a month, and it includes cable TV and trash pickup. The state bought the land along its north edge for a nature preserve.",
+    "Every home is zoned for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. In the past year, a typical house here sold for about $350,000.",
   ],
   sections: [
     { h2: "What are the homes like in The Farm at Carolina Forest?", toc: "The homes", html: (bg) =>
@@ -218,7 +227,7 @@ module.exports = G.page({
       h.p("Most homes are houses with three or four bedrooms and their own yards, on curving streets around ponds. The townhomes are in a section called The Orchards, and the condos are in a section called Planters Point.") +
       OVER +
       h.p("The street names follow the farm theme: Scarecrow Way, Haystack Way, Pumpkin Patch Lane and Wheatfield Drive. D.R. Horton has not controlled the HOA board since 2019, when it gave up its right to appoint a majority of the board.") +
-      h.p("Both one-story and two-story houses are for sale here. Most have about 1,450 to 3,200 square feet, on a lot of about a fifth of an acre.") +
+      h.p("Both one-story and two-story houses are for sale here. Most have about 1,450 to 3,200 square feet. A typical house lot is about a fifth of an acre.") +
       STREET +
       h.p("Most houses here are about 20 years old. Before you make an offer, we check how old the roof and the air conditioner are.") +
       h.p("In The Orchards, each townhome comes with its own small lot. In Planters Point, each owner owns a condo unit and shares the buildings and land with the other owners.") +
@@ -228,22 +237,22 @@ module.exports = G.page({
 
     { h2: "What is there to do in The Farm at Carolina Forest?", toc: "Pools and things to do", html:
       h.p("Owners in The Farm at Carolina Forest swim in two pools, work out in the fitness room and reserve the activity center for parties.") +
-      h.p("The large pool holds about 7,400 square feet of water. Its wide deck faces a pond, and the activity center is about 400 feet away.") +
+      h.p("The large pool covers about 7,400 square feet. Its wide deck is beside a pond, and the activity center is about 400 feet away.") +
       POOL +
       h.p("A summer day here can start in the fitness room, which opens at 5:30 a.m., and end in the pool, which stays open until 9 p.m.") +
       h.p("The pools are open from April 15 to October 15, with no lifeguard. Each home can bring up to six guests, with the owner there.") +
       h.p("Owners can reserve the activity center for a private party of up to four hours, for a fee. The HOA budgets about $6,500 a year for social events.") +
-      h.p("In the fall, the HOA's calendar lists a yard sale and a Community Appreciation Day. Every year, The Farm also joins other Carolina Forest neighborhoods in a food drive.") +
-      h.p(`Outside The Farm, the county library and the Carolina Forest Recreation Center share one campus about 3 minutes away by car. The ${h.ext(PARKS, "recreation center")} has a full gym and a rock climbing wall.`) +
-      h.p("The county's Bike and Run Park, about 4 minutes away, has 7 miles of mountain bike and hiking trails.") +
+      h.p("In the fall, the HOA's calendar lists a yard sale and a Community Appreciation Day. The Farm is also one of the neighborhoods in the 16th annual Carolina Forest food drive, in October 2026.") +
+      h.p(`Outside The Farm, the county library and the Carolina Forest Recreation Center share one campus, about 3 minutes by car from the Farmers Rest Drive entrance. The ${h.ext(PARKS, "recreation center")} has a full gym and a rock climbing wall.`) +
+      h.p("The county's Bike and Run Park is about 4 minutes by car from the same entrance. It has 7 miles of mountain bike and hiking trails.") +
       h.p("The large pool has sunk into the ground more than it should, which engineers call settling. The HOA board has not decided whether to repair it or replace it. The board plans more tests of the ground under the pool after it closes for the season.") +
       h.p(`The board has not said what the work will cost. By a majority vote, it can add a one-time charge to owners, called a ${h.a(SPECIAL, "special assessment")}.`) },
 
     { h2: "Where is The Farm at Carolina Forest?", toc: "Where it is", html: (bg) =>
-      h.p(`The Farm is in ${h.a(HUB, "Carolina Forest")}, on Carolina Forest Boulevard, outside the Myrtle Beach city limits. State preserve land borders its north edge.`) +
-      h.p(`Conway Medical Center once planned a large medical center on that land. The state bought it for the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")} instead, and plans to open it for outdoor recreation.`) +
+      h.p(`The Farm is in ${h.a(HUB, "Carolina Forest")}, on Carolina Forest Boulevard, outside the Myrtle Beach city limits. Conway Medical Center had once meant the 353 acres along its north edge for a $160 million healthcare facility.`) +
+      h.p(`The state bought that land for the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")} instead, and plans to open it for outdoor recreation.`) +
       h.p("The preserve is home to South Carolina's largest wild population of Venus flytraps. The state manages it with controlled burns.") +
-      h.p("The map shows drive times by car from the entrance by the large pool. In our experience, rush hour adds 5 to 10 minutes.") +
+      h.p("The map shows drive times by car from the Farmers Rest Drive entrance, by the large pool. In our experience, rush hour adds 5 to 10 minutes.") +
       WIDE +
       M.where.slice(M.region.length) +
       h.table(["Also close by", "Drive"], [
@@ -263,16 +272,17 @@ module.exports = G.page({
       h.p(`We check the ${h.ext(ZONES, "current zones")} for any home you like. See ${h.a("/buyers/relocating/schools/", "how school zones work in Horry County")}.`) },
 
     { h2: "What does it cost to live in The Farm at Carolina Forest?", toc: "Costs", html: (bg) =>
-      h.p("A house in The Farm at Carolina Forest usually sells for about $350,000. Beyond the mortgage and home insurance, plan on about $2,600 a year to own it.") +
+      h.p("In the past year, a typical house in The Farm at Carolina Forest sold for about $350,000. For a house at that price you live in, the HOA fee and the county property tax come to about $2,600 a year.") +
       h.table(["Each year, for a $350,000 house you live in", "About"], [
         ["HOA fee, $107 a month", "$1,300"],
         ["County property tax", "$1,300"],
         ["Total", "$2,600"],
       ]) +
-      h.p("Townhomes and condos usually sell for about $230,000 to $240,000.") +
+      h.p("In the past year, a typical townhome in The Orchards sold for about $230,000, and a typical condo in Planters Point for about $240,000.") +
       h.p(`The largest share of the ${h.ext(BUDGET, "fee")} covers cable TV from Spectrum. The rest covers landscaping and the ponds, trash pickup, the management company, electricity, savings for repairs, the pools and insurance. The fee does not include internet.`) +
-      h.p("The tax is based on about what you pay for the house, and the new amount starts the year after you buy. The county also adds a stormwater fee of about $90 a year to the tax bill, for draining rain water.") +
-      h.p("There is no city tax. When you buy, you also pay the HOA a one-time fee of $250 at closing.") +
+      h.p("The county also adds a stormwater fee of about $90 a year to the tax bill, for draining rain water. There is no city tax.") +
+      h.p("After you buy, the county values the home at about what it would sell for on the open market. In an ordinary sale, that is close to the price you paid. The new value first shows on the next year's tax bill.") +
+      h.p("At closing, you also pay the HOA a one-time fee of $250.") +
       h.p("Townhomes in The Orchards and condos in Planters Point also have their own HOA. In all, owners in The Orchards pay about $225 to $255 a month. Owners in Planters Point pay about $450 to $500 a month.") +
       h.p(`Every home in The Farm is outside the high-risk flood zone on ${h.ext(FEMA, "the government's flood map")}. That means federal law does not make your lender require flood insurance. If you want a policy for a house anyway, one in this ZIP code usually costs about $600 a year.`) +
       h.cta(OFFER.title, OFFER.text, OFFER.label, OFFER.href, bg) +
@@ -280,8 +290,8 @@ module.exports = G.page({
 
     { h2: "What are the pros and cons of living in The Farm at Carolina Forest?", toc: "Pros and cons", html: (bg) =>
       prosCons([
-        "The $107 HOA fee includes two pools, a fitness room, cable TV and trash pickup.",
-        "Every lot is built, and state preserve land borders the north edge.",
+        "The $107 HOA fee covers the pools, cable TV and trash pickup. Owners can also use the fitness room.",
+        "Every lot is built, and the state bought the land on the north edge for a nature preserve.",
         "Every home is outside the high-risk flood zone.",
         "There is no city tax.",
       ], [
@@ -311,7 +321,7 @@ module.exports = G.page({
     { h2: "Was The Farm at Carolina Forest part of an old bombing range?", toc: "Old bombing range", html:
       h.p("Yes. The Farm is on land the Army Air Force used as a bombing and gunnery range from 1942 to 1948. Other parts of Carolina Forest are on that land too.") +
       h.p("The Army Corps of Engineers has finished the cleanup work on the land under every home in The Farm. The Defense Department or a later owner may keep monitoring that land.") +
-      h.p("The Corps is still investigating Range III, a section next door. Range III touches the edges of some of The Farm's open land, but not any home lot.") +
+      h.p("In 2024, the Corps was still investigating Range III, a section that borders The Farm. Range III touches some of The Farm's open land, but no home lot.") +
       h.p(`If you ever find something that looks like old ammunition, the ${h.ext(UXO, "Defense Department's advice")} is to leave it alone. Do not touch it, move away and call 911.`) +
       h.p(`We check the ${h.ext(FUDS, "Corps' map")} for any lot you like.`) },
   ],
