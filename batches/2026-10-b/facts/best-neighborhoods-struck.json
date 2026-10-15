@@ -542,5 +542,89 @@
     "pattern": "\\bresidential association started the same day",
     "struck": "The residential association started the same day, and neighborhoods grew up around the courses.",
     "use": "The residential association's covenants were recorded the same day, and neighborhoods grew up around the courses."
+  },
+  {
+    "row": "neighborhoods 250",
+    "pattern": "calendar holds[^.]{0,120}\\bfood trucks",
+    "struck": "The HOA's calendar holds card nights, bunco, mahjong, a book club, potluck Thursdays and food trucks.",
+    "use": "The HOA's calendar holds card nights, bunco, mahjong, a book club and potluck Thursdays."
+  },
+  {
+    "row": "neighborhoods 252",
+    "pattern": "\\bOn a Saturday[^.]{0,60}MarshWalk",
+    "struck": "On a Saturday, the Murrells Inlet MarshWalk is a 7-minute drive.",
+    "use": "From the middle of Prince Creek, the Murrells Inlet MarshWalk is about 7 minutes by car."
+  },
+  {
+    "row": "neighborhoods 253",
+    "pattern": "\\bCoastal Carolina University is about 11 minutes",
+    "struck": "From Wild Wing, Coastal Carolina University is about 11 minutes by car.",
+    "use": "From the middle of Wild Wing, Coastal Carolina University is about 10 minutes by car."
+  },
+  {
+    "row": "neighborhoods 254",
+    "pattern": "\\bshops and restaurants are about 6 minutes by car(?!\\s+from)",
+    "struck": "Barefoot Landing's shops and restaurants are about 6 minutes by car.",
+    "use": "Barefoot Landing's shops and restaurants are about 6 minutes by car from the Barefoot condo neighborhoods in this sample and about 8 from the gated houses."
+  },
+  {
+    "row": "neighborhoods 256",
+    "pattern": "\\bFrom spring to early September",
+    "struck": "From spring to early September, a free shuttle runs from the neighborhoods to a public beach access on Ocean Boulevard.",
+    "use": "In 2026 a free shuttle ran to the public beach access at 46th Street on weekends from April 4, then every day from June 1 to September 6."
+  },
+  {
+    "row": "neighborhoods 257",
+    "pattern": "\\bmost (?:of its )?homes are houses along the fairways",
+    "struck": "Most of its homes are houses along the fairways, with a few condo buildings.",
+    "use": "Most of its homes are houses, many along the fairways, with a few condo buildings."
+  },
+  {
+    "row": "neighborhoods 257",
+    "pattern": "\\bthree pools\\b",
+    "struck": "Owners share three pools with hot tubs.",
+    "use": "Owners share pools with hot tubs."
+  },
+  {
+    "row": "neighborhoods 257",
+    "pattern": "\\bgolf holes (?:play )?over the (?:salt )?marsh|\\bholes play over the (?:salt )?marsh[^.]{0,60}\\bfacing Cherry Grove",
+    "struck": "Two of the golf holes play over the salt marsh, facing Cherry Grove across the water.",
+    "use": "Some holes meet the marsh of the waterway, and one looks across the inlet to Cherry Grove Beach."
+  },
+  {
+    "row": "neighborhoods 257",
+    "pattern": "\\bOcean Club gives residents",
+    "struck": "The Ocean Club gives residents private oceanfront access and dining.",
+    "use": "The Ocean Club offers residents private oceanfront access and dining, and we find out which homes include it."
+  },
+  {
+    "row": "neighborhoods 257",
+    "pattern": "\\bsections with a gate at the entrance",
+    "struck": "Calais, Palermo and Villa Venezia are three of its sections with a gate at the entrance.",
+    "use": "Calais, Palermo and Villa Venezia are among its gated sections."
+  },
+  {
+    "row": "neighborhoods 257",
+    "pattern": "\\bResort Club course[^.]{0,80}\\bbluff\\b",
+    "struck": "The Resort Club course is a Roger Rulewich design on a bluff over the waterway.",
+    "use": "The Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. (Keep 'bluff' only after someone opens grandedunes.com/community in a browser.)"
+  },
+  {
+    "row": "neighborhoods 257",
+    "pattern": "\\bHomes on the older streets near the club have no HOA fee",
+    "struck": "Homes on the older streets near the club have no HOA fee.",
+    "use": "Listings for the older streets near the club show no HOA fee."
+  },
+  {
+    "row": "neighborhoods 257",
+    "pattern": "\\bThe houses were built in the last few years",
+    "struck": "The houses were built in the last few years.",
+    "use": "Of the 8 houses for sale, 7 were built in 2021 or later."
+  },
+  {
+    "row": "neighborhoods 257",
+    "pattern": "\\bolder than the new houses in Waterbridge",
+    "struck": "Most houses for sale here were built in the 2000s and 2010s, so they are older than the new houses in Waterbridge.",
+    "use": "Most houses for sale here were built in the 2000s and 2010s, which is older than most houses for sale in Waterbridge, built since 2023."
   }
 ]
