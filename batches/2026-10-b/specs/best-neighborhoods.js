@@ -271,14 +271,14 @@ const ENTRIES = [
   ENTRY("plantation-lakes", "pontoon boats on a lake with 15 miles of shoreline", [
     `Owners at Plantation Lakes ${h.ext(PL_POA, "take pontoon boats out")} on a lake with about 15 miles of shoreline. About two of every three houses have lots that border the water, and some have a dock of their own.`,
     "An owner can take the boat to the amenity area, which has day and overnight docks and a boat ramp. On a cool evening, the clubhouse has a great room with a fireplace and a reading and card room.",
-    "The houses are big, most with four bedrooms or more, on lots of about half an acre.",
+    "The houses are big, mostly two stories or one and a half, on lots of about half an acre.",
     "Boats on the lake are limited to 19 feet, with small motors.",
   ], "Houses in Plantation Lakes usually sold for about $740,000 last year, and the HOA fee is about $125 a month."),
 
   ENTRY("waterbridge", "kayaks from a floating dock, and potluck Thursdays", [
     "Waterbridge owners can launch a kayak on the neighborhood's lakes from a floating dock. The lakes take only boats with no motor or an electric one.",
     "Walking paths cross the water on bridges. The HOA's calendar holds card nights, bunco, mahjong, a book club and potluck Thursdays, and the fitness center at the clubhouse is open around the clock.",
-    "Most houses here are two stories, with four or five bedrooms. Owners also have a storage area for boats and jet skis. It is full now, so we ask about a space before you offer.",
+    "Most houses here are two stories, and about half have a porch. Owners also have a storage area for boats and jet skis. It is full now, so we ask about a space before you offer.",
     "About 90 new houses were sold here in the past year, mostly by builders, and some of the newest streets are still filling in.",
   ], "Resale houses in Waterbridge usually sold for about $630,000 last year, and new ones from builders for about $550,000. The HOA fee is about $150 a month."),
 
@@ -292,7 +292,7 @@ const ENTRIES = [
 
   ENTRY("forestbrook-estates", "a community garden by the pool", [
     "Forestbrook Estates has a community garden with plots for owners, on the same grounds as the community pool.",
-    "The neighborhood was once known as Kingsland. Lennar began building it in 2018, and every house the county approved is now built: 500 houses, with about 105 townhomes beside them. Most of the houses have four bedrooms or more and a porch.",
+    "The neighborhood was once known as Kingsland. Lennar began building it in 2018, and every house the county approved is now built: 500 houses, with about 105 townhomes beside them. Most of the houses have a porch.",
     "The houses are built around ponds, and every home here is outside the high-risk flood zone. Our agents check the HOA rules on golf carts before you make an offer.",
     "The trade-off is the yard: a house lot here is about a sixth of an acre,.",
   ], "Houses in Forestbrook Estates usually sold for about $395,000 last year, and the HOA fee is under $90 a month."),

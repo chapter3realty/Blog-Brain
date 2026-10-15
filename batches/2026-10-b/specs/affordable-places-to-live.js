@@ -248,7 +248,7 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "Twelve affordable places where homes sell for about half the typical price of a Myrtle Beach house.",
+  sub: "Affordable places where homes sell for about half the typical price of a Myrtle Beach house.",
   toc: false,
   heroCta: { title: "See any of them in person.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
@@ -269,19 +269,20 @@ module.exports = G.page({
       h.p("Few of these townhomes come up for sale in a year, so one of our agents watches for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes in a golf community", () =>
-      h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf community with 27 holes, and some are near the course. The HOA fee usually includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work.") +
+      h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf club with 27 holes, and some are near the course. The club now has a renovated pro shop, upgraded practice facilities and a refreshed clubhouse.") +
+      h.p("The HOA fee usually includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work.") +
       h.p("Fairways townhomes usually have two stories and three or four bedrooms. Most have their own garage, some with room for two cars, and some put the main bedroom downstairs.") +
-      h.p("Conway Medical Center is about two miles from the Fairways, and an Aldi is closer still.") +
       h.p("The Fairways is inside Conway's city limits, where the yearly tax is higher than outside a town.")),
 
-    entry("sawgrass-east", "three-bedroom townhomes with a garage", () =>
-      h.p("Many Sawgrass East townhomes have three bedrooms. Many of the three-bedroom ones have a one-car garage and the main bedroom downstairs. The HOA fee usually covers the insurance on the buildings, the lawn care, and the water, sewer and trash.") +
-      h.p("There are about 255 townhomes, built in the mid-2000s, around three small lakes that the HOA owns. Owners share a pool and a clubhouse. The neighborhood is off Carolina Forest Boulevard, about two and a half miles by road from US 501.") +
-      h.p("The county's Carolina Forest library and recreation center are on the same boulevard. Sawgrass East's HOA fee is the second highest here, after Wynbrooke's.")),
+    entry("sawgrass-east", "townhomes where the fee covers the insurance and the lawn", () =>
+      h.p(`At Sawgrass East, the HOA fee usually pays the insurance on the buildings, the lawn care, and the water, sewer and trash. An owner then has no water or trash bill of their own, and insures mainly the inside of the home. Our guide to ${h.a("/hoa/master-insurance-ho6/", "how the HOA's policy and your own policy split the cover")} explains where one stops and the other starts.`) +
+      h.p("Most of the townhomes have three bedrooms, and many of the three-bedroom ones have a one-car garage and the main bedroom downstairs.") +
+      h.p("There are about 255 of them, built in the mid-2000s, around three small lakes that the HOA owns, with a pool and a clubhouse for owners. For errands, a Publix is in the Forest Square center, and the county's Carolina Forest library and recreation center are on the boulevard that leads in.") +
+      h.p("The beach is the trade-off: it is about ten miles away by road.")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
       h.p("Birchwood is small: 77 lots, with new Lennar houses on lots of about a quarter acre and about 12 acres of open space. A quarter acre gives a new house a real backyard at this price.") +
-      h.p("Lennar's plans here list granite counters, stainless steel appliances, 9-foot ceilings on the first floor and energy-efficient windows. High-speed internet is included in the monthly dues.") +
+      h.p("FEMA maps every lot in Birchwood as an area of minimal flood hazard. High-speed internet is included in the monthly dues.") +
       h.p("A new house here sells for about what a 1980s house does in the Golf and Yacht Club, closer to Myrtle Beach. Birchwood is off SC 905, southwest of Longs, and North Myrtle Beach and its beaches are about 20 minutes by car.") +
       h.p(`The long drive is to Myrtle Beach: Coastal Grand Mall is about a forty-minute drive, by the Carolina Bays Parkway.`)),
 
@@ -319,7 +320,7 @@ module.exports = G.page({
       h.p("The trade-off is the dues: they are higher than at the other new communities here.")),
 
     entry("indigo-grove", "new houses on open land, 13 minutes from the beach", () =>
-      h.p("Most of Indigo Grove's new houses back onto open land that the HOA owns: about 22 acres of ponds and woods. The beach is about 13 minutes away by car.") +
+      h.p("Most of Indigo Grove's new houses back onto about 22 acres of open land that the HOA owns. The beach is about 13 minutes away by car.") +
       h.p("The open land holds three new ponds, one with a small island of trees, and strips of woods along a creek. The neighborhood is off SC 90, and its homes are zoned for Riverside Elementary and North Myrtle Beach Middle and High.") +
       h.p(`Most of the houses are Lennar's, which sells them as The Overlook. ${h.ext(OVERLOOK, "Lennar lists nine floor plans")} with three to five bedrooms, some of them one story, on lots of about a fifth of an acre. Lennar shows most of them as coming soon, so the plan you want may not be for sale yet.`) +
       h.p("Every lot is outside the high-risk flood zone, so a lender usually will not require flood insurance on a home here.")),
