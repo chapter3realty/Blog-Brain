@@ -40,5 +40,12 @@
     "unless": "(?:\\d|\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|half|quarter|third)\\b)[^.]{0,25}\\b(?:miles?|minutes?|feet|yards?)\\b",
     "struck": "The beach is a golf cart ride away.",
     "use": "The beach is under 3 miles away by road."
+  },
+  {
+    "row": "CRAFT 2",
+    "pattern": "\\bnext door\\b",
+    "unless": "(?:lot|house|home|neighbor)s? (?:can go up |going up |built )?next door|go(?:es)? up next door|(?:\\d|\\b(?:one|two|three|four|five|six|seven|eight|nine|ten|half|quarter|third)\\b)[^.]{0,25}\\b(?:miles?|minutes?|feet|yards?|meters?)\\b",
+    "struck": "The Preserve at Pine Lakes is next door.",
+    "use": "The Preserve at Pine Lakes is about 0.2 to 0.5 mile away."
   }
 ]
