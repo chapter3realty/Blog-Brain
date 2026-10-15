@@ -2224,7 +2224,7 @@
     "1200": "images/buyers/no-hoa/loris-downtown-1200w.webp"
    },
    "width": 1200,
-   "height": 899,
+   "height": 510,
    "title": "Downtown Loris, South Carolina",
    "what": "Main Street in downtown Loris at its crossing with US 701, with brick shop buildings on both sides.",
    "caption": "Main Street in downtown Loris.",
@@ -2244,7 +2244,8 @@
    "taken": "2026-08-08",
    "original_size": "3228x2419",
    "share_alike": false,
-   "reused_from": "batch 2026-10-b affordable-places-to-live record (images/buyers/affordable/loris-downtown.webp), removed from that page in round 8; the same Commons file, kept for the no-HOA page."
+   "reused_from": "batch 2026-10-b affordable-places-to-live record (images/buyers/affordable/loris-downtown.webp), removed from that page in round 8; the same Commons file, kept for the no-HOA page.",
+   "changes": "Chapter3 Realty cropped this photo to the street and the shops, leaving out the sky and the traffic lights, and resized it"
   },
   {
    "slug": "the-farm",

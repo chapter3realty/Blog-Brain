@@ -1230,6 +1230,11 @@ function areasOf(spec) {
        with a leader line over the ocean). Left out, the area is named as before. */
     if (a.label !== undefined && a.label !== false) throw new Error(`area-map: area ${name}: label is false or left out`);
     const bare = a.label === false ? { bare: true } : {};
+    /* Optional a.nested true (opt-in, batch 2026-10-b round 14g, OWNER-EYE-14f M1): the area sits inside a
+       larger one (Loris inside the country around it), so its name pill may go inside the larger area,
+       beside its own circle. Left out, a pill stays clearly nearer its own area than any other, as before. */
+    if (a.nested !== undefined && a.nested !== true) throw new Error(`area-map: area ${name}: nested is true or left out`);
+    if (a.nested) bare.nested = true;
     if (Array.isArray(a.polygon)) {
       if (a.radius !== undefined) throw new Error(`area-map: area ${name}: give a radius or a polygon, not both`);
       if (a.polygon.length < 3 || a.polygon.length > 400) throw new Error(`area-map: area ${name}: a polygon has 3 to 400 points`);
@@ -1633,7 +1638,8 @@ function regionMap(spec, opts = {}) {
         /* Inside its own area, or beside it and clearly nearer it than any other area. */
         if (!inAreaPx(ap, x, y)) {
           const dOwn = edgeDist(ap, b);
-          if (dOwn > 14 || areaPx.some((o) => o !== ap && edgeDist(o, b) < dOwn + 10)) continue;
+          /* An area marked nested (a town inside a country outline) does not count the areas that hold it. */
+          if (dOwn > 14 || areaPx.some((o) => o !== ap && !(ap.a.nested && inAreaPx(o, ap.cx, ap.cy)) && edgeDist(o, b) < dOwn + 10)) continue;
         }
         best = { x, y, b };
       }
