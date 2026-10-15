@@ -1,0 +1,93 @@
+[
+  {
+    "row": "gated 322",
+    "pattern": "Women's Amateur[^.]{0,20}2014|2014[^.]{0,30}Women's Amateur",
+    "struck": "the Carolinas Women's Amateur (2014)",
+    "use": "the Carolinas Women's Four-Ball (2005)"
+  },
+  {
+    "row": "gated 328",
+    "pattern": "archaeologists dug at Wachesaw and found|digs at Wachesaw found",
+    "struck": "Before anyone built here, archaeologists dug at Wachesaw and found more than half a million artifacts.",
+    "use": "A University of South Carolina study of Wachesaw and the neighboring Richmond Hill plantation found more than half a million artifacts [Michie, quoted in the Horry Independent]."
+  },
+  {
+    "row": "gated 324",
+    "pattern": "Dinner is at Kimbels",
+    "struck": "Dinner is at Kimbels, on the bluff above the waterway.",
+    "use": "Kimbels, the club's formal restaurant, is on the bluff above the waterway and the 18th green."
+  },
+  {
+    "row": "gated 335",
+    "pattern": "takes public tee times|(?:is|are) open to the public[^.]{0,40}Wachesaw East|Wachesaw East[^.]{0,60}open to the public",
+    "struck": "The course takes public tee times, so you share it with visitors.",
+    "use": "Tee times are booked online on the club's site, and SC Golf lists the course as semi-private."
+  },
+  {
+    "row": "gated 341",
+    "pattern": "one of McConnell's 17 clubs|members can play the other McConnell",
+    "struck": "It is one of McConnell's 17 clubs, and members can play the other McConnell clubs.",
+    "use": "McConnell Golf lists 17 properties in four states, and Reserve members get reciprocal privileges at its sister clubs [club site]."
+  },
+  {
+    "row": "gated 342",
+    "pattern": "membership covers the family's dining",
+    "struck": "A golf membership covers the family's dining and social events.",
+    "use": "A golf membership includes access to the club's dining and social events, for the member's family and dependents up to age 25 [club site]."
+  },
+  {
+    "row": "gated 343",
+    "pattern": "cut through the woods",
+    "struck": "a private Greg Norman course of 7,200 yards, cut through the woods and around the marsh.",
+    "use": "a private Greg Norman course of up to 7,200 yards, laid out through 160 acres of natural wetlands [club site; course architect's site]."
+  },
+  {
+    "row": "gated 346",
+    "pattern": "Coast Guard (?:calls|designates|names) it|Coast Guard calls it a hurricane hole",
+    "struck": "the U.S. Coast Guard calls it a hurricane hole.",
+    "use": "the S.C. Clean Marina Program describes it as designated a Hurricane Hole by the U.S. Coast Guard [SC Clean Marina Program, 2024]."
+  },
+  {
+    "row": "gated 353",
+    "pattern": "\\bsix markers",
+    "struck": "six markers along it tell that history hole by hole.",
+    "use": "five markers along it tell that history, at the 4th, 5th and 8th holes, near the 9th green and on the way to the 1st tee [course operator's site]."
+  },
+  {
+    "row": "gated 354",
+    "pattern": "cemetery of enslaved people, with 38 graves|containing 38 graves",
+    "unless": "community counts|counts 38",
+    "struck": "By the 8th hole is the Oatland cemetery of enslaved people, with 38 graves, protected inside the community.",
+    "use": "By the 8th hole is the Oatland cemetery of enslaved people, which the community counts at 38 graves [Litchfield by the Sea]."
+  },
+  {
+    "row": "gated 356",
+    "pattern": "barcode opens both",
+    "struck": "One car barcode opens both gates on the way to Litchfield by the Sea's beach.",
+    "use": "One vehicle barcode is issued for the owner's gated community and for Litchfield by the Sea access [Litchfield by the Sea]."
+  },
+  {
+    "row": "gated 358",
+    "pattern": "bought the land in 1926 for|bought the three plantations for duck",
+    "struck": "a Pennsylvania businessman bought the land in 1926 for duck and quail hunting.",
+    "use": "in 1926 a Pennsylvania businessman bought the three tracts, which were used for duck and quail hunting [Chicora Foundation, RS11]."
+  },
+  {
+    "row": "gated 359",
+    "pattern": "golf course crosses the land of three|course across three rice plantations|crosses the land of three rice plantations",
+    "struck": "Willbrook's golf course crosses the land of three rice plantations, Willbrook, Oatland and Turkey Hill.",
+    "use": "Willbrook was built on the land of three rice plantations, Willbrook, Oatland and Turkey Hill [Chicora, RS11], and the course winds through a pair of them [course site]."
+  },
+  {
+    "row": "gated 359",
+    "pattern": "water (?:is )?on 15 of (?:the course's )?18 holes, most of it",
+    "struck": "Water is on 15 of the course's 18 holes, most of it along the edges.",
+    "use": "There is water on 15 of 18 holes, often on the edge of the layout [course site]."
+  },
+  {
+    "row": "gated 129",
+    "pattern": "24,000[- ]acres?",
+    "struck": "Willbrook was part of a 24,000-acre grant made by the Lords Proprietors to Robert Daniel in 1711.",
+    "use": "A 2,400-acre tract was granted to Robert Daniel in 1711, of which 1,490 acres lay on Waccamaw Neck [Chicora Foundation, RS11, PDF p. 48]. (Publish no acreage if the page does not need it. The old struck pattern for 2,400 is itself wrong.)"
+  }
+]
