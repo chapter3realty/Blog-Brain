@@ -148,8 +148,10 @@ const GUIDE = G.bars([{ name: "A Myrtle Beach home", value: MB_HOUSE, valueText:
 
 /* One map after the entries, the twelve numbered as on the page, with no key: the table under it names them. */
 const placeOf = (p) => ({ name: p.map, lat: p.lat, lon: p.lon, href: A(p.id) });
+/* Town names as a small label layer (owner's eye 14d, M3): the map tool's town leaders, with no place leaders. */
 const MAP = placesMap("Affordable neighborhoods near Myrtle Beach", P.map(placeOf), {
-  caption: "Map of the twelve neighborhoods, numbered as on this page.",
+  caption: "Map of the twelve neighborhoods, numbered as on this page, with the nearest towns.",
+  leaders: { places: false, towns: ["Conway", "Myrtle Beach", "North Myrtle Beach", "Little River"] },
 });
 /* Numbers only, the same for every dot (owner's eye 14c, L3: three dots had no name and nine did): the tool's
    name pills and their leader lines come off, and the table under the map names each number. */
@@ -244,18 +246,18 @@ module.exports = G.page({
       h.p("Parkview has the shortest beach drive on this list, a four-minute trip. Its townhomes are off 17th Avenue South, inside the city of Myrtle Beach, around ponds and a pool for owners.") +
       PH["parkview"] +
       h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}, is less than a quarter mile from Parkview. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Residents of Horry, Georgetown and Brunswick counties play a round there for $45 plus tax, with a cart.`) +
-      h.p("There are about 200 townhomes here, and the HOA fee pays for the internet and the pool. On a weekday evening, the shops, restaurants and 14-screen movie theater at The Market Common are a ten-minute trip.") +
-      h.p("Few of these townhomes come up for sale in a year, so we watch for each new listing.")),
+      h.p("There are about 200 townhomes here, and the HOA fee includes the internet and the pool. On a weekday evening, the shops, restaurants and 14-screen movie theater at The Market Common are a ten-minute trip.") +
+      h.p("Few of these townhomes come up for sale in a year, so one of our agents watches for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes in a golf community", () =>
-      h.p("At the Fairways, the HOA fee pays for the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work. Wild Wing Plantation, the golf community around it, has 27 holes, and some Fairways townhomes are near the course.") +
+      h.p("At the Fairways, the HOA fee includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work. Wild Wing Plantation, the golf community around it, has 27 holes, and some Fairways townhomes are near the course.") +
       h.p("There are about 180 townhomes here. The ones on the market lately have had their own garage, and some have room for two cars.") +
       h.p("Errands on a weekday are quick: an Aldi is a three-minute trip for groceries on the way home.") +
       h.p("The yearly tax is higher here than outside a town, because the Fairways is inside Conway's city limits.")),
 
     entry("sawgrass-east", "townhomes with a clubhouse owners can rent", () =>
       h.p("Owners at Sawgrass East can rent its clubhouse for a party, and they share a pool. There are about 255 townhomes, set around three small lakes that the HOA owns.") +
-      h.p("Its HOA fee is one of the highest on this list because it covers more. It usually pays for the insurance on the buildings, the water, sewer and trash, and the lawn care, bills an owner would pay anyway.") +
+      h.p("Its HOA fee is one of the highest on this list because it covers more. It usually includes the insurance on the buildings, the water, sewer and trash, and the lawn care, bills an owner would pay anyway.") +
       h.p("A Saturday here can be the pool in the morning and the beach after lunch, about 20 minutes away by car.") +
       h.p("Sawgrass East is off Carolina Forest Boulevard, a little over two miles up the boulevard from US 501.")),
 
@@ -265,8 +267,8 @@ module.exports = G.page({
       h.p("After work, Long Bay Club, a golf course designed by Jack Nicklaus, is a seven-minute trip.") +
       h.p(`The long drive is to Myrtle Beach: Coastal Grand Mall is about ${mins(N.birchwood.mb)} minutes away, by the Carolina Bays Parkway.`)),
 
-    entry("golf-and-yacht-club", "older houses in a community built for golf and boating", () =>
-      h.p("Myrtle Beach Golf and Yacht Club was built for golf and boating, and its street names still say so: Augusta Crescent and Pebble Beach Crescent, Snowy Egret Trail and Wood Duck Cove.") +
+    entry("golf-and-yacht-club", "older houses built for golf and boating", () =>
+      h.p("Myrtle Beach Golf and Yacht Club was built for golf and boating. Its street names still say so: Augusta Crescent and Pebble Beach Crescent, Snowy Egret Trail and Wood Duck Cove.") +
       h.p("Its own course and yacht club are gone, but both are still near. On a Saturday, Osprey Marina, on the Intracoastal Waterway, is an 11-minute drive, and Indigo Creek Golf Club a 14-minute one.") +
       h.p("The older part has about 470 houses, most on about an eighth of an acre. The houses for sale there lately have all been one story.") +
       h.p("Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy.")),
@@ -286,7 +288,7 @@ module.exports = G.page({
 
     entry("amber-bluff", "smart-home townhomes about 6 minutes from the football stadium", () =>
       h.p("Every townhome at Amber Bluff came with a smart-home package: you can control the front door lock, the thermostat and the video doorbell from your phone.") +
-      h.p(`${h.ext(DRH, "D.R. Horton builds one plan here")}, the Pearson, off Savannah Bluff Road: three bedrooms and two and a half baths over two stories, with a one-car garage, in about 1,420 square feet. With one plan, prices are close together.`) +
+      h.p(`Off Savannah Bluff Road, ${h.ext(DRH, "D.R. Horton builds one plan")}, the Pearson. It has three bedrooms and two and a half baths over two stories, with a one-car garage, in about 1,420 square feet. With one plan, prices are close together.`) +
       h.p("On game days, Brooks Stadium, where the Chanticleers play football, is about a six-minute drive. Coastal Carolina University and Horry-Georgetown Technical College are each a six-minute trip, and downtown Conway, with its riverwalk on the Waccamaw River, about a seven-minute drive.") +
       h.p("Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.")),
 
@@ -297,7 +299,7 @@ module.exports = G.page({
       h.p("You give up time: Myrtle Beach is about a half-hour drive. The monthly dues are also higher than at the other new communities here.")),
 
     entry("indigo-grove", "new houses around 22 acres of ponds and woods", () =>
-      h.p("Indigo Grove keeps about 22 acres as open space, owned by its HOA: three new ponds, one with a small island of trees, and strips of woods along a creek. Most lots back onto that open space.") +
+      h.p("Indigo Grove keeps about 22 acres as open space, owned by its HOA. It holds three new ponds, one with a small island of trees, and strips of woods along a creek. Most lots back onto that open space.") +
       h.p(`Most of the houses are Lennar's, in Lennar's section, The Overlook. ${h.ext(OVERLOOK, "Lennar lists nine floor plans")} with three to five bedrooms, some of them one story, on lots of about a fifth of an acre.`) +
       h.p("Every lot is outside the high-risk flood zone, so a lender usually will not require flood insurance on a home here.") +
       h.p(`A weekday is simple: Griffin's IGA, a grocery store on SC 90, is three minutes away, and trash pickup is included. The nearest beach is about ${mins(N["indigo-grove"].beach)} minutes away by car.`)),
