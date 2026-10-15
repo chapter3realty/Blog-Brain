@@ -74,7 +74,7 @@
   },
   {
     "row": "affordable 120, 161",
-    "pattern": "\\busually sold for about \\$225,000",
+    "pattern": "^(?:Homes|Houses) (?:here |there )?usually (?:sold|went) for about \\$225,000|\\bYacht Club\\b[^.]{0,140}\\busually (?:sold|went) for about \\$225,000",
     "unless": "\\bolder\\b|Birchwood|Lennar|\\bnew\\b",
     "struck": "Homes usually sold for about $225,000.",
     "use": "Houses in the older part of Myrtle Beach Golf and Yacht Club usually sold for about $225,000."
@@ -93,13 +93,13 @@
   },
   {
     "row": "affordable 125, 126",
-    "pattern": "\\busually sold for about \\$250,000",
+    "pattern": "^(?:Homes|Houses|Townhomes) (?:here |there )?usually (?:sold|went) for about \\$250,000|\\b(?:Victory Point|Coopers Bluff)\\b[^.]{0,140}\\busually (?:sold|went) for about \\$250,000",
     "struck": "Homes usually sold for about $250,000.",
     "use": "Townhomes in Victory Point usually sold for about $235,000."
   },
   {
     "row": "affordable 126",
-    "pattern": "\\btownhomes usually sold for about \\$240,000",
+    "pattern": "^The townhomes usually (?:sold|went) for about \\$240,000|\\bCoopers Bluff\\b[^.]{0,140}\\busually (?:sold|went) for about \\$240,000",
     "unless": "resold",
     "struck": "The townhomes usually sold for about $240,000, and the houses for about $345,000.",
     "use": "Townhomes in Coopers Bluff that resold usually sold for about $240,000."
@@ -726,5 +726,35 @@
     "pattern": "a townhome comes with its own one-car garage",
     "struck": "At Sawgrass East, a townhome comes with its own one-car garage.",
     "use": "The two Sawgrass East townhomes we found for sale each had a one-car garage."
+  },
+  {
+    "row": "affordable 224",
+    "pattern": "\\btownhomes by the (?:Murrells Inlet )?MarshWalk",
+    "struck": "11. Wynbrooke: townhomes by the Murrells Inlet MarshWalk",
+    "use": "Wynbrooke: townhomes five minutes from the Murrells Inlet MarshWalk"
+  },
+  {
+    "row": "affordable 224",
+    "pattern": "\\btownhomes by a cable wake park",
+    "struck": "9. Villas at Sandridge: townhomes by a cable wake park",
+    "use": "Villas at Sandridge: townhomes five minutes from a cable wake park"
+  },
+  {
+    "row": "affordable 224",
+    "pattern": "\\btownhomes with their own garage, by the golf\\b",
+    "struck": "2. The Fairways at Wild Wing: townhomes with their own garage, by the golf",
+    "use": "The Fairways at Wild Wing: townhomes with their own garage, in a golf community"
+  },
+  {
+    "row": "affordable 224",
+    "pattern": "\\bplans here have 9-foot ceilings",
+    "struck": "Lennar's plans here have 9-foot ceilings on the first floor.",
+    "use": "Lennar's plans here list 9-foot ceilings on the first floor"
+  },
+  {
+    "row": "affordable 224",
+    "pattern": "^To qualify:?$",
+    "struck": "You do not have to be a first-time buyer. To qualify:",
+    "use": "You do not have to be a first-time buyer. The program has these limits:"
   }
 ]

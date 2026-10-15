@@ -114,6 +114,10 @@ const FIRE = [
   ["gated-communities", "Its gated sections of houses are Calais, Palermo and Villa Venezia.", "gated 154"],
   ["gated-communities", "Many of its houses are brick, and many back up to its lakes.", "gated 153"],
   ["best-neighborhoods", "On the same grounds as the pool is a community garden with garden plots, and owners drive golf carts on its streets.", "neighborhoods 220, 229"],
+  /* Round 14d: the price entries fire on the place they struck, not on every sentence with the same figure. */
+  ["affordable-places-to-live", "Houses at the Golf and Yacht Club usually sold for about $225,000 last year.", "affordable 120, 161"],
+  ["affordable-places-to-live", "Townhomes in Victory Point usually sold for about $250,000 last year.", "affordable 125, 126"],
+  ["affordable-places-to-live", "Townhomes in Coopers Bluff usually sold for about $240,000 last year.", "affordable 126"],
 ];
 for (const [slug, text, row] of FIRE) {
   if (!lists[slug]) continue;
@@ -150,6 +154,10 @@ const QUIET = [
   ["the-farm", "On the same map, the Corps is still investigating another section next to The Farm, called Range III."],
   ["the-farm", "The map shows drive times by car from the entrance by the large pool."],
   ["affordable-places-to-live", "In Birchwood, off SC 905 near Longs, new Lennar houses usually sold for about $225,000 in the past year."],
+  /* Round 14d: the same figure for a different place is true (rows 122, 124, 156). */
+  ["affordable-places-to-live", "Sawgrass East townhomes usually sold for about $225,000 last year, and the HOA fee is about $425 a month."],
+  ["affordable-places-to-live", "These townhomes usually sold for about $240,000 last year, with an HOA fee of about $100 a month."],
+  ["affordable-places-to-live", "Townhomes in Wynbrooke usually sold for about $250,000 last year, with an HOA fee of about $450 a month."],
 ];
 for (const [slug, text] of QUIET) {
   if (!lists[slug]) continue;
