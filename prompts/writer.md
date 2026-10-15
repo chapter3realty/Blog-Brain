@@ -110,4 +110,6 @@ Take the fact from the row, not its wording. Write what the fact means for the b
 
 Keep the correction's scope. Use "a", not "the", when the source does not say "the only". Keep "several", "many" and "native" when the source has them. Do not turn one source's sentence into a general rule, or two sales into a price range. Never hedge a claim in the copy, for example with "(the club's account)" or "listings say". State the part a primary source supports, or cut the claim. A verifier who has not seen the page checks every corrected sentence before the review (lesson B45).
 
+A few listings describe the homes we saw, not every home. With fewer than about ten listings, write "The townhomes we've seen for sale here have ...", never "The townhomes have ...". Write a price as a typical past sale ("usually sold for about $X last year"), never "Expect to pay" (lesson B48).
+
 After every change, however small, run `node build.js audit` in the website worktree as well as the Blog-Brain gates. In batch 2026-10-b a one-line fix in the last round passed score, repeat-check and struck-check but failed the audit's 28-word sentence limit, and the package stopped at preflight.

@@ -121,6 +121,8 @@ The struck list catches old wording coming back. It cannot catch new wording tha
 
 **B47. Every page ran 3 to 4 phone screens before its first place.** The order the brief set was the hero, the short answer, the offer box, the guide, the map, then the first place. Each part was useful, but together they were too long. The dark offer band alone was about 300 to 550 px, and three stacked map panels were 1.8 screens. Rule (CRAFT 3): measure the top in pixels before writing it. A top offer is a slim bar, and the big band goes at the end. A map on a phone is short and wide. The page says its count of places once.
 
+**B48. A few listings describe the homes we saw, not every home.** In round 14c the affordable writer described the homes in six places from 2 to 5 listings each. The check found eight sentences that made those few into a rule: "Most are three-bedroom", "The townhomes have two stories", "the three-bedroom plan puts the main bedroom downstairs". A middle price was also written as every sale ("Expect to pay"). Rule (writer prompt): say what a small sample shows as what we have seen ("The townhomes we've seen for sale here have ..."). Say a typical price as a typical past sale ("usually sold for about $X last year"). An agent who has walked through three homes says so; that is also the selling voice.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
