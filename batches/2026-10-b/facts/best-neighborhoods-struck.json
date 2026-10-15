@@ -1029,151 +1029,151 @@
     "use": "The city of Myrtle Beach is better for being close to the beach, and Carolina Forest for big neighborhood pools and lakes."
   },
   {
-    "row": "neighborhoods 245, 284",
+    "row": "neighborhoods 245, 287",
     "pattern": "\\bpier is about a 14-minute walk",
     "struck": "The pier is about a 14-minute walk from the middle of Cherry Grove.",
     "use": "Cherry Grove Pier is about a 12-minute walk, about half a mile, from the middle of Cherry Grove."
   },
   {
-    "row": "neighborhoods 202, 284",
+    "row": "neighborhoods 202, 287",
     "pattern": "\\bbeach itself was made in 1950",
     "struck": "The beach itself was made in 1950, when an inlet was filled to join Futch Beach to the Nixon family's Cherry Grove land.",
     "use": "In 1950 an inlet was filled to join Futch Beach to the Nixon family's Cherry Grove land, and the joined place was named Cherry Grove Beach."
   },
   {
-    "row": "neighborhoods 92, 94, 284",
+    "row": "neighborhoods 92, 94, 287",
     "pattern": "\\bonly a few dozen condos",
     "struck": "Cherry Grove is mostly houses, about 1,700 of them, with only a few dozen condos.",
     "use": "About 1,700 houses carry the Cherry Grove name in county records. The condo towers along the ocean are filed under their own names."
   },
   {
-    "row": "neighborhoods 170 (affordable), 284",
+    "row": "neighborhoods 170 (affordable), 287",
     "pattern": "\\bmortgage lender will require a policy",
     "struck": "Almost every home here is in a high-risk flood zone, so a mortgage lender will require a policy.",
     "use": "Almost every home here is in a high-risk flood zone, where a lender usually requires flood insurance."
   },
   {
-    "row": "neighborhoods 177, 178, 284",
+    "row": "neighborhoods 177, 178, 287",
     "pattern": "\\bhomes for sale here have no homeowners association \\(HOA\\) fee",
     "struck": "Houses in Cherry Grove usually sold for about $695,000 last year, and more than half of the homes for sale here have no homeowners association (HOA) fee.",
     "use": "Houses in Cherry Grove usually sold for about $695,000 last year, and more than half of the homes for sale here are listed with no homeowners association (HOA) fee."
   },
   {
-    "row": "neighborhoods 211, 284",
+    "row": "neighborhoods 211, 287",
     "pattern": "\\bThe land was a rice plantation",
     "struck": "The land was a rice plantation called The Ark.",
     "use": "Surfside Beach began as part of a rice plantation called The Ark."
   },
   {
-    "row": "neighborhoods 170 (affordable), 284",
+    "row": "neighborhoods 170 (affordable), 287",
     "pattern": "\\bwhere a lender requires flood insurance",
     "struck": "About one home in four on the ocean side is in a high-risk flood zone, where a lender requires flood insurance.",
     "use": "About one home in four on the ocean side is in a high-risk flood zone, where a lender usually requires flood insurance."
   },
   {
-    "row": "neighborhoods 178, 284",
+    "row": "neighborhoods 178, 287",
     "pattern": "\\bMost homes for sale here have no HOA fee",
     "struck": "Most homes for sale here have no HOA fee.",
     "use": "Most homes for sale here are listed with no HOA fee."
   },
   {
-    "row": "neighborhoods 194, 284",
+    "row": "neighborhoods 194, 287",
     "pattern": "\\bbike route along Grissom Parkway is about a fifth of a mile away",
     "struck": "Owners in The Preserve share their own pool, and a city bike route along Grissom Parkway is about a fifth of a mile away.",
     "use": "Owners in The Preserve share their own pool, and a city bike route along Grissom Parkway is about an 8-minute walk from the middle of the neighborhood."
   },
   {
-    "row": "neighborhoods 194, 284",
+    "row": "neighborhoods 194, 287",
     "pattern": "\\bBarc Park North[^.]{0,80}little over half a mile away",
     "struck": "Barc Park North, a city park with a pond and trails, is a little over half a mile away.",
     "use": "Barc Park North, a city park with a pond and trails, is about 6 minutes by car from the middle of the neighborhood."
   },
   {
-    "row": "neighborhoods 200, 284",
+    "row": "neighborhoods 200, 287",
     "pattern": "\\bMost of the houses for sale lately date from around 2000",
     "struck": "Most of the houses for sale lately date from around 2000, and some streets carry sailing names, such as Spinnaker Drive and Topsail Lane.",
     "use": "The houses for sale lately were built mostly in the 1990s and 2000s, and some streets carry sailing names, such as Spinnaker Drive and Topsail Lane."
   },
   {
-    "row": "neighborhoods 224, 284",
+    "row": "neighborhoods 224, 287",
     "pattern": "\\bcondos and villas (?:also )?pay",
     "struck": "The few condos and villas also pay a higher HOA fee, about $780 to $800 a month.",
     "use": "Two-bedroom condos in the Clubhouse Villas list at about $780 to $800 a month in HOA fees, and other units in the same buildings list higher and lower."
   },
   {
-    "row": "neighborhoods 235, 284",
+    "row": "neighborhoods 235, 287",
     "pattern": "\\bswing bridge from 1934",
     "struck": "Barefoot Resort's road to the shops crosses a swing bridge from 1934, moved here from Edenton, North Carolina.",
     "use": "Barefoot Resort's road to the shops crosses a swing bridge from the 1930s, moved here from Edenton, North Carolina."
   },
   {
-    "row": "neighborhoods 145, 279, 280, 284",
+    "row": "neighborhoods 145, 279, 280, 287",
     "pattern": "\\bonly nine of about 120 lots",
     "struck": "Most of its houses are not on the course itself: only nine of about 120 lots border it.",
     "use": "Most of its houses are not on the course itself: of about 640 houses in Prince Creek's sections outside Seasons, about 19 lots border it [county parcels, the named sections and the Bays, Creek Harbour and Bellwood Landing]."
   },
   {
-    "row": "neighborhoods 253, 284",
+    "row": "neighborhoods 253, 287",
     "pattern": "\\bCoastal Carolina University is an 11-minute drive",
     "struck": "Coastal Carolina University is an 11-minute drive.",
     "use": "From the middle of Wild Wing, Coastal Carolina University is about 10 minutes by car."
   },
   {
-    "row": "neighborhoods 14, 278, 284",
+    "row": "neighborhoods 14, 278, 287",
     "pattern": "\\bGrande Dunes usually resold for about \\$1\\.5 million",
     "struck": "Homes in Grande Dunes usually resold for about $1.5 million last year, and the HOA fee for a house is about $200 to $400 a month.",
     "use": "Homes in Grande Dunes usually resold for about $1.4 million last year, and the HOA fee for a house is about $200 to $400 a month."
   },
   {
-    "row": "neighborhoods 14, 278, 284",
+    "row": "neighborhoods 14, 278, 287",
     "pattern": "^About \\$1\\.5 million$",
     "struck": "About $1.5 million",
     "use": "About $1.4 million"
   },
   {
-    "row": "neighborhoods 250, 284",
+    "row": "neighborhoods 250, 287",
     "pattern": "\\bOwners also have a fenced storage area for boats and jet skis",
     "struck": "Owners also have a fenced storage area for boats and jet skis, and courts for tennis, pickleball and basketball about a quarter mile from the clubhouse.",
     "use": "Owners also have a storage area for boats and jet skis. It is full now, so we ask about a space before you offer. Courts for tennis, pickleball and basketball are about a quarter mile from the clubhouse."
   },
   {
-    "row": "neighborhoods 229, 284",
+    "row": "neighborhoods 229, 287",
     "pattern": "\\bfits on about 81 acres",
     "struck": "A house lot here is about a sixth of an acre, and the whole neighborhood fits on about 81 acres.",
     "use": "(cut the 81 acres: the county's parcels for Forestbrook Estates total about 155 acres, and the house lots alone about 92; keep 'A house lot here is about a sixth of an acre')"
   },
   {
-    "row": "neighborhoods 195, 284",
+    "row": "neighborhoods 195, 287",
     "pattern": "\\bState Park's land is about a mile away",
     "struck": "The beach is a five-minute drive, and Myrtle Beach State Park's land is about a mile away.",
     "use": "The beach is a five-minute drive, and the entrance to Myrtle Beach State Park is about 5 minutes by car."
   },
   {
-    "row": "neighborhoods 24, 279, 284",
+    "row": "neighborhoods 24, 279, 287",
     "pattern": "\\babout 375 houses",
     "struck": "The homes are close together, on small lots: about 375 houses and about 240 townhomes.",
     "use": "The homes are close together, on small lots: about 420 houses and about 230 townhomes [county parcels; 375 coded residential and 47 R-4 lots coded 319 or 800 that hold houses]."
   },
   {
-    "row": "neighborhoods 272, 284",
+    "row": "neighborhoods 272, 287",
     "pattern": "\\bthese houses are more than twenty years old",
     "struck": "The trade-off is age: these houses are more than twenty years old, so our agents check the age of the roof and the air conditioner for you.",
     "use": "The trade-off is age: the ones for sale lately are 20 to 26 years old, so our agents check the age of the roof and the air conditioner for you."
   },
   {
-    "row": "neighborhoods 230, 284",
+    "row": "neighborhoods 230, 287",
     "pattern": "\\bgrew up around the (?:old )?Deer Track",
     "struck": "Deerfield grew up around the old Deer Track golf resort near Surfside Beach.",
     "use": "Deerfield is built around the old Deer Track golf courses near Surfside Beach."
   },
   {
-    "row": "neighborhoods 129, 230, 284",
+    "row": "neighborhoods 129, 230, 287",
     "pattern": "^Deerfield: golf carts to the beach$",
     "struck": "Deerfield: golf carts to the beach",
     "use": "Deerfield: golf-cart beach parking"
   },
   {
-    "row": "neighborhoods 180, the-farm 27, 284",
+    "row": "neighborhoods 180, the-farm 27, 287",
     "pattern": "\\bfrom The Farm's main entrance",
     "struck": "Myrtle Beach International Airport is about 20 minutes from The Farm's main entrance.",
     "use": "Myrtle Beach International Airport is about 20 minutes from the Farmers Rest Drive entrance of The Farm, and 20 to 25 from the middle of the neighborhood [OSRM, no traffic]."
