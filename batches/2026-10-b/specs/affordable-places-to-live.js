@@ -290,7 +290,7 @@ module.exports = G.page({
   author: "devin",
   shortAnswer: [
     `Near Myrtle Beach, homes cost the least in the twelve neighborhoods below. Homes in them usually sold for about ${pr("parkview")} to ${pr("polo-farms")} last year, against about ${money(MB_HOUSE)} for a Myrtle Beach home that is not a condo.`,
-    "That money still buys a good life. Parkview is a four-minute drive from the beach, Villas at Sandridge is five minutes from a park with a lake and a cable wake park, and Birchwood's new houses are on a quarter acre.",
+    "That money still buys a good life. Parkview is a four-minute drive from the beach. Villas at Sandridge is five minutes from a park with a cable wake park, and Birchwood's new houses are on a quarter acre.",
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "The twelve at a glance", id: "compare", html: () =>
@@ -300,12 +300,12 @@ module.exports = G.page({
       h.p("Parkview has the shortest beach drive on this list, a four-minute trip. Its gated townhomes are off 17th Avenue South, inside the city of Myrtle Beach, around ponds and a pool for owners.") +
       PH["parkview"] +
       h.p(`Whispering Pines, the ${h.ext(WPINES, "city's own 18-hole golf course")}, is less than a quarter mile from Parkview. It was originally part of the Myrtle Beach Air Force Base, and its tee markers feature the squadron emblems. Residents of Horry, Georgetown and Brunswick counties play a round there for $45 plus tax, with a cart.`) +
-      h.p(`The rest of the ${h.ext(BASE, "old base is now The Market Common")}, a ten-minute trip by car. It has shops, restaurants and a 14-screen movie theater, and Grand Park's trails are next door. The airport terminal is a six-minute drive.`) +
+      h.p(`The rest of the ${h.ext(BASE, "old base is now The Market Common")}, a ten-minute trip. It has shops, restaurants and a 14-screen movie theater, and Grand Park's trails are next door. The airport terminal is a six-minute drive.`) +
       h.p("The HOA fee covers water, sewer, the grounds and the pool. The trade-off is choice: few of these townhomes come up for sale in a year, so we watch for each new listing.") +
       costs("parkview")),
 
     entry("fairways-at-wild-wing", "a golf community by the hospital and two colleges", () =>
-      h.p("Conway Medical Center is a six-minute drive from the Fairways. Horry-Georgetown Technical College and Coastal Carolina University are each about seven minutes away.") +
+      h.p("Conway Medical Center is a six-minute drive from the Fairways. Horry-Georgetown Technical College and Coastal Carolina University are each about a seven-minute trip.") +
       PH["fairways-at-wild-wing"] +
       h.p("The townhomes are off Wild Wing Boulevard, inside Wild Wing Plantation on US 501. Wild Wing was once a golf resort with several courses. Three of them closed in 2004, and one later reopened with nine holes.") +
       h.p(`The ${h.ext(WILDWING, "Avocet course")}, by Larry Nelson and Jeff Brauer, is still open. It is known for its double greens and dual fairways, and some Fairways townhomes are near it.`) +
@@ -363,7 +363,7 @@ module.exports = G.page({
       h.p("Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.") +
       costs("amber-bluff")),
 
-    entry("villas-at-sandridge", "a seven-minute beach trip, five minutes from a wake park", () =>
+    entry("villas-at-sandridge", "a seven-minute beach trip and a five-minute trip to a wake park", () =>
       h.p(`The ${h.ext(NMBPARK, "North Myrtle Beach Park and Sports Complex")}, a five-minute drive, has a lake, walking trails, two dog parks and an accessible playground. Shark Wake Park, inside the complex, pulls wakeboard riders across the water on a cable.`) +
       PH["villas-at-sandridge"] +
       h.p(`The city's ${h.ext(NMBEXP, "new section of the park")} has added soccer and baseball fields, ponds, trails and two more playgrounds. The nearest beach is a seven-minute trip by car.`) +
@@ -391,7 +391,7 @@ module.exports = G.page({
       h.p("Polo Farms has the smallest HOA fee on this list, about $20 a month, for one-story houses on lots of about a fifth of an acre. Many backyards are fenced, and several have their own pool.") +
       PH["polo-farms"] +
       h.p("The houses are off SC 905, between SC 9 and SC 22, west of Longs, and were built in three phases. Simpson Creek runs along the neighborhood's southwest side. There is no pool or clubhouse; the common land is two ponds, some woods and the strips along SC 905.") +
-      h.p(`Long Bay Club's golf course is about 13 minutes by car. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
+      h.p(`Long Bay Club's golf course is about 13 minutes away. Our guide to ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")} covers places with no fee at all.`) +
       h.p(`Flood is a concern here. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone. Before you make an offer, we look up the lot on FEMA's flood map.`) +
       costs("polo-farms")),
 
