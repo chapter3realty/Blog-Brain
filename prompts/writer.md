@@ -112,4 +112,6 @@ Keep the correction's scope. Use "a", not "the", when the source does not say "t
 
 A few listings describe the homes we saw, not every home. Describe what the homes are from a source that covers them all: county records of every parcel (heated square feet, year built, lot size) or the builder's published plans. Use listings only for one detail, and only where no full source has it. Say that detail once, in an agent's voice, for example "the ones on the market lately have a one-car garage". Never write it as a rule ("The townhomes have ..."), and never repeat the sample in every entry ("The two we saw ..."). Write a price as a typical past sale ("usually sold for about $X last year"), never "Expect to pay" (lessons B48, and the 14d review that found the sample voice in 7 of 12 entries).
 
+When a number or repeat gate fails, first add selling prose that is not numbers: what people do there, why they chose it, what the street is like. Then cut filler. Never pass a gate by thinning an entry (lesson B50).
+
 After every change, however small, run `node build.js audit` in the website worktree as well as the Blog-Brain gates. In batch 2026-10-b a one-line fix in the last round passed score, repeat-check and struck-check but failed the audit's 28-word sentence limit, and the package stopped at preflight.
