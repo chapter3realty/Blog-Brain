@@ -1,0 +1,291 @@
+[
+  {
+    "row": "the-farm 10",
+    "pattern": "\\bbulk cable|cable TV is the largest item, then trash",
+    "struck": "Bulk cable TV is the largest item, then trash pickup, the management contract, landscaping and ponds.",
+    "use": "The largest item in the 2026 budget is cable TV, 38.5 percent of $2,031,964, then landscaping and ponds, trash pickup, the management contract, electricity, a reserve contribution, the pools and insurance."
+  },
+  {
+    "row": "the-farm 21",
+    "pattern": "\\bhanded control|\\bon August 1, 2019",
+    "struck": "D.R. Horton handed control of the HOA board to the owners on August 1, 2019.",
+    "use": "D.R. Horton ended its right to appoint a majority of the HOA board in July and August 2019."
+  },
+  {
+    "row": "the-farm 22",
+    "pattern": "\\bdeleted in 2017",
+    "struck": "The covenant section for a beach club was deleted in 2017.",
+    "use": "The Declaration's beach club section was deleted by an amendment recorded in January 2018."
+  },
+  {
+    "row": "the-farm 24",
+    "pattern": "\\bcannot add speed bumps",
+    "struck": "Its streets are county roads, so the HOA cannot add speed bumps on its own.",
+    "use": "The Farm is not gated, and its roads are county-owned."
+  },
+  {
+    "row": "the-farm 28",
+    "pattern": "\\bnearest (?:public )?beach access",
+    "struck": "The nearest public beach accesses by car are City of Myrtle Beach accesses about 10 minutes and 4.6 to 4.7 miles away.",
+    "use": "Public beach accesses in Myrtle Beach are about 10 minutes and under 5 miles by car from the Farmers Rest Drive entrance."
+  },
+  {
+    "row": "the-farm 34",
+    "pattern": "\\bshopping centers nearest",
+    "struck": "The big shopping centers nearest Carolina Forest: Tanger Outlets on Highway 501 is about 13 minutes.",
+    "use": "Tanger Outlets on Highway 501 is about 13 minutes and 8 miles by car, and Coastal Grand Mall about 15 minutes and 8 miles."
+  },
+  {
+    "row": "the-farm 31",
+    "pattern": "\\bhospital (?:is (?:now )?open|has opened|opens in October)",
+    "struck": "The new 48-bed hospital is open.",
+    "use": "McLeod Health says its 48-bed McLeod Carolina Forest Hospital, on the same campus as its emergency department, is scheduled to open in fall 2026."
+  },
+  {
+    "row": "the-farm 46",
+    "pattern": "\\b14 homes[^.]{0,40}\\bfor sale",
+    "struck": "On 2026-10-13, 14 homes in The Farm were listed for sale, from $229,000 to $510,999.",
+    "use": "16 homes for sale on 2026-10-13, from $229,000 to $510,999: 15 detached houses and 1 Orchards townhouse."
+  },
+  {
+    "row": "the-farm 50",
+    "pattern": "\\bminimum lease (?:term )?of (?:six|6)|\\b(?:six|6)-month minimum",
+    "struck": "The board may set a minimum lease term of six months.",
+    "use": "Owners may rent their homes; leases must be in writing and a copy with the tenants' names and phone numbers goes to the manager within 10 days."
+  },
+  {
+    "row": "the-farm 64",
+    "pattern": "activity center[^.]{0,100}\\$\\d|\\$\\d[^.]{0,100}activity center",
+    "struck": "The 2024 rules list a $150 non-refundable fee and a $250 refundable deposit to reserve the activity center.",
+    "use": "Owners can reserve the activity center for up to four hours for a private event, for a fee."
+  },
+  {
+    "row": "the-farm 73",
+    "pattern": "\\blender may still (?:ask|require)",
+    "struck": "Zone X is not one. A lender may still ask for it.",
+    "use": "Federal law requires flood insurance on a mortgage from a federally regulated lender when the home is in a special flood hazard area."
+  },
+  {
+    "row": "the-farm 79",
+    "pattern": "\\bdedicated to the Lewis Ocean Bay Heritage Preserve on|\\b(?:preserve|tract) is (?:now )?open to the public",
+    "struck": "SCDNR acquired the tract and dedicated to the Lewis Ocean Bay Heritage Preserve on June 10, 2025.",
+    "use": "The S.C. Department of Natural Resources bought a 353-acre tract on The Farm's northern side and says it will be dedicated as part of the Lewis Ocean Bay Heritage Preserve and open for outdoor recreation."
+  },
+  {
+    "row": "the-farm 82",
+    "pattern": "Fields[^.]{0,60}\\bnext to The Farm",
+    "struck": "The county's International Drive Fields, at 900 International Drive next to The Farm.",
+    "use": "The county's International Drive Fields at 900 International Drive are about 5 minutes and under 2 miles by car from the Farmers Rest Drive entrance."
+  },
+  {
+    "row": "the-farm 85",
+    "pattern": "\\bdoes not apply that year",
+    "struck": "The 15 percent cap on reassessment increases does not apply that year.",
+    "use": "The new value first appears on the tax bill for the year after the sale."
+  },
+  {
+    "row": "the-farm 87",
+    "pattern": "\\bcleanup work there is done|\\bwhich runs the program",
+    "struck": "Response complete means the cleanup work there is done. The Defense Department, which runs the program, explains those words.",
+    "use": "Response complete means the cleanup work there is finished, although the Defense Department or a later owner may keep monitoring the site. The Defense Department, which sets the program's terms, explains those words."
+  },
+  {
+    "row": "the-farm 88",
+    "pattern": "\\bsite closeout means|\\bno more cleanup money will be spent|\\bcan be used without limits",
+    "struck": "Site closeout means the land can be used without limits. No more cleanup money will be spent there.",
+    "use": "On its map, the Corps lists every home in The Farm as on land with the status 'Response Complete and Site Closeout'."
+  },
+  {
+    "row": "the-farm 89",
+    "pattern": "\\bin a different part of Carolina Forest|\\bCorps is still working",
+    "struck": "The Corps is still working on another section, called Range III, in a different part of Carolina Forest.",
+    "use": "The Corps lists another section, called Range III, as still under investigation. It borders The Farm."
+  },
+  {
+    "row": "the-farm 92",
+    "pattern": "\\bevery street\\b",
+    "struck": "Every street in The Farm is inside all three zones.",
+    "use": "Every home in The Farm is inside all three zones, so every home has the same three schools."
+  },
+  {
+    "row": "the-farm 95",
+    "pattern": "\\byellow for Carolina Forest High",
+    "struck": "The Farm, in orange, with the school zone lines: blue for Ocean Bay Elementary, purple for Ocean Bay Middle and yellow for Carolina Forest High.",
+    "use": "The Farm, in orange, with the school zones: a blue line for Ocean Bay Elementary, purple shading for Ocean Bay Middle and yellow shading for Carolina Forest High."
+  },
+  {
+    "row": "the-farm 97",
+    "pattern": "\\brecorded its last two sections",
+    "struck": "D.R. Horton recorded its HOA rules in 2004 and recorded its last two sections, Phases 23B and 21, in 2017.",
+    "use": "D.R. Horton recorded its HOA rules in 2004 and added land in stages until 2017, when the last two sections, Phases 23B and 21, were added."
+  },
+  {
+    "row": "the-farm 43",
+    "pattern": "\\bsquare feet, on a lot of about a fifth of an acre",
+    "struck": "Both one-story and two-story houses are for sale here. Most have about 1,450 to 3,200 square feet, on a lot of about a fifth of an acre.",
+    "use": "Most have about 1,450 to 3,200 square feet. A typical house lot is about a fifth of an acre."
+  },
+  {
+    "row": "the-farm 102",
+    "pattern": "\\bholds about 7,400 square feet|7,400 square feet of water",
+    "struck": "The large pool holds about 7,400 square feet of water.",
+    "use": "The large pool covers about 7,400 square feet [county building footprint of the in-ground pool]."
+  },
+  {
+    "row": "the-farm 98",
+    "pattern": "\\bdeck faces a pond",
+    "struck": "Its wide deck faces a pond, and the activity center is about 400 feet away.",
+    "use": "Its wide deck is beside a pond, and the activity center is about 400 feet away."
+  },
+  {
+    "row": "the-farm 48",
+    "pattern": "\\busually sells? for about \\$350,000",
+    "struck": "Houses here usually sell for about $350,000.",
+    "use": "Houses in The Farm sold for a middle price of about $352,000 in the 12 months to September 2026, with half between $307,500 and $388,000."
+  },
+  {
+    "row": "the-farm 48",
+    "pattern": "\\bTownhomes and condos usually sell for about \\$230,000",
+    "struck": "Townhomes and condos usually sell for about $230,000 to $240,000.",
+    "use": "Orchards townhomes sold for a middle price of $228,500 (13 sales) and Planters Point condos for $237,500 (9 sales) in the 12 months to September 2026."
+  },
+  {
+    "row": "the-farm 86",
+    "pattern": "\\bplan on about \\$2,600 a year to own it",
+    "struck": "Beyond the mortgage and home insurance, plan on about $2,600 a year to own it.",
+    "use": "For a $350,000 house you live in, the HOA fee and the county property tax come to about $2,600 a year, beyond the mortgage and home insurance. The county adds a stormwater fee of about $90."
+  },
+  {
+    "row": "the-farm 79",
+    "pattern": "\\bpreserve land\\b|\\bland for a nature preserve\\b",
+    "struck": "State preserve land borders its north edge.",
+    "use": "Land the state bought for the Lewis Ocean Bay Heritage Preserve borders its north edge. The state says it will be dedicated as part of the preserve and open for outdoor recreation."
+  },
+  {
+    "row": "the-farm 99",
+    "pattern": "\\bmedical center was once planned|\\bonce planned a large medical center",
+    "struck": "Conway Medical Center once planned a large medical center on that land.",
+    "use": "Conway Medical Center had meant the land for a $160 million healthcare facility."
+  },
+  {
+    "row": "the-farm 10",
+    "pattern": "\\bfee includes two pools, a fitness room",
+    "struck": "The $107 HOA fee includes two pools, a fitness room, cable TV and trash pickup.",
+    "use": "The $107 HOA fee pays for the pools, cable TV and trash pickup. Owners can use the HOA's fitness room."
+  },
+  {
+    "row": "the-farm 69",
+    "pattern": "\\bEvery year, The Farm also joins",
+    "struck": "Every year, The Farm also joins other Carolina Forest neighborhoods in a food drive.",
+    "use": "The Farm is one of the neighborhoods in the 16th annual Carolina Forest food drive on October 24, 2026."
+  },
+  {
+    "row": "the-farm 27",
+    "pattern": "\\bshare one campus about 3 minutes away by car|\\bBike and Run Park, about 4 minutes away",
+    "unless": "\\bentrance\\b",
+    "struck": "The county library and the Carolina Forest Recreation Center share one campus about 3 minutes away by car.",
+    "use": "The county library and the Carolina Forest Recreation Center share one campus, about 3 minutes by car from the Farmers Rest Drive entrance."
+  },
+  {
+    "row": "the-farm 89",
+    "pattern": "\\bCorps is still investigating Range III|\\bRange III, a section next door",
+    "struck": "The Corps is still investigating Range III, a section next door.",
+    "use": "The Corps' 2024 map data lists Range III, a section that borders The Farm, as under investigation."
+  },
+  {
+    "row": "the-farm 85",
+    "pattern": "\\bThe tax is based on about what you pay for the house",
+    "struck": "The tax is based on about what you pay for the house, and the new amount starts the year after you buy.",
+    "use": "After you buy, the county sets the home's value at about what a buyer would pay on the open market. In an ordinary sale that is close to the price paid, and the new amount first appears on the tax bill the year after you buy."
+  },
+  {
+    "row": "the-farm 100",
+    "pattern": "\\bThe state keeps (?:it|the preserve) healthy with controlled burns",
+    "struck": "The state keeps it healthy with controlled burns.",
+    "use": "The state manages the preserve with controlled burns, which SCDNR says are essential to the preserve's health."
+  },
+  {
+    "row": "the-farm 81",
+    "pattern": "\\bfirst official East Coast Greenway trailhead",
+    "struck": "Its parking area is South Carolina's first official East Coast Greenway trailhead.",
+    "use": "Its parking area is a trailhead on the East Coast Greenway."
+  },
+  {
+    "row": "the-farm 10",
+    "pattern": "^It also covers landscaping and the ponds",
+    "struck": "Cable TV from Spectrum is the largest share of the fee. It also covers landscaping and the ponds, trash pickup and the pools.",
+    "use": "The fee also covers landscaping and the ponds, trash pickup and the pools."
+  },
+  {
+    "row": "the-farm 15",
+    "pattern": "\\bAt closing, you pay the HOA a one-time fee of \\$250",
+    "struck": "At closing, you pay the HOA a one-time fee of $250.",
+    "use": "On an ordinary sale, the buyer pays the HOA a one-time $250 transfer fee at closing."
+  },
+  {
+    "row": "the-farm 105",
+    "pattern": "\\bdirt roads\\b|park and walk its dirt",
+    "struck": "Visitors park and walk its dirt roads.",
+    "use": "SCDNR asks visitors to park their vehicles and walk the preserve's well-maintained roads [SCDNR Public Lands property page]."
+  },
+  {
+    "row": "the-farm 28, 29 (tiles, v8)",
+    "pattern": "^(?:Beach|Publix) (?:About )?\\d+ min$",
+    "struck": "Beach 10 min",
+    "use": "Beach About 10 min by car (and Publix About 2 min by car) [OSRM from the Farmers Rest Drive entrance: 10.1 and 1.5 min]."
+  },
+  {
+    "row": "the-farm 109",
+    "pattern": "strongest points|\\bmain drawbacks\\b",
+    "struck": "The fee and the flood map are The Farm's strongest points. The pool repair and the parking rule are its main drawbacks.",
+    "use": "(cut the opener, or list all four cons: the pool, the parking rule, a second HOA fee for townhomes and condos, and hunting at the preserve; no ranking)"
+  },
+  {
+    "row": "the-farm 89",
+    "pattern": "\\bis the part the Corps\\b|\\bthe part the Corps[^.]{0,40}investigation",
+    "struck": "Range III, a section that borders The Farm, is the part the Corps still lists as under investigation.",
+    "use": "Range III, a section that borders The Farm, is listed by the Corps as under investigation [Corps FUDS data, fiscal year 2024]."
+  },
+  {
+    "row": "the-farm 109",
+    "pattern": "\\bshow you any you like\\b",
+    "struck": "We will look for the homes for sale that fit and show you any you like.",
+    "use": "We will look for the homes for sale that fit and set up showings for the ones you choose."
+  },
+  {
+    "row": "the-farm 68",
+    "pattern": "\\bboard meets each month\\b",
+    "struck": "The activity center, about 400 feet from the large pool, is where the HOA board meets each month.",
+    "use": "The activity center, about 400 feet from the large pool, is where the HOA board usually meets [HOA calendar, January to November 2026: board meetings listed at the activity center in nine of the eleven months; none in August, and the March annual meeting is at the county recreation center]."
+  },
+  {
+    "row": "the-farm 108",
+    "pattern": "bows from mid-September, guns from\\b",
+    "struck": "Hunting is allowed in season: bows from mid-September, guns from October 21 to January 1, and small game to March 1.",
+    "use": "Hunting is allowed in season: bows from mid-September, muzzleloaders from October 11, other guns from October 21 to January 1, and small game to March 1 [S.C. Code Regs. 123-40, section 1.1 D, item 19, and section 3.2]."
+  },
+  {
+    "row": "the-farm 108",
+    "pattern": "\\byou share them with hunters\\b",
+    "struck": "If you walk the preserve's roads in the fall, you share them with hunters in season.",
+    "use": "The preserve allows both hiking and hunting [SCDNR Public Lands data for Lewis Ocean Bay HP and WMA: Hiking Yes, Hunting Yes, no special-activity closure]."
+  },
+  {
+    "row": "the-farm 50, 51",
+    "pattern": "\\byou can rent out your home, with no limit\\b",
+    "struck": "Under the HOA rules, you can rent out your home, with no limit on how many homes are rented.",
+    "use": "Owners can rent their homes with a written lease, and the HOA has no cap on how many homes are rented [HOA Rules and Regulations, Exhibit C, adopted 2011; HOA board minutes, May 18, 2026]."
+  },
+  {
+    "row": "the-farm 62",
+    "pattern": "\\bopen to owners from 5:30\\b",
+    "struck": "The fitness room is in the HOA's clubhouse, open to owners from 5:30 a.m. to 9 p.m.",
+    "use": "The fitness room is in the HOA's clubhouse, open to residents from 5:30 a.m. to 9 p.m. [HOA amenity rules, recorded April 2024]."
+  },
+  {
+    "row": "the-farm 24",
+    "pattern": "\\bThe Farm has no gate\\b",
+    "struck": "No. The Farm has no gate, and the streets in The Farm are public roads owned by Horry County.",
+    "use": "No. The Farm is not gated, and its roads are county-owned [HOA FAQ; HOA board minutes, May 18, 2026]."
+  }
+]
