@@ -92,10 +92,11 @@ function themeRules() {
   r.push(`${S}{--g-ink:${T.ink};--g-ink-lg:${T.inkLg};--g-edge:rgba(255,255,255,.8);--g-hi:inset 0 1px 0 rgba(255,255,255,.95);`
     + `--g-sh:0 1px 2px rgba(28,32,40,.05),0 14px 36px -20px rgba(28,32,40,.3);--g-r:20px;--g-blur:saturate(150%) blur(16px);`
     + `background-color:${T.base};background-image:`
-    + `radial-gradient(44rem 30rem at 4% 7%,rgba(232,201,154,.30),rgba(232,201,154,0) 70%),`
-    + `radial-gradient(40rem 30rem at 98% 30%,rgba(196,120,58,.08),rgba(196,120,58,0) 70%),`
-    + `radial-gradient(46rem 32rem at 16% 66%,rgba(232,201,154,.22),rgba(232,201,154,0) 70%),`
-    + `radial-gradient(40rem 30rem at 94% 92%,rgba(42,48,64,.045),rgba(42,48,64,0) 70%);`
+    + `radial-gradient(44rem 26rem at 4% 460px,rgba(232,201,154,.30),rgba(232,201,154,0) 70%),`
+    + `radial-gradient(40rem 26rem at 98% 1000px,rgba(196,120,58,.08),rgba(196,120,58,0) 70%),`
+    + `radial-gradient(46rem 26rem at 16% 1500px,rgba(232,201,154,.22),rgba(232,201,154,0) 70%),`
+    + `radial-gradient(40rem 24rem at 94% 1960px,rgba(42,48,64,.045),rgba(42,48,64,0) 70%);`
+    /* Each blob fades out (70% of its 26rem, about 290 px) inside its 2,400 px tile, so the tiles meet with no seam. */
     + `background-size:100% 2400px;background-repeat:repeat-y}`);
   /* The ivory bands give way to the field; a hairline keeps the sections apart. */
   r.push(`${S}>section[style*="background:var(--ivory"],${S} .detail-hero{background:transparent!important}`);
@@ -117,6 +118,7 @@ function themeRules() {
   r.push(`${S} .c3-cc .i{display:inline-flex;width:1.9rem;height:1.9rem;border-radius:50%;align-items:center;justify-content:center}`);
   r.push(`${S} svg[viewBox="0 0 24 24"][aria-hidden="true"]{stroke-width:1.6}`);
   /* The selection guide: a panel with its wants as light cards. */
+  r.push(`${S} nav[aria-label="On this page"]{padding:1.1rem 1.4rem .5rem;box-sizing:border-box}`);
   r.push(`${S} .c3-want{padding:1rem;gap:.8rem}${S} .c3-want>li{box-shadow:var(--g-hi),0 6px 18px -14px rgba(28,32,40,.35)}`);
   /* Tables: a light head rule, no heavy navy line. compareCards becomes cards on a phone (its own
      breakpoint, compare.js cardsBelow): there the panel goes and each row is a glass card. */
@@ -153,16 +155,17 @@ function themeRules() {
 }
 
 /* The offer pill (G.offer), also usable on a page without the theme (G.offerCss()). */
-const OFFER_RULES = ".c3-offer{margin:1.2rem 0 2rem;max-width:720px}"
-  + ".c3-offer-pill{display:inline-flex;align-items:center;gap:.7rem;min-height:44px;box-sizing:border-box;padding:.55rem .6rem .55rem 1.2rem;border-radius:999px;"
-  + "font-family:var(--sans);font-size:var(--read,1.0625rem);font-weight:600;line-height:1.3;color:var(--navy)!important;text-decoration:none!important;"
+const OFFER_RULES = "main#main .c3-offer{margin:1.2rem 0 2rem;max-width:720px}"
+  /* main#main, so it outranks the site's underline on links in a paragraph (a pill is a button shape). */
+  + "main#main .c3-offer a.c3-offer-pill{display:inline-flex;align-items:center;gap:.7rem;min-height:44px;box-sizing:border-box;padding:.55rem .6rem .55rem 1.2rem;border-radius:999px;"
+  + "font-family:var(--sans);font-size:var(--read,1.0625rem);font-weight:600;line-height:1.3;color:var(--navy);text-decoration-line:none!important;"
   + "background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.62));border:1px solid rgba(145,89,43,.35);"
   + "box-shadow:inset 0 1px 0 #fff,0 8px 20px -14px rgba(28,32,40,.45);transition:background-color .15s,border-color .15s}"
-  + ".c3-offer-pill:hover{border-color:var(--brass);background:linear-gradient(180deg,#fff,rgba(232,201,154,.35))}"
-  + ".c3-offer-pill:focus-visible{outline:3px solid var(--navy);outline-offset:3px}"
-  + ".c3-offer-ar{flex:none;display:inline-flex;width:2rem;height:2rem;border-radius:50%;align-items:center;justify-content:center;"
+  + "main#main .c3-offer a.c3-offer-pill:hover{border-color:var(--brass);background:linear-gradient(180deg,#fff,rgba(232,201,154,.35))}"
+  + "main#main .c3-offer a.c3-offer-pill:focus-visible{outline:3px solid var(--navy);outline-offset:3px}"
+  + "main#main .c3-offer-ar{flex:none;display:inline-flex;width:2rem;height:2rem;border-radius:50%;align-items:center;justify-content:center;"
   + `background:linear-gradient(180deg,${T.brass2},${T.brass});color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}`
-  + "@media (prefers-reduced-motion:reduce){.c3-offer-pill{transition:none}}";
+  + "@media (prefers-reduced-motion:reduce){main#main .c3-offer a.c3-offer-pill{transition:none}}";
 
 /* The chart (G.bars). ARIA table roles (table, row, rowheader, cell), so a screen reader reads it as
    a table while the rows are laid out as a grid. On a phone the name and feature sit on one line and the bar under it; from

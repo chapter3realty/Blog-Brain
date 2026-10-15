@@ -64,7 +64,8 @@
     "row": "gated 86",
     "pattern": "\\$1\\.4 million",
     "struck": "The chart says The Reserve's homes sell for about $1.4 million.",
-    "use": "The Reserve homes usually sell for about $1.3 million."
+    "use": "The Reserve homes usually sell for about $1.3 million.",
+    "unless": "Dye Estates"
   },
   {
     "row": "gated 87",
