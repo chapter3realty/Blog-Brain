@@ -12,7 +12,7 @@ https://chapter3realty.com/buyers/best-neighborhoods/
 - [ ] On a phone (about 390 wide), the first screen shows the title, the icon row and the start of the short answer, and nothing scrolls sideways.
 - [ ] The maps, the photos and their credits show; "On this page" links jump to their sections.
 - [ ] The links in the page open, including the links to the other pages in this batch.
-- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/best-neighborhoods/tidewater-from-above-1200w.webp
+- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/best-neighborhoods/cherry-grove-pier-from-above-1200w.webp
 
 ### Gated Communities in Myrtle Beach
 
@@ -22,7 +22,7 @@ https://chapter3realty.com/buyers/gated-communities/
 - [ ] On a phone (about 390 wide), the first screen shows the title, the icon row and the start of the short answer, and nothing scrolls sideways.
 - [ ] The maps, the photos and their credits show; "On this page" links jump to their sections.
 - [ ] The links in the page open, including the links to the other pages in this batch.
-- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/gated-communities/tidewater-plantation-from-above-2023-1200w.webp
+- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/gated-communities/tidewater-plantation-marsh-from-above-2023-1200w.webp
 
 ### Homes With No HOA in Myrtle Beach
 
@@ -32,7 +32,7 @@ https://chapter3realty.com/buyers/no-hoa-homes/
 - [ ] On a phone (about 390 wide), the first screen shows the title, the icon row and the start of the short answer, and nothing scrolls sideways.
 - [ ] The maps, the photos and their credits show; "On this page" links jump to their sections.
 - [ ] The links in the page open, including the links to the other pages in this batch.
-- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/no-hoa/aynor-country-lot-1200w.webp
+- [ ] One photo opens on its own: https://chapter3realty.com/images/buyers/no-hoa/downtown-myrtle-beach-pleasant-inn-1200w.webp
 
 ### Most Affordable Places to Live Near Myrtle Beach
 

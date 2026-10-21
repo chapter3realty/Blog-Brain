@@ -1,56 +1,26 @@
-/* /buyers/no-hoa-homes/ - where to find a home with no HOA fee around Myrtle Beach, whether you can keep a
- * boat or a work truck there, how much room the lots have, what the homes cost, and how to check one.
+/* /buyers/no-hoa-homes/ - the areas in and around Myrtle Beach where all or most homes have no HOA fee,
+ * what each area gives a buyer who wants the freedom of no HOA, one line on its price, and an offer for each.
  *
  * Batch 2026-10-b, page 3.
- * Version 9, 2026-10-14: round 9 (review/OWNER-EYE-8-no-hoa-homes.md). The three inland towns are now 1 to 3,
- *   under one line that says what they share; each keeps only its own facts and its own trade-off. The boat
- *   section is the table, one short paragraph and the story. The deed-check line is in the first offer only;
- *   trash pickup once; Myrtle Beach's boat rule not in its entry; boat landings in two entries. The short
- *   answer opens with the places. No date in the body.
- * Version 8, 2026-10-14: round 8 (review/ROUND-8.md; the owner's second read: "extremly repetitive writing",
- *   "surface level", and "our agent does this"). Added: four price bands (under $250,000 to $750,000 and up) with the
- *   streets and subdivisions where houses with no HOA fee were listed, from data/no-hoa-bands.json (rows 82 to 85).
- *   Each area entry now has its own history and features (rows 86 to 93) and says the no-HOA theme only in its
- *   facts line. Cut: "How do you check a home for an HOA" (we do it; one line in the offers). Every "check" the
- *   reader was told to do is now what we check. FAQ on land; ItemList JSON-LD for the eight areas.
- * Version 7, 2026-10-14: round 7 (review/ROUND-7.md; the owner's first read: "too jumpy and alot about price
- *   instead of the amenities ... focus on what the house and location gives you"). The first offer is a box
- *   (heroCta.title, website-patches/mkpage-offer-box.patch). The "where" section is now eight numbered areas,
- *   in the map's order, each with what a home there gives you (land, room for a boat, the kind and age of the
- *   houses, what is close by), one photo, the trade-off and the price in one line. The table of all areas
- *   follows the list, with the price comparison. Cut: the lot and town-limit paragraphs and the "why" section
- *   (now in the entries and the comparison). New rows 75 to 80 pending verification (round 7); row 81 copies
- *   verified values from other ledgers. Two new NAIP aerials (Myrtle Beach, Little River).
- * Version 4, 2026-10-13: round 4 (review/OWNER-EYE-2-no-hoa-homes.md). A new example: the boat meets the
- *   Myrtle Beach front-yard limit (row 59), the agent finds the house inside the city on the county map
- *   (row 68), and the buyer buys outside the towns, where the county has no limit (row 64). The "why"
- *   section is one price comparison and one reason (near the ocean, row 73). The Cherry Grove photo is the
- *   labelled copy made for best-neighborhoods; the Aynor lot is now the share image (its own crops).
- *   Table units in words; the pond, campground and guide-link wording from the review.
- * Version 2, 2026-10-13: round 2 (review/ROUND-2.md; review/BUYER-READ-no-hoa-homes.md). The cold reader
- *   (47, Virginia, a boat and a work truck) came for a place to park both, and the page never said whether
- *   the town, the county or the deed can say no, or which areas have lots with room. Changes:
- *   - A section near the top on boats, trailers and work trucks, town by town, from the town and county
- *     codes (ledger rows 58 to 64, pending); deed restrictions and the closing attorney (row 65, pending).
- *   - Lot size of the houses with no HOA fee, by area, from Horry County parcels (rows 69 to 71, pending;
- *     data/no-hoa-lots.json). Which areas have the most room.
- *   - The typical no-HOA price in the short answer. HOA spelled out once.
- *   - Why houses with no fee ask more, from the listings: older, and nearer the ocean (rows 72, 73,
- *     pending), and so why Surfside Beach and Garden City ask about $985,000.
- *   - The map labels carry the share by area, so the bar chart is gone; the table holds share, price and lot.
- *   - Pointers replaced by answers: the county map that shows town limits (row 68), what keeping up a pond
- *     means (row 66), who keeps up a private road (row 67). The county papers are not online (row 42), so
- *     the closing attorney's title search reads them.
- *   - Cut: the courts paragraph, "Half of them pay", the insurers sentence, "Each area is a mailing
- *     address" (kept once, in the sources line), most of the condo section, the Carolina Forest paragraph,
- *     the New York line, both drawings (the boat-in-the-driveway drawing showed what three towns forbid),
- *     FAQ answers that repeated the page. The offer three times (hero, after the parking section, bottom).
- *   - A labelled example about a boat and a work truck (voice/STORY-SIMPLE.md).
- * Version 1, 2026-10-13: first build.
- *
- * Facts: batches/2026-10-b/facts/no-hoa-facts.md. Verified rows 1, 3 to 11, 13 to 17, 19, 20, 29, 32, 40 to 45,
- * 47, 49, 51 in the verifier's wording; rows 58 to 73 are pending verification (round 2) and come out of the
- * copy if they fail. The date of the count comes from the data file (asOf), never typed.
+ * Version 15, 2026-10-15: round 14f, a fresh writer (lesson B49, after three reviews at 7: OWNER-EYE-14e).
+ *   The owner's words: "get as many areas in and around the city circle them say all of the houses in this
+ *   area have no HOA or most of them don't and then speak extensively on all of the benefits of that
+ *   location and why people like it one line about the average price of the house and do that for as many
+ *   areas as possible." So, per the coordinator's decisions for 14f:
+ *   - Plantation Point is cut: an HOA owns its common areas and no source settles what owners pay (rows 148
+ *     and 171). Murrells Inlet's north end is added (rows 175 and 176, pending verification, round 14f).
+ *     Still 16 areas.
+ *   - Each entry in the owner's order: the share chip under the heading only; the lead (why people choose
+ *     the place, the best thing a buyer could not guess); a normal day; one honest trade-off; then the
+ *     price as one line inside the offer box (div.c3-place-cta, as gated and best do); then the offer.
+ *   - The top: one subtitle (the h1em; the dek is hidden), one short, wide map with every area circled or
+ *     outlined and named where the name fits (the coast's names by leader lines), and a guide that lists
+ *     every area by its number.
+ *   - "We check" three times at most on the page: under the rule cards, in the FAQ, and the top offer.
+ *   - The rule cards name each icon on a phone (Boat, Work truck, Short-term rental, Shed or fence).
+ *   Facts: rows 115 to 134 (verified, round 14), 137 to 148 (v7), 149 to 174 (round 14d, under the v8
+ *   check) and 175 to 178 (round 14f, pending verification), as cited beside each sentence below.
+ * Earlier versions (1 to 14, 2026-10-13 to 15): see git history.
  */
 const fs = require("fs"), path = require("path");
 const { h } = require("../tools/mkpage.js");
@@ -61,448 +31,591 @@ const BB = [path.join(__dirname, "..", "tools", "blog-brain-2026-10-b"), process
   .find((d) => fs.existsSync(path.join(d, "tools", "page-kit.js")));
 if (!BB) throw new Error("Blog-Brain tools not found (tools/page-kit.js)");
 const PK = require(path.join(BB, "tools", "page-kit.js"));
-const { compareCards } = require(path.join(BB, "tools", "compare.js"));
-const { loadGeo2 } = require(path.join(BB, "tools", "area-map.js"));
+const GL = PK.glass;
 
 /* This batch's files: the website's data/2026-10-b/ (where the upload package puts them), else the
-   batch folder in Blog-Brain. Photo records: batch 2026-10-a's (the website's data/photos.json), then this batch's. */
+   batch folder in Blog-Brain. */
 const BATCH_DATA = [path.join(__dirname, "..", "data", "2026-10-b"), path.join(BB, "batches", "2026-10-b", "data"),
-  "/home/user/Blog-Brain/batches/2026-10-b/data"].find((d) => fs.existsSync(path.join(d, "photos.json")));
-if (!BATCH_DATA) throw new Error("batch 2026-10-b photos.json not found");
+  "/home/user/Blog-Brain/batches/2026-10-b/data"].find((d) => fs.existsSync(path.join(d, "no-hoa-areas.json")));
+if (!BATCH_DATA) throw new Error("batch 2026-10-b no-hoa-areas.json not found");
+const read = (name) => JSON.parse(fs.readFileSync(path.join(BATCH_DATA, name), "utf8"));
+const DATA = read("no-hoa.json");
+const AREAS = read("no-hoa-areas.json");
+const BANDS = read("no-hoa-bands.json").bands;
 const PHOTO_FILES = [path.join(__dirname, "..", "data", "photos.json"), path.join(BATCH_DATA, "photos.json")].filter((f) => fs.existsSync(f));
-const dataFiles = (name) => [path.join(BATCH_DATA, name)].filter((f) => fs.existsSync(f));
-const DATA = JSON.parse(fs.readFileSync(dataFiles("no-hoa.json")[0], "utf8"));
-const LOTS = JSON.parse(fs.readFileSync(dataFiles("no-hoa-lots.json")[0], "utf8"));
-const BANDS = JSON.parse(fs.readFileSync(dataFiles("no-hoa-bands.json")[0], "utf8")).bands;
-/* Photo records: both photos.json files, merged, so this page finds its record beside another batch's. */
 const PHOTOS = [];
 for (const f of PHOTO_FILES) for (const r of JSON.parse(fs.readFileSync(f, "utf8")).photos) {
   const k = JSON.stringify(r.variants || r.file);
   if (!PHOTOS.some((x) => JSON.stringify(x.variants || x.file) === k)) PHOTOS.push(r);
 }
-
-const kit = PK.create({ h, photos: PHOTOS, mapDir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), mapSrc: "/images/maps" });
-const { glance, prosCons, placesMap, story } = kit;
+const MAP_DIR = path.join(__dirname, "..", "chapter3realty", "images", "maps");
+const kit = PK.create({ h, theme: "glass", photos: PHOTOS, mapDir: MAP_DIR, mapSrc: "/images/maps" });
+const { story } = kit;
+const { regionMap } = require(path.join(BB, "tools", "area-map.js"));
+const ph = kit.photoSet({ aerialWidth: "760px" });
+/* One picture per area where we have a lawful one of the place itself (photos.json records; the photo
+   partner's ground photos will replace them). Made at load time: mkpage reads pageImages first.
+   Round 14f: the Pine Lakes clubhouse is cut (it did not show the lots, OWNER-EYE-14e M7); the Surfside
+   photo is the crop of the houses (record surfside-beach-houses-row) when its files exist, else none;
+   Little River gets its labelled aerial of the old waterfront streets. No house number in any caption. */
+const PHOTO = {
+  "mb-downtown": ph.aerial("downtown-myrtle-beach-pleasant-inn", "The Pleasant Inn, a wood guest house from about 1927, under the live oaks on Broadway Street, in the old town by Withers Swash.", { closeUp: true }),
+  "mb-myrtle-heights": ph.aerial("myrtle-heights-older-house-on-ocean-boulevard", "An older two-story house with columns on North Ocean Boulevard, in the Myrtle Heights-Oak Park Historic District.", { closeUp: true }),
+  "crescent-beach": ph.aerial("crescent-beach-streets-from-the-ocean-2011", "Crescent Beach from over the ocean in 2011: streets of beach houses behind the oceanfront."),
+  "cherry-grove": ph.aerial("cherry-grove-canals-from-the-ocean-2011", "Cherry Grove from over the ocean in 2011: houses on the canals, many with their own docks, and the marsh behind."),
+  "little-river": ph.aerial("little-river-waterway-from-above", "The old Little River waterfront from the air: streets of houses beside the salt marsh and the Intracoastal Waterway.", { closeUp: true }),
+  "garden-city": ph.aerial("garden-city-beach-and-marsh-from-the-ocean-2011", "Garden City Beach from over the ocean in 2011: rows of houses between the beach and the marsh, with docks on the creeks behind."),
+  "conway": ph.aerial("conway-riverwalk-boardwalk", "The Riverwalk in downtown Conway, on the Waccamaw River.", { closeUp: true }),
+  "loris": ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true }),
+  "aynor": ph.aerial("aynor-country-lot", "Houses on lots of about an acre along a country road outside Aynor, from the air. The orange line is one lot.", { closeUp: true }),
+};
+if (PHOTOS.some((r) => /surfside-beach-houses-row/.test(JSON.stringify(r.variants || r.file))))
+  PHOTO["surfside"] = ph.aerial("surfside-beach-houses-row", "Beach houses behind the low dunes on the ocean side of Surfside Beach.", { closeUp: true });
+/* A second photo, after an entry's third paragraph (Conway: the older houses the paragraph describes). */
+const PHOTO_LATE = {
+  "conway": ph.aerial("conway-older-house-and-oak", "An older house behind a big oak in Conway's residential historic district.", { closeUp: true }),
+};
+ph.share("aynor-country-lot");
 
 const SELF = "/buyers/no-hoa-homes/";
 
 /* ---------------------------------------------------------------------------- */
-/* The numbers, from the data files, checked against the ledger rows              */
+/* The numbers, from data/no-hoa-areas.json, checked against the ledger rows       */
 
-const OWNED = DATA.ownedLandOnly;
-const AREAS = [
-  /* key in the data files, the name a reader knows, the name on the map, the Census town point, the page about it */
-  { key: "Aynor", name: "Aynor", map: "Aynor", town: "Aynor" },
-  { key: "Loris", name: "Loris", map: "Loris", town: "Loris" },
-  { key: "North Myrtle Beach", name: "North Myrtle Beach", map: "North Myrtle Beach", town: "North Myrtle Beach", href: "/submarkets/north-myrtle-beach/" },
-  { key: "Surfside Beach and Garden City", name: "Surfside Beach and Garden City", map: "Surfside and Garden City", town: "Surfside Beach", href: "/submarkets/surfside-beach/" },
-  { key: "Murrells Inlet", name: "Murrells Inlet", map: "Murrells Inlet", town: "Murrells Inlet", href: "/submarkets/murrells-inlet/" },
-  { key: "Conway", name: "Conway", map: "Conway", town: "Conway", href: "/submarkets/conway/" },
-  { key: "Myrtle Beach (not Carolina Forest)", name: "Myrtle Beach, outside Carolina Forest", map: "Myrtle Beach", town: "Myrtle Beach", href: "/submarkets/myrtle-beach/" },
-  { key: "Little River", name: "Little River", map: "Little River", town: "Little River", href: "/submarkets/little-river/" },
-  { key: "Carolina Forest", name: "Carolina Forest", map: "Carolina Forest", town: "Carolina Forest", href: "/submarkets/carolina-forest/" },
-].map((a) => ({ ...a, homes: OWNED[a.key].homes, houses: OWNED[a.key].detachedHouses, lots: LOTS.byArea[a.key] }));
-
-/* The verified values (ledger rows 1, 3 to 11, 15 and 17). A data file that no longer gives them stops the
-   build, so the page never shows a number no verifier checked. */
-const VERIFIED = {
-  share: { "Aynor": [30, 45], "Loris": [96, 160], "North Myrtle Beach": [141, 254], "Surfside Beach and Garden City": [59, 107], "Murrells Inlet": [60, 215],
-    "Conway": [167, 733], "Myrtle Beach (not Carolina Forest)": [136, 698], "Little River": [22, 201], "Carolina Forest": [0, 258] },
-  price: { "Aynor": [372000, 289490], "Loris": [368450, 279990], "North Myrtle Beach": [759900, 670000], "Surfside Beach and Garden City": [983450, 524900],
-    "Murrells Inlet": [811950, 534950], "Conway": [383600, 329945], "Myrtle Beach (not Carolina Forest)": [625000, 475875], "Little River": [429950, 399900] },
-};
-for (const a of AREAS) {
-  const [no, all] = VERIFIED.share[a.key];
-  if (a.homes.noHoaFee !== no || a.homes.listings !== all) throw new Error(`${a.key}: the share is not the verified ${no} of ${all}`);
-  if (VERIFIED.price[a.key] && (a.houses.medianListPriceNoFee !== VERIFIED.price[a.key][0] || a.houses.medianListPriceWithFee !== VERIFIED.price[a.key][1])) throw new Error(`${a.key}: the asking prices are not the verified ones`);
-}
-const ALL = OWNED.allNineAreas;
-if (ALL.homes.noHoaFee !== 711 || ALL.homes.listings !== 2671) throw new Error("the headline share is not 711 of 2,671 (Lakeside Crossing left out, round 8)");
-if (ALL.detachedHouses.medianListPriceNoFee !== 520850 || ALL.detachedHouses.medianListPriceWithFee !== 414900) throw new Error("the overall asking prices are not $520,850 and $414,900 (Lakeside Crossing left out, round 8)");
-const HOUSE_FEE = DATA.allNineAreas.detachedHouses;
-if (HOUSE_FEE.medianMonthlyHoaFee !== 95) throw new Error("the house fee is not the verified $95");
-
-/* Condominiums only (row 14 as corrected by the verifier; row 13), from the listing lines. */
-const NINE = AREAS.map((a) => a.key);
-const F = DATA.listingsFields, LIST = DATA.listings.map((x) => Object.fromEntries(F.map((k, i) => [k, x[i]])));
-const condos = LIST.filter((x) => x.propertyType === "Condominium" && NINE.includes(x.area));
-const condoFees = condos.map((x) => x.monthlyHoaFee).filter((v) => v).sort((a, b) => a - b);
-const pct = (arr, p) => { const i = (arr.length - 1) * p, lo = Math.floor(i); return arr[lo] + (arr[Math.min(lo + 1, arr.length - 1)] - arr[lo]) * (i - lo); };
-const CONDO = { count: condos.length, noFee: condos.length - condoFees.length, median: pct(condoFees, 0.5) };
-if (CONDO.count !== 2742 || CONDO.noFee !== 1 || CONDO.median !== 647) throw new Error(`the condo figures are not the verified ones: ${JSON.stringify(CONDO)}`);
-
-/* The round 2 values (ledger rows 69 to 73, pending verification), from data/no-hoa-lots.json. The same
-   check: if the file changes, the build stops until the rows and the copy are read again. */
-const PENDING = {
-  /* Row 69: typical lot of a house with no HOA fee, by area (acres; county parcel area). */
-  lotAcres: { "Aynor": 1.06, "Loris": 0.71, "Conway": 0.53, "Myrtle Beach (not Carolina Forest)": 0.3, "Murrells Inlet": 0.24, "Little River": 0.23,
-    "Surfside Beach and Garden City": 0.18, "North Myrtle Beach": 0.16, "Carolina Forest": null },
-  /* Rows 70, 72 and 73: the nine areas together. [group, field, value] */
-  all: {
-    lotNoFee: ["noFee", "lotAcresMedian", 0.31], lotWithFee: ["withFee", "lotAcresMedian", 0.21],
-    halfAcreNoFee: ["noFee", "lotHalfAcreOrMore", 172], matchedNoFee: ["noFee", "parcelMatched", 504],
-    halfAcreWithFee: ["withFee", "lotHalfAcreOrMore", 115], matchedWithFee: ["withFee", "parcelMatched", 1732],
-    oldNoFee: ["noFee", "builtBefore2000", 335], knownNoFee: ["noFee", "yearKnown", 688],
-    oldWithFee: ["withFee", "builtBefore2000", 190], knownWithFee: ["withFee", "yearKnown", 1926],
-  },
-};
-for (const a of AREAS) {
-  const want = PENDING.lotAcres[a.key], got = a.lots.noFee.lotAcresMedian;
-  if (want !== undefined && want !== got) throw new Error(`${a.key}: the lot size ${got} is not the ledger's ${want}`);
-}
-const L_ALL = LOTS.allNineAreas;
-for (const [k, v] of Object.entries(PENDING.all)) if (JSON.stringify(L_ALL[v[0]][v[1]]) !== JSON.stringify(v[2])) throw new Error(`lots: ${k} is ${JSON.stringify(L_ALL[v[0]][v[1]])}, not the ledger's ${JSON.stringify(v[2])}`);
-/* Row 71: inside or outside the town limits, houses with no HOA fee matched to a parcel. */
-const outsideTown = (key) => { const t = Object.fromEntries(LOTS.byArea[key].noFee.insideTown); return [t["outside any town"] || 0, Object.values(t).reduce((x, y) => x + y, 0)]; };
-for (const [k, want] of [["Aynor", [20, 23]], ["Loris", [54, 71]], ["Conway", [79, 121]]]) if (JSON.stringify(outsideTown(k)) !== JSON.stringify(want)) throw new Error(`${k}: outside the town ${outsideTown(k)} is not the ledger's ${want}`);
-/* Row 73: Surfside Beach and Garden City, oceanfront, ocean view or second row. */
-const SURF_OCEAN = [LOTS.byArea["Surfside Beach and Garden City"].noFee.oceanfrontViewOrSecondRow, LOTS.byArea["Surfside Beach and Garden City"].noFee.listings,
-  LOTS.byArea["Surfside Beach and Garden City"].withFee.oceanfrontViewOrSecondRow, LOTS.byArea["Surfside Beach and Garden City"].withFee.listings];
-if (JSON.stringify(SURF_OCEAN) !== JSON.stringify([22, 56, 1, 47])) throw new Error(`Surfside ocean counts ${SURF_OCEAN} are not the ledger's`);
-/* Rows 75 to 77 (round 7, pending verification): the homes in each area, from data/no-hoa-lots.json. The same
-   check: the build stops if the file no longer gives the ledger's counts. [field, area, value] */
-const ROUND7 = [
-  ["listings", "Aynor", 30], ["builtSince2024", "Aynor", 17], ["notInSubdivision", "Aynor", 28],
-  ["listings", "Loris", 96], ["builtSince2024", "Loris", 60], ["notInSubdivision", "Loris", 94],
-  ["listings", "North Myrtle Beach", 135], ["builtBefore1990", "North Myrtle Beach", 84], ["withinHalfMileOfBeach", "North Myrtle Beach", 101],
-  ["listings", "Surfside Beach and Garden City", 56], ["withinHalfMileOfBeach", "Surfside Beach and Garden City", 47],
-  ["listings", "Murrells Inlet", 56], ["withinOneMileOfBeach", "Murrells Inlet", 28], ["heatedSqftMedian", "Murrells Inlet", 2433],
-  ["listings", "Conway", 162], ["builtSince2024", "Conway", 58], ["notInSubdivision", "Conway", 114],
-  ["listings", "Myrtle Beach (not Carolina Forest)", 131], ["builtBefore1990", "Myrtle Beach (not Carolina Forest)", 61], ["withinHalfMileOfBeach", "Myrtle Beach (not Carolina Forest)", 59],
-  ["listings", "Little River", 22], ["builtSince2024", "Little River", 7],
+/* Plantation Point stays in the data file for the record but is off the page (round 14f, decision 1). */
+const CUT = new Set(["mb-plantation-point"]);
+const A = Object.fromEntries(AREAS.areas.map((a) => [a.key, a]));
+/* [key, homes with no fee, homes, median no-fee house price] as in rows 116 to 129 and 175. A data file
+   that no longer gives them stops the build, so the page never shows a number the ledger does not hold. */
+const WANT = [
+  ["mb-downtown", 17, 20, 435000], ["mb-myrtle-heights", 4, 4, 1632500], ["mb-pine-lakes", 6, 6, 929950],
+  ["windy-hill", 24, 40, 746450], ["crescent-beach", 34, 39, 754900],
+  ["ocean-drive", 23, 41, 664450], ["cherry-grove", 52, 89, 847700], ["little-river", 8, 8, 419250], ["socastee", 11, 14, 249900],
+  ["surfside", 36, 42, 939450], ["garden-city", 41, 55, 1442000], ["murrells-inlet", 12, 13, 822000],
+  ["conway", 20, 23, 287000], ["loris", 15, 16, 319000], ["loris-country", 74, 82, 414100], ["aynor", 30, 45, 372000],
 ];
-for (const [k, area, want] of ROUND7) if (LOTS.byArea[area].noFee[k] !== want) throw new Error(`${area}: ${k} is ${LOTS.byArea[area].noFee[k]}, not the ledger's ${want}`);
-for (const [area, want] of [["Little River", [17, 17]], ["Murrells Inlet", [24, 24]]]) if (JSON.stringify(outsideTown(area)) !== JSON.stringify(want)) throw new Error(`${area}: outside any town ${outsideTown(area)} is not the ledger's ${want}`);
-const HEATED_MI = LOTS.byArea["Murrells Inlet"].noFee.heatedSqftMedian;
-/* Rows 82 to 85 (round 8, pending verification): the four price bands. [houses, median sqft, median year,
-   median lot acres, within half a mile of the beach, built 2024 or later] */
-const BAND_WANT = { "under 250k": [57, 1232, 1984, 0.26, 1, 8], "250k-500k": [279, 1623, 2008, 0.39, 32, 112],
-  "500k-750k": [131, 2067, 1996, 0.25, 47, 34], "750k+": [221, 3090, 2003, 0.28, 141, 47] };
-const BAND = Object.fromEntries(BANDS.map((b) => [b.band, b]));
-for (const [k, w] of Object.entries(BAND_WANT)) {
-  const b = BAND[k], got = [b.houses, b.medianSqft, b.medianYearBuilt, b.medianLotAcres, b.withinHalfMileOfBeach, b.builtSince2024];
-  if (JSON.stringify(got) !== JSON.stringify(w)) throw new Error(`price band ${k}: ${got} is not the ledger's ${w}`);
+for (const [k, n, t, p] of WANT) {
+  const a = A[k];
+  if (!a || a.noFee !== n || a.total !== t || a.medianNoFeeHousePrice !== p) throw new Error(`${k}: the data file no longer gives the ledger's ${n} of ${t} at ${p}`);
 }
-if (BANDS.reduce((t, b) => t + b.houses, 0) !== 688) throw new Error("the price bands do not add up to the 688 houses");
-const sqftWords = (v) => `about ${(Math.round(v / 50) * 50).toLocaleString("en-US")} square feet`;
-if (Object.values(LOTS.byArea).some((v) => v.noFee.heatedSqftMedian > HEATED_MI)) throw new Error("Murrells Inlet is no longer the largest by heated area");
+const G = AREAS.guide;
+if (JSON.stringify([G.builtBefore1990, G.built1990OrLater, G.notInNamedSubdivision]) !== JSON.stringify([[278, 360], [410, 2254], [446, 460]])) throw new Error("the guide counts are not the ledger's (row 130)");
+/* Every comparison the copy makes, recomputed. */
+const ON = AREAS.areas.filter((a) => !CUT.has(a.key));
+const byPrice = ON.slice().sort((x, y) => x.medianNoFeeHousePrice - y.medianNoFeeHousePrice);
+if (byPrice[0].key !== "socastee" || byPrice.at(-1).key !== "mb-myrtle-heights") throw new Error("the lowest and highest prices on the list have changed");
+if (!(A["mb-pine-lakes"].lotAcresMedian > 2 * A["mb-downtown"].lotAcresMedian)) throw new Error("the Pine Lakes lots are no longer twice a downtown lot");
+if (!(A["mb-pine-lakes"].medianNoFeeHousePrice > 2 * A["mb-downtown"].medianNoFeeHousePrice)) throw new Error("Pine Lakes is no longer listed at more than twice the downtown price");
 
-/* Rounding a reader can say out loud (CRAFT 5). */
 const money = (v) => "$" + Math.round(v).toLocaleString("en-US");
 const to5k = (v) => money(Math.round(v / 5000) * 5000);
-const share = (a) => Math.round(100 * a.homes.noHoaFee / a.homes.listings);
-/* A lot size in words a person says aloud (owner's eye, round 3): a sixth, a fifth, a quarter, a third, a half,
-   three quarters, an acre. */
-const acreWords = (v) => {
-  /* A fraction only when it is that close to the real value (struck-check, round 10: 0.71 is not "three quarters",
-     0.30 is not "a third"); a whole acre or a half within the same decimal; else one decimal. */
-  const steps = [[1 / 6, "a sixth of an acre", 0.02], [0.2, "a fifth of an acre", 0.02], [0.25, "a quarter acre", 0.02], [1 / 3, "a third of an acre", 0.02],
-    [0.5, "half an acre", 0.035], [0.75, "three quarters of an acre", 0.02], [1, "an acre", 0.1]];
-  const hit = steps.find(([x, , tol]) => Math.abs(x - v) <= tol);
-  if (hit) return `about ${hit[1]}`;
-  const d = Math.round(v * 10) / 10;
-  return `about ${d} acre${d === 1 ? "" : d > 1 ? "s" : ""}`;
-};
-
-/* The day the homes for sale were counted, from the data file (never typed). */
+const to10k = (v) => money(Math.round(v / 10000) * 10000);
+const priceOf = (k) => to5k(A[k].medianNoFeeHousePrice);
+const millions = (v) => "$" + (Math.round(v / 100000) / 10).toFixed(1) + " million";
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const COUNTED = (([y, m, d]) => `${MONTHS[m - 1]} ${d}, ${y}`)(DATA.asOf.split("-").map(Number));
 
 /* ---------------------------------------------------------------------------- */
-/* Pictures and tables                                                            */
+/* The areas, in the map's order                                                    */
 
-/* The map: each area's name with its share of homes for sale listed with no HOA fee. */
-const TOWN = Object.fromEntries(loadGeo2().towns.map((t) => [t.name, t]));
-/* The eight areas with homes for sale with no HOA fee, numbered in the order of the list below (round 7).
-   Carolina Forest has none for sale, so it is not on the map or the list; the table and one line say so. */
-const ORDER = ["Aynor", "Loris", "Conway", "North Myrtle Beach", "Surfside Beach and Garden City", "Murrells Inlet", "Myrtle Beach (not Carolina Forest)", "Little River"];
-const PLACES = ORDER.map((k) => AREAS.find((a) => a.key === k));
-if (PLACES.some((a) => !a || !(a.homes.noHoaFee > 0)) || AREAS.filter((a) => a.homes.noHoaFee > 0).length !== ORDER.length) throw new Error("the numbered list does not match the areas with homes listed with no HOA fee");
-const ID = { "Aynor": "aynor", "Loris": "loris", "North Myrtle Beach": "north-myrtle-beach", "Surfside Beach and Garden City": "surfside-and-garden-city",
-  "Murrells Inlet": "murrells-inlet", "Conway": "conway", "Myrtle Beach (not Carolina Forest)": "myrtle-beach", "Little River": "little-river" };
-const MAP = placesMap("Homes for sale with no HOA fee, by area",
-  PLACES.map((a) => ({ name: `${a.map} ${share(a)}%`, lat: TOWN[a.town].lat, lon: TOWN[a.town].lon, href: `#${ID[a.key]}` })),
-  { caption: "Map of the eight areas, numbered as in the list below, with the share of homes for sale in each that are listed with no HOA fee." });
-const num = (key) => PLACES.findIndex((a) => a.key === key) + 1;
-const area = (key) => AREAS.find((a) => a.key === key);
-const lotOf = (key) => acreWords(area(key).lots.noFee.lotAcresMedian);
-const priceOf = (key) => to5k(area(key).houses.medianListPriceNoFee);
+const ORDER = ON.map((a) => a.key);
+const ENTRY = {
+  "mb-downtown": { name: "Downtown Myrtle Beach", id: "downtown-myrtle-beach", place: "downtown Myrtle Beach", short: "Downtown" },
+  "mb-myrtle-heights": { name: "Myrtle Heights", id: "myrtle-heights", place: "Myrtle Heights" },
+  "mb-pine-lakes": { name: "Pine Lakes' older streets", id: "pine-lakes", place: "Pine Lakes", short: "Pine Lakes", guide: "Pine Lakes' older streets" },
+  "windy-hill": { name: "Windy Hill", id: "windy-hill", place: "Windy Hill" },
+  "crescent-beach": { name: "Crescent Beach", id: "crescent-beach", place: "Crescent Beach" },
+  "ocean-drive": { name: "Ocean Drive", id: "ocean-drive", place: "Ocean Drive" },
+  "cherry-grove": { name: "Cherry Grove", id: "cherry-grove", place: "Cherry Grove" },
+  "little-river": { name: "Little River", id: "little-river", place: "Little River" },
+  "socastee": { name: "Socastee", id: "socastee", place: "Socastee" },
+  "surfside": { name: "Surfside Beach", id: "surfside-beach", place: "Surfside Beach" },
+  "garden-city": { name: "Garden City Beach", id: "garden-city-beach", place: "Garden City Beach", short: "Garden City" },
+  "murrells-inlet": { name: "Murrells Inlet's north end", id: "murrells-inlet", place: "Murrells Inlet", short: "Murrells Inlet" },
+  "conway": { name: "Conway", id: "conway", place: "Conway" },
+  "loris": { name: "Loris", id: "loris", place: "Loris" },
+  "loris-country": { name: "The country around Loris", id: "country-around-loris", place: "the country around Loris", short: "Around Loris", offerName: "Loris", label: "Get the homes for sale in the country around Loris" },
+  "aynor": { name: "Aynor", id: "aynor", place: "Aynor" },
+};
+if (ORDER.length !== 16 || ORDER.some((k) => !ENTRY[k])) throw new Error("the entries do not match the data file's areas");
+const num = (k) => ORDER.indexOf(k) + 1;
+const shortName = (k) => ENTRY[k].short || ENTRY[k].name;
 
-/* The table by area: share, typical list price and typical lot of a house for sale with no HOA fee. */
-const areaTable = () => compareCards(AREAS.map((a) => ({
-  name: a.name, href: a.href,
-  cells: {
-    share: `${share(a)}%`,
-    price: VERIFIED.price[a.key] ? to5k(a.houses.medianListPriceNoFee) : "None for sale",
-    lot: a.lots.noFee.parcelMatched >= 10 ? acreWords(a.lots.noFee.lotAcresMedian).replace(/^about /, "") : (a.lots.noFee.listings ? "Too few to say" : "None for sale"),
-  },
-})), [
-  { key: "share", label: "Homes with no HOA fee", num: true },
-  { key: "price", label: "Typical list price", num: true },
-  { key: "lot", label: "Typical lot" },
-], { caption: "Houses for sale with no HOA fee, by area", nameLabel: "Area" });
+/* ---------------------------------------------------------------------------- */
+/* The one map (owner: "circle them"; OWNER-EYE-14e H2 and M4)                      */
+/* One panel, short and wide: about 0.4 of a phone screen. Every area is drawn as its circle or outline
+   (row 115, mapShapes). The 12 areas on the coast are numbered places (1 to 12, the entry numbers), and
+   their outlines carry no badge of their own (area-map.js a.label false); a beach area's name goes over
+   the ocean with a leader line when it has room there (places[i].sea), the others beside the marker.
+   The four inland areas (13 to 16) are named in their own pills. A name with no room keeps its number,
+   and the guide under the map lists every area by its number. */
+const COAST = ORDER.slice(0, 12), INLAND = ORDER.slice(12);
+if (COAST.some((k) => ["conway", "loris", "loris-country", "aynor"].includes(k)) || INLAND.length !== 4) throw new Error("the first 12 entries are the coast, the last 4 inland");
+const SEA = new Set(["cherry-grove", "murrells-inlet"]);
+const middle = (s) => (s.polygon ? { lat: s.polygon.reduce((t, q) => t + q[1], 0) / s.polygon.length, lon: s.polygon.reduce((t, q) => t + q[0], 0) / s.polygon.length } : { lat: s.lat, lon: s.lon });
+const shape = (k, o) => { const s = A[k].mapShapes[0]; if (s.polygon) o.polygon = s.polygon; else Object.assign(o, { lat: s.lat, lon: s.lon, radius: s.radius }); return o; };
+const MAP = (() => {
+  const places = COAST.map((k) => Object.assign({ name: shortName(k) }, middle(A[k].mapShapes[0]), SEA.has(k) ? { sea: true } : {}));
+  const areas = COAST.map((k) => shape(k, { name: shortName(k), label: false }))
+    .concat(INLAND.map((k) => shape(k, Object.assign({ name: `${num(k)} ${shortName(k)}`, mark: String(num(k)) },
+      /* The country around Loris holds the Loris circle; its badge goes in its west part, off the town's. */
+      k === "loris-country" ? { markAt: { lat: 34.03, lon: -78.98 } } : k === "loris" ? { nested: true } : {}))));
+  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", places, areas, leaders: true, placeNames: false, maxRatio: 0.75 },
+    /* 440 units wide (round 14g): room for 15 of the 16 names; on a phone the names show at about 12 px. */
+    { dir: MAP_DIR, src: "/images/maps", glass: true, width: 440 });
+  const mk = m.boxes.filter((b) => b.kind === "marker" || b.kind === "label");
+  for (let i = 0; i < mk.length; i++) for (let j = i + 1; j < mk.length; j++) { const a = mk[i], b = mk[j];
+    if (!(a.x1 + 1 < b.x0 || b.x1 + 1 < a.x0 || a.y1 + 1 < b.y0 || b.y1 + 1 < a.y0)) throw new Error(`no-hoa map: two area names or numbers touch: ${a.owner} ${b.owner}`); }
+  const css = "<style>.c3-nh-map img,.c3-nh-map svg{display:block;width:100%;height:auto}.c3-areamap figure{max-width:760px!important;margin:1rem 0 1.1rem!important}.c3-areamap figcaption{line-height:1.4!important;margin-top:.4rem!important}</style>";
+  return css + `<div class="c3-areamap">` + PK.mapFigure(h, `<div class="c3-nh-map">${m.html}</div>`,
+    "Map: numbers as in the list below.", m.credit, "no-hoa map") + `</div>`;
+})();
 
-/* The parking rules, place by place (ledger rows 58 to 64, as verified). */
-const parkingTable = () => compareCards([
-  { name: "Outside the towns", icon: "home", cells: { boat: "No county rule on where", truck: "Two per acre for a home business" } },
-  { name: "Inside Myrtle Beach", href: "/submarkets/myrtle-beach/", icon: "town", cells: { boat: "Over 16 feet: not in the front yard", truck: "One work vehicle; none over one ton" } },
-  { name: "Inside North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", icon: "town", cells: { boat: "Behind the house front, or a carport", truck: "None over 18,500 pounds" } },
-  { name: "Inside Conway", href: "/submarkets/conway/", icon: "town", cells: { boat: "Side yard, back yard or carport", truck: "Big business trucks: not on city streets" } },
-  { name: "Inside Surfside Beach", href: "/submarkets/surfside-beach/", icon: "town", cells: { boat: "Two boats or trailers (not in a garage)", truck: "Up to 21 feet long, about 8 feet high" } },
-  { name: "Inside Loris", icon: "town", cells: { boat: "Over 17 feet: not near the lot's edges", truck: "One work vehicle, up to 2 tons" } },
-], [
-  { key: "boat", label: "A boat, camper or trailer" },
-  { key: "truck", label: "A work truck at home" },
-], { caption: "Where you can keep a boat or a work truck at a house", nameLabel: "Where the home is" });
+/* The guide under the map: every area once, by what it does best (by feature only), with its number in a
+   badge drawn from data-n (CSS), so the number matches the map without adding a figure to the prose. */
+const GUIDE_CSS = "<style>.c3-nh-guide{margin:.1rem 0 0}.c3-nh-guide p{margin:0 0 .35rem!important;line-height:1.45}"
+  + ".c3-nh-guide a{white-space:nowrap}"
+  + ".c3-nh-n::before{content:attr(data-n);display:inline-flex;align-items:center;justify-content:center;min-width:1.45em;height:1.45em;margin:0 .3em 0 .05em;border-radius:999px;font-size:.78em;font-weight:700;line-height:1;color:var(--navy);background:rgba(255,255,255,.85);border:1.5px solid var(--brass-ink,#8a5a2b);vertical-align:.12em}</style>";
+const go = (k) => h.a(`#${ENTRY[k].id}`, `<span class="c3-nh-n" data-n="${num(k)}" aria-hidden="true"></span>${ENTRY[k].guide || (shortName(k) === "Downtown" ? "Downtown Myrtle Beach" : shortName(k))}`);
+const list = (ks) => ks.length === 1 ? go(ks[0]) : ks.slice(0, -1).map(go).join(", ") + " and " + go(ks.at(-1));
+const GUIDE = [
+  ["A boat at home, or a ramp within 10 minutes", ["cherry-grove", "little-river", "socastee", "surfside", "murrells-inlet"]],
+  ["Most houses within half a mile of the sand", ["mb-downtown", "mb-myrtle-heights", "windy-hill", "crescent-beach", "ocean-drive", "garden-city"]],
+  ["Room to spread out", ["mb-pine-lakes", "loris-country", "aynor"]],
+  ["A small town with old streets", ["conway", "loris"]],
+];
+if (GUIDE.flatMap((g) => g[1]).sort().join() !== ORDER.slice().sort().join()) throw new Error("the guide names every area exactly once");
 
-const ph = kit.photoSet({ aerialWidth: "760px" });
-const CSS = ph.css() + "<style>.c3-areamap figure{max-width:600px!important}</style>";
-/* Made at load time: mkpage reads pageImages before it builds the sections. The Aynor lot is the page's own
-   picture of "room" and its share image (its record has crops). The Cherry Grove photo is the labelled copy
-   made for best-neighborhoods (Beach, Canals, Salt marsh), with this page's caption: the flood fact (row 74). */
-const AYNOR_LOT = ph.aerial("aynor-country-lot", "Houses on lots of about an acre along a country road outside Aynor, from the air. The orange line is one lot.",
-  { closeUp: true });
-ph.share("aynor-country-lot");
-const CHERRY = ph.aerial("cherry-grove-canal-streets-from-above", "Houses on the Cherry Grove canals from the air. Almost every home here is in a high-risk flood zone.");
-/* One photo per area (round 7). Reused records keep their own credit; the captions are this page's. Ground
-   photos from the photo partner will replace these later (templates/photo-request-email.md). */
-const LORIS_PHOTO = ph.aerial("loris-downtown", "Main Street in downtown Loris.", { closeUp: true });
-const SURF_PHOTO = ph.aerial("surfside-beach-pier-from-above", "The ocean side of Surfside Beach from the air in 2023, with the new pier being built. It opened in 2024.");
-const INLET_PHOTO = ph.aerial("murrells-inlet-boats", "Fishing boats at a marina in Murrells Inlet.", { closeUp: true });
-const CONWAY_PHOTO = ph.aerial("conway-riverwalk-boardwalk", "The Riverwalk in downtown Conway, on the Waccamaw River.", { closeUp: true });
-const MB_PHOTO = ph.aerial("myrtle-beach-older-streets-from-above", "Houses on older streets between US 17 Business and the beach in Myrtle Beach, from the air.");
-const LR_PHOTO = ph.aerial("little-river-waterway-from-above", "Little River from the air: streets of houses beside the salt marsh and the Intracoastal Waterway.");
+/* ---------------------------------------------------------------------------- */
+/* One numbered area: the share chip, the sell, the day, the trade-off, then the price line and the offer */
+
+/* The share of homes for sale with no HOA fee, in a chip under each heading (rows 116 to 130 and 175;
+   thresholds as row 148). The country around Loris says "most": its map outline holds more fee houses
+   than its MLS areas (row 129). */
+const shareWords = (k) => { const a = A[k], p = a.noFee / a.total;
+  if (k === "loris-country") return "most homes for sale";
+  if (Math.round(p * 100) === 60) return "6 in 10 homes for sale";
+  return p === 1 ? "every home for sale" : p >= 0.9 ? "almost all homes for sale" : p >= 0.85 ? "nearly 9 in 10 homes for sale"
+    : p >= 0.6 ? "most homes for sale" : "more than half the homes for sale"; };
+const CHIP_CSS = "<style>.c3-nh-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:-.2rem 0 1rem}.c3-nh-chip{display:inline-block;padding:.3rem .8rem;border-radius:999px;font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);box-shadow:0 6px 18px -10px rgba(28,32,40,.35)}"
+  /* The price line and the offer, together in one glass box at the end of each entry (as best neighborhoods). */
+  + ".c3-place-cta{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1.2rem;max-width:760px;margin:1.4rem 0 .4rem;padding:1rem 1.2rem;border-radius:20px;"
+  + "background:linear-gradient(180deg,rgba(255,255,255,.76),rgba(255,255,255,.52));border:1px solid var(--g-edge,rgba(255,255,255,.8));box-shadow:var(--g-hi,none),var(--g-sh,none);"
+  + "-webkit-backdrop-filter:var(--g-blur,none);backdrop-filter:var(--g-blur,none)}"
+  + ".c3-place-cta>p:first-child{flex:1 1 18rem;margin:0;color:var(--navy);font-size:var(--read,1.0625rem);line-height:1.55}"
+  + "main#main .c3-place-cta .c3-offer{margin:0;flex:0 1 auto}"
+  /* One subtitle at the top (OWNER-EYE-14e H2): the italic line under the H1 stays; the dek is not shown. */
+  + "main#main .detail-hero .detail-sub{display:none}</style>";
+const chip = (k) => `<div class="c3-nh-chips"><span class="c3-nh-chip">Listed with no HOA fee: ${shareWords(k)}${k === "mb-pine-lakes" ? " on the older streets" : ""}</span></div>`;
+/* One line on price, last, in the owner's order ("one line about the average price"): the typical list
+   price of the houses for sale with no fee (data/no-hoa-areas.json), as the sources line says. */
+const priceLine = (k) => `Houses with no HOA fee here are listed at about ${A[k].medianNoFeeHousePrice >= 1e6 ? millions(A[k].medianNoFeeHousePrice) : (k === "murrells-inlet" ? to10k(A[k].medianNoFeeHousePrice) : priceOf(k))}${k === byPrice[0].key ? ", the lowest on this page" : ""}.`;
+/* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
+   linked to the contact form with the area named, in the box with the price line. */
+const offer = (k) => `<div class="c3-place-cta"><p>${priceLine(k)}</p>${GL.offer(ENTRY[k].offerName || ENTRY[k].place, { label: ENTRY[k].label || `Get the homes for sale in ${ENTRY[k].place}`,
+  href: `/contact/?place=${encodeURIComponent(ENTRY[k].place)}` })}</div>`;
+function entry(k, headline, paras) {
+  const n = num(k);
+  return { h2: `${n}. ${ENTRY[k].name}: ${headline}`, toc: `${n}. ${shortName(k)}`, id: ENTRY[k].id,
+    html: () => chip(k) + h.p(paras[0]) + (PHOTO[k] || "") + paras.slice(1).map((t, i) => h.p(t) + (i === 1 && PHOTO_LATE[k] ? PHOTO_LATE[k] : "")).join("") + offer(k) };
+}
 
 /* Sources. */
-const CONDO_LAW = "https://www.scstatehouse.gov/code/t27c031.php";
-const DISCLOSURE_LAW = "https://www.scstatehouse.gov/code/t27c050.php";
-const DEEDS = "https://www.horrycountysc.gov/departments/register-of-deeds/";
-const SWA = "https://www.solidwasteauthority.org/residential.html";
-const MB_TRASH = "https://www.cityofmyrtlebeach.com/departments/public_works_department/solid_waste_and_recycling_division.php";
-const PONDS = "https://horrycountysc.gov/news/articles/top-tips-for-stormwater-pond-maintenance/";
-const COUNTY_MAP = "https://www.horrycountysc.gov/land-info/";
-const MAP_YOUR_MOVE = "https://www.horrycountysc.gov/apps/mapyourmove";
-const HORRY_927 = "https://library.municode.com/sc/horry_county/codes/code_of_ordinances?nodeId=COOR_APXBZO_ARTIXCOUS_S927HOOC";
-const CLOSING = "https://www.sccourts.org/media/opinions/HTMLFiles/SC/25508.htm";
-const FEMA = "https://msc.fema.gov/portal/home";
-const MUNI = "https://library.municode.com/sc/";
-const HORRY_CODE = `${MUNI}horry_county/codes/code_of_ordinances?nodeId=COOR_CH13OFMIPR_ARTIINGE_S13-12PRPA`;
-const LANDINGS = "https://www.horrycountysc.gov/departments/parksandrecreation/boat-landings/";
-const HOEDOWN_LAW = "https://www.scstatehouse.gov/code/t53c003.php";
-const LORIS_CITY = "https://cityoflorissc.com/about-us";
-const SHAG_LAW = "https://www.scstatehouse.gov/code/t01c001.php";
-const SCE = "https://www.scencyclopedia.org/sce/entries/";
-const MARSHWALK = "https://www.marshwalk.com/";
-const BLUE_CRAB = "https://www.bluecrabfestival.org/";
-const LORIS_CLOCK = "https://www.scpictureproject.org/horry-county/loris-town-clock.html";
-const CITY_HALL = "https://schpr.sc.gov/index.php/Detail/objects/S10817726018";
-const SURF_PIER = "https://www.wmbfnews.com/2024/03/14/surfside-beach-pier-officially-open";
+/* Round 14d sources (rows 149 to 165, pending verification). */
+const MB_NRMPS = "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/64500568_text";
+const MB_BOARDWALK2 = "https://www.myrtlebeachboardwalk.com/";
+const MB_SUMMER = "https://www.cityofmyrtlebeach.com/news_detail_T6_R2620.php";
+const MB_LIBRARY = "https://www.cityofmyrtlebeach.com/i_want_to/find/chapin_memorial_library.php";
+const MB_BEACHLAW = "https://cityofmyrtlebeach.com/i_want_to/learn_about/beach_conditions.php";
+const MB_BOARDS = "https://cityofmyrtlebeach.com/government/boards_and_committees/";
+const PL_CLUB = "https://www.pinelakes.com/";
+const MB_PARK_OF = "https://www.myrtlebeachprst.com/_T4_R41.php";
+const PP_ANNANDALE = "https://schpr.sc.gov/index.php/Detail/objects/S108042003700007";
+const MB_DECAL = "https://cityofmyrtlebeach.com/i_want_to/apply_for/resident_parking_decal.php";
+const NMB_SURF = "https://www.nmb.us/219/Surfing-Rules-Regulations";
+const NMB_41ST = "https://www.nmb.us/474/41st-Avenue-South-Pocket-Park";
+const BF_DOCKS = "https://www.bflanding.com/plan-your-visit/day-docking/";
+const NMB_18TH = "https://www.nmb.us/782/18th-Edge-Pocket-Park";
+const NMB_CENTRAL = "https://www.nmb.us/475/Central-Park";
+const NMB_PARKREG = "https://www.nmb.us/545/Parking-Registration-Information";
+const FAT_HAROLDS = "https://www.fatharolds.com";
+const HOSKINS = "https://www.hoskinsrestaurant.com";
+const NMB_MUSEUM = "https://www.northmyrtlebeachmuseum.com/";
+const NMB_MCLEAN = "https://www.nmb.us/493/McLean-Park";
+const NMB_BURGESS = "https://www.nmb.us/495/Russell-Burgess-Coastal-Preserve";
+const NMB_TURBINE = "https://www.nmb.us/489/Cherry-Grove-Oceanfront-Park";
+const JUELS = "https://www.hurricanejuels.com/";
+const SHRIMPFEST = "https://littlerivershrimpfest.org/";
+const REGATTA = "https://www.christmasregatta.com/";
+const DNR_REEFS = "https://www.dnr.sc.gov/marine/pub/seascience/reefloc.html";
+const SOCASTEE_NR = "https://npgallery.nps.gov/GetAsset/474cf1ff-3f32-413f-be71-37eea026b32a";
+const SSB_BEACHES = "https://www.surfsidebeach.org/200/Beaches";
+const SSB_PARADE = "https://www.surfsidebeach.org/367/4th-of-July-Golf-Cart-Parade";
+const SSB_MARKET = "https://www.surfsidebeach.org/325/Surfside-Beach-Farmers-Market";
+const GC_PIER = "https://www.gardencitypier.com/";
+const GC_SURVEY = "https://scdah.sc.gov/sites/scdah/files/Documents/Historic%20Preservation%20(SHPO)/Research/HC26001.pdf";
+const BLUE_TRAIL = "https://www.conwaysc.gov/Waccamaw-River-Blue-Trail-Waterproof-Booklet-2020-Digital.pdf";
+const CONWAY_RHD = "https://schpr.sc.gov/index.php/Detail/objects/S10817726031";
+const HC_MUSEUM = "https://www.horrycountymuseum.org/";
+const RIVERFEST = "https://www.conwayriverfest.com/";
+const LORIS_HISTORY = "https://www.lorischamber.com/history-of-loris";
+const LORIS_LIBRARY = "https://www.horrycountysc.gov/news/articles/rooted-in-community-loris-library-celebrates-50-years-on-main-street/";
+const HC_CULTURAL = "https://www.horrycountysc.gov/media/4ujjy1oh/cultural-resources-element-2015.pdf";
+const AYNOR_TOWN = "https://www.townofaynor.gov/community";
+const AYNOR_APPEAL = "https://www.townofaynor.gov/appeal";
+const GALIVANTS_NR = "https://npgallery.nps.gov/GetAsset/aa6c6bf6-8036-4d76-84bb-d1eb0e3431fd";
 const MB_STATE_PARK = "https://southcarolinaparks.com/myrtle-beach";
+const HC_PARCELS = "https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24";
+const PELICANS = "https://www.milb.com/myrtle-beach/ballpark/pelicans-ballpark-a-z";
+const USGS_LPD = "https://waterdata.usgs.gov/monitoring-location/02135000/";
+const NPS_MH = "https://npgallery.nps.gov/AssetDetail/NRIS/96001217";
+const MB_SWASH = "https://www.cityofmyrtlebeach.com/i_want_to/find/photos_of_the_week/pow040618.php";
+const MB_DEPOT = "https://www.cityofmyrtlebeach.com/i_want_to/find/myrtle_beach_train_depot.php";
+const PL_SHPO = "https://schpr.sc.gov/index.php/Detail/objects/S10817726017";
+const NMB_ACCESS = "https://parks.nmb.us/339/Beach-Accesses-Amenities";
+const NMB_YOW = "https://nmb.us/496/Yow-Park";
+const SALT_LANDINGS = "https://www.saltwaterfishing.sc.gov/boatlandings.html";
+const HC_BEACH = "https://horrycountysc.gov/departments/parksandrecreation/beach-accesses/";
+const HB_PARK = "https://southcarolinaparks.com/huntington-beach";
+const WACCAMAW_PRESERVE = "https://sctrails.net/trails/trail/waccamaw-river-heritage-preserve-canoe";
+const PINE_LAKES = "https://pinelakes.com/about-pine-lakes-country-club/";
+const NMB_RAMP = "https://nmb.us/490/Cherry-Grove-Park-and-Boat-Ramp";
+const INGRAM = "https://nmb.us/783/Ingram-Dunes-Nature-Preserve";
 const CANALS = "https://www.myhorrynews.com/news/local/north_myrtle_beach/residents-still-paying-for-cherry-grove-dredge/article_1eb5bb32-3b9a-11e9-93e7-9f8ad503b643.html";
-const SURF_TOWN_PIER = "https://www.surfsidebeach.org/212/Surfside-Beach-Fishing-Pier";
+const SHAG_LAW = "https://www.scstatehouse.gov/code/t01c001.php";
+const LR_FISHING = "https://www.saltwaterfishing.sc.gov/pdf/littleriverpart1.pdf";
+const BLUE_CRAB = "https://www.bluecrabfestival.org/";
+const LANDINGS = "https://www.horrycountysc.gov/departments/parksandrecreation/boat-landings/";
 const HC_PARKS = "https://www.horrycountysc.gov/departments/parksandrecreation/parks/";
+const SWING = "https://projectportal.scdot.gov/sc-historic-bridges/s-616-bridge-over-intercoastal-waterway-horry-county";
+const SCE = "https://www.scencyclopedia.org/sce/entries/";
+const CONWAY_OAKS = "http://www.conwaysc.gov/news_detail_T6_R144.php";
+const CITY_HALL = "https://schpr.sc.gov/index.php/Detail/objects/S10817726018";
+const LORIS_CITY = "https://cityoflorissc.com/about-us";
+const HOEDOWN_LAW = "https://www.scstatehouse.gov/code/t53c003.php";
+const HORRY_927 = "https://library.municode.com/sc/horry_county/codes/code_of_ordinances?nodeId=COOR_APXBZO_ARTIXCOUS_S927HOOC";
+const HORRY_CODE = "https://library.municode.com/sc/horry_county/codes/code_of_ordinances?nodeId=COOR_CH13OFMIPR_ARTIINGE_S13-12PRPA";
+const CLOSING = "https://www.sccourts.org/media/opinions/HTMLFiles/SC/25508.htm";
+const SWA = "https://www.solidwasteauthority.org/residential.html";
+const CONDO_LAW = "https://www.scstatehouse.gov/code/t27c031.php";
+const MUNI = "https://library.municode.com/sc/";
+/* The town and county codes behind "What you can do at home, by town" (rows 137 to 144). */
+const MB_STR = MUNI + "myrtle_beach/codes/code_of_ordinances?nodeId=COOR_APXAZO_ART14ZODI_S1407TAUS";
+const SSB_STR = MUNI + "surfside_beach/codes/code_of_ordinances?nodeId=VOII_CH17ZO_ARTIIIDIUSRE_DIV11USRE_S17-396.10TRRELOTERE";
+const NMB_RENTAL = "https://www.nmb.us/DocumentCenter/View/6133/Rental-Property-Quick-Reference";
 
-/* Words used more than once. */
-const loris = AREAS.find((a) => a.key === "Loris");
-const LABEL = "Get the list";
-/* The example: its own arc, on this page's deciding fact (a town limit on a boat; rows 59, 64 and 68), with
-   the services Chapter3 records: the agent reads the rules and filters the search for the buyer (stories.json
-   "hoa-rental-bans-filtered"). Myrtle Beach: a boat over 16 feet may not sit in the front yard (row 59). */
+/* Round 14f sources (rows 175 to 178). */
+const MI_LANDING = "https://www.horrycountysc.gov/departments/parksandrecreation/boat-landings/";
+const MARSHWALK = "https://www.marshwalk.com/";
+const BROOKGREEN = "https://www.scencyclopedia.org/sce/entries/brookgreen-gardens/";
+const VEREEN = "https://www.horrycountysc.gov/departments/parksandrecreation/parks/";
+
+/* What you can do at home, by town (owner's eye 14, decision 1; 14d, high 3; 14e, M3 and M5): one glass
+   card per place with four plain answers, each by its icon and, on a phone, its word. The cards give the
+   rule only; what we check is said once, under them. No zone codes: the codes are in ledger rows 137 to
+   144. The boat and truck answers are rows 58 to 64. */
+const { icon: ICON } = require(path.join(BB, "tools", "icons.js"));
+const svg = (d) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${d}</svg>`;
+const RULE_ICON = {
+  boat: ICON("dock", { size: 22 }),
+  truck: svg('<path d="M2 6h11v10H2zM13 9h4.5L21 12.5V16h-8"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>'),
+  rent: ICON("key", { size: 22 }),
+  shed: svg('<path d="M3 11l9-6 9 6M5 10v10h14V10M10 20v-5h4v5"/>'),
+};
+const RULE_WORDS = { boat: "Boat", truck: "Work truck", rent: "Short-term rental", shed: "Shed or fence" };
+const RULES = [
+  { name: "Outside the towns", note: "Horry County", rules: {
+    boat: "County zoning names no limit on where you park a boat, but outdoor storage may not be in front of the house.",
+    truck: "A business run from home may keep two service vehicles per acre, and three per home on small farm-zoned lots.",
+    rent: "Only in some zones. County zoning does not list short stays, so the zoning office decides where one fits, and short stays pay county taxes.",
+    shed: "One small shed can sit 5 feet from the line. Fences can be 8 feet tall; over 7 feet needs a permit." } },
+  { name: "Myrtle Beach", href: "/submarkets/myrtle-beach/", rules: {
+    boat: "A boat over 16 feet, or a camper of any size, stays out of the front yard.",
+    truck: "Yes, one, and no vehicle over one ton.",
+    rent: "Only in some zones: the resort and business zones and one residential zone, not the single-family zones.",
+    shed: "Yes, with a permit. Fences are 4 feet in front and up to 8 in back, but 4 feet all around on an oceanfront lot." } },
+  { name: "North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", rules: {
+    boat: "Yes, behind the front of the house or under a carport.",
+    truck: "Yes, up to 18,500 pounds.",
+    rent: "Yes: zoning does not generally limit it. You need a business license, and it does not pass to you when the home sells.",
+    shed: "One shed up to 150 square feet, behind the house, in most home zones. East of Ocean Boulevard, side-yard fences are not allowed, except low rail fences, pool fences and glass-topped fences." } },
+  { name: "Surfside Beach", href: "/submarkets/surfside-beach/", rules: {
+    boat: "Yes, up to two boats or trailers, but a licensed trailer over 21 feet counts as one per home. An unlicensed boat goes in a garage or under a cover.",
+    truck: "Yes, one van or pickup up to 21 feet long and 7 feet 11 inches high.",
+    rent: "Only in some zones: stays under 30 days are allowed in two zones. Rentals of a year or more are allowed wherever homes are.",
+    shed: "Yes, in the back yard, with a permit. Fences are 4 feet in front and 6 in back." } },
+  { name: "Conway", href: "/submarkets/conway/", rules: {
+    boat: "Yes, in the side or back yard, or under a carport.",
+    truck: "Yes, but a big work truck may not park on a city street.",
+    rent: "Only in some zones: downtown and the business areas, not on home streets.",
+    shed: "Yes, with a permit, in the back yard. Fences are 4 feet in front and up to 8 in back." } },
+  { name: "Loris", rules: {
+    boat: "A boat over 17 feet stays out of the front and side setbacks and 5 feet from the back line.",
+    truck: "Yes, one, up to 2 tons.",
+    rent: "Not a listed use in city zoning, and a use not listed is not permitted. We ask the city about the address.",
+    shed: "Up to two buildings, a garage or carport included, in the side or back yard." } },
+  { name: "Aynor", rules: {
+    boat: "The town's zoning does not limit it.",
+    truck: "No limit in the town's zoning.",
+    rent: "Only with approval: the town's zoning does not list short stays, and the zoning appeals board may approve a use of the same general character as a listed one.",
+    shed: "Yes, in the back yard, 5 feet from the line." } },
+];
+/* A real table (STANDARD A6), drawn as one glass card per place on a phone: four plain lines, each by its
+   icon and its word (OWNER-EYE-14e M5: "a key and a house" were guesses). */
+const RULES_CSS = "<style>.c3-nh-rules{width:100%;max-width:1100px;border-collapse:separate;border-spacing:0 .7rem;margin:1rem 0 1.2rem}"
+  + ".c3-nh-rules caption{text-align:left;font-family:var(--sans);font-weight:600;color:var(--navy);font-size:1rem;margin-bottom:.2rem}"
+  + ".c3-nh-rules th,.c3-nh-rules td{vertical-align:top;text-align:left;font-size:1rem;line-height:1.45;padding:.75rem .8rem;background:rgba(255,255,255,.62);border-top:1px solid rgba(255,255,255,.95);border-bottom:1px solid rgba(255,255,255,.95)}"
+  + ".c3-nh-rules thead th{background:none;border:0;font-family:var(--sans);font-weight:600;color:var(--navy);font-size:.95rem;padding:.2rem .8rem}"
+  + ".c3-nh-rules thead th .ic{margin-right:.45rem;vertical-align:middle}"
+  + ".c3-nh-rules tbody th{font-family:var(--serif);font-size:1.15rem;color:var(--navy);border-left:1px solid rgba(255,255,255,.95);border-radius:18px 0 0 18px;white-space:nowrap}"
+  + ".c3-nh-rules tbody td:last-child{border-right:1px solid rgba(255,255,255,.95);border-radius:0 18px 18px 0}"
+  + ".c3-nh-rules tbody th small{display:block;font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--muted)}"
+  + ".c3-nh-rules td .ic,.c3-nh-rules td .c3-nh-k{display:none}"
+  + ".c3-nh-rules .ic{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:11px;color:var(--brass);background:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.95);box-shadow:0 6px 14px -10px rgba(28,32,40,.4)}"
+  + ".c3-nh-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}"
+  + "@media (max-width:899px){.c3-nh-rules,.c3-nh-rules tbody,.c3-nh-rules tr,.c3-nh-rules th,.c3-nh-rules td{display:block;width:auto}.c3-nh-rules thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.c3-nh-rules caption{display:block;width:auto;margin-bottom:.7rem}"
+  + ".c3-nh-rules tbody tr{margin:0 0 .9rem;border-radius:22px;padding:.9rem 1rem .5rem;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,.56));border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 18px 40px -28px rgba(28,32,40,.45)}"
+  + ".c3-nh-rules tbody th,.c3-nh-rules tbody td{background:none;border:0!important;border-radius:0!important;padding:0;white-space:normal}.c3-nh-rules tbody th{margin:0 0 .55rem}"
+  + ".c3-nh-rules tbody td{display:grid;grid-template-columns:32px 1fr;gap:.6rem;align-items:start;margin:0 0 .65rem}.c3-nh-rules td .ic{display:inline-flex}"
+  + ".c3-nh-rules td .c3-nh-k{display:block;font-family:var(--sans);font-size:.85rem;font-weight:700;letter-spacing:.01em;color:var(--brass-ink,#8a5a2b);margin:0 0 .1rem}}</style>";
+const KEYS = ["boat", "truck", "rent", "shed"];
+const homeRules = () => RULES_CSS + `<table class="c3-nh-rules"><caption>What you can do at home, by town</caption><thead><tr><th scope="col"><span class="c3-nh-sr">Where the home is</span></th>`
+  + KEYS.map((k) => `<th scope="col"><span class="ic" aria-hidden="true">${RULE_ICON[k]}</span>${RULE_WORDS[k]}</th>`).join("") + "</tr></thead><tbody>"
+  + RULES.map((t) => `<tr><th scope="row">${t.href ? h.a(t.href, t.name) : t.name}${t.note ? `<small>${t.note}</small>` : ""}</th>`
+    + KEYS.map((k) => `<td><span class="ic" aria-hidden="true">${RULE_ICON[k]}</span><span><span class="c3-nh-k" aria-hidden="true">${RULE_WORDS[k]}</span>${t.rules[k]}</span></td>`).join("") + "</tr>").join("")
+  + "</tbody></table>";
+
+/* The price bands, for the reader who starts from a budget (rows 82 to 85, verified), as plain lines
+   (owner's eye 14, low 5). */
+const BAND = Object.fromEntries(BANDS.map((b) => [b.band, b]));
+const about10 = (b) => Math.round(BAND[b].houses / 10) * 10;
+const bandList = () => h.ul([
+  `About ${about10("under 250k")} houses for sale under $250,000, most of them built before 1990 and about half in and around Conway.`,
+  `About ${about10("500k-750k")} from $500,000 to $750,000, a third of them within half a mile of the beach.`,
+  `About ${about10("750k+")} at $750,000 and up, about 2 in 3 of them within half a mile of the beach.`,
+]);
+
+/* The example (rows 59, 64 and 68; the services Chapter3 records: stories.json "hoa-rental-bans-filtered"). */
 const STORY = [
   "<strong>Example:</strong> Teresa wants a home with no HOA and room for her 20-foot boat. She likes a house on a small lot with a Myrtle Beach address.",
-  "Her Chapter3 agent finds the house on the county map, inside the city of Myrtle Beach. In the city, a boat that long may not be kept in the front yard, and that lot has no other room for it.",
-  "The agent shows her houses outside the city limits, where the county has no rule on where she parks the boat. Teresa makes an offer on one with a wide side yard.",
+  "Her Chapter3 agent finds the house on the county map, inside the city of Myrtle Beach. The city's front-yard rule applies to her boat, and that lot has no other room for it.",
+  "The agent shows her houses outside the city limits, under the county's rules. Teresa makes an offer on one with a wide side yard.",
 ];
 
-/* One numbered area (round 7; CRAFT 3, "A list of places is read one place at a time"): the headline with
-   the number, the place and what it gives you; a few short paragraphs; one photo; the trade-off and the
-   price, one line each. */
-const ENTRY_CSS = "<style>.c3-entry-facts{max-width:720px;margin:.4rem 0 .6rem;padding:.8rem 1rem;border-left:3px solid var(--brass)}"
-  + ".c3-entry-facts p{margin:0 0 .35rem!important;color:var(--navy)!important}.c3-entry-facts p:last-child{margin-bottom:0!important}</style>";
-const go = (key) => h.a(`#${ID[key]}`, `${num(key)}. ${area(key).name.replace(", outside Carolina Forest", "")}`);
-function entry(key, headline, paras, photo, tradeOff) {
-  const a = area(key), n = num(key);
-  if (!n) throw new Error(`${key} is not on the list`);
-  return { h2: `${n}. ${headline}`, toc: `${n}. ${a.map}`, id: ID[key], html: () =>
-    paras.map((t) => h.p(t)).join("") + photo +
-    `<div class="c3-entry-facts"><p><strong>With no HOA fee:</strong> typical lot ${lotOf(key)}; typical list price about ${priceOf(key)}.<br><strong>The trade-off:</strong> ${tradeOff}</p></div>` };
-}
-/* ItemList JSON-LD for the eight numbered areas (round 8; ROUND-8 item 6). */
+/* ItemList JSON-LD for the 16 areas. */
 const ITEMLIST = () => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList",
-  name: "Areas near Myrtle Beach with homes for sale with no HOA fee", numberOfItems: PLACES.length,
-  itemListElement: PLACES.map((a, i) => ({ "@type": "ListItem", position: i + 1, name: a.name.replace(", outside Carolina Forest", ""), url: `https://chapter3realty.com${SELF}#${ID[a.key]}` })) })}</script>`;
+  name: "Areas around Myrtle Beach where all or most homes for sale have no HOA fee", numberOfItems: ORDER.length,
+  itemListElement: ORDER.map((k, i) => ({ "@type": "ListItem", position: i + 1, name: ENTRY[k].name, url: `https://chapter3realty.com${SELF}#${ENTRY[k].id}` })) })}</script>`;
+
+const LABEL = "Get the list";
 
 /* ---------------------------------------------------------------------------- */
 
-module.exports = {
+module.exports = GL.page({
+  theme: "glass",
+  /* No "On this page" list: the guide under the map does that job (coordinator, round 14). */
+  toc: false,
   url: SELF,
   hub: { name: "Buyers", url: "/buyers/" },
   /* The Aynor lot aerial's 1x1, 4x3 and 16x9 crops: Article.image and the share image. */
   pageImages: () => ph.pageImages(),
-  title: "Homes With No HOA in Myrtle Beach: Where, Cost, Pros and Cons",
-  description: "Where to find homes with no HOA fee around Myrtle Beach, what they cost, lot sizes, flood zones, the pros and cons, and the town rules for a boat or work truck.",
-  ogTitle: "Homes with no HOA around Myrtle Beach: where they are, what they cost and what you get",
+  title: "Homes With No HOA Near Myrtle Beach: 16 Areas, Boats, Prices",
+  description: "The 16 areas around Myrtle Beach where all or most homes have no HOA fee, what each is like, the town rules for a boat or work truck, and what homes cost.",
+  ogTitle: "Homes with no HOA around Myrtle Beach: 16 areas where most homes have no fee",
   crumb: "Homes With No HOA",
   eyebrow: "Buying a home",
-  h1: "Where can you buy a home with no HOA in Myrtle Beach?",
-  h1em: "Where to look, what it costs and what you get.",
-  sub: "Most homes for sale with no HOA fee are on ordinary streets outside planned neighborhoods. Loris and Aynor have the highest share and the biggest lots.",
-  heroMedia: glance([
-    { icon: "home", label: "Inland", text: "Half an acre to an acre" },
-    { icon: "beach", label: "Near the beach", text: "Older houses near the sand" },
-    { icon: "dock", label: "A boat at home", text: "Within each town's rules" },
-  ]),
-  /* The first offer is a box (owner, 2026-10-14: "make the first CTA more of a CTA"; mkpage-offer-box.patch). */
-  heroCta: { title: "Get the homes with no HOA fee in your price range.", label: LABEL, href: "/contact/",
-    text: "Tell us your price range. One of our agents sends the homes for sale, and we check the deed, the lot map and the HOA papers for any home you like." },
+  h1: "Where can you buy a home with no HOA near Myrtle Beach?",
+  h1em: "16 areas where most homes have no fee.",
+  /* Required by mkpage; hidden on the page (CHIP_CSS), so the top has one subtitle (OWNER-EYE-14e H2). */
+  sub: "Room for a boat, a truck and a shed, from Little River to Aynor.",
+  topOfferLine: "Homes with no HOA fee, by area.",
+  heroCta: { title: "Get the homes with no HOA fee in the areas you like.", label: LABEL, href: "/contact/",
+    text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
   author: "devin",
   shortAnswer: [
-    "Most homes with no HOA fee are in Aynor, Loris and Conway, or on older beach streets in North Myrtle Beach, Surfside Beach and Murrells Inlet. About a quarter of the homes for sale near Myrtle Beach have no homeowners association (HOA) fee.",
-    "Inland, most are houses on big lots, many of them new. Near the beach, most are older houses.",
-    `With no HOA, you can keep a boat or a work truck at home, within ${h.a("#boats-and-work-trucks", "each town's rules")}. Houses with no HOA fee are listed at about ${to5k(ALL.detachedHouses.medianListPriceNoFee)}.`,
+    "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the areas below, from beach streets and river towns to country land.",
   ],
+
   sections: [
-    { h2: "Where are the homes with no HOA fee?", toc: "Where they are", html: () =>
-      CSS + ENTRY_CSS +
-      h.p("Houses listed with no HOA fee are spread over eight areas, from big lots inland to old beach streets.") +
-      `<div class="c3-areamap">${MAP.html}</div>` +
-      h.p(`To live near the beach, see ${go("North Myrtle Beach")}, ${go("Surfside Beach and Garden City")}, ${go("Murrells Inlet")} and ${go("Myrtle Beach (not Carolina Forest)")}. For a boat near the waterway, see ${go("Little River")}.`) +
-      h.p("Every home for sale in Carolina Forest has an HOA fee.") +
-      h.p(`Inland, in ${go("Aynor")}, ${go("Loris")} and ${go("Conway")}, many houses for sale with no HOA fee are new, and most are outside the town limits and not in a subdivision. From there, the beach is a drive of 25 to 45 minutes.`) },
+    { h2: "Where are they?", toc: "The map and the guide", id: "where", html: () =>
+      ph.css() + CHIP_CSS + GUIDE_CSS + MAP +
+      `<div class="c3-nh-guide">` + GUIDE.map(([label, ks]) => h.p(`<strong>${label}:</strong> ${list(ks)}.`)).join("") + `</div>` },
 
-    { h2: "What can you buy with no HOA fee for under $250,000?", toc: "Under $250,000", id: "under-250000", html: () =>
-      h.p(`About ${Math.round(BAND["under 250k"].houses / 10) * 10} houses, most of them older and smaller, and almost all inland. About half were in and around Conway, some of them on streets in central Conway, such as Temple Street and Cherry Street.`) +
-      h.p(`In Socastee, they were in Rosewood Estates and Bridge Creek, built in the late 1970s and 1980s. Near Loris, a row of new houses on Blue Moon Drive was listed in this band.`) +
-      h.p(`Expect a house from about ${BAND["under 250k"].medianYearBuilt}, with ${sqftWords(BAND["under 250k"].medianSqft)} on ${acreWords(BAND["under 250k"].medianLotAcres).replace(/^about /, "")}. Almost none were near the beach.`) },
+    entry("mb-downtown", "the boardwalk on foot", [
+      `From the older streets downtown, you can walk to the oceanfront ${h.ext(MB_BOARDWALK2, "boardwalk")}. From Collins Street it is about a quarter hour on foot. From the day after Labor Day through April, you can ride a bike or walk a dog on it at any hour.`,
+      "Most of these houses are within half a mile of the beach. All of them are outside the high-risk flood zones, where the federal rule makes a lender require flood insurance.",
+      `Plyler Park on the oceanfront has free live music and a ${h.ext(MB_SUMMER, "fireworks show")} on Wednesdays in summer. The older houses are on Collins, Chester and Dunbar Streets, and Spivey Park and the New Town Bark Park are on Collins Street too.`,
+      `A trail with a wooden boardwalk is beside Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}, from Third Avenue South to Broadway and Collins Street.`,
+      "The trade-off is room. A typical lot is about 9,000 square feet. Inside the city, a camper may not be kept in the front yard, so it has to fit beside or behind the house.",
+    ]),
 
-    { h2: "What can you buy with no HOA fee for $250,000 to $500,000?", toc: "$250,000 to $500,000", id: "250000-to-500000", html: () =>
-      h.p(`This is the biggest band, with about ${Math.round(BAND["250k-500k"].houses / 10) * 10} houses. It is where the land and the new houses are. About 4 in 10 in this band were built in 2024 or later.`) +
-      h.p("Around Loris, new houses were listed on Highway 66. In Aynor, many are in and near the town itself.") +
-      h.p("Near the beach, the same money buys an older house. In North Myrtle Beach, houses from the mid-1980s in Ocean Drive Estates, on 3rd Avenue South, were in this band.") +
-      h.p(`Half were built in ${BAND["250k-500k"].medianYearBuilt} or later. The middle house has a little over a third of an acre and ${sqftWords(BAND["250k-500k"].medianSqft)}.`) },
+    entry("mb-myrtle-heights", "a beach path at the end of each avenue", [
+      `In Myrtle Heights, the plan of the mid-1930s carried the avenues through to the beach, and those ends now give public access to the sand. From every house for sale here, a beach access is less than 5 minutes away on foot.`,
+      `The same plan set a minimum setback of 75 feet for oceanfront houses. The district is on the ${h.ext(NPS_MH, "National Register of Historic Places")}.`,
+      "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment. You will see porches and wood awnings painted solid or striped to look like canvas. A few houses keep old walls of coquina rock or brick.",
+      "Back yards along Ocean Boulevard often have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
+      "Sea Captain's House, a restaurant in a 1930 beach cottage, is about a 9-minute walk from the middle of Myrtle Heights.",
+      `The trade-off is the review: on an oceanfront house, a change to the outside, including its color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}. Ordinary repair does not.`,
+    ]),
 
-    { h2: "What can you buy with no HOA fee for $500,000 to $750,000?", toc: "$500,000 to $750,000", id: "500000-to-750000", html: () =>
-      h.p(`About ${Math.round(BAND["500k-750k"].houses / 10) * 10} houses. Here a beach house and a bigger inland house cost about the same. About 1 in 3 was half a mile or less from the beach; in the next band up, 2 in 3 were.`) +
-      h.p("In North Myrtle Beach, this band buys a house in Cherry Grove, Windy Hill or Ocean Drive; in Cherry Grove most were built before 1990. In Murrells Inlet, most were in the Georgetown County part. In Conway, it buys a larger house from the 1970s in Coastal Heights, south of town.") +
-      h.p(`The middle house here dates from about ${BAND["500k-750k"].medianYearBuilt}, with ${sqftWords(BAND["500k-750k"].medianSqft)} on ${acreWords(BAND["500k-750k"].medianLotAcres).replace(/^about /, "about ")}.`) },
+    entry("mb-pine-lakes", "almost half an acre in the middle of the city", [
+      "The older Pine Lakes streets have big lots in the middle of the city: typically almost half an acre, more than twice a downtown lot. There is room for a workshop or a boat beside the house.",
+      `The streets are around the golf course, which is ${h.ext(PL_CLUB, "less than half a mile from the ocean")}, on rolling land. The beach is about 0.6 mile on foot, at the Seaside Place street end, one of the city's fully accessible beach paths.`,
+      `${h.ext(MB_PARK_OF, "Ocean Forest Memorial Park")}, with a walking path, is at the Haskell Circle beach access, about half a mile on foot. North Ocean Boulevard has bike lanes.`,
+      `A resident whose car is registered and taxed in the city gets a free parking decal. With it, you park free at city meters, at beach street ends and at ${h.ext(PELICANS, "Pelicans baseball games")}.`,
+      "The city picks up trash, recycling and yard waste at the curb each week, for about $34 a month.",
+      "The Preserve at Pine Lakes, the newer section, has an HOA fee and is not counted here.",
+      "The trade-off is price: houses here are listed at more than twice the downtown price, for more than twice the land.",
+    ]),
 
-    { h2: "What can you buy with no HOA fee for $750,000 and up?", toc: "$750,000 and up", id: "750000-and-up", html: (bg) =>
-      h.p(`About ${Math.round(BAND["750k+"].houses / 10) * 10} houses, most of them near the ocean.`) +
-      h.p("Some are on Ocean Boulevard in Myrtle Beach and North Myrtle Beach and on South Waccamaw Drive in Garden City. Others were listed with no fee in Pine Lakes and Plantation Point in Myrtle Beach and in Tilghman Estates in North Myrtle Beach.") +
-      h.p(`Most are big: the middle house is ${sqftWords(BAND["750k+"].medianSqft)}.`) +
-      h.cta("Get the homes with no HOA fee in your price band.", "Tell us your band and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
+    entry("windy-hill", "free day docks at Barefoot Landing", [
+      `Windy Hill is 3 minutes by car from Barefoot Landing on the Intracoastal Waterway. Come by boat, and you can ${h.ext(BF_DOCKS, "use the finger docks")} free for the day while you shop or eat.`,
+      "The Alabama Theatre and House of Blues are on the same grounds. Barefoot Landing welcomes leashed pets all year, and many of its shops let them inside.",
+      "Most houses for sale here are within a 10-minute walk of a public beach access. Inside North Myrtle Beach, a work truck up to 18,500 pounds may park at home.",
+      `On 41st Avenue South, a ${h.ext(NMB_41ST, "pocket park")} with garden plantings, two pergolas and a walking path is on the site of the old water tower.`,
+      "Flood is the cost here. About half of these houses are in a high-risk flood zone, and with a mortgage your lender will almost always require flood insurance.",
+    ]),
 
-    entry("Aynor", "Aynor: new houses on about an acre", [
-      `Aynor is a small town northwest of Conway. Each September it holds the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started in 1979. ${h.ext(HOEDOWN_LAW, "State law")} names the third Saturday in September for it.`,
-      `Here you get land: most lots are about an acre, with room beside the house for a boat or a camper. The county's ${h.ext(LANDINGS, "Galivants Ferry Landing")}, a ramp on the river, is about 6 minutes from the center of town.`,
-      "Almost no home inside the town of Aynor is in a high-risk flood zone on FEMA's flood map.",
-    ], AYNOR_LOT, "the nearest hospital, Conway Medical Center, is about 30 minutes away by car."),
+    entry("crescent-beach", "half a mile on foot to a beach access", [
+      `Most houses for sale in Crescent Beach are less than half a mile on foot from a public beach access. From 6th to 27th Avenue South, the beach is one of the city's three ${h.ext(NMB_SURF, "surf zones")}. From mid-May to mid-September, boards are banned from 9 to 4 on the rest of the beach, but you can surf here.`,
+      `${h.ext(INGRAM, "Ingram Dunes Nature Preserve")}, on Hillside Drive, is the city's last remaining maritime forest. It has native dunes 30 feet tall and an interpretive half-mile nature trail.`,
+      "Most are older beach houses, on streets such as Hillside Drive, Holly Drive, Perrin Drive and Strand Avenue. Few of them need flood insurance for a mortgage. In Cherry Grove, almost every home does.",
+      `In the middle of Crescent Beach, the ${h.ext(NMB_18TH, "18th and Edge pocket park")} has benches and a fountain. ${h.ext(NMB_CENTRAL, "Central Park")}, 20 acres with lighted tennis courts, pickleball courts and a paved walking path, is about 0.7 mile away.`,
+      `City beach lots charge for parking from March through October. ${h.ext(NMB_PARKREG, "Residents register their plates")} each year for free passes.`,
+      "Lots are small, about 7,600 square feet. Under the city's rule, a trailer or camper goes behind the front of the house or under a carport. That takes a carport, or room beside or behind the house."
+    ]),
 
-    entry("Loris", "Loris: new houses on about 0.7 acre in the country around the town", [
-      `In the late 1800s Loris was a farm center for the country around it. It grew up around a railroad depot, on a line a lumber company laid to carry timber, and became a town in 1902. Its ${h.ext(LORIS_CLOCK, "town clock")} is on Main Street at Meeting Street.`,
-      `On the third Saturday in October, the ${h.ext(LORIS_CITY, "Loris Bog-Off")} fills downtown with vendors, a car show and two stages of live music. Its namesake dish is chicken bog: chicken, rice and sausage cooked together.`,
-      "Loris has its own hospital, McLeod Loris, in town. Its lots fall between Aynor's acre and Conway's half acre.",
-    ], LORIS_PHOTO, "Coastal Grand Mall in Myrtle Beach is a drive of about 50 minutes."),
+    entry("ocean-drive", "Main Street and the shag", [
+      `On Main Street in Ocean Drive, you can learn the shag free on Tuesday nights. ${h.ext(FAT_HAROLDS, "Fat Harold's Beach Club")} calls itself the Home of the Shag and teaches the dance.`,
+      `In the Ocean Drive and Crescent Beach area, a pavilion and amusement park drew crowds who danced the shag.`,
+      `A Saturday here can start with breakfast at ${h.ext(HOSKINS, "Hoskins Restaurant")} on Main Street, which opened in 1948.`,
+      `The ${h.ext(NMB_MUSEUM, "North Myrtle Beach Area Historical Museum")} is free, and its exhibits include beach music artists and shag dancing. ${h.ext(NMB_MCLEAN, "McLean Park")}, a quarter mile from Hoskins on foot, has a two-acre lake and a half-mile paved walking path.`,
+      "Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe. Each December, a nighttime Christmas parade comes up Main Street. Few of the houses for sale here with no fee need flood insurance for a mortgage.",
+      "Crowds come with it: on concert nights Main Street closes to cars in the afternoon, and the St. Patrick's festival draws about 40,000 people.",
+    ]),
 
-    entry("Conway", "Conway: half an acre around the county seat on the Waccamaw River", [
-      `Conway began in the 1730s as Kingston Village, on a bluff of the Waccamaw River, and it is the county seat. It was ${h.ext(SCE + "conway/", "later Conwayborough")}, then Conway. Its Riverwalk runs along the river downtown.`,
-      "Lots are about half an acre, a little smaller than in Aynor or Loris, and you are closest to the beach of the three. About a third of the houses for sale were built in 2024 or later.",
-      `${h.ext(CITY_HALL, "City Hall")} was the county courthouse, finished in 1825. It is a two-story brick building with columns in the old downtown.`,
-    ], CONWAY_PHOTO, "inside the city, a big business truck may not park on a city street."),
+    entry("cherry-grove", "a boat on the canals", [
+      `Cherry Grove's canals were created as early as the 1950s. The city ${h.ext(CANALS, "has dredged canals there twice since 2016")}, to give owners boat access to House Creek and the Intracoastal Waterway at high and low tide.`,
+      `The city's ${h.ext(NMB_RAMP, "boat ramp at 53rd Avenue North")} reaches both the marsh and the open ocean through Hog Inlet. It has a two-lane boat launch, a kayak launch, a fishing pier, a floating boat dock and a fish cleaning station.`,
+      "North Myrtle Beach residents park free at the ramp when they register with the city. It is also the way in to Heritage Shores Nature Preserve, an island in the marsh reached on elevated boardwalks.",
+      "Many of the canal houses have their own docks, so the boat stays behind the house. Across Hog Inlet, Waties Island has almost three miles of undeveloped beach.",
+      "Each July 4, the city's free fireworks go up at the Cherry Grove Pier. The homes here with an HOA fee are all in named subdivisions.",
+      "The trade-offs are flood risk and a dredging fee. Almost every home here is in a high-risk flood zone. Owners of about 415 properties in the canal district pay the city about $1,700 a year for the dredging, on the county tax bill.",
+    ]),
 
-    entry("North Myrtle Beach", "North Myrtle Beach: older beach houses in four old beach towns", [
-      `Hurricane Hazel struck this shore on October 15, 1954, and destroyed many homes and businesses. All but three of the houses for sale here with no HOA fee were built after it. In the Ocean Drive and Crescent Beach area, a pavilion drew crowds who danced the ${h.ext(SCE + "shag/", "shag")}. South Carolina made it the ${h.ext(SHAG_LAW, "official state dance")} in 1984. The city holds free Music on Main concerts on Main Street on Thursdays each summer.`,
-      "The houses for sale are mostly in Cherry Grove, Ocean Drive, Crescent Beach and Windy Hill, and most are within half a mile of the beach. About 6 in 10 were built before 1990.",
-      `Cherry Grove's canals were ${h.ext(CANALS, "created as early as the 1950s")}. By the 1970s, some were filling up. Left alone, they would have turned back into marsh and mudflats. The city has dredged canals there twice since 2016, so owners' boats can reach House Creek and the Intracoastal Waterway at high and low tide. Owners of about 415 properties in the canal district pay the city about $1,700 a year for that work.`,
-    ], CHERRY, `near the water, flood insurance can cost more than an HOA fee. In Cherry Grove it usually costs about $1,300 a year on a home you live in. We check ${h.ext(FEMA, "the government's flood map")} for any home you like.`),
+    entry("little-river", "the old fishing village on the waterway", [
+      `The houses on Little River's old waterfront streets are less than a mile from the docks on Mineola Avenue, on the Intracoastal Waterway. Local boatmen began ${h.ext(LR_FISHING, "taking visitors fishing for a fee")} there, probably in the early 1920s. They ran the first organized offshore fishing trips for visitors in South Carolina.`,
+      `${h.ext(JUELS, "Hurricane Juel's")}, with a view of the waterway, has been family owned since 1945.`,
+      `The waterfront holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May and ${h.ext(SHRIMPFEST, "ShrimpFest")} each October. On the Saturday after Thanksgiving, a ${h.ext(REGATTA, "lighted boat parade")} leaves Little River Inlet and heads down the waterway.`,
+      `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway in town. After the inlet's jetties were finished in 1983, boats could cross the bar at any time of day. The state keeps an ${h.ext(DNR_REEFS, "artificial fishing reef")} off the inlet.`,
+      `${h.ext(VEREEN, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has about 3 miles of trails and boardwalks through its gardens and along the water. Some of the houses for sale are new, on Mineola and Ellis Avenues; others are on McCorsley Avenue and Bayshore Drive.`,
+      "The beach takes a drive: none of these houses is within a mile of the ocean.",
+    ]),
 
-    entry("Surfside Beach and Garden City", "Surfside Beach and Garden City: houses within half a mile of the beach", [
-      `Surfside Beach owns its ${h.ext(SURF_TOWN_PIER, "fishing pier")}: a concrete pier 814 feet long that ${h.ext(SURF_PIER, "opened in 2024")}, after a hurricane destroyed the old one. Walking out on it is free, and it has two restaurants and an ice cream shop.`,
-      `Most houses for sale here are within half a mile of the beach, and about 4 in 10 face the ocean, see it or are one row back. How a rice plantation called The Ark became Surfside Beach is in our guide to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods near Myrtle Beach")}.`,
-      "From Garden City, the MarshWalk restaurants are about 7 minutes south by car.",
-    ], SURF_PHOTO, "on the ocean side of Surfside Beach, about 1 in 4 homes is in a high-risk flood zone. With a mortgage, your lender will almost always require flood insurance. A cash buyer can choose."),
+    entry("socastee", "a county boat ramp 2 minutes away", [
+      `${h.ext(LANDINGS, "Rosewood Landing")}, a county boat ramp on the Intracoastal Waterway, is 2 minutes by car from these streets. Socastee Landing and Park has a second ramp and a new accessible playground.`,
+      "These streets are outside any town, so the county's rules apply. County zoning names no limit on where you park a boat. Outdoor storage may not be in front of the house, and a small shed can go 5 feet from the line.",
+      "Most are 1980s houses in Rosewood Estates and Cimerron Plantation.",
+      `${h.ext(HC_PARKS, "Socastee Recreation Park")} has fields, picnic areas, disc golf, trails and a playground. Market Common and Coastal Grand Mall are each about 10 minutes away, and the beach at Surfside is about 15 minutes by car.`,
+      "Flood insurance is the extra cost to plan for: about a third of these houses need it if you buy with a mortgage.",
+    ]),
 
-    entry("Murrells Inlet", "Murrells Inlet: bigger houses, seafood restaurants and Brookgreen Gardens", [
-      `Old maps call it Murray's Inlet or Morrall's Inlet, the second after John Morrall, who bought a tract there in 1731. People first came to the inlet for oyster roasts and shore dinners, and ${h.ext(SCE + "murrells-inlet/", "seafood restaurants")} followed. The ${h.ext(MARSHWALK, "MarshWalk")} is a half-mile boardwalk along the water, lined with restaurants.`,
-      `The sculptor Anna Hyatt Huntington and her husband, Archer, created ${h.ext(SCE + "brookgreen-gardens/", "Brookgreen Gardens")} in 1931 on four old rice plantations. In the twentieth century a fleet of charter and party boats grew up at the inlet, and its captains took visiting anglers offshore.`,
-      `The typical house for sale here is about ${(Math.round(HEATED_MI / 100) * 100).toLocaleString("en-US")} square feet, bigger than the typical house in any of the other seven areas.`,
-    ], INLET_PHOTO, "Murrells Inlet is not a town, and part of it is in Georgetown County, with its own tax bill and rules."),
+    entry("surfside", "two boats at home and golf carts on the streets", [
+      `In Surfside Beach, the town allows up to two boats or trailers at a home, and only one over 21 feet. A permitted golf cart may be driven in daylight within four miles of home, on streets posted at 35 miles an hour or less.`,
+      `The town has ${h.ext(SCE + "surfside-beach/", "live oaks well over a century old")} and ${h.ext(SSB_BEACHES, "36 public beach accesses")}.`,
+      `The town holds a ${h.ext(SSB_MARKET, "farmers market")} on Tuesdays from spring into December in Memorial Park, and free Sunday afternoon concerts there from late May through August. Each July 4, a ${h.ext(SSB_PARADE, "golf cart parade")} goes down Ocean Boulevard.`,
+      "Each October, the fall festival has more than 100 craft vendors. Fireworks may be set off on the sand from sunset on July 4 and on New Year's Eve, but not within 500 feet of the pier.",
+      "The town picks up trash at the curb, and it has more than nine miles of sidewalk.",
+      "One cost to know on the ocean side: about 1 in 4 homes there needs flood insurance if you buy with a mortgage.",
+    ]),
 
-    entry("Myrtle Beach (not Carolina Forest)", "Myrtle Beach: older houses, many within a mile of the ocean", [
-      `Myrtle Beach began at the end of a logging railroad from Conway. The railroad company then ${h.ext(SCE + "myrtle-beach/", "began selling oceanfront lots")} for $25 each. In the 1920s the Woodside family bought a large tract and built the Pine Lakes golf course; their Ocean Forest Hotel opened in 1930.`,
-      "Outside Carolina Forest, almost half of the houses for sale date from before 1990, and more than half are within a mile of the ocean.",
-      `On the south side of the city, ${h.ext(MB_STATE_PARK, "Myrtle Beach State Park")} opened in 1936, the first of South Carolina's state parks to open. It has a mile of undeveloped beach, a fishing pier and a nature trail.`,
-    ], MB_PHOTO, "about half are inside the city, where the city's limits on boats and work trucks apply."),
+    entry("garden-city", "a free pier walk and free beach parking", [
+      `${h.ext(GC_PIER, "The Pier at Garden City")} is always free to walk, and every oceanfront beach access in Garden City has ${h.ext(HC_BEACH, "free parking all year")}. On summer nights, live bands play at both ends of the pier.`,
+      "A pier pass covers fishing, so you need no state license. Its Hugo burger is named for the 1989 hurricane that destroyed the pier.",
+      "Garden City did not develop until the 1950s, and most of the houses for sale here are within half a mile of the shore. The county's Stanley Drive landing is a 5-minute drive.",
+      "Each July 4, decorated boats start at the point of Garden City Beach and parade through Murrells Inlet.",
+      "The trade-off is flood insurance: with a mortgage, a lender will almost always require it on most of these houses.",
+    ]),
 
-    entry("Little River", "Little River: a boat on the Intracoastal Waterway", [
-      `Little River is on the Intracoastal Waterway at the north end of the Grand Strand. Its waterfront on Mineola Avenue holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, the weekend after Mother's Day.`,
-      `Little River is not a town, so the ${h.a("#boats-and-work-trucks", "county's rules")} apply to a boat on your lot. The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} on the waterway is about 7 minutes from the center.`,
-      `${h.ext(HC_PARKS, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has nature trails and boardwalks through its gardens and along the water. A small piece of the original Kings Highway, a colonial route between Boston and Charleston, is still at its front.`,
-    ], LR_PHOTO, "none of the houses for sale here is within a mile of the beach."),
+    entry("murrells-inlet", "by the creeks and the county boat ramp", [
+      `At the north end of Murrells Inlet, some of the houses for sale are on the creeks of the inlet, and the rest are a few streets back. The county's ${h.ext(MI_LANDING, "boat landing on Stanley Drive")} is a 4-minute drive, and several houses on the market lately have their own floating dock.`,
+      `People first came to the inlet for oyster roasts and fried shore dinners, and seafood restaurants followed. The ${h.ext(MARSHWALK, "MarshWalk")}, a half-mile wooden boardwalk along the salt marsh with a row of restaurants, is about 6 minutes away by car.`,
+      `The free pier walk and free beach parking at Garden City Beach are a 6-minute drive across the marsh. ${h.ext(BROOKGREEN, "Brookgreen Gardens")}, with its sculpture gardens on four former rice plantations, is about 15 minutes away by car.`,
+      "Murrells Inlet is not a town, so the county's rules apply on most of these streets. The south part is in Georgetown County. There, a vehicle or travel trailer without current plates has to be kept in a closed building.",
+      "Flood is the honest cost: more than half of these houses are in a high-risk flood zone.",
+    ]),
 
-    { h2: "How do the eight areas compare?", toc: "The areas side by side", html: () =>
-      h.p(`The typical asking price is about ${to5k(ALL.detachedHouses.medianListPriceNoFee)} with no HOA fee, against about ${to5k(ALL.detachedHouses.medianListPriceWithFee)} with a fee. About a third of the houses listed with no fee are on the ocean side of US 17 Business. Those list at about $800,000, against about $435,000 for the others.`) +
-      areaTable() +
-      h.p(`With no HOA fee, you skip about $${(Math.round(HOUSE_FEE.medianMonthlyHoaFee * 12 / 100) * 100).toLocaleString("en-US")} a year, the typical fee on a house here. Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) },
+    entry("conway", "live oaks and the Waccamaw River", [
+      `Conway's older streets ${h.ext(CONWAY_OAKS, "were designed around its live oaks")}, on a bluff of the Waccamaw River. The Riverwalk follows the river downtown, and the Waccamaw is a federal ${h.ext(BLUE_TRAIL, "National Water Trail")}.`,
+      "In town, lots are about 15,000 square feet. Inside the city, a camper or a trailer can go in the side or back yard or under a carport. A shed goes in back, with a permit.",
+      `The oldest streets form a ${h.ext(CONWAY_RHD, "National Register district")}. Its houses range from Greek Revival and Carpenter Gothic through Queen Anne to 1920s bungalows, one of them with a porch around three sides.`,
+      `The ${h.ext(HC_MUSEUM, "Horry County Museum")} is in the restored 1905 Burroughs School, about a quarter hour on foot from downtown. ${h.ext(RIVERFEST, "Riverfest")} brings music and fireworks to the river on the Saturday before the Fourth of July weekend, and the Celebration of Lights opens each December.`,
+      `${h.ext(LANDINGS, "Billy Witherspoon Landing")}, a county ramp on the Waccamaw, is a 6-minute drive. Conway Medical Center is a 12-minute drive.`,
+      "The trade-off is the beach, a 25-minute drive.",
+    ]),
 
-    { h2: "What do you gain and give up with no HOA?", toc: "Pros and cons", html: (bg) =>
-      h.p("No HOA means no HOA fee and no HOA rules. It also means no shared pool.") +
-      prosCons([
-        "No monthly HOA fee, and no surprise HOA bill for a big repair.",
-        "No HOA to ask before you put up a fence, add a shed or keep a boat on the lot. Town rules on boats still apply.",
-        "No HOA rule against renting the home out.",
-      ], [
-        "No shared pool, clubhouse or common areas. On a house, an HOA fee often includes these.",
-        "No HOA rules for the houses next door either.",
-        "A home with no HOA can still have deed restrictions.",
-      ], { bg }) +
-      h.p(`If you want a pool, a clubhouse or a gate, you pay an HOA fee for them. Our guides to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods for what you want nearby")} and to ${h.a("/buyers/gated-communities/", "gated communities around Myrtle Beach")} show where to look. Our guide to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")} shows one Carolina Forest neighborhood.`) },
+    entry("loris", "a small town with its own hospital", [
+      "Loris is a small town with its own hospital: McLeod Loris, with an emergency room, is in town. The older houses were built from the 1940s to the 1970s, on lots of about 0.4 acre.",
+      "City zoning allows up to two buildings beside the house, a garage or carport included, so there is room for a workshop. A work truck up to 2 tons may park at home.",
+      `The Main Street ${h.ext(LORIS_LIBRARY, "library")} lends cake pans, state park passes and Wi-Fi hotspots.`,
+      `On the third Saturday in October, the city holds the ${h.ext(LORIS_CITY, "Loris Bog-Off")} downtown, with vendors, a car show and live music. The festival's dish is chicken bog: chicken, rice and sausage.`,
+      "You drive more from here: the beach is about 35 minutes by car.",
+    ]),
 
-    { h2: "Can you keep a boat or a work truck at a home with no HOA?", toc: "Boats and work trucks", id: "boats-and-work-trucks", html: (bg) =>
-      h.p(`Yes, on your own lot. Outside the towns, the county has no rule on where you keep your own boat, trailer or camper on your lot. If you run a business from the house, the county allows ${h.ext(HORRY_927, "two service vehicles per acre")} on most lots. Inside a town, the town's limits in the table apply.`) +
-      parkingTable() +
-      h.p(`In the towns, you can leave a boat in the driveway for a day to load and unload. On county roads, the county ${h.ext(HORRY_CODE, "bans parking")} only where it posts a sign. The ${h.ext(CLOSING, "closing attorney")}'s title search finds any deed restriction on a boat or a truck before you buy.`) +
+    entry("loris-country", "new houses on large lots", [
+      "Around Loris, most houses for sale are new, built in 2024 or later, outside any town limits. Many of the new houses are on lots of about 0.7 acre, with room for a camper, a trailer and a shop under the county's rules.",
+      `The ${h.ext(WACCAMAW_PRESERVE, "Waccamaw River Heritage Preserve")} protects 28 miles of the Waccamaw River, with riverside camping on its land.`,
+      "For a work truck, the county lets a business run from home keep three service vehicles on a farm-zoned lot under an acre and a half. McLeod Loris hospital is about 9 minutes away by car.",
+      "Outside the towns, a small shed can go 5 feet from the line, and fences can be 8 feet tall. The Solid Waste Authority provides no curbside trash pickup there, so you hire a hauler or use a county drop-off center.",
+    ]),
+
+    entry("aynor", "an acre and a river landing", [
+      `Around Aynor, lots are typically about an acre, with room beside the house for a boat or a camper. More than half of the houses for sale here are new.`,
+      `Galivants Ferry Landing, a county ramp on the ${h.ext(USGS_LPD, "Little Pee Dee River")}, is about 6 minutes from the center of town. The Little Pee Dee is ${h.ext(AYNOR_APPEAL, "popular with canoes, kayaks and small powerboats")}.`,
+      `At ${h.ext(GALIVANTS_NR, "Galivants Ferry")}, the old farm houses have full-width front porches on brick piers. Some were built from wood cut on the farm itself, and the district has log tobacco barns.`,
+      `Each September, ${h.ext(AYNOR_TOWN, "almost 25,000 people")} come to the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started. In the town of Aynor, zoning does not limit a camper or a work truck at home. Most of these houses are outside the town, under county rules.`,
+      "The drive is the trade-off: about 45 minutes to the beach, and about 30 to the nearest hospital, Conway Medical Center.",
+    ]),
+
+    { h2: "What can you do at home with no HOA?", toc: "What you can do at home", id: "boats-and-work-trucks", html: (bg) =>
+      h.p(`With no HOA, the limits on parking, rentals and buildings on your lot are the town's, or the county's outside the towns, along with any deed restriction. Most of the homes with no HOA fee around Conway, Loris and Aynor are outside the town limits, under the county's rules.`) +
+      homeRules() +
+      h.p(`Before you make an offer, we check the town or county rules for that lot, the deed for restrictions and the county records for an HOA.`) +
+      h.p(`In ${h.ext(MB_STR, "Myrtle Beach")}, ${h.ext(NMB_RENTAL, "North Myrtle Beach")} and ${h.ext(SSB_STR, "Surfside Beach")}, renting out a home needs a business license. In the towns, you can leave a boat in the driveway for a day to load and unload. On county roads, the county ${h.ext(HORRY_CODE, "bans parking")} only where it posts a sign.`) +
       story(STORY, "", bg) },
 
-    { h2: "What do you take care of yourself with no HOA?", toc: "What you take care of", html: () =>
-      h.p("With no HOA, you take care of trash pickup, your yard and any pond on your land. On a house here, most HOA fees include the shared areas, and more than half include trash pickup and a pool.") +
-      h.ul([
-        `Inside the Myrtle Beach city limits, the ${h.ext(MB_TRASH, "city picks up trash")}, recycling and yard waste once a week. It costs about $34 a month on the city utility bill.`,
-        `North Myrtle Beach, Conway, Surfside Beach, Loris, Aynor, Briarcliffe Acres and Atlantic Beach also ${h.ext(SWA, "offer trash service")}.`,
-        "Outside the towns, the county does not pick up at the curb. You arrange pickup yourself, or use one of the county's drop-off centers, which are only for homes outside the towns.",
-      ]) +
-      h.p(`A Myrtle Beach mailing address does not mean the home is inside the city. We look up every home you like on the county's ${h.ext(MAP_YOUR_MOVE, "Map Your Move map")}, which shows the town for each lot.`) +
-      h.p(`If the lot has a ${h.ext(PONDS, "stormwater pond")}, it is yours to keep working. The county asks owners to inspect a pond twice a year and after big storms, clear out debris and cut back the plants.`) +
-      h.p("The county keeps up only the roads it owns, and the state keeps up state roads. A private road is kept up by whoever its papers name, such as a property owners association. We find out who that is before you make an offer.") },
+    { h2: "What does a house with no HOA fee cost?", toc: "Prices", id: "prices", html: (bg) =>
+      h.p(`The largest group, about ${about10("250k-500k")} houses, is listed from $250,000 to $500,000, most of them around Conway, Loris and Aynor. The rest:`) +
+      bandList() +
+      h.p(`Our guide to the ${h.a("/buyers/affordable-places-to-live/", "most affordable places to buy near Myrtle Beach")} compares the towns.`) +
+      h.cta("Get the homes with no HOA fee in your price range.", "Tell us your range and the areas you like. One of our agents sends the homes for sale in it.", LABEL, "/contact/", bg) },
 
-    { h2: "Can you buy a condo with no HOA fee in Myrtle Beach?", toc: "Condos", html: () =>
-      h.p(`Almost never. Of about ${(Math.round(CONDO.count / 100) * 100).toLocaleString("en-US")} condos for sale around Myrtle Beach, only one was listed with no HOA fee. ${h.ext(CONDO_LAW, "South Carolina law")} makes condo owners share the cost of the building.`) },
-
-    { h2: "What is a typical HOA fee in Myrtle Beach?", toc: "Typical HOA fees", html: () =>
-      h.p(`The typical HOA fee is $${HOUSE_FEE.medianMonthlyHoaFee} a month on a house and about $${Math.round(CONDO.median / 50) * 50} a month on a condo. A condo fee is higher because it includes the building's insurance, water and sewer, trash and a pool.`) +
-      h.p(`Our guides to ${h.a("/hoa/", "what HOA fees cover")}, ${h.a("/hoa/reserves/", "HOA savings for big repairs")} and ${h.a("/hoa/special-assessments/", "special assessments")} explain each part.`) },
-
+    { h2: "What do you give up with no HOA?", toc: "What you give up", html: () =>
+      h.p("No HOA means no shared pool, clubhouse or gate, and no HOA rules for your neighbors' houses either. A home with no HOA can still have deed restrictions on what you build or keep there.") +
+      h.p(`If you want a pool, a clubhouse or a gate, you pay an HOA fee for them. Our guides to the ${h.a("/buyers/best-neighborhoods/", "best neighborhoods for what you want nearby")} and to ${h.a("/buyers/gated-communities/", "gated communities around Myrtle Beach")} show where to look. Our guide to ${h.a("/submarkets/carolina-forest/the-farm/", "The Farm at Carolina Forest")} shows one Carolina Forest neighborhood, and our guide to ${h.a("/hoa/", "what HOA fees cover")} explains each part of a fee.`) },
   ],
   faqTitle: "Homes with no HOA FAQ",
   faq: [
-    { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot. Inside the city of Myrtle Beach, a boat over 16 feet may not be kept in the front yard. Boats and trailers may not park on residential streets. Outside the towns, you can keep your own boat, trailer or camper anywhere on your lot." },
+    { q: "Can I park a boat at my house in Myrtle Beach?", a: "Yes, on your own lot, within the rule of the town it is in; the table under What can you do at home gives each one." },
+    { q: "Which areas near Myrtle Beach almost always have an HOA?", a: "Carolina Forest, the Grande Dunes, the Market Common and Burgess: almost every home for sale there has an HOA fee. Almost all homes for sale in Little River's named subdivisions have an HOA fee too. Longs and the country around Conway look rural, but most homes for sale there have an HOA fee too." },
+    { q: "Are there homes with no HOA in Murrells Inlet?", a: "Yes, but only a little more than 1 in 4 homes for sale with a Murrells Inlet address is listed with no HOA fee. At the north end of the inlet, by the creeks and the Stanley Drive landing, almost every house for sale has none." },
     { q: "Are there homes with no HOA in North Myrtle Beach?", a: "Yes. More than half of the homes for sale with a North Myrtle Beach address are listed with no HOA fee. Almost all of them are in Cherry Grove, Crescent Beach, Windy Hill and Ocean Drive." },
-    { q: "Why are HOA fees so high in Myrtle Beach?", a: "Condo fees are high because they include the cost of the building: its insurance, water and sewer, trash and a pool. Fees on houses are much lower, because most include only shared areas, trash and a pool." },
-    { q: "Where can you buy a house with land and no HOA near Myrtle Beach?", a: "Inland. A house for sale with no HOA fee in Aynor usually sits on about an acre. In Loris it is about 0.7 acre, and in Conway about half an acre. About 1 in 3 houses with no HOA fee has half an acre or more." },
-    { q: "Can you buy a house with no HOA under $250,000 near Myrtle Beach?", a: "Yes. About 60 were listed, most of them older, smaller houses inland, in and around Conway, in Socastee and near Loris. Almost none are near the beach." },
-    { q: "Does a listing with no HOA fee mean the home has no HOA?", a: "Not always. A blank fee means no fee was listed. A few homes listed with no fee are in a neighborhood with a club you can choose to join and pay." },
+    { q: "What is a typical HOA fee in Myrtle Beach?", a: `About $${DATA.allNineAreas.detachedHouses.medianMonthlyHoaFee} a month on a house. A condo fee is much higher because it includes the building's insurance, water and sewer, trash and a pool.` },
+    { q: "Can you buy a condo with no HOA fee in Myrtle Beach?", a: `Almost never. Of about 2,700 condos for sale around Myrtle Beach, only one was listed with no HOA fee. South Carolina law makes condo owners share the cost of the building.` },
+    { q: "Does a listing with no HOA fee mean the home has no HOA?", a: "Not always. A blank fee means no fee was listed. We check the deed and the county records for an HOA before you make an offer." },
     { q: "Is a campground home with no HOA fee a no-HOA home?", a: "No. A campground home has no HOA fee, but it sits on leased land, and you pay a yearly lease for the land under it." },
   ],
   sources: [
     { name: "town and county codes", href: `${MUNI}horry_county/codes/code_of_ordinances` },
-    { name: "S.C. disclosure law", href: DISCLOSURE_LAW },
-    { name: "Register of Deeds", href: DEEDS },
-    { name: "county parcels", href: COUNTY_MAP },
-    { name: "FEMA flood map", href: FEMA },
+    { name: "county boat landings", href: LANDINGS },
+    { name: "county home business rule", href: HORRY_927 },
+    { name: "S.C. condominium law", href: CONDO_LAW },
+    { name: "trash service", href: SWA },
+    { name: "S.C. Encyclopedia", href: SCE + "north-myrtle-beach/" },
   ],
-  sourcesNote: `Homes for sale in the local MLS, on ${COUNTED}; list prices. Areas are mailing addresses. Lot sizes are from county parcel maps. Homes on leased land are left out. Flood cost is FEMA's middle policy price. Not legal advice.`,
+  sourcesNote: `Homes for sale in the local MLS, on ${COUNTED}; list prices; homes on leased land left out. Areas are MLS areas or a distance from a town center or a boat landing; flood zones and lots from county and federal maps. Drive times without traffic. Not legal advice.`,
   afterSources: () => ph.credits() + ITEMLIST(),
-  bottomCta: { h2: "Get the homes with no HOA fee in your price range.", p: "Tell us your price range and the areas you like. One of our agents will send you the homes for sale with no HOA fee.", label: LABEL, href: "/contact/" },
-  keywords: "Myrtle Beach homes no HOA, houses for sale no HOA Myrtle Beach, no HOA homes under 250k Myrtle Beach, no HOA homes Conway SC, no HOA homes Loris SC, no HOA homes North Myrtle Beach, Myrtle Beach homes with land, park boat at house Myrtle Beach, condos no HOA Myrtle Beach, average HOA fees Myrtle Beach",
+  bottomCta: { h2: "Get the homes with no HOA fee in the areas you like.", p: "Tell us the areas and your price range. One of our agents will send you the homes for sale with no HOA fee.", label: LABEL, href: "/contact/" },
+  keywords: "Myrtle Beach homes no HOA, no HOA neighborhoods Myrtle Beach, houses for sale no HOA Myrtle Beach, no HOA homes North Myrtle Beach, no HOA homes Conway SC, no HOA homes Loris SC, Myrtle Beach homes with land, park boat at house Myrtle Beach, no HOA homes Surfside Beach, no HOA homes Murrells Inlet",
   about: "Homes for sale with no homeowners association fee around Myrtle Beach, South Carolina",
-};
+});

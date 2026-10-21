@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-14 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 5d51e1e, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
+Built 2026-10-21 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 1045bfd, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -31,11 +31,11 @@ It also changes pages the site already has:
 
 | Path | What |
 |---|---|
-| `batch-2026-10-b.patch` | One patch for the files the site already has (10 files). Text only. |
+| `batch-2026-10-b.patch` | One patch for the files the site already has (11 files). Text only. |
 | `site/specs/` | The five page specs and the batch's shared kit `_kit.js`. |
 | `site/data/2026-10-b/` | This batch's data files and its `photos.json`. The specs read them from here. The site's `data/photos.json` (batch 2026-10-a) is not changed; the specs read both. |
 | `site/tools/blog-brain-2026-10-b/` | The Blog-Brain tools the kit uses to draw maps, icons, photo blocks and comparison tables, with the map data and the files they load. The kit looks here first. |
-| `site/chapter3realty/images/buyers/` | 131 photos (15.5 MB, WebP), only those the five pages use. Binary files, copied as they are; they are not in the patch. |
+| `site/chapter3realty/images/buyers/` | 71 photos (7.8 MB, WebP), only those the five pages use. Binary files, copied as they are; they are not in the patch. |
 | `MANIFEST.txt` | Every file with its size and SHA-256. |
 | `CHECKLIST-AFTER-DEPLOY.md` | What to look at once it is live. |
 
@@ -43,10 +43,11 @@ Patches applied, in this order, to make `batch-2026-10-b.patch`:
 
 1. `website-patches/mkpage-offer-box.patch`
 2. `website-patches/build-place-entries.patch`
-3. `batches/2026-10-b/affordable-inbound-links.diff`
-4. `batches/2026-10-b/gated-communities-links.diff`
-5. `batches/2026-10-b/golf-guide-gates.diff`
-6. `batches/2026-10-b/the-farm-inbound-links.diff`
+3. `website-patches/contact-place-prefill.patch`
+4. `batches/2026-10-b/affordable-inbound-links.diff`
+5. `batches/2026-10-b/gated-communities-links.diff`
+6. `batches/2026-10-b/golf-guide-gates.diff`
+7. `batches/2026-10-b/the-farm-inbound-links.diff`
 
 Not applied:
 
@@ -58,7 +59,7 @@ Not applied:
 - `website-patches/mkpage-photos.patch`: Already on the live branch (batch 2026-10-a, commit 39036014). `git apply --check` on the live branch: does not apply.
 - `website-patches/logo-chapter-iii.patch`: Already on the live branch (batch 2026-10-a, commit 39036014). `git apply --check` on the live branch: does not apply.
 
-19 batch photos are left out because no page uses them. The share cards in Blog-Brain's `og/` folder are not shipped: these pages share their hero photo (`mkpage-photos.patch`).
+133 batch photos are left out because no page uses them. The share cards in Blog-Brain's `og/` folder are not shipped: these pages share their hero photo (`mkpage-photos.patch`).
 
 ## Before you start
 
@@ -156,7 +157,7 @@ git push origin claude/github-account-check-wutg8b
 They need a Blog-Brain clone with `npm install` done. The results from the test run are below.
 
 ```powershell
-$env:SCORE_TODAY = "2026-10-14"
+$env:SCORE_TODAY = "2026-10-21"
 node <Blog-Brain>\tools\score.js --site chapter3realty --only /buyers/best-neighborhoods/
 node <Blog-Brain>\tools\score.js --site chapter3realty --only /buyers/gated-communities/
 node <Blog-Brain>\tools\score.js --site chapter3realty --only /buyers/no-hoa-homes/
@@ -171,7 +172,7 @@ The site-wide scans also list older findings on other pages; the test below comp
 
 ## Test results
 
-On a second fresh clone of `claude/github-account-check-wutg8b` at 39036014, with exactly the steps above (bash), on 2026-10-14 (`SCORE_TODAY=2026-10-14`). The commit was local and was not pushed.
+On a second fresh clone of `claude/github-account-check-wutg8b` at 39036014, with exactly the steps above (bash), on 2026-10-21 (`SCORE_TODAY=2026-10-21`). The commit was local and was not pushed.
 
 ### PASS: git apply --check batch-2026-10-b.patch
 
@@ -195,31 +196,32 @@ Everything already matched the partials - nothing to do.
 ### PASS: node tools/mkpage.js specs/best-neighborhoods.js
 
 ```
-wrote chapter3realty/buyers/best-neighborhoods/index.html (229922 bytes, hero sub 25 words, main 6912 words)
+wrote chapter3realty/buyers/best-neighborhoods/index.html (185189 bytes, hero sub 11 words, main 4211 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/gated-communities.js
 
 ```
-wrote chapter3realty/buyers/gated-communities/index.html (281849 bytes, hero sub 20 words, main 8996 words)
+wrote chapter3realty/buyers/gated-communities/index.html (225333 bytes, hero sub 13 words, main 6080 words)
+gated-communities: no room on the map for 1 area names; the key names them
 ```
 
 ### PASS: node tools/mkpage.js specs/no-hoa-homes.js
 
 ```
-wrote chapter3realty/buyers/no-hoa-homes/index.html (201994 bytes, hero sub 26 words, main 5162 words)
+wrote chapter3realty/buyers/no-hoa-homes/index.html (263459 bytes, hero sub 14 words, main 7255 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/affordable-places-to-live.js
 
 ```
-wrote chapter3realty/buyers/affordable-places-to-live/index.html (219038 bytes, hero sub 16 words, main 5946 words)
+wrote chapter3realty/buyers/affordable-places-to-live/index.html (182541 bytes, hero sub 19 words, main 4435 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/the-farm.js
 
 ```
-wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (137225 bytes, hero sub 19 words, main 3141 words)
+wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (135609 bytes, hero sub 20 words, main 2843 words)
 ```
 
 ### PASS: specs/seasons-at-prince-creek-west.js in the package is Blog-Brain batches/2026-10-a/specs/seasons-at-prince-creek-west.js, as it is today
@@ -328,16 +330,16 @@ No asset content changed - nothing to rehash.
 
 ```
 Corrected 10:
-  /buyers/first-time-home-buyer-myrtle-beach/  2026-10-04 -> 2026-10-14  (uncommitted content change)
-  /buyers/relocating/which-town/  2026-10-04 -> 2026-10-14  (uncommitted content change)
-  /submarkets/carolina-forest/  2026-10-04 -> 2026-10-14  (uncommitted content change)
-  /buyers/55-plus-communities/  2026-10-12 -> 2026-10-14  (uncommitted content change)
-  /buyers/55-plus-communities/del-webb-north-myrtle-beach/  2026-10-12 -> 2026-10-14  (uncommitted content change)
-  /buyers/55-plus-communities/del-webb-grande-dunes/  2026-10-12 -> 2026-10-14  (uncommitted content change)
-  /buyers/55-plus-communities/myrtle-trace/  2026-10-12 -> 2026-10-14  (uncommitted content change)
-  /buyers/55-plus-communities/seasons-at-prince-creek-west/  2026-10-12 -> 2026-10-14  (uncommitted content change)
-  /buyers/golf-communities/  2026-10-12 -> 2026-10-14  (uncommitted content change)
-  llms.txt  2026-10-12 -> 2026-10-14
+  /buyers/first-time-home-buyer-myrtle-beach/  2026-10-04 -> 2026-10-21  (uncommitted content change)
+  /buyers/relocating/which-town/  2026-10-04 -> 2026-10-21  (uncommitted content change)
+  /submarkets/carolina-forest/  2026-10-04 -> 2026-10-21  (uncommitted content change)
+  /buyers/55-plus-communities/  2026-10-12 -> 2026-10-21  (uncommitted content change)
+  /buyers/55-plus-communities/del-webb-north-myrtle-beach/  2026-10-12 -> 2026-10-21  (uncommitted content change)
+  /buyers/55-plus-communities/del-webb-grande-dunes/  2026-10-12 -> 2026-10-21  (uncommitted content change)
+  /buyers/55-plus-communities/myrtle-trace/  2026-10-12 -> 2026-10-21  (uncommitted content change)
+  /buyers/55-plus-communities/seasons-at-prince-creek-west/  2026-10-12 -> 2026-10-21  (uncommitted content change)
+  /buyers/golf-communities/  2026-10-12 -> 2026-10-21  (uncommitted content change)
+  llms.txt  2026-10-12 -> 2026-10-21
 
 9 page dates moved, 127 left alone.
 llms-full.txt carries the header date - run 'node build.js llmsfull' if page text changed.
@@ -346,7 +348,7 @@ llms-full.txt carries the header date - run 'node build.js llmsfull' if page tex
 ### PASS: node build.js llmsfull
 
 ```
-llms-full.txt regenerated: 136 pages, 1544KB, dated 2026-10-14.
+llms-full.txt regenerated: 136 pages, 1518KB, dated 2026-10-21.
 ```
 
 ### PASS: node build.js check
@@ -373,11 +375,11 @@ OK - zero blocking defects. Page quality gate passed.
 ### PASS: sitemap.xml, llms.txt and llms-full.txt list the pages
 
 ```
-/buyers/best-neighborhoods/: sitemap yes, lastmod 2026-10-14, 18 images; llms.txt yes; llms-full.txt yes, with its text
-/buyers/gated-communities/: sitemap yes, lastmod 2026-10-14, 24 images; llms.txt yes; llms-full.txt yes, with its text
-/buyers/no-hoa-homes/: sitemap yes, lastmod 2026-10-14, 11 images; llms.txt yes; llms-full.txt yes, with its text
-/buyers/affordable-places-to-live/: sitemap yes, lastmod 2026-10-14, 15 images; llms.txt yes; llms-full.txt yes, with its text
-/submarkets/carolina-forest/the-farm/: sitemap yes, lastmod 2026-10-14, 8 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/best-neighborhoods/: sitemap yes, lastmod 2026-10-21, 10 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/gated-communities/: sitemap yes, lastmod 2026-10-21, 8 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/no-hoa-homes/: sitemap yes, lastmod 2026-10-21, 13 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/affordable-places-to-live/: sitemap yes, lastmod 2026-10-21, 7 images; llms.txt yes; llms-full.txt yes, with its text
+/submarkets/carolina-forest/the-farm/: sitemap yes, lastmod 2026-10-21, 6 images; llms.txt yes; llms-full.txt yes, with its text
 ```
 
 ### PASS: node build.js preflight (after a local commit)
@@ -395,74 +397,169 @@ OK - all 136 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 141 pages from commit acfcc938 on claude/github-account-check-wutg8b.
+OK - deploying 141 pages from commit 6a404657 on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
 ### PASS: score.js --only /buyers/best-neighborhoods/
 
 ```
-/buyers/best-neighborhoods/  Best Neighborhoods in Myrtle Beach, With a Map | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3195 words)
+/buyers/best-neighborhoods/  Best Neighborhoods in Myrtle Beach by What You Love | Chapter3
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2138 words)
 ```
 
 ### PASS: score.js --only /buyers/gated-communities/
 
 ```
-/buyers/gated-communities/  Gated Communities in Myrtle Beach: 20 Neighborhoods | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3713 words)
+/buyers/gated-communities/  Gated Communities in Myrtle Beach: 18 Neighborhoods | Chapter3
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3712 words)
 ```
 
 ### PASS: score.js --only /buyers/no-hoa-homes/
 
 ```
-/buyers/no-hoa-homes/  Homes With No HOA in Myrtle Beach: Where, Cost, Pros and Cons
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2920 words)
-  100% P2  Few numbers: 3.5 or fewer per 100 words of prose  3.5 per 100 words (104 numbers in 2961 words)
+/buyers/no-hoa-homes/  Homes With No HOA Near Myrtle Beach: 16 Areas, Boats, Prices
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3870 words)
 ```
 
 ### PASS: score.js --only /buyers/affordable-places-to-live/
 
 ```
 /buyers/affordable-places-to-live/  Most Affordable Places to Buy Near Myrtle Beach | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2313 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2349 words)
+   96% P2  Few numbers: 3.5 or fewer per 100 words of prose  3.6 per 100 words (86 numbers in 2372 words)
 ```
 
 ### PASS: score.js --only /submarkets/carolina-forest/the-farm/
 
 ```
 /submarkets/carolina-forest/the-farm/  The Farm at Carolina Forest: HOA Fee, Pools, Rules | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1738 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1348 words)
 ```
 
 ### PASS: struck-check.js /buyers/best-neighborhoods/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
+/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/gated-communities/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
+/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/no-hoa-homes/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
+/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/affordable-places-to-live/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
+/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /submarkets/carolina-forest/the-farm/
 
 ```
-/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838e5433c/scratchpad/integ/work-b/package-2026-10-b-3nr0uy/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
+/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
+```
+
+### PASS: structure-check.js --strict /buyers/best-neighborhoods/
+
+```
+5. Field sentences (information): 0 of 13 entries are half or more fixed fields; 4 of 13 have at least one
+     1. Cherry Grove: 0 of 11 sentences (0%)
+     2. Surfside Beach, ocean side: 1 of 11 sentences (9%): "Most homes for sale here are listed with no HOA fee."
+     3. Pine Lakes: 0 of 11 sentences (0%)
+     4. Tidewater Plantation: 0 of 6 sentences (0%)
+     5. Barefoot Resort: 1 of 9 sentences (11%): "In the Yacht Club Villas, North Tower, Dye Townhomes and the Retreat, most homes are condo"
+     6. Prince Creek: 0 of 10 sentences (0%)
+     7. Wild Wing Plantation: 0 of 9 sentences (0%)
+     8. Plantation Lakes: 1 of 8 sentences (13%): "A house lot here is typically about half an acre."
+     9. Waterbridge: 1 of 10 sentences (10%): "The HOA fee is about $150 a month."
+     10. The Market Common: 0 of 8 sentences (0%)
+     11. Deerfield Plantation area: 0 of 7 sentences (0%)
+     12. Avalon: 0 of 10 sentences (0%)
+     13. The Farm at Carolina Forest: 0 of 7 sentences (0%)
+
+strict: passes
+```
+
+### PASS: structure-check.js --strict /buyers/gated-communities/
+
+```
+     5. Waterway Palms Plantation: 1 of 8 sentences (13%): "Homes usually sell for about $780,000, and the HOA fee is about $150 a month."
+     6. The Bluffs on the Waterway: 1 of 9 sentences (11%): "Homes here usually sell for about $850,000; the HOA fee is about $150 a month."
+     7. Myrtle Beach Golf and Yacht Club: 1 of 9 sentences (11%): "In the older part, homes usually sell for about $225,000."
+     8. Prestwick: 1 of 9 sentences (11%): "Homes usually sell for about $480,000, and the HOA fee is about $190 a month."
+     9. Seasons at Prince Creek West (55+): 0 of 8 sentences (0%)
+     10. Bellwood Landing: 1 of 9 sentences (11%): "Homes here usually sell for about $810,000, and the HOA fee is about $160 a month."
+     11. Wachesaw Plantation: 1 of 13 sentences (8%): "Homes usually sell for about $700,000, and the HOA fee on most homes is about $150 a month"
+     12. Wachesaw East: 1 of 8 sentences (13%): "Homes usually sell for about $500,000, and the HOA fee is about $145 a month."
+     13. The Reserve: 1 of 10 sentences (10%): "Homes usually sell for about $1.3 million, and the HOA fee on most homes is about $320 a m"
+     14. Willbrook Plantation: 1 of 10 sentences (10%): "Homes usually sell for about $840,000, and the HOA fee is about $340 a month."
+     15. Litchfield Plantation: 1 of 12 sentences (8%): "The HOA fee on most homes is about $230 a month."
+     16. Litchfield by the Sea: 0 of 12 sentences (0%)
+     17. Heritage Plantation: 1 of 10 sentences (10%): "Homes usually sell for about $710,000, and the HOA fee is about $325 a month."
+     18. DeBordieu Colony: 1 of 16 sentences (6%): "Homes here usually sell for about $2 million, and the HOA fee is about $300 to $400 a mont"
+
+strict: passes
+```
+
+### PASS: structure-check.js --strict /buyers/no-hoa-homes/
+
+```
+     3. Pine Lakes' older streets: 1 of 13 sentences (8%): "Houses with no HOA fee here are listed at about $930,000."
+     4. Windy Hill: 1 of 11 sentences (9%): "Houses with no HOA fee here are listed at about $745,000."
+     5. Crescent Beach: 2 of 17 sentences (12%): "Lots are small, about 7,600 square feet."
+     6. Ocean Drive: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $665,000."
+     7. Cherry Grove: 1 of 15 sentences (7%): "Houses with no HOA fee here are listed at about $850,000."
+     8. Little River: 1 of 14 sentences (7%): "Houses with no HOA fee here are listed at about $420,000."
+     9. Socastee: 0 of 11 sentences (0%)
+     10. Surfside Beach: 1 of 11 sentences (9%): "Houses with no HOA fee here are listed at about $940,000."
+     11. Garden City Beach: 1 of 10 sentences (10%): "Houses with no HOA fee here are listed at about $1.4 million."
+     12. Murrells Inlet's north end: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $820,000."
+     13. Conway: 1 of 14 sentences (7%): "Houses with no HOA fee here are listed at about $285,000."
+     14. Loris: 2 of 10 sentences (20%): "The older houses were built from the 1940s to the 1970s, on lots of about 0.4 acre."
+     15. The country around Loris: 1 of 9 sentences (11%): "Houses with no HOA fee here are listed at about $415,000."
+     16. Aynor: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $370,000."
+
+strict: passes
+```
+
+### PASS: structure-check.js --strict /buyers/affordable-places-to-live/
+
+```
+4. An offer per place: 12 of 12 entries have one
+5. Field sentences (information): 0 of 12 entries are half or more fixed fields; 3 of 12 have at least one
+     1. Parkview: 0 of 12 sentences (0%)
+     2. The Fairways at Wild Wing: 0 of 7 sentences (0%)
+     3. Sawgrass East: 0 of 8 sentences (0%)
+     4. Birchwood: 0 of 11 sentences (0%)
+     5. Myrtle Beach Golf and Yacht Club: 1 of 9 sentences (11%): "Most houses there were built in the 1980s, with two or three bedrooms and two baths."
+     6. Forestbrook Village: 1 of 9 sentences (11%): "At Forestbrook Village, Lennar has four townhome plans, from about 1,450 up to 2,400 squar"
+     7. Victory Point: 0 of 10 sentences (0%)
+     8. The Townes at Amber Bluff: 0 of 10 sentences (0%)
+     9. Villas at Sandridge: 0 of 9 sentences (0%)
+     10. Indigo Grove: 0 of 9 sentences (0%)
+     11. Wynbrooke: 0 of 7 sentences (0%)
+     12. Polo Farms: 1 of 10 sentences (10%): "Most of the houses are one story, with three bedrooms, on lots of about a fifth of an acre"
+
+strict: passes
+```
+
+### PASS: structure-check.js --strict /submarkets/carolina-forest/the-farm/
+
+```
+structure-check /tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html
+H1: What is it like to live in The Farm at Carolina Forest?
+no numbered entries: not a list of places, so checks 1, 2 and 4 do not apply
+3. Label lines in the entries: 0
+
+strict: passes
 ```
 
 ### PASS: claims-scan.js: no new banned claim on any surface

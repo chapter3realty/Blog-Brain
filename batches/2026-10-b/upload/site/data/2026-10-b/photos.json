@@ -2078,7 +2078,25 @@
    "method": "scratchpad gated-r7: naip.py (export), label.py (resize, contrast, labels), mkrec.js (records)",
    "share_alike": false,
    "width": 1200,
-   "height": 900
+   "height": 900,
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/gated-communities/litchfield-by-the-sea-from-above-2023-1x1.webp",
+     "width": 1200,
+     "height": 1200
+    },
+    "4x3": {
+     "path": "images/buyers/gated-communities/litchfield-by-the-sea-from-above-2023-4x3.webp",
+     "width": 1200,
+     "height": 900
+    },
+    "16x9": {
+     "path": "images/buyers/gated-communities/litchfield-by-the-sea-from-above-2023-16x9.webp",
+     "width": 1200,
+     "height": 675
+    }
+   },
+   "crop_source": "the same labelled view at 1600 x 1200 (scratchpad gated-r7/lab/litchfield-by-the-sea.png), cut to 1x1, 4x3 and 16x9 from the center with tools/photos.js crops (round 14c, the page share image)"
   },
   {
    "slug": "gated-communities",
@@ -2206,7 +2224,7 @@
     "1200": "images/buyers/no-hoa/loris-downtown-1200w.webp"
    },
    "width": 1200,
-   "height": 899,
+   "height": 510,
    "title": "Downtown Loris, South Carolina",
    "what": "Main Street in downtown Loris at its crossing with US 701, with brick shop buildings on both sides.",
    "caption": "Main Street in downtown Loris.",
@@ -2226,7 +2244,8 @@
    "taken": "2026-08-08",
    "original_size": "3228x2419",
    "share_alike": false,
-   "reused_from": "batch 2026-10-b affordable-places-to-live record (images/buyers/affordable/loris-downtown.webp), removed from that page in round 8; the same Commons file, kept for the no-HOA page."
+   "reused_from": "batch 2026-10-b affordable-places-to-live record (images/buyers/affordable/loris-downtown.webp), removed from that page in round 8; the same Commons file, kept for the no-HOA page.",
+   "changes": "Chapter3 Realty cropped this photo to the street and the shops, leaving out the sky and the traffic lights, and resized it"
   },
   {
    "slug": "the-farm",
@@ -2275,7 +2294,7 @@
    ],
    "annotation_sources": {
     "outline": "Horry County GIS parcels layer 24, the 1,634 parcels of the-farm-facts.md method note 'Parcel set', joined and closed across the streets: the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json, area 'the-farm')",
-    "entrance": "The Farmers Rest Drive entrance from Carolina Forest Boulevard (-78.875215, 33.754869), the shared end point of the FARMERS REST DR and CAROLINA FOREST BLVD segments in Horry County roads layer 18 (ledger row 27; batches/2026-10-b/data/the-farm.json reference_point)",
+    "entrance": "The Farmers Rest Drive entrance from Carolina Forest Boulevard (-78.875215, 33.754869), the shared end point of the FARMERS REST DR and CAROLINA FOREST BLVD segments in Horry County roads layer 18 (ledger row 27; batches/2026-10-b/data/the-farm.json reference_point). Round 14e: in the page file (1x1) the label sits above and to the left of its dot, so it no longer runs into the photo credit at the lower right (config label key over-1x1: br)",
     "large_pool": "Horry County GIS building footprints layer 27, object 412186 (Pool Inground), its center (-78.87577, 33.759814), on the HOA amenity parcel PIN 39600000019 (address 201 Carolina Farms Blvd; ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
     "activity_center": "Horry County GIS building footprints layer 27, object 390424, its center (-78.877216, 33.759172), the one building on the HOA parcel PIN 39609030003 that carries the address point 190 Farmers Rest Dr (ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
     "small_pool": "Horry County GIS building footprints layer 27, object 412200 (Pool Inground), its center (-78.873601, 33.767405), on the HOA parcel PIN 39607040047 (address 389 Carolina Farms Blvd; ledger row 60). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/27",
@@ -2438,9 +2457,9 @@
     "1200": "images/buyers/the-farm/the-farm-where-from-above-1200w.webp"
    },
    "title": "Where The Farm at Carolina Forest is, NAIP aerial, April 2023",
-   "what": "A wide view from above of Carolina Forest and Myrtle Beach on April 10, 2023, with The Farm outlined in orange and six labels: The Farm, Carolina Forest Boulevard, US 501, the Publix about 2 minutes from the entrance, McLeod Health's emergency room about 5 minutes away and the beach about 10 minutes away. The ocean is at the lower right.",
-   "caption": "Where The Farm is. The orange line is its edge.",
-   "alt": "Carolina Forest and Myrtle Beach from above, with The Farm outlined in orange and labels for The Farm, Carolina Forest Boulevard, US 501, Publix 2 minutes away, the emergency room 5 minutes away and the beach 10 minutes away",
+   "what": "A wide view from above of Carolina Forest and Myrtle Beach on April 10, 2023, with The Farm outlined in orange, the 353-acre tract set to join the Lewis Ocean Bay Heritage Preserve shaded green along its north edge, and seven labels: the tract (\"Set to join the preserve\"), The Farm, Carolina Forest Boulevard, US 501, Publix, McLeod Health's emergency room about 5 minutes away and the beach. The ocean is at the lower right.",
+   "caption": "Where The Farm is. The drive to the emergency room starts at the entrance nearest the large pool. The orange line is its edge.",
+   "alt": "Carolina Forest and Myrtle Beach from above: The Farm outlined in orange, the land set to join the preserve shaded green on its north edge, and labels for Publix, the emergency room 5 minutes away and the beach",
    "place": {
     "city": "Myrtle Beach",
     "sublocation": "The Farm at Carolina Forest"
@@ -2472,23 +2491,26 @@
    "display_credit": "U.S. government aerial photo",
    "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Outline and labels by Chapter3 Realty.",
    "digital_source_type": "composite",
-   "changes": "Chapter3 Realty drew The Farm's outline from Horry County GIS parcels, added six labels placed from county data and ledger rows, and adjusted the colors",
+   "changes": "Chapter3 Realty drew The Farm's outline from Horry County GIS parcels, shaded the state's 353-acre tract from the same parcels, added seven labels placed from county data and ledger rows, and adjusted the colors",
    "labels": [
+    "Set to join the preserve",
     "The Farm",
     "Carolina Forest Blvd",
     "US 501",
-    "Publix, about 2 min",
+    "Publix",
     "Emergency room, about 5 min",
-    "Beach, about 10 min"
+    "Beach"
    ],
    "annotation_sources": {
     "outline": "Horry County GIS parcels layer 24, the 1,634 parcels of the-farm-facts.md method note 'Parcel set', joined and closed across the streets: the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json, area 'the-farm')",
-    "the_farm": "Label above the outline's north edge (point -78.8763, 33.7734); it names the outlined area.",
+    "the_farm": "Label inside the outline (center -78.879, 33.7655, a smaller pill so the emergency room and road labels keep their places; round 14c); it names the outlined area.",
+    "preserve_tract": "Green shading and edge: Horry County GIS parcels layer 24, PIN 39600000001 (owner SOUTH CAROLINA DEPARTMENT OF NATURAL RESOURCES, CAROLINA FOREST; REM TRACT 20, 353.25 acres), one ring of 34 points, fetched 2026-10-15 (ledger row 79: the tract touches three HOA open-space parcels on The Farm's north edge; SCDNR bought it from Conway Medical Center for the Lewis Ocean Bay Heritage Preserve and says it will be dedicated as part of the preserve, so the label says bought for a preserve, not preserve land). Label to the left of the tract's west edge (-78.8874, 33.7812), with a green mark. https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24",
     "carolina_forest_blvd": "A dot on a vertex of the CAROLINA FOREST BLVD centerline in Horry County roads layer 18 (-78.92273, 33.759784), with a short leader line up to the label (round 10). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18",
     "us_501": "A dot on a vertex of the HWY 501 centerline in Horry County roads layer 18 (-78.92544, 33.716822), about 400 m northwest of the waterway bridge so the dot sits on the road lanes, with a short leader line up to the label (round 10). https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/18",
     "publix": "Dot at the end point of ledger row 29 (Publix, 136 Sapwood Road, -78.870501, 33.751759); minutes from row 29 (OSRM, 2 min from the Farmers Rest Drive entrance, no traffic).",
     "emergency_room": "Dot at the end point of ledger row 30 (McLeod Health Carolina Forest emergency department, -78.852256, 33.757293); minutes from row 30 (OSRM, 5.2 min, no traffic). Two-line label (round 8, verifier on row 93), so every dot carries its drive time.",
-    "beach": "Dot at the end point of ledger row 28 (City of Myrtle Beach beach access MYRTLE BEACH 101, -78.846516, 33.719685); minutes from row 28 (OSRM, 10 min, no traffic)."
+    "beach": "Dot at the end point of ledger row 28 (City of Myrtle Beach beach access MYRTLE BEACH 101, -78.846516, 33.719685); minutes from row 28 (OSRM, 10 min, no traffic).",
+    "round_14g": "Round 14g (OWNER-EYE-14g finding 2): the Publix and beach labels lost their minutes, which the page gives once in its tiles; the tract label says 'Set to join the preserve' (ledger row 79: the state says it will be dedicated), so the purchase is told once on the page. Positions unchanged."
    },
    "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8789299.666563476%2C3988567.15750783%2C-8773353.756909711%2C4000526.589748156&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
    "frame": {
@@ -2501,7 +2523,7 @@
     "ground_m_per_px_1200w": 11.05
    },
    "original_size": "2400x1800 (NAIP export, drawn on at 2x, colors adjusted, then resized)",
-   "method": "scratchpad farmw/scripts/render.py and fetch.py; config farmw/aerial/work/config.json, key the-farm-wide (round 8: a wide where-it-is view in place of the drawn region map; labels 46 px in 1200; round 10: road labels tied to their roads with leader lines, labels may use the whole frame because the page shows this figure whole)",
+   "method": "scratchpad farmw/scripts/render.py and fetch.py; config farmw/aerial/work/config.json, key the-farm-wide (round 14c: the state tract as a zonePolys entry from farm-v6/tract.geojson.json and a zone-style label; round 8: a wide where-it-is view in place of the drawn region map; labels 46 px in 1200; round 10: road labels tied to their roads with leader lines, labels may use the whole frame because the page shows this figure whole)",
    "width": 1200,
    "height": 900
   },
@@ -2513,9 +2535,9 @@
     "1200": "images/buyers/the-farm/the-farm-school-zones-from-above-1200w.webp"
    },
    "title": "The Farm at Carolina Forest inside the area zoned for its three schools, NAIP aerial, April 2023",
-   "what": "A view from above of the east side of Carolina Forest on April 10, 2023, with one area shaded blue: the land that Horry County Schools' 2025 to 2026 attendance zones put in all three of Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. The Farm is outlined in orange inside it. One dot marks the two Ocean Bay schools on International Drive. A note at the upper left says Carolina Forest High is about 15 minutes west, off the picture.",
-   "caption": "The blue area is zoned for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. The Farm is outlined in orange.",
-   "alt": "The east side of Carolina Forest from above, with a blue area zoned for all three schools and The Farm outlined in orange inside it, one dot for the two Ocean Bay schools and a note for Carolina Forest High",
+   "what": "A view from above of the east side of Carolina Forest on April 10, 2023, with one area shaded blue: the land that Horry County Schools' 2025 to 2026 attendance zones put in all three of Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. The Farm is outlined in orange inside it. One dot marks the two Ocean Bay schools on International Drive. Carolina Forest High is west of the picture.",
+   "caption": "The Farm, outlined in orange, sits inside the blue area zoned for the three schools.",
+   "alt": "The east side of Carolina Forest from above, with a blue area zoned for all three schools and The Farm outlined in orange inside it, and one dot for the two Ocean Bay schools",
    "place": {
     "city": "Myrtle Beach",
     "sublocation": "The Farm at Carolina Forest"
@@ -2543,18 +2565,17 @@
    "display_credit": "U.S. government aerial photo",
    "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). School zones from Horry County Schools, as drawn for 2025 to 2026; outline and labels by Chapter3 Realty.",
    "digital_source_type": "composite",
-   "changes": "Chapter3 Realty drew The Farm's outline from Horry County GIS parcels, shaded the area inside all three of Horry County Schools' 2025 to 2026 attendance zones for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High, added four labels placed from that data, county address points and ledger row 38, and adjusted the colors",
+   "changes": "Chapter3 Realty drew The Farm's outline from Horry County GIS parcels, shaded the area inside all three of Horry County Schools' 2025 to 2026 attendance zones for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High, added three labels placed from that data and county address points, and adjusted the colors",
    "labels": [
     "The Farm",
     "Ocean Bay schools",
-    "Carolina Forest High, about 15 min west",
     "Zoned for all three schools"
    ],
    "annotation_sources": {
     "outline": "Horry County GIS parcels layer 24, the 1,634 parcels of the-farm-facts.md method note 'Parcel set', joined and closed across the streets: the same outline tools/area-map.js draws (tools/geo/grand-strand-v2.json, area 'the-farm')",
     "shared_area": "The intersection of three Horry County Schools zone polygons (HCS_Attendance_Zones 2025-2026: layer 3 where school = 'Ocean Bay Elementary', layer 2 where school = 'Ocean Bay Middle', layer 1 where school = 'Carolina Forest High'; geojson, WGS84), computed with shapely: one polygon of 850.5 square micro-degrees (the elementary zone alone is 958.9). Shaded blue at 95/255 with its edge drawn (ledger rows 36, 92, 95 and 96). The Farm's outline runs about 230 m outside it on the west edge, over woods with no address points (row 92). https://services2.arcgis.com/i2WjYhcoGsRr8Izd/arcgis/rest/services/HCS_Attendance_Zones__2025_2026/FeatureServer",
     "ocean_bay_schools": "One dot for both schools, at the midpoint (-78.865826, 33.767267) of county address points 905 INTERNATIONAL DR (Ocean Bay Middle, -78.865901, 33.766381) and 950 INTERNATIONAL DR (Ocean Bay Elementary, -78.865751, 33.768153), 200 m apart, in Horry County addresses layer 22 (ledger row 38). The label sits to the right of the dot, clear of The Farm's outline.",
-    "carolina_forest_high": "Carolina Forest High (700 GARDNER LACY RD, -78.970179, 33.779049, county addresses layer 22) is west of the frame. A note at the frame's left edge (-78.9108, 33.79) gives the drive time and direction: about 15 minutes (row 38, 15.7 min by OSRM, no traffic); west (the school is 0.095 degrees of longitude west and 0.024 degrees of latitude north of the Farmers Rest Drive entrance).",
+    "carolina_forest_high": "Round 14c: the note for Carolina Forest High is cut (OWNER-EYE-14c finding 5: a label with no point); the page table gives the drive. Earlier note: Carolina Forest High (700 GARDNER LACY RD, -78.970179, 33.779049, county addresses layer 22) is west of the frame. A note at the frame's left edge (-78.9108, 33.79) gives the drive time and direction: about 15 minutes (row 38, 15.7 min by OSRM, no traffic); west (the school is 0.095 degrees of longitude west and 0.024 degrees of latitude north of the Farmers Rest Drive entrance).",
     "shared_label": "\"Zoned for all three schools\", on two lines, centered at (-78.857244, 33.761551): its whole box is at least 12 px (2400-px frame) inside the shaded area and clear of The Farm's outline and the school label."
    },
    "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8785466.283353336%2C3993452.4223137246%2C-8774515.472340813%2C4001665.5305731166&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
@@ -2568,7 +2589,7 @@
     "ground_m_per_px_1200w": 7.59
    },
    "original_size": "2400x1800 (NAIP export, drawn on at 2x, colors adjusted, then resized)",
-   "method": "scratchpad farmw/scripts/render.py (labels may use the whole frame because the page shows this figure whole; two-line labels) and fetch.py; config farmw/aerial/work/config.json, key the-farm-schools; zones fetched by farmw/r8/zones.py; the shared area in farmw/r8/all3.json",
+   "method": "scratchpad farmw/scripts/render.py (labels may use the whole frame because the page shows this figure whole; two-line labels) and fetch.py; config farmw/aerial/work/config.json, key the-farm-schools (round 14c: the Carolina Forest High note removed); zones fetched by farmw/r8/zones.py; the shared area in farmw/r8/all3.json",
    "width": 1200,
    "height": 900
   },
@@ -3303,6 +3324,934 @@
    "width": 1200,
    "height": 900,
    "original_size": "2400x1800 export of 720 x 540 m; labels drawn at full size, then resized to 1200 x 900"
+  },
+  {
+   "slug": "gated-communities",
+   "file": "images/buyers/gated-communities/tidewater-plantation-marsh-from-above-2023.webp",
+   "variants": {
+    "600": "images/buyers/gated-communities/tidewater-plantation-marsh-from-above-2023-600w.webp",
+    "1200": "images/buyers/gated-communities/tidewater-plantation-marsh-from-above-2023-1200w.webp"
+   },
+   "title": "Tidewater Plantation from above (USDA NAIP 2023)",
+   "what": "Tidewater Plantation from above: golf holes along the tidal water at Cherry Grove Inlet, seen from above in 2023, with 2 labels placed from coordinates.",
+   "caption": "Tidewater Plantation from above, with its golf holes along the inlet labelled.",
+   "alt": "Tidewater Plantation from above, labelled: golf fairways along the tidal water behind Cherry Grove Inlet, houses above them, and canal homes at the lower right; labels: Golf holes along the inlet and Tidewater Plantation",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Tidewater Plantation"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307811_ne_17_060_20230410, m_3307812_nw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
+   "labels": [
+    "Golf holes along the inlet",
+    "Tidewater Plantation"
+   ],
+   "annotation_sources": {
+    "golf_holes": "A fairway of Tidewater Golf Club on the edge of the tidal water, seen on the NAIP 2023 aerial (33.84521, -78.62408); the course is OpenStreetMap relation of Tidewater Golf Club, ledger row 114",
+    "tidewater_plantation": "Houses on the street above the fairways (33.84631, -78.62033), inside Tidewater Plantation (ledger rows 20, 58)"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8753291.184370976%2C4007044.599298334%2C-8751364.784398913%2C4008489.39927738&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "source_files": [
+    "m_3307811_ne_17_060_20230410",
+    "m_3307812_nw_17_060_20230410"
+   ],
+   "frame": {
+    "bbox_wgs84": [
+     -78.632153,
+     33.83781,
+     -78.614847,
+     33.84859
+    ],
+    "width_m": 1600.0,
+    "note": "centered at (33.84320, -78.62350)"
+   },
+   "original_size": "2400x1800 exported (about 0.6 m a pixel), resized to 1600x1200 (Lanczos)",
+   "method": "scratchpad gated-r14c/ae: naip.py (export), label.py (resize, contrast, labels), round 14e",
+   "share_alike": false,
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "slug": "gated-communities",
+   "file": "images/buyers/gated-communities/prestwick-course-from-above-2023.webp",
+   "variants": {
+    "600": "images/buyers/gated-communities/prestwick-course-from-above-2023-600w.webp",
+    "1200": "images/buyers/gated-communities/prestwick-course-from-above-2023-1200w.webp"
+   },
+   "title": "Prestwick from above (USDA NAIP 2023)",
+   "what": "Prestwick from above: houses among the fairways of its Pete and P.B. Dye course, seen from above in 2023, with 2 labels placed from coordinates.",
+   "caption": "Prestwick from above, with its Dye golf course labelled.",
+   "alt": "Prestwick from above, labelled: houses among the fairways of a golf course, with a long lake at the left; labels: Dye golf course and Prestwick",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Prestwick"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (the date in the tile name m_3307817_sw_17_060_20230410). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 2 labels placed from coordinates",
+   "labels": [
+    "Dye golf course",
+    "Prestwick"
+   ],
+   "annotation_sources": {
+    "dye_golf_course": "A fairway of Prestwick Country Club, the Pete and P.B. Dye course (OpenStreetMap relation 3973684), at (33.64384, -78.95842)",
+    "prestwick": "Houses in the neighborhood near 1344 Royal Devon Dr (Census geocoder 33.642583, -78.956407; ledger rows 19, 57, 82)"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8790228.187056573%2C3980279.006796482%2C-8788546.525073295%2C3981540.2532839393&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "source_files": [
+    "m_3307817_sw_17_060_20230410"
+   ],
+   "frame": {
+    "bbox_wgs84": [
+     -78.963963,
+     33.637864,
+     -78.948857,
+     33.647296
+    ],
+    "width_m": 1400.0,
+    "note": "centered at (33.64258, -78.95641)"
+   },
+   "original_size": "2400x1800 exported (about 0.6 m a pixel), resized to 1600x1200 (Lanczos)",
+   "method": "scratchpad gated-r14c/ae: naip.py (export), label.py (resize, contrast, labels), round 14e",
+   "share_alike": false,
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/myrtle-heights-older-house-on-ocean-boulevard.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/myrtle-heights-older-house-on-ocean-boulevard-600w.webp",
+    "1200": "images/buyers/no-hoa/myrtle-heights-older-house-on-ocean-boulevard-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Myrtle Heights-Oak Park Historic District, N. Ocean Blvd. Jun 10",
+   "what": "An older two-story white wood house with columns and a brick chimney on North Ocean Boulevard in Myrtle Heights, Myrtle Beach.",
+   "caption": "An older two-story house on North Ocean Boulevard in Myrtle Heights. It is part of the Myrtle Heights-Oak Park Historic District.",
+   "alt": "An older two-story white wood house with tall columns, black shutters and a brick chimney, on a grassy rise above North Ocean Boulevard in Myrtle Heights",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Myrtle Heights, North Ocean Boulevard at 37th Avenue North"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Myrtle_Heights-Oak_Park_Historic_District_3701_N._Ocean_Blvd._Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Myrtle_Heights-Oak_Park_Historic_District_3701_N._Ocean_Blvd._Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). Made from the Commons 1920 px rendering of the original. The house number was blurred (round 14f; shot-list rule: no readable house numbers).",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15.",
+   "changes": "Chapter3 Realty blurred the house number and resized the photo"
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/downtown-myrtle-beach-pleasant-inn.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/downtown-myrtle-beach-pleasant-inn-600w.webp",
+    "1200": "images/buyers/no-hoa/downtown-myrtle-beach-pleasant-inn-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Pleasant Inn Myrtle Beach SC Jun 10",
+   "what": "The Pleasant Inn, a two-story wood guest house from about 1927 with porches on both floors, under live oaks on Broadway Street in downtown Myrtle Beach.",
+   "caption": "The Pleasant Inn, a wood guest house from about 1927, on Broadway Street in downtown Myrtle Beach.",
+   "alt": "A two-story white wood house with long porches on both floors, shaded by big oak trees with Spanish moss, on Broadway Street in downtown Myrtle Beach",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Downtown, 200 Broadway Street"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Pleasant_Inn_Myrtle_Beach_SC_Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Pleasant_Inn_Myrtle_Beach_SC_Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). The Pleasant Inn is listed on the National Register of Historic Places (1996) at 200 Broadway; built about 1927 as a boarding house (Wikipedia, Pleasant Inn). The house number was blurred (round 14f; shot-list rule: no readable house numbers).",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15.",
+   "changes": "Chapter3 Realty blurred the house number and resized the photo"
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/pine-lakes-clubhouse.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/pine-lakes-clubhouse-600w.webp",
+    "1200": "images/buyers/no-hoa/pine-lakes-clubhouse-1200w.webp"
+   },
+   "width": 1200,
+   "height": 675,
+   "title": "Ocean Forest Country Club Jun 10",
+   "what": "The white 1927 clubhouse of the Pine Lakes golf course in Myrtle Beach, with its columned porch and dormer windows.",
+   "caption": "The 1927 clubhouse of the Pine Lakes golf course, in the Pine Lakes neighborhood of Myrtle Beach.",
+   "alt": "The large white Pine Lakes clubhouse with a row of tall columns, black shutters and dormer windows in a gray roof",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Pine Lakes, Granddaddy Drive"
+   },
+   "changes": "Chapter3 Realty cropped this photo to the building, leaving out the pool in front, and resized it",
+   "source": "https://commons.wikimedia.org/wiki/File:Ocean_Forest_Country_Club_Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Ocean_Forest_Country_Club_Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). The building is the Pine Lakes clubhouse, listed on the National Register as Ocean Forest Country Club (Commons categories: built 1927, architect Raymond Hood). Cut from the Commons 1920 px rendering to 1264 x 711 px (16:9) so no person at the pool is in the frame.",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15."
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/surfside-beach-houses-from-the-sand.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/surfside-beach-houses-from-the-sand-600w.webp",
+    "1200": "images/buyers/no-hoa/surfside-beach-houses-from-the-sand-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Surfside Beach Shoreline",
+   "what": "Two- and three-story beach houses in a row behind the dunes at Surfside Beach, seen from the wide sand beach.",
+   "caption": "Beach houses along the sand at Surfside Beach.",
+   "alt": "A row of two- and three-story beach houses in blue, yellow and gray behind low dunes, seen across a wide sand beach under a blue sky at Surfside Beach",
+   "place": {
+    "city": "Surfside Beach",
+    "sublocation": "Oceanfront"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Surfside_Beach_Shoreline.jpg",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Surfside_Beach_Shoreline.jpg",
+   "author": "BullDawg2021",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "credit": "Photo: BullDawg2021, CC BY-SA 4.0, via Wikimedia Commons",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author BullDawg2021). Made from the Commons 3840 px rendering. The same file is used in batch 2026-10-a (images/55-plus/seasons-at-prince-creek-west/surfside-beach-shoreline.webp).",
+   "taken": "2023-07-16",
+   "original_size": "4032x3024",
+   "share_alike": true
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/garden-city-beach-and-marsh-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/garden-city-beach-and-marsh-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/no-hoa/garden-city-beach-and-marsh-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "Garden City Beach, USGS oblique aerial photo, August 24, 2011",
+   "what": "Garden City Beach seen from a plane over the ocean: the beach, rows of beach houses, and the marsh and tidal creeks behind them, with docks on the far shore.",
+   "caption": "Garden City Beach from over the ocean in 2011: beach houses, and the marsh and creeks behind them.",
+   "alt": "Beach houses in rows between the ocean beach and a wide marsh with tidal creeks and boat docks at Garden City Beach, seen from a plane over the ocean",
+   "place": {
+    "city": "Garden City",
+    "sublocation": "Garden City Beach, south end"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_175537d.jpg from 11CCH03_0824_175500.zip; aircraft position 33.568493 N, 78.997795 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/crescent-beach-streets-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/crescent-beach-streets-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/no-hoa/crescent-beach-streets-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "Crescent Beach, North Myrtle Beach, USGS oblique aerial photo, August 24, 2011",
+   "what": "The Crescent Beach section of North Myrtle Beach seen from a plane over the ocean: the beach, a few oceanfront buildings, and streets of beach houses among trees behind them.",
+   "caption": "Crescent Beach in North Myrtle Beach from over the ocean in 2011, with streets of beach houses behind the oceanfront.",
+   "alt": "Streets of two-story beach houses among trees behind the oceanfront at Crescent Beach in North Myrtle Beach, seen from a plane over the ocean",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Crescent Beach"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_180608d.jpg from 11CCH03_0824_180500.zip; aircraft position 33.803372 N, 78.695848 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/cherry-grove-canals-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/cherry-grove-canals-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/no-hoa/cherry-grove-canals-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "Cherry Grove, North Myrtle Beach, USGS oblique aerial photo, August 24, 2011",
+   "what": "Cherry Grove in North Myrtle Beach seen from a plane over the ocean: oceanfront houses, then streets of houses on canals with boat docks, and the marsh behind.",
+   "caption": "Cherry Grove in North Myrtle Beach from over the ocean in 2011: houses on the canals, with the marsh behind.",
+   "alt": "Rows of houses on long canals with boat docks, running back from the beach to a wide green marsh at Cherry Grove, seen from a plane over the ocean",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Cherry Grove"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_181208d.jpg from 11CCH03_0824_181000.zip; aircraft position 33.829343 N, 78.622223 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "no-hoa",
+   "file": "images/buyers/no-hoa/conway-older-house-and-oak.webp",
+   "variants": {
+    "600": "images/buyers/no-hoa/conway-older-house-and-oak-600w.webp",
+    "1200": "images/buyers/no-hoa/conway-older-house-and-oak-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Conway Residential Historic District Jun 10",
+   "what": "An older white wood house with black shutters behind a big oak tree and a driveway, on a shaded street in the Conway Residential Historic District.",
+   "caption": "An older house with a driveway and a big oak, in the residential historic district of Conway.",
+   "alt": "An older white wood house with black shutters behind a large oak tree, with a paved driveway, a low brick planter and thick shrubs, on a shaded street in Conway",
+   "place": {
+    "city": "Conway",
+    "sublocation": "Conway Residential Historic District"
+   },
+   "changes": "Chapter3 Realty blurred the house number and resized the photo",
+   "source": "https://commons.wikimedia.org/wiki/File:Conway_Residential_Historic_District_Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Conway_Residential_Historic_District_Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). Made from the Commons 1920 px rendering; the house number sign was blurred (shot-list rule: no readable house numbers).",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15."
+  },
+  {
+   "slug": "gated-communities",
+   "file": "images/buyers/gated-communities/debordieu-beach-houses-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/gated-communities/debordieu-beach-houses-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/gated-communities/debordieu-beach-houses-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "DeBordieu Colony, USGS oblique aerial photo, August 24, 2011",
+   "what": "DeBordieu Colony near Georgetown seen from a plane over the ocean: large beach houses behind the dunes with walkways to the sand, more houses among live oaks, and the salt marsh behind.",
+   "caption": "DeBordieu Colony from over the ocean in 2011: houses behind the dunes, with the salt marsh beyond.",
+   "alt": "Large beach houses with walkways over the dunes, more houses among dark green oaks behind them, and a wide salt marsh with creeks at the top, at DeBordieu Colony seen from a plane over the ocean",
+   "place": {
+    "city": "Georgetown",
+    "sublocation": "DeBordieu Colony, oceanfront"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_174830d.jpg from 11CCH03_0824_174500.zip; aircraft position 33.369547 N, 79.145355 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "gated-communities",
+   "file": "images/buyers/gated-communities/litchfield-by-the-sea-oceanfront-from-the-ocean-2011.webp",
+   "variants": {
+    "600": "images/buyers/gated-communities/litchfield-by-the-sea-oceanfront-from-the-ocean-2011-600w.webp",
+    "1200": "images/buyers/gated-communities/litchfield-by-the-sea-oceanfront-from-the-ocean-2011-1200w.webp"
+   },
+   "width": 1200,
+   "height": 782,
+   "title": "Litchfield by the Sea, USGS oblique aerial photo, August 24, 2011",
+   "what": "The oceanfront of Litchfield by the Sea in Pawleys Island seen from a plane over the ocean: the beach, large condominium buildings with pools, tennis courts, and villas around lakes behind them.",
+   "caption": "Litchfield by the Sea from over the ocean in 2011: condominium buildings and pools by the beach, with tennis courts and villas around the lakes behind.",
+   "alt": "Large condominium buildings with pools behind the dunes, a beach walkway, rows of tennis courts, and villas around two lakes, at Litchfield by the Sea seen from a plane over the ocean",
+   "place": {
+    "city": "Pawleys Island",
+    "sublocation": "Litchfield by the Sea, oceanfront"
+   },
+   "source": "https://doi.org/10.5066/F7N877XX",
+   "source_name": "U.S. Geological Survey",
+   "author": "U.S. Geological Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.usa.gov/publicdomain/label/1.0/",
+   "credit": "Photo: U.S. Geological Survey, public domain. Credit not required; give it anyway.",
+   "provenance": "U.S. government photo: USGS baseline coastal oblique aerial survey 11CCH03 (Ponte Vedra, Florida, to the South Carolina/North Carolina border), flown 2011-08-24 at 500 ft, about 1,200 ft offshore, Nikon D1X, photographer Karen L.M. Morgan (USGS). Frame 2011_0824_175156d.jpg from 11CCH03_0824_175000.zip; aircraft position 33.474742 N, 79.087478 W (the position of the plane, not of the houses). Data release: Morgan, K.L.M., 2017, https://doi.org/10.5066/F7N877XX.",
+   "license_note": "USGS metadata, Use_Constraints: 'Public domain data from the U.S. Government are freely redistributable with proper metadata and source attribution. Please recognize the U.S. Geological Survey as the originator of the dataset.' The file's EXIF Copyright field: 'Public Domain - please credit U.S. Geological Survey'.",
+   "terms_urls": [
+    "https://doi.org/10.5066/F7N877XX",
+    "https://coastal.er.usgs.gov/data-release/doi-F7N877XX/data/11CCH03-Metadata.txt"
+   ],
+   "taken": "2011-08-24",
+   "original_size": "3008x1960",
+   "digital_source_type": "digitalCapture"
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/market-common-warbird-park-jets.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/market-common-warbird-park-jets-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/market-common-warbird-park-jets-1200w.webp"
+   },
+   "width": 1200,
+   "height": 675,
+   "title": "Exhibit at Warbird Park, Myrtle Beach (Carol M. Highsmith, 2017)",
+   "what": "Warbird Park at The Market Common in Myrtle Beach: jets from the former Myrtle Beach Air Force Base on a round plaza, with tall pines behind.",
+   "caption": "Warbird Park at The Market Common, with jets from the old Myrtle Beach Air Force Base.",
+   "alt": "Two camouflage-painted jet planes on display on a round plaza with small plaques, under tall pine trees at Warbird Park in The Market Common",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "The Market Common, Warbird Park"
+   },
+   "source": "https://www.loc.gov/item/2017880876/",
+   "taken": "2017-06-23",
+   "original_size": "8688x3940 (Library of Congress TIFF); this copy is the Library's 25% rendering, 2172x985",
+   "provenance": "Carol M. Highsmith's America Project, Library of Congress Prints and Photographs Division, LC-DIG-highsm-43994. Downloaded from the Library's IIIF service at 25% (2172 px wide). The aircraft are display pieces, not artwork, and no person is in the frame. Cropped to 1751 x 985 px (16:9) from the left, leaving out a fourth jet at the far left edge.",
+   "source_name": "Library of Congress",
+   "author": "Carol M. Highsmith",
+   "license": "Public domain",
+   "license_url": "https://www.loc.gov/rr/print/res/482_high.html",
+   "credit": "Photo: Carol M. Highsmith, public domain, via the Library of Congress. Credit not required; give it anyway.",
+   "license_note": "Library of Congress record: Rights Advisory 'No known restrictions on publication.' The rights page it links (Carol M. Highsmith, Rights and Restrictions Information) says the photographer has placed her photographs in the public domain. Credit line asked for by the Library: 'Photographs in Carol M. Highsmith's America Project in the Carol M. Highsmith Archive, Library of Congress, Prints and Photographs Division.'",
+   "share_alike": false,
+   "changes": "Chapter3 Realty cropped the left side of this photo to a 16:9 frame and resized it"
+  },
+  {
+   "slug": "affordable",
+   "file": "images/buyers/affordable/conway-main-street-downtown.webp",
+   "variants": {
+    "600": "images/buyers/affordable/conway-main-street-downtown-600w.webp",
+    "1200": "images/buyers/affordable/conway-main-street-downtown-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Conway Downtown Historic District Jun 10",
+   "what": "Main Street in downtown Conway at Third Avenue, with two-story brick and stone shop buildings, trees and parked cars.",
+   "caption": "Main Street in downtown Conway.",
+   "alt": "Main Street in downtown Conway, South Carolina, with a row of two-story brick and stone shop buildings, street trees and parked cars under a blue sky",
+   "place": {
+    "city": "Conway",
+    "sublocation": "Main Street at Third Avenue"
+   },
+   "source": "https://commons.wikimedia.org/wiki/File:Conway_Downtown_Historic_District_Jun_10.JPG",
+   "source_name": "Wikimedia Commons",
+   "commons_page": "https://commons.wikimedia.org/wiki/File:Conway_Downtown_Historic_District_Jun_10.JPG",
+   "author": "Pubdog",
+   "license": "Public domain",
+   "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "credit": "Photo: Pubdog, public domain, via Wikimedia Commons. Credit not required; give it anyway.",
+   "provenance": "own work (Commons: source 'Own work', uploaded by the author Pubdog). Made from the Commons 1920 px rendering. The same file is used in batch 2026-10-a (images/55-plus/myrtle-trace/conway-main-street.webp).",
+   "taken": "2010-06-20",
+   "original_size": "2592x1944",
+   "share_alike": false,
+   "license_note": "Commons license template PD-self: the author released the photo into the public domain. Checked on the file page 2026-10-15."
+  },
+  {
+   "slug": "gated-communities",
+   "file": "images/buyers/gated-communities/willbrook-plantation-named-from-above-2023.webp",
+   "variants": {
+    "600": "images/buyers/gated-communities/willbrook-plantation-named-from-above-2023-600w.webp",
+    "1200": "images/buyers/gated-communities/willbrook-plantation-named-from-above-2023-1200w.webp"
+   },
+   "title": "Willbrook Plantation from above (USDA NAIP 2023)",
+   "what": "Willbrook Plantation from above, seen in 2023, with 1 label placed from coordinates.",
+   "caption": "Willbrook Plantation from above: its houses are in the middle and at the upper right, beside golf fairways. The houses at the lower left are in Litchfield Plantation.",
+   "alt": "Willbrook Plantation from above, labelled: houses among trees beside golf fairways and a pond, open fields cut by ditches at the upper left, and more houses at the lower left; label: Willbrook Plantation",
+   "place": {
+    "city": "Pawleys Island",
+    "sublocation": "Willbrook Plantation"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-19",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-19 (the date in the tile name m_3307939_ne_17_060_20230419). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty exported this view from the NAIP image service at 2400x1800, resized it to 1600x1200, raised the contrast slightly and added 1 label placed from coordinates",
+   "labels": [
+    "Willbrook Plantation"
+   ],
+   "annotation_sources": {
+    "willbrook_plantation": "A home address in the neighborhood, geocoded by the U.S. Census Bureau geocoder: 49 Red Squirrel Ln, Pawleys Island, SC 29585 (33.482060, -79.135190). Ledger rows 27, 75."
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8810128.324196551%2C3958836.115148555%2C-8808449.78506136%2C3960095.0194999496&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "source_files": [
+    "m_3307939_ne_17_060_20230419"
+   ],
+   "frame": {
+    "bbox_wgs84": [
+     -79.142729,
+     33.477343,
+     -79.12765,
+     33.486776
+    ],
+    "width_m": 1400,
+    "note": "centered at (33.48206, -79.13519)"
+   },
+   "original_size": "2400x1800 exported (about 0.6 m a pixel), resized to 1600x1200 (Lanczos)",
+   "method": "scratchpad gated-r14c/ae: naip.py, label.py, round 14f",
+   "share_alike": false,
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "digital_source_type": "digitalCapture",
+   "display_credit": "U.S. government aerial photo",
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/surfside-beach-pier.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/surfside-beach-pier-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/surfside-beach-pier-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "Surfside Beach Pier from the air with a label, NOAA, January 2026",
+   "what": "The ocean side of Surfside Beach from the air on January 12, 2026: the town pier running out from the beach into the ocean, labelled, with streets of beach houses behind the sand.",
+   "caption": "The Surfside Beach Pier from the air, with streets of beach houses behind the sand.",
+   "alt": "Surfside Beach from the air: a long pier labelled Surfside Beach Pier runs from the beach into a green ocean, with rows of houses on the streets behind the sand",
+   "place": {
+    "city": "Surfside Beach",
+    "sublocation": "between US 17 Business and the ocean"
+   },
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185159_0112261658253_036_RGB1, flown 2026-01-12 at about 16:58 UTC (the frame name carries 011226 1658; the exterior orientation file 0122026_RGB_1_Oblique_EO.txt, event 201, puts the camera at 33.6108, -78.9802, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
+   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added labels",
+   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom; plane-to-plane fit), never by eye: 'Surfside Beach Pier' at the centroid of the Horry County OpenData Parks polygon 'Surfside Pier', 11 S Ocean Blvd (-78.971344, 33.604653; neighborhoods-facts.md rows 196 and 246). Script and positions: scratchpad wb-best-work/eri (render_best.py, config.json 'surfside-beach-pier', surfside-beach-pier.labels.json).",
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.jpg",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185159_0112261658253_036_RGB1.geom"
+   ],
+   "frame": {
+    "raw_pixels": [
+     0,
+     2400,
+     8800,
+     9000
+    ],
+    "raw_size": "14204x10652",
+    "note": "a raw frame, tilted about 20 degrees from straight down, not a map: the ocean is at the right"
+   },
+   "original_size": "8800x6600 pixels of the raw frame, resized to 2400 wide, colors adjusted, labels drawn",
+   "crop_source": [
+    5900,
+    3850,
+    9700,
+    6700
+   ],
+   "crops": {
+    "1x1": {
+     "path": "images/buyers/best-neighborhoods/surfside-beach-pier-1x1.webp",
+     "width": 1200,
+     "height": 1200
+    },
+    "4x3": {
+     "path": "images/buyers/best-neighborhoods/surfside-beach-pier-4x3.webp",
+     "width": 1200,
+     "height": 900
+    },
+    "16x9": {
+     "path": "images/buyers/best-neighborhoods/surfside-beach-pier-16x9.webp",
+     "width": 1200,
+     "height": 675
+    }
+   }
+  },
+  {
+   "source": "https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/EC2601a_OB_N_RGB/",
+   "source_name": "NOAA Emergency Response Imagery",
+   "author": "NOAA National Geodetic Survey",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+   "credit": "Photo: NOAA National Geodetic Survey, public domain.",
+   "license_note": "17 U.S.C. 105(a): \"Copyright protection under this title is not available for any work of the United States Government\". NOAA's terms on the Registry of Open Data (https://registry.opendata.aws/noaa-eri/): \"NOAA data disseminated through NODD are open to the public and can be used as desired.\" ... \"NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.\" So: credit NOAA, say what Chapter3 changed (changes), never suggest NOAA endorses Chapter3. Same terms as the Cherry Grove record above.",
+   "terms_urls": [
+    "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm",
+    "https://registry.opendata.aws/noaa-eri/",
+    "https://www.fisheries.noaa.gov/inport/item/67562"
+   ],
+   "taken": "2026-01-12",
+   "digital_source_type": "digitalCapture",
+   "display_credit": "U.S. government aerial photo",
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/market-common-valor-park.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/market-common-valor-park-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/market-common-valor-park-1200w.webp"
+   },
+   "width": 1200,
+   "height": 900,
+   "title": "The Market Common from the air with labels, NOAA, January 2026",
+   "what": "The Market Common in Myrtle Beach from the air on January 12, 2026: its homes outlined in orange, Valor Park marked, and Grand Park with its ball fields and lake, each labelled.",
+   "caption": "The Market Common from the air: its homes, outlined, Valor Park, where the Saturday market is held, and Grand Park.",
+   "alt": "The Market Common from the air: streets of homes outlined in orange beside a lake, a dot labelled Valor Park at the edge of the shops, and ball fields and a lake labelled Grand Park",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "The Market Common"
+   },
+   "provenance": "U.S. government aerial photo: NOAA National Geodetic Survey (NGS), Remote Sensing Division, Emergency Response Imagery, 2026 pre-event coastal collection, East Coast group EC2601a. Frame 185148_0112261657106_036_RGB2, flown 2026-01-12 at about 16:57 UTC (exterior orientation file 0122026_RGB_2_Oblique_EO.txt, camera within 1 km of The Market Common's reference point, about 2,285 m up). Downloaded from the public S3 bucket noaa-eri-pds.",
+   "changes": "Chapter3 Realty cut this view from one NOAA aerial photo, resized it, adjusted the colors and added an outline and labels",
+   "labels": "Placed from ground coordinates through the frame's own corner coordinates (.geom), never by eye: 'The Market Common' among the outlined home parcels (layer 24); 'Valor Park' at the centroid of the county Parks polygon 'Valor Garden', 1120 Farrow Pkwy, the address of Valor Park where the farmers market is held (rows 195, 248); 'Grand Park' at the centroid of the county Parks polygon 'Grand Park' (row 195), shifted onto the park. Outline: the Market Common home parcels, The Reserve at Market Common left out. Script: scratchpad wb-best-work/eri (config.json 'market-common-valor-park').",
+   "source_files": [
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.jpg",
+    "https://noaa-eri-pds.s3.amazonaws.com/2026_Pre_Event/EC2601a_OB_N_RGB/raw/185148_0112261657106_036_RGB2.geom"
+   ],
+   "frame": {
+    "raw_pixels": [
+     1500,
+     1600,
+     13500,
+     10600
+    ],
+    "raw_size": "14204x10652",
+    "note": "a raw frame, tilted about 20 degrees from straight down, not a map"
+   },
+   "original_size": "12000x9000 pixels of the raw frame, resized to 2400 wide, colors adjusted, outline and labels drawn",
+   "crop_source": [
+    2600,
+    1700,
+    11400,
+    8300
+   ]
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/tidewater-golf-course.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/tidewater-golf-course-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/tidewater-golf-course-1200w.webp"
+   },
+   "title": "Tidewater Plantation from above with a label, NAIP aerial, April 2023",
+   "what": "Tidewater Plantation in North Myrtle Beach from above on April 10, 2023: houses under trees between the fairways of its golf course, labelled.",
+   "caption": "Tidewater from above: houses under the trees, with golf fairways on both sides of them.",
+   "alt": "Tidewater Plantation from above: houses under tall trees along curving streets, with green golf fairways and greens on both sides, one labelled Golf course",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Tidewater Plantation"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (tiles m_3307811_ne_17_060_20230410, m_3307812_nw_17_060_20230410; the service gives acquisition_date 2023-04-10). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "naip_tiles": [
+    "m_3307811_ne_17_060_20230410",
+    "m_3307812_nw_17_060_20230410"
+   ],
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
+   "labels": [
+    "Golf course"
+   ],
+   "annotation_sources": {
+    "Golf course": "interior point of the golf course parcel PIN 35100000007 (W/S GOLF COURSE, KSM South Carolina LLC), 42 m from its edge (-78.624428, 33.850595); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8752724.419819523%2C4008226.5713886106%2C-8751953.812848525%2C4008808.6048248145&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "frame": {
+    "bbox_wgs84": [
+     -78.627061,
+     33.846629,
+     -78.620139,
+     33.850971
+    ],
+    "ground_m_per_px_1200w": 0.53
+   },
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
+   "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/plantation-lakes-docks.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/plantation-lakes-docks-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/plantation-lakes-docks-1200w.webp"
+   },
+   "title": "Plantation Lakes from above with labels, NAIP aerial, April 2023",
+   "what": "Plantation Lakes in Carolina Forest from above on April 10, 2023: houses along the lake, the lake labelled, and the boat docks at the amenity area marked.",
+   "caption": "Plantation Lakes from above: houses along the lake, and the boat docks at the owners’ amenity area.",
+   "alt": "Plantation Lakes from above: houses with back yards on a dark winding lake labelled Lake, and a small boat dock, marked Boat docks, beside two pools",
+   "place": {
+    "city": "Myrtle Beach",
+    "sublocation": "Plantation Lakes"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (tiles m_3307809_se_17_060_20230410, m_3307817_ne_17_060_20230410; the service gives acquisition_date 2023-04-10). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "naip_tiles": [
+    "m_3307809_se_17_060_20230410",
+    "m_3307817_ne_17_060_20230410"
+   ],
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
+   "labels": [
+    "Lake",
+    "Boat docks"
+   ],
+   "annotation_sources": {
+    "Lake": "a point on the open water of the lake (-78.91735, 33.751769), read from the image: the water is the dark area; the lake is the Plantation Lakes POA common area, Horry County GIS layer 24",
+    "Boat docks": "the dock structure on the Plantation Lakes POA amenity parcel PIN 41901010015 (-78.915459, 33.749948), read from the image; the recorded boating rules list 'day/overnight docks, boat ramp' at the amenity center (neighborhoods-facts.md row 239 note)"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8785138.425440706%2C3995143.6998587428%2C-8784416.806461664%2C3995688.7330465857&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "frame": {
+    "bbox_wgs84": [
+     -78.918241,
+     33.748965,
+     -78.911759,
+     33.753035
+    ],
+    "ground_m_per_px_1200w": 0.5
+   },
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
+   "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/prince-creek-tpc.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/prince-creek-tpc-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/prince-creek-tpc-1200w.webp"
+   },
+   "title": "Prince Creek from above with a label, NAIP aerial, April 2023",
+   "what": "Prince Creek in Murrells Inlet from above on April 10, 2023: streets of houses beside the TPC Myrtle Beach golf course, labelled.",
+   "caption": "Prince Creek from above: streets of houses beside the TPC Myrtle Beach golf course.",
+   "alt": "Prince Creek from above: curving streets of houses and ponds beside green golf fairways and greens, labelled TPC Myrtle Beach",
+   "place": {
+    "city": "Murrells Inlet",
+    "sublocation": "Prince Creek"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (tiles m_3307932_ne_17_060_20230410, m_3307932_nw_17_060_20230410; the service gives acquisition_date 2023-04-10). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "naip_tiles": [
+    "m_3307932_ne_17_060_20230410",
+    "m_3307932_nw_17_060_20230410"
+   ],
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
+   "labels": [
+    "TPC Myrtle Beach"
+   ],
+   "annotation_sources": {
+    "TPC Myrtle Beach": "point inside the golf parcel PIN 46800000005 (KAMINSKI TR-TPC GCOURSE, Founders Golf Mgmt LLC) (-79.062322, 33.582945); Horry County GIS https://www.horrycounty.org/parcelapp/rest/services/HorryCountyGISApp/MapServer/24"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8801375.071511343%2C3972494.2081318283%2C-8800462.812721074%2C3973183.230082687&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&noData=&compression=&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "frame": {
+    "bbox_wgs84": [
+     -79.064097,
+     33.579622,
+     -79.055903,
+     33.584778
+    ],
+    "ground_m_per_px_1200w": 0.63
+   },
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
+   "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
+   "width": 1200,
+   "height": 900
+  },
+  {
+   "slug": "best-neighborhoods",
+   "file": "images/buyers/best-neighborhoods/cherry-grove-pier-from-above.webp",
+   "variants": {
+    "600": "images/buyers/best-neighborhoods/cherry-grove-pier-from-above-600w.webp",
+    "1200": "images/buyers/best-neighborhoods/cherry-grove-pier-from-above-1200w.webp"
+   },
+   "title": "Cherry Grove Pier from above with a label, NAIP aerial, April 2023",
+   "what": "Cherry Grove in North Myrtle Beach from above on April 10, 2023: Cherry Grove Pier running from the beach out past the surf, labelled, with beach houses along the streets behind the sand.",
+   "caption": "Cherry Grove Pier from above, running out past the surf, with beach houses behind the sand.",
+   "alt": "Cherry Grove from above: a long wooden pier labelled Cherry Grove Pier runs from a blue building on the beach out past the waves, with rows of beach houses along the streets behind the sand",
+   "place": {
+    "city": "North Myrtle Beach",
+    "sublocation": "Cherry Grove"
+   },
+   "source": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+   "source_name": "The National Map (USGS)",
+   "author": "USDA Farm Service Agency, NAIP",
+   "author_type": "Organization",
+   "license": "Public domain",
+   "license_url": "https://www.fsa.usda.gov/help/policies-and-links/",
+   "provenance": "U.S. government aerial photo: USDA National Agriculture Imagery Program (NAIP), South Carolina 2023, natural color, 60 cm, flown 2023-04-10 (tiles m_3307811_ne_17_060_20230410, m_3307812_nw_17_060_20230410; the service gives acquisition_date 2023-04-10). Exported by Chapter3 from the USGS National Map NAIP image service (exportImage, Web Mercator, cubic resampling, mosaic locked to Year=2023); the exact request is in source_request.",
+   "license_note": "The USGS service page says The National Map offers \"free downloads of public domain, NAIP compressed orthoimagery\". The USDA Farm Service Agency policy page says \"Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested.\" Planetary Computer's NAIP collection links the same FSA page as its license, titled \"Public Domain\". Read 2026-10-11 (batch 2026-10-a records); same source and terms.",
+   "terms_urls": [
+    "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer",
+    "https://www.fsa.usda.gov/help/policies-and-links/",
+    "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip"
+   ],
+   "taken": "2023-04-10",
+   "naip_tiles": [
+    "m_3307811_ne_17_060_20230410"
+   ],
+   "display_credit": "U.S. government aerial photo",
+   "credit": "Photo: USDA Farm Service Agency, NAIP, public domain, via The National Map (USGS). Labels by Chapter3 Realty.",
+   "digital_source_type": "composite",
+   "changes": "Chapter3 Realty cut this view from the NAIP service, adjusted the colors and added labels placed from county data",
+   "labels": [
+    "Cherry Grove Pier"
+   ],
+   "annotation_sources": {
+    "Cherry Grove Pier": "midpoint of the OpenStreetMap way 'Cherry Grove Pier' (man_made=pier), ends -78.633376,33.830027 and -78.631976,33.827436 (api.openstreetmap.org via Overpass); the pier is in neighborhoods-facts.md rows 203 and 245"
+   },
+   "source_request": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-8753826.394965447%2C4005601.8384339157%2C-8753055.961183332%2C4006179.6637705034&bboxSR=3857&imageSR=3857&size=2400%2C1800&format=png&pixelType=U8&interpolation=RSP_CubicConvolution&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22sortField%22%3A+%22Year%22%2C+%22sortValue%22%3A+%222050%22%2C+%22ascending%22%3A+true%2C+%22where%22%3A+%22Year%3D2023%22%7D&f=image&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&bandIds=0%2C1%2C2",
+   "frame": {
+    "bbox_wgs84": [
+     -78.63696,
+     33.827044,
+     -78.63004,
+     33.831356
+    ],
+    "ground_m_per_px_1200w": 0.53
+   },
+   "original_size": "2400x1800 (NAIP export, colors adjusted, labels drawn at 84 px, then resized)",
+   "method": "scratchpad r7/nrender.py and nconfig.json (labels from ground coordinates through the export bbox, never by eye); aerial/scripts/fetch.py",
+   "width": 1200,
+   "height": 900
   }
  ],
  "updated": "2026-10-13"

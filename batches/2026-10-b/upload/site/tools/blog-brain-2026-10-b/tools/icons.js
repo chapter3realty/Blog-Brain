@@ -58,6 +58,19 @@ const ICONS = {
   pin: { d: "M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z", c: [[12, 9.5, 2.5]] },
 };
 
+/* The glass set (batch 2026-10-b, owner 2026-10-14: "all icons ... need to look very modern"). Opt-in:
+   icon(name, { set: "glass" }) and iconInner(name, "glass") draw these, and tools/glass.js swaps them in
+   on a page with the glass theme. An icon not listed here draws the same in both sets. Each keeps its
+   meaning: a flag on a green, a dumbbell, an arched gate, a winding trail with a tree, an umbrella
+   over a wave. The default set is unchanged, so pages built without the theme are byte identical. */
+const ICONS_GLASS = {
+  golf: { d: "M8.5 18.5V3.5l8 3.6-8 3.6M3.5 19c0-1.4 3.8-2.5 8.5-2.5s8.5 1.1 8.5 2.5-3.8 2.5-8.5 2.5-8.5-1.1-8.5-2.5z", c: [[16, 15.2, 1.2]] },
+  fitness: { d: "M5.2 7.5h1.6a.7.7 0 0 1 .7.7v7.6a.7.7 0 0 1-.7.7H5.2a.7.7 0 0 1-.7-.7V8.2a.7.7 0 0 1 .7-.7zM17.2 7.5h1.6a.7.7 0 0 1 .7.7v7.6a.7.7 0 0 1-.7.7h-1.6a.7.7 0 0 1-.7-.7V8.2a.7.7 0 0 1 .7-.7zM7.5 12h9M2 12h2.5M19.5 12H22" },
+  gate: { d: "M3 21h18M5 21V9.5M19 21V9.5M5 9.5C7 6.8 9.4 5.5 12 5.5s5 1.3 7 4M12 5.5V21M8.5 7v14M15.5 7v14M5 15h14" },
+  trail: { d: "M5.5 21c.5-3 7.5-2.5 7.5-6.5S7.5 10.5 8 6.5M17.5 9.3V13", c: [[17.5, 6.5, 2.8], [8.2, 4, 1.2]] },
+  beach: { d: "M3 11a9 7.5 0 0 1 18 0q-2.25-1.5-4.5 0t-4.5 0-4.5 0-4.5 0zM12 11v8M2.5 21.5c3-1.4 6.3-1.4 9.5 0s6.5 1.4 9.5 0" },
+};
+
 /* Other words a spec may use for the same icon. */
 const ALIASES = {
   "swimming-pool": "pool", "indoor": "indoor-pool", "indoorpool": "indoor-pool",
@@ -83,16 +96,17 @@ function resolve(name) {
 }
 
 /* The inner markup of an icon (no <svg> wrapper), for use inside another SVG such as the area map. */
-function iconInner(name) {
-  const ic = ICONS[resolve(name)];
+function iconInner(name, set) {
+  const k = resolve(name), ic = (set === "glass" && ICONS_GLASS[k]) || ICONS[k];
   return `<path d="${ic.d}"/>` + (ic.c || []).map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}"/>`).join("");
 }
 
-/* A standalone inline icon. Options: size (px, default 24), stroke (default 1.75), style (extra inline CSS). */
+/* A standalone inline icon. Options: size (px, default 24), stroke (default 1.75), style (extra inline CSS),
+   set ("glass" draws the glass set where it has the icon). */
 function icon(name, opts = {}) {
   const size = opts.size || 24, sw = opts.stroke || 1.75;
   const style = opts.style ? ` style="${esc(opts.style)}"` : "";
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"${style}>${iconInner(name)}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"${style}>${iconInner(name, opts.set)}</svg>`;
 }
 
 /*
@@ -122,7 +136,7 @@ function atAGlance(items, opts = {}) {
   return `${title}<ul role="list" style="list-style:none;margin:1.2rem 0 1.6rem;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(${min},1fr));gap:.75rem;max-width:760px">${cards}</ul>`;
 }
 
-module.exports = { ICONS, ALIASES, ICON_NAMES, icon, iconInner, atAGlance, resolveIcon: resolve, esc };
+module.exports = { ICONS, ICONS_GLASS, ALIASES, ICON_NAMES, icon, iconInner, atAGlance, resolveIcon: resolve, esc };
 
 if (require.main === module) {
   for (const n of ICON_NAMES) {
