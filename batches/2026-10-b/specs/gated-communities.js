@@ -131,10 +131,10 @@ section:has(> .wrap > .c3g-area){padding-top:1.6rem!important;padding-bottom:0!i
    is the middle of its places' dots; its radius reaches the farthest of them, plus 0.8 km. */
 const AREAS = [
   ["nmb", "North Myrtle Beach"], ["mb", "Myrtle Beach and Carolina Forest"],
-  ["south", "Socastee to Murrells Inlet"], ["pawleys", "Pawleys Island to DeBordieu"],
+  ["south", "Socastee, Surfside Beach and Murrells Inlet"], ["pawleys", "Pawleys Island to DeBordieu"],
 ];
 /* Map pills: 32 letters at most (area-map.js), so a short name and the entry numbers. */
-const MAP_NAME = { nmb: "North Myrtle Beach", mb: "Myrtle Beach", south: "Surfside-Murrells Inlet", pawleys: "Pawleys Island" };
+const MAP_NAME = { nmb: "North Myrtle Beach", mb: "Myrtle Beach", south: "Socastee-Surfside-Murrells", pawleys: "Pawleys Island" };
 const nums = (a) => {
   const ns = E.filter((e) => e.area === a).map((e) => e.n);
   return ns.length === 1 ? String(ns[0]) : ns.length === 2 ? `${ns[0]} and ${ns[1]}` : `${ns[0]} to ${ns[ns.length - 1]}`;
@@ -195,7 +195,7 @@ function entry(id, head, paras, price, photo) {
 const SECTIONS_PLACES = [
   entry("tidewater-plantation", "nine holes along Cherry Grove Inlet", [
     "Tidewater, in North Myrtle Beach, has one of the best public courses in South Carolina: Golf Digest ranks it No. 38 in the state. Nine of its holes play along the tidal inlet at Cherry Grove.",
-    "The course opened in 1990, and Golf Digest and Golf Magazine both named it the best new public course in America that year. About seven in ten of the house lots touch the course. Golf membership is sold to residents and property owners of Horry, Georgetown and Brunswick counties.",
+    "The course opened in 1990. Golf Digest named it the best new public course in America that year. Golf Magazine put it first on its list of 1990's top 10 new public courses. About seven in ten of the house lots touch the course. Golf membership is sold to residents and property owners of Horry, Georgetown and Brunswick counties.",
     "Tidewater is inside North Myrtle Beach's city limits, with city services. It is on the Intracoastal Waterway, not the ocean, but the neighborhood keeps its own beach cabana, with parking, at Cherry Grove Beach.",
     "Tidewater has about 580 houses and one master association, with six smaller associations under it, so a house may answer to two associations. We check both for any home you like.",
   ], "Homes at Tidewater usually sell for about $625,000. The HOA fee is about $230 a month.",
@@ -298,8 +298,8 @@ const SECTIONS_PLACES = [
     "Litchfield by the Sea, near Pawleys Island, has about a mile of its own beach, with an oceanfront Beach Club, a deck and a pavilion.",
     `A guard works the main gate day and night. Owners' cars come in with a barcode, and each guest must be registered by the owner before the visit.`,
     "A normal week can include Tai Chi on Wednesday and yoga on Thursday at the Beach Club. In between there is crabbing off the docks on Osprey Lake and a walk on the paved paths through the marsh.",
-    "Many homes are condos and villas from the 1980s to the 2000s, and the Beach Club comes with the home. The association also lists single-family homes in Oystercatcher Island, Charlestowne Grant, Compass Point and River Club. Many of Charlestowne Grant's houses are raised beach houses.",
-    "It is many neighborhoods inside the gates, each with its own sub-association, and the HOA fee differs from section to section and from unit to unit. In the sections whose sales we read, condo and villa fees range from about $620 a month to about $1,880 for an oceanfront condo. Most of Charlestowne Grant's houses pay about $520 to $630.",
+    "Many homes are condos and villas from the 1980s to the 2000s, and the Beach Club comes with the home. The association also lists single-family homes in Charlestowne Grant, Compass Point and River Club, and freestanding villas in Oystercatcher Island. Many of Charlestowne Grant's houses are raised beach houses.",
+    "It is many neighborhoods inside the gates, each with its own sub-association, and the HOA fee differs from section to section and from unit to unit. In the sections whose sales we read, condo and villa fees range from about $620 a month to about $1,880 for an oceanfront condo.",
   ], "One-bedroom condos in Summerhouse usually sell for about $200,000, and four villas in Breakers Reef sold last year for about $1.5 million to $2.2 million.",
   ["litchfield-by-the-sea-from-above-2023", "Litchfield by the Sea from above: homes around a lake, large buildings by the beach and the Atlantic Ocean at the right."]),
 
@@ -343,7 +343,7 @@ const TABLE = (() => {
 
 /* A small heading above the first entry of each area, north to south (owner's eye 14e, H1): the page
    asks "where", and the entries already run in map order. Each is a slim section of its own. */
-const AREA_FIRST = { ...MAP_NAME, south: "Surfside Beach and Murrells Inlet" };
+const AREA_FIRST = { ...MAP_NAME, south: "Socastee, Surfside Beach and Murrells Inlet" };
 function withAreas(list) {
   const out = []; const seen = new Set();
   for (const s of list) {
@@ -402,7 +402,7 @@ module.exports = G.page({
       prosCons([
         "Most of these neighborhoods are built around something you use: a golf course, a marina, a boat ramp or a beach club.",
         "Some HOA fees cover more than the gate, such as security, cable or internet.",
-        "Several gates have a guard on duty day and night; others have a gatehouse or a watch desk.",
+        "Some gates have a guard on duty day and night; others have a gatehouse or a watch desk.",
       ], [
         { text: "Every guest, contractor and delivery has to get through the gate, so a party or a repair takes some planning." },
         { text: "Only two of the 18 are on the ocean, so from most of them a beach day starts in the car." },
