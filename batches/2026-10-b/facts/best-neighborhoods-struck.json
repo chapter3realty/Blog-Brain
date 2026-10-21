@@ -1177,5 +1177,195 @@
     "pattern": "\\bfrom The Farm's main entrance",
     "struck": "Myrtle Beach International Airport is about 20 minutes from The Farm's main entrance.",
     "use": "Myrtle Beach International Airport is about 20 minutes from the Farmers Rest Drive entrance of The Farm, and 20 to 25 from the middle of the neighborhood [OSRM, no traffic]."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bMost are raised beach houses",
+    "struck": "Most are raised beach houses with four bedrooms or more, a porch and a deck.",
+    "use": "Most of the houses listed for sale here are raised beach houses. [30 of 34 listings; all four features together hold on 10 of 34]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\braised beach houses with (four|4) bedrooms",
+    "struck": "Most are raised beach houses with four bedrooms or more, a porch and a deck.",
+    "use": "Most of the houses listed for sale here are raised beach houses."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bhalf of the yards (are|have)",
+    "struck": "about half of the yards are fenced",
+    "use": "(cut it) A 'Fence' feature on 12 of 24 listings is not the neighborhood's yards."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bfenced back yards?\\b",
+    "struck": "Most have a fenced back yard.",
+    "use": "(cut it) 'Fence' is a listing feature word, not a back yard; Avalon's listing set is not reproduced."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bprimary bedroom on the main (floor|level)",
+    "unless": "listed for sale",
+    "struck": "Most have the primary bedroom on the main floor, and many have a fireplace.",
+    "use": "Most of the houses listed for sale there have the primary bedroom on the main floor. [13 of 15 listings]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bhave a porch and a fireplace",
+    "struck": "Many of the houses have a porch and a fireplace, and a few have their own pool.",
+    "use": "Most of the houses listed for sale here have a porch. [16 of 22 listings]"
+  },
+  {
+    "row": "neighborhoods 288 (v10)",
+    "pattern": "\\bonly 13 lots border it",
+    "struck": "Few of the houses are on the course itself: only 13 lots border it.",
+    "use": "Few of these houses are on the course itself: only 13 of their 250 house lots border it. [county parcels; 28 house lots in all touch the course parcel]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bMost of the houses stand under tall trees",
+    "struck": "Most of the houses stand under tall trees.",
+    "use": "Many of the houses stand under tall trees. [aerial, no count]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bmostly one story or one and a half",
+    "struck": "The houses are mostly one story or one and a half, and many have a deck out back.",
+    "use": "Of the houses listed for sale, most are one story or one and a half. [11 of 16 listings]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bdeck out back\\b",
+    "struck": "many have a deck out back",
+    "use": "(cut it) The listing field says 'Deck', not where."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bMost were built in the 1990s and 2000s\\b",
+    "struck": "Most were built in the 1990s and 2000s.",
+    "use": "Most of the houses listed for sale were built in the 1990s and 2000s. [14 of 16 listings]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bEvery condo for sale here has four bedrooms",
+    "struck": "Every condo for sale here has four bedrooms, and most come furnished.",
+    "use": "The condos listed for sale here have four bedrooms, and most come furnished. [8 of 8 and 7 of 8 listings, October 2026]"
+  },
+  {
+    "row": "neighborhoods 252, 285 (v10)",
+    "pattern": "\\bOn a Saturday[^.]{0,60}Huntington",
+    "struck": "On a Saturday, Huntington Beach State Park is 12 minutes away by car.",
+    "use": "From the middle of Prince Creek, the entrance to Huntington Beach State Park is about 12 minutes by car. [OSRM, no traffic]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bolder houses here still have that look",
+    "struck": "The older houses here still have that look, in stucco.",
+    "use": "(cut it) 6 older listings are not the older houses of Grande Dunes."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bnew ones going up now are mostly plainer",
+    "unless": "listed for sale",
+    "struck": "The new ones going up now are mostly plainer, with fiber-cement siding.",
+    "use": "Most of the new houses listed for sale here are plainer, with fiber-cement siding. [16 of 22 listings]"
+  },
+  {
+    "row": "neighborhoods 289 (v10)",
+    "pattern": "\\bclub sells memberships",
+    "struck": "The club sells memberships, so a round can be part of a normal week.",
+    "use": "(cut it) The membership quote belongs to the Members Club; the master association calls the Resort Course public."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bMost houses here have a porch",
+    "struck": "Most houses here have a porch for the evening after.",
+    "use": "(cut it) 21 of 28 listings list a porch; that is not the neighborhood."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bmostly two stories or one and a half",
+    "struck": "The houses are big, mostly two stories or one and a half, on lots of about half an acre.",
+    "use": "The houses are big, on lots that are typically about half an acre. [county parcels, median 0.54 acre]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bMost houses here are two stories",
+    "struck": "Most houses here are two stories, and about half have a porch.",
+    "use": "Most of the houses listed for sale here are two stories. [18 of 25 listings]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\babout half have a porch",
+    "struck": "about half have a porch",
+    "use": "(cut it) 13 of 25 listings list a porch."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bThe townhomes are mostly two stories",
+    "struck": "The townhomes are mostly two stories, with two or three bedrooms.",
+    "use": "Most of the townhomes listed for sale are two stories. [10 of 13 listings]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bA few in the Market View section have three floors",
+    "struck": "A few in the Market View section have three floors and their own elevator.",
+    "use": "(cut it) Two listings."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bMost of the houses have a porch\\b",
+    "unless": "listed for sale",
+    "struck": "Most of the houses have a porch.",
+    "use": "Most of the houses listed for sale have a porch. [6 of 8 listings]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bgives a buyer two choices",
+    "struck": "that old golf land gives a buyer two choices",
+    "use": "(cut it) Six one-story listings do not make two kinds of house. Say: A typical lot is about a third of an acre, and new houses now stand on the old South Course."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bthese houses are 20 to 26 years old",
+    "struck": "The trade-off is age: these houses are 20 to 26 years old.",
+    "use": "The trade-off is age: the ones for sale are 20 to 26 years old. [13 listings built 2000 to 2006]"
+  },
+  {
+    "row": "neighborhoods 281 (v9 limit 2, v10)",
+    "pattern": "\\bMany back yards open onto",
+    "struck": "Many back yards open onto trees or water.",
+    "use": "(cut it) Back lines were not tested; many of the strips are grass."
+  },
+  {
+    "row": "neighborhoods 281 (v9 limit 2, v10)",
+    "pattern": "\\bopen land behind most houses",
+    "struck": "open land behind most houses",
+    "use": "open land next to most houses [843 of 1,292 house lots within 3 m of HOA land]"
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bmost of the houses are two stories",
+    "struck": "A buyer who wants one level has fewer choices here: most of the houses are two stories.",
+    "use": "A buyer who wants one level will find both one-story and two-story houses here. [the-farm page's own wording, v13 D2]"
+  },
+  {
+    "row": "neighborhoods 290 (v10)",
+    "pattern": "\\bhouse details come from all homes listed for sale",
+    "struck": "Fees and house details come from all homes listed for sale.",
+    "use": "Fees come from homes listed for sale, except The Farm's. House counts, lots and flood zones come from county parcels, and house features from the homes listed for sale."
+  },
+  {
+    "row": "neighborhoods 284, 291 (v10)",
+    "pattern": "\\bNone on most homes\\b",
+    "unless": "listed",
+    "struck": "None on most homes",
+    "use": "None on most homes listed for sale [the field is blank in the listing, rows 177 and 178]"
+  },
+  {
+    "row": "neighborhoods 211 (v10)",
+    "pattern": "\\bHolliday later renamed it Floral Beach",
+    "struck": "George J. Holliday later renamed it Floral Beach for his wife, Flora.",
+    "use": "George J. Holliday later bought the land and renamed it Floral Beach for his wife, Flora. [the source's 'it' is the property, not Surfside Beach]"
   }
 ]
