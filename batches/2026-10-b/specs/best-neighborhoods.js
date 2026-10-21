@@ -124,23 +124,24 @@ const GROUPS = [
   { icon: "beach", label: "Walk to the beach", items: [
     ["cherry-grove", "a record shark"],
     ["surfside-beach", "a free pier"]] },
-  { icon: "golf", label: "Golf at the door", items: [
+  { icon: "golf", label: "Golf close by", items: [
     ["pine-lakes", "golf since 1927"],
     ["tidewater", "houses on the fairways"],
-    ["barefoot-resort", "a swing bridge"],
+    ["barefoot-resort", "a waterway course"],
     ["prince-creek", "where pros played"],
-    ["wild-wing", "a Monday night league"],
-    ["grande-dunes", "a South Florida look"]] },
+    ["wild-wing", "a Monday night league"]] },
   { icon: "dock", label: "A boat or a paddle", items: [
     ["plantation-lakes", "pontoon boats"],
     ["waterbridge", "kayaks from a dock"]] },
   { icon: "shopping", label: "A town center you can walk", items: [
     ["market-common", "a Saturday market"]] },
+  { icon: "home", label: "New houses", items: [
+    ["grande-dunes", "a South Florida look"],
+    ["forestbrook-estates", "2018 or newer"],
+    ["deerfield", "new on old golf land"]] },
   { icon: "dollar", label: "More house for the money", items: [
-    ["forestbrook-estates", "garden plots"],
     ["avalon", "ball fields inside"],
-    ["deerfield", "golf-cart beach parking"],
-    ["the-farm", "open land out back"]] },
+    ["the-farm", "open land next door"]] },
 ];
 {
   const seen = GROUPS.flatMap((g) => g.items.map((i) => i[0]));
@@ -214,107 +215,103 @@ const ENTRIES = [
   ENTRY("cherry-grove", "a fishing pier with a world-record shark", [
     "In 1964 a 1,780-pound tiger shark was landed from Cherry Grove Pier, a world record at the time. The pier is about a 12-minute walk, about half a mile, from the middle of Cherry Grove.",
     `A public beach access is about a tenth of a mile from the center of the neighborhood. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the beach")} all year, except at midday in summer.`,
-    "Away from the condo towers on the ocean, Cherry Grove's streets hold about 1,700 houses. Most are raised beach houses with four bedrooms or more, a porch and a deck.",
-    "In 1950 an inlet was filled to join Futch Beach to the Nixon family's Cherry Grove land, and the joined place was named Cherry Grove Beach. Later, Cherry Grove joined Ocean Drive, Crescent Beach and Windy Hill to form the city of North Myrtle Beach.",
+    "Away from the condo towers on the ocean, Cherry Grove's streets hold about 1,700 houses. Most of the houses listed for sale here are raised beach houses.",
     "The trade-off is flood insurance. Almost every home here is in a high-risk flood zone, where a lender usually requires flood insurance.",
   ], "Houses in Cherry Grove usually sold for about $695,000 last year. More than half of the homes for sale here are listed with no homeowners association (HOA) fee."),
 
   ENTRY("surfside-beach", "a free concrete pier with two restaurants", [
     `The ocean side of Surfside Beach has its own town pier, and ${h.ext(SSB_PIER, "walking onto it is free")}. The concrete pier runs 814 feet into the ocean, with two restaurants, an ice cream shop and a bait and tackle shop.`,
     "The pier and the sand are about a nine-minute walk from the center of the neighborhood. A summer evening can end out on the pier, which stays open until one in the morning from April through October.",
-    "Surfside Beach began as part of a rice plantation called The Ark. George J. Holliday later renamed it Floral Beach for his wife, Flora. New owners gave it the name Surfside Beach, after a town in Florida.",
-    "Its streets mix older one-story ranch houses with raised beach houses, and about half of the yards are fenced.",
+    "Surfside Beach began as part of a rice plantation called The Ark, and its name came from a town in Florida. Its streets mix older one-story ranch houses with raised beach houses.",
     "About one home in four on the ocean side is in a high-risk flood zone, where a lender usually requires flood insurance.",
   ], "Houses on the ocean side of Surfside Beach usually sold for about $705,000 last year, and condos for about $405,000. Most homes for sale here are listed with no HOA fee."),
 
   ENTRY("pine-lakes", "where Sports Illustrated was planned", [
     `${h.ext(PINE_LAKES, "Sports Illustrated was planned at Pine Lakes")}. In 1954 a group of Time-Life executives came to play the course and plan a new weekly sports magazine.`,
     "Pine Lakes Country Club opened in 1927 as Myrtle Beach's first golf course. Robert White, a native of St. Andrews, Scotland, and the first president of the PGA of America, designed it. The club is known as The Granddaddy.",
-    "Beside the club, The Preserve at Pine Lakes and Pine Lakes Estates hold houses much newer than the course. Most have the primary bedroom on the main floor, and many have a fireplace. Owners in The Preserve share their own pool.",
-    "Few of the houses are on the course itself: only 13 lots border it.",
+    "Beside the club, The Preserve at Pine Lakes and Pine Lakes Estates hold houses much newer than the course. Most of the houses listed for sale there have the primary bedroom on the main floor. Owners in The Preserve share their own pool.",
+    "Few of the houses are on the course itself: only 13 of their 250 house lots border it.",
   ], "Houses here usually sold for about $600,000 last year, and a house in The Preserve pays an HOA fee of about $95 a month."),
 
   ENTRY("tidewater", "a neck of land between the waterway and the inlet", [
     "Tidewater Plantation is on a neck of land between the Intracoastal Waterway and Cherry Grove Inlet, with salt marsh along its edges. Inside it, about seven of every ten houses have lots that border the golf course.",
-    "Most of the houses stand under tall trees, and many streets curve between two fairways. Some carry sailing names, such as Spinnaker Drive and Topsail Lane.",
-    "The houses are mostly one story or one and a half, and many have a deck out back. Most were built in the 1990s and 2000s.",
+    "Many of the houses stand under tall trees. Many streets curve between two fairways, and some carry sailing names, such as Spinnaker Drive and Topsail Lane.",
     "The trade-off of a public course: golfers who do not live here play past the back yards.",
   ], "Houses in Tidewater usually sold for about $625,000 last year, and the HOA fee for a house is about $230 a month."),
 
-  ENTRY("barefoot-resort", "a swing bridge to the shops", [
-    "Barefoot Resort's road to the shops crosses a swing bridge from the 1930s, moved here from Edenton, North Carolina. Barefoot Landing's shops and restaurants are on the far side of the Intracoastal Waterway, about six minutes from the condos by car.",
+  ENTRY("barefoot-resort", "a golf course along the waterway", [
     `For a golfer, the Greg Norman course has seven holes along the waterway and wide fairways. Barefoot ${h.ext(BF_REPLAY, "sells a second round the same day")} at a lower rate, booked when the first round ends.`,
-    "Most homes in these sections are condos, about 390 of them, with about 80 houses. Every condo for sale here has four bedrooms, and most come furnished. Owners in two of the resort's associations share the North Tower pool beside the waterway.",
+    "Barefoot Resort's road to the shops crosses a swing bridge from the 1930s, moved here from Edenton, North Carolina. Barefoot Landing's shops and restaurants are on the far side of the Intracoastal Waterway, about six minutes from the condos by car.",
+    "Most homes in these sections are condos, about 390 of them, with about 80 houses. The condos listed for sale here have four bedrooms, and most come furnished. Owners in two of the resort's associations share the North Tower pool beside the waterway.",
     "The trade-off is the condo fee: about $680 a month.",
   ], "Homes in these Barefoot sections, mostly condos, usually sold for about $430,000 last year."),
 
   ENTRY("prince-creek", "a course where the pros played", [
     `Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course. Tom Watson won the Senior PGA Tour Championship there in 2000, and ${h.ext(TPC, "Lee Trevino and Gary Player")} have played it too.`,
-    `On a Saturday, ${h.ext(HBSP, "Huntington Beach State Park")} is 12 minutes away by car. It has a wide beach, Atalaya, a Moorish-style winter home, and a freshwater lake where alligators are easy to spot.`,
-    "Prince Creek mixes houses and townhomes, in sections of their own, and builders have also sold new townhomes here for about $320,000. The HOA fee is about $100 to $390 a month, depending on the section. Our agents check which section a home is in before you make an offer.",
-    "Most of the houses are not on the course itself: of about 640 houses in Prince Creek, about 19 have lots that border it.",
+    `From the middle of Prince Creek, the entrance to ${h.ext(HBSP, "Huntington Beach State Park")} is about 12 minutes by car. The park has a wide beach, Atalaya, a Moorish-style winter home, and a freshwater lake where alligators are easy to spot.`,
+    "Prince Creek mixes houses and townhomes, in sections of their own, and builders have also sold new homes here for about $320,000. The HOA fee is about $100 to $390 a month, depending on the section. Our agents check which section a home is in before you make an offer.",
+    "Most of the houses are not on the course itself: of about 640 houses in Prince Creek outside the Seasons section, about 19 have lots that border it.",
   ], "Homes in Prince Creek usually sold for about $490,000 last year."),
 
   ENTRY("wild-wing", "a Monday night golf league", [
     `On summer Monday nights, Wild Wing runs a ${h.ext(WW_LEAGUE, "community golf league")}. Teams play nine holes on its Hummingbird course, with a playoff at the end of the season.`,
     "Wishbones Bar and Grill, at the club, has a full bar and two indoor TrackMan golf simulators. The main course, the Avocet, was designed by Jeff Brauer and Larry Nelson.",
-    "Many streets are named for water birds, such as Wood Stork Drive and Black Skimmer Drive. The lots along them are big, more than a third of an acre in a typical case. Many of the houses have a porch and a fireplace, and a few have their own pool.",
+    "Many streets are named for water birds, such as Wood Stork Drive and Black Skimmer Drive. The lots along them are big, more than a third of an acre in a typical case.",
     "Wild Wing is inside the city of Conway, and a beach day starts with a drive of about 20 minutes.",
   ], "Houses in Wild Wing usually sold for about $600,000 last year, and the HOA fee is about $135 a month."),
-
-  ENTRY("grande-dunes", "a South Florida look on the waterway", [
-    `Grande Dunes was built to look like South Florida. Its ${h.ext(GD_SUN, "first houses followed the style")} of the Florida builder Addison Mizner, with tile roofs, stucco, columns and arches. The older houses here still have that look, in stucco. The new ones going up now are mostly plainer, with fiber-cement siding.`,
-    "For a golfer, the Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. The National Golf Course Owners Association named it its course of the year in 2009. The club sells memberships, so a round can be part of a normal week. Most houses here have a porch for the evening after.",
-    "Most houses for sale here are new or not yet finished. If you want an older house with a grown yard, we watch the resales for you.",
-  ], "Homes in Grande Dunes usually resold for about $1.4 million last year, and the HOA fee for a house is about $200 to $400 a month."),
 
   ENTRY("plantation-lakes", "pontoon boats on a lake with 15 miles of shoreline", [
     `Owners at Plantation Lakes ${h.ext(PL_POA, "take pontoon boats out")} on a lake with about 15 miles of shoreline. About two of every three houses have lots that border the water, and some have a dock of their own.`,
     "An owner can take the boat to the amenity area, which has day and overnight docks and a boat ramp. On a cool evening, the clubhouse has a great room with a fireplace and a reading and card room.",
-    "The houses are big, mostly two stories or one and a half, on lots of about half an acre.",
+    "A house lot here is typically about half an acre.",
     "Boats on the lake are limited to 19 feet, with small motors.",
   ], "Houses in Plantation Lakes usually sold for about $740,000 last year, and the HOA fee is about $125 a month."),
 
   ENTRY("waterbridge", "kayaks from a floating dock, and potluck Thursdays", [
     "Waterbridge owners can launch a kayak on the neighborhood's lakes from a floating dock. The lakes take only boats with no motor or an electric one.",
     "Walking paths cross the water on bridges. The HOA's calendar holds card nights, bunco, mahjong, a book club and potluck Thursdays, and the fitness center at the clubhouse is open around the clock.",
-    "Most houses here are two stories, and about half have a porch. Owners also have a storage area for boats and jet skis. It is full now, so we ask about a space before you offer.",
-    "About 90 new houses were sold here in the past year, mostly by builders, and some of the newest streets are still filling in.",
+    "Owners also have a storage area for boats and jet skis. It is full now, so we ask about a space before you offer.",
+    "Builders are still selling new houses on the newest streets.",
   ], "Resale houses in Waterbridge usually sold for about $630,000 last year, and new ones from builders for about $550,000. The HOA fee is about $150 a month."),
 
   ENTRY("market-common", "a Saturday market you can walk to", [
     `From the middle of The Market Common, ${h.ext(MARKET, "the farmers market")} at Valor Park is about a five-minute walk. It is held on Saturdays from April to mid-December.`,
     "The neighborhood stands on the old Myrtle Beach Air Force Base, which closed in 1993. Three Air Force jets, among them an A-10 Warthog, stand in Warbird Park, on loan to the city.",
     "Grand Park, with seven ball fields, picnic shelters and a playground, is a two-minute walk from the middle of the neighborhood. The houses and townhomes are close together, beside a district of shops and offices.",
-    "The townhomes are mostly two stories, with two or three bedrooms. A few in the Market View section have three floors and their own elevator.",
     "The trade-off is a townhome's HOA fee: about $300 to $680 a month.",
   ], "Houses in The Market Common usually sold for about $540,000 last year, and townhomes for about $398,000."),
 
+  ENTRY("grande-dunes", "a South Florida look, and new houses", [
+    `Grande Dunes was built to look like South Florida. Its ${h.ext(GD_SUN, "first houses followed the style")} of the Florida builder Addison Mizner, with tile roofs, stucco, columns and arches. Most of the new houses listed for sale here are plainer, with fiber-cement siding.`,
+    "For a golfer, the Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. The National Golf Course Owners Association named it its course of the year in 2009.",
+    "Most houses for sale here are new or not yet finished. If you want an older house with a grown yard, we watch the resales for you.",
+  ], "Homes in Grande Dunes usually resold for about $1.4 million last year, and the HOA fee for a house is about $200 to $400 a month."),
+
   ENTRY("forestbrook-estates", "a community garden by the pool", [
     "Forestbrook Estates has a community garden with plots for owners, on the same grounds as the community pool.",
-    "The neighborhood was once known as Kingsland. Lennar began building it in 2018, and every house the county approved is now built: 500 houses, with about 105 townhomes beside them. Most of the houses have a porch.",
-    "The houses are built around ponds, and every home here is outside the high-risk flood zone. Our agents check the HOA rules on golf carts before you make an offer.",
+    "Lennar developed it from 2018 on, and every house the county approved is now built: 500 houses, with about 105 townhomes beside them.",
+    "The houses are built around ponds, and every home here is outside the high-risk flood zone.",
     "The trade-off is the yard: a house lot here is about a sixth of an acre.",
   ], "Houses in Forestbrook Estates usually sold for about $395,000 last year, and the HOA fee is under $90 a month."),
+
+  ENTRY("deerfield", "new houses on old golf land", [
+    "Deerfield is built around the old Deer Track golf courses near Surfside Beach. A typical lot is about a third of an acre, and new houses now stand on the old South Course.",
+    "In 2012 the state Court of Appeals ruled that the old golf land did not have to stay golf, and building on it went ahead.",
+    "The owners' association owns about 14 acres of lake and canals among the homes. The beach is about seven minutes away by car, and at the closest access all three parking spaces are for golf carts.",
+    "On the old North Course, building has only begun, so homes near it are beside a building site.",
+  ], "Homes in the Deerfield Plantation area usually sold for about $355,000 last year, and the HOA fee is under $90 a month."),
 
   ENTRY("avalon", "ball fields in the middle of the neighborhood", [
     "In the middle of Avalon, the owners' association holds about nine acres of amenity land with a baseball field, soccer fields and a beach volleyball court. A ball game needs no drive.",
     "The same grounds have a playground, and the association holds a second, smaller amenity area too. Avalon is in Carolina Forest, about a 20-minute drive from the beach.",
-    "The houses are a mix of one-story and two-story, and most have a fenced back yard. Almost every one is outside the high-risk flood zone. The ones for sale were built between 2000 and 2006 and have about 1,700 square feet.",
-    "The trade-off is age: these houses are 20 to 26 years old, so our agents check the age of the roof and the air conditioner for you.",
+    "The houses are a mix of one-story and two-story, and almost every one is outside the high-risk flood zone. The ones for sale have about 1,700 square feet.",
+    "The trade-off is age. The ones for sale were built between 2000 and 2006, so our agents check the roof and the air conditioner for you.",
   ], "Houses in Avalon usually sold for about $290,000 last year, and the HOA fee is about $84 a month."),
 
-  ENTRY("deerfield", "old golf land, two kinds of house", [
-    "Deerfield is built around the old Deer Track golf courses near Surfside Beach, and that old golf land gives a buyer two choices. One is an older one-story brick house on a wooded lot of about a third of an acre. The other is a new house on the old South Course.",
-    "After the golf land was sold in 2006, homeowners went to court to keep it as golf. A special referee found no such restriction on the land, and the state Court of Appeals affirmed in 2012.",
-    "The owners' association owns about 13 acres of lake and canals among the homes. The beach is about seven minutes away by car, and at the closest access all three parking spaces are for golf carts.",
-    "On the old North Course, building has only begun, so homes near it are beside a building site.",
-  ], "Homes in the Deerfield Plantation area usually sold for about $355,000 last year, and the HOA fee is under $90 a month."),
-
-  ENTRY("the-farm", "open land behind most houses", [
-    "About two of every three houses at The Farm border land the HOA owns: ponds, woods and open space, about 280 acres of it. Many back yards open onto trees or water.",
-    "The houses are on curving streets, with townhomes and condos in sections of their own, and a typical house has about 1,900 square feet. A beach morning starts with a drive of about 12 minutes from the middle of the neighborhood.",
-    "A buyer who wants one level has fewer choices here: most of the houses are two stories.",
+  ENTRY("the-farm", "open land next to most houses", [
+    "About two of every three houses at The Farm border land the HOA owns: ponds, woods and open space, about 280 acres of it.",
+    "The houses are on curving streets, with townhomes and condos in sections of their own. Houses listed here in recent years usually have about 1,900 square feet. A beach morning starts with a drive of about 12 minutes from the middle of the neighborhood.",
+    "A buyer can choose a one-story or a two-story house here.",
     `Our ${h.a(FARM, "guide to The Farm at Carolina Forest")} has its pools, its schools and its HOA rules.`,
   ], "Houses at The Farm usually sold for about $350,000 last year, and the HOA fee for a house is $107 a month."),
 ];
@@ -341,12 +338,12 @@ module.exports = G.page({
   eyebrow: "Choosing a neighborhood",
   h1: "What are the best neighborhoods in Myrtle Beach?",
   h1em: "Pick by what you love.",
-  sub: "Fifteen neighborhoods, from Cherry Grove to Murrells Inlet.",
+  sub: "Fifteen neighborhoods near Myrtle Beach, grouped by what each does best, with the usual price and HOA fee.",
   toc: false,
   author: "devin",
   heroCta: { title: "Tell us what you want nearby. We will send three neighborhoods.", text: "One of our agents sends the list, with the homes for sale in each. There is no charge.", label: "Get three neighborhoods", href: OFFER },
   shortAnswer: [
-    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For golf at the door, Tidewater. For a boat, Plantation Lakes. For a town center you can walk, The Market Common. For a lower price, Avalon.",
+    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For golf close by, Tidewater. For a new house, Grande Dunes. For a boat, Plantation Lakes. For a town center you can walk, The Market Common. For a lower price, Avalon.",
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "What each does best", id: "choose", html:
@@ -381,7 +378,7 @@ module.exports = G.page({
     { name: "County parcels", href: PARCELS },
     { name: "Census maps", href: TIGER },
   ],
-  sourcesNote: `Prices are middle resales over 12 months. Fees and house details come from all homes listed for sale. Times start at the center of each place. ${PHOTO_CREDIT}`,
+  sourcesNote: `Prices are middle resales over 12 months. Fees and house features come from homes for sale; counts, lots and flood zones from county parcels. ${PHOTO_CREDIT}`,
   afterSources: () => { const cr = ph.credits(); return cr.slice(cr.indexOf("<script")) + ITEMLIST(); },
   bottomCta: { h2: "Tell us what you want close to home. We will send three neighborhoods.", p: "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each.", label: "Get three neighborhoods", href: OFFER },
   keywords: "best neighborhoods in Myrtle Beach, best places to live in Myrtle Beach, best areas to live in Myrtle Beach, best communities in Myrtle Beach, best neighborhoods in North Myrtle Beach, best neighborhoods in Surfside Beach, Myrtle Beach neighborhoods map, Carolina Forest vs Myrtle Beach",
