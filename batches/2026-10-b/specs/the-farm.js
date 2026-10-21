@@ -291,6 +291,9 @@ module.exports = G.page({
     "Houses with yards usually sold for about $350,000 in the past year.",
   ],
   sections: [
+    /* Round 15 (owner, 2026-10-21: "easier for someone to get hooked and start scrolling"): the homes for
+       sale in The Farm right under the top offer, once the listing search is on; empty and hidden until then. */
+    { id: "homes-now", html: G.homesCss() + G.homes("the-farm", "The Farm") + "<style>main#main .detail-hero .detail-sub{display:none}</style>" },
     { h2: "What makes The Farm at Carolina Forest different?", toc: "What makes it different", html: (bg) =>
       ph.css() +
       h.p(`Conway Medical Center planned a $160 million healthcare facility on the 353 acres along The Farm's north edge. The state bought the land instead, for the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")}.`) +
@@ -315,7 +318,6 @@ module.exports = G.page({
       h.p("The Orchards has about 200 townhomes, and Planters Point has about 70 condos, most with two or three bedrooms.") +
       h.p("Most houses here are about 20 years old. On any house you tour, we check how old the roof and the air conditioner are.") +
       h.p("Over the past year, a typical townhome in The Orchards sold for about $230,000, and a condo in Planters Point about $240,000.") +
-      G.homesCss() + G.homes("the-farm", "The Farm") +
       G.offer("The Farm", { label: "Book a showing in The Farm", href: PLACE_HREF }) },
 
     { h2: "Where is The Farm at Carolina Forest?", toc: "Where it is", html: (bg) =>
