@@ -6,7 +6,7 @@ Screenshots: `/tmp/claude-0/-home-user-Blog-Brain/8900fb2a-1006-5ba7-88a3-019838
 
 ## Grade: 8 of 10
 
-Set before I read 14e. The top is short and the list is given once. Every entry leads with something only that place has and ends with its own offer. It looks modern. Most of 14e is fixed. It is not a 9 because four entries spend a paragraph on history where the owner's day should be, three entries have no normal day, the guide has no way to choose by new homes or space (the brief asked for both), and a new slot has grown: stories and porches.
+Set before I read 14e. The top is short, the list is given once, every entry ends with its own offer, and it looks modern. It is not a 9 because four entries spend a paragraph on history where the owner's day should be, three entries have no normal day, the guide has no way to choose by new homes or space (the brief asked for both), and a new slot has grown: stories and porches.
 
 ## His words, and this version's answer
 
@@ -32,7 +32,7 @@ Set before I read 14e. The top is short and the list is given once. Every entry 
 | affordable-places-to-live | 3,558 | 4 + figure | 12 | 31.3 | 2.29 | Yearly cost table, 3.7 |
 | the-farm | 2,012 | 3 | n/a | 19.0 | n/a | FAQ, 2.3 |
 
-All seven photos show the subject. Every entry has price, fee, beach time, trade-off and offer. Not the weakest of the set.
+All seven photos show the subject. Not the weakest of the set.
 
 ## Findings
 
@@ -83,17 +83,11 @@ Not counted (owner questions): the subscribe box line and the investor footer li
 
 ## The 14e findings
 
-- **H1 photos:** remains; counted once as L2.
-- **H2 parcel slot:** fixed. Counts remain only where they are the point (Cherry Grove, Barefoot, Prince Creek, Forestbrook). "Lately" is gone. The bordering share is in 5, with Wild Wing's cut. The next slot grew (M4).
-- **M1 ponds and gallons:** fixed; two fee trade-offs remain (L6).
-- **M2 grocery stores:** fixed. Prince Creek has one day (see M6).
-- **M3 Pine Lakes in the short answer:** fixed (Tidewater). The group label remains (M1).
-- **M4 leads:** Deerfield fixed; Tidewater partly (M3).
-- **M5 method:** fixed; one sentence left (L3).
-- **M6 Grande Dunes:** partly. The 2000 sale and builder names are cut; there is still no day (M3).
-- **Lows:** L2, L3, L4 and L5 fixed. L1 (dek) and L6 (credits) remain.
+- Fixed: H2 (the parcel slot; counts stay only where they are the point, and "lately" is gone), M1 (ponds and gallons), M2 (grocery stores), M3 (Tidewater is now in the short answer), M5 (method), and L2 to L5.
+- Partly fixed: M4 (Deerfield is fixed; Tidewater is not, see M3) and M6 (the 2000 sale and the builder names are cut, but there is still no day).
+- Remains: H1 (photos, counted as L2), L1 (the dek) and L6 (the credits, now L4).
 
-`repeat-check --strict` passes: no repeated sentences or shapes; "owners" 8, "minutes" 7 (was 9) and "course" 7 of 15, fine on a golf-heavy page; entries 101 to 167 words. It does not see M4.
+`repeat-check --strict` passes. "Minutes" is down from 9 entries to 7. It does not see M4.
 
 ## Keep these
 
@@ -103,8 +97,8 @@ Not counted (owner questions): the subscribe box line and the investor footer li
 
 ## One-line answers
 
-1. Every entry leads with something a buyer could not guess; Tidewater, Grande Dunes and The Farm do not sell the day under it (M3), and Forestbrook's lead is weak (M5).
-2. No label lines; the only field-like prose is the stories and porch slot (M4).
-3. Yes, 15 of 15, linked with the place named.
-4. Yes: glass cards, chips, pills and table; no chart; a clean map.
-5. No picture is unclear; eight entries have none (L2).
+1. Yes, every lead; but Tidewater, Grande Dunes and The Farm sell no day (M3), and Forestbrook's lead is weak (M5).
+2. No label lines; the stories and porch slot is field-like (M4).
+3. Yes, 15 of 15.
+4. Yes; no chart; the map is clean.
+5. None unclear; eight entries have none (L2).
