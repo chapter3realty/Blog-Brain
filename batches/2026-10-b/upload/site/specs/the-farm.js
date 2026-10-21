@@ -317,8 +317,7 @@ module.exports = G.page({
       h.p("Some houses have five bedrooms or more. Most have about 1,450 to 3,200 square feet. Some are one story and some are two.") +
       h.p("The Orchards has about 200 townhomes, and Planters Point has about 70 condos, most with two or three bedrooms.") +
       h.p("Most houses here are about 20 years old. On any house you tour, we check how old the roof and the air conditioner are.") +
-      h.p("Over the past year, a typical townhome in The Orchards sold for about $230,000, and a condo in Planters Point about $240,000.") +
-      G.offer("The Farm", { label: "Book a showing in The Farm", href: PLACE_HREF }) },
+      h.p("Over the past year, a typical townhome in The Orchards sold for about $230,000, and a condo in Planters Point about $240,000.") },
 
     { h2: "Where is The Farm at Carolina Forest?", toc: "Where it is", html: (bg) =>
       h.p(`The Farm is in ${h.a(HUB, "Carolina Forest")}, on Carolina Forest Boulevard, outside the Myrtle Beach city limits.`) +
@@ -349,8 +348,7 @@ module.exports = G.page({
       ]) +
       h.p(`Cable TV from Spectrum is the largest share of the ${h.ext(BUDGET, "fee")}. The fee also covers landscaping and the ponds, trash pickup and the pools. We confirm with the HOA whether internet is in the fee.`) +
       h.p("Townhomes in The Orchards and condos in Planters Point pay a second HOA fee as well. Owners in The Orchards pay about $225 to $255 a month in all, and in Planters Point about $450 to $500.") +
-      h.p("The county adds a stormwater fee of about $90 a year to the tax bill. On an ordinary sale, the buyer pays the HOA a one-time $250 transfer fee at closing.") +
-      G.offer("The Farm", { label: "Book a showing in The Farm", href: PLACE_HREF }) },
+      h.p("The county adds a stormwater fee of about $90 a year to the tax bill. On an ordinary sale, the buyer pays the HOA a one-time $250 transfer fee at closing.") },
 
     { h2: "What are the pros and cons of living in The Farm at Carolina Forest?", toc: "Pros and cons", html: (bg) =>
       prosCons([
@@ -375,8 +373,7 @@ module.exports = G.page({
         "<strong>Example:</strong> The house Rachel and Luis found in The Farm has a big back yard, and they picture a pool in it.",
         "Before they make an offer, their Chapter3 agent reads the HOA rules with them. No lot in The Farm may have a private swimming pool. A hot tub is allowed with the HOA committee's approval.",
         "Rachel and Luis buy the house anyway. They swim at The Farm's large pool and plan a hot tub for the yard.",
-      ], "", bg) +
-      G.offer("The Farm", { label: "Book a showing in The Farm", href: PLACE_HREF }) },
+      ], "", bg) },
 
     { h2: "Was The Farm at Carolina Forest part of an old bombing range?", toc: "Old bombing range", html:
       h.p("Yes. From 1942 to 1948, the Army Air Force used the land as a bombing and gunnery range, along with other parts of Carolina Forest. The Army Corps of Engineers has finished the cleanup work on the land under every home in The Farm.") +

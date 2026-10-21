@@ -189,10 +189,10 @@ index f18567e9..845f87b7 100644
  
  <section style="background:var(--ivory)"><div class="wrap"><p style="${S.eyebrow}">City or county</p><h2 style="${S.h2}">Incorporated or unincorporated: what changes</h2><p style="${S.p}">Incorporated means the address sits inside a city or town that runs its own services and writes its own rules. Unincorporated means the county does both. It does not show up in a listing, and it changes four bills.</p><h3 style="${S.h3}">Sales tax</h3><p style="${S.p}">Nine percent inside the City of Myrtle Beach, eight percent in the county. Groceries are untaxed either way.</p><h3 style="${S.h3}">Trash</h3><p style="${S.p}">Curbside collection is a city service. Outside city limits you arrange it yourself, and the options and costs are on the ${A('/buyers/relocating/moving-checklist/', 'new resident checklist')}.</p><h3 style="${S.h3}">Beach parking</h3><p style="${S.p}">The free resident parking decal is issued by the city to city residents. Living two streets outside the line means paying at the meters.</p><h3 style="${S.h3}">The HOA is separate from all of it</h3><p style="${S.p}">City limits decide the four bills above. The covenants on your deed decide how you live in the house, and they apply whether you are inside a town or not. Most newer neighborhoods here have an association; older streets and rural land often do not. Before you offer, read what the covenants say about boats, campers, work vehicles, fences, sheds, pools, exterior paint and pets, and read what the dues cover. We pull the ${A('/hoa/documents/', 'documents')} for any address, and the ${A('/hoa/', 'HOA guides')} explain ${A('/hoa/dues-increases/', 'dues increases')}, ${A('/hoa/special-assessments/', 'special assessments')} and ${A('/hoa/violations-and-fines/', 'violations and fines')} before you are living with them.</p><h3 style="${S.h3}">Golf carts and rentals</h3><p style="${S.pLast}">Each town writes its own golf cart rules, and the county writes them for unincorporated areas, so a cart that is street-legal in one neighborhood may not be in the next. Renting your house out works the same way: the town or county decides, and your HOA can say no on top of that. Check the rules for the specific address, not the town name.</p></div></section>
 diff --git a/tools/mkpage.js b/tools/mkpage.js
-index 911fc296..cedfe124 100644
+index 911fc296..e1b0ae17 100644
 --- a/tools/mkpage.js
 +++ b/tools/mkpage.js
-@@ -225,10 +225,21 @@ function build(spec) {
+@@ -225,10 +225,23 @@ function build(spec) {
       playbook, 2026-10-11): in the hero it came before the answer and pushed the answer
       further down the first phone screen. spec.heroCta.text, when set, is one sentence
       before the button. */
@@ -204,8 +204,10 @@ index 911fc296..cedfe124 100644
 +     come from this one function, so they look the same. The first offer's headline is a <p>
 +     with the H2's style, so the page outline keeps one heading per section. */
 +  const offerBand = (o, tag) => `<section style="background:var(--navy);padding:3rem 0"><div class="wrap" style="text-align:center;max-width:720px;margin:0 auto"><${tag} style="font-family:var(--serif);font-size:1.7rem;color:var(--ivory);margin-bottom:1rem">${o.title}</${tag}>${tag === "h2" || o.text ? `<p style="color:rgba(244,239,232,.75);line-height:1.7;margin-bottom:1.6rem">${o.text}</p>` : ""}<a class="btn btn-brass btn-lg" href="${o.href}">${o.label}</a></div></section>`;
-+  const heroBand = spec.heroCta.title ? offerBand(spec.heroCta, "p") : "";
-+  const heroCta = heroBand ? "" : `${spec.heroCta.text ? `<p ${P}>${spec.heroCta.text}</p>` : ""}<div style="margin-top:1.4rem"><a class="btn btn-brass btn-lg" href="${spec.heroCta.href}">${spec.heroCta.label}</a></div>`;
++  /* spec.heroCta: false (owner, 2026-10-21): no offer under the short answer; on a page whose
++     listings strips are the offer, the page moves from the short answer into its guide. */
++  const heroBand = spec.heroCta && spec.heroCta.title ? offerBand(spec.heroCta, "p") : "";
++  const heroCta = heroBand || !spec.heroCta ? "" : `${spec.heroCta.text ? `<p ${P}>${spec.heroCta.text}</p>` : ""}<div style="margin-top:1.4rem"><a class="btn btn-brass btn-lg" href="${spec.heroCta.href}">${spec.heroCta.label}</a></div>`;
    const parts = [];
    parts.push(`<main id="main"><div class="detail-hero bg-grid"><div class="wrap"><div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="${hub.url}">${hub.name}</a><span>/</span><span style="color:var(--muted)">${spec.crumb}</span></div><p class="eyebrow" style="margin-bottom:1rem">${spec.eyebrow}</p><h1 class="detail-h1">${spec.h1}<br/><em style="font-style:italic;color:var(--brass)">${spec.h1em}</em></h1>${heroMedia}<p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">${byline}</p><p class="detail-sub">${spec.sub}</p></div></div>`);
 -  parts.push(`<section style="background:var(--${saBg})"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">The short answer</p>${(Array.isArray(spec.shortAnswer) ? spec.shortAnswer : [spec.shortAnswer]).map(t => `<p ${P}>${t}</p>`).join("")}${heroCta}${toc}</div></section>`);
@@ -216,7 +218,7 @@ index 911fc296..cedfe124 100644
    for (const x of secs) parts.push(`<section style="background:var(--${x.bg})"${x.id ? ` id="${x.id}"` : ""}><div class="wrap">${x.s.h2 ? `<h2 ${H2}${x.s.toc ? ` data-toc="${String(x.s.toc).replace(/&/g, "&amp;").replace(/"/g, "&quot;")}"` : ""}>${x.s.h2}</h2>` : ""}${x.body}</div></section>`);
    const srcLinks = spec.sources.map(x => `<a href="${x.href}" ${EXT}>${x.name}</a>`).join(", ");
    /* Optional spec.afterSources: small print that belongs with the sources line, such as the
-@@ -237,7 +248,7 @@ function build(spec) {
+@@ -237,7 +250,7 @@ function build(spec) {
       no longer sit between the last section and the FAQ (Blog-Brain playbook, component 19). */
    const afterSources = typeof spec.afterSources === "function" ? spec.afterSources() : (spec.afterSources || "");
    parts.push(`<section style="background:var(--${faqBg})" id="${faqId}"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Common questions</p><h2 ${H2}>${spec.faqTitle}</h2>${spec.faq.map(f => `<h3 ${H3}>${f.q}</h3><p ${P}>${f.a}</p>`).join("")}<p style="font-size:.78rem;color:var(--muted);line-height:1.7;max-width:760px;margin-top:1.6rem"><strong style="color:var(--navy)">Sources:</strong> ${srcLinks}. ${spec.sourcesNote || "Educational only, not legal or tax advice."}</p>${afterSources}</div></section>`);

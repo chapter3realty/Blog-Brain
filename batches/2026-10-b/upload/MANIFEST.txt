@@ -1,6 +1,6 @@
-Upload package for batch 2026-10-b. Built 2026-10-21 from Blog-Brain ae73371 against the live branch at 39036014.
+Upload package for batch 2026-10-b. Built 2026-10-21 from Blog-Brain 425efcb against the live branch at 39036014.
 size  sha256  path
-133516  033cf99ee9fffeba37abb36f3345275eec1b8c6b59000d3502a036f3a506bf35  batch-2026-10-b.patch
+133738  4edd15b13eb4c1c7974b49852dc32287cb999759ff0031a898613031c76c7b65  batch-2026-10-b.patch
 88016  7b4aa8d381762154a1cebc0c7d61a9897560dd63c38fc4a042146ce2c9cf0c03  site/chapter3realty/images/buyers/affordable/conway-main-street-downtown-1200w.webp
 25752  59977f7db974a4186c8e1c03d93eac8caf7457970aa630e094eadb0328035856  site/chapter3realty/images/buyers/affordable/conway-main-street-downtown-600w.webp
 139206  0d2c34be98a68f17768b9960bee7b801c24f502a936ed707382022fdd998bc2d  site/chapter3realty/images/buyers/affordable/old-speedway-and-victory-point-labelled-from-above-1200w.webp
@@ -81,7 +81,7 @@ size  sha256  path
 13831  a112ec10182083a72e085693b3c7592430b5ea35b140e4b27c70bc979d1f1842  site/data/2026-10-b/gated-georgetown-sales.json
 8796  26a06b8f621953db79219ce7ce14e51aa998bebd047f7f203b293666665a7a62  site/data/2026-10-b/gated-map.json
 47513  9cbe314a4b9be18cfdd36c483153997396073e6e11abf9b843a9b21f825e86bf  site/data/2026-10-b/gated-mls-sold.json
-21681  5b0edad0ef0d8fdbd97c7b271ddbc063e91605a20d664cfba8e0a7befba6a4c8  site/data/2026-10-b/idx-places.json
+13230  387ca4ec2b9ba2051e52a2e332944a524b98559542bf948abb281820418714fc  site/data/2026-10-b/idx-places.json
 46187  3fec561651891850b0517dcd50e467c6f34651e882994b90c66ad01b109ecc59  site/data/2026-10-b/neighborhoods.json
 31964  58a9caa1bd5f41b138894f52792c6dce516545d478859ff32fb2eaf8ba2df747  site/data/2026-10-b/no-hoa-areas.json
 21574  74b8f7482b3139df606355ef33654d9fffcb6cb3fbd93b099dcfb057de35d417  site/data/2026-10-b/no-hoa-bands.json
@@ -92,18 +92,18 @@ size  sha256  path
 3933  bad440bfd4b900acca3839666db76c2e5ec14f8293226101179fdb6b683281b2  site/data/55-plus-communities.json
 22595  70599e247d45a1780d39ecfc295a8b6924b332e087d59bb387457d4b146e01c8  site/data/places.json
 4066  d2003d639bc0a896c0eac44d4cdbc517b033322530d3c51b77ebab7140da53d4  site/specs/_kit.js
-40238  fdd3683279175ccd7c4e7472d50b8aa1f13a0db0f29e4fb0b2b705fa0664f6fd  site/specs/affordable-places-to-live.js
-36347  e9356b60d6e37c3f8bbd86b9faf6bdbd7d5fd3712a559b2f1cdccbf93a1c8ad4  site/specs/best-neighborhoods.js
-45115  1da588fe307e1beff634073b07af4e9dcf6d72ec92cdc1b69c48f1a11bdbb71f  site/specs/gated-communities.js
-63960  e4059e0b177b03511b78048cb4272d8e1242b3c6c8c96c8ea4a7b5ab211e21c2  site/specs/no-hoa-homes.js
+40140  c3f0199ccd4d1cdc5c5b0c909aa69e7cc7623148d4a72986076daa192d50b4d8  site/specs/affordable-places-to-live.js
+36118  f7dc76ec4bf003e46953e16530d5eccef8285c1a5deca7dd2c075bb7901f3591  site/specs/best-neighborhoods.js
+44915  0a47a9066bcd5175eb86a63d2080f70869160be12525055d08173364fc33f039  site/specs/gated-communities.js
+63535  48d8ac4d87ced4bb0395c1424b9aec01b3d22e9412bcdf42fd18841e62535f19  site/specs/no-hoa-homes.js
 19855  e45f38fc989ebbc2b6c81061cb6daff57dd5116f6ed1e2affed7729ec6f5993c  site/specs/seasons-at-prince-creek-west.js
-37395  f464c907334511022e8b244dc2fa9c7a526c010a4101ffcd193320f7516238bd  site/specs/the-farm.js
+37134  612da084bdb113d359ce8660c0d5f8713da377f14cb39b31da82d2422225e47e  site/specs/the-farm.js
 10182  5ec11d7c1db5b05cee1488be81dd6627305fa43ae4a621be3dc9dc5da549e8a3  site/tools/blog-brain-2026-10-b/rules/claims.json
 166511  877b759734cedf107657aae90ec166d6e052f132361f8f659172dbbea21ec561  site/tools/blog-brain-2026-10-b/tools/area-map.js
 18596  6829e28a49b7b3b8ac481b688be545877f8c0202231a610b093443e420d92ab8  site/tools/blog-brain-2026-10-b/tools/compare.js
 284941  2ff852011d32f6c9ced35c31486d90ca4465d1f941889ab4f13314a005a58261  site/tools/blog-brain-2026-10-b/tools/geo/grand-strand-v2.json
 11334  b1b7aef0cc78648c818a682f24981e027ec4641a12d70c5cb717ee3b3a170d54  site/tools/blog-brain-2026-10-b/tools/geo/grand-strand.json
-38535  e6a616ab2cbd57489bdf21107cc5f6de0b4afd925cb32c194cd525984b1ea687  site/tools/blog-brain-2026-10-b/tools/glass.js
+36748  22dc4f9277a3585f8b34f547b377649ea4287d047905bc6d1534181242804002  site/tools/blog-brain-2026-10-b/tools/glass.js
 11103  79e0cf2fcaea449a671f669c335ad19288c55d7426dd8f25b4f94c369bc8c51b  site/tools/blog-brain-2026-10-b/tools/icons.js
 26907  41838d1a56bcec681723626b0638fdc77068ecba032032f41790603ebfaf366a  site/tools/blog-brain-2026-10-b/tools/illustrations.js
 28258  6bb7e921f34527a6852e073e7809ec6d7e0519411643937abbe230cba3b31c39  site/tools/blog-brain-2026-10-b/tools/page-kit.js

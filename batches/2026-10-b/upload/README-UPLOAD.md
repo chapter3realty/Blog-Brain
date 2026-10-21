@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-21 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain ae73371, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
+Built 2026-10-21 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 425efcb, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -44,10 +44,11 @@ Patches applied, in this order, to make `batch-2026-10-b.patch`:
 1. `website-patches/mkpage-offer-box.patch`
 2. `website-patches/build-place-entries.patch`
 3. `website-patches/contact-place-prefill.patch`
-4. `batches/2026-10-b/affordable-inbound-links.diff`
-5. `batches/2026-10-b/gated-communities-links.diff`
-6. `batches/2026-10-b/golf-guide-gates.diff`
-7. `batches/2026-10-b/the-farm-inbound-links.diff`
+4. `website-patches/mkpage-no-hero-cta.patch`
+5. `batches/2026-10-b/affordable-inbound-links.diff`
+6. `batches/2026-10-b/gated-communities-links.diff`
+7. `batches/2026-10-b/golf-guide-gates.diff`
+8. `batches/2026-10-b/the-farm-inbound-links.diff`
 
 Not applied:
 
@@ -196,31 +197,31 @@ Everything already matched the partials - nothing to do.
 ### PASS: node tools/mkpage.js specs/best-neighborhoods.js
 
 ```
-wrote chapter3realty/buyers/best-neighborhoods/index.html (155773 bytes, hero sub 11 words, main 4181 words)
+wrote chapter3realty/buyers/best-neighborhoods/index.html (145558 bytes, hero sub 11 words, main 4011 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/gated-communities.js
 
 ```
-wrote chapter3realty/buyers/gated-communities/index.html (187162 bytes, hero sub 13 words, main 6037 words)
+wrote chapter3realty/buyers/gated-communities/index.html (172148 bytes, hero sub 13 words, main 5834 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/no-hoa-homes.js
 
 ```
-wrote chapter3realty/buyers/no-hoa-homes/index.html (264895 bytes, hero sub 14 words, main 7460 words)
+wrote chapter3realty/buyers/no-hoa-homes/index.html (199335 bytes, hero sub 14 words, main 7145 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/affordable-places-to-live.js
 
 ```
-wrote chapter3realty/buyers/affordable-places-to-live/index.html (185832 bytes, hero sub 19 words, main 4484 words)
+wrote chapter3realty/buyers/affordable-places-to-live/index.html (176097 bytes, hero sub 19 words, main 4321 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/the-farm.js
 
 ```
-wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (138173 bytes, hero sub 20 words, main 2928 words)
+wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (134788 bytes, hero sub 20 words, main 2864 words)
 ```
 
 ### PASS: specs/seasons-at-prince-creek-west.js in the package is Blog-Brain batches/2026-10-a/specs/seasons-at-prince-creek-west.js, as it is today
@@ -347,7 +348,7 @@ llms-full.txt carries the header date - run 'node build.js llmsfull' if page tex
 ### PASS: node build.js llmsfull
 
 ```
-llms-full.txt regenerated: 136 pages, 1519KB, dated 2026-10-21.
+llms-full.txt regenerated: 136 pages, 1517KB, dated 2026-10-21.
 ```
 
 ### PASS: node build.js check
@@ -396,7 +397,7 @@ OK - all 136 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 141 pages from commit a1c40868 on claude/github-account-check-wutg8b.
+OK - deploying 141 pages from commit 0d4215dc on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
@@ -404,85 +405,86 @@ OK - deploying 141 pages from commit a1c40868 on claude/github-account-check-wut
 
 ```
 /buyers/best-neighborhoods/  Best Neighborhoods in Myrtle Beach by What You Love | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2138 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2046 words)
 ```
 
 ### PASS: score.js --only /buyers/gated-communities/
 
 ```
 /buyers/gated-communities/  Gated Communities in Myrtle Beach: 18 Neighborhoods | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3563 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3503 words)
+  100% H3  A visual element (table, list, chart, image, callout) every 350 words  10 visuals for 3503 words (1 per 350): 1 tables, 4 lists, 0 charts, 5 images, 0 callouts
 ```
 
 ### PASS: score.js --only /buyers/no-hoa-homes/
 
 ```
 /buyers/no-hoa-homes/  Homes With No HOA Near Myrtle Beach: 16 Areas, Boats, Prices
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3974 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3864 words)
 ```
 
 ### PASS: score.js --only /buyers/affordable-places-to-live/
 
 ```
 /buyers/affordable-places-to-live/  Most Affordable Places to Buy Near Myrtle Beach | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2349 words)
-   96% P2  Few numbers: 3.5 or fewer per 100 words of prose  3.6 per 100 words (86 numbers in 2372 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2264 words)
+   93% P2  Few numbers: 3.5 or fewer per 100 words of prose  3.8 per 100 words (86 numbers in 2287 words)
 ```
 
 ### PASS: score.js --only /submarkets/carolina-forest/the-farm/
 
 ```
 /submarkets/carolina-forest/the-farm/  The Farm at Carolina Forest: HOA Fee, Pools, Rules | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1348 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1330 words)
 ```
 
 ### PASS: struck-check.js /buyers/best-neighborhoods/
 
 ```
-/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
+/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/gated-communities/
 
 ```
-/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
+/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/no-hoa-homes/
 
 ```
-/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
+/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/affordable-places-to-live/
 
 ```
-/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
+/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /submarkets/carolina-forest/the-farm/
 
 ```
-/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
+/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
 ```
 
 ### PASS: structure-check.js --strict /buyers/best-neighborhoods/
 
 ```
 5. Field sentences (information): 0 of 13 entries are half or more fixed fields; 4 of 13 have at least one
-     1. Cherry Grove: 0 of 11 sentences (0%)
-     2. Surfside Beach, ocean side: 1 of 11 sentences (9%): "Most homes for sale here are listed with no HOA fee."
-     3. Pine Lakes: 0 of 11 sentences (0%)
-     4. Tidewater Plantation: 0 of 6 sentences (0%)
-     5. Barefoot Resort: 1 of 9 sentences (11%): "In the Yacht Club Villas, North Tower, Dye Townhomes and the Retreat, most homes are condo"
-     6. Prince Creek: 0 of 10 sentences (0%)
-     7. Wild Wing Plantation: 0 of 9 sentences (0%)
-     8. Plantation Lakes: 1 of 8 sentences (13%): "A house lot here is typically about half an acre."
-     9. Waterbridge: 1 of 10 sentences (10%): "The HOA fee is about $150 a month."
-     10. The Market Common: 0 of 8 sentences (0%)
-     11. Deerfield Plantation area: 0 of 7 sentences (0%)
-     12. Avalon: 0 of 10 sentences (0%)
-     13. The Farm at Carolina Forest: 0 of 7 sentences (0%)
+     1. Cherry Grove: 0 of 10 sentences (0%)
+     2. Surfside Beach, ocean side: 1 of 10 sentences (10%): "Most homes for sale here are listed with no HOA fee."
+     3. Pine Lakes: 0 of 10 sentences (0%)
+     4. Tidewater Plantation: 0 of 5 sentences (0%)
+     5. Barefoot Resort: 1 of 8 sentences (13%): "In the Yacht Club Villas, North Tower, Dye Townhomes and the Retreat, most homes are condo"
+     6. Prince Creek: 0 of 9 sentences (0%)
+     7. Wild Wing Plantation: 0 of 8 sentences (0%)
+     8. Plantation Lakes: 1 of 7 sentences (14%): "A house lot here is typically about half an acre."
+     9. Waterbridge: 1 of 9 sentences (11%): "The HOA fee is about $150 a month."
+     10. The Market Common: 0 of 7 sentences (0%)
+     11. Deerfield Plantation area: 0 of 6 sentences (0%)
+     12. Avalon: 0 of 8 sentences (0%)
+     13. The Farm at Carolina Forest: 0 of 6 sentences (0%)
 
 strict: passes
 ```
@@ -491,19 +493,19 @@ strict: passes
 
 ```
      5. Waterway Palms Plantation: 1 of 8 sentences (13%): "Homes usually sell for about $780,000, and the HOA fee is about $150 a month."
-     6. The Bluffs on the Waterway: 1 of 9 sentences (11%): "Homes here usually sell for about $850,000; the HOA fee is about $150 a month."
-     7. Myrtle Beach Golf and Yacht Club: 1 of 9 sentences (11%): "In the older part, homes usually sell for about $225,000."
-     8. Prestwick: 1 of 9 sentences (11%): "Homes usually sell for about $480,000, and the HOA fee is about $190 a month."
+     6. The Bluffs on the Waterway: 1 of 8 sentences (13%): "Homes here usually sell for about $850,000; the HOA fee is about $150 a month."
+     7. Myrtle Beach Golf and Yacht Club: 1 of 8 sentences (13%): "In the older part, homes usually sell for about $225,000."
+     8. Prestwick: 1 of 8 sentences (13%): "Homes usually sell for about $480,000, and the HOA fee is about $190 a month."
      9. Seasons at Prince Creek West (55+): 0 of 8 sentences (0%)
-     10. Bellwood Landing: 1 of 9 sentences (11%): "Homes here usually sell for about $810,000, and the HOA fee is about $160 a month."
-     11. Wachesaw Plantation: 1 of 13 sentences (8%): "Homes usually sell for about $700,000, and the HOA fee on most homes is about $150 a month"
-     12. Wachesaw East: 1 of 8 sentences (13%): "Homes usually sell for about $500,000, and the HOA fee is about $145 a month."
-     13. The Reserve: 1 of 10 sentences (10%): "Homes usually sell for about $1.3 million, and the HOA fee on most homes is about $320 a m"
-     14. Willbrook Plantation: 1 of 10 sentences (10%): "Homes usually sell for about $840,000, and the HOA fee is about $340 a month."
+     10. Bellwood Landing: 1 of 8 sentences (13%): "Homes here usually sell for about $810,000, and the HOA fee is about $160 a month."
+     11. Wachesaw Plantation: 1 of 12 sentences (8%): "Homes usually sell for about $700,000, and the HOA fee on most homes is about $150 a month"
+     12. Wachesaw East: 1 of 7 sentences (14%): "Homes usually sell for about $500,000, and the HOA fee is about $145 a month."
+     13. The Reserve: 1 of 9 sentences (11%): "Homes usually sell for about $1.3 million, and the HOA fee on most homes is about $320 a m"
+     14. Willbrook Plantation: 1 of 9 sentences (11%): "Homes usually sell for about $840,000, and the HOA fee is about $340 a month."
      15. Litchfield Plantation: 1 of 12 sentences (8%): "The HOA fee on most homes is about $230 a month."
-     16. Litchfield by the Sea: 0 of 12 sentences (0%)
-     17. Heritage Plantation: 1 of 10 sentences (10%): "Homes usually sell for about $710,000, and the HOA fee is about $325 a month."
-     18. DeBordieu Colony: 1 of 16 sentences (6%): "Homes here usually sell for about $2 million, and the HOA fee is about $300 to $400 a mont"
+     16. Litchfield by the Sea: 0 of 11 sentences (0%)
+     17. Heritage Plantation: 1 of 9 sentences (11%): "Homes usually sell for about $710,000, and the HOA fee is about $325 a month."
+     18. DeBordieu Colony: 1 of 15 sentences (7%): "Homes here usually sell for about $2 million, and the HOA fee is about $300 to $400 a mont"
 
 strict: passes
 ```
@@ -511,20 +513,20 @@ strict: passes
 ### PASS: structure-check.js --strict /buyers/no-hoa-homes/
 
 ```
-     3. Pine Lakes' older streets: 1 of 13 sentences (8%): "Houses with no HOA fee here are listed at about $930,000."
-     4. Windy Hill: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $745,000."
-     5. Crescent Beach: 2 of 17 sentences (12%): "Lots are small, about 7,600 square feet."
-     6. Ocean Drive: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $665,000."
-     7. Cherry Grove: 1 of 15 sentences (7%): "Houses with no HOA fee here are listed at about $850,000."
-     8. Little River: 1 of 15 sentences (7%): "Houses with no HOA fee here are listed at about $420,000."
-     9. Socastee: 0 of 13 sentences (0%)
-     10. Surfside Beach: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $940,000."
-     11. Garden City Beach: 1 of 10 sentences (10%): "Houses with no HOA fee here are listed at about $1.4 million."
-     12. Murrells Inlet's north end: 1 of 13 sentences (8%): "Houses with no HOA fee here are listed at about $820,000."
-     13. Conway: 1 of 16 sentences (6%): "Houses with no HOA fee here are listed at about $285,000."
-     14. Loris: 2 of 11 sentences (18%): "The older houses were built from the 1940s to the 1970s, on lots of about 0.4 acre."
-     15. The country around Loris: 1 of 9 sentences (11%): "Houses with no HOA fee here are listed at about $415,000."
-     16. Aynor: 1 of 13 sentences (8%): "Houses with no HOA fee here are listed at about $370,000."
+     3. Pine Lakes' older streets: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $930,000."
+     4. Windy Hill: 1 of 11 sentences (9%): "Houses with no HOA fee here are listed at about $745,000."
+     5. Crescent Beach: 2 of 16 sentences (13%): "Lots are small, about 7,600 square feet."
+     6. Ocean Drive: 1 of 11 sentences (9%): "Houses with no HOA fee here are listed at about $665,000."
+     7. Cherry Grove: 1 of 14 sentences (7%): "Houses with no HOA fee here are listed at about $850,000."
+     8. Little River: 1 of 14 sentences (7%): "Houses with no HOA fee here are listed at about $420,000."
+     9. Socastee: 0 of 12 sentences (0%)
+     10. Surfside Beach: 1 of 11 sentences (9%): "Houses with no HOA fee here are listed at about $940,000."
+     11. Garden City Beach: 1 of 9 sentences (11%): "Houses with no HOA fee here are listed at about $1.4 million."
+     12. Murrells Inlet's north end: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $820,000."
+     13. Conway: 1 of 15 sentences (7%): "Houses with no HOA fee here are listed at about $285,000."
+     14. Loris: 2 of 10 sentences (20%): "The older houses were built from the 1940s to the 1970s, on lots of about 0.4 acre."
+     15. The country around Loris: 1 of 8 sentences (13%): "Houses with no HOA fee here are listed at about $415,000."
+     16. Aynor: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $370,000."
 
 strict: passes
 ```
@@ -534,18 +536,18 @@ strict: passes
 ```
 4. An offer per place: 12 of 12 entries have one
 5. Field sentences (information): 0 of 12 entries are half or more fixed fields; 3 of 12 have at least one
-     1. Parkview: 0 of 12 sentences (0%)
-     2. The Fairways at Wild Wing: 0 of 7 sentences (0%)
-     3. Sawgrass East: 0 of 8 sentences (0%)
-     4. Birchwood: 0 of 11 sentences (0%)
-     5. Myrtle Beach Golf and Yacht Club: 1 of 9 sentences (11%): "Most houses there were built in the 1980s, with two or three bedrooms and two baths."
-     6. Forestbrook Village: 1 of 9 sentences (11%): "At Forestbrook Village, Lennar has four townhome plans, from about 1,450 up to 2,400 squar"
-     7. Victory Point: 0 of 10 sentences (0%)
-     8. The Townes at Amber Bluff: 0 of 10 sentences (0%)
-     9. Villas at Sandridge: 0 of 9 sentences (0%)
-     10. Indigo Grove: 0 of 9 sentences (0%)
-     11. Wynbrooke: 0 of 7 sentences (0%)
-     12. Polo Farms: 1 of 10 sentences (10%): "Most of the houses are one story, with three bedrooms, on lots of about a fifth of an acre"
+     1. Parkview: 0 of 11 sentences (0%)
+     2. The Fairways at Wild Wing: 0 of 6 sentences (0%)
+     3. Sawgrass East: 0 of 7 sentences (0%)
+     4. Birchwood: 0 of 10 sentences (0%)
+     5. Myrtle Beach Golf and Yacht Club: 1 of 8 sentences (13%): "Most houses there were built in the 1980s, with two or three bedrooms and two baths."
+     6. Forestbrook Village: 1 of 8 sentences (13%): "At Forestbrook Village, Lennar has four townhome plans, from about 1,450 up to 2,400 squar"
+     7. Victory Point: 0 of 9 sentences (0%)
+     8. The Townes at Amber Bluff: 0 of 9 sentences (0%)
+     9. Villas at Sandridge: 0 of 8 sentences (0%)
+     10. Indigo Grove: 0 of 8 sentences (0%)
+     11. Wynbrooke: 0 of 6 sentences (0%)
+     12. Polo Farms: 1 of 9 sentences (11%): "Most of the houses are one story, with three bedrooms, on lots of about a fifth of an acre"
 
 strict: passes
 ```
@@ -553,7 +555,7 @@ strict: passes
 ### PASS: structure-check.js --strict /submarkets/carolina-forest/the-farm/
 
 ```
-structure-check /tmp/package-2026-10-b-LCGKU5/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html
+structure-check /tmp/package-2026-10-b-SsjkcW/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html
 H1: What is it like to live in The Farm at Carolina Forest?
 no numbered entries: not a list of places, so checks 1, 2 and 4 do not apply
 3. Label lines in the entries: 0
