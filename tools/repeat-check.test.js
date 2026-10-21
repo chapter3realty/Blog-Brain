@@ -237,6 +237,17 @@ ok("sentences: initials do not split a sentence", sentences("Its golf course, de
   ok("offer pill quiet: \"Book a showing in X\" in a .c3-offer is not a device or a shape", !showing(quiet) && !quiet.shapes.some((x) => /showing/.test(x.shape || JSON.stringify(x))), JSON.stringify(quiet.devices.map((x) => x.device)));
   ok("offer pill fires: the same line as a plain paragraph is a device", showing(loud), JSON.stringify(loud.devices.map((x) => x.device)));
 }
+/* Round 15: the price line that closes each entry (<p class="c3-place-price">) is the offer zone too; the
+   same line as a plain paragraph still fires. */
+{
+  const names = ["Tidewater Plantation", "Barefoot Resort", "Prestwick", "Bellwood Landing"];
+  const line = (cls, name) => `<p${cls ? ' class="c3-place-price"' : ""}>Houses in ${name} usually sold for about $500,000 last year, and the HOA fee is about $200 a month.</p>`;
+  const withLines = (cls) => { let i = 0; return page({ entries: [G.tidewater, G.barefoot, G.prestwick, G.bellwood] }).replace(/<\/figure>/g, (m) => m + line(cls, names[i++])); };
+  const quiet = analyze(withLines(true)), loud = analyze(withLines(false));
+  const sold = (r) => r.shapes.some((x) => /usually sold for/.test(JSON.stringify(x))) || r.devices.some((x) => /usually|sold/.test(x.device));
+  ok("price line quiet: the closing price line in a .c3-place-price is not a shape or a device", !sold(quiet), JSON.stringify(quiet.shapes.slice(0, 2)));
+  ok("price line fires: the same line as a plain paragraph is a shape or a device", sold(loud), JSON.stringify(loud.shapes.slice(0, 2)));
+}
 
 {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "repeat-check-"));

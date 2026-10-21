@@ -226,7 +226,7 @@ const PRICE = {
   "wynbrooke": `Townhomes in Wynbrooke usually sold for about ${pr("wynbrooke")} last year, with an HOA fee of about $450 a month.`,
   "polo-farms": `Houses in Polo Farms usually sold for about ${pr("polo-farms")} last year, and the HOA fee is about $20 a month.`,
 };
-const placeCta = (id) => `<div class="c3-place-cta"><p>${PRICE[id]}</p>${G.offer(N[id].name)}</div>`;
+const placeCta = (id) => `<p class="c3-place-price">${PRICE[id]}</p>`; /* round 15: the price line; the homes strip is the offer */
 const entry = (id, short, html) => ({ h2: `${N[id].n}. ${N[id].name}: ${short}`, toc: N[id].map, id,
   html: (bg) => withStrip(id, html(bg)) + placeCta(id) });
 /* The homes strip takes the place of the photo (owner, 2026-10-21): where the entry has a photo, the
@@ -255,8 +255,7 @@ module.exports = G.page({
   h1em: "Twelve neighborhoods, and the best thing about each.",
   sub: "Affordable places near Myrtle Beach, with what the price buys in each: the house, the land and the drive.",
   toc: false,
-  heroCta: { title: "See any of them in person.", label: OFFER, href: CONTACT,
-    text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
+  heroCta: false, /* round 15 (owner, 2026-10-21): the homes strips are the offer */
   author: "devin",
   shortAnswer: [
     `Within about 20 minutes of a beach, these twelve neighborhoods near Myrtle Beach had the lowest prices last year. Homes in them usually sold for about ${pr("parkview")} to ${pr("polo-farms")}, against about ${money(MB_HOUSE)} for a Myrtle Beach home that is not a condo. Four of the twelve are neighborhoods of houses; the rest are townhomes.`,
@@ -282,7 +281,7 @@ module.exports = G.page({
       h.p(`At Sawgrass East, the HOA fee usually pays the insurance on the buildings, the lawn care, and the water, sewer and trash. In most townhomes here, an owner has no water or trash bill of their own, and the HOA cares for the lawns.`) +
       h.p("Many of the townhomes have three bedrooms, often with a one-car garage and the main bedroom downstairs.") +
       h.p("There are about 255 of them, built in the mid-2000s, around three small lakes that the HOA owns, with a pool and a clubhouse for owners. The county's Carolina Forest library and recreation center are on the boulevard that leads in.") +
-      h.p("The beach is the trade-off: it is about ten miles away by road.")),
+      h.p("The beach is about ten miles away by road, so a beach day means a drive.")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
       h.p("Birchwood is small: 77 lots, with new Lennar houses on lots of about a quarter acre and about 12 acres of open space. A quarter acre gives a new house a real backyard at this price.") +
@@ -322,7 +321,7 @@ module.exports = G.page({
       h.p(`At Shark Wake Park, a five-minute drive from Villas at Sandridge, a cable pulls wakeboard riders across the water. It is inside the ${h.ext(NMBPARK, "North Myrtle Beach Park and Sports Complex")}, which also has walking trails, two dog parks and an accessible playground.`) +
       h.p("Villas at Sandridge is a small community of 79 townhomes off SC 90 near Little River, with about 8 acres of shared open space. Dream Finders Homes built them with two stories and a one-car garage, and some plans have the main bedroom on the first floor.") +
       h.p(`The city's ${h.ext(NMBEXP, "new section of the park")} has added soccer and baseball fields, ponds, trails and two more playgrounds. The nearest beach is a seven-minute trip by car.`) +
-      h.p("The trade-off is the dues: they are higher than at the other new communities here.")),
+      h.p("Expect higher dues here than at the other new communities on this list.")),
 
     entry("indigo-grove", "new houses on open land, 13 minutes from the beach", () =>
       h.p("Most of Indigo Grove's new houses back onto about 22 acres of open space that the HOA owns. The beach is about 13 minutes away by car.") +

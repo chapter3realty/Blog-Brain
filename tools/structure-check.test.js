@@ -68,6 +68,14 @@ const CLEAN = { top: SHORT + `<section><div class="wrap">${OFFER_BOX}</div></sec
   ok("clean: a short opening, one map with its guide, an offer per place and one table pass --strict", r.strict.pass, JSON.stringify(r.strict));
   ok("clean: a list of 8 places, named before the colon", r.isList && r.entries.length === 8 && r.entries[2].name === "Barefoot Resort", JSON.stringify(r.entries.slice(0, 3)));
 }
+/* Round 15: a homes strip slot is the place's offer (owner, 2026-10-21: "the IDX will act as our CTA"). */
+{
+  const strip = (n) => `<div class="hx-strip" data-place="${slug(n)}" data-name="${n}"></div>`;
+  const r = analyze(page({ ...CLEAN, entryHtml: strip }));
+  ok("strip: an entry whose only offer is a homes strip passes --strict", r.strict.pass && r.offers.every((o) => o.ok), JSON.stringify(r.strict));
+  const r2 = analyze(page({ ...CLEAN, entryHtml: () => "<p>No offer and no strip here.</p>" }));
+  ok("strip: an entry with neither an offer nor a strip still fails --strict", !r2.strict.pass && r2.offers.some((o) => !o.ok), JSON.stringify(r2.strict));
+}
 
 /* ------------------------------------------------------------ 1. preamble */
 {

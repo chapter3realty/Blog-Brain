@@ -109,6 +109,25 @@ for (const [id, m] of mutations) {
   check(`${id}: fires`, r.credit !== null && r.credit < 1, `(${r.credit}: ${r.detail})`);
 }
 
+/* toc: a selection guide of cards (tools/glass.js guideCards) is not an "On this page" list (round 15). */
+{
+  const heads = '<section><div class="wrap"><h2 id="t-one">What does it cost?</h2><p>About $2,000.</p></div></section><section><div class="wrap"><h2 id="t-two">Who pays it?</h2><p>The owner.</p></div></section>';
+  const list = (cls) => `<div class="${cls}"><div class="c3-gcard"><h3>A want</h3><ul class="c3-gul"><li><a href="#t-one">Cost</a></li><li><a href="#t-two">Payer</a></li></ul></div></div>`;
+  const inGuide = base.replace("</main>", list("c3-gcards") + heads + "</main>");
+  const outside = base.replace("</main>", list("x") + heads + "</main>");
+  check("toc: guide cards are not read as an On this page list", credit(inGuide, "toc").credit === null, `(${credit(inGuide, "toc").detail})`);
+  check("toc: the same list outside the guide is still read as one", credit(outside, "toc").credit !== null && credit(outside, "toc").credit < 1, `(${credit(outside, "toc").detail})`);
+}
+
+/* ctas: a homes strip slot is a call to action (round 15, owner 2026-10-21: "the IDX will act as our CTA"). */
+{
+  const noButtons = base.replace(/<a class="btn btn-brass" href="#lead-form">[^<]*<\/a>/g, "");
+  const strips = noButtons.replace("</main>", '<div class="hx-strip" data-place="a" data-name="A"></div><div class="hx-strip" data-place="b" data-name="B"></div></main>');
+  check("ctas: two homes strips count as two calls to action", credit(strips, "ctas").credit === 1, `(${credit(strips, "ctas").detail})`);
+  const plainDiv = noButtons.replace("</main>", '<div class="hx-strip"></div><div class="strip" data-place="b"></div></main>');
+  check("ctas: a div without the strip's data-place does not count", credit(plainDiv, "ctas").credit < 1, `(${credit(plainDiv, "ctas").detail})`);
+}
+
 /* question-h2: a numbered list of places (owner, 2026-10-14) is left out of the count; the other headings still count. */
 {
   const entries = ["1. Surfside Beach: condos close to the sand", "2. Garden City: buildings on the marsh", "3. North Myrtle Beach: newer towers"]

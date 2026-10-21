@@ -180,7 +180,7 @@ function entry(id, head, paras, price, photo) {
   const [first, ...rest] = paras;
   return { h2: `${e.n}. ${e.label || e.name}: ${head}`, toc: `${e.n}. ${e.name}`, id, html: () =>
     h.p(first) + G.homes(id, e.name, photo ? ph.aerial(photo[0], photo[1], { closeUp: true }) : "") + rest.map((t) => h.p(t)).join("")
-    + `<div class="c3-place-cta" style="padding:.15rem 0 .15rem 1rem;border-left:3px solid var(--brass)">${h.p(price)}${G.offer(e.name)}</div>` };
+    + `<p class="c3-place-price">${price}</p>` };
 }
 
 const SECTIONS_PLACES = [
@@ -202,7 +202,7 @@ const SECTIONS_PLACES = [
     "Dye Estates, a gated neighborhood inside Barefoot Resort in North Myrtle Beach, surrounds the Dye Course, home of the Monday After the Masters. Hootie & the Blowfish host the charity pro-am each spring, and it brings celebrities and PGA Tour players to the course. Many of its houses are large custom homes, on lots of about two-thirds of an acre.",
     `Its gate is staffed. A guard works the main gate 24 hours a day, and owners drive through a resident lane with a barcode on the car. A guest gets in only when the owner has given the guard the guest's name and the date. At the second gate, an owner who has set up a gate code can let a guest in by phone. The guest calls from the keypad, and the owner presses 9.`,
     "Leatherleaf, the other gated neighborhood here, has 62 houses with the Love Course on every side. Davis Love III designed that course with Pinehurst No. 2 in mind, and Leatherleaf's Residents' Club has a lifestyle director who plans events.",
-    "In summer a free shuttle runs to the owners' beach cabana, which has key-fob parking, showers and a pet-washing station. In these two neighborhoods you call the driver 15 minutes ahead. At Barefoot a golf membership stays with certain houses: the seller gives it up at closing, and the buyer can take it over by enrolling within 60 days.",
+    "In summer a free shuttle runs to the owners' beach cabana, which has key-fob parking, showers and a pet-washing station. In these two neighborhoods you call the driver 15 minutes ahead. At Barefoot a golf membership stays with certain houses. The seller gives it up at closing, and the buyer can take it over by enrolling within 60 days.",
     "Most of Barefoot Resort has no gate. In Dye Estates no one may swim, boat or fish in the ponds. Lots there are still for sale with no deadline to build, so a house can go up next door at any time.",
   ], "Leatherleaf homes usually sell for about $700,000 to $975,000, with an HOA fee of about $390 a month. Two Dye Estates homes resold this past year, for about $1.4 million and about $2.5 million."),
 
@@ -214,7 +214,7 @@ const SECTIONS_PLACES = [
   ], "Homes in those three sections usually sell for about $1.5 million, and the HOA fee is about $200 to $400 a month."),
 
   entry("waterway-palms-plantation", "a Charleston-style plan around a lake", [
-    "Waterway Palms Plantation, in Carolina Forest, was planned to echo Charleston's Battery district. At its center the association owns a lake parcel of about 15 acres, and the clubhouse stands on a point in the lake, with water on three sides.",
+    "Waterway Palms Plantation, in Carolina Forest, was planned to echo Charleston's Battery district. At its center the association owns a lake parcel of about 15 acres. The clubhouse stands on a point in the lake, with water on three sides.",
     "Most houses sold here lately were built since 2020, and they are large: many are custom homes of about 3,000 to 3,800 square feet. Many rise two or three stories, some have an elevator, and lots on the Intracoastal Waterway often have a private dock. The neighborhood also has its own boat ramp on the waterway, so a boat can go in without a trip across town.",
     "The lots are small, and about one in five has no house on the county roll yet.",
   ], "Homes usually sell for about $780,000, and the HOA fee is about $150 a month."),
@@ -241,7 +241,7 @@ const SECTIONS_PLACES = [
   entry("prince-creek-55", "a clubhouse, indoor and outdoor pools and bocce", [
     "At Seasons at Prince Creek West, in Murrells Inlet, the builder listed a ballroom, a card room, an art studio and a billiards room in the clubhouse.",
     "Today the community has a clubhouse, indoor and outdoor pools, a fitness center, tennis and bocce. The Murrells Inlet MarshWalk is about a 10-minute drive.",
-    `Every occupied home must have a resident ${h.a(SEASONS, "55 or older")}. Most are one-story builder homes, about half of them 1,750 to 2,350 square feet, on lots of about a fifth of an acre, so the yards are small. The county roll shows a house on every lot.`,
+    `Every occupied home must have a resident ${h.a(SEASONS, "55 or older")}. Most are one-story builder homes, about half of them 1,750 to 2,350 square feet. They sit on lots of about a fifth of an acre, so the yards are small. The county roll shows a house on every lot.`,
   ], "Homes usually sell for about $500,000, and the HOA fee, about $340 a month, includes internet, trash pickup and lawn care."),
 
   entry("bellwood-landing", "big lots on Collins Creek, with TPC beyond the woods", [
@@ -281,7 +281,7 @@ const SECTIONS_PLACES = [
   entry("litchfield-plantation", "the owners own the plantation house", [
     "Near Pawleys Island, at the end of the Avenue of Live Oaks, stands Litchfield Plantation's house, and the owners own it. For about 50 years the developer controlled the association. In 2018 the owners took control after court challenges, and the house, its pool and about 7 acres passed to the association.",
     "The house and its avenue of oaks appear on a map of the land drawn in 1794. After taking it over, the owners repaired it and set up a club room, and it has hosted weddings to help pay for its upkeep. A terrace off the main room overlooks the old rice fields.",
-    "The gatehouse stands on the avenue. The association also owns a beach house on Pawleys Island, about 4 miles away by road, and a private marina on the river is an optional extra.",
+    "The gatehouse stands on the avenue. The association also owns a beach house on Pawleys Island, about 4 miles away by road. A private marina on the river is an optional extra.",
     "The old rice fields beside the community, about 330 acres, still belong to the original development company, not to the owners.",
   ], "Houses here usually sell for about $800,000 to $1.8 million. The HOA fee on most homes is about $230 a month."),
 
@@ -369,8 +369,7 @@ module.exports = G.page({
   h1: "Where are the gated communities near Myrtle Beach?",
   h1em: "From the Cherry Grove marsh to the ocean at DeBordieu.",
   sub: "Two of these gated communities sit on the ocean, and ten have golf.",
-  heroCta: { title: "Get this week's homes for sale in these gated neighborhoods", text: OFFER_SHORT, label: OFFER_LABEL, href: OFFER },
-  topOfferLine: "This week's gated homes for sale",
+  heroCta: false, /* round 15 (owner, 2026-10-21): the homes strips are the offer */
   author: "devin",
   toc: false,
   shortAnswer: [

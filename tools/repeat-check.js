@@ -137,8 +137,10 @@ function extract(html) {
        "Ready to make your next move" block puts its text and its button in two divs). */
     const btn = (x) => x.is("a.btn, .btn") || x.find("a.btn, .btn").length > 0;
     /* The glass theme's per-place offer pill (tools/glass.js offer(): <p class="c3-offer">) is one component
-       repeated by design in every entry, like the offer box (CRAFT 3, "Every place gets its own offer"). */
-    if (!el.closest(".c3-story").length && (box.children("a.btn, .btn").length || el.closest("[class*='cta'], .c3-offer").length ||
+       repeated by design in every entry, like the offer box (CRAFT 3, "Every place gets its own offer").
+       Round 15: so is the price line that closes each entry (<p class="c3-place-price">), now that the
+       homes strip is the offer. */
+    if (!el.closest(".c3-story").length && (box.children("a.btn, .btn").length || el.closest("[class*='cta'], .c3-offer, .c3-place-price").length ||
       box.next().length && btn(box.next()) && box.children("p, h2, h3").length <= 3 && !box.is("main, body, section"))) zone = "offer";
     const first = el.children().first();
     const label = first.is("strong, b") && el.text().trimStart().startsWith(first.text().trim()) && /:\s*$/.test(norm(first.text())) && norm(first.text()).split(" ").length <= 4 ? norm(first.text()).toLowerCase() : "";

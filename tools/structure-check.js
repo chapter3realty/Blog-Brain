@@ -41,7 +41,7 @@
  *      or with any bold label of 6 words or fewer that ends in a colon (--no-bold-labels turns that off).
  *      Fails --strict on any. Allowed: "Example:" over a labelled story (CRAFT 6) and "Sources:"
  *      (--allow-labels replaces that list). Each line of a paragraph is read: "<br>" starts a new one.
- *   4. An offer per place. Each entry holds a link or button to the contact page (/contact/, #contact,
+ *   4. An offer per place. Each entry holds a homes strip slot (div.hx-strip, round 15), or a link or button to the contact page (/contact/, #contact,
  *      #form) or a form, whose text names the place or says "homes", "houses", "townhomes", "showing" or
  *      "tour". Fails --strict when an entry has none.
  *   5. Field-list sameness (information). The share of each entry's sentences that carry only fixed fields:
@@ -383,7 +383,11 @@ function analyze(html, opts = {}) {
     const forms = $(root).find("form").toArray().filter(inE);
     const offerText = (a) => norm(`${visibleText($, a)} ${$(a).attr("aria-label") || ""} ${$(a).attr("value") || ""}`);
     const good = toContact.filter((a) => O.offerWords.test(offerText(a)) || e.variants.some((v) => variantRe(v).test(offerText(a))));
-    r.offers.push({ n: e.n, place: e.name, ok: good.length > 0, offer: good.length ? offerText(good[0]) : null,
+    /* A homes strip slot is the place's offer (owner, 2026-10-21: "the IDX will act as our CTA"): the
+       website fills it with the homes for sale there and a "See all" link to the sign-up. */
+    const strip = $(root).find("div.hx-strip[data-place]").toArray().filter(inE);
+    if (!good.length && strip.length) good.push(strip[0]);
+    r.offers.push({ n: e.n, place: e.name, ok: good.length > 0, offer: good.length ? (strip.includes(good[0]) ? `homes strip: ${$(good[0]).attr("data-place")}` : offerText(good[0])) : null,
       near: good.length ? null : toContact.length ? `contact link "${offerText(toContact[0])}" does not name the place or homes` : forms.length ? "a form with no button text that names the place" : null });
 
     const sents = [];

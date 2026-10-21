@@ -1,0 +1,17 @@
+diff --git a/tools/mkpage.js b/tools/mkpage.js
+index cedfe124..e1b0ae17 100644
+--- a/tools/mkpage.js
++++ b/tools/mkpage.js
+@@ -232,8 +232,10 @@ function build(spec) {
+      come from this one function, so they look the same. The first offer's headline is a <p>
+      with the H2's style, so the page outline keeps one heading per section. */
+   const offerBand = (o, tag) => `<section style="background:var(--navy);padding:3rem 0"><div class="wrap" style="text-align:center;max-width:720px;margin:0 auto"><${tag} style="font-family:var(--serif);font-size:1.7rem;color:var(--ivory);margin-bottom:1rem">${o.title}</${tag}>${tag === "h2" || o.text ? `<p style="color:rgba(244,239,232,.75);line-height:1.7;margin-bottom:1.6rem">${o.text}</p>` : ""}<a class="btn btn-brass btn-lg" href="${o.href}">${o.label}</a></div></section>`;
+-  const heroBand = spec.heroCta.title ? offerBand(spec.heroCta, "p") : "";
+-  const heroCta = heroBand ? "" : `${spec.heroCta.text ? `<p ${P}>${spec.heroCta.text}</p>` : ""}<div style="margin-top:1.4rem"><a class="btn btn-brass btn-lg" href="${spec.heroCta.href}">${spec.heroCta.label}</a></div>`;
++  /* spec.heroCta: false (owner, 2026-10-21): no offer under the short answer; on a page whose
++     listings strips are the offer, the page moves from the short answer into its guide. */
++  const heroBand = spec.heroCta && spec.heroCta.title ? offerBand(spec.heroCta, "p") : "";
++  const heroCta = heroBand || !spec.heroCta ? "" : `${spec.heroCta.text ? `<p ${P}>${spec.heroCta.text}</p>` : ""}<div style="margin-top:1.4rem"><a class="btn btn-brass btn-lg" href="${spec.heroCta.href}">${spec.heroCta.label}</a></div>`;
+   const parts = [];
+   parts.push(`<main id="main"><div class="detail-hero bg-grid"><div class="wrap"><div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="${hub.url}">${hub.name}</a><span>/</span><span style="color:var(--muted)">${spec.crumb}</span></div><p class="eyebrow" style="margin-bottom:1rem">${spec.eyebrow}</p><h1 class="detail-h1">${spec.h1}<br/><em style="font-style:italic;color:var(--brass)">${spec.h1em}</em></h1>${heroMedia}<p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">${byline}</p><p class="detail-sub">${spec.sub}</p></div></div>`);
+   parts.push(`<section style="background:var(--${saBg})"><div class="wrap"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">The short answer</p>${(Array.isArray(spec.shortAnswer) ? spec.shortAnswer : [spec.shortAnswer]).map(t => `<p ${P}>${t}</p>`).join("")}${heroCta}${heroBand ? "" : toc}</div></section>`);

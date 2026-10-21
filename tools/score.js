@@ -218,7 +218,10 @@ function facts(p) {
   });
   const primary = external.filter(h => /\.gov\b|\.us\b|\.edu\b|scstatehouse|sccourts|law\.cornell|consumerfinance|fanniemae|freddiemac|hud\.gov|census|bls\.gov|fred\.stlouisfed|irs\.gov|noaa|fema/i.test(h));
 
-  const ctas = main.find('a.btn, a[href="#lead-form"], a[href^="tel:"]').filter((_, a) => !$(a).closest(".detail-hero").length).length;
+  /* Round 15 (owner, 2026-10-21: "the IDX will act as our CTA"): each homes strip slot counts as a call to
+     action; the website fills it with the homes for sale there and a "See all" link to the sign-up. */
+  const ctas = main.find('a.btn, a[href="#lead-form"], a[href^="tel:"]').filter((_, a) => !$(a).closest(".detail-hero").length).length
+    + main.find("div.hx-strip[data-place]").length;
   const visuals = {
     tables: main.find("table").length,
     images: main.find("img").filter((_, i) => wc($(i).attr("alt") || "") >= 3).length,
@@ -333,6 +336,8 @@ function facts(p) {
     const el = $(e);
     if (el.is("ul, ol") && el.parents("nav").length) return;
     if (el.closest("header, footer, form, .breadcrumb").length) return;
+    /* A selection guide (tools/glass.js guideCards, round 15) groups places by what each does best; it is not a contents list. */
+    if (el.closest(".c3-gcards").length) return;
     const links = el.find('a[href^="#"]').filter((_, a) => ($(a).attr("href") || "").length > 1).toArray().map(a => $(a));
     if (links.length < 2) return;
     const near = [el.attr("aria-label"), el.find("h2, h3, h4, p, strong").first().text(), el.prev().text()].map(norm).filter(t => t && wc(t) <= 5);

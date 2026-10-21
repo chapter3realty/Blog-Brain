@@ -213,8 +213,7 @@ const chip = (k) => `<div class="c3-nh-chips"><span class="c3-nh-chip">Listed wi
 const priceLine = (k) => `Houses with no HOA fee here are listed at about ${A[k].medianNoFeeHousePrice >= 1e6 ? millions(A[k].medianNoFeeHousePrice) : (k === "murrells-inlet" ? to10k(A[k].medianNoFeeHousePrice) : priceOf(k))}${k === byPrice[0].key ? ", the lowest on this page" : ""}.`;
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
    linked to the contact form with the area named, in the box with the price line. */
-const offer = (k) => `<div class="c3-place-cta"><p>${priceLine(k)}</p>${GL.offer(ENTRY[k].offerName || ENTRY[k].place, { label: ENTRY[k].label || `Get the homes for sale in ${ENTRY[k].place}`,
-  href: `/contact/?place=${encodeURIComponent(ENTRY[k].place)}` })}</div>`;
+const offer = (k) => `<p class="c3-place-price">${priceLine(k)}</p>`; /* round 15: the price line; the homes strip is the offer */
 function entry(k, headline, paras) {
   const n = num(k);
   return { h2: `${n}. ${ENTRY[k].name}: ${headline}`, toc: `${n}. ${shortName(k)}`, id: ENTRY[k].id,
@@ -429,9 +428,7 @@ module.exports = GL.page({
   h1em: "16 areas where most homes have no fee.",
   /* Required by mkpage; hidden on the page (CHIP_CSS), so the top has one subtitle (OWNER-EYE-14e H2). */
   sub: "Room for a boat, a truck and a shed, from Little River to Aynor.",
-  topOfferLine: "Homes with no HOA fee, by area.",
-  heroCta: { title: "Get the homes with no HOA fee in the areas you like.", label: LABEL, href: "/contact/",
-    text: "Tell us the areas and your price range. We send the homes for sale, and we check the deed and the boat and truck rules before you make an offer." },
+  heroCta: false, /* round 15 (owner, 2026-10-21): the homes strips are the offer */
   author: "devin",
   shortAnswer: [
     "Almost every house for sale outside a named subdivision is listed with no homeowners association (HOA) fee, and so are about three in four built before 1990. Most are in the areas below, from beach streets and river towns to country land.",
@@ -440,14 +437,14 @@ module.exports = GL.page({
   sections: [
     { h2: "Where are they?", toc: "The map and the guide", id: "where", html: () =>
       ph.css() + GL.homesCss() + CHIP_CSS + GUIDE_CSS +
-      `<div class="c3-guide c3-guide-map">` + GL.guideCards(GUIDE.map(([label, ks]) => ({ icon: GUIDE_ICON[label], label, items: ks.map(go) }))) + MAP + `</div>` },
+      `<div class="c3-guide c3-guide-map">` + GL.guideCards(GUIDE.map(([label, ks]) => ({ icon: GUIDE_ICON[label], label, items: ks.map(go) }))) + `</div>` },
 
     entry("mb-downtown", "the boardwalk on foot", [
       `From the older streets downtown, you can walk to the oceanfront ${h.ext(MB_BOARDWALK2, "boardwalk")}. From Collins Street it is about a quarter hour on foot. From the day after Labor Day through April, you can ride a bike or walk a dog on it at any hour.`,
       "Most of these houses are within half a mile of the beach. All of them are outside the high-risk flood zones, where the federal rule makes a lender require flood insurance.",
       `Plyler Park on the oceanfront has free live music and a ${h.ext(MB_SUMMER, "fireworks show")} on Wednesdays in summer. The older houses are on Collins, Chester and Dunbar Streets, and Spivey Park and the New Town Bark Park are on Collins Street too.`,
       `A trail with a wooden boardwalk is beside Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}, from Third Avenue South to Broadway and Collins Street.`,
-      "The trade-off is room. A typical lot is about 9,000 square feet. Inside the city, a camper may not be kept in the front yard, so it has to fit beside or behind the house.",
+      "Lots are modest, about 9,000 square feet in a typical case. Inside the city, a camper may not be kept in the front yard, so it has to fit beside or behind the house.",
     ]),
 
     entry("mb-myrtle-heights", "a beach path at the end of each avenue", [
@@ -456,7 +453,7 @@ module.exports = GL.page({
       "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment. You will see porches and wood awnings painted solid or striped to look like canvas. A few houses keep old walls of coquina rock or brick.",
       "Back yards along Ocean Boulevard often have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
       "Sea Captain's House, a restaurant in a 1930 beach cottage, is about a 9-minute walk from the middle of Myrtle Heights.",
-      `The trade-off is the review: on an oceanfront house, a change to the outside, including its color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}. Ordinary repair does not.`,
+      `On an oceanfront house, a change to the outside, including its color, needs the city's ${h.ext(MB_BOARDS, "Community Appearance Board")}. Ordinary repair does not.`,
     ]),
 
     entry("mb-pine-lakes", "almost half an acre in the middle of the city", [
@@ -466,7 +463,7 @@ module.exports = GL.page({
       `A resident whose car is registered and taxed in the city gets a free parking decal. With it, you park free at city meters, at beach street ends and at ${h.ext(PELICANS, "Pelicans baseball games")}.`,
       "The city picks up trash, recycling and yard waste at the curb each week, for about $34 a month.",
       "The Preserve at Pine Lakes, the newer section, has an HOA fee and is not counted here.",
-      "The trade-off is price: houses here are listed at more than twice the downtown price, for more than twice the land.",
+      "You pay for the room: houses here are listed at more than twice the downtown price, for more than twice the land.",
     ]),
 
     entry("windy-hill", "free day docks at Barefoot Landing", [
@@ -501,7 +498,7 @@ module.exports = GL.page({
       "North Myrtle Beach residents park free at the ramp when they register with the city. It is also the way in to Heritage Shores Nature Preserve, an island in the marsh reached on elevated boardwalks.",
       "Many of the canal houses have their own docks, so the boat stays behind the house. Across Hog Inlet, Waties Island has almost three miles of undeveloped beach.",
       "Each July 4, the city's free fireworks go up at the Cherry Grove Pier. The homes here with an HOA fee are all in named subdivisions.",
-      "The trade-offs are flood risk and a dredging fee. Almost every home here is in a high-risk flood zone. Owners of about 415 properties in the canal district pay the city about $1,700 a year for the dredging, on the county tax bill.",
+      "Two costs come with the canals: flood insurance and a dredging fee. Almost every home here is in a high-risk flood zone. Owners of about 415 properties in the canal district pay the city about $1,700 a year for the dredging, on the county tax bill.",
     ]),
 
     entry("little-river", "the old fishing village on the waterway", [
@@ -535,7 +532,7 @@ module.exports = GL.page({
       "A pier pass covers fishing, so you need no state license. Its Hugo burger is named for the 1989 hurricane that destroyed the pier.",
       "Most of the houses for sale here are within half a mile of the shore. The county's Stanley Drive landing is a 5-minute drive.",
       "Each July 4, decorated boats start at the point of Garden City Beach and parade through Murrells Inlet.",
-      "The trade-off is flood insurance: with a mortgage, a lender will almost always require it on most of these houses.",
+      "Budget for flood insurance: with a mortgage, a lender will almost always require it on most of these houses.",
     ]),
 
     entry("murrells-inlet", "by the creeks and the county boat ramp", [
@@ -552,7 +549,7 @@ module.exports = GL.page({
       `The oldest streets form a ${h.ext(CONWAY_RHD, "National Register district")}. Its houses range from Greek Revival and Carpenter Gothic through Queen Anne to 1920s bungalows, one of them with a porch around three sides. City Hall is the old Horry County courthouse, finished in 1825 to a design credited to Robert Mills. Its courtroom still holds city court every week.`,
       `The ${h.ext(HC_MUSEUM, "Horry County Museum")} is in the restored 1905 Burroughs School, about a quarter hour on foot from downtown. ${h.ext(RIVERFEST, "Riverfest")} brings music and fireworks to the river on the Saturday before the Fourth of July weekend, and the Celebration of Lights opens each December.`,
       `${h.ext(LANDINGS, "Billy Witherspoon Landing")}, a county ramp on the Waccamaw, is a 6-minute drive. Conway Medical Center is a 12-minute drive.`,
-      "The trade-off is the beach, a 25-minute drive.",
+      "The beach is a 25-minute drive.",
     ]),
 
     entry("loris", "a small town with its own hospital", [
@@ -575,7 +572,7 @@ module.exports = GL.page({
       `Galivants Ferry Landing, a county ramp on the ${h.ext(USGS_LPD, "Little Pee Dee River")}, is about 6 minutes from the center of town. The Little Pee Dee is ${h.ext(AYNOR_APPEAL, "popular with canoes, kayaks and small powerboats")}.`,
       `At ${h.ext(GALIVANTS_NR, "Galivants Ferry")}, the old farm houses have full-width front porches on brick piers. Some were built from wood cut on the farm itself, and the district has log tobacco barns. Galivants Ferry has also held a political speaking, the Stump, since 1880.`,
       `Each September, ${h.ext(AYNOR_TOWN, "almost 25,000 people")} come to the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started. In the town of Aynor, zoning does not limit a camper or a work truck at home. Most of these houses are outside the town, under county rules.`,
-      "The drive is the trade-off: about 45 minutes to the beach, and about 30 to the nearest hospital, Conway Medical Center.",
+      "You will drive more: about 45 minutes to the beach, and about 30 to the nearest hospital, Conway Medical Center.",
     ]),
 
     { h2: "What can you do at home with no HOA?", toc: "What you can do at home", id: "boats-and-work-trucks", html: (bg) =>

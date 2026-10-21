@@ -1,4 +1,4 @@
-# IDX on the guide pages and the homepage (round 15, 2026-10-21)
+# IDX on the guide pages and the homepage (round 15, 2026-10-21; built 2026-10-22 to the CRM's contract v1)
 
 The owner: "the photos for each community could be a horizontally scrolling IDX feed and try to get it to show a wide variety of photos as it scrolls. it could just show house and price." And: "figure out how to design using the IDX for these pages and the homepage ... in a way that maximizes beauty and conversion rates."
 
@@ -50,3 +50,16 @@ Beauty rules for all of it: large photos, the price on a glass chip, no badges o
 ## SEO and AEO
 
 The cards are written into the page at the edge, so search engines see real links to listing pages. The guide text, the FAQ, the schema and the short answers stay exactly as they are; the strips add fresh content without changing what the page answers. The pages are cached for 5 minutes while the feed is on.
+
+## Built (2026-10-22): the website side of contract v1
+
+The CRM's contract v1 replaced the earlier `idx-public` design. The website side is built on a new website branch, `claude/idx-v1`, on top of the live site and batch 2026-10-b. It is off until `IDX_LIVE=1`. Its own guide is `docs/idx-website.md` on that branch. In short:
+
+- `/homes/` search, `/homes/<MLS#>` (301 to the listing's URL), one page per listing, `/homes/near/<place>/` for every community on these pages, `/homes/terms/`, and `/sitemap-homes.xml`.
+- The public sees one photo and the key facts; a free sign-up with name, email and phone (terms box unticked and required, texts optional with the locked TCPA wording, Turnstile) shows every photo and the full details. Heart and "Tour this home" on every listing.
+- The guide pages' strips are filled at the edge from the CRM search: `subdivision` words for a named community, `near` a point for an area (`data/idx-places.json`). They pan sideways with no scroll bar; a mouse drags them.
+- Every card shows the price and, under it, the listing firm at the same size. The MLS requires the firm on every listing, no smaller than the listing's own text (CCMLS 16.14, contract §8.1), so it cannot be smaller than the price.
+- The footer now names Chapter3 Realty, Corp. (linked home) and says Equal Housing Opportunity; the privacy policy has the listing search section (contract §8, §9).
+- 55 controls against a mock CRM pass (`node tools/idx-test.mjs` on that branch).
+
+The pages themselves (round 15): no glass offer boxes anymore; on best, gated, no-HOA and affordable the top is the title, the short answer and the guide, then the entries. The homes strip is each place's offer.

@@ -199,7 +199,7 @@ const GUIDE = GUIDE_CSS + `<div class="c3-guide c3-guide-map"><div class="c3-gui
    "Book a showing in X", to the contact form with the place named. */
 /* The offer names the place as its heading does: "The Market Common", not "Market Common" (OWNER-EYE-14e L5). */
 const offerName = (n) => (/^The /.test(n.name) && n.name.length <= 20 ? n.name : n.short);
-const placeOffer = (id, line) => `<div class="c3-place-cta"><p>${line}</p>${G.offer(offerName(N[id]), { href: `${OFFER}?place=${encodeURIComponent(N[id].name)}` })}</div>`;
+const placeOffer = (id, line) => `<p class="c3-place-price">${line}</p>`; /* round 15: the price line; the homes strip is the offer */
 const ENTRY = (id, headline, paras, price) => {
   const num = ORDER.indexOf(id) + 1;
   return { h2: `${num}. ${N[id].name}: ${headline}`, toc: N[id].name, id,
@@ -211,7 +211,7 @@ const ENTRIES = [
     "In 1964 a 1,780-pound tiger shark was landed from Cherry Grove Pier, a world record at the time. The pier is about a 12-minute walk, about half a mile, from the middle of Cherry Grove.",
     `A public beach access is about a tenth of a mile from the center of the neighborhood. North Myrtle Beach ${h.ext(NMB_BEACH, "allows leashed dogs on the beach")} all year, except at midday in summer.`,
     "Away from the condo towers on the ocean, Cherry Grove's streets hold about 1,700 houses. Most of the houses listed for sale here are raised beach houses.",
-    "The trade-off is flood insurance. Almost every home here is in a high-risk flood zone, where a lender usually requires flood insurance.",
+    "Plan on flood insurance. Almost every home here is in a high-risk flood zone, where a lender usually requires it.",
   ], "Houses in Cherry Grove usually sold for about $695,000 last year. More than half of the homes for sale here are listed with no homeowners association (HOA) fee."),
 
   ENTRY("surfside-beach", "a free concrete pier with two restaurants", [
@@ -285,7 +285,7 @@ const ENTRIES = [
     "In the middle of Avalon, the owners' association holds about nine acres of amenity land with a baseball field, soccer fields and a beach volleyball court. A ball game needs no drive.",
     "The same grounds have a playground, and the association holds a second, smaller amenity area too. Avalon is in Carolina Forest, about a 20-minute drive from the beach.",
     "The houses are a mix of one-story and two-story, and almost every one is outside the high-risk flood zone. The ones for sale have about 1,700 square feet.",
-    "The trade-off is age. The ones for sale were built between 2000 and 2006, so our agents check the roof and the air conditioner for you.",
+    "The ones for sale were built between 2000 and 2006, so our agents check the roof and the air conditioner for you.",
   ], "Houses in Avalon usually sold for about $290,000 last year, and the HOA fee is about $84 a month."),
 
   ENTRY("the-farm", "open land next to most houses", [
@@ -320,7 +320,7 @@ module.exports = G.page({
   sub: "Thirteen neighborhoods near Myrtle Beach, grouped by what each does best.",
   toc: false,
   author: "devin",
-  heroCta: { title: "Tell us what you want nearby. We will send three neighborhoods.", text: "One of our agents sends the list, with the homes for sale in each. There is no charge.", label: "Get three neighborhoods", href: OFFER },
+  heroCta: false, /* round 15 (owner, 2026-10-21): the homes strips are the offer */
   shortAnswer: [
     "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For a golf course neighborhood, Tidewater. For a new house, Deerfield. For a boat, Plantation Lakes. For a town center you can walk, The Market Common. For a lower price, Avalon.",
   ],
