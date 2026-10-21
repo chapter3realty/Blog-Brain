@@ -1367,5 +1367,53 @@
     "pattern": "\\bHolliday later renamed it Floral Beach",
     "struck": "George J. Holliday later renamed it Floral Beach for his wife, Flora.",
     "use": "George J. Holliday later bought the land and renamed it Floral Beach for his wife, Flora. [the source's 'it' is the property, not Surfside Beach]"
+  },
+  {
+    "row": "neighborhoods 296 (final 14l E1)",
+    "pattern": "In 2012 the state Court of Appeals ruled that the old golf land",
+    "struck": "In 2012 the state Court of Appeals ruled that the old golf land did not have to stay golf, and building on it went ahead.",
+    "use": "Some homeowners sued to keep part of the old golf land as golf. A special referee found no such restriction on that land, and the state Court of Appeals affirmed in 2012."
+  },
+  {
+    "row": "neighborhoods 296 (final 14l E2)",
+    "pattern": "A typical lot is about a third of an acre, and new houses now stand",
+    "struck": "A typical lot is about a third of an acre, and new houses now stand on the old South Course.",
+    "use": "A typical lot in the older streets is about a third of an acre, and new houses now stand on the old South Course."
+  },
+  {
+    "row": "neighborhoods 296 (final 14l E2)",
+    "pattern": "Homes in the Deerfield Plantation area usually sold for about \\$355,000",
+    "struck": "Homes in the Deerfield Plantation area usually sold for about $355,000 last year (the figure leaves out the new South Course houses).",
+    "use": "Homes in the older streets of the Deerfield Plantation area usually sold for about $355,000 last year, and the HOA fee is under $90 a month."
+  },
+  {
+    "row": "neighborhoods 294 (final 14l E3)",
+    "pattern": "paddling trail that runs 30 miles",
+    "struck": "a state saltwater paddling trail that runs 30 miles, from Socastee to Little River",
+    "use": "The Intracoastal Waterway along Tidewater is part of the state's Southeast Coast Saltwater Paddling Trail, the Socastee to Little River section, which follows a 30-mile canal."
+  },
+  {
+    "row": "neighborhoods 294 (final 14l E4)",
+    "pattern": "Vereen Memorial Gardens[^.]{0,160}about 17 minutes",
+    "struck": "Vereen Memorial Gardens, a free county park, has about three miles of nature trails and boardwalks, about 17 minutes from Tidewater by car.",
+    "use": "(cut it: the no-HOA page's Little River card owns Vereen; if kept, the drive is about 15 minutes)"
+  },
+  {
+    "row": "neighborhoods 296 (final 14l E5)",
+    "pattern": "Fees and house features come from homes for sale; counts",
+    "struck": "Fees and house features come from homes for sale; counts, lots and flood zones from county parcels.",
+    "use": "Fees come from homes listed for sale, except The Farm's, which is the owners' association's. House features come from homes for sale; counts, lots and flood zones from county parcels."
+  },
+  {
+    "row": "neighborhoods 296 (final 14l E6)",
+    "pattern": "^Grande Dunes: a South Florida look$",
+    "struck": "Grande Dunes: a South Florida look",
+    "use": "Grande Dunes: mostly new listings"
+  },
+  {
+    "row": "neighborhoods 295 (final 14l E7)",
+    "pattern": "The Ark, and its name came from a town in Florida",
+    "struck": "Surfside Beach began as part of a rice plantation called The Ark, and its name came from a town in Florida.",
+    "use": "Surfside Beach began as part of a rice plantation called The Ark. The name Surfside Beach came from a Florida town."
   }
 ]

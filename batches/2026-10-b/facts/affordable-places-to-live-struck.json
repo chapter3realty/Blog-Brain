@@ -876,5 +876,23 @@
     "pattern": "about two miles west of Polo Farms by road",
     "struck": "Danny Knight Landing, a county boat ramp on the Waccamaw River, is about two miles west of Polo Farms by road.",
     "use": "Danny Knight Landing, a county boat ramp on the Waccamaw River, is about a 4-minute drive west of Polo Farms [OSRM 4.46 min, 2.35 miles]."
+  },
+  {
+    "row": "affordable 233 (final 14l A1)",
+    "pattern": "Coastal Carolina University is about three miles away by road, and its Cultural Arts series",
+    "struck": "Coastal Carolina University is about three miles away by road, and its Cultural Arts series puts on plays and concerts on campus.",
+    "use": "Coastal Carolina University is about three miles away by road, and its Edwards College lists plays, concerts and exhibits on campus each season."
+  },
+  {
+    "row": "affordable 235 (final 14l A2)",
+    "pattern": "Socastee Recreation Park, a large county park[^.]{0,120}is about four miles away\\.",
+    "struck": "Socastee Recreation Park, a large county park with a disc golf course, trails, ball fields and a playground, is about four miles away.",
+    "use": "(cut it: the no-HOA page's Socastee card owns the park, and the road distance is 4.2 miles, not a straight line) Osprey Marina, with wet slips and dry boat storage on the Intracoastal Waterway, is about four miles away by road."
+  },
+  {
+    "row": "affordable 234 (final 14l A3)",
+    "pattern": "paddle a state route downriver",
+    "struck": "you can paddle a state route downriver through a forest of bald cypress",
+    "use": "From there you can paddle the state's Waccamaw River trail downriver through bald cypress woods, about 20 miles to Red Bluff Landing."
   }
 ]
