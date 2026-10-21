@@ -137,6 +137,10 @@ The struck list catches old wording coming back. It cannot catch new wording tha
 
 **B55. Never open a new chat to do the work (owner, 2026-10-21).** In round 14, helper agents opened 36 Claude Code chats in the owner's list, and he could not find his other chats. All work happens in the owner's chat. Helpers run inside it, only for independent checks, and each brief says not to open chats. See CLAUDE.md.
 
+**B56. A new reviewer every round makes the grade swing.** Best and affordable stayed at 8 for five rounds (14e to 14m) with no high finding left on affordable. Each fresh reviewer undid part of the last one's advice: 14l asked Golf and Yacht Club to lead with its marina and 14m rejected that lead; 14l called "on the old speedway" a benefit and 14m called it trivia; 14l asked Tidewater to lead with golf and 14m called that a gated fact. Fix: a fresh reviewer grades a page once. After its fixes, the same reviewer re-checks its own findings. Bring in a new reviewer only for a new draft or after a large rewrite. When a finding contradicts an earlier review, the lead decides and writes down why. This also saves tokens.
+
+**B57. The lead's own pass needs the same hand-off checks as a writer's.** In round 14l the lead added Vereen Memorial Gardens, Socastee Recreation Park and the Conway Riverwalk to pages whose siblings already had them, wrote a "2-minute walk" no row gave, changed "Myrtle Beach's first golf course" to "the city's first", and lengthened the dek the review had asked to cut. Each was caught, but each cost a round. Fix: before any hand-off, run `tools/house-claims.js` and `tools/sibling-check.js`, and diff every sentence that holds a number or a name against the ledger wording.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
