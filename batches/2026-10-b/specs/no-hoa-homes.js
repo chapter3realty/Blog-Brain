@@ -213,12 +213,12 @@ const chip = (k) => `<div class="c3-nh-chips"><span class="c3-nh-chip">Listed wi
 const priceLine = (k) => `Houses with no HOA fee here are listed at about ${A[k].medianNoFeeHousePrice >= 1e6 ? millions(A[k].medianNoFeeHousePrice) : (k === "murrells-inlet" ? to10k(A[k].medianNoFeeHousePrice) : priceOf(k))}${k === byPrice[0].key ? ", the lowest on this page" : ""}.`;
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
    linked to the contact form with the area named, in the box with the price line. */
-const offer = (k) => `${GL.homes(`nohoa-${ENTRY[k].id}`, ENTRY[k].name)}<div class="c3-place-cta"><p>${priceLine(k)}</p>${GL.offer(ENTRY[k].offerName || ENTRY[k].place, { label: ENTRY[k].label || `Get the homes for sale in ${ENTRY[k].place}`,
+const offer = (k) => `<div class="c3-place-cta"><p>${priceLine(k)}</p>${GL.offer(ENTRY[k].offerName || ENTRY[k].place, { label: ENTRY[k].label || `Get the homes for sale in ${ENTRY[k].place}`,
   href: `/contact/?place=${encodeURIComponent(ENTRY[k].place)}` })}</div>`;
 function entry(k, headline, paras) {
   const n = num(k);
   return { h2: `${n}. ${ENTRY[k].name}: ${headline}`, toc: `${n}. ${shortName(k)}`, id: ENTRY[k].id,
-    html: () => chip(k) + h.p(paras[0]) + (PHOTO[k] || "") + paras.slice(1).map((t, i) => h.p(t) + (i === 1 && PHOTO_LATE[k] ? PHOTO_LATE[k] : "")).join("") + offer(k) };
+    html: () => chip(k) + h.p(paras[0]) + GL.homes(`nohoa-${ENTRY[k].id}`, ENTRY[k].name, PHOTO[k] || "") + paras.slice(1).map((t, i) => h.p(t) + (i === 1 && PHOTO_LATE[k] ? PHOTO_LATE[k] : "")).join("") + offer(k) };
 }
 
 /* Sources. */

@@ -179,8 +179,8 @@ function entry(id, head, paras, price, photo) {
   const e = byId[id];
   const [first, ...rest] = paras;
   return { h2: `${e.n}. ${e.label || e.name}: ${head}`, toc: `${e.n}. ${e.name}`, id, html: () =>
-    h.p(first) + (photo ? ph.aerial(photo[0], photo[1], { closeUp: true }) : "") + rest.map((t) => h.p(t)).join("")
-    + G.homes(id, e.name) + `<div class="c3-place-cta" style="padding:.15rem 0 .15rem 1rem;border-left:3px solid var(--brass)">${h.p(price)}${G.offer(e.name)}</div>` };
+    h.p(first) + G.homes(id, e.name, photo ? ph.aerial(photo[0], photo[1], { closeUp: true }) : "") + rest.map((t) => h.p(t)).join("")
+    + `<div class="c3-place-cta" style="padding:.15rem 0 .15rem 1rem;border-left:3px solid var(--brass)">${h.p(price)}${G.offer(e.name)}</div>` };
 }
 
 const SECTIONS_PLACES = [

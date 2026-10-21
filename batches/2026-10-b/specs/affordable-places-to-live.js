@@ -226,9 +226,15 @@ const PRICE = {
   "wynbrooke": `Townhomes in Wynbrooke usually sold for about ${pr("wynbrooke")} last year, with an HOA fee of about $450 a month.`,
   "polo-farms": `Houses in Polo Farms usually sold for about ${pr("polo-farms")} last year, and the HOA fee is about $20 a month.`,
 };
-const placeCta = (id) => `${G.homes(id, N[id].name)}<div class="c3-place-cta"><p>${PRICE[id]}</p>${G.offer(N[id].name)}</div>`;
+const placeCta = (id) => `<div class="c3-place-cta"><p>${PRICE[id]}</p>${G.offer(N[id].name)}</div>`;
 const entry = (id, short, html) => ({ h2: `${N[id].n}. ${N[id].name}: ${short}`, toc: N[id].map, id,
-  html: (bg) => html(bg) + placeCta(id) });
+  html: (bg) => withStrip(id, html(bg)) + placeCta(id) });
+/* The homes strip takes the place of the photo (owner, 2026-10-21): where the entry has a photo, the
+   strip goes there and the photo is its placeholder; otherwise the strip follows the first paragraph. */
+function withStrip(id, out) {
+  if (PH[id] && out.includes(PH[id])) return out.replace(PH[id], () => G.homes(id, N[id].name, PH[id]));
+  return out.replace("</p>", () => "</p>" + G.homes(id, N[id].name));
+}
 
 /* ItemList JSON-LD for the twelve numbered entries. */
 const ITEMLIST = () => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList",

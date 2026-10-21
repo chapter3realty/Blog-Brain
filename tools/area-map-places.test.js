@@ -225,7 +225,7 @@ check("a community map still has its home pin and no numbers", /class="h"/.test(
    leader line crosses another leader or passes over another place's spot, and no marker sits more than 45
    units from its spot. Without it, the same strip at its old shape sent The Farm's number far from its spot. */
 {
-  const BN = require(path.join(__dirname, "..", "batches", "2026-10-b", "data", "best-neighborhoods.json")).neighborhoods;
+  const BN = require(path.join(__dirname, "fixtures", "best-neighborhoods-15.json"))  /* frozen: the 15-place strip that showed the fault (round 14l) */.neighborhoods;
   const places = BN.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: "#" + n.id }));
   const leaders = (svg) => [...svg.matchAll(/<path d="M([\d.]+) ([\d.]+)L([\d.]+) ([\d.]+)" stroke="[^"]+" stroke-width="1\.1"\/>/g)].map((m) => m.slice(1, 5).map(Number));
   const cross = (a, b) => { const o = (p, q, r) => Math.sign((q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]));

@@ -199,11 +199,11 @@ const GUIDE = GUIDE_CSS + `<div class="c3-guide c3-guide-map"><div class="c3-gui
    "Book a showing in X", to the contact form with the place named. */
 /* The offer names the place as its heading does: "The Market Common", not "Market Common" (OWNER-EYE-14e L5). */
 const offerName = (n) => (/^The /.test(n.name) && n.name.length <= 20 ? n.name : n.short);
-const placeOffer = (id, line) => `${G.homes(id, N[id].name)}<div class="c3-place-cta"><p>${line}</p>${G.offer(offerName(N[id]), { href: `${OFFER}?place=${encodeURIComponent(N[id].name)}` })}</div>`;
+const placeOffer = (id, line) => `<div class="c3-place-cta"><p>${line}</p>${G.offer(offerName(N[id]), { href: `${OFFER}?place=${encodeURIComponent(N[id].name)}` })}</div>`;
 const ENTRY = (id, headline, paras, price) => {
   const num = ORDER.indexOf(id) + 1;
   return { h2: `${num}. ${N[id].name}: ${headline}`, toc: N[id].name, id,
-    html: h.p(paras[0]) + (PHOTO[id] || "") + paras.slice(1).map((t) => h.p(t)).join("") + placeOffer(id, price) };
+    html: h.p(paras[0]) + G.homes(id, N[id].name, PHOTO[id] || "") + paras.slice(1).map((t) => h.p(t)).join("") + placeOffer(id, price) };
 };
 
 const ENTRIES = [

@@ -6,7 +6,7 @@ This builds on the listing search the CRM session built (CRM Ticket 404). That w
 
 ## What a reader sees on a guide page
 
-- Under each community, just above its "Book a showing" box: one row titled "Homes for sale in Cherry Grove now", with a "See all" link.
+- In each community, right after its first paragraph, where its photo was: one row titled "Homes for sale in Cherry Grove now", with a "See all" link. The owner (2026-10-21): the feed "will act as the photos". The photo we have stays as the placeholder until the row fills, then it hides itself.
 - The row scrolls sideways. On a phone about 1.7 cards show, so the next card peeks in and invites a swipe. On a wide screen 4 cards show.
 - Each card is the house photo, with the price on a glass chip over it. Under it, in small print: "Listed by [firm] · CCMLS". MLS rules require the listing firm on every card (CCMLS 16.14).
 - Up to 10 homes, spread across the community's price range: the lowest, the highest and evenly between them, photos first. The row shows the range of what the money buys, not ten look-alikes.
@@ -16,13 +16,13 @@ This builds on the listing search the CRM session built (CRM Ticket 404). That w
 
 ## When it shows nothing
 
-The strip is an empty slot in the page until the listing search is on (`IDX_LIVE=1`). A place with fewer than 3 homes for sale keeps its empty slot. An empty slot takes no space. The page itself never holds listing data, so a stale price can never be printed into the page.
+The strip is an empty slot in the page until the listing search is on (`IDX_LIVE=1`). A place with fewer than 3 homes for sale keeps its empty slot. An empty slot takes no space, and the place's photo shows instead, where it has one. The page itself never holds listing data, so a stale price can never be printed into the page.
 
 ## How it is built
 
 | Part | Where | What it does |
 |---|---|---|
-| The slot | `tools/glass.js` `homes(slug, name)`, in all five specs | `<div class="hx-strip" data-place="cherry-grove" data-name="Cherry Grove"></div>` |
+| The slot | `tools/glass.js` `homes(slug, name, photo)`, in all five specs | `<div class="hx-strip" data-place="cherry-grove" data-name="Cherry Grove"></div>`, then the photo in `<div class="hx-fallback">`, which CSS hides once the strip has cards |
 | The look | `tools/glass.js` `homesCss()` | Glass cards, the price chip, sideways scroll with snap, reduced-transparency fallback |
 | Filling it | `website-patches/idx-strips.patch`, applied to `idx-lib/near.js` on `idx-public` | At the edge, reads `/api/idx/places/<slug>` for each slot, picks the spread, writes the cards, adds the disclaimer once. A page with strips skips the generic "Homes near X" blocks at the bottom. Tested against a mock CRM: 12 homes give 10 cards across the range; 2 homes give an empty slot; the disclaimer appears once. |
 | The places | `batches/2026-10-b/data/idx-places.json` | 58 places for the CRM's place catalog: slug, name, the pages each strip is on, and a draft match rule (MLS subdivision names; no-HOA areas use the area plus "association fee blank or 0, detached"). |

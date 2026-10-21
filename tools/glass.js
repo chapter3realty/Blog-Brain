@@ -396,16 +396,17 @@ function offer(place, o = {}) {
    listing firm (CCMLS 16.14), then a "See all homes in X" card. With the search off, or under 3
    homes, the slot stays empty and takes no space. A page never carries listing data in its source.
    slug  the CRM place slug (batches/<batch>/data/idx-places.json); name  the place as the entry says it. */
-function homes(slug, name) {
+function homes(slug, name, fallback = "") {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`glass.js: homes slug "${slug}" must be lowercase words joined by hyphens`);
   const n = plainText("the homes strip's place", name, 60);
-  return `<div class="hx-strip" data-place="${esc(slug)}" data-name="${esc(n)}"></div>`;
+  /* fallback: the place's photo, shown until the strip fills (owner, 2026-10-21: the feed "will act as the photos"). */
+  return `<div class="hx-strip" data-place="${esc(slug)}" data-name="${esc(n)}"></div>` + (fallback ? `<div class="hx-fallback">${fallback}</div>` : "");
 }
 
 /* The strip's look: one row that scrolls sideways with snap, glass price chips on the photos, the
    firm line small under each card. Phone: about 1.7 cards in view so the next one shows; wide: 4. */
 const HOMES_RULES = [
-  "main#main .hx-strip:empty{display:none}",
+  "main#main .hx-strip:empty{display:none}main#main .hx-strip:not(:empty)+.hx-fallback{display:none}",
   "main#main .hx-strip{margin:1.3rem 0 .2rem;max-width:760px}",
   "main#main .hx-s-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 0 .55rem;font-size:.95rem;color:var(--navy)}",
   "main#main .hx-s-head b{font-weight:600}main#main .hx-s-head a{color:var(--brass-d,#8a5a2b);font-size:.9rem;white-space:nowrap}",
