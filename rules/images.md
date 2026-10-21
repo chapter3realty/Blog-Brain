@@ -19,6 +19,7 @@ Every photo is at least 1200 pixels wide, so it stays sharp on a phone.
 
 - A builder's, developer's or HOA's photo, even if it is on their public website.
 - A listing photo, an MLS photo, or a photo from Zillow, Realtor.com or any listing site.
+  One exception (owner, 2026-10-21): the live IDX feed may show each listing's own photo in a homes strip or on a listing page, written in at the website's edge with the listing firm and the MLS disclaimer (`batches/2026-10-b/IDX-DESIGN.md`). A listing photo is never saved into this repo, a spec, an image folder or a built page.
 - A news photo.
 - Google Maps, Street View or Google Earth images, or any screenshot of them.
 - A stock photo with a person in it, unless the license page shows a model release.
