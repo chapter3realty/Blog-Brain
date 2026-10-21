@@ -1,4 +1,4 @@
-From 63452a6baa7cb3c8a15a1dbe889ef021d642db34 Mon Sep 17 00:00:00 2001
+From c9ae8629a9f438929691e375ea7b1e6302cef458 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Wed, 21 Oct 2026 17:26:27 +0000
 Subject: [PATCH] Listing search (CRM contract v1): /homes/ pages, guide-page
@@ -152,17 +152,17 @@ Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
  chapter3realty/why-chapter-3/index.html       |   4 +-
  docs/idx-website.md                           |  73 ++
  functions/_middleware.js                      |  10 +-
- functions/homes/[[path]].js                   | 403 ++++++++++
+ functions/homes/[[path]].js                   | 404 ++++++++++
  functions/sitemap-homes.xml.js                |  29 +
  idx-lib/crm.js                                | 139 ++++
  idx-lib/edge.js                               | 130 +++
  idx-lib/places.js                             | 567 +++++++++++++
- idx-lib/render.js                             | 268 +++++++
+ idx-lib/render.js                             | 270 +++++++
  idx-lib/terms.js                              |  31 +
  partials/footer.html                          |   4 +-
  tools/idx-check-places.mjs                    |  26 +
- tools/idx-test.mjs                            | 191 +++++
- 154 files changed, 2899 insertions(+), 285 deletions(-)
+ tools/idx-test.mjs                            | 203 +++++
+ 154 files changed, 2914 insertions(+), 285 deletions(-)
  create mode 100644 chapter3realty/homes-shell/index.html
  create mode 100644 docs/idx-website.md
  create mode 100644 functions/homes/[[path]].js
@@ -4143,10 +4143,10 @@ index 7ad2d8c3..c210f8a0 100644
      });
 diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
 new file mode 100644
-index 00000000..960d948e
+index 00000000..73ca5638
 --- /dev/null
 +++ b/functions/homes/[[path]].js
-@@ -0,0 +1,403 @@
+@@ -0,0 +1,404 @@
 +/**
 + * chapter3realty.com/homes/* : the listing search (CRM contract v1, 21 Oct 2026).
 + *
@@ -4257,7 +4257,7 @@ index 00000000..960d948e
 +
 +const crumbs = (items) => `<nav class="hx-crumbs" aria-label="Breadcrumb">${items.map(([h, l]) => (h ? `<a href="${h}">${esc(l)}</a>` : `<span>${esc(l)}</span>`)).join(" / ")}</nav>`;
 +const signupPrompt = (what) => `<div class="hx-signup-cta"><p><strong>${esc(what)}</strong></p><p class="hx-small">Free with your name, email and phone: every photo, the description, HOA fees, taxes, days on market and recent sales, and a heart to save homes.</p><button type="button" class="btn btn-brass" data-hx-signup>See full details</button></div>`;
-+const signedBar = (tier) => (tier === "registered" ? `<p class="hx-small">You are signed up and see full listing details. <form method="post" action="/homes/api/signout" class="hx-signout"><button type="submit" class="hx-tour">Sign out</button></form></p>` : "");
++const signedBar = (tier) => (tier === "registered" ? `<div class="hx-small">You are signed up and see full listing details. <form method="post" action="/homes/api/signout" class="hx-signout"><button type="submit">Sign out</button></form></div>` : "");
 +
 +/** The shell with the page drawn in. */
 +async function page(context, gate, o) {
@@ -4300,6 +4300,7 @@ index 00000000..960d948e
 +  const res = await render({ ...context, signedOut: true });
 +  const h = new Headers(res.headers);
 +  h.append("set-cookie", clearCookie());
++  h.set("cache-control", "private, no-store");
 +  return new Response(res.body, { status: res.status, headers: h });
 +}
 +
@@ -4418,7 +4419,7 @@ index 00000000..960d948e
 +  const photos = registered && Array.isArray(l.photos) ? l.photos.filter((p) => p && safeUrl(p.url)) : [];
 +  const gallery = photos.length
 +    ? `<div class="hx-gallery">${photos.map((p, i) => `<img src="${esc(p.url)}" alt="${esc(p.caption || `Photo ${i + 1} of ${addressLine(l)}`)}" loading="${i < 2 ? "eager" : "lazy"}" referrerpolicy="no-referrer">`).join("")}</div>`
-+    : photo ? `<div class="hx-hero-photo"><img src="${esc(photo)}" alt="${esc(addressLine(l))}" referrerpolicy="no-referrer"></div>${l.photoCount > 1 ? `<p class="hx-small">1 of ${esc(l.photoCount)} photos. <button type="button" class="hx-tour" data-hx-signup>See them all</button></p>` : ""}` : "";
++    : photo ? `<div class="hx-hero-photo"><img src="${esc(photo)}" alt="${esc(addressLine(l))}" referrerpolicy="no-referrer"></div>${l.photoCount > 1 ? `<p class="hx-small">1 of ${esc(l.photoCount)} photos. <button type="button" class="hx-more-photos" data-hx-signup>See them all</button></p>` : ""}` : "";
 +  const basics = `<table class="hx-table"><tbody>
 +${row("Status", statusWord(l.status))}${row("Type", spaced(l.propertySubType || l.propertyType))}${row("Bedrooms", l.beds)}${row("Bathrooms", l.baths)}
 +${row("Living area", typeof l.sqft === "number" ? `${l.sqft.toLocaleString("en-US")} sq ft` : "")}${row("Lot", typeof l.lotAcres === "number" ? `${l.lotAcres} acres` : "")}
@@ -5441,10 +5442,10 @@ index 00000000..1d17cc8c
 +};
 diff --git a/idx-lib/render.js b/idx-lib/render.js
 new file mode 100644
-index 00000000..9611aeda
+index 00000000..e9e51479
 --- /dev/null
 +++ b/idx-lib/render.js
-@@ -0,0 +1,268 @@
+@@ -0,0 +1,270 @@
 +/**
 + * HTML for the listing search (contract v1). The CRM sends raw JSON; every word,
 + * number format and layout is made here. Everything from the CRM is untrusted
@@ -5619,6 +5620,8 @@ index 00000000..9611aeda
 +.hx-keyfacts{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:baseline;font-size:1rem}.hx-keyfacts strong{font-size:1.6rem}
 +.hx-firm-line{font-size:1rem}
 +.hx-signout{display:inline;margin-left:.4rem}
++.hx-signout button,.hx-more-photos{border:0;background:none;padding:0;font:inherit;color:var(--navy);text-decoration:underline;cursor:pointer}
++button.hx-heart{border-radius:999px}
 +.hx-gallery{display:flex;gap:.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.hx-gallery::-webkit-scrollbar{display:none}
 +.hx-gallery img{height:340px;width:auto;max-width:90vw;object-fit:cover;border-radius:12px;scroll-snap-align:start}
 +.hx-hero-photo img{width:100%;max-height:520px;object-fit:cover;border-radius:16px}
@@ -5696,7 +5699,7 @@ index 00000000..9611aeda
 + post("/homes/api/hearts",{mlsNumber:m,loved:on}).then(function(j){if(j._status===401){location.reload()}})})});
 +/* Tour this home: the site's ordinary lead form, with the home's MLS number. */
 +var td=$("#hx-tourd"),tf=$("#hx-tour-form"),tm=null,ta="";
-+$$(".hx-tour").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();tm=b.getAttribute("data-mls");ta=b.getAttribute("data-addr")||"";var a=$("#hx-tour-addr");if(a)a.textContent=ta;openD(td)})});
++$$(".hx-tour[data-mls]").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();tm=b.getAttribute("data-mls");ta=b.getAttribute("data-addr")||"";var a=$("#hx-tour-addr");if(a)a.textContent=ta;openD(td)})});
 +if(tf){tf.addEventListener("submit",function(e){e.preventDefault();var err=tf.querySelector(".hx-error");err.hidden=true;
 + if(!tf.elements.consent.checked){err.textContent="Please tick the box so an agent can reach you about the tour.";err.hidden=false;return}
 + var ct=(tf.querySelector(".form-consent span").textContent||"").replace(/\\s+/g," ").trim();
@@ -5806,10 +5809,10 @@ index 00000000..58e00412
 +}
 diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
 new file mode 100644
-index 00000000..5224c157
+index 00000000..6156d630
 --- /dev/null
 +++ b/tools/idx-test.mjs
-@@ -0,0 +1,191 @@
+@@ -0,0 +1,203 @@
 +/**
 + * The listing search's controls, against a mock CRM that answers as contract v1 says.
 + * No network, no key. Run: node tools/idx-test.mjs   (prints "all controls pass")
@@ -5852,7 +5855,7 @@ index 00000000..5224c157
 +  const one = /^\/api\/idx\/listings\/(\w+)$/.exec(u.pathname);
 +  if (one) {
 +    if (one[1] === "404404") return J({ ok: false, error: "not_found" }, 404);
-+    const l = mk(1, { mlsNumber: one[1], ...(one[1] === "2611111" ? { address: null } : {}) });
++    const l = mk(1, { mlsNumber: one[1], ...(one[1] === "2611111" ? { address: null } : {}), ...(one[1] === "2622222" ? { address: "1 $' $` $& Way" } : {}) });
 +    const full = auth ? { ...l, photos: [{ url: "https://photos.example.com/a.jpg", caption: "Front <b>" }], remarks: "Line one\n<script>x</script>", details: { Appliances: ["Dishwasher", "Range"], PoolPrivateYN: false, AssociationFee: 614 }, openHouses: [], listingAgent: "Pat Agent", point: null, virtualTour: "javascript:alert(1)" } : l;
 +    return J({ ok: true, tier, visitor: auth ? "valid" : "none", meta: META, listing: full, viewId: auth && u.searchParams.get("track") !== "0" ? "4f6c0f0e-6a53-4f3a-9a8e-0b9b5b9d2c11" : null });
 +  }
@@ -5889,6 +5892,7 @@ index 00000000..5224c157
 +check("search: our full firm name linked home", t.includes('<a href="/">Chapter3 Realty, Corp.</a>'));
 +check("search: indexed when unfiltered", t.includes('<meta name="robots" content="index, follow">'));
 +check("search: the sign-up and tour dialogs and terms box unticked", t.includes('id="hx-signup"') && t.includes('name="termsAccepted">') && !t.includes('name="termsAccepted" checked'));
++check("search: the page script arrives whole ($$ kept)", t.includes("function $$("));
 +check("search: Turnstile site key in the page, no key anywhere", t.includes('data-sitekey="0xSITE"') && !t.includes("devkey"));
 +r = await run(homes, req("/homes/?city=Myrtle%20Beach&min=200000&evil=1&near=0,0"));
 +const sent = calls.filter((c) => c.url.includes("/api/idx/listings?")).pop().url;
@@ -5992,6 +5996,17 @@ index 00000000..5224c157
 +check("sign-out: same-origin POST clears the cookie", r.status === 303 && /Max-Age=0/.test(r.headers.get("set-cookie") || ""));
 +check("sign-out: a foreign origin is refused", (await run(homes, post("/homes/api/signout", {}, { headers: { origin: "https://evil.example" } }))).status === 403);
 +check("crm: a non-https CRM_URL is never used", await (async () => { await run(homes, req("/homes/"), { ...ENV, CRM_URL: "http://evil.example" }); return calls.at(-1).url.startsWith("https://app.chapter3realty.com/"); })());
++
++r = await run(homes, req("/homes/2622222-1-way-myrtle-beach/"));
++t = await r.text();
++check("listing text with $' never copies the page into the head", (t.match(/<\/head>/g) || []).length === 1 && (t.match(/<body/g) || []).length === 1 && t.includes("$&amp;"));
++r = await run(homes, req("/homes/", cookie));
++t = await r.text();
++check("signed up: Sign out is its own button, not a tour button", t.includes('class="hx-signout"><button type="submit">Sign out') && !/<p[^>]*>[^<]*<form/.test(t));
++INVALID = true;
++r = await run(homes, req("/homes/", cookie));
++check("bad token: the public view is never cached", r.headers.get("cache-control") === "private, no-store");
++INVALID = false;
 +
 +// Sitemap and the shell.
 +r = await run(sitemap, req("/sitemap-homes.xml"), { ...ENV, IDX_INDEX_LISTINGS: "1" });
