@@ -106,7 +106,6 @@ const MARSHWALK = "https://www.marshwalk.com/";
 const HBSP = "https://southcarolinaparks.com/huntington-beach";
 const WILDWING = "https://www.wildwing.com/";
 const ARROWHEAD = "https://www.arrowheadcc.com/";
-const DANNY_KNIGHT = "https://horrycountysc.gov/departments/parksandrecreation/boat-landings/";
 const DRH = "https://www.drhorton.com/south-carolina/myrtle-beach/conway/the-townes-at-amber-bluff";
 
 /* ---------------------------------------------------------------------------- */
@@ -122,27 +121,27 @@ const mins = (m) => `${m < 15 ? Math.max(1, Math.round(m)) : Math.round(m / 5) *
    (row 212). */
 const P = [
   { id: "parkview", name: "Parkview", map: "Parkview", lat: 33.686431, lon: -78.910360, price: 190000, mb: 6.1, beach: 4.0, year: 4700,
-    feature: "4 min to the beach, golf", schools: "Myrtle Beach Elementary, Middle and High" },
+    feature: "4 min to the beach", schools: "Myrtle Beach Elementary, Middle and High" },
   { id: "fairways-at-wild-wing", name: "The Fairways at Wild Wing", map: "Fairways at Wild Wing", lat: 33.787649, lon: -78.986234, price: 215000, mb: 16.5, beach: 17.8, year: 6100,
-    feature: "golf, lawn care included", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "golf, no yard work", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "sawgrass-east", name: "Sawgrass East", map: "Sawgrass East", lat: 33.756167, lon: -78.929975, price: 222500, mb: 16.7, beach: 17.9, year: 6000,
-    feature: "garage, lawn care in fee", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "garage, no yard work", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "birchwood", name: "Birchwood", map: "Birchwood", lat: 33.925885, lon: -78.754012, price: 223825, mb: 41.6, beach: 20.2, year: 2400,
-    feature: "new house, quarter acre", schools: "Daisy Elementary, Loris Middle, Loris High" },
+    feature: "paddle the Waccamaw", schools: "Daisy Elementary, Loris Middle, Loris High" },
   { id: "golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", map: "Golf and Yacht Club", lat: 33.649402, lon: -79.05007, price: 225000, mb: 22.9, beach: 15.0, year: 2100,
-    feature: "gated, one-story homes", schools: "St. James Elementary, Intermediate, Middle and High" },
+    feature: "4 miles to a marina", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "forestbrook-village", name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6, year: 3000,
-    feature: "plans up to 2,400 sq ft", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
+    feature: "up to 2,400 sq ft", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
   { id: "victory-point", name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9, year: 3800,
-    feature: "new, by Tanger Outlets", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "on the old speedway", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6, year: 2200,
-    feature: "smart home near campus", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
+    feature: "smart homes by CCU", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
   { id: "villas-at-sandridge", name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46, year: 4600,
     feature: "5 min to a wake park", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2, year: 2000,
-    feature: "new, beach 13 min", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
+    feature: "22 acres of open land", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
   { id: "wynbrooke", name: "Wynbrooke", map: "Wynbrooke", lat: 33.584176, lon: -79.048446, price: 249500, mb: 19.8, beach: 8.9, year: 6500,
-    feature: "5 min to the MarshWalk", schools: "St. James Elementary, Intermediate, Middle and High" },
+    feature: "MarshWalk 5 min away", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "polo-farms", name: "Polo Farms", map: "Polo Farms", lat: 33.917844, lon: -78.812061, price: 255000, mb: 36.0, beach: 22.0, year: 1300,
     feature: "fenced yards, $20 fee", schools: "Daisy Elementary, Loris Middle, Loris High" },
 ];
@@ -248,7 +247,7 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "Twelve affordable places near Myrtle Beach, each with what the price buys: the house, the land and the drive.",
+  sub: "Affordable places near Myrtle Beach, with what the price buys in each: the house, the land and the drive.",
   toc: false,
   heroCta: { title: "See any of them in person.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
@@ -269,28 +268,28 @@ module.exports = G.page({
       h.p("Few of these townhomes come up for sale in a year, so one of our agents watches for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes in a golf community", () =>
-      h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf club with 27 holes, and some are near the course. Coastal Carolina University is about three miles away by road, and its Cultural Arts series puts on plays and concerts on campus.") +
+      h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf club, and some are near the course.") +
       h.p("The HOA fee usually includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work.") +
       h.p("Fairways townhomes usually have two stories and three or four bedrooms. Most have their own garage, some with room for two cars, and some put the main bedroom downstairs.") +
       h.p("The Fairways is inside Conway's city limits, where the yearly tax is higher than outside a town.")),
 
     entry("sawgrass-east", "townhomes where the fee covers the insurance and the lawn", () =>
-      h.p(`At Sawgrass East, the HOA fee usually pays the insurance on the buildings, the lawn care, and the water, sewer and trash. In most townhomes here, an owner has no water or trash bill of their own. Our guide to ${h.a("/hoa/master-insurance-ho6/", "how the HOA's policy and your own policy split the cover")} explains where one stops and the other starts.`) +
+      h.p(`At Sawgrass East, the HOA fee usually pays the insurance on the buildings, the lawn care, and the water, sewer and trash. In most townhomes here, an owner has no water or trash bill of their own, and no lawn to mow.`) +
       h.p("Many of the townhomes have three bedrooms, often with a one-car garage and the main bedroom downstairs.") +
-      h.p("There are about 255 of them, built in the mid-2000s, around three small lakes that the HOA owns, with a pool and a clubhouse for owners. For errands, a Publix is in the Forest Square center, and the county's Carolina Forest library and recreation center are on the boulevard that leads in.") +
+      h.p("There are about 255 of them, built in the mid-2000s, around three small lakes that the HOA owns, with a pool and a clubhouse for owners. The county's Carolina Forest library and recreation center are on the boulevard that leads in.") +
       h.p("The beach is the trade-off: it is about ten miles away by road.")),
 
     entry("birchwood", "a new house on a quarter acre", () =>
       h.p("Birchwood is small: 77 lots, with new Lennar houses on lots of about a quarter acre and about 12 acres of open space. A quarter acre gives a new house a real backyard at this price.") +
-      h.p("Chris Anderson Landing, a county boat ramp on the Waccamaw River, is about 7 minutes from Birchwood by car. From there you can paddle a state route downriver through a forest of bald cypress, about 20 miles to Red Bluff Landing.") +
+      h.p("Chris Anderson Landing, a county boat ramp on the Waccamaw River, is about 7 minutes from Birchwood by car. From there you can paddle the state's Waccamaw River trail downriver through bald cypress woods, about 20 miles to Red Bluff Landing.") +
       h.p("FEMA maps every lot in Birchwood as an area of minimal flood hazard. High-speed internet is included in the monthly dues.") +
       h.p("A new house here sells for about what a 1980s house does in the Golf and Yacht Club, closer to Myrtle Beach. Birchwood is off SC 905, southwest of Longs, and North Myrtle Beach and its beaches are about 20 minutes by car.") +
       h.p(`The long drive is to Myrtle Beach: Coastal Grand Mall is about a forty-minute drive, by the Carolina Bays Parkway.`)),
 
     entry("golf-and-yacht-club", "one-story houses behind a gate", () =>
-      h.p("The older part of Myrtle Beach Golf and Yacht Club has about 470 houses behind a gate, most of them one story. Owners share a pool and hot tub, tennis courts and a community center.") +
+      h.p("Osprey Marina has wet slips and dry boat storage on the Intracoastal Waterway. It is about four miles by road from the older part of Myrtle Beach Golf and Yacht Club. Inside its gate are about 470 houses, most of them one story.") +
       h.p("Most houses there were built in the 1980s, with two or three bedrooms and two baths. They typically have about 1,200 square feet, on about an eighth of an acre, and many have a porch or a patio.") +
-      h.p("Socastee Recreation Park, a large county park with a disc golf course, trails, ball fields and a playground, is about four miles away. Osprey Marina, with wet slips and dry boat storage on the Intracoastal Waterway, is about the same distance by road.") +
+      h.p("Owners share a pool and hot tub, tennis courts and a community center.") +
       h.p("Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy.")),
 
     entry("forestbrook-village", "new townhome plans up to 2,400 square feet", () =>
@@ -336,7 +335,6 @@ module.exports = G.page({
       h.p("Many backyards in Polo Farms are fenced, and several have their own pool. That is room for a dog to run and a swim at home, in a house of your own for about the price of a townhome in Wynbrooke.") +
       h.p("Most of the houses are one story, with three bedrooms, on lots of about a fifth of an acre. They are off SC 905, west of Longs, and were built in three phases, from the mid-2000s on.") +
       PH["polo-farms"] +
-      h.p(`${h.ext(DANNY_KNIGHT, "Danny Knight Landing")}, a county boat ramp on the Waccamaw River, is about a 4-minute drive west of Polo Farms. A boat or a kayak can be on the river soon after you leave home.`) +
       h.p(`Flood is a concern here. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone. Before you make an offer, we look up the lot on FEMA's flood map.`)),
 
     { h2: "How do the twelve compare on yearly cost, the beach and schools?", toc: "Cost, beach and schools", id: "schools", html: () =>

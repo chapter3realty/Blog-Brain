@@ -158,6 +158,20 @@
    "rows": "Round 14d (2026-10-15): the whole community, in this page's own shape (the gated page owns the three gated sections and their price). Sections whose county description names Grande Dunes: builder sales row 15 (55 deeds, middle $678,000 to $678,500; 'sales by builders such as Lennar and Dream Finders'), resales row 14 (7 resales, $1,190,000 to $2,910,000, middle $1,632,000), fee row 17 (detached listings $199 to $400, most often $347), beach row 19 (9.4 min, 'about 9 to 10 minutes'), map point row 13 (the reference point).; round 14e (2026-10-15): price is all of Grande Dunes, about 51 resales, middle about $1.5 million (row 278, from the notes of rows 14 and 277, v8 N2); round 14h: about $1.4 million, the v9 one-list middle of all named sections (row 278 v9 note)"
   },
   {
+   "id": "deerfield",
+   "name": "Deerfield Plantation area",
+   "short": "Deerfield",
+   "area": "surfside",
+   "lat": 33.63038,
+   "lon": -78.977526,
+   "cells": {
+    "price": "About $355,000, older streets",
+    "fee": "Under $90 for a house",
+    "beach": "About 7 minutes"
+   },
+   "rows": "price: row 125 (41 resales, middle $354,900); fee: row 127; beach: row 129 (nearest access golf-cart parking only; the next, a pay lot, 7.8 min); grocery: row 130; flood: row 132"
+  },
+  {
    "id": "forestbrook-estates",
    "name": "Forestbrook Estates",
    "short": "Forestbrook Estates",
@@ -170,20 +184,6 @@
     "beach": "About 14 minutes"
    },
    "rows": "price: row 84 (29 house resales, middle $395,000); fee: row 85; beach: row 87; grocery: row 88; flood: row 90"
-  },
-  {
-   "id": "deerfield",
-   "name": "Deerfield Plantation area",
-   "short": "Deerfield",
-   "area": "surfside",
-   "lat": 33.63038,
-   "lon": -78.977526,
-   "cells": {
-    "price": "About $355,000",
-    "fee": "Under $90 for a house",
-    "beach": "About 7 minutes"
-   },
-   "rows": "price: row 125 (41 resales, middle $354,900); fee: row 127; beach: row 129 (nearest access golf-cart parking only; the next, a pay lot, 7.8 min); grocery: row 130; flood: row 132"
   },
   {
    "id": "avalon",
@@ -263,7 +263,7 @@
     "fee": "None on most homes"
    },
    {
-    "group": "Golf at the door",
+    "group": "Golf course neighborhoods",
     "fee": "About $1,100 to $4,800 for a house; about $8,200 for a Barefoot condo"
    },
    {
