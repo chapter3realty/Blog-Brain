@@ -381,7 +381,7 @@ module.exports = G.page({
     { name: "County parcels", href: PARCELS },
     { name: "Census maps", href: TIGER },
   ],
-  sourcesNote: `Prices are middle resales over 12 months. Fees, and what the houses are like, come from every home listed for sale; lots from county parcels. Drive times start from each middle. ${PHOTO_CREDIT}`,
+  sourcesNote: `Prices are middle resales over 12 months. Fees and house details come from all homes listed for sale. Times start at the center of each place. ${PHOTO_CREDIT}`,
   afterSources: () => { const cr = ph.credits(); return cr.slice(cr.indexOf("<script")) + ITEMLIST(); },
   bottomCta: { h2: "Tell us what you want close to home. We will send three neighborhoods.", p: "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each.", label: "Get three neighborhoods", href: OFFER },
   keywords: "best neighborhoods in Myrtle Beach, best places to live in Myrtle Beach, best areas to live in Myrtle Beach, best communities in Myrtle Beach, best neighborhoods in North Myrtle Beach, best neighborhoods in Surfside Beach, Myrtle Beach neighborhoods map, Carolina Forest vs Myrtle Beach",
