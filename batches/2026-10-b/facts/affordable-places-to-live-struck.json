@@ -894,5 +894,23 @@
     "pattern": "paddle a state route downriver",
     "struck": "you can paddle a state route downriver through a forest of bald cypress",
     "use": "From there you can paddle the state's Waccamaw River trail downriver through bald cypress woods, about 20 miles to Red Bluff Landing."
+  },
+  {
+    "row": "affordable 150, 226 (final 14m B1)",
+    "pattern": "golf, no yard work|garage, no yard work",
+    "struck": "golf, no yard work / garage, no yard work (chart labels)",
+    "use": "golf, lawn care in fee / garage, lawn care in fee (the listings say the HOA fee covers lawn care: Fairways 5 of 5, Sawgrass East 8 of 10; yard work is wider)"
+  },
+  {
+    "row": "affordable 146, 209, 233 (final 14m B2)",
+    "pattern": "smart homes by CCU",
+    "struck": "smart homes by CCU",
+    "use": "smart homes, CCU 6 min ('by' is an unmeasured nearness word; the university is about 6 minutes by car, row 209)"
+  },
+  {
+    "row": "affordable 187 (final 14m B3)",
+    "pattern": "22 acres of open land",
+    "struck": "22 acres of open land",
+    "use": "22 acres of open space (the HOA's tracts include ponds; the verified word is open space)"
   }
 ]
