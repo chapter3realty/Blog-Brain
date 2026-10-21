@@ -29,6 +29,7 @@ The owner, third read: "the same information was given to gated communities as y
 | The Farm | Cable TV in the fee, the pools, the activity center | The Farm | Best: a different fact for its one Farm entry, such as a normal day on the trails, or the price for what you get |
 | Carolina Forest Recreation Center and library, Bike and Run Park, East Coast Greenway trailhead | The rock wall, the gym, the trails | The Farm | Affordable (Sawgrass East): lead with the home itself (the garage, the pool), and mention the recreation center at most once, briefly |
 | Sports complex, North Myrtle Beach | The park and Shark Wake Park | Affordable | No other page |
+| Huntington Beach State Park | The beach, Atalaya, the freshwater lake and its alligators | Best (Prince Creek) | Affordable: a different fact for a day there, not the park |
 
 ## The rule for next time
 
