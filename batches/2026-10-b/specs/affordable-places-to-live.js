@@ -248,7 +248,7 @@ module.exports = G.page({
   eyebrow: "Buying on a budget",
   h1: "Where are the most affordable places to buy a home near Myrtle Beach?",
   h1em: "Twelve neighborhoods, and the best thing about each.",
-  sub: "Affordable places where homes sell for about half the typical price of a Myrtle Beach house.",
+  sub: "Twelve affordable places near Myrtle Beach, each with what the price buys: the house, the land and the drive.",
   toc: false,
   heroCta: { title: "See any of them in person.", label: OFFER, href: CONTACT,
     text: "Tell us the places you like and your price range. An agent will send you the homes for sale and set up the showings." },
@@ -269,14 +269,14 @@ module.exports = G.page({
       h.p("Few of these townhomes come up for sale in a year, so one of our agents watches for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes in a golf community", () =>
-      h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf club with 27 holes, and some are near the course. The club now has a renovated pro shop, upgraded practice facilities and a refreshed clubhouse.") +
+      h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf club with 27 holes, and some are near the course. The club now has a renovated pro shop, upgraded practice facilities and refreshed clubhouse amenities.") +
       h.p("The HOA fee usually includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work.") +
       h.p("Fairways townhomes usually have two stories and three or four bedrooms. Most have their own garage, some with room for two cars, and some put the main bedroom downstairs.") +
       h.p("The Fairways is inside Conway's city limits, where the yearly tax is higher than outside a town.")),
 
     entry("sawgrass-east", "townhomes where the fee covers the insurance and the lawn", () =>
-      h.p(`At Sawgrass East, the HOA fee usually pays the insurance on the buildings, the lawn care, and the water, sewer and trash. An owner then has no water or trash bill of their own, and insures mainly the inside of the home. Our guide to ${h.a("/hoa/master-insurance-ho6/", "how the HOA's policy and your own policy split the cover")} explains where one stops and the other starts.`) +
-      h.p("Most of the townhomes have three bedrooms, and many of the three-bedroom ones have a one-car garage and the main bedroom downstairs.") +
+      h.p(`At Sawgrass East, the HOA fee usually pays the insurance on the buildings, the lawn care, and the water, sewer and trash. In most townhomes here, an owner has no water or trash bill of their own. Our guide to ${h.a("/hoa/master-insurance-ho6/", "how the HOA's policy and your own policy split the cover")} explains where one stops and the other starts.`) +
+      h.p("Many of the townhomes have three bedrooms, often with a one-car garage and the main bedroom downstairs.") +
       h.p("There are about 255 of them, built in the mid-2000s, around three small lakes that the HOA owns, with a pool and a clubhouse for owners. For errands, a Publix is in the Forest Square center, and the county's Carolina Forest library and recreation center are on the boulevard that leads in.") +
       h.p("The beach is the trade-off: it is about ten miles away by road.")),
 
@@ -322,12 +322,12 @@ module.exports = G.page({
     entry("indigo-grove", "new houses on open land, 13 minutes from the beach", () =>
       h.p("Most of Indigo Grove's new houses back onto about 22 acres of open land that the HOA owns. The beach is about 13 minutes away by car.") +
       h.p("The open land holds three new ponds, one with a small island of trees, and strips of woods along a creek. The neighborhood is off SC 90, and its homes are zoned for Riverside Elementary and North Myrtle Beach Middle and High.") +
-      h.p(`Most of the houses are Lennar's, which sells them as The Overlook. ${h.ext(OVERLOOK, "Lennar lists nine floor plans")} with three to five bedrooms, some of them one story, on lots of about a fifth of an acre. Lennar shows most of them as coming soon, so the plan you want may not be for sale yet.`) +
+      h.p(`Most of the houses are Lennar's, which sells them as The Overlook. ${h.ext(OVERLOOK, "Lennar lists nine floor plans")} with three to five bedrooms, some of them one story, on lots of about a fifth of an acre.`) +
       h.p("Every lot is outside the high-risk flood zone, so a lender usually will not require flood insurance on a home here.")),
 
     entry("wynbrooke", "townhomes five minutes from the Murrells Inlet MarshWalk", () =>
       h.p(`At the ${h.ext(MARSHWALK, "Murrells Inlet MarshWalk")}, five minutes from Wynbrooke, the restaurants on the marsh have live music every night, and there is never a cover charge.`) +
-      h.p(`${h.ext(HBSP, "Huntington Beach State Park")}, with three miles of beach and a lake where you can see alligators, is 10 minutes away.`) +
+      h.p(`${h.ext(HBSP, "Huntington Beach State Park")}, with three miles of beach, is 10 minutes away.`) +
       h.p("The townhomes, built in the early 2000s, are off SC 707, around ponds, and some back onto the water. Many have a screened porch and a loft.") +
       h.p("Wynbrooke's HOA fee is the highest of the twelve, though it usually pays for the insurance on the buildings and for the grounds care.")),
 
@@ -335,7 +335,7 @@ module.exports = G.page({
       h.p("Many backyards in Polo Farms are fenced, and several have their own pool. That is room for a dog to run and a swim at home, in a house of your own for about the price of a townhome in Wynbrooke.") +
       h.p("Most of the houses are one story, with three bedrooms, on lots of about a fifth of an acre. They are off SC 905, west of Longs, and were built in three phases, from the mid-2000s on.") +
       PH["polo-farms"] +
-      h.p(`${h.ext(DANNY_KNIGHT, "Danny Knight Landing")}, a county boat ramp on the Waccamaw River, is about two miles west of Polo Farms by road. A boat or a kayak can be on the river soon after you leave home.`) +
+      h.p(`${h.ext(DANNY_KNIGHT, "Danny Knight Landing")}, a county boat ramp on the Waccamaw River, is about a 4-minute drive west of Polo Farms. A boat or a kayak can be on the river soon after you leave home.`) +
       h.p(`Flood is a concern here. After Hurricane Florence in 2018, the Waccamaw River rose to historic heights; ${h.ext(POLO_FLOOD, "floodwater filled the streets")} and gutted homes across the neighborhood. More than four in ten of its lots are in a high-risk flood zone. Before you make an offer, we look up the lot on FEMA's flood map.`)),
 
     { h2: "How do the twelve compare on yearly cost, the beach and schools?", toc: "Cost, beach and schools", id: "schools", html: () =>
