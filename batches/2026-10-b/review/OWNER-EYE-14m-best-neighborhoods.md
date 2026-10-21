@@ -100,3 +100,17 @@ Do: name the sections once, give an owner's day, and add one honest trade-off.
 | M6: Forestbrook thin | Partly fixed. The lead is worse (H1). |
 | L1: Photos | Waits on the photo partner |
 | L2 to L7: No "space" group, Surfside history, table cell wording, sources before the offer, Tidewater photo labels, street names | Not fixed |
+
+## Re-check after 14n
+
+Preview built at 01:43 (commit e93220f). On a phone, the H1 is now 1,853 px from entry 1: 2.20 screens, down from 2.29. The page has 14 entries.
+
+**Grade: 8 of 10.** The high finding is cleared. Three mediums keep it from 9.
+
+- H1: cleared. Forestbrook is cut. Grande Dunes now opens with its look, but it is still medium (below).
+- Medium, Grande Dunes: the entry still sells no day. The opening is followed by "plainer, with fiber-cement siding", the flood line and the new-house caveat. Add what an owner does there on a normal day, and move the caveat after it.
+- Medium, Tidewater (M1): not changed. The entry is 82 words, and its lead is still the gated page's fact.
+- Medium, Barefoot (M5): "these sections" is still never named, and there is still no trade-off. The fee in the price line is fixed.
+- M2 is now low. The verifier requires the "listed for sale" scoping.
+- M3 is fixed. Prince Creek still does not say where it is (low).
+- M4 is mostly fixed. The dek is hidden. The short answer still names six picks (low).
