@@ -114,3 +114,14 @@ Preview built at 01:43 (commit e93220f). On a phone, the H1 is now 1,853 px from
 - M2 is now low. The verifier requires the "listed for sale" scoping.
 - M3 is fixed. Prince Creek still does not say where it is (low).
 - M4 is mostly fixed. The dek is hidden. The short answer still names six picks (low).
+
+## Re-check after 14o
+
+Preview built at 01:46. The page has 13 entries. On a phone, the H1 is now 1,829 px from entry 1: 2.17 screens.
+
+**Grade: 9 of 10.** No high or medium findings are left.
+
+- Grande Dunes: cut. The gated page owns its club and marina, and no source gives a day there. Cutting it is right. The short answer now picks Deerfield for a new house.
+- Barefoot (M5): fixed. The four sections are named, and the trade-off is plain: "a buyer who wants a yard of their own has little to choose from here."
+- Tidewater (M1): now low. The lead's decision is sound (lesson B56): the gated page owns the course history, and no further source gives a day there. The entry still sells the place honestly: the fairways, the marsh, the inlet.
+- Low: "New houses" now holds one place. Barefoot still opens with the visitor's replay rate. Prince Creek does not say where it is. The 8 missing photos wait on the photo partner.
