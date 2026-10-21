@@ -139,7 +139,7 @@ const GROUPS = [
   { icon: "dollar", label: "More house for the money", items: [
     ["forestbrook-estates", "garden plots"],
     ["avalon", "ball fields inside"],
-    ["deerfield", "old golf land, big lots"],
+    ["deerfield", "golf-cart beach parking"],
     ["the-farm", "open land out back"]] },
 ];
 {
@@ -237,9 +237,9 @@ const ENTRIES = [
   ENTRY("tidewater", "a neck of land between the waterway and the inlet", [
     "Tidewater Plantation is on a neck of land between the Intracoastal Waterway and Cherry Grove Inlet, with salt marsh along its edges. Inside it, about seven of every ten houses have lots that border the golf course.",
     "Most of the houses stand under tall trees, and many streets curve between two fairways. Some carry sailing names, such as Spinnaker Drive and Topsail Lane.",
-    "The houses are mostly one story or one and a half, and many have a deck out back. Most date from around 2000.",
+    "The houses are mostly one story or one and a half, and many have a deck out back. Most were built in the 1990s and 2000s.",
     "The trade-off of a public course: golfers who do not live here play past the back yards.",
-  ], "Houses in Tidewater usually sold for about $625,000 last year. The HOA fee is about $230 a month for a house and about $780 to $800 for a condo."),
+  ], "Houses in Tidewater usually sold for about $625,000 last year, and the HOA fee for a house is about $230 a month."),
 
   ENTRY("barefoot-resort", "a swing bridge to the shops", [
     "Barefoot Resort's road to the shops crosses a swing bridge from the 1930s, moved here from Edenton, North Carolina. Barefoot Landing's shops and restaurants are on the far side of the Intracoastal Waterway, about six minutes from the condos by car.",
@@ -294,13 +294,13 @@ const ENTRIES = [
     "Forestbrook Estates has a community garden with plots for owners, on the same grounds as the community pool.",
     "The neighborhood was once known as Kingsland. Lennar began building it in 2018, and every house the county approved is now built: 500 houses, with about 105 townhomes beside them. Most of the houses have a porch.",
     "The houses are built around ponds, and every home here is outside the high-risk flood zone. Our agents check the HOA rules on golf carts before you make an offer.",
-    "The trade-off is the yard: a house lot here is about a sixth of an acre,.",
+    "The trade-off is the yard: a house lot here is about a sixth of an acre.",
   ], "Houses in Forestbrook Estates usually sold for about $395,000 last year, and the HOA fee is under $90 a month."),
 
   ENTRY("avalon", "ball fields in the middle of the neighborhood", [
     "In the middle of Avalon, the owners' association holds about nine acres of amenity land with a baseball field, soccer fields and a beach volleyball court. A ball game needs no drive.",
     "The same grounds have a playground, and the association holds a second, smaller amenity area too. Avalon is in Carolina Forest, about a 20-minute drive from the beach.",
-    "The houses are a mix of one-story and two-story, and most have a fenced back yard. Almost every one is outside the high-risk flood zone. They were built between 2000 and 2006 and have about 1,700 square feet.",
+    "The houses are a mix of one-story and two-story, and most have a fenced back yard. Almost every one is outside the high-risk flood zone. The ones for sale were built between 2000 and 2006 and have about 1,700 square feet.",
     "The trade-off is age: these houses are 20 to 26 years old, so our agents check the age of the roof and the air conditioner for you.",
   ], "Houses in Avalon usually sold for about $290,000 last year, and the HOA fee is about $84 a month."),
 
@@ -346,7 +346,7 @@ module.exports = G.page({
   author: "devin",
   heroCta: { title: "Tell us what you want nearby. We will send three neighborhoods.", text: "One of our agents sends the list, with the homes for sale in each. There is no charge.", label: "Get three neighborhoods", href: OFFER },
   shortAnswer: [
-    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For golf at the door, Tidewater. For a boat, Plantation Lakes. For a town center you can walk, The Market Common. For more house for the money, Avalon.",
+    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For golf at the door, Tidewater. For a boat, Plantation Lakes. For a town center you can walk, The Market Common. For a lower price, Avalon.",
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "What each does best", id: "choose", html:
@@ -381,7 +381,7 @@ module.exports = G.page({
     { name: "County parcels", href: PARCELS },
     { name: "Census maps", href: TIGER },
   ],
-  sourcesNote: `Prices are middle resales over 12 months. Fees, and what the houses are like, come from every home listed for sale; lots from county parcels. Drive times assume no traffic. ${PHOTO_CREDIT}`,
+  sourcesNote: `Prices are middle resales over 12 months. Fees, and what the houses are like, come from every home listed for sale; lots from county parcels. Drive times start from each middle. ${PHOTO_CREDIT}`,
   afterSources: () => { const cr = ph.credits(); return cr.slice(cr.indexOf("<script")) + ITEMLIST(); },
   bottomCta: { h2: "Tell us what you want close to home. We will send three neighborhoods.", p: "Tell us your price range and what you want close to home. One of our agents will send you three neighborhoods that fit, and the homes for sale in each.", label: "Get three neighborhoods", href: OFFER },
   keywords: "best neighborhoods in Myrtle Beach, best places to live in Myrtle Beach, best areas to live in Myrtle Beach, best communities in Myrtle Beach, best neighborhoods in North Myrtle Beach, best neighborhoods in Surfside Beach, Myrtle Beach neighborhoods map, Carolina Forest vs Myrtle Beach",
