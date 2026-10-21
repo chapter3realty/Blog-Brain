@@ -133,6 +133,10 @@ The struck list catches old wording coming back. It cannot catch new wording tha
 
 **B53. An award is checked at the body that gave it, not at the winner's page.** Row 200 passed Tidewater's "No. 39 among America's 100 Greatest Public Courses" from the club's own page. The final check read Golf Digest. The No. 39 was 2023-24 on the South Carolina list, Tidewater is No. 38 there now, and the national list had it only from 2003 to 2012. Rule (verifier prompt): a ranking, award or "best" claim is verified only at the publisher's own list, with its year and its scope (state or national). If the publisher's page cannot be read, the claim is pending, not verified.
 
+**B54. A lesson in a prompt does not stop a drift; a check does.** B48 was in the writer prompt, and still the v9 and v10 checks (2026-10-15 and 2026-10-21) found "most houses have a porch", "many have a fireplace" and "about half of the yards are fenced" from 6 to 40 listings. The county parcels have no field for stories, porches or fences. The cure the review asked for (say what the house is like) brought the drift back each round. Fix: `tools/house-claims.js` lists every unscoped "most/many/about half of the houses" sentence. The writer runs it before handing off, and scopes each hit to "the houses listed for sale", cites a full source, or cuts it. A house feature that only listings show is said once on a page, not in every entry (the stories-and-porch slot of OWNER-EYE-14k M4).
+
+**B55. Never open a new chat to do the work (owner, 2026-10-21).** In round 14, helper agents opened 36 Claude Code chats in the owner's list, and he could not find his other chats. All work happens in the owner's chat. Helpers run inside it, only for independent checks, and each brief says not to open chats. See CLAUDE.md.
+
 ## To add after the review
 
 The owner's-eye review, the integration, and the owner's own response will add lessons here.
