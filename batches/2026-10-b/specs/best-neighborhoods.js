@@ -294,7 +294,7 @@ const ENTRIES = [
 
   ENTRY("forestbrook-estates", "newer houses outside the flood zone", [
     "Every home in Forestbrook Estates is outside the high-risk flood zone, and the houses are built around ponds.",
-    "Lennar developed the neighborhood from 2018 on, so the houses are less than ten years old. Owners have a community garden with plots, on the same grounds as the community pool.",
+    "Lennar developed the neighborhood from 2018 on, so every house was built in 2018 or later. Owners have a community garden with plots, on the same grounds as the community pool.",
     "The yards are small: a house lot here is about a sixth of an acre.",
   ], "Houses in Forestbrook Estates usually sold for about $395,000 last year, and the HOA fee is under $90 a month."),
 

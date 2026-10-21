@@ -123,9 +123,9 @@ const P = [
   { id: "parkview", name: "Parkview", map: "Parkview", lat: 33.686431, lon: -78.910360, price: 190000, mb: 6.1, beach: 4.0, year: 4700,
     feature: "4 min to the beach", schools: "Myrtle Beach Elementary, Middle and High" },
   { id: "fairways-at-wild-wing", name: "The Fairways at Wild Wing", map: "Fairways at Wild Wing", lat: 33.787649, lon: -78.986234, price: 215000, mb: 16.5, beach: 17.8, year: 6100,
-    feature: "golf, no yard work", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "golf, lawn care", schools: "Carolina Forest Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "sawgrass-east", name: "Sawgrass East", map: "Sawgrass East", lat: 33.756167, lon: -78.929975, price: 222500, mb: 16.7, beach: 17.9, year: 6000,
-    feature: "garage, no yard work", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "garage, lawn care", schools: "Ten Oaks Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "birchwood", name: "Birchwood", map: "Birchwood", lat: 33.925885, lon: -78.754012, price: 223825, mb: 41.6, beach: 20.2, year: 2400,
     feature: "paddle the Waccamaw", schools: "Daisy Elementary, Loris Middle, Loris High" },
   { id: "golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", map: "Golf and Yacht Club", lat: 33.649402, lon: -79.05007, price: 225000, mb: 22.9, beach: 15.0, year: 2100,
@@ -135,11 +135,11 @@ const P = [
   { id: "victory-point", name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9, year: 3800,
     feature: "on the old speedway", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6, year: 2200,
-    feature: "smart homes by CCU", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
+    feature: "smart homes, CCU 6 min", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
   { id: "villas-at-sandridge", name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46, year: 4600,
     feature: "5 min to a wake park", schools: "Waterway Elementary, North Myrtle Beach Middle and High" },
   { id: "indigo-grove", name: "Indigo Grove", map: "Indigo Grove", lat: 33.862931, lon: -78.749665, price: 245000, mb: 35.0, beach: 13.2, year: 2000,
-    feature: "22 acres of open land", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
+    feature: "22 acres open space", schools: "Riverside Elementary, North Myrtle Beach Middle and High" },
   { id: "wynbrooke", name: "Wynbrooke", map: "Wynbrooke", lat: 33.584176, lon: -79.048446, price: 249500, mb: 19.8, beach: 8.9, year: 6500,
     feature: "MarshWalk 5 min away", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "polo-farms", name: "Polo Farms", map: "Polo Farms", lat: 33.917844, lon: -78.812061, price: 255000, mb: 36.0, beach: 22.0, year: 1300,
@@ -274,7 +274,7 @@ module.exports = G.page({
       h.p("The Fairways is inside Conway's city limits, where the yearly tax is higher than outside a town.")),
 
     entry("sawgrass-east", "townhomes where the fee covers the insurance and the lawn", () =>
-      h.p(`At Sawgrass East, the HOA fee usually pays the insurance on the buildings, the lawn care, and the water, sewer and trash. In most townhomes here, an owner has no water or trash bill of their own, and no lawn to mow.`) +
+      h.p(`At Sawgrass East, the HOA fee usually pays the insurance on the buildings, the lawn care, and the water, sewer and trash. In most townhomes here, an owner has no water or trash bill of their own, and the HOA cares for the lawns.`) +
       h.p("Many of the townhomes have three bedrooms, often with a one-car garage and the main bedroom downstairs.") +
       h.p("There are about 255 of them, built in the mid-2000s, around three small lakes that the HOA owns, with a pool and a clubhouse for owners. The county's Carolina Forest library and recreation center are on the boulevard that leads in.") +
       h.p("The beach is the trade-off: it is about ten miles away by road.")),
@@ -287,7 +287,7 @@ module.exports = G.page({
       h.p(`The long drive is to Myrtle Beach: Coastal Grand Mall is about a forty-minute drive, by the Carolina Bays Parkway.`)),
 
     entry("golf-and-yacht-club", "one-story houses behind a gate", () =>
-      h.p("Osprey Marina has wet slips and dry boat storage on the Intracoastal Waterway. It is about four miles by road from the older part of Myrtle Beach Golf and Yacht Club. Inside its gate are about 470 houses, most of them one story.") +
+      h.p("Osprey Marina has wet slips and dry boat storage on the Intracoastal Waterway. It is about four miles by road from the older part of Myrtle Beach Golf and Yacht Club. The older part has about 470 houses inside the gate, most of them one story.") +
       h.p("Most houses there were built in the 1980s, with two or three bedrooms and two baths. They typically have about 1,200 square feet, on about an eighth of an acre, and many have a porch or a patio.") +
       h.p("Owners share a pool and hot tub, tennis courts and a community center.") +
       h.p("Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy.")),
@@ -320,7 +320,7 @@ module.exports = G.page({
       h.p("The trade-off is the dues: they are higher than at the other new communities here.")),
 
     entry("indigo-grove", "new houses on open land, 13 minutes from the beach", () =>
-      h.p("Most of Indigo Grove's new houses back onto about 22 acres of open land that the HOA owns. The beach is about 13 minutes away by car.") +
+      h.p("Most of Indigo Grove's new houses back onto about 22 acres of open space that the HOA owns. The beach is about 13 minutes away by car.") +
       h.p("The open land holds three new ponds, one with a small island of trees, and strips of woods along a creek. The neighborhood is off SC 90, and its homes are zoned for Riverside Elementary and North Myrtle Beach Middle and High.") +
       h.p(`Most of the houses are Lennar's, which sells them as The Overlook. ${h.ext(OVERLOOK, "Lennar lists nine floor plans")} with three to five bedrooms, some of them one story, on lots of about a fifth of an acre.`) +
       h.p("Every lot is outside the high-risk flood zone, so a lender usually will not require flood insurance on a home here.")),
