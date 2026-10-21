@@ -315,6 +315,7 @@ module.exports = G.page({
       h.p("The Orchards has about 200 townhomes, and Planters Point has about 70 condos, most with two or three bedrooms.") +
       h.p("Most houses here are about 20 years old. On any house you tour, we check how old the roof and the air conditioner are.") +
       h.p("Over the past year, a typical townhome in The Orchards sold for about $230,000, and a condo in Planters Point about $240,000.") +
+      G.homesCss() + G.homes("the-farm", "The Farm") +
       G.offer("The Farm", { label: "Book a showing in The Farm", href: PLACE_HREF }) },
 
     { h2: "Where is The Farm at Carolina Forest?", toc: "Where it is", html: (bg) =>

@@ -226,7 +226,7 @@ const PRICE = {
   "wynbrooke": `Townhomes in Wynbrooke usually sold for about ${pr("wynbrooke")} last year, with an HOA fee of about $450 a month.`,
   "polo-farms": `Houses in Polo Farms usually sold for about ${pr("polo-farms")} last year, and the HOA fee is about $20 a month.`,
 };
-const placeCta = (id) => `<div class="c3-place-cta"><p>${PRICE[id]}</p>${G.offer(N[id].name)}</div>`;
+const placeCta = (id) => `${G.homes(id, N[id].name)}<div class="c3-place-cta"><p>${PRICE[id]}</p>${G.offer(N[id].name)}</div>`;
 const entry = (id, short, html) => ({ h2: `${N[id].n}. ${N[id].name}: ${short}`, toc: N[id].map, id,
   html: (bg) => html(bg) + placeCta(id) });
 
@@ -257,7 +257,7 @@ module.exports = G.page({
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "The twelve at a glance", id: "compare", html: () =>
-      PHOTO_CSS + PLACE_CSS + GUIDE },
+      PHOTO_CSS + PLACE_CSS + G.homesCss() + GUIDE },
 
     entry("parkview", "townhomes by the city's golf course, near the beach", () =>
       h.p("Parkview is a four-minute drive from the beach. Its townhomes are off 17th Avenue South, inside the city of Myrtle Beach, around ponds and a pool for owners.") +

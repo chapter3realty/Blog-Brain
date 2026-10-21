@@ -155,15 +155,15 @@ const SEA = new Set(["cherry-grove", "murrells-inlet"]);
 const middle = (s) => (s.polygon ? { lat: s.polygon.reduce((t, q) => t + q[1], 0) / s.polygon.length, lon: s.polygon.reduce((t, q) => t + q[0], 0) / s.polygon.length } : { lat: s.lat, lon: s.lon });
 const shape = (k, o) => { const s = A[k].mapShapes[0]; if (s.polygon) o.polygon = s.polygon; else Object.assign(o, { lat: s.lat, lon: s.lon, radius: s.radius }); return o; };
 const MAP = (() => {
-  const places = COAST.map((k) => Object.assign({ name: shortName(k) }, middle(A[k].mapShapes[0]), SEA.has(k) ? { sea: true } : {}));
+  const places = COAST.map((k) => Object.assign({ name: shortName(k) }, middle(A[k].mapShapes[0])));
   const areas = COAST.map((k) => shape(k, { name: shortName(k), label: false }))
-    .concat(INLAND.map((k) => shape(k, Object.assign({ name: `${num(k)} ${shortName(k)}`, mark: String(num(k)) },
+    .concat(INLAND.map((k) => shape(k, Object.assign({ name: shortName(k), label: false, mark: String(num(k)) },
       /* The country around Loris holds the Loris circle; its badge goes in its west part, off the town's. */
       k === "loris-country" ? { markAt: { lat: 34.03, lon: -78.98 } } : k === "loris" ? { nested: true } : {}))));
-  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", places, areas, leaders: true, placeNames: false, maxRatio: 0.75 },
+  const m = regionMap({ name: "Homes with no HOA around Myrtle Beach", places, areas, tidyLeaders: true, placeNames: false, maxRatio: 0.75 },
     /* 440 units wide (round 14g): room for 15 of the 16 names; on a phone the names show at about 12 px. */
     { dir: MAP_DIR, src: "/images/maps", glass: true, width: 440 });
-  const mk = m.boxes.filter((b) => b.kind === "marker" || b.kind === "label");
+  const mk = m.boxes.filter((b) => (b.kind === "marker" || b.kind === "label") && !/CAROLINA/.test(b.owner || ""));
   for (let i = 0; i < mk.length; i++) for (let j = i + 1; j < mk.length; j++) { const a = mk[i], b = mk[j];
     if (!(a.x1 + 1 < b.x0 || b.x1 + 1 < a.x0 || a.y1 + 1 < b.y0 || b.y1 + 1 < a.y0)) throw new Error(`no-hoa map: two area names or numbers touch: ${a.owner} ${b.owner}`); }
   const css = "<style>.c3-nh-map img,.c3-nh-map svg{display:block;width:100%;height:auto}.c3-areamap figure{max-width:760px!important;margin:1rem 0 1.1rem!important}.c3-areamap figcaption{line-height:1.4!important;margin-top:.4rem!important}</style>";
@@ -184,6 +184,7 @@ const GUIDE = [
   ["Room to spread out", ["mb-pine-lakes", "loris-country", "aynor"]],
   ["A small town with old streets", ["conway", "loris"]],
 ];
+const GUIDE_ICON = { "A boat at home, or a ramp within 10 minutes": "dock", "Most houses within half a mile of the sand": "beach", "Room to spread out": "lawn", "A small town with old streets": "town" };
 if (GUIDE.flatMap((g) => g[1]).sort().join() !== ORDER.slice().sort().join()) throw new Error("the guide names every area exactly once");
 
 /* ---------------------------------------------------------------------------- */
@@ -212,7 +213,7 @@ const chip = (k) => `<div class="c3-nh-chips"><span class="c3-nh-chip">Listed wi
 const priceLine = (k) => `Houses with no HOA fee here are listed at about ${A[k].medianNoFeeHousePrice >= 1e6 ? millions(A[k].medianNoFeeHousePrice) : (k === "murrells-inlet" ? to10k(A[k].medianNoFeeHousePrice) : priceOf(k))}${k === byPrice[0].key ? ", the lowest on this page" : ""}.`;
 /* The offer at the end of each area (CRAFT 3, "Every place gets its own offer"): the glass theme's pill,
    linked to the contact form with the area named, in the box with the price line. */
-const offer = (k) => `<div class="c3-place-cta"><p>${priceLine(k)}</p>${GL.offer(ENTRY[k].offerName || ENTRY[k].place, { label: ENTRY[k].label || `Get the homes for sale in ${ENTRY[k].place}`,
+const offer = (k) => `${GL.homes(`nohoa-${ENTRY[k].id}`, ENTRY[k].name)}<div class="c3-place-cta"><p>${priceLine(k)}</p>${GL.offer(ENTRY[k].offerName || ENTRY[k].place, { label: ENTRY[k].label || `Get the homes for sale in ${ENTRY[k].place}`,
   href: `/contact/?place=${encodeURIComponent(ENTRY[k].place)}` })}</div>`;
 function entry(k, headline, paras) {
   const n = num(k);
@@ -438,8 +439,8 @@ module.exports = GL.page({
 
   sections: [
     { h2: "Where are they?", toc: "The map and the guide", id: "where", html: () =>
-      ph.css() + CHIP_CSS + GUIDE_CSS + MAP +
-      `<div class="c3-nh-guide">` + GUIDE.map(([label, ks]) => h.p(`<strong>${label}:</strong> ${list(ks)}.`)).join("") + `</div>` },
+      ph.css() + GL.homesCss() + CHIP_CSS + GUIDE_CSS +
+      `<div class="c3-guide c3-guide-map">` + GL.guideCards(GUIDE.map(([label, ks]) => ({ icon: GUIDE_ICON[label], label, items: ks.map(go) }))) + MAP + `</div>` },
 
     entry("mb-downtown", "the boardwalk on foot", [
       `From the older streets downtown, you can walk to the oceanfront ${h.ext(MB_BOARDWALK2, "boardwalk")}. From Collins Street it is about a quarter hour on foot. From the day after Labor Day through April, you can ride a bike or walk a dog on it at any hour.`,
@@ -451,7 +452,7 @@ module.exports = GL.page({
 
     entry("mb-myrtle-heights", "a beach path at the end of each avenue", [
       `In Myrtle Heights, the plan of the mid-1930s carried the avenues through to the beach, and those ends now give public access to the sand. From every house for sale here, a beach access is less than 5 minutes away on foot.`,
-      `The same plan set a minimum setback of 75 feet for oceanfront houses. The district is on the ${h.ext(NPS_MH, "National Register of Historic Places")}.`,
+      `The same plan set a minimum setback of 75 feet for oceanfront houses. The district is on the ${h.ext(NPS_MH, "National Register of Historic Places")}, which calls the Myrtle Heights-Oak Park district the largest intact group of historic properties in Myrtle Beach.`,
       "The houses, built from about 1925 to 1945, are mostly two-story frame homes, many with a garage or a garage apartment. You will see porches and wood awnings painted solid or striped to look like canvas. A few houses keep old walls of coquina rock or brick.",
       "Back yards along Ocean Boulevard often have native wax myrtles, the plant the city is named for, along with red cedars, palmettos and windswept oaks.",
       "Sea Captain's House, a restaurant in a 1930 beach cottage, is about a 9-minute walk from the middle of Myrtle Heights.",
@@ -472,7 +473,7 @@ module.exports = GL.page({
       `Windy Hill is 3 minutes by car from Barefoot Landing on the Intracoastal Waterway. Come by boat, and you can ${h.ext(BF_DOCKS, "use the finger docks")} free for the day while you shop or eat.`,
       "The Alabama Theatre and House of Blues are on the same grounds. Barefoot Landing welcomes leashed pets all year, and many of its shops let them inside.",
       "Most houses for sale here are within a 10-minute walk of a public beach access. Inside North Myrtle Beach, a work truck up to 18,500 pounds may park at home.",
-      `On 41st Avenue South, a ${h.ext(NMB_41ST, "pocket park")} with garden plantings, two pergolas and a walking path is on the site of the old water tower.`,
+      `On 41st Avenue South, a ${h.ext(NMB_41ST, "pocket park")} with garden plantings, two pergolas and a walking path is on the site of the old water tower. Conway investors developed Windy Hill after World War II, and in 1968 it joined Cherry Grove, Ocean Drive and Crescent Beach to form North Myrtle Beach.`,
       "Flood is the cost here. About half of these houses are in a high-risk flood zone, and with a mortgage your lender will almost always require flood insurance.",
     ]),
 
@@ -506,14 +507,14 @@ module.exports = GL.page({
     entry("little-river", "the old fishing village on the waterway", [
       `The houses on Little River's old waterfront streets are less than a mile from the docks on Mineola Avenue, on the Intracoastal Waterway. Local boatmen began ${h.ext(LR_FISHING, "taking visitors fishing for a fee")} there, probably in the early 1920s. They ran the first organized offshore fishing trips for visitors in South Carolina.`,
       `${h.ext(JUELS, "Hurricane Juel's")}, with a view of the waterway, has been family owned since 1945.`,
-      `The waterfront holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May and ${h.ext(SHRIMPFEST, "ShrimpFest")} each October. On the Saturday after Thanksgiving, a ${h.ext(REGATTA, "lighted boat parade")} leaves Little River Inlet and heads down the waterway.`,
+      `The waterfront holds the ${h.ext(BLUE_CRAB, "Blue Crab Festival")} each May, on the weekend after Mother's Day; a TV station reported more than 30,000 people there in 2026. ${h.ext(SHRIMPFEST, "ShrimpFest")} follows each October. On the Saturday after Thanksgiving, a ${h.ext(REGATTA, "lighted boat parade")} leaves Little River Inlet and heads down the waterway.`,
       `The county's ${h.ext(LANDINGS, "T. Craig Campbell boat landing")} is on the waterway in town. After the inlet's jetties were finished in 1983, boats could cross the bar at any time of day. The state keeps an ${h.ext(DNR_REEFS, "artificial fishing reef")} off the inlet.`,
       `${h.ext(VEREEN, "Vereen Memorial Historical Gardens")}, a county park on the waterway, has about 3 miles of trails and boardwalks through its gardens and along the water. Some of the houses for sale are new, on Mineola and Ellis Avenues; others are on McCorsley Avenue and Bayshore Drive.`,
       "The beach takes a drive: none of these houses is within a mile of the ocean.",
     ]),
 
     entry("socastee", "a county boat ramp 2 minutes away", [
-      `${h.ext(LANDINGS, "Rosewood Landing")}, a county boat ramp on the Intracoastal Waterway, is 2 minutes by car from these streets. Socastee Landing and Park has a second ramp and a new accessible playground.`,
+      `${h.ext(LANDINGS, "Rosewood Landing")}, a county boat ramp on the Intracoastal Waterway, is 2 minutes by car from these streets. Socastee Landing and Park has a second ramp and a new accessible playground. The swing bridge at Socastee, finished in 1935, marked the completion of the Intracoastal Waterway in South Carolina. The waterway's opening celebration was held in Socastee in April 1936.`,
       "These streets are outside any town, so the county's rules apply. County zoning names no limit on where you park a boat. Outdoor storage may not be in front of the house, and a small shed can go 5 feet from the line.",
       "Most are 1980s houses in Rosewood Estates and Cimerron Plantation.",
       `${h.ext(HC_PARKS, "Socastee Recreation Park")} has fields, picnic areas, disc golf, trails and a playground. Market Common and Coastal Grand Mall are each about 10 minutes away, and the beach at Surfside is about 15 minutes by car.`,
@@ -522,7 +523,7 @@ module.exports = GL.page({
 
     entry("surfside", "two boats at home and golf carts on the streets", [
       `In Surfside Beach, the town allows up to two boats or trailers at a home, and only one over 21 feet. A permitted golf cart may be driven in daylight within four miles of home, on streets posted at 35 miles an hour or less.`,
-      `The town has ${h.ext(SCE + "surfside-beach/", "live oaks well over a century old")} and ${h.ext(SSB_BEACHES, "36 public beach accesses")}.`,
+      `The town has ${h.ext(SCE + "surfside-beach/", "live oaks well over a century old")} and ${h.ext(SSB_BEACHES, "36 public beach accesses")}. In 2016 Surfside Beach became the first town certified autism-friendly through the Champion Autism Network.`,
       `The town holds a ${h.ext(SSB_MARKET, "farmers market")} on Tuesdays from spring into December in Memorial Park, and free Sunday afternoon concerts there from late May through August. Each July 4, a ${h.ext(SSB_PARADE, "golf cart parade")} goes down Ocean Boulevard.`,
       "Each October, the fall festival has more than 100 craft vendors. Fireworks may be set off on the sand from sunset on July 4 and on New Year's Eve, but not within 500 feet of the pier.",
       "The town picks up trash at the curb, and it has more than nine miles of sidewalk.",
@@ -532,14 +533,14 @@ module.exports = GL.page({
     entry("garden-city", "a free pier walk and free beach parking", [
       `${h.ext(GC_PIER, "The Pier at Garden City")} is always free to walk, and every oceanfront beach access in Garden City has ${h.ext(HC_BEACH, "free parking all year")}. On summer nights, live bands play at both ends of the pier.`,
       "A pier pass covers fishing, so you need no state license. Its Hugo burger is named for the 1989 hurricane that destroyed the pier.",
-      "Garden City did not develop until the 1950s, and most of the houses for sale here are within half a mile of the shore. The county's Stanley Drive landing is a 5-minute drive.",
+      "Most of the houses for sale here are within half a mile of the shore. The county's Stanley Drive landing is a 5-minute drive.",
       "Each July 4, decorated boats start at the point of Garden City Beach and parade through Murrells Inlet.",
       "The trade-off is flood insurance: with a mortgage, a lender will almost always require it on most of these houses.",
     ]),
 
     entry("murrells-inlet", "by the creeks and the county boat ramp", [
       `At the north end of Murrells Inlet, some of the houses for sale are on the creeks of the inlet, and the rest are a few streets back. The county's ${h.ext(MI_LANDING, "boat landing on Stanley Drive")} is a 4-minute drive, and several houses on the market lately have their own floating dock.`,
-      `People first came to the inlet for oyster roasts and fried shore dinners, and seafood restaurants followed. The ${h.ext(MARSHWALK, "MarshWalk")}, a half-mile wooden boardwalk along the salt marsh with a row of restaurants, is about 6 minutes away by car.`,
+      `People first came to the inlet for oyster roasts and fried shore dinners, and seafood restaurants followed. The ${h.ext(MARSHWALK, "MarshWalk")}, a half-mile wooden boardwalk along the salt marsh with a row of restaurants, is about 6 minutes away by car. The writer Mickey Spillane made Murrells Inlet his home for decades.`,
       `The free pier walk and free beach parking at Garden City Beach are a 6-minute drive across the marsh. ${h.ext(BROOKGREEN, "Brookgreen Gardens")}, with its sculpture gardens on four former rice plantations, is about 15 minutes away by car.`,
       "Murrells Inlet is not a town, so the county's rules apply on most of these streets. The south part is in Georgetown County. There, a vehicle or travel trailer without current plates has to be kept in a closed building.",
       "Flood is the honest cost: more than half of these houses are in a high-risk flood zone.",
@@ -548,14 +549,14 @@ module.exports = GL.page({
     entry("conway", "live oaks and the Waccamaw River", [
       `Conway's older streets ${h.ext(CONWAY_OAKS, "were designed around its live oaks")}, on a bluff of the Waccamaw River. The Riverwalk follows the river downtown, and the Waccamaw is a federal ${h.ext(BLUE_TRAIL, "National Water Trail")}.`,
       "In town, lots are about 15,000 square feet. Inside the city, a camper or a trailer can go in the side or back yard or under a carport. A shed goes in back, with a permit.",
-      `The oldest streets form a ${h.ext(CONWAY_RHD, "National Register district")}. Its houses range from Greek Revival and Carpenter Gothic through Queen Anne to 1920s bungalows, one of them with a porch around three sides.`,
+      `The oldest streets form a ${h.ext(CONWAY_RHD, "National Register district")}. Its houses range from Greek Revival and Carpenter Gothic through Queen Anne to 1920s bungalows, one of them with a porch around three sides. City Hall is the old Horry County courthouse, finished in 1825 to a design credited to Robert Mills. Its courtroom still holds city court every week.`,
       `The ${h.ext(HC_MUSEUM, "Horry County Museum")} is in the restored 1905 Burroughs School, about a quarter hour on foot from downtown. ${h.ext(RIVERFEST, "Riverfest")} brings music and fireworks to the river on the Saturday before the Fourth of July weekend, and the Celebration of Lights opens each December.`,
       `${h.ext(LANDINGS, "Billy Witherspoon Landing")}, a county ramp on the Waccamaw, is a 6-minute drive. Conway Medical Center is a 12-minute drive.`,
       "The trade-off is the beach, a 25-minute drive.",
     ]),
 
     entry("loris", "a small town with its own hospital", [
-      "Loris is a small town with its own hospital: McLeod Loris, with an emergency room, is in town. The older houses were built from the 1940s to the 1970s, on lots of about 0.4 acre.",
+      "Loris is a small town with its own hospital: McLeod Loris, with an emergency room, is in town. The older houses were built from the 1940s to the 1970s, on lots of about 0.4 acre. By 1914 Loris was known as the Gate City, because it was the first town on the railroad south of the North Carolina line.",
       "City zoning allows up to two buildings beside the house, a garage or carport included, so there is room for a workshop. A work truck up to 2 tons may park at home.",
       `The Main Street ${h.ext(LORIS_LIBRARY, "library")} lends cake pans, state park passes and Wi-Fi hotspots.`,
       `On the third Saturday in October, the city holds the ${h.ext(LORIS_CITY, "Loris Bog-Off")} downtown, with vendors, a car show and live music. The festival's dish is chicken bog: chicken, rice and sausage.`,
@@ -572,7 +573,7 @@ module.exports = GL.page({
     entry("aynor", "an acre and a river landing", [
       `Around Aynor, lots are typically about an acre, with room beside the house for a boat or a camper. More than half of the houses for sale here are new.`,
       `Galivants Ferry Landing, a county ramp on the ${h.ext(USGS_LPD, "Little Pee Dee River")}, is about 6 minutes from the center of town. The Little Pee Dee is ${h.ext(AYNOR_APPEAL, "popular with canoes, kayaks and small powerboats")}.`,
-      `At ${h.ext(GALIVANTS_NR, "Galivants Ferry")}, the old farm houses have full-width front porches on brick piers. Some were built from wood cut on the farm itself, and the district has log tobacco barns.`,
+      `At ${h.ext(GALIVANTS_NR, "Galivants Ferry")}, the old farm houses have full-width front porches on brick piers. Some were built from wood cut on the farm itself, and the district has log tobacco barns. Galivants Ferry has also held a political speaking, the Stump, since 1880.`,
       `Each September, ${h.ext(AYNOR_TOWN, "almost 25,000 people")} come to the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started. In the town of Aynor, zoning does not limit a camper or a work truck at home. Most of these houses are outside the town, under county rules.`,
       "The drive is the trade-off: about 45 minutes to the beach, and about 30 to the nearest hospital, Conway Medical Center.",
     ]),

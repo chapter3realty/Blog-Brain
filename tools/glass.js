@@ -384,7 +384,62 @@ function offer(place, o = {}) {
   return `<p class="c3-offer"><a class="c3-offer-pill" href="${esc(href)}">${esc(label)}<span class="c3-offer-ar" aria-hidden="true">${arrow}</span></a></p>`;
 }
 
-module.exports = { page, css, offerCss, chartCss, bars, offer, glassIcons, TOKENS: T, BIG, CARDS, CTA_PROMISE };
+
+/* ---------------------------------------------------------------------------- */
+/* homes(slug, name): the slot for a place's live homes strip (owner, 2026-10-21)  */
+
+/* The owner: "the photos for each community could be a horizontally scrolling IDX feed ... show a
+   wide variety of photos as it scrolls. it could just show house and price." The page carries only
+   an empty slot. The website's edge step (idx-lib/near.js on branch idx-public, website-patches/
+   idx-strips.patch) fills it from the CRM's public listing API while the listing search is on
+   (IDX_LIVE): up to 10 homes spread across the price range, each card a photo, the price and the
+   listing firm (CCMLS 16.14), then a "See all homes in X" card. With the search off, or under 3
+   homes, the slot stays empty and takes no space. A page never carries listing data in its source.
+   slug  the CRM place slug (batches/<batch>/data/idx-places.json); name  the place as the entry says it. */
+function homes(slug, name) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`glass.js: homes slug "${slug}" must be lowercase words joined by hyphens`);
+  const n = plainText("the homes strip's place", name, 60);
+  return `<div class="hx-strip" data-place="${esc(slug)}" data-name="${esc(n)}"></div>`;
+}
+
+/* The strip's look: one row that scrolls sideways with snap, glass price chips on the photos, the
+   firm line small under each card. Phone: about 1.7 cards in view so the next one shows; wide: 4. */
+const HOMES_RULES = [
+  "main#main .hx-strip:empty{display:none}",
+  "main#main .hx-strip{margin:1.3rem 0 .2rem;max-width:760px}",
+  "main#main .hx-s-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 0 .55rem;font-size:.95rem;color:var(--navy)}",
+  "main#main .hx-s-head b{font-weight:600}main#main .hx-s-head a{color:var(--brass-d,#8a5a2b);font-size:.9rem;white-space:nowrap}",
+  "main#main .hx-s-row{display:flex;gap:.75rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.15rem .15rem .9rem;margin:0 -.15rem;scrollbar-width:thin;-webkit-overflow-scrolling:touch}",
+  "main#main .hx-s-card{flex:0 0 58%;max-width:15rem;scroll-snap-align:start;display:block;text-decoration:none;color:inherit;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);box-shadow:0 6px 20px rgba(28,32,40,.10);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%)}",
+  "@media (min-width:700px){main#main .hx-s-card{flex-basis:23%}}",
+  "main#main .hx-s-photo{position:relative;display:block;aspect-ratio:4/3;background:linear-gradient(135deg,#e8e1d6,#d9cfc1)}",
+  "main#main .hx-s-photo img{width:100%;height:100%;object-fit:cover;display:block}",
+  "main#main .hx-s-price{position:absolute;left:.55rem;bottom:.55rem;padding:.28rem .7rem;border-radius:999px;font-weight:650;font-size:1rem;color:#fff;background:rgba(28,32,40,.42);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}",
+  "main#main .hx-s-firm{display:block;padding:.45rem .7rem .55rem;font-size:.72rem;line-height:1.35;color:var(--muted,#6b6459)}",
+  "main#main .hx-s-all{display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;font-weight:600;color:var(--navy);background:rgba(255,255,255,.4)}",
+  "main#main .hx-s-fine{font-size:.72rem;color:var(--muted,#6b6459);max-width:760px;margin:2rem 0 0}",
+  "@media (prefers-reduced-transparency:reduce){main#main .hx-s-card,main#main .hx-s-price{backdrop-filter:none;-webkit-backdrop-filter:none}main#main .hx-s-card{background:#fbf8f3}main#main .hx-s-price{background:#1c2028}}",
+].join("");
+const homesCss = () => `<style>${HOMES_RULES}</style>`;
+
+/* ---------------------------------------------------------------------------- */
+/* guideCards(groups): the selection guide as small glass cards (round 15)         */
+
+/* The owner (2026-10-21): "the landing page is a bit cluttered". One card per want: an icon, the
+   want, then its places, one per line. groups: [{ icon, label, items: [html, ...] }], where each
+   item is a link the page builds (the page owns its numbering). Icons: tools/icons.js names. */
+function guideCards(groups) {
+  const IC = require("./icons.js");
+  const css = "<style>main#main .c3-gcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.7rem;max-width:760px;margin:.2rem 0 1rem}"
+    + "main#main .c3-gcard{padding:.75rem .9rem .8rem;border-radius:16px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75);box-shadow:0 6px 18px rgba(28,32,40,.08);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%)}"
+    + "main#main .c3-gcard h3{display:flex;align-items:center;gap:.45rem;margin:0 0 .35rem!important;font-family:var(--sans);font-size:.92rem!important;font-weight:650;color:var(--navy);line-height:1.3}"
+    + "main#main .c3-gcard h3 .i{display:inline-flex;color:var(--brass)}main#main .c3-gcard .c3-gi{font-size:.95rem;line-height:1.6}main#main .c3-gcard a{color:var(--navy)}"
+    + "@media (prefers-reduced-transparency:reduce){main#main .c3-gcard{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fbf8f3}}</style>";
+  return css + `<div class="c3-gcards">` + groups.map((g) => `<div class="c3-gcard"><h3><span class="i">${IC.icon(g.icon || "pin", { size: 18 })}</span>${esc(g.label)}</h3>`
+    + g.items.map((it) => `<div class="c3-gi">${it}</div>`).join("") + `</div>`).join("") + `</div>`;
+}
+
+module.exports = { page, css, offerCss, chartCss, bars, offer, homes, homesCss, guideCards, glassIcons, TOKENS: T, BIG, CARDS, CTA_PROMISE };
 
 if (require.main === module) {
   const c = css();

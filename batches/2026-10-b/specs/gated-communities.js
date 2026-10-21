@@ -140,19 +140,7 @@ const nums = (a) => {
   return ns.length === 1 ? String(ns[0]) : ns.length === 2 ? `${ns[0]} and ${ns[1]}` : `${ns[0]} to ${ns[ns.length - 1]}`;
 };
 const km = (lat1, lon1, lat2, lon2) => Math.hypot((lat2 - lat1) * 111.2, (lon2 - lon1) * 111.2 * Math.cos(lat1 * Math.PI / 180));
-const MAP = (() => {
-  const areas = AREAS.map(([a, label]) => {
-    const pts = E.filter((e) => e.area === a);
-    const lat = pts.reduce((s, e) => s + e.lat, 0) / pts.length, lon = pts.reduce((s, e) => s + e.lon, 0) / pts.length;
-    const radius = Math.round(Math.min(15000, 800 + 1000 * Math.max(...pts.map((e) => km(lat, lon, e.lat, e.lon)))));
-    return { name: `${MAP_NAME[a]}, ${nums(a).replace(" to ", "-")}`, lat, lon, radius };
-  });
-  const MAPDIR = { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", width: 420, glass: true };
-  const m = regionMap({ name: "Where the 18 gated neighborhoods are", areas }, MAPDIR);
-  if (m.areasUnlabelled && m.areasUnlabelled.length) console.warn(`gated-communities: no room on the map for ${m.areasUnlabelled.length} area names; the key names them`);
-  const key = m.areasUnlabelled && m.areasUnlabelled.length ? m.areaKey : "";
-  return `<figure class="c3g-map" id="gated-map">${m.html}${key}<figcaption>${m.credit}</figcaption></figure>`;
-})();
+/* Round 15: the four-area map is cut (owner, 2026-10-21: "not sure what the last photo ... is trying to illustrate"); the area headings say where each place is. */
 
 /* The selection guide: every place once, under what it does best (features, never people). */
 const GUIDE_GROUPS = [
@@ -171,11 +159,14 @@ const GUIDE_GROUPS = [
   if (seen.length !== E.length || new Set(seen).size !== E.length) throw new Error("gated-communities: the guide must list each place once");
 }
 /* The guide links to the entries, and its last line to the map, which now sits beside the price table after the entries (owner's eye 14d, H3). */
-const GUIDE = `<div class="c3g-guide c3-guide-map"><ul class="c3-want c3g-list">`
-  + GUIDE_GROUPS.map(([want, ids]) => `<li><b>${want}:</b> ${ids.map((id) => byId[id]).sort((a, b) => a.n - b.n)
-    .map((e) => `<a href="#${e.id}">${e.n}. ${e.name}</a>`).join('<span class="sep" aria-hidden="true">&middot;</span> ')}</li>`).join("")
-  + `<li><b>On a map:</b> <a href="#gated-map">which ones are in each of the four areas</a></li>`
-  + `</ul></div>`;
+/* Round 15 (owner, 2026-10-21: "the landing page is a bit cluttered"): the guide is a grid of small
+   glass cards, one per want, each with an icon and its places, in place of ten rows of links. */
+const GICON = { "The ocean, or an oceanfront club": "beach", "A marina with staff": "dock", "A boat ramp at home": "pond",
+  "A famous golf course": "golf", "History you live inside": "clubhouse", "Main Street by golf cart": "town", "55+": "home",
+  "Lots of nearly half an acre": "lawn", "A fee under $100 a month": "dollar" };
+const GUIDE = G.guideCards(GUIDE_GROUPS.map(([want, ids]) => ({ icon: GICON[want], label: want,
+  items: ids.map((id) => byId[id]).sort((a, b) => a.n - b.n).map((e) => `<a href="#${e.id}">${e.n}. ${e.name}</a>`) })))
+  + "<style>main#main .detail-hero .detail-sub{display:none}</style>";
 
 /* ---------------------------------------------------------------------------- */
 /* One entry: an H2, the paragraphs, an optional photo under the first paragraph, then the place's own
@@ -189,7 +180,7 @@ function entry(id, head, paras, price, photo) {
   const [first, ...rest] = paras;
   return { h2: `${e.n}. ${e.label || e.name}: ${head}`, toc: `${e.n}. ${e.name}`, id, html: () =>
     h.p(first) + (photo ? ph.aerial(photo[0], photo[1], { closeUp: true }) : "") + rest.map((t) => h.p(t)).join("")
-    + `<div class="c3-place-cta" style="padding:.15rem 0 .15rem 1rem;border-left:3px solid var(--brass)">${h.p(price)}${G.offer(e.name)}</div>` };
+    + G.homes(id, e.name) + `<div class="c3-place-cta" style="padding:.15rem 0 .15rem 1rem;border-left:3px solid var(--brass)">${h.p(price)}${G.offer(e.name)}</div>` };
 }
 
 const SECTIONS_PLACES = [
@@ -383,18 +374,18 @@ module.exports = G.page({
   author: "devin",
   toc: false,
   shortAnswer: [
-    `These 18 gated neighborhoods run from North Myrtle Beach to DeBordieu Colony, south of Pawleys Island, most of them on a golf course or on the water. Typical sale prices in them are about $200,000 to about $2 million, and most homeowners association (HOA) fees are about $95 to $400 a month. Golf clubs here are usually a separate membership with their own dues, and we ask the club for the current dues; some beach clubs come with the home.`,
+    `These 18 gated neighborhoods run from North Myrtle Beach to DeBordieu Colony, south of Pawleys Island. Most of them are on a golf course or on the water. Homes in them usually sell for about $200,000 to about $2 million, and most homeowners association (HOA) fees are about $95 to $400 a month.`,
   ],
   sections: [
     { id: "choose", html: () =>
-      GUIDE_CSS + ph.css() +
+      GUIDE_CSS + G.homesCss() + ph.css() +
       `<p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Choose by what you want</p>` +
       GUIDE },
 
     ...withAreas(SECTIONS_PLACES),
 
     { h2: "What do homes sell for, and what is the HOA fee?", toc: "Prices", id: "compare", html: (bg) =>
-      `<div class="c3g-where">${TABLE}${MAP}</div>` +
+      `<div class="c3g-where">${TABLE}</div>` +
       h.p(`For neighborhoods without a gate, see ${h.a("/buyers/best-neighborhoods/", "the best neighborhoods in Myrtle Beach")}, ${h.a("/buyers/no-hoa-homes/", "homes with no HOA")}, ${h.a("/buyers/golf-communities/", "golf communities")} and ${h.a("/buyers/55-plus-communities/", "55+ communities")}.`) },
 
 
