@@ -129,11 +129,11 @@ const P = [
   { id: "birchwood", name: "Birchwood", map: "Birchwood", lat: 33.925885, lon: -78.754012, price: 223825, mb: 41.6, beach: 20.2, year: 2400,
     feature: "paddle the Waccamaw", schools: "Daisy Elementary, Loris Middle, Loris High" },
   { id: "golf-and-yacht-club", name: "Myrtle Beach Golf and Yacht Club", map: "Golf and Yacht Club", lat: 33.649402, lon: -79.05007, price: 225000, mb: 22.9, beach: 15.0, year: 2100,
-    feature: "4 miles to a marina", schools: "St. James Elementary, Intermediate, Middle and High" },
+    feature: "gated, one story", schools: "St. James Elementary, Intermediate, Middle and High" },
   { id: "forestbrook-village", name: "Forestbrook Village", map: "Forestbrook Village", lat: 33.714649, lon: -78.966818, price: 232310, mb: 11.3, beach: 12.6, year: 3000,
     feature: "up to 2,400 sq ft", schools: "Forestbrook Elementary, Forestbrook Middle, Socastee High" },
   { id: "victory-point", name: "Victory Point", map: "Victory Point", lat: 33.7454, lon: -78.951801, price: 235630, mb: 12.7, beach: 13.9, year: 3800,
-    feature: "on the old speedway", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
+    feature: "new townhomes", schools: "Pine Island Elementary, Ten Oaks Middle, Carolina Forest High" },
   { id: "amber-bluff", name: "The Townes at Amber Bluff", map: "Amber Bluff", lat: 33.810207, lon: -79.021249, price: 237500, mb: 19.3, beach: 20.6, year: 2200,
     feature: "smart homes, CCU 6 min", schools: "Waccamaw Elementary, Black Water Middle, Carolina Forest High" },
   { id: "villas-at-sandridge", name: "Villas at Sandridge", map: "Villas at Sandridge", lat: 33.852846, lon: -78.696635, price: 245000, mb: 29.3, beach: 7.46, year: 4600,
@@ -210,7 +210,7 @@ const PLACE_CSS = "<style>main#main .c3-place-cta{display:flex;flex-wrap:wrap;al
   + "background:linear-gradient(180deg,rgba(255,255,255,.76),rgba(255,255,255,.52));border:1px solid var(--g-edge,rgba(255,255,255,.8));box-shadow:var(--g-hi,none),var(--g-sh,none)}"
   + "main#main .c3-place-cta>p:first-child{flex:1 1 18rem;margin:0;color:var(--navy);font-size:var(--read,1.0625rem);line-height:1.55}"
   + "main#main .c3-place-cta .c3-offer{margin:0;flex:0 1 auto}"
-  + "@media (prefers-reduced-transparency:reduce){main#main .c3-place-cta{background:#fbf8f3}}</style>";
+  + "@media (prefers-reduced-transparency:reduce){main#main .c3-place-cta{background:#fbf8f3}}main#main .detail-hero .detail-sub{display:none}</style>";
 /* The price sentence for each place, written by hand so twelve offers do not read as one template. */
 const PRICE = {
   "parkview": `Townhomes here usually sold for about ${pr("parkview")} last year, with an HOA fee of about $325 a month.`,
@@ -268,9 +268,8 @@ module.exports = G.page({
       h.p("Few of these townhomes come up for sale in a year, so one of our agents watches for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes in a golf community", () =>
-      h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf club, and some are near the course.") +
-      h.p("The HOA fee usually includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work.") +
       h.p("Fairways townhomes usually have two stories and three or four bedrooms. Most have their own garage, some with room for two cars, and some put the main bedroom downstairs.") +
+      h.p("They are inside Wild Wing Plantation, a golf club, and some are near the course. The HOA fee usually includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work.") +
       h.p("The Fairways is inside Conway's city limits, where the yearly tax is higher than outside a town.")),
 
     entry("sawgrass-east", "townhomes where the fee covers the insurance and the lawn", () =>
@@ -287,7 +286,7 @@ module.exports = G.page({
       h.p(`The long drive is to Myrtle Beach: Coastal Grand Mall is about a forty-minute drive, by the Carolina Bays Parkway.`)),
 
     entry("golf-and-yacht-club", "one-story houses behind a gate", () =>
-      h.p("Osprey Marina has wet slips and dry boat storage on the Intracoastal Waterway. It is about four miles by road from the older part of Myrtle Beach Golf and Yacht Club. The older part has about 470 houses inside the gate, most of them one story.") +
+      h.p("The older part of Myrtle Beach Golf and Yacht Club has about 470 houses inside a gate, most of them one story. For a boat, Osprey Marina has wet slips and dry boat storage on the Intracoastal Waterway, about four miles away by road.") +
       h.p("Most houses there were built in the 1980s, with two or three bedrooms and two baths. They typically have about 1,200 square feet, on about an eighth of an acre, and many have a porch or a patio.") +
       h.p("Owners share a pool and hot tub, tennis courts and a community center.") +
       h.p("Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy.")),
@@ -314,8 +313,8 @@ module.exports = G.page({
       h.p("Each owner will also pay a yearly insurance assessment that is not yet set. We find out what it will be for any home you like.")),
 
     entry("villas-at-sandridge", "townhomes five minutes from a cable wake park", () =>
+      h.p(`At Shark Wake Park, a five-minute drive from Villas at Sandridge, a cable pulls wakeboard riders across the water. It is inside the ${h.ext(NMBPARK, "North Myrtle Beach Park and Sports Complex")}, which also has walking trails, two dog parks and an accessible playground.`) +
       h.p("Villas at Sandridge is a small community of 79 townhomes off SC 90 near Little River, with about 8 acres of shared open space. Dream Finders Homes built them with two stories and a one-car garage, and some plans have the main bedroom on the first floor.") +
-      h.p(`The ${h.ext(NMBPARK, "North Myrtle Beach Park and Sports Complex")}, a five-minute drive, has a lake, walking trails, two dog parks and an accessible playground. At Shark Wake Park, inside the complex, a cable pulls wakeboard riders across the water.`) +
       h.p(`The city's ${h.ext(NMBEXP, "new section of the park")} has added soccer and baseball fields, ponds, trails and two more playgrounds. The nearest beach is a seven-minute trip by car.`) +
       h.p("The trade-off is the dues: they are higher than at the other new communities here.")),
 
