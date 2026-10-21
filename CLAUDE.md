@@ -41,7 +41,7 @@ node tools/facts-check.js <site>                             # known-wrong facts
 node tools/facts-check.js --stale                            # registry entries past their staleBy date
 node tools/record-edit.js draft.txt edited.txt --page /url/  # add the owner's edits to voice/edits.jsonl
 node tools/house-claims.js <page.html|site>                  # writer self-check: unscoped "most houses have" sentences (B54)
-node tools/sibling-check.js <batch-dir> <rev>                
+node tools/sibling-check.js <batch-dir> <rev>                # writer self-check: new names already on a sibling page (B46)
 ```
 
 `<site>` is the website repo root. Set `SCORE_TODAY=YYYY-MM-DD` to make the freshness rule reproducible.
