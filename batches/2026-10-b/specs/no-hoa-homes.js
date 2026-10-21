@@ -180,7 +180,7 @@ const go = (k) => h.a(`#${ENTRY[k].id}`, `<span class="c3-nh-n" data-n="${num(k)
 const list = (ks) => ks.length === 1 ? go(ks[0]) : ks.slice(0, -1).map(go).join(", ") + " and " + go(ks.at(-1));
 const GUIDE = [
   ["A boat at home, or a ramp within 10 minutes", ["cherry-grove", "little-river", "socastee", "surfside", "murrells-inlet"]],
-  ["Within half a mile of the sand", ["mb-downtown", "mb-myrtle-heights", "windy-hill", "crescent-beach", "ocean-drive", "garden-city"]],
+  ["Most houses within half a mile of the sand", ["mb-downtown", "mb-myrtle-heights", "windy-hill", "crescent-beach", "ocean-drive", "garden-city"]],
   ["Room to spread out", ["mb-pine-lakes", "loris-country", "aynor"]],
   ["A small town with old streets", ["conway", "loris"]],
 ];
@@ -337,7 +337,7 @@ const RULES = [
   { name: "North Myrtle Beach", href: "/submarkets/north-myrtle-beach/", rules: {
     boat: "Yes, behind the front of the house or under a carport.",
     truck: "Yes, up to 18,500 pounds.",
-    rent: "Yes, in most of the city: zoning does not generally limit it. You need a business license, and it does not pass to you when the home sells.",
+    rent: "Yes: zoning does not generally limit it. You need a business license, and it does not pass to you when the home sells.",
     shed: "One shed up to 150 square feet, behind the house, in most home zones. East of Ocean Boulevard, side-yard fences are not allowed, except low rail fences, pool fences and glass-topped fences." } },
   { name: "Surfside Beach", href: "/submarkets/surfside-beach/", rules: {
     boat: "Yes, up to two boats or trailers, but a licensed trailer over 21 feet counts as one per home. An unlicensed boat goes in a garage or under a cover.",
@@ -352,12 +352,12 @@ const RULES = [
   { name: "Loris", rules: {
     boat: "A boat over 17 feet stays out of the front and side setbacks and 5 feet from the back line.",
     truck: "Yes, one, up to 2 tons.",
-    rent: "No, it's not a listed use in city zoning, and a use not listed is not permitted.",
+    rent: "Not a listed use in city zoning, and a use not listed is not permitted. We ask the city about the address.",
     shed: "Up to two buildings, a garage or carport included, in the side or back yard." } },
   { name: "Aynor", rules: {
     boat: "The town's zoning does not limit it.",
     truck: "No limit in the town's zoning.",
-    rent: "Only with approval: the town's zoning does not list short stays, and the zoning appeals board decides on a use it does not list.",
+    rent: "Only with approval: the town's zoning does not list short stays, and the zoning appeals board may approve a use of the same general character as a listed one.",
     shed: "Yes, in the back yard, 5 feet from the line." } },
 ];
 /* A real table (STANDARD A6), drawn as one glass card per place on a phone: four plain lines, each by its
@@ -443,7 +443,7 @@ module.exports = GL.page({
 
     entry("mb-downtown", "the boardwalk on foot", [
       `From the older streets downtown, you can walk to the oceanfront ${h.ext(MB_BOARDWALK2, "boardwalk")}. From Collins Street it is about a quarter hour on foot. From the day after Labor Day through April, you can ride a bike or walk a dog on it at any hour.`,
-      "Most of these houses are within half a mile of the beach. Even so, a lender will not require flood insurance on any of them.",
+      "Most of these houses are within half a mile of the beach. All of them are outside the high-risk flood zones, where the federal rule makes a lender require flood insurance.",
       `Plyler Park on the oceanfront has free live music and a ${h.ext(MB_SUMMER, "fireworks show")} on Wednesdays in summer. The older houses are on Collins, Chester and Dunbar Streets, and Spivey Park and the New Town Bark Park are on Collins Street too.`,
       `A trail with a wooden boardwalk is beside Withers Swash, one of the city's ${h.ext(MB_SWASH, "oldest waterways")}, from Third Avenue South to Broadway and Collins Street.`,
       "The trade-off is room. A typical lot is about 9,000 square feet. Inside the city, a camper may not be kept in the front yard, so it has to fit beside or behind the house.",
@@ -482,7 +482,7 @@ module.exports = GL.page({
       "Most are older beach houses, on streets such as Hillside Drive, Holly Drive, Perrin Drive and Strand Avenue. Few of them need flood insurance for a mortgage. In Cherry Grove, almost every home does.",
       `In the middle of Crescent Beach, the ${h.ext(NMB_18TH, "18th and Edge pocket park")} has benches and a fountain. ${h.ext(NMB_CENTRAL, "Central Park")}, 20 acres with lighted tennis courts, pickleball courts and a paved walking path, is about 0.7 mile away.`,
       `City beach lots charge for parking from March through October. ${h.ext(NMB_PARKREG, "Residents register their plates")} each year for free passes.`,
-      "Lots are small, about 7,600 square feet. Under the city's rule, a trailer or camper goes behind the front of the house or under a carport, so it needs a carport or a side yard."
+      "Lots are small, about 7,600 square feet. Under the city's rule, a trailer or camper goes behind the front of the house or under a carport. That takes a carport, or room beside or behind the house."
     ]),
 
     entry("ocean-drive", "Main Street and the shag", [
@@ -490,7 +490,7 @@ module.exports = GL.page({
       `In the Ocean Drive and Crescent Beach area, a pavilion and amusement park drew crowds who danced the shag.`,
       `A Saturday here can start with breakfast at ${h.ext(HOSKINS, "Hoskins Restaurant")} on Main Street, which opened in 1948.`,
       `The ${h.ext(NMB_MUSEUM, "North Myrtle Beach Area Historical Museum")} is free, and its exhibits include beach music artists and shag dancing. ${h.ext(NMB_MCLEAN, "McLean Park")}, a quarter mile from Hoskins on foot, has a two-acre lake and a half-mile paved walking path.`,
-      "Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe. Each December, a nighttime Christmas parade comes up Main Street. A lender will not require flood insurance on any of the houses for sale here with no fee.",
+      "Each summer, the city holds free Music on Main concerts on Thursdays at the Horseshoe. Each December, a nighttime Christmas parade comes up Main Street. Few of the houses for sale here with no fee need flood insurance for a mortgage.",
       "Crowds come with it: on concert nights Main Street closes to cars in the afternoon, and the St. Patrick's festival draws about 40,000 people.",
     ]),
 
@@ -573,7 +573,7 @@ module.exports = GL.page({
       `Around Aynor, lots are typically about an acre, with room beside the house for a boat or a camper. More than half of the houses for sale here are new.`,
       `Galivants Ferry Landing, a county ramp on the ${h.ext(USGS_LPD, "Little Pee Dee River")}, is about 6 minutes from the center of town. The Little Pee Dee is ${h.ext(AYNOR_APPEAL, "popular with canoes, kayaks and small powerboats")}.`,
       `At ${h.ext(GALIVANTS_NR, "Galivants Ferry")}, the old farm houses have full-width front porches on brick piers. Some were built from wood cut on the farm itself, and the district has log tobacco barns.`,
-      `On the third Saturday in September, ${h.ext(AYNOR_TOWN, "almost 25,000 people")} come to the Aynor Harvest Hoe-Down, a festival started by the Pilot Club of Aynor. The town's zoning does not limit a camper or a work truck at home.`,
+      `Each September, ${h.ext(AYNOR_TOWN, "almost 25,000 people")} come to the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started. In the town of Aynor, zoning does not limit a camper or a work truck at home. Most of these houses are outside the town, under county rules.`,
       "The drive is the trade-off: about 45 minutes to the beach, and about 30 to the nearest hospital, Conway Medical Center.",
     ]),
 
