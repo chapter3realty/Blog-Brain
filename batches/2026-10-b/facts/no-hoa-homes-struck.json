@@ -1120,5 +1120,48 @@
     "pattern": "\\bThe town'?s dish is chicken bog",
     "struck": "The town's dish is chicken bog: chicken, rice and sausage.",
     "use": "The festival's dish is chicken bog: chicken, rice and sausage."
+  },
+  {
+    "row": "no-hoa 181 (v10 N1)",
+    "pattern": "lender will not require flood insurance on any of the houses for sale here with no fee",
+    "struck": "A lender will not require flood insurance on any of the houses for sale here with no fee. (Ocean Drive: flood measured on 15 of 22 houses.)",
+    "use": "Few of the houses for sale here with no fee need flood insurance for a mortgage [0 of the 15 placed on the county map are in a high-risk zone]."
+  },
+  {
+    "row": "no-hoa 181 (v10 N2)",
+    "pattern": "(?<!houses )within half a mile of the sand",
+    "struck": "Within half a mile of the sand (guide label that drops \"Most houses\"; 13 of 17 downtown, 12 of 15 Ocean Drive).",
+    "use": "Most houses within half a mile of the sand"
+  },
+  {
+    "row": "no-hoa 181 (v10 N3)",
+    "pattern": "\\bNo, it'?s not a listed use in city zoning",
+    "struck": "No, it's not a listed use in city zoning, and a use not listed is not permitted.",
+    "use": "Not a listed use in city zoning, and a use not listed is not permitted. We ask the city about the address."
+  },
+  {
+    "row": "no-hoa 181 (v10 N5)",
+    "pattern": "Yes, in most of the city",
+    "struck": "Yes, in most of the city: zoning does not generally limit it.",
+    "use": "Yes: city zoning does not generally limit it, though some planned developments and HOA documents do [City of North Myrtle Beach, Rental Property Quick Reference]."
+  },
+  {
+    "row": "no-hoa 181 (v10 N6)",
+    "pattern": "so it needs a carport or a side yard",
+    "struck": "Under the city's rule, a trailer or camper goes behind the front of the house or under a carport, so it needs a carport or a side yard.",
+    "use": "Under the city's rule, a trailer or camper goes behind the nearest part of the house to the street or under a carport, so it needs a carport or room beside or behind the house."
+  },
+  {
+    "row": "no-hoa 181 (v10 N7)",
+    "pattern": "On the third Saturday in September,? (?:\\S+ ){0,6}25,000 people come|The town'?s zoning does not limit a camper or a work truck at home",
+    "unless": "In the town of Aynor",
+    "struck": "On the third Saturday in September, almost 25,000 people come to the Aynor Harvest Hoe-Down ... The town's zoning does not limit a camper or a work truck at home.",
+    "use": "Each September, almost 25,000 people come to the Aynor Harvest Hoe-Down, a festival the Pilot Club of Aynor started [town page; state law names the third Saturday as its weekend]. In the town of Aynor, zoning does not limit a camper or a work truck at home; most of these houses are outside the town, under county rules (3 of 30 are in the town)."
+  },
+  {
+    "row": "no-hoa 181 (v10 N8)",
+    "pattern": "zoning appeals board decides on a use it does not list",
+    "struck": "Only with approval: the town's zoning does not list short stays, and the zoning appeals board decides on a use it does not list.",
+    "use": "Only with approval: the town's zoning does not list short stays, and the zoning appeals board may approve a use of the same general character as a listed one [Aynor zoning ordinance Sec. 9.01]."
   }
 ]

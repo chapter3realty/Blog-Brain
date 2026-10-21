@@ -2434,7 +2434,7 @@
     "row": "gated 200 (v11)",
     "pattern": "golf course ranked among the best you can play in America",
     "struck": "Tidewater, in North Myrtle Beach, has a golf course ranked among the best you can play in America.",
-    "use": "Tidewater, in North Myrtle Beach, has a golf course that Golf Digest ranks among the best public courses in South Carolina; in 1990 Golf Digest and Golf Magazine named it the best new public course in America."
+    "use": "Tidewater, in North Myrtle Beach, has a golf course that Golf Digest ranks among the best public courses in South Carolina; Golf Digest named it the best new public course in America in 1990, and Golf Magazine put it first on its 1990 list of the top 10 new public courses."
   },
   {
     "row": "gated 594 (v11)",
@@ -2537,5 +2537,30 @@
     "pattern": "Several gates have staff",
     "struck": "Several gates have staff: a guard day and night at some, a gatehouse or a watch desk at others.",
     "use": "Several gates have a guard on duty day and night; others have a gatehouse or a watch desk."
+  },
+  {
+    "row": "gated 114 (v12)",
+    "pattern": "Golf Digest and Golf Magazine both named it the best new public course",
+    "struck": "The course opened in 1990, and Golf Digest and Golf Magazine both named it the best new public course in America that year.",
+    "use": "The course opened in 1990, and Golf Digest named it the best new public course in America that year; Golf Magazine put it first on its list of 1990's top 10 new public courses [Golf Course News, May 1991]."
+  },
+  {
+    "row": "gated 573 (v12 H2)",
+    "pattern": "Surfside Beach and Murrells Inlet|Surfside-Murrells Inlet",
+    "unless": "Socastee",
+    "struck": "Area 7 to 12 headed \"Surfside Beach and Murrells Inlet\" (map pill \"Surfside-Murrells Inlet, 7-12\"); entry 7 is in Socastee.",
+    "use": "Heading: \"Socastee, Surfside Beach and Murrells Inlet\". Map pill (32 letters): \"Socastee-Surfside-Murrells, 7-12\"."
+  },
+  {
+    "row": "gated 573 (v12 H3)",
+    "pattern": "single-family homes in Oystercatcher Island",
+    "struck": "The association also lists single-family homes in Oystercatcher Island, Charlestowne Grant, Compass Point and River Club.",
+    "use": "The association also lists single-family homes in Charlestowne Grant, Compass Point and River Club, and freestanding villas in Oystercatcher Island [association community pages]."
+  },
+  {
+    "row": "gated 573 (v12 H4)",
+    "pattern": "Most of Charlestowne Grant'?s houses pay",
+    "struck": "Most of Charlestowne Grant's houses pay about $520 to $630.",
+    "use": "In Charlestowne Grant, the houses whose sales we read pay about $520 to $820 [8 listings of 45 homes: 517 to 817], or cut the sentence."
   }
 ]

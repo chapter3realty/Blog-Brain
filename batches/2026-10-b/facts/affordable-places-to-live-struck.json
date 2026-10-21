@@ -846,5 +846,35 @@
     "pattern": "\\bAbout half Myrtle Beach prices\\b",
     "struck": "About half Myrtle Beach prices",
     "use": "About half the price of a Myrtle Beach home"
+  },
+  {
+    "row": "affordable 231 (v9 A1)",
+    "pattern": "Lennar shows most of them as coming soon",
+    "struck": "Lennar shows most of them as coming soon, so the plan you want may not be for sale yet.",
+    "use": "Lennar's page lists no homes for sale in The Overlook right now, so the plan you want may not be available yet [Lennar page, read 2026-10-21: nine plans, \"No homes available\"], or cut the sentence."
+  },
+  {
+    "row": "affordable 231 (v9 A2)",
+    "pattern": "insures mainly the inside of the home",
+    "struck": "An owner then has no water or trash bill of their own, and insures mainly the inside of the home.",
+    "use": "In most of them an owner has no water or trash bill of their own [HOA-includes field, 45 listings: water 38, trash 40]. Say nothing on what the owner insures; the linked guide covers the split."
+  },
+  {
+    "row": "affordable 231 (v9 A3)",
+    "pattern": "Most of the townhomes have three bedrooms",
+    "struck": "Most of the townhomes have three bedrooms, and many of the three-bedroom ones have a one-car garage and the main bedroom downstairs.",
+    "use": "Many of the townhomes have three bedrooms, and many of the three-bedroom ones have a one-car garage and the main bedroom downstairs [45 listings: 25 three-bedroom, 17 and 17 of those]."
+  },
+  {
+    "row": "affordable 231 (v9 A4)",
+    "pattern": "upgraded practice facilities and a refreshed clubhouse",
+    "struck": "The club now has a renovated pro shop, upgraded practice facilities and a refreshed clubhouse.",
+    "use": "The club now has a renovated pro shop, upgraded practice facilities and refreshed clubhouse amenities [Wild Wing About page]."
+  },
+  {
+    "row": "affordable 229 (v9 A5)",
+    "pattern": "about two miles west of Polo Farms by road",
+    "struck": "Danny Knight Landing, a county boat ramp on the Waccamaw River, is about two miles west of Polo Farms by road.",
+    "use": "Danny Knight Landing, a county boat ramp on the Waccamaw River, is about a 4-minute drive west of Polo Farms [OSRM 4.46 min, 2.35 miles]."
   }
 ]
