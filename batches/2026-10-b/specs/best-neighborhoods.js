@@ -228,7 +228,7 @@ const ENTRIES = [
   ENTRY("pine-lakes", "where Sports Illustrated was planned", [
     `${h.ext(PINE_LAKES, "Sports Illustrated was planned at Pine Lakes")}. In 1954 a group of Time-Life executives came to play the course and plan a new weekly sports magazine.`,
     "Pine Lakes Country Club opened in 1927 as Myrtle Beach's first golf course. Robert White, a native of St. Andrews, Scotland, and the first president of the PGA of America, designed it. The club is known as The Granddaddy.",
-    "Beside the club, in the city of Myrtle Beach, The Preserve at Pine Lakes and Pine Lakes Estates hold houses much newer than the course. Most of the houses listed for sale there have the primary bedroom on the main floor. Owners in The Preserve share their own pool.",
+    "Beside the club, in Myrtle Beach, The Preserve at Pine Lakes and Pine Lakes Estates hold houses much newer than the course. Most of the houses listed for sale there have the primary bedroom on the main floor. Owners in The Preserve share their own pool.",
     "Few of the houses are on the course itself: only 13 of their 250 house lots border it.",
   ], "Houses here usually sold for about $600,000 last year, and a house in The Preserve pays an HOA fee of about $95 a month."),
 
