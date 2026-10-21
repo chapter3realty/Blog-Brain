@@ -14,6 +14,13 @@ All five pages are done, checked and graded 9 of 10 by an independent reviewer. 
 
 Preview of all five: https://claude.ai/artifact/6UAHR9HKpFEUGoumKpQLZ1
 
+## Round 15 (your notes of 2026-10-21)
+
+- **Cleaner tops:** the map is gone from the top of best; gated and no-HOA show their guide as small glass cards; gated's four-circle area map is cut; the line under the H1 is hidden on four pages.
+- **Homes strip per community:** where each community's photo was, a row of homes for sale scrolls sideways: photo and price, the listing firm in small print, then "See all". It fills from the MLS once the listing search is on, and the photo we have stays as the placeholder until then. The Farm's row sits right under the top offer. Design and go-live steps: `IDX-DESIGN.md` (it builds on the listing search the CRM chat built; nothing is merged or live there yet).
+- **No-HOA:** a few more facts a buyer could not guess, each checked: the Blue Crab Festival (a TV station reported more than 30,000 people in 2026), the Socastee swing bridge that completed the waterway in 1935, Conway's 1825 courthouse, Loris as the "Gate City", and others.
+- **The Farm:** the school map now names the two Ocean Bay schools at the dot, and the caption names all three schools the area is zoned for.
+
 ## How they were made
 
 - **Your third read, applied to all five:** sell each place like the best agent in town, with facts a buyer could not guess; no "facts:" lines; no preamble; the list of places once, grouped by what each does best (features, never people); a different angle on each page for its own reader; an offer for every place; the glass design.
