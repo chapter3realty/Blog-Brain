@@ -88,3 +88,19 @@ No entry should be cut.
 | L9 Phone table length | Not fixed. |
 | L10 No reason given for leaving out condos | Not fixed. |
 | L11 Map label | Fixed. A leader line now points to the right town. |
+
+## Re-check after 14n
+
+I re-read the page as rebuilt at e93220f.
+
+**Grade: 9 of 10.**
+
+| 14m finding | Status |
+|---|---|
+| M1 Fairways and Sandridge leads | Fixed. The Fairways opens with what the price buys, and Sandridge opens with Shark Wake Park. |
+| M2 Chart labels | Fixed. The labels are now "new townhomes" and "gated, one story". |
+| M3 Golf and Yacht Club | Fixed. It leads with about 470 one-story houses inside a gate. No source explains the name, so that one clause stays a low. |
+| M4 Drive to work | Open. It needs new data and is noted for the owner. |
+| M5 Top | Fixed. The H1 to entry 1 is now 2.19 screens, down from 2.29. |
+
+The lows (L1 to L7) are unchanged.
