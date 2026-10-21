@@ -269,7 +269,7 @@ module.exports = G.page({
       h.p("Few of these townhomes come up for sale in a year, so one of our agents watches for each new listing.")),
 
     entry("fairways-at-wild-wing", "townhomes in a golf community", () =>
-      h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf club with 27 holes, and some are near the course. The club now has a renovated pro shop, upgraded practice facilities and refreshed clubhouse amenities.") +
+      h.p("The Fairways townhomes are inside Wild Wing Plantation, a golf club with 27 holes, and some are near the course. Coastal Carolina University is about three miles away by road, and its Cultural Arts series puts on plays and concerts on campus.") +
       h.p("The HOA fee usually includes the lawn care, the pool and the internet, so a Saturday can go to golf instead of yard work.") +
       h.p("Fairways townhomes usually have two stories and three or four bedrooms. Most have their own garage, some with room for two cars, and some put the main bedroom downstairs.") +
       h.p("The Fairways is inside Conway's city limits, where the yearly tax is higher than outside a town.")),
@@ -282,6 +282,7 @@ module.exports = G.page({
 
     entry("birchwood", "a new house on a quarter acre", () =>
       h.p("Birchwood is small: 77 lots, with new Lennar houses on lots of about a quarter acre and about 12 acres of open space. A quarter acre gives a new house a real backyard at this price.") +
+      h.p("Chris Anderson Landing, a county boat ramp on the Waccamaw River, is about 7 minutes from Birchwood by car. From there you can paddle a state route downriver through a forest of bald cypress, about 20 miles to Red Bluff Landing.") +
       h.p("FEMA maps every lot in Birchwood as an area of minimal flood hazard. High-speed internet is included in the monthly dues.") +
       h.p("A new house here sells for about what a 1980s house does in the Golf and Yacht Club, closer to Myrtle Beach. Birchwood is off SC 905, southwest of Longs, and North Myrtle Beach and its beaches are about 20 minutes by car.") +
       h.p(`The long drive is to Myrtle Beach: Coastal Grand Mall is about a forty-minute drive, by the Carolina Bays Parkway.`)),
@@ -289,7 +290,7 @@ module.exports = G.page({
     entry("golf-and-yacht-club", "one-story houses behind a gate", () =>
       h.p("The older part of Myrtle Beach Golf and Yacht Club has about 470 houses behind a gate, most of them one story. Owners share a pool and hot tub, tennis courts and a community center.") +
       h.p("Most houses there were built in the 1980s, with two or three bedrooms and two baths. They typically have about 1,200 square feet, on about an eighth of an acre, and many have a porch or a patio.") +
-      h.p("From mid-April to mid-October, the pool opens at 8 a.m. for lap swimming, then an exercise hour, then open swim until 8 p.m. or sundown. Osprey Marina, with wet slips and dry boat storage on the Intracoastal Waterway, is about four miles away by road.") +
+      h.p("Socastee Recreation Park, a large county park with a disc golf course, trails, ball fields and a playground, is about four miles away. Osprey Marina, with wet slips and dry boat storage on the Intracoastal Waterway, is about the same distance by road.") +
       h.p("Age matters here. Insurers may require an older home to have an updated roof, wiring, plumbing and heating, so we have the home inspector look at each before you buy.")),
 
     entry("forestbrook-village", "new townhome plans up to 2,400 square feet", () =>

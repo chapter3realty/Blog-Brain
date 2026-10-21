@@ -124,7 +124,7 @@ const GROUPS = [
   { icon: "beach", label: "Walk to the beach", items: [
     ["cherry-grove", "a record shark"],
     ["surfside-beach", "a free pier"]] },
-  { icon: "golf", label: "Golf close by", items: [
+  { icon: "golf", label: "Golf course neighborhoods", items: [
     ["pine-lakes", "golf since 1927"],
     ["tidewater", "houses on the fairways"],
     ["barefoot-resort", "a waterway course"],
@@ -141,7 +141,7 @@ const GROUPS = [
     ["deerfield", "new on old golf land"]] },
   { icon: "dollar", label: "More house for the money", items: [
     ["avalon", "ball fields inside"],
-    ["the-farm", "open land next door"]] },
+    ["the-farm", "280 acres of open land"]] },
 ];
 {
   const seen = GROUPS.flatMap((g) => g.items.map((i) => i[0]));
@@ -236,6 +236,7 @@ const ENTRIES = [
   ENTRY("tidewater", "a neck of land between the waterway and the inlet", [
     "Tidewater Plantation is on a neck of land between the Intracoastal Waterway and Cherry Grove Inlet, with salt marsh along its edges. Inside it, about seven of every ten houses have lots that border the golf course.",
     "Many of the houses stand under tall trees. Many streets curve between two fairways, and some carry sailing names, such as Spinnaker Drive and Topsail Lane.",
+    "The Intracoastal Waterway along Tidewater is part of a state saltwater paddling trail that runs 30 miles, from Socastee to Little River. At the Little River end, Vereen Memorial Gardens, a free county park, has about three miles of nature trails and boardwalks, about 17 minutes from Tidewater by car.",
     "The trade-off of a public course: golfers who do not live here play past the back yards.",
   ], "Houses in Tidewater usually sold for about $625,000 last year, and the HOA fee for a house is about $230 a month."),
 
@@ -343,7 +344,7 @@ module.exports = G.page({
   author: "devin",
   heroCta: { title: "Tell us what you want nearby. We will send three neighborhoods.", text: "One of our agents sends the list, with the homes for sale in each. There is no charge.", label: "Get three neighborhoods", href: OFFER },
   shortAnswer: [
-    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For golf close by, Tidewater. For a new house, Grande Dunes. For a boat, Plantation Lakes. For a town center you can walk, The Market Common. For a lower price, Avalon.",
+    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For a golf course neighborhood, Tidewater. For a new house, Grande Dunes. For a boat, Plantation Lakes. For a town center you can walk, The Market Common. For a lower price, Avalon.",
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "What each does best", id: "choose", html:
