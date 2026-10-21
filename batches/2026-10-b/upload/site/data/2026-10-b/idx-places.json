@@ -1,0 +1,819 @@
+{
+ "_comment": "Places for the CRM's IDX place catalog (src/lib/idx/places-catalog.ts), one per homes strip on the batch 2026-10-b pages (tools/glass.js homes(); website-patches/idx-strips.patch). 'pages' lists where each strip appears. Match rules are drafts: confirm each subdivision name against the MLS feed before going live. Never invent a map point; the strips need no point.",
+ "places": [
+  {
+   "slug": "cherry-grove",
+   "name": "Cherry Grove",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Cherry Grove"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "surfside-beach",
+   "name": "Surfside Beach, ocean side",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Surfside Beach, ocean side"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "pine-lakes",
+   "name": "Pine Lakes",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Pine Lakes"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "tidewater",
+   "name": "Tidewater Plantation",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Tidewater Plantation"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "barefoot-resort",
+   "name": "Barefoot Resort",
+   "pages": [
+    "/buyers/best-neighborhoods/",
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Barefoot Resort"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "prince-creek",
+   "name": "Prince Creek",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Prince Creek"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "wild-wing",
+   "name": "Wild Wing Plantation",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Wild Wing Plantation"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "plantation-lakes",
+   "name": "Plantation Lakes",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Plantation Lakes"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "waterbridge",
+   "name": "Waterbridge",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Waterbridge"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "market-common",
+   "name": "The Market Common",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "The Market Common"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "deerfield",
+   "name": "Deerfield Plantation area",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Deerfield Plantation area"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "avalon",
+   "name": "Avalon",
+   "pages": [
+    "/buyers/best-neighborhoods/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Avalon"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "the-farm",
+   "name": "The Farm at Carolina Forest",
+   "pages": [
+    "/buyers/best-neighborhoods/",
+    "/submarkets/carolina-forest/the-farm/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "The Farm at Carolina Forest"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "tidewater-plantation",
+   "name": "Tidewater Plantation",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Tidewater Plantation"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "seaside-plantation",
+   "name": "Seaside Plantation",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Seaside Plantation"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "grande-dunes",
+   "name": "Grande Dunes",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Grande Dunes"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "waterway-palms-plantation",
+   "name": "Waterway Palms Plantation",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Waterway Palms Plantation"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "the-bluffs-on-the-waterway",
+   "name": "The Bluffs on the Waterway",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "The Bluffs on the Waterway"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "myrtle-beach-golf-and-yacht-club",
+   "name": "Myrtle Beach Golf and Yacht Club",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Myrtle Beach Golf and Yacht Club"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "prestwick",
+   "name": "Prestwick",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Prestwick"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "prince-creek-55",
+   "name": "Seasons at Prince Creek West",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Seasons at Prince Creek West"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "bellwood-landing",
+   "name": "Bellwood Landing",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Bellwood Landing"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "wachesaw-plantation",
+   "name": "Wachesaw Plantation",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Wachesaw Plantation"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "wachesaw-east",
+   "name": "Wachesaw East",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Wachesaw East"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "the-reserve",
+   "name": "The Reserve",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "The Reserve"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "willbrook-plantation",
+   "name": "Willbrook Plantation",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Willbrook Plantation"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "litchfield-plantation",
+   "name": "Litchfield Plantation",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Litchfield Plantation"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "litchfield-by-the-sea",
+   "name": "Litchfield by the Sea",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Litchfield by the Sea"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "heritage-plantation",
+   "name": "Heritage Plantation",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Heritage Plantation"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "debordieu-colony",
+   "name": "DeBordieu Colony",
+   "pages": [
+    "/buyers/gated-communities/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "DeBordieu Colony"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "nohoa-downtown-myrtle-beach",
+   "name": "Downtown Myrtle Beach",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Downtown Myrtle Beach",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-myrtle-heights",
+   "name": "Myrtle Heights",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Myrtle Heights",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-pine-lakes",
+   "name": "Pine Lakes' older streets",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Pine Lakes' older streets",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-windy-hill",
+   "name": "Windy Hill",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Windy Hill",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-crescent-beach",
+   "name": "Crescent Beach",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Crescent Beach",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-ocean-drive",
+   "name": "Ocean Drive",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Ocean Drive",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-cherry-grove",
+   "name": "Cherry Grove",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Cherry Grove",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-little-river",
+   "name": "Little River",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Little River",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-socastee",
+   "name": "Socastee",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Socastee",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-surfside-beach",
+   "name": "Surfside Beach",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Surfside Beach",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-garden-city-beach",
+   "name": "Garden City Beach",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Garden City Beach",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-murrells-inlet",
+   "name": "Murrells Inlet's north end",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Murrells Inlet's north end",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-conway",
+   "name": "Conway",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Conway",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-loris",
+   "name": "Loris",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Loris",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-country-around-loris",
+   "name": "The country around Loris",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "The country around Loris",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "nohoa-aynor",
+   "name": "Aynor",
+   "pages": [
+    "/buyers/no-hoa-homes/"
+   ],
+   "kind": "area_no_hoa",
+   "match": {
+    "area": "Aynor",
+    "hoaFee": 0,
+    "propertyType": "detached",
+    "note": "Same area rule as the page's ledger (batches/2026-10-b/data/no-hoa-areas.json): MLS area or city, association fee blank or 0, detached houses only."
+   }
+  },
+  {
+   "slug": "parkview",
+   "name": "Parkview",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Parkview"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "fairways-at-wild-wing",
+   "name": "The Fairways at Wild Wing",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "The Fairways at Wild Wing"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "sawgrass-east",
+   "name": "Sawgrass East",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Sawgrass East"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "birchwood",
+   "name": "Birchwood",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Birchwood"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "golf-and-yacht-club",
+   "name": "Myrtle Beach Golf and Yacht Club",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Myrtle Beach Golf and Yacht Club"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "forestbrook-village",
+   "name": "Forestbrook Village",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Forestbrook Village"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "victory-point",
+   "name": "Victory Point",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Victory Point"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "amber-bluff",
+   "name": "The Townes at Amber Bluff",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "The Townes at Amber Bluff"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "villas-at-sandridge",
+   "name": "Villas at Sandridge",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Villas at Sandridge"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "indigo-grove",
+   "name": "Indigo Grove",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Indigo Grove"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "wynbrooke",
+   "name": "Wynbrooke",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Wynbrooke"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  },
+  {
+   "slug": "polo-farms",
+   "name": "Polo Farms",
+   "pages": [
+    "/buyers/affordable-places-to-live/"
+   ],
+   "kind": "subdivision",
+   "match": {
+    "subdivision": [
+     "Polo Farms"
+    ],
+    "note": "MLS subdivision names to confirm against the feed on day one; add every section name the page's ledger counts."
+   }
+  }
+ ]
+}

@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-21 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 1045bfd, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
+Built 2026-10-21 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain ae73371, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -196,32 +196,31 @@ Everything already matched the partials - nothing to do.
 ### PASS: node tools/mkpage.js specs/best-neighborhoods.js
 
 ```
-wrote chapter3realty/buyers/best-neighborhoods/index.html (185189 bytes, hero sub 11 words, main 4211 words)
+wrote chapter3realty/buyers/best-neighborhoods/index.html (155773 bytes, hero sub 11 words, main 4181 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/gated-communities.js
 
 ```
-wrote chapter3realty/buyers/gated-communities/index.html (225333 bytes, hero sub 13 words, main 6080 words)
-gated-communities: no room on the map for 1 area names; the key names them
+wrote chapter3realty/buyers/gated-communities/index.html (187162 bytes, hero sub 13 words, main 6037 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/no-hoa-homes.js
 
 ```
-wrote chapter3realty/buyers/no-hoa-homes/index.html (263459 bytes, hero sub 14 words, main 7255 words)
+wrote chapter3realty/buyers/no-hoa-homes/index.html (264895 bytes, hero sub 14 words, main 7460 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/affordable-places-to-live.js
 
 ```
-wrote chapter3realty/buyers/affordable-places-to-live/index.html (182541 bytes, hero sub 19 words, main 4435 words)
+wrote chapter3realty/buyers/affordable-places-to-live/index.html (185832 bytes, hero sub 19 words, main 4484 words)
 ```
 
 ### PASS: node tools/mkpage.js specs/the-farm.js
 
 ```
-wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (135609 bytes, hero sub 20 words, main 2843 words)
+wrote chapter3realty/submarkets/carolina-forest/the-farm/index.html (138173 bytes, hero sub 20 words, main 2928 words)
 ```
 
 ### PASS: specs/seasons-at-prince-creek-west.js in the package is Blog-Brain batches/2026-10-a/specs/seasons-at-prince-creek-west.js, as it is today
@@ -348,13 +347,13 @@ llms-full.txt carries the header date - run 'node build.js llmsfull' if page tex
 ### PASS: node build.js llmsfull
 
 ```
-llms-full.txt regenerated: 136 pages, 1518KB, dated 2026-10-21.
+llms-full.txt regenerated: 136 pages, 1519KB, dated 2026-10-21.
 ```
 
 ### PASS: node build.js check
 
 ```
-Pages: 142 | Assets: 9 | Avg page: 98KB
+Pages: 142 | Assets: 9 | Avg page: 97KB
 
 OK - all asset links resolve, no giant shared CSS re-inlined, no orphans. Safe to deploy.
 ```
@@ -397,7 +396,7 @@ OK - all 136 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 141 pages from commit 6a404657 on claude/github-account-check-wutg8b.
+OK - deploying 141 pages from commit a1c40868 on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
@@ -412,14 +411,14 @@ Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (2138 words)
 
 ```
 /buyers/gated-communities/  Gated Communities in Myrtle Beach: 18 Neighborhoods | Chapter3
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3712 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3563 words)
 ```
 
 ### PASS: score.js --only /buyers/no-hoa-homes/
 
 ```
 /buyers/no-hoa-homes/  Homes With No HOA Near Myrtle Beach: 16 Areas, Boats, Prices
-Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3870 words)
+Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (3974 words)
 ```
 
 ### PASS: score.js --only /buyers/affordable-places-to-live/
@@ -440,31 +439,31 @@ Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1348 words)
 ### PASS: struck-check.js /buyers/best-neighborhoods/
 
 ```
-/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
+/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/gated-communities/
 
 ```
-/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
+/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/no-hoa-homes/
 
 ```
-/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
+/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/affordable-places-to-live/
 
 ```
-/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
+/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /submarkets/carolina-forest/the-farm/
 
 ```
-/tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
+/tmp/package-2026-10-b-LCGKU5/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
 ```
 
 ### PASS: structure-check.js --strict /buyers/best-neighborhoods/
@@ -513,19 +512,19 @@ strict: passes
 
 ```
      3. Pine Lakes' older streets: 1 of 13 sentences (8%): "Houses with no HOA fee here are listed at about $930,000."
-     4. Windy Hill: 1 of 11 sentences (9%): "Houses with no HOA fee here are listed at about $745,000."
+     4. Windy Hill: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $745,000."
      5. Crescent Beach: 2 of 17 sentences (12%): "Lots are small, about 7,600 square feet."
      6. Ocean Drive: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $665,000."
      7. Cherry Grove: 1 of 15 sentences (7%): "Houses with no HOA fee here are listed at about $850,000."
-     8. Little River: 1 of 14 sentences (7%): "Houses with no HOA fee here are listed at about $420,000."
-     9. Socastee: 0 of 11 sentences (0%)
-     10. Surfside Beach: 1 of 11 sentences (9%): "Houses with no HOA fee here are listed at about $940,000."
+     8. Little River: 1 of 15 sentences (7%): "Houses with no HOA fee here are listed at about $420,000."
+     9. Socastee: 0 of 13 sentences (0%)
+     10. Surfside Beach: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $940,000."
      11. Garden City Beach: 1 of 10 sentences (10%): "Houses with no HOA fee here are listed at about $1.4 million."
-     12. Murrells Inlet's north end: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $820,000."
-     13. Conway: 1 of 14 sentences (7%): "Houses with no HOA fee here are listed at about $285,000."
-     14. Loris: 2 of 10 sentences (20%): "The older houses were built from the 1940s to the 1970s, on lots of about 0.4 acre."
+     12. Murrells Inlet's north end: 1 of 13 sentences (8%): "Houses with no HOA fee here are listed at about $820,000."
+     13. Conway: 1 of 16 sentences (6%): "Houses with no HOA fee here are listed at about $285,000."
+     14. Loris: 2 of 11 sentences (18%): "The older houses were built from the 1940s to the 1970s, on lots of about 0.4 acre."
      15. The country around Loris: 1 of 9 sentences (11%): "Houses with no HOA fee here are listed at about $415,000."
-     16. Aynor: 1 of 12 sentences (8%): "Houses with no HOA fee here are listed at about $370,000."
+     16. Aynor: 1 of 13 sentences (8%): "Houses with no HOA fee here are listed at about $370,000."
 
 strict: passes
 ```
@@ -554,7 +553,7 @@ strict: passes
 ### PASS: structure-check.js --strict /submarkets/carolina-forest/the-farm/
 
 ```
-structure-check /tmp/package-2026-10-b-CAu1Sh/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html
+structure-check /tmp/package-2026-10-b-LCGKU5/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html
 H1: What is it like to live in The Farm at Carolina Forest?
 no numbered entries: not a list of places, so checks 1, 2 and 4 do not apply
 3. Label lines in the entries: 0

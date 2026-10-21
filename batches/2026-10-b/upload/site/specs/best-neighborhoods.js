@@ -111,10 +111,7 @@ const PHOTO = {
    14e; OWNER-EYE-14d M2): no leader line crosses another place, and no number sits more than 45 units from
    its spot, so The Farm's number is by The Farm. maxRatio 0.75 gives the Carolina Forest cluster room. The
    map data credit is in the sources line (OWNER-EYE-14d M1). */
-const RMAP = AM.regionMap({ name: "Neighborhoods", maxRatio: 0.75, placeNames: false, tidyLeaders: true,
-  places: D.neighborhoods.map((n) => ({ name: n.name, short: n.short, lat: n.lat, lon: n.lon, href: `#${n.id}` })) },
-  { dir: MAP_DIR, src: "/images/maps", glass: true, width: 320 });
-const MAP_HTML = h.figure(RMAP.html, "Map of the 15. The numbers match the list.");
+/* Round 15: the map is cut (owner, 2026-10-21: "the photo is probably the least valuable thing in there"); the guide groups the places, and each entry says where it is. */
 
 /* ---------------------------------------------------------------------------- */
 /* The selection guide (CRAFT 3, "No preamble"): each place once, under the thing it does best, in words a   */
@@ -192,7 +189,7 @@ const GUIDE = GUIDE_CSS + `<div class="c3-guide c3-guide-map"><div class="c3-gui
   + GROUPS.map((g) => `<div class="c3-guide-card"><h3><span class="i">${IC.icon(g.icon, { size: 20 })}</span>${g.label}</h3>`
     + g.items.map(([id, what]) => `<div class="c3-gi" data-n="${ORDER.indexOf(id) + 1}"><a href="#${id}">${N[id].short}</a>: ${what}</div>`).join("")
     + `</div>`).join("")
-  + `</div>${MAP_HTML}</div>`;
+  + `</div></div>`;
 
 /* ---------------------------------------------------------------------------- */
 /* The 15 entries (CRAFT 5, "Sell the place like the best agent in town"; the task's order: the one thing a  */
@@ -206,7 +203,7 @@ const placeOffer = (id, line) => `<div class="c3-place-cta"><p>${line}</p>${G.of
 const ENTRY = (id, headline, paras, price) => {
   const num = ORDER.indexOf(id) + 1;
   return { h2: `${num}. ${N[id].name}: ${headline}`, toc: N[id].name, id,
-    html: h.p(paras[0]) + (PHOTO[id] || "") + paras.slice(1).map((t) => h.p(t)).join("") + placeOffer(id, price) };
+    html: h.p(paras[0]) + G.homes(id, N[id].name, PHOTO[id] || "") + paras.slice(1).map((t) => h.p(t)).join("") + placeOffer(id, price) };
 };
 
 const ENTRIES = [
@@ -329,7 +326,7 @@ module.exports = G.page({
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "What each does best", id: "choose", html:
-      CSS + GUIDE },
+      CSS + G.homesCss() + GUIDE },
     ...ENTRIES,
     /* One compact table after the entries (task 6): price, the HOA fee and the beach, for the reader who
        wants to compare; the HOA fee table of round 14d is merged into it. Then the other guides. */

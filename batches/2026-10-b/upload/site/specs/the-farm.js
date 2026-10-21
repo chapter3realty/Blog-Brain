@@ -223,7 +223,7 @@ const OVER = ph.aerial("the-farm-from-above", "The Farm at Carolina Forest from 
 /* Round 8 (owner, 2026-10-14): a wide, labelled aerial for "where it is" in place of the drawn region map, and a
    school zone aerial from Horry County Schools' zone layers (ledger rows 92 and 93, pending verification). */
 const WIDE = ph.aerial("the-farm-where-from-above", "Where The Farm is. The drive to the emergency room starts at the entrance nearest the large pool. The orange line is its edge.", { closeUp: true });
-const SCHOOLS = ph.aerial("the-farm-school-zones-from-above", "The Farm, outlined in orange, sits inside the blue area zoned for the three schools.", { closeUp: true });
+const SCHOOLS = ph.aerial("the-farm-school-zones-from-above", "The blue area is zoned for Ocean Bay Elementary, Ocean Bay Middle and Carolina Forest High. The Farm, outlined in orange, is inside it. The dot is the two Ocean Bay schools.", { closeUp: true });
 const M = maps("the-farm", [
   { id: "beach_mb101", name: "the beach in Myrtle Beach", short: "Beach", kind: "beach" },
   { id: "er_mcleod", name: "McLeod Health's emergency room", short: "Emergency room", kind: "hospital" },
@@ -291,6 +291,9 @@ module.exports = G.page({
     "Houses with yards usually sold for about $350,000 in the past year.",
   ],
   sections: [
+    /* Round 15 (owner, 2026-10-21: "easier for someone to get hooked and start scrolling"): the homes for
+       sale in The Farm right under the top offer, once the listing search is on; empty and hidden until then. */
+    { id: "homes-now", html: G.homesCss() + G.homes("the-farm", "The Farm") + "<style>main#main .detail-hero .detail-sub{display:none}</style>" },
     { h2: "What makes The Farm at Carolina Forest different?", toc: "What makes it different", html: (bg) =>
       ph.css() +
       h.p(`Conway Medical Center planned a $160 million healthcare facility on the 353 acres along The Farm's north edge. The state bought the land instead, for the ${h.ext(SCDNR, "Lewis Ocean Bay Heritage Preserve")}.`) +

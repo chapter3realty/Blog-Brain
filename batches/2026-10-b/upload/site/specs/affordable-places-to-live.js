@@ -228,7 +228,13 @@ const PRICE = {
 };
 const placeCta = (id) => `<div class="c3-place-cta"><p>${PRICE[id]}</p>${G.offer(N[id].name)}</div>`;
 const entry = (id, short, html) => ({ h2: `${N[id].n}. ${N[id].name}: ${short}`, toc: N[id].map, id,
-  html: (bg) => html(bg) + placeCta(id) });
+  html: (bg) => withStrip(id, html(bg)) + placeCta(id) });
+/* The homes strip takes the place of the photo (owner, 2026-10-21): where the entry has a photo, the
+   strip goes there and the photo is its placeholder; otherwise the strip follows the first paragraph. */
+function withStrip(id, out) {
+  if (PH[id] && out.includes(PH[id])) return out.replace(PH[id], () => G.homes(id, N[id].name, PH[id]));
+  return out.replace("</p>", () => "</p>" + G.homes(id, N[id].name));
+}
 
 /* ItemList JSON-LD for the twelve numbered entries. */
 const ITEMLIST = () => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList",
@@ -257,7 +263,7 @@ module.exports = G.page({
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "The twelve at a glance", id: "compare", html: () =>
-      PHOTO_CSS + PLACE_CSS + GUIDE },
+      PHOTO_CSS + PLACE_CSS + G.homesCss() + GUIDE },
 
     entry("parkview", "townhomes by the city's golf course, near the beach", () =>
       h.p("Parkview is a four-minute drive from the beach. Its townhomes are off 17th Avenue South, inside the city of Myrtle Beach, around ponds and a pool for owners.") +
