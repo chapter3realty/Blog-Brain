@@ -136,7 +136,6 @@ const GROUPS = [
   { icon: "shopping", label: "A town center you can walk", items: [
     ["market-common", "a Saturday market"]] },
   { icon: "home", label: "New houses", items: [
-    ["grande-dunes", "mostly new listings"],
     ["deerfield", "new on old golf land"]] },
   { icon: "dollar", label: "More house for the money", items: [
     ["avalon", "ball fields inside"],
@@ -241,8 +240,9 @@ const ENTRIES = [
   ENTRY("barefoot-resort", "a golf course along the waterway", [
     `For a golfer, the Greg Norman course has seven holes along the waterway and wide fairways. Barefoot ${h.ext(BF_REPLAY, "sells a second round the same day")} at a lower rate, booked when the first round ends.`,
     "Barefoot Resort's road to the shops crosses a swing bridge from the 1930s, moved here from Edenton, North Carolina. Barefoot Landing's shops and restaurants are on the far side of the Intracoastal Waterway, about six minutes from the condos by car.",
-    "Most homes in these sections are condos, about 390 of them, with about 80 houses. Owners in two of the resort's associations share the North Tower pool beside the waterway.",
-  ], "Homes in these Barefoot sections, mostly condos, usually sold for about $430,000 last year, and the condo fee is about $680 a month."),
+    "In the Yacht Club Villas, North Tower, Dye Townhomes and the Retreat, most homes are condos, about 390 of them, with about 80 houses. Owners in two of the resort's associations share the North Tower pool beside the waterway.",
+    "With so few houses, a buyer who wants a yard of their own has little to choose from here.",
+  ], "Homes in these four Barefoot sections, mostly condos, usually sold for about $430,000 last year, and the condo fee is about $680 a month."),
 
   ENTRY("prince-creek", "a course where the pros played", [
     `Prince Creek's sections border TPC Myrtle Beach, a Tom Fazio course. Tom Watson won the Senior PGA Tour Championship there in 2000, and ${h.ext(TPC, "Lee Trevino and Gary Player")} have played it too.`,
@@ -277,12 +277,6 @@ const ENTRIES = [
     "The neighborhood stands on the old Myrtle Beach Air Force Base, which closed in 1993. Three Air Force jets, among them an A-10 Warthog, stand in Warbird Park, on loan to the city.",
     "Grand Park, with seven ball fields, picnic shelters and a playground, is a two-minute walk from the middle of the neighborhood. The houses and townhomes are close together, beside a district of shops and offices.",
   ], "Houses in The Market Common usually sold for about $540,000 last year, and townhomes for about $398,000."),
-
-  ENTRY("grande-dunes", "a South Florida look on the waterway", [
-    `Grande Dunes was built to look like South Florida. Its ${h.ext(GD_SUN, "first houses followed the style")} of the Florida builder Addison Mizner, with tile roofs, stucco, columns and arches. Most of the new houses listed for sale here are plainer, with fiber-cement siding.`,
-    "Almost every home in the sections named Grande Dunes is outside the high-risk flood zone. Most houses for sale here are new or not yet finished. If you want an older house with a grown yard, we watch the resales for you.",
-    "For a golfer, the Resort Club course is a Roger Rulewich design beside the Intracoastal Waterway. The National Golf Course Owners Association named it its National Course of the Year in 2009.",
-  ], "Homes in Grande Dunes usually resold for about $1.4 million last year, and the HOA fee for a house is about $200 to $400 a month."),
 
   ENTRY("deerfield", "new houses on old golf land", [
     "Deerfield is built around the old Deer Track golf courses near Surfside Beach. A typical lot in the older streets is about a third of an acre, and new houses now stand on the old South Course.",
@@ -326,12 +320,12 @@ module.exports = G.page({
   eyebrow: "Choosing a neighborhood",
   h1: "What are the best neighborhoods in Myrtle Beach?",
   h1em: "Pick by what you love.",
-  sub: "Fourteen neighborhoods near Myrtle Beach, grouped by what each does best.",
+  sub: "Thirteen neighborhoods near Myrtle Beach, grouped by what each does best.",
   toc: false,
   author: "devin",
   heroCta: { title: "Tell us what you want nearby. We will send three neighborhoods.", text: "One of our agents sends the list, with the homes for sale in each. There is no charge.", label: "Get three neighborhoods", href: OFFER },
   shortAnswer: [
-    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For a golf course neighborhood, Tidewater. For a new house, Grande Dunes. For a boat, Plantation Lakes. For a town center you can walk, The Market Common. For a lower price, Avalon.",
+    "For a walk to the beach, the best neighborhood near Myrtle Beach is Cherry Grove. For a golf course neighborhood, Tidewater. For a new house, Deerfield. For a boat, Plantation Lakes. For a town center you can walk, The Market Common. For a lower price, Avalon.",
   ],
   sections: [
     { h2: "What does each neighborhood do best?", toc: "What each does best", id: "choose", html:
@@ -339,8 +333,8 @@ module.exports = G.page({
     ...ENTRIES,
     /* One compact table after the entries (task 6): price, the HOA fee and the beach, for the reader who
        wants to compare; the HOA fee table of round 14d is merged into it. Then the other guides. */
-    { h2: "How do the 14 neighborhoods compare?", toc: "Side by side", id: "side-by-side", html:
-      `<div class="c3-mini"><table><caption>The 14 neighborhoods side by side</caption><thead><tr><th scope="col">Neighborhood</th><th scope="col">Homes usually sell for</th><th scope="col">HOA fee a month</th><th scope="col">To the beach</th></tr></thead><tbody>`
+    { h2: "How do the 13 neighborhoods compare?", toc: "Side by side", id: "side-by-side", html:
+      `<div class="c3-mini"><table><caption>The 13 neighborhoods side by side</caption><thead><tr><th scope="col">Neighborhood</th><th scope="col">Homes usually sell for</th><th scope="col">HOA fee a month</th><th scope="col">To the beach</th></tr></thead><tbody>`
       + D.neighborhoods.map((n, i) => `<tr><th scope="row"><a href="#${n.id}">${i + 1}. ${n.short}</a></th><td>${n.cells.price}</td><td>${n.cells.fee}</td><td>${n.cells.beach}</td></tr>`).join("")
       + `</tbody></table></div>`
       + h.p("Times are by car with no traffic, except Cherry Grove and Surfside Beach, which are on foot. Each time is from the middle of the neighborhood to the nearest public beach access.")
