@@ -66,3 +66,13 @@ The CRM's contract v1 replaced the earlier `idx-public` design. The website side
 - The whole website change is saved here as `website-patches/idx-v1-listing-search.patch`. It applies on top of batch 2026-10-b (`git apply --check` passes).
 
 The pages themselves (round 15): no glass offer boxes anymore; on best, gated, no-HOA and affordable the top is the title, the short answer and the guide, then the entries. The homes strip is each place's offer.
+
+## Live (2026-10-23)
+
+The owner deployed batch b and the listing search, and set `IDX_API_SECRET` and `IDX_LIVE=1` with wrangler. Checked on the live site the same day:
+
+- `/homes/` shows 24 of 11,721 homes, each with its listing firm, the CCMLS source line and "Updated". Listing pages, place pages, the terms page and `/sitemap-homes.xml` answer 200. The header's "Search Listings" opens `/homes/`.
+- The homes strips: 57 of 60 filled on a warm cache, with real MLS photos (hotlinked, loading) and the price over the firm. All 16 no-HOA strips carry the no-HOA note.
+- Empty: Myrtle Beach Golf and Yacht Club (0 homes for "Golf and Yacht"; the MLS may write "Golf & Yacht"), Indigo Grove (0), Villas at Sandridge (1 home, under the minimum of 3). Check the MLS spelling with the dev key.
+- On a cold cache a few strips missed the 2.5 s limit on the first load and filled on the next. Watch this; raise the limit if it keeps happening.
+- Turnstile is not set yet, so the sign-up asks people to call.
