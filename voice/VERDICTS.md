@@ -55,3 +55,8 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 **2026-10-11, v13.** "other than that i think it looks good." The four pages' shape after v12: short answer, icon row, map, homes, things to do, costs, story near the end, FAQ.
 
 **Readers, not the owner, for the record.** Buyer readers called the small neighborhood map "the best thing on the page". The page grader called the real Blackmoor story "the most persuasive thing on any of the four pages, because it is true and local." Keep: our own small maps; real local stories first.
+
+## 2026-10-23: the listing search, live
+
+- Strip cards: "you do not need the listing company displayed there i know it for a fact so just have the price and that's it." Done on the guide-page strips. The firm stays on the result cards and the listing page, which the MLS rules require.
+- Listing page: "have the basic information available after 5 seconds have a subtle CTA pop up on the bottom right asking if they want more information or to tour the home ... as engaging and beautiful of a UI as we can make it." Done in idx-v1.1.

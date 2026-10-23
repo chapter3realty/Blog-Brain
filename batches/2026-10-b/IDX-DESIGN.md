@@ -76,3 +76,20 @@ The owner deployed batch b and the listing search, and set `IDX_API_SECRET` and 
 - Empty: Myrtle Beach Golf and Yacht Club (0 homes for "Golf and Yacht"; the MLS may write "Golf & Yacht"), Indigo Grove (0), Villas at Sandridge (1 home, under the minimum of 3). Check the MLS spelling with the dev key.
 - On a cold cache a few strips missed the 2.5 s limit on the first load and filled on the next. Watch this; raise the limit if it keeps happening.
 - Turnstile is not set yet, so the sign-up asks people to call.
+
+## Round 16 (2026-10-23): price-only strips and the listing page
+
+The owner: "you do not need the listing company displayed there i know it for a fact so just have the price". The strip cards on the guide pages now show the price only. The listing firm stays on the search and place result cards and on every listing page, where the MLS rules require it on the page for the home (CCMLS 16.14 as the CRM contract cites it).
+
+The listing page, redesigned (`website-patches/idx-v1.1-listing-page.patch`, on top of the live commit c1df4fd6):
+
+- A photo mosaic: the large photo, then two tiles. Not signed up: one tile blurs the photo and offers all the photos with a free sign-up; the other asks for a tour.
+- The price large, the address, the facts as pills with icons, the listing firm, the key facts as glass cards.
+- A side card that stays in view: price, "Tour this home", "Ask a question", save.
+- Not signed up: "Free: everything else about this home", the locked items listed with blurred bars, never a number.
+- After 5 seconds, a small card bottom right: "Want more information or a tour?" with "Tour this home" and "Ask a question". Once a visit; never over an open form; closes with ×. On a phone it is one short row.
+- "Ask a question" uses the same lead form as the tour, with interest "question" (contract §7e). Both work without Turnstile.
+- "More homes for sale in <subdivision>": up to 10 other homes there, closest in price, price-only cards.
+- Subdivision names in capitals show in title case (format only).
+
+What a visitor who is not signed up sees is only the public card the CRM sends: status, type, beds, baths, square feet, lot, year built, subdivision, waterfront, MLS number, one photo, the listing firm. HOA fees, taxes, the description, days on market and sold prices show only after sign-up. 75 controls pass.
