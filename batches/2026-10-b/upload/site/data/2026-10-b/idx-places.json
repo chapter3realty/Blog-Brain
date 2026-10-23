@@ -1,5 +1,5 @@
 {
- "_comment": "Places for the CRM's IDX place catalog (src/lib/idx/places-catalog.ts), one per homes strip on the batch 2026-10-b pages (tools/glass.js homes(); website-patches/idx-strips.patch). 'pages' lists where each strip appears. Match rules are drafts: confirm each subdivision name against the MLS feed before going live. Never invent a map point; the strips need no point. Round 15 (contract v1): each place has the search it runs: subdivision words, or near a point with miles. Confirm each against the MLS on day one.",
+ "_comment": "Places for the CRM's IDX place catalog (src/lib/idx/places-catalog.ts), one per homes strip on the batch 2026-10-b pages (tools/glass.js homes(); website-patches/idx-strips.patch). 'pages' lists where each strip appears. Match rules are drafts: confirm each subdivision name against the MLS feed before going live. Never invent a map point; the strips need no point. Round 15 (contract v1): each place has the search it runs: subdivision words, or near a point with miles. Confirm each against the MLS on day one. Contract v1 hoa=0 (CRM ticket 415, 22 Oct 2026): the no-HOA places search only homes whose listing says there is no HOA; every such strip and page says where that fact comes from.",
  "places": [
   {
    "slug": "cherry-grove",
@@ -314,7 +314,8 @@
    "q": {
     "near": "33.69000,-78.89200",
     "miles": 1.0,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -327,7 +328,8 @@
    "q": {
     "near": "33.71300,-78.85750",
     "miles": 0.5,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -340,7 +342,8 @@
    "q": {
     "near": "33.73376,-78.84034",
     "miles": 0.5,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -353,7 +356,8 @@
    "q": {
     "near": "33.79736,-78.73093",
     "miles": 0.7,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -366,7 +370,8 @@
    "q": {
     "near": "33.81095,-78.69740",
     "miles": 1.2,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -379,7 +384,8 @@
    "q": {
     "near": "33.82231,-78.67907",
     "miles": 1.6,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -392,7 +398,8 @@
    "q": {
     "near": "33.84011,-78.63629",
     "miles": 2.0,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -405,7 +412,8 @@
    "q": {
     "near": "33.87200,-78.61500",
     "miles": 0.5,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -418,7 +426,8 @@
    "q": {
     "near": "33.68300,-79.00000",
     "miles": 0.7,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -431,7 +440,8 @@
    "q": {
     "near": "33.60774,-78.97766",
     "miles": 1.4,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -444,7 +454,8 @@
    "q": {
     "near": "33.58525,-78.99623",
     "miles": 3,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -457,7 +468,8 @@
    "q": {
     "near": "33.57338,-79.01772",
     "miles": 0.7,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -470,7 +482,8 @@
    "q": {
     "near": "33.83600,-79.04700",
     "miles": 1.5,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -483,7 +496,8 @@
    "q": {
     "near": "34.05700,-78.88800",
     "miles": 1.0,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -496,7 +510,8 @@
    "q": {
     "near": "34.02373,-78.90696",
     "miles": 3,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },
@@ -509,7 +524,8 @@
    "q": {
     "near": "33.96868,-79.13202",
     "miles": 3,
-    "type": "house"
+    "type": "house",
+    "hoa": "0"
    },
    "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
   },

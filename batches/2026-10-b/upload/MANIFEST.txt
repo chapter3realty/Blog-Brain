@@ -1,6 +1,6 @@
-Upload package for batch 2026-10-b. Built 2026-10-21 from Blog-Brain 425efcb against the live branch at 39036014.
+Upload package for batch 2026-10-b. Built 2026-10-23 from Blog-Brain 0e6c4f1 (with uncommitted changes to its sources) against the live branch at 39036014.
 size  sha256  path
-133738  4edd15b13eb4c1c7974b49852dc32287cb999759ff0031a898613031c76c7b65  batch-2026-10-b.patch
+133738  716113f5d7bb5c690cd132332e950c7ddc4109ab69bc8de37e8ed2a1b77fd0a4  batch-2026-10-b.patch
 88016  7b4aa8d381762154a1cebc0c7d61a9897560dd63c38fc4a042146ce2c9cf0c03  site/chapter3realty/images/buyers/affordable/conway-main-street-downtown-1200w.webp
 25752  59977f7db974a4186c8e1c03d93eac8caf7457970aa630e094eadb0328035856  site/chapter3realty/images/buyers/affordable/conway-main-street-downtown-600w.webp
 139206  0d2c34be98a68f17768b9960bee7b801c24f502a936ed707382022fdd998bc2d  site/chapter3realty/images/buyers/affordable/old-speedway-and-victory-point-labelled-from-above-1200w.webp
@@ -81,7 +81,7 @@ size  sha256  path
 13831  a112ec10182083a72e085693b3c7592430b5ea35b140e4b27c70bc979d1f1842  site/data/2026-10-b/gated-georgetown-sales.json
 8796  26a06b8f621953db79219ce7ce14e51aa998bebd047f7f203b293666665a7a62  site/data/2026-10-b/gated-map.json
 47513  9cbe314a4b9be18cfdd36c483153997396073e6e11abf9b843a9b21f825e86bf  site/data/2026-10-b/gated-mls-sold.json
-13230  387ca4ec2b9ba2051e52a2e332944a524b98559542bf948abb281820418714fc  site/data/2026-10-b/idx-places.json
+13666  a8b98e21ffb5e451b7e92b03d7bffe6b0a8faf2204e0ac504bddfe596dd1e837  site/data/2026-10-b/idx-places.json
 46187  3fec561651891850b0517dcd50e467c6f34651e882994b90c66ad01b109ecc59  site/data/2026-10-b/neighborhoods.json
 31964  58a9caa1bd5f41b138894f52792c6dce516545d478859ff32fb2eaf8ba2df747  site/data/2026-10-b/no-hoa-areas.json
 21574  74b8f7482b3139df606355ef33654d9fffcb6cb3fbd93b099dcfb057de35d417  site/data/2026-10-b/no-hoa-bands.json

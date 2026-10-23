@@ -2,7 +2,7 @@
 
 **Tested: every step and gate passed.**
 
-Built 2026-10-21 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 425efcb, against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
+Built 2026-10-23 by `node tools/package-batch.js batches/2026-10-b --site <clone>` from Blog-Brain 0e6c4f1 (with uncommitted changes to its sources), against the live branch `claude/github-account-check-wutg8b` at commit 39036014 ("Batch 2026-10-a: four 55+ community pages and the Chapter III logo").
 
 When the specs change, rebuild the package with the same command. Do not edit files in this folder by hand.
 
@@ -158,7 +158,7 @@ git push origin claude/github-account-check-wutg8b
 They need a Blog-Brain clone with `npm install` done. The results from the test run are below.
 
 ```powershell
-$env:SCORE_TODAY = "2026-10-21"
+$env:SCORE_TODAY = "2026-10-23"
 node <Blog-Brain>\tools\score.js --site chapter3realty --only /buyers/best-neighborhoods/
 node <Blog-Brain>\tools\score.js --site chapter3realty --only /buyers/gated-communities/
 node <Blog-Brain>\tools\score.js --site chapter3realty --only /buyers/no-hoa-homes/
@@ -173,7 +173,7 @@ The site-wide scans also list older findings on other pages; the test below comp
 
 ## Test results
 
-On a second fresh clone of `claude/github-account-check-wutg8b` at 39036014, with exactly the steps above (bash), on 2026-10-21 (`SCORE_TODAY=2026-10-21`). The commit was local and was not pushed.
+On a second fresh clone of `claude/github-account-check-wutg8b` at 39036014, with exactly the steps above (bash), on 2026-10-23 (`SCORE_TODAY=2026-10-23`). The commit was local and was not pushed.
 
 ### PASS: git apply --check batch-2026-10-b.patch
 
@@ -330,16 +330,16 @@ No asset content changed - nothing to rehash.
 
 ```
 Corrected 10:
-  /buyers/first-time-home-buyer-myrtle-beach/  2026-10-04 -> 2026-10-21  (uncommitted content change)
-  /buyers/relocating/which-town/  2026-10-04 -> 2026-10-21  (uncommitted content change)
-  /submarkets/carolina-forest/  2026-10-04 -> 2026-10-21  (uncommitted content change)
-  /buyers/55-plus-communities/  2026-10-12 -> 2026-10-21  (uncommitted content change)
-  /buyers/55-plus-communities/del-webb-north-myrtle-beach/  2026-10-12 -> 2026-10-21  (uncommitted content change)
-  /buyers/55-plus-communities/del-webb-grande-dunes/  2026-10-12 -> 2026-10-21  (uncommitted content change)
-  /buyers/55-plus-communities/myrtle-trace/  2026-10-12 -> 2026-10-21  (uncommitted content change)
-  /buyers/55-plus-communities/seasons-at-prince-creek-west/  2026-10-12 -> 2026-10-21  (uncommitted content change)
-  /buyers/golf-communities/  2026-10-12 -> 2026-10-21  (uncommitted content change)
-  llms.txt  2026-10-12 -> 2026-10-21
+  /buyers/first-time-home-buyer-myrtle-beach/  2026-10-04 -> 2026-10-23  (uncommitted content change)
+  /buyers/relocating/which-town/  2026-10-04 -> 2026-10-23  (uncommitted content change)
+  /submarkets/carolina-forest/  2026-10-04 -> 2026-10-23  (uncommitted content change)
+  /buyers/55-plus-communities/  2026-10-12 -> 2026-10-23  (uncommitted content change)
+  /buyers/55-plus-communities/del-webb-north-myrtle-beach/  2026-10-12 -> 2026-10-23  (uncommitted content change)
+  /buyers/55-plus-communities/del-webb-grande-dunes/  2026-10-12 -> 2026-10-23  (uncommitted content change)
+  /buyers/55-plus-communities/myrtle-trace/  2026-10-12 -> 2026-10-23  (uncommitted content change)
+  /buyers/55-plus-communities/seasons-at-prince-creek-west/  2026-10-12 -> 2026-10-23  (uncommitted content change)
+  /buyers/golf-communities/  2026-10-12 -> 2026-10-23  (uncommitted content change)
+  llms.txt  2026-10-12 -> 2026-10-23
 
 9 page dates moved, 127 left alone.
 llms-full.txt carries the header date - run 'node build.js llmsfull' if page text changed.
@@ -348,7 +348,7 @@ llms-full.txt carries the header date - run 'node build.js llmsfull' if page tex
 ### PASS: node build.js llmsfull
 
 ```
-llms-full.txt regenerated: 136 pages, 1517KB, dated 2026-10-21.
+llms-full.txt regenerated: 136 pages, 1517KB, dated 2026-10-23.
 ```
 
 ### PASS: node build.js check
@@ -375,11 +375,11 @@ OK - zero blocking defects. Page quality gate passed.
 ### PASS: sitemap.xml, llms.txt and llms-full.txt list the pages
 
 ```
-/buyers/best-neighborhoods/: sitemap yes, lastmod 2026-10-21, 10 images; llms.txt yes; llms-full.txt yes, with its text
-/buyers/gated-communities/: sitemap yes, lastmod 2026-10-21, 8 images; llms.txt yes; llms-full.txt yes, with its text
-/buyers/no-hoa-homes/: sitemap yes, lastmod 2026-10-21, 13 images; llms.txt yes; llms-full.txt yes, with its text
-/buyers/affordable-places-to-live/: sitemap yes, lastmod 2026-10-21, 7 images; llms.txt yes; llms-full.txt yes, with its text
-/submarkets/carolina-forest/the-farm/: sitemap yes, lastmod 2026-10-21, 6 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/best-neighborhoods/: sitemap yes, lastmod 2026-10-23, 10 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/gated-communities/: sitemap yes, lastmod 2026-10-23, 8 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/no-hoa-homes/: sitemap yes, lastmod 2026-10-23, 13 images; llms.txt yes; llms-full.txt yes, with its text
+/buyers/affordable-places-to-live/: sitemap yes, lastmod 2026-10-23, 7 images; llms.txt yes; llms-full.txt yes, with its text
+/submarkets/carolina-forest/the-farm/: sitemap yes, lastmod 2026-10-23, 6 images; llms.txt yes; llms-full.txt yes, with its text
 ```
 
 ### PASS: node build.js preflight (after a local commit)
@@ -397,7 +397,7 @@ OK - all 136 pages date to their real last content change.
 
 OK - tax engine matches state-tax.json and every hand-computed case.
 
-OK - deploying 141 pages from commit 0d4215dc on claude/github-account-check-wutg8b.
+OK - deploying 141 pages from commit 46f5d95f on claude/github-account-check-wutg8b.
      Check that commit against the branch before you deploy.
 ```
 
@@ -441,31 +441,31 @@ Score 100/100   SEO 100  AEO 100  Human 100  Trust 100   (1330 words)
 ### PASS: struck-check.js /buyers/best-neighborhoods/
 
 ```
-/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
+/tmp/package-2026-10-b-VM1WAx/test/chapter3realty/buyers/best-neighborhoods/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/gated-communities/
 
 ```
-/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
+/tmp/package-2026-10-b-VM1WAx/test/chapter3realty/buyers/gated-communities/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/no-hoa-homes/
 
 ```
-/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
+/tmp/package-2026-10-b-VM1WAx/test/chapter3realty/buyers/no-hoa-homes/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /buyers/affordable-places-to-live/
 
 ```
-/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
+/tmp/package-2026-10-b-VM1WAx/test/chapter3realty/buyers/affordable-places-to-live/index.html: no struck wording
 ```
 
 ### PASS: struck-check.js /submarkets/carolina-forest/the-farm/
 
 ```
-/tmp/package-2026-10-b-SsjkcW/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
+/tmp/package-2026-10-b-VM1WAx/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html: no struck wording
 ```
 
 ### PASS: structure-check.js --strict /buyers/best-neighborhoods/
@@ -555,7 +555,7 @@ strict: passes
 ### PASS: structure-check.js --strict /submarkets/carolina-forest/the-farm/
 
 ```
-structure-check /tmp/package-2026-10-b-SsjkcW/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html
+structure-check /tmp/package-2026-10-b-VM1WAx/test/chapter3realty/submarkets/carolina-forest/the-farm/index.html
 H1: What is it like to live in The Farm at Carolina Forest?
 no numbered entries: not a list of places, so checks 1, 2 and 4 do not apply
 3. Label lines in the entries: 0

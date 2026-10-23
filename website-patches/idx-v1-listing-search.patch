@@ -1,4 +1,4 @@
-From c9ae8629a9f438929691e375ea7b1e6302cef458 Mon Sep 17 00:00:00 2001
+From 3c9c580d9092cc727446c70c8fe0c20c67f5869d Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Wed, 21 Oct 2026 17:26:27 +0000
 Subject: [PATCH] Listing search (CRM contract v1): /homes/ pages, guide-page
@@ -150,19 +150,19 @@ Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
  .../submarkets/surfside-beach/index.html      |   4 +-
  chapter3realty/terms/index.html               |   4 +-
  chapter3realty/why-chapter-3/index.html       |   4 +-
- docs/idx-website.md                           |  73 ++
+ docs/idx-website.md                           |  71 ++
  functions/_middleware.js                      |  10 +-
  functions/homes/[[path]].js                   | 404 ++++++++++
  functions/sitemap-homes.xml.js                |  29 +
  idx-lib/crm.js                                | 139 ++++
- idx-lib/edge.js                               | 130 +++
- idx-lib/places.js                             | 567 +++++++++++++
- idx-lib/render.js                             | 270 +++++++
+ idx-lib/edge.js                               | 139 ++++
+ idx-lib/places.js                             | 583 ++++++++++++++
+ idx-lib/render.js                             | 271 +++++++
  idx-lib/terms.js                              |  31 +
  partials/footer.html                          |   4 +-
  tools/idx-check-places.mjs                    |  26 +
- tools/idx-test.mjs                            | 203 +++++
- 154 files changed, 2914 insertions(+), 285 deletions(-)
+ tools/idx-test.mjs                            | 216 +++++
+ 154 files changed, 2951 insertions(+), 285 deletions(-)
  create mode 100644 chapter3realty/homes-shell/index.html
  create mode 100644 docs/idx-website.md
  create mode 100644 functions/homes/[[path]].js
@@ -4032,10 +4032,10 @@ index 7f0097b4..9b67732a 100644
  <a href="/terms/">Terms</a>
 diff --git a/docs/idx-website.md b/docs/idx-website.md
 new file mode 100644
-index 00000000..537260e3
+index 00000000..2ff537ba
 --- /dev/null
 +++ b/docs/idx-website.md
-@@ -0,0 +1,73 @@
+@@ -0,0 +1,71 @@
 +# The listing search on chapter3realty.com (website side)
 +
 +Built to the CRM's contract v1 (21 Oct 2026, `docs/website-listing-api.md` in the CRM repo). The CRM sends raw JSON; this site draws every page. It is off until `IDX_LIVE=1`.
@@ -4062,7 +4062,7 @@ index 00000000..537260e3
 +- `functions/sitemap-homes.xml.js`.
 +- `idx-lib/crm.js` (the only door to the CRM; caching rules), `render.js` (all HTML; everything from the CRM escaped), `edge.js`, `places.js` (generated from Blog-Brain), `terms.js` (terms and the locked TCPA string).
 +- `chapter3realty/homes-shell/index.html`: the page shell, stitched like every page. Never served on its own.
-+- `tools/idx-test.mjs`: 55 controls against a mock CRM. `node tools/idx-test.mjs` must print "all controls pass".
++- `tools/idx-test.mjs`: 69 controls against a mock CRM. `node tools/idx-test.mjs` must print "all controls pass".
 +- `tools/idx-check-places.mjs`: checks every community's search against the real MLS (development key).
 +
 +## Settings (Cloudflare Pages, Production env)
@@ -4100,15 +4100,13 @@ index 00000000..537260e3
 +5. `IDX_API_SECRET` in Railway and in Cloudflare Pages (Production), then `IDX_LIVE=1`, then deploy.
 +6. Add `Sitemap: https://chapter3realty.com/sitemap-homes.xml` to `robots.txt` and submit it in Search Console.
 +
-+## Asked of the CRM (contract §12)
++## Answered by the CRM (22 Oct 2026)
 +
-+```
-+REQUEST FOR THE CRM (listing API v1)
-+What:    a filter for homes with no HOA fee (AssociationYN false, or AssociationFee blank or 0)
-+Why:     the homes strips on /buyers/no-hoa-homes/ should show only homes with no HOA fee
-+Example: GET /api/idx/listings?near=33.69,-78.892&miles=1&type=house&hoa=0
-+Used by: /buyers/no-hoa-homes/ strips and /homes/near/nohoa-*/ pages; visitors who are not signed up see them
-+```
++- **No HOA (ticket 415):** `hoa=0` returns only homes whose listing says there is no HOA (AssociationYN false, no fee above $0). A listing that does not say is left out. Any other value is a 400. The 16 no-HOA places in `places.js` send it. Every no-HOA strip and place page says "No HOA, as listed by the listing agent. Confirm before you buy." (required by the CRM; the wording is ours).
++- **Limits** (contract §3, per 10 minutes): 300 searches per visitor IP, 12,000 for the whole site on the production key; the dev key allows 300 per visitor and 1,000 in all. A guide page's 18 strip searches at once are fine. Always send the visitor's IP: calls without one share a single allowance.
++- **Sitemap:** the CRM can take several seconds; `/sitemap-homes.xml` waits up to 25 s and is fetched only by crawlers.
++- **No key or a wrong key** answers 403 `forbidden` (it was 503 `switched_off`). The site shows the "back soon" message either way.
++- **Turnstile:** until `TURNSTILE_SECRET_KEY` is in Railway, a live sign-up answers 503 `signup_off`. Dev-key sign-ups do not need it.
 diff --git a/functions/_middleware.js b/functions/_middleware.js
 index 7ad2d8c3..c210f8a0 100644
 --- a/functions/_middleware.js
@@ -4143,7 +4141,7 @@ index 7ad2d8c3..c210f8a0 100644
      });
 diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
 new file mode 100644
-index 00000000..73ca5638
+index 00000000..40be924b
 --- /dev/null
 +++ b/functions/homes/[[path]].js
 @@ -0,0 +1,404 @@
@@ -4165,7 +4163,7 @@ index 00000000..73ca5638
 + */
 +import { PREVIEW_COOKIE, clearCookie, crm, idxOn, sameOrigin, setCookie, visitorToken } from "../../idx-lib/crm.js";
 +import { PLACES } from "../../idx-lib/places.js";
-+import { placeParams } from "../../idx-lib/edge.js";
++import { NO_HOA_NOTE, placeParams } from "../../idx-lib/edge.js";
 +import { SMS_CONSENT_TEXT, TERMS_PARAGRAPHS, TERMS_TITLE, TERMS_VERSION, termsText } from "../../idx-lib/terms.js";
 +import {
 +  STYLE, SCRIPT, addressLine, dayLong, disclaimer, esc, factsLine, grid, headlinePrice, heartButton,
@@ -4472,7 +4470,7 @@ index 00000000..73ca5638
 +  const guides = (place.pages || []).map((u) => `<a href="${esc(u)}">${esc(u.split("/").filter(Boolean).pop().replace(/-/g, " "))}</a>`).join(" · ");
 +  const body = `${crumbs([["/", "Home"], ["/homes/", "Homes for sale"], [null, place.name]])}
 +<h1>Homes for sale in ${esc(place.name)}</h1>
-+<p class="hx-lead">${esc(String(j.total ?? ls.length))} ${j.total === 1 ? "home" : "homes"} for sale now, from the Coastal Carolinas MLS. Each card names its listing firm.${place.q.near ? " Distances are straight-line miles." : ""}</p>
++<p class="hx-lead">${esc(String(j.total ?? ls.length))} ${j.total === 1 ? "home" : "homes"} for sale now, from the Coastal Carolinas MLS. Each card names its listing firm.${place.q.near ? " Distances are straight-line miles." : ""}${place.q.hoa !== undefined ? ` ${NO_HOA_NOTE}` : ""}</p>
 +${signedBar(j.tier)}${grid(ls, hearts)}
 +${j.tier === "public" && ls.length ? signupPrompt(`See every photo and the HOA fee for homes in ${place.name}.`) : ""}
 +${guides ? `<p class="hx-small">Read about ${esc(place.name)}: ${guides}</p>` : ""}
@@ -4553,7 +4551,7 @@ index 00000000..73ca5638
 +}
 diff --git a/functions/sitemap-homes.xml.js b/functions/sitemap-homes.xml.js
 new file mode 100644
-index 00000000..52da26f9
+index 00000000..69e24234
 --- /dev/null
 +++ b/functions/sitemap-homes.xml.js
 @@ -0,0 +1,29 @@
@@ -4574,7 +4572,7 @@ index 00000000..52da26f9
 +  if (!idxOn(env, request).on || idxOn(env, request).preview) return new Response("Not found", { status: 404 });
 +  const urls = [`<url><loc>${SITE}/homes/</loc></url>`, ...Object.keys(PLACES).map((s) => `<url><loc>${SITE}/homes/near/${s}/</loc></url>`)];
 +  if (env.IDX_INDEX_LISTINGS === "1") {
-+    const r = await crm(env, request, "/api/idx/sitemap", { anonymous: true, cacheSeconds: 3600 });
++    const r = await crm(env, request, "/api/idx/sitemap", { anonymous: true, cacheSeconds: 3600, timeoutMs: 25000 } /* the CRM may take several seconds; only crawlers wait here */);
 +    if (r.status === 200 && r.json && r.json.ok) {
 +      for (const l of Array.isArray(r.json.listings) ? r.json.listings : []) {
 +        if (!l || typeof l.mlsNumber !== "string" || !/^[A-Za-z0-9]{3,20}$/.test(l.mlsNumber)) continue;
@@ -4733,10 +4731,10 @@ index 00000000..16b99dc6
 +}
 diff --git a/idx-lib/edge.js b/idx-lib/edge.js
 new file mode 100644
-index 00000000..52325258
+index 00000000..b0e879ff
 --- /dev/null
 +++ b/idx-lib/edge.js
-@@ -0,0 +1,130 @@
+@@ -0,0 +1,139 @@
 +/**
 + * What the listing search adds to the site's own pages, at the edge (functions/_middleware.js).
 + * Only while the search is on (IDX_LIVE, or the owner's preview cookie):
@@ -4783,6 +4781,11 @@ index 00000000..52325258
 +    if (!TYPES.includes(q.type)) return null;
 +    p.set("type", q.type);
 +  }
++  // hoa=0: only homes whose listing says there is no HOA (CRM ticket 415). The only value there is.
++  if (q.hoa !== undefined) {
++    if (String(q.hoa) !== "0") return null;
++    p.set("hoa", "0");
++  }
 +  return p;
 +}
 +
@@ -4796,11 +4799,15 @@ index 00000000..52325258
 +  return [...new Set(out)];
 +}
 +
-+function strip(slug, name, listings, total) {
++/** Required wherever homes are shown as having no HOA (CRM ticket 415): where that fact comes from. */
++export const NO_HOA_NOTE = "No HOA, as listed by the listing agent. Confirm before you buy.";
++
++function strip(slug, name, listings, total, noHoa) {
 +  const all = `/homes/near/${slug}/`;
 +  // name is our own markup from the page (already escaped there): print it as it is.
 +  const n = typeof total === "number" ? total : listings.length;
 +  return `<p class="hx-s-head"><b>Homes for sale in ${name} now</b><a href="${all}">See all ${esc(String(n))}</a></p>`
++    + (noHoa ? `<p class="hx-s-note">${NO_HOA_NOTE}</p>` : "")
 +    + `<div class="hx-s-row">${spread(listings).map((l) => stripCard(l, false)).join("")}`
 +    + `<a class="hx-s-all" href="${all}" draggable="false">See all ${esc(String(n))} homes in ${name}</a></div>`;
 +}
@@ -4853,7 +4860,7 @@ index 00000000..52325258
 +
 +    html = html.replace(SLOT, (whole, slug, name) => {
 +      const f = filled.get(slug);
-+      return f ? `<div class="hx-strip" data-place="${slug}" data-name="${name}">${strip(slug, name, f[0], f[1])}</div>` : whole;
++      return f ? `<div class="hx-strip" data-place="${slug}" data-name="${name}">${strip(slug, name, f[0], f[1], PLACES[slug].q.hoa !== undefined)}</div>` : whole;
 +    });
 +    const signed = Boolean(visitorToken(request));
 +    html = html
@@ -4869,10 +4876,10 @@ index 00000000..52325258
 +}
 diff --git a/idx-lib/places.js b/idx-lib/places.js
 new file mode 100644
-index 00000000..1d17cc8c
+index 00000000..8df14982
 --- /dev/null
 +++ b/idx-lib/places.js
-@@ -0,0 +1,567 @@
+@@ -0,0 +1,583 @@
 +/**
 + * The places that have a homes strip on a guide page, and a /homes/near/<slug>/ page.
 + * GENERATED from Blog-Brain batches/2026-10-b/data/idx-places.json; edit there and regenerate.
@@ -5160,7 +5167,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.69000,-78.89200",
 +   "miles": 1.0,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5171,7 +5179,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.71300,-78.85750",
 +   "miles": 0.5,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5182,7 +5191,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.73376,-78.84034",
 +   "miles": 0.5,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5193,7 +5203,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.79736,-78.73093",
 +   "miles": 0.7,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5204,7 +5215,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.81095,-78.69740",
 +   "miles": 1.2,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5215,7 +5227,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.82231,-78.67907",
 +   "miles": 1.6,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5226,7 +5239,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.84011,-78.63629",
 +   "miles": 2.0,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5237,7 +5251,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.87200,-78.61500",
 +   "miles": 0.5,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5248,7 +5263,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.68300,-79.00000",
 +   "miles": 0.7,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5259,7 +5275,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.60774,-78.97766",
 +   "miles": 1.4,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5270,7 +5287,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.58525,-78.99623",
 +   "miles": 3,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5281,7 +5299,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.57338,-79.01772",
 +   "miles": 0.7,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5292,7 +5311,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.83600,-79.04700",
 +   "miles": 1.5,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5303,7 +5323,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "34.05700,-78.88800",
 +   "miles": 1.0,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5314,7 +5335,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "34.02373,-78.90696",
 +   "miles": 3,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5325,7 +5347,8 @@ index 00000000..1d17cc8c
 +  "q": {
 +   "near": "33.96868,-79.13202",
 +   "miles": 3,
-+   "type": "house"
++   "type": "house",
++   "hoa": "0"
 +  },
 +  "pages": [
 +   "/buyers/no-hoa-homes/"
@@ -5442,10 +5465,10 @@ index 00000000..1d17cc8c
 +};
 diff --git a/idx-lib/render.js b/idx-lib/render.js
 new file mode 100644
-index 00000000..e9e51479
+index 00000000..ff49a3ba
 --- /dev/null
 +++ b/idx-lib/render.js
-@@ -0,0 +1,270 @@
+@@ -0,0 +1,271 @@
 +/**
 + * HTML for the listing search (contract v1). The CRM sends raw JSON; every word,
 + * number format and layout is made here. Everything from the CRM is untrusted
@@ -5646,7 +5669,8 @@ index 00000000..e9e51479
 +main#main .hx-strip{margin:1.2rem 0 .4rem;max-width:760px;position:relative}
 +main#main .hx-s-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 0 .55rem;font-size:.95rem;color:var(--navy)}
 +main#main .hx-s-head a{color:var(--brass);font-size:.9rem;white-space:nowrap}
-+main#main .hx-s-row{display:flex;gap:.75rem;overflow-x:auto;scroll-behavior:auto;scroll-snap-type:x proximity;padding:.15rem .15rem .6rem;margin:0 -.15rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;user-select:none;-webkit-user-select:none}
++.hx-s-note{margin:-.3rem 0 .55rem;font-size:.85rem;color:var(--muted,#5a5f6a)}
++main#main .hx-s-row{display:flex;align-items:flex-start;gap:.75rem;overflow-x:auto;scroll-behavior:auto;scroll-snap-type:x proximity;padding:.15rem .15rem .6rem;margin:0 -.15rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;user-select:none;-webkit-user-select:none}
 +main#main .hx-s-row::-webkit-scrollbar{display:none}main#main .hx-s-row.hx-dragging{cursor:grabbing;scroll-snap-type:none}
 +main#main .hx-s-card{position:relative;flex:0 0 62%;max-width:16rem;scroll-snap-align:start;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(28,32,40,.10)}
 +@media (min-width:700px){main#main .hx-s-card{flex-basis:24%}}
@@ -5656,7 +5680,7 @@ index 00000000..e9e51479
 +main#main .hx-s-chip{position:absolute;left:.5rem;right:.5rem;bottom:.5rem;display:flex;flex-direction:column;padding:.35rem .65rem;border-radius:12px;font-size:.95rem;line-height:1.3;color:#fff;background:rgba(28,32,40,.42);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 +main#main .hx-s-chip b{font-weight:700}main#main .hx-s-chip span{font-weight:400;opacity:.95;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 +main#main .hx-heart-sm{position:absolute;top:.5rem;right:.5rem;width:2rem;height:2rem}
-+main#main .hx-s-all{flex:0 0 40%;max-width:12rem;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;border-radius:16px;font-weight:600;color:var(--navy);background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75);text-decoration:none}
++main#main .hx-s-all{flex:0 0 40%;max-width:12rem;align-self:stretch;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;border-radius:16px;font-weight:600;color:var(--navy);background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75);text-decoration:none}
 +@media (min-width:700px){main#main .hx-s-all{flex-basis:18%}}
 +@media (prefers-reduced-transparency:reduce){main#main .hx-s-chip{backdrop-filter:none;-webkit-backdrop-filter:none;background:#1c2028}}
 +</style>`;
@@ -5809,10 +5833,10 @@ index 00000000..58e00412
 +}
 diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
 new file mode 100644
-index 00000000..6156d630
+index 00000000..298bdb60
 --- /dev/null
 +++ b/tools/idx-test.mjs
-@@ -0,0 +1,203 @@
+@@ -0,0 +1,216 @@
 +/**
 + * The listing search's controls, against a mock CRM that answers as contract v1 says.
 + * No network, no key. Run: node tools/idx-test.mjs   (prints "all controls pass")
@@ -5822,6 +5846,7 @@ index 00000000..6156d630
 +import { onRequest as homes } from "../functions/homes/[[path]].js";
 +import { onRequest as mw } from "../functions/_middleware.js";
 +import { onRequest as sitemap } from "../functions/sitemap-homes.xml.js";
++import { placeParams } from "../idx-lib/edge.js";
 +
 +const ROOT = path.resolve("chapter3realty");
 +let fails = 0;
@@ -6007,6 +6032,18 @@ index 00000000..6156d630
 +r = await run(homes, req("/homes/", cookie));
 +check("bad token: the public view is never cached", r.headers.get("cache-control") === "private, no-store");
 +INVALID = false;
++
++// No HOA (CRM ticket 415).
++r = await run(mw, req("/buyers/no-hoa-homes/"));
++t = await r.text();
++const hoaCalls = calls.filter((c) => c.url.includes("/api/idx/listings?") && c.url.includes("type=house"));
++check("no HOA: every no-HOA strip asks the CRM for hoa=0", hoaCalls.length >= 10 && hoaCalls.every((c) => c.url.includes("hoa=0")));
++check("no HOA: each filled strip says where the fact comes from", (t.match(/class="hx-s-note">No HOA, as listed by the listing agent\. Confirm before you buy\./g) || []).length === (t.match(/class="hx-s-row"/g) || []).length && t.includes("hx-s-row"));
++r = await run(mw, req("/buyers/best-neighborhoods/"));
++check("no HOA: other pages carry no such note", !(await r.text()).includes('class="hx-s-note"'));
++r = await run(homes, req("/homes/near/nohoa-conway/"));
++check("no HOA: the place page says where the fact comes from", (await r.text()).includes("No HOA, as listed by the listing agent. Confirm before you buy."));
++check("no HOA: any value but 0 is never sent", placeParams({ near: "33.7,-78.9", hoa: "1" }) === null && placeParams({ near: "33.7,-78.9", hoa: "" }) === null && placeParams({ near: "33.7,-78.9", hoa: 0 }).get("hoa") === "0");
 +
 +// Sitemap and the shell.
 +r = await run(sitemap, req("/sitemap-homes.xml"), { ...ENV, IDX_INDEX_LISTINGS: "1" });
