@@ -19,7 +19,7 @@ git status                       # must say: nothing to commit, working tree cle
 Then run every step in `batches/2026-10-b/upload/README-UPLOAD.md`, "Windows PowerShell", up to and including `git commit`. Stop before its `git push`. Then add the listing search:
 
 ```powershell
-git am -3 "C:\Blog-Brain\website-patches\idx-v1-listing-search.patch"
+git am "C:\Blog-Brain\website-patches\idx-v1-listing-search.patch"
 node build.js stitch
 node tools/idx-test.mjs          # must end: all controls pass
 node build.js preflight          # must end without FAIL
