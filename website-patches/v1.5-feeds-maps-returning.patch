@@ -1,4 +1,4 @@
-From 30e448b20279d3fb31b1a557592655ca9d92ff4f Mon Sep 17 00:00:00 2001
+From 6ef22b7e03a79f2675571300b2d14a58d56a2ed5 Mon Sep 17 00:00:00 2001
 From: Chapter3 Realty <chapter3realty@gmail.com>
 Date: Sun, 25 Oct 2026 23:22:17 +0000
 Subject: [PATCH] Homes feed on every article, filtered to its topic; returning
@@ -153,15 +153,15 @@ Subject: [PATCH] Homes feed on every article, filtered to its topic; returning
  .../submarkets/surfside-beach/index.html      |   2 +-
  chapter3realty/terms/index.html               |   2 +-
  chapter3realty/why-chapter-3/index.html       |   2 +-
- functions/homes/[[path]].js                   | 132 +++++++++++++--
+ functions/homes/[[path]].js                   | 137 +++++++++++++--
  idx-lib/crm.js                                |   3 +-
- idx-lib/edge.js                               |  80 ++++++++-
- idx-lib/feeds.js                              | 159 ++++++++++++++++++
+ idx-lib/edge.js                               |  89 +++++++++-
+ idx-lib/feeds.js                              | 160 ++++++++++++++++++
  idx-lib/map.js                                |  66 +++++++-
  idx-lib/render.js                             |  55 +++++-
  partials/footer.html                          |   2 +-
- tools/idx-test.mjs                            |  74 ++++++++
- 152 files changed, 732 insertions(+), 171 deletions(-)
+ tools/idx-test.mjs                            |  87 +++++++++-
+ 152 files changed, 759 insertions(+), 172 deletions(-)
  rename chapter3realty/assets/{s.bddc8fa442.js => s.c776518df3.js} (97%)
  create mode 100644 idx-lib/feeds.js
 
@@ -2128,7 +2128,7 @@ index 6ac89325..11b5649b 100644
  </div>
  <div>
 diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
-index 3fdc4bda..5bd70b59 100644
+index 3fdc4bda..45a528b2 100644
 --- a/functions/homes/[[path]].js
 +++ b/functions/homes/[[path]].js
 @@ -14,15 +14,15 @@
@@ -2159,7 +2159,7 @@ index 3fdc4bda..5bd70b59 100644
      if (name === "views") return views(context);
      if (name === "hearts") return hearts(context);
      return json({ ok: false, error: "not_found" }, 404);
-@@ -72,12 +74,93 @@ export async function onRequest(context) {
+@@ -72,12 +74,98 @@ export async function onRequest(context) {
    if (request.method !== "GET" && request.method !== "HEAD") return new Response("Method not allowed", { status: 405 });
  
    try {
@@ -2189,28 +2189,33 @@ index 3fdc4bda..5bd70b59 100644
 + */
 +async function withClaim(context, url, path, gate) {
 +  const k = url.searchParams.get("k") || "";
-+  // A redirect keeps k for the page it leads to; only that page claims.
-+  const redirecting = !path.endsWith("/") || /^\/homes\/[A-Za-z0-9]{3,20}\/?$/.test(path) && !/^\/homes\/(terms|near|api|map)\/?$/i.test(path);
-+  let ctx = context, cookie = null, welcome = null;
-+  if (!redirecting && K.test(k) && !visitorToken(context.request)) {
++  // A redirect keeps k for the page it leads to; only that page claims. A listing's address
++  // may 301 (a bare MLS number, an old slug) or may not (a withheld address has no slug), so
++  // a listing is drawn first and claims only when it is the page itself.
++  const claimable = path.endsWith("/") && K.test(k) && !visitorToken(context.request);
++  const listing = /^\/homes\/[A-Za-z0-9]{3,20}(-[a-z0-9-]{1,120})?\/$/.test(path) && !/^\/homes\/(terms|near|api|map)\/$/i.test(path);
++  let res = claimable && listing ? await route(context, url, path, gate) : null;
++  let cookie = null, welcome = null;
++  if (claimable && !(res && res.status >= 300 && res.status < 400)) {
 +    const r = await postClaim(context, { k, page: path });
 +    if (r.status === 200 && r.json && r.json.ok && typeof r.json.token === "string") {
 +      cookie = setCookie(r.json.token);
 +      const h = new Headers(context.request.headers);
 +      h.set("Cookie", `${h.get("Cookie") ? `${h.get("Cookie")}; ` : ""}${COOKIE_NAME}=${encodeURIComponent(r.json.token)}`);
-+      ctx = { ...context, request: new Request(context.request.url, { method: "GET", headers: h }) };
++      res = await route({ ...context, request: new Request(context.request.url, { method: "GET", headers: h }) }, url, path, gate);
 +    } else if (r.status === 200 && r.json && r.json.ok && r.json.needsTerms) {
 +      welcome = { k, firstName: typeof r.json.firstName === "string" ? r.json.firstName.slice(0, 40) : null };
 +    }
 +  }
-+  const res = await route(ctx, url, path, gate);
++  if (!res) res = await route(context, url, path, gate);
 +  const headers = new Headers(res.headers);
 +  headers.set("cache-control", "private, no-store");
 +  if (cookie) headers.append("set-cookie", cookie);
 +  if (!(headers.get("content-type") || "").includes("text/html")) return new Response(res.body, { status: res.status, headers });
 +  let html = await res.text();
 +  html = html.replace(/<head([^>]*)>/, (m) => `${m}${STRIP_K}`);
-+  if (welcome) html = html.replace("</body>", () => `${welcomeDialog(welcome)}</body>`);
++  // At the top of <body>: the page script runs as soon as it is read and looks for the box then.
++  if (welcome) html = html.replace(/<body([^>]*)>/, (m) => `${m}${welcomeDialog(welcome)}`);
 +  headers.delete("content-length");
 +  return new Response(html, { status: res.status, headers });
 +}
@@ -2241,7 +2246,7 @@ index 3fdc4bda..5bd70b59 100644
 +  const str = (v, n) => (typeof v === "string" ? v.trim().slice(0, n) : "");
 +  const r = await crm(context.env, request, "/api/idx/returning", {
 +    method: "POST", anonymous: true, userAgent: true,
-+    body: { phone: str(b.phone, 40), firstName: str(b.firstName, 80), termsAccepted: b.termsAccepted === true, termsVersion: TERMS_VERSION, termsText: termsText(), turnstileToken: str(b.turnstileToken, 4096), page: str(b.page, 200) || "/homes/" },
++    body: { phone: str(b.phone, 40), firstName: str(b.firstName, 80), termsAccepted: b.termsAccepted === true, termsVersion: TERMS_VERSION, termsText: termsText(), turnstileToken: str(b.turnstileToken, 4096), page: typeof b.page === "string" && b.page.startsWith("/homes") ? b.page.slice(0, 200) : "/homes/" },
 +  });
 +  if (r.status === 200 && r.json && r.json.ok && typeof r.json.token === "string") return json({ ok: true }, 200, { "set-cookie": setCookie(r.json.token) });
 +  if (r.status === 200 && r.json && r.json.error === "not_found") return json({ ok: false, notFound: true });
@@ -2253,7 +2258,7 @@ index 3fdc4bda..5bd70b59 100644
  async function route(context, url, path, gate) {
    // /homes/<MLS#> as the CRM's emails write it: find the listing's own URL.
    // "terms", "near" and "api" are our own pages, never MLS numbers.
-@@ -288,6 +371,7 @@ async function mapSearch(context, q) {
+@@ -288,6 +376,7 @@ async function mapSearch(context, q) {
      const more = await Promise.all([2, 3].filter((pg) => (pg - 1) * 48 < total).map(get));
      for (const m of more) if (m.status === 200 && m.json && m.json.ok && Array.isArray(m.json.listings)) listings = listings.concat(m.json.listings);
    }
@@ -2261,11 +2266,10 @@ index 3fdc4bda..5bd70b59 100644
    return { r: first, p, listings, pins: listings.map(pinOf).filter(Boolean), total };
  }
  
-@@ -304,11 +388,20 @@ async function mapPage(context, url, gate) {
+@@ -303,12 +392,21 @@ async function mapPage(context, url, gate) {
+   const keep = new URLSearchParams(s.p); keep.delete("size");
    const where = s.p.get("city") ? ` in ${s.p.get("city")}` : "";
    const cards = s.listings.slice(0, 48).map((l) => `<div data-mls="${esc(l.mlsNumber)}">${card(l)}</div>`).join("");
-   const pinsJson = JSON.stringify(s.pins).replace(/</g, "\\u003c");
--  const body = `<div data-hx-map data-key="${esc(mapsKey(context.env))}" data-params="${esc(keep.toString())}">
 +  const view = url.searchParams.get("view") === "3d" ? "3d" : "2d";
 +  const focus = /^[A-Za-z0-9]{3,20}$/.test(url.searchParams.get("focus") || "") ? url.searchParams.get("focus") : "";
 +  // The home a listing page sent us here from is always on the map, even if it is not among the newest.
@@ -2274,6 +2278,8 @@ index 3fdc4bda..5bd70b59 100644
 +    const l = one.status === 200 && one.json && one.json.ok ? one.json.listing : null;
 +    if (l && l.address) { if (!l.point) l.point = await geocode(l); const pin = pinOf(l); if (pin) s.pins.unshift(pin); }
 +  }
+   const pinsJson = JSON.stringify(s.pins).replace(/</g, "\\u003c");
+-  const body = `<div data-hx-map data-key="${esc(mapsKey(context.env))}" data-params="${esc(keep.toString())}">
 +  const body = `<div data-hx-map data-key="${esc(mapsKey(context.env))}" data-params="${esc(keep.toString())}" data-view="${view}"${focus ? ` data-focus="${esc(focus)}"` : ""}>
  <div class="hx-map-top">${crumbs([["/", "Home"], ["/homes/", "Homes for sale"], [null, "Map"]])}<h1>${esc(`Map of homes for sale${where}`)}</h1>
  <form class="hx-search" method="get" action="/homes/map/" role="search"><div class="hx-q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input name="q" type="search" enterkeyhint="search" autocomplete="off" maxlength="200" aria-label="Search homes on the map" placeholder="Try &quot;waterfront condo in North Myrtle Beach&quot;"><button type="submit">Search</button></div></form>
@@ -2283,7 +2289,7 @@ index 3fdc4bda..5bd70b59 100644
  <p id="hx-map-note" class="hx-map-note"${s.pins.length ? " hidden" : ""}>${s.pins.length ? "" : "Map pins arrive when the MLS feed adds each home's location. Every home is in the list."}</p></div>
  <aside class="hx-map-list" aria-label="The homes"><p class="hx-map-count" id="hx-map-count"><b>${esc(s.total.toLocaleString("en-US"))}</b> homes${s.total > s.listings.length ? `, the newest ${esc(s.listings.length)} here` : ""}</p><div id="hx-map-cards" class="hx-map-cards">${cards}</div></aside>
  <button type="button" class="hx-map-toggle">List</button></div>
-@@ -350,8 +443,16 @@ async function lookup(context, url) {
+@@ -350,8 +448,16 @@ async function lookup(context, url) {
      if (!key || !n) return json({ ok: true, found: false });
      const r = await crm(context.env, context.request, `/api/idx/listings?near=${encodeURIComponent(n.near)}&miles=0.2&size=48`, { anonymous: true });
      const ls = r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? r.json.listings : [];
@@ -2302,7 +2308,7 @@ index 3fdc4bda..5bd70b59 100644
      mls = hit.mlsNumber;
    }
    const r = await crm(context.env, context.request, `/api/idx/listings/${encodeURIComponent(mls)}?track=0`);
-@@ -371,6 +472,8 @@ async function lookup(context, url) {
+@@ -371,6 +477,8 @@ async function lookup(context, url) {
      hoaMonthly, taxAnnual: n(d.TaxAnnualAmount), floodZone: typeof d.FloodZone === "string" ? d.FloodZone : null,
      stories: n(d.StoriesTotal), newConstruction: d.NewConstructionYN === true,
      remarks: r.json.tier === "registered" && typeof l.remarks === "string" ? l.remarks.slice(0, 900) : null,
@@ -2311,7 +2317,7 @@ index 3fdc4bda..5bd70b59 100644
    };
    return json({ ok: true, found: true, facts, meta: r.json.meta || null }, 200, { "cache-control": "private, no-store" });
  }
-@@ -383,7 +486,8 @@ async function bareListing(context, mls, gate) {
+@@ -383,7 +491,8 @@ async function bareListing(context, mls, gate) {
    if (r.status !== 200 || !r.json || !r.json.ok || !r.json.listing || typeof r.json.listing !== "object") return trouble(context, gate, r, "Home for sale");
    const to = listingPath(r.json.listing);
    if (to === `/homes/${mls}/`) return listingPage(context, mls, null, gate);
@@ -2321,7 +2327,7 @@ index 3fdc4bda..5bd70b59 100644
  }
  
  const row = (label, value) => (value === null || value === undefined || value === "" ? "" : `<tr><th scope="row">${esc(label)}</th><td>${esc(value)}</td></tr>`);
-@@ -408,7 +512,7 @@ async function listingPageWith(context, mls, slugPart, gate, r, hearts) {
+@@ -408,7 +517,7 @@ async function listingPageWith(context, mls, slugPart, gate, r, hearts) {
    if (r.status !== 200 || !r.json || !r.json.ok || !r.json.listing) return trouble(context, gate, r, "Home for sale");
    const l = r.json.listing;
    const own = listingPath(l);
@@ -2330,12 +2336,12 @@ index 3fdc4bda..5bd70b59 100644
    const registered = r.json.tier === "registered";
    const canonical = `${SITE}${own}`;
    const photo = safeUrl(l.photo);
-@@ -466,7 +570,13 @@ ${l.listingAgent ? `<p class="hx-firm-line">Listing agent: ${esc(l.listingAgent)
+@@ -466,7 +575,13 @@ ${l.listingAgent ? `<p class="hx-firm-line">Listing agent: ${esc(l.listingAgent)
    const side = `<aside class="hx-side hx-glass" aria-label="Tour or ask about this home"><p class="hx-l-price">${esc(headlinePrice(l))}</p><p class="hx-small">${esc(addressLine(l))}</p>`
      + `${tourButton(l, "Tour this home", "tour", "hx-primary")}${tourButton(l, "Ask a question", "question")}</aside>`;
  
 -  const nearby = await homesNearby(context, l);
-+  const [nearby, where] = await Promise.all([homesNearby(context, l), l.address ? (l.point && typeof l.point.lat === "number" ? l.point : geocode(l)) : null]);
++  const [nearby, where] = await Promise.all([homesNearby(context, l), l.address ? (pinOf(l) ? { lat: pinOf(l).lat, lng: pinOf(l).lng } : geocode(l)) : null]);
 +  // Where the home is: a map with its pin. A click opens every home for sale in its town on
 +  // the full map, this one lit (owner, 2026-10-25). Never for a withheld address (16.5).
 +  const mapHref = `/homes/map/?${new URLSearchParams({ ...(l.city && CITIES.includes(l.city) ? { city: l.city } : {}), focus: l.mlsNumber }).toString()}`;
@@ -2345,7 +2351,7 @@ index 3fdc4bda..5bd70b59 100644
    const body = `${crumbs([["/", "Home"], ["/homes/", "Homes for sale"], [null, l.city || "Listing"]])}
  ${media}
  <div class="hx-l-grid"><div class="hx-l-info"><div class="hx-l-top">
-@@ -475,7 +585,7 @@ ${media}
+@@ -475,7 +590,7 @@ ${media}
  ${pills}
  <p class="hx-firm-line">Listed by ${esc(l.listingFirm || "the listing brokerage")}</p>
  <p class="hx-small"><a class="hx-maplist" href="/invest/long-term-rental/?mls=${esc(encodeURIComponent(l.mlsNumber))}">Run the rental numbers on this home</a></p>
@@ -2354,7 +2360,7 @@ index 3fdc4bda..5bd70b59 100644
  </div>${side}</div>
  ${nearby}
  ${disclaimer(r.json.meta)}`;
-@@ -557,7 +667,7 @@ function termsPage(context, gate) {
+@@ -557,7 +672,7 @@ function termsPage(context, gate) {
  
  // ── data back to the CRM (contract §7) ──────────────────────────────────────
  
@@ -2378,7 +2384,7 @@ index 16b99dc6..ec556173 100644
  /** Is the search on for this request: live, or the owner's preview cookie? */
  export function idxOn(env, request) {
 diff --git a/idx-lib/edge.js b/idx-lib/edge.js
-index b0e879ff..960730fe 100644
+index b0e879ff..4a65dbde 100644
 --- a/idx-lib/edge.js
 +++ b/idx-lib/edge.js
 @@ -15,6 +15,7 @@
@@ -2389,7 +2395,7 @@ index b0e879ff..960730fe 100644
  import { STYLE, STRIP_STYLE, SCRIPT, disclaimer, esc, safeUrl, signupDialog, stripCard, tourDialog } from "./render.js";
  
  const SLOT = /<div class="hx-strip" data-place="([a-z0-9-]+)" data-name="([^"<>]*)"><\/div>/g;
-@@ -75,8 +76,68 @@ function strip(slug, name, listings, total, noHoa) {
+@@ -75,8 +76,74 @@ function strip(slug, name, listings, total, noHoa) {
      + `<a class="hx-s-all" href="${all}" draggable="false">See all ${esc(String(n))} homes in ${name}</a></div>`;
  }
  
@@ -2437,7 +2443,13 @@ index b0e879ff..960730fe 100644
 +  const main = html.slice(a, z);
 +  const secs = [...main.matchAll(/<section\b/g)].map((m) => m.index);
 +  let at = secs.length >= 3 ? secs[2] : -1;
-+  if (at < 0) { const h2 = [...main.matchAll(/<h2\b/g)].map((m) => m.index); at = h2.length >= 2 ? h2[1] : main.length; }
++  if (at < 0) {
++    const h2 = [...main.matchAll(/<h2\b/g)].map((m) => m.index);
++    at = h2.length >= 2 ? h2[1] : main.length;
++    // An h2 inside a section that is still open: go before that section, never inside it.
++    const open = main.lastIndexOf("<section", at);
++    if (open >= 0 && main.indexOf("</section>", open) > at) at = open;
++  }
 +  return html.slice(0, a + at) + block + html.slice(a + at);
 +}
 +
@@ -2458,7 +2470,7 @@ index b0e879ff..960730fe 100644
  /** The response with the listing search's additions, or untouched. Never throws. */
  export async function withIdx(context, response) {
    let text = null;
-@@ -95,6 +156,16 @@ export async function withIdx(context, response) {
+@@ -95,6 +162,19 @@ export async function withIdx(context, response) {
      headers.delete("etag");
      headers.delete("last-modified");
      const slots = url.pathname.startsWith("/homes") ? [] : [...html.matchAll(SLOT)];
@@ -2467,7 +2479,10 @@ index b0e879ff..960730fe 100644
 +      // Too few homes for the topic: the fallback, or the Grand Strand's newest, under its own title.
 +      let used = feed;
 +      let got = await runFeed(env, request, used);
-+      if (got && got !== "stale" && got[0].length < STRIP_MIN) { used = feed.fallback || FEEDS["/buyers/"]; got = await runFeed(env, request, used); }
++      if (got && got !== "stale" && got[0].length < STRIP_MIN) {
++        const wider = feed.fallback || FEEDS["/buyers/"];
++        if (wider !== used) { used = wider; got = await runFeed(env, request, used); }
++      }
 +      if (!got || got === "stale" || got[0].length < STRIP_MIN) return new Response(html, { status: 200, headers });
 +      html = placeFeed(html, feedSection(used, got[0], got[1]));
 +      return finish(env, request, gate, html, got[2], headers);
@@ -2475,7 +2490,7 @@ index b0e879ff..960730fe 100644
      if (!slots.length) return new Response(html, { status: 200, headers });
  
      const slugs = [...new Set(slots.map((m) => m[1]))].filter((s) => PLACES[s]);
-@@ -125,14 +196,7 @@ export async function withIdx(context, response) {
+@@ -125,14 +205,7 @@ export async function withIdx(context, response) {
        const f = filled.get(slug);
        return f ? `<div class="hx-strip" data-place="${slug}" data-name="${name}">${strip(slug, name, f[0], f[1], PLACES[slug].q.hoa !== undefined)}</div>` : whole;
      });
@@ -2493,10 +2508,10 @@ index b0e879ff..960730fe 100644
    }
 diff --git a/idx-lib/feeds.js b/idx-lib/feeds.js
 new file mode 100644
-index 00000000..b4f36e57
+index 00000000..9a8b0af9
 --- /dev/null
 +++ b/idx-lib/feeds.js
-@@ -0,0 +1,159 @@
+@@ -0,0 +1,160 @@
 +/**
 + * A homes feed on every article (owner, 2026-10-25: "every blog needs an IDX feed on it
 + * that is pre filtered to what that blog is about"). One entry per page: the title over
@@ -2512,7 +2527,6 @@ index 00000000..b4f36e57
 + * Pages that already carry homes strips (batch 2026-10-b) are left out: edge.js fills
 + * their own slots. A page not listed here gets no feed.
 + */
-+const Y = new Date().getUTCFullYear();
 +
 +const ANY = { head: "Homes for sale on the Grand Strand now", q: [{}], link: "" };
 +const HOUSES = { head: "Houses for sale on the Grand Strand now", q: [{ type: "house" }], link: "type=house" };
@@ -2522,7 +2536,7 @@ index 00000000..b4f36e57
 +const RENTAL_HOUSES = { head: "Houses for sale under $350,000", q: [{ type: "house", max: "350000" }], link: "type=house&max=350000" };
 +const STR_CONDOS = { head: "Condos for sale in Myrtle Beach and North Myrtle Beach", q: [{ type: "condo", city: "Myrtle Beach" }, { type: "condo", city: "North Myrtle Beach" }], link: "type=condo" };
 +const MULTI = { head: "2 to 4 unit properties for sale", q: [{ type: "multi" }], link: "type=multi" };
-+const NEWER = { head: "Homes built in the last two years", q: [{ type: "house" }], post: { yearMin: Y - 1 }, link: "type=house" };
++const NEWER = { head: "Homes built in the last two years", q: [{ type: "house" }], post: { builtWithin: 2 }, link: "type=house" };
 +const OLDER = { head: "Older houses under $300,000", q: [{ type: "house", max: "300000" }], post: { yearMax: 1995 }, link: "type=house&max=300000" };
 +const FIFTY_FIVE = { head: "Homes for sale in 55+ communities", q: [{ subdivision: "Del Webb" }, { subdivision: "Myrtle Trace" }, { subdivision: "Seasons at Prince Creek" }], link: "subdivision=Del%20Webb" };
 +const GOLF = { head: "Homes for sale in golf communities", q: [{ subdivision: "Barefoot" }, { subdivision: "Grande Dunes" }, { subdivision: "Prestwick" }, { subdivision: "Tidewater" }], link: "" };
@@ -2653,7 +2667,9 @@ index 00000000..b4f36e57
 +/** The answer narrowed by `post`. */
 +export function postFilter(listings, post) {
 +  if (!post) return listings;
-+  return listings.filter((l) => (post.yearMin === undefined || (typeof l.yearBuilt === "number" && l.yearBuilt >= post.yearMin))
++  // The year is read here, per request: at module scope a Worker's clock reads 1970.
++  const yearMin = post.builtWithin ? new Date().getUTCFullYear() - post.builtWithin + 1 : post.yearMin;
++  return listings.filter((l) => (yearMin === undefined || (typeof l.yearBuilt === "number" && l.yearBuilt >= yearMin))
 +    && (post.yearMax === undefined || (typeof l.yearBuilt === "number" && l.yearBuilt <= post.yearMax)));
 +}
 diff --git a/idx-lib/map.js b/idx-lib/map.js
@@ -2870,10 +2886,20 @@ index 3110e7b9..e1bc17bb 100644
  </div>
  <div>
 diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
-index 46f59d04..49f71f85 100644
+index 46f59d04..3ec1de9b 100644
 --- a/tools/idx-test.mjs
 +++ b/tools/idx-test.mjs
-@@ -22,6 +22,7 @@ const mk = (i, extra = {}) => ({ mlsNumber: String(2600000 + i), status: "Active
+@@ -7,7 +7,8 @@ import path from "node:path";
+ import { onRequest as homes } from "../functions/homes/[[path]].js";
+ import { onRequest as mw } from "../functions/_middleware.js";
+ import { onRequest as sitemap } from "../functions/sitemap-homes.xml.js";
+-import { placeParams } from "../idx-lib/edge.js";
++import { placeFeed, placeParams } from "../idx-lib/edge.js";
++import { postFilter } from "../idx-lib/feeds.js";
+ import { SCRIPT } from "../idx-lib/render.js";
+ import { MAP_SCRIPT } from "../idx-lib/map.js";
+ 
+@@ -22,6 +23,7 @@ const mk = (i, extra = {}) => ({ mlsNumber: String(2600000 + i), status: "Active
  const DEV_TOKEN = "eyJ2aXNpdG9ySWQiOiJ2MSIsInRlcm1zVmVyc2lvbiI6InYxLWRyYWZ0LTEiLCJleHBpcmVzQXQiOjk5OTk5OTk5OTl9.c2ln";
  const calls = [];
  let STALE = false;
@@ -2881,7 +2907,7 @@ index 46f59d04..49f71f85 100644
  let MAPPOINTS = false;
  let sent2 = "";
  let HANG = false;
-@@ -32,7 +33,21 @@ globalThis.fetch = async (input, init = {}) => {
+@@ -32,7 +34,21 @@ globalThis.fetch = async (input, init = {}) => {
    const auth = (init.headers || {}).authorization;
    const tier = auth ? "registered" : "public";
    const J = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { "content-type": "application/json" } });
@@ -2903,7 +2929,7 @@ index 46f59d04..49f71f85 100644
    if (STALE) return J({ ok: false, error: "stale" }, 503);
    if (HANG) return new Promise((_, no) => init.signal && init.signal.addEventListener("abort", () => no(new Error("aborted"))));
    if (INVALID && auth) return J({ ok: false, error: "unauthorized", visitor: "invalid" }, 401);
-@@ -277,6 +292,65 @@ check("lookup: a point off the coast is refused", JSON.parse(await (await run(ho
+@@ -277,6 +293,75 @@ check("lookup: a point off the coast is refused", JSON.parse(await (await run(ho
  t = await (await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/"))).text();
  check("listing page: a link to run the rental numbers on this home", t.includes('href="/invest/long-term-rental/?mls=2600005"'));
  
@@ -2921,6 +2947,8 @@ index 46f59d04..49f71f85 100644
 +check("feed: pages with their own strips get no second feed", !t.includes('class="hx-feed"'));
 +t = await (await run(mw, req("/about/"))).text();
 +check("feed: pages not on the list get none", !t.includes('class="hx-feed"'));
++check("feed: never placed inside a section that is still open", placeFeed('<main><section class="x"><div class="wrap"><p>E</p><h2>A</h2><p>t</p><h2>B</h2></div></section></main>', "[F]") === '<main>[F]<section class="x"><div class="wrap"><p>E</p><h2>A</h2><p>t</p><h2>B</h2></div></section></main>');
++check("feed: built in the last two years is this year's two years, read per request", (() => { const y = new Date().getUTCFullYear(); const out = postFilter([{ yearBuilt: y }, { yearBuilt: y - 1 }, { yearBuilt: y - 2 }, { yearBuilt: 1970 }], { builtWithin: 2 }); return out.length === 2 && out[1].yearBuilt === y - 1; })());
 +
 +// Returning clients (contract §7g).
 +r = await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/?k=Good12345678"));
@@ -2930,6 +2958,12 @@ index 46f59d04..49f71f85 100644
 +r = await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/?k=Terms1234567"));
 +t = await r.text();
 +check("k: when the terms come first, the Welcome back box", t.includes('id="hx-welcome"') && t.includes("Welcome back, Sam") && !(r.headers.get("set-cookie") || "").includes("Max-Age=31536000"));
++check("k: the Welcome back box comes before the page script that opens it", t.indexOf('id="hx-welcome"') > 0 && t.indexOf('id="hx-welcome"') < t.indexOf(SCRIPT.slice(0, 60)));
++r = await run(homes, req("/homes/2611111/?k=Good12345678"));
++check("k: a home with a withheld address (no slug, no 301) still signs the visitor in", r.status === 200 && /Max-Age=31536000/.test(r.headers.get("set-cookie") || ""));
++const beforeSlug = calls.length;
++r = await run(homes, req("/homes/2600005-old-slug/?k=Terms1234567"));
++check("k: a listing's old slug 301s with k and does not claim", r.status === 301 && r.headers.get("location").endsWith("?k=Terms1234567") && !calls.slice(beforeSlug).some((c) => c.url.endsWith("/api/idx/claim")));
 +r = await run(homes, post("/homes/api/claim", { k: "Terms1234567", termsAccepted: true, page: "/homes/" }));
 +check("k: the box's button signs in with the terms", r.status === 200 && /Max-Age=31536000/.test(r.headers.get("set-cookie") || ""));
 +r = await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/?k=Old123456789"));
@@ -2956,6 +2990,8 @@ index 46f59d04..49f71f85 100644
 +check("listing: a map of where the home is, opening its town on the full map with it lit", t.includes('class="hx-loc-map"') && t.includes("staticmap?center=33.71,-78.9") && t.includes('href="/homes/map/?city=Myrtle+Beach&amp;focus=2600005"'));
 +t = await (await run(homes, req("/homes/2611111/"))).text();
 +check("listing: a withheld address gets no map", !t.includes('class="hx-loc-map"'));
++t = await (await run(homes, req("/homes/map/?city=Conway&focus=2699999"))).text();
++check("map page: the home a listing page sent us from is among the pins sent to the browser", t.includes('"mls":"2699999"'));
 +CENSUS = false;
 +t = await (await run(homes, req("/homes/map/?city=Conway&view=3d&focus=2600005"))).text();
 +check("map page: one page, a 2D and 3D switch, opened in 3D, the home lit", t.includes('data-mode="3d" aria-pressed="true"') && t.includes('data-view="3d"') && t.includes('data-focus="2600005"'));
