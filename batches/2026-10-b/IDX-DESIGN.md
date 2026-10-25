@@ -103,3 +103,18 @@ What a visitor who is not signed up sees is only the public card the CRM sends: 
 - Both read `/homes/api/map`: one validated search, up to 144 homes, cached 5 minutes. It returns only what a pin needs, and every word goes into the page with textContent.
 - **The pins need one thing from the CRM: a map point on the public card** (IDX-STUDY.md, request 2). The CRM already has the points (its `near` search uses them), but sends them only on the signed-up full listing. Until then, both maps show the homes in their lists and say "Map pins arrive when the MLS feed adds each home's location."
 - Not checked here: the real Google map. This environment's proxy blocks Google's map tiles, so the page was tested with a stand-in map (dots, list, highlight, phone pop-up, no script errors). After the deploy, check the map on the site, and check that both browser keys allow `chapter3realty.com/*` in Google Cloud.
+
+## Round 19 (2026-10-25): fixes, and the analyzer on the MLS
+
+`website-patches/v1.4-maps-menu-analyzer.patch` (on the live commit cf061c38), and `website-patches/api-proxy-worker.js` for the separate `api-proxy` worker.
+
+- **The 3D map's "Oops":** its Google key (`AIzaSyCt5…`) belongs to a Cloud project with billing disabled (Google's own answer: "You must enable Billing"). The site's other key (`AIzaSyAFT…`, the one in `partials/maps-loader.html`) answers for the static map and the 3D tiles, so both maps now use it. The 3D map moves from the `alpha` channel to `beta`, which removes the "development purposes only" banner.
+- **The book pop-up:** it no longer opens on `/homes/*`, `/map/`, or any page with homes strips. Where WebGL is missing it no longer shows the raw green screen.
+- **Menu:** the Guides menu opens on a click, not on hover; a second click goes to `/guides/`, and Escape or a click outside closes it. "All neighborhoods" is now "Search homes" (`/homes/`). The deploy gate's link check now knows that `/homes/` is served by the listing-search function.
+- **The rental analyzer (`/invest/long-term-rental/`):**
+  - It looks the home up on the MLS (`/homes/api/lookup`, by MLS number or by address near the point the address search returns) and fills in the beds, baths and size, with a note naming the MLS number, the listing firm and the source.
+  - The AI is given the listing's facts as authoritative. For a signed-up visitor these include the HOA fee, the taxes, the flood zone, the stories and the description, which follows the listing-page rule. The old first AI call, which asked the model to "use actual listing records" it could not see, is gone.
+  - Listing pages link to it with `?mls=`.
+- **The worker:** runs on Claude Haiku 5.5 at effort medium, with room for its thinking (the browser's 1200 tokens becomes 3600, capped at 8000). It returns only text blocks, and a new cache version so every stored answer is fresh. A stand-in API test passes 7 of 7.
+- **Homepage:** a "New" banner under the hero points to the analyzer, and the analyzer's eyebrow now reads "Now with live MLS data".
+- Not checked: a real Haiku 5.5 call (no API key here, and a call costs money), and the real Google maps (blocked by this environment's proxy).
