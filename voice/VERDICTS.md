@@ -60,3 +60,10 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 
 - Strip cards: "you do not need the listing company displayed there i know it for a fact so just have the price and that's it." Done on the guide-page strips. The firm stays on the result cards and the listing page, which the MLS rules require.
 - Listing page: "have the basic information available after 5 seconds have a subtle CTA pop up on the bottom right asking if they want more information or to tour the home ... as engaging and beautiful of a UI as we can make it." Done in idx-v1.1.
+
+## 2026-10-25: cards, forms, search
+
+- "on any of the idx pages i don't want the book popup": the 5-second card is removed everywhere.
+- "the capture when someone presses one of the cta's needs to look alot neater and prettier and be centered and modern looking": both forms are redrawn and centered (they sat at the top left before, because the site's reset cleared the dialog's margins).
+- "make the horizontal scrolls look like this as a template ... anytime you just have a few houses from the mls previewing": one card everywhere, from the owner's screenshot. It includes the small MLS line, and with it the listing firm again.
+- He asked Claude to judge how much to give away and the number of calls to action. See batches/2026-10-b/IDX-STUDY.md.
