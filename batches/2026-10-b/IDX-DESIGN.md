@@ -118,3 +118,17 @@ What a visitor who is not signed up sees is only the public card the CRM sends: 
 - **The worker:** runs on Claude Haiku 5.5 at effort medium, with room for its thinking (the browser's 1200 tokens becomes 3600, capped at 8000). It returns only text blocks, and a new cache version so every stored answer is fresh. A stand-in API test passes 7 of 7.
 - **Homepage:** a "New" banner under the hero points to the analyzer, and the analyzer's eyebrow now reads "Now with live MLS data".
 - Not checked: a real Haiku 5.5 call (no API key here, and a call costs money), and the real Google maps (blocked by this environment's proxy).
+
+## Round 20 (2026-10-25): feeds on every article, sold homes, one map, returning clients
+
+`website-patches/v1.5-feeds-maps-returning.patch`, on top of v1.4. Apply v1.4 first.
+
+- **A homes feed on every article.** `idx-lib/feeds.js` gives each article under `/buyers/`, `/submarkets/`, `/invest/`, `/hoa/`, `/sell/` and `/market-reports/` its own search: a town's guide shows that town; the condo pages show condos; the 55+ pages show Del Webb, Myrtle Trace and Seasons at Prince Creek; the rental pages show houses or condos by the kind of rental; the newer-home and older-home pages filter by year built. The feed sits before the third section of the article, under "Live from the MLS", in the same card as the strips, with a "See all" link to the full search. When a search finds fewer than 3 homes, it falls back to a wider one; when that fails too, the article shows no feed. Pages that already have a strip get no second one.
+- **Sold homes in the rental analyzer.** For a signed-up visitor, an address that is not for sale is looked up among sold homes (`sold=1`, contract §5). The AI is given the sold price, the date, the first list price and the days on market, and is told a recorded sale is the strongest value signal. A visitor who is not signed up is told sold data needs the free sign-up. The MLS rule allows sold data only to registered visitors.
+- **One map page, 2D and 3D.** `/homes/map/` has a 2D/3D switch. `/map/` now opens it in 3D (a 301). The 3D view shows a blue pin for each home; a click opens its card. The footer link reads "Map of homes for sale".
+- **Dots now, before the CRM sends points.** The site places each home with the US Census address finder (free, no key), cached 30 days. A home with a withheld address is never placed. When the CRM merges `website/public-map-points`, its points are used first.
+- **A map on every listing page.** "Where it is" shows a map of the home. A click opens the map page centered on that home, with every home for sale in the city around it.
+- **Returning clients (contract §7g).** A link from our emails carries a 12-letter code (`?k=`). The site trades it once for the visitor's token, sets the cookie for a year, and removes the code from the address bar before analytics reads it. A page with a code is never cached. A visitor whose terms are missing sees one box to accept them. The sign-up box has "Already working with us?": phone and first name sign a client in.
+- **Homepage:** a "Search listings" box is the hero's main call to action. The "I am" paths sit under it.
+- Why the dots were missing on the live 3D map: v1.4 is not deployed yet, and the CRM has not merged the map points. The "alpha channel" banner also goes away with the v1.4 deploy.
+- Not checked here: the real Google maps and 3D pins (this environment's proxy blocks Google), and a real Census call from Cloudflare. The tests use a stand-in Census service.

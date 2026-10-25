@@ -67,3 +67,11 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 - "the capture when someone presses one of the cta's needs to look alot neater and prettier and be centered and modern looking": both forms are redrawn and centered (they sat at the top left before, because the site's reset cleared the dialog's margins).
 - "make the horizontal scrolls look like this as a template ... anytime you just have a few houses from the mls previewing": one card everywhere, from the owner's screenshot. It includes the small MLS line, and with it the listing firm again.
 - He asked Claude to judge how much to give away and the number of calls to action. See batches/2026-10-b/IDX-STUDY.md.
+
+## 2026-10-25: feeds, sold homes, one map
+
+- "Can the tool also be hooked into the MLS for properties that have been sold": done for signed-up visitors only, which the MLS rules require.
+- "the dots do not appear on the 3d view ... get this to go away Using the alpha channel": both come from v1.4 not being deployed. v1.5 also places dots from the address until the CRM sends points.
+- "each IDX listing should show on a map ... make the map page both 2d and 3d ... include a toggle": done. `/map/` now opens the one map page in 3D.
+- "search listings could be the main CTA and then under that the I am pages": done on the homepage hero.
+- "every blog needs an IDX feed on it that is pre filtered to what that blog is about ... as native and sleek as possible": done on every article, with a fallback and no feed when nothing fits.

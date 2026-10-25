@@ -1,0 +1,2974 @@
+From 30e448b20279d3fb31b1a557592655ca9d92ff4f Mon Sep 17 00:00:00 2001
+From: Chapter3 Realty <chapter3realty@gmail.com>
+Date: Sun, 25 Oct 2026 23:22:17 +0000
+Subject: [PATCH] Homes feed on every article, filtered to its topic; returning
+ clients sign in from our emails' links and by phone and first name (contract
+ 7g), cookie a year; one map page with a 2D and 3D switch, dots placed from
+ the address until the CRM sends points, a map on every listing page; sold
+ homes in the rental analyzer for signed-up visitors; Search listings first in
+ the homepage hero
+
+---
+ chapter3realty/_redirects                     |   2 +
+ chapter3realty/about/index.html               |   2 +-
+ chapter3realty/accessibility/index.html       |   2 +-
+ .../{s.bddc8fa442.js => s.c776518df3.js}      |  24 ++-
+ .../del-webb-grande-dunes/index.html          |   2 +-
+ .../del-webb-north-myrtle-beach/index.html    |   2 +-
+ .../buyers/55-plus-communities/index.html     |   2 +-
+ .../myrtle-trace/index.html                   |   2 +-
+ .../seasons-at-prince-creek-west/index.html   |   2 +-
+ .../affordable-places-to-live/index.html      |   2 +-
+ .../buyers/best-neighborhoods/index.html      |   2 +-
+ .../buyers/buying-in-myrtle-beach/index.html  |   2 +-
+ .../buyers/closing-costs/index.html           |   2 +-
+ .../buyers/coastal-insurance/index.html       |   2 +-
+ .../buyers/common-mistakes/index.html         |   2 +-
+ .../buyers/condo-in-litigation/index.html     |   2 +-
+ chapter3realty/buyers/cost-to-own/index.html  |   2 +-
+ .../index.html                                |   2 +-
+ .../buyers/gated-communities/index.html       |   2 +-
+ .../buyers/golf-communities/index.html        |   2 +-
+ chapter3realty/buyers/index.html              |   2 +-
+ .../buyers/new-construction/index.html        |   2 +-
+ chapter3realty/buyers/no-hoa-homes/index.html |   2 +-
+ chapter3realty/buyers/programs/index.html     |   2 +-
+ .../buyers/property-taxes/index.html          |   2 +-
+ .../buyers/relocating/beaches/index.html      |   2 +-
+ .../relocating/cost-of-living/index.html      |   2 +-
+ .../relocating/from-connecticut/index.html    |   2 +-
+ .../buyers/relocating/from-florida/index.html |   2 +-
+ .../relocating/from-maryland/index.html       |   2 +-
+ .../relocating/from-massachusetts/index.html  |   2 +-
+ .../relocating/from-new-jersey/index.html     |   2 +-
+ .../relocating/from-new-york/index.html       |   2 +-
+ .../relocating/from-north-carolina/index.html |   2 +-
+ .../buyers/relocating/from-ohio/index.html    |   2 +-
+ .../relocating/from-pennsylvania/index.html   |   2 +-
+ .../relocating/from-virginia/index.html       |   2 +-
+ .../relocating/getting-around/index.html      |   2 +-
+ .../buyers/relocating/healthcare/index.html   |   2 +-
+ .../buyers/relocating/hurricanes/index.html   |   2 +-
+ chapter3realty/buyers/relocating/index.html   |   2 +-
+ .../buyers/relocating/jobs/index.html         |   2 +-
+ .../relocating/moving-checklist/index.html    |   2 +-
+ .../relocating/pros-and-cons/index.html       |   2 +-
+ .../buyers/relocating/schools/index.html      |   2 +-
+ .../buyers/relocating/weather/index.html      |   2 +-
+ .../buyers/relocating/which-town/index.html   |   2 +-
+ .../relocating/why-myrtle-beach/index.html    |   2 +-
+ chapter3realty/buyers/retirees/index.html     |   2 +-
+ chapter3realty/buyers/second-home/index.html  |   2 +-
+ .../buyers/undisclosed-flooding/index.html    |   2 +-
+ chapter3realty/buyers/va-loans/index.html     |   2 +-
+ .../buyers/waterfront-homes/index.html        |   2 +-
+ chapter3realty/contact/index.html             |   2 +-
+ chapter3realty/fair-housing/index.html        |   2 +-
+ chapter3realty/guides/index.html              |   2 +-
+ chapter3realty/hoa/benefits/index.html        |   2 +-
+ .../hoa/developer-control-turnover/index.html |   2 +-
+ chapter3realty/hoa/documents/index.html       |   2 +-
+ chapter3realty/hoa/dues-increases/index.html  |   2 +-
+ .../hoa/estoppel-and-transfer-fees/index.html |   2 +-
+ chapter3realty/hoa/hoa-vs-poa/index.html      |   2 +-
+ chapter3realty/hoa/index.html                 |   2 +-
+ .../hoa/liens-and-foreclosure/index.html      |   2 +-
+ .../hoa/master-insurance-ho6/index.html       |   2 +-
+ .../hoa/rental-restrictions/index.html        |   2 +-
+ chapter3realty/hoa/reserves/index.html        |   2 +-
+ .../hoa/south-carolina-hoa-laws/index.html    |   2 +-
+ .../hoa/special-assessments/index.html        |   2 +-
+ chapter3realty/hoa/tax-deductible/index.html  |   2 +-
+ .../hoa/violations-and-fines/index.html       |   2 +-
+ .../hoa/who-pays-for-damage/index.html        |   2 +-
+ chapter3realty/homes-shell/index.html         |   2 +-
+ chapter3realty/index.html                     |  20 ++-
+ chapter3realty/invest/14-day-rule/index.html  |   2 +-
+ .../invest/accommodations-tax/index.html      |   2 +-
+ .../invest/airbnb-income/index.html           |   2 +-
+ .../invest/canadian-buyers/index.html         |   2 +-
+ .../invest/cash-to-close/index.html           |   2 +-
+ .../invest/condo-buildings/index.html         |   2 +-
+ chapter3realty/invest/condos/index.html       |   2 +-
+ .../invest/condotel-financing/index.html      |   2 +-
+ .../invest/cost-segregation/index.html        |   2 +-
+ .../financing-multiple-rentals/index.html     |   2 +-
+ chapter3realty/invest/foreclosures/index.html |   2 +-
+ .../invest/how-long-to-hold/index.html        |   2 +-
+ chapter3realty/invest/index.html              |   2 +-
+ chapter3realty/invest/j1-rentals/index.html   |   2 +-
+ .../invest/landlord-insurance/index.html      |   2 +-
+ .../invest/landlord-rules/index.html          |   2 +-
+ chapter3realty/invest/llc/index.html          |   2 +-
+ .../invest/long-term-rental/index.html        |   4 +-
+ .../invest/mid-term-rentals/index.html        |   2 +-
+ .../new-construction-rentals/index.html       |   2 +-
+ .../invest/non-warrantable-condos/index.html  |   2 +-
+ chapter3realty/invest/out-of-state/index.html |   2 +-
+ .../invest/property-management/index.html     |   2 +-
+ chapter3realty/invest/rent-prices/index.html  |   2 +-
+ .../invest/rental-depreciation/index.html     |   2 +-
+ .../rental-program-vs-airbnb/index.html       |   2 +-
+ .../invest/rental-returns/index.html          |   2 +-
+ .../invest/run-the-numbers/index.html         |   2 +-
+ .../invest/section-8-rentals/index.html       |   2 +-
+ chapter3realty/invest/str-rules/index.html    |   2 +-
+ chapter3realty/invest/str-setup/index.html    |   2 +-
+ .../invest/str-tax-treatment/index.html       |   2 +-
+ chapter3realty/invest/str-tools/index.html    |   2 +-
+ chapter3realty/invest/str-vs-ltr/index.html   |   2 +-
+ .../strategies/1031-exchange/index.html       |   2 +-
+ .../invest/strategies/brrrr/index.html        |   2 +-
+ .../invest/strategies/dscr-loans/index.html   |   2 +-
+ .../invest/strategies/dst/index.html          |   2 +-
+ .../invest/strategies/fix-and-flip/index.html |   2 +-
+ chapter3realty/invest/strategies/index.html   |   2 +-
+ .../strategies/small-multifamily/index.html   |   2 +-
+ .../invest/student-rentals/index.html         |   2 +-
+ .../invest/what-is-being-built/index.html     |   2 +-
+ chapter3realty/invest/where-to-buy/index.html |   2 +-
+ chapter3realty/llms-full.txt                  |   4 +-
+ chapter3realty/market-reports/index.html      |   2 +-
+ .../market-reports/july-2026/index.html       |   2 +-
+ chapter3realty/privacy/index.html             |   2 +-
+ chapter3realty/sell/capital-gains/index.html  |   2 +-
+ chapter3realty/sell/fsbo/index.html           |   2 +-
+ chapter3realty/sell/home-value/index.html     |   2 +-
+ chapter3realty/sell/index.html                |   2 +-
+ .../sell/inherited-house/index.html           |   2 +-
+ chapter3realty/sell/net-proceeds/index.html   |   2 +-
+ .../sell/out-of-state-buyers/index.html       |   2 +-
+ .../sell/rental-property/index.html           |   2 +-
+ chapter3realty/sell/sell-my-condo/index.html  |   2 +-
+ .../submarkets/carolina-forest/index.html     |   2 +-
+ .../carolina-forest/the-farm/index.html       |   2 +-
+ chapter3realty/submarkets/conway/index.html   |   2 +-
+ .../submarkets/garden-city/index.html         |   2 +-
+ chapter3realty/submarkets/index.html          |   2 +-
+ .../submarkets/little-river/index.html        |   2 +-
+ .../submarkets/murrells-inlet/index.html      |   2 +-
+ .../submarkets/myrtle-beach/index.html        |   2 +-
+ .../submarkets/north-myrtle-beach/index.html  |   2 +-
+ .../submarkets/pawleys-island/index.html      |   2 +-
+ .../submarkets/surfside-beach/index.html      |   2 +-
+ chapter3realty/terms/index.html               |   2 +-
+ chapter3realty/why-chapter-3/index.html       |   2 +-
+ functions/homes/[[path]].js                   | 132 +++++++++++++--
+ idx-lib/crm.js                                |   3 +-
+ idx-lib/edge.js                               |  80 ++++++++-
+ idx-lib/feeds.js                              | 159 ++++++++++++++++++
+ idx-lib/map.js                                |  66 +++++++-
+ idx-lib/render.js                             |  55 +++++-
+ partials/footer.html                          |   2 +-
+ tools/idx-test.mjs                            |  74 ++++++++
+ 152 files changed, 732 insertions(+), 171 deletions(-)
+ rename chapter3realty/assets/{s.bddc8fa442.js => s.c776518df3.js} (97%)
+ create mode 100644 idx-lib/feeds.js
+
+diff --git a/chapter3realty/_redirects b/chapter3realty/_redirects
+index b413a079..36137895 100644
+--- a/chapter3realty/_redirects
++++ b/chapter3realty/_redirects
+@@ -3,3 +3,5 @@
+ /invest/strategy/  /invest/str-vs-ltr/  301
+ /invest/str-map/  /invest/str-tools/  301
+ /buyers/lender-dpa/  /buyers/programs/  301
++/map/  /homes/map/?view=3d  301
++/map  /homes/map/?view=3d  301
+diff --git a/chapter3realty/about/index.html b/chapter3realty/about/index.html
+index e2855d53..0ee1fed4 100644
+--- a/chapter3realty/about/index.html
++++ b/chapter3realty/about/index.html
+@@ -229,7 +229,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/accessibility/index.html b/chapter3realty/accessibility/index.html
+index c4a8ff3f..8e407292 100644
+--- a/chapter3realty/accessibility/index.html
++++ b/chapter3realty/accessibility/index.html
+@@ -172,7 +172,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/assets/s.bddc8fa442.js b/chapter3realty/assets/s.c776518df3.js
+similarity index 97%
+rename from chapter3realty/assets/s.bddc8fa442.js
+rename to chapter3realty/assets/s.c776518df3.js
+index 2363b2de..ce457261 100644
+--- a/chapter3realty/assets/s.bddc8fa442.js
++++ b/chapter3realty/assets/s.c776518df3.js
+@@ -18,6 +18,7 @@ async function ltrMlsLookup(qs) {
+     const res = await fetch('/homes/api/lookup?' + qs, { credentials: 'same-origin' });
+     if (!res.ok) return null;
+     const j = await res.json();
++    if (j && !j.found && j.soldNeedsSignup) ltrSoldHint();
+     return j && j.found && j.facts ? j.facts : null;
+   } catch (e) { return null; }
+ }
+@@ -40,7 +41,23 @@ function ltrShowMls(f) {
+     if (btn && btn.parentNode) btn.parentNode.insertBefore(note, btn);
+   }
+   const bits = [f.beds != null ? f.beds + ' beds' : '', f.baths != null ? f.baths + ' baths' : '', f.sqft != null ? f.sqft.toLocaleString('en-US') + ' sq ft' : '', f.yearBuilt ? 'built ' + f.yearBuilt : ''].filter(Boolean).join(', ');
+-  note.textContent = 'Found on the MLS: ' + (bits || 'listing ' + f.mlsNumber) + '. We filled these in for you. MLS #' + f.mlsNumber + ', listed by ' + (f.listingFirm || 'the listing brokerage') + '. Listing provided by CCMLS.';
++  const sold = f.soldPrice ? ' Sold for $' + f.soldPrice.toLocaleString('en-US') + (f.soldOn ? ' on ' + f.soldOn : '') + '.' : '';
++  note.textContent = (f.soldPrice ? 'Found its sale on the MLS: ' : 'Found on the MLS: ') + (bits || 'listing ' + f.mlsNumber) + '.' + sold + ' We filled these in for you. MLS #' + f.mlsNumber + ', listed by ' + (f.listingFirm || 'the listing brokerage') + '. Listing provided by CCMLS.';
++}
++
++// Not for sale and not signed up: a sold home's MLS record needs the free sign-up.
++function ltrSoldHint() {
++  if (document.getElementById('ltr-mls-note')) return;
++  const note = document.createElement('p');
++  note.id = 'ltr-mls-note';
++  note.style.cssText = 'margin:.6rem 0;padding:.65rem .85rem;border-radius:12px;background:#f4efe8;color:#1c2028;font-size:.88rem;line-height:1.45';
++  note.appendChild(document.createTextNode('Not for sale right now. If it sold in the last two years, '));
++  const a = document.createElement('a');
++  a.href = '/homes/?signup=1'; a.textContent = 'sign up free on our home search'; a.style.fontWeight = '700';
++  note.appendChild(a);
++  note.appendChild(document.createTextNode(', then come back: we pull its sale from the MLS.'));
++  const btn = document.getElementById('ltr-analyze-btn');
++  if (btn && btn.parentNode) btn.parentNode.insertBefore(note, btn);
+ }
+ 
+ // A listing page links here with ?mls=: start from that home.
+@@ -431,7 +448,10 @@ async function runLtrAnalysis() {
+     const mlsFacts = mls ? (
+       'MLS LISTING (authoritative, use exactly, do not re-estimate): ' + [
+         mls.status ? mls.status : '',
+-        mls.listPrice ? 'asking price $' + mls.listPrice.toLocaleString() : '',
++        mls.soldPrice ? 'SOLD for $' + mls.soldPrice.toLocaleString() + (mls.soldOn ? ' on ' + mls.soldOn : '') + ' (a recorded sale: the strongest value signal)' : '',
++        mls.listPrice && !mls.soldPrice ? 'asking price $' + mls.listPrice.toLocaleString() : '',
++        mls.originalListPrice && mls.listPrice && mls.originalListPrice !== mls.listPrice ? 'first listed at $' + mls.originalListPrice.toLocaleString() : '',
++        mls.daysOnMarket != null ? mls.daysOnMarket + ' days on market' : '',
+         mls.type || '', mls.yearBuilt ? 'built ' + mls.yearBuilt : '',
+         mls.lotAcres ? mls.lotAcres + ' acres' : '', mls.stories ? mls.stories + ' stories' : '',
+         mls.subdivision ? 'subdivision ' + mls.subdivision : '', mls.waterfront ? 'waterfront' : '',
+diff --git a/chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html b/chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html
+index 28178faa..175ad2e4 100644
+--- a/chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html
++++ b/chapter3realty/buyers/55-plus-communities/del-webb-grande-dunes/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html b/chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html
+index e6ed9970..f5ef3df2 100644
+--- a/chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html
++++ b/chapter3realty/buyers/55-plus-communities/del-webb-north-myrtle-beach/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/55-plus-communities/index.html b/chapter3realty/buyers/55-plus-communities/index.html
+index caaaf667..345b948b 100644
+--- a/chapter3realty/buyers/55-plus-communities/index.html
++++ b/chapter3realty/buyers/55-plus-communities/index.html
+@@ -189,7 +189,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html b/chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html
+index 9f8dc1c7..9a188f32 100644
+--- a/chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html
++++ b/chapter3realty/buyers/55-plus-communities/myrtle-trace/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html b/chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html
+index ec4708e8..44e29c6b 100644
+--- a/chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html
++++ b/chapter3realty/buyers/55-plus-communities/seasons-at-prince-creek-west/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/affordable-places-to-live/index.html b/chapter3realty/buyers/affordable-places-to-live/index.html
+index 1f4270a0..578a670f 100644
+--- a/chapter3realty/buyers/affordable-places-to-live/index.html
++++ b/chapter3realty/buyers/affordable-places-to-live/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/best-neighborhoods/index.html b/chapter3realty/buyers/best-neighborhoods/index.html
+index fe5be61a..8b802137 100644
+--- a/chapter3realty/buyers/best-neighborhoods/index.html
++++ b/chapter3realty/buyers/best-neighborhoods/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/buying-in-myrtle-beach/index.html b/chapter3realty/buyers/buying-in-myrtle-beach/index.html
+index c644b43a..487f026e 100644
+--- a/chapter3realty/buyers/buying-in-myrtle-beach/index.html
++++ b/chapter3realty/buyers/buying-in-myrtle-beach/index.html
+@@ -456,7 +456,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/closing-costs/index.html b/chapter3realty/buyers/closing-costs/index.html
+index a4eaa10b..579be63e 100644
+--- a/chapter3realty/buyers/closing-costs/index.html
++++ b/chapter3realty/buyers/closing-costs/index.html
+@@ -193,7 +193,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/coastal-insurance/index.html b/chapter3realty/buyers/coastal-insurance/index.html
+index 12bc30cf..a207b427 100644
+--- a/chapter3realty/buyers/coastal-insurance/index.html
++++ b/chapter3realty/buyers/coastal-insurance/index.html
+@@ -182,7 +182,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/common-mistakes/index.html b/chapter3realty/buyers/common-mistakes/index.html
+index 58898cf5..09f67eef 100644
+--- a/chapter3realty/buyers/common-mistakes/index.html
++++ b/chapter3realty/buyers/common-mistakes/index.html
+@@ -216,7 +216,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/condo-in-litigation/index.html b/chapter3realty/buyers/condo-in-litigation/index.html
+index 51b1f9d8..ed871801 100644
+--- a/chapter3realty/buyers/condo-in-litigation/index.html
++++ b/chapter3realty/buyers/condo-in-litigation/index.html
+@@ -230,7 +230,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/cost-to-own/index.html b/chapter3realty/buyers/cost-to-own/index.html
+index b08f4fbc..d366f710 100644
+--- a/chapter3realty/buyers/cost-to-own/index.html
++++ b/chapter3realty/buyers/cost-to-own/index.html
+@@ -215,7 +215,7 @@ coCalc();
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/first-time-home-buyer-myrtle-beach/index.html b/chapter3realty/buyers/first-time-home-buyer-myrtle-beach/index.html
+index 546faac8..0da89b7e 100644
+--- a/chapter3realty/buyers/first-time-home-buyer-myrtle-beach/index.html
++++ b/chapter3realty/buyers/first-time-home-buyer-myrtle-beach/index.html
+@@ -240,7 +240,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/gated-communities/index.html b/chapter3realty/buyers/gated-communities/index.html
+index d67062b4..c4a65d97 100644
+--- a/chapter3realty/buyers/gated-communities/index.html
++++ b/chapter3realty/buyers/gated-communities/index.html
+@@ -188,7 +188,7 @@ section:has(> .wrap > .c3g-area){padding-top:1.6rem!important;padding-bottom:0!i
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/golf-communities/index.html b/chapter3realty/buyers/golf-communities/index.html
+index a15f1a78..a9756685 100644
+--- a/chapter3realty/buyers/golf-communities/index.html
++++ b/chapter3realty/buyers/golf-communities/index.html
+@@ -185,7 +185,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/index.html b/chapter3realty/buyers/index.html
+index d8a0dc6f..99be7086 100644
+--- a/chapter3realty/buyers/index.html
++++ b/chapter3realty/buyers/index.html
+@@ -198,7 +198,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/new-construction/index.html b/chapter3realty/buyers/new-construction/index.html
+index 1b604dd3..8d520dc1 100644
+--- a/chapter3realty/buyers/new-construction/index.html
++++ b/chapter3realty/buyers/new-construction/index.html
+@@ -187,7 +187,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/no-hoa-homes/index.html b/chapter3realty/buyers/no-hoa-homes/index.html
+index 27e26c16..05d172cf 100644
+--- a/chapter3realty/buyers/no-hoa-homes/index.html
++++ b/chapter3realty/buyers/no-hoa-homes/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/programs/index.html b/chapter3realty/buyers/programs/index.html
+index e80e147d..00422eb2 100644
+--- a/chapter3realty/buyers/programs/index.html
++++ b/chapter3realty/buyers/programs/index.html
+@@ -260,7 +260,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/property-taxes/index.html b/chapter3realty/buyers/property-taxes/index.html
+index 6a15b80c..42013042 100644
+--- a/chapter3realty/buyers/property-taxes/index.html
++++ b/chapter3realty/buyers/property-taxes/index.html
+@@ -183,7 +183,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/beaches/index.html b/chapter3realty/buyers/relocating/beaches/index.html
+index dca64e50..f3b0c56c 100644
+--- a/chapter3realty/buyers/relocating/beaches/index.html
++++ b/chapter3realty/buyers/relocating/beaches/index.html
+@@ -239,7 +239,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/cost-of-living/index.html b/chapter3realty/buyers/relocating/cost-of-living/index.html
+index 5fa25941..4a075889 100644
+--- a/chapter3realty/buyers/relocating/cost-of-living/index.html
++++ b/chapter3realty/buyers/relocating/cost-of-living/index.html
+@@ -706,7 +706,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-connecticut/index.html b/chapter3realty/buyers/relocating/from-connecticut/index.html
+index 3e1fb0b3..b72c969b 100644
+--- a/chapter3realty/buyers/relocating/from-connecticut/index.html
++++ b/chapter3realty/buyers/relocating/from-connecticut/index.html
+@@ -335,7 +335,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-florida/index.html b/chapter3realty/buyers/relocating/from-florida/index.html
+index b0c97b23..18493c24 100644
+--- a/chapter3realty/buyers/relocating/from-florida/index.html
++++ b/chapter3realty/buyers/relocating/from-florida/index.html
+@@ -352,7 +352,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-maryland/index.html b/chapter3realty/buyers/relocating/from-maryland/index.html
+index f203f211..e0ef3e1c 100644
+--- a/chapter3realty/buyers/relocating/from-maryland/index.html
++++ b/chapter3realty/buyers/relocating/from-maryland/index.html
+@@ -335,7 +335,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-massachusetts/index.html b/chapter3realty/buyers/relocating/from-massachusetts/index.html
+index d226a751..6c01a8ab 100644
+--- a/chapter3realty/buyers/relocating/from-massachusetts/index.html
++++ b/chapter3realty/buyers/relocating/from-massachusetts/index.html
+@@ -336,7 +336,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-new-jersey/index.html b/chapter3realty/buyers/relocating/from-new-jersey/index.html
+index bec44667..ab63abbd 100644
+--- a/chapter3realty/buyers/relocating/from-new-jersey/index.html
++++ b/chapter3realty/buyers/relocating/from-new-jersey/index.html
+@@ -333,7 +333,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-new-york/index.html b/chapter3realty/buyers/relocating/from-new-york/index.html
+index 51b2f592..6afab6c0 100644
+--- a/chapter3realty/buyers/relocating/from-new-york/index.html
++++ b/chapter3realty/buyers/relocating/from-new-york/index.html
+@@ -337,7 +337,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-north-carolina/index.html b/chapter3realty/buyers/relocating/from-north-carolina/index.html
+index b9608710..18542bd6 100644
+--- a/chapter3realty/buyers/relocating/from-north-carolina/index.html
++++ b/chapter3realty/buyers/relocating/from-north-carolina/index.html
+@@ -334,7 +334,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-ohio/index.html b/chapter3realty/buyers/relocating/from-ohio/index.html
+index 7c2d4634..c360b433 100644
+--- a/chapter3realty/buyers/relocating/from-ohio/index.html
++++ b/chapter3realty/buyers/relocating/from-ohio/index.html
+@@ -332,7 +332,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-pennsylvania/index.html b/chapter3realty/buyers/relocating/from-pennsylvania/index.html
+index ac5fb5e9..1034f4c4 100644
+--- a/chapter3realty/buyers/relocating/from-pennsylvania/index.html
++++ b/chapter3realty/buyers/relocating/from-pennsylvania/index.html
+@@ -333,7 +333,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/from-virginia/index.html b/chapter3realty/buyers/relocating/from-virginia/index.html
+index 557cd9e9..ff8c9e64 100644
+--- a/chapter3realty/buyers/relocating/from-virginia/index.html
++++ b/chapter3realty/buyers/relocating/from-virginia/index.html
+@@ -335,7 +335,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/getting-around/index.html b/chapter3realty/buyers/relocating/getting-around/index.html
+index 82a65cd4..156721cd 100644
+--- a/chapter3realty/buyers/relocating/getting-around/index.html
++++ b/chapter3realty/buyers/relocating/getting-around/index.html
+@@ -232,7 +232,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/healthcare/index.html b/chapter3realty/buyers/relocating/healthcare/index.html
+index 5c23216e..d25486e2 100644
+--- a/chapter3realty/buyers/relocating/healthcare/index.html
++++ b/chapter3realty/buyers/relocating/healthcare/index.html
+@@ -232,7 +232,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/hurricanes/index.html b/chapter3realty/buyers/relocating/hurricanes/index.html
+index 4396f40e..c9ff039c 100644
+--- a/chapter3realty/buyers/relocating/hurricanes/index.html
++++ b/chapter3realty/buyers/relocating/hurricanes/index.html
+@@ -239,7 +239,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/index.html b/chapter3realty/buyers/relocating/index.html
+index 5be5d274..ef466dd4 100644
+--- a/chapter3realty/buyers/relocating/index.html
++++ b/chapter3realty/buyers/relocating/index.html
+@@ -303,7 +303,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/jobs/index.html b/chapter3realty/buyers/relocating/jobs/index.html
+index 7f3d0b08..b43edab1 100644
+--- a/chapter3realty/buyers/relocating/jobs/index.html
++++ b/chapter3realty/buyers/relocating/jobs/index.html
+@@ -248,7 +248,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/moving-checklist/index.html b/chapter3realty/buyers/relocating/moving-checklist/index.html
+index 9448a23f..0f30a98d 100644
+--- a/chapter3realty/buyers/relocating/moving-checklist/index.html
++++ b/chapter3realty/buyers/relocating/moving-checklist/index.html
+@@ -232,7 +232,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/pros-and-cons/index.html b/chapter3realty/buyers/relocating/pros-and-cons/index.html
+index 8f65a0d7..58998414 100644
+--- a/chapter3realty/buyers/relocating/pros-and-cons/index.html
++++ b/chapter3realty/buyers/relocating/pros-and-cons/index.html
+@@ -239,7 +239,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/schools/index.html b/chapter3realty/buyers/relocating/schools/index.html
+index 7f97f948..2664a7d5 100644
+--- a/chapter3realty/buyers/relocating/schools/index.html
++++ b/chapter3realty/buyers/relocating/schools/index.html
+@@ -237,7 +237,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/weather/index.html b/chapter3realty/buyers/relocating/weather/index.html
+index 71b8e706..14592e05 100644
+--- a/chapter3realty/buyers/relocating/weather/index.html
++++ b/chapter3realty/buyers/relocating/weather/index.html
+@@ -237,7 +237,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/which-town/index.html b/chapter3realty/buyers/relocating/which-town/index.html
+index 32d44a66..f26547e9 100644
+--- a/chapter3realty/buyers/relocating/which-town/index.html
++++ b/chapter3realty/buyers/relocating/which-town/index.html
+@@ -240,7 +240,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/relocating/why-myrtle-beach/index.html b/chapter3realty/buyers/relocating/why-myrtle-beach/index.html
+index d7b31685..840d8b67 100644
+--- a/chapter3realty/buyers/relocating/why-myrtle-beach/index.html
++++ b/chapter3realty/buyers/relocating/why-myrtle-beach/index.html
+@@ -222,7 +222,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/retirees/index.html b/chapter3realty/buyers/retirees/index.html
+index 4cc07bd4..5a067f99 100644
+--- a/chapter3realty/buyers/retirees/index.html
++++ b/chapter3realty/buyers/retirees/index.html
+@@ -258,7 +258,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/second-home/index.html b/chapter3realty/buyers/second-home/index.html
+index f8941d43..a0bc6b2e 100644
+--- a/chapter3realty/buyers/second-home/index.html
++++ b/chapter3realty/buyers/second-home/index.html
+@@ -215,7 +215,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/undisclosed-flooding/index.html b/chapter3realty/buyers/undisclosed-flooding/index.html
+index d7e09639..14868e5f 100644
+--- a/chapter3realty/buyers/undisclosed-flooding/index.html
++++ b/chapter3realty/buyers/undisclosed-flooding/index.html
+@@ -233,7 +233,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/va-loans/index.html b/chapter3realty/buyers/va-loans/index.html
+index 28a23bc5..239ba24f 100644
+--- a/chapter3realty/buyers/va-loans/index.html
++++ b/chapter3realty/buyers/va-loans/index.html
+@@ -263,7 +263,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/buyers/waterfront-homes/index.html b/chapter3realty/buyers/waterfront-homes/index.html
+index 0b4beb42..db47e7a0 100644
+--- a/chapter3realty/buyers/waterfront-homes/index.html
++++ b/chapter3realty/buyers/waterfront-homes/index.html
+@@ -187,7 +187,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/contact/index.html b/chapter3realty/contact/index.html
+index 74f44bf2..253ca332 100644
+--- a/chapter3realty/contact/index.html
++++ b/chapter3realty/contact/index.html
+@@ -233,7 +233,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/fair-housing/index.html b/chapter3realty/fair-housing/index.html
+index 7c2ba8e5..7d3e207b 100644
+--- a/chapter3realty/fair-housing/index.html
++++ b/chapter3realty/fair-housing/index.html
+@@ -172,7 +172,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/guides/index.html b/chapter3realty/guides/index.html
+index a1ca5cca..72540dcb 100644
+--- a/chapter3realty/guides/index.html
++++ b/chapter3realty/guides/index.html
+@@ -186,7 +186,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/benefits/index.html b/chapter3realty/hoa/benefits/index.html
+index f24a5823..f61e2f8c 100644
+--- a/chapter3realty/hoa/benefits/index.html
++++ b/chapter3realty/hoa/benefits/index.html
+@@ -175,7 +175,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/developer-control-turnover/index.html b/chapter3realty/hoa/developer-control-turnover/index.html
+index 28454c7d..2b14165f 100644
+--- a/chapter3realty/hoa/developer-control-turnover/index.html
++++ b/chapter3realty/hoa/developer-control-turnover/index.html
+@@ -175,7 +175,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/documents/index.html b/chapter3realty/hoa/documents/index.html
+index 1838cdd7..e6e6c00d 100644
+--- a/chapter3realty/hoa/documents/index.html
++++ b/chapter3realty/hoa/documents/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/dues-increases/index.html b/chapter3realty/hoa/dues-increases/index.html
+index f6a493bf..aea07950 100644
+--- a/chapter3realty/hoa/dues-increases/index.html
++++ b/chapter3realty/hoa/dues-increases/index.html
+@@ -175,7 +175,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/estoppel-and-transfer-fees/index.html b/chapter3realty/hoa/estoppel-and-transfer-fees/index.html
+index 72918787..358d8584 100644
+--- a/chapter3realty/hoa/estoppel-and-transfer-fees/index.html
++++ b/chapter3realty/hoa/estoppel-and-transfer-fees/index.html
+@@ -175,7 +175,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/hoa-vs-poa/index.html b/chapter3realty/hoa/hoa-vs-poa/index.html
+index 9843b4ee..a2aee44d 100644
+--- a/chapter3realty/hoa/hoa-vs-poa/index.html
++++ b/chapter3realty/hoa/hoa-vs-poa/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/index.html b/chapter3realty/hoa/index.html
+index 72ce957d..a7408d4a 100644
+--- a/chapter3realty/hoa/index.html
++++ b/chapter3realty/hoa/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/liens-and-foreclosure/index.html b/chapter3realty/hoa/liens-and-foreclosure/index.html
+index c47c3657..f588daee 100644
+--- a/chapter3realty/hoa/liens-and-foreclosure/index.html
++++ b/chapter3realty/hoa/liens-and-foreclosure/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/master-insurance-ho6/index.html b/chapter3realty/hoa/master-insurance-ho6/index.html
+index dbdb95aa..a77a368a 100644
+--- a/chapter3realty/hoa/master-insurance-ho6/index.html
++++ b/chapter3realty/hoa/master-insurance-ho6/index.html
+@@ -175,7 +175,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/rental-restrictions/index.html b/chapter3realty/hoa/rental-restrictions/index.html
+index f93ddcae..da460ec8 100644
+--- a/chapter3realty/hoa/rental-restrictions/index.html
++++ b/chapter3realty/hoa/rental-restrictions/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/reserves/index.html b/chapter3realty/hoa/reserves/index.html
+index 68822cde..e2479070 100644
+--- a/chapter3realty/hoa/reserves/index.html
++++ b/chapter3realty/hoa/reserves/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/south-carolina-hoa-laws/index.html b/chapter3realty/hoa/south-carolina-hoa-laws/index.html
+index 0b1dee0e..3ab7b4e4 100644
+--- a/chapter3realty/hoa/south-carolina-hoa-laws/index.html
++++ b/chapter3realty/hoa/south-carolina-hoa-laws/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/special-assessments/index.html b/chapter3realty/hoa/special-assessments/index.html
+index c4019fb5..51ecddd5 100644
+--- a/chapter3realty/hoa/special-assessments/index.html
++++ b/chapter3realty/hoa/special-assessments/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/tax-deductible/index.html b/chapter3realty/hoa/tax-deductible/index.html
+index 7be24b8e..6d97f506 100644
+--- a/chapter3realty/hoa/tax-deductible/index.html
++++ b/chapter3realty/hoa/tax-deductible/index.html
+@@ -175,7 +175,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/violations-and-fines/index.html b/chapter3realty/hoa/violations-and-fines/index.html
+index 0a05ce48..c8f563f2 100644
+--- a/chapter3realty/hoa/violations-and-fines/index.html
++++ b/chapter3realty/hoa/violations-and-fines/index.html
+@@ -175,7 +175,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/hoa/who-pays-for-damage/index.html b/chapter3realty/hoa/who-pays-for-damage/index.html
+index f58b47d4..2d087110 100644
+--- a/chapter3realty/hoa/who-pays-for-damage/index.html
++++ b/chapter3realty/hoa/who-pays-for-damage/index.html
+@@ -175,7 +175,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/homes-shell/index.html b/chapter3realty/homes-shell/index.html
+index 7b2ad76d..5eb54b20 100644
+--- a/chapter3realty/homes-shell/index.html
++++ b/chapter3realty/homes-shell/index.html
+@@ -177,7 +177,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/index.html b/chapter3realty/index.html
+index d367d223..ae72ef9c 100644
+--- a/chapter3realty/index.html
++++ b/chapter3realty/index.html
+@@ -421,6 +421,16 @@ html{scroll-padding-top:97px}
+ @media (forced-colors:active){#page-home .tw-pin a:focus-visible{forced-color-adjust:none;background:Highlight;color:HighlightText;border-color:HighlightText}}
+ </style>
+ <script>(function(h){h.classList.add('js');if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;h.classList.add('m');window.__c3T=setTimeout(function(){h.classList.remove('m')},3000)})(document.documentElement)</script>
++<style>
++.hero-search{display:flex;align-items:center;gap:.5rem;width:min(100%,36rem);margin:1.4rem 0 .4rem;padding:.4rem .4rem .4rem 1.1rem;border-radius:999px;background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.35)}
++.hero-search svg{width:21px;height:21px;flex:none;fill:none;stroke:#5c6b78;stroke-width:2;stroke-linecap:round}
++.hero-search input{flex:1;min-width:0;border:0;outline:none;background:none;font:inherit;font-size:1.05rem;padding:.75rem 0;color:#1c2028}
++.hero-search button{flex:none;border:0;border-radius:999px;background:#c4783a;color:#1c2028;font:inherit;font-weight:800;font-size:1rem;padding:.85rem 1.4rem;cursor:pointer;transition:background .15s}
++.hero-search button:hover{background:#d88a4a}
++.hero-search:focus-within{box-shadow:0 0 0 3px rgba(196,120,58,.55),0 18px 50px rgba(0,0,0,.35)}
++.hero-or{margin:.9rem 0 .2rem;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,232,.7)}
++@media(max-width:560px){.hero-search{padding-left:.9rem}.hero-search button{padding:.8rem 1rem;font-size:.92rem}}
++</style>
+ </head>
+ <body class="home">
+ <a class="skip-link" href="#main">Skip to content</a>
+@@ -469,12 +479,18 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <div class="cine-copy">
+ <h1 class="cine-h1" id="home-h1"><span class="l1"><span>Myrtle Beach</span></span> <span class="l2"><span>Homes</span></span></h1>
+ <h2 style="color:rgba(244,239,232,.86)" class="cine-sub">Buy, sell and invest in Myrtle Beach real estate with a specialized real estate agent.</h2>
++<form class="hero-search" action="/homes/" method="get" role="search" aria-label="Search homes for sale">
++<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
++<input name="q" type="search" enterkeyhint="search" autocomplete="off" maxlength="200" aria-label="Search homes for sale" placeholder="Town, neighborhood, or &quot;3 bed under $400k&quot;">
++<button type="submit">Search listings</button>
++</form>
++<p class="hero-or">Or start with what you need</p>
+ <ul class="cine-paths" role="list">
+ <li><a class="cine-path" href="/sell/"><span class="pk">I am a</span> <span class="pr" data-r="Seller">Seller</span></a></li>
+ <li><a class="cine-path" href="/invest/"><span class="pk">I am an</span> <span class="pr" data-r="Investor">Investor</span></a></li>
+ <li><a class="cine-path" href="/buyers/buying-in-myrtle-beach/"><span class="pk">I am a</span> <span class="pr" data-r="Buyer">Buyer</span></a></li>
+ </ul>
+-<p class="tw-links"><a class="tl" href="/submarkets/"><span class="tl-t">All neighborhoods</span> <span class="arr" aria-hidden="true">&rarr;</span></a><a class="tl" href="/map/"><span class="tl-t">3D map search</span> <span class="arr" aria-hidden="true">&rarr;</span></a></p>
++<p class="tw-links"><a class="tl" href="/submarkets/"><span class="tl-t">All neighborhoods</span> <span class="arr" aria-hidden="true">&rarr;</span></a><a class="tl" href="/homes/map/"><span class="tl-t">Map search, 2D and 3D</span> <span class="arr" aria-hidden="true">&rarr;</span></a></p>
+ </div>
+ <div class="tw-stage" data-plane="-79.62,34.2,0.832389639,1483.161062,1851.852,1601.814">
+ <div class="tw-scene" aria-hidden="true">
+@@ -806,7 +822,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/14-day-rule/index.html b/chapter3realty/invest/14-day-rule/index.html
+index 22452bc8..fef4d912 100644
+--- a/chapter3realty/invest/14-day-rule/index.html
++++ b/chapter3realty/invest/14-day-rule/index.html
+@@ -182,7 +182,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/accommodations-tax/index.html b/chapter3realty/invest/accommodations-tax/index.html
+index a5e2c5f9..5866d05c 100644
+--- a/chapter3realty/invest/accommodations-tax/index.html
++++ b/chapter3realty/invest/accommodations-tax/index.html
+@@ -183,7 +183,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/airbnb-income/index.html b/chapter3realty/invest/airbnb-income/index.html
+index cfdf2b16..19baa379 100644
+--- a/chapter3realty/invest/airbnb-income/index.html
++++ b/chapter3realty/invest/airbnb-income/index.html
+@@ -198,7 +198,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/canadian-buyers/index.html b/chapter3realty/invest/canadian-buyers/index.html
+index 1d6f472b..dcb9f2e5 100644
+--- a/chapter3realty/invest/canadian-buyers/index.html
++++ b/chapter3realty/invest/canadian-buyers/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/cash-to-close/index.html b/chapter3realty/invest/cash-to-close/index.html
+index 0b3ebd53..82fa32de 100644
+--- a/chapter3realty/invest/cash-to-close/index.html
++++ b/chapter3realty/invest/cash-to-close/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/condo-buildings/index.html b/chapter3realty/invest/condo-buildings/index.html
+index 54a10542..725c7ce0 100644
+--- a/chapter3realty/invest/condo-buildings/index.html
++++ b/chapter3realty/invest/condo-buildings/index.html
+@@ -190,7 +190,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/condos/index.html b/chapter3realty/invest/condos/index.html
+index 524c553b..232cadb5 100644
+--- a/chapter3realty/invest/condos/index.html
++++ b/chapter3realty/invest/condos/index.html
+@@ -183,7 +183,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/condotel-financing/index.html b/chapter3realty/invest/condotel-financing/index.html
+index d9a67a62..49a13f74 100644
+--- a/chapter3realty/invest/condotel-financing/index.html
++++ b/chapter3realty/invest/condotel-financing/index.html
+@@ -183,7 +183,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/cost-segregation/index.html b/chapter3realty/invest/cost-segregation/index.html
+index 35e75dfa..18c63b4c 100644
+--- a/chapter3realty/invest/cost-segregation/index.html
++++ b/chapter3realty/invest/cost-segregation/index.html
+@@ -182,7 +182,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/financing-multiple-rentals/index.html b/chapter3realty/invest/financing-multiple-rentals/index.html
+index 42330d64..4c1f7511 100644
+--- a/chapter3realty/invest/financing-multiple-rentals/index.html
++++ b/chapter3realty/invest/financing-multiple-rentals/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/foreclosures/index.html b/chapter3realty/invest/foreclosures/index.html
+index 601f8fd6..57a50587 100644
+--- a/chapter3realty/invest/foreclosures/index.html
++++ b/chapter3realty/invest/foreclosures/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/how-long-to-hold/index.html b/chapter3realty/invest/how-long-to-hold/index.html
+index c4680cad..148e9cb3 100644
+--- a/chapter3realty/invest/how-long-to-hold/index.html
++++ b/chapter3realty/invest/how-long-to-hold/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/index.html b/chapter3realty/invest/index.html
+index f089d75e..f4f1425e 100644
+--- a/chapter3realty/invest/index.html
++++ b/chapter3realty/invest/index.html
+@@ -216,7 +216,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/j1-rentals/index.html b/chapter3realty/invest/j1-rentals/index.html
+index 13a9f280..a5906f0b 100644
+--- a/chapter3realty/invest/j1-rentals/index.html
++++ b/chapter3realty/invest/j1-rentals/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/landlord-insurance/index.html b/chapter3realty/invest/landlord-insurance/index.html
+index 92b8bee4..3759dd7c 100644
+--- a/chapter3realty/invest/landlord-insurance/index.html
++++ b/chapter3realty/invest/landlord-insurance/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/landlord-rules/index.html b/chapter3realty/invest/landlord-rules/index.html
+index cab03e01..71654435 100644
+--- a/chapter3realty/invest/landlord-rules/index.html
++++ b/chapter3realty/invest/landlord-rules/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/llc/index.html b/chapter3realty/invest/llc/index.html
+index 34bf5821..ccfc0724 100644
+--- a/chapter3realty/invest/llc/index.html
++++ b/chapter3realty/invest/llc/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/long-term-rental/index.html b/chapter3realty/invest/long-term-rental/index.html
+index 66dbf6a4..e0a31b90 100644
+--- a/chapter3realty/invest/long-term-rental/index.html
++++ b/chapter3realty/invest/long-term-rental/index.html
+@@ -312,7 +312,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+@@ -764,7 +764,7 @@ if (GOOGLE_MAPS_KEY !== 'YOUR_GOOGLE_MAPS_KEY') {
+ }
+ </script>
+ 
+-<script src="/assets/s.bddc8fa442.js"></script>
++<script src="/assets/s.c776518df3.js"></script>
+ 
+ <!-- ══════════════════════════════════════
+      DYNAMIC LAYER v2 ELEMENTS
+diff --git a/chapter3realty/invest/mid-term-rentals/index.html b/chapter3realty/invest/mid-term-rentals/index.html
+index d127a917..45e55bcf 100644
+--- a/chapter3realty/invest/mid-term-rentals/index.html
++++ b/chapter3realty/invest/mid-term-rentals/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/new-construction-rentals/index.html b/chapter3realty/invest/new-construction-rentals/index.html
+index ee9c163a..29b821ce 100644
+--- a/chapter3realty/invest/new-construction-rentals/index.html
++++ b/chapter3realty/invest/new-construction-rentals/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/non-warrantable-condos/index.html b/chapter3realty/invest/non-warrantable-condos/index.html
+index 53597085..cb50532e 100644
+--- a/chapter3realty/invest/non-warrantable-condos/index.html
++++ b/chapter3realty/invest/non-warrantable-condos/index.html
+@@ -203,7 +203,7 @@ function nwSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/out-of-state/index.html b/chapter3realty/invest/out-of-state/index.html
+index f6f83274..5bb305de 100644
+--- a/chapter3realty/invest/out-of-state/index.html
++++ b/chapter3realty/invest/out-of-state/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/property-management/index.html b/chapter3realty/invest/property-management/index.html
+index 3a6473b5..d73572d7 100644
+--- a/chapter3realty/invest/property-management/index.html
++++ b/chapter3realty/invest/property-management/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/rent-prices/index.html b/chapter3realty/invest/rent-prices/index.html
+index 940c7aab..c292e405 100644
+--- a/chapter3realty/invest/rent-prices/index.html
++++ b/chapter3realty/invest/rent-prices/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/rental-depreciation/index.html b/chapter3realty/invest/rental-depreciation/index.html
+index 2e0e5e83..0a0b0bcc 100644
+--- a/chapter3realty/invest/rental-depreciation/index.html
++++ b/chapter3realty/invest/rental-depreciation/index.html
+@@ -182,7 +182,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/rental-program-vs-airbnb/index.html b/chapter3realty/invest/rental-program-vs-airbnb/index.html
+index b5d8e3d0..85c4aa56 100644
+--- a/chapter3realty/invest/rental-program-vs-airbnb/index.html
++++ b/chapter3realty/invest/rental-program-vs-airbnb/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/rental-returns/index.html b/chapter3realty/invest/rental-returns/index.html
+index be29ad60..54bee067 100644
+--- a/chapter3realty/invest/rental-returns/index.html
++++ b/chapter3realty/invest/rental-returns/index.html
+@@ -385,7 +385,7 @@ paint();
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/run-the-numbers/index.html b/chapter3realty/invest/run-the-numbers/index.html
+index e0aa11b3..3e915ee8 100644
+--- a/chapter3realty/invest/run-the-numbers/index.html
++++ b/chapter3realty/invest/run-the-numbers/index.html
+@@ -197,7 +197,7 @@ function rnSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/section-8-rentals/index.html b/chapter3realty/invest/section-8-rentals/index.html
+index 7b31f366..ae0f48fc 100644
+--- a/chapter3realty/invest/section-8-rentals/index.html
++++ b/chapter3realty/invest/section-8-rentals/index.html
+@@ -226,7 +226,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/str-rules/index.html b/chapter3realty/invest/str-rules/index.html
+index 292f240f..afaca04c 100644
+--- a/chapter3realty/invest/str-rules/index.html
++++ b/chapter3realty/invest/str-rules/index.html
+@@ -189,7 +189,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/str-setup/index.html b/chapter3realty/invest/str-setup/index.html
+index 1116c898..6bdf091e 100644
+--- a/chapter3realty/invest/str-setup/index.html
++++ b/chapter3realty/invest/str-setup/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/str-tax-treatment/index.html b/chapter3realty/invest/str-tax-treatment/index.html
+index 25a866bf..f63b738a 100644
+--- a/chapter3realty/invest/str-tax-treatment/index.html
++++ b/chapter3realty/invest/str-tax-treatment/index.html
+@@ -183,7 +183,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/str-tools/index.html b/chapter3realty/invest/str-tools/index.html
+index 07351f45..fc8397c1 100644
+--- a/chapter3realty/invest/str-tools/index.html
++++ b/chapter3realty/invest/str-tools/index.html
+@@ -229,7 +229,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/str-vs-ltr/index.html b/chapter3realty/invest/str-vs-ltr/index.html
+index 1aea590d..6b49aa6d 100644
+--- a/chapter3realty/invest/str-vs-ltr/index.html
++++ b/chapter3realty/invest/str-vs-ltr/index.html
+@@ -214,7 +214,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/strategies/1031-exchange/index.html b/chapter3realty/invest/strategies/1031-exchange/index.html
+index 74979b0e..11fbf4d5 100644
+--- a/chapter3realty/invest/strategies/1031-exchange/index.html
++++ b/chapter3realty/invest/strategies/1031-exchange/index.html
+@@ -228,7 +228,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/strategies/brrrr/index.html b/chapter3realty/invest/strategies/brrrr/index.html
+index 38bb838e..de7f6a0a 100644
+--- a/chapter3realty/invest/strategies/brrrr/index.html
++++ b/chapter3realty/invest/strategies/brrrr/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/strategies/dscr-loans/index.html b/chapter3realty/invest/strategies/dscr-loans/index.html
+index a315958d..6a43a00c 100644
+--- a/chapter3realty/invest/strategies/dscr-loans/index.html
++++ b/chapter3realty/invest/strategies/dscr-loans/index.html
+@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded",c3Dscr);
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/strategies/dst/index.html b/chapter3realty/invest/strategies/dst/index.html
+index 50d4680d..c253d25b 100644
+--- a/chapter3realty/invest/strategies/dst/index.html
++++ b/chapter3realty/invest/strategies/dst/index.html
+@@ -185,7 +185,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/strategies/fix-and-flip/index.html b/chapter3realty/invest/strategies/fix-and-flip/index.html
+index fd31956b..930eb089 100644
+--- a/chapter3realty/invest/strategies/fix-and-flip/index.html
++++ b/chapter3realty/invest/strategies/fix-and-flip/index.html
+@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded",c3Flip);
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/strategies/index.html b/chapter3realty/invest/strategies/index.html
+index 6608c813..1f13686d 100644
+--- a/chapter3realty/invest/strategies/index.html
++++ b/chapter3realty/invest/strategies/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/strategies/small-multifamily/index.html b/chapter3realty/invest/strategies/small-multifamily/index.html
+index e6b7c724..3207d51b 100644
+--- a/chapter3realty/invest/strategies/small-multifamily/index.html
++++ b/chapter3realty/invest/strategies/small-multifamily/index.html
+@@ -236,7 +236,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/student-rentals/index.html b/chapter3realty/invest/student-rentals/index.html
+index 8957dc71..d2380115 100644
+--- a/chapter3realty/invest/student-rentals/index.html
++++ b/chapter3realty/invest/student-rentals/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/what-is-being-built/index.html b/chapter3realty/invest/what-is-being-built/index.html
+index 368aa288..23ab7595 100644
+--- a/chapter3realty/invest/what-is-being-built/index.html
++++ b/chapter3realty/invest/what-is-being-built/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/invest/where-to-buy/index.html b/chapter3realty/invest/where-to-buy/index.html
+index 2ced471d..43e08f00 100644
+--- a/chapter3realty/invest/where-to-buy/index.html
++++ b/chapter3realty/invest/where-to-buy/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/llms-full.txt b/chapter3realty/llms-full.txt
+index 081083a5..cc270d31 100644
+--- a/chapter3realty/llms-full.txt
++++ b/chapter3realty/llms-full.txt
+@@ -14,13 +14,15 @@ Summary: Myrtle Beach's data-driven brokerage. Free rental analysis, building-pe
+ 
+ ## Buy, sell and invest in Myrtle Beach real estate with a specialized real estate agent.
+ 
++Or start with what you need
++
+ - I am a Seller
+ 
+ - I am an Investor
+ 
+ - I am a Buyer
+ 
+-All neighborhoods → 3D map search →
++All neighborhoods → Map search, 2D and 3D →
+ 
+ - Pawleys Island
+ 
+diff --git a/chapter3realty/market-reports/index.html b/chapter3realty/market-reports/index.html
+index 1cf813d5..4836804f 100644
+--- a/chapter3realty/market-reports/index.html
++++ b/chapter3realty/market-reports/index.html
+@@ -201,7 +201,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/market-reports/july-2026/index.html b/chapter3realty/market-reports/july-2026/index.html
+index d3461d37..b60b28e0 100644
+--- a/chapter3realty/market-reports/july-2026/index.html
++++ b/chapter3realty/market-reports/july-2026/index.html
+@@ -183,7 +183,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/privacy/index.html b/chapter3realty/privacy/index.html
+index 1f641ebf..9cdda51b 100644
+--- a/chapter3realty/privacy/index.html
++++ b/chapter3realty/privacy/index.html
+@@ -172,7 +172,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/sell/capital-gains/index.html b/chapter3realty/sell/capital-gains/index.html
+index 1a7bc3e0..08ad7d3d 100644
+--- a/chapter3realty/sell/capital-gains/index.html
++++ b/chapter3realty/sell/capital-gains/index.html
+@@ -191,7 +191,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/sell/fsbo/index.html b/chapter3realty/sell/fsbo/index.html
+index b7d34015..e365c777 100644
+--- a/chapter3realty/sell/fsbo/index.html
++++ b/chapter3realty/sell/fsbo/index.html
+@@ -187,7 +187,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/sell/home-value/index.html b/chapter3realty/sell/home-value/index.html
+index e77d2b93..6e6bed86 100644
+--- a/chapter3realty/sell/home-value/index.html
++++ b/chapter3realty/sell/home-value/index.html
+@@ -187,7 +187,7 @@ function ldSubmit(){
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/sell/index.html b/chapter3realty/sell/index.html
+index 242374f2..a1cf6732 100644
+--- a/chapter3realty/sell/index.html
++++ b/chapter3realty/sell/index.html
+@@ -845,7 +845,7 @@ function showPersona(id, btn) {
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/sell/inherited-house/index.html b/chapter3realty/sell/inherited-house/index.html
+index c1146500..53a38734 100644
+--- a/chapter3realty/sell/inherited-house/index.html
++++ b/chapter3realty/sell/inherited-house/index.html
+@@ -182,7 +182,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/sell/net-proceeds/index.html b/chapter3realty/sell/net-proceeds/index.html
+index 99994279..ec57640a 100644
+--- a/chapter3realty/sell/net-proceeds/index.html
++++ b/chapter3realty/sell/net-proceeds/index.html
+@@ -204,7 +204,7 @@ nsCalc();
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/sell/out-of-state-buyers/index.html b/chapter3realty/sell/out-of-state-buyers/index.html
+index 2a266391..21a40862 100644
+--- a/chapter3realty/sell/out-of-state-buyers/index.html
++++ b/chapter3realty/sell/out-of-state-buyers/index.html
+@@ -552,7 +552,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/sell/rental-property/index.html b/chapter3realty/sell/rental-property/index.html
+index ae663ad7..1a239b69 100644
+--- a/chapter3realty/sell/rental-property/index.html
++++ b/chapter3realty/sell/rental-property/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/sell/sell-my-condo/index.html b/chapter3realty/sell/sell-my-condo/index.html
+index 3ca4e501..d0fac9df 100644
+--- a/chapter3realty/sell/sell-my-condo/index.html
++++ b/chapter3realty/sell/sell-my-condo/index.html
+@@ -191,7 +191,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/carolina-forest/index.html b/chapter3realty/submarkets/carolina-forest/index.html
+index e9217afb..2a0b5a96 100644
+--- a/chapter3realty/submarkets/carolina-forest/index.html
++++ b/chapter3realty/submarkets/carolina-forest/index.html
+@@ -193,7 +193,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/carolina-forest/the-farm/index.html b/chapter3realty/submarkets/carolina-forest/the-farm/index.html
+index a5930543..4ca90374 100644
+--- a/chapter3realty/submarkets/carolina-forest/the-farm/index.html
++++ b/chapter3realty/submarkets/carolina-forest/the-farm/index.html
+@@ -171,7 +171,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/conway/index.html b/chapter3realty/submarkets/conway/index.html
+index ddba9d31..dc64313a 100644
+--- a/chapter3realty/submarkets/conway/index.html
++++ b/chapter3realty/submarkets/conway/index.html
+@@ -212,7 +212,7 @@ function toggleMobile() {
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/garden-city/index.html b/chapter3realty/submarkets/garden-city/index.html
+index fa2eba63..5138dd3a 100644
+--- a/chapter3realty/submarkets/garden-city/index.html
++++ b/chapter3realty/submarkets/garden-city/index.html
+@@ -212,7 +212,7 @@ function toggleMobile() {
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/index.html b/chapter3realty/submarkets/index.html
+index 8ceb5a1f..a7227fb7 100644
+--- a/chapter3realty/submarkets/index.html
++++ b/chapter3realty/submarkets/index.html
+@@ -176,7 +176,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/little-river/index.html b/chapter3realty/submarkets/little-river/index.html
+index a3d80b7a..13760e02 100644
+--- a/chapter3realty/submarkets/little-river/index.html
++++ b/chapter3realty/submarkets/little-river/index.html
+@@ -212,7 +212,7 @@ function toggleMobile() {
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/murrells-inlet/index.html b/chapter3realty/submarkets/murrells-inlet/index.html
+index 09b6a5a8..778cf257 100644
+--- a/chapter3realty/submarkets/murrells-inlet/index.html
++++ b/chapter3realty/submarkets/murrells-inlet/index.html
+@@ -212,7 +212,7 @@ function toggleMobile() {
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/myrtle-beach/index.html b/chapter3realty/submarkets/myrtle-beach/index.html
+index 330ed21b..ba96efc5 100644
+--- a/chapter3realty/submarkets/myrtle-beach/index.html
++++ b/chapter3realty/submarkets/myrtle-beach/index.html
+@@ -212,7 +212,7 @@ function toggleMobile() {
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/north-myrtle-beach/index.html b/chapter3realty/submarkets/north-myrtle-beach/index.html
+index 644581c7..da60dad0 100644
+--- a/chapter3realty/submarkets/north-myrtle-beach/index.html
++++ b/chapter3realty/submarkets/north-myrtle-beach/index.html
+@@ -212,7 +212,7 @@ function toggleMobile() {
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/pawleys-island/index.html b/chapter3realty/submarkets/pawleys-island/index.html
+index 9751f703..25e77a76 100644
+--- a/chapter3realty/submarkets/pawleys-island/index.html
++++ b/chapter3realty/submarkets/pawleys-island/index.html
+@@ -212,7 +212,7 @@ function toggleMobile() {
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/submarkets/surfside-beach/index.html b/chapter3realty/submarkets/surfside-beach/index.html
+index 6d43ee63..e11e95ea 100644
+--- a/chapter3realty/submarkets/surfside-beach/index.html
++++ b/chapter3realty/submarkets/surfside-beach/index.html
+@@ -212,7 +212,7 @@ function toggleMobile() {
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/terms/index.html b/chapter3realty/terms/index.html
+index 32a3e8b0..0ca1e82e 100644
+--- a/chapter3realty/terms/index.html
++++ b/chapter3realty/terms/index.html
+@@ -172,7 +172,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/chapter3realty/why-chapter-3/index.html b/chapter3realty/why-chapter-3/index.html
+index 6ac89325..11b5649b 100644
+--- a/chapter3realty/why-chapter-3/index.html
++++ b/chapter3realty/why-chapter-3/index.html
+@@ -286,7 +286,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
+index 3fdc4bda..5bd70b59 100644
+--- a/functions/homes/[[path]].js
++++ b/functions/homes/[[path]].js
+@@ -14,15 +14,15 @@
+  * Off until IDX_LIVE=1 (idx-lib/crm.js). Pages are drawn into the stitched shell
+  * /homes-shell/, which carries the site's own header, footer and assets.
+  */
+-import { PREVIEW_COOKIE, clearCookie, crm, idxOn, sameOrigin, setCookie, visitorToken } from "../../idx-lib/crm.js";
++import { COOKIE as COOKIE_NAME, PREVIEW_COOKIE, clearCookie, crm, idxOn, sameOrigin, setCookie, visitorToken } from "../../idx-lib/crm.js";
+ import { PLACES } from "../../idx-lib/places.js";
+ import { NO_HOA_NOTE, placeParams } from "../../idx-lib/edge.js";
+ import { CITIES, readQuery } from "../../idx-lib/query.js";
+-import { MAP_SCRIPT, MAP_STYLE, mapsKey, nearOf, pinOf } from "../../idx-lib/map.js";
++import { MAP_SCRIPT, MAP_STYLE, geocode, mapsKey, nearOf, pinOf, withPoints } from "../../idx-lib/map.js";
+ import { SMS_CONSENT_TEXT, TERMS_PARAGRAPHS, TERMS_TITLE, TERMS_VERSION, termsText } from "../../idx-lib/terms.js";
+ import {
+   ICONS, STRIP_STYLE, STYLE, SCRIPT, addressLine, card, dayLong, disclaimer, esc, factsLine, grid, headlinePrice, heartButton,
+-  listingPath, money, safeUrl, signupDialog, spaced, statusWord, stripCard, tourButton, tourDialog,
++  listingPath, money, safeUrl, signupDialog, welcomeDialog, spaced, statusWord, stripCard, tourButton, tourDialog,
+ } from "../../idx-lib/render.js";
+ 
+ const SITE = "https://chapter3realty.com";
+@@ -65,6 +65,8 @@ export async function onRequest(context) {
+     if (name === "signout") return new Response(null, { status: 303, headers: { Location: "/homes/", "Set-Cookie": clearCookie(), "Cache-Control": "no-store" } });
+     if (!(request.headers.get("content-type") || "").includes("application/json")) return json({ ok: false, error: "invalid_body" }, 400);
+     if (name === "register") return register(context);
++    if (name === "claim") return claimApi(context);
++    if (name === "returning") return returning(context);
+     if (name === "views") return views(context);
+     if (name === "hearts") return hearts(context);
+     return json({ ok: false, error: "not_found" }, 404);
+@@ -72,12 +74,93 @@ export async function onRequest(context) {
+   if (request.method !== "GET" && request.method !== "HEAD") return new Response("Method not allowed", { status: 405 });
+ 
+   try {
++    if (url.searchParams.has("k")) return await withClaim(context, url, path, gate);
+     return await route(context, url, path, gate);
+   } catch {
+     return trouble(context, gate, null, "Grand Strand homes for sale");
+   }
+ }
+ 
++// ── returning clients (contract §7g) ────────────────────────────────────────
++
++const K = /^[A-Za-z0-9]{12}$/;
++
++/** POST the CRM's claim. Returns the CRM's answer, or null on any trouble. */
++async function postClaim(context, body) {
++  const r = await crm(context.env, context.request, "/api/idx/claim", { method: "POST", anonymous: true, userAgent: true, body });
++  return r;
++}
++
++/**
++ * A /homes page whose address carries our emails' sign-in code. A visitor with a valid
++ * cookie is left alone. Otherwise the code asks the CRM for a token: with one, the page is
++ * drawn signed in and the cookie set; when the CRM needs the terms first, the page opens a
++ * "Welcome back" box. Whatever the answer, the page takes k out of the address bar before
++ * analytics loads, and nothing about it is cached.
++ */
++async function withClaim(context, url, path, gate) {
++  const k = url.searchParams.get("k") || "";
++  // A redirect keeps k for the page it leads to; only that page claims.
++  const redirecting = !path.endsWith("/") || /^\/homes\/[A-Za-z0-9]{3,20}\/?$/.test(path) && !/^\/homes\/(terms|near|api|map)\/?$/i.test(path);
++  let ctx = context, cookie = null, welcome = null;
++  if (!redirecting && K.test(k) && !visitorToken(context.request)) {
++    const r = await postClaim(context, { k, page: path });
++    if (r.status === 200 && r.json && r.json.ok && typeof r.json.token === "string") {
++      cookie = setCookie(r.json.token);
++      const h = new Headers(context.request.headers);
++      h.set("Cookie", `${h.get("Cookie") ? `${h.get("Cookie")}; ` : ""}${COOKIE_NAME}=${encodeURIComponent(r.json.token)}`);
++      ctx = { ...context, request: new Request(context.request.url, { method: "GET", headers: h }) };
++    } else if (r.status === 200 && r.json && r.json.ok && r.json.needsTerms) {
++      welcome = { k, firstName: typeof r.json.firstName === "string" ? r.json.firstName.slice(0, 40) : null };
++    }
++  }
++  const res = await route(ctx, url, path, gate);
++  const headers = new Headers(res.headers);
++  headers.set("cache-control", "private, no-store");
++  if (cookie) headers.append("set-cookie", cookie);
++  if (!(headers.get("content-type") || "").includes("text/html")) return new Response(res.body, { status: res.status, headers });
++  let html = await res.text();
++  html = html.replace(/<head([^>]*)>/, (m) => `${m}${STRIP_K}`);
++  if (welcome) html = html.replace("</body>", () => `${welcomeDialog(welcome)}</body>`);
++  headers.delete("content-length");
++  return new Response(html, { status: res.status, headers });
++}
++
++/* First thing in <head>, before any analytics tag: the code leaves the address bar. */
++const STRIP_K = `<script>try{var u=new URL(location.href);if(u.searchParams.has("k")){u.searchParams.delete("k");history.replaceState(history.state,"",u.pathname+u.search+u.hash)}}catch(e){}</script>`;
++
++async function claimApi(context) {
++  const { request } = context;
++  const { body: b, tooLarge } = await readBody(request, 4 * 1024);
++  if (tooLarge) return json({ ok: false, error: "too_large" }, 413);
++  if (!b || typeof b !== "object" || !K.test(String(b.k || ""))) return json({ ok: false, error: "link_expired" });
++  if (visitorToken(request)) return json({ ok: true, already: true });
++  if (b.termsAccepted !== true) return json({ ok: false, field: "termsAccepted", message: FIELD_WORDS.termsAccepted }, 400);
++  const page = typeof b.page === "string" && b.page.startsWith("/homes") ? b.page.slice(0, 200) : "/homes/";
++  const r = await postClaim(context, { k: b.k, termsAccepted: true, termsVersion: TERMS_VERSION, termsText: termsText(), page });
++  if (r.status === 200 && r.json && r.json.ok && typeof r.json.token === "string") return json({ ok: true }, 200, { "set-cookie": setCookie(r.json.token) });
++  if (r.status === 400 && r.json && r.json.error === "invalid") return json({ ok: false, field: r.json.field, message: FIELD_WORDS[r.json.field] || "Please check the form." }, 400);
++  return json({ ok: false, error: "link_expired" });
++}
++
++async function returning(context) {
++  const { request } = context;
++  const { body: b, tooLarge } = await readBody(request, 8 * 1024);
++  if (tooLarge) return json({ ok: false, error: "too_large" }, 413);
++  if (!b || typeof b !== "object") return json({ ok: false, error: "invalid_body" }, 400);
++  if (visitorToken(request)) return json({ ok: true, already: true });
++  const str = (v, n) => (typeof v === "string" ? v.trim().slice(0, n) : "");
++  const r = await crm(context.env, request, "/api/idx/returning", {
++    method: "POST", anonymous: true, userAgent: true,
++    body: { phone: str(b.phone, 40), firstName: str(b.firstName, 80), termsAccepted: b.termsAccepted === true, termsVersion: TERMS_VERSION, termsText: termsText(), turnstileToken: str(b.turnstileToken, 4096), page: str(b.page, 200) || "/homes/" },
++  });
++  if (r.status === 200 && r.json && r.json.ok && typeof r.json.token === "string") return json({ ok: true }, 200, { "set-cookie": setCookie(r.json.token) });
++  if (r.status === 200 && r.json && r.json.error === "not_found") return json({ ok: false, notFound: true });
++  if (r.status === 400 && r.json && r.json.error === "invalid") return json({ ok: false, field: r.json.field, message: FIELD_WORDS[r.json.field] || "Please check the form." }, 400);
++  if (r.status === 429) return json({ ok: false, message: "Too many tries, please wait a minute." }, 429);
++  return json({ ok: false, message: `Sign-in is unavailable right now. Please call ${PHONE}.` }, 503);
++}
++
+ async function route(context, url, path, gate) {
+   // /homes/<MLS#> as the CRM's emails write it: find the listing's own URL.
+   // "terms", "near" and "api" are our own pages, never MLS numbers.
+@@ -288,6 +371,7 @@ async function mapSearch(context, q) {
+     const more = await Promise.all([2, 3].filter((pg) => (pg - 1) * 48 < total).map(get));
+     for (const m of more) if (m.status === 200 && m.json && m.json.ok && Array.isArray(m.json.listings)) listings = listings.concat(m.json.listings);
+   }
++  await withPoints(listings);
+   return { r: first, p, listings, pins: listings.map(pinOf).filter(Boolean), total };
+ }
+ 
+@@ -304,11 +388,20 @@ async function mapPage(context, url, gate) {
+   const where = s.p.get("city") ? ` in ${s.p.get("city")}` : "";
+   const cards = s.listings.slice(0, 48).map((l) => `<div data-mls="${esc(l.mlsNumber)}">${card(l)}</div>`).join("");
+   const pinsJson = JSON.stringify(s.pins).replace(/</g, "\\u003c");
+-  const body = `<div data-hx-map data-key="${esc(mapsKey(context.env))}" data-params="${esc(keep.toString())}">
++  const view = url.searchParams.get("view") === "3d" ? "3d" : "2d";
++  const focus = /^[A-Za-z0-9]{3,20}$/.test(url.searchParams.get("focus") || "") ? url.searchParams.get("focus") : "";
++  // The home a listing page sent us here from is always on the map, even if it is not among the newest.
++  if (focus && !s.pins.some((p) => p.mls === focus)) {
++    const one = await crm(context.env, context.request, `/api/idx/listings/${encodeURIComponent(focus)}?track=0`, { anonymous: true });
++    const l = one.status === 200 && one.json && one.json.ok ? one.json.listing : null;
++    if (l && l.address) { if (!l.point) l.point = await geocode(l); const pin = pinOf(l); if (pin) s.pins.unshift(pin); }
++  }
++  const body = `<div data-hx-map data-key="${esc(mapsKey(context.env))}" data-params="${esc(keep.toString())}" data-view="${view}"${focus ? ` data-focus="${esc(focus)}"` : ""}>
+ <div class="hx-map-top">${crumbs([["/", "Home"], ["/homes/", "Homes for sale"], [null, "Map"]])}<h1>${esc(`Map of homes for sale${where}`)}</h1>
+ <form class="hx-search" method="get" action="/homes/map/" role="search"><div class="hx-q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input name="q" type="search" enterkeyhint="search" autocomplete="off" maxlength="200" aria-label="Search homes on the map" placeholder="Try &quot;waterfront condo in North Myrtle Beach&quot;"><button type="submit">Search</button></div></form>
+ ${appliedChips(s.p).replace(/href="\/homes\//g, 'href="/homes/map/')}<p class="hx-small"><a class="hx-maplist" href="${esc(`/homes/${keep.toString() ? `?${keep.toString()}` : ""}`)}">See these homes as a list</a></p></div>
+ <div class="hx-map-body"><div id="hx-map" class="hx-map" role="region" aria-label="Map of the homes"><button type="button" id="hx-area" class="hx-area" hidden>Search this area</button>
++<div class="hx-mode" role="group" aria-label="Map view"><button type="button" data-mode="2d" aria-pressed="${view === "2d" ? "true" : "false"}">2D</button><button type="button" data-mode="3d" aria-pressed="${view === "3d" ? "true" : "false"}">3D</button></div>
+ <p id="hx-map-note" class="hx-map-note"${s.pins.length ? " hidden" : ""}>${s.pins.length ? "" : "Map pins arrive when the MLS feed adds each home's location. Every home is in the list."}</p></div>
+ <aside class="hx-map-list" aria-label="The homes"><p class="hx-map-count" id="hx-map-count"><b>${esc(s.total.toLocaleString("en-US"))}</b> homes${s.total > s.listings.length ? `, the newest ${esc(s.listings.length)} here` : ""}</p><div id="hx-map-cards" class="hx-map-cards">${cards}</div></aside>
+ <button type="button" class="hx-map-toggle">List</button></div>
+@@ -350,8 +443,16 @@ async function lookup(context, url) {
+     if (!key || !n) return json({ ok: true, found: false });
+     const r = await crm(context.env, context.request, `/api/idx/listings?near=${encodeURIComponent(n.near)}&miles=0.2&size=48`, { anonymous: true });
+     const ls = r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? r.json.listings : [];
+-    const hit = ls.find((l) => l.address && streetKey(l.address) === key);
+-    if (!hit) return json({ ok: true, found: false }, 200, { "cache-control": "public, max-age=300" });
++    let hit = ls.find((l) => l.address && streetKey(l.address) === key);
++    // Not for sale: a signed-up visitor can study a home that sold in the last 24 months
++    // (sold records are for signed-up visitors only, contract §5).
++    const signed = Boolean(visitorToken(context.request));
++    if (!hit && signed) {
++      const s = await crm(context.env, context.request, `/api/idx/listings?near=${encodeURIComponent(n.near)}&miles=0.2&sold=1&size=48`);
++      const sl = s.status === 200 && s.json && s.json.ok && Array.isArray(s.json.listings) ? s.json.listings : [];
++      hit = sl.find((l) => l.address && streetKey(l.address) === key);
++    }
++    if (!hit) return json({ ok: true, found: false, soldNeedsSignup: !signed }, 200, { "cache-control": "private, no-store" });
+     mls = hit.mlsNumber;
+   }
+   const r = await crm(context.env, context.request, `/api/idx/listings/${encodeURIComponent(mls)}?track=0`);
+@@ -371,6 +472,8 @@ async function lookup(context, url) {
+     hoaMonthly, taxAnnual: n(d.TaxAnnualAmount), floodZone: typeof d.FloodZone === "string" ? d.FloodZone : null,
+     stories: n(d.StoriesTotal), newConstruction: d.NewConstructionYN === true,
+     remarks: r.json.tier === "registered" && typeof l.remarks === "string" ? l.remarks.slice(0, 900) : null,
++    soldPrice: r.json.tier === "registered" ? n(l.soldPrice) : null, soldOn: r.json.tier === "registered" && /^\d{4}-\d{2}-\d{2}$/.test(l.soldOn || "") ? l.soldOn : null,
++    daysOnMarket: r.json.tier === "registered" ? n(l.daysOnMarket) : null, originalListPrice: r.json.tier === "registered" ? n(l.originalListPrice) : null,
+   };
+   return json({ ok: true, found: true, facts, meta: r.json.meta || null }, 200, { "cache-control": "private, no-store" });
+ }
+@@ -383,7 +486,8 @@ async function bareListing(context, mls, gate) {
+   if (r.status !== 200 || !r.json || !r.json.ok || !r.json.listing || typeof r.json.listing !== "object") return trouble(context, gate, r, "Home for sale");
+   const to = listingPath(r.json.listing);
+   if (to === `/homes/${mls}/`) return listingPage(context, mls, null, gate);
+-  return Response.redirect(`${SITE}${to}`, 301);
++  // The query string goes along: our emails' sign-in code (k, contract §7g) must survive the 301.
++  return Response.redirect(`${SITE}${to}${new URL(context.request.url).search}`, 301);
+ }
+ 
+ const row = (label, value) => (value === null || value === undefined || value === "" ? "" : `<tr><th scope="row">${esc(label)}</th><td>${esc(value)}</td></tr>`);
+@@ -408,7 +512,7 @@ async function listingPageWith(context, mls, slugPart, gate, r, hearts) {
+   if (r.status !== 200 || !r.json || !r.json.ok || !r.json.listing) return trouble(context, gate, r, "Home for sale");
+   const l = r.json.listing;
+   const own = listingPath(l);
+-  if (slugPart !== null && `/homes/${slugPart}/` !== own) return Response.redirect(`${SITE}${own}`, 301);
++  if (slugPart !== null && `/homes/${slugPart}/` !== own) return Response.redirect(`${SITE}${own}${new URL(context.request.url).search}`, 301);
+   const registered = r.json.tier === "registered";
+   const canonical = `${SITE}${own}`;
+   const photo = safeUrl(l.photo);
+@@ -466,7 +570,13 @@ ${l.listingAgent ? `<p class="hx-firm-line">Listing agent: ${esc(l.listingAgent)
+   const side = `<aside class="hx-side hx-glass" aria-label="Tour or ask about this home"><p class="hx-l-price">${esc(headlinePrice(l))}</p><p class="hx-small">${esc(addressLine(l))}</p>`
+     + `${tourButton(l, "Tour this home", "tour", "hx-primary")}${tourButton(l, "Ask a question", "question")}</aside>`;
+ 
+-  const nearby = await homesNearby(context, l);
++  const [nearby, where] = await Promise.all([homesNearby(context, l), l.address ? (l.point && typeof l.point.lat === "number" ? l.point : geocode(l)) : null]);
++  // Where the home is: a map with its pin. A click opens every home for sale in its town on
++  // the full map, this one lit (owner, 2026-10-25). Never for a withheld address (16.5).
++  const mapHref = `/homes/map/?${new URLSearchParams({ ...(l.city && CITIES.includes(l.city) ? { city: l.city } : {}), focus: l.mlsNumber }).toString()}`;
++  const located = where ? `<section class="hx-loc"><h2>Where it is</h2><a class="hx-loc-map" href="${esc(mapHref)}">`
++    + `<img src="${esc(`https://maps.googleapis.com/maps/api/staticmap?center=${where.lat},${where.lng}&zoom=15&size=640x280&scale=2&markers=color:0x1a73e8%7C${where.lat},${where.lng}&key=${mapsKey(context.env)}`)}" alt="${esc(`Map of ${addressLine(l)}`)}" width="640" height="280" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">`
++    + `<span class="hx-loc-cta">${esc(l.city ? `See every home for sale in ${l.city} on the map` : "See the homes around it on the map")}</span></a></section>` : "";
+   const body = `${crumbs([["/", "Home"], ["/homes/", "Homes for sale"], [null, l.city || "Listing"]])}
+ ${media}
+ <div class="hx-l-grid"><div class="hx-l-info"><div class="hx-l-top">
+@@ -475,7 +585,7 @@ ${media}
+ ${pills}
+ <p class="hx-firm-line">Listed by ${esc(l.listingFirm || "the listing brokerage")}</p>
+ <p class="hx-small"><a class="hx-maplist" href="/invest/long-term-rental/?mls=${esc(encodeURIComponent(l.mlsNumber))}">Run the rental numbers on this home</a></p>
+-${signedBar(r.json.tier)}</div><div class="hx-l-rest">${facts}${more}</div>
++${signedBar(r.json.tier)}</div><div class="hx-l-rest">${facts}${located}${more}</div>
+ </div>${side}</div>
+ ${nearby}
+ ${disclaimer(r.json.meta)}`;
+@@ -557,7 +667,7 @@ function termsPage(context, gate) {
+ 
+ // ── data back to the CRM (contract §7) ──────────────────────────────────────
+ 
+-const FIELD_WORDS = { name: "Please enter your first and last name.", email: "Please check your email.", phone: "Please check your phone number.", termsAccepted: "Please tick the box to accept the terms.", turnstileToken: "Please complete the check above the button." };
++const FIELD_WORDS = { phone: "Please check your phone number.", termsText: "Please reload the page and try again.", name: "Please enter your first and last name.", email: "Please check your email.", phone: "Please check your phone number.", termsAccepted: "Please tick the box to accept the terms.", turnstileToken: "Please complete the check above the button." };
+ 
+ async function register(context) {
+   const { request, env } = context;
+diff --git a/idx-lib/crm.js b/idx-lib/crm.js
+index 16b99dc6..ec556173 100644
+--- a/idx-lib/crm.js
++++ b/idx-lib/crm.js
+@@ -72,7 +72,8 @@ export function visitorToken(request) {
+ }
+ 
+ export const clearCookie = () => `${COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax`;
+-export const setCookie = (token) => `${COOKIE}=${encodeURIComponent(token)}; Path=/; Max-Age=7776000; HttpOnly; Secure; SameSite=Lax`;
++/* A year (contract §7a, since 25 Oct 2026; it was 90 days). */
++export const setCookie = (token) => `${COOKIE}=${encodeURIComponent(token)}; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax`;
+ 
+ /** Is the search on for this request: live, or the owner's preview cookie? */
+ export function idxOn(env, request) {
+diff --git a/idx-lib/edge.js b/idx-lib/edge.js
+index b0e879ff..960730fe 100644
+--- a/idx-lib/edge.js
++++ b/idx-lib/edge.js
+@@ -15,6 +15,7 @@
+  */
+ import { crm, idxOn, visitorToken } from "./crm.js";
+ import { PLACES } from "./places.js";
++import { FEEDS, feedParams, postFilter } from "./feeds.js";
+ import { STYLE, STRIP_STYLE, SCRIPT, disclaimer, esc, safeUrl, signupDialog, stripCard, tourDialog } from "./render.js";
+ 
+ const SLOT = /<div class="hx-strip" data-place="([a-z0-9-]+)" data-name="([^"<>]*)"><\/div>/g;
+@@ -75,8 +76,68 @@ function strip(slug, name, listings, total, noHoa) {
+     + `<a class="hx-s-all" href="${all}" draggable="false">See all ${esc(String(n))} homes in ${name}</a></div>`;
+ }
+ 
++/** Run a feed's searches at once, merged and de-duplicated. "stale", or [listings, total, meta], or null. */
++async function runFeed(env, request, feed) {
++  const calls = (feed.q || []).map((q) => {
++    const p = feedParams(q);
++    if (!p) return null;
++    p.set("size", feed.q.length > 1 ? "24" : "48");
++    return crm(env, request, `/api/idx/listings?${p.toString()}`, { anonymous: true, timeoutMs: STRIP_BUDGET_MS - 500 }).catch(() => null);
++  });
++  let timer;
++  const late = new Promise((done) => { timer = setTimeout(() => done(null), STRIP_BUDGET_MS); });
++  const answers = await Promise.race([Promise.all(calls), late]);
++  clearTimeout(timer);
++  if (!answers) return null;
++  if (answers.some((r) => r && r.status === 503 && r.json && r.json.error === "stale")) return "stale";
++  const seen = new Set(), out = [];
++  let total = 0, meta = null;
++  for (const r of answers) {
++    if (!r || r.status !== 200 || !r.json || !r.json.ok || !Array.isArray(r.json.listings)) continue;
++    meta = meta || r.json.meta;
++    total += typeof r.json.total === "number" ? r.json.total : r.json.listings.length;
++    for (const l of r.json.listings) if (l && !seen.has(l.mlsNumber)) { seen.add(l.mlsNumber); out.push(l); }
++  }
++  const kept = postFilter(out, feed.post);
++  return [kept, feed.post ? kept.length : total, meta];
++}
++
++/** The article's feed: a section like the page's own, placed after its second section. */
++function feedSection(feed, listings, total) {
++  const all = `/homes/${feed.link ? `?${feed.link}` : ""}`;
++  const n = esc(total.toLocaleString("en-US"));
++  return `<section class="hx-feed"><div class="wrap"><div class="hx-strip hx-feed-strip" data-feed="1">`
++    + `<p class="hx-feed-eb">Live from the MLS</p>`
++    + `<p class="hx-s-head"><b class="hx-feed-h">${esc(feed.head)}</b><a href="${esc(all)}">See all ${n}</a></p>`
++    + `<div class="hx-s-row">${spread(listings).map((l) => stripCard(l, false)).join("")}`
++    + `<a class="hx-s-all" href="${esc(all)}" draggable="false">See all ${n} homes</a></div></div></div></section>`;
++}
++
++/** Where the feed goes: before the third section of the article, else before its second <h2>, else at the end. */
++export function placeFeed(html, block) {
++  const a = html.indexOf("<main"), z = html.indexOf("</main>");
++  if (a < 0 || z < 0) return html;
++  const main = html.slice(a, z);
++  const secs = [...main.matchAll(/<section\b/g)].map((m) => m.index);
++  let at = secs.length >= 3 ? secs[2] : -1;
++  if (at < 0) { const h2 = [...main.matchAll(/<h2\b/g)].map((m) => m.index); at = h2.length >= 2 ? h2[1] : main.length; }
++  return html.slice(0, a + at) + block + html.slice(a + at);
++}
++
+ const switchHeader = (html) => html.replace(/onclick="openIdx\(\)"/g, `onclick="location.href='/homes/'"`);
+ 
++/** The styles, the notice, the dialogs and the script, once, on a page that now shows listings. */
++function finish(env, request, gate, html, meta, headers) {
++  const signed = Boolean(visitorToken(request));
++  html = html
++    .replace("</head>", () => `${STYLE}${STRIP_STYLE}</head>`)
++    .replace(/<body([^>]*)>/, (m, a) => `<body${a} data-hx-signed="${signed ? "1" : "0"}">`)
++    .replace("</main>", () => `<div class="hx-wrap" style="padding-top:0">${disclaimer(meta)}</div></main>`)
++    .replace("</body>", () => `${signupDialog(env.TURNSTILE_SITE_KEY)}${tourDialog()}${SCRIPT}</body>`);
++  headers.set("cache-control", signed || gate.preview ? "private, no-store" : "public, max-age=300");
++  return new Response(html, { status: 200, headers });
++}
++
+ /** The response with the listing search's additions, or untouched. Never throws. */
+ export async function withIdx(context, response) {
+   let text = null;
+@@ -95,6 +156,16 @@ export async function withIdx(context, response) {
+     headers.delete("etag");
+     headers.delete("last-modified");
+     const slots = url.pathname.startsWith("/homes") ? [] : [...html.matchAll(SLOT)];
++    const feed = !slots.length && !html.includes('class="hx-strip"') ? FEEDS[url.pathname] : null;
++    if (feed) {
++      // Too few homes for the topic: the fallback, or the Grand Strand's newest, under its own title.
++      let used = feed;
++      let got = await runFeed(env, request, used);
++      if (got && got !== "stale" && got[0].length < STRIP_MIN) { used = feed.fallback || FEEDS["/buyers/"]; got = await runFeed(env, request, used); }
++      if (!got || got === "stale" || got[0].length < STRIP_MIN) return new Response(html, { status: 200, headers });
++      html = placeFeed(html, feedSection(used, got[0], got[1]));
++      return finish(env, request, gate, html, got[2], headers);
++    }
+     if (!slots.length) return new Response(html, { status: 200, headers });
+ 
+     const slugs = [...new Set(slots.map((m) => m[1]))].filter((s) => PLACES[s]);
+@@ -125,14 +196,7 @@ export async function withIdx(context, response) {
+       const f = filled.get(slug);
+       return f ? `<div class="hx-strip" data-place="${slug}" data-name="${name}">${strip(slug, name, f[0], f[1], PLACES[slug].q.hoa !== undefined)}</div>` : whole;
+     });
+-    const signed = Boolean(visitorToken(request));
+-    html = html
+-      .replace("</head>", () => `${STYLE}${STRIP_STYLE}</head>`)
+-      .replace(/<body([^>]*)>/, (m, a) => `<body${a} data-hx-signed="${signed ? "1" : "0"}">`)
+-      .replace("</main>", () => `<div class="hx-wrap" style="padding-top:0">${disclaimer(meta)}</div></main>`)
+-      .replace("</body>", () => `${signupDialog(env.TURNSTILE_SITE_KEY)}${tourDialog()}${SCRIPT}</body>`);
+-    headers.set("cache-control", signed || gate.preview ? "private, no-store" : "public, max-age=300");
+-    return new Response(html, { status: 200, headers });
++    return finish(env, request, gate, html, meta, headers);
+   } catch {
+     return text === null ? response : new Response(text, { status: response.status, headers: response.headers });
+   }
+diff --git a/idx-lib/feeds.js b/idx-lib/feeds.js
+new file mode 100644
+index 00000000..b4f36e57
+--- /dev/null
++++ b/idx-lib/feeds.js
+@@ -0,0 +1,159 @@
++/**
++ * A homes feed on every article (owner, 2026-10-25: "every blog needs an IDX feed on it
++ * that is pre filtered to what that blog is about"). One entry per page: the title over
++ * the strip, and the searches that fill it (contract §5 parameters only, validated by
++ * placeParams/feedParams before they reach the CRM). Several searches are merged, so a
++ * page about three communities shows homes in all three. `post` narrows the answer
++ * after it comes back (built after a year; built before a year), for topics the
++ * search has no filter for. `link` is the "See all" search on /homes/.
++ *
++ * A feed that finds fewer than 3 homes shows its `fallback` (or the Grand Strand's newest
++ * homes), so no article is left with an empty strip.
++ *
++ * Pages that already carry homes strips (batch 2026-10-b) are left out: edge.js fills
++ * their own slots. A page not listed here gets no feed.
++ */
++const Y = new Date().getUTCFullYear();
++
++const ANY = { head: "Homes for sale on the Grand Strand now", q: [{}], link: "" };
++const HOUSES = { head: "Houses for sale on the Grand Strand now", q: [{ type: "house" }], link: "type=house" };
++const CONDOS = { head: "Condos for sale on the Grand Strand now", q: [{ type: "condo" }], link: "type=condo" };
++const town = (city) => ({ head: `Homes for sale in ${city} now`, q: [{ city }], link: `city=${encodeURIComponent(city)}` });
++const STARTER = { head: "Homes for sale under $300,000", q: [{ type: "house", max: "300000" }, { type: "condo", max: "300000" }], link: "max=300000" };
++const RENTAL_HOUSES = { head: "Houses for sale under $350,000", q: [{ type: "house", max: "350000" }], link: "type=house&max=350000" };
++const STR_CONDOS = { head: "Condos for sale in Myrtle Beach and North Myrtle Beach", q: [{ type: "condo", city: "Myrtle Beach" }, { type: "condo", city: "North Myrtle Beach" }], link: "type=condo" };
++const MULTI = { head: "2 to 4 unit properties for sale", q: [{ type: "multi" }], link: "type=multi" };
++const NEWER = { head: "Homes built in the last two years", q: [{ type: "house" }], post: { yearMin: Y - 1 }, link: "type=house" };
++const OLDER = { head: "Older houses under $300,000", q: [{ type: "house", max: "300000" }], post: { yearMax: 1995 }, link: "type=house&max=300000" };
++const FIFTY_FIVE = { head: "Homes for sale in 55+ communities", q: [{ subdivision: "Del Webb" }, { subdivision: "Myrtle Trace" }, { subdivision: "Seasons at Prince Creek" }], link: "subdivision=Del%20Webb" };
++const GOLF = { head: "Homes for sale in golf communities", q: [{ subdivision: "Barefoot" }, { subdivision: "Grande Dunes" }, { subdivision: "Prestwick" }, { subdivision: "Tidewater" }], link: "" };
++const WATER = { head: "Waterfront homes for sale now", q: [{ waterfront: "1" }], link: "waterfront=1" };
++
++export const FEEDS = {
++  "/buyers/": ANY,
++  "/buyers/buying-in-myrtle-beach/": town("Myrtle Beach"),
++  "/buyers/common-mistakes/": ANY,
++  "/buyers/first-time-home-buyer-myrtle-beach/": STARTER,
++  "/buyers/programs/": STARTER,
++  "/buyers/va-loans/": { head: "Houses for sale under $400,000", q: [{ type: "house", max: "400000" }], link: "type=house&max=400000" },
++  "/buyers/retirees/": FIFTY_FIVE,
++  "/buyers/second-home/": STR_CONDOS,
++  "/buyers/new-construction/": NEWER,
++  "/buyers/cost-to-own/": HOUSES,
++  "/buyers/waterfront-homes/": WATER,
++  "/buyers/golf-communities/": GOLF,
++  "/buyers/condo-in-litigation/": CONDOS,
++  "/buyers/undisclosed-flooding/": HOUSES,
++  "/buyers/property-taxes/": HOUSES,
++  "/buyers/coastal-insurance/": WATER,
++  "/buyers/closing-costs/": ANY,
++  "/buyers/55-plus-communities/": FIFTY_FIVE,
++  "/buyers/55-plus-communities/del-webb-north-myrtle-beach/": { head: "Homes for sale in Del Webb North Myrtle Beach", q: [{ subdivision: "Del Webb", city: "North Myrtle Beach" }], link: "subdivision=Del%20Webb" },
++  "/buyers/55-plus-communities/del-webb-grande-dunes/": { head: "Homes for sale in Del Webb at Grande Dunes", q: [{ subdivision: "Del Webb", city: "Myrtle Beach" }], link: "subdivision=Del%20Webb" },
++  "/buyers/55-plus-communities/myrtle-trace/": { head: "Homes for sale in Myrtle Trace", q: [{ subdivision: "Myrtle Trace" }], link: "subdivision=Myrtle%20Trace" },
++  "/buyers/55-plus-communities/seasons-at-prince-creek-west/": { head: "Homes for sale in Seasons at Prince Creek", q: [{ subdivision: "Seasons at Prince Creek" }], link: "subdivision=Seasons%20at%20Prince%20Creek" },
++  "/buyers/relocating/": ANY,
++  "/buyers/relocating/cost-of-living/": STARTER,
++  "/buyers/relocating/pros-and-cons/": ANY,
++  "/buyers/relocating/moving-checklist/": ANY,
++  "/buyers/relocating/schools/": { head: "Houses with 3 or more bedrooms for sale", q: [{ type: "house", beds: "3" }], link: "type=house&beds=3" },
++  "/buyers/relocating/which-town/": ANY,
++  "/buyers/relocating/jobs/": HOUSES,
++  "/buyers/relocating/healthcare/": HOUSES,
++  "/buyers/relocating/hurricanes/": HOUSES,
++  "/buyers/relocating/weather/": ANY,
++  "/buyers/relocating/getting-around/": ANY,
++  "/buyers/relocating/why-myrtle-beach/": town("Myrtle Beach"),
++  "/buyers/relocating/beaches/": STR_CONDOS,
++  ...Object.fromEntries(["new-york", "north-carolina", "ohio", "maryland", "virginia", "connecticut", "massachusetts", "new-jersey", "pennsylvania", "florida"].map((s) => [`/buyers/relocating/from-${s}/`, ANY])),
++  "/submarkets/": ANY,
++  "/submarkets/conway/": town("Conway"),
++  "/submarkets/garden-city/": town("Garden City"),
++  "/submarkets/little-river/": town("Little River"),
++  "/submarkets/murrells-inlet/": town("Murrells Inlet"),
++  "/submarkets/myrtle-beach/": town("Myrtle Beach"),
++  "/submarkets/north-myrtle-beach/": town("North Myrtle Beach"),
++  "/submarkets/pawleys-island/": town("Pawleys Island"),
++  "/submarkets/surfside-beach/": town("Surfside Beach"),
++  "/submarkets/carolina-forest/": { head: "Homes for sale in Carolina Forest now", q: [{ subdivision: "Carolina Forest" }], link: "subdivision=Carolina%20Forest", fallback: town("Myrtle Beach") },
++  "/invest/": STR_CONDOS,
++  "/invest/str-vs-ltr/": STR_CONDOS,
++  "/invest/condos/": CONDOS,
++  "/invest/condotel-financing/": STR_CONDOS,
++  "/invest/non-warrantable-condos/": CONDOS,
++  "/invest/condo-buildings/": STR_CONDOS,
++  "/invest/airbnb-income/": STR_CONDOS,
++  "/invest/str-rules/": STR_CONDOS,
++  "/invest/str-setup/": STR_CONDOS,
++  "/invest/str-tax-treatment/": STR_CONDOS,
++  "/invest/accommodations-tax/": STR_CONDOS,
++  "/invest/14-day-rule/": STR_CONDOS,
++  "/invest/rental-program-vs-airbnb/": STR_CONDOS,
++  "/invest/j1-rentals/": { head: "Condos for sale in Myrtle Beach", q: [{ type: "condo", city: "Myrtle Beach" }], link: "type=condo&city=Myrtle%20Beach" },
++  "/invest/canadian-buyers/": { head: "Condos for sale in North Myrtle Beach", q: [{ type: "condo", city: "North Myrtle Beach" }], link: "type=condo&city=North%20Myrtle%20Beach" },
++  "/invest/cost-segregation/": STR_CONDOS,
++  "/invest/rental-depreciation/": RENTAL_HOUSES,
++  "/invest/run-the-numbers/": RENTAL_HOUSES,
++  "/invest/out-of-state/": RENTAL_HOUSES,
++  "/invest/property-management/": RENTAL_HOUSES,
++  "/invest/cash-to-close/": RENTAL_HOUSES,
++  "/invest/where-to-buy/": RENTAL_HOUSES,
++  "/invest/mid-term-rentals/": RENTAL_HOUSES,
++  "/invest/student-rentals/": { head: "Houses for sale in Conway", q: [{ type: "house", city: "Conway" }], link: "type=house&city=Conway" },
++  "/invest/landlord-rules/": RENTAL_HOUSES,
++  "/invest/llc/": RENTAL_HOUSES,
++  "/invest/foreclosures/": OLDER,
++  "/invest/section-8-rentals/": { head: "Houses under $250,000", q: [{ type: "house", max: "250000" }], link: "type=house&max=250000" },
++  "/invest/new-construction-rentals/": NEWER,
++  "/invest/financing-multiple-rentals/": RENTAL_HOUSES,
++  "/invest/landlord-insurance/": RENTAL_HOUSES,
++  "/invest/rent-prices/": RENTAL_HOUSES,
++  "/invest/rental-returns/": RENTAL_HOUSES,
++  "/invest/how-long-to-hold/": RENTAL_HOUSES,
++  "/invest/what-is-being-built/": NEWER,
++  "/invest/strategies/": RENTAL_HOUSES,
++  "/invest/strategies/dscr-loans/": RENTAL_HOUSES,
++  "/invest/strategies/brrrr/": OLDER,
++  "/invest/strategies/fix-and-flip/": OLDER,
++  "/invest/strategies/1031-exchange/": MULTI,
++  "/invest/strategies/dst/": MULTI,
++  "/invest/strategies/small-multifamily/": MULTI,
++  "/hoa/": CONDOS,
++  ...Object.fromEntries(["special-assessments", "reserves", "documents", "rental-restrictions", "liens-and-foreclosure", "south-carolina-hoa-laws", "master-insurance-ho6", "who-pays-for-damage", "violations-and-fines", "estoppel-and-transfer-fees", "dues-increases", "tax-deductible"].map((s) => [`/hoa/${s}/`, CONDOS])),
++  "/hoa/hoa-vs-poa/": HOUSES,
++  "/hoa/benefits/": HOUSES,
++  "/hoa/developer-control-turnover/": NEWER,
++  "/sell/": ANY,
++  "/sell/home-value/": ANY,
++  "/sell/net-proceeds/": ANY,
++  "/sell/fsbo/": ANY,
++  "/sell/out-of-state-buyers/": ANY,
++  "/sell/inherited-house/": HOUSES,
++  "/sell/rental-property/": RENTAL_HOUSES,
++  "/sell/sell-my-condo/": CONDOS,
++  "/sell/capital-gains/": ANY,
++  "/market-reports/": ANY,
++  "/market-reports/july-2026/": ANY,
++};
++
++const SUB = /^[A-Za-z0-9 .,'&()\/-]{2,80}$/;
++const TYPES = ["house", "condo", "townhouse", "manufactured", "multi", "land"];
++const CITY = /^[A-Za-z .'-]{2,40}$/;
++
++/** One feed search as CRM parameters, from validated parts only; null if a part is bad. */
++export function feedParams(q) {
++  const p = new URLSearchParams();
++  if (q.city !== undefined) { if (!CITY.test(q.city)) return null; p.set("city", q.city); }
++  if (q.subdivision !== undefined) { if (!SUB.test(q.subdivision)) return null; p.set("subdivision", q.subdivision); }
++  if (q.type !== undefined) { if (!TYPES.includes(q.type)) return null; p.set("type", q.type); }
++  for (const k of ["max", "min", "beds"]) if (q[k] !== undefined) { if (!/^\d{1,9}$/.test(q[k])) return null; p.set(k, q[k]); }
++  if (q.waterfront !== undefined) { if (q.waterfront !== "1") return null; p.set("waterfront", "1"); }
++  return p;
++}
++
++/** The answer narrowed by `post`. */
++export function postFilter(listings, post) {
++  if (!post) return listings;
++  return listings.filter((l) => (post.yearMin === undefined || (typeof l.yearBuilt === "number" && l.yearBuilt >= post.yearMin))
++    && (post.yearMax === undefined || (typeof l.yearBuilt === "number" && l.yearBuilt <= post.yearMax)));
++}
+diff --git a/idx-lib/map.js b/idx-lib/map.js
+index 1edc93b3..bbd78177 100644
+--- a/idx-lib/map.js
++++ b/idx-lib/map.js
+@@ -36,6 +36,41 @@ export function pinOf(l) {
+   };
+ }
+ 
++/**
++ * Until the CRM puts the map point on the public card (its branch website/public-map-points),
++ * a home with an address is placed from the US Census geocoder: free, public, no key. Each
++ * answer is kept 30 days. A withheld address is never looked up (CCMLS 16.5).
++ */
++const CENSUS = "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress";
++export async function geocode(l) {
++  if (!l || !l.address || !l.city) return null;
++  const line = `${l.address}, ${l.city}, ${l.state || "SC"}${l.postalCode ? ` ${l.postalCode}` : ""}`;
++  const url = `${CENSUS}?address=${encodeURIComponent(line)}&benchmark=Public_AR_Current&format=json`;
++  const cache = typeof caches !== "undefined" ? caches.default : null;
++  const key = cache ? new Request(`https://chapter3realty.com/__geo-cache/${encodeURIComponent(line.toLowerCase())}`) : null;
++  try {
++    if (key) { const hit = await cache.match(key); if (hit) { const j = await hit.json(); return j && typeof j.lat === "number" ? j : null; } }
++    const r = await fetch(url, { signal: AbortSignal.timeout(2500) });
++    const j = await r.json();
++    const m = j && j.result && Array.isArray(j.result.addressMatches) ? j.result.addressMatches[0] : null;
++    const pt = m && m.coordinates && typeof m.coordinates.y === "number" ? { lat: m.coordinates.y, lng: m.coordinates.x } : null;
++    const ok = pt && pt.lat >= 31 && pt.lat <= 37 && pt.lng >= -82 && pt.lng <= -75 ? pt : null;
++    if (key) await cache.put(key, new Response(JSON.stringify(ok || {}), { headers: { "content-type": "application/json", "cache-control": `public, max-age=${ok ? 2592000 : 86400}` } }));
++    return ok;
++  } catch { return null; }
++}
++
++/** Fill in missing map points from the geocoder, within a time budget; the rest stay without a pin. */
++export async function withPoints(listings, budgetMs = 3000, max = 48) {
++  const need = listings.filter((l) => l && !l.point && l.address).slice(0, max);
++  if (!need.length) return listings;
++  let timer;
++  const late = new Promise((done) => { timer = setTimeout(done, budgetMs); });
++  await Promise.race([Promise.all(need.map(async (l) => { const pt = await geocode(l); if (pt && !l.point) l.point = pt; })), late]);
++  clearTimeout(timer);
++  return listings;
++}
++
+ /** A validated map point and radius from "lat,lng" and miles, or null. */
+ export function nearOf(near, miles) {
+   const m = /^(-?\d+(?:\.\d+)?),\s?(-?\d+(?:\.\d+)?)$/.exec(String(near || ""));
+@@ -59,6 +94,11 @@ export const MAP_STYLE = `<style>
+ .hx-area{position:absolute;top:1rem;left:50%;transform:translateX(-50%);z-index:5;border:0;border-radius:999px;background:#1c2028;color:#fff;font:inherit;font-weight:700;padding:.65rem 1.2rem;box-shadow:0 8px 24px rgba(28,32,40,.3);cursor:pointer}
+ .hx-map-note{position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:5;max-width:30rem;margin:0 auto;padding:.8rem 1rem;border-radius:14px;background:rgba(255,255,255,.92);box-shadow:0 8px 24px rgba(28,32,40,.18);font-size:.9rem;text-align:center}
+ .hx-map-toggle{display:none}
++.hx-mode{position:absolute;top:1rem;right:1rem;z-index:6;display:flex;padding:3px;border-radius:999px;background:rgba(255,255,255,.95);box-shadow:0 6px 20px rgba(28,32,40,.2)}
++.hx-mode button{border:0;background:none;font:inherit;font-weight:700;font-size:.88rem;padding:.45rem .95rem;border-radius:999px;cursor:pointer;color:#1c2028}
++.hx-mode button[aria-pressed="true"]{background:#1c2028;color:#fff}
++.hx-map3d{position:absolute;inset:0;z-index:3;background:#1c2028}.hx-map3d[hidden]{display:none}.hx-map3d gmp-map-3d{width:100%;height:100%;display:block}
++.hx-map3d-off{display:flex;align-items:center;justify-content:center;color:#f4efe8;padding:2rem;text-align:center}
+ .hx-pop{position:absolute;left:50%;bottom:1rem;transform:translateX(-50%);z-index:6;width:min(22rem,calc(100% - 2rem))}
+ .hx-pop .hx-x{top:.4rem;right:.4rem;z-index:2;background:rgba(255,255,255,.9)}
+ .hx-pop .hx-c-link{display:grid;grid-template-columns:7.5rem minmax(0,1fr)}.hx-pop .hx-c-photo{aspect-ratio:auto;height:100%;min-height:7rem}.hx-pop .hx-c-body{padding:.6rem .8rem;padding-right:2.4rem}.hx-pop .hx-c-price{font-size:1.15rem}.hx-pop .hx-c-firm,.hx-pop .hx-c-tag{display:none}
+@@ -90,17 +130,17 @@ function card(p){var a=el("article","hx-c"),l=el("a","hx-c-link");l.href=p.url;a
+ function showList(ps,total){while(list.firstChild)list.removeChild(list.firstChild);ps.forEach(function(p){list.appendChild(card(p))});
+  count.textContent="";var bb=el("b",null,(total||ps.length).toLocaleString("en-US"));count.appendChild(bb);count.appendChild(document.createTextNode(" homes"+(total>ps.length?", "+ps.length+" on the map":"")))}
+ if(!key)return;
+-(function(g){var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=function(){return h||(h=new Promise(function(f,n){a=m.createElement("script");e.set("libraries",Array.from(r)+"");for(k in g)e.set(k.replace(/[A-Z]/g,function(t){return"_"+t[0].toLowerCase()}),g[k]);e.set("callback",c+".maps."+q);a.src="https://maps.googleapis.com/maps/api/js?"+e;d[q]=f;a.onerror=function(){h=n(Error(p+" could not load."))};m.head.append(a)}))};d[l]?0:d[l]=function(f){var n=Array.prototype.slice.call(arguments,1);r.add(f);return u().then(function(){return d[l].apply(d,[f].concat(n))})}})({key:key,v:"weekly"});
++(function(g){var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=function(){return h||(h=new Promise(function(f,n){a=m.createElement("script");e.set("libraries",Array.from(r)+"");for(k in g)e.set(k.replace(/[A-Z]/g,function(t){return"_"+t[0].toLowerCase()}),g[k]);e.set("callback",c+".maps."+q);a.src="https://maps.googleapis.com/maps/api/js?"+e;d[q]=f;a.onerror=function(){h=n(Error(p+" could not load."))};m.head.append(a)}))};d[l]?0:d[l]=function(f){var n=Array.prototype.slice.call(arguments,1);r.add(f);return u().then(function(){return d[l].apply(d,[f].concat(n))})}})({key:key,v:"beta"});
+ google.maps.importLibrary("maps").then(function(lib){
+  var map=new lib.Map(document.getElementById("hx-map"),{center:{lat:33.70,lng:-78.92},zoom:10,mapTypeControl:false,streetViewControl:false,fullscreenControl:false,clickableIcons:false,gestureHandling:"greedy"});
+- var marks=[],pop=null,moved=false,hot=null;
++ var marks=[],pop=null,moved=false,hot=null,lastPins=null;
+  function dot(on){return{path:google.maps.SymbolPath.CIRCLE,scale:on?9:6.5,fillColor:on?"#0b57d0":"#1a73e8",fillOpacity:1,strokeColor:"#fff",strokeWeight:2}}
+  function pill(p,on){var w=Math.max(46,p.short.length*8+16);var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="26"><rect x="1" y="1" width="'+(w-2)+'" height="24" rx="12" fill="'+(on?"#0b57d0":"#1a73e8")+'" stroke="#fff" stroke-width="2"/></svg>';
+   return{url:"data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg),scaledSize:new google.maps.Size(w,26),anchor:new google.maps.Point(w/2,13),labelOrigin:new google.maps.Point(w/2,13)}}
+  function style(m,on){var close=map.getZoom()>=14;m.setIcon(close?pill(m.p,on):dot(on));m.setLabel(close?{text:m.p.short||"Home",color:"#fff",fontSize:"12px",fontWeight:"700"}:null);m.setZIndex(on?1000:1)}
+  function hilite(mls){marks.forEach(function(m){style(m,m.p.mls===mls)});Array.prototype.forEach.call(list.children,function(c){c.classList.toggle("hx-hot",c.getAttribute("data-mls")===mls)})}
+  function popup(p){if(pop)pop.remove();pop=el("div","hx-pop");var x=el("button","hx-x","\\u00d7");x.type="button";x.setAttribute("aria-label","Close");x.addEventListener("click",function(){pop.remove();pop=null});pop.appendChild(x);var cd=card(p);var ht=cd.querySelector(".hx-heart");if(ht)ht.remove();pop.appendChild(cd);document.getElementById("hx-map").appendChild(pop)}
+- function draw(ps,fit){marks.forEach(function(m){m.setMap(null)});marks=[];var bounds=new google.maps.LatLngBounds();
++ function draw(ps,fit){lastPins=ps;marks.forEach(function(m){m.setMap(null)});marks=[];var bounds=new google.maps.LatLngBounds();
+   ps.forEach(function(p){var m=new google.maps.Marker({position:{lat:p.lat,lng:p.lng},map:map,title:p.price+", "+p.addr});m.p=p;style(m,false);bounds.extend(m.getPosition());
+    m.addListener("click",function(){hilite(p.mls);var c=list.querySelector('[data-mls="'+p.mls+'"]');if(c&&window.innerWidth>=900)c.scrollIntoView({behavior:"smooth",block:"nearest"});if(window.innerWidth<900)popup(p)});marks.push(m)});
+   if(fit&&ps.length){map.fitBounds(bounds,48);google.maps.event.addListenerOnce(map,"idle",function(){if(map.getZoom()>15)map.setZoom(15);moved=false;area.hidden=true})}
+@@ -114,5 +154,25 @@ google.maps.importLibrary("maps").then(function(lib){
+   area.hidden=true;count.textContent="Searching this area...";
+   fetch("/homes/api/map?"+u.toString(),{credentials:"same-origin"}).then(function(r){return r.json()}).then(function(j){if(!j.ok){count.textContent=j.error==="stale"?"The listing search is being refreshed. Please try again in a few minutes.":"Please try again in a minute.";return}showList(j.pins,j.total);draw(j.pins,false)}).catch(function(){count.textContent="Please try again in a minute."})});
+  draw(pins,true);
++ /* A home from a listing page: light it and fly to it. */
++ var focus=app.getAttribute("data-focus");if(focus){var fm=null;marks.forEach(function(m){if(m.p.mls===focus)fm=m});
++  if(fm){google.maps.event.addListenerOnce(map,"idle",function(){map.setCenter(fm.getPosition());map.setZoom(15);hot=focus;hilite(focus)})}}
++ /* 2D or 3D, one page (owner, 2026-10-25). 3D is Google's photorealistic map with the same blue dots. */
++ var box3=null,map3=null,marks3=[],btns=$$("[data-mode]");
++ function $$(q){return Array.prototype.slice.call(document.querySelectorAll(q))}
++ function setMode(m){btns.forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-mode")===m?"true":"false")});
++  if(m==="2d"){if(box3)box3.hidden=true;return}
++  area.hidden=true;
++  if(box3){box3.hidden=false;return}
++  box3=el("div","hx-map3d");document.getElementById("hx-map").appendChild(box3);
++  Promise.all([google.maps.importLibrary("maps3d"),google.maps.importLibrary("marker").catch(function(){return{}})]).then(function(libs){var L=libs[0],Pin=libs[1].PinElement;
++   var c=map.getCenter();map3=new L.Map3DElement({center:{lat:c.lat(),lng:c.lng(),altitude:0},range:Math.max(1500,Math.min(60000,40000/Math.pow(2,map.getZoom()-10))),tilt:62,heading:20,mode:"HYBRID"});
++   box3.appendChild(map3);
++   (lastPins||pins).forEach(function(p){var mk=new L.Marker3DInteractiveElement({position:{lat:p.lat,lng:p.lng,altitude:0},altitudeMode:L.AltitudeMode.CLAMP_TO_GROUND,title:p.price+", "+p.addr});
++    if(Pin){try{mk.append(new Pin({background:"#1a73e8",borderColor:"#ffffff",glyphColor:"#ffffff",scale:.7}))}catch(x){}}
++    mk.addEventListener("gmp-click",function(){popup(p)});map3.append(mk);marks3.push(mk)});
++  }).catch(function(){box3.textContent="The 3D map could not load here. The 2D map still works.";box3.className="hx-map3d hx-map3d-off"})}
++ btns.forEach(function(b){b.addEventListener("click",function(){setMode(b.getAttribute("data-mode"))})});
++ if(app.getAttribute("data-view")==="3d")setMode("3d");
+ }).catch(function(){note.hidden=false;note.textContent="The map could not load. The list of homes is on the right."});
+ })();</script>`;
+diff --git a/idx-lib/render.js b/idx-lib/render.js
+index 5837fd00..9559804e 100644
+--- a/idx-lib/render.js
++++ b/idx-lib/render.js
+@@ -144,7 +144,29 @@ export function signupDialog(siteKey) {
+ ${siteKey ? `<div class="cf-turnstile" data-sitekey="${esc(siteKey)}"></div>` : ""}
+ <p class="hx-error" role="alert" hidden></p>
+ <button class="btn btn-brass" type="submit" disabled>See full details</button>
+-<p class="hx-d-fine">We never sell your information.</p>
++<p class="hx-d-fine">We never sell your information. <button type="button" class="hx-linkbtn" data-hx-returning>Already working with us?</button></p>
++</form>
++<form id="hx-returning-form" novalidate hidden>
++<button type="button" class="hx-x" data-hx-close aria-label="Close">&times;</button>
++<div class="hx-d-head"><div><h2>Already working with us?</h2><p class="hx-d-sub">Your mobile number and first name are enough.</p></div></div>
++<div class="hx-row2"><label>Mobile phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="40"></label><label>First name<input name="firstName" autocomplete="given-name" required maxlength="80"></label></div>
++<label class="hx-check"><input type="checkbox" name="termsAccepted"><span>I agree to the <a href="/homes/terms/" target="_blank" rel="noopener">listing search terms of use</a>.</span></label>
++${siteKey ? `<div class="cf-turnstile" data-sitekey="${esc(siteKey)}"></div>` : ""}
++<p class="hx-error" role="alert" hidden></p>
++<button class="btn btn-brass" type="submit" disabled>Sign in</button>
++<p class="hx-d-fine"><button type="button" class="hx-linkbtn" data-hx-newsignup>New here? Sign up instead</button></p>
++</form></dialog>`;
++}
++
++/** Our emails' links sign a client in; when the CRM needs the terms first, this one-tap box (contract §7g). */
++export function welcomeDialog(w) {
++  return `<dialog id="hx-welcome" class="hx-dialog" aria-labelledby="hx-welcome-title" data-k="${esc(w.k)}">
++<form id="hx-welcome-form" novalidate>
++<button type="button" class="hx-x" data-hx-close aria-label="Close">&times;</button>
++<div class="hx-d-head"><div><h2 id="hx-welcome-title">${esc(w.firstName ? `Welcome back, ${w.firstName}` : "Welcome back")}</h2><p class="hx-d-sub">One tap and you see every photo and detail.</p></div></div>
++<label class="hx-check"><input type="checkbox" name="termsAccepted"><span>I agree to the <a href="/homes/terms/" target="_blank" rel="noopener">listing search terms of use</a>.</span></label>
++<p class="hx-error" role="alert" hidden></p>
++<button class="btn btn-brass" type="submit" disabled>Continue</button>
+ </form></dialog>`;
+ }
+ 
+@@ -273,7 +295,13 @@ main#main .hx-s-row>.hx-c:hover{transform:none}
+ .hx-sort{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;color:var(--slate,#5c6b78)}.hx-sort select{border:1px solid rgba(28,32,40,.18);border-radius:999px;background:#fff;font:inherit;font-size:.9rem;padding:.4rem .8rem;color:var(--ink,#1c2028)}
+ .hx-pager a,.hx-pager span{padding:.55rem 1rem;border-radius:999px;border:1px solid rgba(28,32,40,.15);background:#fff;text-decoration:none;color:var(--ink,#1c2028);font-weight:600}.hx-pager span{border:0;background:none}
+ .hx-maplist{color:var(--brass-ink,#91592b);font-weight:600}
++.hx-loc h2{margin-top:1.6rem}
++.hx-loc-map{position:relative;display:block;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(28,32,40,.10);text-decoration:none}
++.hx-loc-map img{display:block;width:100%;height:auto;aspect-ratio:640/280;object-fit:cover;background:#e9e5dc}
++.hx-loc-cta{position:absolute;left:.8rem;bottom:.8rem;padding:.55rem 1rem;border-radius:999px;background:#1c2028;color:#fff;font-weight:700;font-size:.9rem;box-shadow:0 6px 18px rgba(0,0,0,.25)}
++.hx-loc-map:hover .hx-loc-cta{background:#1a73e8}
+ .hx-d-fine{font-size:.72rem;color:var(--slate,#5c6b78);line-height:1.45;margin:0;text-align:center}
++.hx-linkbtn{border:0;background:none;padding:0;font:inherit;font-weight:700;color:var(--brass-ink,#91592b);text-decoration:underline;cursor:pointer}
+ .hx-d-perks{display:flex;flex-wrap:wrap;gap:.35rem;list-style:none;margin:0;padding:0}.hx-d-perks li{padding:.28rem .65rem;border-radius:999px;background:#f4efe8;font-size:.8rem;font-weight:600}
+ .hx-dialog .hx-terms summary{cursor:pointer;color:var(--slate,#5c6b78)}
+ .hx-tour.hx-primary{background:var(--brass-ink,#91592b);border-color:var(--brass-ink,#91592b);color:#fff}
+@@ -320,6 +348,12 @@ main#main .hx-strip:empty{display:none}main#main .hx-strip:not(:empty)+.hx-fallb
+ main#main .hx-strip{margin:1.2rem 0 .4rem;max-width:760px;position:relative}
+ main#main .hx-s-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 0 .55rem;font-size:.95rem;color:var(--navy)}
+ main#main .hx-s-head a{color:var(--brass);font-size:.9rem;white-space:nowrap}
++main#main .hx-feed{background:var(--ivory-2,#f1ece4)}
++main#main .hx-feed .hx-strip.hx-feed-strip{max-width:none;margin:0}
++main#main .hx-feed-eb{font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin:0 0 .45rem;font-weight:600}
++main#main .hx-feed .hx-s-head{align-items:flex-end;margin-bottom:.9rem}
++main#main .hx-feed-h{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.65rem);font-weight:600;line-height:1.25;color:var(--navy)}
++@media (min-width:900px){main#main .hx-feed .hx-s-row>.hx-c{flex-basis:calc((100% - 2.25rem) / 3.4)}}
+ .hx-s-note{margin:-.3rem 0 .55rem;font-size:.85rem;color:var(--muted,#5a5f6a)}
+ main#main .hx-s-row{display:flex;align-items:flex-start;gap:.75rem;overflow-x:auto;scroll-behavior:auto;scroll-snap-type:x proximity;padding:.15rem .15rem .6rem;margin:0 -.15rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;user-select:none;-webkit-user-select:none}
+ main#main .hx-s-row::-webkit-scrollbar{display:none}main#main .hx-s-row.hx-dragging{cursor:grabbing;scroll-snap-type:none}
+@@ -352,6 +386,7 @@ var sd=$("#hx-signup"),sf=$("#hx-signup-form");var tsLoaded=false;
+ function askSignup(pending){if(pending)try{sessionStorage.setItem("c3_idx_heart",pending)}catch(e){}
+  if(!tsLoaded&&$(".cf-turnstile",sd)){tsLoaded=true;var s=document.createElement("script");s.src="https://challenges.cloudflare.com/turnstile/v0/api.js";s.async=true;document.head.appendChild(s)}openD(sd)}
+ $$("[data-hx-signup]").forEach(function(b){b.addEventListener("click",function(){askSignup()})});
++if(!signed&&/[?&]signup=1/.test(location.search))askSignup();
+ if(sf){var tb=sf.elements.termsAccepted,sb=sf.querySelector("button[type=submit]");tb.addEventListener("change",function(){sb.disabled=!tb.checked});
+  sf.addEventListener("submit",function(e){e.preventDefault();var err=sf.querySelector(".hx-error");err.hidden=true;sb.disabled=true;
+   var prior=[];try{prior=JSON.parse(localStorage.getItem("c3_idx_prior")||"[]")}catch(x){}
+@@ -362,6 +397,24 @@ if(sf){var tb=sf.elements.termsAccepted,sb=sf.querySelector("button[type=submit]
+     return (h?post("/homes/api/hearts",{mlsNumber:h,loved:true}):Promise.resolve()).then(function(){location.reload()})}
+    err.textContent=j.message||"Please check the form and try again.";err.hidden=false;sb.disabled=!tb.checked;if(window.turnstile)try{turnstile.reset()}catch(x){}})
+   .catch(function(){err.textContent="Sign-up is unavailable right now. Please call (854) 333-2135.";err.hidden=false;sb.disabled=!tb.checked})})}
++/* Already working with us? (contract §7g) */
++var rf=$("#hx-returning-form");
++function swap(toReturning){if(!sf||!rf)return;sf.hidden=toReturning;rf.hidden=!toReturning}
++$$("[data-hx-returning]").forEach(function(b){b.addEventListener("click",function(){swap(true)})});
++$$("[data-hx-newsignup]").forEach(function(b){b.addEventListener("click",function(){swap(false)})});
++if(rf){var rt=rf.elements.termsAccepted,rb=rf.querySelector("button[type=submit]");rt.addEventListener("change",function(){rb.disabled=!rt.checked});
++ rf.addEventListener("submit",function(e){e.preventDefault();var err=rf.querySelector(".hx-error");err.hidden=true;rb.disabled=true;var t=rf.querySelector("[name=cf-turnstile-response]");
++  post("/homes/api/returning",{phone:rf.elements.phone.value,firstName:rf.elements.firstName.value,termsAccepted:rt.checked,turnstileToken:t?t.value:"",page:location.pathname})
++  .then(function(j){if(j.ok){location.reload();return}
++   if(j.notFound&&sf){sf.elements.phone.value=rf.elements.phone.value;sf.elements.firstName.value=rf.elements.firstName.value;swap(false);var se=sf.querySelector(".hx-error");se.textContent="We could not find you. Finish this short sign-up and you are in.";se.hidden=false;return}
++   err.textContent=j.message||"Please check the form and try again.";err.hidden=false;rb.disabled=!rt.checked;if(window.turnstile)try{turnstile.reset()}catch(x){}})
++  .catch(function(){err.textContent="Sign-in is unavailable right now. Please call (854) 333-2135.";err.hidden=false;rb.disabled=!rt.checked})})}
++/* Welcome back: a link from our emails, the terms first */
++var wd=$("#hx-welcome"),wf=$("#hx-welcome-form");
++if(wd&&wf){var wt=wf.elements.termsAccepted,wb=wf.querySelector("button[type=submit]");wt.addEventListener("change",function(){wb.disabled=!wt.checked});openD(wd);
++ wf.addEventListener("submit",function(e){e.preventDefault();var err=wf.querySelector(".hx-error");err.hidden=true;wb.disabled=true;
++  post("/homes/api/claim",{k:wd.getAttribute("data-k"),termsAccepted:true,page:location.pathname}).then(function(j){if(j.ok){location.reload();return}
++   if(j.error==="link_expired"){wd.close();return}err.textContent=j.message||"Please try again.";err.hidden=false;wb.disabled=false}).catch(function(){wd.close()})})}
+ /* Hearts */
+ $$(".hx-heart").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();var m=b.getAttribute("data-mls");
+  if(!signed){askSignup(m);return}var on=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",on?"true":"false");
+diff --git a/partials/footer.html b/partials/footer.html
+index 3110e7b9..e1bc17bb 100644
+--- a/partials/footer.html
++++ b/partials/footer.html
+@@ -51,7 +51,7 @@
+ <li><a href="/sell/capital-gains/">Capital Gains Calculator</a></li>
+ <li><a href="/buyers/property-taxes/">Property Tax Estimator</a></li>
+ <li><a href="/hoa/">HOA Fees Guide</a></li>
+-<li><a href="/map/">3D Map Search</a></li>
++<li><a href="/homes/map/">Map of homes for sale</a></li>
+ </ul>
+ </div>
+ <div>
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index 46f59d04..49f71f85 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -22,6 +22,7 @@ const mk = (i, extra = {}) => ({ mlsNumber: String(2600000 + i), status: "Active
+ const DEV_TOKEN = "eyJ2aXNpdG9ySWQiOiJ2MSIsInRlcm1zVmVyc2lvbiI6InYxLWRyYWZ0LTEiLCJleHBpcmVzQXQiOjk5OTk5OTk5OTl9.c2ln";
+ const calls = [];
+ let STALE = false;
++let CENSUS = false, CENSUS_CALLS = 0;
+ let MAPPOINTS = false;
+ let sent2 = "";
+ let HANG = false;
+@@ -32,7 +33,21 @@ globalThis.fetch = async (input, init = {}) => {
+   const auth = (init.headers || {}).authorization;
+   const tier = auth ? "registered" : "public";
+   const J = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { "content-type": "application/json" } });
++  if (u.hostname === "geocoding.geo.census.gov") {
++    CENSUS_CALLS++;
++    return CENSUS ? J({ result: { addressMatches: [{ coordinates: { x: -78.9, y: 33.71 } }] } }) : J({ result: { addressMatches: [] } });
++  }
+   if ((init.headers || {})["x-idx-key"] !== "devkey") return J({ ok: false, error: "forbidden" }, 403);
++  if (u.pathname === "/api/idx/claim") {
++    const b = JSON.parse(init.body);
++    if (b.k === "Good12345678") return J({ ok: true, token: DEV_TOKEN, firstName: "Sam", dryRun: true });
++    if (b.k === "Terms1234567") return b.termsAccepted ? J({ ok: true, token: DEV_TOKEN, firstName: "Sam" }) : J({ ok: true, needsTerms: true, firstName: "Sam" });
++    return J({ ok: false, error: "link_expired" });
++  }
++  if (u.pathname === "/api/idx/returning") {
++    const b = JSON.parse(init.body);
++    return b.phone === "8435550199" && b.firstName === "Sam" ? J({ ok: true, token: DEV_TOKEN, dryRun: true }) : J({ ok: false, error: "not_found" });
++  }
+   if (STALE) return J({ ok: false, error: "stale" }, 503);
+   if (HANG) return new Promise((_, no) => init.signal && init.signal.addEventListener("abort", () => no(new Error("aborted"))));
+   if (INVALID && auth) return J({ ok: false, error: "unauthorized", visitor: "invalid" }, 401);
+@@ -277,6 +292,65 @@ check("lookup: a point off the coast is refused", JSON.parse(await (await run(ho
+ t = await (await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/"))).text();
+ check("listing page: a link to run the rental numbers on this home", t.includes('href="/invest/long-term-rental/?mls=2600005"'));
+ 
++// Every article's homes feed (2026-10-25).
++t = await (await run(mw, req("/buyers/waterfront-homes/"))).text();
++sent2 = calls.filter((c) => c.url.includes("/api/idx/listings?")).pop().url;
++check("feed: an article gets its own homes, filtered to its topic", t.includes('class="hx-feed"') && t.includes("Waterfront homes for sale now") && sent2.includes("waterfront=1"));
++check("feed: placed as a section of the article, with the notice and the dialogs", t.indexOf('class="hx-feed"') < t.indexOf("</main>") && t.includes('class="hx-disclaimer"') && t.includes('id="hx-signup"') && (t.match(/class="hx-feed"/g) || []).length === 1);
++check("feed: See all opens the same search", t.includes('href="/homes/?waterfront=1"'));
++t = await (await run(mw, req("/buyers/55-plus-communities/"))).text();
++check("feed: a page about several communities searches each of them", ["Del+Webb", "Myrtle+Trace", "Seasons+at+Prince+Creek"].every((w) => calls.slice(-6).some((c) => c.url.includes("subdivision=" + w))) && t.includes("Homes for sale in 55+ communities"));
++t = await (await run(mw, req("/buyers/new-construction/"))).text();
++check("feed: a topic with no search filter falls back to the newest homes when too few match", t.includes("Homes for sale on the Grand Strand now") || t.includes("Homes built in the last two years"));
++t = await (await run(mw, req("/buyers/best-neighborhoods/"))).text();
++check("feed: pages with their own strips get no second feed", !t.includes('class="hx-feed"'));
++t = await (await run(mw, req("/about/"))).text();
++check("feed: pages not on the list get none", !t.includes('class="hx-feed"'));
++
++// Returning clients (contract §7g).
++r = await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/?k=Good12345678"));
++t = await r.text();
++check("k: a good code signs the visitor in, the cookie a year", /c3_idx=.+Max-Age=31536000; HttpOnly; Secure; SameSite=Lax/.test(r.headers.get("set-cookie") || "") && t.includes('data-hx-signed="1"'));
++check("k: never cached, and taken out of the address bar before analytics", r.headers.get("cache-control") === "private, no-store" && /<head[^>]*><script>try\{var u=new URL\(location.href\);if\(u.searchParams.has\("k"\)\)/.test(t));
++r = await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/?k=Terms1234567"));
++t = await r.text();
++check("k: when the terms come first, the Welcome back box", t.includes('id="hx-welcome"') && t.includes("Welcome back, Sam") && !(r.headers.get("set-cookie") || "").includes("Max-Age=31536000"));
++r = await run(homes, post("/homes/api/claim", { k: "Terms1234567", termsAccepted: true, page: "/homes/" }));
++check("k: the box's button signs in with the terms", r.status === 200 && /Max-Age=31536000/.test(r.headers.get("set-cookie") || ""));
++r = await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/?k=Old123456789"));
++t = await r.text();
++check("k: an expired code is the normal page, no message", r.status === 200 && !t.includes('id="hx-welcome"') && !(r.headers.get("set-cookie") || "").includes("c3_idx=e"));
++const before = calls.length;
++r = await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/?k=Good12345678", cookie));
++check("k: a visitor with a cookie is never claimed again", !calls.slice(before).some((c) => c.url.endsWith("/api/idx/claim")));
++r = await run(homes, req("/homes/2600005?k=Good12345678"));
++check("k: /homes/<MLS#> keeps k through its 301", r.status === 301 && r.headers.get("location").endsWith("?k=Good12345678"));
++r = await run(homes, post("/homes/api/returning", { phone: "8435550199", firstName: "Sam", termsAccepted: true, turnstileToken: "t", page: "/homes/" }));
++check("returning: phone and first name sign a client in", r.status === 200 && /Max-Age=31536000/.test(r.headers.get("set-cookie") || ""));
++r = await run(homes, post("/homes/api/returning", { phone: "1", firstName: "X", termsAccepted: true, turnstileToken: "t" }));
++check("returning: not found opens the full sign-up", JSON.parse(await r.text()).notFound === true);
++t = await (await run(homes, req("/homes/"))).text();
++check("returning: the sign-up offers Already working with us?", t.includes("data-hx-returning") && t.includes('id="hx-returning-form"'));
++
++// The map: dots from the address until the CRM sends points; the home's own map; 2D and 3D.
++CENSUS = true;
++r = await run(homes, req("/homes/api/map?city=Conway"));
++mj = JSON.parse(await r.text());
++check("map: homes without a CRM point are placed from their address", mj.pins.length > 0 && mj.pins.every((x) => x.lat === 33.71));
++t = await (await run(homes, req("/homes/2600005-101-test-st-myrtle-beach/"))).text();
++check("listing: a map of where the home is, opening its town on the full map with it lit", t.includes('class="hx-loc-map"') && t.includes("staticmap?center=33.71,-78.9") && t.includes('href="/homes/map/?city=Myrtle+Beach&amp;focus=2600005"'));
++t = await (await run(homes, req("/homes/2611111/"))).text();
++check("listing: a withheld address gets no map", !t.includes('class="hx-loc-map"'));
++CENSUS = false;
++t = await (await run(homes, req("/homes/map/?city=Conway&view=3d&focus=2600005"))).text();
++check("map page: one page, a 2D and 3D switch, opened in 3D, the home lit", t.includes('data-mode="3d" aria-pressed="true"') && t.includes('data-view="3d"') && t.includes('data-focus="2600005"'));
++
++// Sold homes in the analyzer, for signed-up visitors only.
++r = await run(homes, req("/homes/api/lookup?street=" + encodeURIComponent("999 Nowhere Rd") + "&lat=33.7&lng=-78.9"));
++check("lookup: not for sale, not signed up: the sign-up is offered", JSON.parse(await r.text()).soldNeedsSignup === true);
++r = await run(homes, req("/homes/api/lookup?street=" + encodeURIComponent("999 Nowhere Rd") + "&lat=33.7&lng=-78.9", cookie));
++check("lookup: a signed-up visitor's search includes sold homes", calls.some((c) => c.url.includes("sold=1") && c.url.includes("near=")) && JSON.parse(await r.text()).soldNeedsSignup === false);
++
+ // Sitemap and the shell.
+ r = await run(sitemap, req("/sitemap-homes.xml"), { ...ENV, IDX_INDEX_LISTINGS: "1" });
+ t = await r.text();
+-- 
+2.43.0
+
