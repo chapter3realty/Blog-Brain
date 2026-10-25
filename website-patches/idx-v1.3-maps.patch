@@ -1,0 +1,423 @@
+From 99b19fe248b64395564d8edaaba5b8de17f020cc Mon Sep 17 00:00:00 2001
+From: Chapter3 Realty <chapter3realty@gmail.com>
+Date: Sun, 25 Oct 2026 20:27:33 +0000
+Subject: [PATCH] Listing search v1.3: a 2D map of homes for sale (Google Maps,
+ blue dots and price pills, search this area, list beside it), a Map button on
+ the search, blue dots and a search bar on the 3D map
+
+---
+ chapter3realty/map/index.html |  54 ++++++++++++++++
+ docs/idx-website.md           |   2 +-
+ functions/homes/[[path]].js   |  69 +++++++++++++++++++-
+ idx-lib/map.js                | 118 ++++++++++++++++++++++++++++++++++
+ idx-lib/render.js             |   1 +
+ tools/idx-test.mjs            |  27 +++++++-
+ 6 files changed, 266 insertions(+), 5 deletions(-)
+ create mode 100644 idx-lib/map.js
+
+diff --git a/chapter3realty/map/index.html b/chapter3realty/map/index.html
+index 2406890b..2d60f31f 100644
+--- a/chapter3realty/map/index.html
++++ b/chapter3realty/map/index.html
+@@ -37,6 +37,14 @@
+   #card a.cta{display:inline-block;background:var(--c-brass);color:#fff;text-decoration:none;font-size:.82rem;font-weight:600;padding:8px 14px;border-radius:8px}
+   #card .close{position:absolute;top:8px;right:12px;background:none;border:none;color:rgba(244,239,232,.6);font-size:1.5rem;line-height:1;cursor:pointer}
+   #status{bottom:12px;left:14px;padding:6px 10px;font-size:.72rem;color:rgba(244,239,232,.7)}
++  /* Homes for sale: the search bar, top centre */
++  #homesbar{top:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:6px;width:min(560px,calc(100% - 28px));border-radius:999px}
++  #homesbar input{flex:1;min-width:0;border:0;outline:none;background:transparent;color:var(--c-ivory,#f4efe8);font:inherit;font-size:.9rem;padding:8px 10px}
++  #homesbar input::placeholder{color:rgba(244,239,232,.6)}
++  #homesbar button{border:0;border-radius:999px;background:#1a73e8;color:#fff;font:inherit;font-weight:700;font-size:.85rem;padding:8px 16px;cursor:pointer}
++  #homes-count{position:absolute;top:58px;left:50%;transform:translateX(-50%);padding:5px 12px;border-radius:999px;font-size:.75rem;color:rgba(244,239,232,.85);white-space:nowrap}
++  #homes-count:empty{display:none}
++  @media(max-width:720px){#homesbar{top:auto;bottom:70px}#homes-count{top:auto;bottom:124px}}
+ </style>
+ </head>
+ <body>
+@@ -101,6 +109,8 @@
+     <p class="price" id="c-price"></p>
+     <a class="cta" id="c-link" href="#" style="display:none">See the full report</a>
+   </div>
++  <form class="overlay" id="homesbar" role="search" aria-label="Homes for sale on the map"><input id="homes-q" type="search" enterkeyhint="search" maxlength="200" autocomplete="off" aria-label="Search homes for sale" placeholder="Homes for sale: try &quot;3 bed under $400k in Conway&quot;"><button type="submit">Search</button></form>
++  <div class="overlay" id="homes-count" aria-live="polite"></div>
+   <div class="overlay" id="status">loading...</div>
+ </div>
+ 
+@@ -284,12 +294,56 @@ async function init(){
+     }
+     setInterval(fillsByRange, 400);
+     status.style.display='none';
++    loadHomes('near=33.70,-78.92&miles=25');
+   }catch(err){
+     status.textContent = "Map error: " + err.message;
+     console.error(err);
+   }
+ }
++// Homes for sale: a blue dot for each home the MLS gives a map point (from /homes/api/map).
++// The search bar narrows them with plain words. Nothing from the listing feed is written
++// as HTML: every word goes in with textContent.
++let homeMarks = [];
++async function loadHomes(qs){
++  const count = document.getElementById('homes-count');
++  try{
++    const r = await fetch('/homes/api/map?' + qs, { credentials:'same-origin' });
++    if(!r.ok){ count.textContent = ''; return; }
++    const j = await r.json();
++    if(!j.ok){ count.textContent = ''; return; }
++    const { Marker3DInteractiveElement, AltitudeMode } = await google.maps.importLibrary("maps3d");
++    let Pin = null;
++    try{ Pin = (await google.maps.importLibrary("marker")).PinElement; }catch(_){}
++    homeMarks.forEach(m => m.remove()); homeMarks = [];
++    j.pins.forEach(p => {
++      const m = new Marker3DInteractiveElement({ position:{ lat:p.lat, lng:p.lng, altitude:0 }, altitudeMode: AltitudeMode.CLAMP_TO_GROUND, title: p.price + ', ' + p.addr });
++      if(Pin){ try{ m.append(new Pin({ background:'#1a73e8', borderColor:'#ffffff', glyphColor:'#ffffff', scale:0.65 })); }catch(_){} }
++      m.addEventListener('gmp-click', () => showHome(p));
++      map.append(m); homeMarks.push(m);
++    });
++    count.textContent = j.pins.length
++      ? j.pins.length + ' homes on the map' + (j.total > j.pins.length ? ', the newest of ' + j.total.toLocaleString('en-US') : '')
++      : (j.total ? j.total.toLocaleString('en-US') + ' homes match. Map dots arrive when the MLS feed adds each home\'s location.' : 'No homes match. Try a town, a price or bedrooms.');
++  }catch(e){ count.textContent = ''; }
++}
++document.getElementById('homesbar').addEventListener('submit', function(e){
++  e.preventDefault();
++  const v = document.getElementById('homes-q').value.trim();
++  loadHomes(v ? 'q=' + encodeURIComponent(v) : 'near=33.70,-78.92&miles=25');
++});
++function showHome(p){
++  const facts = [p.beds != null ? p.beds + ' bds' : '', p.baths != null ? p.baths + ' ba' : '', p.sqft != null ? p.sqft.toLocaleString('en-US') + ' sqft' : ''].filter(Boolean).join(' | ');
++  document.querySelector('#card .eyebrow').textContent = p.tag || p.status || 'For sale';
++  document.getElementById('c-name').textContent = p.price;
++  document.getElementById('c-desc').textContent = (facts ? facts + '. ' : '') + p.addr;
++  document.getElementById('c-price').textContent = 'MLS #' + p.mls + ', ' + p.firm + '. Listing provided by CCMLS.';
++  const link = document.getElementById('c-link');
++  link.href = p.url; link.textContent = 'See this home'; link.style.display = 'inline-block';
++  document.getElementById('card').style.display = 'block';
++}
+ function showCard(area){
++  document.querySelector('#card .eyebrow').textContent = 'Area';
++  document.getElementById('c-link').textContent = 'See the full report';
+   document.getElementById('c-name').textContent = area.name;
+   document.getElementById('c-desc').textContent = area.blurb;
+   document.getElementById('c-price').innerHTML = area.price ? ("Price range: <b>"+area.price+"</b>") : "Price range: <b>we confirm the current figure</b>";
+diff --git a/docs/idx-website.md b/docs/idx-website.md
+index 084ab20e..82ab16b8 100644
+--- a/docs/idx-website.md
++++ b/docs/idx-website.md
+@@ -24,7 +24,7 @@ Built to the CRM's contract v1 (21 Oct 2026, `docs/website-listing-api.md` in th
+ - `functions/sitemap-homes.xml.js`.
+ - `idx-lib/crm.js` (the only door to the CRM; caching rules), `render.js` (all HTML; everything from the CRM escaped), `edge.js`, `places.js` (generated from Blog-Brain), `terms.js` (terms and the locked TCPA string).
+ - `chapter3realty/homes-shell/index.html`: the page shell, stitched like every page. Never served on its own.
+-- `tools/idx-test.mjs`: 83 controls against a mock CRM. `node tools/idx-test.mjs` must print "all controls pass".
++- `tools/idx-test.mjs`: 91 controls against a mock CRM. `node tools/idx-test.mjs` must print "all controls pass".
+ - `tools/idx-check-places.mjs`: checks every community's search against the real MLS (development key).
+ 
+ ## Settings (Cloudflare Pages, Production env)
+diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
+index c6f51358..044d7bc1 100644
+--- a/functions/homes/[[path]].js
++++ b/functions/homes/[[path]].js
+@@ -18,9 +18,10 @@ import { PREVIEW_COOKIE, clearCookie, crm, idxOn, sameOrigin, setCookie, visitor
+ import { PLACES } from "../../idx-lib/places.js";
+ import { NO_HOA_NOTE, placeParams } from "../../idx-lib/edge.js";
+ import { CITIES, readQuery } from "../../idx-lib/query.js";
++import { MAP_SCRIPT, MAP_STYLE, mapsKey, nearOf, pinOf } from "../../idx-lib/map.js";
+ import { SMS_CONSENT_TEXT, TERMS_PARAGRAPHS, TERMS_TITLE, TERMS_VERSION, termsText } from "../../idx-lib/terms.js";
+ import {
+-  ICONS, STRIP_STYLE, STYLE, SCRIPT, addressLine, dayLong, disclaimer, esc, factsLine, grid, headlinePrice, heartButton,
++  ICONS, STRIP_STYLE, STYLE, SCRIPT, addressLine, card, dayLong, disclaimer, esc, factsLine, grid, headlinePrice, heartButton,
+   listingPath, money, safeUrl, signupDialog, spaced, statusWord, stripCard, tourButton, tourDialog,
+ } from "../../idx-lib/render.js";
+ 
+@@ -57,6 +58,7 @@ export async function onRequest(context) {
+ 
+   if (path.startsWith("/homes/api/")) {
+     const name = path.replace(/^\/homes\/api\/|\/$/g, "");
++    if (name === "map" && (request.method === "GET" || request.method === "HEAD")) return mapData(context, url);
+     if (request.method !== "POST") return json({ ok: false, error: "method" }, 405);
+     if (!sameOrigin(request)) return json({ ok: false, error: "forbidden" }, 403);
+     if (name === "signout") return new Response(null, { status: 303, headers: { Location: "/homes/", "Set-Cookie": clearCookie(), "Cache-Control": "no-store" } });
+@@ -79,11 +81,12 @@ async function route(context, url, path, gate) {
+   // /homes/<MLS#> as the CRM's emails write it: find the listing's own URL.
+   // "terms", "near" and "api" are our own pages, never MLS numbers.
+   const bare = /^\/homes\/([A-Za-z0-9]{3,20})\/?$/.exec(path);
+-  if (bare && !["terms", "near", "api"].includes(bare[1].toLowerCase())) return bareListing(context, bare[1], gate);
++  if (bare && !["terms", "near", "api", "map"].includes(bare[1].toLowerCase())) return bareListing(context, bare[1], gate);
+   if (!path.endsWith("/")) return Response.redirect(`${SITE}${path}/${url.search}`, 301);
+ 
+   const parts = path.split("/").filter(Boolean);
+   if (parts.length === 1) return searchPage(context, url, gate);
++  if (parts[1] === "map" && parts.length === 2) return mapPage(context, url, gate);
+   if (parts[1] === "terms" && parts.length === 2) return termsPage(context, gate);
+   if (parts[1] === "near" && parts.length === 3) return placePage(context, parts[2], gate);
+   const m = /^([A-Za-z0-9]{3,20})-[a-z0-9-]{1,120}$/.exec(parts[1] || "");
+@@ -249,7 +252,7 @@ ${j.tier === "registered" ? select("sold", "Show", [["", "For sale"], ["1", "Sol
+   const body = `${crumbs([["/", "Home"], [null, "Homes for sale"]])}
+ <h1>${esc(`${p.get("sold") ? "Sold homes" : "Homes for sale"}${where || " on the Grand Strand"}`)}</h1>
+ ${signedBar(j.tier)}${form}${appliedChips(p)}
+-<div class="hx-count"><p><b>${esc((j.total || 0).toLocaleString("en-US"))}</b> ${j.total === 1 ? "home" : "homes"}</p><label class="hx-sort">Sort<select data-hx-go aria-label="Sort">${sortLink("", "Newest")}${sortLink("price_asc", "Price, low to high")}${sortLink("price_desc", "Price, high to low")}</select></label></div>
++<div class="hx-count"><p><b>${esc((j.total || 0).toLocaleString("en-US"))}</b> ${j.total === 1 ? "home" : "homes"}</p><span class="hx-count-r"><a class="hx-maplink" href="${esc(`/homes/map/${(() => { const x = new URLSearchParams(p); x.delete("size"); x.delete("page"); return x.toString() ? `?${x.toString()}` : ""; })()}`)}">Map</a><label class="hx-sort">Sort<select data-hx-go aria-label="Sort">${sortLink("", "Newest")}${sortLink("price_asc", "Price, low to high")}${sortLink("price_desc", "Price, high to low")}</select></label></span></div>
+ ${grid(Array.isArray(j.listings) ? j.listings : [], hearts)}${pager}
+ ${j.tier === "public" ? signupPrompt("Want every photo, the HOA fee and the taxes?") : ""}
+ ${disclaimer(j.meta)}`;
+@@ -262,6 +265,66 @@ ${disclaimer(j.meta)}`;
+   });
+ }
+ 
++// ── the map ─────────────────────────────────────────────────────────────────
++
++/** The map's search: the validated filters, plain words in "q", or a point and radius. Up to 144 homes. */
++async function mapSearch(context, q) {
++  let p = searchParams(q, false);
++  if (q.get("q")) {
++    const read = readQuery(q.get("q"));
++    p = searchParams(read.params, false);
++    if (read.place && PLACES[read.place]) for (const [k, v] of placeParams(PLACES[read.place].q) || []) p.set(k, v);
++  }
++  const n = nearOf(q.get("near"), q.get("miles"));
++  if (n) { p.delete("city"); p.delete("zip"); p.set("near", n.near); p.set("miles", n.miles); }
++  p.delete("page"); p.set("size", "48");
++  const get = (pg) => { const x = new URLSearchParams(p); if (pg > 1) x.set("page", String(pg)); return crm(context.env, context.request, `/api/idx/listings?${x.toString()}`, { anonymous: true }); };
++  const first = await get(1);
++  if (first.status !== 200 || !first.json || !first.json.ok) return { r: first, p, listings: [], pins: [], total: 0 };
++  let listings = Array.isArray(first.json.listings) ? first.json.listings : [];
++  const total = typeof first.json.total === "number" ? first.json.total : listings.length;
++  if (total > 48) {
++    const more = await Promise.all([2, 3].filter((pg) => (pg - 1) * 48 < total).map(get));
++    for (const m of more) if (m.status === 200 && m.json && m.json.ok && Array.isArray(m.json.listings)) listings = listings.concat(m.json.listings);
++  }
++  return { r: first, p, listings, pins: listings.map(pinOf).filter(Boolean), total };
++}
++
++async function mapData(context, url) {
++  const s = await mapSearch(context, url.searchParams);
++  if (!s.r.json || !s.r.json.ok) return json({ ok: false, error: s.r.json && s.r.json.error === "stale" ? "stale" : "unavailable" }, s.r.status === 429 ? 429 : 503);
++  return json({ ok: true, total: s.total, pins: s.pins, meta: s.r.json.meta || null }, 200, { "cache-control": "public, max-age=300" });
++}
++
++async function mapPage(context, url, gate) {
++  const s = await mapSearch(context, url.searchParams);
++  if (!s.r.json || !s.r.json.ok) return trouble(context, gate, s.r, "Map of homes for sale");
++  const keep = new URLSearchParams(s.p); keep.delete("size");
++  const where = s.p.get("city") ? ` in ${s.p.get("city")}` : "";
++  const cards = s.listings.slice(0, 48).map((l) => `<div data-mls="${esc(l.mlsNumber)}">${card(l)}</div>`).join("");
++  const pinsJson = JSON.stringify(s.pins).replace(/</g, "\\u003c");
++  const body = `<div data-hx-map data-key="${esc(mapsKey(context.env))}" data-params="${esc(keep.toString())}">
++<div class="hx-map-top">${crumbs([["/", "Home"], ["/homes/", "Homes for sale"], [null, "Map"]])}<h1>${esc(`Map of homes for sale${where}`)}</h1>
++<form class="hx-search" method="get" action="/homes/map/" role="search"><div class="hx-q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input name="q" type="search" enterkeyhint="search" autocomplete="off" maxlength="200" aria-label="Search homes on the map" placeholder="Try &quot;waterfront condo in North Myrtle Beach&quot;"><button type="submit">Search</button></div></form>
++${appliedChips(s.p).replace(/href="\/homes\//g, 'href="/homes/map/')}<p class="hx-small"><a class="hx-maplist" href="${esc(`/homes/${keep.toString() ? `?${keep.toString()}` : ""}`)}">See these homes as a list</a></p></div>
++<div class="hx-map-body"><div id="hx-map" class="hx-map" role="region" aria-label="Map of the homes"><button type="button" id="hx-area" class="hx-area" hidden>Search this area</button>
++<p id="hx-map-note" class="hx-map-note"${s.pins.length ? " hidden" : ""}>${s.pins.length ? "" : "Map pins arrive when the MLS feed adds each home's location. Every home is in the list."}</p></div>
++<aside class="hx-map-list" aria-label="The homes"><p class="hx-map-count" id="hx-map-count"><b>${esc(s.total.toLocaleString("en-US"))}</b> homes${s.total > s.listings.length ? `, the newest ${esc(s.listings.length)} here` : ""}</p><div id="hx-map-cards" class="hx-map-cards">${cards}</div></aside>
++<button type="button" class="hx-map-toggle">List</button></div>
++<script type="application/json" id="hx-pins">${pinsJson}</script>
++<div class="hx-wrap">${disclaimer(s.r.json.meta)}</div></div>`;
++  return page(context, gate, {
++    title: `Map of homes for sale${where}`,
++    description: "Grand Strand homes for sale on a map, from the Coastal Carolinas MLS, with Chapter3 Realty.",
++    canonical: `${SITE}/homes/map/`,
++    robots: "noindex, follow",
++    body,
++    rootAttrs: ' data-wide="1"',
++    extraHead: MAP_STYLE,
++    extraBody: MAP_SCRIPT,
++  });
++}
++
+ // ── one listing ─────────────────────────────────────────────────────────────
+ 
+ async function bareListing(context, mls, gate) {
+diff --git a/idx-lib/map.js b/idx-lib/map.js
+new file mode 100644
+index 00000000..5c040352
+--- /dev/null
++++ b/idx-lib/map.js
+@@ -0,0 +1,118 @@
++/**
++ * The homes on a map: the 2D map page (/homes/map/, Google Maps, like Zillow's) and the
++ * blue dots on the 3D map (/map/). Both read /homes/api/map, which runs one search from
++ * validated filters and returns only what a pin needs.
++ *
++ * A home gets a pin only when the CRM sends its map point and its address. A home whose
++ * seller withheld the address never gets a pin (CCMLS 16.5, contract §6). The public card
++ * carries no point yet (REQUEST FOR THE CRM, batches/2026-10-b/IDX-STUDY.md, request 2):
++ * until it does, the map page shows the list and says the pins are coming.
++ */
++import { addressLine, cardTag, headlinePrice, listingPath, safeUrl, statusWord } from "./render.js";
++
++/** The Google Maps browser key: a public key, locked to our domain in Google Cloud. A setting can replace it. */
++export const mapsKey = (env) => (/^AIza[0-9A-Za-z_-]{35}$/.test(env.MAPS_BROWSER_KEY || "") ? env.MAPS_BROWSER_KEY : "AIzaSyCt5l9sq_5t1bq9uNWRIoUjty41A-NW0HY");
++
++/** "$425K", "$1.2M": the short price on a map pin. */
++export function shortPrice(l) {
++  const n = l.status === "Closed" ? l.soldPrice : l.listPrice;
++  if (typeof n !== "number" || !isFinite(n)) return "";
++  if (n >= 1e6) return `$${(Math.round(n / 1e5) / 10).toString().replace(/\.0$/, "")}M`;
++  return `$${Math.round(n / 1000)}K`;
++}
++
++const num = (n) => (typeof n === "number" && isFinite(n) ? n : null);
++
++/** One pin: only plain values. The browser builds every element with textContent. */
++export function pinOf(l) {
++  const pt = l.point || {};
++  const lat = num(pt.lat), lng = num(pt.lng);
++  if (!l.address || lat === null || lng === null || lat < 31 || lat > 37 || lng < -82 || lng > -75) return null;
++  return {
++    mls: String(l.mlsNumber || ""), url: listingPath(l), lat, lng,
++    price: headlinePrice(l), short: shortPrice(l), photo: safeUrl(l.photo),
++    beds: num(l.beds), baths: num(l.baths), sqft: num(l.sqft), status: statusWord(l.status), tag: cardTag(l),
++    addr: `${addressLine(l)}${l.postalCode ? `, ${l.postalCode}` : ""}`, firm: String(l.listingFirm || "listing brokerage"),
++  };
++}
++
++/** A validated map point and radius from "lat,lng" and miles, or null. */
++export function nearOf(near, miles) {
++  const m = /^(-?\d+(?:\.\d+)?),\s?(-?\d+(?:\.\d+)?)$/.exec(String(near || ""));
++  if (!m) return null;
++  const lat = +m[1], lng = +m[2];
++  if (lat < 31 || lat > 37 || lng < -82 || lng > -75) return null;
++  const mi = Math.min(25, Math.max(0.1, Number(miles) || 1));
++  return { near: `${lat.toFixed(6)},${lng.toFixed(6)}`, miles: String(Math.round(mi * 10) / 10) };
++}
++
++export const MAP_STYLE = `<style>
++#hx-root[data-wide]{max-width:none!important;width:100%!important;padding:0!important;margin:0!important}
++.hx-map-top{padding:.8rem 1.25rem .2rem;max-width:1600px;margin:0 auto}
++.hx-map-top .hx-search{margin:.2rem 0 .5rem}.hx-map-top h1{font-size:1.5rem!important;margin:.2rem 0 .5rem!important}
++.hx-map-body{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 440px;height:calc(100vh - 15rem);min-height:520px;border-top:1px solid rgba(28,32,40,.1)}
++.hx-map{position:relative;background:#e9e5dc}
++.hx-map-list{overflow:auto;padding:1rem;background:#faf8f4;border-left:1px solid rgba(28,32,40,.1)}
++.hx-map-count{margin:0 0 .8rem;font-size:.95rem}.hx-map-count b{font-weight:800}
++.hx-map-cards{display:grid;gap:1rem}
++.hx-map-cards .hx-hot{outline:3px solid #1a73e8;outline-offset:2px;border-radius:14px}
++.hx-area{position:absolute;top:1rem;left:50%;transform:translateX(-50%);z-index:5;border:0;border-radius:999px;background:#1c2028;color:#fff;font:inherit;font-weight:700;padding:.65rem 1.2rem;box-shadow:0 8px 24px rgba(28,32,40,.3);cursor:pointer}
++.hx-map-note{position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:5;max-width:30rem;margin:0 auto;padding:.8rem 1rem;border-radius:14px;background:rgba(255,255,255,.92);box-shadow:0 8px 24px rgba(28,32,40,.18);font-size:.9rem;text-align:center}
++.hx-map-toggle{display:none}
++.hx-pop{position:absolute;left:50%;bottom:1rem;transform:translateX(-50%);z-index:6;width:min(22rem,calc(100% - 2rem))}
++.hx-pop .hx-x{top:.4rem;right:.4rem;z-index:2;background:rgba(255,255,255,.9)}
++.hx-pop .hx-c-link{display:grid;grid-template-columns:7.5rem minmax(0,1fr)}.hx-pop .hx-c-photo{aspect-ratio:auto;height:100%;min-height:7rem}.hx-pop .hx-c-body{padding:.6rem .8rem;padding-right:2.4rem}.hx-pop .hx-c-price{font-size:1.15rem}.hx-pop .hx-c-firm,.hx-pop .hx-c-tag{display:none}
++.hx-maplist{color:var(--brass-ink,#91592b);font-weight:600}
++@media (max-width:899px){.hx-map-body{grid-template-columns:1fr;height:calc(100vh - 13rem)}.hx-map-list{display:none;position:absolute;inset:0;z-index:7;border:0}
++ .hx-map-body.hx-show-list .hx-map-list{display:block}
++ .hx-map-toggle{display:inline-flex;position:absolute;right:1rem;bottom:1rem;z-index:8;border:0;border-radius:999px;background:#1c2028;color:#fff;font:inherit;font-weight:700;padding:.65rem 1.1rem;box-shadow:0 8px 24px rgba(28,32,40,.3)}
++ .hx-pop{bottom:4.5rem}}
++</style>`;
++
++/**
++ * The 2D map. Blue dots far out, price pills close in (zoom 14 and nearer), like Zillow.
++ * "Search this area" after the visitor moves the map runs the search around the new view.
++ * Nothing from the CRM is written with innerHTML: every card is built with textContent.
++ */
++export const MAP_SCRIPT = `<script>(function(){
++var app=document.querySelector("[data-hx-map]");if(!app)return;
++var key=app.getAttribute("data-key"),base=app.getAttribute("data-params")||"",pins=[];
++try{pins=JSON.parse(document.getElementById("hx-pins").textContent)||[]}catch(e){}
++var list=document.getElementById("hx-map-cards"),count=document.getElementById("hx-map-count"),area=document.getElementById("hx-area"),note=document.getElementById("hx-map-note"),body=document.querySelector(".hx-map-body");
++var tg=document.querySelector(".hx-map-toggle");if(tg)tg.addEventListener("click",function(){var on=body.classList.toggle("hx-show-list");tg.textContent=on?"Map":"List"});
++function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e}
++function card(p){var a=el("article","hx-c"),l=el("a","hx-c-link");l.href=p.url;a.setAttribute("data-mls",p.mls);
++ var ph=el("span","hx-c-photo");if(p.photo&&p.photo.indexOf("https://")===0){var im=el("img");im.src=p.photo;im.alt=p.addr;im.loading="lazy";im.referrerPolicy="no-referrer";ph.appendChild(im)}
++ if(p.tag)ph.appendChild(el("span","hx-c-tag",p.tag));l.appendChild(ph);var b=el("span","hx-c-body");b.appendChild(el("span","hx-c-price",p.price));
++ var f=el("span","hx-c-facts"),bits=[];if(p.beds!=null)bits.push([p.beds," bds"]);if(p.baths!=null)bits.push([p.baths," ba"]);if(p.sqft!=null)bits.push([p.sqft.toLocaleString("en-US")," sqft"]);
++ bits.forEach(function(x,i){if(i)f.appendChild(el("i"));f.appendChild(el("b",null,String(x[0])));f.appendChild(document.createTextNode(x[1]))});if(p.status){if(bits.length)f.appendChild(el("i"));f.appendChild(document.createTextNode(p.status))}
++ b.appendChild(f);b.appendChild(el("span","hx-c-addr",p.addr));b.appendChild(el("span","hx-c-firm","MLS #"+p.mls+", "+p.firm+". Listing provided by CCMLS."));l.appendChild(b);a.appendChild(l);return a}
++function showList(ps,total){while(list.firstChild)list.removeChild(list.firstChild);ps.forEach(function(p){list.appendChild(card(p))});
++ count.textContent="";var bb=el("b",null,(total||ps.length).toLocaleString("en-US"));count.appendChild(bb);count.appendChild(document.createTextNode(" homes"+(total>ps.length?", "+ps.length+" on the map":"")))}
++if(!key)return;
++(function(g){var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=function(){return h||(h=new Promise(function(f,n){a=m.createElement("script");e.set("libraries",Array.from(r)+"");for(k in g)e.set(k.replace(/[A-Z]/g,function(t){return"_"+t[0].toLowerCase()}),g[k]);e.set("callback",c+".maps."+q);a.src="https://maps.googleapis.com/maps/api/js?"+e;d[q]=f;a.onerror=function(){h=n(Error(p+" could not load."))};m.head.append(a)}))};d[l]?0:d[l]=function(f){var n=Array.prototype.slice.call(arguments,1);r.add(f);return u().then(function(){return d[l].apply(d,[f].concat(n))})}})({key:key,v:"weekly"});
++google.maps.importLibrary("maps").then(function(lib){
++ var map=new lib.Map(document.getElementById("hx-map"),{center:{lat:33.70,lng:-78.92},zoom:10,mapTypeControl:false,streetViewControl:false,fullscreenControl:false,clickableIcons:false,gestureHandling:"greedy"});
++ var marks=[],pop=null,moved=false,hot=null;
++ function dot(on){return{path:google.maps.SymbolPath.CIRCLE,scale:on?9:6.5,fillColor:on?"#0b57d0":"#1a73e8",fillOpacity:1,strokeColor:"#fff",strokeWeight:2}}
++ function pill(p,on){var w=Math.max(46,p.short.length*8+16);var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="26"><rect x="1" y="1" width="'+(w-2)+'" height="24" rx="12" fill="'+(on?"#0b57d0":"#1a73e8")+'" stroke="#fff" stroke-width="2"/></svg>';
++  return{url:"data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg),scaledSize:new google.maps.Size(w,26),anchor:new google.maps.Point(w/2,13),labelOrigin:new google.maps.Point(w/2,13)}}
++ function style(m,on){var close=map.getZoom()>=14;m.setIcon(close?pill(m.p,on):dot(on));m.setLabel(close?{text:m.p.short||"Home",color:"#fff",fontSize:"12px",fontWeight:"700"}:null);m.setZIndex(on?1000:1)}
++ function hilite(mls){marks.forEach(function(m){style(m,m.p.mls===mls)});Array.prototype.forEach.call(list.children,function(c){c.classList.toggle("hx-hot",c.getAttribute("data-mls")===mls)})}
++ function popup(p){if(pop)pop.remove();pop=el("div","hx-pop");var x=el("button","hx-x","\\u00d7");x.type="button";x.setAttribute("aria-label","Close");x.addEventListener("click",function(){pop.remove();pop=null});pop.appendChild(x);var cd=card(p);var ht=cd.querySelector(".hx-heart");if(ht)ht.remove();pop.appendChild(cd);document.getElementById("hx-map").appendChild(pop)}
++ function draw(ps,fit){marks.forEach(function(m){m.setMap(null)});marks=[];var bounds=new google.maps.LatLngBounds();
++  ps.forEach(function(p){var m=new google.maps.Marker({position:{lat:p.lat,lng:p.lng},map:map,title:p.price+", "+p.addr});m.p=p;style(m,false);bounds.extend(m.getPosition());
++   m.addListener("click",function(){hilite(p.mls);var c=list.querySelector('[data-mls="'+p.mls+'"]');if(c&&window.innerWidth>=900)c.scrollIntoView({behavior:"smooth",block:"nearest"});if(window.innerWidth<900)popup(p)});marks.push(m)});
++  if(fit&&ps.length){map.fitBounds(bounds,48);google.maps.event.addListenerOnce(map,"idle",function(){if(map.getZoom()>15)map.setZoom(15);moved=false;area.hidden=true})}
++  note.hidden=ps.length>0}
++ list.addEventListener("mouseover",function(e){var c=e.target.closest&&e.target.closest("[data-mls]");if(c&&c.getAttribute("data-mls")!==hot){hot=c.getAttribute("data-mls");hilite(hot)}});
++ map.addListener("zoom_changed",function(){marks.forEach(function(m){style(m,m.p.mls===hot)})});
++ map.addListener("dragend",function(){moved=true;area.hidden=false});map.addListener("zoom_changed",function(){if(marks.length&&moved)area.hidden=false});
++ area.addEventListener("click",function(){var c=map.getCenter(),ne=map.getBounds().getNorthEast(),R=3958.8,r=Math.PI/180;
++  var d=2*R*Math.asin(Math.sqrt(Math.pow(Math.sin((ne.lat()-c.lat())*r/2),2)+Math.cos(c.lat()*r)*Math.cos(ne.lat()*r)*Math.pow(Math.sin((ne.lng()-c.lng())*r/2),2)));
++  var u=new URLSearchParams(base);u.delete("city");u.delete("zip");u.delete("subdivision");u.set("near",c.lat().toFixed(5)+","+c.lng().toFixed(5));u.set("miles",String(Math.min(25,Math.max(0.3,Math.round(d*10)/10))));
++  area.hidden=true;count.textContent="Searching this area...";
++  fetch("/homes/api/map?"+u.toString(),{credentials:"same-origin"}).then(function(r){return r.json()}).then(function(j){if(!j.ok){count.textContent=j.error==="stale"?"The listing search is being refreshed. Please try again in a few minutes.":"Please try again in a minute.";return}showList(j.pins,j.total);draw(j.pins,false)}).catch(function(){count.textContent="Please try again in a minute."})});
++ draw(pins,true);
++}).catch(function(){note.hidden=false;note.textContent="The map could not load. The list of homes is on the right."});
++})();</script>`;
+diff --git a/idx-lib/render.js b/idx-lib/render.js
+index 83a99e96..d41310e2 100644
+--- a/idx-lib/render.js
++++ b/idx-lib/render.js
+@@ -269,6 +269,7 @@ main#main .hx-s-row>.hx-c:hover{transform:none}
+ .hx-applied-chip span{display:inline-flex;align-items:center;justify-content:center;width:1.2rem;height:1.2rem;border-radius:999px;background:rgba(28,32,40,.12);font-size:.9rem}
+ .hx-clear{font-size:.85rem;color:var(--brass-ink,#91592b);margin-left:.3rem}
+ .hx-count{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.6rem 0 1rem}.hx-count p{margin:0;font-size:1.05rem}.hx-count b{font-weight:800}
++.hx-count-r{display:inline-flex;align-items:center;gap:.6rem}.hx-maplink{display:inline-flex;align-items:center;padding:.42rem .95rem;border-radius:999px;background:#1a73e8;color:#fff!important;font-weight:700;font-size:.9rem;text-decoration:none}
+ .hx-sort{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;color:var(--slate,#5c6b78)}.hx-sort select{border:1px solid rgba(28,32,40,.18);border-radius:999px;background:#fff;font:inherit;font-size:.9rem;padding:.4rem .8rem;color:var(--ink,#1c2028)}
+ .hx-pager a,.hx-pager span{padding:.55rem 1rem;border-radius:999px;border:1px solid rgba(28,32,40,.15);background:#fff;text-decoration:none;color:var(--ink,#1c2028);font-weight:600}.hx-pager span{border:0;background:none}
+ .hx-d-fine{font-size:.72rem;color:var(--slate,#5c6b78);line-height:1.45;margin:0;text-align:center}
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index ce4a1a67..665774ae 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -9,6 +9,7 @@ import { onRequest as mw } from "../functions/_middleware.js";
+ import { onRequest as sitemap } from "../functions/sitemap-homes.xml.js";
+ import { placeParams } from "../idx-lib/edge.js";
+ import { SCRIPT } from "../idx-lib/render.js";
++import { MAP_SCRIPT } from "../idx-lib/map.js";
+ 
+ const ROOT = path.resolve("chapter3realty");
+ let fails = 0;
+@@ -17,10 +18,11 @@ const check = (name, ok) => { console.log(`${ok ? "ok  " : "FAIL"} ${name}`); if
+ const META = { source: "Coastal Carolinas Association of REALTORS® Multiple Listing Service (CCMLS)", disclaimer: "Listing information is provided by the MLS.", refreshedAt: "2026-10-21T01:50:53.606Z", fresh: true };
+ const mk = (i, extra = {}) => ({ mlsNumber: String(2600000 + i), status: "Active", listPrice: 200000 + i * 25000, beds: 3, baths: 2, sqft: 1500, lotAcres: null, yearBuilt: 2005,
+   propertyType: "Residential", propertySubType: "SingleFamilyResidence", address: `${100 + i} Test St`, city: "Myrtle Beach", state: "SC", postalCode: "29577",
+-  subdivision: "TEST", waterfront: null, photo: `https://photos.example.com/${i}.jpg`, photoCount: 20, listingFirm: `Firm ${i}`, ...extra });
++  subdivision: "TEST", waterfront: null, photo: `https://photos.example.com/${i}.jpg`, photoCount: 20, listingFirm: `Firm ${i}`, ...(MAPPOINTS && i % 3 ? { point: { lat: 33.7 + i / 1000, lng: -78.9 } } : {}), ...extra });
+ const DEV_TOKEN = "eyJ2aXNpdG9ySWQiOiJ2MSIsInRlcm1zVmVyc2lvbiI6InYxLWRyYWZ0LTEiLCJleHBpcmVzQXQiOjk5OTk5OTk5OTl9.c2ln";
+ const calls = [];
+ let STALE = false;
++let MAPPOINTS = false;
+ let sent2 = "";
+ let HANG = false;
+ let INVALID = false;
+@@ -236,6 +238,29 @@ check("search: quick filters apply at once, a sort menu, a search box", t.includ
+ 
+ check("page script: it parses (a syntax error would break every button)", (() => { try { new Function(SCRIPT.replace(/^<script>|<\/script>$/g, "")); return true; } catch (e) { console.log(e.message); return false; } })());
+ 
++// The map (2026-10-25).
++r = await run(homes, req("/homes/api/map?city=Conway"));
++let mj = JSON.parse(await r.text());
++check("map data: no points from the CRM yet, so no pins, and the page says so", r.status === 200 && mj.ok && mj.pins.length === 0 && mj.total === 30);
++t = await (await run(homes, req("/homes/map/?city=Conway"))).text();
++check("map page: the list of homes, the note, the disclaimer, noindex", t.includes("data-hx-map") && (t.match(/<article class="hx-c">/g) || []).length === 30 && t.includes("Map pins arrive when the MLS feed") && t.includes('class="hx-disclaimer"') && t.includes("noindex"));
++MAPPOINTS = true;
++r = await run(homes, req("/homes/api/map?near=33.7,-78.9&miles=2&beds=3"));
++mj = JSON.parse(await r.text());
++sent2 = calls.filter((c) => c.url.includes("/api/idx/listings?")).pop().url;
++check("map data: a pin only for homes with a point and an address", mj.pins.length === 9 && mj.pins.every((x) => typeof x.lat === "number" && x.addr && x.url.startsWith("/homes/")));
++check("map data: the area search reaches the CRM validated", sent2.includes("near=33.700000%2C-78.900000") && sent2.includes("miles=2") && sent2.includes("beds=3"));
++r = await run(homes, req("/homes/api/map?near=0,0&miles=900"));
++sent2 = calls.filter((c) => c.url.includes("/api/idx/listings?")).pop().url;
++check("map data: a point off the coast is never sent", !sent2.includes("near="));
++r = await run(homes, req("/homes/api/map?q=" + encodeURIComponent("3 bed under 400k in Conway")));
++sent2 = calls.filter((c) => c.url.includes("/api/idx/listings?")).pop().url;
++check("map data: plain words work on the map too", sent2.includes("city=Conway") && sent2.includes("beds=3") && sent2.includes("max=400000"));
++t = await (await run(homes, req("/homes/map/?city=Conway"))).text();
++check("map page: pins in the page as data, with < escaped", /<script type="application\/json" id="hx-pins">\[\{/.test(t) && !/id="hx-pins">[^<]*<(?!\/script)/.test(t));
++MAPPOINTS = false;
++check("map script: it parses", (() => { try { new Function(MAP_SCRIPT.replace(/^<script>|<\/script>$/g, "")); return true; } catch { return false; } })());
++
+ // Sitemap and the shell.
+ r = await run(sitemap, req("/sitemap-homes.xml"), { ...ENV, IDX_INDEX_LISTINGS: "1" });
+ t = await r.text();
+-- 
+2.43.0
+

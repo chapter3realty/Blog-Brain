@@ -93,3 +93,13 @@ The listing page, redesigned (`website-patches/idx-v1.1-listing-page.patch`, on 
 - Subdivision names in capitals show in title case (format only).
 
 What a visitor who is not signed up sees is only the public card the CRM sends: status, type, beds, baths, square feet, lot, year built, subdivision, waterfront, MLS number, one photo, the listing firm. HOA fees, taxes, the description, days on market and sold prices show only after sign-up. 75 controls pass.
+
+## Round 18 (2026-10-25): the maps
+
+`website-patches/idx-v1.3-maps.patch`, on top of v1.2:
+
+- `/homes/map/`: a 2D map like Zillow's, on Google Maps with the site's browser key (a public key; the setting `MAPS_BROWSER_KEY` can replace it). Blue dots far out, price pills at zoom 14 and closer. The list of homes sits beside the map, or behind a "List" button on a phone. Hovering a card lights its pin, and a pin lights its card. "Search this area" after the map moves runs the search around the new view (`near` and `miles`). The search box takes plain words. A "Map" button on `/homes/` opens the same search on the map.
+- `/map/` (the 3D map): a blue dot for each home, a search bar at the top that narrows them with plain words, and a card on click with the price, facts, address, MLS line and a link to the home.
+- Both read `/homes/api/map`: one validated search, up to 144 homes, cached 5 minutes. It returns only what a pin needs, and every word goes into the page with textContent.
+- **The pins need one thing from the CRM: a map point on the public card** (IDX-STUDY.md, request 2). The CRM already has the points (its `near` search uses them), but sends them only on the signed-up full listing. Until then, both maps show the homes in their lists and say "Map pins arrive when the MLS feed adds each home's location."
+- Not checked here: the real Google map. This environment's proxy blocks Google's map tiles, so the page was tested with a stand-in map (dots, list, highlight, phone pop-up, no script errors). After the deploy, check the map on the site, and check that both browser keys allow `chapter3realty.com/*` in Google Cloud.
