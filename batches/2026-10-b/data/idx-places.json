@@ -16,7 +16,8 @@
    "slug": "surfside-beach",
    "name": "Surfside Beach, ocean side",
    "pages": [
-    "/buyers/best-neighborhoods/"
+    "/buyers/best-neighborhoods/",
+    "/buyers/second-home/"
    ],
    "q": {
     "near": "33.60635,-78.97711",
@@ -647,6 +648,61 @@
    ],
    "q": {
     "subdivision": "Polo Farms"
+   }
+  },
+  {
+   "slug": "second-home-north-myrtle-beach",
+   "name": "North Myrtle Beach",
+   "pages": [
+    "/buyers/second-home/"
+   ],
+   "q": {
+    "near": "33.82231,-78.67907",
+    "miles": 3
+   }
+  },
+  {
+   "slug": "second-home-myrtle-beach-oceanfront",
+   "name": "Myrtle Beach oceanfront",
+   "pages": [
+    "/buyers/second-home/"
+   ],
+   "q": {
+    "near": "33.69379,-78.87788",
+    "miles": 1.5
+   }
+  },
+  {
+   "slug": "second-home-garden-city-beach",
+   "name": "Garden City Beach",
+   "pages": [
+    "/buyers/second-home/"
+   ],
+   "q": {
+    "near": "33.57659,-78.99876",
+    "miles": 1.5
+   }
+  },
+  {
+   "slug": "second-home-murrells-inlet",
+   "name": "Murrells Inlet",
+   "pages": [
+    "/buyers/second-home/"
+   ],
+   "q": {
+    "near": "33.55664,-79.03429",
+    "miles": 1.5
+   }
+  },
+  {
+   "slug": "second-home-pawleys-island",
+   "name": "Pawleys Island",
+   "pages": [
+    "/buyers/second-home/"
+   ],
+   "q": {
+    "near": "33.43324,-79.12137",
+    "miles": 2
    }
   }
  ]
