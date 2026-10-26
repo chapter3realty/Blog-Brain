@@ -1,0 +1,145 @@
+From 099f48cd22f759974ef25102ada94a307e9a4159 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 26 Oct 2026 00:43:13 +0000
+Subject: [PATCH] Map page fixed: every home placed in one Census batch call,
+ under Cloudflare's 50 outside calls per request; the listing search never
+ shows Cloudflare's error page
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+---
+ functions/homes/[[path]].js |  8 +++++++
+ idx-lib/map.js              | 45 +++++++++++++++++++++++++++++++------
+ tools/idx-test.mjs          | 19 ++++++++++++++--
+ 3 files changed, 63 insertions(+), 9 deletions(-)
+
+diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
+index 45a528b2..84c88e7a 100644
+--- a/functions/homes/[[path]].js
++++ b/functions/homes/[[path]].js
+@@ -45,6 +45,14 @@ const DETAIL_LABELS = [
+ ];
+ 
+ export async function onRequest(context) {
++  // Never Cloudflare's error page: anything unexpected is our own "try again" page.
++  try { return await handle(context); } catch (e) {
++    console.error("homes:", e && e.stack ? e.stack : e);
++    return new Response(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Homes for sale | Chapter3 Realty</title></head><body style="font-family:system-ui,sans-serif;max-width:34rem;margin:4rem auto;padding:0 1rem;line-height:1.5"><h1>This page did not load</h1><p>Please try again in a minute. <a href="/homes/">Search homes for sale</a>, or call ${PHONE}.</p></body></html>`, { status: 503, headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store", "retry-after": "60" } });
++  }
++}
++
++async function handle(context) {
+   const { request, env } = context;
+   const url = new URL(request.url);
+   const path = url.pathname;
+diff --git a/idx-lib/map.js b/idx-lib/map.js
+index bbd78177..327d32bc 100644
+--- a/idx-lib/map.js
++++ b/idx-lib/map.js
+@@ -60,14 +60,45 @@ export async function geocode(l) {
+   } catch { return null; }
+ }
+ 
+-/** Fill in missing map points from the geocoder, within a time budget; the rest stay without a pin. */
+-export async function withPoints(listings, budgetMs = 3000, max = 48) {
+-  const need = listings.filter((l) => l && !l.point && l.address).slice(0, max);
++/**
++ * Fill in missing map points, all homes in one call to the Census batch geocoder. Cloudflare
++ * allows 50 outside calls per request, and one call per home (with its cache read and write)
++ * passed that and broke the map page (2026-10-25). This makes at most three: a cache read,
++ * the geocoder, a cache write. A home that is not found, or a slow geocoder, leaves no pin.
++ */
++const BATCH = "https://geocoding.geo.census.gov/geocoder/locations/addressbatch";
++const csvField = (v) => `"${String(v ?? "").replace(/[\r\n]+/g, " ").replace(/"/g, "'")}"`;
++export async function withPoints(listings, budgetMs = 4000, max = 144) {
++  const need = listings.filter((l) => l && !l.point && l.address && l.city).slice(0, max);
+   if (!need.length) return listings;
+-  let timer;
+-  const late = new Promise((done) => { timer = setTimeout(done, budgetMs); });
+-  await Promise.race([Promise.all(need.map(async (l) => { const pt = await geocode(l); if (pt && !l.point) l.point = pt; })), late]);
+-  clearTimeout(timer);
++  const csv = need.map((l, i) => [i, l.address, l.city, l.state || "SC", l.postalCode || ""].map(csvField).join(",")).join("\n");
++  const cache = typeof caches !== "undefined" ? caches.default : null;
++  try {
++    let text = null, key = null;
++    if (cache) {
++      const hash = [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(csv)))].map((b) => b.toString(16).padStart(2, "0")).join("");
++      key = new Request(`https://chapter3realty.com/__geo-batch/${hash}`);
++      const hit = await cache.match(key);
++      if (hit) text = await hit.text();
++    }
++    if (text === null) {
++      const form = new FormData();
++      form.append("addressFile", new Blob([csv], { type: "text/csv" }), "homes.csv");
++      form.append("benchmark", "Public_AR_Current");
++      const r = await fetch(BATCH, { method: "POST", body: form, signal: AbortSignal.timeout(budgetMs) });
++      if (!r.ok) return listings;
++      text = await r.text();
++      if (key) await cache.put(key, new Response(text, { headers: { "content-type": "text/csv", "cache-control": "public, max-age=86400" } }));
++    }
++    // "id","input","Match","Exact","matched address","lng,lat","tiger id","side"
++    for (const line of text.split("\n")) {
++      const f = [...line.matchAll(/"([^"]*)"/g)].map((m) => m[1]);
++      if (f[2] !== "Match") continue;
++      const l = need[Number(f[0])];
++      const [lng, lat] = String(f[5] || "").split(",").map(Number);
++      if (l && !l.point && lat >= 31 && lat <= 37 && lng >= -82 && lng <= -75) l.point = { lat, lng };
++    }
++  } catch { /* no pins this time; the list still shows every home */ }
+   return listings;
+ }
+ 
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index 3ec1de9b..758fd44b 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -25,6 +25,7 @@ const calls = [];
+ let STALE = false;
+ let CENSUS = false, CENSUS_CALLS = 0;
+ let MAPPOINTS = false;
++let BIG = false;
+ let sent2 = "";
+ let HANG = false;
+ let INVALID = false;
+@@ -34,6 +35,11 @@ globalThis.fetch = async (input, init = {}) => {
+   const auth = (init.headers || {}).authorization;
+   const tier = auth ? "registered" : "public";
+   const J = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { "content-type": "application/json" } });
++  if (u.hostname === "geocoding.geo.census.gov" && u.pathname.endsWith("/addressbatch")) {
++    CENSUS_CALLS++;
++    const rows = (await init.body.get("addressFile").text()).split("\n");
++    return new Response(rows.map((r) => { const id = /^"(\d+)"/.exec(r)[1]; return CENSUS ? `"${id}","x","Match","Exact","X","-78.9,33.71","1","L"` : `"${id}","x","No_Match"`; }).join("\n"));
++  }
+   if (u.hostname === "geocoding.geo.census.gov") {
+     CENSUS_CALLS++;
+     return CENSUS ? J({ result: { addressMatches: [{ coordinates: { x: -78.9, y: 33.71 } }] } }) : J({ result: { addressMatches: [] } });
+@@ -54,8 +60,8 @@ globalThis.fetch = async (input, init = {}) => {
+   if (INVALID && auth) return J({ ok: false, error: "unauthorized", visitor: "invalid" }, 401);
+   if (u.pathname === "/api/idx/listings") {
+     const sub = u.searchParams.get("subdivision"), near = u.searchParams.get("near");
+-    const n = sub === "Tidewater" ? 2 : sub || near ? 14 : 30;
+-    const ls = Array.from({ length: n }, (_, i) => mk(i, near ? { miles: 0.4 } : {}));
++    const n = BIG ? 4041 : sub === "Tidewater" ? 2 : sub || near ? 14 : 30;
++    const ls = Array.from({ length: Math.min(n, 48) }, (_, i) => mk(i + 48 * ((+u.searchParams.get("page") || 1) - 1), near ? { miles: 0.4 } : {}));
+     return J({ ok: true, tier, visitor: auth ? "valid" : "none", meta: META, listings: ls.slice(0, +u.searchParams.get("size") || 24), total: n, page: 1, pageSize: 24 });
+   }
+   const one = /^\/api\/idx\/listings\/(\w+)$/.exec(u.pathname);
+@@ -352,6 +358,15 @@ t = await (await run(homes, req("/homes/2611111/"))).text();
+ check("listing: a withheld address gets no map", !t.includes('class="hx-loc-map"'));
+ t = await (await run(homes, req("/homes/map/?city=Conway&focus=2699999"))).text();
+ check("map page: the home a listing page sent us from is among the pins sent to the browser", t.includes('"mls":"2699999"'));
++BIG = true;
++const beforeBig = calls.length, censusBig = CENSUS_CALLS;
++r = await run(homes, req("/homes/map/?city=Myrtle+Beach"));
++t = await r.text();
++check("map page: 4,041 homes, 144 placed in one geocoder call, under Cloudflare's 50 outside calls", r.status === 200 && CENSUS_CALLS - censusBig === 1 && calls.length - beforeBig <= 8 && (t.match(/"lat":33.71/g) || []).length === 144);
++BIG = false;
++r = await run(homes, req("/homes/map/"), { ...ENV, ASSETS: { fetch: async () => { throw new Error("Too many subrequests."); } } });
++t = await r.text();
++check("homes: an unexpected error is our own try-again page, never Cloudflare's", r.status === 503 && t.includes("This page did not load") && r.headers.get("cache-control") === "no-store");
+ CENSUS = false;
+ t = await (await run(homes, req("/homes/map/?city=Conway&view=3d&focus=2600005"))).text();
+ check("map page: one page, a 2D and 3D switch, opened in 3D, the home lit", t.includes('data-mode="3d" aria-pressed="true"') && t.includes('data-view="3d"') && t.includes('data-focus="2600005"'));
+-- 
+2.43.0
+
