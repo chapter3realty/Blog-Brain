@@ -53,6 +53,19 @@ function sourceChecks(root) {
     return { url: rel ? `/${rel}/` : "/", html, $: cheerio.load(html) };
   });
   const byUrl = new Map(pages.map(p => [p.url, p]));
+  /* Paths a Pages Function serves, not a file: functions/homes/[[path]].js serves /homes/ and
+     everything under it (the listing search, 2026-10). Read from the repo's functions folder. */
+  const served = [];
+  for (const fdir of [path.join(root, "functions"), path.join(root, "..", "functions")]) {
+    if (!fs.existsSync(fdir)) continue;
+    const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {
+      const f = path.join(d, e.name);
+      if (e.isDirectory()) return walk(f);
+      if (e.name === "[[path]].js") served.push("/" + path.relative(fdir, d).split(path.sep).join("/") + "/");
+    });
+    walk(fdir);
+  }
+  const byFunction = (t) => served.some((pre) => t === pre || t.startsWith(pre) || t === pre.slice(0, -1));
   const sitemapXml = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
   const sitemap = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].replace(SITE, ""));
   const redirects = new Map(fs.existsSync(path.join(root, "_redirects")) ? fs.readFileSync(path.join(root, "_redirects"), "utf8").split("\n")
@@ -99,7 +112,7 @@ function sourceChecks(root) {
       if (/^#./.test(href)) { if (!ids.get(url).has(href.slice(1))) add("error", "anchor", url, `${href} has no matching id on the page`); return; }
       if (!/^\/(?!\/)/.test(href)) return;
       const [pathPart, hash] = href.split("#"), target = pathPart.split("?")[0];
-      const exists = byUrl.has(target) || fileSet.has(target) || fileSet.has(target.replace(/\/?$/, "/index.html"));
+      const exists = byUrl.has(target) || fileSet.has(target) || fileSet.has(target.replace(/\/?$/, "/index.html")) || byFunction(target);
       if (!exists) {
         const r = redirects.get(target) || redirects.get(target.replace(/\/$/, ""));
         add(r ? "warn" : "error", "internal-link", url, r ? `${href} goes through a redirect to ${r}; link to ${r} directly` : `${href} does not exist`);

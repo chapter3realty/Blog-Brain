@@ -75,3 +75,11 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 - "each IDX listing should show on a map ... make the map page both 2d and 3d ... include a toggle": done. `/map/` now opens the one map page in 3D.
 - "search listings could be the main CTA and then under that the I am pages": done on the homepage hero.
 - "every blog needs an IDX feed on it that is pre filtered to what that blog is about ... as native and sleek as possible": done on every article, with a fallback and no feed when nothing fits.
+
+## 2026-10-26: buttons, feeds, the analyzer
+
+- "the cta shouldn't be a search bar just make it look like the i am buttons and say search listings and then have the i am buttons under it": done. Class: a call to action on a page looks like that page's own buttons, not a new kind of widget.
+- "make the cta page as simple as the one attached": the sign-up box is now full name, email, phone, one button.
+- "the title for the idx should be enticing ... legal of course": each feed title is a fact made true by its filter (DSCR candidates by price per bedroom; homes under the typical Maryland home). Class: an enticing title is a true, specific fact about the homes under it, never a description of people or a promise.
+- "make the IDX for all of them close to the top so that there's no scrolling then get into the blog": done, under the title part of each article; tool pages keep it under the tool.
+- "autofill down payment of 20% with a rate of 6% ... an estimated rate for that day": not done. The website rule bans any stated interest rate, and down payments outside four investor-loan pages. Told the owner; one line to change if he changes the rule.

@@ -62,6 +62,13 @@ for (const [checkName, file, mutate] of plants) {
   check(`${checkName}: fires`, got.length > 0);
 }
 
+/* A path a Pages Function serves (functions/homes/[[path]].js): a link to it is no dead link. */
+{
+  const withLink = { ...clean, "b/index.html": clean["b/index.html"].replace("<h1>H</h1>", '<h1>H</h1><p><a href="/homes/">Search listings</a> <a href="/homes/map/?view=3d">Map</a></p>') };
+  check("function route: plant landed", withLink["b/index.html"] !== clean["b/index.html"]);
+  check("function route: a link to /homes/ with no function behind it fires", run(withLink).some(f => f.check === "internal-link"));
+  check("function route: a link to /homes/ served by functions/homes/[[path]].js is quiet", !run({ ...withLink, "functions/homes/[[path]].js": "export const onRequest = () => null;" }).some(f => f.check === "internal-link"));
+}
 /* Inbound: remove every body link to /c/ from the other pages. */
 {
   const files = { ...clean };
