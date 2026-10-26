@@ -60,6 +60,8 @@ const cases = [
   ["off-market-promise", { main: "<p>We search the Coastal Carolinas MLS and our off-market sources and bring you a short list.</p>" }, { main: "<p>We search the Coastal Carolinas MLS and bring you a short list.</p>" }],
   ["fair-housing", { main: "<p>A zip code may contain a top-rated school district or a golf-cart-friendly community.</p>" }, { main: "<p>Look up the school assignment on the district's own map.</p>" }],
   ["fair-housing", { main: "<p>The town most relocating families tour first has its own guide: Carolina Forest.</p>" }, { main: "<p>The town most relocating buyers ask about has its own guide: Carolina Forest.</p>" }],
+  ["old-email", { main: "<p>Email hello@chapter3realty.com or call us.</p>" }, { main: "<p>Email info@chapter3realty.com or call us.</p>" }],
+  ["old-email", { head: '<script type="application/ld+json">{"@type":"RealEstateAgent","email":"hello@chapter3realty.com"}</script>' }, { head: '<script type="application/ld+json">{"@type":"RealEstateAgent","email":"info@chapter3realty.com"}</script>' }],
   ["template-residue", { main: "<p>%s</p><p>%s<a href='/a/'>Analyze my documents</a></p>" }, { main: "<p><span>+131%</span><span>since the 2012 low</span></p>" }],
 ];
 for (const [rule, bad, good] of cases) {

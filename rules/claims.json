@@ -164,6 +164,15 @@
         "\\blorem ipsum\\b"
       ],
       "fix": "Write the missing copy or delete the element."
+    },
+    {
+      "id": "old-email",
+      "severity": "high",
+      "why": "Every email to and from the site uses info@chapter3realty.com; hello@ is retired (owner, 2026-10-26: \"no hello any hello needs to become info\").",
+      "patterns": [
+        "\\bhello@chapter3realty\\.com\\b"
+      ],
+      "fix": "Use info@chapter3realty.com."
     }
   ],
   "inputDefaults": {
