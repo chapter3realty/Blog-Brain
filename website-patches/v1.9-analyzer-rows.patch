@@ -1,0 +1,607 @@
+From 9abd9a6cf142b99c57b600d619826bdf42d417f0 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 26 Oct 2026 19:34:02 +0000
+Subject: [PATCH 1/2] Homes rows scroll by themselves and still drag (they stop
+ for a hover, a touch, focus, or a few seconds after the reader moves them;
+ never with reduced motion); similar homes are for sale only; a listing page
+ shows homes like it (the same kind, about its price and size, nearest first)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+---
+ functions/homes/[[path]].js | 46 ++++++++++++++++++++++++++-----------
+ idx-lib/render.js           | 34 +++++++++++++++++++++------
+ tools/idx-test.mjs          | 10 +++++++-
+ 3 files changed, 68 insertions(+), 22 deletions(-)
+
+diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
+index 2f7f3e03..311e7c2d 100644
+--- a/functions/homes/[[path]].js
++++ b/functions/homes/[[path]].js
+@@ -518,15 +518,15 @@ async function similar(context, url) {
+   const q = url.searchParams;
+   const n = nearOf(q.get("near"), q.get("miles") || 3);
+   if (!n) return json({ ok: false });
+-  const p = new URLSearchParams({ near: n.near, miles: n.miles, size: "24" });
++  const p = new URLSearchParams({ near: n.near, miles: n.miles, size: "24", status: "active" });
+   for (const k of ["beds", "min", "max"]) if (/^\d{1,9}$/.test(q.get(k) || "")) p.set(k, q.get(k));
+   const not = /^[A-Za-z0-9]{3,20}$/.test(q.get("not") || "") ? q.get("not") : null;
+   const get = async (params) => {
+     const r = await crm(context.env, context.request, `/api/idx/listings?${params.toString()}`, { anonymous: true });
+-    return r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? { ls: r.json.listings.filter((l) => l && l.mlsNumber !== not), meta: r.json.meta } : { ls: [], meta: null };
++    return r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? { ls: r.json.listings.filter((l) => forSale(l) && l.mlsNumber !== not), meta: r.json.meta } : { ls: [], meta: null };
+   };
+   let got = await get(p);
+-  if (got.ls.length < 3) got = await get(new URLSearchParams({ near: n.near, miles: "5", size: "24" }));
++  if (got.ls.length < 3) got = await get(new URLSearchParams({ near: n.near, miles: "5", size: "24", status: "active" }));
+   if (got.ls.length < 3) return json({ ok: true, html: "" }, 200, { "cache-control": "public, max-age=300" });
+   const all = `/homes/?${new URLSearchParams({ near: n.near, miles: "3" }).toString()}`;
+   const cards = got.ls.slice(0, 10).map((l) => stripCard(l, false).replace(/<button type="button" class="hx-heart[\s\S]*?<\/button>/, "")).join("");
+@@ -657,7 +657,9 @@ ${l.listingAgent ? `<p class="hx-firm-line">Listing agent: ${esc(l.listingAgent)
+     // For investors: the rental analyzer, filled in with this home and started at once (owner, 2026-10-26).
+     + (!l.address ? "" : `<a class="hx-analyze" href="/invest/long-term-rental/?mls=${esc(encodeURIComponent(l.mlsNumber))}&amp;go=1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 4-6"/></svg>Analyze it as a rental</a>`) + `</aside>`;
+ 
+-  const [nearby, where] = await Promise.all([homesNearby(context, l), l.address ? (pinOf(l) ? { lat: pinOf(l).lat, lng: pinOf(l).lng } : geocode(l)) : null]);
++  const where = l.address ? (pinOf(l) ? { lat: pinOf(l).lat, lng: pinOf(l).lng } : await geocode(l)) : null;
++  // Homes like this one (owner, 2026-10-26: "the idx inside of that should be similar homes").
++  const nearby = await homesLike(context, l, where);
+   // Where the home is: a map with its pin. A click opens every home for sale in its town on
+   // the full map, this one lit (owner, 2026-10-25). Never for a withheld address (16.5).
+   const mapHref = `/homes/map/?${new URLSearchParams({ ...(l.city && CITIES.includes(l.city) ? { city: l.city } : {}), focus: l.mlsNumber }).toString()}`;
+@@ -689,20 +691,36 @@ ${disclaimer(r.json.meta)}`;
+   });
+ }
+ 
+-/** "More homes in <subdivision>": a strip of up to 10 other homes there, closest in price. Empty on any trouble. */
+-async function homesNearby(context, l) {
++/** True when a listing is for sale now (owner, 2026-10-26: no pending homes in a strip of homes for sale). */
++const forSale = (x) => x && (!x.status || x.status === "Active");
++const condoLike = (x) => /condo|apartment|townho/i.test(`${x.propertySubType || ""} ${x.propertyType || ""}`);
++
++/**
++ * "Homes like this one for sale": up to 10 other homes for sale now, of the same kind (a condo
++ * for a condo, a house for a house), within about a quarter of its price and a bedroom of its
++ * size, nearest first: around its pin when we have one, else in its subdivision, else its town.
++ * Empty on any trouble.
++ */
++async function homesLike(context, l, where) {
+   try {
++    const price = typeof l.listPrice === "number" && l.listPrice > 0 ? l.listPrice : 0;
++    const p = new URLSearchParams({ size: "48", status: "active" });
+     const sub = typeof l.subdivision === "string" ? l.subdivision.trim() : "";
+-    if (!/^[A-Za-z0-9 .,'&()\/-]{2,80}$/.test(sub)) return "";
+-    const p = new URLSearchParams({ subdivision: sub, size: "24" });
++    if (where) { p.set("near", `${where.lat.toFixed(5)},${where.lng.toFixed(5)}`); p.set("miles", "3"); p.set("sort", "nearest"); }
++    else if (/^[A-Za-z0-9 .,'&()\/-]{2,80}$/.test(sub)) p.set("subdivision", sub);
++    else if (l.city && CITIES.includes(l.city)) p.set("city", l.city);
++    else return "";
++    if (price) { p.set("min", String(Math.round(price * 0.75 / 1000) * 1000)); p.set("max", String(Math.round(price * 1.25 / 1000) * 1000)); }
++    if (typeof l.beds === "number" && l.beds > 1) p.set("beds", String(l.beds - 1));
+     const r = await crm(context.env, context.request, `/api/idx/listings?${p.toString()}`, { anonymous: true, timeoutMs: 2500 });
+-    const ls = r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? r.json.listings.filter((x) => x && x.mlsNumber !== l.mlsNumber) : [];
++    const all = r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? r.json.listings : [];
++    let ls = all.filter((x) => forSale(x) && x.mlsNumber !== l.mlsNumber && safeUrl(x.photo));
++    const same = ls.filter((x) => condoLike(x) === condoLike(l));
++    if (same.length >= 3) ls = same;
+     if (ls.length < 3) return "";
+-    const price = typeof l.listPrice === "number" ? l.listPrice : 0;
+-    const pick = ls.slice().sort((a, b) => Math.abs((a.listPrice || 0) - price) - Math.abs((b.listPrice || 0) - price)).slice(0, 10).sort((a, b) => (a.listPrice || 0) - (b.listPrice || 0));
+-    const name = sub.toLowerCase().replace(/\b([a-z])/g, (c) => c.toUpperCase());
+-    // The page sits inside the shell's <main id="main">, so the guide pages' strip style applies.
+-    return `<div class="hx-strip" data-place="nearby" data-name="${esc(name)}"><p class="hx-s-head"><b>More homes for sale in ${esc(name)}</b></p>`
++    const pick = ls.slice(0, 10);
++    const link = new URLSearchParams(p); link.delete("size"); link.delete("sort");
++    return `<div class="hx-strip" data-place="nearby" data-name="homes like it"><p class="hx-s-head"><b>Homes like this one for sale</b><a href="/homes/?${esc(link.toString())}">See all</a></p>`
+       + `<div class="hx-s-row">${pick.map((x) => stripCard(x, false)).join("")}</div></div>`;
+   } catch {
+     return "";
+diff --git a/idx-lib/render.js b/idx-lib/render.js
+index 93f18cc7..ff97f576 100644
+--- a/idx-lib/render.js
++++ b/idx-lib/render.js
+@@ -374,7 +374,7 @@ main#main .hx-feed-q button:hover{background:#2a3040}
+ @media (max-width:560px){main#main .hx-feed-q select{flex:1 1 calc(50% - .5rem);min-width:0}main#main .hx-feed-q button{flex:1 1 100%}}
+ .hx-s-note{margin:-.3rem 0 .55rem;font-size:.85rem;color:var(--muted,#5a5f6a)}
+ main#main .hx-s-row{display:flex;align-items:flex-start;gap:.75rem;overflow-x:auto;scroll-behavior:auto;scroll-snap-type:x proximity;padding:.15rem .15rem .6rem;margin:0 -.15rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;user-select:none;-webkit-user-select:none}
+-main#main .hx-s-row::-webkit-scrollbar{display:none}main#main .hx-s-row.hx-dragging{cursor:grabbing;scroll-snap-type:none}
++main#main .hx-s-row::-webkit-scrollbar{display:none}main#main .hx-s-row.hx-dragging{cursor:grabbing;scroll-snap-type:none}main#main .hx-s-row.hx-auto{scroll-snap-type:none}
+ main#main .hx-s-all{flex:0 0 40%;max-width:12rem;align-self:stretch;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;border-radius:16px;font-weight:600;color:var(--navy);background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75);text-decoration:none}
+ @media (min-width:700px){main#main .hx-s-all{flex-basis:18%}}
+ </style>`;
+@@ -389,13 +389,33 @@ function $(s,r){return (r||document).querySelector(s)}function $$(s,r){return Ar
+ function post(u,b){return fetch(u,{method:"POST",headers:{"content-type":"application/json"},credentials:"same-origin",body:JSON.stringify(b)}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){j._status=r.status;return j})})}
+ function openD(d){if(!d)return;if(d.showModal)d.showModal();else d.setAttribute("open","")}
+ $$("[data-hx-close]").forEach(function(b){b.addEventListener("click",function(){var d=b.closest("dialog");if(d)d.close()})});
+-/* Pan the strips with a mouse; a phone swipes them natively. A drag never opens a card. */
+-$$(".hx-s-row").forEach(function(row){var down=false,moved=false,x0=0,s0=0;
+- row.addEventListener("pointerdown",function(e){if(e.pointerType!=="mouse")return;down=true;moved=false;x0=e.clientX;s0=row.scrollLeft});
++/* Every row of homes scrolls slowly by itself (owner, 2026-10-26), and the reader can still drag it with a
++   mouse or swipe it. It stops while a pointer is over it, while it is touched or has focus, and for a few
++   seconds after the reader moves it; at the end it waits, then goes back to the start. Never with reduced motion. */
++var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
++function rig(row){if(row.hxRig)return;row.hxRig=1;var down=false,moved=false,x0=0,s0=0,hold=0,over=false,seen=false,pos=row.scrollLeft,wait=0;
++ function rest(ms){hold=Date.now()+ms}
++ row.addEventListener("pointerdown",function(e){rest(5000);if(e.pointerType!=="mouse")return;down=true;moved=false;x0=e.clientX;s0=row.scrollLeft});
+  row.addEventListener("pointermove",function(e){if(!down)return;var dx=e.clientX-x0;if(Math.abs(dx)>4){moved=true;row.classList.add("hx-dragging")}row.scrollTo({left:s0-dx,behavior:"instant"})});
+- function up(){down=false;setTimeout(function(){row.classList.remove("hx-dragging")},0)}
+- row.addEventListener("pointerup",up);row.addEventListener("pointerleave",up);
+- row.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false}},true)});
++ function up(){down=false;rest(5000);setTimeout(function(){row.classList.remove("hx-dragging")},0)}
++ row.addEventListener("pointerup",up);row.addEventListener("pointerleave",function(){over=false;up()});
++ row.addEventListener("pointerenter",function(e){if(e.pointerType==="mouse")over=true});
++ row.addEventListener("touchstart",function(){rest(6000)},{passive:true});
++ row.addEventListener("wheel",function(){rest(5000)},{passive:true});
++ row.addEventListener("focusin",function(){rest(8000)});
++ row.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
++ if(still||!window.requestAnimationFrame)return;
++ if(window.IntersectionObserver)new IntersectionObserver(function(es){seen=es[0].isIntersecting}).observe(row);else seen=true;
++ var last=0;function step(t){var dt=last?Math.min(64,t-last):16;last=t;
++  if(seen&&!over&&!down&&Date.now()>hold&&!row.contains(document.activeElement)){var max=row.scrollWidth-row.clientWidth;
++   if(max>8){if(Math.abs(row.scrollLeft-pos)>2)pos=row.scrollLeft;
++    if(pos>=max-1){if(!wait)wait=Date.now()+1800;else if(Date.now()>wait){wait=0;pos=0;row.scrollTo({left:0,behavior:"smooth"});rest(1200)}}
++    else{pos=Math.min(max,pos+dt*0.03);row.scrollLeft=pos}}}
++  requestAnimationFrame(step)}
++ /* No snapping on a row that moves by itself: a snap back to a card's edge reads as a jump. */
++ row.classList.add("hx-auto");requestAnimationFrame(step)}
++$$(".hx-s-row").forEach(rig);
++if(window.MutationObserver)new MutationObserver(function(){$$(".hx-s-row").forEach(rig)}).observe(document.body,{childList:true,subtree:true});
+ /* The quick filters apply at once; empty choices stay out of the address. The sort menu goes to its link. */
+ $$("form[data-hx-instant]").forEach(function(f){f.addEventListener("change",function(){var u=new URLSearchParams();Array.prototype.forEach.call(f.elements,function(el){if(el.name&&el.value)u.set(el.name,el.value)});location.href="/homes/"+(u.toString()?"?"+u.toString():"")})});
+ $$("select[data-hx-go]").forEach(function(s){s.addEventListener("change",function(){if(s.value.indexOf("/homes/")===0)location.href=s.value})});
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index b0ccf67e..630940c0 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -246,7 +246,11 @@ check("listing: the firm stays on the listing page", t.includes('<p class="hx-fi
+ check("listing: one tour and one ask button, no pop-up (owner, 2026-10-25)", (t.match(/data-interest="tour"/g) || []).length === 1 && (t.match(/data-interest="question"/g) || []).length === 1 && !t.includes("hx-toast") && !t.includes(",5000)"));
+ check("listing: the tour form carries the photo for its header, and day choices", /class="hx-tour hx-primary"[^>]*data-photo="https:/.test(t) && t.includes('name="day" value="This weekend"'));
+ check("listing: public page shows no locked data (no HOA fee, taxes, remarks, sold price)", !t.includes("AssociationFee") && !t.includes("614") && !t.includes('<p class="hx-remarks">') && !t.includes("Sold price") && t.includes("Free: everything else about this home"));
+-check("listing: more homes in the subdivision, closest in price, never this one", t.includes("More homes for sale in Test") && !t.split("More homes for sale in Test")[1].split("hx-disclaimer")[0].includes("/homes/2600005-") && (t.split("More homes for sale in Test")[1].match(/<article class="hx-c">/g) || []).length === 10);
++{
++  const part = t.includes("Homes like this one for sale") ? t.split("Homes like this one for sale")[1].split("hx-disclaimer")[0] : "";
++  const ask = calls.filter((c) => c.url.includes("/api/idx/listings?") && c.url.includes("subdivision=")).pop();
++  check("listing: homes like this one, for sale, about its price and size, never this one (owner, 2026-10-26)", part && !part.includes("/homes/2600005-") && (part.match(/<article class="hx-c">/g) || []).length >= 3 && ask && ask.url.includes("status=active") && ask.url.includes("min=") && ask.url.includes("max="));
++}
+ check("listing: blurred tile and photo count open the sign-up", /hx-l-tile hx-blur[^]*?data-hx-signup/.test(t) && t.includes("1 of 20 photos"));
+ 
+ // The search box in plain words (2026-10-25).
+@@ -515,6 +519,10 @@ check("search: the HOA select sent with no script still means no HOA", calls.fil
+ r = await run(mw, req("/buyers/second-home/"));
+ t = await r.text();
+ check("place strips: filled, and never asked for cheapest first (owner, 2026-10-26)", (t.match(/data-place="second-home-[a-z-]+"/g) || []).length === 5 && t.includes('class="hx-c"') && !calls.slice(-8).some((c) => c.url.includes("sort=price_asc")));
++r = await run(homes, req("/homes/api/similar?near=33.70000,-78.90000&beds=2"));
++await r.text();
++check("similar: asks for homes for sale only, never pending (owner, 2026-10-26)", calls.filter((c) => c.url.includes("/api/idx/listings?")).pop().url.includes("status=active"));
++check("rows: every homes row scrolls by itself, stops for the reader, never with reduced motion", SCRIPT.includes("prefers-reduced-motion") && SCRIPT.includes("requestAnimationFrame") && SCRIPT.includes("MutationObserver"));
+ APPLIED = false;
+ 
+ console.log(fails ? `${fails} control(s) fail` : "all controls pass");
+-- 
+2.43.0
+
+
+From f6f862c8ec887cec4dfa0c39386c71fc9809fe99 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 26 Oct 2026 19:41:47 +0000
+Subject: [PATCH 2/2] Rental analyzer: the value is the MLS asking price (or
+ the estimate), never the county's tax appraisal, which is shown as the tax
+ value; the tax follows the price at the county's own rate; Your numbers at
+ the top, open, with clear boxes and a cash or loan switch, every box live;
+ all eight results shown with a plain line under each, no hidden boxes; where
+ the money goes, what we noticed and the home in open panels; one call to
+ action; homes like it and the one MLS notice at the bottom
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+---
+ .../{s.ca9a7cae15.js => s.e1907eb976.js}      | 146 +++++++++---------
+ .../invest/long-term-rental/index.html        |  85 +++++-----
+ tools/idx-test.mjs                            |   2 +
+ 3 files changed, 128 insertions(+), 105 deletions(-)
+ rename chapter3realty/assets/{s.ca9a7cae15.js => s.e1907eb976.js} (89%)
+
+diff --git a/chapter3realty/assets/s.ca9a7cae15.js b/chapter3realty/assets/s.e1907eb976.js
+similarity index 89%
+rename from chapter3realty/assets/s.ca9a7cae15.js
+rename to chapter3realty/assets/s.e1907eb976.js
+index d761efc5..4eb3d6e4 100644
+--- a/chapter3realty/assets/s.ca9a7cae15.js
++++ b/chapter3realty/assets/s.e1907eb976.js
+@@ -42,7 +42,7 @@ function ltrShowMls(f) {
+   }
+   const bits = [f.beds != null ? f.beds + ' beds' : '', f.baths != null ? f.baths + ' baths' : '', f.sqft != null ? f.sqft.toLocaleString('en-US') + ' sq ft' : '', f.yearBuilt ? 'built ' + f.yearBuilt : ''].filter(Boolean).join(', ');
+   const sold = f.soldPrice ? ' Sold for $' + f.soldPrice.toLocaleString('en-US') + (f.soldOn ? ' on ' + f.soldOn : '') + '.' : '';
+-  note.textContent = (f.soldPrice ? 'Found its sale on the MLS: ' : 'Found on the MLS: ') + (bits || 'listing ' + f.mlsNumber) + '.' + sold + ' We filled these in for you. MLS #' + f.mlsNumber + ', listed by ' + (f.listingFirm || 'the listing brokerage') + '. Listing provided by CCMLS.';
++  note.textContent = (f.soldPrice ? 'Found its sale on the MLS: ' : 'Found on the MLS: ') + (bits || 'listing ' + f.mlsNumber) + '.' + sold + ' We filled these in for you. MLS #' + f.mlsNumber + ', listed by ' + (f.listingFirm || 'the listing brokerage') + '.';
+ }
+ 
+ // Not for sale and not signed up: a sold home's MLS record needs the free sign-up.
+@@ -142,16 +142,30 @@ function ltrSetBadge(cap, moCF, coc) {
+   el.innerHTML = `<span style="display:inline-flex;align-items:center;padding:.3rem .85rem;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;background:${bc};color:#fff">${bt}</span>`;
+ }
+ 
++// What each number means, in one plain line shown under it (owner, 2026-10-26: no hidden boxes).
++const LTR_SAYS = {
++  cashflow: 'What is left each month after every cost and the loan.',
++  rent: 'What a home like this rents for here, a month.',
++  capRate: 'A year of profit before the loan, as a share of the price.',
++  coc: 'A year of cash flow, as a share of the cash you put in.',
++  annualCF: 'What is left over a year, after every cost and the loan.',
++  noi: 'Rent a year, less every cost except the loan.',
++  cashIn: 'Down payment, about 3 percent closing costs and repairs.',
++  dscr: 'Rent profit divided by the loan payments. Over 1 means the rent covers the loan.',
++  cash100: 'You pay the whole price, so there is no loan payment.',
++  appreciation: 'How much homes here may gain in value each year.',
++};
+ function ltrCard(label, displayValue, metric, topColor, tipKey, rawScore) {
+   // rawScore is the numeric value used for color - displayValue may be a formatted string
+   const score = (rawScore !== undefined && rawScore !== null) ? rawScore : parseFloat(String(displayValue).replace(/[^0-9.-]/g,''));
+   const color = metric ? ltrScoreColor(metric, score) : (topColor||'var(--brass)');
+   const pill  = metric ? ltrPillLabel(metric, score)  : null;
+-  const tip   = tipKey ? ltrTip(tipKey) : (metric ? ltrTip(metric) : '');
++  const says  = LTR_SAYS[tipKey || metric] || '';
+   return `<div class="ltr-m"><div class="ltr-m-bar" style="background:${color}"></div>
+-    <div class="ltr-m-l">${label}${tip}</div>
++    <div class="ltr-m-l">${label}</div>
+     <div class="ltr-m-v">${displayValue}</div>
+     ${pill?`<span class="ltr-m-p" style="background:${pill[1]};color:${pill[2]}">${pill[0]}</span>`:''}
++    ${says?`<p class="ltr-m-s">${says}</p>`:''}
+   </div>`;
+ }
+ 
+@@ -589,9 +603,12 @@ async function ltrRun() {
+       (mls.remarks ? ' Listing description (facts only, ignore sales language): ' + mls.remarks.replace(/\s+/g, ' ').slice(0, 700) : '')
+     ) : '';
+ 
++    // The county's figure is its tax appraisal. It lags sales (Horry County reappraises every few
++    // years) and a new house may carry only its land: a $400,000 listing read $118,000 (owner,
++    // 2026-10-26). It is never the home's value; the tax figure is still the county's own.
+     const countyFacts = _ltrParcel ? (
+-      `COUNTY RECORD (authoritative, use exactly, do not re-estimate): market value $${(_ltrParcel.marketValue||0).toLocaleString()}` +
+-      `, annual property tax at the 6% investment rate $${(_ltrParcel.investorAnnualTax||0).toLocaleString()}` +
++      `COUNTY TAX RECORD: the county's tax appraisal is $${(_ltrParcel.marketValue||0).toLocaleString()}. It is often far below what the home would sell for, so do NOT use it as estimatedValue` +
++      `; annual property tax at the 6% investment rate $${(_ltrParcel.investorAnnualTax||0).toLocaleString()} (use exactly)` +
+       (_ltrParcel.acreage ? `, ${_ltrParcel.acreage} acres` : '') +
+       (_ltrParcel.isCondo ? ', condominium' : '') + '.'
+     ) : '';
+@@ -643,7 +660,7 @@ ${permitCtx ? 'Permit signals: generate GREEN flags for hospital/medical/retail/
+ 
+     const analysisRaw = await callProxy({
+       model: 'claude-haiku-5-5', max_tokens: 1200,
+-      cache_key: ['analysis2', fullAddr, beds||'', baths||'', sqft||'', isFixer ? (cond||'fixer') : '', mls ? 'mls' + mls.mlsNumber + '-' + (mls.listPrice||'') + '-' + mls.tier : ''].join('|'),
++      cache_key: ['analysis3', fullAddr, beds||'', baths||'', sqft||'', isFixer ? (cond||'fixer') : '', mls ? 'mls' + mls.mlsNumber + '-' + (mls.listPrice||'') + '-' + mls.tier : ''].join('|'),
+       messages: [{ role: 'user', content: analysisPrompt }]
+     });
+ 
+@@ -651,8 +668,10 @@ ${permitCtx ? 'Permit signals: generate GREEN flags for hospital/medical/retail/
+ 
+     // The county's own numbers override the model's estimate. Value and property
+     // tax are matters of public record, not something worth guessing at.
++    // A home for sale is worth about its asking price to a buyer: the MLS price, not a guess.
++    if (_ltrMls && !_ltrMls.soldPrice && _ltrMls.listPrice > 0) { d.estimatedValue = _ltrMls.listPrice; d.valueFrom = 'asking'; }
+     if (_ltrParcel) {
+-      if (_ltrParcel.marketValue) d.estimatedValue = _ltrParcel.marketValue;
++      if (_ltrParcel.marketValue) d.countyValue = _ltrParcel.marketValue;
+       if (_ltrParcel.investorAnnualTax) d.propertyTaxAnnual = _ltrParcel.investorAnnualTax;
+       d.flags = d.flags || [];
+       if (_ltrParcel.currentlyOwnerOccupied) {
+@@ -719,11 +738,15 @@ function ltrRenderResults(d, address, isFixer, isCash) {
+   let src = document.getElementById('ltr-r-mls');
+   if (_ltrMls) {
+     if (!src) { src = document.createElement('p'); src.id = 'ltr-r-mls'; src.style.cssText = 'margin:.3rem 0 0;font-size:.78rem;color:var(--slate,#5c6b78)'; document.getElementById('ltr-r-address').insertAdjacentElement('afterend', src); }
+-    src.textContent = 'Home facts from MLS #' + _ltrMls.mlsNumber + ', listed by ' + (_ltrMls.listingFirm || 'the listing brokerage') + '. Listing provided by CCMLS. Estimates are not guaranteed.';
++    src.textContent = 'MLS #' + _ltrMls.mlsNumber + ', listed by ' + (_ltrMls.listingFirm || 'the listing brokerage') + '.';
+   } else if (src) { src.remove(); }
+   const verdictEl = document.getElementById('ltr-r-verdict');
+   if (verdictEl) verdictEl.textContent = ltrSafeNarrative(d.overview || d.verdict || '') || ltrSafeNarrative(d.verdict || '');
+   document.getElementById('ltr-r-value').textContent = ltrFmt(d.estimatedValue);
++  const go = document.getElementById('ltr-cta-go'); if (go) go.href = '/contact/?topic=investment' + (_ltrMls ? '&mls=' + encodeURIComponent(_ltrMls.mlsNumber) : '');
++  const vk = document.getElementById('ltr-r-vk'); if (vk) vk.textContent = d.valueFrom === 'asking' ? 'Asking price' : 'Estimated value';
++  const cv = document.getElementById('ltr-r-county');
++  if (cv) cv.textContent = d.countyValue ? 'County value for tax: ' + ltrFmt(d.countyValue) : '';
+ 
+   // The badge is set by recalcLtr() below, off the recomputed numbers. It used to
+   // be scored here from the model's own financing guess, which is never displayed
+@@ -758,50 +781,23 @@ function ltrRenderResults(d, address, isFixer, isCash) {
+     // would actually pay is personal to them.
+     // Left blank: the MLS asking price, else the estimate (owner, 2026-10-26).
+     const priceVal = ltrMoney(document.getElementById('ltr-price')?.value) || (_ltrMls && !_ltrMls.soldPrice && _ltrMls.listPrice) || d.estimatedValue || '';
++    const box = (id, label, val, unit, extra) => `<label class="ltr-in"><span>${label}</span><span class="ltr-in-b${unit === '$' ? ' ltr-in-d' : ' ltr-in-p'}">${unit === '$' ? '<i>$</i>' : ''}<input id="${id}" type="text" inputmode="decimal" value="${val}" oninput="recalcLtr()"${extra || ''}/>${unit === '%' ? '<i>%</i>' : unit === '/mo' ? '<i>a month</i>' : unit === '/yr' ? '<i>a year</i>' : ''}</span></label>`;
+     adj.innerHTML = `
+-      <div style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;padding-bottom:.6rem;border-bottom:1px solid var(--rule)">Adjust Assumptions <span style="font-size:.7rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);margin-left:.5rem">recalculates instantly</span></div>
+-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem" class="adj-grid">
+-        <div>
+-          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Monthly Rent ($)</div>
+-          <input style="width:100%;padding:.55rem .75rem;font-family:var(--sans);font-size:.9rem;font-weight:500;background:var(--ivory-2);border:1.5px solid var(--rule);outline:none;color:var(--navy);transition:border-color .15s" id="adj-rent" type="text" inputmode="decimal" value="${d.estRentMonthly||''}" oninput="recalcLtr()"/>
+-        </div>
+-        <div>
+-          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Purchase Price ($)</div>
+-          <input style="width:100%;padding:.55rem .75rem;font-family:var(--sans);font-size:.9rem;font-weight:500;background:var(--ivory-2);border:1.5px solid var(--rule);outline:none;color:var(--navy);transition:border-color .15s" id="adj-price" type="text" inputmode="decimal" value="${priceVal}" oninput="recalcLtr()"/>
+-        </div>
+-        <div>
+-          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">HOA ($/mo)</div>
+-          <input style="width:100%;padding:.55rem .75rem;font-family:var(--sans);font-size:.9rem;font-weight:500;background:var(--ivory-2);border:1.5px solid var(--rule);outline:none;color:var(--navy);transition:border-color .15s" id="adj-hoa" type="text" inputmode="decimal" value="${hoaMoVal}" oninput="recalcLtr()"/>
+-        </div>
+-        <div>
+-          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Insurance ($/yr)</div>
+-          <input style="width:100%;padding:.55rem .75rem;font-family:var(--sans);font-size:.9rem;font-weight:500;background:var(--ivory-2);border:1.5px solid var(--rule);outline:none;color:var(--navy);transition:border-color .15s" id="adj-insurance" type="text" inputmode="decimal" value="${d.insuranceAnnual||1800}" oninput="recalcLtr()"/>
+-        </div>
+-        <div>
+-          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Repair budget ($)</div>
+-          <input style="width:100%;padding:.55rem .75rem;font-family:var(--sans);font-size:.9rem;font-weight:500;background:var(--ivory-2);border:1.5px solid var(--rule);outline:none;color:var(--navy);transition:border-color .15s" id="adj-rehab" type="text" inputmode="decimal" value="${d.rehabBudgetHigh||0}" oninput="recalcLtr()"/>
+-        </div>
+-        ${!isCash?`
+-        <div>
+-          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Down Payment (%)</div>
+-          <input style="width:100%;padding:.55rem .75rem;font-family:var(--sans);font-size:.9rem;font-weight:500;background:var(--ivory-2);border:1.5px solid var(--rule);outline:none;color:var(--navy);transition:border-color .15s" id="adj-down" type="text" inputmode="decimal" value="${downVal}" oninput="recalcLtr()"/>
+-        </div>
+-        <div>
+-          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Interest Rate (%)</div>
+-          <input style="width:100%;padding:.55rem .75rem;font-family:var(--sans);font-size:.9rem;font-weight:500;background:var(--ivory-2);border:1.5px solid var(--rule);outline:none;color:var(--navy);transition:border-color .15s" id="adj-rate" type="text" inputmode="decimal" step="0.1" value="${rateVal}" oninput="recalcLtr()"/>
+-        </div>`:''}
+-        <div>
+-          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Vacancy % <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);font-size:.58rem">optional</span></div>
+-          <input style="width:100%;padding:.55rem .75rem;font-family:var(--sans);font-size:.9rem;font-weight:500;background:var(--ivory-2);border:1.5px solid var(--rule);outline:none;color:var(--navy);transition:border-color .15s" id="adj-vacancy" type="text" inputmode="decimal" placeholder="0" min="0" max="20" value="0" oninput="recalcLtr()"/>
+-        </div>
+-        <div>
+-          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem">Utilities Paid By</div>
+-          <select style="width:100%;padding:.55rem .75rem;font-family:var(--sans);font-size:.9rem;font-weight:500;background:var(--ivory-2);border:1.5px solid var(--rule);outline:none;color:var(--navy);-webkit-appearance:none" id="adj-utilities" onchange="recalcLtr()">
+-            <option value="landlord" ${utPaid==='landlord'?'selected':''}>Landlord</option>
+-            <option value="tenant" ${utPaid==='tenant'?'selected':''}>Tenant</option>
+-          </select>
+-        </div>
+-      </div>`;
++      <div class="ltr-edit-h"><div><p class="ltr-edit-t"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M4 20h4L19 9l-4-4L4 16v4zM14 6l4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Your numbers</p><p class="ltr-edit-s">Change any box. Every result below updates as you type.</p></div>
++        <div class="ltr-pay" role="radiogroup" aria-label="How you pay"><button type="button" role="radio" data-pay="cash" aria-checked="${isCash}" onclick="ltrPay(true)">Cash</button><button type="button" role="radio" data-pay="loan" aria-checked="${!isCash}" onclick="ltrPay(false)">Loan</button></div></div>
++      <div class="ltr-grid">
++        ${box('adj-price', d.valueFrom === 'asking' ? 'Asking price' : 'Price', priceVal, '$')}
++        ${box('adj-rent', 'Rent a month', d.estRentMonthly || '', '$', '')}
++        <span class="ltr-loanbox"${isCash ? ' hidden' : ''}>${box('adj-down', 'Down payment', downVal >= 0 ? downVal : '', '%', ' placeholder="Your %"')}</span>
++        <span class="ltr-loanbox"${isCash ? ' hidden' : ''}>${box('adj-rate', 'Interest rate', rateVal >= 0 ? rateVal : '', '%', ' placeholder="Your rate"')}</span>
++        ${box('adj-hoa', 'HOA fee a month', hoaMoVal, '$')}
++        ${box('adj-insurance', 'Insurance a year', d.insuranceAnnual || 1800, '$')}
++        ${box('adj-rehab', 'Repairs', d.rehabBudgetHigh || 0, '$')}
++        ${box('adj-vacancy', 'Vacancy', 0, '%', ' placeholder="0"')}
++        ${box('adj-mgmt', 'Property manager', ltrNum('ltr-mgmt', 0) || Math.round(((d.managementFeeAnnual || 0) / ((d.estRentMonthly || 1) * 12)) * 100) || 0, '%')}
++        <label class="ltr-in"><span>Utilities paid by</span><span class="ltr-in-b"><select id="adj-utilities" onchange="recalcLtr()"><option value="tenant" ${utPaid==='tenant'?'selected':''}>Tenant</option><option value="landlord" ${utPaid==='landlord'?'selected':''}>Landlord</option></select></span></label>
++      </div>
++      <p class="ltr-edit-n" id="ltr-loan-note"${isCash ? ' hidden' : ''}>Enter your own down payment and rate to see the loan.</p>`;
+     adj.style.display = 'block';
+   }
+ 
+@@ -827,6 +823,15 @@ function ltrRenderResults(d, address, isFixer, isCash) {
+   setTimeout(initLtrTips, 150);
+ }
+ 
++// Cash or a loan, from the switch in "Your numbers". A loan needs the buyer's own terms; we state none.
++function ltrPay(cash) {
++  _ltrIsCash = !!cash;
++  document.querySelectorAll('.ltr-pay [data-pay]').forEach(function (b) { b.setAttribute('aria-checked', String((b.getAttribute('data-pay') === 'cash') === _ltrIsCash)); });
++  document.querySelectorAll('.ltr-loanbox, #ltr-loan-note').forEach(function (el) { el.hidden = _ltrIsCash; });
++  const c = document.getElementById('ltr-is-cash'); if (c) { c.checked = _ltrIsCash; toggleLtrCash(); }
++  recalcLtr();
++}
++
+ // Homes like this one for sale now, near it: the listing search's own cards, from the server.
+ async function ltrSimilar(coords, beds, mls) {
+   const box = document.getElementById('ltr-similar'); if (!box) return;
+@@ -878,8 +883,10 @@ function recalcLtr() {
+     _ltrRates = {
+       // With a county record the tax is a known dollar amount tied to the county's
+       // assessment, so it must not drift with whatever price the buyer types.
+-      tax:   (_ltrParcel && _ltrParcel.investorAnnualTax && basePrice > 0)
+-               ? _ltrParcel.investorAnnualTax / basePrice
++      // A sale resets the county's value to the price, so the tax follows the price at the county's
++      // own rate: its 6 percent tax over its own appraisal (never over our value, which differs).
++      tax:   (_ltrParcel && _ltrParcel.investorAnnualTax && _ltrParcel.marketValue > 0)
++               ? _ltrParcel.investorAnnualTax / _ltrParcel.marketValue
+                : (basePrice > 0 && d.propertyTaxAnnual ? d.propertyTaxAnnual / basePrice : 0.0082),
+       maint: basePrice > 0 && d.maintenanceAnnual   ? d.maintenanceAnnual   / basePrice : 0.0085,
+       // Management is a pure user input, but it is not part of the cache key, so a
+@@ -895,7 +902,8 @@ function recalcLtr() {
+   const utBase  = d.utilitiesMonthly || Math.round((d.inferredSqft || _ltrData?.inferredSqft || 1200) * 0.20 / 12);
+   const utAnn   = utPay === 'landlord' ? utBase * 12 : 0;
+   const hoaAnn  = hoaMo * 12;
+-  const mgmt    = Math.round(gross * _ltrRates.mgmt);
++  const mgmtBox = document.getElementById('adj-mgmt');
++  const mgmt    = mgmtBox && mgmtBox.value.trim() !== '' ? Math.round(gross * ltrNum('adj-mgmt', 0) / 100) : Math.round(gross * _ltrRates.mgmt);
+   const opEx    = tax + ins + utAnn + hoaAnn + mgmt + maint + vac;
+   const noi     = egi - opEx + vac; // NOI excludes vacancy
+   const noiTrue = egi - (tax + ins + utAnn + hoaAnn + mgmt + maint);
+@@ -930,38 +938,38 @@ function recalcLtr() {
+     ltrCard('Cash flow a month', ltrFmt(moCF), 'cashflow', null, null, moCF) +
+     ltrCard('Rent a month', ltrFmt(rent), null, 'var(--slate)', 'rent') +
+     ltrCard('Cap rate', ltrFmtPct(cap), 'capRate', null, null, cap) +
+-    ltrCard('Cash-on-cash', ltrFmtPct(coc), 'coc', null, null, coc);
+-
+-  document.getElementById('ltr-income-metrics').innerHTML =
+-    dscrCard +
+-    ltrCard('Net operating income a year', ltrFmt(noiTrue), null, 'var(--slate)', 'noi') +
++    ltrCard('Cash-on-cash', ltrFmtPct(coc), 'coc', null, null, coc) +
+     ltrCard('Cash flow a year', ltrFmt(cf), 'cashflow', 'var(--slate)', 'annualCF', cf/12) +
+-    ltrCard('Appreciation', ltrFmtPct(d.estimatedAppreciationPct) + ' a year', null, 'var(--brass)', 'appreciation');
+-
+-  document.getElementById('ltr-return-metrics').innerHTML = '';
++    ltrCard('Profit before the loan, a year', ltrFmt(noiTrue), null, 'var(--slate)', 'noi') +
++    ltrCard('Cash to buy it', ltrFmt(cash), null, 'var(--slate)', 'cashIn') +
++    (effectiveCash ? ltrCard('Value growth', ltrFmtPct(d.estimatedAppreciationPct) + ' a year', null, 'var(--brass)', 'appreciation') : dscrCard);
+ 
+   // Expense table
+   const rows = [
+-    ['Property Tax (6% SC investment rate)', tax],
++    ['Property tax (the 6 percent rental rate)', tax],
+     ['Insurance', ins],
+     ...(utPay === 'landlord' ? [['Utilities', utAnn]] : []),
+-    ...(hoaAnn > 0 ? [['HOA Fees', hoaAnn]] : []),
+-    ...(mgmt > 0   ? [['Management', mgmt]] : []),
+-    ['Maintenance Reserve', maint],
++    ...(hoaAnn > 0 ? [['HOA fee', hoaAnn]] : []),
++    ...(mgmt > 0   ? [['Property manager', mgmt]] : []),
++    ['Upkeep and repairs set aside', maint],
+   ];
+   // Vacancy is a reduction in gross income, not an operating expense, so it is
+   // listed below the total. Inside the list it made the rows not sum to the total.
+   const rowStyle = 'display:flex;justify-content:space-between;align-items:baseline;padding:.3rem 0;border-bottom:1px solid rgba(0,0,0,.04)';
+   const divStyle = 'display:flex;justify-content:space-between;align-items:baseline;padding:.45rem 0;border-top:1.5px solid var(--rule);margin-top:.2rem';
+   document.getElementById('ltr-expense-table').innerHTML =
+-    `<div style="display:flex;flex-direction:column;width:100%;font-size:.83rem">` +
++    `<div style="display:flex;flex-direction:column;width:100%;font-size:.92rem">` +
++    `<div style="${rowStyle}"><span style="color:var(--navy);font-weight:600">Rent a year</span><span style="font-weight:600;font-variant-numeric:tabular-nums">${ltrFmt(gross)}</span></div>` +
+     rows.map(([l,v]) => `<div style="${rowStyle}"><span style="color:var(--muted)">${l}</span><span style="font-weight:500;font-variant-numeric:tabular-nums">${ltrFmt(v)}</span></div>`).join('') +
+-    `<div style="${divStyle}"><span style="font-weight:600">Total Operating Expenses</span><span style="font-weight:700;font-variant-numeric:tabular-nums">${ltrFmt(opEx - vac)}</span></div>` +
++    `<div style="${divStyle}"><span style="font-weight:600">Costs a year</span><span style="font-weight:700;font-variant-numeric:tabular-nums">${ltrFmt(opEx - vac)}</span></div>` +
+     (vac > 0 ? `<div style="${rowStyle}"><span style="color:var(--muted)">Vacancy allowance (${vacPct}%)</span><span style="font-weight:500;font-variant-numeric:tabular-nums">${ltrFmt(vac)}</span></div>` : '') +
+-    (!effectiveCash ? `<div style="${rowStyle}"><span style="color:var(--muted)">Annual Mortgage</span><span style="font-weight:500;font-variant-numeric:tabular-nums">${ltrFmt(debt)}</span></div>` : '') +
++    (!effectiveCash ? `<div style="${rowStyle}"><span style="color:var(--muted)">Loan payments a year</span><span style="font-weight:500;font-variant-numeric:tabular-nums">${ltrFmt(debt)}</span></div>` : '') +
++    `<div style="${divStyle}"><span style="font-weight:700;color:var(--navy)">Left over a year</span><span style="font-weight:700;font-variant-numeric:tabular-nums;color:${cf >= 0 ? '#2d7a4f' : '#c0392b'}">${ltrFmt(cf)}</span></div>` +
+     `</div>`;
+ 
+   ltrSetBadge(cap, moCF, coc);
++  // The loan note only while a loan is chosen and its terms are missing.
++  const ln = document.getElementById('ltr-loan-note'); if (ln) ln.hidden = _ltrIsCash || !effectiveCash;
+   setTimeout(initLtrTips, 50);
+ }
+ 
+diff --git a/chapter3realty/invest/long-term-rental/index.html b/chapter3realty/invest/long-term-rental/index.html
+index 412093d1..c98f8794 100644
+--- a/chapter3realty/invest/long-term-rental/index.html
++++ b/chapter3realty/invest/long-term-rental/index.html
+@@ -113,18 +113,45 @@
+ #ltr-results .ltr-m-v{font-family:var(--serif);font-size:1.7rem;line-height:1.05;color:var(--navy)}
+ #ltr-results .ltr-m-p{display:inline-block;margin-top:.45rem;padding:.18rem .55rem;border-radius:999px;font-size:.7rem;font-weight:600}
+ @media(max-width:760px){#ltr-results .ltr-metrics{grid-template-columns:1fr 1fr}#ltr-results .ltr-top-r{text-align:left}}
+-#ltr-results .ltr-d{background:#fff;border:1px solid var(--rule);border-radius:16px;margin-bottom:.6rem}
+-#ltr-results .ltr-d>summary{list-style:none;cursor:pointer;padding:1rem 1.3rem;font-weight:600;color:var(--navy);display:flex;justify-content:space-between;align-items:center}
+-#ltr-results .ltr-d>summary::-webkit-details-marker{display:none}
+-#ltr-results .ltr-d>summary::after{content:"+";font-size:1.3rem;font-weight:400;color:var(--brass)}
+-#ltr-results .ltr-d[open]>summary::after{content:"\2212"}
+-#ltr-results .ltr-d>div,#ltr-results .ltr-d>p{margin:0 1.3rem 1.1rem}
+-#ltr-results .ltr-d #ltr-adj-panel{border:0!important;padding:0!important;margin:0 1.3rem 1.1rem!important}
++#ltr-results .ltr-county{margin:.45rem 0 0;font-size:.78rem;color:rgba(244,239,232,.7)}
++#ltr-results .ltr-m-s{margin:.5rem 0 0;font-size:.8rem;line-height:1.45;color:var(--muted)}
++#ltr-results .ltr-edit{background:#fff;border:1.5px solid var(--brass);border-radius:18px;padding:1.2rem 1.3rem 1.3rem;margin-bottom:1rem;box-shadow:0 8px 24px rgba(196,120,58,.12)}
++#ltr-results #ltr-adj-panel{margin:0!important;padding:0!important;border:0!important}
++#ltr-results .ltr-edit-h{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
++#ltr-results .ltr-edit-t{display:flex;align-items:center;gap:.45rem;margin:0;font-family:var(--serif);font-size:1.3rem;color:var(--navy)}
++#ltr-results .ltr-edit-t svg{color:var(--brass)}
++#ltr-results .ltr-edit-s{margin:.2rem 0 0;font-size:.9rem;color:var(--muted)}
++#ltr-results .ltr-pay{display:inline-flex;border:1.5px solid var(--navy);border-radius:999px;overflow:hidden}
++#ltr-results .ltr-pay button{border:0;background:#fff;color:var(--navy);font:inherit;font-weight:600;font-size:.9rem;padding:.5rem 1.1rem;cursor:pointer;min-height:2.6rem}
++#ltr-results .ltr-pay button[aria-checked=true]{background:var(--navy);color:#fff}
++#ltr-results .ltr-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}
++#ltr-results .ltr-loanbox{display:contents}#ltr-results .ltr-loanbox[hidden]{display:none}
++#ltr-results .ltr-in{min-width:0;display:flex;flex-direction:column;gap:.3rem;font-size:.78rem;font-weight:600;color:var(--slate,#5c6b78)}
++#ltr-results .ltr-in-b{display:flex;align-items:center;gap:.25rem;min-height:3rem;padding:0 .8rem;border:1.5px solid rgba(28,32,40,.22);border-radius:12px;background:#faf8f4;transition:border-color .15s,box-shadow .15s}
++#ltr-results .ltr-in-b:focus-within{border-color:var(--brass);box-shadow:0 0 0 3px rgba(196,120,58,.18);background:#fff}
++#ltr-results .ltr-in-b i{font-style:normal;color:var(--muted);font-weight:500;font-size:.95rem}
++#ltr-results .ltr-in-b input,#ltr-results .ltr-in-b select{flex:1;min-width:0;width:100%;border:0;outline:none;background:none;font:inherit;font-size:1.05rem;font-weight:600;color:var(--navy);padding:0}
++#ltr-results .ltr-edit-n{margin:.8rem 0 0;font-size:.85rem;color:var(--muted)}
++#ltr-results .ltr-two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
++#ltr-results .ltr-box{background:#fff;border:1px solid var(--rule);border-radius:18px;padding:1.2rem 1.3rem;margin-bottom:1rem}
++#ltr-results .ltr-box-h{margin:0 0 .6rem;font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700}
++#ltr-results .ltr-cta{display:grid;grid-template-columns:1fr auto;gap:1rem 1.5rem;align-items:center;margin:1.4rem 0 1.6rem;padding:1.6rem 1.7rem;border-radius:22px;background:linear-gradient(135deg,#1c2028 0%,#2b3242 100%);color:var(--ivory);box-shadow:0 18px 40px rgba(28,32,40,.22)}
++#ltr-results .ltr-cta-h{margin:0 0 .3rem;font-family:var(--serif);font-size:1.5rem;color:var(--ivory)}
++#ltr-results .ltr-cta-p{margin:0;font-size:.95rem;line-height:1.55;color:rgba(244,239,232,.78)}
++#ltr-results .ltr-cta-b{display:flex;gap:.6rem;flex-wrap:wrap}
++#ltr-results .ltr-cta-go,#ltr-results .ltr-cta-call{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;padding:0 1.4rem;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none}
++#ltr-results .ltr-cta-go{background:var(--brass-2,#d4894a);color:#1c2028}
++#ltr-results .ltr-cta-call{border:1.5px solid rgba(244,239,232,.5);color:var(--ivory)}
++#ltr-results .ltr-cta-x{grid-column:1/-1;display:flex;gap:1.2rem;border-top:1px solid rgba(244,239,232,.14);padding-top:.9rem}
++#ltr-results .ltr-cta-x button{border:0;background:none;color:rgba(244,239,232,.8);font:inherit;font-size:.88rem;text-decoration:underline;text-underline-offset:.2em;cursor:pointer;padding:.2rem 0}
++#ltr-results #ltr-inferred-strip{gap:.5rem 1.4rem;flex-wrap:wrap;align-items:baseline;margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--rule)}#ltr-results #ltr-inferred-strip>span{font-size:.85rem!important}
++#ltr-results .ltr-fine{font-size:.78rem;color:var(--muted);line-height:1.6;margin:1rem 0 0}
++@media(max-width:860px){#ltr-results .ltr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#ltr-results .ltr-two{grid-template-columns:1fr}#ltr-results .ltr-cta{grid-template-columns:1fr}}
+ #ltr-results .ltr-exp{background:var(--ivory-2);border-radius:12px;padding:1rem 1.2rem}
+ #ltr-results .ltr-exp .ltr-k{color:var(--muted)}
+ #ltr-results .ltr-narr{font-size:.95rem;line-height:1.7;color:var(--navy)}
+ #ltr-similar:empty{display:none}
+-#ltr-similar{margin:0 0 1rem}
++#ltr-similar{margin:1.2rem 0 0}
+ #ltr-similar .hx-strip{margin:0}
+ .ltr-fin{position:fixed;inset:0;margin:auto;border:0;border-radius:22px;padding:0;max-width:26rem;width:calc(100% - 2rem);height:fit-content;box-shadow:0 30px 80px rgba(28,32,40,.4)}
+ .ltr-fin::backdrop{background:rgba(28,32,40,.55);backdrop-filter:blur(4px)}
+@@ -239,46 +266,32 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <div id="ltr-results" style="display:none">
+ <div class="ltr-top">
+ <div class="ltr-top-l"><p class="ltr-k">Rental analysis</p><div id="ltr-r-address" class="ltr-addr"></div><div id="ltr-r-badge"></div></div>
+-<div class="ltr-top-r"><p class="ltr-k">Estimated value</p><div id="ltr-r-value" class="ltr-v"></div></div>
++<div class="ltr-top-r"><p class="ltr-k" id="ltr-r-vk">Estimated value</p><div id="ltr-r-value" class="ltr-v"></div><p id="ltr-r-county" class="ltr-county"></p></div>
+ </div>
+ <div class="ltr-ai" aria-live="polite"><p class="ltr-ai-h"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path d="M12 2l2.2 6.3L20 10l-5.8 1.7L12 18l-2.2-6.3L4 10l5.8-1.7z" fill="currentColor"/></svg>AI overview</p><p id="ltr-r-verdict" class="ltr-ai-t"></p></div>
++<section class="ltr-edit" aria-label="Your numbers"><div id="ltr-adj-panel" style="display:none"></div></section>
+ <div class="ltr-metrics" id="ltr-core-metrics"></div>
+-<div id="ltr-similar"></div>
+-<details class="ltr-d"><summary>Change the numbers</summary><div id="ltr-adj-panel" style="display:none"></div></details>
+-<details class="ltr-d"><summary>Every number, and where the money goes</summary><div class="ltr-metrics" id="ltr-income-metrics"></div><div class="ltr-metrics" id="ltr-return-metrics"></div><div class="ltr-exp"><p class="ltr-k">Each year</p><div id="ltr-expense-table"></div></div></details>
+-<details class="ltr-d"><summary>What we noticed</summary><div id="ltr-flags"></div></details>
+-<details class="ltr-d"><summary>The full write-up and the home's details</summary><p id="ltr-narrative-text" class="ltr-narr"></p><div id="ltr-inferred-strip" style="display:none"></div></details>
++<div class="ltr-two">
++<section class="ltr-box"><h3 class="ltr-box-h">Where the money goes</h3><div id="ltr-expense-table"></div></section>
++<section class="ltr-box"><h3 class="ltr-box-h">What we noticed</h3><div id="ltr-flags"></div></section>
++</div>
++<section class="ltr-box"><h3 class="ltr-box-h">About this home</h3><p id="ltr-narrative-text" class="ltr-narr"></p><div id="ltr-inferred-strip" style="display:none"></div></section>
+ <div id="ltr-arv-section" style="display:none;background:var(--navy);padding:2rem 2.5rem;margin-bottom:.5rem">
+ <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-2);margin-bottom:1rem">🔨 Fixer-Upper Analysis</div>
+ <div id="ltr-arv-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08)"></div>
+ <div id="ltr-arv-note" style="margin-top:1rem;font-size:.85rem;color:rgba(244,239,232,.6);line-height:1.7"></div>
+ </div>
+-<div style="background:var(--brass);padding:2.5rem;text-align:center;margin-bottom:.5rem">
+-<div style="font-family:var(--serif);font-size:1.5rem;color:var(--ivory);margin-bottom:.5rem">Want to move on this deal?</div>
+-<div style="font-size:.88rem;color:rgba(244,239,232,.8);margin-bottom:1.5rem;line-height:1.6">These numbers are estimates based on Grand Strand market data. A Chapter3 agent can pull live comps and walk you through the numbers before you commit.</div>
+-<div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;max-width:480px;margin:0 auto">
+-<a href="tel:8543332135" onmouseout="this.style.background='var(--navy)'" onmouseover="this.style.background='#2a3040'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.1rem 1rem;background:var(--navy);text-decoration:none;transition:background .2s">
+-<span style="font-size:1.1rem;margin-bottom:.2rem">📞</span>
+-<span style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,232,.6);margin-bottom:.15rem">Speak to an Agent</span>
+-<span style="font-size:.95rem;font-weight:600;color:var(--ivory)">854.333.2135</span>
+-</a>
+-<div style="display:grid;grid-template-rows:1fr 1fr;gap:.75rem">
+-<button onclick="ltrSavePDF()" onmouseout="this.style.background='rgba(255,255,255,.1)'" onmouseover="this.style.background='rgba(255,255,255,.18)'" style="display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.7rem 1rem;background:rgba(255,255,255,.1);border:1px solid rgba(244,239,232,.25);color:var(--ivory);font-family:var(--sans);font-size:.82rem;cursor:pointer;transition:background .2s">
+-<span>⬇</span> Download PDF
+-              </button>
+-<button onclick="resetLtr()" onmouseout="this.style.background='rgba(255,255,255,.1)'" onmouseover="this.style.background='rgba(255,255,255,.18)'" style="display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.7rem 1rem;background:rgba(255,255,255,.1);border:1px solid rgba(244,239,232,.25);color:var(--ivory);font-family:var(--sans);font-size:.82rem;cursor:pointer;transition:background .2s">
+-<span>←</span> Analyze Another
+-              </button>
+-</div>
+-</div>
+-</div>
+-<p style="font-size:.72rem;color:var(--muted);line-height:1.6;text-align:center;padding-top:1rem">Estimates based on Grand Strand market data as of 2026. Not a formal appraisal. Verify with a licensed appraiser, CPA, and insurance agent before making investment decisions.</p>
++<section class="ltr-cta"><div class="ltr-cta-t"><p class="ltr-cta-h">Want to buy this home?</p><p class="ltr-cta-p">An agent can tour it with you, pull the recent sales next to it and help you write the offer.</p></div>
++<div class="ltr-cta-b"><a class="ltr-cta-go" href="/contact/?topic=investment" id="ltr-cta-go">Talk to an agent</a><a class="ltr-cta-call" href="tel:8543332135">Call 854.333.2135</a></div>
++<div class="ltr-cta-x"><button type="button" onclick="ltrSavePDF()">Download the PDF</button><button type="button" onclick="resetLtr()">Analyze another home</button></div></section>
++<div id="ltr-similar"></div>
++<p class="ltr-fine">These are estimates from Grand Strand market data, not an appraisal and not guaranteed. Check them with an appraiser, a tax adviser and an insurance agent before you buy.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+-<section style="background:var(--navy)"><div class="wrap" style="text-align:center;padding:2.4rem 1.5rem"><h2 style="font-family:var(--serif);font-size:1.5rem;color:var(--ivory);margin-bottom:.6rem">Want a second set of eyes on the numbers?</h2><p style="color:rgba(244,239,232,.72);max-width:56ch;margin:0 auto 1.3rem;line-height:1.7">Send the address and we will pull live comps and read the association documents before you offer. Financing goes through our lending partner.</p><div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap"><a class="btn btn-primary" href="/contact/">Have us review a deal</a><a class="btn btn-outline" href="tel:+18543332135" style="color:var(--ivory);border-color:rgba(244,239,232,.4)">Call 854.333.2135</a></div></div></section><section id="compare" style="background:var(--ivory-2);scroll-margin-top:80px;display:none"><div style="max-width:1000px;margin:0 auto;padding:3.5rem 1.5rem"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Long-term vs short-term</p><h2 style="font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,1.95rem);color:var(--navy);margin-bottom:.6rem;letter-spacing:-.01em">Compare rental strategies side by side</h2><p style="color:var(--muted);line-height:1.7;max-width:680px;margin-bottom:1.6rem">The numbers below start with typical Grand Strand figures. Change any of them to match your property and the comparison updates as you type. Short-term numbers are estimates; the real result depends on the exact property and the town rules.</p><div id="cmp-warn" style="display:none;background:rgba(196,120,58,.1);border:1px solid var(--brass);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.2rem;font-size:.85rem;color:var(--navy);line-height:1.55"></div><div id="cmp-note" style="font-size:.8rem;color:var(--muted);margin:-.4rem 0 1.3rem;min-height:1px"></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:1rem;background:#fff;border:1px solid var(--rule);border-radius:12px;padding:1.5rem 1.6rem;margin-bottom:1.4rem"><div><label style="display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:600">Purchase price ($)</label><input id="cmp-price" type="text" inputmode="decimal" value="350000" oninput="c3Compare()" style="width:100%;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;background:#fff;font-family:var(--sans);font-size:.9rem;color:var(--navy)"></div><div><label style="display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:600">Long-term rent ($/mo)</label><input id="cmp-rent" type="text" inputmode="decimal" value="2100" oninput="c3Compare()" style="width:100%;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;background:#fff;font-family:var(--sans);font-size:.9rem;color:var(--navy)"></div><div><label style="display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:600">Short-term rate ($/night)</label><input id="cmp-adr" type="text" inputmode="decimal" value="185" oninput="c3Compare()" style="width:100%;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;background:#fff;font-family:var(--sans);font-size:.9rem;color:var(--navy)"></div><div><label style="display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:600">Short-term occupancy (%)</label><input id="cmp-occ" type="text" inputmode="decimal" value="62" oninput="c3Compare()" style="width:100%;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;background:#fff;font-family:var(--sans);font-size:.9rem;color:var(--navy)"></div></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(255px,100%),1fr));gap:1rem"><div id="cmp-ltr-card" style="background:var(--navy);border-radius:12px;padding:1.6rem 1.75rem;border:2px solid transparent;transition:border-color .2s"><div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-2);margin-bottom:1.1rem">Long-term rental</div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Income a year</span><strong id="cmp-ltr-gross" style="color:var(--ivory);font-family:var(--sans);font-size:.95rem;font-weight:500">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Operating costs</span><strong id="cmp-ltr-cost" style="color:var(--ivory);font-family:var(--sans);font-size:.95rem;font-weight:500">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.9rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.8rem">Net income a year</span><strong id="cmp-ltr-noi" style="color:var(--ivory);font-family:var(--sans);font-size:1.4rem;font-weight:600">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0 0"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Return on price</span><strong id="cmp-ltr-cap" style="color:var(--brass-2);font-family:var(--sans);font-size:.95rem">0%</strong></div><div style="margin-top:.9rem;font-size:.72rem;color:rgba(244,239,232,.45);line-height:1.5">A year-round lease. Steadier, less work.</div></div><div id="cmp-str-card" style="background:var(--navy);border-radius:12px;padding:1.6rem 1.75rem;border:2px solid transparent;transition:border-color .2s"><div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-2);margin-bottom:1.1rem">Short-term rental (estimate)</div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Income a year</span><strong id="cmp-str-gross" style="color:var(--ivory);font-family:var(--sans);font-size:.95rem;font-weight:500">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Operating costs</span><strong id="cmp-str-cost" style="color:var(--ivory);font-family:var(--sans);font-size:.95rem;font-weight:500">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.9rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.8rem">Net income a year</span><strong id="cmp-str-noi" style="color:var(--ivory);font-family:var(--sans);font-size:1.4rem;font-weight:600">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0 0"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Return on price</span><strong id="cmp-str-cap" style="color:var(--brass-2);font-family:var(--sans);font-size:.95rem">0%</strong></div><div style="margin-top:.9rem;font-size:.72rem;color:rgba(244,239,232,.45);line-height:1.5">Nightly stays. Higher ceiling, more work, town rules apply.</div></div></div><div id="cmp-verdict" style="text-align:center;font-family:var(--serif);font-size:1.05rem;color:var(--navy);margin:1.3rem 0 0"></div><div style="background:#fff;border:1px solid var(--rule);border-radius:12px;padding:1.2rem 1.5rem;margin-top:1.3rem;font-size:.82rem;color:var(--muted);line-height:1.6"><div style="margin-bottom:.55rem">Operating costs as a share of income: long-term <input id="cmp-ltrcost" type="text" inputmode="decimal" value="35" oninput="c3Compare()" style="width:52px;padding:.25rem .35rem;border:1px solid var(--rule);border-radius:6px;font-family:var(--sans);text-align:center">% , short-term <input id="cmp-strcost" type="text" inputmode="decimal" value="50" oninput="c3Compare()" style="width:52px;padding:.25rem .35rem;border:1px solid var(--rule);border-radius:6px;font-family:var(--sans);text-align:center">%</div>These cover taxes, insurance, upkeep, and management. Short-term costs more because of cleaning, supplies, utilities, and 20 to 30 percent management. Change them to your own numbers.</div><p style="color:var(--muted);line-height:1.7;max-width:680px;margin-top:1.4rem">Short-term can earn more, but it takes more work and the rules change street by street. See <a href="/invest/str-tools/" style="color:var(--brass);font-weight:600;text-decoration:none">how Grand Strand short-term rentals work</a>, or <a href="/contact/" style="color:var(--brass);font-weight:600;text-decoration:none">have us run your exact property</a>.</p></div><script>function c3Compare(){var g=function(id){var e=document.getElementById(id);return e?(parseFloat(e.value)||0):0;};var price=g("cmp-price"),rent=g("cmp-rent"),adr=g("cmp-adr"),occ=g("cmp-occ")/100,lc=g("cmp-ltrcost")/100,sc=g("cmp-strcost")/100;var lg=rent*12,sg=adr*365*occ;var ln=lg*(1-lc),sn=sg*(1-sc);var money=function(n){return "$"+Math.round(n).toLocaleString("en-US");};var set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v;};set("cmp-ltr-gross",money(lg));set("cmp-str-gross",money(sg));set("cmp-ltr-cost","-"+money(lg*lc));set("cmp-str-cost","-"+money(sg*sc));set("cmp-ltr-noi",money(ln));set("cmp-str-noi",money(sn));set("cmp-ltr-cap",(price?(ln/price*100):0).toFixed(1)+"%");set("cmp-str-cap",(price?(sn/price*100):0).toFixed(1)+"%");var lcard=document.getElementById("cmp-ltr-card"),scard=document.getElementById("cmp-str-card");if(lcard&&scard){lcard.style.borderColor=ln>=sn?"var(--brass)":"transparent";scard.style.borderColor=sn>ln?"var(--brass)":"transparent";}var v=document.getElementById("cmp-verdict");if(v){var diff=Math.abs(sn-ln);if(sn>ln){v.textContent="Short-term projects about "+money(diff)+" more a year, before the extra work.";}else if(ln>sn){v.textContent="Long-term projects about "+money(diff)+" more a year, with less work.";}else{v.textContent="";}}}var C3_STR={"north myrtle beach":{adr:370,occ:56,name:"North Myrtle Beach"},"myrtle beach":{adr:255,occ:58,name:"Myrtle Beach",mb:true},"surfside beach":{adr:410,occ:42,name:"Surfside Beach"},"garden city":{adr:360,occ:48,name:"Garden City"},"murrells inlet":{adr:300,occ:50,name:"Murrells Inlet"},"pawleys island":{adr:420,occ:56,name:"Pawleys Island"},"little river":{adr:240,occ:52,name:"Little River"},"conway":{adr:150,occ:45,name:"Conway"},"_default":{adr:270,occ:54,name:"the Grand Strand"}};function c3DetectSub(){var city=((document.getElementById("ltr-city")||{}).value||"").toLowerCase().trim();for(var k in C3_STR){if(k!=="_default"&&city.indexOf(k)>=0)return C3_STR[k];}var zip=(((document.getElementById("ltr-zip")||{}).value)||"").trim().slice(0,5);var Z={"29582":"north myrtle beach","29597":"north myrtle beach","29598":"north myrtle beach","29585":"pawleys island","29576":"murrells inlet","29566":"little river","29526":"conway","29527":"conway","29587":"surfside beach"};if(Z[zip])return C3_STR[Z[zip]];if(/^295(72|75|77|79|88)$/.test(zip))return C3_STR["myrtle beach"];return C3_STR["_default"];}function c3SetVal(id,v){var e=document.getElementById(id);if(e){e.value=v;}}function c3AutoCompare(){var cmp=document.getElementById("compare");if(cmp)cmp.style.display="block";var sm=c3DetectSub();var val=document.getElementById("ltr-r-value");var price=val?parseFloat(val.textContent.replace(/[^0-9.]/g,"")):0;if(price>1000)c3SetVal("cmp-price",Math.round(price));var mt=document.querySelectorAll("#ltr-income-metrics>div");for(var i=0;i<mt.length;i++){if(/monthly rent/i.test(mt[i].textContent)){var mr=(mt[i].textContent.match(/\$[\d,]+/)||[""])[0].replace(/[^0-9]/g,"");if(mr)c3SetVal("cmp-rent",mr);break;}}c3SetVal("cmp-adr",sm.adr);c3SetVal("cmp-occ",sm.occ);var note=document.getElementById("cmp-note");if(note)note.textContent="Short-term numbers are the "+sm.name+" average. Adjust them to your property.";var warn=document.getElementById("cmp-warn");if(warn){if(sm.mb){warn.style.display="block";warn.innerHTML="<strong>Heads up:</strong> most residential zones in the City of Myrtle Beach do not allow short-term rentals. Confirm the zoning before you count on nightly income. <a href=\"/contact/\" style=\"color:var(--brass);font-weight:600;text-decoration:none\">Chapter3 can check this for you.</a>";}else{warn.style.display="none";}}c3Compare();}(function(){var m=document.getElementById("ltr-income-metrics");if(m&&window.MutationObserver){new MutationObserver(function(){if(m.children.length){setTimeout(c3AutoCompare,60);}}).observe(m,{childList:true});}})();document.addEventListener("DOMContentLoaded",c3Compare);</script><section style="background:var(--ivory)"><div style="max-width:1000px;margin:0 auto;padding:3.5rem 1.5rem 4rem"><p style="font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem">Common Questions</p><h2 style="font-family:var(--serif);font-size:2rem;color:var(--navy);margin-bottom:1.5rem">Frequently asked questions</h2><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">Can I still invest here if my property can&rsquo;t be a short-term rental?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">Yes, and this is one of the most useful workarounds on the Grand Strand. Many Myrtle Beach residential zones (and plenty of HOAs) don&rsquo;t allow Airbnb-style short-term rentals. South Carolina&rsquo;s 90-day threshold is a <strong>tax</strong> rule: stays under 90 days are subject to the state accommodations tax. It does not override local zoning. Cities, counties and HOAs set their own minimum lease terms, and those minimums vary, so a 90-day lease is not automatically permitted where nightly rentals are banned. Mid-term tenants such as traveling nurses, remote workers and October-to-March snowbirds are a common way to cash-flow a property in those zones. Before you count on it, confirm the minimum lease term in that city&rsquo;s ordinance and the HOA covenants for the specific address. Run any address through the analyzer to compare the long-term and mid-term numbers.</p></div><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">What does the long-term rental analyzer calculate?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">For any Grand Strand address you enter, it estimates property value, <a href="/invest/rent-prices/" style="color:var(--brass);font-weight:600;text-decoration:underline">market rent</a>, DSCR, cap rate, net operating income, monthly cash flow, cash-on-cash return, and appreciation, and it flags nearby permit activity.</p></div><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">What is DSCR and why does it matter?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">Debt-Service Coverage Ratio is net operating income divided by annual debt service. Investor lenders typically look for 1.20 or higher. It tells you whether the rent comfortably covers the loan.</p></div><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">What cap rate is realistic for a Myrtle Beach long-term rental?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">As of July 2026, a Horry County rental bought in the cheaper third of the market returns 4.2 to 7.5 percent a year after costs with a property manager, and 5.1 to 8.8 percent without one. Dividing the same rent by the typical value of every home in the area gives a much lower number, because most of those homes are not rentals. <a href="/invest/rental-returns/" style="color:var(--navy);text-decoration:underline">The rental returns page</a> has the figure for each area.</p></div><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">Are the numbers an appraisal?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">No. They are an actual screening estimate to compare deals quickly. Confirm with comparable sales, inspections, and a licensed agent before making an offer.</p></div></div></section>
++<section style="background:var(--navy)"><div class="wrap" style="text-align:center;padding:2.4rem 1.5rem"><h2 style="font-family:var(--serif);font-size:1.5rem;color:var(--ivory);margin-bottom:.6rem">Want a second set of eyes on the numbers?</h2><p style="color:rgba(244,239,232,.72);max-width:56ch;margin:0 auto 1.3rem;line-height:1.7">Send the address and we will pull live comps and read the association documents before you offer. Financing goes through our lending partner.</p><div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap"><a class="btn btn-primary" href="/contact/">Have us review a deal</a><a class="btn btn-outline" href="tel:+18543332135" style="color:var(--ivory);border-color:rgba(244,239,232,.4)">Call 854.333.2135</a></div></div></section><section id="compare" style="background:var(--ivory-2);scroll-margin-top:80px;display:none"><div style="max-width:1000px;margin:0 auto;padding:3.5rem 1.5rem"><p style="font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem;font-weight:600">Long-term vs short-term</p><h2 style="font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,1.95rem);color:var(--navy);margin-bottom:.6rem;letter-spacing:-.01em">Compare rental strategies side by side</h2><p style="color:var(--muted);line-height:1.7;max-width:680px;margin-bottom:1.6rem">The numbers below start with typical Grand Strand figures. Change any of them to match your property and the comparison updates as you type. Short-term numbers are estimates; the real result depends on the exact property and the town rules.</p><div id="cmp-warn" style="display:none;background:rgba(196,120,58,.1);border:1px solid var(--brass);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.2rem;font-size:.85rem;color:var(--navy);line-height:1.55"></div><div id="cmp-note" style="font-size:.8rem;color:var(--muted);margin:-.4rem 0 1.3rem;min-height:1px"></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:1rem;background:#fff;border:1px solid var(--rule);border-radius:12px;padding:1.5rem 1.6rem;margin-bottom:1.4rem"><div><label style="display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:600">Purchase price ($)</label><input id="cmp-price" type="text" inputmode="decimal" value="350000" oninput="c3Compare()" style="width:100%;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;background:#fff;font-family:var(--sans);font-size:.9rem;color:var(--navy)"></div><div><label style="display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:600">Long-term rent ($/mo)</label><input id="cmp-rent" type="text" inputmode="decimal" value="2100" oninput="c3Compare()" style="width:100%;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;background:#fff;font-family:var(--sans);font-size:.9rem;color:var(--navy)"></div><div><label style="display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:600">Short-term rate ($/night)</label><input id="cmp-adr" type="text" inputmode="decimal" value="185" oninput="c3Compare()" style="width:100%;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;background:#fff;font-family:var(--sans);font-size:.9rem;color:var(--navy)"></div><div><label style="display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:600">Short-term occupancy (%)</label><input id="cmp-occ" type="text" inputmode="decimal" value="62" oninput="c3Compare()" style="width:100%;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;background:#fff;font-family:var(--sans);font-size:.9rem;color:var(--navy)"></div></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(255px,100%),1fr));gap:1rem"><div id="cmp-ltr-card" style="background:var(--navy);border-radius:12px;padding:1.6rem 1.75rem;border:2px solid transparent;transition:border-color .2s"><div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-2);margin-bottom:1.1rem">Long-term rental</div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Income a year</span><strong id="cmp-ltr-gross" style="color:var(--ivory);font-family:var(--sans);font-size:.95rem;font-weight:500">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Operating costs</span><strong id="cmp-ltr-cost" style="color:var(--ivory);font-family:var(--sans);font-size:.95rem;font-weight:500">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.9rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.8rem">Net income a year</span><strong id="cmp-ltr-noi" style="color:var(--ivory);font-family:var(--sans);font-size:1.4rem;font-weight:600">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0 0"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Return on price</span><strong id="cmp-ltr-cap" style="color:var(--brass-2);font-family:var(--sans);font-size:.95rem">0%</strong></div><div style="margin-top:.9rem;font-size:.72rem;color:rgba(244,239,232,.45);line-height:1.5">A year-round lease. Steadier, less work.</div></div><div id="cmp-str-card" style="background:var(--navy);border-radius:12px;padding:1.6rem 1.75rem;border:2px solid transparent;transition:border-color .2s"><div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-2);margin-bottom:1.1rem">Short-term rental (estimate)</div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Income a year</span><strong id="cmp-str-gross" style="color:var(--ivory);font-family:var(--sans);font-size:.95rem;font-weight:500">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Operating costs</span><strong id="cmp-str-cost" style="color:var(--ivory);font-family:var(--sans);font-size:.95rem;font-weight:500">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.9rem 0;border-bottom:1px solid rgba(244,239,232,.12)"><span style="color:rgba(244,239,232,.7);font-size:.8rem">Net income a year</span><strong id="cmp-str-noi" style="color:var(--ivory);font-family:var(--sans);font-size:1.4rem;font-weight:600">$0</strong></div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0 0"><span style="color:rgba(244,239,232,.7);font-size:.83rem">Return on price</span><strong id="cmp-str-cap" style="color:var(--brass-2);font-family:var(--sans);font-size:.95rem">0%</strong></div><div style="margin-top:.9rem;font-size:.72rem;color:rgba(244,239,232,.45);line-height:1.5">Nightly stays. Higher ceiling, more work, town rules apply.</div></div></div><div id="cmp-verdict" style="text-align:center;font-family:var(--serif);font-size:1.05rem;color:var(--navy);margin:1.3rem 0 0"></div><div style="background:#fff;border:1px solid var(--rule);border-radius:12px;padding:1.2rem 1.5rem;margin-top:1.3rem;font-size:.82rem;color:var(--muted);line-height:1.6"><div style="margin-bottom:.55rem">Operating costs as a share of income: long-term <input id="cmp-ltrcost" type="text" inputmode="decimal" value="35" oninput="c3Compare()" style="width:52px;padding:.25rem .35rem;border:1px solid var(--rule);border-radius:6px;font-family:var(--sans);text-align:center">% , short-term <input id="cmp-strcost" type="text" inputmode="decimal" value="50" oninput="c3Compare()" style="width:52px;padding:.25rem .35rem;border:1px solid var(--rule);border-radius:6px;font-family:var(--sans);text-align:center">%</div>These cover taxes, insurance, upkeep, and management. Short-term costs more because of cleaning, supplies, utilities, and 20 to 30 percent management. Change them to your own numbers.</div><p style="color:var(--muted);line-height:1.7;max-width:680px;margin-top:1.4rem">Short-term can earn more, but it takes more work and the rules change street by street. See <a href="/invest/str-tools/" style="color:var(--brass);font-weight:600;text-decoration:none">how Grand Strand short-term rentals work</a>, or <a href="/contact/" style="color:var(--brass);font-weight:600;text-decoration:none">have us run your exact property</a>.</p></div><script>function c3Compare(){var g=function(id){var e=document.getElementById(id);return e?(parseFloat(e.value)||0):0;};var price=g("cmp-price"),rent=g("cmp-rent"),adr=g("cmp-adr"),occ=g("cmp-occ")/100,lc=g("cmp-ltrcost")/100,sc=g("cmp-strcost")/100;var lg=rent*12,sg=adr*365*occ;var ln=lg*(1-lc),sn=sg*(1-sc);var money=function(n){return "$"+Math.round(n).toLocaleString("en-US");};var set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v;};set("cmp-ltr-gross",money(lg));set("cmp-str-gross",money(sg));set("cmp-ltr-cost","-"+money(lg*lc));set("cmp-str-cost","-"+money(sg*sc));set("cmp-ltr-noi",money(ln));set("cmp-str-noi",money(sn));set("cmp-ltr-cap",(price?(ln/price*100):0).toFixed(1)+"%");set("cmp-str-cap",(price?(sn/price*100):0).toFixed(1)+"%");var lcard=document.getElementById("cmp-ltr-card"),scard=document.getElementById("cmp-str-card");if(lcard&&scard){lcard.style.borderColor=ln>=sn?"var(--brass)":"transparent";scard.style.borderColor=sn>ln?"var(--brass)":"transparent";}var v=document.getElementById("cmp-verdict");if(v){var diff=Math.abs(sn-ln);if(sn>ln){v.textContent="Short-term projects about "+money(diff)+" more a year, before the extra work.";}else if(ln>sn){v.textContent="Long-term projects about "+money(diff)+" more a year, with less work.";}else{v.textContent="";}}}var C3_STR={"north myrtle beach":{adr:370,occ:56,name:"North Myrtle Beach"},"myrtle beach":{adr:255,occ:58,name:"Myrtle Beach",mb:true},"surfside beach":{adr:410,occ:42,name:"Surfside Beach"},"garden city":{adr:360,occ:48,name:"Garden City"},"murrells inlet":{adr:300,occ:50,name:"Murrells Inlet"},"pawleys island":{adr:420,occ:56,name:"Pawleys Island"},"little river":{adr:240,occ:52,name:"Little River"},"conway":{adr:150,occ:45,name:"Conway"},"_default":{adr:270,occ:54,name:"the Grand Strand"}};function c3DetectSub(){var city=((document.getElementById("ltr-city")||{}).value||"").toLowerCase().trim();for(var k in C3_STR){if(k!=="_default"&&city.indexOf(k)>=0)return C3_STR[k];}var zip=(((document.getElementById("ltr-zip")||{}).value)||"").trim().slice(0,5);var Z={"29582":"north myrtle beach","29597":"north myrtle beach","29598":"north myrtle beach","29585":"pawleys island","29576":"murrells inlet","29566":"little river","29526":"conway","29527":"conway","29587":"surfside beach"};if(Z[zip])return C3_STR[Z[zip]];if(/^295(72|75|77|79|88)$/.test(zip))return C3_STR["myrtle beach"];return C3_STR["_default"];}function c3SetVal(id,v){var e=document.getElementById(id);if(e){e.value=v;}}function c3AutoCompare(){var cmp=document.getElementById("compare");if(cmp)cmp.style.display="block";var sm=c3DetectSub();var val=document.getElementById("ltr-r-value");var price=val?parseFloat(val.textContent.replace(/[^0-9.]/g,"")):0;if(price>1000)c3SetVal("cmp-price",Math.round(price));var ar=document.getElementById("adj-rent");if(ar&&parseFloat(ar.value)>0)c3SetVal("cmp-rent",Math.round(parseFloat(ar.value)));c3SetVal("cmp-adr",sm.adr);c3SetVal("cmp-occ",sm.occ);var note=document.getElementById("cmp-note");if(note)note.textContent="Short-term numbers are the "+sm.name+" average. Adjust them to your property.";var warn=document.getElementById("cmp-warn");if(warn){if(sm.mb){warn.style.display="block";warn.innerHTML="<strong>Heads up:</strong> most residential zones in the City of Myrtle Beach do not allow short-term rentals. Confirm the zoning before you count on nightly income. <a href=\"/contact/\" style=\"color:var(--brass);font-weight:600;text-decoration:none\">Chapter3 can check this for you.</a>";}else{warn.style.display="none";}}c3Compare();}(function(){var m=document.getElementById("ltr-core-metrics");if(m&&window.MutationObserver){new MutationObserver(function(){if(m.children.length){setTimeout(c3AutoCompare,60);}}).observe(m,{childList:true});}})();document.addEventListener("DOMContentLoaded",c3Compare);</script><section style="background:var(--ivory)"><div style="max-width:1000px;margin:0 auto;padding:3.5rem 1.5rem 4rem"><p style="font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.5rem">Common Questions</p><h2 style="font-family:var(--serif);font-size:2rem;color:var(--navy);margin-bottom:1.5rem">Frequently asked questions</h2><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">Can I still invest here if my property can&rsquo;t be a short-term rental?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">Yes, and this is one of the most useful workarounds on the Grand Strand. Many Myrtle Beach residential zones (and plenty of HOAs) don&rsquo;t allow Airbnb-style short-term rentals. South Carolina&rsquo;s 90-day threshold is a <strong>tax</strong> rule: stays under 90 days are subject to the state accommodations tax. It does not override local zoning. Cities, counties and HOAs set their own minimum lease terms, and those minimums vary, so a 90-day lease is not automatically permitted where nightly rentals are banned. Mid-term tenants such as traveling nurses, remote workers and October-to-March snowbirds are a common way to cash-flow a property in those zones. Before you count on it, confirm the minimum lease term in that city&rsquo;s ordinance and the HOA covenants for the specific address. Run any address through the analyzer to compare the long-term and mid-term numbers.</p></div><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">What does the long-term rental analyzer calculate?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">For any Grand Strand address you enter, it estimates property value, <a href="/invest/rent-prices/" style="color:var(--brass);font-weight:600;text-decoration:underline">market rent</a>, DSCR, cap rate, net operating income, monthly cash flow, cash-on-cash return, and appreciation, and it flags nearby permit activity.</p></div><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">What is DSCR and why does it matter?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">Debt-Service Coverage Ratio is net operating income divided by annual debt service. Investor lenders typically look for 1.20 or higher. It tells you whether the rent comfortably covers the loan.</p></div><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">What cap rate is realistic for a Myrtle Beach long-term rental?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">As of July 2026, a Horry County rental bought in the cheaper third of the market returns 4.2 to 7.5 percent a year after costs with a property manager, and 5.1 to 8.8 percent without one. Dividing the same rent by the typical value of every home in the area gives a much lower number, because most of those homes are not rentals. <a href="/invest/rental-returns/" style="color:var(--navy);text-decoration:underline">The rental returns page</a> has the figure for each area.</p></div><div style="border-top:1px solid var(--rule);padding:1.4rem 0"><h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:.5rem">Are the numbers an appraisal?</h3><p style="color:var(--muted);line-height:1.7;max-width:680px">No. They are an actual screening estimate to compare deals quickly. Confirm with comparable sales, inspections, and a licensed agent before making an offer.</p></div></div></section>
+ <section style="background:var(--ivory-2)"><div style="max-width:1000px;margin:0 auto;padding:3rem 1.5rem 3.5rem"><h2 style="font-family:var(--serif);font-size:1.6rem;color:var(--navy);margin-bottom:.9rem">About this analyzer</h2><p style="color:var(--muted);max-width:720px;line-height:1.75;margin-bottom:1.1rem">Enter any Grand Strand address and your financing terms to get a screening estimate for a long-term rental. It returns property value, market rent, DSCR, cap rate, net operating income, monthly cash flow, cash-on-cash return, and projected appreciation, along with nearby permit activity.</p><p style="color:var(--muted);max-width:720px;line-height:1.75">It is built to help you compare deals quickly and decide which ones are worth a closer look. The output is an estimate for screening, not an appraisal, so confirm with comps, inspections, and a licensed agent before you make an offer.</p></div></section>
+ </section>
+ <section style="background:var(--navy);padding:3rem 0"><div class="wrap" style="text-align:center;max-width:720px;margin:0 auto"><h2 style="font-family:var(--serif);font-size:1.7rem;color:var(--ivory);margin-bottom:.8rem">Ready to buy a long-term rental here?</h2><p style="color:rgba(244,239,232,.65);line-height:1.65;margin-bottom:1.5rem">Send us an address you are looking at, or have us send you an investment property for sale. We will run the rent, the expenses and the association documents before you write an offer, at no cost.</p><a class="btn btn-brass btn-lg" href="tel:+18543332135" style="font-size:1.1rem;letter-spacing:.02em">Call 854.333.2135</a><p style="color:rgba(244,239,232,.5);font-size:.85rem;margin-top:1.1rem;margin-bottom:0">We answer evenings. Prefer to write? <a href="/contact/" style="color:var(--brass-2);font-weight:600;text-decoration:none">Send us a property</a>.</p></div></section>
+@@ -902,7 +915,7 @@ if (GOOGLE_MAPS_KEY !== 'YOUR_GOOGLE_MAPS_KEY') {
+ }
+ </script>
+ 
+-<script src="/assets/s.ca9a7cae15.js"></script>
++<script src="/assets/s.e1907eb976.js"></script>
+ 
+ <!-- ══════════════════════════════════════
+      DYNAMIC LAYER v2 ELEMENTS
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index 630940c0..8539edc5 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -447,6 +447,8 @@ check("sign-up: one full name box, email, phone, Continue to photos, Already hav
+   const assetsDir = path.join(path.dirname(new URL(import.meta.url).pathname), "../chapter3realty/assets");
+   const ltrAsset = [...ltr.matchAll(/src="\/assets\/(s\.[0-9a-f]+\.js)"/g)].map((m) => m[1]).find((f) => fs.readFileSync(path.join(assetsDir, f), "utf8").includes("function ltrMoney"));
+   const js = fs.readFileSync(path.join(assetsDir, ltrAsset), "utf8");
++  check("analyzer: the value is the MLS asking price or the estimate, never the county's tax appraisal (owner, 2026-10-26: $400,000 read $118,000)", !/d\.estimatedValue\s*=\s*_ltrParcel\.marketValue/.test(js) && /d\.estimatedValue = _ltrMls\.listPrice/.test(js) && js.includes("d.countyValue = _ltrParcel.marketValue"));
++  check("analyzer: every number shown and editable at the top, no drop-downs, similar homes and the one disclosure at the bottom", !ltr.includes('class="ltr-d"') && ltr.indexOf('class="ltr-edit"') < ltr.indexOf('id="ltr-core-metrics"') && ltr.indexOf('class="ltr-cta"') < ltr.indexOf('id="ltr-similar"') && !js.includes("Listing provided by CCMLS"));
+   check("analyzer script: no default rate or down payment in the math", !/ltrNum\('adj-rate',\s*[\d.]+\)/.test(js) && !/\|\|\s*7\.5/.test(js) && !/\?\.value\s*\|\|\s*25/.test(js) && !/\?\s*25\s*:/.test(js) && /isNaN\(rawDown\) \|\| rawDown >= 100 \|\| isNaN\(ratePct\)/.test(js));
+   check("analyzer script: the AI's answer is cleaned (numbers, known flag colours) and its text escaped before it goes in as HTML", js.includes("ltrSanitize(extractJSON(analysisRaw))") && js.includes("${c3Esc(f.text)}") && js.includes("${c3Esc(d.inferredPropertyType)}") && !/\$\{f\.text\}/.test(js));
+   check("analyzer script: a new address forgets the old home's facts; one run at a time; the cash-or-loan box closes on any end", js.includes("function ltrForgetHome()") && js.includes("if (_ltrRunning) return;") && js.includes("dlg.onclose = function () { finish({ cash: true }); };"));
+-- 
+2.43.0
+

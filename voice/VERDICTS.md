@@ -99,3 +99,12 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
   - A strip's title says what its search finds ("Homes for sale near the MarshWalk"). "Homes for sale in X now" says nothing.
   - Say a fact once. A table and a paragraph that say the same thing is one too many.
   - The cold reader came for whether renting would pay for part of it, and the draft never said. A page for a buyer who may rent gives what a rental takes in, from data/str-market.json.
+
+## 2026-10-26, evening: the analyzer and the rows of homes
+
+- "it says a 400k house on the mls is worth 118k": the analyzer used the county's tax appraisal as the home's value. Class: a county appraisal is a tax figure, never a value. For a home for sale, the value is the MLS asking price. The county figure is shown only as "County value for tax".
+- "the new design for the investment analyzer is worse it needs to show all the stats easily ... dont have info as a drop down box if its important show it ... they still need to be able to change the numbers and easily know that they can at the top": no drop-downs and no hidden "?" boxes. "Your numbers" is open at the top, with a cash or loan switch. Every result is a card with one plain line saying what it means. Class: on a tool, what matters is on the screen, and anything the reader can change looks like a box to type in.
+- "put the similar homes IDX at the bottom ... we do not need another provided by the ccmls at the top have the one disclosure way down at the bottom": done. The MLS number and the listing firm stay at the top (MLS rules); the source notice is once, at the bottom.
+- "make the idx whenever there's a horizontal idx auto scroll but i can also drag it": every row of homes scrolls slowly by itself and stops for a hover, a touch or focus. It still drags, and it does not move for readers who ask for reduced motion.
+- "all of the similar homes show pending ... we want homes for sale to be shown": every similar-homes row asks for homes for sale only and drops any that are not Active.
+- "if they click on a home in the idx the idx inside of that should be similar homes": a listing page now shows "Homes like this one for sale": the same kind, about its price and size, nearest first.
