@@ -1,0 +1,110 @@
+From 37b0c60c587b69de0fe32e842f29b02e623209e0 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 26 Oct 2026 02:30:58 +0000
+Subject: [PATCH] Sign-up: the full name splits on spaces (a template string
+ had dropped the backslash, so it split on the letter s); with no Turnstile
+ widget yet, the message says sign-up is not switched on, not "complete the
+ check"
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+---
+ functions/homes/[[path]].js |  9 ++++++---
+ idx-lib/render.js           |  2 +-
+ tools/idx-test.mjs          | 13 +++++++++++++
+ 3 files changed, 20 insertions(+), 4 deletions(-)
+
+diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
+index 019a3a36..2cd2eb3d 100644
+--- a/functions/homes/[[path]].js
++++ b/functions/homes/[[path]].js
+@@ -154,7 +154,7 @@ async function claimApi(context) {
+   const page = typeof b.page === "string" && b.page.startsWith("/homes") ? b.page.slice(0, 200) : "/homes/";
+   const r = await postClaim(context, { k: b.k, termsAccepted: true, termsVersion: TERMS_VERSION, termsText: termsText(), page });
+   if (r.status === 200 && r.json && r.json.ok && typeof r.json.token === "string") return json({ ok: true }, 200, { "set-cookie": setCookie(r.json.token) });
+-  if (r.status === 400 && r.json && r.json.error === "invalid") return json({ ok: false, field: r.json.field, message: FIELD_WORDS[r.json.field] || "Please check the form." }, 400);
++  if (r.status === 400 && r.json && r.json.error === "invalid") return json({ ok: false, field: r.json.field, message: fieldWord(context.env, r.json.field) }, 400);
+   return json({ ok: false, error: "link_expired" });
+ }
+ 
+@@ -171,7 +171,7 @@ async function returning(context) {
+   });
+   if (r.status === 200 && r.json && r.json.ok && typeof r.json.token === "string") return json({ ok: true }, 200, { "set-cookie": setCookie(r.json.token) });
+   if (r.status === 200 && r.json && r.json.error === "not_found") return json({ ok: false, notFound: true });
+-  if (r.status === 400 && r.json && r.json.error === "invalid") return json({ ok: false, field: r.json.field, message: FIELD_WORDS[r.json.field] || "Please check the form." }, 400);
++  if (r.status === 400 && r.json && r.json.error === "invalid") return json({ ok: false, field: r.json.field, message: fieldWord(context.env, r.json.field) }, 400);
+   if (r.status === 429) return json({ ok: false, message: "Too many tries, please wait a minute." }, 429);
+   return json({ ok: false, message: `Sign-in is unavailable right now. Please call ${PHONE}.` }, 503);
+ }
+@@ -715,6 +715,9 @@ function termsPage(context, gate) {
+ // ── data back to the CRM (contract §7) ──────────────────────────────────────
+ 
+ const FIELD_WORDS = { phone: "Please check your phone number.", termsText: "Please reload the page and try again.", name: "Please enter your first and last name.", email: "Please check your email.", phone: "Please check your phone number.", termsAccepted: "Please tick the box to accept the terms.", turnstileToken: "Please complete the check above the button." };
++/* The CRM refuses a live sign-up without a Turnstile token. With no widget on the page (no
++   TURNSTILE_SITE_KEY yet), "complete the check" points at nothing: say what is true instead. */
++const fieldWord = (env, field) => (field === "turnstileToken" && !env.TURNSTILE_SITE_KEY ? `Sign-up is not switched on yet. Please call ${PHONE} and we will get you in.` : FIELD_WORDS[field] || "Please check the form.");
+ 
+ async function register(context) {
+   const { request, env } = context;
+@@ -737,7 +740,7 @@ async function register(context) {
+   if (r.status === 200 && r.json && r.json.ok) {
+     return json({ ok: true }, 200, r.json.token ? { "set-cookie": setCookie(r.json.token) } : {});
+   }
+-  if (r.status === 400 && r.json && r.json.error === "invalid") return json({ ok: false, field: r.json.field, message: FIELD_WORDS[r.json.field] || "Please check the form." }, 400);
++  if (r.status === 400 && r.json && r.json.error === "invalid") return json({ ok: false, field: r.json.field, message: fieldWord(context.env, r.json.field) }, 400);
+   if (r.status === 429) return json({ ok: false, message: "Too many tries, please wait a minute." }, 429);
+   return json({ ok: false, message: `Sign-up is unavailable right now. Please call ${PHONE}.` }, 503);
+ }
+diff --git a/idx-lib/render.js b/idx-lib/render.js
+index 70748c16..196a8b9b 100644
+--- a/idx-lib/render.js
++++ b/idx-lib/render.js
+@@ -407,7 +407,7 @@ if(sf){var tb=sf.elements.termsAccepted,sb=sf.querySelector("button[type=submit]
+  sf.addEventListener("submit",function(e){e.preventDefault();var err=sf.querySelector(".hx-error");err.hidden=true;sb.disabled=true;
+   var prior=[];try{prior=JSON.parse(localStorage.getItem("c3_idx_prior")||"[]")}catch(x){}
+   var t=sf.querySelector("[name=cf-turnstile-response]");
+-  var nm=sf.elements.name.value.trim().split(/\s+/),first=nm.shift()||"",last=nm.join(" ");
++  var nm=sf.elements.name.value.trim().split(" ").filter(Boolean),first=nm.shift()||"",last=nm.join(" ");
+   if(!last){err.textContent="Please enter your first and last name.";err.hidden=false;sb.disabled=!tb.checked;sf.elements.name.focus();return}
+   post("/homes/api/register",{firstName:first,lastName:last,email:sf.elements.email.value,phone:sf.elements.phone.value,
+    termsAccepted:tb.checked,smsConsent:sf.elements.smsConsent.checked,website:sf.elements.website.value,page:location.pathname,priorViews:prior,turnstileToken:t?t.value:""})
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index a6e5e75d..aaeca25a 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -30,6 +30,7 @@ let BIG = false;
+ let sent2 = "";
+ let HANG = false;
+ let INVALID = false;
++let INVALID_TS = false;
+ globalThis.fetch = async (input, init = {}) => {
+   const u = new URL(typeof input === "string" ? input : input.url);
+   calls.push({ url: u.toString(), init });
+@@ -74,6 +75,7 @@ globalThis.fetch = async (input, init = {}) => {
+   }
+   if (u.pathname === "/api/idx/hearts" && (init.method || "GET") === "GET") return J({ ok: true, visitor: "valid", hearts: ["2600001"] });
+   if (u.pathname === "/api/idx/register") {
++    if (INVALID_TS) return J({ ok: false, error: "invalid", field: "turnstileToken", message: "x" }, 400);
+     const b = JSON.parse(init.body);
+     if (!b.termsAccepted) return J({ ok: false, error: "invalid", field: "termsAccepted", message: "x" }, 400);
+     return J({ ok: true, token: DEV_TOKEN, dryRun: true });
+@@ -454,5 +456,16 @@ check("feed: a feed that promises an order asks the CRM for the lowest prices fi
+ t = await (await run(homes, req("/homes/2611111/"))).text();
+ check("listing: no Analyze it as a rental on a home whose address is withheld", !t.includes('class="hx-analyze"'));
+ 
++check("sign-up: the full name splits on spaces (a template string had eaten the \\s)", !SCRIPT.includes("split(/s+/)") && SCRIPT.includes('split(" ").filter(Boolean)'));
++{
++  const saved = INVALID_TS; INVALID_TS = true;
++  r = await run(homes, post("/homes/api/register", { firstName: "Chapter3", lastName: "Realty", email: "a@b.com", phone: "8543332135", termsAccepted: true, page: "/homes/" }), { ...ENV, TURNSTILE_SITE_KEY: undefined });
++  const j1 = JSON.parse(await r.text());
++  r = await run(homes, post("/homes/api/register", { firstName: "Chapter3", lastName: "Realty", email: "a@b.com", phone: "8543332135", termsAccepted: true, page: "/homes/" }));
++  const j2 = JSON.parse(await r.text());
++  INVALID_TS = saved;
++  check("sign-up: with no Turnstile widget on the site, the message says sign-up is not on yet, not \"complete the check\"", /not switched on yet/.test(j1.message) && /complete the check/.test(j2.message));
++}
++
+ console.log(fails ? `${fails} control(s) fail` : "all controls pass");
+ process.exit(fails ? 1 : 0);
+-- 
+2.43.0
+
