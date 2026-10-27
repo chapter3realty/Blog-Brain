@@ -164,3 +164,12 @@ What a visitor who is not signed up sees is only the public card the CRM sends: 
 - Filter bar (idx-lib/filters.js): one GET form; works with no script. The value in force is always a choice. A filtered strip says "Homes for sale that match your filters" and adds the no-HOA note when hoa=0. The newest strip answer wins.
 - GET /homes/api/strip: validated params, anonymous CRM call, light quality bar, which the reader's own type or low max overrides. No hearts in the cached answer.
 - Review (10 findings, all fixed, controls in tools/idx-test.mjs). Patch: website-patches/v1.7-feeds-filters.patch, after v1.6.1.
+
+## Round 23 (2026-10-27): every MLS filter, feeds that prove the headline
+
+- The filter list: GET /api/idx/filters (contract §5, Ticket 471). idx-lib/catalog.js loads it, kept an hour, with a 10-minute pause after a failure. Feature keys are checked against it (idx-lib/features.js isFeature), or against the built-in keys while it is not loaded.
+- The More panel draws every feature on first open, from /homes/api/filters: grouped, most homes first, with counts, a search box, and at most 2 distances (contract §5).
+- Homes for sale only: forCrm() adds status=active to every search unless all=1 ("Also show homes under contract"). Place strips ask for status=active too.
+- Feeds: hooks backed by features (feeds.js cut()). A feature feed the CRM did not apply falls back; its title never shows over homes that may not have it.
+- Headlines: data/headlines.json and tools/headlines.js. Hand-made pages are set in place; relocating pages through their data files and assemble-page.js.
+- Patch: website-patches/v1.10-filters-headlines.patch, after v1.9.
