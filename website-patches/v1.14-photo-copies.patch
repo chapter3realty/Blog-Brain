@@ -1,0 +1,209 @@
+From eedbc8769267c9e0053752de0e3d01da1d00759d Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Wed, 28 Oct 2026 22:25:35 +0000
+Subject: [PATCH] Listing photos from our own address: sized for where they
+ show, kept 30 days
+
+The MLS photo server allows 240 photos a minute for every visitor together and sends each one
+full size, about 750 KB. Every listing photo now loads from /homes/p/card (about 480 px wide:
+cards, rows, the map) or /homes/p/big (about 1280 px: the listing page). Each is fetched from
+Trestle once, resized by Cloudflare when Image Transformations is on for the zone (kept as it
+came otherwise), and kept in the edge cache and the browser for 30 days. A replaced photo has a
+new link and gets a new copy; a sold home is not shown, and its copy expires by itself. Only our
+own feed's photo links are served. When the MLS refuses, the browser is sent to the MLS and
+nothing is kept. The owners decided this (2026-10-28); it replaces the contract's hotlink rule.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+---
+ functions/homes/[[path]].js |  5 +++-
+ idx-lib/map.js              |  5 ++--
+ idx-lib/photo.js            | 48 +++++++++++++++++++++++++++++++++++++
+ idx-lib/render.js           |  5 ++--
+ tools/idx-test.mjs          | 19 +++++++++++++++
+ 5 files changed, 77 insertions(+), 5 deletions(-)
+ create mode 100644 idx-lib/photo.js
+
+diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
+index e13da5e7..5fead1da 100644
+--- a/functions/homes/[[path]].js
++++ b/functions/homes/[[path]].js
+@@ -22,6 +22,7 @@ import { featureLabel, featureList, catalogLoaded, isDistance } from "../../idx-
+ import { filterCatalog, panelGroups } from "../../idx-lib/catalog.js";
+ import { filterBar, labels as filterLabels } from "../../idx-lib/filters.js";
+ import { postFilter, rankHomes } from "../../idx-lib/feeds.js";
++import { photo, photoUrl } from "../../idx-lib/photo.js";
+ import { MAP_SCRIPT, MAP_STYLE, geocode, mapsKey, nearOf, pinOf, withPoints } from "../../idx-lib/map.js";
+ import { SMS_CONSENT_TEXT, TERMS_PARAGRAPHS, TERMS_TITLE, TERMS_VERSION, termsText } from "../../idx-lib/terms.js";
+ import {
+@@ -68,6 +69,8 @@ async function handle(context) {
+   const gate = idxOn(env, request);
+   if (!gate.on) return notFound(context);
+ 
++  // Listing photos, sized and kept 30 days (idx-lib/photo.js).
++  if (path === "/homes/p/card" || path === "/homes/p/big") return photo(context, url, path.slice(9));
+   if (path.startsWith("/homes/api/")) {
+     const name = path.replace(/^\/homes\/api\/|\/$/g, "");
+     if (name === "map" && (request.method === "GET" || request.method === "HEAD")) return mapData(context, url);
+@@ -673,7 +676,7 @@ async function listingPageWith(context, mls, slugPart, gate, r, hearts) {
+   const hearted = (hearts || []).includes(l.mlsNumber);
+   const status = statusWord(l.status);
+   const count = typeof l.photoCount === "number" && l.photoCount > 0 ? l.photoCount : photos.length;
+-  const img = (u, alt, eager) => `<img src="${esc(u)}" alt="${esc(alt)}" loading="${eager ? "eager" : "lazy"}" decoding="async" referrerpolicy="no-referrer">`;
++  const img = (u, alt, eager) => `<img src="${esc(photoUrl(u, "big"))}" alt="${esc(alt)}" loading="${eager ? "eager" : "lazy"}" decoding="async" referrerpolicy="no-referrer">`;
+   const chip = status ? `<span class="hx-l-chip">${esc(status)}</span>` : "";
+ 
+   // The photos: one large, two beside it on a wide screen. Not signed up: the same photo,
+diff --git a/idx-lib/map.js b/idx-lib/map.js
+index 6f64237c..ccc1d28c 100644
+--- a/idx-lib/map.js
++++ b/idx-lib/map.js
+@@ -8,6 +8,7 @@
+  * carries no point yet (REQUEST FOR THE CRM, batches/2026-10-b/IDX-STUDY.md, request 2):
+  * until it does, the map page shows the list and says the pins are coming.
+  */
++import { photoUrl } from "./photo.js";
+ import { acres, addressLine, cardTag, headlinePrice, listingPath, safeUrl, statusWord } from "./render.js";
+ 
+ /** The Google Maps browser key: a public key, locked to our domain in Google Cloud. A setting can replace it. */
+@@ -30,7 +31,7 @@ export function pinOf(l) {
+   if (!l.address || lat === null || lng === null || lat < 31 || lat > 37 || lng < -82 || lng > -75) return null;
+   return {
+     mls: String(l.mlsNumber || ""), url: listingPath(l), lat, lng,
+-    price: headlinePrice(l), short: shortPrice(l), photo: safeUrl(l.photo),
++    price: headlinePrice(l), short: shortPrice(l), photo: photoUrl(safeUrl(l.photo), "card"),
+     beds: num(l.beds), baths: num(l.baths), sqft: num(l.sqft), acres: acres(l.lotAcres), status: statusWord(l.status), tag: cardTag(l),
+     addr: `${addressLine(l)}${l.postalCode ? `, ${l.postalCode}` : ""}`, firm: String(l.listingFirm || "listing brokerage"),
+   };
+@@ -180,7 +181,7 @@ var NS="http://www.w3.org/2000/svg";
+ function heart(p){var b=el("button","hx-heart hx-heart-sm");b.type="button";b.setAttribute("data-mls",p.mls);b.setAttribute("aria-pressed",hearts[p.mls]?"true":"false");b.setAttribute("aria-label","Save "+p.addr);
+  var s=document.createElementNS(NS,"svg");s.setAttribute("viewBox","0 0 24 24");s.setAttribute("width","22");s.setAttribute("height","22");s.setAttribute("aria-hidden","true");var pa=document.createElementNS(NS,"path");pa.setAttribute("d","M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z");s.appendChild(pa);b.appendChild(s);return b}
+ function card(p,withHeart){var a=el("article","hx-c"),l=el("a","hx-c-link");l.href=p.url;l.setAttribute("draggable","false");a.setAttribute("data-mls",p.mls);
+- var ph=el("span","hx-c-photo");if(p.photo&&p.photo.indexOf("https://")===0){var im=el("img");im.src=p.photo;im.alt=p.addr;im.loading="lazy";im.referrerPolicy="no-referrer";im.width=480;im.height=300;ph.appendChild(im)}else ph.appendChild(el("span","hx-nophoto","No photo yet"));
++ var ph=el("span","hx-c-photo");if(p.photo&&(p.photo.indexOf("https://")===0||p.photo.indexOf("/homes/p/")===0)){var im=el("img");im.src=p.photo;im.alt=p.addr;im.loading="lazy";im.referrerPolicy="no-referrer";im.width=480;im.height=300;ph.appendChild(im)}else ph.appendChild(el("span","hx-nophoto","No photo yet"));
+  if(p.tag)ph.appendChild(el("span","hx-c-tag",p.tag));l.appendChild(ph);var b=el("span","hx-c-body");b.appendChild(el("span","hx-c-price",p.price));
+  var f=el("span","hx-c-facts"),bits=[];if(p.beds!=null)bits.push([p.beds," bds"]);if(p.baths!=null)bits.push([p.baths," ba"]);if(p.sqft!=null)bits.push([p.sqft.toLocaleString("en-US")," sqft"]);if(p.acres)bits.push([p.acres,p.acres==="1"?" acre":" acres"]);
+  bits.forEach(function(x,i){if(i)f.appendChild(el("i"));f.appendChild(el("b",null,String(x[0])));f.appendChild(document.createTextNode(x[1]))});if(p.status){if(bits.length)f.appendChild(el("i"));f.appendChild(document.createTextNode(p.status))}
+diff --git a/idx-lib/photo.js b/idx-lib/photo.js
+new file mode 100644
+index 00000000..73204da1
+--- /dev/null
++++ b/idx-lib/photo.js
+@@ -0,0 +1,48 @@
++/**
++ * Listing photos from our own address, sized for where they show and kept 30 days (owners,
++ * 2026-10-28). The MLS photo server (Cotality Trestle) allows 240 photos a minute for every
++ * visitor together and sends each full size, about 750 KB, so pages waited on it and photos
++ * failed in busy minutes. Here each photo is fetched from Trestle once, resized by Cloudflare
++ * (when Image Transformations is on for the zone; otherwise kept as it came), and kept in the
++ * edge cache for 30 days. A photo's link changes when the agent replaces it, so a new photo
++ * gets a new copy; a home that sold is no longer shown, and its copy expires by itself.
++ *
++ *   /homes/p/card?u=<Trestle link>   about 480 px wide: cards, rows, the map
++ *   /homes/p/big?u=<Trestle link>    about 1280 px wide: the listing page
++ *
++ * Only links to our own Trestle feed are served, so this is never a photo service for others.
++ */
++const ORIGIN = "https://api.cotality.com/trestle/Media/";
++// The feed's own segment in every photo link ("12192/13110/20", base64): only our listings.
++const FEED = "/MTIxOTIvMTMxMTAvMjA/";
++const WIDTH = { card: 480, big: 1280 };
++const KEEP = 30 * 24 * 3600;
++
++export const ourPhoto = (u) => typeof u === "string" && u.startsWith(ORIGIN) && u.includes(FEED) && u.length <= 600 && /^[A-Za-z0-9:/._~%=-]+$/.test(u);
++
++/** The link a page uses: our copy for a Trestle photo, the link itself for anything else. */
++export function photoUrl(u, size = "card") {
++  return ourPhoto(u) ? `/homes/p/${size === "big" ? "big" : "card"}?u=${encodeURIComponent(u)}` : u;
++}
++
++/** GET /homes/p/<size>?u=: the kept copy, or one fetched and kept now. */
++export async function photo(context, url, size) {
++  const u = url.searchParams.get("u") || "";
++  if (!WIDTH[size] || !ourPhoto(u)) return new Response("Not found", { status: 404 });
++  const accept = context.request.headers.get("accept") || "";
++  const format = /image\/avif/.test(accept) ? "avif" : /image\/webp/.test(accept) ? "webp" : "jpeg";
++  const cache = typeof caches !== "undefined" ? caches.default : null;
++  const key = new Request(`https://chapter3realty.com/__photo/${size}/${format}/${encodeURIComponent(u)}`);
++  if (cache) { const hit = await cache.match(key); if (hit) return hit; }
++  let r = null;
++  try {
++    r = await fetch(u, { cf: { image: { width: WIDTH[size], quality: 75, fit: "scale-down", ...(format === "jpeg" ? {} : { format }) } } });
++    // Without Image Transformations on the zone the resize can fail: keep the photo as it came.
++    if (!r.ok || !/^image\//.test(r.headers.get("content-type") || "")) r = await fetch(u);
++  } catch { r = null; }
++  // The MLS said no (its limit, most often): the browser asks it directly, and nothing is kept.
++  if (!r || !r.ok || !/^image\//.test(r.headers.get("content-type") || "")) return new Response(null, { status: 302, headers: { Location: u, "cache-control": "no-store" } });
++  const out = new Response(r.body, { headers: { "content-type": r.headers.get("content-type"), "cache-control": `public, max-age=${KEEP}, immutable` } });
++  if (cache) context.waitUntil(cache.put(key, out.clone()));
++  return out;
++}
+diff --git a/idx-lib/render.js b/idx-lib/render.js
+index 5fac31c9..736e8c25 100644
+--- a/idx-lib/render.js
++++ b/idx-lib/render.js
+@@ -12,6 +12,7 @@
+  */
+ import { SMS_CONSENT_TEXT } from "./terms.js";
+ import { FILTER_SCRIPT, FILTER_STYLE } from "./filters.js";
++import { photoUrl } from "./photo.js";
+ 
+ export function esc(v) {
+   return String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+@@ -103,7 +104,7 @@ export function card(l, opts = {}) {
+   if (statusWord(l.status)) bits.push(esc(statusWord(l.status)));
+   const addr = l.address ? `${addressLine(l)}${l.postalCode ? `, ${l.postalCode}` : ""}` : addressLine(l);
+   return `<article class="hx-c"><a class="hx-c-link" href="${esc(listingPath(l))}" draggable="false"><span class="hx-c-photo">`
+-    + (photo ? `<img src="${esc(photo)}" alt="${esc(addressLine(l))}" width="480" height="300" loading="lazy" decoding="async" referrerpolicy="no-referrer" draggable="false">` : `<span class="hx-nophoto">No photo yet</span>`)
++    + (photo ? `<img src="${esc(photoUrl(photo, "card"))}" alt="${esc(addressLine(l))}" width="480" height="300" loading="lazy" decoding="async" referrerpolicy="no-referrer" draggable="false">` : `<span class="hx-nophoto">No photo yet</span>`)
+     + `${tag ? `<span class="hx-c-tag">${esc(tag)}</span>` : ""}${miles}</span>`
+     + `<span class="hx-c-body"><span class="hx-c-price">${esc(headlinePrice(l))}</span><span class="hx-c-facts">${bits.join('<i aria-hidden="true"></i>')}</span>`
+     + `<span class="hx-c-addr">${esc(addr)}</span>`
+@@ -407,7 +408,7 @@ export const SCRIPT = `<script>(function(){
+ var signed=document.body.getAttribute("data-hx-signed")==="1";
+ /* A listing photo that fails (the MLS photo server allows 240 a minute for every visitor together) is
+    asked for once more a minute later, when its count starts over; until then a calm panel shows. */
+-document.addEventListener("error",function(e){var im=e.target;if(!im||im.tagName!=="IMG"||im.src.indexOf("https://api.cotality.com/")!==0)return;
++document.addEventListener("error",function(e){var im=e.target;if(!im||im.tagName!=="IMG"||(im.src.indexOf("https://api.cotality.com/")!==0&&im.src.indexOf("/homes/p/")<0))return;
+  var box=im.parentNode;if(box&&box.classList&&!box.classList.contains("hx-gallery"))box.classList.add("hx-imgwait");
+  if(im.getAttribute("data-retry"))return;im.setAttribute("data-retry","1");var u=im.src;setTimeout(function(){im.src=u+(u.indexOf("?")<0?"?r=1":"&r=1")},61000)},true);
+ document.addEventListener("load",function(e){var im=e.target;if(im&&im.tagName==="IMG"&&im.parentNode&&im.parentNode.classList)im.parentNode.classList.remove("hx-imgwait")},true);
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index 84d359e0..f9e31825 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -12,6 +12,7 @@ import { postFilter, rankHomes } from "../idx-lib/feeds.js";
+ import { filterBar } from "../idx-lib/filters.js";
+ import { featureList } from "../idx-lib/features.js";
+ import { readQuery } from "../idx-lib/query.js";
++import { photo, photoUrl } from "../idx-lib/photo.js";
+ import { resetCatalog } from "../idx-lib/catalog.js";
+ import { SCRIPT, STYLE } from "../idx-lib/render.js";
+ const STYLE_OK = () => STYLE.includes(".hx-dialog form[hidden]{display:none}");
+@@ -578,5 +579,23 @@ r = await run(homes, req("/homes/api/map?q=3+bed+house+in+conway&near=33.7,-78.9
+   check("map api: a sentence adds to the search, a town in it replaces the map area, and the answer carries the chips and the pill labels", j.ok && j.params === "city=Conway&type=house&beds=3" && j.chips.some((c) => c.t === "Conway" && c.x === "type=house&beds=3") && j.labels.beds === "3+ bd" && j.labels.type === "House");
+ }
+ 
++// Listing photos from our own address, sized and kept 30 days (owners, 2026-10-28).
++{
++  const T = "https://api.cotality.com/trestle/Media/Property/PHOTO-jpeg/1193779983/1/MTIxOTIvMTMxMTAvMjA/MjAvMjM1MjIvMTc5MzA0ODQxMw/rk7ui3qA6hhAAwXMPS8mKxo37OMddDRo853Go-1Jz88";
++  const other = "https://api.cotality.com/trestle/Media/Property/PHOTO-jpeg/1/1/T1RIRVJGRUVE/x/y";
++  check("photos: our feed's photos load from our address, sized for the card or the listing page; any other link is left alone", photoUrl(T) === `/homes/p/card?u=${encodeURIComponent(T)}` && photoUrl(T, "big").startsWith("/homes/p/big?u=") && photoUrl(other) === other && photoUrl("https://photos.test/1.jpg") === "https://photos.test/1.jpg");
++  const saved = globalThis.fetch; const asked = [];
++  const ctx = (accept) => ({ request: new Request("https://chapter3realty.com/homes/p/card", { headers: { accept } }), waitUntil: () => {} });
++  globalThis.fetch = async (u, init) => { asked.push([String(u), init && init.cf ? init.cf.image : null]); return new Response("img", { status: 200, headers: { "content-type": "image/webp" } }); };
++  const ok = await photo(ctx("image/webp,*/*"), new URL(`https://chapter3realty.com/homes/p/card?u=${encodeURIComponent(T)}`), "card");
++  const no = await photo(ctx("*/*"), new URL(`https://chapter3realty.com/homes/p/card?u=${encodeURIComponent(other)}`), "card");
++  globalThis.fetch = async () => new Response("quota", { status: 429, headers: { "content-type": "text/plain" } });
++  const busy = await photo(ctx("*/*"), new URL(`https://chapter3realty.com/homes/p/big?u=${encodeURIComponent(T)}`), "big");
++  globalThis.fetch = saved;
++  check("photos: a copy is resized (480 wide, webp when the browser takes it) and kept 30 days; a foreign link is refused; when the MLS says no, the browser is sent to the MLS and nothing is kept",
++    ok.status === 200 && /max-age=2592000/.test(ok.headers.get("cache-control")) && asked[0][1] && asked[0][1].width === 480 && asked[0][1].format === "webp"
++    && no.status === 404 && busy.status === 302 && busy.headers.get("location") === T && busy.headers.get("cache-control") === "no-store");
++}
++
+ console.log(fails ? `${fails} control(s) fail` : "all controls pass");
+ process.exit(fails ? 1 : 0);
+-- 
+2.43.0
+

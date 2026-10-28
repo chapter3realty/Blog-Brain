@@ -35,18 +35,8 @@
 
 <h2>Part 1: the short version, for Abdulla</h2>
 
-<div class="box urgent">
-<p><span class="tag">Urgent</span><b>Listing photos stop loading on the website.</b></p>
-<p>The MLS photo server (Cotality Trestle) only allows <b>240 photos a minute</b> and <b>9,000 an hour</b> for the whole account. Every website visitor shares that limit. Each photo is also the full-size file, about 750 KB.</p>
-<p>A few people browsing at the same time use up the 240, and then photos fail for everyone until the next minute. Buyers see blank boxes, and the site feels broken.</p>
-<p>We already changed the website to ask for far fewer photos at once. That helps, but it cannot fix the limit. Only you can.</p>
-<p><b>Please pick one of these three and tell us:</b></p>
-<ol>
-<li><b>Ask Cotality to raise the photo limit</b> on the account.</li>
-<li><b>Let the website keep a short-term copy of each photo</b> at Cloudflare. It would be a small version (about 40 KB instead of 750 KB), kept for 24 hours and then thrown away. The site would get each photo from Trestle once a day instead of once per visitor. Today the contract says "never store photos" (rule 7), so this needs your OK.</li>
-<li><b>Have the CRM serve the photos</b> through its own cached, smaller links.</li>
-</ol>
-<p>Options 2 and 3 also make every page load much faster.</p>
+<div class="box">
+<p><b>Done on the website side: listing photos.</b> Photos were failing because the MLS photo account allows only 240 a minute for all visitors together. The website now keeps its own copy of each photo for 30 days, sized for where it shows, so it asks the MLS for each photo about once a month instead of once per visitor. Nothing is needed from you for this.</p>
 </div>
 
 <h3><span class="tag want">Wanted</span>Sign in with Google</h3>
@@ -73,14 +63,8 @@
 
 <p>This is the Chapter3 website team. The website reads the CRM through the IDX contract in <code>docs/website-listing-api.md</code> (contract v1, Ticket 471 filters). Do this work on a new branch and open a pull request. Do not merge to <code>main</code>. The owner and Abdulla decide that.</p>
 
-<h3><span class="tag">1. Urgent</span>Photos hit the Trestle media limit</h3>
-<p>Photo links (<code>https://api.cotality.com/trestle/Media/...</code>) answer with <code>minute-quota-limit: 240</code> and <code>hour-quota-limit: 9000</code>, shared by every website visitor and anything else on the account. Each photo is the full-size JPEG, about 750 KB, with <code>cache-control: public, max-age=10</code>. Under normal traffic the minute limit runs out and photos fail for everyone.</p>
-<p>Contract rule 7 says photos are hotlinked only (never download, store or re-host), so the website cannot fix this alone. Pick one and tell us which:</p>
-<ol>
-<li>Raise the media quota with Cotality.</li>
-<li>Approve an edge copy: Cloudflare keeps each photo for 24 hours, resized (about 480 px wide for cards, about 1200 px on listing pages), fetched from Trestle once a day. Nothing in a database; the copy expires by itself. This changes rule 7.</li>
-<li>Serve photos from the CRM through cached, resized URLs, and put those URLs in <code>photo</code> and <code>photos[].url</code>.</li>
-</ol>
+<h3>1. For your information: photo copies</h3>
+<p>The owners decided the website keeps its own copy of each listing photo (<code>/homes/p/card</code> and <code>/homes/p/big</code>), resized and kept 30 days, because the Trestle media limit (240 a minute) was making photos fail. Contract rule 7 ("photos are hotlinked only") no longer applies; please update <code>docs/website-listing-api.md</code> to say so. Nothing else is needed from the CRM.</p>
 
 <h3>2. Sign in with Google: <code>POST /api/idx/google</code></h3>
 <p>Same shape as <code>/api/idx/claim</code>.</p>

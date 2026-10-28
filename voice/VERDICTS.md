@@ -128,3 +128,7 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 - "each ? ... should tell you what number is considered good for this specific area": each ? now gives a target and that town's own figure (rental returns data, Zillow and HUD, July 2026).
 - "Talk to an agent ... should open the same simple popup ... the contact page should not really be used anymore": every link to /contact/ opens one popup (name, phone, email, the TCPA consent) that sends the home being looked at.
 - "neighborhood pages say Top homes in City ... we don't want it to seem like we are showing budget homes": every town page's strip is "Top homes in" the town. Class: a strip's title sells the place, never the discount.
+
+## 2026-10-28 (later): keep the photos
+
+- "me and abdulla own the business together and the crm ... lets keep a copy of the photos ... keep it saved for the month": the website keeps its own copy of each listing photo for 30 days, sized for where it shows. The CRM contract's "hotlinked only" rule was the CRM's AI's wording, not the owners' decision. Class: a rule written by a tool is checked with the owners before it blocks a fix they need.

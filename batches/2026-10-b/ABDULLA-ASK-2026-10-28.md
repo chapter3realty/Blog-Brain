@@ -6,17 +6,9 @@ Paste everything below the line into Abdulla's Claude. It asks for work on a bra
 
 This is the Chapter3 website team. The website reads the CRM through the IDX contract in `docs/website-listing-api.md` (contract v1, Ticket 471 filters). Please do this work on a new branch and open a pull request. Do not merge to `main`; the owner and Abdulla decide that.
 
-## 0. Urgent: listing photos stop loading
+## 0. For your information: photo copies
 
-The photo links (`https://api.cotality.com/trestle/Media/...`) answer with `minute-quota-limit: 240` and `hour-quota-limit: 9000`. That limit is shared by every visitor to the website, and by anything else on that Trestle account. Each photo is the full-size file, about 750 KB, with `cache-control: public, max-age=10`. A few visitors in the same minute use up 240, and then the photos fail for everyone until the minute starts over. The website now asks for far fewer photos at a time (v1.13), but that only delays the limit.
-
-Contract rule 7 says photos are hotlinked only: never download, store or re-host. So the fix has to come from you. Please pick one and tell us:
-
-1. **Raise the media quota** with Cotality for this account, if they offer it.
-2. **Let the website keep an edge copy.** Cloudflare would keep each photo for 24 hours, resized to the size shown (about 480 pixels wide on cards), and fetch it from Trestle once a day instead of once per visitor. Nothing goes in a database, and the copy expires by itself. This changes rule 7, so it needs your yes and, if you think it needed, the MLS's.
-3. **Serve photos from the CRM** through a cached, resized link of your own, and put that link in `photo` and `photos[].url`.
-
-Option 2 or 3 also makes every page much faster: a card photo drops from about 750 KB to about 40 KB.
+The owners decided the website keeps its own copy of each listing photo (`/homes/p/card`, `/homes/p/big`), resized and kept 30 days, because the Trestle media limit (240 a minute) made photos fail. Contract rule 7 ("photos are hotlinked only") no longer applies; please update `docs/website-listing-api.md` to say so. Nothing else is needed from the CRM.
 
 ## 1. Sign in with Google (the owner wants this)
 
