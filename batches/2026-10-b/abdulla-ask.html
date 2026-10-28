@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chapter3 website: what we need from the CRM</title>
+<style>
+  @page { size: Letter; margin: 0.7in 0.75in; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1c2028; font-size: 11pt; line-height: 1.5; margin: 0; }
+  h1 { font-family: Georgia, serif; font-size: 22pt; margin: 0 0 4pt; }
+  h2 { font-family: Georgia, serif; font-size: 15pt; margin: 20pt 0 6pt; padding-top: 6pt; border-top: 2px solid #c4783a; }
+  h3 { font-size: 11.5pt; margin: 14pt 0 4pt; }
+  p { margin: 0 0 8pt; }
+  h2, h3 { break-after: avoid; page-break-after: avoid; }
+  table, pre, li { break-inside: avoid; }
+  .sub { color: #5c6b78; margin-bottom: 14pt; }
+  .box { background: #f4efe8; border-radius: 8pt; padding: 10pt 12pt; margin: 8pt 0 12pt; }
+  .urgent { background: #fdf0ee; border-left: 4pt solid #c0392b; }
+  ol, ul { margin: 0 0 8pt 16pt; padding: 0; }
+  li { margin: 0 0 4pt; }
+  table { border-collapse: collapse; width: 100%; margin: 4pt 0 10pt; font-size: 10pt; }
+  th, td { border-bottom: 1px solid #e6dfd3; padding: 4pt 6pt; text-align: left; vertical-align: top; }
+  th { background: #f4efe8; }
+  code { font-family: Menlo, Consolas, monospace; font-size: 9.5pt; background: #f1ede6; padding: 0 2pt; border-radius: 2pt; }
+  pre { font-family: Menlo, Consolas, monospace; font-size: 9pt; background: #f1ede6; padding: 8pt; border-radius: 6pt; white-space: pre-wrap; }
+  .page { break-before: page; }
+  .tag { display: inline-block; font-size: 8.5pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: #c0392b; border-radius: 3pt; padding: 1pt 5pt; margin-right: 4pt; }
+  .tag.later { background: #5c6b78; }
+  .tag.want { background: #c4783a; }
+</style>
+</head>
+<body>
+
+<h1>What the website needs from the CRM</h1>
+<p class="sub">From the Chapter3 website team, October 28, 2026. Part 1 is for Abdulla. Part 2 is for Abdulla's AI.</p>
+
+<h2>Part 1: the short version, for Abdulla</h2>
+
+<div class="box urgent">
+<p><span class="tag">Urgent</span><b>Listing photos stop loading on the website.</b></p>
+<p>The MLS photo server (Cotality Trestle) only allows <b>240 photos a minute</b> and <b>9,000 an hour</b> for the whole account. Every website visitor shares that limit. Each photo is also the full-size file, about 750 KB.</p>
+<p>A few people browsing at the same time use up the 240, and then photos fail for everyone until the next minute. Buyers see blank boxes, and the site feels broken.</p>
+<p>We already changed the website to ask for far fewer photos at once. That helps, but it cannot fix the limit. Only you can.</p>
+<p><b>Please pick one of these three and tell us:</b></p>
+<ol>
+<li><b>Ask Cotality to raise the photo limit</b> on the account.</li>
+<li><b>Let the website keep a short-term copy of each photo</b> at Cloudflare. It would be a small version (about 40 KB instead of 750 KB), kept for 24 hours and then thrown away. The site would get each photo from Trestle once a day instead of once per visitor. Today the contract says "never store photos" (rule 7), so this needs your OK.</li>
+<li><b>Have the CRM serve the photos</b> through its own cached, smaller links.</li>
+</ol>
+<p>Options 2 and 3 also make every page load much faster.</p>
+</div>
+
+<h3><span class="tag want">Wanted</span>Sign in with Google</h3>
+<p>The owner wants visitors to sign in with one click using Google, with no text code. The website shows Google's button. The CRM needs one new address that checks Google's answer and signs the visitor in. The owner will set up the Google account part and share the public ID.</p>
+
+<h3><span class="tag want">Wanted</span>Keep "sign back in" as it is</h3>
+<p>The owner asked about letting people sign back in with only their phone number. We advise against it: anyone who knows a phone number could open that person's saved homes. Please keep phone plus first name, as it works today.</p>
+
+<h3><span class="tag want">Wanted</span>New search filters</h3>
+<p>Buyers can now type sentences like "fixer upper in Conway". About a dozen of those words have no filter yet (needs work, renovated, new roof, flood zone X, cul-de-sac, pets allowed, and others), plus four places near major employers. The full list is in Part 2.</p>
+
+<h3><span class="tag want">Wanted</span>Our own filters</h3>
+<p>The owner wants to create custom filters. Simplest way: one settings file in the CRM where each filter is written as a rule. We would send changes to that file for you to review and approve.</p>
+
+<h3><span class="tag later">Later</span>Saved searches</h3>
+<p>Let a signed-in visitor save a search and come back to it. No rush.</p>
+
+<h3>One question</h3>
+<p>The rental analyzer asks an AI to look at 4 of a listing's photos for repairs. The owner has confirmed with the MLS that this is allowed. It sends the photo links and never saves a photo. Do those links open for a server (not a browser) for at least a few minutes?</p>
+
+<div class="box">
+<p><b>How to use this:</b> give Part 2 to your AI as is. It says what to build. Please work on a new branch and send a pull request. Nothing should go straight to <code>main</code>.</p>
+</div>
+
+<div class="page"></div>
+<h2>Part 2: for Abdulla's AI</h2>
+
+<p>This is the Chapter3 website team. The website reads the CRM through the IDX contract in <code>docs/website-listing-api.md</code> (contract v1, Ticket 471 filters). Do this work on a new branch and open a pull request. Do not merge to <code>main</code>. The owner and Abdulla decide that.</p>
+
+<h3><span class="tag">1. Urgent</span>Photos hit the Trestle media limit</h3>
+<p>Photo links (<code>https://api.cotality.com/trestle/Media/...</code>) answer with <code>minute-quota-limit: 240</code> and <code>hour-quota-limit: 9000</code>, shared by every website visitor and anything else on the account. Each photo is the full-size JPEG, about 750 KB, with <code>cache-control: public, max-age=10</code>. Under normal traffic the minute limit runs out and photos fail for everyone.</p>
+<p>Contract rule 7 says photos are hotlinked only (never download, store or re-host), so the website cannot fix this alone. Pick one and tell us which:</p>
+<ol>
+<li>Raise the media quota with Cotality.</li>
+<li>Approve an edge copy: Cloudflare keeps each photo for 24 hours, resized (about 480 px wide for cards, about 1200 px on listing pages), fetched from Trestle once a day. Nothing in a database; the copy expires by itself. This changes rule 7.</li>
+<li>Serve photos from the CRM through cached, resized URLs, and put those URLs in <code>photo</code> and <code>photos[].url</code>.</li>
+</ol>
+
+<h3>2. Sign in with Google: <code>POST /api/idx/google</code></h3>
+<p>Same shape as <code>/api/idx/claim</code>.</p>
+<ul>
+<li>Request: <code>{ "credential": "&lt;Google ID token&gt;", "termsAccepted": true, "termsVersion": "&lt;current&gt;", "page": "/homes/map/" }</code></li>
+<li>Verify the token on the server with Google's public keys (for example <code>google-auth-library</code>, <code>verifyIdToken</code>):
+  <code>aud</code> equals <code>GOOGLE_CLIENT_ID</code> (an environment variable; the owner creates it in Google Cloud); <code>iss</code> is <code>accounts.google.com</code> or <code>https://accounts.google.com</code>; not expired; <code>email_verified</code> is true.</li>
+<li>Find the lead by that email, or create one (source "Website, Google sign-in"). Record the terms acceptance as <code>/claim</code> does.</li>
+<li>Answer <code>{ "ok": true, "token": "&lt;visitor token&gt;", "firstName": "..." }</code>, the same visitor token as <code>/claim</code>. Errors: <code>bad_token</code>, <code>terms_required</code>, <code>rate_limited</code>.</li>
+<li>Rate limit by IP, as <code>/returning</code> is. Never store the Google token. A Google sign-in carries no phone number and no text consent; the lead has none until the visitor gives them.</li>
+</ul>
+
+<h3>3. Keep <code>/api/idx/returning</code> as it is</h3>
+<p>Phone plus first name. A phone number alone would let anyone who knows a number open that person's saved homes and act as that lead. If you see a safe way to make it shorter, tell us and the website will match.</p>
+
+<h3>4. New filters, as <code>has</code> and <code>not</code> keys</h3>
+<p>Add each to <code>/api/idx/filters</code> and to the search, counted like the others.</p>
+<table>
+<tr><th>Key</th><th>Label</th><th>How to read it</th></tr>
+<tr><td><code>fixer_upper</code></td><td>Needs work</td><td>Remarks say "as is", "as-is", "TLC", "handyman", "investor special", "needs work", "fixer", "bring your tools"; or a distressed sale built before 1990</td></tr>
+<tr><td><code>renovated</code></td><td>Renovated or updated</td><td>Remarks say "renovated", "remodeled", "updated kitchen", "new kitchen", "new baths"</td></tr>
+<tr><td><code>move_in_ready</code></td><td>Move-in ready</td><td>Remarks say "move-in ready", "turnkey" (not new construction)</td></tr>
+<tr><td><code>new_roof</code></td><td>New roof</td><td>Remarks say "new roof", or a roof year within 5 years</td></tr>
+<tr><td><code>new_hvac</code></td><td>New heating and air</td><td>Remarks say "new HVAC", "new AC", "new heat pump"</td></tr>
+<tr><td><code>flood_zone_x</code></td><td>Flood zone X</td><td><code>FloodZone</code> is X, X500 or shaded X</td></tr>
+<tr><td><code>cul_de_sac</code></td><td>On a cul-de-sac</td><td><code>LotFeatures</code> or remarks</td></tr>
+<tr><td><code>corner_lot</code></td><td>Corner lot</td><td><code>LotFeatures</code></td></tr>
+<tr><td><code>first_floor_unit</code></td><td>First-floor condo</td><td>Condo unit on the ground or first floor</td></tr>
+<tr><td><code>end_unit</code></td><td>End unit</td><td>Townhouses and condos</td></tr>
+<tr><td><code>pets_allowed</code></td><td>Pets allowed</td><td><code>PetsAllowed</code> is not "No"</td></tr>
+<tr><td><code>elevator</code></td><td>Elevator</td><td>The building or home has one</td></tr>
+</table>
+<p>New landmarks for the jobs guide, each with <code>_1mi</code>, <code>_2mi</code>, <code>_5mi</code>, <code>_10mi</code> like the others: <code>coastal_carolina_university</code> (Conway), <code>horry_georgetown_tech_conway</code>, <code>horry_county_government_center</code> (Conway), <code>myrtle_beach_convention_center</code>.</p>
+
+<h3>5. Custom filters from one file</h3>
+<p>Let the website team define filters as rules in one file, for example <code>config/custom-filters.json</code>. Read it every 6 hours with the rest, list each rule in <code>/api/idx/filters</code>, and apply it in the search like any other key. We send changes as pull requests for Abdulla to review.</p>
+<pre>[
+  { "key": "fixer_upper", "label": "Needs work", "group": "market",
+    "anyRemarks": ["as is", "as-is", "tlc", "handyman", "investor special", "needs work", "fixer"] },
+  { "key": "single_story_pool", "label": "One level with a pool", "group": "outside",
+    "allOf": ["one_level", "pool"] }
+]</pre>
+
+<h3>6. Saved searches (later)</h3>
+<ul>
+<li><code>POST /api/idx/searches</code> with <code>{ "params": "&lt;query string&gt;", "name": "..." }</code> returns <code>{ ok, id }</code></li>
+<li><code>GET /api/idx/searches</code> returns <code>{ ok, searches: [{ id, name, params, createdAt }] }</code></li>
+<li><code>DELETE /api/idx/searches/:id</code></li>
+</ul>
+<p>New-listing emails for saved searches would come from the CRM, with the owner approving the wording.</p>
+
+<h3>7. A question about photo links</h3>
+<p>The rental analyzer sends up to 4 listing photo links to an AI for a repair check and never saves a photo. The owner has confirmed the MLS allows this. Please confirm the links open for a server request (no cookie, no referrer) for at least a few minutes after the listing call.</p>
+
+</body>
+</html>
