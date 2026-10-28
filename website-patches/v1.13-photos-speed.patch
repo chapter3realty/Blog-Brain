@@ -1,0 +1,498 @@
+From ea774645efb09c22d11675f14af6b3f36891e09e Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Wed, 28 Oct 2026 18:49:34 +0000
+Subject: [PATCH] Photos that load, the cost to own first, acreage on every
+ card, a lined-up compare
+
+Photos: the MLS photo server allows 240 photos a minute for every visitor together, and each
+is a full-size file of about 750 KB. The "All photos" gallery gave every photo its own width,
+zero until it loaded, so all 33 counted as in view and were asked for at once: past the limit,
+and the captions showed squeezed in a strip. Every photo now has a fixed box, the gallery is a
+grid that loads as the reader scrolls, the map's list draws 24 homes at a time, a photo that
+fails shows a calm panel and is asked for once more a minute later, and pages open the photo
+server's connection early.
+
+Listing page, signed up: under the price, what the home costs to own and how the listing is
+moving (HOA fee and what it covers, property tax, flood zone, days on market and any price
+cut, the next open house); then the description and every photo; then the rest. Photos and
+detailed information are what buyers rate most useful (NAR 2025 Profile of Home Buyers and
+Sellers: 81 and 77 percent).
+
+Cards show the lot in acres. The map's 2D and 3D buttons sit outside the map Google redraws,
+and 3D keeps the list following the view, the area search and the preview card.
+
+Analyzer: comparing shows one table, the two scenarios in lined-up columns with the better
+number marked; "About this home" is gone and "What we noticed" gives 5 to 7 one-line insights;
+the repair check reads 4 photos, not 8.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+---
+ .../{s.0d508812ef.js => s.c61c21aa71.js}      | 48 ++++++++++++++++---
+ .../invest/long-term-rental/index.html        | 19 ++++++--
+ chapter3realty/llms-full.txt                  |  2 -
+ functions/homes/[[path]].js                   | 30 +++++++++---
+ idx-lib/edge.js                               |  4 +-
+ idx-lib/map.js                                | 42 ++++++++++------
+ idx-lib/render.js                             | 32 +++++++++++--
+ tools/idx-test.mjs                            |  2 +-
+ 8 files changed, 140 insertions(+), 39 deletions(-)
+ rename chapter3realty/assets/{s.0d508812ef.js => s.c61c21aa71.js} (95%)
+
+diff --git a/chapter3realty/assets/s.0d508812ef.js b/chapter3realty/assets/s.c61c21aa71.js
+similarity index 95%
+rename from chapter3realty/assets/s.0d508812ef.js
+rename to chapter3realty/assets/s.c61c21aa71.js
+index f2220501..bffb51a4 100644
+--- a/chapter3realty/assets/s.0d508812ef.js
++++ b/chapter3realty/assets/s.c61c21aa71.js
+@@ -682,11 +682,12 @@ RENT: ${beds||'?'}BR comps 2026: 1BR $1100-1600,2BR $1400-2100,3BR $1700-2600,4B
+ EXP: Tax=0.82% of value (SC 6% investment assessment×Horry millage),Ins=$1500SFH/$3000condo/$5000ocean,Utils=$0.20/sqft/yr (e.g. 1200sqft=$240/yr=$20/mo),Maint=0.85%/yr,Vac=6%.
+ ${permitCtx ? 'Permit signals: generate GREEN flags for hospital/medical/retail/school growth, AMBER for new residential supply, RED for industrial or demolition near subject. Farther = less weight.' : ''}
+ 
+-{"inferredPropertyType":"","inferredBeds":${beds||0},"inferredBaths":${baths||0},"inferredSqft":${sqft||0},"inferredYearBuilt":0,"inferredHOAMonthly":0,"inferredFloodZone":null,"inferredFeatures":[],"estimatedValue":0,"verdict":"one plain sentence","overview":"Your honest opinion of this home as a long-term rental in 2 short sentences, 40 words or fewer: whether it works, and the one number or fact that decides it. Describe the property, never people. No rates or loan terms.","dealRating":"good|ok|tough","estRentMonthly":0,"grossRentAnnual":0,"vacancyLoss":0,"effectiveGrossIncome":0,"propertyTaxAnnual":0,"insuranceAnnual":0,"utilitiesMonthly":0,"hoaAnnual":0,"managementFeeAnnual":0,"maintenanceAnnual":0,"totalExpensesAnnual":0,"noi":0,"capRate":0,"loanAmount":0,"monthlyMortgage":0,"annualDebtService":0,"dscr":${isCash?'null':0},"monthlyCashflow":0,"annualCashflow":0,"cashOnCashReturn":0,"totalCashInvested":0,"estimatedAppreciationPct":0,"estimatedAppreciationDollar1yr":0,"estimatedAppreciationDollar5yr":0,"arv":${isFixer?0:'null'},"rehabBudgetLow":${isFixer?0:'null'},"rehabBudgetHigh":${isFixer?0:'null'},"rehabNarrative":${isFixer?'""':'null'},"totalProjectCost":${isFixer?0:'null'},"potentialEquityGain":${isFixer?0:'null'},"narrative":"3 plain sentences that add what the overview and the flags leave out. Never repeat a sentence, a number or a point from them. (1) What about this home itself, its size, layout, age, lot or building, helps or hurts it as a yearly rental. (2) The one thing a landlord should check on this home before buying, such as the roof age, the heating and air system, the flood zone or the HOA rules on rentals, whichever fits it. (3) The goal it fits best, steady monthly income, long-term value growth, a fix-and-flip or a 1031 exchange, and why in one plain reason. Describe the property, never people. No jargon, no acronyms except HOA","flags":[{"type":"green|amber|red","text":""}]}`;
++{"inferredPropertyType":"","inferredBeds":${beds||0},"inferredBaths":${baths||0},"inferredSqft":${sqft||0},"inferredYearBuilt":0,"inferredHOAMonthly":0,"inferredFloodZone":null,"inferredFeatures":[],"estimatedValue":0,"verdict":"one plain sentence","overview":"Your honest opinion of this home as a long-term rental in 2 short sentences, 40 words or fewer: whether it works, and the one number or fact that decides it. Describe the property, never people. No rates or loan terms.","dealRating":"good|ok|tough","estRentMonthly":0,"grossRentAnnual":0,"vacancyLoss":0,"effectiveGrossIncome":0,"propertyTaxAnnual":0,"insuranceAnnual":0,"utilitiesMonthly":0,"hoaAnnual":0,"managementFeeAnnual":0,"maintenanceAnnual":0,"totalExpensesAnnual":0,"noi":0,"capRate":0,"loanAmount":0,"monthlyMortgage":0,"annualDebtService":0,"dscr":${isCash?'null':0},"monthlyCashflow":0,"annualCashflow":0,"cashOnCashReturn":0,"totalCashInvested":0,"estimatedAppreciationPct":0,"estimatedAppreciationDollar1yr":0,"estimatedAppreciationDollar5yr":0,"arv":${isFixer?0:'null'},"rehabBudgetLow":${isFixer?0:'null'},"rehabBudgetHigh":${isFixer?0:'null'},"rehabNarrative":${isFixer?'""':'null'},"totalProjectCost":${isFixer?0:'null'},"potentialEquityGain":${isFixer?0:'null'},"flags":[{"type":"green|amber|red","text":"one plain sentence"}]}
++FLAGS: 5 to 7 insights, each ONE plain sentence of 30 words or fewer, each a different point, none repeating the overview. Pick from: the rent against what homes like it rent for here; the price against the asking price or recent sales; property tax and insurance; flood zone or storm exposure when it applies; the HOA, its fee and its rules on rentals; building permits nearby (growth, or new supply competing for tenants); tenant demand and resale for this size and type of home; its age and what that means for upkeep. green helps the investment, amber is worth checking, red hurts it. Describe the property, never people. No rates or loan terms.`;
+ 
+     const analysisRaw = await callProxy({
+       model: 'claude-haiku-5-5', max_tokens: 1200,
+-      cache_key: ['analysis4', fullAddr, beds||'', baths||'', sqft||'', isFixer ? (cond||'fixer') : '', mls ? 'mls' + mls.mlsNumber + '-' + (mls.listPrice||'') + '-' + mls.tier : ''].join('|'),
++      cache_key: ['analysis5', fullAddr, beds||'', baths||'', sqft||'', isFixer ? (cond||'fixer') : '', mls ? 'mls' + mls.mlsNumber + '-' + (mls.listPrice||'') + '-' + mls.tier : ''].join('|'),
+       messages: [{ role: 'user', content: analysisPrompt }]
+     });
+ 
+@@ -749,7 +750,9 @@ async function ltrRepairCheck(mls, fullAddr, said) {
+   try {
+     const all = mls && Array.isArray(mls.photos) ? mls.photos.filter(function (u) { return /^https:\/\//.test(u); }) : [];
+     // Spread across the listing: the front, the kitchen and the baths are rarely the first six.
+-    const pick = all.length <= 8 ? all : [0, 1, 2, 3, 4, 5, 6, 7].map(function (i) { return all[Math.round(i * (all.length - 1) / 7)]; });
++    // Four photos, spread through the listing (front, kitchen, a bath, the back): enough to see work, and each
++    // photo the AI opens also counts against the MLS photo server's limit of 240 a minute (owner, 2026-10-28).
++    const pick = all.length <= 4 ? all : [0, 1, 2, 3].map(function (i) { return all[Math.round(i * (all.length - 1) / 3)]; });
+     const notes = mls && mls.remarks ? mls.remarks.replace(/\s+/g, ' ').slice(0, 700) : '';
+     const asked = String(said || '').replace(/\s+/g, ' ').slice(0, 300);
+     if (!pick.length && !notes && !asked) return null;
+@@ -761,7 +764,7 @@ Cost each item as a 2026 Myrtle Beach area contractor range in whole dollars.
+     const content = [{ type: 'text', text: prompt }].concat(pick.map(function (u) { return { type: 'image', source: { type: 'url', url: u } }; }));
+     const raw = await callProxy({
+       model: 'claude-haiku-5-5', max_tokens: 700,
+-      cache_key: ['repair1', fullAddr, mls ? 'mls' + mls.mlsNumber + '-' + pick.length : '', asked].join('|'),
++      cache_key: ['repair2', fullAddr, mls ? 'mls' + mls.mlsNumber + '-' + pick.length : '', asked].join('|'),
+       messages: [{ role: 'user', content: content }]
+     });
+     const r = extractJSON(raw);
+@@ -864,7 +867,6 @@ function ltrRenderResults(d, address, isFixer, isCash) {
+     if (d.rehabNarrative) document.getElementById('ltr-arv-note').textContent = d.rehabNarrative;
+   }
+ 
+-  document.getElementById('ltr-narrative-text').textContent = ltrSafeNarrative(d.narrative || '');
+   document.getElementById('ltr-flags').innerHTML = (d.flags||[]).map(f=>({ type: f.type, text: ltrSafeNarrative(f.text) })).filter(f=>f.text).map(f=>{
+     const c={green:'#2d7a4f',amber:'#d97706',red:'#c0392b'};
+     return `<div style="display:flex;gap:.75rem;align-items:flex-start;padding:.7rem 0;border-bottom:1px solid var(--rule);font-size:.87rem;line-height:1.6;color:var(--navy)"><div style="width:8px;height:8px;border-radius:50%;background:${c[f.type]||c.amber};flex-shrink:0;margin-top:5px"></div><div>${c3Esc(f.text)}</div></div>`;
+@@ -1097,12 +1099,44 @@ function ltrMetrics(r, o, tag) {
+     last;
+ }
+ 
++// The two scenarios row by row; the better number in each row is marked.
++function ltrCmpTable(a, b) {
++  const d = _ltrData;
++  const dscr = function (x) { return x.effectiveCash ? 'Cash' : (x.dscr != null ? x.dscr.toFixed(2) : '0.00'); };
++  const rows = [
++    ['Cash flow a month', 'cashflow', ltrFmt(a.moCF), ltrFmt(b.moCF), a.moCF, b.moCF, 1],
++    ['Cash flow a year', 'annualCF', ltrFmt(a.cf), ltrFmt(b.cf), a.cf, b.cf, 1],
++    ['Cash-on-cash', 'coc', ltrFmtPct(a.coc), ltrFmtPct(b.coc), a.coc, b.coc, 1],
++    ['Cap rate', 'capRate', ltrFmtPct(a.cap), ltrFmtPct(b.cap), a.cap, b.cap, 1],
++    ['Cash to buy it', 'cashIn', ltrFmt(a.cash), ltrFmt(b.cash), a.cash, b.cash, -1],
++    ['Loan amount', '', a.loan > 0 ? ltrFmt(a.loan) : 'None', b.loan > 0 ? ltrFmt(b.loan) : 'None', null, null, 0],
++    ['Loan payments a year', '', a.debt > 0 ? ltrFmt(a.debt) : 'None', b.debt > 0 ? ltrFmt(b.debt) : 'None', null, null, 0],
++    ['DSCR', 'dscr', dscr(a), dscr(b), null, null, 0],
++    ['Rent a month', 'rent', ltrFmt(a.rent), ltrFmt(b.rent), null, null, 0],
++    ['Profit before the loan, a year', 'noi', ltrFmt(a.noi), ltrFmt(b.noi), null, null, 0],
++  ];
++  const q = function (label, k) {
++    const says = LTR_SAYS[k] || '', good = k ? ltrGood(k) : '';
++    return says ? `<button type="button" class="ltr-q" aria-label="What is ${label.toLowerCase()}?" data-tip="${c3Esc(good ? says + '\n' + good : says)}">?</button>` : '';
++  };
++  const cell = function (v, win) { return `<td${win ? ' class="ltr-win"' : ''}>${v}</td>`; };
++  return `<table class="ltr-cmpt"><thead><tr><th scope="col"><span class="ltr-vh">Number</span></th><th scope="col">First</th><th scope="col">Second</th></tr></thead><tbody>` +
++    rows.map(function (r) {
++      const aw = r[6] && r[4] !== r[5] && (r[6] > 0 ? r[4] > r[5] : r[4] < r[5]);
++      const bw = r[6] && r[4] !== r[5] && !aw;
++      return `<tr><th scope="row">${r[0]}${q(r[0], r[1])}</th>${cell(r[2], aw)}${cell(r[3], bw)}</tr>`;
++    }).join('') + `</tbody></table><p class="ltr-edit-n">The better number in each row is in green. Change either scenario above; the table follows.</p>`;
++}
++
+ function recalcLtr() {
+   const d = _ltrData; if (!d) return;
+   const a = ltrCalc('adj');
+   const b = _ltrCmp && document.getElementById('adjb-price') ? ltrCalc('adjb') : null;
+-  document.getElementById('ltr-core-metrics').innerHTML = ltrMetrics(a, b, 'Second');
+-  if (b) document.getElementById('ltr-core-metrics-b').innerHTML = ltrMetrics(b, a, 'First');
++  // Comparing: one table, the two scenarios in lined-up columns (owner, 2026-10-28: "the stats need to line up").
++  const tbl = document.getElementById('ltr-cmp-table');
++  document.getElementById('ltr-core-metrics').hidden = !!b;
++  if (tbl) { tbl.hidden = !b; tbl.innerHTML = b ? ltrCmpTable(a, b) : ''; }
++  if (!b) document.getElementById('ltr-core-metrics').innerHTML = ltrMetrics(a, null, '');
+   [['adj', a], ['adjb', b]].forEach(function (x) {
+     if (!x[1]) return;
+     const out = document.getElementById(x[0] + '-loanamt'); if (out) out.textContent = x[1].loan > 0 ? ltrFmt(x[1].loan) : '--';
+diff --git a/chapter3realty/invest/long-term-rental/index.html b/chapter3realty/invest/long-term-rental/index.html
+index 71fc1ca9..e378cb14 100644
+--- a/chapter3realty/invest/long-term-rental/index.html
++++ b/chapter3realty/invest/long-term-rental/index.html
+@@ -178,6 +178,19 @@
+ #ltr-results .ltr-q::after{white-space:pre-line;max-width:18rem}
+ #ltr-results .ltr-rep{display:flex;justify-content:space-between;gap:1rem;padding:.35rem 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:.92rem;color:var(--navy);font-variant-numeric:tabular-nums}
+ #ltr-results .ltr-rep-t{font-weight:700;border-bottom:0;border-top:1.5px solid var(--rule)}
++#ltr-results .ltr-cmp-table{margin:0 0 1rem;padding:1rem 1.1rem;border-radius:18px;background:#fff;border:1px solid var(--rule)}
++#ltr-results .ltr-cmp-table[hidden],#ltr-results .ltr-metrics[hidden]{display:none}
++#ltr-results .ltr-cmpt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
++#ltr-results .ltr-cmpt th,#ltr-results .ltr-cmpt td{padding:.65rem .5rem;border-bottom:1px solid var(--rule);text-align:right;font-size:1rem}
++#ltr-results .ltr-cmpt thead th{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700}
++#ltr-results .ltr-cmpt tbody th{text-align:left;font-weight:600;color:var(--navy);font-size:.92rem}
++#ltr-results .ltr-cmpt tbody th .ltr-q{margin-left:.35rem;vertical-align:middle}
++#ltr-results .ltr-cmpt td{font-family:var(--serif);font-size:1.15rem;color:var(--navy);width:28%}
++#ltr-results .ltr-cmpt td.ltr-win{color:#2d7a4f;font-weight:700}
++#ltr-results .ltr-cmpt td.ltr-win::before{content:"\2713  ";font-family:var(--sans);font-size:.8rem}
++#ltr-results .ltr-cmpt .ltr-q::after{left:0;transform:translate(-10%,4px)}#ltr-results .ltr-cmpt .ltr-q:hover::after,#ltr-results .ltr-cmpt .ltr-q:focus::after{transform:translate(-10%,0)}
++.ltr-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
++@media(max-width:760px){#ltr-results .ltr-cmpt td{font-size:1rem;width:30%}#ltr-results .ltr-cmpt th,#ltr-results .ltr-cmpt td{padding:.55rem .3rem}}
+ #ltr-repairs[hidden],#ltr-cmp-mid[hidden],#ltr-sc-b[hidden]{display:none}
+ #ltr-cmp.on{display:grid;grid-template-columns:minmax(0,1fr) 3rem minmax(0,1fr);gap:.6rem;align-items:start}
+ #ltr-cmp.on .ltr-grid,#ltr-cmp.on .ltr-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+@@ -314,14 +327,14 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"){w.classList
+ <div class="ltr-metrics" id="ltr-core-metrics"></div></div>
+ <div class="ltr-mid" id="ltr-cmp-mid" hidden><button type="button" data-sc="a" aria-pressed="true" onclick="ltrCmpTab('a')">First</button><img src="/images/brand/chapter-iii-mark.svg" alt="" width="22" height="44"><button type="button" data-sc="b" aria-pressed="false" onclick="ltrCmpTab('b')">Second</button></div>
+ <div class="ltr-sc" id="ltr-sc-b" hidden><section class="ltr-edit" aria-label="Second scenario"><div id="ltr-adj-panel-b"></div></section>
+-<div class="ltr-metrics" id="ltr-core-metrics-b"></div></div>
++<div class="ltr-metrics" id="ltr-core-metrics-b" hidden></div></div>
+ </div>
++<div id="ltr-cmp-table" class="ltr-cmp-table" hidden></div>
+ <section class="ltr-box" id="ltr-repairs" hidden><h3 class="ltr-box-h">Work it needs</h3><div id="ltr-repairs-list"></div></section>
+ <div class="ltr-two">
+ <section class="ltr-box"><h3 class="ltr-box-h">Where the money goes</h3><div id="ltr-expense-table"></div></section>
+ <section class="ltr-box"><h3 class="ltr-box-h">What we noticed</h3><div id="ltr-flags"></div></section>
+ </div>
+-<section class="ltr-box"><h3 class="ltr-box-h">About this home</h3><p id="ltr-narrative-text" class="ltr-narr"></p></section>
+ <div id="ltr-arv-section" style="display:none;background:var(--navy);padding:2rem 2.5rem;margin-bottom:.5rem">
+ <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-2);margin-bottom:1rem">🔨 Fixer-Upper Analysis</div>
+ <div id="ltr-arv-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08)"></div>
+@@ -1036,7 +1049,7 @@ if (GOOGLE_MAPS_KEY !== 'YOUR_GOOGLE_MAPS_KEY') {
+ }
+ </script>
+ 
+-<script src="/assets/s.0d508812ef.js"></script>
++<script src="/assets/s.c61c21aa71.js"></script>
+ 
+ <!-- ══════════════════════════════════════
+      DYNAMIC LAYER v2 ELEMENTS
+diff --git a/chapter3realty/llms-full.txt b/chapter3realty/llms-full.txt
+index 0fa363e4..4b46df6e 100644
+--- a/chapter3realty/llms-full.txt
++++ b/chapter3realty/llms-full.txt
+@@ -6368,8 +6368,6 @@ First Second
+ 
+ ### What we noticed
+ 
+-### About this home
+-
+ 🔨 Fixer-Upper Analysis
+ 
+ Like the numbers?
+diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
+index 1ed79f09..e13da5e7 100644
+--- a/functions/homes/[[path]].js
++++ b/functions/homes/[[path]].js
+@@ -25,7 +25,7 @@ import { postFilter, rankHomes } from "../../idx-lib/feeds.js";
+ import { MAP_SCRIPT, MAP_STYLE, geocode, mapsKey, nearOf, pinOf, withPoints } from "../../idx-lib/map.js";
+ import { SMS_CONSENT_TEXT, TERMS_PARAGRAPHS, TERMS_TITLE, TERMS_VERSION, termsText } from "../../idx-lib/terms.js";
+ import {
+-  ICONS, STRIP_STYLE, STYLE, SCRIPT, addressLine, card, dayLong, disclaimer, esc, factsLine, grid, headlinePrice, heartButton,
++  ICONS, PHOTO_HINT, STRIP_STYLE, STYLE, SCRIPT, addressLine, card, dayLong, disclaimer, esc, factsLine, grid, headlinePrice, heartButton,
+   listingPath, money, safeUrl, signupDialog, welcomeDialog, spaced, statusWord, stripCard, tourButton, tourDialog,
+ } from "../../idx-lib/render.js";
+ 
+@@ -235,7 +235,7 @@ async function page(context, gate, o) {
+     .replace(/(<meta property="og:title" content=")[^"]*/, (_, a) => a + esc(full))
+     .replace(/(<meta property="og:description" content=")[^"]*/, (_, a) => a + esc(o.description))
+     .replace(/(<meta property="og:url" content=")[^"]*/, (_, a) => a + esc(o.canonical))
+-    .replace("</head>", () => `${STYLE}${o.extraHead || ""}${ld}</head>`)
++    .replace("</head>", () => `${PHOTO_HINT}${STYLE}${o.extraHead || ""}${ld}</head>`)
+     .replace(/<body([^>]*)>/, (mm, a) => `<body${a} data-hx-signed="${signed ? "1" : "0"}">`)
+     .replace(/<div class="wrap hx-wrap" id="hx-root">[\s\S]*?<\/div>/, () => `<div class="wrap hx-wrap" id="hx-root"${o.rootAttrs || ""}>${o.body}</div>`)
+     .replace("</body>", () => `${o.extraBody || ""}${signupDialog(env.TURNSTILE_SITE_KEY)}${tourDialog()}${SCRIPT}</body>`);
+@@ -481,7 +481,7 @@ async function mapPage(context, url, gate) {
+   const body = `<div class="hx-mapapp" data-hx-map data-key="${esc(mapsKey(context.env))}" data-params="${esc(keep.toString())}" data-view="${view}" data-total="${esc(s.total)}" data-hearts="${esc(JSON.stringify([...h]))}"${focus ? ` data-focus="${esc(focus)}"` : ""}${s.left ? ` data-left="${esc(s.left)}" data-q="${esc(s.words)}"` : ""}>
+ <div class="hx-mtop">${filterBar({ action: "/homes/map/", params: keep, features: catalogLoaded(), map: true })}<div class="hx-applied hx-mchips" id="hx-chips"${chips ? "" : " hidden"}>${chips}<a class="hx-clear" href="/homes/map/" data-x="">Clear all</a></div><p class="hx-ai-note" id="hx-ai-note" hidden></p></div>
+ <div class="hx-map-body hx-show-list">
+-<div id="hx-map" class="hx-map" role="region" aria-label="Map of the homes">
++<div class="hx-mapbox" id="hx-mapbox"><div id="hx-map" class="hx-map" role="region" aria-label="Map of the homes"></div>
+ <div class="hx-mode" role="group" aria-label="Map view"><button type="button" data-mode="2d" aria-pressed="${view === "2d" ? "true" : "false"}">2D</button><button type="button" data-mode="3d" aria-pressed="${view === "3d" ? "true" : "false"}">3D</button></div>
+ <p id="hx-map-note" class="hx-map-note"${s.pins.length ? " hidden" : ""}>${s.pins.length ? "" : "No homes with a map location match this search. Change a filter or move the map."}</p></div>
+ <aside class="hx-map-list" id="hx-map-list" aria-label="The homes"><div class="hx-list-h"><h1>${esc(`Homes for sale${where}`)}</h1><p class="hx-map-count" id="hx-map-count"><b>${esc(s.total.toLocaleString("en-US"))}</b> ${s.total === 1 ? "home" : "homes"}</p></div>
+@@ -708,10 +708,28 @@ async function listingPageWith(context, mls, slugPart, gate, r, hearts) {
+   const openList = registered && Array.isArray(l.openHouses) ? l.openHouses.filter((o) => o && !isNaN(Date.parse(o.startsAt))) : [];
+   const open = openList.length ? `<h2>Open houses</h2><ul>${openList.map((o) => `<li>${esc(new Date(o.startsAt).toLocaleString("en-US", { timeZone: "America/New_York", weekday: "long", month: "long", day: "numeric", hour: "numeric", minute: "2-digit" }))}${o.endsAt && !isNaN(Date.parse(o.endsAt)) ? ` to ${esc(new Date(o.endsAt).toLocaleString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" }))}` : ""}</li>`).join("")}</ul>` : "";
+   const teaser = (icon, text) => `<li>${ICONS[icon]}<span>${esc(text)}</span><em aria-hidden="true"></em></li>`;
++  /* What a signed-up visitor came for, first (owner, 2026-10-28; NAR 2025 Profile of Home Buyers and Sellers:
++     photos 81 percent "very useful", detailed property information 77, floor plans 57). Under the price: what
++     the home costs to own and how the listing is moving, then the description and every photo, then the rest. */
++  const d = registered && l.details ? l.details : {};
++  const numOf = (v) => (typeof v === "number" && isFinite(v) ? v : null);
++  const fee = numOf(d.AssociationFee), freq = String(d.AssociationFeeFrequency || "").toLowerCase();
++  const feeMonth = fee === null ? null : /annual|year/.test(freq) ? Math.round(fee / 12) : /quarter/.test(freq) ? Math.round(fee / 3) : fee;
++  const noHoa = d.AssociationYN === false || feeMonth === 0;
++  const covers = Array.isArray(d.AssociationFeeIncludes) ? d.AssociationFeeIncludes.join(", ") : typeof d.AssociationFeeIncludes === "string" ? d.AssociationFeeIncludes : "";
++  const cut = numOf(l.originalListPrice) && numOf(l.listPrice) && l.originalListPrice > l.listPrice ? l.originalListPrice - l.listPrice : 0;
++  const key = (label, value, note) => (value ? `<div class="hx-key"><span>${esc(label)}</span><b>${esc(value)}</b>${note ? `<small>${esc(note)}</small>` : ""}</div>` : "");
++  const keys = registered ? `<div class="hx-keys">`
++    + (noHoa ? key("HOA fee", "No HOA", NO_HOA_NOTE) : key("HOA fee", feeMonth !== null ? `${money(feeMonth)} a month` : "", covers ? `Covers ${covers.slice(0, 120)}` : ""))
++    + key("Property tax", numOf(d.TaxAnnualAmount) ? `${money(d.TaxAnnualAmount)} a year` : "", d.TaxYear ? `As listed for ${d.TaxYear}; it can change after a sale` : "As listed; it can change after a sale")
++    + key("Flood zone", typeof d.FloodZone === "string" ? d.FloodZone : "", "From the listing; confirm with your insurance agent")
++    + key("On the market", numOf(l.daysOnMarket) !== null ? `${l.daysOnMarket} day${l.daysOnMarket === 1 ? "" : "s"}` : "", cut ? `Price cut ${money(cut)} from ${money(l.originalListPrice)}` : "")
++    + (openList.length ? key("Next open house", new Date(openList[0].startsAt).toLocaleString("en-US", { timeZone: "America/New_York", weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }), "") : "")
++    + `</div>` : "";
+   const more = registered
+-    ? `${l.remarks ? `<h2>About this home</h2><p class="hx-remarks">${esc(l.remarks)}</p>` : ""}
++    ? `${keys}${l.remarks ? `<h2>About this home</h2><p class="hx-remarks">${esc(l.remarks)}</p>` : ""}
++${photos.length > 1 ? `<h2 id="hx-photos">All ${esc(photos.length)} photos</h2><div class="hx-gallery">${photos.map((p, i) => img(p.url, p.caption || `Photo ${i + 1} of ${addressLine(l)}`, false)).join("")}</div>` : ""}
+ ${details ? `<h2>Details</h2><table class="hx-table"><tbody>${details}</tbody></table>` : ""}${open}
+-${photos.length > 1 ? `<h2 id="hx-photos">All ${esc(photos.length)} photos</h2><div class="hx-gallery">${photos.map((p, i) => img(p.url, p.caption || `Photo ${i + 1} of ${addressLine(l)}`, i < 2)).join("")}</div>` : ""}
+ ${safeUrl(l.virtualTour) ? `<p><a href="${esc(l.virtualTour)}" rel="nofollow noopener" target="_blank">Virtual tour</a></p>` : ""}
+ ${l.listingAgent ? `<p class="hx-firm-line">Listing agent: ${esc(l.listingAgent)}, ${esc(l.listingFirm || "")}</p>` : ""}
+ <p class="hx-small">School names come from the listing. Being near a school does not mean a home is zoned for it; confirm the zone with Horry County Schools.</p>`
+@@ -741,7 +759,7 @@ ${media}
+ <h1 class="hx-l-addr">${esc(addressLine(l))}</h1>
+ ${pills}
+ <p class="hx-firm-line">Listed by ${esc(l.listingFirm || "the listing brokerage")}</p>
+-${signedBar(r.json.tier)}</div><div class="hx-l-rest">${facts}${located}${more}</div>
++${signedBar(r.json.tier)}</div><div class="hx-l-rest">${registered ? `${more}${facts}${located}` : `${facts}${located}${more}`}</div>
+ </div>${side}</div>
+ ${nearby}
+ ${disclaimer(r.json.meta)}`;
+diff --git a/idx-lib/edge.js b/idx-lib/edge.js
+index 54cbb7f2..9a0d67fa 100644
+--- a/idx-lib/edge.js
++++ b/idx-lib/edge.js
+@@ -19,7 +19,7 @@ import { FEEDS, feedParams, postFilter, rankHomes } from "./feeds.js";
+ import { filterBar } from "./filters.js";
+ import { filterCatalog } from "./catalog.js";
+ import { catalogLoaded } from "./features.js";
+-import { STYLE, STRIP_STYLE, SCRIPT, disclaimer, esc, safeUrl, signupDialog, stripCard, tourDialog } from "./render.js";
++import { PHOTO_HINT, STYLE, STRIP_STYLE, SCRIPT, disclaimer, esc, safeUrl, signupDialog, stripCard, tourDialog } from "./render.js";
+ 
+ const SLOT = /<div class="hx-strip" data-place="([a-z0-9-]+)" data-name="([^"<>]*)"(?: data-head="([^"<>]*)")?><\/div>/g;
+ const STRIP_CARDS = 10;
+@@ -165,7 +165,7 @@ const switchHeader = (html) => html.replace(/onclick="openIdx\(\)"/g, `onclick="
+ function finish(env, request, gate, html, meta, headers) {
+   const signed = Boolean(visitorToken(request));
+   html = html
+-    .replace("</head>", () => `${STYLE}${STRIP_STYLE}</head>`)
++    .replace("</head>", () => `${PHOTO_HINT}${STYLE}${STRIP_STYLE}</head>`)
+     .replace(/<body([^>]*)>/, (m, a) => `<body${a} data-hx-signed="${signed ? "1" : "0"}">`)
+     .replace("</main>", () => `<div class="hx-wrap" style="padding-top:0">${disclaimer(meta)}</div></main>`)
+     .replace("</body>", () => `${signupDialog(env.TURNSTILE_SITE_KEY)}${tourDialog()}${SCRIPT}</body>`);
+diff --git a/idx-lib/map.js b/idx-lib/map.js
+index 2346ec9c..6f64237c 100644
+--- a/idx-lib/map.js
++++ b/idx-lib/map.js
+@@ -8,7 +8,7 @@
+  * carries no point yet (REQUEST FOR THE CRM, batches/2026-10-b/IDX-STUDY.md, request 2):
+  * until it does, the map page shows the list and says the pins are coming.
+  */
+-import { addressLine, cardTag, headlinePrice, listingPath, safeUrl, statusWord } from "./render.js";
++import { acres, addressLine, cardTag, headlinePrice, listingPath, safeUrl, statusWord } from "./render.js";
+ 
+ /** The Google Maps browser key: a public key, locked to our domain in Google Cloud. A setting can replace it. */
+ export const mapsKey = (env) => (/^AIza[0-9A-Za-z_-]{35}$/.test(env.MAPS_BROWSER_KEY || "") ? env.MAPS_BROWSER_KEY : "AIzaSyAFTNMGh-PmVFTl3S0ViiM9zNYicFrgGfs");
+@@ -31,7 +31,7 @@ export function pinOf(l) {
+   return {
+     mls: String(l.mlsNumber || ""), url: listingPath(l), lat, lng,
+     price: headlinePrice(l), short: shortPrice(l), photo: safeUrl(l.photo),
+-    beds: num(l.beds), baths: num(l.baths), sqft: num(l.sqft), status: statusWord(l.status), tag: cardTag(l),
++    beds: num(l.beds), baths: num(l.baths), sqft: num(l.sqft), acres: acres(l.lotAcres), status: statusWord(l.status), tag: cardTag(l),
+     addr: `${addressLine(l)}${l.postalCode ? `, ${l.postalCode}` : ""}`, firm: String(l.listingFirm || "listing brokerage"),
+   };
+ }
+@@ -122,7 +122,7 @@ html.hx-fit,html.hx-fit body,body:has(.hx-mapapp){overflow:hidden}
+ .hx-mchips{display:flex;flex-wrap:wrap;gap:.35rem;margin:.45rem 0 0}.hx-mchips[hidden]{display:none}
+ .hx-ai-note{margin:.35rem 0 0;font-size:.82rem;color:var(--slate,#5c6b78)}.hx-ai-note[hidden]{display:none}
+ .hx-map-body{position:relative;flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) min(50vw,720px)}
+-.hx-map{position:relative;background:#e9e5dc;min-height:0}
++.hx-mapbox{position:relative;min-height:0;background:#e9e5dc}.hx-map{position:absolute;inset:0}
+ .hx-map-list{overflow:auto;min-height:0;padding:.9rem 1rem 0;background:#fff;border-left:1px solid rgba(28,32,40,.1)}
+ .hx-list-h h1{font-family:var(--serif,Georgia,serif)!important;font-size:1.3rem!important;line-height:1.2!important;margin:0 0 .15rem!important}
+ .hx-map-count{margin:0 0 .8rem;font-size:.9rem;color:var(--slate,#5c6b78)}.hx-map-count b{font-weight:800;color:var(--ink,#1c2028)}
+@@ -148,6 +148,7 @@ main#main .hx-mpop .hx-c-body{padding:.6rem .8rem;padding-right:2.4rem}main#main
+ .hx-mpop.hx-mpop-top{bottom:auto;top:4rem}
+ .hx-mpop-x{position:absolute;top:.35rem;right:.35rem;z-index:2;width:2rem;height:2rem;border:0;border-radius:999px;background:rgba(255,255,255,.95);font-size:1.25rem;line-height:1;cursor:pointer}
+ .hx-mpop-go{display:block;margin:0;padding:.45rem .8rem .6rem;font-size:.8rem;color:var(--slate,#5c6b78);text-align:center;border-top:1px solid rgba(28,32,40,.08)}
++.hx-list-sent{height:1px}
+ @media (max-width:1100px){.hx-map-body{grid-template-columns:minmax(0,1fr) min(46vw,420px)}.hx-map-cards{grid-template-columns:1fr}}
+ @media (max-width:899px){.hx-mtop{padding:.5rem .75rem .4rem}.hx-mtop .hx-fb{flex-wrap:wrap}.hx-mtop .hx-fb-q{flex:1 1 100%}
+  .hx-map-body{grid-template-columns:1fr}
+@@ -181,10 +182,14 @@ function heart(p){var b=el("button","hx-heart hx-heart-sm");b.type="button";b.se
+ function card(p,withHeart){var a=el("article","hx-c"),l=el("a","hx-c-link");l.href=p.url;l.setAttribute("draggable","false");a.setAttribute("data-mls",p.mls);
+  var ph=el("span","hx-c-photo");if(p.photo&&p.photo.indexOf("https://")===0){var im=el("img");im.src=p.photo;im.alt=p.addr;im.loading="lazy";im.referrerPolicy="no-referrer";im.width=480;im.height=300;ph.appendChild(im)}else ph.appendChild(el("span","hx-nophoto","No photo yet"));
+  if(p.tag)ph.appendChild(el("span","hx-c-tag",p.tag));l.appendChild(ph);var b=el("span","hx-c-body");b.appendChild(el("span","hx-c-price",p.price));
+- var f=el("span","hx-c-facts"),bits=[];if(p.beds!=null)bits.push([p.beds," bds"]);if(p.baths!=null)bits.push([p.baths," ba"]);if(p.sqft!=null)bits.push([p.sqft.toLocaleString("en-US")," sqft"]);
++ var f=el("span","hx-c-facts"),bits=[];if(p.beds!=null)bits.push([p.beds," bds"]);if(p.baths!=null)bits.push([p.baths," ba"]);if(p.sqft!=null)bits.push([p.sqft.toLocaleString("en-US")," sqft"]);if(p.acres)bits.push([p.acres,p.acres==="1"?" acre":" acres"]);
+  bits.forEach(function(x,i){if(i)f.appendChild(el("i"));f.appendChild(el("b",null,String(x[0])));f.appendChild(document.createTextNode(x[1]))});if(p.status){if(bits.length)f.appendChild(el("i"));f.appendChild(document.createTextNode(p.status))}
+  b.appendChild(f);b.appendChild(el("span","hx-c-addr",p.addr));b.appendChild(el("span","hx-c-firm","MLS #"+p.mls+", "+p.firm+". Listing provided by CCMLS."));l.appendChild(b);a.appendChild(l);if(withHeart)a.appendChild(heart(p));return a}
+-function render(ps){while(list.firstChild)list.removeChild(list.firstChild);ps.slice(0,120).forEach(function(p){list.appendChild(card(p,true))});
++/* The list draws 24 homes, and 24 more as the reader nears the end: fewer photos asked for at once. */
++var shown=[],drawn=0,sent=null,io=null;
++function more24(){shown.slice(drawn,drawn+24).forEach(function(p){list.appendChild(card(p,true))});drawn=Math.min(shown.length,drawn+24);if(sent)list.appendChild(sent)}
++if(window.IntersectionObserver){sent=el("div","hx-list-sent");io=new IntersectionObserver(function(es){if(es[0].isIntersecting&&drawn<shown.length)more24()},{root:document.getElementById("hx-map-list"),rootMargin:"600px"});io.observe(sent)}
++function render(ps){while(list.firstChild)list.removeChild(list.firstChild);shown=ps;drawn=0;more24();if(!io){while(drawn<shown.length&&drawn<120)more24()}
+  count.textContent="";count.appendChild(el("b",null,ps.length.toLocaleString("en-US")));count.appendChild(document.createTextNode(ps.length===1?" home in this area":" homes in this area"));
+  if(total>ps.length){count.appendChild(document.createTextNode(", of "+total.toLocaleString("en-US")+" that match"))}
+  more.hidden=!(total>all.length);if(!more.hidden)more.textContent="Zoom in or move the map to see more of the "+total.toLocaleString("en-US")+" homes."}
+@@ -209,7 +214,11 @@ function syncForm(p){if(!form)return;var has=(p.get("has")||"").split(",").filte
+  ["city","subdivision","near","miles","zip","sort","yearMax","not"].forEach(function(n){if(p.get(n)){var h=el("input");h.type="hidden";h.name=n;h.value=p.get(n);form.appendChild(h)}});
+  if(rest.length){var h=el("input");h.type="hidden";h.name="has";h.value=rest.join(",");form.appendChild(h)}}
+ var map=null,marks=[],pop=null,popFor=null,hot=null,user=false,timer=0,seq=0,map3=null,box3=null,marks3=[],L3=null,Pin3=null;
+-function inView(p){if(!map||!map.getBounds())return true;return map.getBounds().contains({lat:p.lat,lng:p.lng})}
++function in3d(){return !!(map3&&box3&&!box3.hidden)}
++function miles(a,b,c,d){var R=3958.8,r=Math.PI/180;return 2*R*Math.asin(Math.sqrt(Math.pow(Math.sin((c-a)*r/2),2)+Math.cos(a*r)*Math.cos(c*r)*Math.pow(Math.sin((d-b)*r/2),2)))}
++/* In 3D the view is a circle around the camera's center: about 0.7 of its distance, in miles. */
++function view3(){var c=map3.center||{};return{lat:c.lat,lng:c.lng,mi:Math.max(0.3,Math.min(25,(map3.range||5000)*0.7/1609))}}
++function inView(p){if(in3d()){var v=view3();return v.lat==null||miles(v.lat,v.lng,p.lat,p.lng)<=v.mi}if(!map||!map.getBounds())return true;return map.getBounds().contains({lat:p.lat,lng:p.lng})}
+ var searched=false;
+ function listView(){if(!all.length&&!searched)return;render(all.filter(inView));if(hot)hilite(hot)}
+ function msg(j){return j&&j.error==="stale"?"The listing search is being refreshed. Please try again in a few minutes.":"Please try again in a minute."}
+@@ -249,7 +258,7 @@ function tap(p){if(popFor===p.mls){location.href=p.url;return}
+  pop.appendChild(card(p,false));pop.appendChild(el("p","hx-mpop-go","Click the dot again, or the card, to open it."));
+  /* The card never covers its own dot: a dot low on the map gets the card at the top. */
+  var bd=map&&map.getBounds();if(bd){var ne=bd.getNorthEast(),sw=bd.getSouthWest();if((ne.lat()-p.lat)/((ne.lat()-sw.lat())||1)>0.5)pop.classList.add("hx-mpop-top")}
+- document.getElementById("hx-map").appendChild(pop);popFor=p.mls;hilite(p.mls);
++ document.getElementById("hx-mapbox").appendChild(pop);popFor=p.mls;hilite(p.mls);
+  if(!phone.matches){var c=list.querySelector("[data-mls='"+p.mls+"']");if(c)c.scrollIntoView({behavior:"smooth",block:"nearest"})}}
+ function dot(on){return{path:google.maps.SymbolPath.CIRCLE,scale:on?9:6.5,fillColor:on?"#0b57d0":"#1a73e8",fillOpacity:1,strokeColor:"#fff",strokeWeight:2}}
+ function pill(p,on){var w=Math.max(46,p.short.length*8+16);var svg="<svg xmlns='http://www.w3.org/2000/svg' width='"+w+"' height='26'><rect x='1' y='1' width='"+(w-2)+"' height='24' rx='12' fill='"+(on?"#0b57d0":"#1a73e8")+"' stroke='#fff' stroke-width='2'/></svg>";
+@@ -259,12 +268,13 @@ function draw(fit){if(!map)return;marks.forEach(function(m){m.setMap(null)});mar
+  all.forEach(function(p){var m=new google.maps.Marker({position:{lat:p.lat,lng:p.lng},map:map,title:p.price+", "+p.addr});m.p=p;style(m,false);bounds.extend(m.getPosition());m.addListener("click",function(){tap(p)});marks.push(m)});
+  if(fit&&all.length){user=false;map.fitBounds(bounds,48);google.maps.event.addListenerOnce(map,"idle",function(){if(map.getZoom()>15)map.setZoom(15);user=false;listView()})}
+  note.hidden=all.length>0;if(!all.length)note.textContent="No homes with a map location match this search. Change a filter or move the map.";
+- if(map3)dots3()}
++ if(map3)dots3();
++ if(fit&&in3d()&&all.length){var la=0,ln=0,far=0;all.forEach(function(p){la+=p.lat;ln+=p.lng});la/=all.length;ln/=all.length;all.forEach(function(p){far=Math.max(far,miles(la,ln,p.lat,p.lng))});
++  map3.center={lat:la,lng:ln,altitude:0};map3.range=Math.max(1500,Math.min(60000,far*1609*1.6))}}
+ /* Moving the map: the list shows the dots in view at once, then the homes in that area are fetched. */
+-function areaSearch(){var c=map.getCenter(),b=map.getBounds();if(!b)return;var ne=b.getNorthEast(),R=3958.8,r=Math.PI/180;
+- var d=2*R*Math.asin(Math.sqrt(Math.pow(Math.sin((ne.lat()-c.lat())*r/2),2)+Math.cos(c.lat()*r)*Math.cos(ne.lat()*r)*Math.pow(Math.sin((ne.lng()-c.lng())*r/2),2)));
++function areaSearch(){var lat,lng,d;if(in3d()){var v=view3();if(v.lat==null)return;lat=v.lat;lng=v.lng;d=v.mi}else{var c=map.getCenter(),b=map.getBounds();if(!b)return;var ne=b.getNorthEast();lat=c.lat();lng=c.lng();d=miles(c.lat(),c.lng(),ne.lat(),ne.lng())}
+  var u=new URLSearchParams(state);["city","zip","subdivision","near","miles"].forEach(function(k){u.delete(k)});if(u.get("sort")==="nearest")u.delete("sort");
+- u.set("near",c.lat().toFixed(5)+","+c.lng().toFixed(5));u.set("miles",String(Math.min(25,Math.max(0.3,Math.round(d*10)/10))));search(u,{fit:false,ai:false})}
++ u.set("near",lat.toFixed(5)+","+lng.toFixed(5));u.set("miles",String(Math.min(25,Math.max(0.3,Math.round(d*10)/10))));search(u,{fit:false,ai:false})}
+ if(!key){render(all);return}
+ (function(g){var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=function(){return h||(h=new Promise(function(f,n){a=m.createElement("script");e.set("libraries",Array.from(r)+"");for(k in g)e.set(k.replace(/[A-Z]/g,function(t){return"_"+t[0].toLowerCase()}),g[k]);e.set("callback",c+".maps."+q);a.src="https://maps.googleapis.com/maps/api/js?"+e;d[q]=f;a.onerror=function(){h=n(Error(p+" could not load."))};m.head.append(a)}))};d[l]?0:d[l]=function(f){var n=Array.prototype.slice.call(arguments,1);r.add(f);return u().then(function(){return d[l].apply(d,[f].concat(n))})}})({key:key,v:"beta"});
+ google.maps.importLibrary("maps").then(function(lib){
+@@ -281,12 +291,14 @@ google.maps.importLibrary("maps").then(function(lib){
+  /* 2D or 3D in the top right (owner, 2026-10-28): the same dots, clickable, and the same list. */
+  var btns=Array.prototype.slice.call(app.querySelectorAll("[data-mode]"));
+  function setMode(m){btns.forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-mode")===m?"true":"false")});
+-  if(m==="2d"){if(box3)box3.hidden=true;return}
+-  if(box3){box3.hidden=false;return}
+-  box3=el("div","hx-map3d");document.getElementById("hx-map").insertBefore(box3,document.getElementById("hx-map").firstChild);
++  if(m==="2d"){if(box3&&!box3.hidden&&map3&&map3.center&&map3.center.lat!=null){map.setCenter({lat:map3.center.lat,lng:map3.center.lng})}if(box3)box3.hidden=true;setTimeout(listView,300);return}
++  if(box3){if(map3){var cc=map.getCenter();map3.center={lat:cc.lat(),lng:cc.lng(),altitude:0}}box3.hidden=false;setTimeout(listView,300);return}
++  box3=el("div","hx-map3d");document.getElementById("hx-mapbox").insertBefore(box3,document.getElementById("hx-map").nextSibling);
+   Promise.all([google.maps.importLibrary("maps3d"),google.maps.importLibrary("marker").catch(function(){return{}})]).then(function(libs){L3=libs[0];Pin3=libs[1].PinElement;
+    var c=map.getCenter();map3=new L3.Map3DElement({center:{lat:c.lat(),lng:c.lng(),altitude:0},range:Math.max(1500,Math.min(60000,40000/Math.pow(2,map.getZoom()-10))),tilt:62,heading:20,mode:"HYBRID"});
+-   box3.appendChild(map3);dots3()}).catch(function(){box3.textContent="The 3D map could not load here. The 2D map still works.";box3.className="hx-map3d hx-map3d-off"})}
++   box3.appendChild(map3);dots3();
++   var t3=0;function moved3(){if(!in3d())return;clearTimeout(t3);t3=setTimeout(function(){listView();clearTimeout(timer);timer=setTimeout(areaSearch,700)},400)}
++   ["gmp-centerchange","gmp-rangechange"].forEach(function(n){map3.addEventListener(n,moved3)})}).catch(function(){box3.textContent="The 3D map could not load here. The 2D map still works.";box3.className="hx-map3d hx-map3d-off"})}
+  btns.forEach(function(b){b.addEventListener("click",function(){setMode(b.getAttribute("data-mode"))})});
+  if(app.getAttribute("data-view")==="3d")setMode("3d");
+ }).catch(function(){note.hidden=false;note.textContent="The map could not load. Every home is in the list.";render(all)});
+diff --git a/idx-lib/render.js b/idx-lib/render.js
+index e316f3f6..5fac31c9 100644
+--- a/idx-lib/render.js
++++ b/idx-lib/render.js
+@@ -87,6 +87,9 @@ export function cardTag(l) {
+   return "";
+ }
+ 
++/** "0.25", "1.5", "12": a lot size for a card, or "" when the listing has none. */
++export const acres = (v) => (typeof v === "number" && isFinite(v) && v > 0 ? String(v >= 10 ? Math.round(v) : Math.round(v * 100) / 100) : "");
++
+ export function card(l, opts = {}) {
+   const photo = safeUrl(l.photo);
+   const tag = cardTag(l);
+@@ -95,6 +98,8 @@ export function card(l, opts = {}) {
+   if (typeof l.beds === "number") bits.push(`<b>${esc(l.beds)}</b> bds`);
+   if (typeof l.baths === "number") bits.push(`<b>${esc(l.baths)}</b> ba`);
+   if (typeof l.sqft === "number") bits.push(`<b>${esc(num(l.sqft))}</b> sqft`);
++  // The lot, on every card (owner, 2026-10-28).
++  if (acres(l.lotAcres)) bits.push(`<b>${esc(acres(l.lotAcres))}</b> ${l.lotAcres === 1 ? "acre" : "acres"}`);
+   if (statusWord(l.status)) bits.push(esc(statusWord(l.status)));
+   const addr = l.address ? `${addressLine(l)}${l.postalCode ? `, ${l.postalCode}` : ""}` : addressLine(l);
+   return `<article class="hx-c"><a class="hx-c-link" href="${esc(listingPath(l))}" draggable="false"><span class="hx-c-photo">`
+@@ -223,8 +228,20 @@ export const STYLE = `<style>
+ .hx-signout{display:inline;margin-left:.4rem}
+ .hx-signout button,.hx-more-photos{border:0;background:none;padding:0;font:inherit;color:var(--navy);text-decoration:underline;cursor:pointer}
+ button.hx-heart{border-radius:999px}
+-.hx-gallery{display:flex;gap:.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.hx-gallery::-webkit-scrollbar{display:none}
+-.hx-gallery img{height:340px;width:auto;max-width:90vw;object-fit:cover;border-radius:12px;scroll-snap-align:start}
++/* Every photo has a fixed box before it loads: a photo with no size counts as in view, and a gallery of
++   33 then asked the MLS for all 33 at once, past its limit of 240 a minute for every visitor (2026-10-28). */
++.hx-keys{display:grid;grid-template-columns:repeat(auto-fill,minmax(11rem,1fr));gap:.6rem;margin:0 0 1.4rem}
++.hx-key{padding:.85rem 1rem;border-radius:14px;background:#fff;border:1px solid var(--rule,#e6dfd3)}
++.hx-key span{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate,#5c6b78);font-weight:700}
++.hx-key b{display:block;margin-top:.2rem;font-size:1.2rem;color:var(--ink,#1c2028)}
++.hx-key small{display:block;margin-top:.25rem;font-size:.78rem;line-height:1.4;color:var(--slate,#5c6b78)}
++.hx-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.5rem}.hx-gallery::-webkit-scrollbar{display:none}
++.hx-gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
++.hx-gallery img:first-child{grid-column:1/-1;aspect-ratio:16/9}
++/* A photo that has not come yet shows a calm panel, never its caption squeezed into a strip. */
++.hx-gallery img,.hx-c-photo img,.hx-l-hero img,.hx-l-tile img{color:transparent;font-size:0;background:linear-gradient(135deg,#ece6dc,#ddd3c4)}
++.hx-imgwait{position:relative}.hx-imgwait::after{content:"Photo loading";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:#6b7480;pointer-events:none}
++.hx-gallery .hx-imgwait-i{outline:0}
+ .hx-hero-photo img{width:100%;max-height:520px;object-fit:cover;border-radius:16px}
+ .hx-table{border-collapse:collapse;width:100%;max-width:760px;font-size:.92rem}.hx-table th{text-align:left;font-weight:600;padding:.4rem .6rem .4rem 0;width:40%;vertical-align:top}.hx-table td{padding:.4rem 0}.hx-table tr{border-bottom:1px solid var(--rule,#e6dfd3)}
+ .hx-remarks{white-space:pre-line;line-height:1.65;max-width:760px}
+@@ -345,7 +362,7 @@ main#main .hx-s-row>.hx-c:hover{transform:none}
+ .hx-teaser li{display:flex;align-items:center;gap:.6rem;padding:.7rem 0;border-bottom:1px solid var(--rule,#e6dfd3);font-size:1rem}
+ .hx-teaser li em{margin-left:auto;display:inline-block;width:6.5rem;height:.8rem;border-radius:6px;background:linear-gradient(90deg,#d9cfc1,#efe8dd);filter:blur(1.5px)}
+ .hx-wrap h2{font-family:var(--serif);font-size:1.45rem;margin:2rem 0 .6rem}
+-.hx-gallery img{height:360px}
++
+ @media (prefers-reduced-transparency:reduce){.hx-glass{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}}
+ ${FILTER_STYLE}
+ </style>`;
+@@ -383,8 +400,17 @@ main#main .hx-s-all{flex:0 0 40%;max-width:12rem;align-self:stretch;display:flex
+  * The page script. It touches only our own elements; nothing from the CRM is ever
+  * written with innerHTML. data-hx-signed on <body> says whether the visitor is signed up.
+  */
++/** The photo server's connection opens while the page is still arriving: about a third of a second sooner. */
++export const PHOTO_HINT = `<link rel="preconnect" href="https://api.cotality.com"><link rel="dns-prefetch" href="https://api.cotality.com">`;
++
+ export const SCRIPT = `<script>(function(){
+ var signed=document.body.getAttribute("data-hx-signed")==="1";
++/* A listing photo that fails (the MLS photo server allows 240 a minute for every visitor together) is
++   asked for once more a minute later, when its count starts over; until then a calm panel shows. */
++document.addEventListener("error",function(e){var im=e.target;if(!im||im.tagName!=="IMG"||im.src.indexOf("https://api.cotality.com/")!==0)return;
++ var box=im.parentNode;if(box&&box.classList&&!box.classList.contains("hx-gallery"))box.classList.add("hx-imgwait");
++ if(im.getAttribute("data-retry"))return;im.setAttribute("data-retry","1");var u=im.src;setTimeout(function(){im.src=u+(u.indexOf("?")<0?"?r=1":"&r=1")},61000)},true);
++document.addEventListener("load",function(e){var im=e.target;if(im&&im.tagName==="IMG"&&im.parentNode&&im.parentNode.classList)im.parentNode.classList.remove("hx-imgwait")},true);
+ function $(s,r){return (r||document).querySelector(s)}function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+ function post(u,b){return fetch(u,{method:"POST",headers:{"content-type":"application/json"},credentials:"same-origin",body:JSON.stringify(b)}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){j._status=r.status;return j})})}
+ function openD(d){if(!d)return;if(d.showModal)d.showModal();else d.setAttribute("open","")}
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index e3837b27..84d359e0 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -464,7 +464,7 @@ check("sign-up: one full name box, email, phone, Continue to photos, Already hav
+   check("analyzer script: a new address forgets the old home's facts; one run at a time; the cash-or-loan box closes on any end", js.includes("function ltrForgetHome()") && js.includes("if (_ltrRunning) return;") && js.includes("dlg.onclose = function () { finish({ cash: true }); };"));
+   check("analyzer script: an address from a link is limited to address characters", js.includes("replace(/[^A-Za-z0-9 #.,'\\/-]/g, '')"));
+   check("analyzer (owner, 2026-10-28): loan terms in a second row of the same box, a second scenario beside the first, what is good in the town under each ?, the similar row moves and drags, no MLS note on the form", js.includes('id="${p}-loanrow"') && js.includes("function ltrCompare(") && js.includes("const LTR_AREA = ") && js.includes("box.querySelectorAll('.hx-s-row').forEach(ltrRig)") && !js.includes("We filled these in for you") && !ltr.includes("Nothing else to type") && ltr.includes('id="ltr-sc-b"'));
+-  check("analyzer: the repair check reads the listing's photos by link and is cached per listing; it shows only when it sees work", js.includes("type: 'image', source: { type: 'url', url: u }") && js.includes("cache_key: ['repair1'") && js.includes("if (!r || !r.needsWork) { box.hidden = true; return; }"));
++  check("analyzer: the repair check reads the listing's photos by link and is cached per listing; it shows only when it sees work", js.includes("type: 'image', source: { type: 'url', url: u }") && js.includes("cache_key: ['repair2'") && js.includes("if (!r || !r.needsWork) { box.hidden = true; return; }"));
+   check("analyzer script: parses", (() => { try { new Function(js); return true; } catch { return false; } })());
+   check("footer: address suggestions on every address box", home.includes("places.googleapis.com/v1/places:autocomplete") && home.includes("#ltr-street,#ldCtx,#rnAddr,#sbh-street"));
+ }
+-- 
+2.43.0
+
