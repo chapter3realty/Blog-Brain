@@ -89,10 +89,3 @@ When a visitor is signed in, the map page will offer "Save this search". Please 
 - `DELETE /api/idx/searches/:id`
 
 New-listing emails for a saved search would be the CRM's, with the owner's approval of the wording.
-
-## 6. A question about photos
-
-The rental analyzer now asks an AI to look at a listing's photos for repairs. It sends the photo links (the same `https://api.cotality.com/trestle/Media/...` links the site shows) and never saves a photo. Please tell us:
-
-- whether those links open for a server outside the browser (no cookie, no referrer) for at least a few minutes;
-- whether anything in the MLS rules you have seen forbids passing a photo link to an analysis service. The owner will confirm with the MLS.
