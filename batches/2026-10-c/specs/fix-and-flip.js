@@ -55,7 +55,7 @@ const GAIN_CHART = G.bars([
   { name: "Every quick resale", value: median(ALL.map((f) => f.gain)), valueText: round1k(median(ALL.map((f) => f.gain))), feature: `${ALL.length} resales`, reference: true },
   { name: "Resold by a person", value: median(PERSON.map((f) => f.gain)), valueText: round1k(median(PERSON.map((f) => f.gain))), feature: `${about(PERSON.length)} resales` },
 ], { caption: "Middle gain on a home resold within 12 months, Horry County", nameLabel: "Who resold it", featureLabel: "how many", valueLabel: "middle gain",
-  note: "The gain between the two deed prices, before repairs, loans, taxes, insurance and both closings. Resales recorded in the 12 months to September 2026." });
+  note: "The gain between the two deed prices, before repairs, loans, taxes, insurance and both closings. Resales recorded in the 12 months to September 2026. The count is a floor: some sales that may have been a lot that became a new house were left out." });
 
 /* Where (cold reader, 2026-10-29: "I came for which parts of the Grand Strand are worth flipping in").
    Each resale's parcel point is placed in its 2020 Census ZIP Code Tabulation Area (data file meta.where);
@@ -85,7 +85,7 @@ const WHERE_TABLE = G.bars(AREAS.map((a) => ({ name: a.name, value: a.gain, valu
 const WHERE_MAP = (() => {
   const m = regionMap({ name: "Where homes were resold within a year", places: AREAS.map((a) => ({ name: a.name, lat: a.lat, lon: a.lon })) },
     { dir: path.join(__dirname, "..", "chapter3realty", "images", "maps"), src: "/images/maps", glass: true });
-  return h.figure(m.html, `Each number is the middle of an area's quick resales, in the order of the chart below. The areas are ZIP codes: ${ZIPS}. ${m.credit}`) + (m.unlabelled && m.unlabelled.length ? m.key : "");
+  return h.figure(m.html, `Each number marks where an area's quick resales were, in the order of the chart below. The areas are ZIP codes. Another ${ALL.length - AREAS.reduce((t, a) => t + a.n, 0)} resales around Loris, Aynor and Green Sea were too few to show. ${m.credit}`) + (m.unlabelled && m.unlabelled.length ? m.key : "");
 })();
 const TOP3 = AREAS.filter((a) => a.houses * 2 > a.n).slice(0, 3).map((a) => a.name);
 const MB = AREAS.find((a) => a.name === "Myrtle Beach"), NMB = AREAS.find((a) => a.name === "North Myrtle Beach");
@@ -94,29 +94,8 @@ const MB = AREAS.find((a) => a.name === "Myrtle Beach"), NMB = AREAS.find((a) =>
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const byMonth = Object.entries(FLIPS.meta.by_record_month).sort(([a], [b]) => a.localeCompare(b));
 const MONTH_CHART = G.bars(byMonth.map(([k, v]) => { const [y, m] = k.split("/").map(Number); return { name: `${MONTHS[m - 1].slice(0, 3)} ${y}`, value: v.home_sales, valueText: v.home_sales.toLocaleString("en-US") }; }),
-  { caption: "Home sales recorded each month in Horry County", nameLabel: "Month", valueLabel: "home sales", format: (v) => v.toLocaleString("en-US"), compact: true,
+  { caption: "Home sales recorded each month in Horry County", nameLabel: "Month", valueLabel: "home sales", format: (v) => v.toLocaleString("en-US"), compact: true, phoneList: true,
     note: "Deeds recorded for homes with a building, not sold by a builder." });
-
-/* Figure: how the deal finder narrows the market. The limits are the code's own (website idx-lib/deals.js:
-   the 60 cheapest a square foot get nearby sales, 25 are listed, the AI reads the photos of 12). */
-const FUNNEL_STEPS = [
-  ["Every home for sale", 1],
-  ["A reason to be cheap", 0.8],
-  ["The 60 cheapest a square foot", 0.62],
-  ["The 25 furthest under nearby sales", 0.46],
-  ["The top 12: photos read", 0.32],
-  ["The agent's call", 0.2],
-];
-const FUNNEL = (() => {
-  const W = 320, rowH = 52, H = FUNNEL_STEPS.length * rowH + 4;
-  const esc = (t) => t.replace(/&/g, "&amp;").replace(/'/g, "&#39;");
-  const rows = FUNNEL_STEPS.map(([label, f], i) => {
-    const y = 2 + i * rowH, last = i === FUNNEL_STEPS.length - 1;
-    return `<text x="0" y="${y + 16}" font-family="Inter, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1c2028">${i + 1}. ${esc(label)}</text>`
-      + `<rect x="0" y="${y + 25}" width="${Math.round(W * f)}" height="14" rx="7" fill="${last ? "#c4783a" : "#2a3040"}" opacity="${last ? 1 : 0.9 - i * 0.12}"/>`;
-  }).join("");
-  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="How the deal finder narrows the market: every home for sale, then houses with a reason to be cheap, then the 60 cheapest a square foot, then the 25 furthest under their nearby sales, then the top 12 with their photos read, then the agent's call" style="display:block;width:100%;max-width:560px;height:auto">${rows}</svg>`;
-})();
 
 /* The calculator from the live page, unchanged but for its dash. */
 const IN = 'style="width:132px;background:rgba(244,239,232,.12);border:1px solid rgba(244,239,232,.34);border-radius:6px;color:#f4efe8;font-family:var(--sans);font-size:.95rem;padding:.42rem .55rem;text-align:right"';
@@ -152,9 +131,9 @@ module.exports = G.page({
   crumb: "Fix and Flip",
   eyebrow: "Strategy",
   h1: "How do you find a fix and flip in Myrtle Beach?",
-  h1em: `Homes a company resold here within a year gained a middle ${CO_GAIN} between the two prices. Our deal finder looks for the next one.`,
+  h1em: "What quick resales gained here last year, where they were, and how our deal finder looks for the next one.",
   sub: "Local numbers from the county's deeds, the 70 percent rule, and the rules a flip meets here.",
-  heroCta: { title: "Get this week's flip list", text: "Tell us your price range. An agent runs our deal finder and sends you the best houses for sale, with the nearby sales behind each one.", label: "Get the flip list", href: "/contact/" },
+  heroCta: { title: "The best houses for sale this week, in your price range", text: "Tell us your price range. An agent runs our deal finder and sends you the best houses for sale, with the nearby sales behind each one.", label: "Get the flip list", href: "/contact/" },
   author: "devin",
   shortAnswer: [
     `Yes, a fix and flip can pay here if you buy right. In the year to September 2026, Horry County homes were resold within 12 months of their last sale at least ${ALL.length} times. When a company resold the home, the middle gain between the two deed prices was about ${CO_GAIN}, before repairs and the costs of holding and selling it. ${list3(BIG3.map((a) => a.name))} had the biggest gains on houses.`,
@@ -164,26 +143,23 @@ module.exports = G.page({
     { h2: "Do fix and flips make money in Myrtle Beach?", toc: "Local numbers", id: "local-numbers", html: () =>
       /* The hero's summary line repeats the line above it (owner's eye, 2026-10-29), so it is hidden on this page, as on /buyers/second-home/. */
       "<style>main#main .detail-hero .detail-sub{display:none}</style>" +
-      h.p(`Most resell for more than the earlier deed price. We read every deed Horry County recorded for two years. In the past year, a home sold again within 12 months of its last sale at least ${ALL.length} times, about 3 of every 100 home sales not made by a builder.`) +
+      h.p(`Most resell for more than the earlier deed price. We read every deed Horry County recorded for two years. Quick resales, a home sold again within 12 months of its last sale, were about 3 of every 100 home sales not made by a builder. The chart gives the middle gain: half gained more, half less.`) +
       GAIN_CHART +
       h.p(`The company figure is the closer guide to an investor's flip. Resales by a person hold most of the losses: about ${Math.round(PERSON_LOSSES / 5) * 5} of the ${LOSSES} homes that sold for less than the earlier deed price. Houses also gained more than condos, a middle of about ${round1k(median(HOUSES.map((f) => f.gain)))} against about ${round1k(median(UNITS.map((f) => f.gain)))}.`) +
-      h.p("The gain is the difference between the two deed prices. Repairs, the loan, the tax, insurance, utilities, both closings and the commission all come out of it. That is why the price you pay matters most.") +
-      h.p("The count is a floor: we left out sales that may have been a lot that became a new house, and some of those resold within weeks, so they were likely older houses.") },
+      h.p("Repairs, the loan, the tax, insurance, utilities, both closings and the commission all come out of that gain. That is why the price you pay matters most.") },
 
     { h2: "Where on the Grand Strand do flips happen?", toc: "Where", id: "where", html: () =>
-      h.p(`Among the areas where most quick resales were houses, ${list3(BIG3.map((a) => a.name))} had the biggest middle gains, about ${round1k(BIG3.at(-1).gain)} to ${round1k(BIG3[0].gain)}. ${MB.name} had the most quick resales, ${MB.n}, but most were condos, and the middle one gained about ${round1k(MB.gain)}.`) +
-      WHERE_MAP + WHERE_TABLE +
-      h.p(`${NMB.name}'s quick resales cost the most, a middle price of about ${round1k(NMB.paid)}, and gained about ${round1k(NMB.gain)}. Another ${ALL.length - AREAS.reduce((t, a) => t + a.n, 0)} resales were around Loris, Aynor and Green Sea, too few to show on their own.`) },
+      h.p(`The biggest gains on houses were in ${list3(BIG3.map((a) => a.name))}. ${MB.name} had the most quick resales, but most were condos, which gained less. No single neighborhood had more than three house resales: the flips are spread across many streets. The deal finder looks at every home for sale for that reason.`) +
+      WHERE_MAP + WHERE_TABLE },
 
     { h2: "How do we find a house worth flipping?", toc: "How we find them", id: "how-we-find-them", html: (bg) =>
       h.p("Our agents use a deal finder we built to look at every home for sale on the Grand Strand in one pass. An agent checks everything it finds:") +
       h.ol([
         `<strong>A reason to be cheap.</strong> It pulls every house for sale that has one: a distressed sale, a ${h.a("/invest/foreclosures/", "foreclosure")}, a short sale, or an older house at the low end of the price range.`,
-        "<strong>The nearby sales.</strong> The 60 houses cheapest per square foot each get the houses within 30 percent of their size that sold within a mile in the last 12 months, or two miles if there are too few.",
-        "<strong>The list.</strong> The 25 whose asking price per square foot sits furthest under the middle of their nearby sales make the list. For the top 12, it reads the listing photos and description and lists the repairs it can see, with a cost range for each.",
+        "<strong>The nearby sales.</strong> For the cheapest houses per square foot, it finds houses of about the same size that sold within a mile in the last year.",
+        "<strong>The list.</strong> The houses furthest under the middle of their nearby sales make the list. It reads the photos and description of the top ones and lists the repairs it can see, with a cost range for each.",
         "<strong>The agent's call.</strong> An agent reads the sales, decides what the house will sell for once it is fixed, and works out your highest offer. That number comes from an agent who knows the streets, never from a computer.",
       ]) +
-      h.figure(FUNNEL, "How our deal finder narrows the market, from every home for sale to an agent's call.") +
       h.p("A house far under its neighbors is not always a deal. Sometimes the size in the listing is wrong, the price is an auction's opening bid, or the house needs everything. The finder marks those, and the agent finds out which it is before you spend a dollar.") +
       h.cta("What you get on the flip list", "For each house: its asking price per square foot against the middle of its nearby sales, the six nearest sales, the repairs its photos show with a cost range, and your highest offer by the 70 percent rule. Tell us your price range.", "Get the flip list", "/contact/", bg) },
 
@@ -195,17 +171,17 @@ module.exports = G.page({
     { h2: "What does a flip cost here besides the house and the repairs?", toc: "Local costs", id: "local-costs", html: () =>
       h.p("Four costs bill you every month you own the house: the property tax, the loan, insurance and utilities. The rest come at the two closings, and when you sell, the commission and the deed fee.") +
       h.p(`The tax is the one most investors miss. A house that is not its owner's own home is taxed on 6 percent of its value, not 4 percent, and it pays the school operating tax.`) +
-      h.p(`On a house the county appraises at $250,000 in tax district 100, one of the districts outside the cities, that is about $3,015 a year instead of about $919, plus an $89.40 fee on each bill. We work out the bill for the actual address before you offer, and every town's rate is in our ${h.a("/buyers/property-taxes/", "property tax calculator")}.`) +
-      h.p(`The deed fee is $1.85 for each $500 of the price, and the law puts it on the seller: about $962 on a ${money(FLIPS.meta.summary.median_sell)} sale. If you buy at the county's foreclosure sale, where the deed comes from the master-in-equity, you pay the fee on that deed as well.`) +
+      h.p(`On a house the county appraises at $250,000, in one of its tax districts outside the cities, that is about $3,015 a year instead of about $919, plus an $89.40 fee on each bill. We work out the bill for the actual address before you offer, and every town's rate is in our ${h.a("/buyers/property-taxes/", "property tax calculator")}.`) +
+      h.p(`The deed fee is $1.85 for each $500 of the price, and the law puts it on the seller: about $962 on a ${money(FLIPS.meta.summary.median_sell)} sale. If you buy at the county's court-ordered foreclosure sale, you pay the fee on that deed as well.`) +
       h.p("We get the insurance quotes for the empty house before you offer, along with the loan's terms, so the monthly cost of holding it is a number, not a guess.") },
 
     { h2: "What permits and licenses does a flip need?", toc: "Permits and licenses", id: "permits", html: () =>
       h.p(`In Horry County outside the cities, ${h.ext(HC_PERMIT, "you need a building permit")} to build, alter, repair or tear down, and for any electrical, gas, mechanical or plumbing work. South Carolina ${h.ext(T40_59, "licenses the people who do the work")} by the size of the job:`) +
       compareCards([
-        { name: "Paint, wallpaper, tile, carpet, cabinets, countertops", cells: { permit: "No", who: "You, or a registered pro over $500" } },
-        { name: "A new roof", cells: { permit: "We ask the county first", who: "A registered roofer over $500" } },
+        { name: "Paint, wallpaper, tile, carpet, cabinets, countertops", cells: { permit: "No", who: "You, or a pro registered with the state" } },
+        { name: "A new roof", cells: { permit: "We ask the county first", who: "A roofer registered with the state" } },
         { name: "Electrical, plumbing, heating and air", cells: { permit: "Yes", who: "A contractor licensed for the trade" } },
-        { name: "Walls, structure, a full renovation", cells: { permit: "Yes", who: "A licensed builder over $5,000" } },
+        { name: "Walls, structure, a full renovation", cells: { permit: "Yes", who: "A licensed builder, for jobs over $5,000" } },
       ], [{ key: "permit", label: "County permit" }, { key: "who", label: "Who may do it" }], { caption: "Permits and licenses for flip work in Horry County", nameLabel: "The work" }) +
       h.p("Before you budget a new roof, we ask the county's code office whether that job needs a permit, because the county's own pages disagree.") +
       h.p("The owner's exemption from the license does not cover a flip. It is only for a house you build or repair to live in, and a sale or rental within two years of finishing is presumed to mean it was done to sell.") +
@@ -220,9 +196,9 @@ module.exports = G.page({
 
     { h2: "How does a finished flip sell here?", toc: "Selling it", id: "selling-it", html: () =>
       h.p("Most of our buyers for a finished flip are moving from out of state, or retiring. We spend several thousand dollars a month advertising to buyers moving to the Grand Strand, so a finished flip goes in front of them the day it lists. Lighter repairs sometimes suit the rental buyers on our list before the house reaches the open market.") +
-      h.p("A real one. An investor here inherited a house from his father and had it fully repaired over about two and a half months. An agent at Chapter3 advertised it for sale while the work was going on. It went under contract a week before the work finished, and it closed for cash the day construction ended. Within the same month he bought two more beach homes.") +
+      h.p("You pay the loan, the tax and the insurance for every month a finished house is unsold. One investor here inherited a house from his father and had it fully repaired over about two and a half months. An agent at Chapter3 advertised it for sale while the work was going on. It went under contract a week before the work finished, and it closed for cash the day construction ended. Within the same month he bought two more beach homes.") +
       h.p("The step that works on any flip: advertise before the work ends, because the holding costs stop the day it sells.") +
-      h.p("Plan to list by March. The fewest homes sell here in January and February, and March through August hold more than half the year's sales. Prices moved little from month to month, so the season gives you more buyers, not a higher price.") +
+      h.p("Plan to list by March. The fewest homes sell here in January and February. Every other month, about 800 to 1,050 sell, and prices move little, so the season gives you more buyers, not a higher price.") +
       MONTH_CHART },
 
     { h2: "What do you owe when you sell?", toc: "Disclosures and tax", id: "selling", html: () =>
@@ -244,7 +220,7 @@ module.exports = G.page({
   ],
   faqTitle: "Fix and flip FAQ",
   faq: [
-    { q: "Can a fix and flip make money in Myrtle Beach?", a: `Yes, if you buy right. Of the Horry County homes resold within a year, the ones a company resold had a middle gain of about ${CO_GAIN} between the two deed prices, before repairs and costs. About ${Math.round(CO.filter((f) => f.gain < 0).length / 5) * 5} of ${about(CO.length)} sold for less than the earlier price.` },
+    { q: "How long does a flip take in Myrtle Beach?", a: `About six months from purchase to resale. The middle home resold within a year in Horry County sold again ${FLIPS.meta.summary.median_days} days after its purchase, and the middle half took about four to ten months.` },
     { q: "Can I flip a house in Myrtle Beach from out of state?", a: "Yes. A Chapter3 agent walks the house on video, runs the numbers, and lines up the closing attorney and the inspector. Our page for out-of-state buyers explains how a closing works from a distance." },
     { q: "Do I have to use BrickWood Mortgage?", a: "No. You may use any lender you like. BrickWood Mortgage is our preferred lender for fix-and-flip and bridge loans." },
     { q: "Do you need a license to flip houses in South Carolina?", a: "No real estate license is needed to sell a house you own. The work is different: a contractor needs a residential builder license for any job over $5,000, and you may do the finish work, such as paint and tile, yourself." },
