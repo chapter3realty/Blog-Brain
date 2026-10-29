@@ -1,0 +1,9 @@
+[
+  {"row":"fix-and-flip 2","pattern":"\\b344 (?:Horry County )?homes\\b","struck":"344 homes resold within 12 months","use":"at least 344 home resales (338 homes) within 12 months"},
+  {"row":"fix-and-flip 7","pattern":"lot bought and a new house sold","struck":"the pattern of a lot bought and a new house sold","use":"which can mean a lot that became a new house; some resold within weeks"},
+  {"row":"fix-and-flip 14","pattern":"(?:shingles|reroof|roof)[^.]{0,80}\\b(?:no|not need a|without a) permit","struck":"replacing shingles does not need a permit unless the structural sheathing is replaced","use":"the county's pages disagree on a reroof; ask Code Enforcement first"},
+  {"row":"fix-and-flip 30","pattern":"buyer is liable only if the seller does not pay","unless":"master-in-equity","struck":"the buyer is liable only if the seller does not pay","use":"the seller owes it, except on a master-in-equity or government deed, where the buyer owes it"},
+  {"row":"fix-and-flip 28","pattern":"most of (?:unincorporated Horry County|the county outside the cities)","struck":"In most of unincorporated Horry County (tax district 100)","use":"In Horry County tax district 100, one of several unincorporated districts"},
+  {"row":"fix-and-flip 3","pattern":"(?:flip|resale)s?[^.]{0,60}\\bprofit of \\$38,200","struck":"a profit of $38,200","use":"a gross gain of $38,200 between the two deed prices"},
+  {"row":"fix-and-flip 18","pattern":"treated as proof","struck":"a sale within two years is treated as proof it was done to sell","use":"a sale within two years is presumed to show it was done to sell"}
+]

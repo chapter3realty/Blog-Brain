@@ -7,8 +7,9 @@
  * built from data/2026-10-c/horry-flips.json (the county deed index, pulled 2026-10-29), never typed.
  * Kept from the live page: the calculator, the inherited-house story (without its figures: the owner
  * gave two versions, stories.json "inherited-house-flip"), who buys finished flips, the loans and the
- * cash sections. Corrected from the live page: roofs (shingles need no county permit unless the
- * sheathing is replaced), the deed fee (the seller's by law), wholesaling (the statute's own terms).
+ * cash sections. Corrected from the live page: roofs (the county's pages disagree on a reroof permit;
+ * verifier row 14), the deed fee (the seller's by law, the buyer's on a foreclosure deed), wholesaling
+ * (the statute's own terms). Verifier corrections of 2026-10-29 (rows 2, 7, 14, 28, 30) are in.
  * Built by tools/mkpage.js. */
 const fs = require("fs"), path = require("path");
 const { h, BB, compareCards } = require("./_kit.js");
@@ -42,13 +43,19 @@ const IRS1031 = "https://www.irs.gov/businesses/small-businesses-self-employed/l
 const SCDOR_RATE = "https://dor.sc.gov/news/information-about-h-4216";
 const BRICKWOOD = "https://brickwoodmortgage.com/";
 
-/* Chart 1: the middle gain, houses against condo-style units. */
+/* Chart 1: the middle gross gain, by who resold the home (verifier, limit 2: the all-homes middle mixes
+   companies and people, so give both). The house and condo split is in the text; its house figure is
+   the low case, because the lot test uses land value, which condos do not have (verifier, limit 3).
+   The file's company flag counts 143 and 201; the verifier's own pattern counted 144 and 200, with the
+   same middle gains, so the page says "about 140" and "about 200". */
+const CO = ALL.filter((f) => f.resale_seller_company), PERSON = ALL.filter((f) => !f.resale_seller_company);
+const about = (n) => `about ${Math.round(n / 10) * 10}`;
 const GAIN_CHART = G.bars([
-  { name: "Houses and townhouses", value: median(HOUSES.map((f) => f.gain)), valueText: round1k(median(HOUSES.map((f) => f.gain))), feature: `${HOUSES.length} resold` },
-  { name: "Every home resold", value: median(ALL.map((f) => f.gain)), valueText: round1k(median(ALL.map((f) => f.gain))), feature: `${ALL.length} resold`, reference: true },
-  { name: "Condos and condo-style units", value: median(UNITS.map((f) => f.gain)), valueText: round1k(median(UNITS.map((f) => f.gain))), feature: `${UNITS.length} resold` },
-], { caption: "Middle gain on a home resold within 12 months, Horry County", nameLabel: "Kind of home", featureLabel: "how many", valueLabel: "middle gain",
-  note: "The gain between the two deed prices, before repairs, loans, taxes, insurance and both closings. Homes resold in the 12 months to September 2026." });
+  { name: "Resold by a company", value: median(CO.map((f) => f.gain)), valueText: round1k(median(CO.map((f) => f.gain))), feature: `${about(CO.length)} resales` },
+  { name: "Every quick resale", value: median(ALL.map((f) => f.gain)), valueText: round1k(median(ALL.map((f) => f.gain))), feature: `${ALL.length} resales`, reference: true },
+  { name: "Resold by a person", value: median(PERSON.map((f) => f.gain)), valueText: round1k(median(PERSON.map((f) => f.gain))), feature: `${about(PERSON.length)} resales` },
+], { caption: "Middle gain on a home resold within 12 months, Horry County", nameLabel: "Who resold it", featureLabel: "how many", valueLabel: "middle gain",
+  note: "The gain between the two deed prices, before repairs, loans, taxes, insurance and both closings. Resales recorded in the 12 months to September 2026." });
 
 /* Chart 2: home sales recorded each month. */
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -118,15 +125,15 @@ module.exports = G.page({
   heroCta: { title: "Get this week's flip list", text: "Tell us your price range. An agent runs our deal finder and sends you the best houses for sale, with the nearby sales behind each one.", label: "Get the flip list", href: "/contact/" },
   author: "devin",
   shortAnswer: [
-    `Flipping still pays here, but less than on TV. In the year to September 2026, ${ALL.length} Horry County homes were resold within 12 months of their purchase. The middle one was bought for ${money(FLIPS.meta.summary.median_buy)} and resold for ${money(FLIPS.meta.summary.median_sell)} about six months later, a gain of ${money(FLIPS.meta.summary.median_gain)} before repairs, loans, taxes and both closings. About 1 in 5 resold for less than it cost.`,
+    `Flipping still pays here, but less than on TV. In the year to September 2026, Horry County homes were resold within 12 months of their last sale at least ${ALL.length} times. When a company resold the home, the middle gain between the two prices was ${round1k(median(CO.map((f) => f.gain)))}, before repairs, loans, taxes and both closings. When a person resold it, the middle gain was ${round1k(median(PERSON.map((f) => f.gain)))}.`,
     `The profit is made when you buy. We look for houses with a reason to be cheap and compare each one with what houses its size sold for nearby. Then we read the photos for the repairs before you make an offer.`,
   ],
   sections: [
     { h2: "Do fix and flips make money in Myrtle Beach?", toc: "Local numbers", id: "local-numbers", html: () =>
-      h.p(`Most resell for more than they cost. We read every deed Horry County recorded for two years and found ${ALL.length} homes bought and sold again within 12 months, with the second sale in the past year. That is about 3 of every 100 home sales not made by a builder. The middle one gained ${money(FLIPS.meta.summary.median_gain)}, about 18 percent of its price, and sold about six months after it was bought.`) +
+      h.p(`Most resell for more than they cost. We read every deed Horry County recorded for two years. In the past year, a home was sold again within 12 months of its last sale at least ${ALL.length} times, about 3 of every 100 home sales not made by a builder. The middle one was bought for ${money(FLIPS.meta.summary.median_buy)}, resold for ${money(FLIPS.meta.summary.median_sell)} about six months later, and gained ${money(FLIPS.meta.summary.median_gain)}.`) +
       GAIN_CHART +
-      h.p(`Houses made the most. The middle house was bought for ${money(median(HOUSES.map((f) => f.buy_cons)))} and resold for ${money(median(HOUSES.map((f) => f.sell_cons)))}. Condos gained less: the middle one went from ${money(median(UNITS.map((f) => f.buy_cons)))} to ${money(median(UNITS.map((f) => f.sell_cons)))}.`) +
-      h.p(`The spread is wide. ${ALL.filter((f) => f.gain >= 50000).length} of the ${ALL.length} gained $50,000 or more, and ${FLIPS.meta.summary.resold_for_less} sold for less than they cost. These are the two deed prices, so the gain is gross. Repairs, the loan, the tax, insurance, utilities, both closings and the commission all come out of it. That is why the price you pay matters most, and why finding the house is the work.`) },
+      h.p(`Companies did far better than people. Of the ${about(CO.length)} resales by a company, ${CO.filter((f) => f.gain < 0).length} sold for less than they cost. Of the ${about(PERSON.length)} by a person, ${PERSON.filter((f) => f.gain < 0).length} did. Houses gained more than condos: a middle gain of at least ${round1k(median(HOUSES.map((f) => f.gain)))} on a house, against about ${round1k(median(UNITS.map((f) => f.gain)))} on a condo.`) +
+      h.p(`These are the two deed prices, so the gain is gross. Repairs, the loan, the tax, insurance, utilities, both closings and the commission all come out of it. That is why the price you pay matters most, and why finding the house is the work.`) },
 
     { h2: "How do we find a house worth flipping?", toc: "How we find them", id: "how-we-find-them", html: (bg) =>
       h.p("Our agents use a deal finder we built for this. It looks at every home for sale on the Grand Strand in one pass, then an agent checks what it finds. It works in four steps:") +
@@ -152,22 +159,26 @@ module.exports = G.page({
     { h2: "What does a flip cost here besides the house and the repairs?", toc: "Local costs", id: "local-costs", html: () =>
       h.p("Five costs decide whether the gain survives, and each grows the longer you own the house.") +
       COSTS +
-      h.p(`The tax is the one most investors miss. If the seller lived in the house, they paid the 4 percent rate and no school operating tax. On a $250,000 house in most of the county outside the cities, that is about $919 a year. Yours is about $3,015, more than three times as much. Our agents work out the bill for the actual address before you offer. Every town's rate is in our ${h.a("/buyers/property-taxes/", "property tax calculator")}.`) },
+      h.p(`The tax is the one most investors miss. If the seller lived in the house, they paid the 4 percent rate and no school operating tax. On a $250,000 house in Horry County tax district 100, outside the cities, that is about $919 a year. Yours is about $3,015, more than three times as much.`) +
+      h.p(`If you buy at the county's foreclosure sale, you also pay the deed fee on that deed, which a buyer usually does not. Our agents work out the bill for the actual address before you offer. Every town's rate is in our ${h.a("/buyers/property-taxes/", "property tax calculator")}.`) },
 
     { h2: "What permits and licenses does a flip need?", toc: "Permits and licenses", id: "permits", html: () =>
       h.p(`In Horry County outside the cities, ${h.ext(HC_PERMIT, "you need a building permit")} to build, alter, repair or tear down, and for any electrical, gas, mechanical or plumbing work. South Carolina ${h.ext(T40_59, "licenses the people who do the work")} by the size of the job. In short:`) +
       compareCards([
         { name: "Paint, wallpaper, tile, carpet, cabinets, countertops", cells: { permit: "No", who: "You, or a registered pro over $500" } },
-        { name: "New shingles or flooring, same boards underneath", cells: { permit: "No", who: "A registered contractor over $500" } },
+        { name: "A new roof", cells: { permit: "Ask the county first", who: "A registered roofer over $500" } },
         { name: "Electrical, plumbing, heating and air", cells: { permit: "Yes", who: "A contractor licensed for the trade" } },
         { name: "Walls, structure, a full renovation", cells: { permit: "Yes", who: "A licensed builder over $5,000" } },
-      ], [{ key: "permit", label: "County permit" }, { key: "who", label: "Who may do it" }], { caption: "Permits and licenses for flip work in Horry County", nameLabel: "The work", css: false }) +      h.p(`The owner's exemption from the license does not cover a flip. It is only for a house you build or repair to live in, and a sale within two years of the work is treated as proof it was done to sell. Working without the license is a misdemeanor for the contractor, with a fine of $500 to $10,000, and an unlicensed contractor cannot put a lien on the house or sue to be paid.`) +
+      ], [{ key: "permit", label: "County permit" }, { key: "who", label: "Who may do it" }], { caption: "Permits and licenses for flip work in Horry County", nameLabel: "The work", css: false }) +      h.p(`Horry County's own pages disagree on whether a new roof needs a permit, so your roofer should ask the county's code office before the job starts.`) +
+      h.p(`The owner's exemption from the license does not cover a flip. It is only for a house you build or repair to live in, and a sale within two years of the work is presumed to mean it was done to sell.`) +
+      h.p(`Working without the license is a misdemeanor for the contractor, with a fine of $500 to $10,000, at least 30 days in jail, or both. An unlicensed contractor also cannot put a lien on the house or sue to be paid.`) +
       h.p(`In the City of Myrtle Beach, ${h.ext(MB_PERMIT, "each trade needs its own permit")}, and outside changes need a building permit.`) +
       h.h3("Houses built before 1978") +
       h.p(`Many of the cheapest houses are old enough to have lead paint. In a house built before 1978, ${h.ext(EPA_RRP, "anyone paid to do work that disturbs paint")} must be certified in lead-safe work. The EPA says the rule applies to a flipper doing their own work too. Small patches are outside it: 6 square feet of paint or less in a room, or 20 square feet or less outside. Replacing windows is always covered.`) +
-      h.p(`When you sell, you give the buyer the EPA's lead pamphlet and a lead disclosure, and the buyer gets 10 days to have the paint tested unless the buyer waives it.`) +
+      h.p(`When you sell most homes built before 1978, you give the buyer the EPA's lead pamphlet and a lead disclosure, and the buyer gets 10 days to have the paint tested unless the buyer waives it.`) +
       h.h3("Houses in a flood zone") +
-      h.p(`This is the rule that can end a flip. If the work costs 50 percent or more of the building's value before the work, not counting the land, ${h.ext(CFR, "the federal flood program")} calls it a substantial improvement. In ${h.ext(HC_FLOOD, "Horry County")}, the whole house must then meet the rules for a new building. In an AE flood zone, that means a lowest floor at least 3 feet above the base flood level.`) +
+      h.p(`This is the rule that can end a flip. If the work costs 50 percent or more of the building's value before the work, not counting the land, ${h.ext(CFR, "the federal flood program")} calls it a substantial improvement. Work to fix code violations an inspector has cited, and some work on historic buildings, are left out of that count.`) +
+      h.p(`In ${h.ext(HC_FLOOD, "Horry County")}, the whole house must then meet the rules for a new building. In an AE flood zone, that means a lowest floor at least 3 feet above the base flood level.`) +
       h.p(`The ${h.ext(MB_FLOOD, "City of Myrtle Beach")} allows less than 50 percent on a building in a flood zone that does not meet today's flood rules.`) +
       h.p(`For an older house low to the ground, that can mean raising it or keeping the job under the limit. We check the flood zone and the county's building value before you offer, so you know the repair budget the rule allows. Our ${h.a("/buyers/coastal-insurance/", "coastal insurance")} page covers flood insurance on the finished house.`) },
 
@@ -194,7 +205,7 @@ module.exports = G.page({
   ],
   faqTitle: "Fix and flip FAQ",
   faq: [
-    { q: "Is fix and flip profitable in Myrtle Beach?", a: `Usually, but less than on TV. Of the ${ALL.length} Horry County homes resold within 12 months in the past year, the middle one gained ${money(FLIPS.meta.summary.median_gain)} between the two deed prices, before repairs and costs. Houses gained about ${round1k(median(HOUSES.map((f) => f.gain)))} and condos about ${round1k(median(UNITS.map((f) => f.gain)))}. About 1 in 5 resold for less than it cost.` },
+    { q: "Is fix and flip profitable in Myrtle Beach?", a: `Usually, but less than on TV. Of the Horry County homes resold within 12 months in the past year, the ones a company resold had a middle gain of ${round1k(median(CO.map((f) => f.gain)))} between the two deed prices, before repairs and costs. The ones a person resold gained ${round1k(median(PERSON.map((f) => f.gain)))}.` },
     { q: "Do you need a license to flip houses in South Carolina?", a: "You need no real estate license to buy and sell your own house. The work is different: a contractor needs a residential builder license for any job over $5,000, and the owner's exemption does not cover a house you will sell. You may do the finish work yourself." },
     { q: "What is the 70 percent rule?", a: "Most flippers pay no more than 70 percent of what the house will sell for fixed up, minus the repairs. On a $300,000 house that needs $45,000 of work, that is $165,000." },
     { q: "What taxes do you pay on a flip in South Carolina?", a: "While you hold it, the property tax at the 6 percent rate. When you sell, the deed fee of $1.85 for each $500 of the price. On the profit, federal and state income tax at ordinary rates, because a house held a year or less gets no long-term rate and no South Carolina capital gains deduction." },
