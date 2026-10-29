@@ -101,7 +101,8 @@
 "flips": 27
 }
 },
-"fields": "pin = county PIN; buy_bp/sell_bp = deed book/page (open at https://acclaimweb.horrycounty.org/AcclaimWeb/details/JumpToBookPage/1/<book>/<page>); buy_cons/sell_cons = CONSIDERATION ($); dates = record dates; days = days between record dates; gain = sell minus buy (gross); pct = gain / buy x 100; legal, td, landuse, county_land, county_bldg = county parcel layer; no_land_value = county land value 0 (condo-style); chain = first 8 letters of the purchase grantee match the resale grantor; resale_seller_company = resale grantor reads as a company. Party names are not recorded here."
+"fields": "pin = county PIN; buy_bp/sell_bp = deed book/page (open at https://acclaimweb.horrycounty.org/AcclaimWeb/details/JumpToBookPage/1/<book>/<page>); buy_cons/sell_cons = CONSIDERATION ($); dates = record dates; days = days between record dates; gain = sell minus buy (gross); pct = gain / buy x 100; legal, td, landuse, county_land, county_bldg = county parcel layer; no_land_value = county land value 0 (condo-style); chain = first 8 letters of the purchase grantee match the resale grantor; resale_seller_company = resale grantor reads as a company. Party names are not recorded here.",
+"where": "Added 2026-10-29 for the 'where' section: lat and lng are the average of the parcel polygon's vertices from the county parcel layer (MapServer layer 24, outSR 4326); zcta is the 2020 Census ZIP Code Tabulation Area at that point (Census geocoder, geographies/coordinates, Public_AR_Current, Current_Current); tax_district is the parcel's TaxDistrict field."
 },
 "flips": [
 {
@@ -122,7 +123,11 @@
 "county_bldg": 160000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.9252,
+"lng": -78.72272,
+"tax_district": "250"
 },
 {
 "pin": "46305010100",
@@ -142,7 +147,11 @@
 "county_bldg": 171445.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29576",
+"lat": 33.60687,
+"lng": -79.02679,
+"tax_district": "610"
 },
 {
 "pin": "44601030005",
@@ -162,7 +171,11 @@
 "county_bldg": 315000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.66625,
+"lng": -78.94742,
+"tax_district": "895"
 },
 {
 "pin": "46200000774",
@@ -182,7 +195,11 @@
 "county_bldg": 170000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.61367,
+"lng": -79.00186,
+"tax_district": "600"
 },
 {
 "pin": "44104010028",
@@ -202,7 +219,11 @@
 "county_bldg": 285000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.69596,
+"lng": -78.95644,
+"tax_district": "600"
 },
 {
 "pin": "44007010054",
@@ -222,7 +243,11 @@
 "county_bldg": 130000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.68907,
+"lng": -79.00523,
+"tax_district": "630"
 },
 {
 "pin": "26714040023",
@@ -242,7 +267,11 @@
 "county_bldg": 19498.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.91441,
+"lng": -78.76361,
+"tax_district": "200"
 },
 {
 "pin": "25801040007",
@@ -262,7 +291,11 @@
 "county_bldg": 196000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29568",
+"lat": 33.96509,
+"lng": -78.74359,
+"tax_district": "250"
 },
 {
 "pin": "35114040398",
@@ -282,7 +315,11 @@
 "county_bldg": 369538.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.83064,
+"lng": -78.63506,
+"tax_district": "550"
 },
 {
 "pin": "42103040027",
@@ -302,7 +339,11 @@
 "county_bldg": 110000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.74436,
+"lng": -78.83155,
+"tax_district": "880"
 },
 {
 "pin": "44314010927",
@@ -322,7 +363,11 @@
 "county_bldg": 60000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67488,
+"lng": -78.89824,
+"tax_district": "898"
 },
 {
 "pin": "17613010013",
@@ -342,7 +387,11 @@
 "county_bldg": 228856.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29569",
+"lat": 34.06025,
+"lng": -78.88153,
+"tax_district": "220"
 },
 {
 "pin": "45606020012",
@@ -362,7 +411,11 @@
 "county_bldg": 176617.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.63733,
+"lng": -79.06074,
+"tax_district": "600"
 },
 {
 "pin": "35113020002",
@@ -382,7 +435,11 @@
 "county_bldg": 216000.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.83526,
+"lng": -78.62252,
+"tax_district": "550"
 },
 {
 "pin": "35609020358",
@@ -402,7 +459,11 @@
 "county_bldg": 151000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.81652,
+"lng": -78.67784,
+"tax_district": "550"
 },
 {
 "pin": "42116010135",
@@ -422,7 +483,11 @@
 "county_bldg": 70000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.72957,
+"lng": -78.85214,
+"tax_district": "880"
 },
 {
 "pin": "44314010199",
@@ -442,7 +507,11 @@
 "county_bldg": 114000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67349,
+"lng": -78.90129,
+"tax_district": "880"
 },
 {
 "pin": "31301020002",
@@ -462,7 +531,11 @@
 "county_bldg": 113911.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.88523,
+"lng": -78.67702,
+"tax_district": "500"
 },
 {
 "pin": "47007020021",
@@ -482,7 +555,11 @@
 "county_bldg": 520387.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.57874,
+"lng": -79.00668,
+"tax_district": "610"
 },
 {
 "pin": "40300000005",
@@ -502,7 +579,11 @@
 "county_bldg": 680000.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29527",
+"lat": 33.77069,
+"lng": -79.08859,
+"tax_district": "100"
 },
 {
 "pin": "45909010069",
@@ -522,7 +603,11 @@
 "county_bldg": 180000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.62777,
+"lng": -78.98342,
+"tax_district": "600"
 },
 {
 "pin": "39402030025",
@@ -542,7 +627,11 @@
 "county_bldg": 2465780.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.77128,
+"lng": -78.80423,
+"tax_district": "880"
 },
 {
 "pin": "46209020006",
@@ -562,7 +651,11 @@
 "county_bldg": 245000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.60158,
+"lng": -79.01424,
+"tax_district": "610"
 },
 {
 "pin": "45907020003",
@@ -582,7 +675,11 @@
 "county_bldg": 441216.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.63275,
+"lng": -78.97073,
+"tax_district": "600"
 },
 {
 "pin": "31212030006",
@@ -602,7 +699,11 @@
 "county_bldg": 325000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.8668,
+"lng": -78.62115,
+"tax_district": "500"
 },
 {
 "pin": "42415020278",
@@ -622,7 +723,11 @@
 "county_bldg": 250000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.70024,
+"lng": -78.87066,
+"tax_district": "899"
 },
 {
 "pin": "31211030034",
@@ -642,7 +747,11 @@
 "county_bldg": 259250.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.86593,
+"lng": -78.62674,
+"tax_district": "500"
 },
 {
 "pin": "35006010005",
@@ -662,7 +771,11 @@
 "county_bldg": 240000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.84971,
+"lng": -78.665,
+"tax_district": "500"
 },
 {
 "pin": "44314010589",
@@ -682,7 +795,11 @@
 "county_bldg": 140000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.67349,
+"lng": -78.90129,
+"tax_district": "880"
 },
 {
 "pin": "31108040056",
@@ -702,7 +819,11 @@
 "county_bldg": 394000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.87115,
+"lng": -78.61517,
+"tax_district": "500"
 },
 {
 "pin": "42015040020",
@@ -722,7 +843,11 @@
 "county_bldg": 226400.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.72552,
+"lng": -78.87571,
+"tax_district": "800"
 },
 {
 "pin": "41910040048",
@@ -742,7 +867,11 @@
 "county_bldg": 205000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.73245,
+"lng": -78.9075,
+"tax_district": "800"
 },
 {
 "pin": "34312020009",
@@ -762,7 +891,11 @@
 "county_bldg": 383248.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.84526,
+"lng": -78.88269,
+"tax_district": "100"
 },
 {
 "pin": "44314010775",
@@ -782,7 +915,11 @@
 "county_bldg": 60000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67488,
+"lng": -78.89824,
+"tax_district": "898"
 },
 {
 "pin": "31312010055",
@@ -802,7 +939,11 @@
 "county_bldg": 497141.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.86936,
+"lng": -78.6551,
+"tax_district": "510"
 },
 {
 "pin": "31315010011",
@@ -822,7 +963,11 @@
 "county_bldg": 150000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.86412,
+"lng": -78.6733,
+"tax_district": "500"
 },
 {
 "pin": "42116010072",
@@ -842,7 +987,11 @@
 "county_bldg": 70000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.72919,
+"lng": -78.85075,
+"tax_district": "880"
 },
 {
 "pin": "18508030008",
@@ -862,7 +1011,11 @@
 "county_bldg": 268895.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29569",
+"lat": 34.04191,
+"lng": -78.86915,
+"tax_district": "200"
 },
 {
 "pin": "45908040084",
@@ -882,7 +1035,11 @@
 "county_bldg": 403975.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.62995,
+"lng": -78.9851,
+"tax_district": "600"
 },
 {
 "pin": "31108010004",
@@ -902,7 +1059,11 @@
 "county_bldg": 329000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.87392,
+"lng": -78.61616,
+"tax_district": "500"
 },
 {
 "pin": "40008030034",
@@ -922,7 +1083,11 @@
 "county_bldg": 213606.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.76812,
+"lng": -79.00732,
+"tax_district": "100"
 },
 {
 "pin": "39814040047",
@@ -942,7 +1107,11 @@
 "county_bldg": 160000.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.75534,
+"lng": -78.9305,
+"tax_district": "100"
 },
 {
 "pin": "39412040737",
@@ -962,7 +1131,11 @@
 "county_bldg": 162000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.75951,
+"lng": -78.78944,
+"tax_district": "800"
 },
 {
 "pin": "39106020415",
@@ -982,7 +1155,11 @@
 "county_bldg": 140000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.79601,
+"lng": -78.72782,
+"tax_district": "550"
 },
 {
 "pin": "42815030083",
@@ -1002,7 +1179,11 @@
 "county_bldg": 292000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.7016,
+"lng": -79.00417,
+"tax_district": "600"
 },
 {
 "pin": "35502020014",
@@ -1022,7 +1203,11 @@
 "county_bldg": 100000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.82914,
+"lng": -78.63898,
+"tax_district": "550"
 },
 {
 "pin": "38913020015",
@@ -1042,7 +1227,11 @@
 "county_bldg": 110000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.78232,
+"lng": -78.78496,
+"tax_district": "800"
 },
 {
 "pin": "40002010011",
@@ -1062,7 +1251,11 @@
 "county_bldg": 434712.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.77917,
+"lng": -79.00578,
+"tax_district": "100"
 },
 {
 "pin": "46803020012",
@@ -1082,7 +1275,11 @@
 "county_bldg": 290000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.5888,
+"lng": -79.0618,
+"tax_district": "610"
 },
 {
 "pin": "47004040101",
@@ -1102,7 +1299,11 @@
 "county_bldg": 215000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.58171,
+"lng": -78.99483,
+"tax_district": "610"
 },
 {
 "pin": "39104020066",
@@ -1122,7 +1323,11 @@
 "county_bldg": 320000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.80319,
+"lng": -78.72029,
+"tax_district": "550"
 },
 {
 "pin": "36816010017",
@@ -1142,7 +1347,11 @@
 "county_bldg": 203485.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29527",
+"lat": 33.81614,
+"lng": -79.07684,
+"tax_district": "110"
 },
 {
 "pin": "44106020055",
@@ -1162,7 +1371,11 @@
 "county_bldg": 305680.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.68806,
+"lng": -78.96107,
+"tax_district": "630"
 },
 {
 "pin": "44601030001",
@@ -1182,7 +1395,11 @@
 "county_bldg": 315000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.66625,
+"lng": -78.94742,
+"tax_district": "895"
 },
 {
 "pin": "42115020314",
@@ -1202,7 +1419,11 @@
 "county_bldg": 200000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.72799,
+"lng": -78.83656,
+"tax_district": "880"
 },
 {
 "pin": "35910040031",
@@ -1222,7 +1443,11 @@
 "county_bldg": 315817.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.81271,
+"lng": -78.77303,
+"tax_district": "550"
 },
 {
 "pin": "42016030010",
@@ -1242,7 +1467,11 @@
 "county_bldg": 185000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.72636,
+"lng": -78.8767,
+"tax_district": "800"
 },
 {
 "pin": "31200000792",
@@ -1262,7 +1491,11 @@
 "county_bldg": 200000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.86415,
+"lng": -78.64046,
+"tax_district": "500"
 },
 {
 "pin": "35109040032",
@@ -1282,7 +1515,11 @@
 "county_bldg": 283772.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.83962,
+"lng": -78.64871,
+"tax_district": "550"
 },
 {
 "pin": "30406040007",
@@ -1302,7 +1539,11 @@
 "county_bldg": 155000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.89964,
+"lng": -78.6962,
+"tax_district": "500"
 },
 {
 "pin": "42115040051",
@@ -1322,7 +1563,11 @@
 "county_bldg": 431000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.72415,
+"lng": -78.84123,
+"tax_district": "880"
 },
 {
 "pin": "35210020332",
@@ -1342,7 +1587,11 @@
 "county_bldg": 462260.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.84123,
+"lng": -78.60533,
+"tax_district": "550"
 },
 {
 "pin": "17313040001",
@@ -1362,7 +1611,11 @@
 "county_bldg": 121000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29569",
+"lat": 34.05825,
+"lng": -78.98101,
+"tax_district": "300"
 },
 {
 "pin": "44601030016",
@@ -1382,7 +1635,11 @@
 "county_bldg": 295000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.66544,
+"lng": -78.94766,
+"tax_district": "895"
 },
 {
 "pin": "31307010032",
@@ -1402,7 +1659,11 @@
 "county_bldg": 146000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.87663,
+"lng": -78.67379,
+"tax_district": "500"
 },
 {
 "pin": "36816020054",
@@ -1422,7 +1683,11 @@
 "county_bldg": 141106.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29527",
+"lat": 33.81348,
+"lng": -79.07424,
+"tax_district": "110"
 },
 {
 "pin": "42208010509",
@@ -1442,7 +1707,11 @@
 "county_bldg": 275000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.7414,
+"lng": -78.81735,
+"tax_district": "880"
 },
 {
 "pin": "42012030041",
@@ -1462,7 +1731,11 @@
 "county_bldg": 285000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.73285,
+"lng": -78.85225,
+"tax_district": "880"
 },
 {
 "pin": "42301010014",
@@ -1482,7 +1755,11 @@
 "county_bldg": 141462.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.72168,
+"lng": -78.85181,
+"tax_district": "880"
 },
 {
 "pin": "35716030047",
@@ -1502,7 +1779,11 @@
 "county_bldg": 1450000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.80434,
+"lng": -78.71061,
+"tax_district": "550"
 },
 {
 "pin": "35601030037",
@@ -1522,7 +1803,11 @@
 "county_bldg": 235000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.82493,
+"lng": -78.68102,
+"tax_district": "550"
 },
 {
 "pin": "44314010403",
@@ -1542,7 +1827,11 @@
 "county_bldg": 82000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67349,
+"lng": -78.90129,
+"tax_district": "880"
 },
 {
 "pin": "39506030010",
@@ -1562,7 +1851,11 @@
 "county_bldg": 1111000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.76647,
+"lng": -78.82854,
+"tax_district": "880"
 },
 {
 "pin": "40611020002",
@@ -1582,7 +1875,11 @@
 "county_bldg": 342514.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29527",
+"lat": 33.77018,
+"lng": -79.19024,
+"tax_district": "100"
 },
 {
 "pin": "36407030017",
@@ -1602,7 +1899,11 @@
 "county_bldg": 192960.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.82149,
+"lng": -78.9351,
+"tax_district": "100"
 },
 {
 "pin": "46301020005",
@@ -1622,7 +1923,11 @@
 "county_bldg": 175315.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29576",
+"lat": 33.61416,
+"lng": -79.04367,
+"tax_district": "600"
 },
 {
 "pin": "39412020608",
@@ -1642,7 +1947,11 @@
 "county_bldg": 250000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.76228,
+"lng": -78.78526,
+"tax_district": "800"
 },
 {
 "pin": "39004030032",
@@ -1662,7 +1971,11 @@
 "county_bldg": 321000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.79858,
+"lng": -78.75308,
+"tax_district": "550"
 },
 {
 "pin": "44104010097",
@@ -1682,7 +1995,11 @@
 "county_bldg": 285000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.69603,
+"lng": -78.95509,
+"tax_district": "600"
 },
 {
 "pin": "45904040007",
@@ -1702,7 +2019,11 @@
 "county_bldg": 362809.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.6377,
+"lng": -78.96074,
+"tax_district": "600"
 },
 {
 "pin": "46907040007",
@@ -1722,7 +2043,11 @@
 "county_bldg": 189163.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29576",
+"lat": 33.57757,
+"lng": -79.04436,
+"tax_district": "610"
 },
 {
 "pin": "39706020010",
@@ -1742,7 +2067,11 @@
 "county_bldg": 315000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.77071,
+"lng": -78.89508,
+"tax_district": "100"
 },
 {
 "pin": "39611030001",
@@ -1762,7 +2091,11 @@
 "county_bldg": 200000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.76077,
+"lng": -78.86338,
+"tax_district": "800"
 },
 {
 "pin": "39307010337",
@@ -1782,7 +2115,11 @@
 "county_bldg": 525000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.76921,
+"lng": -78.7756,
+"tax_district": "800"
 },
 {
 "pin": "44305020019",
@@ -1802,7 +2139,11 @@
 "county_bldg": 70000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.68699,
+"lng": -78.88574,
+"tax_district": "893"
 },
 {
 "pin": "44201020007",
@@ -1822,7 +2163,11 @@
 "county_bldg": 440000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.69635,
+"lng": -78.94457,
+"tax_district": "803"
 },
 {
 "pin": "35604040023",
@@ -1842,7 +2187,11 @@
 "county_bldg": 798983.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.82373,
+"lng": -78.65941,
+"tax_district": "550"
 },
 {
 "pin": "44006030004",
@@ -1862,7 +2211,11 @@
 "county_bldg": 127229.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.68539,
+"lng": -78.99341,
+"tax_district": "630"
 },
 {
 "pin": "46301020010",
@@ -1882,7 +2235,11 @@
 "county_bldg": 178827.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29576",
+"lat": 33.61415,
+"lng": -79.04449,
+"tax_district": "600"
 },
 {
 "pin": "35609010249",
@@ -1902,7 +2259,11 @@
 "county_bldg": 250000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.81471,
+"lng": -78.68204,
+"tax_district": "550"
 },
 {
 "pin": "44601030017",
@@ -1922,7 +2283,11 @@
 "county_bldg": 295000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.66544,
+"lng": -78.94766,
+"tax_district": "895"
 },
 {
 "pin": "31211040029",
@@ -1942,7 +2307,11 @@
 "county_bldg": 223000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.86524,
+"lng": -78.63362,
+"tax_district": "500"
 },
 {
 "pin": "42208010091",
@@ -1962,7 +2331,11 @@
 "county_bldg": 110000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.74108,
+"lng": -78.81817,
+"tax_district": "880"
 },
 {
 "pin": "32409030038",
@@ -1982,7 +2355,11 @@
 "county_bldg": 230863.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.87438,
+"lng": -79.04027,
+"tax_district": "110"
 },
 {
 "pin": "35109030137",
@@ -2002,7 +2379,11 @@
 "county_bldg": 183920.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.8368,
+"lng": -78.64653,
+"tax_district": "550"
 },
 {
 "pin": "37806030010",
@@ -2022,7 +2403,11 @@
 "county_bldg": 215000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29527",
+"lat": 33.79812,
+"lng": -79.15852,
+"tax_district": "100"
 },
 {
 "pin": "42105030464",
@@ -2042,7 +2427,11 @@
 "county_bldg": 153000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.73898,
+"lng": -78.82093,
+"tax_district": "880"
 },
 {
 "pin": "39611040060",
@@ -2062,7 +2451,11 @@
 "county_bldg": 165000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.76046,
+"lng": -78.86506,
+"tax_district": "800"
 },
 {
 "pin": "44314010871",
@@ -2082,7 +2475,11 @@
 "county_bldg": 60000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67488,
+"lng": -78.89824,
+"tax_district": "898"
 },
 {
 "pin": "36615040025",
@@ -2102,7 +2499,11 @@
 "county_bldg": 140852.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.80944,
+"lng": -79.00322,
+"tax_district": "100"
 },
 {
 "pin": "33801030083",
@@ -2122,7 +2523,11 @@
 "county_bldg": 212482.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.85985,
+"lng": -79.07254,
+"tax_district": "110"
 },
 {
 "pin": "34003020017",
@@ -2142,7 +2547,11 @@
 "county_bldg": 220451.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.86049,
+"lng": -78.99198,
+"tax_district": "100"
 },
 {
 "pin": "31311010150",
@@ -2162,7 +2571,11 @@
 "county_bldg": 128000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.8699,
+"lng": -78.66606,
+"tax_district": "500"
 },
 {
 "pin": "45911010049",
@@ -2182,7 +2595,11 @@
 "county_bldg": 241875.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.62884,
+"lng": -78.96733,
+"tax_district": "600"
 },
 {
 "pin": "42116010135",
@@ -2202,7 +2619,11 @@
 "county_bldg": 70000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.72957,
+"lng": -78.85214,
+"tax_district": "880"
 },
 {
 "pin": "45812030078",
@@ -2222,7 +2643,11 @@
 "county_bldg": 192156.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.62436,
+"lng": -78.98677,
+"tax_district": "600"
 },
 {
 "pin": "38412030006",
@@ -2242,7 +2667,11 @@
 "county_bldg": 287028.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.79028,
+"lng": -78.94905,
+"tax_district": "100"
 },
 {
 "pin": "33808030025",
@@ -2262,7 +2691,11 @@
 "county_bldg": 103518.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.85279,
+"lng": -79.07323,
+"tax_district": "160"
 },
 {
 "pin": "30716040036",
@@ -2282,7 +2715,11 @@
 "county_bldg": 235450.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.88581,
+"lng": -78.61483,
+"tax_district": "500"
 },
 {
 "pin": "44108040034",
@@ -2302,7 +2739,11 @@
 "county_bldg": 256861.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.68707,
+"lng": -78.98321,
+"tax_district": "630"
 },
 {
 "pin": "35702020002",
@@ -2322,7 +2763,11 @@
 "county_bldg": 565584.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.82744,
+"lng": -78.70388,
+"tax_district": "550"
 },
 {
 "pin": "35210040259",
@@ -2342,7 +2787,11 @@
 "county_bldg": 400000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.83848,
+"lng": -78.60869,
+"tax_district": "550"
 },
 {
 "pin": "42105030439",
@@ -2362,7 +2811,11 @@
 "county_bldg": 120000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.73898,
+"lng": -78.82093,
+"tax_district": "880"
 },
 {
 "pin": "44314010262",
@@ -2382,7 +2835,11 @@
 "county_bldg": 140000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67349,
+"lng": -78.90129,
+"tax_district": "880"
 },
 {
 "pin": "43912010015",
@@ -2402,7 +2859,11 @@
 "county_bldg": 176500.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.68488,
+"lng": -79.0221,
+"tax_district": "630"
 },
 {
 "pin": "33806040014",
@@ -2422,7 +2883,11 @@
 "county_bldg": 76623.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.85174,
+"lng": -79.0613,
+"tax_district": "110"
 },
 {
 "pin": "38308030002",
@@ -2442,7 +2907,11 @@
 "county_bldg": 236797.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.79776,
+"lng": -79.00739,
+"tax_district": "110"
 },
 {
 "pin": "38911030033",
@@ -2462,7 +2931,11 @@
 "county_bldg": 250222.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.78745,
+"lng": -78.79279,
+"tax_district": "550"
 },
 {
 "pin": "38206030019",
@@ -2482,7 +2955,11 @@
 "county_bldg": 128571.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.79851,
+"lng": -79.02511,
+"tax_district": "100"
 },
 {
 "pin": "42007010093",
@@ -2502,7 +2979,11 @@
 "county_bldg": 435000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.74115,
+"lng": -78.87455,
+"tax_district": "800"
 },
 {
 "pin": "31306040124",
@@ -2522,7 +3003,11 @@
 "county_bldg": 165000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.87242,
+"lng": -78.66668,
+"tax_district": "500"
 },
 {
 "pin": "45816040033",
@@ -2542,7 +3027,11 @@
 "county_bldg": 181925.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.61833,
+"lng": -79.01638,
+"tax_district": "600"
 },
 {
 "pin": "35209010017",
@@ -2562,7 +3051,11 @@
 "county_bldg": 282157.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.84009,
+"lng": -78.61484,
+"tax_district": "551"
 },
 {
 "pin": "26601030006",
@@ -2582,7 +3075,11 @@
 "county_bldg": 164990.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29568",
+"lat": 33.93533,
+"lng": -78.74317,
+"tax_district": "250"
 },
 {
 "pin": "40415040019",
@@ -2602,7 +3099,11 @@
 "county_bldg": 160000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29527",
+"lat": 33.75801,
+"lng": -79.13751,
+"tax_district": "100"
 },
 {
 "pin": "42706020086",
@@ -2622,7 +3123,11 @@
 "county_bldg": 169437.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.71518,
+"lng": -78.95897,
+"tax_district": "600"
 },
 {
 "pin": "42208010800",
@@ -2642,7 +3147,11 @@
 "county_bldg": 170000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.74333,
+"lng": -78.81592,
+"tax_district": "880"
 },
 {
 "pin": "40104020008",
@@ -2662,7 +3171,11 @@
 "county_bldg": 202943.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.7805,
+"lng": -79.01676,
+"tax_district": "100"
 },
 {
 "pin": "33711030002",
@@ -2682,7 +3195,11 @@
 "county_bldg": 175948.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29527",
+"lat": 33.84675,
+"lng": -79.09177,
+"tax_district": "110"
 },
 {
 "pin": "42505040338",
@@ -2702,7 +3219,11 @@
 "county_bldg": 205900.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.71243,
+"lng": -78.8904,
+"tax_district": "880"
 },
 {
 "pin": "44501030458",
@@ -2722,7 +3243,11 @@
 "county_bldg": 160000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.66293,
+"lng": -78.91443,
+"tax_district": "880"
 },
 {
 "pin": "47004020320",
@@ -2742,7 +3267,11 @@
 "county_bldg": 420000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.58762,
+"lng": -78.98831,
+"tax_district": "610"
 },
 {
 "pin": "22607010011",
@@ -2762,7 +3291,11 @@
 "county_bldg": 116203.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29569",
+"lat": 33.98971,
+"lng": -78.89887,
+"tax_district": "200"
 },
 {
 "pin": "31614040034",
@@ -2782,7 +3315,11 @@
 "county_bldg": 190000.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29568",
+"lat": 33.86275,
+"lng": -78.76227,
+"tax_district": "500"
 },
 {
 "pin": "46200000740",
@@ -2802,7 +3339,11 @@
 "county_bldg": 192500.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.61469,
+"lng": -79.00278,
+"tax_district": "600"
 },
 {
 "pin": "42815020029",
@@ -2822,7 +3363,11 @@
 "county_bldg": 227777.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.70505,
+"lng": -79.00066,
+"tax_district": "630"
 },
 {
 "pin": "45013010073",
@@ -2842,7 +3387,11 @@
 "county_bldg": 75000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.65076,
+"lng": -79.05593,
+"tax_district": "630"
 },
 {
 "pin": "41812040075",
@@ -2862,7 +3411,11 @@
 "county_bldg": 237481.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.73254,
+"lng": -78.92332,
+"tax_district": "800"
 },
 {
 "pin": "31310040012",
@@ -2882,7 +3435,11 @@
 "county_bldg": 136692.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.8649,
+"lng": -78.67212,
+"tax_district": "500"
 },
 {
 "pin": "45805030107",
@@ -2902,7 +3459,11 @@
 "county_bldg": 167750.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.63082,
+"lng": -78.98868,
+"tax_district": "600"
 },
 {
 "pin": "35609010010",
@@ -2922,7 +3483,11 @@
 "county_bldg": 455000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.81628,
+"lng": -78.68423,
+"tax_district": "550"
 },
 {
 "pin": "42000000991",
@@ -2942,7 +3507,11 @@
 "county_bldg": 35000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.74041,
+"lng": -78.8589,
+"tax_district": "800"
 },
 {
 "pin": "44314010541",
@@ -2962,7 +3531,11 @@
 "county_bldg": 115000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67349,
+"lng": -78.90129,
+"tax_district": "880"
 },
 {
 "pin": "30009020036",
@@ -2982,7 +3555,11 @@
 "county_bldg": 344340.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.90109,
+"lng": -78.8427,
+"tax_district": "200"
 },
 {
 "pin": "31206010031",
@@ -3002,7 +3579,11 @@
 "county_bldg": 137400.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.87667,
+"lng": -78.63059,
+"tax_district": "500"
 },
 {
 "pin": "42608010044",
@@ -3022,7 +3603,11 @@
 "county_bldg": 72000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.71613,
+"lng": -78.94849,
+"tax_district": "600"
 },
 {
 "pin": "44502010188",
@@ -3042,7 +3627,11 @@
 "county_bldg": 115000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.66669,
+"lng": -78.90846,
+"tax_district": "880"
 },
 {
 "pin": "44106020103",
@@ -3062,7 +3651,11 @@
 "county_bldg": 105522.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.69064,
+"lng": -78.95976,
+"tax_district": "630"
 },
 {
 "pin": "39915040001",
@@ -3082,7 +3675,11 @@
 "county_bldg": 150000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.75378,
+"lng": -78.97054,
+"tax_district": "600"
 },
 {
 "pin": "31200000149",
@@ -3102,7 +3699,11 @@
 "county_bldg": 185000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.87401,
+"lng": -78.62581,
+"tax_district": "500"
 },
 {
 "pin": "34408040047",
@@ -3122,7 +3723,11 @@
 "county_bldg": 242473.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.8495,
+"lng": -78.87919,
+"tax_district": "100"
 },
 {
 "pin": "44111030019",
@@ -3142,7 +3747,11 @@
 "county_bldg": 182987.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.68015,
+"lng": -78.96137,
+"tax_district": "630"
 },
 {
 "pin": "44813040086",
@@ -3162,7 +3771,11 @@
 "county_bldg": 253400.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.64414,
+"lng": -78.99004,
+"tax_district": "630"
 },
 {
 "pin": "41911020044",
@@ -3182,7 +3795,11 @@
 "county_bldg": 594695.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.73546,
+"lng": -78.89328,
+"tax_district": "800"
 },
 {
 "pin": "35609010010",
@@ -3202,7 +3819,11 @@
 "county_bldg": 455000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.81628,
+"lng": -78.68423,
+"tax_district": "550"
 },
 {
 "pin": "42105030491",
@@ -3222,7 +3843,11 @@
 "county_bldg": 205000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.73898,
+"lng": -78.82093,
+"tax_district": "880"
 },
 {
 "pin": "44205020060",
@@ -3242,7 +3867,11 @@
 "county_bldg": 101177.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.68746,
+"lng": -78.92085,
+"tax_district": "880"
 },
 {
 "pin": "38414010022",
@@ -3262,7 +3891,11 @@
 "county_bldg": 250000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.78474,
+"lng": -78.96503,
+"tax_district": "100"
 },
 {
 "pin": "42208010353",
@@ -3282,7 +3915,11 @@
 "county_bldg": 200000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.74166,
+"lng": -78.81718,
+"tax_district": "880"
 },
 {
 "pin": "42805030021",
@@ -3302,7 +3939,11 @@
 "county_bldg": 451000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.71206,
+"lng": -78.9865,
+"tax_district": "630"
 },
 {
 "pin": "35006010055",
@@ -3322,7 +3963,11 @@
 "county_bldg": 280000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.84923,
+"lng": -78.66407,
+"tax_district": "500"
 },
 {
 "pin": "42116010068",
@@ -3342,7 +3987,11 @@
 "county_bldg": 105000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.72919,
+"lng": -78.85075,
+"tax_district": "880"
 },
 {
 "pin": "42616010044",
@@ -3362,7 +4011,11 @@
 "county_bldg": 279511.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.70139,
+"lng": -78.95031,
+"tax_district": "600"
 },
 {
 "pin": "38409040109",
@@ -3382,7 +4035,11 @@
 "county_bldg": 631458.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.78783,
+"lng": -78.97831,
+"tax_district": "110"
 },
 {
 "pin": "41713010036",
@@ -3402,7 +4059,11 @@
 "county_bldg": 147000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.73018,
+"lng": -78.95574,
+"tax_district": "600"
 },
 {
 "pin": "47009030005",
@@ -3422,7 +4083,11 @@
 "county_bldg": 745080.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.57067,
+"lng": -79.01557,
+"tax_district": "620"
 },
 {
 "pin": "42103020030",
@@ -3442,7 +4107,11 @@
 "county_bldg": 1055250.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.7475,
+"lng": -78.82841,
+"tax_district": "880"
 },
 {
 "pin": "39810040021",
@@ -3462,7 +4131,11 @@
 "county_bldg": 146302.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.75988,
+"lng": -78.93954,
+"tax_district": "100"
 },
 {
 "pin": "17501010003",
@@ -3482,7 +4155,11 @@
 "county_bldg": 223570.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29569",
+"lat": 34.07931,
+"lng": -78.93904,
+"tax_district": "200"
 },
 {
 "pin": "39814010037",
@@ -3502,7 +4179,11 @@
 "county_bldg": 130000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.75616,
+"lng": -78.93006,
+"tax_district": "100"
 },
 {
 "pin": "20814040001",
@@ -3522,7 +4203,11 @@
 "county_bldg": 137283.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29511",
+"lat": 34.00466,
+"lng": -79.02514,
+"tax_district": "300"
 },
 {
 "pin": "45800000206",
@@ -3542,7 +4227,11 @@
 "county_bldg": 160500.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.61711,
+"lng": -79.0031,
+"tax_district": "600"
 },
 {
 "pin": "45905030179",
@@ -3562,7 +4251,11 @@
 "county_bldg": 120000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.62737,
+"lng": -78.95248,
+"tax_district": "600"
 },
 {
 "pin": "44310010009",
@@ -3582,7 +4275,11 @@
 "county_bldg": 125930.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.68291,
+"lng": -78.90985,
+"tax_district": "880"
 },
 {
 "pin": "44916010073",
@@ -3602,7 +4299,11 @@
 "county_bldg": 54875.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.6489,
+"lng": -79.05002,
+"tax_district": "630"
 },
 {
 "pin": "39201020544",
@@ -3622,7 +4323,11 @@
 "county_bldg": 145000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.80194,
+"lng": -78.71341,
+"tax_district": "550"
 },
 {
 "pin": "30201020023",
@@ -3642,7 +4347,11 @@
 "county_bldg": 242000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.91263,
+"lng": -78.77491,
+"tax_district": "200"
 },
 {
 "pin": "39809030020",
@@ -3662,7 +4371,11 @@
 "county_bldg": 240000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.76171,
+"lng": -78.94399,
+"tax_district": "100"
 },
 {
 "pin": "44915030162",
@@ -3682,7 +4395,11 @@
 "county_bldg": 268000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.64397,
+"lng": -79.03459,
+"tax_district": "630"
 },
 {
 "pin": "34905020014",
@@ -3702,7 +4419,11 @@
 "county_bldg": 114593.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.84899,
+"lng": -78.68719,
+"tax_district": "500"
 },
 {
 "pin": "39513030011",
@@ -3722,7 +4443,11 @@
 "county_bldg": 296664.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.75228,
+"lng": -78.82142,
+"tax_district": "880"
 },
 {
 "pin": "45604010158",
@@ -3742,7 +4467,11 @@
 "county_bldg": 112000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.64194,
+"lng": -79.05483,
+"tax_district": "630"
 },
 {
 "pin": "35210040259",
@@ -3762,7 +4491,11 @@
 "county_bldg": 400000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.83848,
+"lng": -78.60869,
+"tax_district": "550"
 },
 {
 "pin": "46411040072",
@@ -3782,7 +4515,11 @@
 "county_bldg": 430000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.59992,
+"lng": -79.06759,
+"tax_district": "610"
 },
 {
 "pin": "36912040002",
@@ -3802,7 +4539,11 @@
 "county_bldg": 133533.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29527",
+"lat": 33.81982,
+"lng": -79.08447,
+"tax_district": "110"
 },
 {
 "pin": "35715030069",
@@ -3822,7 +4563,11 @@
 "county_bldg": 226000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.80603,
+"lng": -78.7046,
+"tax_district": "550"
 },
 {
 "pin": "40016020004",
@@ -3842,7 +4587,11 @@
 "county_bldg": 201290.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.76017,
+"lng": -79.01028,
+"tax_district": "100"
 },
 {
 "pin": "39412040874",
@@ -3862,7 +4611,11 @@
 "county_bldg": 142000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.75974,
+"lng": -78.78942,
+"tax_district": "800"
 },
 {
 "pin": "45905030644",
@@ -3882,7 +4635,11 @@
 "county_bldg": 100000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.63244,
+"lng": -78.95575,
+"tax_district": "600"
 },
 {
 "pin": "30411010004",
@@ -3902,7 +4659,11 @@
 "county_bldg": 172000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.89942,
+"lng": -78.69527,
+"tax_district": "500"
 },
 {
 "pin": "44916040075",
@@ -3922,7 +4683,11 @@
 "county_bldg": 98154.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.64628,
+"lng": -79.04712,
+"tax_district": "630"
 },
 {
 "pin": "42415040080",
@@ -3942,7 +4707,11 @@
 "county_bldg": 212000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.69722,
+"lng": -78.87375,
+"tax_district": "899"
 },
 {
 "pin": "45804010086",
@@ -3962,7 +4731,11 @@
 "county_bldg": 231000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.64113,
+"lng": -78.99251,
+"tax_district": "630"
 },
 {
 "pin": "25816040058",
@@ -3982,7 +4755,11 @@
 "county_bldg": 231231.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.94317,
+"lng": -78.74498,
+"tax_district": "250"
 },
 {
 "pin": "44304040085",
@@ -4002,7 +4779,11 @@
 "county_bldg": 115000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.68991,
+"lng": -78.89158,
+"tax_district": "880"
 },
 {
 "pin": "44716030030",
@@ -4022,7 +4803,11 @@
 "county_bldg": 431020.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.64377,
+"lng": -78.98015,
+"tax_district": "600"
 },
 {
 "pin": "39405040180",
@@ -4042,7 +4827,11 @@
 "county_bldg": 240000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.76625,
+"lng": -78.79376,
+"tax_district": "800"
 },
 {
 "pin": "44909040003",
@@ -4062,7 +4851,11 @@
 "county_bldg": 186000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.65223,
+"lng": -79.0506,
+"tax_district": "630"
 },
 {
 "pin": "44502010697",
@@ -4082,7 +4875,11 @@
 "county_bldg": 370000.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.66817,
+"lng": -78.90925,
+"tax_district": "880"
 },
 {
 "pin": "45712040023",
@@ -4102,7 +4899,11 @@
 "county_bldg": 236438.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.62535,
+"lng": -79.02642,
+"tax_district": "600"
 },
 {
 "pin": "45814040078",
@@ -4122,7 +4923,11 @@
 "county_bldg": 192500.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.61694,
+"lng": -78.99893,
+"tax_district": "600"
 },
 {
 "pin": "45704010081",
@@ -4142,7 +4947,11 @@
 "county_bldg": 49169.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.64352,
+"lng": -79.0229,
+"tax_district": "630"
 },
 {
 "pin": "39405040037",
@@ -4162,7 +4971,11 @@
 "county_bldg": 440000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.76493,
+"lng": -78.79033,
+"tax_district": "800"
 },
 {
 "pin": "44616040049",
@@ -4182,7 +4995,11 @@
 "county_bldg": 231210.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.64345,
+"lng": -78.94838,
+"tax_district": "600"
 },
 {
 "pin": "45800000122",
@@ -4202,7 +5019,11 @@
 "county_bldg": 160500.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.61657,
+"lng": -79.00469,
+"tax_district": "600"
 },
 {
 "pin": "39714030024",
@@ -4222,7 +5043,11 @@
 "county_bldg": 228020.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.75182,
+"lng": -78.89389,
+"tax_district": "800"
 },
 {
 "pin": "42109010038",
@@ -4242,7 +5067,11 @@
 "county_bldg": 369000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.73525,
+"lng": -78.84993,
+"tax_district": "880"
 },
 {
 "pin": "31212040082",
@@ -4262,7 +5091,11 @@
 "county_bldg": 260000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.86446,
+"lng": -78.62483,
+"tax_district": "500"
 },
 {
 "pin": "46808020040",
@@ -4282,7 +5115,11 @@
 "county_bldg": 611384.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.58266,
+"lng": -79.07838,
+"tax_district": "610"
 },
 {
 "pin": "36808030019",
@@ -4302,7 +5139,11 @@
 "county_bldg": 129028.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29527",
+"lat": 33.8262,
+"lng": -79.07179,
+"tax_district": "110"
 },
 {
 "pin": "45905030271",
@@ -4322,7 +5163,11 @@
 "county_bldg": 81000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.62737,
+"lng": -78.95248,
+"tax_district": "600"
 },
 {
 "pin": "42812040027",
@@ -4342,7 +5187,11 @@
 "county_bldg": 236225.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.70826,
+"lng": -78.98896,
+"tax_district": "630"
 },
 {
 "pin": "31205010285",
@@ -4362,7 +5211,11 @@
 "county_bldg": 155000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.87496,
+"lng": -78.62413,
+"tax_district": "500"
 },
 {
 "pin": "46907010087",
@@ -4382,7 +5235,11 @@
 "county_bldg": 210000.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.58093,
+"lng": -79.04359,
+"tax_district": "610"
 },
 {
 "pin": "39412010159",
@@ -4402,7 +5259,11 @@
 "county_bldg": 215000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.76077,
+"lng": -78.79041,
+"tax_district": "800"
 },
 {
 "pin": "44314010388",
@@ -4422,7 +5283,11 @@
 "county_bldg": 115000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67349,
+"lng": -78.90129,
+"tax_district": "880"
 },
 {
 "pin": "39201020664",
@@ -4442,7 +5307,11 @@
 "county_bldg": 136000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.80194,
+"lng": -78.71341,
+"tax_district": "550"
 },
 {
 "pin": "36502030011",
@@ -4462,7 +5331,11 @@
 "county_bldg": 303912.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.83189,
+"lng": -78.96528,
+"tax_district": "100"
 },
 {
 "pin": "46901020095",
@@ -4482,7 +5355,11 @@
 "county_bldg": 290000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.58848,
+"lng": -79.04651,
+"tax_district": "610"
 },
 {
 "pin": "44502020208",
@@ -4502,7 +5379,11 @@
 "county_bldg": 130000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.66932,
+"lng": -78.90551,
+"tax_district": "880"
 },
 {
 "pin": "42208010775",
@@ -4522,7 +5403,11 @@
 "county_bldg": 170000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.74333,
+"lng": -78.81592,
+"tax_district": "880"
 },
 {
 "pin": "31212030027",
@@ -4542,7 +5427,11 @@
 "county_bldg": 470000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.86606,
+"lng": -78.61988,
+"tax_district": "500"
 },
 {
 "pin": "39810040021",
@@ -4562,7 +5451,11 @@
 "county_bldg": 146302.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.75988,
+"lng": -78.93954,
+"tax_district": "100"
 },
 {
 "pin": "45909010291",
@@ -4582,7 +5475,11 @@
 "county_bldg": 180000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.62628,
+"lng": -78.9845,
+"tax_district": "600"
 },
 {
 "pin": "42608010181",
@@ -4602,7 +5499,11 @@
 "county_bldg": 109000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.71785,
+"lng": -78.94764,
+"tax_district": "600"
 },
 {
 "pin": "45905030252",
@@ -4622,7 +5523,11 @@
 "county_bldg": 140000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.62737,
+"lng": -78.95248,
+"tax_district": "600"
 },
 {
 "pin": "32312030006",
@@ -4642,7 +5547,11 @@
 "county_bldg": 187398.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.87272,
+"lng": -78.98177,
+"tax_district": "100"
 },
 {
 "pin": "41515030004",
@@ -4662,7 +5571,11 @@
 "county_bldg": 502898.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.72668,
+"lng": -79.03448,
+"tax_district": "630"
 },
 {
 "pin": "42201040059",
@@ -4682,7 +5595,11 @@
 "county_bldg": 216423.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.74636,
+"lng": -78.81785,
+"tax_district": "880"
 },
 {
 "pin": "33015030009",
@@ -4702,7 +5619,11 @@
 "county_bldg": 239216.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29527",
+"lat": 33.86932,
+"lng": -79.23055,
+"tax_district": "400"
 },
 {
 "pin": "46804040096",
@@ -4722,7 +5643,11 @@
 "county_bldg": 247000.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.58594,
+"lng": -79.05781,
+"tax_district": "610"
 },
 {
 "pin": "44314020175",
@@ -4742,7 +5667,11 @@
 "county_bldg": 80000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.6759,
+"lng": -78.8975,
+"tax_district": "899"
 },
 {
 "pin": "41708010023",
@@ -4762,7 +5691,11 @@
 "county_bldg": 425903.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.74447,
+"lng": -78.98048,
+"tax_district": "124"
 },
 {
 "pin": "31310040112",
@@ -4782,7 +5715,11 @@
 "county_bldg": 153000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.86601,
+"lng": -78.67469,
+"tax_district": "500"
 },
 {
 "pin": "39415010012",
@@ -4802,7 +5739,11 @@
 "county_bldg": 780884.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.75587,
+"lng": -78.80727,
+"tax_district": "880"
 },
 {
 "pin": "44911040007",
@@ -4822,7 +5763,11 @@
 "county_bldg": 172188.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.652,
+"lng": -79.03075,
+"tax_district": "630"
 },
 {
 "pin": "35003020076",
@@ -4842,7 +5787,11 @@
 "county_bldg": 132341.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.8551,
+"lng": -78.66136,
+"tax_district": "500"
 },
 {
 "pin": "35706040088",
@@ -4862,7 +5811,11 @@
 "county_bldg": 75000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.81945,
+"lng": -78.69725,
+"tax_district": "550"
 },
 {
 "pin": "46102040032",
@@ -4882,7 +5835,11 @@
 "county_bldg": 137718.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.61018,
+"lng": -78.97464,
+"tax_district": "660"
 },
 {
 "pin": "31314030059",
@@ -4902,7 +5859,11 @@
 "county_bldg": 123839.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.85948,
+"lng": -78.65933,
+"tax_district": "500"
 },
 {
 "pin": "23514030006",
@@ -4922,7 +5883,11 @@
 "county_bldg": 177682.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29511",
+"lat": 33.97911,
+"lng": -79.18581,
+"tax_district": "400"
 },
 {
 "pin": "41506030019",
@@ -4942,7 +5907,11 @@
 "county_bldg": 170886.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.74249,
+"lng": -79.02452,
+"tax_district": "630"
 },
 {
 "pin": "38414010021",
@@ -4962,7 +5931,11 @@
 "county_bldg": 200000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.78467,
+"lng": -78.96528,
+"tax_district": "100"
 },
 {
 "pin": "33709010050",
@@ -4982,7 +5955,11 @@
 "county_bldg": 160518.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29527",
+"lat": 33.84943,
+"lng": -79.11171,
+"tax_district": "110"
 },
 {
 "pin": "39412040916",
@@ -5002,7 +5979,11 @@
 "county_bldg": 142000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.75974,
+"lng": -78.78942,
+"tax_district": "800"
 },
 {
 "pin": "39412040999",
@@ -5022,7 +6003,11 @@
 "county_bldg": 142000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29572",
+"lat": 33.75974,
+"lng": -78.78942,
+"tax_district": "800"
 },
 {
 "pin": "42110030073",
@@ -5042,7 +6027,11 @@
 "county_bldg": 188491.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.73267,
+"lng": -78.83519,
+"tax_district": "880"
 },
 {
 "pin": "35115030159",
@@ -5062,7 +6051,11 @@
 "county_bldg": 164307.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.82972,
+"lng": -78.63639,
+"tax_district": "550"
 },
 {
 "pin": "42704040036",
@@ -5082,7 +6075,11 @@
 "county_bldg": 188000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.721,
+"lng": -78.95654,
+"tax_district": "600"
 },
 {
 "pin": "34710030011",
@@ -5102,7 +6099,11 @@
 "county_bldg": 120886.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29568",
+"lat": 33.84089,
+"lng": -78.76913,
+"tax_district": "500"
 },
 {
 "pin": "29402040001",
@@ -5122,7 +6123,11 @@
 "county_bldg": 73900.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.91469,
+"lng": -79.0366,
+"tax_district": "100"
 },
 {
 "pin": "44012030056",
@@ -5142,7 +6147,11 @@
 "county_bldg": 168182.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.68002,
+"lng": -78.98812,
+"tax_district": "630"
 },
 {
 "pin": "41704020103",
@@ -5162,7 +6171,11 @@
 "county_bldg": 197250.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.75263,
+"lng": -78.95141,
+"tax_district": "600"
 },
 {
 "pin": "26601030006",
@@ -5182,7 +6195,11 @@
 "county_bldg": 164990.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.93533,
+"lng": -78.74317,
+"tax_district": "250"
 },
 {
 "pin": "33701030044",
@@ -5202,7 +6219,11 @@
 "county_bldg": 140352.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29527",
+"lat": 33.85936,
+"lng": -79.10427,
+"tax_district": "110"
 },
 {
 "pin": "44314010775",
@@ -5222,7 +6243,11 @@
 "county_bldg": 60000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67488,
+"lng": -78.89824,
+"tax_district": "898"
 },
 {
 "pin": "39405030276",
@@ -5242,7 +6267,11 @@
 "county_bldg": 270000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.76315,
+"lng": -78.78596,
+"tax_district": "800"
 },
 {
 "pin": "38313020055",
@@ -5262,7 +6291,11 @@
 "county_bldg": 147000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.78652,
+"lng": -78.98481,
+"tax_district": "110"
 },
 {
 "pin": "44314010843",
@@ -5282,7 +6315,11 @@
 "county_bldg": 104900.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67488,
+"lng": -78.89824,
+"tax_district": "898"
 },
 {
 "pin": "42010030056",
@@ -5302,7 +6339,11 @@
 "county_bldg": 215900.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.73065,
+"lng": -78.87175,
+"tax_district": "800"
 },
 {
 "pin": "39300000402",
@@ -5322,7 +6363,11 @@
 "county_bldg": 220000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.76958,
+"lng": -78.77835,
+"tax_district": "800"
 },
 {
 "pin": "46116010281",
@@ -5342,7 +6387,11 @@
 "county_bldg": 582000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.5948,
+"lng": -78.98315,
+"tax_district": "660"
 },
 {
 "pin": "46116010244",
@@ -5362,7 +6411,11 @@
 "county_bldg": 726560.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.59368,
+"lng": -78.98368,
+"tax_district": "660"
 },
 {
 "pin": "46216010032",
@@ -5382,7 +6435,11 @@
 "county_bldg": 147000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.59298,
+"lng": -79.01601,
+"tax_district": "610"
 },
 {
 "pin": "35110030025",
@@ -5402,7 +6459,11 @@
 "county_bldg": 600866.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.83827,
+"lng": -78.63745,
+"tax_district": "550"
 },
 {
 "pin": "45910040003",
@@ -5422,7 +6483,11 @@
 "county_bldg": 271017.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.62334,
+"lng": -78.97674,
+"tax_district": "600"
 },
 {
 "pin": "27410010003",
@@ -5442,7 +6507,11 @@
 "county_bldg": 241372.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.93103,
+"lng": -78.99938,
+"tax_district": "100"
 },
 {
 "pin": "42608010136",
@@ -5462,7 +6531,11 @@
 "county_bldg": 109000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.71714,
+"lng": -78.94739,
+"tax_district": "600"
 },
 {
 "pin": "42600000503",
@@ -5482,7 +6555,11 @@
 "county_bldg": 151000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.72228,
+"lng": -78.9228,
+"tax_district": "800"
 },
 {
 "pin": "46109010062",
@@ -5502,7 +6579,11 @@
 "county_bldg": 252938.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.60037,
+"lng": -78.98445,
+"tax_district": "660"
 },
 {
 "pin": "39506030016",
@@ -5522,7 +6603,11 @@
 "county_bldg": 887859.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.76561,
+"lng": -78.82716,
+"tax_district": "880"
 },
 {
 "pin": "32313040089",
@@ -5542,7 +6627,11 @@
 "county_bldg": 159550.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.86394,
+"lng": -78.98636,
+"tax_district": "100"
 },
 {
 "pin": "30702040003",
@@ -5562,7 +6651,11 @@
 "county_bldg": 53307.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.90484,
+"lng": -78.60678,
+"tax_district": "500"
 },
 {
 "pin": "25509040002",
@@ -5582,7 +6675,11 @@
 "county_bldg": 191121.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29569",
+"lat": 33.95355,
+"lng": -78.8422,
+"tax_district": "260"
 },
 {
 "pin": "29711020034",
@@ -5602,7 +6699,11 @@
 "county_bldg": 254354.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.90023,
+"lng": -78.92469,
+"tax_district": "100"
 },
 {
 "pin": "45703020045",
@@ -5622,7 +6723,11 @@
 "county_bldg": 116850.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.64368,
+"lng": -79.02662,
+"tax_district": "630"
 },
 {
 "pin": "46312010012",
@@ -5642,7 +6747,11 @@
 "county_bldg": 184500.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.60143,
+"lng": -79.02354,
+"tax_district": "610"
 },
 {
 "pin": "44704020091",
@@ -5662,7 +6771,11 @@
 "county_bldg": 488138.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.66771,
+"lng": -78.95235,
+"tax_district": "895"
 },
 {
 "pin": "31200000555",
@@ -5682,7 +6795,11 @@
 "county_bldg": 440000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.86341,
+"lng": -78.63677,
+"tax_district": "500"
 },
 {
 "pin": "39701030043",
@@ -5702,7 +6819,11 @@
 "county_bldg": 180000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.77423,
+"lng": -78.91057,
+"tax_district": "100"
 },
 {
 "pin": "44109010079",
@@ -5722,7 +6843,11 @@
 "county_bldg": 313362.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.68229,
+"lng": -78.98404,
+"tax_district": "630"
 },
 {
 "pin": "22715010013",
@@ -5742,7 +6867,11 @@
 "county_bldg": 254000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29569",
+"lat": 33.97839,
+"lng": -78.93542,
+"tax_district": "200"
 },
 {
 "pin": "45004040026",
@@ -5762,7 +6891,11 @@
 "county_bldg": 179950.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29588",
+"lat": 33.66752,
+"lng": -79.05814,
+"tax_district": "630"
 },
 {
 "pin": "34401010049",
@@ -5782,7 +6915,11 @@
 "county_bldg": 353665.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.85987,
+"lng": -78.88057,
+"tax_district": "100"
 },
 {
 "pin": "35705030040",
@@ -5802,7 +6939,11 @@
 "county_bldg": 181845.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.81787,
+"lng": -78.68882,
+"tax_district": "550"
 },
 {
 "pin": "36808020069",
@@ -5822,7 +6963,11 @@
 "county_bldg": 176094.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29527",
+"lat": 33.82721,
+"lng": -79.07557,
+"tax_district": "110"
 },
 {
 "pin": "45703020037",
@@ -5842,7 +6987,11 @@
 "county_bldg": 116581.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.64317,
+"lng": -79.02728,
+"tax_district": "630"
 },
 {
 "pin": "31209020019",
@@ -5862,7 +7011,11 @@
 "county_bldg": 216219.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29566",
+"lat": 33.86817,
+"lng": -78.64528,
+"tax_district": "500"
 },
 {
 "pin": "44314010642",
@@ -5882,7 +7035,11 @@
 "county_bldg": 115000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67349,
+"lng": -78.90129,
+"tax_district": "880"
 },
 {
 "pin": "39700000040",
@@ -5902,7 +7059,11 @@
 "county_bldg": 180000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.75651,
+"lng": -78.91494,
+"tax_district": "800"
 },
 {
 "pin": "42505040340",
@@ -5922,7 +7083,11 @@
 "county_bldg": 182500.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.71254,
+"lng": -78.89064,
+"tax_district": "880"
 },
 {
 "pin": "41713020017",
@@ -5942,7 +7107,11 @@
 "county_bldg": 107000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.72877,
+"lng": -78.95352,
+"tax_district": "600"
 },
 {
 "pin": "36802010054",
@@ -5962,7 +7131,11 @@
 "county_bldg": 59544.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29527",
+"lat": 33.8357,
+"lng": -79.06873,
+"tax_district": "110"
 },
 {
 "pin": "47004040024",
@@ -5982,7 +7155,11 @@
 "county_bldg": 250849.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.5824,
+"lng": -78.99421,
+"tax_district": "610"
 },
 {
 "pin": "45910010148",
@@ -6002,7 +7179,11 @@
 "county_bldg": 115000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.62671,
+"lng": -78.97259,
+"tax_district": "600"
 },
 {
 "pin": "40503040027",
@@ -6022,7 +7203,11 @@
 "county_bldg": 155592.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29527",
+"lat": 33.77769,
+"lng": -79.16181,
+"tax_district": "100"
 },
 {
 "pin": "31307030055",
@@ -6042,7 +7227,11 @@
 "county_bldg": 128000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.87186,
+"lng": -78.66761,
+"tax_district": "500"
 },
 {
 "pin": "42714030194",
@@ -6062,7 +7251,11 @@
 "county_bldg": 228000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.69862,
+"lng": -78.96055,
+"tax_district": "600"
 },
 {
 "pin": "36809020022",
@@ -6082,7 +7275,11 @@
 "county_bldg": 177230.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29527",
+"lat": 33.82133,
+"lng": -79.07325,
+"tax_district": "110"
 },
 {
 "pin": "42003030009",
@@ -6102,7 +7299,11 @@
 "county_bldg": 1117285.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.74503,
+"lng": -78.86145,
+"tax_district": "800"
 },
 {
 "pin": "35608010032",
@@ -6122,7 +7323,11 @@
 "county_bldg": 218500.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.82335,
+"lng": -78.68214,
+"tax_district": "550"
 },
 {
 "pin": "45805010018",
@@ -6142,7 +7347,11 @@
 "county_bldg": 201500.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.63438,
+"lng": -78.99133,
+"tax_district": "600"
 },
 {
 "pin": "17611040003",
@@ -6162,7 +7371,11 @@
 "county_bldg": 165719.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29569",
+"lat": 34.0616,
+"lng": -78.89255,
+"tax_district": "220"
 },
 {
 "pin": "38906030013",
@@ -6182,7 +7395,11 @@
 "county_bldg": 272170.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.79133,
+"lng": -78.79661,
+"tax_district": "550"
 },
 {
 "pin": "45910010147",
@@ -6202,7 +7419,11 @@
 "county_bldg": 165000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.62671,
+"lng": -78.97259,
+"tax_district": "600"
 },
 {
 "pin": "44111030031",
@@ -6222,7 +7443,11 @@
 "county_bldg": 182801.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.67933,
+"lng": -78.96154,
+"tax_district": "630"
 },
 {
 "pin": "38900000191",
@@ -6242,7 +7467,11 @@
 "county_bldg": 180000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.78004,
+"lng": -78.78506,
+"tax_district": "800"
 },
 {
 "pin": "29809030017",
@@ -6262,7 +7491,11 @@
 "county_bldg": 195000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.89783,
+"lng": -78.90595,
+"tax_district": "100"
 },
 {
 "pin": "26712040026",
@@ -6282,7 +7515,11 @@
 "county_bldg": 269054.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29568",
+"lat": 33.92195,
+"lng": -78.75564,
+"tax_district": "200"
 },
 {
 "pin": "22807020002",
@@ -6302,7 +7539,11 @@
 "county_bldg": 178773.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29569",
+"lat": 33.99153,
+"lng": -78.9636,
+"tax_district": "200"
 },
 {
 "pin": "40014010038",
@@ -6322,7 +7563,11 @@
 "county_bldg": 231709.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.75991,
+"lng": -78.99734,
+"tax_district": "100"
 },
 {
 "pin": "35906010036",
@@ -6342,7 +7587,11 @@
 "county_bldg": 291224.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.82343,
+"lng": -78.76458,
+"tax_district": "550"
 },
 {
 "pin": "36615040080",
@@ -6362,7 +7611,11 @@
 "county_bldg": 142833.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29526",
+"lat": 33.81043,
+"lng": -79.00414,
+"tax_district": "100"
 },
 {
 "pin": "46310020022",
@@ -6382,7 +7635,11 @@
 "county_bldg": 366390.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.60192,
+"lng": -79.03842,
+"tax_district": "610"
 },
 {
 "pin": "39004010049",
@@ -6402,7 +7659,11 @@
 "county_bldg": 370000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.80281,
+"lng": -78.75595,
+"tax_district": "550"
 },
 {
 "pin": "39412020908",
@@ -6422,7 +7683,11 @@
 "county_bldg": 174000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.76333,
+"lng": -78.78765,
+"tax_district": "800"
 },
 {
 "pin": "41802010059",
@@ -6442,7 +7707,11 @@
 "county_bldg": 167840.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.75115,
+"lng": -78.94084,
+"tax_district": "100"
 },
 {
 "pin": "39000000181",
@@ -6462,7 +7731,11 @@
 "county_bldg": 420000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.79975,
+"lng": -78.77463,
+"tax_district": "550"
 },
 {
 "pin": "34304030011",
@@ -6482,7 +7755,11 @@
 "county_bldg": 260577.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.85678,
+"lng": -78.88416,
+"tax_district": "100"
 },
 {
 "pin": "41911030003",
@@ -6502,7 +7779,11 @@
 "county_bldg": 640000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.73126,
+"lng": -78.89305,
+"tax_district": "800"
 },
 {
 "pin": "39412010274",
@@ -6522,7 +7803,11 @@
 "county_bldg": 430000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29572",
+"lat": 33.76143,
+"lng": -78.78948,
+"tax_district": "800"
 },
 {
 "pin": "45909010118",
@@ -6542,7 +7827,11 @@
 "county_bldg": 140000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29575",
+"lat": 33.62701,
+"lng": -78.98246,
+"tax_district": "600"
 },
 {
 "pin": "36911010030",
@@ -6562,7 +7851,11 @@
 "county_bldg": 252782.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29527",
+"lat": 33.82298,
+"lng": -79.09273,
+"tax_district": "110"
 },
 {
 "pin": "42115020160",
@@ -6582,7 +7875,11 @@
 "county_bldg": 370000.0,
 "no_land_value": true,
 "chain": false,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.72718,
+"lng": -78.83663,
+"tax_district": "880"
 },
 {
 "pin": "44607030027",
@@ -6602,7 +7899,11 @@
 "county_bldg": 166972.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.65924,
+"lng": -78.9396,
+"tax_district": "891"
 },
 {
 "pin": "13006030010",
@@ -6622,7 +7923,11 @@
 "county_bldg": 16565.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29545",
+"lat": 34.1541,
+"lng": -78.94962,
+"tax_district": "300"
 },
 {
 "pin": "42712010101",
@@ -6642,7 +7947,11 @@
 "county_bldg": 163482.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.7097,
+"lng": -78.95634,
+"tax_district": "600"
 },
 {
 "pin": "45902040063",
@@ -6662,7 +7971,11 @@
 "county_bldg": 256187.0,
 "no_land_value": false,
 "chain": false,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.63939,
+"lng": -78.97697,
+"tax_district": "600"
 },
 {
 "pin": "41702010068",
@@ -6682,7 +7995,11 @@
 "county_bldg": 158787.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29579",
+"lat": 33.75028,
+"lng": -78.97451,
+"tax_district": "600"
 },
 {
 "pin": "42804010017",
@@ -6702,7 +8019,11 @@
 "county_bldg": 239405.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.72287,
+"lng": -78.98827,
+"tax_district": "600"
 },
 {
 "pin": "32613010014",
@@ -6722,7 +8043,11 @@
 "county_bldg": 244088.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29526",
+"lat": 33.86986,
+"lng": -79.08315,
+"tax_district": "110"
 },
 {
 "pin": "25801030021",
@@ -6742,7 +8067,11 @@
 "county_bldg": 152736.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29568",
+"lat": 33.96512,
+"lng": -78.74012,
+"tax_district": "250"
 },
 {
 "pin": "35003030042",
@@ -6762,7 +8091,11 @@
 "county_bldg": 250000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.8521,
+"lng": -78.66318,
+"tax_district": "500"
 },
 {
 "pin": "30609020005",
@@ -6782,7 +8115,11 @@
 "county_bldg": 296212.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.89515,
+"lng": -78.64267,
+"tax_district": "500"
 },
 {
 "pin": "46215040101",
@@ -6802,7 +8139,11 @@
 "county_bldg": 208000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29576",
+"lat": 33.59039,
+"lng": -79.00825,
+"tax_district": "610"
 },
 {
 "pin": "35603040042",
@@ -6822,7 +8163,11 @@
 "county_bldg": 254506.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29582",
+"lat": 33.82537,
+"lng": -78.66718,
+"tax_district": "550"
 },
 {
 "pin": "44314010382",
@@ -6842,7 +8187,11 @@
 "county_bldg": 115000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29577",
+"lat": 33.67349,
+"lng": -78.90129,
+"tax_district": "880"
 },
 {
 "pin": "45915030001",
@@ -6862,7 +8211,11 @@
 "county_bldg": 255332.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29575",
+"lat": 33.61815,
+"lng": -78.96948,
+"tax_district": "660"
 },
 {
 "pin": "42704010046",
@@ -6882,7 +8235,11 @@
 "county_bldg": 248000.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29579",
+"lat": 33.72342,
+"lng": -78.95703,
+"tax_district": "600"
 },
 {
 "pin": "18716020022",
@@ -6902,7 +8259,11 @@
 "county_bldg": 219993.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29569",
+"lat": 34.03395,
+"lng": -78.93653,
+"tax_district": "200"
 },
 {
 "pin": "44816040032",
@@ -6922,7 +8283,11 @@
 "county_bldg": 47835.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29588",
+"lat": 33.6441,
+"lng": -79.01564,
+"tax_district": "630"
 },
 {
 "pin": "42405010084",
@@ -6942,7 +8307,11 @@
 "county_bldg": 199000.0,
 "no_land_value": true,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29577",
+"lat": 33.71635,
+"lng": -78.85809,
+"tax_district": "880"
 },
 {
 "pin": "31203010070",
@@ -6962,7 +8331,11 @@
 "county_bldg": 182881.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": false
+"resale_seller_company": false,
+"zcta": "29566",
+"lat": 33.88419,
+"lng": -78.63077,
+"tax_district": "500"
 },
 {
 "pin": "35712040260",
@@ -6982,7 +8355,11 @@
 "county_bldg": 304844.0,
 "no_land_value": false,
 "chain": true,
-"resale_seller_company": true
+"resale_seller_company": true,
+"zcta": "29582",
+"lat": 33.81153,
+"lng": -78.6902,
+"tax_district": "550"
 }
 ],
 "excluded_likely_lot_to_new_house": [
