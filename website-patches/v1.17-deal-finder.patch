@@ -1,30 +1,23 @@
-From bdb468c61799339bfea941bd347e490cb38539ce Mon Sep 17 00:00:00 2001
+From 8008a83d8f9978e9b7bab95ad0888289018cb367 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Thu, 29 Oct 2026 01:09:00 +0000
-Subject: [PATCH] Deal finder for agents: the best fix and flips on the market,
- one press
+Subject: [PATCH] Deal finder for agents: fix and flips, one press
 
-/homes/deals/ (not in search; the DEALS_KEY password and a signed-up account, because it reads sold
-homes). Fix and flip: homes for sale with a reason to be cheap (distressed sale, foreclosure, short
-sale, older or lowest-priced houses), each valued from houses of about its size sold within a mile
-(two if too few) in the last 12 months: the upper quarter of their price a square foot is the value
-fixed up. Repairs start from the agent's own figures by age and distress; the AI then looks at the
-photos and description of the best 12 (the analyzer's repair check and its saved answers) and
-replaces them. Profit after buying, holding and selling, the return on the cash in, and the 70
-percent rule's highest offer, with the sales behind each value. A price far below nearby sales is
-marked to check. Long-term and short-term rentals are the next two buttons.
-
-Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+Homes for sale with a reason to be cheap, ranked by how far their asking
+price a square foot sits under what houses like them sold for nearby.
+It never puts a value on a house (an automated value is a separate MLS
+licence we do not have). The agent types the after-repair value and the
+page does the flip math and the 70 percent rule's offer. The AI reads the
+photos of the first 12 for a repair figure.
 ---
- functions/homes/[[path]].js |  79 +++++++++++++-
- idx-lib/deals.js            | 204 ++++++++++++++++++++++++++++++++++++
- tools/idx-test.mjs          |  13 +++
- 3 files changed, 295 insertions(+), 1 deletion(-)
+ functions/homes/[[path]].js |  80 ++++++++++++-
+ idx-lib/deals.js            | 219 ++++++++++++++++++++++++++++++++++++
+ tools/idx-test.mjs          |  15 +++
+ 3 files changed, 313 insertions(+), 1 deletion(-)
  create mode 100644 idx-lib/deals.js
 
 diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
-index 4cd36ee1..77cc3da9 100644
+index 4cd36ee1..ca0be3e9 100644
 --- a/functions/homes/[[path]].js
 +++ b/functions/homes/[[path]].js
 @@ -23,6 +23,7 @@ import { filterCatalog, panelGroups } from "../../idx-lib/catalog.js";
@@ -59,7 +52,7 @@ index 4cd36ee1..77cc3da9 100644
    if (parts[1] === "near" && parts.length === 3) return placePage(context, parts[2], gate);
    const m = /^([A-Za-z0-9]{3,20})-[a-z0-9-]{1,120}$/.exec(parts[1] || "");
    if (m && parts.length === 2) return listingPage(context, m[1], parts[1], gate);
-@@ -511,6 +514,80 @@ async function mapPage(context, url, gate) {
+@@ -511,6 +514,81 @@ async function mapPage(context, url, gate) {
    });
  }
  
@@ -87,19 +80,19 @@ index 4cd36ee1..77cc3da9 100644
 +  const box = (k, label, unit) => `<label class="dl-in"><span>${esc(label)}</span><span class="dl-in-b">${unit === "$" ? "<i>$</i>" : ""}<input id="dl-${k}" type="number" inputmode="decimal" value="${f[k]}">${unit && unit !== "$" ? `<i>${esc(unit)}</i>` : ""}</span></label>`;
 +  const body = `<div id="dl-app" class="dl">
 +<h1>Deal finder</h1>
-+<p class="hx-lead">For our agents. One press looks through every home for sale and ranks the best by the numbers. Check every one before you call a client: it is a list to work, not advice.</p>
-+<p id="dl-signin" class="dl-warn" hidden>Sign in to your account on this site first: the sales behind each value are for signed-up accounts only. <button type="button" class="btn btn-outline" data-hx-signup>Sign in</button></p>
++<p class="hx-lead">For our agents. One press looks through every home for sale for a reason to be cheap, and ranks them by how far their asking price a square foot sits under what houses like them sold for nearby. You type the after-repair value; the page does the math. It is a list to work, not advice.</p>
++<p id="dl-signin" class="dl-warn" hidden>Sign in to your account on this site first: the nearby sales are for signed-up accounts only. <button type="button" class="btn btn-outline" data-hx-signup>Sign in</button></p>
 +<label class="dl-in dl-key"><span>Deal finder password</span><span class="dl-in-b"><input id="dl-key" type="password" autocomplete="off"></span></label>
 +<div class="dl-btns">
-+<button type="button" id="dl-flip" class="dl-btn dl-on"><b>Fix and flip</b><span>Cheap for a reason, worth more fixed up</span></button>
++<button type="button" id="dl-flip" class="dl-btn dl-on"><b>Fix and flip</b><span>Cheap for a reason, under its nearby sales</span></button>
 +<button type="button" class="dl-btn" disabled><b>Long-term rentals</b><span>Coming next</span></button>
 +<button type="button" class="dl-btn" disabled><b>Short-term rentals</b><span>Coming next</span></button>
 +</div>
 +<details class="dl-set"><summary>Your figures (saved on this computer)</summary><div class="dl-set-g">
-+${box("maxPrice", "Highest asking price", "$")}${box("minPrice", "Lowest asking price", "$")}${box("minProfit", "Lowest profit to show", "$")}
++${box("maxPrice", "Highest asking price", "$")}${box("minPrice", "Lowest asking price", "$")}
 +${box("light", "Light repairs, a sq ft", "$")}${box("medium", "Medium repairs, a sq ft", "$")}${box("heavy", "Heavy repairs, a sq ft", "$")}
 +${box("buyPct", "Buying costs", "%")}${box("sellPct", "Selling costs (commission and closing)", "%")}${box("holdMonths", "Months held", "months")}${box("holdPerMonth", "Holding cost a month (tax, insurance, utilities, loan)", "$")}
-+</div><p class="dl-small">The value fixed up (ARV) is the upper quarter of what houses of about the same size sold for within a mile (two if too few) in the last 12 months, by the square foot. Repairs start from your figures by the house's age and distress; the AI then looks at the photos of the best 12 and replaces them with its own estimate.</p></details>
++</div><p class="dl-small">The nearby sales are houses within 30 percent of its size that sold within a mile (two if too few) in the last 12 months. The page never puts a value on a house: an automated value is a separate MLS licence we do not have. Repairs start from your figures by the house's age and distress; the AI then looks at the photos of the first 12 and replaces them with its own estimate.</p></details>
 +<p id="dl-status" class="dl-status" role="status"></p>
 +<div id="dl-list" class="dl-list"></div>
 +${disclaimer(null)}
@@ -133,6 +126,7 @@ index 4cd36ee1..77cc3da9 100644
 +.dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin:.9rem 0 .5rem}
 +.dl-r{padding:.55rem .7rem;border-radius:10px;background:#faf8f4}.dl-r span{display:block;font-size:.75rem;color:var(--slate,#5c6b78)}.dl-r b{font-size:1rem}.dl-r-s{background:#eef6f0}
 +.dl-check{font-size:.9rem;margin:.4rem 0;padding:.5rem .7rem;border-radius:10px;background:#fef3cd}.dl-note{font-size:.9rem;margin:.4rem 0}.dl-comps{margin:.4rem 0}.dl-comps summary{cursor:pointer;font-size:.9rem;font-weight:600}.dl-comps table{width:100%;font-size:.85rem;border-collapse:collapse;margin-top:.4rem}.dl-comps td{padding:.3rem .4rem;border-bottom:1px solid rgba(28,32,40,.08)}
++.dl-arv{max-width:22rem;margin:.6rem 0 0}.dl-flipbox .dl-small{grid-column:1/-1;margin:0}
 +.dl-go{display:inline-block;margin-top:.5rem;font-weight:700;color:var(--brass-ink,#91592b)}.dl-firm{font-size:.75rem;color:var(--slate,#5c6b78);margin:.4rem 0 0}
 +@media (max-width:760px){.dl-btns{grid-template-columns:1fr}.dl-top{grid-template-columns:1fr}.dl-grid{grid-template-columns:1fr 1fr}}
 +</style>`;
@@ -142,26 +136,31 @@ index 4cd36ee1..77cc3da9 100644
  /** The house number and the first word of the street name, for matching an address. */
 diff --git a/idx-lib/deals.js b/idx-lib/deals.js
 new file mode 100644
-index 00000000..1a688f0d
+index 00000000..a2133a02
 --- /dev/null
 +++ b/idx-lib/deals.js
-@@ -0,0 +1,204 @@
+@@ -0,0 +1,219 @@
 +/**
 + * The deal finder (owners, 2026-10-29: "press a button and it finds the absolute best properties";
 + * fix and flips first). For agents only: /homes/deals/, behind the DEALS_KEY password and a signed-up
 + * account, because it reads sold homes (contract §5: sold data is for the registered tier only).
 + *
++ * It never puts a value on a house. An automated value (an AVM) is a separate MLS licence we do not
++ * have; the CRM's comps follow the same rule (chapter3-crm src/lib/mls/comps.ts). So the page shows
++ * the facts of the nearby sales, and the agent types the after-repair value. The math runs on that.
++ *
 + * Fix and flip, one press:
 + *   1. Candidates: homes for sale that show a reason to be cheap: a distressed sale, a foreclosure,
 + *      a short sale, or an older house at the low end of the market (a few CRM searches).
-+ *   2. Comparable sales: for each candidate, houses of about its size that sold within a mile (two
-+ *      if too few) in the last 12 months. The after-repair value is the upper quarter of their price
-+ *      per square foot, times the candidate's size: what it sells for once it is fixed.
++ *   2. Nearby sales: for each candidate, houses of about its size that sold within a mile (two if
++ *      too few) in the last 12 months: how many, their price a square foot from low to high, and the
++ *      middle one. Ranked by how far the asking price a square foot sits under that middle.
 + *   3. Repairs: a first figure by the house's age and its distress, per square foot (the agent's own
 + *      figures, editable on the page); the page then asks the AI to look at the photos of the best ones
 + *      and replaces the figure with its estimate.
-+ *   4. The math: after-repair value, less the price, repairs, buying and selling costs and the months
-+ *      held, is the profit. Ranked by profit, with the 70 percent rule's highest offer beside it.
++ *   4. The math, once the agent types the after-repair value: that value, less the price, repairs,
++ *      buying and selling costs and the months held, is the profit; the 70 percent rule's highest offer
++ *      beside it.
 + * Nothing here is advice to a buyer: it is a list for an agent to check.
 + */
 +
@@ -169,21 +168,20 @@ index 00000000..1a688f0d
 +import { photoUrl } from "./photo.js";
 +
 +export const FLIP_DEFAULTS = {
-+  maxPrice: 600000, minPrice: 50000, minProfit: 25000,
++  maxPrice: 600000, minPrice: 50000,
 +  buyPct: 2, sellPct: 8, holdMonths: 6, holdPerMonth: 900,
 +  light: 15, medium: 35, heavy: 60, // repairs, dollars a square foot
 +};
 +
 +const num = (v) => (typeof v === "number" && isFinite(v) ? v : null);
 +const median = (a) => { const s = [...a].sort((x, y) => x - y); const m = s.length >> 1; return s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null; };
-+const quantile = (a, q) => { const s = [...a].sort((x, y) => x - y); if (!s.length) return null; const i = (s.length - 1) * q, lo = Math.floor(i), hi = Math.ceil(i); return s[lo] + (s[hi] - s[lo]) * (i - lo); };
 +const miles = (a, b) => { const R = 3958.8, r = Math.PI / 180; return 2 * R * Math.asin(Math.sqrt(Math.sin((b.lat - a.lat) * r / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin((b.lng - a.lng) * r / 2) ** 2)); };
 +
 +/** The owner's settings from the page, each kept inside a sane range. */
 +export function flipSettings(q) {
 +  const s = { ...FLIP_DEFAULTS };
 +  const take = (k, lo, hi) => { const v = Number(q.get(k)); if (q.has(k) && isFinite(v) && v >= lo && v <= hi) s[k] = v; };
-+  take("maxPrice", 20000, 10000000); take("minPrice", 0, 5000000); take("minProfit", 0, 2000000);
++  take("maxPrice", 20000, 10000000); take("minPrice", 0, 5000000);
 +  take("buyPct", 0, 10); take("sellPct", 0, 15); take("holdMonths", 1, 24); take("holdPerMonth", 0, 20000);
 +  take("light", 0, 300); take("medium", 0, 300); take("heavy", 0, 400);
 +  return s;
@@ -198,20 +196,25 @@ index 00000000..1a688f0d
 +  return p >= 2 ? "heavy" : p >= 1 ? "medium" : "light";
 +}
 +
-+/** The after-repair value from sold houses like it: the upper quarter of their price a square foot. */
-+export function arvOf(subject, comps) {
-+  const sq = num(subject.sqft);
++/**
++ * The facts of the nearby sales, never a value for the subject: how many sold, their price a square
++ * foot from low to high and the middle one, and how far the subject's asking price a square foot sits
++ * under that middle. Needs 3 sales of about the same size (within 30 percent).
++ */
++export function nearbySales(subject, comps) {
++  const sq = num(subject.sqft), price = num(subject.listPrice);
 +  const usable = comps.filter((c) => num(c.soldPrice) > 0 && num(c.sqft) > 0 && c.mlsNumber !== subject.mlsNumber
 +    && (!sq || (c.sqft >= sq * 0.7 && c.sqft <= sq * 1.3)));
-+  if (!sq || usable.length < 3) return { arv: null, comps: usable, confidence: "too few sales" };
++  if (!sq || !price || usable.length < 3) return { n: usable.length, comps: usable, under: null };
 +  const psf = usable.map((c) => c.soldPrice / c.sqft);
-+  const top = quantile(psf, 0.75), mid = median(psf);
-+  const spread = mid ? (quantile(psf, 0.9) - quantile(psf, 0.1)) / mid : 1;
-+  const confidence = usable.length >= 6 && spread < 0.5 ? "good" : usable.length >= 4 ? "fair" : "thin";
-+  return { arv: Math.round(top * sq / 1000) * 1000, psfTop: Math.round(top), psfMid: Math.round(mid), comps: usable, confidence };
++  const mid = median(psf), own = price / sq;
++  return {
++    n: usable.length, comps: usable, own: Math.round(own), low: Math.round(Math.min(...psf)), high: Math.round(Math.max(...psf)), mid: Math.round(mid),
++    under: Math.round((1 - own / mid) * 100),
++  };
 +}
 +
-+/** The flip, in dollars. repairs: the AI's figure when there is one, else the tier's. */
++/** The flip, in dollars, on the agent's own after-repair value. repairs: the AI's figure when there is one, else the tier's. */
 +export function flipMath(price, arv, repairs, s) {
 +  const buy = price * s.buyPct / 100, sell = arv * s.sellPct / 100, hold = s.holdMonths * s.holdPerMonth;
 +  const allIn = price + repairs + buy + sell + hold;
@@ -224,7 +227,7 @@ index 00000000..1a688f0d
 +/**
 + * The whole first pass, server side. search(params) runs one CRM search with the agent's own
 + * signed-up account and returns its listings (or []). points(listings) fills in map points.
-+ * Returns the best candidates with their comps and math, before the AI looks at the photos.
++ * Returns the candidates furthest under their nearby sales, with those sales, before the AI looks at the photos.
 + */
 +export async function findFlips(search, points, s, today = new Date()) {
 +  const base = { status: "active", type: "house", min: String(s.minPrice), max: String(s.maxPrice), size: "48" };
@@ -248,7 +251,7 @@ index 00000000..1a688f0d
 +  let cands = [...found.values()];
 +  await points(cands.map((c) => c.l));
 +  cands = cands.filter((c) => c.l.point && num(c.l.point.lat));
-+  // Cheapest a square foot first: the likeliest gap between price and value. At most 60 get comps.
++  // Cheapest a square foot first: the likeliest to sit under their nearby sales. At most 60 get them.
 +  cands.sort((a, b) => a.l.listPrice / a.l.sqft - b.l.listPrice / b.l.sqft);
 +  cands = cands.slice(0, 60);
 +  const since = new Date(today.getTime() - 365 * 86400000).toISOString().slice(0, 10);
@@ -263,26 +266,25 @@ index 00000000..1a688f0d
 +    await Promise.all(cands.slice(i, i + 6).map(async (c) => {
 +      let comps = await compsFor(c.l, 1);
 +      if (comps.length < 4) comps = comps.concat((await compsFor(c.l, 2)).filter((x) => !comps.some((y) => y.mlsNumber === x.mlsNumber)));
-+      const v = arvOf(c.l, comps);
-+      if (!v.arv) return;
++      const v = nearbySales(c.l, comps);
++      if (v.under === null) return;
 +      const tier = repairTier(c.l, c.why);
-+      const repairs = Math.round(c.l.sqft * s[tier] / 500) * 500;
-+      const m = flipMath(c.l.listPrice, v.arv, repairs, s);
 +      out.push({
 +        mls: String(c.l.mlsNumber), address: c.l.address, city: c.l.city || "", zip: c.l.postalCode || "", price: c.l.listPrice,
 +        beds: num(c.l.beds), baths: num(c.l.baths), sqft: c.l.sqft, year: num(c.l.yearBuilt), acres: num(c.l.lotAcres), dom: num(c.l.daysOnMarket),
-+        url: listingPath(c.l), photo: c.l.photo ? photoUrl(c.l.photo, "card") : null, firm: c.l.listingFirm || "", point: c.l.point, why: [...c.why], tier, repairs, repairsFrom: "your figures",
-+        arv: v.arv, psfTop: v.psfTop, psfMid: v.psfMid, confidence: v.confidence, ...m,
++        url: listingPath(c.l), photo: c.l.photo ? photoUrl(c.l.photo, "card") : null, firm: c.l.listingFirm || "", point: c.l.point, why: [...c.why],
++        tier, repairs: Math.round(c.l.sqft * s[tier] / 500) * 500, repairsFrom: "your figures",
++        n: v.n, own: v.own, low: v.low, high: v.high, mid: v.mid, under: v.under,
 +        comps: v.comps.sort((a, b) => miles(c.l.point, a.point || c.l.point) - miles(c.l.point, b.point || c.l.point)).slice(0, 6)
 +          .map((x) => ({ address: x.address || "address withheld", soldPrice: x.soldPrice, soldOn: x.soldOn, sqft: x.sqft, psf: Math.round(x.soldPrice / x.sqft), mi: x.point ? Math.round(miles(c.l.point, x.point) * 10) / 10 : null })),
 +      });
 +    }));
 +  }
-+  // An asking price under 40 percent of the value is more often a mistake than a steal (a typo, an
-+  // auction's opening bid, the wrong size): it is marked to check, and ranked after the clean ones.
-+  for (const d of out) d.check = d.price < d.arv * 0.4 ? "The asking price is far below what houses like it sold for. Check the listing: it may be an auction's opening bid, a typo, or a house that needs everything." : "";
-+  out.sort((a, b) => (a.check ? 1 : 0) - (b.check ? 1 : 0) || b.profit - a.profit);
-+  return { checked: found.size, valued: out.length, deals: out.slice(0, 25) };
++  // An asking price a square foot more than 60 percent under the middle sale is more often a mistake
++  // than a steal (a typo, an auction's opening bid, the wrong size): marked to check, ranked last.
++  for (const d of out) d.check = d.under > 60 ? "The asking price a square foot is far under what houses like it sold for. Check the listing: it may be an auction's opening bid, a typo in the size, or a house that needs everything." : "";
++  out.sort((a, b) => (a.check ? 1 : 0) - (b.check ? 1 : 0) || b.under - a.under);
++  return { checked: found.size, compared: out.length, deals: out.slice(0, 25) };
 +}
 +
 +/* The page's own script. It asks the server for the first pass, then asks the AI to look at the
@@ -294,34 +296,41 @@ index 00000000..1a688f0d
 +function $(id){return document.getElementById(id)}
 +function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 +function money(n){return n==null||isNaN(n)?"--":(n<0?"-$":"$")+Math.abs(Math.round(n)).toLocaleString("en-US")}
-+var FIELDS=["maxPrice","minPrice","minProfit","buyPct","sellPct","holdMonths","holdPerMonth","light","medium","heavy"];
++var FIELDS=["maxPrice","minPrice","buyPct","sellPct","holdMonths","holdPerMonth","light","medium","heavy"];
 +function load(k,d){try{return localStorage.getItem(k)||d}catch(e){return d}}
 +function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 +var keyBox=$("dl-key");keyBox.value=load("c3_deals_key","");
 +FIELDS.forEach(function(f){var b=$("dl-"+f);var v=load("c3_deals_"+f,"");if(b&&v)b.value=v;if(b)b.addEventListener("change",function(){save("c3_deals_"+f,b.value)})});
 +if(!signed)$("dl-signin").hidden=false;
 +function settings(){var o={};FIELDS.forEach(function(f){o[f]=Number($("dl-"+f).value)||0});return o}
-+function math(d,s){var buy=d.price*s.buyPct/100,sell=d.arv*s.sellPct/100,hold=s.holdMonths*s.holdPerMonth;var allIn=d.price+d.repairs+buy+sell+hold,cash=d.price+d.repairs+buy+hold;
-+ d.buy=Math.round(buy);d.sell=Math.round(sell);d.hold=Math.round(hold);d.allIn=Math.round(allIn);d.profit=Math.round(d.arv-allIn);d.roi=cash>0?Math.round((d.arv-allIn)/cash*1000)/10:0;d.maxOffer=Math.round((d.arv*0.7-d.repairs)/1000)*1000}
++/* The flip on the agent's own after-repair value (the page never makes one: no AVM licence). */
++function math(d,arv,s){var buy=d.price*s.buyPct/100,sell=arv*s.sellPct/100,hold=s.holdMonths*s.holdPerMonth;var allIn=d.price+d.repairs+buy+sell+hold,cash=d.price+d.repairs+buy+hold;
++ return{costs:Math.round(buy+sell+hold),allIn:Math.round(allIn),profit:Math.round(arv-allIn),roi:cash>0?Math.round((arv-allIn)/cash*1000)/10:0,maxOffer:Math.round((arv*0.7-d.repairs)/1000)*1000}}
++function arvOf(d){return Number(load("c3_deals_arv_"+d.mls,""))||0}
 +var status=$("dl-status"),list=$("dl-list"),deals=[];
 +function say(t){status.textContent=t}
 +function row(k,v,strong){var r=el("div","dl-r"+(strong?" dl-r-s":""));r.appendChild(el("span",null,k));r.appendChild(el("b",null,v));return r}
-+function draw(){while(list.firstChild)list.removeChild(list.firstChild);var s=settings();
-+ var shown=deals.filter(function(d){return d.profit>=s.minProfit});
-+ if(!shown.length){list.appendChild(el("p","dl-none","No home clears your lowest profit right now. Lower it in Your figures, or run again later."));return}
-+ shown.forEach(function(d,i){var c=el("article","dl-c");
++function flipBox(d,box){while(box.firstChild)box.removeChild(box.firstChild);var arv=arvOf(d);
++ if(!arv){box.appendChild(el("p","dl-small","Type your after-repair value to see the profit and the highest offer."));return}
++ var m=math(d,arv,settings());box.appendChild(row("Buying, holding, selling",money(m.costs)));box.appendChild(row("All in",money(m.allIn)));
++ box.appendChild(row("Profit",money(m.profit)+" · "+m.roi+"% on the cash in",m.profit>0));box.appendChild(row("Highest offer by the 70% rule",money(m.maxOffer),true))}
++function draw(){while(list.firstChild)list.removeChild(list.firstChild);
++ if(!deals.length){list.appendChild(el("p","dl-none","No home in your price range has enough nearby sales to compare right now. Widen the prices in Your figures, or run again later."));return}
++ deals.forEach(function(d,i){var c=el("article","dl-c");
 +  var top=el("div","dl-top");var a=el("a","dl-photo");a.href=d.url;a.target="_blank";a.rel="noopener";if(d.photo){var im=el("img");im.src=d.photo;im.alt=d.address;im.loading="lazy";a.appendChild(im)}top.appendChild(a);
 +  var h=el("div","dl-h");h.appendChild(el("p","dl-rank","#"+(i+1)+" · "+d.why.join(", ")));var t=el("a","dl-addr",d.address+", "+d.city);t.href=d.url;t.target="_blank";t.rel="noopener";h.appendChild(t);
 +  h.appendChild(el("p","dl-facts",[d.beds!=null?d.beds+" bd":"",d.baths!=null?d.baths+" ba":"",d.sqft.toLocaleString("en-US")+" sq ft",d.year?"built "+d.year:"",d.acres?d.acres+" acres":"",d.dom!=null?d.dom+" days listed":""].filter(Boolean).join(" · ")));
-+  h.appendChild(el("p","dl-profit",money(d.profit)+" profit · "+d.roi+"% on the cash in"));top.appendChild(h);c.appendChild(top);
++  h.appendChild(el("p","dl-profit",d.under>0?d.under+"% under the middle nearby sale, a sq ft":"At or above the middle nearby sale, a sq ft"));top.appendChild(h);c.appendChild(top);
 +  var g=el("div","dl-grid");
-+  g.appendChild(row("Asking",money(d.price)));g.appendChild(row("Value fixed up (ARV)",money(d.arv)+" · "+d.confidence));
-+  g.appendChild(row("Repairs",money(d.repairs)+" · "+d.repairsFrom));g.appendChild(row("Buying, holding, selling",money(d.buy+d.hold+d.sell)));
-+  g.appendChild(row("All in",money(d.allIn)));g.appendChild(row("Highest offer by the 70% rule",money(d.maxOffer),true));c.appendChild(g);
++  g.appendChild(row("Asking",money(d.price)+" · $"+d.own+" a sq ft"));g.appendChild(row(d.n+" nearby sales, a sq ft","$"+d.low+" to $"+d.high+" · middle $"+d.mid));
++  g.appendChild(row("Repairs",money(d.repairs)+" · "+d.repairsFrom));c.appendChild(g);
 +  if(d.check)c.appendChild(el("p","dl-check",d.check));
 +  if(d.repairNote)c.appendChild(el("p","dl-note",d.repairNote));
-+  var det=el("details","dl-comps");det.appendChild(el("summary",null,"The "+d.comps.length+" sales behind the value ($"+d.psfTop+" a sq ft, upper quarter; middle $"+d.psfMid+")"));
++  var det=el("details","dl-comps");det.appendChild(el("summary",null,"The "+d.comps.length+" nearest of those sales"));
 +  var tb=el("table");d.comps.forEach(function(x){var tr=el("tr");[x.address,money(x.soldPrice),x.soldOn,x.sqft.toLocaleString("en-US")+" sq ft","$"+x.psf+"/sq ft",x.mi!=null?x.mi+" mi":""].forEach(function(v){tr.appendChild(el("td",null,v))});tb.appendChild(tr)});det.appendChild(tb);c.appendChild(det);
++  var lab=el("label","dl-in dl-arv");lab.appendChild(el("span",null,"Your after-repair value, from the sales"));var bx=el("span","dl-in-b");bx.appendChild(el("i",null,"$"));var inp=el("input");inp.type="number";inp.inputMode="numeric";inp.placeholder="Type it";var have=arvOf(d);if(have)inp.value=String(have);bx.appendChild(inp);lab.appendChild(bx);c.appendChild(lab);
++  var fb=el("div","dl-grid dl-flipbox");c.appendChild(fb);flipBox(d,fb);
++  inp.addEventListener("input",function(){save("c3_deals_arv_"+d.mls,String(Number(inp.value)||""));flipBox(d,fb)});
 +  var go=el("a","dl-go","Open it in the analyzer");go.href="/invest/long-term-rental/?mls="+encodeURIComponent(d.mls)+"&go=1";go.target="_blank";go.rel="noopener";c.appendChild(go);
 +  c.appendChild(el("p","dl-firm","MLS #"+d.mls+", listed by "+(d.firm||"the listing brokerage")+"."));
 +  list.appendChild(c)})}
@@ -338,42 +347,44 @@ index 00000000..1a688f0d
 +    return{needsWork:o.needsWork===true&&items.length>0,mid:Math.round((lo+hi)/2/500)*500,lo:lo,hi:hi,summary:o.summary||"",items:items}})}).catch(function(){return null})}
 +function run(){var key=keyBox.value.trim();if(!key){say("Type the deal finder password first.");keyBox.focus();return}save("c3_deals_key",key);
 + var s=settings(),q=new URLSearchParams();FIELDS.forEach(function(f){q.set(f,String(s[f]))});q.set("kind","flip");
-+ $("dl-flip").disabled=true;say("Looking through every home for sale for a reason to be cheap, then at what houses like each one sold for. About a minute...");
++ $("dl-flip").disabled=true;say("Looking through every home for sale for a reason to be cheap, then at what houses like each one sold for nearby. About a minute...");
 + fetch("/homes/api/deals?"+q.toString(),{credentials:"same-origin",headers:{"x-deals-key":key}}).then(function(r){return r.json().then(function(j){j._s=r.status;return j})}).then(function(j){
 +  if(!j||!j.ok){$("dl-flip").disabled=false;say(j&&j.error==="sign_in"?"Sign in to your account on the site first: the sold homes need it.":j&&j._s===404?"That password is not right.":"The search did not finish. Please try again in a minute.");return}
-+  deals=j.deals;draw();say("Checked "+j.checked+" homes; valued "+j.valued+" from nearby sales. Now the AI is looking at the photos of the best 12...");
++  deals=j.deals;draw();say("Checked "+j.checked+" homes; compared "+j.compared+" with nearby sales. Now the AI is looking at the photos of the first 12...");
 +  var top=deals.slice(0,12),done=0;
-+  function next(k){if(k>=top.length){deals.sort(function(a,b){return (a.check?1:0)-(b.check?1:0)||b.profit-a.profit});draw();$("dl-flip").disabled=false;say("Done. Checked "+j.checked+" homes; valued "+j.valued+"; the AI looked at the photos of "+done+". The best are first.");return}
-+   var d=top[k];repairCheck(d).then(function(r){if(r){done++;if(r.needsWork){d.repairs=Math.max(r.mid,500);d.repairsFrom="the AI, from the photos";d.repairNote=r.summary+" About "+money(r.lo)+" to "+money(r.hi)+": "+r.items.map(function(x){return x.item}).join(", ")+"."}else{d.repairsFrom="your figures (the AI saw no work in the photos)";d.repairNote=r.summary}math(d,settings())}
++  function next(k){if(k>=top.length){draw();$("dl-flip").disabled=false;say("Done. Checked "+j.checked+" homes; compared "+j.compared+"; the AI looked at the photos of "+done+". Furthest under their nearby sales first.");return}
++   var d=top[k];repairCheck(d).then(function(r){if(r){done++;if(r.needsWork){d.repairs=Math.max(r.mid,500);d.repairsFrom="the AI, from the photos";d.repairNote=r.summary+" About "+money(r.lo)+" to "+money(r.hi)+": "+r.items.map(function(x){return x.item}).join(", ")+"."}else{d.repairsFrom="your figures (the AI saw no work in the photos)";d.repairNote=r.summary}}
 +    draw();say("The AI has looked at "+(k+1)+" of "+top.length+"...");next(k+1)})}
 +  next(0)}).catch(function(){$("dl-flip").disabled=false;say("The search did not finish. Please try again in a minute.")})}
 +$("dl-flip").addEventListener("click",run);
-+FIELDS.forEach(function(f){var b=$("dl-"+f);if(b)b.addEventListener("input",function(){if(deals.length){var s=settings();deals.forEach(function(d){math(d,s)});deals.sort(function(a,b){return (a.check?1:0)-(b.check?1:0)||b.profit-a.profit});draw()}})});
++FIELDS.forEach(function(f){var b=$("dl-"+f);if(b)b.addEventListener("input",function(){if(deals.length)draw()})});
 +})();</script>`;
 diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
-index d8fe96c2..3834a9db 100644
+index d8fe96c2..58c8bf3c 100644
 --- a/tools/idx-test.mjs
 +++ b/tools/idx-test.mjs
 @@ -12,6 +12,7 @@ import { postFilter, rankHomes } from "../idx-lib/feeds.js";
  import { filterBar } from "../idx-lib/filters.js";
  import { featureList } from "../idx-lib/features.js";
  import { readQuery } from "../idx-lib/query.js";
-+import { arvOf, flipMath, FLIP_DEFAULTS, repairTier } from "../idx-lib/deals.js";
++import { nearbySales, flipMath, FLIP_DEFAULTS, repairTier } from "../idx-lib/deals.js";
  import { photo, photoUrl, warm } from "../idx-lib/photo.js";
  import { resetCatalog } from "../idx-lib/catalog.js";
  import { SCRIPT, STYLE } from "../idx-lib/render.js";
-@@ -636,5 +637,17 @@ r = await run(homes, req("/homes/api/map?q=3+bed+house+in+conway&near=33.7,-78.9
+@@ -636,5 +637,19 @@ r = await run(homes, req("/homes/api/map?q=3+bed+house+in+conway&near=33.7,-78.9
      && d.fetched === 1 && d.stop === "mls_limit" && viaBucket.status === 200 && mlsCalls === callsBefore);
  }
  
-+// The deal finder's fix-and-flip math (owners, 2026-10-29).
++// The deal finder's fix-and-flip math (owners, 2026-10-29). It never values the house (no AVM licence):
++// it reports the nearby sales and how far the asking price a square foot sits under the middle one.
 +{
-+  const subj = { mlsNumber: "1", sqft: 1500, yearBuilt: 1975 };
++  const subj = { mlsNumber: "1", sqft: 1500, yearBuilt: 1975, listPrice: 150000 };
 +  const comps = [180, 190, 200, 210, 220, 230].map((psf, i) => ({ mlsNumber: "c" + i, sqft: 1500, soldPrice: psf * 1500 }));
-+  const v = arvOf(subj, comps), thin = arvOf(subj, comps.slice(0, 2)), far = arvOf(subj, comps.map((c) => ({ ...c, sqft: 3000 })));
++  const v = nearbySales(subj, comps), thin = nearbySales(subj, comps.slice(0, 2)), far = nearbySales(subj, comps.map((c) => ({ ...c, sqft: 3000 })));
 +  const m = flipMath(150000, 300000, 30000, FLIP_DEFAULTS);
-+  check("deal finder: the value fixed up is the upper quarter of nearby sales a square foot (needs 3 of about the same size); repairs by age and distress; profit is the value less price, repairs, buying, selling and holding; the 70% rule's offer beside it",
-+    v.arv === Math.round(217.5 * 1500 / 1000) * 1000 && thin.arv === null && far.arv === null
++  const noValue = !Object.keys(v).some((k) => /arv|value|estimate/i.test(k));
++  check("deal finder: nearby sales of about the same size (3 needed): low, high, middle a square foot and how far under the middle; no value field; repairs by age and distress; profit on the agent's value less price, repairs, buying, selling and holding; the 70% rule's offer",
++    v.n === 6 && v.low === 180 && v.high === 230 && v.mid === 205 && v.own === 100 && v.under === 51 && noValue && thin.under === null && far.under === null
 +    && repairTier(subj, new Set(["distressed"])) === "heavy" && repairTier({ yearBuilt: 2010 }, new Set()) === "light"
 +    && m.profit === 300000 - (150000 + 30000 + 3000 + 24000 + 5400) && m.maxOffer === 180000);
 +}
