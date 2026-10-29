@@ -2,6 +2,8 @@
 
 Paste everything below the line into the chat that builds it. Written 2026-10-29.
 
+**Superseded on the value rule (owner, 2026-10-29, later the same day):** "I do want the AVM and everything else, no restrictions needed to make the best deal finder product. It just won't be shown on the website." The deal finder is now its own package, `deal-finder/` (to move to its own repo), with our own value model for staff. The website still gets no value of any kind. See `deal-finder/README.md` and `deal-finder/docs/DATA-ACCESS.md`.
+
 ---
 
 Build a deal finder inside the Chapter3 CRM (repo `chapter3realty`'s CRM, the one with `src/lib/mls/comps.ts`). Work on a new branch and open a pull request for Abdulla to review. Never push or merge to `main`.

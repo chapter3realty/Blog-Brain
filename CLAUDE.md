@@ -7,6 +7,7 @@ The page production system for chapter3realty.com: the standard a page must meet
 | Repo | What | Branch |
 |---|---|---|
 | `chapter3realty/Blog-Brain` (this one) | Standard, workflow, scorer, templates, prompts, pilots | your session branch |
+| `deal-finder/` (in this repo for now; moves to `chapter3realty/deal-finder` once that repo exists) | The deal finder: our value model and the fix and flip ranking, from the CRM's MLS copy. Staff see values; the website never does. `deal-finder/README.md` | your session branch |
 | `chapter3realty/Chapter3-Website` | The site, `build.js`, `tools/mkpage.js`, specs, research | **`claude/github-account-check-wutg8b`**, which matches the live site. `main` is stale (July) and is missing 45 pages. |
 
 Clone the website (read-only is enough to study and score it):
