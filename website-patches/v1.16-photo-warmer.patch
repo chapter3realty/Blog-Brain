@@ -1,0 +1,213 @@
+From 3ce79cda958f3dc44c3bc3536e6417b837ec1019 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 29 Oct 2026 00:05:23 +0000
+Subject: [PATCH] Every listing's photos copied ahead of visitors, into one
+ store for the whole site
+
+The copies now live in R2 (the PHOTOS bucket bound to the site), so a photo copied once is there
+for every visitor, wherever Cloudflare serves them; the edge cache in front saves a read, and the
+bucket's own rule deletes a copy after 30 days. GET /homes/api/warm, called every minute by the
+photo-warmer Worker (Blog-Brain website-patches/photo-warmer-worker.js), takes a page of homes for
+sale and copies each first photo not yet kept, in both sizes, at most 12 a call, stopping when the
+MLS says fewer than 40 are left this minute or 600 this hour, so visitors still get theirs. It
+needs the WARM_KEY secret; without it, or without the bucket, it does nothing.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+---
+ functions/homes/[[path]].js |  7 ++-
+ idx-lib/photo.js            | 85 ++++++++++++++++++++++++++++++++++---
+ tools/idx-test.mjs          | 31 +++++++++++++-
+ 3 files changed, 114 insertions(+), 9 deletions(-)
+
+diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
+index ae82e319..4cd36ee1 100644
+--- a/functions/homes/[[path]].js
++++ b/functions/homes/[[path]].js
+@@ -22,7 +22,7 @@ import { featureLabel, featureList, catalogLoaded, isDistance } from "../../idx-
+ import { filterCatalog, panelGroups } from "../../idx-lib/catalog.js";
+ import { filterBar, labels as filterLabels } from "../../idx-lib/filters.js";
+ import { postFilter, rankHomes } from "../../idx-lib/feeds.js";
+-import { photo, photoUrl } from "../../idx-lib/photo.js";
++import { photo, photoUrl, warm } from "../../idx-lib/photo.js";
+ import { MAP_SCRIPT, MAP_STYLE, geocode, mapsKey, nearOf, pinOf, withPoints } from "../../idx-lib/map.js";
+ import { SMS_CONSENT_TEXT, TERMS_PARAGRAPHS, TERMS_TITLE, TERMS_VERSION, termsText } from "../../idx-lib/terms.js";
+ import {
+@@ -74,6 +74,11 @@ async function handle(context) {
+   if (path.startsWith("/homes/api/")) {
+     const name = path.replace(/^\/homes\/api\/|\/$/g, "");
+     if (name === "map" && (request.method === "GET" || request.method === "HEAD")) return mapData(context, url);
++    // The photo warmer's call (idx-lib/photo.js): a page of homes for sale, 24 at a time, from the CRM.
++    if (name === "warm" && request.method === "GET") return warm(context, url, async (pg) => {
++      const r = await crm(env, request, `/api/idx/listings?status=active&size=24&page=${pg}`, { anonymous: true });
++      return r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? { total: typeof r.json.total === "number" ? r.json.total : r.json.listings.length, listings: r.json.listings } : null;
++    });
+     if (name === "lookup" && request.method === "GET") return lookup(context, url);
+     if (name === "similar" && request.method === "GET") return similar(context, url);
+     if (name === "strip" && request.method === "GET") return stripApi(context, url);
+diff --git a/idx-lib/photo.js b/idx-lib/photo.js
+index 035e2116..fcaaa172 100644
+--- a/idx-lib/photo.js
++++ b/idx-lib/photo.js
+@@ -4,7 +4,7 @@
+  * visitor together and sends each full size, about 750 KB, so pages waited on it and photos
+  * failed in busy minutes. Here each photo is fetched from Trestle once, made smaller by our own
+  * resizer (idx-lib/shrink.js: a card photo goes from about 750 KB to about 45 KB), and kept in
+- * the edge cache and the browser for 30 days. A photo's link changes when the agent replaces it, so a new photo
++ * R2 (the PHOTOS bucket), the edge cache and the browser for 30 days. A photo's link changes when the agent replaces it, so a new photo
+  * gets a new copy; a home that sold is no longer shown, and its copy expires by itself.
+  *
+  *   /homes/p/card?u=<Trestle link>   about 480 px wide: cards, rows, the map
+@@ -27,24 +27,95 @@ export function photoUrl(u, size = "card") {
+   return ourPhoto(u) ? `/homes/p/${size === "big" ? "big" : "card"}?u=${encodeURIComponent(u)}` : u;
+ }
+ 
++/* The copies live in R2 (the PHOTOS bucket, bound to the site), one store for every visitor
++   wherever they are; the edge cache in front of it saves a read. Without the bucket, the edge cache
++   alone. The bucket's own rule deletes a copy 30 days after it was made. */
++async function storeKey(size, u) {
++  const d = new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(u)));
++  return `p/v1/${size}/${[...d].map((b) => b.toString(16).padStart(2, "0")).join("")}`;
++}
++const served = (body, type) => new Response(body, { headers: { "content-type": type, "cache-control": `public, max-age=${KEEP}, immutable` } });
++
++/** The photo made smaller for one size, as bytes and a type (the original when it cannot be). */
++function sized(bytes, type, size) {
++  if (/jpe?g/i.test(type)) {
++    const small = shrinkJpeg(bytes, WIDTH[size], size === "big" ? 66 : 72);
++    if (small && small.length < bytes.length) return [small, "image/jpeg"];
++  }
++  return [bytes, type];
++}
++
+ /** GET /homes/p/<size>?u=: the kept copy, or one fetched, made smaller and kept now. */
+ export async function photo(context, url, size) {
+   const u = url.searchParams.get("u") || "";
+   if (!WIDTH[size] || !ourPhoto(u)) return new Response("Not found", { status: 404 });
++  const env = context.env || {};
+   const cache = typeof caches !== "undefined" ? caches.default : null;
+   const key = new Request(`https://chapter3realty.com/__photo/v2/${size}/${encodeURIComponent(u)}`);
+   if (cache) { const hit = await cache.match(key); if (hit) return hit; }
++  const sk = env.PHOTOS ? await storeKey(size, u) : null;
++  if (sk) {
++    const o = await env.PHOTOS.get(sk);
++    if (o) { const out = served(o.body, (o.httpMetadata && o.httpMetadata.contentType) || "image/jpeg"); if (cache) context.waitUntil(cache.put(key, out.clone())); return out; }
++  }
+   let r = null;
+   try { r = await fetch(u); } catch { r = null; }
+   const type = r ? r.headers.get("content-type") || "" : "";
+   // The MLS said no (its limit, most often): the browser asks it directly, and nothing is kept.
+   if (!r || !r.ok || !/^image\//.test(type)) return new Response(null, { status: 302, headers: { Location: u, "cache-control": "no-store" } });
+-  let body = new Uint8Array(await r.arrayBuffer()), outType = type;
+-  if (/jpe?g/i.test(type)) {
+-    const small = shrinkJpeg(body, WIDTH[size], size === "big" ? 66 : 72);
+-    if (small && small.length < body.length) { body = small; outType = "image/jpeg"; }
+-  }
+-  const out = new Response(body, { headers: { "content-type": outType, "cache-control": `public, max-age=${KEEP}, immutable` } });
++  const [body, outType] = sized(new Uint8Array(await r.arrayBuffer()), type, size);
++  if (sk) context.waitUntil(env.PHOTOS.put(sk, body, { httpMetadata: { contentType: outType }, customMetadata: { src: u.slice(0, 500) } }));
++  const out = served(body, outType);
+   if (cache) context.waitUntil(cache.put(key, out.clone()));
+   return out;
+ }
++
++/**
++ * GET /homes/api/warm?slot=&slots= (owners, 2026-10-28: "auto download the photo 240 a minute
++ * every minute until it has all of them"). The photo-warmer Worker calls this every minute, once
++ * per slot. Each call takes one page of homes for sale (24) and, for each home whose first photo
++ * has no copy yet, fetches it from the MLS once and keeps both sizes: the card and the listing
++ * page's main photo. A call fetches at most 12 photos, and stops early when the MLS says fewer
++ * than 40 are left this minute or 600 this hour, so visitors browsing meanwhile still get theirs.
++ * Pages turn over by the minute, so every page is visited again and again: new listings get
++ * their photos within the hour, and a copy the bucket deleted after 30 days is made again.
++ * Needs the WARM_KEY secret in the x-warm-key header; without it, or without the bucket, nothing.
++ */
++export async function warm(context, url, listPage) {
++  const env = context.env || {};
++  if (!env.WARM_KEY || context.request.headers.get("x-warm-key") !== env.WARM_KEY) return new Response("Not found", { status: 404 });
++  const reply = (o) => new Response(JSON.stringify(o), { headers: { "content-type": "application/json", "cache-control": "no-store" } });
++  if (!env.PHOTOS) return reply({ ok: false, error: "no_bucket" });
++  const n = (v, lo, hi, d) => { const x = parseInt(v, 10); return Number.isInteger(x) ? Math.min(hi, Math.max(lo, x)) : d; };
++  const slots = n(url.searchParams.get("slots"), 1, 30, 12), slot = n(url.searchParams.get("slot"), 0, slots - 1, 0);
++  const first = await listPage(1);
++  if (!first) return reply({ ok: false, error: "crm" });
++  const pages = Math.max(1, Math.ceil(first.total / 24));
++  const page = ((Math.floor(Date.now() / 60000) * slots + slot) % pages) + 1;
++  const got = page === 1 ? first : await listPage(page);
++  const left = (r, h) => { const v = r.headers.get(h); return v === null || v === "" || !isFinite(+v) ? Infinity : +v; };
++  let fetched = 0, stored = 0, kept = 0, stop = "";
++  for (const l of (got && got.listings) || []) {
++    const u = l && l.photo;
++    if (!ourPhoto(u)) continue;
++    const keys = { card: await storeKey("card", u), big: await storeKey("big", u) };
++    const missing = [];
++    for (const size of ["card", "big"]) if (!(await env.PHOTOS.head(keys[size]))) missing.push(size);
++    if (!missing.length) { kept++; continue; }
++    if (fetched >= 12) { stop = "enough"; break; }
++    let r = null;
++    try { r = await fetch(u); } catch { r = null; }
++    fetched++;
++    if (r && r.ok && /^image\//.test(r.headers.get("content-type") || "")) {
++      const type = r.headers.get("content-type"), bytes = new Uint8Array(await r.arrayBuffer());
++      for (const size of missing) {
++        const [body, outType] = sized(bytes, type, size);
++        await env.PHOTOS.put(keys[size], body, { httpMetadata: { contentType: outType }, customMetadata: { src: u.slice(0, 500) } });
++      }
++      stored++;
++    }
++    if (r && (left(r, "minute-quota-available") < 40 || left(r, "hour-quota-available") < 600)) { stop = "mls_limit"; break; }
++    if (r && !r.ok) { stop = `mls_${r.status}`; break; }
++  }
++  return reply({ ok: true, page, pages, fetched, stored, kept, stop });
++}
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index 3b5b21e3..d8fe96c2 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -12,7 +12,7 @@ import { postFilter, rankHomes } from "../idx-lib/feeds.js";
+ import { filterBar } from "../idx-lib/filters.js";
+ import { featureList } from "../idx-lib/features.js";
+ import { readQuery } from "../idx-lib/query.js";
+-import { photo, photoUrl } from "../idx-lib/photo.js";
++import { photo, photoUrl, warm } from "../idx-lib/photo.js";
+ import { resetCatalog } from "../idx-lib/catalog.js";
+ import { SCRIPT, STYLE } from "../idx-lib/render.js";
+ const STYLE_OK = () => STYLE.includes(".hx-dialog form[hidden]{display:none}");
+@@ -607,5 +607,34 @@ r = await run(homes, req("/homes/api/map?q=3+bed+house+in+conway&near=33.7,-78.9
+   check("listing photos open full screen and page through (arrows, swipe, keys); the map has a Full map button and its 2D and 3D buttons sit above Google's layers", S.includes('box.className="hx-lb"') && S.includes('e.key==="ArrowRight"') && M.includes('getElementById("hx-full-b")') && MS.includes(".hx-map{position:absolute;inset:0;z-index:0}"));
+ }
+ 
++// The photo warmer: every home's first photo kept in the bucket, at most 12 an MLS call each, stopping when the MLS runs low.
++{
++  const fs = await import("node:fs");
++  const jpg = fs.readFileSync(new URL("./fixtures/listing-photo.jpg", import.meta.url));
++  const bucket = new Map();
++  const R2 = { head: async (k) => (bucket.has(k) ? {} : null), get: async (k) => (bucket.has(k) ? { body: bucket.get(k).body, httpMetadata: bucket.get(k).meta } : null), put: async (k, body, o) => { bucket.set(k, { body, meta: o.httpMetadata }); } };
++  const link = (i) => `https://api.cotality.com/trestle/Media/Property/PHOTO-jpeg/${1000 + i}/1/MTIxOTIvMTMxMTAvMjA/x/sig${i}`;
++  const homes = Array.from({ length: 24 }, (_, i) => ({ photo: link(i) }));
++  const listPage = async () => ({ total: 24, listings: homes });
++  const saved = globalThis.fetch; let mlsCalls = 0, left = 200;
++  globalThis.fetch = async () => { mlsCalls++; left--; return new Response(jpg, { status: 200, headers: { "content-type": "image/jpeg", "minute-quota-available": String(left), "hour-quota-available": "8000" } }); };
++  const call = (key, envX) => warm({ env: envX, request: new Request("https://chapter3realty.com/homes/api/warm?slot=0&slots=1", { headers: key ? { "x-warm-key": key } : {} }), waitUntil() {} }, new URL("https://chapter3realty.com/homes/api/warm?slot=0&slots=1"), listPage);
++  const env1 = { WARM_KEY: "k".repeat(32), PHOTOS: R2 };
++  const noKey = await call("", env1), wrong = await call("nope", env1);
++  const a = await (await call("k".repeat(32), env1)).json();
++  const b = await (await call("k".repeat(32), env1)).json();
++  const c = await (await call("k".repeat(32), env1)).json();
++  const keptCopies = bucket.size; left = 40;
++  bucket.clear(); const d = await (await call("k".repeat(32), env1)).json();
++  // A visitor's photo now comes from the bucket, not the MLS.
++  bucket.clear(); left = 200; await (await call("k".repeat(32), env1)).json();
++  const callsBefore = mlsCalls;
++  const viaBucket = await photo({ env: env1, request: new Request("https://chapter3realty.com/homes/p/card"), waitUntil() {} }, new URL(`https://chapter3realty.com/homes/p/card?u=${encodeURIComponent(link(0))}`), "card");
++  globalThis.fetch = saved;
++  check("photo warmer: only with the secret; 12 photos a call, both sizes kept; the next call takes the next 12; then nothing is fetched again; it stops when the MLS has under 40 left this minute; a visitor's photo then comes from the bucket",
++    noKey.status === 404 && wrong.status === 404 && a.fetched === 12 && a.stored === 12 && b.fetched === 12 && b.kept === 12 && c.fetched === 0 && c.kept === 24 && keptCopies === 48
++    && d.fetched === 1 && d.stop === "mls_limit" && viaBucket.status === 200 && mlsCalls === callsBefore);
++}
++
+ console.log(fails ? `${fails} control(s) fail` : "all controls pass");
+ process.exit(fails ? 1 : 0);
+-- 
+2.43.0
+
