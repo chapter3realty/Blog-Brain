@@ -5,8 +5,8 @@
  * Batch 2026-10-c, Lane U. Version 1, 2026-10-29. The page was hand-made; this spec replaces it.
  * Facts: Blog-Brain batches/2026-10-c/facts/fix-and-flip-facts.md (verified rows only). Charts are
  * built from data/2026-10-c/horry-flips.json (the county deed index, pulled 2026-10-29), never typed.
- * Kept from the live page: the calculator, the inherited-house story (without its figures: the owner
- * gave two versions, stories.json "inherited-house-flip"), who buys finished flips, the loans and the
+ * Kept from the live page: the calculator, the inherited-house story (the owner, 2026-10-29: "worth about
+ * 390k after repairs"; no sale, net or profit figure, stories.json "inherited-house-flip"), who buys finished flips, the loans and the
  * cash sections. Corrected from the live page: roofs (the county's pages disagree on a reroof permit;
  * verifier row 14), the deed fee (the seller's by law, the buyer's on a foreclosure deed), wholesaling
  * (the statute's own terms). Verifier corrections of 2026-10-29 (rows 2, 7, 14, 28, 30) are in.
@@ -190,7 +190,7 @@ module.exports = G.page({
 
     { h2: "How does a finished flip sell here?", toc: "Selling it", id: "selling-it", html: () =>
       h.p("Most of our buyers for a finished flip are moving from out of state, or retiring. We spend several thousand dollars a month advertising to buyers moving to the Grand Strand, so a finished flip goes in front of them the day it lists. Lighter repairs sometimes suit the rental buyers on our list before the house reaches the open market.") +
-      h.p("One investor here inherited a house and had it fully repaired over about two and a half months. An agent at Chapter3 advertised it for sale while the work was going on. It went under contract a week before the work finished, and it closed for cash the day construction ended.") +
+      h.p("One investor here inherited a house and had it fully repaired over about two and a half months. An agent at Chapter3 advertised it for sale while the work was going on. It went under contract a week before the work finished, and it closed for cash the day construction ended. Repaired, the house was worth about $390,000.") +
       h.p("Advertise before the work ends. The loan, the tax and the insurance stop the day the house sells.") +
       h.p("Plan to list by March. The fewest homes sell here in January and February. Every other month, about 800 to 1,050 sell, and prices move little, so the season gives you more buyers, not a higher price.") },
 

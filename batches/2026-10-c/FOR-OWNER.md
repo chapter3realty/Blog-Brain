@@ -8,6 +8,7 @@ Patch: website-patches/v1.18-fix-and-flip-page.patch. Apply it after v1.17 (the 
 1. `cd C:\Blog-Brain; git pull; cd C:\c3`
 2. If v1.17 is not in yet: `git am C:\Blog-Brain\website-patches\v1.17-deal-finder.patch`
 3. `git am C:\Blog-Brain\website-patches\v1.18-fix-and-flip-page.patch`
+3b. `git am C:\Blog-Brain\website-patches\v1.19-ai-search-map-click-listing-retry.patch`
 4. `git push origin HEAD:claude/github-account-check-wutg8b`
 5. `.\deploy.ps1`
 
@@ -20,7 +21,7 @@ Patch: website-patches/v1.18-fix-and-flip-page.patch. Apply it after v1.17 (the 
 
 ## Still open (OWNER-QUESTIONS.md)
 
-1. The inherited house: $335,000 and $224,300 net, or $390,000 and about $130,000 profit? The page tells the story with no figures until you say.
+1. Answered 2026-10-29: worth about $390,000 once repaired (now on the page).
 2. Repair costs per square foot (light, medium, full) that our agents use.
 
 ## Lesson

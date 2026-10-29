@@ -1742,16 +1742,17 @@
       "sale price (written answer)": "$335k",
       "net (written answer)": "$224,300",
       "sale price (later, spoken)": "$390,000",
-      "profit (later, spoken)": "$130,000"
+      "profit (later, spoken)": "$130,000",
+      "value after repairs (owner, 2026-10-29)": "about $390,000"
     },
     "lesson": "Marketing a flip during the work can sell it the day it is finished.",
     "topics": [
       "fix and flip",
       "selling"
     ],
-    "checked": "UNRESOLVED: the 2026-09-01 written answer said $335,000 and netted $224,300; on 2026-09-02 he said $390,000 and about $130,000 profit. The earlier AI asked which is right. The live flip page still states $335,000 and $224,300.",
+    "checked": "RESOLVED 2026-10-29: the owner wrote \"the inherited house was worth about 390k after repairs\". Use \"worth about $390,000 once it was repaired\". The net and profit figures ($224,300; about $130,000) stay unconfirmed: do not state them.",
     "status": "usable-with-limits",
-    "limits": "Do not state the sale price or the profit until the owner says which figures are right. BrickWood Mortgage is named only with the inline RESPA AfBA disclosure; otherwise say \"our preferred lender\".",
+    "limits": "State the value as \"worth about $390,000 once it was repaired\" (owner, 2026-10-29). Do not state a sale price, a net or a profit. BrickWood Mortgage is named only with the inline RESPA AfBA disclosure; otherwise say \"our preferred lender\".",
     "publishedOn": [
       "/invest/strategies/fix-and-flip/"
     ]
