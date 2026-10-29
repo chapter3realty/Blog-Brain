@@ -1,4 +1,4 @@
-From 6820c7cabf5ee29171306482eb6be30da6fa57eb Mon Sep 17 00:00:00 2001
+From d59f1a0cecd09377a01ed019b4425c74a773919e Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Thu, 29 Oct 2026 00:05:23 +0000
 Subject: [PATCH] Every listing's photos copied ahead of visitors, into one
@@ -16,9 +16,9 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
 ---
  functions/homes/[[path]].js |  7 ++-
- idx-lib/photo.js            | 94 ++++++++++++++++++++++++++++++++++---
+ idx-lib/photo.js            | 96 ++++++++++++++++++++++++++++++++++---
  tools/idx-test.mjs          | 31 +++++++++++-
- 3 files changed, 123 insertions(+), 9 deletions(-)
+ 3 files changed, 125 insertions(+), 9 deletions(-)
 
 diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
 index ae82e319..4cd36ee1 100644
@@ -46,7 +46,7 @@ index ae82e319..4cd36ee1 100644
      if (name === "similar" && request.method === "GET") return similar(context, url);
      if (name === "strip" && request.method === "GET") return stripApi(context, url);
 diff --git a/idx-lib/photo.js b/idx-lib/photo.js
-index 035e2116..6caa842b 100644
+index 035e2116..eddcf871 100644
 --- a/idx-lib/photo.js
 +++ b/idx-lib/photo.js
 @@ -4,7 +4,7 @@
@@ -58,7 +58,7 @@ index 035e2116..6caa842b 100644
   * gets a new copy; a home that sold is no longer shown, and its copy expires by itself.
   *
   *   /homes/p/card?u=<Trestle link>   about 480 px wide: cards, rows, the map
-@@ -27,24 +27,104 @@ export function photoUrl(u, size = "card") {
+@@ -27,24 +27,106 @@ export function photoUrl(u, size = "card") {
    return ourPhoto(u) ? `/homes/p/${size === "big" ? "big" : "card"}?u=${encodeURIComponent(u)}` : u;
  }
  
@@ -124,7 +124,9 @@ index 035e2116..6caa842b 100644
 + */
 +export async function warm(context, url, listPage) {
 +  const env = context.env || {};
-+  if (!env.WARM_KEY || context.request.headers.get("x-warm-key") !== env.WARM_KEY) return new Response("Not found", { status: 404 });
++  // Trimmed on both sides: a secret typed or piped in may carry a line break.
++  const want = String(env.WARM_KEY || "").trim();
++  if (want.length < 20 || (context.request.headers.get("x-warm-key") || "").trim() !== want) return new Response("Not found", { status: 404 });
 +  const reply = (o) => new Response(JSON.stringify(o), { headers: { "content-type": "application/json", "cache-control": "no-store" } });
 +  if (!env.PHOTOS) return reply({ ok: false, error: "no_bucket" });
 +  const n = (v, lo, hi, d) => { const x = parseInt(v, 10); return Number.isInteger(x) ? Math.min(hi, Math.max(lo, x)) : d; };

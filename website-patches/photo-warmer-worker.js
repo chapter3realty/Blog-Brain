@@ -9,11 +9,8 @@
  * every home has its copy, the calls find nothing to fetch and only check; new listings are copied
  * within the hour.
  *
- * Setup (dash.cloudflare.com):
- *   1. Workers & Pages > Create > Worker > name it photo-warmer > Deploy > Edit code: paste this file > Deploy.
- *   2. photo-warmer > Settings > Variables and Secrets > Add > Secret, name WARM_KEY, the same value as the
- *      website's WARM_KEY.
- *   3. photo-warmer > Settings > Triggers > Cron Triggers > Add > "* * * * *" (every minute).
+ * Setup: run setup-photo-warmer.ps1 (next to this file) from C:\c3. It creates the bucket, deploys this
+ * Worker with its every-minute trigger, and gives it and the website the same new WARM_KEY.
  *
  * No key or password is written in this file. It needs nothing but WARM_KEY.
  */
@@ -21,9 +18,10 @@ const SITE = "https://chapter3realty.com/homes/api/warm";
 const SLOTS = 18;
 
 async function run(env) {
-  if (!env.WARM_KEY) return { ok: false, error: "WARM_KEY is not set on this Worker" };
+  const key = String(env.WARM_KEY || "").trim();
+  if (!key) return { ok: false, error: "WARM_KEY is not set on this Worker" };
   const calls = Array.from({ length: SLOTS }, (_, i) =>
-    fetch(`${SITE}?slot=${i}&slots=${SLOTS}`, { headers: { "x-warm-key": env.WARM_KEY } })
+    fetch(`${SITE}?slot=${i}&slots=${SLOTS}`, { headers: { "x-warm-key": key } })
       .then((r) => r.json())
       .catch(() => ({ ok: false })));
   const out = await Promise.all(calls);
@@ -45,7 +43,7 @@ export default {
   // says it is running, so nobody else can start extra runs.
   async fetch(request, env) {
     const key = new URL(request.url).searchParams.get("key");
-    if (!env.WARM_KEY || key !== env.WARM_KEY) return new Response("photo-warmer is running every minute.", { headers: { "content-type": "text/plain" } });
+    if (!env.WARM_KEY || key !== String(env.WARM_KEY).trim()) return new Response("photo-warmer is running every minute.", { headers: { "content-type": "text/plain" } });
     return new Response(JSON.stringify(await run(env), null, 2), { headers: { "content-type": "application/json" } });
   },
 };
