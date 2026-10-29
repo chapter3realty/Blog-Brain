@@ -143,7 +143,7 @@ module.exports = G.page({
       h.p(`The company figure is the closer guide to an investor's flip. Resales by a person hold most of the losses: about ${Math.round(PERSON_LOSSES / 5) * 5} of the ${LOSSES} homes that sold for less than the earlier deed price. Houses also gained more than condos, a middle of about ${round1k(median(HOUSES.map((f) => f.gain)))} against about ${round1k(median(UNITS.map((f) => f.gain)))}.`) },
 
     { h2: "Where on the Grand Strand do flips happen?", toc: "Where", id: "where", html: () =>
-      h.p(`The biggest gains on houses were in ${list3(BIG3.map((a) => a.name))}. ${MB.name} had the most quick resales, but most were condos, which gained less. No single neighborhood had more than three house resales: the flips are spread across many streets. The deal finder looks at every home for sale for that reason.`) +
+      h.p(`The biggest gains on houses were in ${list3(BIG3.map((a) => a.name))}. ${MB.name} had the most quick resales, but most were condos, and the middle one gained about ${round1k(MB.gain)}. No single neighborhood had more than three house resales: the flips are spread across many streets. The deal finder looks at every home for sale for that reason.`) +
       WHERE_MAP + WHERE_TABLE },
 
     { h2: "How do we find a house worth flipping?", toc: "How we find them", id: "how-we-find-them", html: (bg) =>
@@ -165,9 +165,9 @@ module.exports = G.page({
     { h2: "What does a flip cost here besides the house and the repairs?", toc: "Local costs", id: "local-costs", html: () =>
       h.p("Four costs bill you every month you own the house: the property tax, the loan, insurance and utilities. The rest come at the two closings, and when you sell, the commission and the deed fee.") +
       h.p(`The tax is the one most investors miss. A house that is not its owner's own home is taxed on 6 percent of its value, not 4 percent, and it pays the school operating tax.`) +
-      h.p(`On a house the county appraises at $250,000, in one of its tax districts outside the cities, that is about $3,015 a year instead of about $919, plus an $89.40 fee on each bill. We work out the bill for the actual address before you offer, and every town's rate is in our ${h.a("/buyers/property-taxes/", "property tax calculator")}.`) +
+      h.p(`On a house the county appraises at $250,000, in one of its tax districts outside the cities, that is about $3,015 a year instead of about $919, plus an $89.40 fee on each bill. We work out the bill for the actual address, and every town's rate is in our ${h.a("/buyers/property-taxes/", "property tax calculator")}.`) +
       h.p(`The deed fee is $1.85 for each $500 of the price, and the law puts it on the seller: about $962 on a ${money(FLIPS.meta.summary.median_sell)} sale. If you buy at the county's court-ordered foreclosure sale, you pay the fee on that deed as well.`) +
-      h.p("We get the insurance quotes for the empty house before you offer, along with the loan's terms, so the monthly cost of holding it is a number, not a guess.") },
+      h.p("We also get the insurance quotes for the empty house and the loan's terms, so the monthly cost of holding it is a number, not a guess.") },
 
     { h2: "What permits and licenses does a flip need?", toc: "Permits and licenses", id: "permits", html: () =>
       h.p(`In Horry County outside the cities, ${h.ext(HC_PERMIT, "you need a building permit")} to build, alter, repair or tear down, and for any electrical, gas, mechanical or plumbing work. South Carolina ${h.ext(T40_59, "licenses the people who do the work")} by the size of the job:`) +
@@ -190,7 +190,7 @@ module.exports = G.page({
 
     { h2: "How does a finished flip sell here?", toc: "Selling it", id: "selling-it", html: () =>
       h.p("Most of our buyers for a finished flip are moving from out of state, or retiring. We spend several thousand dollars a month advertising to buyers moving to the Grand Strand, so a finished flip goes in front of them the day it lists. Lighter repairs sometimes suit the rental buyers on our list before the house reaches the open market.") +
-      h.p("One investor here inherited a house from his father and had it fully repaired over about two and a half months. An agent at Chapter3 advertised it for sale while the work was going on. It went under contract a week before the work finished, and it closed for cash the day construction ended.") +
+      h.p("One investor here inherited a house and had it fully repaired over about two and a half months. An agent at Chapter3 advertised it for sale while the work was going on. It went under contract a week before the work finished, and it closed for cash the day construction ended.") +
       h.p("Advertise before the work ends. The loan, the tax and the insurance stop the day the house sells.") +
       h.p("Plan to list by March. The fewest homes sell here in January and February. Every other month, about 800 to 1,050 sell, and prices move little, so the season gives you more buyers, not a higher price.") },
 
