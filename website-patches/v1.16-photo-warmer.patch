@@ -1,4 +1,4 @@
-From 3ce79cda958f3dc44c3bc3536e6417b837ec1019 Mon Sep 17 00:00:00 2001
+From 6820c7cabf5ee29171306482eb6be30da6fa57eb Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Thu, 29 Oct 2026 00:05:23 +0000
 Subject: [PATCH] Every listing's photos copied ahead of visitors, into one
@@ -16,9 +16,9 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
 ---
  functions/homes/[[path]].js |  7 ++-
- idx-lib/photo.js            | 85 ++++++++++++++++++++++++++++++++++---
- tools/idx-test.mjs          | 31 +++++++++++++-
- 3 files changed, 114 insertions(+), 9 deletions(-)
+ idx-lib/photo.js            | 94 ++++++++++++++++++++++++++++++++++---
+ tools/idx-test.mjs          | 31 +++++++++++-
+ 3 files changed, 123 insertions(+), 9 deletions(-)
 
 diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
 index ae82e319..4cd36ee1 100644
@@ -46,7 +46,7 @@ index ae82e319..4cd36ee1 100644
      if (name === "similar" && request.method === "GET") return similar(context, url);
      if (name === "strip" && request.method === "GET") return stripApi(context, url);
 diff --git a/idx-lib/photo.js b/idx-lib/photo.js
-index 035e2116..fcaaa172 100644
+index 035e2116..6caa842b 100644
 --- a/idx-lib/photo.js
 +++ b/idx-lib/photo.js
 @@ -4,7 +4,7 @@
@@ -58,7 +58,7 @@ index 035e2116..fcaaa172 100644
   * gets a new copy; a home that sold is no longer shown, and its copy expires by itself.
   *
   *   /homes/p/card?u=<Trestle link>   about 480 px wide: cards, rows, the map
-@@ -27,24 +27,95 @@ export function photoUrl(u, size = "card") {
+@@ -27,24 +27,104 @@ export function photoUrl(u, size = "card") {
    return ourPhoto(u) ? `/homes/p/${size === "big" ? "big" : "card"}?u=${encodeURIComponent(u)}` : u;
  }
  
@@ -133,6 +133,12 @@ index 035e2116..fcaaa172 100644
 +  if (!first) return reply({ ok: false, error: "crm" });
 +  const pages = Math.max(1, Math.ceil(first.total / 24));
 +  const page = ((Math.floor(Date.now() / 60000) * slots + slot) % pages) + 1;
++  // A page whose homes all had their copies is left alone for 6 hours (the newest three for 30
++  // minutes): checking finished pages every minute would read the bucket about 37 million times
++  // a month, past its free 10 million.
++  const cache = typeof caches !== "undefined" ? caches.default : null;
++  const done = new Request(`https://chapter3realty.com/__warm/done/${page}`);
++  if (cache && (await cache.match(done))) return reply({ ok: true, page, pages, fetched: 0, stored: 0, kept: 0, stop: "done_recently" });
 +  const got = page === 1 ? first : await listPage(page);
 +  const left = (r, h) => { const v = r.headers.get(h); return v === null || v === "" || !isFinite(+v) ? Infinity : +v; };
 +  let fetched = 0, stored = 0, kept = 0, stop = "";
@@ -157,6 +163,9 @@ index 035e2116..fcaaa172 100644
 +    }
 +    if (r && (left(r, "minute-quota-available") < 40 || left(r, "hour-quota-available") < 600)) { stop = "mls_limit"; break; }
 +    if (r && !r.ok) { stop = `mls_${r.status}`; break; }
++  }
++  if (cache && fetched === 0 && got && got.listings && got.listings.length) {
++    context.waitUntil(cache.put(done, new Response("done", { headers: { "cache-control": `public, max-age=${page <= 3 ? 1800 : 21600}` } })));
 +  }
 +  return reply({ ok: true, page, pages, fetched, stored, kept, stop });
 +}
