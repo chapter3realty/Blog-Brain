@@ -1,0 +1,10166 @@
+{
+ "ran": "2026-10-31",
+ "base": "http://localhost:8776 (local preview of web2)",
+ "notes": "words, photos and critic counts from tools/critic.mjs at 390 and 1440 (facts read at 1440; homes strips excluded). charts, tables, maps, drawings, tools and homes strips counted in the rendered page at 1440 by a separate pass (scratchpad wf1/rank-run/visuals.cjs) with stub listing photos. A chart or table inside an interactive tool is counted as part of the tool. drawings are decorative aria-hidden illustrations. score from tools/score.js --site with SCORE_TODAY=2026-10-31; failing lists rules with credit under 1.",
+ "pages": [
+  {
+   "url": "/",
+   "words": 580,
+   "scoreWords": 555,
+   "isBlog": false,
+   "photos": 5,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "form.an-card"
+    ]
+   },
+   "homesStrips": 0,
+   "stripTitles": [],
+   "critic": {
+    "blocking": 1,
+    "warning": 10,
+    "blockingKinds": {
+     "read.small-text": 1
+    },
+    "warningKinds": {
+     "read.line-height": 4,
+     "seo.schema": 1,
+     "seo.answer-first": 1,
+     "read.small-text": 3,
+     "read.first-screen": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 6
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 91,
+    "groups": {
+     "SEO": 83,
+     "AEO": 82,
+     "Human": 96,
+     "Trust": null
+    },
+    "article": false,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "description(S2)",
+     "short-answer(A2)",
+     "number-density(P2)",
+     "plain-words(P6)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/index.html"
+   }
+  },
+  {
+   "url": "/buyers/",
+   "words": 597,
+   "scoreWords": 435,
+   "isBlog": false,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Just listed on the Grand Strand"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 1,
+    "blockingKinds": {},
+    "warningKinds": {
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 95,
+    "groups": {
+     "SEO": 93,
+     "AEO": 82,
+     "Human": 98,
+     "Trust": null
+    },
+    "article": false,
+    "blockers": [],
+    "failing": [
+     "description(S2)",
+     "short-answer(A2)",
+     "plain-words(P6)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/index.html"
+   }
+  },
+  {
+   "url": "/buyers/55-plus-communities/",
+   "words": 1734,
+   "scoreWords": 1227,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes for sale in 55+ communities"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 8,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.small-text": 4,
+     "read.wall": 2,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 7
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 92,
+     "AEO": 89,
+     "Human": 73,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "ctas(H5)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "byline(T1)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/55-plus-communities/index.html"
+   }
+  },
+  {
+   "url": "/buyers/55-plus-communities/del-webb-grande-dunes/",
+   "words": 1870,
+   "scoreWords": 1149,
+   "isBlog": true,
+   "photos": 4,
+   "charts": 0,
+   "tables": 2,
+   "maps": 1,
+   "drawings": 3,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [
+     "svg#c3r-del-webb-at-grande-dunes"
+    ],
+    "drawings": [
+     "svg",
+     "svg",
+     "svg"
+    ],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "For sale now in Del Webb at Grande Dunes"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 3,
+    "blockingKinds": {},
+    "warningKinds": {
+     "seo.description": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": []
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/del-webb-grande-dunes.js"
+   }
+  },
+  {
+   "url": "/buyers/55-plus-communities/del-webb-north-myrtle-beach/",
+   "words": 1961,
+   "scoreWords": 1151,
+   "isBlog": true,
+   "photos": 6,
+   "charts": 0,
+   "tables": 1,
+   "maps": 1,
+   "drawings": 4,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [
+     "svg#c3r-del-webb-north-myrtle-be"
+    ],
+    "drawings": [
+     "svg",
+     "svg",
+     "svg",
+     "svg"
+    ],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Del Webb North Myrtle Beach, and one-level homes within 2 miles"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 5,
+    "blockingKinds": {},
+    "warningKinds": {
+     "seo.description": 1,
+     "read.contrast": 2,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": []
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/del-webb-north-myrtle-beach.js"
+   }
+  },
+  {
+   "url": "/buyers/55-plus-communities/myrtle-trace/",
+   "words": 1726,
+   "scoreWords": 1164,
+   "isBlog": true,
+   "photos": 4,
+   "charts": 0,
+   "tables": 1,
+   "maps": 1,
+   "drawings": 4,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [
+     "svg#c3r-myrtle-trace"
+    ],
+    "drawings": [
+     "svg",
+     "svg",
+     "svg",
+     "svg"
+    ],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "For sale now in Myrtle Trace"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 1,
+    "blockingKinds": {},
+    "warningKinds": {
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": []
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/myrtle-trace.js"
+   }
+  },
+  {
+   "url": "/buyers/55-plus-communities/seasons-at-prince-creek-west/",
+   "words": 1651,
+   "scoreWords": 1003,
+   "isBlog": true,
+   "photos": 4,
+   "charts": 0,
+   "tables": 1,
+   "maps": 1,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [
+     "svg#c3r-seasons-at-prince-creek-"
+    ],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Seasons at Prince Creek, and one-level homes within 2 miles"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 4,
+    "blockingKinds": {},
+    "warningKinds": {
+     "read.contrast": 2,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": []
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/seasons-at-prince-creek-west.js"
+   }
+  },
+  {
+   "url": "/buyers/affordable-places-to-live/",
+   "words": 3342,
+   "scoreWords": 2264,
+   "isBlog": true,
+   "photos": 4,
+   "charts": 1,
+   "tables": 1,
+   "maps": 1,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "figure.c3-gchart.c3-gchart-compact"
+    ],
+    "maps": [
+     "svg#c3r-affordable-neighborhoods"
+    ],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 12,
+   "stripTitles": [
+    "Homes for sale in Parkview now",
+    "Homes for sale in The Fairways at Wild Wing now",
+    "Homes for sale in Sawgrass East now",
+    "Homes for sale in Birchwood now",
+    "Homes for sale in Myrtle Beach Golf and Yacht Club now",
+    "Homes for sale in Forestbrook Village now",
+    "Homes for sale in Victory Point now",
+    "Homes for sale in The Townes at Amber Bluff now",
+    "Homes for sale in Villas at Sandridge now",
+    "Homes for sale in Indigo Grove now",
+    "Homes for sale in Wynbrooke now",
+    "Homes for sale in Polo Farms now"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 2,
+    "blockingKinds": {},
+    "warningKinds": {
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "number-density(P2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/affordable-places-to-live.js"
+   }
+  },
+  {
+   "url": "/buyers/best-neighborhoods/",
+   "words": 2791,
+   "scoreWords": 2046,
+   "isBlog": true,
+   "photos": 7,
+   "charts": 0,
+   "tables": 1,
+   "maps": 1,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [
+     "div.c3-guide.c3-guide-map"
+    ],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 13,
+   "stripTitles": [
+    "Homes for sale in Cherry Grove now",
+    "Homes for sale in Surfside Beach, ocean side now",
+    "Homes for sale in Pine Lakes now",
+    "Homes for sale in Tidewater Plantation now",
+    "Homes for sale in Barefoot Resort now",
+    "Homes for sale in Prince Creek now",
+    "Homes for sale in Wild Wing Plantation now",
+    "Homes for sale in Plantation Lakes now",
+    "Homes for sale in Waterbridge now",
+    "Homes for sale in The Market Common now",
+    "Homes for sale in Deerfield Plantation area now",
+    "Homes for sale in Avalon now",
+    "Homes for sale in The Farm at Carolina Forest now"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 0,
+    "blockingKinds": {},
+    "warningKinds": {},
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": []
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/best-neighborhoods.js"
+   }
+  },
+  {
+   "url": "/buyers/buying-in-myrtle-beach/",
+   "words": 2343,
+   "scoreWords": 1278,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Myrtle Beach sellers who already cut their price"
+   ],
+   "critic": {
+    "blocking": 3,
+    "warning": 5,
+    "blockingKinds": {
+     "overlap.text": 1,
+     "photos.blog-no-photo": 1,
+     "read.small-text": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 2,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 82,
+    "groups": {
+     "SEO": 92,
+     "AEO": 55,
+     "Human": 86,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/buying-in-myrtle-beach/index.html"
+   }
+  },
+  {
+   "url": "/buyers/closing-costs/",
+   "words": 1606,
+   "scoreWords": 1246,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#cc-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Price cut, and under $300,000"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.small-text": 2,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 5
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 67,
+    "groups": {
+     "SEO": 86,
+     "AEO": 56,
+     "Human": 63,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "links-out(S7)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "ctas(H5)",
+     "number-density(P2)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "byline(T1)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/closing-costs/index.html"
+   }
+  },
+  {
+   "url": "/buyers/coastal-insurance/",
+   "words": 1914,
+   "scoreWords": 1718,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Built since 2010, no flood zone listed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 73,
+    "groups": {
+     "SEO": 92,
+     "AEO": 64,
+     "Human": 65,
+     "Trust": 64
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/coastal-insurance/index.html"
+   }
+  },
+  {
+   "url": "/buyers/common-mistakes/",
+   "words": 1511,
+   "scoreWords": 1331,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Price just cut on these homes"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.small-text": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 70,
+    "groups": {
+     "SEO": 88,
+     "AEO": 46,
+     "Human": 74,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/common-mistakes/index.html"
+   }
+  },
+  {
+   "url": "/buyers/condo-in-litigation/",
+   "words": 818,
+   "scoreWords": 699,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Oceanfront condos with a price cut"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 1,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.small-text": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 75,
+    "groups": {
+     "SEO": 87,
+     "AEO": 49,
+     "Human": 87,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/condo-in-litigation/index.html"
+   }
+  },
+  {
+   "url": "/buyers/cost-to-own/",
+   "words": 915,
+   "scoreWords": 610,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#co-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "No HOA dues, built since 2015"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 5,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 72,
+    "groups": {
+     "SEO": 83,
+     "AEO": 57,
+     "Human": 79,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/cost-to-own/index.html"
+   }
+  },
+  {
+   "url": "/buyers/first-time-home-buyer-myrtle-beach/",
+   "words": 1088,
+   "scoreWords": 908,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Under $300,000, and the seller takes FHA"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 5,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 74,
+    "groups": {
+     "SEO": 92,
+     "AEO": 53,
+     "Human": 78,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/first-time-home-buyer-myrtle-beach/index.html"
+   }
+  },
+  {
+   "url": "/buyers/gated-communities/",
+   "words": 4661,
+   "scoreWords": 3503,
+   "isBlog": true,
+   "photos": 5,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table.c3g-table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 18,
+   "stripTitles": [
+    "Homes for sale in Tidewater Plantation now",
+    "Homes for sale in Seaside Plantation now",
+    "Homes for sale in Barefoot Resort now",
+    "Homes for sale in Grande Dunes now",
+    "Homes for sale in Waterway Palms Plantation now",
+    "Homes for sale in The Bluffs on the Waterway now",
+    "Homes for sale in Myrtle Beach Golf and Yacht Club now",
+    "Homes for sale in Prestwick now",
+    "Homes for sale in Seasons at Prince Creek West now",
+    "Homes for sale in Bellwood Landing now",
+    "Homes for sale in Wachesaw Plantation now",
+    "Homes for sale in Wachesaw East now",
+    "Homes for sale in The Reserve now",
+    "Homes for sale in Willbrook Plantation now",
+    "Homes for sale in Litchfield Plantation now",
+    "Homes for sale in Litchfield by the Sea now",
+    "Homes for sale in Heritage Plantation now",
+    "Homes for sale in DeBordieu Colony now"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 11,
+    "blockingKinds": {
+     "read.contrast": 2
+    },
+    "warningKinds": {
+     "read.heading-skip": 1,
+     "read.small-text": 1,
+     "read.wall": 9
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 10
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "visual-rhythm(H3)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/gated-communities.js"
+   }
+  },
+  {
+   "url": "/buyers/golf-communities/",
+   "words": 1523,
+   "scoreWords": 779,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes right on the golf course"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 5,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.small-text": 2,
+     "read.wall": 1,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 80,
+    "groups": {
+     "SEO": 92,
+     "AEO": 69,
+     "Human": 84,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "ctas(H5)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "people-act(P10)",
+     "byline(T1)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/golf-communities/index.html"
+   }
+  },
+  {
+   "url": "/buyers/new-construction/",
+   "words": 1457,
+   "scoreWords": 1169,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Just listed on the Grand Strand"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "seo.description": 1,
+     "read.wall": 4
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 73,
+    "groups": {
+     "SEO": 85,
+     "AEO": 54,
+     "Human": 80,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "fragments(A8)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/new-construction/index.html"
+   }
+  },
+  {
+   "url": "/buyers/no-hoa-homes/",
+   "words": 5575,
+   "scoreWords": 3864,
+   "isBlog": true,
+   "photos": 10,
+   "charts": 0,
+   "tables": 1,
+   "maps": 1,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table.c3-nh-rules"
+    ],
+    "charts": [],
+    "maps": [
+     "div.c3-guide.c3-guide-map"
+    ],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 16,
+   "stripTitles": [
+    "Homes for sale in Downtown Myrtle Beach now",
+    "Homes for sale in Myrtle Heights now",
+    "Homes for sale in Pine Lakes' older streets now",
+    "Homes for sale in Windy Hill now",
+    "Homes for sale in Crescent Beach now",
+    "Homes for sale in Ocean Drive now",
+    "Homes for sale in Cherry Grove now",
+    "Homes for sale in Little River now",
+    "Homes for sale in Socastee now",
+    "Homes for sale in Surfside Beach now",
+    "Homes for sale in Garden City Beach now",
+    "Homes for sale in Murrells Inlet's north end now",
+    "Homes for sale in Conway now",
+    "Homes for sale in Loris now",
+    "Homes for sale in The country around Loris now",
+    "Homes for sale in Aynor now"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 13,
+    "blockingKinds": {},
+    "warningKinds": {
+     "read.wall": 13
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 13
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": []
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/no-hoa-homes.js"
+   }
+  },
+  {
+   "url": "/buyers/programs/",
+   "words": 772,
+   "scoreWords": 535,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "3+ bedrooms under $300,000, built since 2005"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "read.small-text": 1
+    },
+    "warningKinds": {
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 84,
+     "AEO": 62,
+     "Human": 88,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "links-out(S7)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "ctas(H5)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/programs/index.html"
+   }
+  },
+  {
+   "url": "/buyers/property-taxes/",
+   "words": 1833,
+   "scoreWords": 1587,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#pt-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Outside city limits: no city property tax"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 10,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 1,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 6
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 92,
+     "AEO": 72,
+     "Human": 70,
+     "Trust": 64
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/property-taxes/index.html"
+   }
+  },
+  {
+   "url": "/buyers/relocating/",
+   "words": 2923,
+   "scoreWords": 2543,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Just listed on the Grand Strand"
+   ],
+   "critic": {
+    "blocking": 3,
+    "warning": 5,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "read.long-paragraph": 2
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 4
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 2,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 92,
+     "AEO": 48,
+     "Human": 78,
+     "Trust": 86
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/relocating/index.html"
+   }
+  },
+  {
+   "url": "/buyers/relocating/beaches/",
+   "words": 2095,
+   "scoreWords": 1589,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Walk to the beach from these homes"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 13,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.line-length": 1,
+     "seo.description": 1,
+     "read.small-text": 1,
+     "read.wall": 3,
+     "read.table-scroll": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 8
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 5
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 88,
+     "AEO": 72,
+     "Human": 79,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "h1(S3)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/beaches.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/cost-of-living/",
+   "words": 2252,
+   "scoreWords": 1717,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 3,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 2,
+   "visualDetail": {
+    "tables": [
+     "table.colx-t",
+     "table.colx-t",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#col-calc",
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "4+ bedrooms for under $400,000"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 12,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "read.contrast": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.small-text": 4,
+     "read.wall": 3,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 9
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 75,
+    "groups": {
+     "SEO": 92,
+     "AEO": 77,
+     "Human": 66,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/cost-of-living.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-connecticut/",
+   "words": 2496,
+   "scoreWords": 1904,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from Connecticut love"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 14,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 7,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 11
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 92,
+     "AEO": 85,
+     "Human": 64,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-connecticut.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-florida/",
+   "words": 3180,
+   "scoreWords": 2523,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 3,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from Florida love"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 21,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.long-paragraph": 6,
+     "read.line-length": 1,
+     "seo.description": 1,
+     "read.small-text": 3,
+     "read.wall": 9,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 16
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 5
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 92,
+     "AEO": 83,
+     "Human": 64,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "faq(A7)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "exact-amounts(P1)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-florida.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-maryland/",
+   "words": 2576,
+   "scoreWords": 1999,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from Maryland love"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 13,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 6,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 10
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 92,
+     "AEO": 89,
+     "Human": 65,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "exact-amounts(P1)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-maryland.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-massachusetts/",
+   "words": 2930,
+   "scoreWords": 2317,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from Massachusetts love"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 17,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 8,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 13
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 92,
+     "AEO": 83,
+     "Human": 68,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-massachusetts.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-new-jersey/",
+   "words": 2152,
+   "scoreWords": 1571,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from New Jersey love"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 11,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 4,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 8
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 83,
+     "AEO": 81,
+     "Human": 73,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-new-jersey.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-new-york/",
+   "words": 2773,
+   "scoreWords": 2155,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from New York love"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 14,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 5,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 10
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 75,
+    "groups": {
+     "SEO": 83,
+     "AEO": 84,
+     "Human": 65,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-new-york.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-north-carolina/",
+   "words": 2229,
+   "scoreWords": 1680,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from North Carolina love"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 11,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "read.small-text": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 5,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 8
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 83,
+     "AEO": 84,
+     "Human": 72,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-north-carolina.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-ohio/",
+   "words": 2111,
+   "scoreWords": 1571,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from Ohio love"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 14,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 6,
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 3,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 9
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 5
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 83,
+     "AEO": 88,
+     "Human": 69,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "faq(A7)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-ohio.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-pennsylvania/",
+   "words": 1996,
+   "scoreWords": 1434,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from Pennsylvania love"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 12,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.small-text": 3,
+     "read.wall": 4,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 9
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 83,
+     "AEO": 86,
+     "Human": 74,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-pennsylvania.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/from-virginia/",
+   "words": 2403,
+   "scoreWords": 1848,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table.txc-tab"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#tax-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes people from Virginia love"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 11,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 4,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 8
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 92,
+     "AEO": 84,
+     "Human": 69,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "sentence-length(H1)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/from-virginia.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/getting-around/",
+   "words": 1740,
+   "scoreWords": 1352,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes within 5 miles of the Myrtle Beach airport"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "read.small-text": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.wall": 1,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 83,
+     "AEO": 80,
+     "Human": 70,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "description(S2)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/getting-around.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/healthcare/",
+   "words": 1713,
+   "scoreWords": 1288,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes within 5 miles of Grand Strand Medical Center"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 10,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "seo.description": 1,
+     "read.small-text": 1,
+     "read.wall": 3,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 6
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 92,
+     "AEO": 72,
+     "Human": 73,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/healthcare.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/hurricanes/",
+   "words": 2679,
+   "scoreWords": 2103,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Built since 2010, no flood zone listed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 14,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 6,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 10
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 88,
+     "AEO": 79,
+     "Human": 75,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-voice(P9)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/hurricanes.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/jobs/",
+   "words": 2200,
+   "scoreWords": 1770,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes nearby major employers"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 12,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 3,
+     "read.table-scroll": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 8
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 92,
+     "AEO": 76,
+     "Human": 67,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "exact-amounts(P1)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/jobs.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/moving-checklist/",
+   "words": 3669,
+   "scoreWords": 2943,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes with a 2-car garage or bigger"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 15,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 6,
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 6
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 10
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 5
+     }
+    }
+   },
+   "score": {
+    "total": 72,
+    "groups": {
+     "SEO": 79,
+     "AEO": 69,
+     "Human": 71,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "description(S2)",
+     "topic-early(S11)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/moving-checklist.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/pros-and-cons/",
+   "words": 2783,
+   "scoreWords": 2219,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes where golf carts are allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 13,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 6
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 9
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 75,
+    "groups": {
+     "SEO": 83,
+     "AEO": 68,
+     "Human": 72,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/pros-and-cons.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/schools/",
+   "words": 2861,
+   "scoreWords": 2428,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes with 4 or more bedrooms"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 12,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 5
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 8
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 80,
+    "groups": {
+     "SEO": 87,
+     "AEO": 77,
+     "Human": 78,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "table(A6)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/schools.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/weather/",
+   "words": 1375,
+   "scoreWords": 994,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes with a Carolina room"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 7,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "read.small-text": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.wall": 1,
+     "read.table-scroll": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 90,
+     "AEO": 81,
+     "Human": 75,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/weather.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/which-town/",
+   "words": 2202,
+   "scoreWords": 1542,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "New in the last 30 days, town by town"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 13,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 4,
+     "read.table-scroll": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 9
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 79,
+     "AEO": 83,
+     "Human": 77,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "topic-early(S11)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/which-town.js"
+   }
+  },
+  {
+   "url": "/buyers/relocating/why-myrtle-beach/",
+   "words": 1428,
+   "scoreWords": 1160,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Walk to the beach for under $500,000"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 8,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "seo.description": 1,
+     "read.small-text": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 75,
+    "groups": {
+     "SEO": 83,
+     "AEO": 64,
+     "Human": 79,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "relocating-data",
+    "file": "data/relocating/pages/why-myrtle-beach.js"
+   }
+  },
+  {
+   "url": "/buyers/retirees/",
+   "words": 2013,
+   "scoreWords": 1747,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "One-level homes with a garage"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 70,
+    "groups": {
+     "SEO": 83,
+     "AEO": 48,
+     "Human": 68,
+     "Trust": 86
+    },
+    "article": true,
+    "blockers": [
+     "faq-match"
+    ],
+    "failing": [
+     "faq-match(S12)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/retirees/index.html"
+   }
+  },
+  {
+   "url": "/buyers/second-home/",
+   "words": 2699,
+   "scoreWords": 1799,
+   "isBlog": true,
+   "photos": 5,
+   "charts": 0,
+   "tables": 4,
+   "maps": 1,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [
+     "div.c3s-map"
+    ],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 7,
+   "stripTitles": [
+    "Top vacation homes",
+    "Homes for sale from Ocean Drive to Cherry Grove",
+    "Condos for sale near the boardwalk",
+    "Homes for sale near the Surfside Beach pier",
+    "Homes for sale near the Garden City pier",
+    "Homes for sale near the MarshWalk",
+    "Homes for sale on and near Pawleys Island"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "read.first-screen": 1
+    },
+    "warningKinds": {
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": []
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/second-home.js"
+   }
+  },
+  {
+   "url": "/buyers/undisclosed-flooding/",
+   "words": 827,
+   "scoreWords": 696,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Houses raised on pilings"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 1,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.small-text": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 88,
+     "AEO": 57,
+     "Human": 87,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/undisclosed-flooding/index.html"
+   }
+  },
+  {
+   "url": "/buyers/va-loans/",
+   "words": 1817,
+   "scoreWords": 1608,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "3+ bedrooms under $400,000, and the seller takes VA"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.small-text": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 90,
+     "AEO": 61,
+     "Human": 80,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-voice(P9)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/va-loans/index.html"
+   }
+  },
+  {
+   "url": "/buyers/waterfront-homes/",
+   "words": 1296,
+   "scoreWords": 1015,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes with their own dock"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 75,
+    "groups": {
+     "SEO": 81,
+     "AEO": 64,
+     "Human": 84,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)",
+     "inbound(S8)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/buyers/waterfront-homes/index.html"
+   }
+  },
+  {
+   "url": "/guides/",
+   "words": 1378,
+   "scoreWords": 1177,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 0,
+   "stripTitles": [],
+   "critic": {
+    "blocking": 1,
+    "warning": 1,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 69,
+    "groups": {
+     "SEO": 83,
+     "AEO": 38,
+     "Human": 86,
+     "Trust": 14
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "byline(T1)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/guides/index.html"
+   }
+  },
+  {
+   "url": "/hoa/",
+   "words": 1358,
+   "scoreWords": 1040,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos whose HOA fee covers insurance, water and sewer"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 80,
+    "groups": {
+     "SEO": 92,
+     "AEO": 68,
+     "Human": 75,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/index.html"
+   }
+  },
+  {
+   "url": "/hoa/benefits/",
+   "words": 1958,
+   "scoreWords": 1713,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes with a community pool and clubhouse"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 85,
+     "AEO": 57,
+     "Human": 80,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "article-schema(S6)",
+     "verdict(A3)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "inbound(S8)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/benefits/index.html"
+   }
+  },
+  {
+   "url": "/hoa/developer-control-turnover/",
+   "words": 1618,
+   "scoreWords": 1364,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Just listed on the Grand Strand"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 5
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 5
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 85,
+     "AEO": 61,
+     "Human": 81,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/developer-control-turnover/index.html"
+   }
+  },
+  {
+   "url": "/hoa/documents/",
+   "words": 946,
+   "scoreWords": 661,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos whose HOA fee includes internet"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.line-length": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 83,
+     "AEO": 48,
+     "Human": 87,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "h1(S3)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/documents/index.html"
+   }
+  },
+  {
+   "url": "/hoa/dues-increases/",
+   "words": 1639,
+   "scoreWords": 1389,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos with an HOA fee under $300 a month"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 82,
+    "groups": {
+     "SEO": 85,
+     "AEO": 71,
+     "Human": 81,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "people-act(P10)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/dues-increases/index.html"
+   }
+  },
+  {
+   "url": "/hoa/estoppel-and-transfer-fees/",
+   "words": 1516,
+   "scoreWords": 1279,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos with an HOA fee under $300 a month"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 84,
+    "groups": {
+     "SEO": 90,
+     "AEO": 71,
+     "Human": 85,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "article-schema(S6)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "people-act(P10)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/estoppel-and-transfer-fees/index.html"
+   }
+  },
+  {
+   "url": "/hoa/hoa-vs-poa/",
+   "words": 857,
+   "scoreWords": 563,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Houses where the HOA mows the lawn"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "seo.description": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 79,
+     "AEO": 65,
+     "Human": 86,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "experience(T2)",
+     "inbound(S8)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/hoa-vs-poa/index.html"
+   }
+  },
+  {
+   "url": "/hoa/liens-and-foreclosure/",
+   "words": 868,
+   "scoreWords": 557,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Distressed sales: foreclosures, short sales and more"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 0,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {},
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 90,
+     "AEO": 56,
+     "Human": 89,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "verdict(A3)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/liens-and-foreclosure/index.html"
+   }
+  },
+  {
+   "url": "/hoa/master-insurance-ho6/",
+   "words": 1428,
+   "scoreWords": 1174,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos whose HOA fee covers the insurance"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 80,
+    "groups": {
+     "SEO": 85,
+     "AEO": 71,
+     "Human": 76,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "h1(S3)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/master-insurance-ho6/index.html"
+   }
+  },
+  {
+   "url": "/hoa/rental-restrictions/",
+   "words": 1072,
+   "scoreWords": 754,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos where the HOA allows rentals"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 84,
+     "AEO": 56,
+     "Human": 85,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "h1(S3)",
+     "links-out(S7)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "people-act(P10)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/rental-restrictions/index.html"
+   }
+  },
+  {
+   "url": "/hoa/reserves/",
+   "words": 853,
+   "scoreWords": 573,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos in buildings built since 2015"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 0,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {},
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 73,
+    "groups": {
+     "SEO": 80,
+     "AEO": 59,
+     "Human": 75,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [
+     "residue"
+    ],
+    "failing": [
+     "residue(H9)",
+     "title(S1)",
+     "h1(S3)",
+     "links-out(S7)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/reserves/index.html"
+   }
+  },
+  {
+   "url": "/hoa/south-carolina-hoa-laws/",
+   "words": 1075,
+   "scoreWords": 780,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes with no HOA fee"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 80,
+    "groups": {
+     "SEO": 85,
+     "AEO": 60,
+     "Human": 88,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/south-carolina-hoa-laws/index.html"
+   }
+  },
+  {
+   "url": "/hoa/special-assessments/",
+   "words": 1024,
+   "scoreWords": 714,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos in buildings built since 2005"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 0,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {},
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 80,
+     "AEO": 69,
+     "Human": 76,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [
+     "residue",
+     "faq-match"
+    ],
+    "failing": [
+     "residue(H9)",
+     "faq-match(S12)",
+     "links-out(S7)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/special-assessments/index.html"
+   }
+  },
+  {
+   "url": "/hoa/tax-deductible/",
+   "words": 1453,
+   "scoreWords": 1217,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos that are rented now"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 81,
+    "groups": {
+     "SEO": 85,
+     "AEO": 73,
+     "Human": 88,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "h1(S3)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/tax-deductible/index.html"
+   }
+  },
+  {
+   "url": "/hoa/violations-and-fines/",
+   "words": 1560,
+   "scoreWords": 1306,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "No HOA, and room for the boat or RV"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 80,
+    "groups": {
+     "SEO": 90,
+     "AEO": 71,
+     "Human": 79,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "article-schema(S6)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/violations-and-fines/index.html"
+   }
+  },
+  {
+   "url": "/hoa/who-pays-for-damage/",
+   "words": 1584,
+   "scoreWords": 1337,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top-floor condos: nobody lives above you"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 81,
+     "AEO": 67,
+     "Human": 83,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "inbound(S8)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/hoa/who-pays-for-damage/index.html"
+   }
+  },
+  {
+   "url": "/invest/",
+   "words": 2166,
+   "scoreWords": 1514,
+   "isBlog": false,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top long-term rental picks"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 10,
+    "blockingKinds": {},
+    "warningKinds": {
+     "read.long-paragraph": 2,
+     "read.line-length": 2,
+     "read.small-text": 1,
+     "read.wall": 5
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 7
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 93,
+    "groups": {
+     "SEO": 100,
+     "AEO": 72,
+     "Human": 94,
+     "Trust": null
+    },
+    "article": false,
+    "blockers": [],
+    "failing": [
+     "short-answer(A2)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "plain-words(P6)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/index.html"
+   }
+  },
+  {
+   "url": "/invest/14-day-rule/",
+   "words": 1352,
+   "scoreWords": 1097,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Ocean-view condos where nightly rentals are allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 87,
+    "groups": {
+     "SEO": 92,
+     "AEO": 90,
+     "Human": 80,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "section-leads(A5)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/14-day-rule/index.html"
+   }
+  },
+  {
+   "url": "/invest/accommodations-tax/",
+   "words": 1631,
+   "scoreWords": 1130,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 5,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos where nightly rentals are allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 1,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 87,
+    "groups": {
+     "SEO": 88,
+     "AEO": 100,
+     "Human": 82,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "h1(S3)",
+     "og-image(S5)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/accommodations-tax/index.html"
+   }
+  },
+  {
+   "url": "/invest/airbnb-income/",
+   "words": 2257,
+   "scoreWords": 1871,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Oceanfront condos where nightly rentals are allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 9,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.small-text": 4,
+     "read.wall": 2,
+     "read.table-scroll": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 8
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 70,
+    "groups": {
+     "SEO": 83,
+     "AEO": 72,
+     "Human": 64,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "exact-amounts(P1)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "byline(T1)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/airbnb-income/index.html"
+   }
+  },
+  {
+   "url": "/invest/canadian-buyers/",
+   "words": 2141,
+   "scoreWords": 1502,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 4,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "North Myrtle Beach condo picks"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 5,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "seo.description": 1,
+     "read.wall": 4
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 87,
+    "groups": {
+     "SEO": 92,
+     "AEO": 91,
+     "Human": 83,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/canadian-buyers.js"
+   }
+  },
+  {
+   "url": "/invest/cash-to-close/",
+   "words": 1621,
+   "scoreWords": 1250,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rental-friendly homes with a price cut"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 81,
+    "groups": {
+     "SEO": 88,
+     "AEO": 88,
+     "Human": 77,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "description(S2)",
+     "og-image(S5)",
+     "faq(A7)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/cash-to-close.js"
+   }
+  },
+  {
+   "url": "/invest/condo-buildings/",
+   "words": 2074,
+   "scoreWords": 1055,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Oceanfront, sixth floor and up"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 8,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.small-text": 2,
+     "read.wall": 3,
+     "read.table-scroll": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 7
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 92,
+     "AEO": 79,
+     "Human": 74,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/condo-buildings/index.html"
+   }
+  },
+  {
+   "url": "/invest/condos/",
+   "words": 1010,
+   "scoreWords": 842,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos where nightly rentals are allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.small-text": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 92,
+     "AEO": 54,
+     "Human": 80,
+     "Trust": 86
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "verdict(A3)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/condos/index.html"
+   }
+  },
+  {
+   "url": "/invest/condotel-financing/",
+   "words": 1476,
+   "scoreWords": 1264,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Oceanfront condos under $300,000"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.small-text": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 92,
+     "AEO": 58,
+     "Human": 81,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/condotel-financing/index.html"
+   }
+  },
+  {
+   "url": "/invest/cost-segregation/",
+   "words": 1715,
+   "scoreWords": 1436,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Oceanfront condos that come furnished"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.small-text": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 82,
+    "groups": {
+     "SEO": 92,
+     "AEO": 85,
+     "Human": 78,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "section-leads(A5)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "exact-amounts(P1)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/cost-segregation/index.html"
+   }
+  },
+  {
+   "url": "/invest/financing-multiple-rentals/",
+   "words": 1123,
+   "scoreWords": 895,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Townhouses where long-term rentals are allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 5,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.long-paragraph": 2,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 85,
+    "groups": {
+     "SEO": 90,
+     "AEO": 79,
+     "Human": 81,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "table(A6)",
+     "local-entities(A10)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/financing-multiple-rentals.js"
+   }
+  },
+  {
+   "url": "/invest/foreclosures/",
+   "words": 2971,
+   "scoreWords": 2634,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Foreclosures and bank-owned homes for sale"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 15,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 8,
+     "read.wall": 6
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 10
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 5
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 83,
+     "AEO": 73,
+     "Human": 71,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "table(A6)",
+     "faq(A7)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/foreclosures.js"
+   }
+  },
+  {
+   "url": "/invest/how-long-to-hold/",
+   "words": 2437,
+   "scoreWords": 1623,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 3,
+   "tables": 5,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [
+     "svg",
+     "svg",
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Brick houses where renting is allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "seo.description": 1,
+     "read.wall": 2,
+     "read.table-scroll": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 5
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 89,
+    "groups": {
+     "SEO": 92,
+     "AEO": 95,
+     "Human": 89,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "exact-amounts(P1)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/how-long-to-hold.js"
+   }
+  },
+  {
+   "url": "/invest/j1-rentals/",
+   "words": 3732,
+   "scoreWords": 3008,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 5,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "4+ bedroom houses within 4 miles of the boardwalk"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 10,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "overlap.page-scroll": 1
+    },
+    "warningKinds": {
+     "seo.description": 1,
+     "read.wall": 9
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 9
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 86,
+    "groups": {
+     "SEO": 92,
+     "AEO": 95,
+     "Human": 79,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "image(H4)",
+     "date-mentions(P3)",
+     "plain-voice(P9)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/j1-rentals.js"
+   }
+  },
+  {
+   "url": "/invest/landlord-insurance/",
+   "words": 1405,
+   "scoreWords": 1056,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rental houses built since 2015, no flood zone listed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 5,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "seo.description": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 85,
+    "groups": {
+     "SEO": 92,
+     "AEO": 82,
+     "Human": 79,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "local-entities(A10)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "number-density(P2)",
+     "plain-words(P6)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/landlord-insurance.js"
+   }
+  },
+  {
+   "url": "/invest/landlord-rules/",
+   "words": 3034,
+   "scoreWords": 2671,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rental houses with a fenced yard"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 9,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "seo.description": 1,
+     "read.wall": 5
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 6
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 92,
+     "AEO": 73,
+     "Human": 69,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "table(A6)",
+     "faq(A7)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "people-act(P10)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/landlord-rules.js"
+   }
+  },
+  {
+   "url": "/invest/llc/",
+   "words": 2491,
+   "scoreWords": 2146,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rental houses under $350,000"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 16,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 8,
+     "seo.description": 1,
+     "read.wall": 6
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 10
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 6
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 92,
+     "AEO": 57,
+     "Human": 73,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "verdict(A3)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/llc.js"
+   }
+  },
+  {
+   "url": "/invest/long-term-rental/",
+   "words": 194,
+   "scoreWords": 1155,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "div#ltr-form"
+    ]
+   },
+   "homesStrips": 0,
+   "stripTitles": [],
+   "critic": {
+    "blocking": 19,
+    "warning": 0,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "seo.faq-unseen": 17,
+     "read.small-text": 1
+    },
+    "warningKinds": {},
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 18,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 72,
+    "groups": {
+     "SEO": 79,
+     "AEO": 61,
+     "Human": 79,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "faq-match"
+    ],
+    "failing": [
+     "faq-match(S12)",
+     "h1(S3)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/long-term-rental/index.html"
+   }
+  },
+  {
+   "url": "/invest/mid-term-rentals/",
+   "words": 1676,
+   "scoreWords": 1297,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Furnished, within 5 miles of Grand Strand Medical Center"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 87,
+    "groups": {
+     "SEO": 92,
+     "AEO": 95,
+     "Human": 84,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "number-density(P2)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/mid-term-rentals.js"
+   }
+  },
+  {
+   "url": "/invest/new-construction-rentals/",
+   "words": 1475,
+   "scoreWords": 1129,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 3,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Just listed on the Grand Strand"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.long-paragraph": 2,
+     "seo.description": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 90,
+    "groups": {
+     "SEO": 90,
+     "AEO": 97,
+     "Human": 84,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "section-leads(A5)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/new-construction-rentals.js"
+   }
+  },
+  {
+   "url": "/invest/non-warrantable-condos/",
+   "words": 2708,
+   "scoreWords": 2358,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Oceanfront condos the seller lists as cash only"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 11,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.small-text": 1,
+     "read.wall": 7
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 9
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 73,
+    "groups": {
+     "SEO": 88,
+     "AEO": 60,
+     "Human": 71,
+     "Trust": 64
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/non-warrantable-condos/index.html"
+   }
+  },
+  {
+   "url": "/invest/out-of-state/",
+   "words": 1571,
+   "scoreWords": 1138,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rentals you can walk through online first"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "seo.description": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 83,
+    "groups": {
+     "SEO": 88,
+     "AEO": 89,
+     "Human": 83,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "description(S2)",
+     "og-image(S5)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/out-of-state.js"
+   }
+  },
+  {
+   "url": "/invest/property-management/",
+   "words": 1639,
+   "scoreWords": 1251,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rental-friendly houses with a home warranty"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 1,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 90,
+    "groups": {
+     "SEO": 92,
+     "AEO": 92,
+     "Human": 86,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/property-management.js"
+   }
+  },
+  {
+   "url": "/invest/rent-prices/",
+   "words": 1119,
+   "scoreWords": 608,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 3,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "4+ bedroom houses where renting is allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 0,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {},
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 92,
+    "groups": {
+     "SEO": 92,
+     "AEO": 97,
+     "Human": 92,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/rent-prices.js"
+   }
+  },
+  {
+   "url": "/invest/rental-depreciation/",
+   "words": 1566,
+   "scoreWords": 1291,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Newer rentals: built since 2018, renting allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 85,
+    "groups": {
+     "SEO": 90,
+     "AEO": 97,
+     "Human": 77,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "section-leads(A5)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/rental-depreciation/index.html"
+   }
+  },
+  {
+   "url": "/invest/rental-program-vs-airbnb/",
+   "words": 1511,
+   "scoreWords": 1146,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos in buildings with a rental program"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "seo.description": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 85,
+    "groups": {
+     "SEO": 92,
+     "AEO": 85,
+     "Human": 81,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "deflection(P5)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/rental-program-vs-airbnb.js"
+   }
+  },
+  {
+   "url": "/invest/rental-returns/",
+   "words": 2845,
+   "scoreWords": 1551,
+   "isBlog": true,
+   "photos": 1,
+   "charts": 3,
+   "tables": 7,
+   "maps": 1,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table",
+     "table",
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [
+     "svg",
+     "svg",
+     "svg"
+    ],
+    "maps": [
+     "div#rrmapwrap"
+    ],
+    "drawings": [],
+    "tools": [
+     "div#rrtool"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Conway houses, lowest price per bedroom first"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 9,
+    "blockingKinds": {},
+    "warningKinds": {
+     "read.small-text": 2,
+     "read.wall": 4,
+     "read.table-scroll": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 9
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 90,
+    "groups": {
+     "SEO": 92,
+     "AEO": 100,
+     "Human": 91,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "exact-amounts(P1)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/rental-returns.js"
+   }
+  },
+  {
+   "url": "/invest/run-the-numbers/",
+   "words": 1112,
+   "scoreWords": 686,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Run the numbers on one of these"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 0,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {},
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 90,
+    "groups": {
+     "SEO": 92,
+     "AEO": 96,
+     "Human": 92,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/run-the-numbers.js"
+   }
+  },
+  {
+   "url": "/invest/section-8-rentals/",
+   "words": 2297,
+   "scoreWords": 1813,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 3,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "div#s8tool"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rental picks under $300,000"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 5,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.long-paragraph": 2,
+     "read.wall": 2,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 90,
+    "groups": {
+     "SEO": 87,
+     "AEO": 100,
+     "Human": 85,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "plain-voice(P9)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/section-8-rentals.js"
+   }
+  },
+  {
+   "url": "/invest/str-rules/",
+   "words": 1822,
+   "scoreWords": 1558,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Houses east of 17 where nightly rentals are allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 8,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.small-text": 1,
+     "read.wall": 1,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 5
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 73,
+    "groups": {
+     "SEO": 88,
+     "AEO": 69,
+     "Human": 71,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/str-rules/index.html"
+   }
+  },
+  {
+   "url": "/invest/str-setup/",
+   "words": 1648,
+   "scoreWords": 1248,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Turnkey condos sold furnished, nightly rentals allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 84,
+    "groups": {
+     "SEO": 92,
+     "AEO": 89,
+     "Human": 82,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/str-setup.js"
+   }
+  },
+  {
+   "url": "/invest/str-tax-treatment/",
+   "words": 1371,
+   "scoreWords": 1052,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Furnished houses where nightly rentals are allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "seo.description": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 81,
+    "groups": {
+     "SEO": 88,
+     "AEO": 79,
+     "Human": 83,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "h1(S3)",
+     "og-image(S5)",
+     "verdict(A3)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/str-tax-treatment/index.html"
+   }
+  },
+  {
+   "url": "/invest/str-tools/",
+   "words": 1212,
+   "scoreWords": 1110,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Nightly rentals allowed, under $400,000"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 7,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.small-text": 2,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 5
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 74,
+    "groups": {
+     "SEO": 92,
+     "AEO": 55,
+     "Human": 73,
+     "Trust": 64
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/str-tools/index.html"
+   }
+  },
+  {
+   "url": "/invest/str-vs-ltr/",
+   "words": 1173,
+   "scoreWords": 986,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rent it by the night or by the year: both allowed"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.small-text": 2,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 72,
+    "groups": {
+     "SEO": 92,
+     "AEO": 52,
+     "Human": 74,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/str-vs-ltr/index.html"
+   }
+  },
+  {
+   "url": "/invest/strategies/",
+   "words": 955,
+   "scoreWords": 818,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rentals, distressed sales and duplexes for sale now"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.small-text": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 75,
+    "groups": {
+     "SEO": 83,
+     "AEO": 50,
+     "Human": 80,
+     "Trust": 86
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "topic-early(S11)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "pictures(P7)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/strategies/index.html"
+   }
+  },
+  {
+   "url": "/invest/strategies/1031-exchange/",
+   "words": 2267,
+   "scoreWords": 2002,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rented now: income property from $400,000"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 8,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.wall": 5
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 6
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 92,
+     "AEO": 71,
+     "Human": 77,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "table(A6)",
+     "faq(A7)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/strategies/1031-exchange/index.html"
+   }
+  },
+  {
+   "url": "/invest/strategies/brrrr/",
+   "words": 1938,
+   "scoreWords": 1751,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Built before 2000, under $340,000"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 7,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 6
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 6
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 80,
+    "groups": {
+     "SEO": 92,
+     "AEO": 66,
+     "Human": 78,
+     "Trust": 86
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/strategies/brrrr/index.html"
+   }
+  },
+  {
+   "url": "/invest/strategies/dscr-loans/",
+   "words": 1238,
+   "scoreWords": 844,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "DSCR picks, lowest price per bedroom"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 1,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 0
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 92,
+     "AEO": 53,
+     "Human": 84,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "image(H4)",
+     "ctas(H5)",
+     "number-density(P2)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/strategies/dscr-loans/index.html"
+   }
+  },
+  {
+   "url": "/invest/strategies/dst/",
+   "words": 1021,
+   "scoreWords": 934,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Oceanfront condos in a rental program"
+   ],
+   "critic": {
+    "blocking": 3,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "read.long-paragraph": 2
+    },
+    "warningKinds": {
+     "read.line-length": 1,
+     "read.small-text": 2,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 2,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 71,
+    "groups": {
+     "SEO": 76,
+     "AEO": 51,
+     "Human": 86,
+     "Trust": 29
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "h1(S3)",
+     "links-out(S7)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "pictures(P7)",
+     "byline(T1)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/strategies/dst/index.html"
+   }
+  },
+  {
+   "url": "/invest/strategies/fix-and-flip/",
+   "words": 2785,
+   "scoreWords": 2188,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 2,
+   "tables": 1,
+   "maps": 1,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "figure.c3-gchart",
+     "figure.c3-gchart.c3-gchart-compact"
+    ],
+    "maps": [
+     "svg#c3r-where-homes-were-resold-"
+    ],
+    "drawings": [],
+    "tools": [
+     "div.c3-flipcalc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Distressed and older houses in Conway, Carolina Forest and Little River"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "read.first-screen": 1
+    },
+    "warningKinds": {
+     "read.wall": 6
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 6
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 99,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 97,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "visual-rhythm(H3)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/fix-and-flip.js"
+   }
+  },
+  {
+   "url": "/invest/strategies/small-multifamily/",
+   "words": 1089,
+   "scoreWords": 933,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Duplexes, triplexes and fourplexes"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 92,
+     "AEO": 66,
+     "Human": 83,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "ctas(H5)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/invest/strategies/small-multifamily/index.html"
+   }
+  },
+  {
+   "url": "/invest/student-rentals/",
+   "words": 2294,
+   "scoreWords": 2040,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rental picks near Coastal Carolina University"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 10,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "seo.description": 1,
+     "read.wall": 4
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 6
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 92,
+     "AEO": 72,
+     "Human": 68,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "table(A6)",
+     "faq(A7)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "exact-amounts(P1)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/student-rentals.js"
+   }
+  },
+  {
+   "url": "/invest/what-is-being-built/",
+   "words": 2988,
+   "scoreWords": 1963,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 2,
+   "tables": 6,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table",
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [
+     "svg",
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Still being built: homes going up now"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 8,
+    "blockingKinds": {
+     "overlap.cut-off": 1,
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.wall": 5,
+     "read.table-scroll": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 8
+     },
+     "1440": {
+      "blocking": 2,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 88,
+    "groups": {
+     "SEO": 92,
+     "AEO": 95,
+     "Human": 83,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "paragraphs(H2)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-voice(P9)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/what-is-being-built.js"
+   }
+  },
+  {
+   "url": "/invest/where-to-buy/",
+   "words": 1479,
+   "scoreWords": 873,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Rental picks: Conway, Carolina Forest, Socastee, Little River, Longs"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 5,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "seo.description": 1,
+     "read.wall": 2,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 84,
+    "groups": {
+     "SEO": 92,
+     "AEO": 89,
+     "Human": 82,
+     "Trust": 57
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/where-to-buy.js"
+   }
+  },
+  {
+   "url": "/market-reports/",
+   "words": 454,
+   "scoreWords": 373,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "New this week on the Grand Strand"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 2,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.small-text": 1,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 73,
+    "groups": {
+     "SEO": 84,
+     "AEO": 45,
+     "Human": 87,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "ctas(H5)",
+     "date-mentions(P3)",
+     "experience(T2)",
+     "sources-line(T3)",
+     "inbound(S8)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/market-reports/index.html"
+   }
+  },
+  {
+   "url": "/market-reports/july-2026/",
+   "words": 989,
+   "scoreWords": 750,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 2,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos with a price cut"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.small-text": 1,
+     "read.wall": 1,
+     "read.table-scroll": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 79,
+     "AEO": 76,
+     "Human": 82,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "description(S2)",
+     "topic-early(S11)",
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "image(H4)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "byline(T1)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/market-reports/july-2026/index.html"
+   }
+  },
+  {
+   "url": "/sell/",
+   "words": 4349,
+   "scoreWords": 3706,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Your competition: homes for sale now"
+   ],
+   "critic": {
+    "blocking": 2,
+    "warning": 13,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1,
+     "read.small-text": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.line-length": 2,
+     "read.small-text": 4,
+     "read.wall": 6
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 1,
+      "warning": 10
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 68,
+    "groups": {
+     "SEO": 83,
+     "AEO": 57,
+     "Human": 67,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "description(S2)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/sell/index.html"
+   }
+  },
+  {
+   "url": "/sell/capital-gains/",
+   "words": 1692,
+   "scoreWords": 1338,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#cg-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Moving up: homes from $600,000 to $1.2 million"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 10,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.line-length": 1,
+     "read.small-text": 3,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 7
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 65,
+    "groups": {
+     "SEO": 88,
+     "AEO": 54,
+     "Human": 59,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "ctas(H5)",
+     "exact-amounts(P1)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "byline(T1)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/sell/capital-gains/index.html"
+   }
+  },
+  {
+   "url": "/sell/fsbo/",
+   "words": 1649,
+   "scoreWords": 1355,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Open houses coming up in Myrtle Beach and North Myrtle Beach"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 3
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 80,
+     "AEO": 66,
+     "Human": 86,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "description(S2)",
+     "links-out(S7)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "question-h2(A4)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/sell/fsbo/index.html"
+   }
+  },
+  {
+   "url": "/sell/home-value/",
+   "words": 985,
+   "scoreWords": 739,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Fresh competition: listed in the last 14 days"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 1,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 1
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 73,
+    "groups": {
+     "SEO": 77,
+     "AEO": 57,
+     "Human": 85,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "description(S2)",
+     "topic-early(S11)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/sell/home-value/index.html"
+   }
+  },
+  {
+   "url": "/sell/inherited-house/",
+   "words": 1415,
+   "scoreWords": 1228,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Houses built before 1990, for sale now"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.wall": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 79,
+    "groups": {
+     "SEO": 88,
+     "AEO": 63,
+     "Human": 85,
+     "Trust": 64
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "links-out(S7)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/sell/inherited-house/index.html"
+   }
+  },
+  {
+   "url": "/sell/net-proceeds/",
+   "words": 1014,
+   "scoreWords": 747,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 1,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": [
+     "section#ns-calc"
+    ]
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Price cuts between $300,000 and $600,000"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.line-length": 1,
+     "read.small-text": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 73,
+    "groups": {
+     "SEO": 85,
+     "AEO": 48,
+     "Human": 84,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "description(S2)",
+     "og-image(S5)",
+     "article-schema(S6)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/sell/net-proceeds/index.html"
+   }
+  },
+  {
+   "url": "/sell/out-of-state-buyers/",
+   "words": 1643,
+   "scoreWords": 812,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes for sale with a virtual tour"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.small-text": 3,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 5
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 92,
+     "AEO": 53,
+     "Human": 81,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "table(A6)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/sell/out-of-state-buyers/index.html"
+   }
+  },
+  {
+   "url": "/sell/rental-property/",
+   "words": 2336,
+   "scoreWords": 2032,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Houses that are rented now"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 12,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "seo.description": 1,
+     "read.wall": 6
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 8
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 92,
+     "AEO": 65,
+     "Human": 72,
+     "Trust": 79
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "table(A6)",
+     "local-entities(A10)",
+     "fragments(A8)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/rental-property-sale.js"
+   }
+  },
+  {
+   "url": "/sell/sell-my-condo/",
+   "words": 1518,
+   "scoreWords": 1260,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Condos competing with yours right now"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 6,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 2,
+     "read.wall": 2,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 4
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 92,
+     "AEO": 74,
+     "Human": 72,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "primary-sources(A9)",
+     "local-entities(A10)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "ctas(H5)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "byline(T1)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/sell/sell-my-condo/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/",
+   "words": 690,
+   "scoreWords": 404,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top homes, town by town"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "read.small-text": 1,
+     "read.wall": 1,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 0
+     }
+    }
+   },
+   "score": {
+    "total": 74,
+    "groups": {
+     "SEO": 88,
+     "AEO": 63,
+     "Human": 77,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "description(S2)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "faq(A7)",
+     "primary-sources(A9)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "ctas(H5)",
+     "people-act(P10)",
+     "place-map(P8)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/carolina-forest/",
+   "words": 2129,
+   "scoreWords": 1605,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top homes in Carolina Forest"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 11,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.line-length": 1,
+     "read.small-text": 4,
+     "read.wall": 4,
+     "read.table-scroll": 1
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 9
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 2
+     }
+    }
+   },
+   "score": {
+    "total": 68,
+    "groups": {
+     "SEO": 92,
+     "AEO": 84,
+     "Human": 51,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "ctas(H5)",
+     "exact-amounts(P1)",
+     "number-density(P2)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "pictures(P7)",
+     "place-map(P8)",
+     "byline(T1)",
+     "experience(T2)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/carolina-forest/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/carolina-forest/the-farm/",
+   "words": 1990,
+   "scoreWords": 1330,
+   "isBlog": true,
+   "photos": 3,
+   "charts": 0,
+   "tables": 3,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table",
+     "table",
+     "table"
+    ],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Homes for sale in The Farm now"
+   ],
+   "critic": {
+    "blocking": 0,
+    "warning": 3,
+    "blockingKinds": {},
+    "warningKinds": {
+     "read.line-length": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 0,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 100,
+    "groups": {
+     "SEO": 100,
+     "AEO": 100,
+     "Human": 100,
+     "Trust": 100
+    },
+    "article": true,
+    "blockers": [],
+    "failing": []
+   },
+   "source": {
+    "kind": "spec",
+    "file": "specs/the-farm.js"
+   }
+  },
+  {
+   "url": "/submarkets/conway/",
+   "words": 2848,
+   "scoreWords": 2373,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top homes in Conway"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 82,
+    "groups": {
+     "SEO": 92,
+     "AEO": 88,
+     "Human": 80,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "place-map(P8)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/conway/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/garden-city/",
+   "words": 2810,
+   "scoreWords": 2326,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Just listed near Garden City, in Surfside Beach"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 92,
+     "AEO": 79,
+     "Human": 76,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "place-map(P8)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/garden-city/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/little-river/",
+   "words": 2725,
+   "scoreWords": 2229,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top homes in Little River"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 81,
+    "groups": {
+     "SEO": 92,
+     "AEO": 89,
+     "Human": 78,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "pictures(P7)",
+     "place-map(P8)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/little-river/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/murrells-inlet/",
+   "words": 3345,
+   "scoreWords": 2861,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top homes in Murrells Inlet"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 9,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 6,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 5
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 75,
+    "groups": {
+     "SEO": 92,
+     "AEO": 78,
+     "Human": 70,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "place-map(P8)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/murrells-inlet/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/myrtle-beach/",
+   "words": 3229,
+   "scoreWords": 2730,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top homes in Myrtle Beach"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 9,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 6,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 5
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 4
+     }
+    }
+   },
+   "score": {
+    "total": 73,
+    "groups": {
+     "SEO": 75,
+     "AEO": 77,
+     "Human": 75,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "title(S1)",
+     "description(S2)",
+     "topic-early(S11)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "place-map(P8)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/myrtle-beach/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/north-myrtle-beach/",
+   "words": 3226,
+   "scoreWords": 2699,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top homes in North Myrtle Beach"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 10,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.long-paragraph": 4,
+     "read.wall": 5
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 7
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 3
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 92,
+     "AEO": 84,
+     "Human": 70,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "og-image(S5)",
+     "question-h2(A4)",
+     "section-leads(A5)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "plain-words(P6)",
+     "plain-voice(P9)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "place-map(P8)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/north-myrtle-beach/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/pawleys-island/",
+   "words": 2789,
+   "scoreWords": 2302,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top homes in Pawleys Island"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 77,
+    "groups": {
+     "SEO": 92,
+     "AEO": 78,
+     "Human": 74,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "date-mentions(P3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "place-map(P8)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/pawleys-island/index.html"
+   }
+  },
+  {
+   "url": "/submarkets/surfside-beach/",
+   "words": 2755,
+   "scoreWords": 2272,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 1,
+   "tables": 1,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [
+     "table"
+    ],
+    "charts": [
+     "svg"
+    ],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 1,
+   "stripTitles": [
+    "Top homes in Surfside Beach"
+   ],
+   "critic": {
+    "blocking": 1,
+    "warning": 3,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 2
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 78,
+    "groups": {
+     "SEO": 92,
+     "AEO": 78,
+     "Human": 76,
+     "Trust": 43
+    },
+    "article": true,
+    "blockers": [
+     "place-map"
+    ],
+    "failing": [
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "faq(A7)",
+     "paragraphs(H2)",
+     "visual-rhythm(H3)",
+     "plain-words(P6)",
+     "people-act(P10)",
+     "pictures(P7)",
+     "place-map(P8)",
+     "experience(T2)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/submarkets/surfside-beach/index.html"
+   }
+  },
+  {
+   "url": "/why-chapter-3/",
+   "words": 1258,
+   "scoreWords": 995,
+   "isBlog": true,
+   "photos": 0,
+   "charts": 0,
+   "tables": 0,
+   "maps": 0,
+   "drawings": 0,
+   "tools": 0,
+   "visualDetail": {
+    "tables": [],
+    "charts": [],
+    "maps": [],
+    "drawings": [],
+    "tools": []
+   },
+   "homesStrips": 0,
+   "stripTitles": [],
+   "critic": {
+    "blocking": 1,
+    "warning": 4,
+    "blockingKinds": {
+     "photos.blog-no-photo": 1
+    },
+    "warningKinds": {
+     "photos.few-visuals": 1,
+     "read.small-text": 1,
+     "read.wall": 2
+    },
+    "byWidth": {
+     "390": {
+      "blocking": 0,
+      "warning": 3
+     },
+     "1440": {
+      "blocking": 1,
+      "warning": 1
+     }
+    }
+   },
+   "score": {
+    "total": 76,
+    "groups": {
+     "SEO": 83,
+     "AEO": 53,
+     "Human": 81,
+     "Trust": 86
+    },
+    "article": true,
+    "blockers": [],
+    "failing": [
+     "title(S1)",
+     "h1(S3)",
+     "og-image(S5)",
+     "short-answer(A2)",
+     "question-h2(A4)",
+     "table(A6)",
+     "primary-sources(A9)",
+     "fragments(A8)",
+     "visual-rhythm(H3)",
+     "image(H4)",
+     "plain-words(P6)",
+     "pictures(P7)",
+     "sources-line(T3)"
+    ]
+   },
+   "source": {
+    "kind": "hand-made",
+    "file": "chapter3realty/why-chapter-3/index.html"
+   }
+  }
+ ]
+}

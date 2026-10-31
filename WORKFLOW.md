@@ -130,9 +130,12 @@ node <blog-brain>/tools/claims-scan.js chapter3realty/<url>/index.html        # 
 node <blog-brain>/tools/facts-check.js .                                      # no WRONG on this page, no STALE (A12, T7)
 node <blog-brain>/tools/site-audit.js .                                       # no errors on this page (links, markup, forms)
 node <blog-brain>/tools/struck-check.js <blog-brain>/batches/<batch>/facts/<slug>-struck.json chapter3realty/<url>/index.html   # no wording a verifier struck (B30)
+node <blog-brain>/tools/critic.mjs <preview-url> /<url>/ --json critic.json --shots shots/   # no blocking overlap, photo, readability or SEO finding
 ```
 
 Fix the spec and rerun until all of them are clean.
+
+Then a fresh agent runs `prompts/critic.md` on the page, with the critic's JSON and its 390 and 1440 screenshots. The page goes on only on its PASS.
 
 ### 5b. Buyer reader
 

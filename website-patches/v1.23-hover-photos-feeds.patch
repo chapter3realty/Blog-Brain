@@ -1,0 +1,1199 @@
+From f9200cf611a68cf1899886abaee53cb2a92c5bd7 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 31 Oct 2026 20:12:44 +0000
+Subject: [PATCH] The homepage map never skips on hover, card facts never break
+ apart, no home without a photo in a feed, and every guide's homes fit it with
+ their own title
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+---
+ chapter3realty/index.html   |  66 +++++++++--
+ functions/homes/[[path]].js |  26 ++--
+ idx-lib/edge.js             |  31 +++--
+ idx-lib/features.js         |   6 +-
+ idx-lib/feeds.js            | 228 ++++++++++++++++++++++++------------
+ idx-lib/map.js              |  22 ++--
+ idx-lib/photo.js            |  16 ++-
+ idx-lib/render.js           |  85 +++++++++++---
+ tools/idx-test.mjs          | 156 +++++++++++++++++++++++-
+ 9 files changed, 489 insertions(+), 147 deletions(-)
+
+diff --git a/chapter3realty/index.html b/chapter3realty/index.html
+index e42000df..fcca4200 100644
+--- a/chapter3realty/index.html
++++ b/chapter3realty/index.html
+@@ -417,11 +417,14 @@ html{scroll-padding-top:97px}
+ /* a flight ended early (keyboard focus, a new breakpoint, printing) shows every label at once */
+ .m .tw-stage.now :is(.tw-pin,.tw-deco),.m .tw-stage.now .tw-pin a{transition:none}
+ /* whatever keyboard focus lands on shows at once (fx.html also brings the map to rest) */
+-.m .tw-stage .tw-pin:focus-within{opacity:1;transition:none}
+-.m .tw-stage .tw-pin:focus-within a{translate:none;transition:background .2s,color .2s,border-color .2s}
++.m .tw-stage .tw-pin:has(a:focus-visible){opacity:1;transition:none}
++.m .tw-stage .tw-pin:has(a:focus-visible) a{translate:none;transition:background .2s,color .2s,border-color .2s}
+ .tw-stage.in .tw-pin .rg{animation:tw-ring .7s var(--ease-out) calc(var(--land) + var(--i)*60ms) 1 both}
+-.tw-stage .tw-pin:is(:hover,:focus-within) .rg{animation:tw-ring 1.4s var(--ease-out) infinite}
+-@keyframes tw-ring{from{opacity:.9;transform:scaleY(cos(var(--t0))) scale(.35)}to{opacity:0;transform:scaleY(cos(var(--t0))) scale(1.3)}}}
++/* a label under the pointer or with focus sends out rings from its pin (.pulse, set by the card script): a new animation
++   beside the landing one, so it starts at its first frame, and the landing ring never plays again (owner, 2026-10-31) */
++.tw-stage.in .tw-pin.pulse .rg{animation:tw-ring .7s var(--ease-out) calc(var(--land) + var(--i)*60ms) 1 both,tw-pulse 1.4s var(--ease-out) infinite}
++@keyframes tw-ring{from{opacity:.9;transform:scaleY(cos(var(--t0))) scale(.35)}to{opacity:0;transform:scaleY(cos(var(--t0))) scale(1.3)}}
++@keyframes tw-pulse{from{opacity:.9;transform:scaleY(cos(var(--t0))) scale(.35)}to{opacity:0;transform:scaleY(cos(var(--t0))) scale(1.3)}}}
+ @media (forced-colors:active){#page-home .tw-pin a:focus-visible{forced-color-adjust:none;background:Highlight;color:HighlightText;border-color:HighlightText}}
+ </style>
+ <script>(function(h){h.classList.add('js');if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;h.classList.add('m');window.__c3T=setTimeout(function(){h.classList.remove('m')},3000)})(document.documentElement)</script>
+@@ -1916,8 +1919,9 @@ function c3SendForm(fields, pageName) {
+       if (!document.hidden) takeOff();
+       else document.addEventListener('visibilitychange', function wake() { if (!document.hidden) { document.removeEventListener('visibilitychange', wake); takeOff(); } });
+     } else land();
+-    /* keyboard focus in the map brings it to rest at once, so the focused label is visible and on its town */
+-    tst.addEventListener('focusin', end);
++    /* keyboard focus in the map brings it to rest at once, so the focused label is visible and on its town. A tap or a
++       click also focuses a label; that lets the flight play out (owner, 2026-10-31) */
++    tst.addEventListener('focusin', function (e) { var t = e.target; try { if (t.matches && !t.matches(':focus-visible')) return; } catch (x) {} end(); });
+     /* a resize that crosses a breakpoint during the flight changes the camera: the flight jumps to its end. Any other resize,
+        such as a phone's address bar showing or hiding, changes nothing the frames use */
+     var rz = 0;
+@@ -1965,9 +1969,28 @@ function c3SendForm(fields, pageName) {
+       turn = play(c, s, null, { duration: TT, iterations: Infinity, direction: 'alternate', easing: 'ease-in-out' });
+       sync();
+     }
++    /* under a label or a card the turn slows to a stop in half a second, and once the pointer leaves it picks up again
++       the same way, from where it stopped (owner, 2026-10-31). Off screen or in a background tab it stops at once */
++    var rate = 1, ramp = 0, RD = 500;
+     function sync() {
+-      var on = seen && !hov && !open && !still && !document.hidden;
+-      turn.forEach(function (a) { if (on) a.play(); else a.pause(); });
++      var on = seen && !hov && !open && !still && !document.hidden, to = on ? 1 : 0;
++      cancelAnimationFrame(ramp);
++      if (!turn.length) return;
++      if (!seen || document.hidden || rate === to) {
++        rate = to;
++        turn.forEach(function (a) { if (on) { a.playbackRate = 1; a.play(); } else a.pause(); });
++        return;
++      }
++      var from = rate, t0 = null;
++      if (on) turn.forEach(function (a) { a.playbackRate = rate; a.play(); });
++      ramp = requestAnimationFrame(function step(now) {
++        if (t0 === null) t0 = now;
++        var k = Math.min(1, (now - t0) / RD);
++        rate = from + (to - from) * k * k * (3 - 2 * k);
++        turn.forEach(function (a) { a.playbackRate = rate; });
++        if (k < 1) ramp = requestAnimationFrame(step);
++        else if (!on) turn.forEach(function (a) { a.pause(); });
++      });
+     }
+     /* the heading the map shows now: where the visitor left it, or where the turn has it */
+     var hNow = null;
+@@ -1989,6 +2012,7 @@ function c3SendForm(fields, pageName) {
+       still = true;
+       if (!turn.length) return;
+       var c = camera(), h = heading(c);
++      cancelAnimationFrame(ramp);
+       turn.forEach(function (a) { a.cancel(); }); turn = [];
+       setAt(c, h);
+     }
+@@ -2050,7 +2074,7 @@ function c3SendForm(fields, pageName) {
+     /* ---- town cards: hovering a town's label, tabbing to it or tapping it once opens a card beside it with the town's
+        home value and short-term rentals; the card's link, or a second tap on the label, opens the town's page. Escape
+        closes it. The card is decoration (aria-hidden): the label's description carries the same facts ---- */
+-    var card = $('.tw-card', tw), ol = $('.tw-pins', tst), hdr = $('body > header, header'), open = null, tOpen = 0, tShut = 0, down = null, y0 = 0, byHover = false;
++    var card = $('.tw-card', tw), ol = $('.tw-pins', tst), hdr = $('body > header, header'), open = null, want = null, tOpen = 0, tShut = 0, down = null, y0 = 0, byHover = false;
+     function usd(n) { return '$' + Number(n).toLocaleString('en-US'); }
+     function chg(n, dp, what) { return (n < 0 ? 'Down ' : 'Up ') + Math.abs(n).toFixed(dp) + '% ' + what; }
+     function draw(li) {
+@@ -2110,7 +2134,10 @@ function c3SendForm(fields, pageName) {
+     }
+     function show(li, hover) {
+       clearTimeout(tOpen); clearTimeout(tShut); byHover = !!hover;
+-      if (!M.landed()) { M.end(); tOpen = setTimeout(function () { show(li, hover); }, 0); return; }
++      /* during the flight a label under the pointer or a tap does not cut it short (owner, 2026-10-31): the card waits
++         for the landing. Keyboard focus still ends the flight at once (the flight script's focusin) */
++      if (!M.landed()) { want = [li, !!hover]; return; }
++      want = null;
+       if (open === li) return;
+       var was = !!open;
+       card.hidden = false;
+@@ -2131,7 +2158,7 @@ function c3SendForm(fields, pageName) {
+       }
+     }
+     function shut() {
+-      clearTimeout(tOpen); clearTimeout(tShut);
++      clearTimeout(tOpen); clearTimeout(tShut); want = null;
+       if (!open) return;
+       open.classList.remove('on'); open = null;
+       card.classList.remove('on');
+@@ -2158,6 +2185,14 @@ function c3SendForm(fields, pageName) {
+       if (a && down && down.touch && !down.was) { e.preventDefault(); show(a.parentNode); }
+       down = null;
+     });
++    /* the rings a label sends out while it is under the pointer or has focus start at their beginning; once the pointer
++       and focus have left, the ring under way finishes before they stop, so none jumps or cuts off (owner, 2026-10-31) */
++    function ring(li, k, on) { li[k] = on; if (on && M.landed()) li.classList.add('pulse'); }
++    ol.addEventListener('pointerover', function (e) { var a = e.target.closest('.tw-pin a'); if (a) ring(a.parentNode, 'c3h', true); });
++    ol.addEventListener('pointerout', function (e) { var a = e.target.closest('.tw-pin a'), to = e.relatedTarget; if (a && !(to && to.closest && to.closest('.tw-pin a') === a)) ring(a.parentNode, 'c3h', false); });
++    ol.addEventListener('focusin', function (e) { var a = e.target.closest('.tw-pin a'); if (a) ring(a.parentNode, 'c3f', true); });
++    ol.addEventListener('focusout', function (e) { var a = e.target.closest('.tw-pin a'); if (a) ring(a.parentNode, 'c3f', false); });
++    ol.addEventListener('animationiteration', function (e) { var li = e.target.parentNode; if (e.animationName === 'tw-pulse' && !li.c3h && !li.c3f) li.classList.remove('pulse'); });
+     ol.addEventListener('focusin', function (e) { var a = e.target.closest('.tw-pin a'); if (a) show(a.parentNode); });
+     ol.addEventListener('focusout', function (e) { var to = e.relatedTarget; if (!to || !to.closest || !to.closest('.tw-pin a, .tw-card')) shut(); });
+     /* a press anywhere but the card or a label closes it, and so does scrolling the page under a card the pointer opened
+@@ -2176,16 +2211,21 @@ function c3SendForm(fields, pageName) {
+         var c = camera(), was = cam;
+         if (JSON.stringify(c) === was) return;
+         shut();
+-        if (turn.length) { turn.forEach(function (a) { a.cancel(); }); turn = []; spin(); }
++        if (turn.length) { cancelAnimationFrame(ramp); turn.forEach(function (a) { a.cancel(); }); turn = []; spin(); }
+         else if (hNow !== null) { var o = JSON.parse(was); setAt(c, c.h0 + (c.h1 - c.h0) * Math.max(0, Math.min(1, (hNow - o.h0) / ((o.h1 - o.h0) || 1)))); }
+       });
+     });
+     /* keyboard focus in the map: the turn stops where it is */
+     tst.addEventListener('focusin', freeze);
+     /* motion turned off while the page is open: the turn stops */
+-    var onRm = function () { if (rm.matches) { still = true; turn.forEach(function (a) { a.cancel(); }); turn = []; cancelAnimationFrame(coast); } };
++    var onRm = function () { if (rm.matches) { still = true; cancelAnimationFrame(ramp); turn.forEach(function (a) { a.cancel(); }); turn = []; cancelAnimationFrame(coast); } };
+     if (rm.addEventListener) rm.addEventListener('change', onRm); else if (rm.addListener) rm.addListener(onRm);
+     M.onLand(spin);
++    /* a card asked for during the flight opens as it lands, if the pointer is still on that label */
++    M.onLand(function () {
++      $$('.tw-pin', tst).forEach(function (li) { if (li.c3h || li.c3f) li.classList.add('pulse'); });
++      var w = want; want = null; if (w && (!w[1] || $('a', w[0]).matches(':hover'))) show(w[0], w[1]);
++    });
+     spin();
+ })();
+ </script>
+diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
+index a7cd7cd2..d4e43c56 100644
+--- a/functions/homes/[[path]].js
++++ b/functions/homes/[[path]].js
+@@ -29,6 +29,7 @@ import { SMS_CONSENT_TEXT, TERMS_PARAGRAPHS, TERMS_TITLE, TERMS_VERSION, termsTe
+ import {
+   ICONS, PHOTO_HINT, STRIP_STYLE, STYLE, SCRIPT, addressLine, card, dayLong, disclaimer, esc, factsLine, grid, headlinePrice, heartButton,
+   listingPath, money, safeUrl, signupDialog, welcomeDialog, spaced, statusWord, stripCard, tourButton, tourDialog, updatedLine,
++  hasPhoto, stripCards, NO_PHOTO,
+ } from "../../idx-lib/render.js";
+ 
+ const SITE = "https://chapter3realty.com";
+@@ -732,6 +733,10 @@ async function lookup(context, url) {
+   return json({ ok: true, found: true, facts, meta: r.json.meta || null }, 200, { "cache-control": "private, no-store" });
+ }
+ 
++/* The rental analyzer's page has no PHOTO_FIX (its strip comes from this answer, as HTML), so its cards carry
++   the same steps themselves: our copy of a failed photo, then the next kept home in its place. */
++const OWN_FIX = "if(window.hxPhotoFix)return;var i=this,s=i.getAttribute('src')||'';if(!i.dataset.t){i.dataset.t=1;if(s.indexOf('https://')===0){i.src='/homes/p/card?u='+encodeURIComponent(s);return}if(s.indexOf('/homes/p/')===0&&s.indexOf('u=')>0){i.src=decodeURIComponent(s.split('u=')[1].split('&')[0]);return}}i.onerror=null;var c=i.closest('.hx-c'),r=c&&c.parentNode,t=r&&r.querySelector('template.hx-spare'),n=t&&t.content.querySelector('.hx-c');if(c&&r){if(n)r.replaceChild(n,c);else r.removeChild(c)}";
++
+ /**
+  * GET /homes/api/similar?near=<lat,lng>&beds=&min=&max=&not=<MLS#>: homes like the one the
+  * rental analyzer just ran, for sale now near it, as the listing search's own strip (cards,
+@@ -746,13 +751,13 @@ async function similar(context, url) {
+   const not = /^[A-Za-z0-9]{3,20}$/.test(q.get("not") || "") ? q.get("not") : null;
+   const get = async (params) => {
+     const r = await crm(context.env, context.request, `/api/idx/listings?${params.toString()}`, { anonymous: true });
+-    return r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? { ls: r.json.listings.filter((l) => forSale(l) && l.mlsNumber !== not), meta: r.json.meta } : { ls: [], meta: null };
++    return r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? { ls: r.json.listings.filter((l) => forSale(l) && l.mlsNumber !== not && hasPhoto(l)), meta: r.json.meta } : { ls: [], meta: null };
+   };
+   let got = await get(p);
+   if (got.ls.length < 3) got = await get(new URLSearchParams({ near: n.near, miles: "5", size: "24", status: "active" }));
+   if (got.ls.length < 3) return json({ ok: true, html: "" }, 200, { "cache-control": "public, max-age=300" });
+   const all = `/homes/?${new URLSearchParams({ near: n.near, miles: "3" }).toString()}`;
+-  const cards = got.ls.slice(0, 10).map((l) => stripCard(l, false).replace(/<button type="button" class="hx-heart[\s\S]*?<\/button>/, "")).join("");
++  const cards = stripCards(got.ls, 10, (h) => h.replace(/<button type="button" class="hx-heart[\s\S]*?<\/button>/, "").replace("<img ", `<img onerror="${OWN_FIX}" `));
+   const html = `${STYLE}${STRIP_STYLE}<div class="hx-strip"><p class="hx-s-head"><b>Homes like it for sale nearby</b><a href="${esc(all)}">See all</a></p>`
+     + `<div class="hx-s-row">${cards}<a class="hx-s-all" href="${esc(all)}" draggable="false">See all homes nearby</a></div>${disclaimer(got.meta)}</div>`;
+   return json({ ok: true, html }, 200, { "cache-control": "public, max-age=300" });
+@@ -775,13 +780,13 @@ async function stripApi(context, url) {
+   // What the reader picked wins over the feeds' bar: land, mobile homes or a low max keep only status and photos.
+   const low = +p.get("max") > 0 && +p.get("max") <= 150000;
+   const homes = rankHomes(postFilter(r.json.listings, { yearMin: p.get("yearMin") ? +p.get("yearMin") : 1950, minPhotos: 6, floors: !(allow || low) }, { allowTypes: allow }), "appeal")
+-    .filter((l) => safeUrl(l.photo)).slice(0, 10);
++    .filter(hasPhoto);
+   const keep = new URLSearchParams(p); keep.delete("size");
+   const link = `/homes/${keep.toString() ? `?${keep.toString()}` : ""}`;
+   const total = typeof r.json.total === "number" ? r.json.total : homes.length;
+   const html = homes.length
+     // No heart buttons: this answer is cached for everyone, and the page bound its hearts at load (as similar()).
+-    ? `${homes.map((l) => stripCard(l, false).replace(/<button type="button" class="hx-heart[\s\S]*?<\/button>/, "")).join("")}<a class="hx-s-all" href="${esc(link)}" draggable="false">See all ${esc(total.toLocaleString("en-US"))} homes</a>`
++    ? `${stripCards(homes, 10, (h) => h.replace(/<button type="button" class="hx-heart[\s\S]*?<\/button>/, ""))}<a class="hx-s-all" href="${esc(link)}" draggable="false">See all ${esc(total.toLocaleString("en-US"))} homes</a>`
+     : `<p class="hx-s-empty">No homes match those filters right now. <a href="${esc(link)}">Open the full search</a> to widen them.</p>`;
+   const L = filterLabels(p);
+   return json({ ok: true, html, total, link, labels: { price: L.price, beds: L.bb, type: L.type, town: L.town, more: L.more }, note: p.get("hoa") === "0" ? NO_HOA_NOTE : "" }, 200, { "cache-control": "public, max-age=120" });
+@@ -842,7 +847,7 @@ async function listingPageWith(context, mls, slugPart, gate, r, hearts) {
+   if (slugPart !== null && `/homes/${slugPart}/` !== own) return Response.redirect(`${SITE}${own}${new URL(context.request.url).search}`, 301);
+   const registered = r.json.tier === "registered";
+   const canonical = `${SITE}${own}`;
+-  const photo = safeUrl(l.photo);
++  const photo = hasPhoto(l) ? safeUrl(l.photo) : null;
+   const photos = registered && Array.isArray(l.photos) ? l.photos.filter((p) => p && safeUrl(p.url)) : [];
+   const hearted = (hearts || []).includes(l.mlsNumber);
+   const status = statusWord(l.status);
+@@ -864,7 +869,8 @@ async function listingPageWith(context, mls, slugPart, gate, r, hearts) {
+     media = `<div class="hx-l-media"><div class="hx-l-hero">${img(photo, addressLine(l), true)}${chip}${heartButton(l, hearted)}${more}</div>`
+       + `<div class="hx-l-tile hx-blur hx-tall">${img(photo, "")}<button type="button" class="hx-l-tilebtn" data-hx-signup>${ICONS.lock}<span>${count > 1 ? `See all ${esc(count)} photos` : "See full details"}</span><small>Free sign-up</small></button></div></div>`;
+   } else {
+-    media = `<div class="hx-l-media hx-one"><div class="hx-l-hero"><div class="hx-nophoto">No photo yet</div>${chip}${heartButton(l, hearted)}</div></div>`;
++    // No photo yet: a drawn panel, shorter than a photo (owner, 2026-10-31: never a "no photo" block).
++    media = `<div class="hx-l-media hx-one hx-none"><div class="hx-l-hero"><div class="hx-nophoto">${NO_PHOTO}</div>${chip}${heartButton(l, hearted)}</div></div>`;
+   }
+ 
+   const pill = (icon, text) => (text ? `<li class="hx-pill">${ICONS[icon]}${esc(text)}</li>` : "");
+@@ -908,7 +914,7 @@ ${safeUrl(l.virtualTour) ? `<p><a href="${esc(l.virtualTour)}" rel="nofollow noo
+ ${l.listingAgent ? `<p class="hx-firm-line">Listing agent: ${esc(l.listingAgent)}, ${esc(l.listingFirm || "")}</p>` : ""}
+ <p class="hx-small">School names come from the listing. Being near a school does not mean a home is zoned for it; confirm the zone with Horry County Schools.</p>`
+     : `<section class="hx-teaser hx-glass"><h2>Free: everything else about this home</h2><p class="hx-small">Sign up once with your name, email and phone.</p><ul>`
+-      + `${teaser("camera", count > 1 ? `All ${count} photos` : "Every photo")}${teaser("home", "The description")}${teaser("lock", "The HOA fee and what it covers")}`
++      + `${count > 1 || photo ? teaser("camera", count > 1 ? `All ${count} photos` : "Every photo") : ""}${teaser("home", "The description")}${teaser("lock", "The HOA fee and what it covers")}`
+       + `${teaser("year", "Property taxes")}${teaser("area", "Days on market and the price history")}${teaser("lot", "Recent sales nearby")}</ul>`
+       + `<button type="button" class="btn btn-brass" data-hx-signup>See full details</button></section>`;
+ 
+@@ -974,14 +980,14 @@ async function homesLike(context, l, where) {
+     if (typeof l.beds === "number" && l.beds > 1) p.set("beds", String(l.beds - 1));
+     const r = await crm(context.env, context.request, `/api/idx/listings?${p.toString()}`, { anonymous: true, timeoutMs: 2500 });
+     const all = r.status === 200 && r.json && r.json.ok && Array.isArray(r.json.listings) ? r.json.listings : [];
+-    let ls = all.filter((x) => forSale(x) && x.mlsNumber !== l.mlsNumber && safeUrl(x.photo));
++    let ls = all.filter((x) => forSale(x) && x.mlsNumber !== l.mlsNumber && hasPhoto(x));
+     const same = ls.filter((x) => condoLike(x) === condoLike(l));
+     if (same.length >= 3) ls = same;
+     if (ls.length < 3) return "";
+-    const pick = ls.slice(0, 10);
++    const pick = ls.slice(0, 10 + 4);
+     const link = new URLSearchParams(p); link.delete("size"); link.delete("sort");
+     return `<div class="hx-strip" data-place="nearby" data-name="homes like it"><p class="hx-s-head"><b>Homes like this one for sale</b><a href="/homes/?${esc(link.toString())}">See all</a></p>`
+-      + `<div class="hx-s-row">${pick.map((x) => stripCard(x, false)).join("")}</div></div>`;
++      + `<div class="hx-s-row">${stripCards(pick, 10)}</div></div>`;
+   } catch {
+     return "";
+   }
+diff --git a/idx-lib/edge.js b/idx-lib/edge.js
+index 9a0d67fa..e6b02199 100644
+--- a/idx-lib/edge.js
++++ b/idx-lib/edge.js
+@@ -19,7 +19,7 @@ import { FEEDS, feedParams, postFilter, rankHomes } from "./feeds.js";
+ import { filterBar } from "./filters.js";
+ import { filterCatalog } from "./catalog.js";
+ import { catalogLoaded } from "./features.js";
+-import { PHOTO_HINT, STYLE, STRIP_STYLE, SCRIPT, disclaimer, esc, safeUrl, signupDialog, stripCard, tourDialog } from "./render.js";
++import { PHOTO_HINT, STYLE, STRIP_STYLE, SCRIPT, disclaimer, esc, hasPhoto, signupDialog, stripCards, tourDialog } from "./render.js";
+ 
+ const SLOT = /<div class="hx-strip" data-place="([a-z0-9-]+)" data-name="([^"<>]*)"(?: data-head="([^"<>]*)")?><\/div>/g;
+ const STRIP_CARDS = 10;
+@@ -68,7 +68,7 @@ function strip(slug, name, listings, total, noHoa, head) {
+   // head, like name, is our own escaped markup from the page (glass.js homes()).
+   return `<p class="hx-s-head"><b>${head || `Homes for sale in ${name} now`}</b><a href="${all}">See all ${esc(String(n))}</a></p>`
+     + (noHoa ? `<p class="hx-s-note">${NO_HOA_NOTE}</p>` : "")
+-    + `<div class="hx-s-row">${listings.filter((l) => safeUrl(l.photo)).slice(0, STRIP_CARDS).map((l) => stripCard(l, false)).join("")}`
++    + `<div class="hx-s-row">${stripCards(listings, STRIP_CARDS)}`
+     + `<a class="hx-s-all" href="${all}" draggable="false">See all ${esc(String(n))} homes in ${name}</a></div>`;
+ }
+ 
+@@ -97,14 +97,14 @@ async function runFeed(env, request, feed) {
+     for (const l of r.json.listings) if (l && !seen.has(l.mlsNumber)) { seen.add(l.mlsNumber); out.push(l); }
+   }
+   // Narrowed to the quality bar and put in order here, so the "at least 3 homes" check counts what will show.
+-  const kept = rankHomes(postFilter(out, feed.post, feed), feed.rank);
++  const kept = rankHomes(postFilter(out, feed.post, feed), feed.rank).filter(hasPhoto);
+   return [kept, total, meta, applied];
+ }
+ 
+-/** The homes the title promises, in its order, photos first. */
++/** The homes the title promises, in its order: only homes with a photo (render.js stripCards keeps the first STRIP_CARDS and spares). */
+ function feedHomes(feed, listings) {
+-  // Already narrowed and in order (runFeed): the first STRIP_CARDS with a photo.
+-  return listings.filter((l) => safeUrl(l.photo)).slice(0, STRIP_CARDS);
++  // Already narrowed and in order (runFeed).
++  return listings.filter(hasPhoto);
+ }
+ 
+ /** The article's feed: near the top, one line of title, the homes, and the filters to change them. */
+@@ -118,7 +118,7 @@ function feedSection(feed, listings, total, applied) {
+     + `<p class="hx-s-head"><b class="hx-feed-h">${esc(head)}</b><a href="${esc(all)}">See all</a></p>`
+     + (feed.noHoa ? `<p class="hx-s-note">${NO_HOA_NOTE}</p>` : "")
+     + filterBar({ action: "/homes/map/", params: new URLSearchParams(link), features: applied || catalogLoaded(), compact: true, ask: feed.ask || "" })
+-    + `<div class="hx-s-row" data-hx-row>${feedHomes(feed, listings).map((l) => stripCard(l, false)).join("")}`
++    + `<div class="hx-s-row" data-hx-row>${stripCards(feedHomes(feed, listings), STRIP_CARDS)}`
+     + `<a class="hx-s-all" href="${esc(all)}" draggable="false">See all homes</a></div></div></div></section>`;
+ }
+ 
+@@ -142,12 +142,25 @@ export function placeFeedTop(html, block) {
+   return html.slice(0, a + at) + block + html.slice(a + at);
+ }
+ 
++/** The article's own sections: not inside another section, and not inside a box that starts hidden (a tool's
++    results), so the feed is never placed where no one sees it. */
++function shownSections(main) {
++  const out = [], stack = [];
++  for (const m of main.matchAll(/<(\/?)(div|section)\b([^>]*)>/g)) {
++    if (m[1]) { stack.pop(); continue; }
++    const hidden = /\shidden\b|display:\s*none/.test(m[3]);
++    if (m[2] === "section" && !hidden && !stack.some((t) => t.hidden || t.tag === "section")) out.push(m.index);
++    stack.push({ tag: m[2], hidden });
++  }
++  return out;
++}
++
+ /** Where the feed goes: before the third section of the article, else before its second <h2>, else at the end. */
+ export function placeFeed(html, block) {
+   const a = html.indexOf("<main"), z = html.indexOf("</main>");
+   if (a < 0 || z < 0) return html;
+   const main = html.slice(a, z);
+-  const secs = [...main.matchAll(/<section\b/g)].map((m) => m.index);
++  const secs = shownSections(main);
+   let at = secs.length >= 3 ? secs[2] : -1;
+   if (at < 0) {
+     const h2 = [...main.matchAll(/<h2\b/g)].map((m) => m.index);
+@@ -239,7 +252,7 @@ export async function withIdx(context, response) {
+       const r = answers[i];
+       // The same bar and order as the feeds (owner, 2026-10-26: never "the cheapest dump" first), with no
+       // year or size floor: a place's older houses and small beach cottages are what its page is about.
+-      const ls = r && r.status === 200 && r.json && r.json.ok ? rankHomes(postFilter(r.json.listings || [], PLACE_BAR), "appeal") : [];
++      const ls = r && r.status === 200 && r.json && r.json.ok ? rankHomes(postFilter(r.json.listings || [], PLACE_BAR), "appeal").filter(hasPhoto) : [];
+       if (ls.length >= STRIP_MIN) { filled.set(s, [ls, r.json.total]); meta = meta || r.json.meta; }
+     });
+     if (!filled.size) return early();
+diff --git a/idx-lib/features.js b/idx-lib/features.js
+index 50df473e..a97f7e25 100644
+--- a/idx-lib/features.js
++++ b/idx-lib/features.js
+@@ -342,7 +342,11 @@ const FEED_KEYS = ["walk_to_beach", "beach_1mi", "near_beach", "east_of_17", "se
+   "home_office", "screened_porch", "hot_tub", "outdoor_kitchen", "flood_zone", "inside_city_limits", "outside_city_limits",
+   "hoa_includes_internet", "hoa_includes_insurance", "lawn_care_included", "has_rental_income", "multi_family", "icw_1mi", "near_icw",
+   "marshwalk_1mi", "barefoot_landing_2mi", "market_common_2mi", "nmb_main_street_1mi", "downtown_conway_2mi", "myrtle_beach_boardwalk_1mi",
+-  "grand_strand_medical_center_5mi", "mcleod_carolina_forest_5mi", "myrtle_beach_airport_5mi", "huntington_beach_state_park_5mi"];
++  "grand_strand_medical_center_5mi", "mcleod_carolina_forest_5mi", "myrtle_beach_airport_5mi", "huntington_beach_state_park_5mi",
++  // Used by the guide feeds of 2026-10-31; all in the CRM list that day.
++  "area_garden_city", "area_socastee", "county_georgetown", "raised_home", "new_roof", "move_in_ready", "carolina_room", "virtual_tour",
++  "home_warranty", "brick", "hoa_includes_water_sewer", "grand_strand_medical_center_10mi", "conway_medical_center_10mi", "mcleod_seacoast_10mi",
++  "tidelands_waccamaw_10mi", "coastal_grand_mall_10mi", "myrtle_beach_airport_10mi"];
+ const STATIC = new Set([...FEATURE_KEYS, ...FEED_KEYS]);
+ /** A feature that is a distance from a place: the CRM takes at most 2 in one search (has and not together). */
+ export const isDistance = (k) => /^(walk_to_beach|near_beach|beach_\d+mi|near_icw|icw_\d+mi)$|_\d+mi$/.test(k);
+diff --git a/idx-lib/feeds.js b/idx-lib/feeds.js
+index 4e1dc229..20b30d2d 100644
+--- a/idx-lib/feeds.js
++++ b/idx-lib/feeds.js
+@@ -29,7 +29,10 @@ import { isFeature, isDistance, DISTANCE_MAX } from "./features.js";
+ export const QUALITY = { minPhotos: 12, minPrice: 150000, minPriceCondo: 120000, yearMin: 1975, minSqft: 900, ppsfMin: 110, ppsfMax: 2500 };
+ 
+ const H = (o) => ({ type: "house", status: "active", ...o });
+-const towns = (list, base) => list.map((city) => ({ ...base, city }));
++/* Garden City Beach is not a town in the MLS's city field the way the site names it (a city search finds no
++   homes, 2026-10-31): the CRM's own area for it. The area is a feature, so a feed that uses it needs `has`. */
++const AREA = { "Garden City": "area_garden_city" };
++const towns = (list, base) => list.map((city) => (AREA[city] ? { ...base, has: [base.has, AREA[city]].filter(Boolean).join(",") } : { ...base, city }));
+ 
+ const NEWEST = { head: "Just listed on the Grand Strand", q: towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet", "Conway"], { status: "active", min: "250000", domMax: "21" }), link: "domMax=21" };
+ const NO_HOA = { head: "Homes with no HOA fee", q: towns(["Myrtle Beach", "Conway", "Little River", "Surfside Beach", "Murrells Inlet"], H({ hoa: "0", min: "220000" })), link: "hoa=0", noHoa: true, fallback: NEWEST };
+@@ -38,7 +41,7 @@ const CONDOS_WIDE = { head: "Condos for sale on the Grand Strand", q: towns(["My
+ CONDOS_WIDE.fallback = CONDOS_WIDE;
+ const CONDOS = { head: "Condos for sale on the Grand Strand", q: towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet"], { type: "condo", status: "active", min: "180000", yearMin: "1985" }), link: "type=condo", fallback: CONDOS_WIDE };
+ const town = (city) => ({ head: `Just listed in ${city}`, q: [{ city, status: "active", min: "200000", domMax: "30" }], link: `city=${encodeURIComponent(city)}&domMax=30`, fallback: NEWEST });
+-const STARTER = { head: "Starter homes under $300,000", q: towns(["Myrtle Beach", "Conway", "Longs", "Little River", "Surfside Beach"], H({ min: "190000", max: "300000", yearMin: "1995" })), post: { yearMin: 1995 }, link: "max=300000", fallback: NEWEST };
++const STARTER = { head: "Starter homes under $300,000", q: towns(["Myrtle Beach", "Conway", "Longs", "Little River", "Surfside Beach"], H({ min: "190000", max: "299999", yearMin: "1995" })), post: { yearMin: 1995 }, link: "max=300000", fallback: NEWEST };
+ 
+ /* Investors: the long-term rental areas the analyzer page names (Carolina Forest, Conway,
+    Socastee, Market Common), 3 to 4 bedrooms, newer, a sane price band, rentals allowed. */
+@@ -61,10 +64,13 @@ const VACATION = {
+ const OCEAN_UNITS = { ...VACATION, head: "Oceanfront condos for sale", headToday: VACATION.headToday, q: towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", waterfront: "1", min: "160000", max: "600000", yearMin: "1980", has: "oceanfront_unit" }), post: { yearMin: 1980 } };
+ const MULTI = { head: "Duplexes, triplexes and fourplexes", q: [{ type: "multi", status: "active", min: "250000" }], allowTypes: true, link: "type=multi", fallback: RENTAL };
+ const NEWER = { head: "Brand-new homes", q: towns(["Myrtle Beach", "Conway", "Little River", "Longs", "North Myrtle Beach"], H({ min: "280000", has: "new_construction" })), post: { builtWithin: 2, strictYear: true }, link: "type=house", fallback: NEWEST };
+-const SINCE_2010 = { head: "Built since 2010, outside the flood zone", needs: "has", headToday: "Newer homes, built 2010 or later", q: towns(["Myrtle Beach", "Conway", "Little River", "Murrells Inlet", "North Myrtle Beach"], H({ min: "280000", yearMin: "2010", not: "flood_zone" })), post: { yearMin: 2010, strictYear: true }, link: "type=house", fallback: NEWEST };
++const SINCE_2010 = { head: "Built since 2010, no flood zone listed", needs: "has", headToday: "Newer homes, built 2010 or later", q: towns(["Myrtle Beach", "Conway", "Little River", "Murrells Inlet", "North Myrtle Beach"], H({ min: "280000", yearMin: "2010", not: "flood_zone" })), post: { yearMin: 2010, strictYear: true }, link: "type=house", fallback: NEWEST };
+ /* Value-add: solid older houses in established towns, never the $50,000 shells. */
+-const VALUE_ADD = { head: "Value-add picks", q: towns(["Myrtle Beach", "Surfside Beach", "North Myrtle Beach", "Conway", "Murrells Inlet"], H({ min: "170000", max: "340000", yearMin: "1975", yearMax: "1999" })), post: { yearMin: 1975, yearMax: 1999, minSqft: 1100 }, rank: "ppb", link: "type=house&min=170000&max=340000", fallback: RENTAL };
+-const FIFTY_FIVE = { head: "Homes for sale in 55+ communities", q: [{ subdivision: "Del Webb", status: "active" }, { subdivision: "Myrtle Trace", status: "active" }, { subdivision: "Seasons at Prince Creek", status: "active" }], post: { minPhotos: 6 }, link: "subdivision=Del%20Webb" };
++const VALUE_ADD = { head: "Value-add picks", q: towns(["Myrtle Beach", "Surfside Beach", "North Myrtle Beach", "Conway", "Murrells Inlet"], H({ min: "170000", max: "339999", yearMin: "1975", yearMax: "1999" })), post: { yearMin: 1975, yearMax: 1999, minSqft: 1100 }, rank: "ppb", link: "type=house&min=170000&max=340000", fallback: RENTAL };
++/* The 55+ communities the 55+ guide compares (all deed-restricted), each searched by its MLS subdivision name.
++   Cypress Village houses only: "Cypress Village Townhomes" is a separate subdivision name. Lakeside Crossing is
++   land-lease mobile homes, which the quality bar leaves out. */
++const FIFTY_FIVE = { head: "Homes for sale in 55+ communities", q: [H({ subdivision: "Cypress Village", city: "Little River" }), { subdivision: "Cresswind", status: "active" }, { subdivision: "Spring Forest", city: "Murrells Inlet", status: "active" }, { subdivision: "Woodlake Village", status: "active" }, { subdivision: "Del Webb", status: "active" }, { subdivision: "Myrtle Trace", status: "active" }, { subdivision: "Seasons at Prince Creek", status: "active" }], post: { minPhotos: 6 }, link: "subdivision=Del%20Webb" };
+ const GOLF = { head: "Homes in golf communities", q: [H({ subdivision: "Barefoot", has: "golf_community" }), H({ subdivision: "Grande Dunes" }), H({ subdivision: "Prestwick" }), H({ subdivision: "Tidewater" })], link: "" };
+ const WATER = { head: "Waterfront homes for sale", q: towns(["Murrells Inlet", "Little River", "North Myrtle Beach", "Myrtle Beach", "Pawleys Island"], H({ waterfront: "1", min: "400000" })), link: "waterfront=1" };
+ const BIG = { head: "Homes with 4 or more bedrooms", q: towns(["Myrtle Beach", "Conway", "Murrells Inlet", "Little River", "North Myrtle Beach"], H({ beds: "4", min: "350000", yearMin: "2000" })), post: { yearMin: 2000 }, link: "type=house&beds=4" };
+@@ -76,24 +82,24 @@ const COMPETITION = { head: "Your competition: homes for sale now", q: towns(["M
+  */
+ const cut = (head, q, link, fallback) => ({ head, q, link, needs: "has", fallback });
+ const PRICE_CUT = cut("Price just cut on these homes", towns(["Myrtle Beach", "North Myrtle Beach", "Conway", "Surfside Beach", "Murrells Inlet"], { status: "active", min: "220000", has: "price_reduced" }), "has=price_reduced", NEWEST);
+-const CUT_300 = cut("Price cut, and under $300,000", towns(["Myrtle Beach", "Conway", "Longs", "Little River", "Surfside Beach"], H({ min: "180000", max: "300000", yearMin: "1990", has: "price_reduced" })), "max=300000&has=price_reduced", STARTER);
+-const CONDO_CUT = cut("Condos with a fresh price cut", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet"], { type: "condo", status: "active", min: "150000", has: "price_reduced" }), "type=condo&has=price_reduced", CONDOS);
+-const FHA_FIRST = cut("Under $300,000, and the seller takes FHA", towns(["Myrtle Beach", "Conway", "Longs", "Little River", "Surfside Beach"], H({ min: "180000", max: "300000", yearMin: "1990", has: "fha_accepted" })), "max=300000&has=fha_accepted", STARTER);
+-const VA_FEED = cut("3 bedrooms under $400,000, the seller takes VA", towns(["Myrtle Beach", "Conway", "Little River", "Longs"], H({ beds: "3", min: "250000", max: "400000", yearMin: "2000", has: "va_accepted" })), "beds=3&max=400000&has=va_accepted",
+-  { head: "Homes with 3 or more bedrooms under $400,000", q: towns(["Myrtle Beach", "Conway", "Little River", "Longs"], H({ beds: "3", min: "250000", max: "400000", yearMin: "2000" })), post: { yearMin: 2000 }, link: "type=house&beds=3&max=400000" });
++const CUT_300 = cut("Price cut, and under $300,000", towns(["Myrtle Beach", "Conway", "Longs", "Little River", "Surfside Beach"], H({ min: "180000", max: "299999", yearMin: "1990", has: "price_reduced" })), "max=300000&has=price_reduced", STARTER);
++const CONDO_CUT = cut("Condos with a price cut", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet"], { type: "condo", status: "active", min: "150000", has: "price_reduced" }), "type=condo&has=price_reduced", CONDOS);
++const FHA_FIRST = cut("Under $300,000, and the seller takes FHA", towns(["Myrtle Beach", "Conway", "Longs", "Little River", "Surfside Beach"], H({ min: "180000", max: "299999", yearMin: "1990", has: "fha_accepted" })), "max=300000&has=fha_accepted", STARTER);
++const VA_FEED = cut("3+ bedrooms under $400,000, and the seller takes VA", towns(["Myrtle Beach", "Conway", "Little River", "Longs"], H({ beds: "3", min: "250000", max: "399999", yearMin: "2000", has: "va_accepted" })), "beds=3&max=400000&has=va_accepted",
++  { head: "Homes with 3 or more bedrooms under $400,000", q: towns(["Myrtle Beach", "Conway", "Little River", "Longs"], H({ beds: "3", min: "250000", max: "399999", yearMin: "2000" })), post: { yearMin: 2000 }, link: "type=house&beds=3&max=400000" });
+ const ONE_LEVEL = cut("One-level homes with a garage", towns(["Myrtle Beach", "Conway", "Little River", "Murrells Inlet", "Longs"], H({ min: "280000", max: "650000", yearMin: "2005", has: "one_level,garage" })), "type=house&has=one_level%2Cgarage", FIFTY_FIVE);
+ const QUICK = { ...cut("Brand-new homes you can move into now", towns(["Myrtle Beach", "Conway", "Little River", "Longs", "North Myrtle Beach"], H({ min: "260000", has: "quick_move_in" })), "type=house&has=quick_move_in", NEWER), post: { builtWithin: 2, strictYear: true } };
+ const STILL_BUILT = cut("Still being built: homes going up now", towns(["Myrtle Beach", "Conway", "Little River", "Longs", "North Myrtle Beach"], H({ min: "260000", has: "still_being_built" })), "type=house&has=still_being_built", NEWER);
+ const DOCK = cut("Homes with their own dock", towns(["Murrells Inlet", "Little River", "North Myrtle Beach", "Myrtle Beach", "Garden City"], H({ min: "350000", has: "private_dock" })), "has=private_dock", WATER);
+ const ON_COURSE = cut("Homes right on the golf course", towns(["Myrtle Beach", "North Myrtle Beach", "Murrells Inlet", "Little River", "Pawleys Island"], H({ min: "300000", has: "on_golf_course" })), "has=on_golf_course", GOLF);
+ const OUTSIDE_CITY = cut("Outside city limits: no city property tax", towns(["Myrtle Beach", "Murrells Inlet", "Little River", "Longs"], H({ min: "250000", max: "700000", yearMin: "2000", has: "outside_city_limits" })), "type=house&has=outside_city_limits", NO_HOA);
+-const MORE_HOUSE = { head: "4 bedrooms for under $400,000", q: towns(["Myrtle Beach", "Conway", "Little River", "Longs", "Murrells Inlet"], H({ beds: "4", min: "260000", max: "400000", yearMin: "2000" })), post: { yearMin: 2000 }, link: "type=house&beds=4&max=400000", fallback: BIG };
++const MORE_HOUSE = { head: "4+ bedrooms for under $400,000", q: towns(["Myrtle Beach", "Conway", "Little River", "Longs", "Murrells Inlet"], H({ beds: "4", min: "260000", max: "399999", yearMin: "2000" })), post: { yearMin: 2000 }, link: "type=house&beds=4&max=400000", fallback: BIG };
+ const WALK_BEACH = cut("Walk to the beach from these homes", towns(["North Myrtle Beach", "Myrtle Beach", "Surfside Beach", "Garden City"], { status: "active", min: "250000", has: "walk_to_beach" }), "has=walk_to_beach", VACATION);
+-const WALK_500 = cut("Walk to the beach for under $500,000", towns(["North Myrtle Beach", "Myrtle Beach", "Surfside Beach", "Garden City"], { status: "active", min: "200000", max: "500000", has: "walk_to_beach" }), "max=500000&has=walk_to_beach", WALK_BEACH);
++const WALK_500 = cut("Walk to the beach for under $500,000", towns(["North Myrtle Beach", "Myrtle Beach", "Surfside Beach", "Garden City"], { status: "active", min: "200000", max: "499999", has: "walk_to_beach" }), "max=500000&has=walk_to_beach", WALK_BEACH);
+ const GOLF_CART = cut("Homes where golf carts are allowed", towns(["North Myrtle Beach", "Myrtle Beach", "Surfside Beach", "Murrells Inlet", "Little River"], { status: "active", min: "250000", has: "golf_cart_ok" }), "has=golf_cart_ok", NEWEST);
+ const NEAR_HOSPITAL = cut("Homes within 5 miles of Grand Strand Medical Center", [{ status: "active", min: "220000", has: "grand_strand_medical_center_5mi" }], "has=grand_strand_medical_center_5mi", NEWEST);
+ const NEAR_AIRPORT = cut("Homes within 5 miles of the Myrtle Beach airport", [{ status: "active", min: "220000", has: "myrtle_beach_airport_5mi" }], "has=myrtle_beach_airport_5mi", NEWEST);
+-const OPEN_HOUSE = cut("Open houses coming up in Myrtle Beach", [{ city: "Myrtle Beach", status: "active", min: "200000", has: "open_house" }, { city: "North Myrtle Beach", status: "active", min: "200000", has: "open_house" }], "has=open_house", town("Myrtle Beach"));
++const OPEN_HOUSE = cut("Open houses coming up in Myrtle Beach and North Myrtle Beach", [{ city: "Myrtle Beach", status: "active", min: "200000", has: "open_house" }, { city: "North Myrtle Beach", status: "active", min: "200000", has: "open_house" }], "has=open_house", town("Myrtle Beach"));
+ const STR_OCEAN = { ...cut("Oceanfront condos where nightly rentals are allowed", towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", min: "180000", max: "900000", yearMin: "1985", has: "str_allowed,oceanfront_unit" }), "type=condo&has=str_allowed%2Coceanfront_unit", VACATION), post: { yearMin: 1985 } };
+ const TURNKEY = cut("Turnkey condos sold furnished, nightly rentals allowed", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach"], { type: "condo", status: "active", min: "150000", has: "furnished,str_allowed" }), "type=condo&has=furnished%2Cstr_allowed", VACATION);
+ const RENTAL_PROGRAM = cut("Condos in buildings with a rental program", towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", min: "120000", has: "vacation_rental_program" }), "type=condo&has=vacation_rental_program", VACATION);
+@@ -114,6 +120,7 @@ const AMENITIES = cut("Homes with a community pool and clubhouse", towns(["Myrtl
+ /* Owner, 2026-10-27: town pages show the best homes there, not price cuts ("we don't want it to seem like
+    we are showing budget homes"): the quality bar and the appeal order. */
+ const townTop = (city) => ({ head: `Top homes in ${city}`, q: [{ city, status: "active", min: "250000" }], link: `city=${encodeURIComponent(city)}`, fallback: town(city) });
++const GARDEN_CITY = { head: "Top homes in and around Garden City", needs: "has", q: [{ status: "active", min: "250000", has: "area_garden_city" }], link: "has=area_garden_city", fallback: { ...town("Surfside Beach"), head: "Just listed near Garden City, in Surfside Beach" } };
+ /* Second homes: the best homes near the beach from Cherry Grove to Pawleys Island, on top of the page's own town rows. */
+ const TOP_VACATION = { ...cut("Top vacation homes", towns(["North Myrtle Beach", "Myrtle Beach", "Surfside Beach", "Garden City", "Murrells Inlet", "Pawleys Island"], { status: "active", min: "250000", has: "walk_to_beach" }), "has=walk_to_beach", VACATION), withStrips: true };
+ /* Jobs: homes within 5 miles (about a 15 to 20 minute drive) of the largest employers the page names: the hospitals, the mall and the airport. */
+@@ -127,10 +134,78 @@ const FIXERS = { ...cut("Distressed and older houses in Conway, Carolina Forest
+   "type=house&yearMax=1999", VALUE_ADD), post: { floors: false, yearMin: 1900, yearMax: 1999, minPhotos: 6 } };
+ /* The HOA guides, each with the homes its reader is weighing. */
+ const NEWER_CONDOS = { head: "Condos in buildings built since 2005", q: towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet"], { type: "condo", status: "active", min: "150000", yearMin: "2005" }), post: { yearMin: 2005, strictYear: true }, link: "type=condo&yearMin=2005", fallback: CONDOS };
+-const LOW_FEE = { head: "Condos with an HOA fee under $300 a month", q: towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet", "Little River"], { type: "condo", status: "active", min: "120000", hoaMax: "300" }), link: "type=condo&hoaMax=300", fallback: CONDOS };
++const LOW_FEE = { head: "Condos with an HOA fee under $300 a month", q: towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet", "Little River"], { type: "condo", status: "active", min: "120000", hoaMax: "299" }), link: "type=condo&hoaMax=300", fallback: CONDOS };
+ const HOA_INTERNET = cut("Condos whose HOA fee includes internet", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach"], { type: "condo", status: "active", min: "120000", has: "hoa_includes_internet" }), "type=condo&has=hoa_includes_internet", CONDOS);
+ const BANK_CONDOS = cut("Bank-owned and foreclosure condos", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Little River"], { type: "condo", status: "active", min: "80000", has: "foreclosure" }), "type=condo&has=foreclosure", CONDOS);
+ const NO_FINES = { ...NO_HOA, head: "No HOA, no fines: homes with no HOA fee" };
++/*
++ * One feed per page (owner, 2026-10-31: "make sure each IDX feed is showing the perfect houses for that blog";
++ * repeated titles replaced, the liked ones kept). Each was run against the live search on 31 Oct 2026 and
++ * finds at least 10 homes. A feature title is true for every home because the CRM searched for that feature.
++ */
++const RENT_TOWNS = [["subdivision", "Carolina Forest"], ["city", "Conway"], ["subdivision", "Market Common"], ["city", "Myrtle Beach"], ["city", "Little River"]];
++const rentals = (o, list = RENT_TOWNS) => list.map(([k, v]) => H({ [k]: v, min: "200000", ...o }));
++const MB_CUT = { ...cut("Myrtle Beach sellers who already cut their price", [H({ city: "Myrtle Beach", min: "250000", yearMin: "2000", has: "price_reduced" }), { type: "condo", city: "Myrtle Beach", status: "active", min: "170000", has: "price_reduced" }, { type: "townhouse", city: "Myrtle Beach", status: "active", min: "200000", has: "price_reduced" }], "city=Myrtle%20Beach&has=price_reduced", OPEN_HOUSE) };
++const FIRST_3 = { head: "3+ bedrooms under $300,000, built since 2005", q: towns(["Conway", "Myrtle Beach", "Longs", "Little River", "Loris"], H({ beds: "3", min: "200000", max: "299999", yearMin: "2005" })), post: { yearMin: 2005, strictYear: true }, link: "type=house&beds=3&max=300000&yearMin=2005", fallback: STARTER };
++const COST_TO_OWN = { head: "No HOA dues, built since 2015", q: towns(["Conway", "Myrtle Beach", "Longs", "Little River", "Murrells Inlet"], H({ hoa: "0", min: "230000", yearMin: "2015" })), post: { yearMin: 2015, strictYear: true }, link: "hoa=0&yearMin=2015", noHoa: true, fallback: NO_HOA };
++const OCEAN_CUT = { ...cut("Oceanfront condos with a price cut", towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", min: "150000", yearMin: "1980", has: "oceanfront_unit,price_reduced" }), "type=condo&has=oceanfront_unit%2Cprice_reduced", CONDO_CUT), post: { yearMin: 1980 } };
++const RAISED = cut("Houses raised on pilings", towns(["Murrells Inlet", "Garden City", "Surfside Beach", "North Myrtle Beach", "Little River", "Pawleys Island"], H({ min: "250000", has: "raised_home" })), "type=house&has=raised_home", SINCE_2010);
++const NEW_ROOF = cut("Houses with a new roof", towns(["Myrtle Beach", "Conway", "Murrells Inlet", "Little River", "North Myrtle Beach", "Surfside Beach"], H({ min: "220000", has: "new_roof" })), "type=house&has=new_roof", SINCE_2010);
++const DEL_WEBB_NMB = { head: "Del Webb North Myrtle Beach, and one-level homes within 2 miles", needs: "has", q: [{ subdivision: "Del Webb", city: "North Myrtle Beach", status: "active" }, H({ near: "33.8252,-78.7000", miles: "2", min: "300000", yearMin: "2005", has: "one_level" })], post: { minPhotos: 6, yearMin: 2005 }, link: "type=house&near=33.8252%2C-78.7000&miles=2&has=one_level", fallback: FIFTY_FIVE };
++const SEASONS = { head: "Seasons at Prince Creek, and one-level homes within 2 miles", needs: "has", q: [{ subdivision: "Seasons at Prince Creek", status: "active" }, H({ near: "33.5960,-79.0700", miles: "2", min: "300000", yearMin: "2000", has: "one_level" })], post: { minPhotos: 6, yearMin: 2000 }, link: "type=house&near=33.5960%2C-79.0700&miles=2&has=one_level", fallback: FIFTY_FIVE };
++const MOVE_IN = cut("Listed as move-in ready", towns(["Myrtle Beach", "Conway", "North Myrtle Beach", "Murrells Inlet", "Little River", "Longs"], H({ min: "260000", yearMin: "1995", has: "move_in_ready" })), "type=house&has=move_in_ready", NEWEST);
++const GARAGE_2 = { head: "Homes with a 2-car garage or bigger", q: towns(["Myrtle Beach", "Conway", "Little River", "Murrells Inlet", "Longs"], H({ garage: "2", min: "280000", yearMin: "2000" })), post: { yearMin: 2000 }, link: "type=house&garage=2", fallback: NEWEST };
++const TOWN_BY_TOWN_30 = { head: "New in the last 30 days, town by town", q: towns(["Little River", "North Myrtle Beach", "Myrtle Beach", "Conway", "Surfside Beach", "Murrells Inlet", "Pawleys Island"], { status: "active", min: "250000", domMax: "30" }), link: "domMax=30", fallback: NEWEST };
++const CAROLINA_ROOM = cut("Homes with a Carolina room", towns(["Myrtle Beach", "Conway", "Murrells Inlet", "Little River", "North Myrtle Beach"], H({ min: "250000", has: "carolina_room" })), "type=house&has=carolina_room", WALK_BEACH);
++const TOP_EACH = { head: "Top homes, town by town", q: towns(["North Myrtle Beach", "Myrtle Beach", "Conway", "Murrells Inlet", "Surfside Beach", "Little River", "Pawleys Island"], { status: "active", min: "300000" }), link: "", fallback: NEWEST };
++const BOTH_WAYS = cut("Rent it by the night or by the year: both allowed", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach"], { status: "active", min: "180000", has: "str_allowed,long_term_rental_allowed" }), "has=str_allowed%2Clong_term_rental_allowed", VACATION);
++const OCEAN_300 = { ...cut("Oceanfront condos under $300,000", towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", min: "130000", max: "299999", yearMin: "1980", has: "oceanfront_unit" }), "type=condo&max=300000&has=oceanfront_unit", OCEAN_UNITS), post: { yearMin: 1980 } };
++const CASH_OCEAN = { ...cut("Oceanfront condos the seller lists as cash only", towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", min: "120000", has: "oceanfront_unit,cash_only_listing" }), "type=condo&has=oceanfront_unit%2Ccash_only_listing", OCEAN_UNITS), post: { yearMin: 1975 } };
++const HIGH_OCEAN = { ...cut("Oceanfront, sixth floor and up", towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", min: "180000", yearMin: "1985", has: "oceanfront_unit,high_floor_unit" }), "type=condo&has=oceanfront_unit%2Chigh_floor_unit", OCEAN_UNITS), post: { yearMin: 1985 } };
++const STR_HOUSES = cut("Houses east of 17 where nightly rentals are allowed", towns(["North Myrtle Beach", "Myrtle Beach", "Surfside Beach", "Garden City"], H({ min: "300000", has: "str_allowed,east_of_17" })), "type=house&has=str_allowed%2Ceast_of_17", VACATION);
++const STR_FURNISHED = cut("Furnished houses where nightly rentals are allowed", towns(["North Myrtle Beach", "Myrtle Beach", "Surfside Beach", "Garden City"], H({ min: "300000", has: "furnished,str_allowed" })), "type=house&has=furnished%2Cstr_allowed", VACATION);
++const GEORGETOWN_STR = cut("Nightly rentals allowed, in Georgetown County", [{ status: "active", min: "200000", has: "str_allowed,county_georgetown" }], "has=str_allowed%2Ccounty_georgetown", VACATION);
++const OCEANVIEW_STR = { ...cut("Ocean-view condos where nightly rentals are allowed", towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", min: "150000", yearMin: "1980", has: "oceanview_unit,str_allowed" }), "type=condo&has=oceanview_unit%2Cstr_allowed", VACATION), post: { yearMin: 1980 } };
++const J1 = { head: "4+ bedroom houses within 4 miles of the boardwalk", q: [H({ near: "33.6915,-78.8820", miles: "4", beds: "4", min: "200000", max: "600000" })], post: { yearMin: 1960 }, rank: "ppb", link: "type=house&beds=4&max=600000&near=33.6915%2C-78.8820&miles=4", fallback: RENTAL };
++const FURN_OCEAN = { ...cut("Oceanfront condos that come furnished", towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", min: "180000", yearMin: "1980", has: "oceanfront_unit,furnished" }), "type=condo&has=oceanfront_unit%2Cfurnished", VACATION), post: { yearMin: 1980 } };
++const NEW_RENTAL = { ...cut("Newer rentals: built since 2018, renting allowed", rentals({ beds: "3", max: "480000", yearMin: "2018", has: "long_term_rental_allowed" }), "type=house&beds=3&yearMin=2018&has=long_term_rental_allowed", RENTAL), post: { yearMin: 2018, strictYear: true }, rank: "rental" };
++const RUN_NUMBERS = { ...RENTAL, head: "Run the numbers on one of these", low: true };
++const TOUR_RENTAL = { ...cut("Rentals you can walk through online first", rentals({ beds: "3", max: "460000", yearMin: "2000", has: "long_term_rental_allowed,virtual_tour" }), "type=house&has=long_term_rental_allowed%2Cvirtual_tour", RENTAL), rank: "rental" };
++const WARRANTY_RENTAL = { ...cut("Rental-friendly houses with a home warranty", rentals({ beds: "3", max: "460000", yearMin: "2000", has: "long_term_rental_allowed,home_warranty" }), "type=house&has=long_term_rental_allowed%2Chome_warranty", RENTAL), rank: "rental" };
++const CUT_RENTAL = { ...cut("Rental-friendly homes with a price cut", rentals({ beds: "3", max: "420000", yearMin: "2000", has: "long_term_rental_allowed,price_reduced" }), "type=house&max=420000&has=long_term_rental_allowed%2Cprice_reduced", RENTAL), rank: "ppb" };
++/* The yearly-rental areas the where-to-buy page names: Conway, Carolina Forest, Socastee, Little River and Longs. */
++const WHERE_RENT = { ...cut("Rental picks: Conway, Carolina Forest, Socastee, Little River, Longs", [...rentals({ beds: "3", max: "460000", yearMin: "2000", has: "long_term_rental_allowed" }, [["city", "Conway"], ["subdivision", "Carolina Forest"], ["city", "Little River"], ["city", "Longs"]]), H({ beds: "3", min: "200000", max: "460000", yearMin: "2000", has: "long_term_rental_allowed,area_socastee" })], "type=house&beds=3&has=long_term_rental_allowed", RENTAL), rank: "rental" };
++const MID_TERM = { head: "Mid-term rental picks", q: [{ type: "condo", status: "active", city: "Myrtle Beach", beds: "2", min: "180000", max: "420000", yearMin: "1995" }, { type: "townhouse", status: "active", city: "Myrtle Beach", beds: "2", min: "200000", max: "420000", yearMin: "2000" }], post: { bedsMax: 3, yearMin: 1995 }, rank: "rental", link: "beds=2&min=180000&max=420000" };
++const NURSES = { ...cut("Furnished, within 5 miles of Grand Strand Medical Center", [{ type: "condo", status: "active", beds: "2", min: "150000", max: "450000", yearMin: "1990", has: "furnished,grand_strand_medical_center_5mi" }, { type: "townhouse", status: "active", beds: "2", min: "180000", max: "450000", yearMin: "1995", has: "furnished,grand_strand_medical_center_5mi" }], "beds=2&has=furnished%2Cgrand_strand_medical_center_5mi", MID_TERM), post: { bedsMax: 3, yearMin: 1990 }, rank: "rental" };
++const FENCED_RENTAL = { ...cut("Rental houses with a fenced yard", rentals({ beds: "3", max: "460000", yearMin: "1995", has: "long_term_rental_allowed,fenced_yard" }), "type=house&has=long_term_rental_allowed%2Cfenced_yard", RENTAL), rank: "rental" };
++const LLC = { ...cut("Rental houses under $350,000", rentals({ beds: "3", max: "349999", yearMin: "2000", has: "long_term_rental_allowed" }), "type=house&beds=3&max=350000&has=long_term_rental_allowed", RENTAL), post: { yearMin: 2000 }, rank: "ppb" };
++const NEW_LTR = { ...cut("New construction where renting is allowed", towns(["Conway", "Myrtle Beach", "Little River", "Longs"], H({ min: "240000", max: "500000", has: "new_construction,long_term_rental_allowed" })), "type=house&has=new_construction%2Clong_term_rental_allowed", NEWER), post: { builtWithin: 2, strictYear: true }, rank: "rental" };
++const TOWNHOUSE_RENTAL = { ...cut("Townhouses where long-term rentals are allowed", towns(["Myrtle Beach", "Conway", "Little River", "North Myrtle Beach", "Longs"], { type: "townhouse", status: "active", min: "180000", max: "400000", yearMin: "2000", has: "long_term_rental_allowed" }), "type=townhouse&has=long_term_rental_allowed", DSCR), post: { yearMin: 2000 }, rank: "ppb" };
++const LL_INS = { ...cut("Rental houses built since 2015, no flood zone listed", rentals({ beds: "3", max: "480000", yearMin: "2015", has: "long_term_rental_allowed", not: "flood_zone" }), "type=house&yearMin=2015&has=long_term_rental_allowed&not=flood_zone", RENTAL), post: { yearMin: 2015, strictYear: true }, rank: "rental" };
++const FOUR_BED_RENTAL = { ...cut("4+ bedroom houses where renting is allowed", rentals({ beds: "4", min: "260000", max: "520000", yearMin: "2000", has: "long_term_rental_allowed" }), "type=house&beds=4&has=long_term_rental_allowed", RENTAL), post: { yearMin: 2000 }, rank: "rental" };
++const CONWAY_PPB = { head: "Conway houses, lowest price per bedroom first", q: [H({ city: "Conway", beds: "3", min: "200000", max: "380000", yearMin: "1995" })], post: { yearMin: 1995, minSqft: 1200 }, rank: "ppb", link: "city=Conway&type=house&beds=3&max=380000", fallback: RENTAL };
++const BRICK_RENTAL = { ...cut("Brick houses where renting is allowed", rentals({ beds: "3", max: "520000", has: "long_term_rental_allowed,brick" }), "type=house&has=long_term_rental_allowed%2Cbrick", RENTAL), rank: "rental" };
++const MIX = { ...cut("Rentals, distressed sales and duplexes for sale now", [{ type: "multi", status: "active", min: "250000" }, { status: "active", min: "150000", has: "distressed_sale" }, ...rentals({ beds: "3", max: "460000", yearMin: "2000", has: "long_term_rental_allowed" }, RENT_TOWNS.slice(0, 3))], "has=long_term_rental_allowed", RENTAL), rank: "rental" };
++const PRE_2000 = { ...VALUE_ADD, head: "Built before 2000, under $340,000", post: { ...VALUE_ADD.post, strictYear: true } };
++const RENTS_NOW = cut("Rented now: income property from $400,000", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Conway", "Little River"], { status: "active", min: "400000", has: "has_rental_income" }), "min=400000&has=has_rental_income", MULTI);
++const OCEAN_PROGRAM = { ...cut("Oceanfront condos in a rental program", towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", min: "150000", yearMin: "1980", has: "vacation_rental_program,oceanfront_unit" }), "type=condo&has=vacation_rental_program%2Coceanfront_unit", RENTAL_PROGRAM), post: { yearMin: 1980 } };
++const HOA_COVERS = cut("Condos whose HOA fee covers insurance, water and sewer", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet"], { type: "condo", status: "active", min: "150000", has: "hoa_includes_insurance,hoa_includes_water_sewer" }), "type=condo&has=hoa_includes_insurance%2Choa_includes_water_sewer", HOA_INSURED);
++const NEWEST_CONDOS = { head: "Condos in buildings built since 2015", q: towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet", "Little River", "Conway"], { type: "condo", status: "active", min: "150000", yearMin: "2015" }), post: { yearMin: 2015, strictYear: true }, link: "type=condo&yearMin=2015", fallback: NEWER_CONDOS };
++const DISTRESSED = { ...cut("Distressed sales: foreclosures, short sales and more", [{ status: "active", min: "120000", has: "distressed_sale" }, { status: "active", min: "120000", has: "foreclosure" }, { status: "active", min: "120000", has: "short_sale" }], "has=distressed_sale", FORECLOSURE), post: { yearMin: 1960, minPhotos: 6 } };
++const NO_HOA_BOAT = { head: "No HOA, and room for the boat or RV", needs: "has", noHoa: true, q: towns(["Conway", "Myrtle Beach", "Little River", "Murrells Inlet", "Longs"], H({ hoa: "0", min: "220000", has: "rv_boat_parking" })), link: "hoa=0&has=rv_boat_parking", fallback: NO_FINES };
++const CHEAP_EAST = { head: "Condos under $200,000, east of 17", needs: "has", q: towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Garden City"], { type: "condo", status: "active", min: "120000", max: "199999", yearMin: "1980", has: "east_of_17" }), post: { yearMin: 1980 }, link: "type=condo&max=200000&has=east_of_17", fallback: LOW_FEE };
++const RENTED_CONDOS = cut("Condos that are rented now", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Little River"], { type: "condo", status: "active", min: "130000", has: "has_rental_income" }), "type=condo&has=has_rental_income", RENTALS_OK);
++const TOP_FLOOR = cut("Top-floor condos: nobody lives above you", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach", "Murrells Inlet", "Little River"], { type: "condo", status: "active", min: "150000", has: "top_floor" }), "type=condo&has=top_floor", HOA_INSURED);
++const LAWN_HOUSE = cut("Houses where the HOA mows the lawn", towns(["Myrtle Beach", "Conway", "Murrells Inlet", "Little River", "North Myrtle Beach"], H({ min: "260000", yearMin: "2000", has: "lawn_care_included" })), "type=house&has=lawn_care_included", NO_HOA);
++const NEW_COMMUNITY = { ...cut("New construction in communities with a pool", towns(["Myrtle Beach", "Conway", "Little River", "Longs", "North Myrtle Beach"], H({ min: "260000", has: "new_construction,community_pool" })), "type=house&has=new_construction%2Ccommunity_pool", NEWER), post: { builtWithin: 2, strictYear: true } };
++const FRESH = { head: "Fresh competition: listed in the last 14 days", q: towns(["Myrtle Beach", "North Myrtle Beach", "Conway", "Surfside Beach", "Murrells Inlet"], { status: "active", min: "220000", domMax: "14" }), link: "domMax=14", fallback: COMPETITION };
++const CUT_MID = cut("Price cuts between $300,000 and $600,000", towns(["Myrtle Beach", "North Myrtle Beach", "Conway", "Surfside Beach", "Murrells Inlet"], { status: "active", min: "300000", max: "600000", has: "price_reduced" }), "min=300000&max=600000&has=price_reduced", COMPETITION);
++const TOUR = cut("Homes for sale with a virtual tour", towns(["Myrtle Beach", "North Myrtle Beach", "Murrells Inlet", "Surfside Beach", "Little River"], { status: "active", min: "250000", has: "virtual_tour" }), "has=virtual_tour", COMPETITION);
++const OLDER = { head: "Houses built before 1990, for sale now", q: towns(["Myrtle Beach", "Conway", "Surfside Beach", "North Myrtle Beach", "Murrells Inlet"], H({ min: "180000", yearMax: "1989" })), post: { yearMin: 1950, yearMax: 1989, strictYear: true }, link: "type=house&yearMax=1989", fallback: COMPETITION };
++const RENTED_HOUSES = { ...cut("Houses that are rented now", towns(["Myrtle Beach", "Conway", "North Myrtle Beach", "Little River", "Surfside Beach", "Longs"], H({ min: "180000", has: "has_rental_income" })), "type=house&has=has_rental_income", RENTAL), post: { yearMin: 1970 } };
++const MOVE_UP = { head: "Moving up: homes from $600,000 to $1.2 million", q: towns(["North Myrtle Beach", "Myrtle Beach", "Murrells Inlet", "Pawleys Island", "Little River"], { status: "active", min: "600000", max: "1200000", yearMin: "2000" }), post: { yearMin: 2000 }, link: "min=600000&max=1200000", fallback: COMPETITION };
++const WEEK = { head: "New this week on the Grand Strand", q: towns(["Myrtle Beach", "North Myrtle Beach", "Conway", "Surfside Beach", "Murrells Inlet", "Little River"], { status: "active", min: "220000", domMax: "7" }), link: "domMax=7", fallback: NEWEST };
++const STR_400 = { ...cut("Nightly rentals allowed, under $400,000", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach"], { status: "active", min: "150000", max: "399999", yearMin: "1985", has: "str_allowed" }), "max=400000&has=str_allowed", VACATION), post: { yearMin: 1985 }, low: true };
+ const love = (state, q, extra = {}) => ({ head: `Homes people from ${state} love`, q, link: "type=house", fallback: NEWEST, ...extra });
+ const FROM = {
+   // More house than New York money buys: newer, a garage, near the beach towns.
+@@ -157,44 +232,44 @@ const FROM = {
+ 
+ export const FEEDS = {
+   "/buyers/": NEWEST,
+-  "/buyers/buying-in-myrtle-beach/": OPEN_HOUSE,
++  "/buyers/buying-in-myrtle-beach/": MB_CUT,
+   "/buyers/common-mistakes/": PRICE_CUT,
+   "/buyers/first-time-home-buyer-myrtle-beach/": FHA_FIRST,
+-  "/buyers/programs/": FHA_FIRST,
++  "/buyers/programs/": FIRST_3,
+   "/buyers/va-loans/": VA_FEED,
+   "/buyers/retirees/": ONE_LEVEL,
+   "/buyers/second-home/": TOP_VACATION,
+   "/buyers/new-construction/": QUICK,
+-  "/buyers/cost-to-own/": NO_HOA,
++  "/buyers/cost-to-own/": COST_TO_OWN,
+   "/buyers/waterfront-homes/": DOCK,
+   "/buyers/golf-communities/": ON_COURSE,
+-  "/buyers/condo-in-litigation/": CONDO_CUT,
+-  "/buyers/undisclosed-flooding/": SINCE_2010,
++  "/buyers/condo-in-litigation/": OCEAN_CUT,
++  "/buyers/undisclosed-flooding/": RAISED,
+   "/buyers/property-taxes/": OUTSIDE_CITY,
+-  "/buyers/coastal-insurance/": SINCE_2010,
++  "/buyers/coastal-insurance/": NEW_ROOF,
+   "/buyers/closing-costs/": CUT_300,
+   "/buyers/55-plus-communities/": FIFTY_FIVE,
+-  "/buyers/55-plus-communities/del-webb-north-myrtle-beach/": { head: "For sale now in Del Webb North Myrtle Beach", q: [{ subdivision: "Del Webb", city: "North Myrtle Beach", status: "active" }], post: { minPhotos: 6 }, link: "subdivision=Del%20Webb", fallback: FIFTY_FIVE },
++  "/buyers/55-plus-communities/del-webb-north-myrtle-beach/": DEL_WEBB_NMB,
+   "/buyers/55-plus-communities/del-webb-grande-dunes/": { head: "For sale now in Del Webb at Grande Dunes", q: [{ subdivision: "Del Webb", city: "Myrtle Beach", status: "active" }], post: { minPhotos: 6 }, link: "subdivision=Del%20Webb", fallback: FIFTY_FIVE },
+   "/buyers/55-plus-communities/myrtle-trace/": { head: "For sale now in Myrtle Trace", q: [{ subdivision: "Myrtle Trace", status: "active" }], post: { minPhotos: 6, yearMin: 1980 }, link: "subdivision=Myrtle%20Trace", fallback: FIFTY_FIVE },
+-  "/buyers/55-plus-communities/seasons-at-prince-creek-west/": { head: "For sale now in Seasons at Prince Creek", q: [{ subdivision: "Seasons at Prince Creek", status: "active" }], post: { minPhotos: 6 }, link: "subdivision=Seasons%20at%20Prince%20Creek", fallback: FIFTY_FIVE },
+-  "/buyers/relocating/": NEWEST,
++  "/buyers/55-plus-communities/seasons-at-prince-creek-west/": SEASONS,
++  "/buyers/relocating/": MOVE_IN,
+   "/buyers/relocating/cost-of-living/": MORE_HOUSE,
+   "/buyers/relocating/pros-and-cons/": GOLF_CART,
+-  "/buyers/relocating/moving-checklist/": NEWEST,
++  "/buyers/relocating/moving-checklist/": GARAGE_2,
+   "/buyers/relocating/schools/": BIG,
+-  "/buyers/relocating/which-town/": NEWEST,
++  "/buyers/relocating/which-town/": TOWN_BY_TOWN_30,
+   "/buyers/relocating/jobs/": EMPLOYERS,
+   "/buyers/relocating/healthcare/": NEAR_HOSPITAL,
+   "/buyers/relocating/hurricanes/": SINCE_2010,
+-  "/buyers/relocating/weather/": WALK_BEACH,
++  "/buyers/relocating/weather/": CAROLINA_ROOM,
+   "/buyers/relocating/getting-around/": NEAR_AIRPORT,
+   "/buyers/relocating/why-myrtle-beach/": WALK_500,
+   "/buyers/relocating/beaches/": WALK_BEACH,
+   ...Object.fromEntries(Object.entries(FROM).map(([s, f]) => [`/buyers/relocating/from-${s}/`, f])),
+-  "/submarkets/": NEWEST,
++  "/submarkets/": TOP_EACH,
+   "/submarkets/conway/": townTop("Conway"),
+-  "/submarkets/garden-city/": townTop("Garden City"),
++  "/submarkets/garden-city/": GARDEN_CITY,
+   "/submarkets/little-river/": townTop("Little River"),
+   "/submarkets/murrells-inlet/": townTop("Murrells Inlet"),
+   "/submarkets/myrtle-beach/": townTop("Myrtle Beach"),
+@@ -203,74 +278,75 @@ export const FEEDS = {
+   "/submarkets/surfside-beach/": townTop("Surfside Beach"),
+   "/submarkets/carolina-forest/": { head: "Top homes in Carolina Forest", q: [{ subdivision: "Carolina Forest", status: "active", min: "250000" }], link: "subdivision=Carolina%20Forest", fallback: townTop("Myrtle Beach") },
+   "/invest/": RENTAL,
+-  "/invest/str-vs-ltr/": VACATION,
++  "/invest/str-tools/": STR_400,
++  "/invest/str-vs-ltr/": BOTH_WAYS,
+   "/invest/condos/": VACATION,
+-  "/invest/condotel-financing/": OCEAN_UNITS,
+-  "/invest/non-warrantable-condos/": OCEAN_UNITS,
+-  "/invest/condo-buildings/": STR_OCEAN,
++  "/invest/condotel-financing/": OCEAN_300,
++  "/invest/non-warrantable-condos/": CASH_OCEAN,
++  "/invest/condo-buildings/": HIGH_OCEAN,
+   "/invest/airbnb-income/": STR_OCEAN,
+-  "/invest/str-rules/": VACATION,
++  "/invest/str-rules/": STR_HOUSES,
+   "/invest/str-setup/": TURNKEY,
+-  "/invest/str-tax-treatment/": VACATION,
+-  "/invest/accommodations-tax/": VACATION,
+-  "/invest/14-day-rule/": VACATION,
++  "/invest/str-tax-treatment/": STR_FURNISHED,
++  "/invest/accommodations-tax/": GEORGETOWN_STR,
++  "/invest/14-day-rule/": OCEANVIEW_STR,
+   "/invest/rental-program-vs-airbnb/": RENTAL_PROGRAM,
+-  "/invest/j1-rentals/": { head: "Condos near the Myrtle Beach boardwalk", q: [{ type: "condo", status: "active", near: "33.6915,-78.8820", miles: "2", min: "150000" }], link: "type=condo&near=33.6915%2C-78.8820&miles=2", fallback: VACATION },
++  "/invest/j1-rentals/": J1,
+   "/invest/canadian-buyers/": { head: "North Myrtle Beach condo picks", q: [{ type: "condo", city: "North Myrtle Beach", status: "active", waterfront: "1", min: "200000", yearMin: "1985" }], post: { yearMin: 1985 }, link: "type=condo&city=North%20Myrtle%20Beach&waterfront=1", fallback: VACATION },
+-  "/invest/cost-segregation/": VACATION,
+-  "/invest/rental-depreciation/": RENTAL,
+-  "/invest/run-the-numbers/": { ...RENTAL, low: true },
+-  "/invest/out-of-state/": RENTAL,
+-  "/invest/property-management/": RENTAL,
+-  "/invest/cash-to-close/": RENTAL,
+-  "/invest/where-to-buy/": RENTAL,
+-  "/invest/mid-term-rentals/": { head: "Mid-term rental picks", q: [{ type: "condo", status: "active", city: "Myrtle Beach", beds: "2", min: "180000", max: "420000", yearMin: "1995" }, { type: "townhouse", status: "active", city: "Myrtle Beach", beds: "2", min: "200000", max: "420000", yearMin: "2000" }], post: { bedsMax: 3, yearMin: 1995 }, rank: "rental", link: "beds=2&min=180000&max=420000" },
++  "/invest/cost-segregation/": FURN_OCEAN,
++  "/invest/rental-depreciation/": NEW_RENTAL,
++  "/invest/run-the-numbers/": RUN_NUMBERS,
++  "/invest/out-of-state/": TOUR_RENTAL,
++  "/invest/property-management/": WARRANTY_RENTAL,
++  "/invest/cash-to-close/": CUT_RENTAL,
++  "/invest/where-to-buy/": WHERE_RENT,
++  "/invest/mid-term-rentals/": NURSES,
+   "/invest/student-rentals/": { head: "Rental picks near Coastal Carolina University", q: [H({ near: "33.7951,-79.0112", miles: "4", beds: "3", min: "200000", max: "420000", yearMin: "1995" })], post: { yearMin: 1995 }, rank: "rental", link: "type=house&near=33.7951%2C-79.0112&miles=4", fallback: RENTAL },
+-  "/invest/landlord-rules/": RENTAL,
+-  "/invest/llc/": RENTAL,
++  "/invest/landlord-rules/": FENCED_RENTAL,
++  "/invest/llc/": LLC,
+   "/invest/foreclosures/": FORECLOSURE,
+-  "/invest/section-8-rentals/": { head: "Rental picks under $300,000", q: towns(["Conway", "Myrtle Beach", "Longs"], H({ beds: "3", min: "190000", max: "300000", yearMin: "1995" })), post: { yearMin: 1995 }, rank: "ppb", link: "type=house&beds=3&max=300000", fallback: RENTAL },
+-  "/invest/new-construction-rentals/": NEWER,
+-  "/invest/financing-multiple-rentals/": DSCR,
+-  "/invest/landlord-insurance/": SINCE_2010,
+-  "/invest/rent-prices/": RENTAL,
+-  "/invest/rental-returns/": RENTAL,
+-  "/invest/how-long-to-hold/": RENTAL,
++  "/invest/section-8-rentals/": { head: "Rental picks under $300,000", q: towns(["Conway", "Myrtle Beach", "Longs"], H({ beds: "3", min: "190000", max: "299999", yearMin: "1995" })), post: { yearMin: 1995 }, rank: "ppb", link: "type=house&beds=3&max=300000", fallback: RENTAL },
++  "/invest/new-construction-rentals/": NEW_LTR,
++  "/invest/financing-multiple-rentals/": TOWNHOUSE_RENTAL,
++  "/invest/landlord-insurance/": LL_INS,
++  "/invest/rent-prices/": FOUR_BED_RENTAL,
++  "/invest/rental-returns/": CONWAY_PPB,
++  "/invest/how-long-to-hold/": BRICK_RENTAL,
+   "/invest/what-is-being-built/": STILL_BUILT,
+-  "/invest/strategies/": RENTAL,
++  "/invest/strategies/": MIX,
+   "/invest/strategies/dscr-loans/": DSCR,
+-  "/invest/strategies/brrrr/": FORECLOSURE,
++  "/invest/strategies/brrrr/": PRE_2000,
+   "/invest/strategies/fix-and-flip/": FIXERS,
+-  "/invest/strategies/1031-exchange/": MULTI,
+-  "/invest/strategies/dst/": MULTI,
++  "/invest/strategies/1031-exchange/": RENTS_NOW,
++  "/invest/strategies/dst/": OCEAN_PROGRAM,
+   "/invest/strategies/small-multifamily/": MULTI,
+-  "/hoa/": NO_HOA,
++  "/hoa/": HOA_COVERS,
+   "/hoa/special-assessments/": NEWER_CONDOS,
+-  "/hoa/reserves/": NEWER_CONDOS,
++  "/hoa/reserves/": NEWEST_CONDOS,
+   "/hoa/documents/": HOA_INTERNET,
+-  "/hoa/liens-and-foreclosure/": BANK_CONDOS,
++  "/hoa/liens-and-foreclosure/": DISTRESSED,
+   "/hoa/south-carolina-hoa-laws/": NO_HOA,
+-  "/hoa/violations-and-fines/": NO_FINES,
+-  "/hoa/estoppel-and-transfer-fees/": LOW_FEE,
++  "/hoa/violations-and-fines/": NO_HOA_BOAT,
++  "/hoa/estoppel-and-transfer-fees/": CHEAP_EAST,
+   "/hoa/dues-increases/": LOW_FEE,
+-  "/hoa/tax-deductible/": RENTALS_OK,
++  "/hoa/tax-deductible/": RENTED_CONDOS,
+   "/hoa/rental-restrictions/": RENTALS_OK,
+   "/hoa/master-insurance-ho6/": HOA_INSURED,
+-  "/hoa/who-pays-for-damage/": HOA_INSURED,
+-  "/hoa/hoa-vs-poa/": NO_HOA,
++  "/hoa/who-pays-for-damage/": TOP_FLOOR,
++  "/hoa/hoa-vs-poa/": LAWN_HOUSE,
+   "/hoa/benefits/": AMENITIES,
+-  "/hoa/developer-control-turnover/": STILL_BUILT,
++  "/hoa/developer-control-turnover/": NEW_COMMUNITY,
+   "/sell/": COMPETITION,
+-  "/sell/home-value/": { ...COMPETITION, low: true },
+-  "/sell/net-proceeds/": { ...COMPETITION, low: true },
+-  "/sell/fsbo/": COMPETITION,
+-  "/sell/out-of-state-buyers/": COMPETITION,
+-  "/sell/inherited-house/": { ...COMPETITION, q: towns(["Myrtle Beach", "Conway", "Surfside Beach", "North Myrtle Beach"], H({ min: "200000" })), link: "type=house" },
+-  "/sell/rental-property/": RENTAL,
++  "/sell/home-value/": { ...FRESH, low: true },
++  "/sell/net-proceeds/": { ...CUT_MID, low: true },
++  "/sell/fsbo/": OPEN_HOUSE,
++  "/sell/out-of-state-buyers/": TOUR,
++  "/sell/inherited-house/": OLDER,
++  "/sell/rental-property/": RENTED_HOUSES,
+   "/sell/sell-my-condo/": { ...COMPETITION, head: "Condos competing with yours right now", q: CONDOS.q, link: "type=condo" },
+-  "/sell/capital-gains/": COMPETITION,
+-  "/market-reports/": PRICE_CUT,
+-  "/market-reports/july-2026/": PRICE_CUT,
++  "/sell/capital-gains/": MOVE_UP,
++  "/market-reports/": WEEK,
++  "/market-reports/july-2026/": CONDO_CUT,
+ };
+ 
+ const SUB = /^[A-Za-z0-9 .,'&()\/-]{2,80}$/;
+diff --git a/idx-lib/map.js b/idx-lib/map.js
+index 5f9ea64e..09802e1d 100644
+--- a/idx-lib/map.js
++++ b/idx-lib/map.js
+@@ -9,7 +9,7 @@
+  * until it does, the map page shows the list and says the pins are coming.
+  */
+ import { photoUrl } from "./photo.js";
+-import { acres, addressLine, cardTag, headlinePrice, listingPath, safeUrl, statusWord } from "./render.js";
++import { acres, addressLine, cardTag, hasPhoto, headlinePrice, listingPath, safeUrl, statusWord } from "./render.js";
+ 
+ /** The Google Maps browser key: a public key, locked to our domain in Google Cloud. A setting can replace it. */
+ export const mapsKey = (env) => (/^AIza[0-9A-Za-z_-]{35}$/.test(env.MAPS_BROWSER_KEY || "") ? env.MAPS_BROWSER_KEY : "AIzaSyAFTNMGh-PmVFTl3S0ViiM9zNYicFrgGfs");
+@@ -31,7 +31,7 @@ export function pinOf(l) {
+   if (!l.address || lat === null || lng === null || lat < 31 || lat > 37 || lng < -82 || lng > -75) return null;
+   return {
+     mls: String(l.mlsNumber || ""), url: listingPath(l), lat, lng,
+-    price: headlinePrice(l), short: shortPrice(l), photo: photoUrl(safeUrl(l.photo), "card"),
++    price: headlinePrice(l), short: shortPrice(l), photo: hasPhoto(l) ? photoUrl(safeUrl(l.photo), "card") : null,
+     beds: num(l.beds), baths: num(l.baths), sqft: num(l.sqft), acres: acres(l.lotAcres), status: statusWord(l.status), tag: cardTag(l),
+     addr: `${addressLine(l)}${l.postalCode ? `, ${l.postalCode}` : ""}`, firm: String(l.listingFirm || "listing brokerage"),
+   };
+@@ -163,6 +163,8 @@ main#main .hx-skel-c{box-shadow:0 1px 2px rgba(28,32,40,.06)}.hx-skel-l{padding:
+ .hx-list-foot{margin:1.2rem -1rem 0;padding:.9rem 1rem 1.2rem;background:#faf8f4;border-top:1px solid rgba(28,32,40,.08)}
+ .hx-list-foot .hx-disclaimer{margin:0}
+ .hx-map-hint{position:absolute;left:.8rem;bottom:.8rem;z-index:4;margin:0;padding:.35rem .75rem;border-radius:999px;background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(0,0,0,.15);font-size:.82rem;font-weight:600;color:#1c2028;pointer-events:none}
++/* While a home's card is open on the map, the hint steps aside: the card lay over its words (2026-10-31) */
++.hx-mapbox:has(.hx-mpop) .hx-map-hint{visibility:hidden}
+ .hx-map-note{position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:5;max-width:30rem;margin:0 auto;padding:.8rem 1rem;border-radius:14px;background:rgba(255,255,255,.95);box-shadow:0 8px 24px rgba(28,32,40,.18);font-size:.9rem;text-align:center}
+ .hx-map-note[hidden]{display:none}
+ .hx-map-toggle{display:none}
+@@ -176,12 +178,12 @@ main#main .hx-skel-c{box-shadow:0 1px 2px rgba(28,32,40,.06)}.hx-skel-l{padding:
+ .hx-map3d{position:absolute;inset:0;z-index:3;background:#1c2028}.hx-map3d[hidden]{display:none}.hx-map3d gmp-map-3d{width:100%;height:100%;display:block}
+ .hx-map3d-off{display:flex;align-items:center;justify-content:center;color:#f4efe8;padding:2rem;text-align:center}
+ .hx-mpop{position:absolute;left:50%;bottom:1rem;transform:translateX(-50%);z-index:11;width:min(23rem,calc(100% - 2rem));border-radius:16px;background:#fff;box-shadow:0 14px 40px rgba(28,32,40,.32)}
+-main#main .hx-mpop .hx-c{margin:0;box-shadow:none;border-radius:16px 16px 0 0;transform:none}main#main .hx-mpop .hx-c-link{display:grid;grid-template-columns:8.5rem minmax(0,1fr)}
++main#main .hx-mpop .hx-c{margin:0;box-shadow:none;border-radius:16px 16px 0 0;transform:none}main#main .hx-mpop .hx-c-link{display:grid;grid-template-columns:clamp(6.5rem,34%,8.5rem) minmax(0,1fr)}
+ main#main .hx-mpop .hx-c-photo{aspect-ratio:auto;height:100%;min-height:7.5rem}
+-main#main .hx-mpop .hx-c-body{padding:.6rem .8rem;padding-right:2.4rem}main#main .hx-mpop .hx-c-price{font-size:1.15rem}main#main .hx-mpop .hx-c-facts{font-size:.85rem}main#main .hx-mpop .hx-c-addr{font-size:.85rem}main#main .hx-mpop .hx-c-firm{font-size:.72rem}main#main .hx-mpop .hx-c-tag{display:none}
++main#main .hx-mpop .hx-c-body{padding:.6rem .8rem}main#main .hx-mpop .hx-c-price{padding-right:1.9rem}main#main .hx-mpop .hx-c-price{font-size:1.15rem}main#main .hx-mpop .hx-c-facts{font-size:.85rem}main#main .hx-mpop .hx-c-addr{font-size:.85rem}main#main .hx-mpop .hx-c-firm{font-size:.72rem}main#main .hx-mpop .hx-c-tag{display:none}
+ .hx-mpop .hx-heart{display:none}
+ .hx-mpop.hx-mpop-top{bottom:auto;top:4rem}
+-.hx-mpop-x{position:absolute;top:.35rem;right:.35rem;z-index:2;width:2rem;height:2rem;border:0;border-radius:999px;background:rgba(255,255,255,.95);font-size:1.25rem;line-height:1;cursor:pointer}
++.hx-mpop-x{position:absolute;top:.3rem;right:.3rem;z-index:2;width:1.8rem;height:1.8rem;border:0;border-radius:999px;background:rgba(255,255,255,.95);font-size:1.25rem;line-height:1;cursor:pointer}
+ .hx-mpop-go{display:block;margin:0;padding:.45rem .8rem .6rem;font-size:.8rem;color:var(--slate,#5c6b78);text-align:center;border-top:1px solid rgba(28,32,40,.08)}
+ .hx-list-sent{height:1px}
+ @media (max-width:1100px){.hx-map-body{grid-template-columns:minmax(0,1fr) min(46vw,420px)}.hx-map-cards{grid-template-columns:1fr}}
+@@ -197,7 +199,7 @@ main#main .hx-mpop .hx-c-body{padding:.6rem .8rem;padding-right:2.4rem}main#main
+  .hx-mtop .hx-pop>summary{min-height:2.3rem;padding:0 .8rem;font-size:.85rem}
+  .hx-mtop .hx-applied{margin:.15rem 0 0}.hx-ai-note.hx-ai-on{font-size:.85rem;padding:.45rem .65rem}
+  .hx-map-body.hx-show-list .hx-mode,.hx-map-body.hx-show-list .hx-map-hint,.hx-map-body.hx-show-list .hx-ring-ctl{display:none}
+- .hx-map-hint{top:.8rem;bottom:auto;left:.8rem;font-size:.78rem}
++ .hx-map-hint{top:.8rem;bottom:auto;left:.8rem;font-size:.78rem;max-width:calc(100% - 9rem);border-radius:14px;line-height:1.3}
+  .hx-ring-ctl{top:3.3rem;left:.8rem;transform:none}
+  .hx-list-h h1{font-size:1.3rem;line-height:1.2}.hx-list-h{padding-right:0}
+  .hx-map-toggle{padding:.6rem 1.2rem;font-size:.92rem}
+@@ -205,7 +207,7 @@ main#main .hx-mpop .hx-c-body{padding:.6rem .8rem;padding-right:2.4rem}main#main
+  .hx-map-list{position:absolute;inset:0;z-index:8;border:0;display:none}.hx-map-cards{grid-template-columns:1fr}
+  .hx-map-body.hx-show-list .hx-map-list{display:block}
+  .hx-map-toggle{display:inline-flex;align-items:center;gap:.4rem;position:absolute;left:50%;transform:translateX(-50%);bottom:1rem;z-index:9;border:0;border-radius:999px;background:#1c2028;color:#fff;font:inherit;font-weight:700;padding:.75rem 1.4rem;box-shadow:0 8px 24px rgba(28,32,40,.35);cursor:pointer}
+- .hx-mpop{bottom:4.6rem}.hx-full-b{display:none}.hx-mpop.hx-mpop-top{bottom:auto;top:3.6rem}}
++ .hx-mpop{bottom:4.6rem}.hx-full-b{display:none}.hx-mpop.hx-mpop-top{bottom:auto;top:4.4rem}}
+ </style>`;
+ 
+ /**
+@@ -230,10 +232,10 @@ var NS="http://www.w3.org/2000/svg";
+ function heart(p){var b=el("button","hx-heart hx-heart-sm");b.type="button";b.setAttribute("data-mls",p.mls);b.setAttribute("aria-pressed",hearts[p.mls]?"true":"false");b.setAttribute("aria-label","Save "+p.addr);
+  var s=document.createElementNS(NS,"svg");s.setAttribute("viewBox","0 0 24 24");s.setAttribute("width","22");s.setAttribute("height","22");s.setAttribute("aria-hidden","true");var pa=document.createElementNS(NS,"path");pa.setAttribute("d","M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z");s.appendChild(pa);b.appendChild(s);return b}
+ function card(p,withHeart){var a=el("article","hx-c"),l=el("a","hx-c-link");l.href=p.url;l.setAttribute("draggable","false");a.setAttribute("data-mls",p.mls);
+- var ph=el("span","hx-c-photo");if(p.photo&&(p.photo.indexOf("https://")===0||p.photo.indexOf("/homes/p/")===0)){var im=el("img");im.src=p.photo;im.alt=p.addr;im.loading="lazy";im.referrerPolicy="no-referrer";im.width=480;im.height=300;ph.appendChild(im)}else ph.appendChild(el("span","hx-nophoto","No photo yet"));
++ var ph=el("span","hx-c-photo");if(p.photo&&(p.photo.indexOf("https://")===0||p.photo.indexOf("/homes/p/")===0)){var im=el("img");im.src=p.photo;im.alt=p.addr;im.loading="lazy";im.referrerPolicy="no-referrer";im.width=480;im.height=300;ph.appendChild(im)}else ph.appendChild(el("span","hx-nophoto","No photos posted yet"));
+  if(p.tag)ph.appendChild(el("span","hx-c-tag",p.tag));l.appendChild(ph);var b=el("span","hx-c-body");b.appendChild(el("span","hx-c-price",p.price));
+  var f=el("span","hx-c-facts"),bits=[];if(p.beds!=null)bits.push([p.beds," bds"]);if(p.baths!=null)bits.push([p.baths," ba"]);if(p.sqft!=null)bits.push([p.sqft.toLocaleString("en-US")," sqft"]);if(p.acres)bits.push([p.acres,p.acres==="1"?" acre":" acres"]);
+- bits.forEach(function(x,i){if(i)f.appendChild(el("i"));f.appendChild(el("b",null,String(x[0])));f.appendChild(document.createTextNode(x[1]))});if(p.status){if(bits.length)f.appendChild(el("i"));f.appendChild(document.createTextNode(p.status))}
++ bits.forEach(function(x){var s=el("span");s.appendChild(el("b",null,String(x[0])));s.appendChild(document.createTextNode(x[1]));f.appendChild(s)});if(p.status)f.appendChild(el("span",null,p.status));
+  b.appendChild(f);if(rd.why[p.mls])b.appendChild(el("span","hx-c-ai","AI: "+rd.why[p.mls]));b.appendChild(el("span","hx-c-addr",p.addr));b.appendChild(el("span","hx-c-firm","MLS #"+p.mls+", "+p.firm+". Listing provided by CCMLS."));l.appendChild(b);a.appendChild(l);if(withHeart)a.appendChild(heart(p));return a}
+ /* The list draws 24 homes, and 24 more as the reader nears the end: fewer photos asked for at once. */
+ var shown=[],drawn=0,sent=null,io=null;
+@@ -306,7 +308,7 @@ function startReader(q){var t=++rd.tok;rd.yes={};rd.no={};rd.why={};rd.n=0;picks
+     .then(function(r){return r.json()}).then(function(d){if(t!==rd.tok)return;var tx=d&&d.content&&d.content.filter(function(b){return b.type==="text"}).pop();var out=[];
+      if(tx){try{var a=tx.text.indexOf("{"),z=tx.text.lastIndexOf("}");out=JSON.parse(tx.text.slice(a,z+1)).r||[]}catch(e){}}
+      var gone=false;out.forEach(function(x){var m=String(x&&x.m||"");if(!by[m])return;var why=String(x.why||"").replace(/[<>]/g,"").slice(0,90);
+-      if(x.fit==="yes"){rd.yes[m]=1;rd.why[m]=why;if(picksGrid.children.length<12)picksGrid.appendChild(card(by[m],true));var c=list.querySelector("[data-mls='"+m+"'] .hx-c-addr");if(c&&!c.previousSibling.classList.contains("hx-c-ai"))c.parentNode.insertBefore(el("span","hx-c-ai","AI: "+why),c)}
++      if(x.fit==="yes"){rd.yes[m]=1;rd.why[m]=why;if(picksGrid.children.length<12&&by[m].photo)picksGrid.appendChild(card(by[m],true));var c=list.querySelector("[data-mls='"+m+"'] .hx-c-addr");if(c&&!c.previousSibling.classList.contains("hx-c-ai"))c.parentNode.insertBefore(el("span","hx-c-ai","AI: "+why),c)}
+       else if(x.fit==="no"){rd.no[m]=1;gone=true}});
+      if(gone)listView();rd.n+=batch.length;readNote(false);next()})}).catch(function(){if(t===rd.tok)setTimeout(next,1500)})}
+  next()}
+diff --git a/idx-lib/photo.js b/idx-lib/photo.js
+index eddcf871..19c2de58 100644
+--- a/idx-lib/photo.js
++++ b/idx-lib/photo.js
+@@ -20,11 +20,19 @@ const FEED = "/MTIxOTIvMTMxMTAvMjA/";
+ const WIDTH = { card: 480, big: 1280 };
+ const KEEP = 30 * 24 * 3600;
+ 
+-export const ourPhoto = (u) => typeof u === "string" && u.startsWith(ORIGIN) && u.includes(FEED) && u.length <= 600 && /^[A-Za-z0-9:/._~%=-]+$/.test(u);
++const trestle = (u) => typeof u === "string" && u.startsWith(ORIGIN) && u.includes(FEED) && u.length <= 600 && /^[A-Za-z0-9:/._~%=-]+$/.test(u);
++// The CRM's own photo links (app.chapter3realty.com/api/idx/photo/..., already sized, on the live site
++// since 2026-10): our listings too. Its photo server answers 503 for a photo it has not fetched yet, and
++// a card then showed an empty panel (2 of 10 cards on a guide page, 2026-10-31). The page shows these
++// links as they are; a copy kept here is what the page asks for when one fails.
++export const CRM_PHOTO = "https://app.chapter3realty.com/api/idx/photo/";
++export const crmPhoto = (u) => typeof u === "string" && u.startsWith(CRM_PHOTO) && u.length <= 300 && /^[A-Za-z0-9:/._~-]+$/.test(u) && !u.includes("..");
++/** A link this store keeps a copy of: our Trestle feed's, or the CRM's. Never a photo service for others. */
++export const ourPhoto = (u) => trestle(u) || crmPhoto(u);
+ 
+-/** The link a page uses: our copy for a Trestle photo, the link itself for anything else. */
++/** The link a page uses: our copy for a Trestle photo, the link itself for anything else (the CRM's included). */
+ export function photoUrl(u, size = "card") {
+-  return ourPhoto(u) ? `/homes/p/${size === "big" ? "big" : "card"}?u=${encodeURIComponent(u)}` : u;
++  return trestle(u) ? `/homes/p/${size === "big" ? "big" : "card"}?u=${encodeURIComponent(u)}` : u;
+ }
+ 
+ /* The copies live in R2 (the PHOTOS bucket, bound to the site), one store for every visitor
+@@ -60,6 +68,8 @@ export async function photo(context, url, size) {
+   }
+   let r = null;
+   try { r = await fetch(u); } catch { r = null; }
++  // The CRM's photo server says 503 while it fetches a photo for the first time: ask once more, a moment later.
++  if (crmPhoto(u) && (!r || r.status >= 500)) { await new Promise((z) => setTimeout(z, 700)); try { r = await fetch(u); } catch { r = null; } }
+   const type = r ? r.headers.get("content-type") || "" : "";
+   // The MLS said no (its limit, most often): the browser asks it directly, and nothing is kept.
+   if (!r || !r.ok || !/^image\//.test(type)) return new Response(null, { status: 302, headers: { Location: u, "cache-control": "no-store" } });
+diff --git a/idx-lib/render.js b/idx-lib/render.js
+index e469fcbe..3e341354 100644
+--- a/idx-lib/render.js
++++ b/idx-lib/render.js
+@@ -91,8 +91,15 @@ export function cardTag(l) {
+ /** "0.25", "1.5", "12": a lot size for a card, or "" when the listing has none. */
+ export const acres = (v) => (typeof v === "number" && isFinite(v) && v > 0 ? String(v >= 10 ? Math.round(v) : Math.round(v * 100) / 100) : "");
+ 
++/** A home with a real photo to show: an https photo link, and not a listing that says it has none. */
++export const hasPhoto = (l) => Boolean(l && safeUrl(l.photo) && !(typeof l.photoCount === "number" && l.photoCount < 1));
++
++/* What a card shows where the listing has no photo yet (results and the map only; strips leave such a home out).
++   A drawn panel, not an empty box. The same words in idx-lib/map.js. */
++export const NO_PHOTO = "No photos posted yet";
++
+ export function card(l, opts = {}) {
+-  const photo = safeUrl(l.photo);
++  const photo = hasPhoto(l) ? safeUrl(l.photo) : null;
+   const tag = cardTag(l);
+   const miles = typeof l.miles === "number" ? `<span class="hx-c-miles">${esc(l.miles)} mi</span>` : "";
+   const bits = [];
+@@ -104,9 +111,9 @@ export function card(l, opts = {}) {
+   if (statusWord(l.status)) bits.push(esc(statusWord(l.status)));
+   const addr = l.address ? `${addressLine(l)}${l.postalCode ? `, ${l.postalCode}` : ""}` : addressLine(l);
+   return `<article class="hx-c"><a class="hx-c-link" href="${esc(listingPath(l))}" draggable="false"><span class="hx-c-photo">`
+-    + (photo ? `<img src="${esc(photoUrl(photo, "card"))}" alt="${esc(addressLine(l))}" width="480" height="300" loading="lazy" decoding="async" referrerpolicy="no-referrer" draggable="false">` : `<span class="hx-nophoto">No photo yet</span>`)
++    + (photo ? `<img src="${esc(photoUrl(photo, "card"))}" alt="${esc(addressLine(l))}" width="480" height="300" loading="lazy" decoding="async" referrerpolicy="no-referrer" draggable="false">` : `<span class="hx-nophoto">${NO_PHOTO}</span>`)
+     + `${tag ? `<span class="hx-c-tag">${esc(tag)}</span>` : ""}${miles}</span>`
+-    + `<span class="hx-c-body"><span class="hx-c-price">${esc(headlinePrice(l))}</span><span class="hx-c-facts">${bits.join('<i aria-hidden="true"></i>')}</span>`
++    + `<span class="hx-c-body"><span class="hx-c-price">${esc(headlinePrice(l))}</span><span class="hx-c-facts">${bits.map((b) => `<span>${b}</span>`).join("")}</span>`
+     + `<span class="hx-c-addr">${esc(addr)}</span>`
+     + `<span class="hx-c-firm">MLS #${esc(l.mlsNumber)}, ${esc(l.listingFirm || "listing brokerage")}. Listing provided by CCMLS.</span></span></a>`
+     + `${heartButton(l, opts.hearted, true)}</article>`;
+@@ -121,6 +128,20 @@ export function grid(listings, hearts) {
+ /** The same card in a strip that pans sideways (guide pages, "more homes"). */
+ export const stripCard = (l, hearted) => card(l, { hearted });
+ 
++/**
++ * A strip's cards: only homes with a photo (owner, 2026-10-31: no "no photo" blocks in a row of homes),
++ * up to n, and up to 4 more kept in a <template>. A card whose photo fails twice (its link, then our
++ * copy) is taken out of the row and the next kept home takes its place (PHOTO_FIX), so the row stays
++ * full. A template's photos are not asked for until a card is used. each: a change to every card's HTML.
++ */
++export const STRIP_SPARES = 4;
++export function stripCards(listings, n = 10, each = (h) => h) {
++  const ls = (listings || []).filter(hasPhoto);
++  const html = (x) => each(stripCard(x, false));
++  const spare = ls.slice(n, n + STRIP_SPARES);
++  return ls.slice(0, n).map(html).join("") + (spare.length ? `<template class="hx-spare">${spare.map(html).join("")}</template>` : "");
++}
++
+ const tz = (iso, o) => {
+   try { return new Date(iso).toLocaleString("en-US", { timeZone: "America/New_York", ...o }); } catch { return ""; }
+ };
+@@ -218,7 +239,13 @@ export const STYLE = `<style>
+ .hx-form{display:flex;flex-wrap:wrap;gap:.6rem .8rem;align-items:flex-end;margin:1rem 0 1.4rem;padding:.9rem 1rem;border-radius:16px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);box-shadow:0 6px 18px rgba(28,32,40,.08)}
+ .hx-form label{display:flex;flex-direction:column;font-size:.8rem;gap:.2rem}.hx-form select,.hx-form input{padding:.45rem .5rem;border-radius:8px;border:1px solid var(--rule,#d9d2c6);background:#fff;font:inherit}
+ .hx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+-.hx-nophoto{display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:.85rem}
++/* A home with no photo yet, and a photo that would not load: a drawn panel, never an empty box (owner, 2026-10-31). */
++.hx-nophoto,.hx-ph-off::before{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;width:100%;box-sizing:border-box;padding:2.4rem .8rem .6rem;text-align:center;font-size:.8rem;font-weight:600;line-height:1.3;color:#6b5a48;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3825f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11.5 12 4l9 7.5'/%3E%3Cpath d='M5 10v10h14V10'/%3E%3Cpath d='M10 20v-6h4v6'/%3E%3C/svg%3E") no-repeat center calc(50% - .95rem)/32px 32px,linear-gradient(135deg,#f3eee6,#e4dbcc)}
++.hx-ph-off{position:relative}.hx-ph-off::before{content:"Photo unavailable right now";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3825f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E"),linear-gradient(135deg,#f3eee6,#e4dbcc)}
++.hx-l-tile.hx-ph-off::before{content:"";background-image:linear-gradient(135deg,#f3eee6,#e4dbcc)}
++.hx-gallery img.hx-ph-off{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3825f' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") no-repeat center/40px 40px,linear-gradient(135deg,#f3eee6,#e4dbcc)}
++.hx-l-hero .hx-nophoto{font-size:.98rem;padding-top:3.4rem;background-size:46px 46px,auto;background-position:center calc(50% - 1.4rem),0 0}
++.hx-l-media.hx-none{height:auto!important;grid-template-rows:auto!important}.hx-l-media.hx-none .hx-l-hero{aspect-ratio:auto;height:clamp(12rem,34vw,17rem);grid-row:auto}
+ .hx-heart{border:0;background:rgba(255,255,255,.85);border-radius:999px;width:2.2rem;height:2.2rem;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#1c2028}
+ .hx-heart svg{fill:none;stroke:currentColor;stroke-width:1.8}.hx-heart[aria-pressed="true"] svg{fill:#c4553a;stroke:#c4553a}
+ .hx-tour{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--rule,#d9d2c6);background:#fff;border-radius:999px;padding:.35rem .8rem;font:inherit;font-size:.85rem;cursor:pointer;color:var(--navy)}
+@@ -252,8 +279,6 @@ button.hx-heart{border-radius:999px}
+ .hx-gallery img:first-child{grid-column:1/-1;aspect-ratio:16/9}
+ /* A photo that has not come yet shows a calm panel, never its caption squeezed into a strip. */
+ .hx-gallery img,.hx-c-photo img,.hx-l-hero img,.hx-l-tile img{color:transparent;font-size:0;background:linear-gradient(135deg,#ece6dc,#ddd3c4)}
+-.hx-imgwait{position:relative}.hx-imgwait::after{content:"Photo loading";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:#6b7480;pointer-events:none}
+-.hx-gallery .hx-imgwait-i{outline:0}
+ .hx-hero-photo img{width:100%;max-height:520px;object-fit:cover;border-radius:16px}
+ .hx-table{border-collapse:collapse;width:100%;max-width:760px;font-size:.92rem}.hx-table th{text-align:left;font-weight:600;padding:.4rem .6rem .4rem 0;width:40%;vertical-align:top}.hx-table td{padding:.4rem 0}.hx-table tr{border-bottom:1px solid var(--rule,#e6dfd3)}
+ .hx-remarks{white-space:pre-line;line-height:1.65;max-width:760px}
+@@ -267,13 +292,15 @@ main#main .hx-c:hover{box-shadow:0 2px 4px rgba(28,32,40,.08),0 14px 30px rgba(2
+ main#main .hx-c-link{display:block;color:var(--ink,#1c2028);text-decoration:none}
+ main#main .hx-c-photo{position:relative;display:block;aspect-ratio:16/10;background:linear-gradient(135deg,#e8e1d6,#d9cfc1)}
+ main#main .hx-c-photo img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+-main#main .hx-c-photo .hx-nophoto{display:flex;align-items:center;justify-content:center;height:100%;color:var(--slate,#5c6b78);font-size:.85rem}
+ main#main .hx-c-tag{position:absolute;top:.6rem;left:.6rem;padding:.22rem .62rem;border-radius:999px;background:#b54a1a;color:#fff;font-size:.78rem;font-weight:700;line-height:1.35}
+ main#main .hx-c-miles{position:absolute;bottom:.6rem;left:.6rem;padding:.18rem .55rem;border-radius:999px;background:rgba(28,32,40,.6);color:#fff;font-size:.75rem;font-weight:600}
+ main#main .hx-c-body{display:block;padding:.7rem .95rem .85rem}
+ main#main .hx-c-price{display:block;font-family:var(--sans);font-size:1.4rem;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+-main#main .hx-c-facts{display:flex;flex-wrap:wrap;align-items:center;gap:0 .45rem;margin:.2rem 0 .25rem;font-size:.95rem;line-height:1.4}
+-main#main .hx-c-facts b{font-weight:700}main#main .hx-c-facts i{display:inline-block;width:1px;height:1em;background:rgba(28,32,40,.3)}
++/* Each fact stays whole ("2,462 sqft", never "2,462" on one line and "sqft" on the next), and the thin rule between
++   facts sits only between them: the one a wrapped line would start with is clipped (owner, 2026-10-31: words ran together). */
++main#main .hx-c-facts{display:flex;flex-wrap:wrap;align-items:center;margin:.2rem 0 .25rem calc(-.9rem - 1px);clip-path:inset(0 0 0 calc(.45rem + 1px));font-size:.95rem;line-height:1.4}
++main#main .hx-c-facts>span{white-space:nowrap;padding-left:.45rem}main#main .hx-c-facts>span::before{content:"";display:inline-block;width:1px;height:1em;margin-right:.45rem;vertical-align:-.12em;background:rgba(28,32,40,.3)}
++main#main .hx-c-facts b{font-weight:700}
+ main#main .hx-c-addr{display:block;font-size:.92rem;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ main#main .hx-c-firm{display:block;margin-top:.4rem;font-size:.72rem;line-height:1.4;color:var(--slate,#5c6b78)}
+ main#main .hx-c .hx-heart{position:absolute;top:.45rem;right:.45rem;width:2.6rem;height:2.6rem;background:none!important;color:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))}
+@@ -412,20 +439,40 @@ main#main .hx-s-all{flex:0 0 40%;max-width:12rem;align-self:stretch;display:flex
+  * The page script. It touches only our own elements; nothing from the CRM is ever
+  * written with innerHTML. data-hx-signed on <body> says whether the visitor is signed up.
+  */
+-/** The photo server's connection opens while the page is still arriving: about a third of a second sooner. */
+-export const PHOTO_HINT = `<link rel="preconnect" href="https://api.cotality.com"><link rel="dns-prefetch" href="https://api.cotality.com">`;
++/**
++ * A listing photo that fails (owner, 2026-10-31: "no photo yet" blocks in the feed). The CRM's photo
++ * server answers 503 for a photo it has not fetched yet, and the MLS's allows 240 a minute for every
++ * visitor together. First the other copy: our store (/homes/p/) for a link, the link itself when our
++ * copy failed. If that fails too: in a row of homes (a strip, a feed, the AI picks), the card leaves the
++ * row and the next kept home (<template class="hx-spare">) takes its place; a guide-page strip left with
++ * no card goes empty, and the page shows the place's own photo. Anywhere else (results, the map, a
++ * listing's photos) a drawn panel shows, and the photo is asked for once more a minute later, when the
++ * MLS's count starts over. In the head, so a photo that fails before the page's script arrives is caught.
++ */
++export const PHOTO_FIX = `<script>(function(){
++window.hxPhotoFix=1;var ROW=["hx-s-row","hx-ai-picks-g"];
++function inRow(c){var r=c&&c.parentNode;if(!r||!r.classList)return null;for(var i=0;i<ROW.length;i++)if(r.classList.contains(ROW[i]))return r;return null}
++function next(row){var t=row.querySelector("template.hx-spare");return t&&t.content?t.content.querySelector(".hx-c"):null}
++function drop(c,row){var n=next(row);if(n)row.replaceChild(n,c);else row.removeChild(c);
++ if(!row.querySelector(".hx-c")){var s=row.closest(".hx-strip[data-place]");if(s&&s.getAttribute("data-place")!=="nearby")while(s.firstChild)s.removeChild(s.firstChild)}}
++document.addEventListener("error",function(e){var im=e.target;if(!im||im.tagName!=="IMG"||!im.closest)return;
++ var box=im.closest(".hx-c-photo,.hx-l-hero,.hx-l-tile,.hx-gallery");if(!box)return;
++ var s=im.getAttribute("src")||"",n=+(im.getAttribute("data-hx-try")||0);im.setAttribute("data-hx-try",String(n+1));
++ if(n===0){if(s.indexOf("/homes/p/")===0){var q=s.split("u=")[1];if(q){im.src=decodeURIComponent(q.split("&")[0]);return}}
++  else if(s.indexOf("https://")===0){im.src="/homes/p/"+(im.closest(".hx-c")?"card":"big")+"?u="+encodeURIComponent(s);return}}
++ var c=im.closest(".hx-c"),row=inRow(c);if(row){drop(c,row);return}
++ (box.classList.contains("hx-gallery")?im:box).classList.add("hx-ph-off");
++ if(n<2){var u=im.getAttribute("src")||s;setTimeout(function(){im.src=u+(u.indexOf("?")<0?"?r=1":"&r=1")},61000)}},true);
++document.addEventListener("load",function(e){var im=e.target;if(!im||im.tagName!=="IMG"||!im.closest)return;var b=im.closest(".hx-ph-off");if(b)b.classList.remove("hx-ph-off");im.classList.remove("hx-ph-off")},true);
++})();</script>`;
++
++/** The photo server's connection opens while the page is still arriving: about a third of a second sooner. Then PHOTO_FIX. */
++export const PHOTO_HINT = `<link rel="preconnect" href="https://api.cotality.com"><link rel="dns-prefetch" href="https://api.cotality.com">${PHOTO_FIX}`;
+ 
+ export const SCRIPT = `<script>(function(){
+ /* The brass bar and the next page's grey layout on a click are in the site footer (window.hxGo). */
+ var signed=document.body.getAttribute("data-hx-signed")==="1";
+-/* A listing photo that fails (the MLS photo server allows 240 a minute for every visitor together) is
+-   asked for once more a minute later, when its count starts over; until then a calm panel shows. */
+-document.addEventListener("error",function(e){var im=e.target;if(!im||im.tagName!=="IMG"||(im.src.indexOf("https://api.cotality.com/")!==0&&im.src.indexOf("/homes/p/")<0))return;
+- /* Our copy failed: load the photo from the MLS at once. */
+- if(im.src.indexOf("/homes/p/")>=0){var q=im.src.split("u=")[1];if(q){im.src=decodeURIComponent(q.split("&")[0]);return}}
+- var box=im.parentNode;if(box&&box.classList&&!box.classList.contains("hx-gallery"))box.classList.add("hx-imgwait");
+- if(im.getAttribute("data-retry"))return;im.setAttribute("data-retry","1");var u=im.src;setTimeout(function(){im.src=u+(u.indexOf("?")<0?"?r=1":"&r=1")},61000)},true);
+-document.addEventListener("load",function(e){var im=e.target;if(im&&im.tagName==="IMG"&&im.parentNode&&im.parentNode.classList)im.parentNode.classList.remove("hx-imgwait")},true);
++/* A listing photo that fails: PHOTO_FIX, in the head. */
+ function $(s,r){return (r||document).querySelector(s)}function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+ function post(u,b){return fetch(u,{method:"POST",headers:{"content-type":"application/json"},credentials:"same-origin",body:JSON.stringify(b)}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){j._status=r.status;return j})})}
+ function openD(d){if(!d)return;if(d.showModal)d.showModal();else d.setAttribute("open","")}
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index 4112a95a..5d28b1f2 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -8,14 +8,14 @@ import { onRequest as homes } from "../functions/homes/[[path]].js";
+ import { onRequest as mw } from "../functions/_middleware.js";
+ import { onRequest as sitemap } from "../functions/sitemap-homes.xml.js";
+ import { placeFeed, placeParams } from "../idx-lib/edge.js";
+-import { postFilter, rankHomes } from "../idx-lib/feeds.js";
++import { FEEDS, postFilter, rankHomes } from "../idx-lib/feeds.js";
+ import { filterBar } from "../idx-lib/filters.js";
+ import { featureList } from "../idx-lib/features.js";
+ import { readQuery } from "../idx-lib/query.js";
+ import { nearbySales, flipMath, FLIP_DEFAULTS, repairTier } from "../idx-lib/deals.js";
+-import { photo, photoUrl, warm } from "../idx-lib/photo.js";
++import { photo, photoUrl, warm, ourPhoto } from "../idx-lib/photo.js";
+ import { resetCatalog } from "../idx-lib/catalog.js";
+-import { SCRIPT, STYLE } from "../idx-lib/render.js";
++import { SCRIPT, STYLE, PHOTO_FIX, PHOTO_HINT, hasPhoto, stripCards, NO_PHOTO } from "../idx-lib/render.js";
+ const STYLE_OK = () => STYLE.includes(".hx-dialog form[hidden]{display:none}");
+ import { MAP_SCRIPT } from "../idx-lib/map.js";
+ 
+@@ -40,6 +40,7 @@ let INVALID_TS = false;
+ let APPLIED = false;
+ let CATALOG = false;
+ let FLAKY = 0, SIGNED_DOWN = false;
++let NOPHOTO = false; // every third home has no photo (photo null, photoCount 0)
+ globalThis.fetch = async (input, init = {}) => {
+   const u = new URL(typeof input === "string" ? input : input.url);
+   calls.push({ url: u.toString(), init });
+@@ -82,13 +83,14 @@ globalThis.fetch = async (input, init = {}) => {
+     if ((u.searchParams.get("has") || "").includes("walk_to_beach") && u.searchParams.get("city") === "Loris") return J({ ok: true, tier, visitor: "none", meta: META, listings: [], total: 0 });
+     const sub = u.searchParams.get("subdivision"), near = u.searchParams.get("near");
+     const n = BIG ? 4041 : sub === "Tidewater" ? 2 : sub || near ? 14 : 30;
+-    const ls = Array.from({ length: Math.min(n, 48) }, (_, i) => mk(i + 48 * ((+u.searchParams.get("page") || 1) - 1), near ? { miles: 0.4 } : {}));
++    const ls = Array.from({ length: Math.min(n, 48) }, (_, i) => mk(i + 48 * ((+u.searchParams.get("page") || 1) - 1), near ? { miles: 0.4 } : {}))
++      .map((l, i) => (NOPHOTO && i % 3 === 0 ? { ...l, photo: null, photoCount: 0 } : l));
+     return J({ ok: true, tier, visitor: auth ? "valid" : "none", meta: META, ...(APPLIED ? { applied: ["has"].filter((x) => u.searchParams.has(x)) } : {}), listings: ls.slice(0, +u.searchParams.get("size") || 24), total: n, page: 1, pageSize: 24 });
+   }
+   const one = /^\/api\/idx\/listings\/(\w+)$/.exec(u.pathname);
+   if (one) {
+     if (one[1] === "404404") return J({ ok: false, error: "not_found" }, 404);
+-    const l = mk(1, { mlsNumber: one[1], ...(one[1] === "2611111" ? { address: null } : {}), ...(one[1] === "2622222" ? { address: "1 $' $` $& Way" } : {}) });
++    const l = mk(1, { mlsNumber: one[1], ...(one[1] === "2611111" ? { address: null } : {}), ...(one[1] === "2622222" ? { address: "1 $' $` $& Way" } : {}), ...(NOPHOTO ? { photo: null, photoCount: 0 } : {}) });
+     const full = auth ? { ...l, photos: [{ url: "https://photos.example.com/a.jpg", caption: "Front <b>" }], remarks: "Line one\n<script>x</script>", details: { Appliances: ["Dishwasher", "Range"], PoolPrivateYN: false, AssociationFee: 614 }, openHouses: [], listingAgent: "Pat Agent", point: null, virtualTour: "javascript:alert(1)" } : l;
+     return J({ ok: true, tier, visitor: auth ? "valid" : "none", meta: META, listing: full, viewId: auth && u.searchParams.get("track") !== "0" ? "4f6c0f0e-6a53-4f3a-9a8e-0b9b5b9d2c11" : null });
+   }
+@@ -173,7 +175,7 @@ t = await r.text();
+ const strips = (t.match(/class="hx-s-row"/g) || []).length;
+ check("strips: filled on a guide page", strips >= 10);
+ check("strips: Tidewater (2 homes) keeps its empty slot", /data-place="tidewater" data-name="[^"]*"><\/div>/.test(t));
+-check("strips: at most 10 cards a row, spread across price", (t.split('data-place="cherry-grove"')[1].split("hx-s-all")[0].match(/<article class="hx-c">/g) || []).length === 10);
++check("strips: at most 10 cards a row, spread across price (the kept spares in a <template> not counted)", (t.split('data-place="cherry-grove"')[1].split("hx-s-all")[0].replace(/<template class="hx-spare">[\s\S]*?<\/template>/g, "").match(/<article class="hx-c">/g) || []).length === 10);
+ check("strips: the owner's card template on every card (price, facts, address, MLS line)", (t.match(/<article class="hx-c">/g) || []).length > 0 && (t.match(/<article class="hx-c">/g) || []).length === (t.match(/class="hx-c-price">\$[0-9,]+</g) || []).length && (t.match(/<article class="hx-c">/g) || []).length === (t.match(/Listing provided by CCMLS\./g) || []).length);
+ check("strips: one notice, the dialogs and the script", (t.match(/class="hx-disclaimer"/g) || []).length === 1 && t.includes('id="hx-signup"'));
+ check("header: Search Listings opens the map page (owner, 2026-10-28)", t.includes("location.href='/homes/map/'") && !t.includes('onclick="openIdx()"'));
+@@ -367,6 +369,20 @@ t = await (await run(mw, req("/buyers/best-neighborhoods/"))).text();
+ check("feed: pages with their own strips get no second feed", !t.includes('class="hx-feed"'));
+ t = await (await run(mw, req("/about/"))).text();
+ check("feed: pages not on the list get none", !t.includes('class="hx-feed"'));
++{
++  // Owner, 2026-10-31: no repeated homes titles. Each page's own feed has a title no other page's feed has.
++  const seen = new Map(), dup = [];
++  for (const [p, f] of Object.entries(FEEDS)) { if (seen.has(f.head)) dup.push(`${f.head} (${seen.get(f.head)}, ${p})`); else seen.set(f.head, p); }
++  check("feed: no two pages share a feed title", Object.keys(FEEDS).length > 100 && dup.length === 0 || (console.log(dup), false));
++  // Every title a reader can see, fallbacks included: no fair-housing steering words, no promise of money.
++  const all = new Set(), walk = (f) => { if (!f || all.has(f)) return; all.add(f); walk(f.fallback); };
++  Object.values(FEEDS).forEach(walk);
++  const heads = [...all].flatMap((f) => [f.head, f.headToday]).filter(Boolean);
++  const bad = heads.filter((h) => /\b(famil(y|ies)|kids?|children|safe|exclusive|retirees?|seniors?|churche?s?|perfect|cash flow|returns?|apprecia\w*|guarantee\w*|payments?|interest|rates?|best)\b/i.test(h));
++  check("feed: no title steers a reader or promises money", heads.length > 100 && bad.length === 0 || (console.log(bad), false));
++  // Garden City Beach finds no homes as a city (2026-10-31): every feed reads it as the CRM's area.
++  check("feed: no feed searches Garden City as a city", [...all].every((f) => (f.q || []).every((q) => q.city !== "Garden City")) && FEEDS["/submarkets/garden-city/"].q[0].has === "area_garden_city" && FEEDS["/submarkets/garden-city/"].needs === "has");
++}
+ check("feed: never placed inside a section that is still open", placeFeed('<main><section class="x"><div class="wrap"><p>E</p><h2>A</h2><p>t</p><h2>B</h2></div></section></main>', "[F]") === '<main>[F]<section class="x"><div class="wrap"><p>E</p><h2>A</h2><p>t</p><h2>B</h2></div></section></main>');
+ {
+   const y = new Date().getUTCFullYear();
+@@ -701,5 +717,133 @@ r = await run(homes, req("/homes/api/map?q=3+bed+house+in+conway&near=33.7,-78.9
+     && asked.length === 6 && asked.every((c) => c.url.includes("track=0")));
+ }
+ 
++
++// No "no photo" blocks in a row of homes (owner, 2026-10-31: "I see some 'no photo yet' blocks in the IDX feed").
++{
++  const h = (o) => ({ ...mk(1), ...o });
++  check("photos: a home has a photo only with an https link and not a count of 0 (fires on null, http and 0; quiet on a normal home and on a missing count)",
++    !hasPhoto(h({ photo: null })) && !hasPhoto(h({ photo: "http://x.test/1.jpg" })) && !hasPhoto(h({ photoCount: 0 })) && hasPhoto(h({})) && hasPhoto(h({ photoCount: undefined })));
++  const many = Array.from({ length: 16 }, (_, i) => mk(i, i % 4 === 0 ? { photo: null } : {}));
++  const s = stripCards(many, 10), few = stripCards(many.slice(0, 6), 10);
++  const shown = s.split('<template class="hx-spare">')[0];
++  check("strip cards: homes without a photo are left out; 10 show and the next ones wait in a template (fires with 16 homes, 4 without a photo); quiet with 6: no template",
++    !s.includes("hx-nophoto") && (shown.match(/<article class="hx-c">/g) || []).length === 10 && (s.split('<template class="hx-spare">')[1] || "").split("</template>")[0].includes('<article class="hx-c">')
++    && !few.includes("<template") && (few.match(/<article class="hx-c">/g) || []).length === 4);
++  NOPHOTO = true;
++  const g = await (await run(mw, req("/buyers/best-neighborhoods/"))).text();
++  const rows = g.split('class="hx-s-row"').slice(1).map((x) => x.split("hx-s-all")[0]);
++  const sr = await (await run(homes, req("/homes/"))).text();
++  const sim = JSON.parse(await (await run(homes, req("/homes/api/similar?near=33.7,-78.9&beds=3"))).text());
++  const st = JSON.parse(await (await run(homes, req("/homes/api/strip?city=Conway"))).text());
++  const one = await (await run(homes, req("/homes/2600003-101-test-st-myrtle-beach/"))).text();
++  NOPHOTO = false;
++  check("guide page: with every third home lacking a photo, no strip shows a card without one (fires: the results page still lists those homes, with the drawn panel)",
++    rows.length > 0 && rows.every((x) => !x.includes("hx-nophoto") && x.includes('<article class="hx-c">')) && sr.includes(`<span class="hx-nophoto">${NO_PHOTO}</span>`) && !sr.includes("No photo yet"));
++  check("similar homes and a strip's filter answer: no card without a photo; the analyzer's cards carry their own photo fix (that page has no PHOTO_FIX)",
++    sim.ok && !!sim.html && !sim.html.includes('class="hx-nophoto"') && sim.html.includes('<img onerror="if(window.hxPhotoFix)return;') && st.ok && !st.html.includes('class="hx-nophoto"'));
++  check("listing with no photo: a short drawn panel, no 'Every photo' promise, never 'No photo yet'",
++    !one.includes("No photo yet") && one.includes('class="hx-l-media hx-one hx-none"') && one.includes(`<div class="hx-nophoto">${NO_PHOTO}</div>`) && !one.includes("<span>Every photo</span>") && !one.includes("photos</span>"));
++  const ok1 = await (await run(homes, req("/homes/2600001-101-test-st-myrtle-beach/"))).text();
++  check("listing with a photo: no panel, the photo (quiet)", !ok1.includes('class="hx-nophoto"') && !ok1.includes('hx-one hx-none"') && ok1.includes('<div class="hx-l-media"><div class="hx-l-hero"><img'));
++}
++
++// A photo that fails: our copy, then out of the row (strips) or a drawn panel (results, the map, a listing).
++{
++  check("photo fix: in the head of every page with listings, before any photo; it parses and has no backslash",
++    PHOTO_HINT.includes(PHOTO_FIX) && !PHOTO_FIX.includes(String.fromCharCode(92)) && (() => { try { new Function(PHOTO_FIX.replace(/^<script>|<\/script>$/g, "")); return true; } catch { return false; } })()
++    && !SCRIPT.includes('document.addEventListener("error"'));
++  // A small stand-in for the page, enough for PHOTO_FIX's two listeners.
++  const fakePage = () => {
++    const L = {};
++    const mkEl = (tag, cls, parent) => {
++      const e = { tagName: tag.toUpperCase(), className: cls || "", attrs: {}, children: [], parentNode: null, style: {},
++        classList: { contains: (c) => e.className.split(" ").includes(c), add: (c) => { if (!e.classList.contains(c)) e.className = (e.className + " " + c).trim(); }, remove: (c) => { e.className = e.className.split(" ").filter((x) => x !== c).join(" "); } },
++        getAttribute: (k) => (k in e.attrs ? e.attrs[k] : null), setAttribute: (k, v) => { e.attrs[k] = String(v); },
++        matches: (sel) => sel.split(",").some((s) => { s = s.trim(); const m = /^([a-z]*)((?:\.[\w-]+)*)(\[data-place\])?$/.exec(s); if (!m) return false; if (m[1] && e.tagName !== m[1].toUpperCase()) return false; if (m[3] && !("data-place" in e.attrs)) return false; return (m[2] || "").split(".").filter(Boolean).every((c) => e.classList.contains(c)); }),
++        closest: (sel) => { for (let x = e; x; x = x.parentNode) if (x.matches && x.matches(sel)) return x; return null; },
++        querySelector: (sel) => { const walk = (x) => { for (const c of x.children) { if (c.matches(sel)) return c; const f = walk(c); if (f) return f; } return null; }; return walk(e); },
++        replaceChild: (n, o) => { const i = e.children.indexOf(o); if (n.parentNode) n.parentNode.children.splice(n.parentNode.children.indexOf(n), 1); e.children[i] = n; n.parentNode = e; o.parentNode = null; },
++        removeChild: (o) => { e.children.splice(e.children.indexOf(o), 1); o.parentNode = null; },
++        get firstChild() { return e.children[0] || null; },
++        set src(v) { e.attrs.src = v; }, get src() { return e.attrs.src; } };
++      if (parent) { parent.children.push(e); e.parentNode = parent; }
++      return e;
++    };
++    const card = (row, src) => { const a = mkEl("article", "hx-c", row), ph = mkEl("span", "hx-c-photo", a), im = mkEl("img", "", ph); im.attrs.src = src; return { a, ph, im }; };
++    const doc = { addEventListener: (k, f) => { L[k] = f; } };
++    const win = {};
++    new Function("document", "window", "setTimeout", PHOTO_FIX.replace(/^<script>|<\/script>$/g, ""))(doc, win, () => {});
++    return { L, mkEl, card, win };
++  };
++  const P = fakePage();
++  const strip = P.mkEl("div", "hx-strip"); strip.attrs["data-place"] = "cherry-grove";
++  const row = P.mkEl("div", "hx-s-row", strip);
++  const first = P.card(row, "https://app.chapter3realty.com/api/idx/photo/1/a/0/480/x.webp");
++  const tpl = P.mkEl("template", "hx-spare", row); tpl.content = P.mkEl("div", "");
++  const spare = P.card(tpl.content, "https://app.chapter3realty.com/api/idx/photo/2/b/0/480/y.webp");
++  P.L.error({ target: first.im });
++  const triedOurs = first.im.attrs.src === `/homes/p/card?u=${encodeURIComponent("https://app.chapter3realty.com/api/idx/photo/1/a/0/480/x.webp")}` && row.children[0] === first.a;
++  P.L.error({ target: first.im });
++  check("photo fix in a strip: a failed photo is asked for from our copy first, then its card leaves the row and the next kept home takes its place (fires)",
++    P.win.hxPhotoFix === 1 && triedOurs && row.children[0] === spare.a && !row.children.includes(first.a));
++  const only = P.card(row, "/homes/p/card?u=" + encodeURIComponent("https://api.cotality.com/trestle/Media/x"));
++  row.children.splice(0, 1); // only this card is left
++  P.L.error({ target: only.im }); const direct = only.im.attrs.src === "https://api.cotality.com/trestle/Media/x";
++  P.L.error({ target: only.im });
++  check("photo fix: our copy failed, so the MLS link is tried; a guide strip left with no card goes empty and the page shows the place's photo", direct && strip.children.length === 0);
++  const grid = P.mkEl("div", "hx-grid"), g1 = P.card(grid, "https://app.chapter3realty.com/api/idx/photo/3/c/0/480/z.webp");
++  P.L.error({ target: g1.im }); P.L.error({ target: g1.im });
++  const okImg = P.card(grid, "https://app.chapter3realty.com/api/idx/photo/4/d/0/480/w.webp");
++  P.L.load({ target: g1.im });
++  check("photo fix in search results (quiet): the card stays, with the drawn panel until the photo loads; a photo that loads is left alone",
++    grid.children.includes(g1.a) && g1.ph.className.includes("hx-c-photo") && !g1.ph.classList.contains("hx-ph-off") && okImg.im.attrs["data-hx-try"] === undefined && STYLE.includes('.hx-ph-off::before{content:"Photo unavailable right now"'));
++  const g2 = P.card(grid, "https://app.chapter3realty.com/api/idx/photo/5/e/0/480/v.webp"); P.L.error({ target: g2.im }); P.L.error({ target: g2.im });
++  check("photo fix in search results: after our copy fails too, the drawn panel shows (fires)", g2.ph.classList.contains("hx-ph-off") && grid.children.includes(g2.a));
++}
++
++// The CRM's photo links (live since 2026-10): kept in our store too, and its first 503 is asked once more.
++{
++  const C = "https://app.chapter3realty.com/api/idx/photo/1193398589/ttn5mv0/0/480/6FGpCJWlQzo3f770oaSDnH.webp";
++  check("photo store: the CRM's photo links are ours (left as they are on the page); lookalikes are refused",
++    ourPhoto(C) && photoUrl(C) === C && !ourPhoto("https://app.chapter3realty.com.evil.test/api/idx/photo/1/x.webp") && !ourPhoto("https://app.chapter3realty.com/api/idx/photo/../../x") && !ourPhoto("https://app.chapter3realty.com/api/idx/listings/1"));
++  const saved = globalThis.fetch; let n = 0;
++  globalThis.fetch = async () => (++n === 1 ? new Response("", { status: 503 }) : new Response(new Uint8Array([82, 73, 70, 70]), { status: 200, headers: { "content-type": "image/webp" } }));
++  const ctx = { request: new Request("https://chapter3realty.com/homes/p/card"), waitUntil: () => {}, env: {} };
++  const got = await photo(ctx, new URL(`https://chapter3realty.com/homes/p/card?u=${encodeURIComponent(C)}`), "card");
++  const twice = n;
++  n = 0; globalThis.fetch = async () => { n++; return new Response("", { status: 503 }); };
++  const down = await photo(ctx, new URL(`https://chapter3realty.com/homes/p/card?u=${encodeURIComponent(C)}`), "card");
++  globalThis.fetch = saved;
++  check("photo store: a CRM photo that says 503 once is asked again and served (fires); still 503: the browser is sent to the link, nothing kept",
++    got.status === 200 && got.headers.get("content-type") === "image/webp" && twice === 2 && down.status === 302 && down.headers.get("location") === C && n === 2);
++}
++
++// The map: no "No photo yet"; the AI picks row shows homes with a photo; the hint never runs under the 2D and 3D buttons on a phone.
++{
++  const { MAP_SCRIPT: M, MAP_STYLE: MS, pinOf } = await import("../idx-lib/map.js");
++  const pin = (o) => pinOf({ ...mk(1), point: { lat: 33.7, lng: -78.9 }, ...o });
++  check("map: a pin without a photo carries none, its card says the drawn panel's words; the picks row takes homes with a photo only",
++    pin({ photo: null }).photo === null && pin({ photoCount: 0 }).photo === null && !!pin({}).photo && !M.includes("No photo yet") && M.includes('"hx-nophoto","No photos posted yet"') && M.includes("picksGrid.children.length<12&&by[m].photo"));
++}
++
++// Words that ran together on a card (owner, 2026-10-31): each fact whole, no rule left at a line's start; the map's popup and hint on a phone.
++{
++  const { card: cardHtml } = await import("../idx-lib/render.js");
++  const { MAP_SCRIPT: M, MAP_STYLE: MS } = await import("../idx-lib/map.js");
++  const facts = (o) => (cardHtml({ ...mk(1), ...o }).match(/<span class="hx-c-facts">([\s\S]*?)<\/span><span class="hx-c-addr">/) || [])[1] || "";
++  const big = facts({ beds: 7, baths: 6.5, sqft: 12345, lotAcres: 2.75 });
++  const land = facts({ beds: undefined, baths: undefined, sqft: undefined, lotAcres: 12.5, propertySubType: "UnimprovedLand" });
++  check("card facts: each fact is one unbreakable piece ('12,345 sqft'), with no divider element to dangle (fires on a home with every fact; land with no beds has only its lot and status)",
++    big === "<span><b>7</b> bds</span><span><b>6.5</b> ba</span><span><b>12,345</b> sqft</span><span><b>2.75</b> acres</span><span>For sale</span>"
++    && land === "<span><b>13</b> acres</span><span>For sale</span>" && !cardHtml(mk(1)).includes('<i aria-hidden="true"></i>')
++    && STYLE.includes("main#main .hx-c-facts>span{white-space:nowrap;") && STYLE.includes("clip-path:inset(0 0 0 calc(.45rem + 1px))"));
++  check("a failed photo under the sign-up tile shows no words of its own (the tile's button has its words there); on a card or the main photo it does",
++    STYLE.includes('.hx-l-tile.hx-ph-off::before{content:"";') && STYLE.includes('.hx-ph-off::before{content:"Photo unavailable right now"'));
++  check("map: its cards build the same whole facts; the popup's photo column narrows on a phone and its price keeps clear of the X; the hint never runs under the 2D and 3D buttons",
++    M.includes('var s=el("span");s.appendChild(el("b",null,String(x[0])))') && !M.includes('f.appendChild(el("i"))')
++    && MS.includes("grid-template-columns:clamp(6.5rem,34%,8.5rem) minmax(0,1fr)") && MS.includes("main#main .hx-mpop .hx-c-price{padding-right:1.9rem}")
++    && MS.includes(".hx-map-hint{top:.8rem;bottom:auto;left:.8rem;font-size:.78rem;max-width:calc(100% - 9rem)") && MS.includes(".hx-mpop.hx-mpop-top{bottom:auto;top:4.4rem}"));
++}
++
+ console.log(fails ? `${fails} control(s) fail` : "all controls pass");
+ process.exit(fails ? 1 : 0);
+-- 
+2.43.0
+

@@ -245,6 +245,7 @@ In this order:
 5. **Never grade your own work.** Use a fresh reader for every judgment that gates a release, and a new one after each round of fixes. Every self-grade in batch 2026-10-a came in higher than the independent grade after it.
 6. **Compare sibling pages side by side.** List words, pictures of the subject itself, must-answers covered, phone screens and the longest section for each. A page that passes alone can be plainly the weakest of the set.
 7. **Look at the served page, freshly built,** at 375 px wide, after a slow scroll so every image loads, with the largest text setting once. Check that screenshots are newer than the build.
+   Then run the critic: `node tools/critic.mjs <preview-url> /<url>/ --shots <dir>` (no blocking finding), and a fresh agent with `prompts/critic.md` reads its JSON and screenshots. Below PASS, the page does not go on.
 8. **Run the gates:**
    - `npm test`
    - `score.js`
