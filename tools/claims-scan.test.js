@@ -47,6 +47,11 @@ const cases = [
   ["individual-named", { main: "<p>Ask Paul about the listing.</p>" }, { main: "<p>Devin Day wrote this page. He is our Operations Officer and a relocator himself, from Ohio.</p>" }],
   ["individual-named", { main: "<p>Talk to Devin Directly. Questions before you commit?</p>" }, { head: '<script type="application/ld+json">{"@type":"Article","author":{"@type":"Person","name":"Devin Day"}}</script>' }],
   ["individual-named", { main: "<p>The dog table above is personal for us: Devin brings his dog to the sand.</p>" }, { main: "<p>The dog table lists the beaches that allow dogs, and the months.</p>" }],
+  /* Sweep 2026-10-d: the team card names the author with his title (/about/ and the homepage, the schema author's url); the bio under it may not. */
+  ["individual-named", { main: "<p>Devin runs the day-to-day operations of Chapter3 Realty and builds the tools on this site for you to use.</p>" }, { main: "<h3>Devin Day</h3><p>Operations Officer</p><p>Runs the day-to-day operations of Chapter3 Realty and builds the tools on this site for you to use.</p>" }],
+  ["individual-named", { main: "<p>Call or text Devin directly.</p>" }, { main: "<p><strong>Devin Day</strong>, Operations Officer.</p>" }],
+  /* Sweep 2026-10-d: a rating said with a hyphen ("top-ranked schools") was missed on /submarkets/carolina-forest/ meta. */
+  ["fair-housing", { meta: "Carolina Forest is Myrtle Beach's biggest master-planned community: 26,000+ residents, medians near $418K-$465K, top-ranked schools, and no city tax." }, { meta: "Carolina Forest is Myrtle Beach's biggest master-planned community: 26,000+ residents, medians near $418K-$465K, eleven subdivisions, and no city tax." }],
   /* Gaps closed 2026-10-02: each firing sentence is live text the first rules missed. */
   ["interest-rate", { main: "<p>On a VA loan that might otherwise qualify at 6.5%, the DPA-adjusted rate could be 8.5%.</p>" }, { main: "<p>The lender decides whether you qualify at all.</p>" }],
   ["interest-rate", { main: "<p>Rates touched about 6.30 in April, drifted back to the mid 6.5s, and sit below last July's 6.75.</p>" }, { main: "<p>Occupancy rates touched 71 percent in July.</p>" }],

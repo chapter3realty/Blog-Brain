@@ -111,6 +111,7 @@
       "why": "42 USC 3604(c) and HUD advertising guidance: describe property and geography, never who an area suits (compliance M3).",
       "patterns": [
         "\\b(?:best|good|great|top) schools\\b",
+        "\\b(?:top|highly|best|well)[- ](?:ranked|rated) schools\\b",
         "\\bfamily-friendly\\b",
         "\\bperfect for (?:families|retirees|young|couples|singles|kids)\\b",
         "\\bsuits? (?:retirees|families|young|couples)\\b",
@@ -142,13 +143,13 @@
     {
       "id": "individual-named",
       "severity": "high",
-      "why": "Devin Day may appear only as the page's author: the byline, the author note and the schema author (owner 2026-10-05). Never in the copy, a story, a CTA or as a contact; he is not a licensee, so never a pricing or advice contact (SC 40-57-30). Paul is never named on the site yet (owner 2026-10-05).",
+      "why": "Devin Day may appear only as the page's author: the byline, the author note and the schema author (owner 2026-10-05). Never in the copy, a story, a CTA or as a contact; he is not a licensee, so never a pricing or advice contact (SC 40-57-30). Paul is never named on the site yet (owner 2026-10-05). The team card on /about/ and the homepage is the author note: his name with his title is quiet there; a sentence about him is not (sweep 2026-10-d).",
       "patterns": [
         "\\bDevin\\b",
         "\\bPaul\\b"
       ],
       "fix": "Keep the name in the byline or author note only. In the copy write \"Chapter3\", \"our team\" or \"one of our agents\". Remove Paul's name.",
-      "ignore": "\\b(?:By|Reviewed by)\\s+Devin Day\\b|\\bDevin Day wrote this page\\b",
+      "ignore": "\\b(?:By|Reviewed by)\\s+Devin Day\\b|\\bDevin Day wrote this page\\b|\\bDevin Day\\s*,?\\s*Operations Officer\\b",
       "skipSurfaces": [
         "json-ld"
       ]
