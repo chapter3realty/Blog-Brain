@@ -23,3 +23,9 @@ For `facts/registry.json`. Each needs a firing and a quiet control in `tools/fac
 ## No story rows
 
 No new story. The page uses a labelled example.
+
+## Added in review round 1, 2026-11-01
+
+**Owner question (for `templates/owner-questions.md`; the writer may not edit it).** The reader asked: "Send us the building. We read its reserve study, budget and balance sheet." Does this cost anything, does the buyer have to sign a buyer agreement first, and how long does it take? The page does not say, because no ledger row or story covers it. One sentence from the owner (for example: "There is no charge, and we answer within two business days") would remove the hesitation at all three offers.
+
+**Ledger rows 33 to 35 are copied from sibling ledgers** (flooding row 37, special-assessments rows 16 to 18), so the three pages say the same thing about the due diligence period, the seller's disclosure and who pays at closing. If the due diligence wording goes into `facts/registry.json` (it is now on two pages), the lead should check the termination fee against the current SCR form first.
