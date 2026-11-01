@@ -1,0 +1,4 @@
+# Needs: /sell/home-value/
+
+1. `tools/checkpoint.sh` saved an empty web.patch on the first run. The command given for this page lists `specs/home-value.js` and `chapter3realty/images/2026-10-d/sell-home-value`, which do not exist yet. `git add -N` fails on a pathspec that matches nothing, so no new file was marked and `git diff` printed nothing. The second run, with only existing paths, saved the data folder (2.1 MB patch). Fix proposed for the lead: in checkpoint.sh, filter the pathspecs to those that exist before `git add -N` (for example `for p in "$@"; do [ -e "$WEB/$p" ] && set -- ...`), or add `--ignore-missing`. Until then, a helper should run the checkpoint with existing paths only.
+2. No shared helper change is needed for the plan. The dot strip (V4) and the area picker (V1) can live in the page's spec.
