@@ -54,4 +54,8 @@ The critic, the reader and the owner's-eye reviewer all flagged "Waterfront cond
 
 ## 12. Photos of the DST-owned communities
 
-The oceanfront aerial stays only as a stand-in: the critic blocks a blog with no real photo. Send shot-list.md items 1 and 2 to the photo partner. When his photos arrive, put one beside the map in "Do DSTs own property on the Grand Strand?" and drop the aerial.
+Round 2: the oceanfront condo aerial is gone (critic and owner's-eye review: the photo did not show the subject). In its place is a U.S. government aerial (USDA NAIP 2023, public domain) of the apartment community a DST owns off Carolina Forest Boulevard, with the trust's parcel outlined from the county file (ledger row 31, photos.json). It sits under the map in "Do DSTs own property on the Grand Strand?". Still send shot-list.md items 1 and 2 to the photo partner: a ground photo of a DST-owned community would be better than an aerial. The old condo files are deleted from images/2026-10-d/invest-strategies-dst/; the record is kept in the scratch folder as photos.r1.json.
+
+## 13. Feed under the title, round 2
+
+Still open (items 2 and 10). At 390 and 1440 the strip "Waterfront condos in Myrtle Beach and North Myrtle Beach" shows only the "See all homes" tile in the preview, right under the hero. All three round-2 reviewers flagged it. The spec cannot change the feed. The lead must choose: a feed this reader could buy with the exchange (rentals that suit a 1031 replacement, with a title that says so), `low: true`, or no strip on this page.
