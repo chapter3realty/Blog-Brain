@@ -1,0 +1,5 @@
+# Needs from shared helpers: /buyers/programs/
+
+1. **`tools/area-map.js`: a shaded area on a region map.** The page needs a map of Horry County with one area shaded (USDA's ineligible coastal strip) and town labels. `regionMap` draws places and markers but takes no polygon. Proposed option: `regionMap({ name, places, areas: [{ geojson, label, fill }] }, opts)`, drawn under the roads and the labels, with the area named in the legend. Workaround for this page: inline SVG in `specs/programs.js` from `data/2026-10-d/buyers-programs/usda-map.json` (already simplified to about 9 KB).
+2. **`tools/illustrations.js`: a simple step chart.** "You owe $10,000 until year 15, then $0." No named illustration does this. Workaround: inline SVG in the spec, drawn with the glass tokens (`G.TOKENS`).
+3. **`idx-lib/feeds.js`: a price cap on the article feed.** The page's feed should show houses at or under $450,000 (SC Housing's price limit). If the feed for `/buyers/programs/` cannot take `max=450000`, add it; until then the page uses whatever feed it gets, and the copy does not promise the feed is under the limit.
