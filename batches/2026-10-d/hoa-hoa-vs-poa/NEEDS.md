@@ -22,3 +22,8 @@ Shared helpers and data this page would use. The spec works around each one insi
 12. **The hero offer box (`heroCta`) starts 8 px left of the body text at 390 px** (x=16 against x=24). Shared hero markup.
 13. **Photo credits: the second line is plural** ("resized these photos and cropped some of them") on a page with one photo. Shared credits partial (`page-kit.js` photoSet credits).
 14. **The feed above the short answer** (NEEDS 1 and 8 again): in the preview it is titled "Homes with no HOA fee", with the subheader "No HOA, as listed by the listing agent. Confirm before you buy.", and shows no homes. The owner bans subheaders under feed titles and telling the reader to check things. On an HOA page the title also reads as off-topic. The lead should confirm what renders live.
+
+## Added in review round 2, 2026-11-01
+
+15. **Page-scoped workaround for NEEDS 10.** The spec now carries two CSS rules for this page only. At 320 px the feed's search label (`label.hx-fb-q`, `flex:none` in idx-lib/filters.js) is allowed to shrink. At 900 to 1100 px the header phone gets less padding. critic.mjs is now 0 blocking at every width. When the lead fixes the shared feed and header CSS, delete both rules from `specs/hoa-vs-poa.js` (the comment "Round 2 workaround for NEEDS 10" marks them).
+16. **A second-fee count from the CRM** (NEEDS 2 again). Ledger row 31 gives the typical listed fee in Grande Dunes, Barefoot and Prince Creek, but the map API reads one fee field. A count of listings that fill the MLS second-fee field, by community, would let the page say what the second fee adds.
