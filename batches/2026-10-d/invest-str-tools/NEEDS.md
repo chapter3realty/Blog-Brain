@@ -1,0 +1,9 @@
+# Needs: /invest/str-tools/
+
+Shared files this page would like changed. The writer works around each one inside `specs/str-tools.js`.
+
+1. **`web2/data/str-market.json` is stale and no longer matches AirROI** (lead, or the owner of /invest/airbnb-income/). Read 2026-08-15, refresh due 2026-11-13 (its own 90-day gate). AirROI's pages now print different figures for every town (Myrtle Beach $20,946 then, $25,807 now; Murrells Inlet $38,356 then, $47,603 now) and count cleaning fees in gross. This page and /invest/str-vs-ltr/ use today's pages. Until `str-market.json` is refreshed and `node build.js strdata` is run, /invest/airbnb-income/ and the submarket pages print the August figures, and the site gives two values for one fact. Proposed: refresh it from `web2/data/2026-10-d/invest-str-tools/raw/airroi-parsed.json` (same day, eight towns), then rescan with `facts-check.js`.
+2. **A two-series chart in `tools/glass.js`.** `G.bars` draws one series. The season chart needs two (Myrtle Beach and Murrells Inlet by month) with a label row under the months (water temperature). Workaround: a small inline SVG in the spec, glass-styled by hand, with its table of values under it.
+3. **A map of where nightly rentals are allowed, for /invest/str-rules/** (the judge's idea for this page). The City of Myrtle Beach zones exist only as a PDF map (`ZoningandCityLimitsMap.pdf`); no public city GIS layer answered. Proposed for the next batch: ask the city's GIS office for the zoning layer, or trace the RMV and visitor zones from the PDF with a licence check. Not built here.
+4. **Georgetown County millage for Pawleys Island** in the calculator. Not pulled in this stage; the calculator's Pawleys Island choice starts with an empty tax rate and a note until a row exists.
+5. **Menu label.** 142 pages link here as "Short-term rental tools". The page now is the tools page, so the label fits. No change asked.
