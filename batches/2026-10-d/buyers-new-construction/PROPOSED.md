@@ -12,3 +12,9 @@ For the lead. Nothing here is in `facts/registry.json` or `stories/stories.json`
 ## stories/stories.json
 
 None. No new story was gathered.
+
+## Review round 1 (fixer)
+
+5. **new-home-communities-2026.** Fact: "The ten communities where builders recorded the most home sales in Horry County, October 2025 to September 2026: Auberon Woods, Grande Dunes North, Arcadia, Waterside Neighborhood, Indigo Grove, Chestnut Greens, Cypress Ridge, Kingston Oaks, Crescent Cove, Eden Springs (1,402 of 5,108 builder sales)." Ledger row 33 (VERIFIED-BY-FIXER). Owner page: /buyers/new-construction/. Stale by 2027-01. Siblings that name "the busiest new communities" should use this list or say their own period.
+6. **new-house-hoa-fee-share.** Fact: "Of new houses for sale in the MLS feed, about 1 in 5 has no HOA fee; about 3 in 4 have $100 a month or less, or none (2026-11-01)." Ledger row 34 (VERIFIED-BY-FIXER). Stale by 2026-12.
+7. **coastal-wind-rating-factors.** Fact: "In the coastal area, wind (essential property) insurance rating plans must include discounts or surcharges for building codes, construction standards and roof tie-downs, among other factors (SC Code 38-73-1095(C))." Ledger row 35. A wrong pattern to catch: "new houses are cheaper to insure" stated as a rule.
