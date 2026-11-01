@@ -492,6 +492,301 @@ index 0000000..7d2c268
 +              "maxAllowableOffset": "0.00002", "geometryPrecision": "6", "returnGeometry": "true", "f": "json"})
 +    feats += d["features"]; print(i, len(feats), flush=True)
 +json.dump({"source": Q, "where": "SFHA_TF='T'", "read": time.strftime("%Y-%m-%d"), "features": feats}, open(os.path.join(D, "raw", "flood-sfha.json"), "w"))
+diff --git a/data/2026-10-d/buyers-new-construction/findings-deeds-verified.json b/data/2026-10-d/buyers-new-construction/findings-deeds-verified.json
+new file mode 100644
+index 0000000..0b2f397
+--- /dev/null
++++ b/data/2026-10-d/buyers-new-construction/findings-deeds-verified.json
+@@ -0,0 +1,288 @@
++{
++ "source": "https://acclaimweb.horrycounty.org/AcclaimWeb/search/SearchTypeDocType",
++ "pulled": "2026-11-01T02:01:33.658686Z",
++ "parcels_read": "raw/parcels.json",
++ "steps": {
++  "all deeds": 30339,
++  "over $10,000": 19147,
++  "one parcel number": 19033,
++  "not tax sale, corrective or multi-parcel memo": 18464,
++  "parcel in county layer": 18368,
++  "residential land use code": 17881
++ },
++ "builder_sales": 5108,
++ "other_sales_not_builder_or_developer": 12455,
++ "developer_or_builder_to_builder": 318,
++ "builder_share_pct": 28.6,
++ "builder_median_price": 330000.0,
++ "other_median_price": 290000.0,
++ "builder_price_quartiles": [
++  275997.5,
++  330000.0,
++  417425.0
++ ],
++ "by_builder": [
++  [
++   "D.R. Horton",
++   1417
++  ],
++  [
++   "Lennar",
++   982
++  ],
++  [
++   "NVR (Ryan Homes)",
++   490
++  ],
++  [
++   "Pulte",
++   383
++  ],
++  [
++   "Meritage",
++   334
++  ],
++  [
++   "other listed builders",
++   239
++  ],
++  [
++   "Clayton Properties",
++   191
++  ],
++  [
++   "Beverly Homes",
++   187
++  ],
++  [
++   "Great Southern Homes",
++   187
++  ],
++  [
++   "Beazer",
++   153
++  ],
++  [
++   "Starlight Homes",
++   147
++  ],
++  [
++   "Ashton Woods",
++   97
++  ],
++  [
++   "Toll Brothers",
++   97
++  ],
++  [
++   "H & H Constructors",
++   89
++  ],
++  [
++   "Dream Finders",
++   60
++  ],
++  [
++   "DRB Group",
++   54
++  ],
++  [
++   "RS Parker Homes",
++   1
++  ]
++ ],
++ "top5_share_of_builder_sales_pct": 70.6,
++ "builder_imp0_by_month": [
++  {
++   "month": "2025-10",
++   "sales": 399,
++   "no_building_value": 0
++  },
++  {
++   "month": "2025-11",
++   "sales": 405,
++   "no_building_value": 0
++  },
++  {
++   "month": "2025-12",
++   "sales": 479,
++   "no_building_value": 0
++  },
++  {
++   "month": "2026-01",
++   "sales": 353,
++   "no_building_value": 115
++  },
++  {
++   "month": "2026-02",
++   "sales": 358,
++   "no_building_value": 234
++  },
++  {
++   "month": "2026-03",
++   "sales": 404,
++   "no_building_value": 294
++  },
++  {
++   "month": "2026-04",
++   "sales": 391,
++   "no_building_value": 321
++  },
++  {
++   "month": "2026-05",
++   "sales": 466,
++   "no_building_value": 405
++  },
++  {
++   "month": "2026-06",
++   "sales": 514,
++   "no_building_value": 470
++  },
++  {
++   "month": "2026-07",
++   "sales": 462,
++   "no_building_value": 421
++  },
++  {
++   "month": "2026-08",
++   "sales": 421,
++   "no_building_value": 398
++  },
++  {
++   "month": "2026-09",
++   "sales": 456,
++   "no_building_value": 435
++  }
++ ],
++ "builder_imp0": {
++  "all": [
++   3093,
++   5108
++  ],
++  "deeds_oct_dec_2025": [
++   0,
++   1283
++  ],
++  "deeds_jan_sep_2026": [
++   3093,
++   3825
++  ]
++ },
++ "builder_2026_imp0_land": {
++  "n": 3093,
++  "median_market_land": 80000.0,
++  "median_price_of_those_deeds": 329000.0
++ },
++ "builder_owner_state": {
++  "SC": 4421,
++  "total": 5108,
++  "top_other": [
++   [
++    "NC",
++    125
++   ],
++   [
++    "NY",
++    111
++   ],
++   [
++    "NJ",
++    70
++   ],
++   [
++    "PA",
++    55
++   ],
++   [
++    "VA",
++    48
++   ],
++   [
++    "CA",
++    44
++   ],
++   [
++    "MD",
++    40
++   ]
++  ]
++ },
++ "builder_valued_assessment_ratio": {
++  "4%": 1102,
++  "6%": 900,
++  "other": 13
++ },
++ "builder_by_taxdistrict": [
++  [
++   "100",
++   922
++  ],
++  [
++   "550",
++   878
++  ],
++  [
++   "500",
++   652
++  ],
++  [
++   "630",
++   493
++  ],
++  [
++   "600",
++   409
++  ],
++  [
++   "110",
++   404
++  ],
++  [
++   "250",
++   397
++  ],
++  [
++   "400",
++   304
++  ],
++  [
++   "200",
++   154
++  ],
++  [
++   "610",
++   120
++  ],
++  [
++   "800",
++   119
++  ],
++  [
++   "882",
++   58
++  ],
++  [
++   "240",
++   49
++  ],
++  [
++   "403",
++   41
++  ],
++  [
++   "260",
++   32
++  ]
++ ],
++ "q4_2025_builder_value_to_price": {
++  "n": 1282,
++  "median": 0.998,
++  "quartiles": [
++   0.985,
++   0.998,
++   1.016
++  ]
++ },
++ "q4_2025_builder_median_price": 349500.0,
++ "q4_2025_builder_median_county_value": 349900.0
++}
+\ No newline at end of file
 diff --git a/data/2026-10-d/buyers-new-construction/findings-deeds.json b/data/2026-10-d/buyers-new-construction/findings-deeds.json
 new file mode 100644
 index 0000000..7695fb6
@@ -1631,6 +1926,14 @@ index 0000000..c1f12d1
 @@ -0,0 +1 @@
 +{"response":{"data":[["B25034_007MA","B25034_008MA","B25034_001EA","B25034_009MA","B25034_002EA","B25034_009E","B25034_003EA","B25034_004EA","B25034_005EA","B25034_006EA","B25034_001MA","B25034_002MA","B25034_003MA","B25034_004MA","B25034_010M","B25034_005MA","B25034_006MA","B25034_004M","B25034_002M","B25034_008M","B25034_010E","B25034_006M","B25034_004E","B25034_002E","B25034_008E","B25034_006E","B25034_010EA","B25034_011EA","B25034_010MA","B25034_011MA","B25034_011M","NAME","GEO_ID","B25034_003M","B25034_001M","B25034_011E","B25034_007M","B25034_005M","B25034_007EA","B25034_003E","B25034_008EA","B25034_009EA","B25034_001E","B25034_009M","B25034_007E","B25034_005E"],[null,null,null,null,null,"4694",null,null,null,null,null,null,null,null,"725",null,null,"3482","2374","1612","1846","3704","51527","24800","6056","40357",null,null,null,null,"596","Horry County, South Carolina","0500000US45051","3898","257","1199","2513","3218",null,"48057",null,null,"230669","1280","18343","33790"]],"dataAPIURI":"https://api.census.gov/data/2024/acs/acs1?get=group(B25034)&ucgid=0500000US45051","objectId":"ACSDT1Y2024.B25034","tableName":"B25034","metadataAPIURI":"https://api.census.gov/data/2024/acs/acs1"}}
 \ No newline at end of file
+diff --git a/data/2026-10-d/buyers-new-construction/raw/acs-ACSDT1Y2025.B25034.json b/data/2026-10-d/buyers-new-construction/raw/acs-ACSDT1Y2025.B25034.json
+new file mode 100644
+index 0000000..911ff45
+--- /dev/null
++++ b/data/2026-10-d/buyers-new-construction/raw/acs-ACSDT1Y2025.B25034.json
+@@ -0,0 +1 @@
++{"response":{"data":[["B25034_007MA","B25034_008MA","B25034_001EA","B25034_009MA","B25034_002EA","B25034_009E","B25034_003EA","B25034_004EA","B25034_005EA","B25034_006EA","B25034_001MA","B25034_002MA","B25034_003MA","B25034_004MA","B25034_010M","B25034_005MA","B25034_006MA","B25034_004M","B25034_002M","B25034_008M","B25034_010E","B25034_006M","B25034_004E","B25034_002E","B25034_008E","B25034_006E","B25034_010EA","B25034_011EA","B25034_010MA","B25034_011MA","B25034_011M","NAME","GEO_ID","B25034_003M","B25034_001M","B25034_011E","B25034_007M","B25034_005M","B25034_007EA","B25034_003E","B25034_008EA","B25034_009EA","B25034_001E","B25034_009M","B25034_007E","B25034_005E"],[null,null,null,null,null,"5973",null,null,null,null,null,null,null,null,"632",null,null,"4750","4459","1090","1456","3898","48745","36932","3276","40745",null,null,null,null,"1154","Horry County, South Carolina","0500000US45051","3894","143","2385","2412","4043",null,"46153",null,null,"237850","1754","19107","33078"]],"dataAPIURI":"https://api.census.gov/data/2025/acs/acs1?get=group(B25034)&ucgid=0500000US45051","objectId":"ACSDT1Y2025.B25034","tableName":"B25034","metadataAPIURI":"https://api.census.gov/data/2025/acs/acs1"}}
+\ No newline at end of file
 diff --git a/data/2026-10-d/buyers-new-construction/raw/census-soc-avg_starttocomp_cust.xlsx b/data/2026-10-d/buyers-new-construction/raw/census-soc-avg_starttocomp_cust.xlsx
 new file mode 100644
 index 0000000000000000000000000000000000000000..a272478a0fc2c19d2f0dfc6dbbf03ff7cec2a423
@@ -2341,3 +2644,76 @@ index 0000000..8f541b7
 +               "Comments": d["Comments"], "DirectName": keep(d["DirectName"]), "IndirectName": keep(d["IndirectName"])} for d in R["deeds"]]
 +R["note"] = "Party names kept only for builders, developers and tax-sale or court parties; other names blanked."
 +json.dump(R, open(os.path.join(D, "raw", "deeds-slim.json"), "w"))
+diff --git a/data/2026-10-d/buyers-new-construction/verify_build_deeds.py b/data/2026-10-d/buyers-new-construction/verify_build_deeds.py
+new file mode 100644
+index 0000000..e8b323d
+--- /dev/null
++++ b/data/2026-10-d/buyers-new-construction/verify_build_deeds.py
+@@ -0,0 +1,67 @@
++"""VERIFIER COPY of build_deeds.py (2026-11-01): the builder pattern no longer matches people named Horton or Mungo or "Lennart". Writes findings-deeds-verified.json.
++Deed findings from raw/deeds.json and raw/parcels.json.
++Kept deed: consideration over $10,000; exactly one 11-digit parcel; no tax-sale or court party ('DELINQUENT TAX', 'SHERIFF',
++'MASTER IN EQUITY'); memo without 'CORRECT' or 'RE-RECORD' and not naming several parcels, lots or tracts; parcel in the county
++layer with a residential land use code (starting with 1).
++Builder sale: grantor matches BUILDER (home builders that sell finished houses here) and the grantee does not (no builder-to-builder lot sales).
++Usage: python3 -I build_deeds.py <this dir> -> findings-deeds.json"""
++import json, sys, os, re, statistics as st, collections
++D = sys.argv[1]
++R = json.load(open(os.path.join(D, "raw", "deeds-slim.json" if os.path.exists(os.path.join(D, "raw", "deeds-slim.json")) else "deeds.json"))); P = json.load(open(os.path.join(D, "raw", "parcels.json")))["parcels"]
++BUILDER = re.compile(r"D ?R HORTON|HORTON INC|\bLENNARR?\b|\bNVR\b|PULTE|MERITAGE|CLAYTON PROPERTIES|GREAT SOUTHERN HOMES|BEVERLY HOMES|STARLIGHT HOMES|BEAZER|ASHTON CHARLESTON|TOLL SOUTHEAST|H & H CONSTRUCTORS|DRB GROUP|DREAM FINDERS|RS PARKER HOMES|HOWELL HOMES|MILLROSE|LEWIS CONSTRUCTION|CHRIS MANNING|CAROLINA COTTAGE|HUNTER QUINN|OCEAN PALMS BUILDERS|SANDS BUILDING|BRADLEY JONES|INFINITY CUSTOM|ALMOND QUALITY|CMH HOMES|AMERI BUILT|MUNGO HOMES|CPG INC|STANLEY MARTIN|CHESAPEAKE HOMES|ADAMS HOMES|ASHTON WOODS")
++OTHER_DEV = re.compile(r"BUILDERS?\b|CONSTRUCTION|CONSTRUCTORS|HOMES (INC|LLC)|HOMES OF|HOME BUILDERS|DEVELOPMENT")
++TAX = re.compile(r"DELINQUENT TAX|SHERIFF|MASTER IN EQUITY"); MEMO = re.compile(r"CORRECT|RE-RECORD|SEVERAL|PARCELS|TRACTS|\bLOTS\b|\d+ UNITS")
++deeds = R["deeds"]; steps = collections.OrderedDict(); steps["all deeds"] = len(deeds)
++k = [d for d in deeds if (d["Consideration"] or 0) > 10000]; steps["over $10,000"] = len(k)
++k = [d for d in k if re.fullmatch(r"\d{11}", d["ParcelNumber"] or "")]; steps["one parcel number"] = len(k)
++k = [d for d in k if not TAX.search((d["DirectName"] or "") + " " + (d["IndirectName"] or "")) and not MEMO.search(d["Comments"] or "")]; steps["not tax sale, corrective or multi-parcel memo"] = len(k)
++k = [d for d in k if d["ParcelNumber"] in P]; steps["parcel in county layer"] = len(k)
++k = [d for d in k if (P[d["ParcelNumber"]]["LandUseCode"] or "").startswith("1")]; steps["residential land use code"] = len(k)
++for d in k:
++    d["b"] = bool(BUILDER.search(d["DirectName"] or "")) and not BUILDER.search(d["IndirectName"] or "") and not OTHER_DEV.search(d["IndirectName"] or "")
++    d["dev"] = (not d["b"]) and bool(BUILDER.search(d["DirectName"] or "") or OTHER_DEV.search(d["DirectName"] or ""))
++    p = P[d["ParcelNumber"]]; d["imp0"] = (p["MarketImprv"] or 0) == 0; d["mo"] = d["RecordDate"][:7].replace("/", "-")
++b = [d for d in k if d["b"]]; nb = [d for d in k if not d["b"] and not d["dev"]]
++out = {"source": R["source"], "pulled": R["pulled"], "parcels_read": P and "raw/parcels.json", "steps": steps,
++       "builder_sales": len(b), "other_sales_not_builder_or_developer": len(nb), "developer_or_builder_to_builder": len([d for d in k if d["dev"]]),
++       "builder_share_pct": round(100 * len(b) / len(k), 1),
++       "builder_median_price": st.median([d["Consideration"] for d in b]), "other_median_price": st.median([d["Consideration"] for d in nb]),
++       "builder_price_quartiles": st.quantiles([d["Consideration"] for d in b], n=4, method="inclusive")}
++# by builder (grantor name normalized)
++def norm(n):
++    for pat, lab in [("HORTON", "D.R. Horton"), ("LENNAR", "Lennar"), (r"\bNVR\b", "NVR (Ryan Homes)"), ("PULTE", "Pulte"), ("MERITAGE", "Meritage"),
++                     ("CLAYTON PROPERTIES", "Clayton Properties"), ("GREAT SOUTHERN", "Great Southern Homes"), ("BEVERLY", "Beverly Homes"),
++                     ("BEAZER", "Beazer"), ("STARLIGHT", "Starlight Homes"), ("ASHTON CHARLESTON", "Ashton Woods"), ("TOLL", "Toll Brothers"),
++                     ("H & H", "H & H Constructors"), ("DRB", "DRB Group"), ("DREAM FINDERS", "Dream Finders"), ("RS PARKER", "RS Parker Homes")]:
++        if re.search(pat, n): return lab
++    return "other listed builders"
++c = collections.Counter(norm(d["DirectName"]) for d in b); out["by_builder"] = c.most_common()
++out["top5_share_of_builder_sales_pct"] = round(100 * sum(v for n, v in c.most_common(6) if n != "other listed builders") / len(b), 1)
++# county building value zero, by month of deed
++months = sorted(set(d["mo"] for d in b))
++out["builder_imp0_by_month"] = [{"month": m, "sales": len([d for d in b if d["mo"] == m]), "no_building_value": len([d for d in b if d["mo"] == m and d["imp0"]])} for m in months]
++q4 = [d for d in b if d["mo"] <= "2025-12"]; y26 = [d for d in b if d["mo"] >= "2026-01"]
++out["builder_imp0"] = {"all": [len([d for d in b if d["imp0"]]), len(b)], "deeds_oct_dec_2025": [len([d for d in q4 if d["imp0"]]), len(q4)],
++                       "deeds_jan_sep_2026": [len([d for d in y26 if d["imp0"]]), len(y26)]}
++z = [P[d["ParcelNumber"]] for d in y26 if d["imp0"]]
++out["builder_2026_imp0_land"] = {"n": len(z), "median_market_land": st.median([p["MarketLand"] or 0 for p in z]),
++                                 "median_price_of_those_deeds": st.median([d["Consideration"] for d in y26 if d["imp0"]])}
++# owner mailing state on builder-sold parcels (current owner; no names)
++sc = collections.Counter((P[d["ParcelNumber"]]["OwnerState"] or "").strip().upper() for d in b)
++out["builder_owner_state"] = {"SC": sc.get("SC", 0), "total": len(b), "top_other": [x for x in sc.most_common(8) if x[0] != "SC"]}
++# assessment ratio on builder-sold parcels with a building value (assessed / market)
++rat = collections.Counter()
++for d in b:
++    p = P[d["ParcelNumber"]]
++    if p["MarketImprv"] and p["MarketProp"]:
++        r = (p["AssessedProp"] or 0) / p["MarketProp"]; rat["4%" if abs(r - 0.04) < 0.004 else "6%" if abs(r - 0.06) < 0.004 else "other"] += 1
++out["builder_valued_assessment_ratio"] = dict(rat)
++# builder sales by tax district (ties a sale to a city or the unincorporated county)
++out["builder_by_taxdistrict"] = collections.Counter(P[d["ParcelNumber"]]["TaxDistrict"] for d in b).most_common(15)
++# how the county valued homes builders sold in Oct-Dec 2025 (first valued for tax year 2026): county market value / deed price
++v = [(P[d["ParcelNumber"]]["MarketProp"] or 0) / d["Consideration"] for d in q4 if not d["imp0"] and d["Consideration"] > 100000]
++out["q4_2025_builder_value_to_price"] = {"n": len(v), "median": round(st.median(v), 3), "quartiles": [round(x, 3) for x in st.quantiles(v, n=4, method="inclusive")]}
++out["q4_2025_builder_median_price"] = st.median([d["Consideration"] for d in q4])
++out["q4_2025_builder_median_county_value"] = st.median([P[d["ParcelNumber"]]["MarketProp"] or 0 for d in q4])
++json.dump(out, open(os.path.join(D, "findings-deeds-verified.json"), "w"), indent=1)
++print(json.dumps({x: out[x] for x in out if x not in ("builder_imp0_by_month",)}, indent=1)); print(out["builder_imp0_by_month"])
