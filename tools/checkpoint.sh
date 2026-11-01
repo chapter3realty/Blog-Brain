@@ -29,8 +29,8 @@ for i in 1 2 3 4 5 6; do
   git -C "$CLONE" diff --cached --quiet && { echo "checkpoint: nothing new in $REL"; exit 0; }
   git -C "$CLONE" -c user.name="Claude" -c user.email="noreply@anthropic.com" commit -q -m "$MSG
 
-Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU"
+Co-Authored-By: Claude <noreply@anthropic.com>${CLAUDE_SESSION_URL:+
+Claude-Session: $CLAUDE_SESSION_URL}"
   git -C "$CLONE" push -q origin "HEAD:$BRANCH" && { echo "checkpoint: pushed $REL"; exit 0; }
   sleep $((i * 3))
 done
