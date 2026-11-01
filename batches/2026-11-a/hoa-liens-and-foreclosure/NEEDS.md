@@ -1,0 +1,3 @@
+# Needs from shared files: /hoa/liens-and-foreclosure/
+
+1. **Homes feed position (idx-lib/feeds.js, shared).** The judge: on a phone the "Distressed sales" strip sits above the answer. The page's feed is `DISTRESSED` (feeds.js line 329). If the spec cannot place the strip after the content, the lead moves it. A better fit for this page may be `BANK_CONDOS` ("Bank-owned and foreclosure condos"), since three of the four association cases on the county's list were condos; the CRM had only 3 condo foreclosures for sale on 2026-11-01, so the feed's fallback would show most of the time. Lead's call.
