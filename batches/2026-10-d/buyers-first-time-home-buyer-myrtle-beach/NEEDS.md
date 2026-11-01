@@ -1,0 +1,7 @@
+# Needs from shared helpers: /buyers/first-time-home-buyer-myrtle-beach/
+
+1. **A dot layer and a grouped bar chart.**
+   - `tools/area-map.js`: draw many small points (2,403 here, `data/2026-10-d/buyers-first-time-home-buyer-myrtle-beach/map-starter-points.json`) on a region map, in up to two colors with a legend ("resale", "new from a builder"). `regionMap` takes places, markers and areas, not points. Workaround for this page: inline SVG in `specs/first-time-home-buyer.js` using the map's projection, or `regionMap({ areas })` with the ZIP areas outlined and a note each.
+   - `tools/glass.js`: a grouped bar chart (two to four values per row, side by side, one legend), for the price ladder (`chart-ladder.json`). `G.bars` takes one value per row. Workaround: three `G.bars` blocks with the same bands and the same max, or inline SVG with `G.TOKENS`.
+2. **The wind pool line as data.** A simplified line for U.S. 17 and Bypass 17 in Horry County (the registry's `wind-pool-line`), so a page can count homes east of it. County GIS layer 17 (Highways) refused attribute queries on 2026-11-01. Census TIGER roads would do. Not needed for this page's first version.
+3. **`idx-lib/feeds.js`: a price cap and a town on the article feed.** This page's feed should show houses at or under $300,000 in Conway and Longs. The programs page asked for a cap too (its NEEDS item 3). Until then the copy does not promise the feed's price.
