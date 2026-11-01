@@ -15,3 +15,11 @@ Shared files this page would like changed. The writer works around each one insi
 8. **Airbnb's fee split for 23-percent towns.** Surfside Beach and Garden City show "About 13%" for Airbnb's fee (running costs 23 = 13 + 5 + 2 + 3). The calculator takes Airbnb's fee as running costs less 10, which matches every page read.
 9. **The sibling /invest/str-vs-ltr/ links here as "short-term rental atlas".** This page is a calculator and the STR tools index, not an atlas. Suggest the anchor "short-term rental calculator".
 10. **The calculator's tax is blank for Murrells Inlet, Pawleys Island, Little River and Conway** (row 4 covers four districts). A row with one 2026 bill per district would fill them.
+
+## Fixer's notes, review round 1 (2026-11-01)
+
+11. **The homes strip's search row runs past a 320 px window** (shared strip CSS, `.hx-fb-ai` and `.hx-fb-q`). "Find houses" was 29 percent cut off and the page scrolled sideways (scrollWidth 364). Same on /invest/strategies/fix-and-flip/. Workaround in this spec's CSS, the same rule as specs/dst.js: at 379 px and under, the box, badge and question row get `max-width:100%; min-width:0`, the textarea shrinks, and the filter chips wrap. Remove it when the shared CSS is fixed.
+12. **The header is 1029 px wide in a 1024 px window** (shared header CSS, `.header-ctas` and the phone number). Site-wide; fix-and-flip and no-hoa-homes show it too. Workaround in this spec, as in specs/dst.js: from 1000 to 1100 px, the nav gap is 2.2rem and the header gap 1.6rem. Remove it when the shared header is fixed.
+13. **The listing feed's title** reads "Waterfront condos in Myrtle Beach and North Myrtle Beach". It is generated outside the spec. On this page the reader needs homes that allow nightly rentals: "Condos that allow nightly rentals in Myrtle Beach and North Myrtle Beach" (owner's eye, review 1).
+14. **The right column is empty on desktop** (owner's eye nit). The glass theme sets the reading column; a page cannot fill the right side without a shared layout change. No change here.
+15. **`data/str-market.json`** (item 1) also feeds this page's "a fall of about 11 percent a few months ago" (its Myrtle Beach `yoy`, -10.7). When it is refreshed, the sentence changes with it, or the `must()` check in the spec stops the build and says why.
