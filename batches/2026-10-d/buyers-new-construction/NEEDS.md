@@ -1,0 +1,4 @@
+# Needs: /buyers/new-construction/
+
+1. **tools/checkpoint.sh drops every new file when one pathspec does not exist yet.** `git add -N -- <paths>` fails as a whole on the first missing path (here `specs/new-construction.js` and the images folder, which the writer creates later), so `web.patch` came out empty. The research checkpoint was re-run with only the paths that exist (`chapter3realty/buyers/new-construction/`, `data/2026-10-d/buyers-new-construction`); `web.patch` now holds the data folder. Suggested fix: add each pathspec on its own, or pass `--ignore-missing` with `git add -N`. The writer's checkpoint will work once the spec exists.
+2. **headlines.json H1.** The H1 the owner liked promises "the defect problem nobody advertises". The unsourced lawsuit lines are cut, so the H1 rests on the law section. PLAN.md offers an alternative. headlines.json is shared; the lead decides.
