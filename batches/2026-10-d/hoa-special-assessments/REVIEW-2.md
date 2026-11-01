@@ -90,3 +90,7 @@ What changed for each finding. Spec: `specs/special-assessments.js` (website wor
 - **"Many lenders will not make a regular loan ... bigger down payment or cash" (owner).** The owner asked for it only from a verified row, and there is none. The page restates row 20 for the buyer instead.
 - **"Unless the offer says otherwise" inside the card (critic).** compare.js limits a cell to 40 letters. The card says "by default", and the next paragraph says what the offer can change.
 - **"Master deed" and "estoppel" in the prose (reader).** score.js P6 flags both as industry terms. The page uses "the condo's founding papers" and "that statement", and does the finding for the reader.
+
+## Re-check before the checkpoint
+
+The spec was rebuilt with mkpage; the output is byte-for-byte the page above. Gates re-run on it: score.js 100/100, claims-scan 0, facts-check 0 on this page, house-claims 0, critic.mjs 0 blocking and 0 warning at 320, 390, 768, 1024 and 1440 (shots in `wf2/hoa-special-assessments/shots-r2b/`), build.js check OK, build.js audit the same four lines as round 1. Element shots at 320 and 1440: the three calculator inputs share both edges inside the padding, the worked-example names stay on one line, and the page is 320 px wide at 320.
