@@ -9,10 +9,11 @@ export const meta = {
   ],
 }
 
-// args: { web, bb, sp, batch, pages: [{url, slug, spec}] }. See batches/2026-11-a/BRIEF.md.
+// args: { web, bb, sp, batch, today, session?, pages: [{url, slug, spec}] }. See batches/2026-11-a/BRIEF.md.
 const WEB = args.web, BB = args.bb, SP = args.sp, BATCH = args.batch
 const B = `${BB}/batches/${BATCH}`
-const CK = (p, stage) => `TMPDIR=${SP} ${BB}/tools/checkpoint.sh ${WEB} ${B} ${p.slug} "Batch ${BATCH} ${p.url}: ${stage}" specs/${p.spec} chapter3realty${p.url} data/${BATCH}/${p.slug} chapter3realty/images/${BATCH}/${p.slug}`
+const SESSION = args.session ? `CLAUDE_SESSION_URL=${args.session} ` : ''
+const CK = (p, stage) => `${SESSION}TMPDIR=${SP} ${BB}/tools/checkpoint.sh ${WEB} ${B} ${p.slug} "Batch ${BATCH} ${p.url}: ${stage}" specs/${p.spec} chapter3realty${p.url} data/${BATCH}/${p.slug} chapter3realty/images/${BATCH}/${p.slug}`
 
 const COMMON = `
 You are on batch ${BATCH}, Lane U (upgrade of a live page), of the chapter3realty.com production line. The owner asked: "redesign the UI of each blog; identify blogs that have very bad or little information and provide massive value and engaging information that is unique and thought provoking to a human, and simple to understand."
