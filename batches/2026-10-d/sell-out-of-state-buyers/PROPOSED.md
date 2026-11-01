@@ -7,3 +7,8 @@ For `facts/registry.json` after the verifier passes the ledger rows. Each needs 
 3. **horry-net-domestic-migration** (owner page /buyers/relocating/ or this page, the lead to decide). "Horry County's net domestic migration was 14,222 people from July 2024 to July 2025, about 39 a day; deaths (5,184) exceeded births (3,383)." Source: facts row 9. staleBy 2027-04.
 
 No new stories. The page uses five existing story-bank entries as recorded (facts.md, story table).
+
+## Fixer, review round 2 (2026-11-01)
+
+- **Story `tenant-occupied-sale-13-days`, `publishedOn`.** The critic found it on /sell/rental-property/ and /invest/strategies/dst/; the bank lists only the first. Add "/invest/strategies/dst/" if that page still tells it. This page no longer tells it (cut in round 2), so do not add /sell/out-of-state-buyers/.
+- **Registry candidate `nonresident-withholding-rate-2026`** (owner page /sell/capital-gains/). "For a sale closed in 2026, South Carolina's nonresident real estate withholding is 5.21 percent (the top individual rate for the tax year of the sale, H. 4216)." Source: facts rows 31 and 39. staleBy 2027-01. Wrong pattern to catch once 2027 rates are set: a 2027 sale described at 5.21 percent without a check.
