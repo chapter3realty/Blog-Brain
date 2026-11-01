@@ -4,7 +4,7 @@ Batch 2026-10-d, Lane U, research stage, 2026-11-01. Built from real demand befo
 
 ## Where the demand came from
 
-1. **Google suggestions**, read 2026-11-01 through `suggestqueries.google.com` (raw list: `web2/data/2026-10-d/invest-str-vs-ltr/` is for data; the suggestion dump is in the scratch folder `wf2/invest-str-vs-ltr/suggest.txt`). Seventeen seed phrases. What came back, grouped:
+1. **Google suggestions**, read 2026-11-01 through `suggestqueries.google.com` (raw answers saved beside this file: `google-suggest-2026-11-01.txt`). Seventeen seed phrases. What came back, grouped:
    - The comparison itself: "airbnb vs long term rental", "... income", "... returns", "... calculator", "... taxes", "is airbnb or long term rental more profitable", "is it better to airbnb or long term rental", "short term rental vs long term rental tax benefits", "short term vs long term rental pros and cons", "difference between short term and long term rental", "vacation rental vs long term rental".
    - Local: "short term rentals myrtle beach for sale", "long term rental myrtle beach sc", "long term rentals myrtle beach oceanfront", "long term condo rental myrtle beach", "myrtle beach condo airbnb", "north myrtle beach condo airbnb", "horry county short term rental laws", "horry county short term rental tax", "horry county long term rentals", "snowbird rentals myrtle beach monthly", "winter rental myrtle beach", "seasonal rental myrtle beach", "myrtle beach rental property management".
    - "is airbnb profitable in myrtle beach" and "should i rent my condo short term or long term" returned no suggestions (too long), but both are the plain form of the question.
