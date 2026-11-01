@@ -1,0 +1,104 @@
+[
+  {
+    "row": "dst 2",
+    "pattern": "\\bnot a security\\b",
+    "struck": "For tax purposes you are treated as owning your slice of the building itself, not a security.",
+    "use": "For federal income tax purposes you are treated as owning an undivided share of the building, not a trust certificate."
+  },
+  {
+    "row": "dst 3",
+    "pattern": "short-term government bonds",
+    "struck": "It can park cash only in short-term government bonds or bank CDs until the next payout.",
+    "use": "It can hold cash only in short-term U.S. government debt or bank certificates of deposit that come due before the next payout."
+  },
+  {
+    "row": "dst 3",
+    "pattern": "deadly sins",
+    "struck": "People in the trade call these \"the seven deadly sins\".",
+    "use": "(cut it: trade usage with no primary source)"
+  },
+  {
+    "row": "dst 6",
+    "pattern": "\\bbuy (?:its|the) building with a loan",
+    "struck": "A DST can buy its building with a loan that no owner is personally liable for.",
+    "use": "In the IRS ruling, the trust took over the building's loan, and neither the trust nor any owner is personally liable on it."
+  },
+  {
+    "row": "dst 11",
+    "pattern": "hold (?:it|them|the shares) indefinitely|afford to lose (?:all|it all)|total loss",
+    "struck": "You may not find a buyer and may have to hold it indefinitely, and you should be able to afford to lose all of it.",
+    "use": "DST shares are restricted securities: they cannot be resold on a public market unless the conditions of SEC Rule 144 are met."
+  },
+  {
+    "row": "dst 12",
+    "pattern": "\\bforerunner",
+    "struck": "The securities regulator warned in 2005, about DSTs' forerunner (tenant-in-common shares sold for 1031 exchanges), that the fees can eat the tax you save.",
+    "use": "In 2005 the securities regulator warned about a similar product, tenant-in-common shares sold for 1031 exchanges: as the fees rise, they offset the money saved by putting off the tax."
+  },
+  {
+    "row": "dst 12",
+    "pattern": "Rule 2420",
+    "struck": "A securities firm that pays a real estate agent a referral fee may be breaking NASD Rule 2420.",
+    "use": "FINRA Rule 2040 bars a securities firm from paying a person who is not registered but would need to be."
+  },
+  {
+    "row": "dst 13",
+    "pattern": "(?<!at least )\\b160 new DST",
+    "struck": "In the 12 months to September 2026, sponsors filed 160 new DST real estate offerings with the SEC.",
+    "use": "In the 12 months to September 2026, sponsors filed at least 160 new DST real estate offerings with the SEC."
+  },
+  {
+    "row": "dst 13",
+    "pattern": "raise about \\$10\\.8 billion",
+    "struck": "Together they set out to raise about $10.8 billion.",
+    "use": "Together they set out to raise more than $10.8 billion."
+  },
+  {
+    "row": "dst 14",
+    "pattern": "closed to anyone but accredited",
+    "struck": "Almost every one of them was closed to anyone but accredited investors.",
+    "use": "159 of the 160 filings reported no non-accredited investor when they were filed, and 98 claimed Rule 506(c), which allows accredited buyers only."
+  },
+  {
+    "row": "dst 15",
+    "pattern": "\\ball (?:of them )?from one sponsor",
+    "struck": "21 of those listed $1,000, all from one sponsor's numbered series.",
+    "use": "21 of those listed $1,000; 20 of the 21 came from one sponsor's numbered series."
+  },
+  {
+    "row": "dst 25",
+    "pattern": "\\bon Carolina Forest Boulevard",
+    "struck": "two large apartment communities, one on Carolina Forest Boulevard",
+    "use": "two large apartment communities, one near Carolina Forest Boulevard"
+  },
+  {
+    "row": "dst 25",
+    "pattern": "\\b(?:off|on|along|near|by) (?:US |U\\.S\\. )?(?:Highway |Hwy )?501[^.]{0,40}Clear Pond|Clear Pond[^.]{0,40}\\b(?:off|on|along|near) (?:US |U\\.S\\. )?(?:Highway |Hwy )?501",
+    "struck": "and one off US 501 near Clear Pond",
+    "use": "and one in the Clear Pond area"
+  },
+  {
+    "row": "dst 25",
+    "pattern": "\\boff the US 17 Bypass",
+    "struck": "a residential community off the US 17 Bypass",
+    "use": "a residential community near the US 17 Bypass"
+  },
+  {
+    "row": "dst 25",
+    "pattern": "\\bdistribution sites?\\b",
+    "struck": "stores, and industrial and distribution sites",
+    "use": "and commercial and industrial sites"
+  },
+  {
+    "row": "dst 26",
+    "pattern": "196,245 houses, condos and townhouses",
+    "struck": "Of the 196,245 houses, condos and townhouses in Horry County with a building on them, 50,413 are owned from out of state.",
+    "use": "Of the 196,245 house lots, condo units and townhouse lots with a building in the county's three largest home classes, 50,413 have an owner whose tax-bill address is outside South Carolina."
+  },
+  {
+    "row": "dst 27",
+    "pattern": "used-up depreciation|depreciation (?:is |has been )?used up",
+    "struck": "Long holds mean large gains and used-up depreciation, which is when the DST question comes up.",
+    "use": "Long holds mean large gains and, for a rental, years of depreciation already taken."
+  }
+]
