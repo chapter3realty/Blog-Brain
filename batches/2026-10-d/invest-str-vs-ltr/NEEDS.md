@@ -1,0 +1,6 @@
+# Needs from the lead: /invest/str-vs-ltr/
+
+1. **Refresh `web2/data/str-market.json` from AirROI's October pages.** It was retrieved 2026-08-15 and hits its own 90-day limit on 2026-11-13 (preflight fails then). AirROI's pages now read "Updated October 1, 2026", 12 months to September 2026 (Myrtle Beach $25,807, 36.3 percent, $257, 8,698 listings; North Myrtle Beach $34,401; Conway $23,426, 106). This page uses the October figures (facts rows 1 to 8). Until the file is refreshed, /invest/airbnb-income/ ($20,946, August read) and this page disagree on the Myrtle Beach average. Run `node build.js strdata` and `node build.js preflight` after.
+2. **`G.bars` and a reference line.** The month chart (PLAN visual 2) wants bars for nightly and one flat line for the lease. If `tools/glass.js` `bars()` cannot draw a reference value, the writer draws a small inline SVG inside the spec. A `ref` option on `bars()` would let other pages do the same.
+3. **/invest/airbnb-income/ carries the same "control" paragraph** this page cuts (a nightly rental "protects both the asset and its resale value"), with no source. Not edited here (shared-files rule). Flag for that page's next upgrade.
+4. **Hub link.** /invest/strategies/ does not link this page (judge's hub entry). Add a card or a sentence when the hub is rebuilt.
