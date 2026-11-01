@@ -20,3 +20,12 @@
 12. **`data/headlines.json`** still holds this page's old title ("2-3x the Gross") and the old H1 second line. Update the entry to the spec's title "Airbnb vs Long-Term Rental in Myrtle Beach: 82 Nights to Win" and "Run the same home both ways."
 13. **Dates.** The byline reads "Updated June 12, 2026" and dateModified 2026-06-12, older than the September 2026 data. `node build.js dates` (lead) fixes both; `build.js audit` shows only these two FAILs for this page.
 14. **1440 px: the text column is about 670 px and the right half of the window is empty** (critic nit). This is the glass article width on every page; a wider layout for comparison blocks would be a glass.js change.
+
+## From the fixer (review round 2, 2026-11-01)
+
+15. **Rows 34 to 38 of facts.md are VERIFIED-BY-FIXER** (open days, the manager lower bound, Carolina Forest's county zoning, the federal seven-day rule, the nights table). Please re-check. Rows 32 and 33 are now VERIFIED by the round-2 fixer, who did not write them.
+16. **Story label.** `boston-hotel-manager` requires "his real numbers, from a real story, not a promise". `build.js audit` flags "real story" (punch rule, "real X" intensifier). The page uses "His real numbers, not a promise." Either allow the label in build.js or change the story's `limits`.
+17. **Shared footer chrome says "No pressure, just straight answers."** An idiom (FIG-7) on every page (owner's eye, round 2). Not this page's file.
+18. **critic.mjs counts photos and visuals only at the first width** (critic, round 2): `critic.json` shows 1 photo and 4 visuals at 1440 and 0 at the other widths.
+19. **The photo credits note** (`tools/photos.js` creditsList) repeats "resized ... cropped" under a single photo whose own credit already says so. This page replaces it with "Our crops keep the photo's CC BY-SA 4.0 license." A fix in photos.js for one-photo pages would let the replacement come out (the spec checks the note's wording and stops the build if it changes).
+20. **Owner question 1 is still open.** It is the base for the 40 to 60 percent. The page now prints only a lower bound (row 35). Once the owner answers, print the managed break-even and give the calculator's manager box a stated base.
