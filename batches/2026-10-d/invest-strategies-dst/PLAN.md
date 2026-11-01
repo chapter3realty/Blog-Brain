@@ -109,7 +109,7 @@ The guest paragraph, his name in the byline, his phone and website, the Cetera d
 For the page on DSTs, to show readers that trusts of this kind already own buildings here. Most wanted first. All from public roads or sidewalks; no faces, plates, house numbers or signs as the subject.
 
 1. **Apartment community on Carolina Forest Boulevard** (map: https://www.google.com/maps/search/?api=1&query=33.7643,-78.8891). The buildings from the public road at the entrance, landscape, three shots. The entrance sign may be in the frame, small, or out of it.
-2. **Apartment community off US 501 near Clear Pond** (map: https://www.google.com/maps/search/?api=1&query=33.7971,-78.9444). Same as 1.
+2. **Apartment community in the Clear Pond area** (map: https://www.google.com/maps/search/?api=1&query=33.7971,-78.9444). Same as 1.
 3. **A row of older condo buildings seen from a public beach access or sidewalk in Myrtle Beach** (any block of Ocean Boulevard). For the sentence that more than half of the county's condos are owned from out of state. Wide, buildings only.
 
 ## Links

@@ -54,8 +54,16 @@ The critic, the reader and the owner's-eye reviewer all flagged "Waterfront cond
 
 ## 12. Photos of the DST-owned communities
 
-Round 2: the oceanfront condo aerial is gone (critic and owner's-eye review: the photo did not show the subject). In its place is a U.S. government aerial (USDA NAIP 2023, public domain) of the apartment community a DST owns off Carolina Forest Boulevard, with the trust's parcel outlined from the county file (ledger row 31, photos.json). It sits under the map in "Do DSTs own property on the Grand Strand?". Still send shot-list.md items 1 and 2 to the photo partner: a ground photo of a DST-owned community would be better than an aerial. The old condo files are deleted from images/2026-10-d/invest-strategies-dst/; the record is kept in the scratch folder as photos.r1.json.
+Round 2: the oceanfront condo aerial is gone (critic and owner's-eye review: the photo did not show the subject). In its place is a U.S. government aerial (USDA NAIP 2023, public domain) of the apartment community a DST owns near Carolina Forest Boulevard, with the trust's parcel outlined from the county file (ledger row 31, photos.json). It sits under the map in "Do DSTs own property on the Grand Strand?". Still send shot-list.md items 1 and 2 to the photo partner: a ground photo of a DST-owned community would be better than an aerial. The old condo files are deleted from images/2026-10-d/invest-strategies-dst/; the record is kept in the scratch folder as photos.r1.json.
 
 ## 13. Feed under the title, round 2
 
 Still open (items 2 and 10). At 390 and 1440 the strip "Waterfront condos in Myrtle Beach and North Myrtle Beach" shows only the "See all homes" tile in the preview, right under the hero. All three round-2 reviewers flagged it. The spec cannot change the feed. The lead must choose: a feed this reader could buy with the exchange (rentals that suit a 1031 replacement, with a title that says so), `low: true`, or no strip on this page.
+
+## 14. Map labels at 320 px and road names (critic, round 3)
+
+At 320 px the region map's place labels and scale text are about 9 to 10 px. The spec now passes `maxRatio: 0.8`, which took the empty top third off the map at 768 to 1440 px. Marker 2 (Clear Pond) still has no named road next to it. A shared fix in `tools/area-map.js`: a minimum label size on narrow screens, and an option to name a nearby road. Not changed here (shared file).
+
+## 15. Feed under the title, round 3
+
+Still open (items 2, 10 and 13). All three round-3 reviewers flagged the "Waterfront condos" strip again. The lead's choice is unchanged.
