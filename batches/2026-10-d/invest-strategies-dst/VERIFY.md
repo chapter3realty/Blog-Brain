@@ -78,3 +78,5 @@ The photo partner shot list (PLAN.md items 1 and 2) and the planned caption say 
 - "Seven deadly sins" (row 3).
 - The hold-indefinitely and total-loss sentences of the investor bulletin, until someone opens it (row 11).
 - "Distribution sites" and "stores" for the Horry County DST parcels (row 25).
+
+The struck list is at `batches/2026-10-d/facts/invest-strategies-dst-struck.json`. The checkpoint saves only this folder, so a copy is kept here as `invest-strategies-dst-struck.json`. The two files are the same.
