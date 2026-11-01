@@ -19,3 +19,7 @@ Batch 2026-10-d. Rows proposed for `facts/registry.json` and questions for the o
 
 4. **What "Send us the address" costs and commits the reader to.** The reader reviewer would not send an address without knowing: is the flood check free, does the buyer have to sign with us first, can we do it for a buyer who already has an agent, and how long does it take? Proposed answer, only if true: "There is no charge, and you do not have to sign anything first. We answer within one business day." The page says none of this until you confirm.
 5. **Signs of a past flood inside the house (repeats question 3).** Both the reader and the owner's-eye reviewer asked what a flooded-and-fixed house looks like inside. No government source could be opened (facts.md, Not verified 2). If you name what our agents look for, the page can say "our agents look for" those, as your practice.
+
+## Added in review round 2
+
+6. **Question 4, partly answered from the site.** The page now says "It is free, with no obligation" on the two address offers. Source: the site's own lead form text on buyer pages ("Free, no obligation. We reach out the same day, evenings included.", for example /buyers/waterfront-homes/ and /buyers/cost-to-own/). Still open for the owner: can we run the flood checks for a buyer who already has an agent, and does a buyer sign anything before we do? The page says nothing on either until you answer.
