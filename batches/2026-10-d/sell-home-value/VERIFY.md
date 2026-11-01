@@ -1,6 +1,6 @@
 # Verification: /sell/home-value/
 
-Batch 2026-10-d, Lane U. Independent verifier, 2026-11-01. I did not research these facts. I opened every source myself, reran every data script and checked the numbers with my own code. Ledger: `facts.md` (status and note columns updated). Struck list: `../facts/sell-home-value-struck.json` (22 entries; each fires on its struck text, and no approved wording fires any entry or the distance-word list). My working files: `wf2/sell-home-value/verify/` in the scratch folder.
+Batch 2026-10-d, Lane U. Independent verifier, 2026-11-01. I did not research these facts. I opened every source myself, reran every data script and checked the numbers with my own code. Ledger: `facts.md` (status and note columns updated). Struck list: `../facts/sell-home-value-struck.json`, with a copy in this folder so the checkpoint saves it (22 entries; each fires on its struck text, and no approved wording fires any entry or the distance-word list). My working files: `wf2/sell-home-value/verify/` in the scratch folder.
 
 ## Counts
 
