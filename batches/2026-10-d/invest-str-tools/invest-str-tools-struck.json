@@ -1,0 +1,103 @@
+[
+ {
+  "row": "invest-str-tools 12",
+  "pattern": "\\$19[0-9]\\b[^.]{0,80}\\b(night|booked)|\\b(each|per|a) (booked )?night[^.]{0,60}\\$19[0-9]\\b",
+  "struck": "Each booked night of a Myrtle Beach two-bedroom keeps about $192 after Airbnb's fee, utilities, supplies and repairs.",
+  "use": "Each booked night of a Myrtle Beach two-bedroom keeps about $182 after Airbnb's fee, utilities, supplies and repairs."
+ },
+ {
+  "row": "invest-str-tools 12",
+  "pattern": "\\b105 (booked )?nights",
+  "struck": "It needs about 105 booked nights a year to pay them, before any loan.",
+  "use": "It needs about 110 booked nights a year to pay them, before any loan."
+ },
+ {
+  "row": "invest-str-tools 12",
+  "pattern": "average (Myrtle Beach )?two-bedroom[^.]{0,160}\\b(falls|short)\\b",
+  "unless": "part of the year|part-year|open only part",
+  "struck": "The average Myrtle Beach two-bedroom books about 87 nights and keeps about $15,800 before those bills, so it falls about $4,300 short of them.",
+  "use": "The average Myrtle Beach two-bedroom listing, counting listings open only part of the year, books about 87 nights and falls about $4,300 short of those bills."
+ },
+ {
+  "row": "invest-str-tools 6",
+  "pattern": "\\babout (98|40|63) (booked )?nights",
+  "struck": "In Surfside Beach the bills come to about $7,600 a year, about 40 nights.",
+  "use": "For condos with a Surfside Beach address the bills come to about $7,450 a year, about 42 nights."
+ },
+ {
+  "row": "invest-str-tools 4",
+  "pattern": "Surfside( Beach)?[^.]{0,80}\\b214\\.2\\b|\\b214\\.2\\b[^.]{0,80}Surfside",
+  "unless": "town of Surfside|inside the town|in the town",
+  "struck": "The 2026 tax rate on a rental is 214.2 mills in Surfside Beach.",
+  "use": "The 2026 tax rate on a rental is 214.2 mills inside the town of Surfside Beach; most condos with a Surfside Beach address sit outside the town, at 201.0."
+ },
+ {
+  "row": "invest-str-tools 4",
+  "pattern": "\\b207\\.3\\b[^.]{0,80}Murrells Inlet|Murrells Inlet[^.]{0,80}\\b207\\.3\\b",
+  "struck": "The rate is 207.3 in Garden City and the Horry side of Murrells Inlet.",
+  "use": "The rate is 207.3 mills in Garden City."
+ },
+ {
+  "row": "invest-str-tools 3",
+  "pattern": "never (be )?a legal residence|rental (home )?is never (a|your) (legal )?residence",
+  "struck": "A nightly rental is never a legal residence, so 4 percent does not apply.",
+  "use": "A legal residence rented more than 72 days a year loses the 4 percent rate."
+ },
+ {
+  "row": "invest-str-tools 5",
+  "pattern": "\\b63 cents\\b",
+  "unless": "low[- ]end",
+  "struck": "A Myrtle Beach Airbnb run by its owner keeps about 63 cents of each dollar guests pay.",
+  "use": "At AirROI's low-end cost shares, an owner-run Myrtle Beach Airbnb keeps about 63 cents of each dollar guests pay."
+ },
+ {
+  "row": "invest-str-tools 19",
+  "pattern": "booked by mid-May",
+  "struck": "A typical July week is booked by mid-May.",
+  "use": "A typical July booking is made in mid-May."
+ },
+ {
+  "row": "invest-str-tools 21",
+  "pattern": "\\b(in|inside) (the city of )?Conway\\b[^.]{0,120}\\b675\\b|\\b675\\b[^.]{0,60}\\b(in|inside) (the city of )?Conway\\b",
+  "struck": "34 of 675 houses for sale in Conway are marked for nightly rentals.",
+  "use": "34 of 675 houses for sale with a Conway address are marked for nightly rentals."
+ },
+ {
+  "row": "invest-str-tools 22",
+  "pattern": "split[- ]fee[^.]{0,60}\\b(host|you) pays? 3 percent",
+  "unless": "most hosts",
+  "struck": "On the split-fee plan the host pays 3 percent and the guest pays a service fee.",
+  "use": "Most hosts on the older split fee, which Airbnb is phasing out, pay 3 percent, and the guest pays a service fee."
+ },
+ {
+  "row": "invest-str-tools 23",
+  "pattern": "\\b40 to 60 percent\\b",
+  "unless": "gross profit",
+  "struck": "Full service costs about 40 to 60 percent.",
+  "use": "Full service costs about 40 to 60 percent of gross profit, as we have seen it."
+ },
+ {
+  "row": "invest-str-tools 25",
+  "pattern": "July week[^.]{0,80}\\$(1,764|229)|\\$1,764 July",
+  "struck": "On a $1,764 July week that is about $229 on top.",
+  "use": "On a week at about $252 a night ($1,764), the lodging tax is about $229 on top, plus the tax on the cleaning fee."
+ },
+ {
+  "row": "invest-str-tools 26",
+  "pattern": "Kings Highway[^.]{0,160}\\b90 days|(cannot|can't|may not) be (rented|leased)[^.]{0,40}\\b90 days",
+  "struck": "Between Kings Highway and the ocean, a building of more than two units built or used for nightly stays cannot be rented for 90 days or more.",
+  "use": "(cut it: Section 1808 not read; say only that Myrtle Beach adopted a short-term rental conversion overlay, Ordinance 2024-69, on December 10, 2024, and link /invest/str-rules/)"
+ },
+ {
+  "row": "invest-str-tools 28",
+  "pattern": "from another state[^.]{0,100}cleaner|cleaner[^.]{0,100}from another state",
+  "struck": "The worst mistake we see is running it from another state with the cheapest cleaner.",
+  "use": "The worst mistake we see is running it yourself with the cheapest cleaner."
+ },
+ {
+  "row": "invest-str-tools 29",
+  "pattern": "(?<!DSCR )\\blenders count (only )?(about )?75",
+  "struck": "Lenders count only about 75 percent of a short-term rental estimate.",
+  "use": "DSCR lenders count only about 75 percent of a short-term rental estimate, according to a loan officer at our preferred lender."
+ }
+]
