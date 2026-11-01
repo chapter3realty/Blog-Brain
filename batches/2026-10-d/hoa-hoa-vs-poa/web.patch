@@ -7935,10 +7935,10 @@ HcmV?d00001
 
 diff --git a/data/2026-10-d/hoa-hoa-vs-poa/README.md b/data/2026-10-d/hoa-hoa-vs-poa/README.md
 new file mode 100644
-index 0000000..f347c36
+index 0000000..d88fb0e
 --- /dev/null
 +++ b/data/2026-10-d/hoa-hoa-vs-poa/README.md
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,22 @@
 +# Data for /hoa/hoa-vs-poa/ (batch 2026-10-d)
 +
 +Every number on the page comes from these files. Ledger: Blog-Brain `batches/2026-10-d/hoa-hoa-vs-poa/facts.md`.
@@ -7950,6 +7950,8 @@ index 0000000..f347c36
 +| association-names.json | The label word in the names of the 548 associations that recorded a lien in Horry County in 2025, and 2021 to 2025 (rows 18, 19). Counts only. | classify_names.py (reads the lien index pulls of hoa-special-assessments/pull_liens.py; RAW stays out of the repo) |
 +| layers.json | Association names recorded under nine community names, by document type (rows 20 to 22) | pull_layers.py |
 +| raw/layer-rows.json, raw/grande-dunes-master-restrictions.json | Index rows (date, type, parties, book and page, index description) for six master or second-layer associations. A party that is not a business is written "(person)". | pull_layer_rows.py |
++| association-names-merged.json | The verifier's count for row 18: the same 2025 filers with each name's spellings merged and misspellings put in their bucket (526 associations). The page reads this file; the unmerged 548 is struck. Counts only. | classify_names_merged.py (same RAW as classify_names.py) |
++| photos.json | The licence record of the one photo on the page (CC BY-SA 4.0, Wikimedia Commons) | by hand; `tools/photos.js check` passes |
 +| scdca-docs.json | Horry County HOA complaints to SC Consumer Affairs, 2022 to 2025: when the owner got the governing documents; name labels (row 24) | scdca_docs.py (reads the workbooks in hoa-special-assessments/raw/) |
 +| raw/acclaim-no-images.txt | The county's reply when a document image is requested online (row 23) | curl |
 +| raw/fnma-*.html, *.txt | Fannie Mae Selling Guide B4-2.1-01 (row 14) | curl |
