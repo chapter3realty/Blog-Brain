@@ -83,3 +83,22 @@ All quotes are from the Training guide text kept at `data/2026-10-d/buyers-progr
 | F6 | Gloss: an off-frame modular home is built in a factory and set on a permanent foundation, not on a steel chassis. | Plain meaning of SC Housing's term "off frame modular homes" (Training guide line 252; "true off frame modular homes", line 2185). No SC Housing definition was found. | (definition, no quote) | VERIFIED-BY-FIXER, weakest row: the lead may cut the gloss sentence if a primary definition is wanted. |
 
 Rounded shares on the page are computed in the spec from the data files and checked there (it throws if a word stops being true): inland 81% "about four in five" (983 of 1,219, row 28); beach towns 36% "about a third" (571 of 1,602, row 28); USDA 61% "about six in ten" (1,024 of 1,671, row 31); Myrtle Beach 9% "fewer than one in ten" (43 of 462, row 31).
+
+## Rows added in review round 2 (fixer, 2026-11-01). Status VERIFIED-BY-FIXER: the lead re-checks each.
+
+Line numbers are in `data/2026-10-d/buyers-programs/raw/COMBINED_TRAINING_03.2026.txt` unless named.
+
+| # | Claim, as the page states it | Source | Verbatim quote | Status |
+|---|---|---|---|---|
+| F7 | A bank grant can be used with SC Housing's $10,000 if the grant's own rules allow it. SC Housing's lender checklist has a line for a grant from someone other than SC Housing, and the lender puts the grant's approval letter in the file. | Training guide, Homebuyer (Bond) Program loan delivery checklist, line 744 | "12. Alternative DPA/Grant (other than SCH) - Acceptance Letter and/or Approval" | VERIFIED-BY-FIXER |
+| F8 | SC Housing's help works on a new home from a builder: the program has a form for the builder who sells the home. (The page adds row 21's builder mortgage companies.) | Training guide, Bond checklist, line 733 | "4. SF-026 Seller/Builder Affidavit - This form CAN be electronically signed" | VERIFIED-BY-FIXER |
+| F9 | Habitat for Humanity of Horry County: you start with a short interest form on its homeownership page, and Habitat pairs you with a volunteer Financial Mentor. | `raw/habitat-horry-homeownership.html` (row 24's URL) | "Step 1 · Start here Connect with a Financial Mentor Your homeownership journey begins by completing a short interest form. We'll connect you with a volunteer Financial Mentor" | VERIFIED-BY-FIXER |
+| F10 | Once the lender reserves the loan and the $10,000, SC Housing holds them for 60 days on an existing home or 120 days on a new one, and the lender can ask for more time. | Training guide, Bond guide, lines 226-232 (heading "Reservation/Extensions") | "Rate Lock Periods • 60 days –Existing Construction • 120 days – New Construction ... • Extensions are available – up to 60 days total" | VERIFIED-BY-FIXER. A lock period, not a payment term. |
+| F11 | USDA table by town, in words: Aynor all (37 of 37), Loris all (125 of 125), Conway nearly all (534 of 544), Longs about nine in ten (256 of 276), Little River about one in four (29 of 124), Myrtle Beach fewer than one in ten (43 of 462), North Myrtle Beach, Surfside Beach, Murrells Inlet none. Beach towns together 43 of 565, under one in ten. | Row 31's tally, `chart-houses-by-town.json` (under_450k_usda_eligible / ineligible). Little River is the only town not named in row 31's wording. | (computed; the spec throws if a word stops being true) | VERIFIED-BY-FIXER |
+| F12 | Conway has more houses for sale at or under $450,000 than any other town in the chart (545; Myrtle Beach next at 462). Used in the photo caption. | Row 28, `chart-houses-by-town.json` | (computed; the spec throws if it stops being true) | VERIFIED-BY-FIXER |
+
+Round 2 notes for the lead:
+- F6 (off-frame modular gloss) is no longer on the page. The critic found no primary definition, so the gloss sentence was cut.
+- F1 to F5: the round 2 critic, who did not research them, re-read the quotes (lines 208, 223, 227, 740, 1537-1541, 2207 and the HOME member list) and says they hold. The lead may mark them verified.
+- Row 33: the page wording is "In Chapter3's experience, most lenders will not lend on a condo in a building with a rental program, because so many owners are investors." It follows rules/plain-words.json (non-warrantable = "a condo most lenders will not lend on"). Proposed approved wording for row 33: that sentence.
+- Not verified, and not on the page: how long SC Housing loans take from application to closing; whether a seller treats an offer with SC Housing help differently.
