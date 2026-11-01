@@ -13,3 +13,9 @@ Shared helpers this page would use. The spec works around each one inside itself
 9. **For the lead, not a helper:** the footer says "The Myrtle Beach investor-focused brokerage ... for serious real estate investors". A buyer of a condo to live in reads it as not for them (reader, round 1). The "On this page" box is one column of 10 links at 1440 px and two columns on a phone (critic, round 1). Both are shared.
 10. **critic.mjs: a form control past its card's padding** (critic reviewer, round 2). The calculator's inputs ran 15 px past the card's content box at 390 px, and critic.mjs did not flag it. A check that each `input`, `select` and `button` stays inside its nearest padded container's content box would catch it. Fixed in this spec.
 11. **"On this page" one column from 700 px up** (same as item 9). Workaround in this spec: two CSS columns from 700 px.
+
+## Round 3 (fixer)
+
+10. `h1em` (glass hero): at 1440 the italic line under the H1 is set almost as large as the H1, and the two sit close (owner nit, round 3). Shared CSS; not changed here.
+11. The listing strip's "AI-POWERED SEARCH / Tell me everything you want" box and the footer's "investor-focused brokerage ... DSCR analysis" line read as off-topic to a retiree buying a home (reader, round 3). Shared site parts; not changed here.
+12. `tools/photos.js embed` needs exiftool, which is not installed in this container. The round 3 crop of the page photo has no embedded metadata yet; `photos.js check` passes. Run `embed` where exiftool exists.
