@@ -1,0 +1,89 @@
+[
+ {
+  "row": "invest-str-vs-ltr 1",
+  "pattern": "City of Myrtle Beach[^.]{0,160}(8,698|\\$25,8\\d\\d|\\$257 a night|36 percent)",
+  "struck": "The average Airbnb in the City of Myrtle Beach took in about $25,800, across 8,698 listings.",
+  "use": "The average Airbnb in AirROI's Myrtle Beach market took in about $25,800 in the 12 months to September 2026."
+ },
+ {
+  "row": "invest-str-vs-ltr 8",
+  "pattern": "pulls? ahead|bigger homes near the beach are where",
+  "unless": "AirROI's top-quarter",
+  "struck": "Bigger homes near the beach are where nightly renting pulls ahead: in North Myrtle Beach the typical four-bedroom Airbnb took in about $36,400 in a year.",
+  "use": "In North Myrtle Beach the median four-bedroom Airbnb took in about $36,400 in the 12 months to September 2026, and the average one about $47,800."
+ },
+ {
+  "row": "invest-str-vs-ltr 12",
+  "pattern": "close to (that|the state'?s?|this) (rate|vacancy)",
+  "struck": "The comparison allows one month a year empty on the lease, close to that rate.",
+  "use": "Our comparison allows one month a year empty, 8.3 percent, a little below that rate."
+ },
+ {
+  "row": "invest-str-vs-ltr 14",
+  "pattern": "typical (Myrtle Beach )?two-bedroom[^.]{0,160}(\\$12,4\\d\\d|\\$2,8\\d\\d|1\\.1 times|\\$20,1\\d\\d)",
+  "unless": "part of the year|part-year|open only part",
+  "struck": "Self-run, the typical Myrtle Beach two-bedroom keeps about $12,400 a year, about $2,850 less than the lease.",
+  "use": "Self-run, at AirROI's cost shares, the middle two-bedroom listing (counting listings open only part of the year) keeps about $12,400 a year, about $2,850 less than a year's lease."
+ },
+ {
+  "row": "invest-str-vs-ltr 15",
+  "pattern": "only the top quarter[^.]{0,80}(2 to 3|two to three) times",
+  "struck": "Only the top quarter of listings gross 2 to 3 times the lease.",
+  "use": "A listing at the top-quarter mark, run all year, grosses about 2.5 times a year's lease."
+ },
+ {
+  "row": "invest-str-vs-ltr 16",
+  "pattern": "\\b172 nights\\b|no number of nights|\\b388 nights\\b",
+  "struck": "With a full-service manager at 40 percent it needs about 172 nights; at 60 percent no number of nights catches the lease.",
+  "use": "(cut the manager break-even until owner question 1 is answered; keep the self-run 82 nights)"
+ },
+ {
+  "row": "invest-str-vs-ltr 18",
+  "pattern": "(successive|back-to-back) (leases|rentals|rental agreements)|more than two units[^.]{0,200}(90|ninety)|between Kings Highway and the (ocean|Atlantic)[^.]{0,200}(90|ninety)|(90|ninety) days or more[^.]{0,160}Kings Highway",
+  "struck": "Between Kings Highway and the ocean inside Myrtle Beach city limits, a building of more than two units that was built or used for nightly stays may not be rented for 90 days or more, and back-to-back leases to get past that are a violation.",
+  "use": "Myrtle Beach adopted a short-term rental conversion overlay, Ordinance 2024-69, on December 10, 2024."
+ },
+ {
+  "row": "invest-str-vs-ltr 20",
+  "pattern": "taxes (a|every|any) stay (of )?under 90 days as lodging",
+  "unless": "14 days|fewer than six|exception",
+  "struck": "South Carolina taxes a stay under 90 days as lodging: 7 percent on the rent, plus local taxes.",
+  "use": "South Carolina charges a 7 percent state tax on a stay of under 90 days, plus local taxes, with two exceptions: a home rented out 14 days or fewer in a year, and rooms in the owner's own home with fewer than six rented."
+ },
+ {
+  "row": "invest-str-vs-ltr 22",
+  "pattern": "split fee is 3 percent",
+  "struck": "The split fee is 3 percent for the host.",
+  "use": "Most hosts on the split fee pay 3 percent."
+ },
+ {
+  "row": "invest-str-vs-ltr 25",
+  "pattern": "across the Grand Strand[^.]{0,120}(3,743|465|2,021|2,867)|houses for sale in Conway",
+  "struck": "Of 675 houses for sale in Conway, 34. Across the Grand Strand, 465 of 3,743 houses for sale and 2,021 of 2,867 condos are marked as allowing short-term rentals.",
+  "use": "Of 675 houses for sale with a Conway address, 34 are marked for short-term rentals. Of all 3,743 houses and 2,867 condos for sale in our search, 465 and 2,021 are marked."
+ },
+ {
+  "row": "invest-str-vs-ltr 26",
+  "pattern": "(HOA|association|condo) fee[^.]{0,60}\\$1,2[0-9]{2}|\\$1,2[0-9]{2}[^.]{0,40}(HOA|association|condo) fee",
+  "struck": "The middle HOA fee is about $1,225 to $1,250 a month.",
+  "use": "(no HOA fee figure until the field is confirmed monthly; say the fee is the same whichever way the condo is rented)"
+ },
+ {
+  "row": "invest-str-vs-ltr 27",
+  "pattern": "(fills?|filling) (the )?long leases|(?<!private )education and health jobs[^.]{0,40}all year",
+  "struck": "The Myrtle Beach area's year-round job base is what fills long leases. Education and health jobs held at about 18,300 to 18,700 all year.",
+  "use": "Private education and health jobs stayed between 18,300 and 18,700 from January to September."
+ },
+ {
+  "row": "invest-str-vs-ltr 28",
+  "pattern": "most loan programs",
+  "struck": "Most loan programs will not lend on a condo in a building run like a hotel.",
+  "use": "Standard (Fannie Mae) loans are not made on a condo in a project that requires owners to put units in a rental pool."
+ },
+ {
+  "row": "invest-str-vs-ltr 29",
+  "pattern": "(uses|counts?) the signed (rent|lease)",
+  "struck": "A lender counting a lease uses the signed rent; for a nightly rental, investor lenders count only about 75 percent of a short-term rental estimate.",
+  "use": "For a nightly rental, investor lenders count only about 75 percent of a short-term rental estimate, a loan officer at our preferred lender tells us."
+ }
+]
