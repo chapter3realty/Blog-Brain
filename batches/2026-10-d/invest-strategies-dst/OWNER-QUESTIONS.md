@@ -12,7 +12,7 @@ Changes if you say keep him: one box near the end; the byline stays ours.
 
 ## 2. Fees from DST sellers
 
-FINRA warned in 2005 that a securities firm paying a real estate agent a referral fee on these products may be breaking its rules (NASD Notice 05-18).
+FINRA warned in 2005 that a securities firm paying a real estate agent a referral fee on tenant-in-common shares sold for 1031 exchanges, a product similar to DSTs, may be breaking its rules (NASD Notice 05-18).
 
 **Proposed answer:** Chapter3 takes no fee, referral payment or commission split from any DST sponsor, securities firm or adviser, and refers clients to no particular one. The page says so in one sentence, because a reader of a decision page should know how we are paid (page shapes, decision guide).
 
