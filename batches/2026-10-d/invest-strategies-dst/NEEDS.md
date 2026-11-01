@@ -31,3 +31,27 @@ The page is built on the proposed answer: Chapter3's own page, byline Devin Day,
 ## 6. Dates
 
 The byline still shows the old page's date. The lead's `node build.js dates` sets it.
+
+## 7. Header: the page is 1029 px wide at 1024 (review round 1, critic blocking)
+
+`div.header-ctas` ("SEARCH LISTINGS" and the phone number) ends at 1029 px in a 1024 px window, so every page scrolls sideways by 5 px between about 1000 and 1100 px. /invest/strategies/fix-and-flip/ has the same fault. Fix in the shared header CSS: let the gaps in `.header-inner` and `.primary` shrink, or drop the phone number, between 1000 and 1100 px. Workaround in `specs/dst.js` CSS until then: `@media (min-width:1000px) and (max-width:1100px){.header-inner>.primary{gap:2.2rem!important}.header-inner{gap:1.6rem!important}}`. Remove it when the shared fix lands.
+
+## 8. Listing search box: 341 px wide in a 320 px window (review round 1, critic blocking)
+
+`.hx-fb-ai`, its badge and `.hx-fb-q` keep the textarea at 200 px, so the "Find houses" button is 29 percent cut off and the page is 364 px wide at 320. Same on fix-and-flip. Fix in the shared filter-bar CSS: `.hx-fb-ai,.hx-fb-q{max-width:100%;min-width:0;box-sizing:border-box}` and `.hx-fb-q textarea{flex:1 1 0;width:auto;min-width:0}`. The same rules are in `specs/dst.js` under `@media (max-width:379px)` until then.
+
+## 9. photos.js: the credit note is said twice
+
+`tools/photos.js` line 392 adds "Chapter3 Realty resized these photos and cropped some of them." after each photo's own note already says it changed the photo. On a page with one photo the line repeats. Proposed: add the general line only when a photo has no changes note of its own. `specs/dst.js` strips the line from `PH.credits()` until then.
+
+## 10. Feed under the title (item 2 again, now from three reviewers)
+
+The critic, the reader and the owner's-eye reviewer all flagged "Waterfront condos in Myrtle Beach and North Myrtle Beach" under the title. It showed 0 homes in the preview at every width, it is for a buyer, and it pushes the short answer below the first phone screen. Owner VERDICTS 2026-10-25: a feed must fit what the blog is about. Proposed again: no feed on this page, or a low feed (`low: true`) of rental-program condos, or a "sell your rental" strip. The page cannot fix this from its spec.
+
+## 11. Share card
+
+`node tools/ogcard.js <site>/chapter3realty /invest/strategies/dst/` made `chapter3realty/og/invest-strategies-dst.jpg` (the site path must be absolute, or the fonts do not load and Playwright reports "NetworkError"). The checkpoint does not save `og/`. If it is lost, run the command again. The page no longer uses the condo photo as its share image.
+
+## 12. Photos of the DST-owned communities
+
+The oceanfront aerial stays only as a stand-in: the critic blocks a blog with no real photo. Send shot-list.md items 1 and 2 to the photo partner. When his photos arrive, put one beside the map in "Do DSTs own property on the Grand Strand?" and drop the aerial.
