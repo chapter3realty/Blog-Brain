@@ -60,3 +60,7 @@ I read both Commons file pages myself. The Commons API was rate-limited, so I re
 2. **"Wood-framed house.jpg"**, by Jaksmata. Own work, a house under construction in Katy, Texas (EXIF 2001-11-29). **GFDL 1.2+ and CC BY-SA 3.0** (licence verified). 1,083 x 546. **Viewed at full size.** It shows a two-story wood frame with roof trusses and no sheathing. No wiring or plumbing is visible, so it shows the early framing stage, not the pre-drywall inspection. Two workers stand small on the frame; they are not the subject. A cut-off, unreadable sign sits at the bottom edge, right of center. Crop about 30 px off the bottom if this photo is used. Accurate caption: "A wood-framed house before sheathing."
 
 Neither photo shows the pre-drywall stage with wiring and plumbing. The shot list for the photo partner (item 1 in PLAN.md) is still the right fix.
+
+## Saving
+
+The checkpoint saves only this folder. A copy of the struck list is kept here as `struck.json`; the lead copies it to `batches/2026-10-d/facts/buyers-new-construction-struck.json` (the same file is already there in this working copy, not yet on GitHub).
