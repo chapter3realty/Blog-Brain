@@ -17,3 +17,7 @@ The city's planning page says 24 (facts.md row 23). Not this page's file; PROPOS
 ## 4. glass.js end-band contrast
 
 If the retirees NEEDS.md item 1 (end offer band drawn as the light top bar when the listing notice follows it) is not fixed in glass.js by build time, copy the retirees spec's PAGE_CSS workaround.
+
+## 5. checkpoint.sh saves an empty web.patch while the spec does not exist yet
+
+`git add -N -- "$@"` fails for the whole list when one pathspec (here `specs/common-mistakes.js`, not written yet in the research stage) matches nothing, so new files are not intent-added and the diff is empty. The first research checkpoint pushed a 0-byte web.patch. Workaround used: `git add -N` on the data folder alone, then the same checkpoint command again (39 files saved). Fix proposed: add each pathspec on its own, or pass `--ignore-missing`, in checkpoint.sh.
