@@ -1,9 +1,11 @@
 # Photo partner shot list: /invest/rent-prices/
 
-What a house rents for on the Grand Strand. Landscape unless noted. No people as the subject, no plates, no house numbers, sign phone numbers or company names readable.
+What a house rents for on the Grand Strand. Landscape, daytime, unless noted. No person as the subject. No plate, house number, or sign phone number or company name that can be read.
 
-1. A street of one-story rental-type houses in Socastee or Forestbrook, from the sidewalk, three or four houses in frame, daytime.
-2. A typical 3-bedroom house on a street in Carolina Forest, from the street, the whole front and yard. Landscape and a square crop.
-3. A "For Rent" yard sign in front of a house, anywhere on the Grand Strand, shot so the sign's phone number and company cannot be read.
-4. An apartment or condo building west of Highway 17, from the street, the whole building.
-5. Older houses near Coastal Carolina University in Conway, from the street, two or three houses.
+| # | Place | What to shoot | Why | Replaces |
+|---|---|---|---|---|
+| 1 | A street of houses in Carolina Forest (ZIP 29579), for example off Carolina Forest Boulevard | From the street: three or four one- and two-story houses with their yards. One landscape and one square crop. | Carolina Forest and Murrells Inlet have the highest middle rent of the ten places. A street-level photo shows it better than a roof view. | The NOAA aerial in "What does rent cost in Carolina Forest, Socastee and the rest of the Grand Strand?" (and the share image) |
+| 2 | A street of one-story houses in Socastee (29588) or Forestbrook | From the sidewalk: three or four houses in frame. | Shows the typical three-bedroom rental house, the middle of the market. | Adds a photo to "How much is rent in Myrtle Beach, by bedrooms?" (that section has only a chart now) |
+| 3 | A "For Rent" yard sign in front of a house, anywhere on the Grand Strand | The sign and the house behind it, shot at an angle so the phone number and company name cannot be read. | Goes with the new-lease finding: what the next tenant signs. | Adds a photo to "Why does a new lease cost more than the rent the last tenant paid?" (chart only now) |
+| 4 | Older houses near Coastal Carolina University, Conway or along US 501 near campus | From the street: two or three houses within a short drive of the campus. | Goes with our August turnover story near the college. | The Commons photo of the CCU bell tower in "When is the best month to rent out a house here?" |
+| 5 | An apartment or condo building west of Highway 17, Myrtle Beach | From the street: the whole building. | Shows the other kind of rental in the bedrooms chart. | Optional, for "How much is rent in Myrtle Beach, by bedrooms?" |
