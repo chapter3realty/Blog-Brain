@@ -7,3 +7,10 @@ Batch 2026-11-a. Research helper, 2026-11-02. These are shared files this page m
 3. **`data/headlines.json`.** Keep the H1 the owner liked. Proposed title tag (shared file): "Garden City, SC Real Estate: Beach Homes, Rentals, Flood Facts" (62 characters, the mkpage limit). It carries what people search ("garden city sc real estate", "homes for sale") while the H1 keeps the rental hook. The lead decides.
 4. **A map helper.** The page's main visual is a labeled map on a public-domain aerial (or drawn) with a county line, one road, the pier and five numbered parts. If `tools/area-map.js` cannot draw a line feature (the county line, Waccamaw Drive), the builder draws it inside the spec from `map-layers.geojson`; a line-feature option in area-map.js would help the other town pages too.
 5. **Breadcrumb.** The live page sits under "Investor Hub". If the site has a towns hub, the breadcrumb should point there (shared chrome).
+
+## Added by the builder, 2026-11-02
+
+6. **exiftool is not installed in the container.** `node tools/photos.js embed` refused, so the five NAIP files carry no embedded XMP yet. Their records pass `photos.js check`. Run `node tools/photos.js embed data/2026-11-a/submarkets-garden-city/photos.json chapter3realty` where exiftool exists.
+7. **The homes feed still reads "Just listed near Garden City, in Surfside Beach"** in the preview (item 1 above). The page itself carries no listing data.
+8. **The end band and the 1024 px header gap.** The spec repeats the same page-scoped CSS fixes as /submarkets/conway/ (glass.js compact rule; header nav gap). A shared fix would let both specs drop them.
+9. **The STR box.** The page reads AirROI's fresh read from `data/2026-11-a/submarkets-garden-city/airroi.json` (row 23: $41,223, 39.6 percent, $371, 374 listings). When the lead refreshes `data/str-market.json` (item 2), the hub and this page agree.
