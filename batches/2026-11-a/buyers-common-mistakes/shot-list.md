@@ -1,0 +1,13 @@
+# Shot list for the photo partner: /buyers/common-mistakes/
+
+For the owner to send from his Gmail (`templates/photo-request-email.md`). Shoot from public roads, sidewalks, the public beach and parking lots open to the public, unless a homeowner gives permission. No people as the subject, no faces up close, no signs or logos as the subject, no house numbers or license plates readable. Landscape, the widest the camera allows, plus one vertical of each if easy.
+
+| # | Place | What to shoot | Why | Where it goes on the page |
+|---|---|---|---|---|
+| 1 | An inland house on septic (Conway, Loris or Aynor area), with the owner's permission | The septic tank lid or cleanout pipe in the yard, close enough to see what it is, with a bit of the yard and house behind it. No house number. | The page says septic is rare at the beach and common inland, and that the inspection must cover it. Readers from cities have never seen one. | Entry 7, "Should I skip the inspection to win the house?" |
+| 2 | An older oceanfront condo building in Myrtle Beach or North Myrtle Beach under repair | The building with scaffolding, a lift or repair work on the balconies, from the public beach or the street. The building name or sign must not be the subject. | The page explains that South Carolina does not require condo reserves and shows what a repair bill per unit can look like. | Entry 5, "How do I know a condo building has saved enough for repairs?" |
+| 3 | A neighborhood street with an HOA, for example in Carolina Forest | A golf cart parked in a driveway or at the curb, with the houses behind it. A boat on a trailer in a driveway is a good second shot. | The page says HOA rules decide whether you can keep the cart, the boat or the rental. | Entry 9, "Will the HOA let me keep my boat, golf cart or rental?" |
+| 4 | A street near the beach in Garden City, Surfside Beach or Cherry Grove | A house raised on pilings or with flood vents in the foundation, from the street. | The flood entries say what cover costs in the high-risk zone; a raised house shows what building in that zone looks like. | Entry 4, "Will the listing tell me the house is in a flood zone?" |
+| 5 (optional) | The Horry County government center in Conway | The building from the public lot, building only. | Only if the Assessor's office is there; the page tells movers to file for the 4 percent rate. | Entry 1, optional |
+
+Send each photo with: the place, the date taken, and a line confirming in writing that Chapter3 may use it on the website. Then each gets a licence record that `tools/photos.js` accepts, under `chapter3realty/images/2026-11-a/buyers-common-mistakes/`.
