@@ -1,0 +1,5 @@
+# Needs: /submarkets/conway/
+
+1. **area-map.js: a polygon overlay option.** The page's main visual is the city limits with two shaded flood layers (FEMA high-risk zone, county Florence flood extent). `regionMap` and `closeMap` draw roads, water and markers, but take no extra polygons. Workaround inside the spec: draw the SVG by hand from `data/2026-11-a/submarkets-conway/map-city.geojson` and `map-flood-city.geojson`. A shared option (`overlays: [{ geojson, fill, label }]`) would let the other town pages (Garden City, Surfside, Little River) show their flood maps the same way.
+2. **/invest/str-rules/ Conway line** (not this page's file): "Conway has never adopted a short-term rental ordinance" is not verified at the city (ledger row 42). If the verifier finds a city rule, that page needs the fix too.
+3. **Deed sales file.** This page's numbers come from `data/2026-10-d/sell-out-of-state-buyers/out-of-state-buyers.json`, which ships in batch 2026-10-d's out-of-state-buyers patch, not yet live. The page itself reads only `findings.json`, so it does not depend on that patch shipping first.
