@@ -76,4 +76,4 @@ None. Two items are only partly done, for the reasons above: the top offer bar's
 
 ## Checkpoint
 
-Run after this file was written (see the checkpoint output in the stage log).
+Run on 2026-11-02 after this file was written: "checkpoint: pushed batches/2026-11-a/buyers-common-mistakes". web.patch holds the spec, the page, the data folder (with the new hoa-counts.json) and the images.
