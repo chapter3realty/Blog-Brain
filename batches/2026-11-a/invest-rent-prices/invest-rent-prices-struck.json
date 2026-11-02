@@ -1,0 +1,89 @@
+[
+  {
+    "row": "invest-rent-prices 3",
+    "pattern": "\\$1,200 for (2|two)( bedrooms)?[^.]{0,40}\\$1,600 for (4|four)|(2|two)-bedroom house[^.]{0,30}\\$1,200|(4|four)-bedroom house[^.]{0,30}\\$1,600",
+    "struck": "In Horry County the middle lease rent for a rented house is about $1,400 a month: about $1,200 for 2 bedrooms, $1,500 for 3 and $1,600 for 4.",
+    "use": "In most of Horry County, the middle lease rent for a rented house is about $1,400 a month, and about $1,500 for 3 bedrooms. Utilities are extra."
+  },
+  {
+    "row": "invest-rent-prices 6",
+    "pattern": "most (renters|rented homes|tenants)[^.]{0,30}(apartments|condos)",
+    "struck": "Most renters live in apartments and condos.",
+    "use": "About half are apartments and condos, and about 1 in 7 is a mobile home."
+  },
+  {
+    "row": "invest-rent-prices 7",
+    "pattern": "(new|newer) lease[^.]{0,60}\\b30 percent|30 percent (more|higher) than (an? )?(old|older|existing|long)",
+    "struck": "A new lease costs about 30 percent more than an old one.",
+    "use": "Across rented homes in most of Horry County, leases signed in the last two years run about 40 percent higher than leases five years old or more (about $1,340 against $930). In rented houses, about $1,600 against about $1,100."
+  },
+  {
+    "row": "invest-rent-prices 7",
+    "pattern": "(five|5) years or (more|longer)[^.]{0,80}\\$1,2(35|50)|\\$1,2(35|50)[^.]{0,80}(five|5) years or (more|longer)",
+    "unless": "wide margin",
+    "struck": "A tenant who has stayed five years or more pays about $1,250.",
+    "use": "(cut it as the gap: the 3-bedroom pair is too uncertain; a table may show it marked wide margin) In rented houses, about $1,600 against about $1,100."
+  },
+  {
+    "row": "invest-rent-prices 8",
+    "pattern": "independent sources|(two|both) (sources|numbers|figures)[^.]{0,40}\\bagree|\\bagree[^.]{0,60}(\\$1,8[0-9]{2}|fair market rent)|confirms?[^.]{0,40}fair market rent",
+    "struck": "Two independent sources agree on a new 3-bedroom lease at about $1,800 with utilities.",
+    "use": "Renters of 3-bedroom houses who moved in within two years pay about $1,800 a month with utilities. HUD's fair market rent for 3 bedrooms, the 40th percentile of what recent movers pay for any kind of home, is $1,823."
+  },
+  {
+    "row": "invest-rent-prices 11",
+    "pattern": "(75|seventy-five) percent (in|over) (the last )?(ten|10) years|(ten|10) years[^.]{0,60}\\$1,044",
+    "struck": "The fair market rent for 3 bedrooms has risen about 75 percent in ten years, from $1,044 to $1,823.",
+    "use": "The fair market rent for 3 bedrooms has risen about 55 percent in ten years, from $1,172 to $1,823."
+  },
+  {
+    "row": "invest-rent-prices 14",
+    "pattern": "29579[^.]{0,60}Market Common|Market Common[^.]{0,40}29579",
+    "struck": "29579 Carolina Forest and Market Common side",
+    "use": "29579 Carolina Forest and Forestbrook"
+  },
+  {
+    "row": "invest-rent-prices 14",
+    "pattern": "29575[^.;,]{0,30}Socastee|29588[^.;,]{0,30}Burgess",
+    "struck": "29575 Surfside and Socastee; 29588 Socastee and Burgess",
+    "use": "29575 Surfside Beach; 29588 Socastee"
+  },
+  {
+    "row": "invest-rent-prices 14",
+    "pattern": "29572[^.]{0,30}\\bnorth Myrtle Beach\\b",
+    "unless": "north end",
+    "struck": "29572 north Myrtle Beach",
+    "use": "29572 Myrtle Beach, north end"
+  },
+  {
+    "row": "invest-rent-prices 17",
+    "pattern": "(about |roughly )?(1|one) percent above[^.]{0,80}(summer|August)",
+    "struck": "Asking rents here run about 1 percent above the year's trend in late summer (highest in August).",
+    "use": "Asking rents run about half a percent above the year's trend in August, the high, and about 1.4 percent below it in January, the low: a swing of about 2 percent."
+  },
+  {
+    "row": "invest-rent-prices 18",
+    "pattern": "why (rents?|rental prices) (rose|went up|keeps? rising|climbed)|rents? (rose|went up|climbed|kept rising) because",
+    "struck": "Why rents rose: people keep moving here.",
+    "use": "While rents rose, Horry County grew from about 351,000 people in 2020 to about 428,000 in 2025."
+  },
+  {
+    "row": "invest-rent-prices 20",
+    "pattern": "(no|not any) (state )?(law |rule )?(limit|cap)s? on (how much|rent increases|raising|a rent increase)|raise (the )?rent (as much as|by any amount|without limit)|state law (sets|puts|has) no (limit|cap)",
+    "unless": "emergency",
+    "struck": "South Carolina sets no limit on rent increases.",
+    "use": "(cut it: SC Code 39-5-145 bars unconscionable rents after a declared state of emergency) South Carolina does not let a city or county limit rents on privately owned homes."
+  },
+  {
+    "row": "invest-rent-prices 21",
+    "pattern": "month-to-month[^.]{0,160}\\b(so|which means)\\b[^.]{0,80}new lease",
+    "struck": "A month-to-month lease ends with 30 days' written notice from either side, so a landlord who wants a higher rent offers a new lease.",
+    "use": "Either side can end a month-to-month lease with 30 days' written notice."
+  },
+  {
+    "row": "invest-rent-prices 26",
+    "pattern": "rents? (stayed|held|were|was|remained) (flat|the same|level)",
+    "struck": "Prices rose from $230,000 to $292,000 over about 18 months, rents stayed flat.",
+    "use": "Prices rose from $230,000 to $292,000 over about 18 months, and the rents did not rise with the prices."
+  }
+]
