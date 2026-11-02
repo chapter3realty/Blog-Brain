@@ -1,0 +1,145 @@
+[
+  {
+    "row": "invest-condos 5",
+    "pattern": "\\b(?:3|three) of (?:the )?299 months\\b|\\bonly (?:3|three) (?:other )?months\\b[^.]{0,80}\\blower\\b",
+    "struck": "Only 3 of the 299 months since late 2001 were lower, all in 2021.",
+    "use": "Only 2 other months since late 2001 were lower: May and June 2021."
+  },
+  {
+    "row": "invest-condos 5",
+    "pattern": "\\b2006 (?:high|peak)\\b[^.]{0,40}\\b83 percent\\b|\\b83 percent\\b[^.]{0,40}\\b2006 (?:high|peak)\\b",
+    "struck": "At the 2006 high it was about 83 percent.",
+    "use": "In mid-2006 it was about 83 percent, the highest in 25 years."
+  },
+  {
+    "row": "invest-condos 6",
+    "pattern": "\\b1,?480\\b|\\b104 (?:condo )?(?:complexes|regimes|buildings)\\b",
+    "struck": "Horry County has about 41,000 condo units in about 1,480 condo regimes. Half the units are in the 104 complexes of 100 units or more.",
+    "use": "Horry County has about 41,000 condo units. Almost half of them, about 20,000, are in large complexes of 100 units or more."
+  },
+  {
+    "row": "invest-condos 6",
+    "pattern": "\\b(?:8|eight) units or fewer\\b|\\bmedian (?:complex|regime|building)[^.]{0,30}\\b(?:8|eight) units\\b",
+    "struck": "Half of the county's condo complexes have 8 units or fewer.",
+    "use": "(cut it: the complex count rests on legal-description names, split by phase and by typing errors)"
+  },
+  {
+    "row": "invest-condos 7",
+    "pattern": "\\bsomeone's main home\\b|\\bthe rest are rentals, second homes(?: and| or)? vacation homes\\b",
+    "struck": "Our count: about 1 in 5 condos is someone's main home. The rest are rentals, second homes and vacation homes, taxed at 6 percent.",
+    "use": "About 1 in 5 condo units is taxed at the 4 percent rate for its owner's legal residence. The rest are taxed at 6 percent, the rate for rentals, second homes and any home whose owner has not claimed the legal-residence rate."
+  },
+  {
+    "row": "invest-condos 12",
+    "pattern": "\\b(?:three|3) times as long to sell\\b|\\bcondos take[^.]{0,40}\\blong(?:er)? to sell\\b",
+    "struck": "Condos take about three times as long to sell as houses.",
+    "use": "About 2,660 condos are for sale in Horry County, about 12 months of sales at last year's pace. For houses and townhouses it is about 4 months."
+  },
+  {
+    "row": "invest-condos 17",
+    "pattern": "\\ballows? nightly rentals\\b|\\bnightly rentals are allowed\\b",
+    "unless": "\\bsay\\b",
+    "struck": "Most condos for sale allow nightly rentals.",
+    "use": "About 7 in 10 condos for sale say they allow short-term rentals."
+  },
+  {
+    "row": "invest-condos 19",
+    "pattern": "\\b(?:condos|units)(?: for sale)? (?:take|qualify for|can get|are eligible for) (?:an )?FHA\\b",
+    "struck": "Few condos for sale take an FHA or VA loan.",
+    "use": "About 1 in 9 condo listings (307) say they accept FHA, but HUD's list holds only 9 approved condo projects in Horry County. We confirm the building with the lender before you offer."
+  },
+  {
+    "row": "invest-condos 20",
+    "pattern": "includes every rental|every rental (?:is|pays|gets)[^.]{0,40}6 percent",
+    "struck": "A home that is not the owner's legal residence, which includes every rental, is taxed on 6 percent of its value.",
+    "use": "A home that is not its owner's legal residence, such as a unit rented out year-round or a second home, is taxed on 6 percent of its value."
+  },
+  {
+    "row": "invest-condos 20",
+    "pattern": "rented (?:for )?more than (?:72|seventy-two) days\\b",
+    "unless": "military|active duty|armed forces|orders",
+    "struck": "The owner's legal residence is taxed on 4 percent, and loses it if rented more than 72 days in a year.",
+    "use": "A legal residence rented out more than 72 days in a calendar year loses the 4 percent rate, unless its owner is on active military duty under orders."
+  },
+  {
+    "row": "invest-condos 22",
+    "pattern": "about \\$970\\b|\\$97[0-9] a year\\b|\\$36 to \\$81\\b|\\bunit (?:insurance|policy)[^.]{0,40}\\$9[0-9]{2}\\b",
+    "struck": "The unit's own insurance is about $970 a year at the top of one agency's South Carolina range for a condo unit policy ($36 to $81 a month).",
+    "use": "(cut it: an insurance agency's figure, struck on /invest/run-the-numbers/; say we get a quote on the exact unit before you offer)"
+  },
+  {
+    "row": "invest-condos 23",
+    "pattern": "\\babout \\$19,000\\b|\\$19,0[0-9]{2}\\b",
+    "struck": "Total about $19,000 a year before the loan, utilities the fee does not cover, management and cleaning.",
+    "use": "Total about $18,100 a year before insurance, the loan, utilities the fee does not cover, management and cleaning."
+  },
+  {
+    "row": "invest-condos 23",
+    "pattern": "\\boutside (?:the )?city limits\\b[^.]{0,60}\\$4,100\\b",
+    "unless": "\\bbase\\b|at least|or more|district",
+    "struck": "Outside city limits the tax would be about $4,100.",
+    "use": "Outside city limits, at the base unincorporated rate, it would be about $4,100; some fire districts add more."
+  },
+  {
+    "row": "invest-condos 23",
+    "pattern": "\\babout \\$5,200\\b|\\$5,19[0-9]\\b",
+    "unless": "25 percent|exemption",
+    "struck": "Property tax at the rental rate inside the City of Myrtle Beach about $5,200.",
+    "use": "Property tax at the rental rate inside the City of Myrtle Beach, before the 25 percent exemption a rental buyer may claim: about $5,200."
+  },
+  {
+    "row": "invest-condos 25",
+    "pattern": "\\bbuys most conventional loans\\b|\\bmost conventional (?:loans|lenders)\\b",
+    "struck": "Fannie Mae, which buys most conventional loans, will not buy a loan on a unit in a building run like a hotel.",
+    "use": "Fannie Mae, one of the two companies that buy conventional loans, will not buy a loan on a unit in a building run like a hotel, even if each unit is owned separately."
+  },
+  {
+    "row": "invest-condos 25",
+    "pattern": "\\bfront desks?\\b",
+    "struck": "Signs it lists: a front desk or registration, daily or short-term rentals, daily cleaning, central key systems.",
+    "use": "Signs it lists: registration services, the HOA or its manager renting units by the day or for short stays, daily cleaning, central key systems, a rental pool, or rent shared with the HOA or a rental company."
+  },
+  {
+    "row": "invest-condos 26",
+    "pattern": "\\$10,000 (?:a|per) unit\\b",
+    "unless": "special assessment",
+    "struck": "or in a building that needs critical repairs (for example, unfunded repairs over $10,000 a unit due within 12 months).",
+    "use": "or in a building that needs critical repairs, for example repairs over $10,000 a unit due within 12 months that no special assessment pays for."
+  },
+  {
+    "row": "invest-condos 27",
+    "pattern": "\\bbehind only tax liens and (?:recorded )?mortgages\\b(?! and other)|\\bahead of every(?:thing| other lien)? except (?:property )?tax(?:es| liens)? and (?:recorded )?mortgages\\b(?! and other)",
+    "struck": "Under South Carolina's condo law, unpaid assessments are a lien on the unit, behind only tax liens and recorded mortgages.",
+    "use": "Under South Carolina's condo law, unpaid assessments are a lien on the unit that ranks ahead of every other lien except property tax liens and recorded mortgages and other recorded liens."
+  },
+  {
+    "row": "invest-condos 28",
+    "pattern": "\\b10\\.9 ?(?:percent|%)",
+    "struck": "Other homes: 10.9 percent in a high-risk flood zone.",
+    "use": "About 1 in 10 other homes sold (10.4 percent) sat in a high-risk flood zone."
+  },
+  {
+    "row": "invest-condos 29",
+    "pattern": "\\bfrom one house sale\\b|\\bfrom a single house sale\\b",
+    "struck": "Story: three oceanfront condos from one house sale.",
+    "use": "Story: a house sale and his savings bought three oceanfront condos."
+  },
+  {
+    "row": "invest-condos not-use",
+    "pattern": "\\b(?:17|18\\.2|19) million visitors\\b|\\b19M\\+",
+    "struck": "vacation demand is deep, with roughly 19 million visitors a year.",
+    "use": "(cut it: registry lists the visitor count as unsourced)"
+  },
+  {
+    "row": "invest-condos not-use",
+    "pattern": "\\boutperform most coastal\\b",
+    "struck": "a Myrtle Beach condo can outperform most coastal rental markets on price alone.",
+    "use": "(cut it: no source)"
+  },
+  {
+    "row": "invest-condos not-use",
+    "pattern": "\\b2\\.5 to 3\\.8 times\\b",
+    "struck": "The bill is about 2.5 to 3.8 times an owner-occupant's on the same unit.",
+    "use": "(cut it: registry rental-vs-residence-tax gives 3.3 to 4.3 times; this page gives dollars and links /buyers/property-taxes/)"
+  }
+]
