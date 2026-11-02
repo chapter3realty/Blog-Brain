@@ -37,3 +37,7 @@ The workflow ran on all five; it was stopped once by the 5-hour usage limit and 
 - The Dunes Golf and Beach Club grounds are outside the city limits (county municipal layer). The Myrtle Beach page never says otherwise.
 - The CRM map API returns at most 144 pins per call, and it ignores `county=` and unknown `city=` values. Its `inside_city_limits` flag disagrees with the city outline; use the outline.
 - Photos: `photo-request-group-2.md` is drafted and not sent.
+
+## Stopped here (owner, 2026-11-02)
+
+The owner stopped the run after group 2 because usage was high. Group 3 (cost to own, condos, rent prices, where to buy, Murrells Inlet) was stopped during research; whatever its helpers saved is in each `<slug>/` folder. Still to do: groups 3 and 4 (pages 11 to 20) and the seven unshipped 2026-10-d pages. Before /buyers/cost-to-own/ is rebuilt, apply `relocating-donor.patch`: it freezes that page's current chrome as `data/relocating/donor-cost-to-own.html`, so the relocating pages keep their header and footer. A rebuild of beaches.js with it was byte-identical.
