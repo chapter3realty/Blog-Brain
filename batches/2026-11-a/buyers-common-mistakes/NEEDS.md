@@ -28,3 +28,11 @@ If the retirees NEEDS.md item 1 (end offer band drawn as the light top bar when 
 - **The ranked list and the stage steps count as "On this page" lists** in score.js H14. Each entry's data-toc label is set to its card label, so all 27 links match; H14 still marks the opening section, the steps section and the FAQ "not listed" (77%). A rule that knows a ranked list from a contents list would clear it.
 - **Photos reused, not new.** Wikimedia Commons returned HTTP 429 for both TS Debby files again at build time, so the page reuses three public-domain records already on the site (see photos.json reused_from). The USGS houses-and-towers frame is copied into this page's image folder, so the page does not depend on /submarkets/myrtle-beach/ shipping.
 - **"catch" is banned by build.js** (owner, 2026-09-05). PLAN.md and must-answer.md used "when we catch it"; the page says "when we check for it".
+
+## 7. Review round 1 (fixer, 2026-11-02)
+
+- **Shared header at 1000 to 1120 px.** The phone number pushes the page 5 px wide at 1024 px (also on /invest/strategies/fix-and-flip/). Worked around in this spec's PAGE_CSS with the retirees rule (the digits hide in that band; the icon and its label stay). Fix once in the shared header CSS and drop both page rules.
+- **Homes strip search box at 320 px.** `.hx-fb-ai` ran 40 px past the column. Worked around in PAGE_CSS with the retirees rule. Fix once in the strip's own CSS.
+- **Compact top offer bar.** At 390 and 1024 px its glass edge starts 8 to 18 px left of the text column (glass.js COMPACT_RULES: `width:calc(100% - 32px)` and `margin-left:max(16px, ...)`). The text inside lines up; the edge does not. Not changed here; a glass.js choice for every page.
+- **Photo credits note** "Chapter3 Realty resized these photos and cropped some of them." comes from photos.js and its test; it records the change a CC licence asks us to state. Not changed here.
+- **critic.mjs read.wall** fires on the FAQ (an H3 every 3 to 6 lines). False hit, as in round 0.
