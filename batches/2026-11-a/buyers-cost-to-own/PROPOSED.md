@@ -15,3 +15,7 @@ Proposed fact: "On 2026 millage, a second home or rental pays about 2.5 times (C
 ## 3. Flag for the RET verifier
 
 RET 24 says "Every house in unincorporated Horry County also pays a stormwater fee of $89.40 a year". AFF 72 shows a 2026 Carolina Forest bill in tax district 800 with "Fees $0.00". "Most" is safe; "every" is not proven.
+
+## 4. Fixer, review round 1: the wind line on older pages
+
+Facts row 38 (VERIFIED-BY-FIXER) places the statute's line (38-75-310(5)(c), registry `wind-pool-line`) with the TIGER roads: Carolina Forest, Socastee and Conway are inland of it. Some live pages say the wind pool's territory "reaches inland to Carolina Bays Parkway and River Oaks Drive" and that "most of Carolina Forest is inland of Carolina Bays Parkway, outside South Carolina's wind pool territory". If the association's own territory map differs from the statute's line, the registry entry should say which one an insurer uses. Lead: check the S.C. Department of Insurance / SCWHUA territory map and add a `wrong` pattern if the Carolina Bays Parkway wording is out of date.
