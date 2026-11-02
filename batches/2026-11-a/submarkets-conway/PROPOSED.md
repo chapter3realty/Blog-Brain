@@ -8,3 +8,8 @@ For `facts/registry.json` (facts on two or more pages, or wrong once). The lead 
 4. **waccamaw-not-icw-at-conway.** Known wrong claim: "the Waccamaw River, which is part of the Intracoastal Waterway system" in the Conway context. Ledger row 45. A pattern for `rules/claims.json` could be "Waccamaw River, which is part of the Intracoastal"; read every hit first, since the waterway does run in the Waccamaw south of Conway.
 
 No new stories proposed.
+
+## From the builder (2026-11-02)
+
+5. **Town price chart rounding.** The page's "What a home usually resold for" chart rounds every town to the nearest $5,000 (halves down): Loris $235,000, Aynor $255,000, Conway $265,000. Row 2 above says "about $234,000" and "about $256,000". If the lead registers row 2, use the page's $5,000 rounding or change the chart's valueText in `specs/conway.js` (r5k), so the site gives one value.
+6. **Conway beach drive.** The page rounds row 27's 24.3 minutes to "about 25 minutes" (CRAFT 2: a drive over 15 minutes to the nearest 5); the airport's 26.6 to "about 25". The live page said "20 to 25 minutes". A registry row "conway-beach-drive: about 25 minutes from downtown, without traffic" would keep other pages on one figure.
