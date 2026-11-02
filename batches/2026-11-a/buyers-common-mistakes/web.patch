@@ -15181,10 +15181,10 @@ HcmV?d00001
 
 diff --git a/data/2026-11-a/buyers-common-mistakes/README.md b/data/2026-11-a/buyers-common-mistakes/README.md
 new file mode 100644
-index 00000000..7347da64
+index 00000000..4446037f
 --- /dev/null
 +++ b/data/2026-11-a/buyers-common-mistakes/README.md
-@@ -0,0 +1,30 @@
+@@ -0,0 +1,33 @@
 +# Data for /buyers/common-mistakes/ (batch 2026-11-a)
 +
 +Every chart, table and number on the page comes from a file here. Ledger: Blog-Brain `batches/2026-11-a/buyers-common-mistakes/facts.md`.
@@ -15202,6 +15202,8 @@ index 00000000..7347da64
 +| analyze_flood_tag.py | Homes for sale inside FEMA's high-risk zone, and how many say "flood zone" in the listing features | flood-tag-findings.json |
 +| pull_listings.py | CRM map API aggregate counts: houses on septic, public sewer and well water, by town and price band; flood-zone tags; condo rental tags | listings-counts.json |
 +| build_examples.py | Tax on a $350,000 house at 4% and 6% (2026 millage), the seller's-bill example, one flood against a year of cover | examples.json |
++| pull_condo_age.py | CRM map API aggregate counts: condos for sale, and those built 1996 or earlier (ledger row 34), pulled on build day | condo-age.json |
++| (by hand) | Three photo licence records reused from records already on the site; see each record's reused_from | photos.json |
 +
 +Saved sources (raw/): SC Code chapters 12-24, 12-37, 12-43, 12-45, 12-54, 12-60, 27-50, 40-57 (html and text); Horry County Legal Residence documents checklist (spa-required-docs.pdf/.txt); Horry County news, 'Legal Residence' applications due May 31 (2025); City of Myrtle Beach planning page (short-term rentals); NAR settlement facts page; Fannie Mae Selling Guide B3-3.1-07; OpenFEMA NfipPolicies field definitions.
 +
@@ -15214,6 +15216,7 @@ index 00000000..7347da64
 +python3 -I pull_listing_points.py && python3 -I analyze_flood_tag.py .   # needs shapely 2
 +python3 -I pull_listings.py .
 +python3 -I build_examples.py .
++python3 -I pull_condo_age.py .
 +```
 diff --git a/data/2026-11-a/buyers-common-mistakes/analyze_claims.py b/data/2026-11-a/buyers-common-mistakes/analyze_claims.py
 new file mode 100644
