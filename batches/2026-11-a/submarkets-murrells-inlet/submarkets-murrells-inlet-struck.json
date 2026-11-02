@@ -1,0 +1,147 @@
+[
+ {
+  "row": "murrells-inlet 9",
+  "pattern": "1\\.6 times",
+  "struck": "Only 21 sold in three years, at about $930,000 at the middle, about 1.6 times a house west of the bypass.",
+  "use": "21 of them sold in the three years to September 2026, at about $930,000 at the middle, about 1.7 times the middle house west of the bypass."
+ },
+ {
+  "row": "murrells-inlet 9",
+  "pattern": "\\ball (of them )?(are )?on the Georgetown side of (US 17 )?Business",
+  "struck": "About 220 houses back onto the inlet's marsh, all on the Georgetown side of US 17 Business.",
+  "use": "About 220 houses outside Garden City sit within 30 m of the inlet's salt marsh, almost all on the creek side of US 17 Business."
+ },
+ {
+  "row": "murrells-inlet 10",
+  "pattern": "villas and townhouses[^.]{0,60}\\b78\\b|\\b78 sales",
+  "struck": "Horry-side villas and townhouses sold for about $320,000 (78 sales).",
+  "use": "Horry-side townhouses sold for about $320,000 (70 sales)."
+ },
+ {
+  "row": "murrells-inlet 11",
+  "pattern": "465 homes",
+  "struck": "465 homes with a Murrells Inlet city were for sale in the CRM: 202 houses, 129 condos, 33 townhouses, 58 manufactured homes and 38 lots.",
+  "use": "465 listings with a Murrells Inlet city were for sale: 202 houses, 129 condos, 33 townhouses, 58 manufactured homes, 5 multi-family buildings and 38 lots."
+ },
+ {
+  "row": "murrells-inlet 12",
+  "pattern": "Bluffs,? and Wynbrooke|largest[^.]{0,200}\\bWynbrooke\\b",
+  "struck": "The largest neighborhoods on the Horry side are Indigo Creek (about 560 houses), Seasons at Prince Creek (about 440, a 55+ community), The Pines of St. James (about 370), Longwood Bluffs and Wynbrooke.",
+  "use": "The largest house neighborhoods on the Horry side are Indigo Creek (about 560 houses), Seasons at Prince Creek West (about 440, a 55+ community), The Pines of St. James (about 370) and Longwood Bluffs (about 260)."
+ },
+ {
+  "row": "murrells-inlet 13",
+  "pattern": "Highwood[^.]{0,60}(are|is) in Georgetown",
+  "struck": "Palm Bay and Highwood at Prince Creek are in Georgetown County, Seasons at Prince Creek is in Horry.",
+  "use": "Prince Creek crosses the county line: Palm Bay is in Georgetown County, Seasons at Prince Creek West is in Horry, and Highwood is split between them."
+ },
+ {
+  "row": "murrells-inlet 13",
+  "pattern": "(along|on) the creek[^.]{0,120}Wilcox|Wilcox[^.]{0,80}(along|on) the creek",
+  "struck": "The old streets along the creek are Sunnyside, Vaux Hall, the Hermitage and Wilcox and Briggs.",
+  "use": "The county's named areas on the creek side include Sunnyside, the Hermitage and Vaux Hall."
+ },
+ {
+  "row": "murrells-inlet 16",
+  "pattern": "\\$96 household fee|2026[^.]{0,80}(128\\.9|252\\.0)|(128\\.9|252\\.0)[^.]{0,80}\\b2026\\b",
+  "struck": "On the Georgetown side, the county's own estimate uses 128.9 mills for a legal residence and 252.0 mills for a second home, plus a $96 household fee.",
+  "use": "On the Georgetown side, Georgetown County's current tax estimate for district 41 uses 128.9 mills for a legal residence and 252.0 mills for other homes, plus $96 in storm water and household fees."
+ },
+ {
+  "row": "murrells-inlet 20",
+  "pattern": "flood insurance is cheap|\\bcheap\\b[^.]{0,40}flood|high-risk zone paid about \\$1,080",
+  "struck": "Flood insurance is cheap for most Murrells Inlet houses. A house in a high-risk zone paid about $1,080 at the middle.",
+  "use": "The middle flood insurance policy on a house cost about $590 a year on the Georgetown side and about $580 on the Horry side; in an A zone it was about $1,080, in a V zone about $2,160."
+ },
+ {
+  "row": "murrells-inlet 22",
+  "pattern": "every Horry[- ]side home[^.]{0,40}zoned",
+  "struck": "Every Horry-side home is zoned for St. James Elementary, St. James Intermediate, St. James Middle and St. James High.",
+  "use": "Horry-side homes are zoned for St. James schools: all but 2 of 8,945 for St. James Elementary, and all for St. James Intermediate, Middle and High."
+ },
+ {
+  "row": "murrells-inlet 23",
+  "pattern": "every Georgetown[- ]side home[^.]{0,40}zoned",
+  "struck": "Every Georgetown-side home is zoned for the Waccamaw schools of the Georgetown County School District.",
+  "use": "Georgetown-side homes are zoned for the Waccamaw schools of the Georgetown County School District."
+ },
+ {
+  "row": "murrells-inlet 29",
+  "pattern": "nightly renting pays most",
+  "struck": "Nightly renting pays most for big houses.",
+  "use": "The gap between a typical Airbnb's gross revenue and HUD's fair rent grows with size."
+ },
+ {
+  "row": "murrells-inlet 30",
+  "pattern": "(Crazy Sister|boat landing)[^.]{0,80}\\bmiddle\\b",
+  "struck": "Crazy Sister Marina and a public boat landing sit at its middle.",
+  "use": "Crazy Sister Marina and the county's Murrells Inlet boat landing are at the MarshWalk's south end."
+ },
+ {
+  "row": "murrells-inlet 31",
+  "pattern": "Pawleys Island[^.]{0,40}15 to 20",
+  "struck": "Pawleys Island about 15 to 20, Market Common about 20.",
+  "use": "Pawleys Island about 15, Market Common about 20."
+ },
+ {
+  "row": "murrells-inlet 32",
+  "pattern": "capped at 120 square feet",
+  "unless": "as a rule|special circumstances",
+  "struck": "On creeks of 20 to 50 feet the dock's deck area is capped at 120 square feet, 51 to 150 feet at 160, wider at 600.",
+  "use": "As a rule, on creeks of 20 to 50 feet the dock's pierhead and float area is held to 120 square feet, 51 to 150 feet to 160, wider to 600; the state can allow more in special circumstances."
+ },
+ {
+  "row": "murrells-inlet 33",
+  "pattern": "Parsonage Creek",
+  "struck": "NOAA's station at Captain Alex's Marina on Parsonage Creek.",
+  "use": "NOAA's prediction station at Captain Alex's Marina in the inlet."
+ },
+ {
+  "row": "murrells-inlet 34",
+  "pattern": "four county boat landings|county[- ]owned",
+  "struck": "There are four county boat landings in the Murrells Inlet ZIP.",
+  "use": "Georgetown County's boat-landing map lists four landings in the Murrells Inlet ZIP."
+ },
+ {
+  "row": "murrells-inlet 36",
+  "pattern": "closed[^.]{0,40}for bacteria|anyone with a South Carolina saltwater",
+  "struck": "They are open to anyone with a South Carolina saltwater fishing license. Parts of each are closed by the state for bacteria.",
+  "use": "Parts of each ground are closed by SCDES, and the limit applies on no more than two days in any seven."
+ },
+ {
+  "row": "murrells-inlet 39",
+  "pattern": "4 in 10 homes and 1 in 3 bills",
+  "struck": "In Garden City it is about 4 in 10 homes and 1 in 3 bills.",
+  "use": "About 85 in 100 houses outside Garden City are taxed as their owner's legal residence, against about 6 in 10 Garden City houses."
+ },
+ {
+  "row": "murrells-inlet 41",
+  "pattern": "March 2028|finish(ed)? (by|in) 2028",
+  "struck": "In its January 2025 report to the state, the county estimated the work at about $30 million and gave a preliminary finish of March 2028.",
+  "use": "Georgetown County plans to dredge the inlet's creeks; in January 2025 it estimated the cost at about $30 million."
+ },
+ {
+  "row": "murrells-inlet 43",
+  "pattern": "23 (are )?in Garden City",
+  "struck": "Of the 55 houses for sale with no HOA, 21 are on the Georgetown side (6 on the creek side) and 23 in Garden City.",
+  "use": "Of the 55 houses for sale with no HOA, 21 are on the Georgetown side (6 on the creek side), 29 are in Garden City, and 5 are on the Horry side west of the bypass."
+ },
+ {
+  "row": "murrells-inlet 44",
+  "pattern": "both sides share the Murrells Inlet",
+  "struck": "Both sides share the Murrells Inlet - Garden City Fire District.",
+  "use": "Most of the Horry side and the Georgetown side are in the Murrells Inlet - Garden City Fire District."
+ },
+ {
+  "row": "murrells-inlet 48",
+  "pattern": "Food Lion[^.;]{0,30}Business 17|707 \\([^)]*Walmart",
+  "struck": "Groceries on the Horry side cluster near SC 707 (Publix, Lowes Foods, a Walmart Neighborhood Market); on the Georgetown side a Food Lion sits on Business 17 near the hospital.",
+  "use": "On the Horry side, Publix and Lowes Foods are on SC 707 and a Walmart Neighborhood Market is on the US 17 bypass; on the Georgetown side, a Food Lion is on the US 17 bypass near the hospital."
+ },
+ {
+  "row": "murrells-inlet 49",
+  "pattern": "no beach of its own",
+  "struck": "Murrells Inlet has no beach of its own on the mainland.",
+  "use": "The Census's Murrells Inlet and the creek side have no ocean beach; the nearest are Huntington Beach State Park, about 9 minutes from the MarshWalk, and Garden City Beach, about 9 minutes."
+ }
+]
