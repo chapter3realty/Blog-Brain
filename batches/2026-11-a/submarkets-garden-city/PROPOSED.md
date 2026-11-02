@@ -1,0 +1,9 @@
+# Proposed registry rows: /submarkets/garden-city/
+
+For `facts/registry.json` (a fact on two pages, or one that has been wrong). From ledger rows awaiting verification; add only after the verifier marks them.
+
+1. **id: garden-city-county-line.** Fact: "The Horry and Georgetown county line crosses Garden City Beach about a quarter mile south of the Garden City Pier. About 3.2 of Waccamaw Drive's 5 miles are in Georgetown County." Source: Census TIGER county polygons; Horry County, About Our Beaches ("the Georgetown County portion of Garden City"). ownerPage: /submarkets/garden-city/. Wrong: `southern tip in Georgetown` (the live page: "with a southern tip in Georgetown"), `Garden City[^.]{0,40}entirely in Horry`. Reason: the live page and the Murrells Inlet page may call the Georgetown part a "tip"; it is most of the beach road. Firing control: "It straddles two counties, mostly Horry with a southern tip in Georgetown." (live page). Quiet control: "The south end of Waccamaw Drive is in Georgetown County."
+2. **id: garden-city-population.** Fact: "The Garden City Census place had 10,235 people and 10,110 homes at the 2020 Census." Wrong: `9,357` near "Garden City" (the live page's "about 9,357"). Firing control: "Population (2020 Census)about 9,357". Quiet control: "10,235 people".
+3. **id: horry-str-no-permit.** Fact: "Unincorporated Horry County has no short-term rental permit. The county lists four filings: a business license, a state sales tax license, a county hospitality and accommodations account, and the PT-100 personal property return by April 30." Source: https://www.horrycountysc.gov/media/monjnvh0/sales-tax-chart-short-term-rentals.pdf . ownerPage: /invest/str-rules/. Wrong: `Horry County (?:STR|short-term rental) permit` stated as required.
+
+No new story is proposed. The owner question in PLAN.md asks whether Chapter3 has a Garden City client story.
