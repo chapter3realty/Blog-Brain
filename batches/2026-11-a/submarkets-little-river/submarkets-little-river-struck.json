@@ -1,0 +1,105 @@
+[
+  {
+    "row": "little-river 8",
+    "pattern": "\\bevery one (?:is )?on a lot of its own\\b|North Pointe \\(about 117\\)",
+    "struck": "About 1 in 20 homes in the ZIP is a manufactured home (757 of 15,613), and every one is on a lot of its own with its own tax bill. The largest groups are North Pointe (about 117)",
+    "use": "Of the homes the county taxes as real estate in the ZIP, about 1 in 20 is a manufactured home (757 of 15,613). Homes on rented lots are taxed apart and are not counted. The largest groups are North Pointe (about 125), Stones Edge (46), Woodridge (44) and Captain's Choice (42)."
+  },
+  {
+    "row": "little-river 9",
+    "pattern": "\\bCensus survey agrees\\b",
+    "struck": "The Census survey agrees: about 6 in 100 homes in the Little River CDP are mobile homes",
+    "use": "The Census survey, which also counts homes on rented lots, puts mobile homes at about 6 in 100 homes in the Little River CDP (between 3 and 10 in 100)."
+  },
+  {
+    "row": "little-river 10",
+    "pattern": "\\babout 160 \\(1\\.6 percent\\)|\\bhomes that touch the water\\b|\\bhouses? (?:that )?touch(?:es)? the water\\b",
+    "struck": "Of about 10,000 houses in the ZIP, about 160 (1.6 percent) have a lot on the Intracoastal Waterway or the Waccamaw River. Most homes on the water are condos: 353 of the 531 homes that touch the water.",
+    "use": "About 150 to 160 of the 10,000 houses in the ZIP (about 1.5 percent) have a lot on the Intracoastal Waterway, a canal off it, or the Waccamaw River. Most homes by the water are condos: 353 of the 531 homes within about 50 feet of the water."
+  },
+  {
+    "row": "little-river 11",
+    "pattern": "\\bhold most of the homes on the water\\b|\\b145 of its 301\\b|\\b75 of 145\\b|\\b38 of 252\\b",
+    "struck": "Three condo communities hold most of the homes on the water: Carolina Yacht Landing (145 of its 301 units), Mariner's Pointe (75 of 145) and Lightkeepers Village (38 of 252).",
+    "use": "About half of the homes by the water are in three condo communities: Carolina Yacht Landing (163 of its 337 units), Mariner's Pointe (76 of 146) and Lightkeepers Village (38 of 278)."
+  },
+  {
+    "row": "little-river 14",
+    "pattern": "\\$190,000|Dock Holidays[^.]{0,120}middle price of (?:about )?\\$95,000",
+    "struck": "deeded slips at Dock Holidays Marina sold for $65,000 to $190,000 in the same year, with a middle price of $95,000.",
+    "use": "10 deeded slips at Dock Holidays Marina sold for $65,000 to $115,000 in the same year; the middle price was about $92,500."
+  },
+  {
+    "row": "little-river 15",
+    "pattern": "Causey Landing on the Little River|Campbell[^.]{0,80}\\bnear the swing bridge\\b|\\bnear the swing bridge\\b[^.]{0,80}Campbell",
+    "struck": "Johnny Causey Landing on the Little River (2 ramps, 52 spaces) is just inside North Myrtle Beach's limits",
+    "use": "Johnny Causey Landing, across the waterway from Campbell Landing, has 2 ramps and 52 paved spaces and is just inside North Myrtle Beach."
+  },
+  {
+    "row": "little-river 17",
+    "pattern": "\\bclosed to boats\\b",
+    "struck": "During a 2025 Coast Guard change it stayed closed to boats from 7 to 9 a.m. and 4 to 6 p.m. on weekdays.",
+    "use": "The swing bridge opens for boats on signal, except on weekdays (not federal holidays) from 7 to 9 a.m. and 4 to 6 p.m., when it opens only on the hour and half hour."
+  },
+  {
+    "row": "little-river 19",
+    "pattern": "\\bstrongest storm\\b",
+    "struck": "Hurricane Hazel, the strongest storm in the area's records, came ashore",
+    "use": "Hurricane Hazel came ashore near Little River, at the North Carolina and South Carolina line, on October 15, 1954, as a Category 4 hurricane."
+  },
+  {
+    "row": "little-river 21",
+    "pattern": "\\bhomes that touch the waterway\\b|\\btouch(?:es)? the waterway\\b",
+    "struck": "237 of the 531 homes that touch the waterway are in the zone (45 percent).",
+    "use": "237 of the 531 homes within about 50 feet of the water are in the high-risk zone (45 percent)."
+  },
+  {
+    "row": "little-river 24",
+    "pattern": "\\bunless it is bought when a home loan is made\\b",
+    "struck": "A new federal flood policy takes effect 30 days after the application and payment are complete, unless it is bought when a home loan is made.",
+    "use": "A new federal flood policy takes effect 30 days after the application and payment are complete. It can start sooner when it is bought with a home loan, or within a year after a FEMA map change puts the building in the high-risk zone."
+  },
+  {
+    "row": "little-river 33",
+    "pattern": "\\btwo-thirds of an acre\\b|\\babout 1\\.5 acres\\b|Hidden Brooke \\(301\\b|Carolina Yacht Landing \\(301\\b",
+    "struck": "Lafayette Park (434 houses on lots of about two-thirds of an acre; about $348,000) ... Hidden Brooke (301 houses on lots of about 1.5 acres; about $390,000), Carolina Yacht Landing (301 condos; about $252,000)",
+    "use": "Lafayette Park (434 houses on lots of about a quarter acre; about $348,000) ... Hidden Brooke (313 houses on lots of about a sixth of an acre; about $390,000), Carolina Yacht Landing (337 condos; about $252,000)"
+  },
+  {
+    "row": "little-river 34",
+    "pattern": "\\babout 435 of the\\b|\\b1 in 23\\b|\\btypical house lot is about a quarter acre\\b",
+    "struck": "about 435 of the 10,000 houses (about 1 in 23) sit on an acre or more. The typical house lot is about a quarter acre.",
+    "use": "Fewer than 1 in 20 Little River houses sits on an acre or more (about 370 of 10,000). The typical house lot is about a fifth of an acre."
+  },
+  {
+    "row": "little-river 36",
+    "pattern": "\\bestimate of a typical rent\\b",
+    "struck": "HUD's 2027 estimate of a typical rent with utilities in the Little River ZIP is $1,730 for a two-bedroom",
+    "use": "HUD's 2027 Small Area Fair Market Rent for the Little River ZIP, which includes utilities, is $1,730 for a two-bedroom, $2,100 for a three-bedroom and $2,280 for a four-bedroom."
+  },
+  {
+    "row": "little-river 37",
+    "pattern": "\\babout 4 in 10 such rentals cost less\\b",
+    "struck": "HUD's figure is about the 40th percentile of rent plus utilities for standard units, so about 4 in 10 such rentals cost less.",
+    "use": "HUD builds its figure from about the 40th percentile of rent plus utilities for standard two-bedroom rentals, then sets the other sizes with metro-wide ratios. It is a program figure, not a survey of three-bedroom rents in the ZIP."
+  },
+  {
+    "row": "little-river 40",
+    "pattern": "\\bstate sales and accommodations tax account\\b",
+    "unless": "personal property",
+    "struck": "needs a Horry County business license, a county hospitality and accommodations tax account, and a state sales and accommodations tax account.",
+    "use": "needs a Horry County business license, a county hospitality and accommodations account, a state sales and accommodations tax account, and a yearly county personal property return for its furnishings (due April 30)."
+  },
+  {
+    "row": "little-river 41",
+    "pattern": "\\bwest side of Little River\\b",
+    "struck": "would be extended from SC 9, past the west side of Little River, across the state line",
+    "use": "would be extended from SC 9 northeast, passing north and northwest of Little River's old village, across the state line to US 17 near Shallotte"
+  },
+  {
+    "row": "little-river 42",
+    "pattern": "\\bnot (?:built or )?scheduled\\b",
+    "struck": "It is not built or scheduled.",
+    "use": "It is not built. South Carolina's part is in SCDOT's 2024-2033 program, with land buying planned to start in 2026 and construction in 2028; North Carolina has not funded land buying or building for its part."
+  }
+]
