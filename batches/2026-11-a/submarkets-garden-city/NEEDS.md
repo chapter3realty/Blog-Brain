@@ -14,3 +14,10 @@ Batch 2026-11-a. Research helper, 2026-11-02. These are shared files this page m
 7. **The homes feed still reads "Just listed near Garden City, in Surfside Beach"** in the preview (item 1 above). The page itself carries no listing data.
 8. **The end band and the 1024 px header gap.** The spec repeats the same page-scoped CSS fixes as /submarkets/conway/ (glass.js compact rule; header nav gap). A shared fix would let both specs drop them.
 9. **The STR box.** The page reads AirROI's fresh read from `data/2026-11-a/submarkets-garden-city/airroi.json` (row 23: $41,223, 39.6 percent, $371, 374 listings). When the lead refreshes `data/str-market.json` (item 2), the hub and this page agree.
+
+## Added in fix round 1, 2026-11-02
+
+10. **The homes feed (items 1 and 7) is now blocking for the owner's read.** All three reviewers saw "Just listed near Garden City, in Surfside Beach" with no homes. The owner's reviewer asks the lead to fix `idx-lib/feeds.js` `GARDEN_CITY` before the page goes to him: a Garden City fallback, never another town, and a title such as "Homes for sale in Garden City".
+11. **Ground photos.** Every photo on the page is from the air (four USDA NAIP close-ups and one USGS oblique from over the ocean). The Wikimedia Commons API refused every request from this container ("too many requests") during the fix, so no CC photo could be found. The photo partner's shot list is in `shot-list.md`; the pier from the beach, the marsh from a dock, a street of houses west of Business 17 and the canals at the Georgetown end would replace the aerials one for one.
+12. **Menu highlight.** The page's script sets `CUR="invest-strrules"` (it comes from tools/mkpage.js for every page; conway has the same), so the menu may highlight the short-term rental item. Shared file.
+13. **Condo dues.** The reader asked for an ocean-side dues range. Dues are in the MLS detail (shown on the site only to registered visitors), so a public page cannot carry them. If the lead knows a public source (a building's posted budget, a county record), a dues row would finish the worked example.
