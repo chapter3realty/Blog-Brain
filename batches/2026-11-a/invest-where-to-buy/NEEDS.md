@@ -1,0 +1,6 @@
+# Needs from shared files: /invest/where-to-buy/
+
+1. **`data/str-market.json` refresh is due 2026-11-13** (retrieved 2026-08-15, refresh every 90 days). Ledger rows 26, 27 and 29 read it. The lead refreshes it and runs `node build.js strdata` before release, then the spec reads the new figures from the file (never typed).
+2. **/invest/str-rules/ on Conway.** That page says Conway has "no dedicated ordinance". The Conway UDO (last amended July 20, 2026, Sec. 5.1.5) allows a "commercial short-term rental" of up to 90 days in the CC, CBD and WRD districts (ledger row 7). The Conway town page ledger struck the old line (its row 42). Fix on /invest/str-rules/ in a later batch.
+3. **/invest/str-rules/ on unincorporated Horry County.** Ledger row 8 supports its "no zoning restriction" line from the county's own ordinance (updated 9/1/2026). No change needed if the verifier agrees; the source can be added to that page.
+4. **One fact, one value: house prices by town.** Town pages use different groups (Conway: every non-HPR home in city limits; Myrtle Beach: houses, villas and townhouses; Little River: houses in ZIP 29566). This page uses detached houses in each area's outline (ledger row 16) and labels the group. A site-wide decision on one group for "what a house costs in <town>" would remove the differences.
