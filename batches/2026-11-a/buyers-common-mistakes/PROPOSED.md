@@ -38,3 +38,7 @@ Owner question (one line, with the proposed answer): "The common-mistakes page h
 ## 5. Registry: extend `buyer-agreement-source`
 
 Add the state rule this page now cites: "In South Carolina no agency relationship exists until the buyer and the firm agree in writing; until then the firm is presumed a transaction broker (40-57-370(C), (E))." Keep the existing wrong pattern.
+
+## 6. Owner question 2 (what our agents do), as the page now states it
+
+The page says, in its "we" boxes and offers: we price the tax at both rates while you choose; at closing we give a buyer who will live here the county's checklist in order (license, car registration, online application); we never price from the seller's bill; we get a flood insurance quote on every house during due diligence; we test every address against FEMA's flood map before you offer; we get the condo budget, reserve figure and board minutes before you sign a contract; we look up the city zoning of each address; we line up the inspection with septic and well checks where they apply; on the first call we explain both agency choices and put our duties in writing; we read the HOA's rules against how you will use the home. Proposed answer: yes, all of these. If any is not done on every purchase, cut that sentence.

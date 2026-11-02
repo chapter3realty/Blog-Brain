@@ -21,3 +21,10 @@ If the retirees NEEDS.md item 1 (end offer band drawn as the light top bar when 
 ## 5. checkpoint.sh saves an empty web.patch while the spec does not exist yet
 
 `git add -N -- "$@"` fails for the whole list when one pathspec (here `specs/common-mistakes.js`, not written yet in the research stage) matches nothing, so new files are not intent-added and the diff is empty. The first research checkpoint pushed a 0-byte web.patch. Workaround used: `git add -N` on the data folder alone, then the same checkpoint command again (39 files saved). Fix proposed: add each pathspec on its own, or pass `--ignore-missing`, in checkpoint.sh.
+
+## 6. Build stage notes (writer, 2026-11-02)
+
+- **Investor footer on a buyer page.** The site footer says "The Myrtle Beach investor-focused brokerage. DSCR analysis, STR analysis, and condo-by-condo ROI data". On this page the reader is a buyer moving here (CRAFT 4, "The page's surroundings are part of the page"). Site fix, not this page's file.
+- **The ranked list and the stage steps count as "On this page" lists** in score.js H14. Each entry's data-toc label is set to its card label, so all 27 links match; H14 still marks the opening section, the steps section and the FAQ "not listed" (77%). A rule that knows a ranked list from a contents list would clear it.
+- **Photos reused, not new.** Wikimedia Commons returned HTTP 429 for both TS Debby files again at build time, so the page reuses three public-domain records already on the site (see photos.json reused_from). The USGS houses-and-towers frame is copied into this page's image folder, so the page does not depend on /submarkets/myrtle-beach/ shipping.
+- **"catch" is banned by build.js** (owner, 2026-09-05). PLAN.md and must-answer.md used "when we catch it"; the page says "when we check for it".
