@@ -22,19 +22,19 @@ The reason behind the top searches (CRAFT 1, "ask why this person typed it"):
 
 | # | Question (reader's words) | Suggestions that point to it | Answered by ledger rows |
 |---|---|---|---|
-| 1 | **What is it like to live in Little River? Is it a good place to live? Pros and cons.** A normal week, what is hard | is little river sc a good place to live (6 variants), pros and cons, living in little river sc (reddit), things to do, waterfront restaurants | 1 to 4, 30 to 35, 41 to 43; drawbacks from 20 to 25 and 37 to 39 |
-| 2 | **What do homes cost?** Houses, condos, new homes, manufactured homes | homes for sale (10 variants), real estate, median home price, homes under 200k, new construction, mobile homes for sale, zillow | 12 to 16, 26, 27 |
-| 3 | **Living on the water: waterfront homes, boat slips, boat ramps, marinas.** What a slip costs | waterfront homes, on the water, intracoastal waterway homes, boat slips for sale (5 variants), marina slip fees, boat ramp, public boat ramps, marina (10 variants) | 7 to 11, 17 to 19, 30 |
-| 4 | **Does Little River flood? Is it in a flood zone? Hurricanes?** | flooding (3), flood zone (3), flood map, flood risk, does little river flood, prone to flooding, hurricane history, does little river get hurricanes | 20 to 25 |
-| 5 | **Is Little River a city? What county? Who sets the rules?** | is little river incorporated, is little river a city or town, little river sc county, little river is in what county, zip code | 1, 2, 5, 6 |
-| 6 | **How far is it from Myrtle Beach, the beach, the airport, North Myrtle Beach, the NC beaches?** | how far is little river from myrtle beach (9 variants), from the beach / ocean, airport, sunset beach, ocean isle, calabash | 36 |
-| 7 | **Which part of Little River? Neighborhoods, golf, gated, new homes, no HOA.** | neighborhoods, subdivisions, best neighborhoods, best places to live, golf communities, gated communities, new home communities, homes for sale no hoa | 28, 29 (subdivision table), 26 |
-| 8 | **What does it cost to own each year? Property tax, flood insurance, cost of living.** | property tax (rate, search), cost of living, is it expensive | 22, 23, 37, 38 |
-| 9 | **What homes are here? Mobile and manufactured homes, condos, how many live here year-round.** | mobile homes, manufactured homes, condos for sale, townhomes, population | 3, 4, 7, 12, 13 |
-| 10 | **Rentals and investing: what does a house rent for? Airbnb rules?** | rentals (by owner, under $1000, monthly, long term), apartments, airbnb, short term rentals | 39, 40 |
-| 11 | **What is coming? Roads and growth.** | housing developments, new homes, carolina bays parkway (no suggestion; the judge's item), little river to wilmington | 1, 44, 45 |
-| 12 | **Schools.** | schools, school district, school ratings, high school, elementary schools | 46 (assignment by address only; no ratings, STANDARD C5) |
-| 13 | **Is Little River safe? Crime rate.** | is little river sc safe (6 variants), crime rate, crime map | Answered by rule, not by number: we rate no place as safe or unsafe (PLAYBOOK A18, STANDARD C5). The FAQ says so in one line and names the public data (FBI Crime Data Explorer, SLED; the county police patrols Little River because it is not a town, row 5). |
+| 1 | **What is it like to live in Little River? Is it a good place to live? Pros and cons.** A normal week, what is hard | is little river sc a good place to live (6 variants), pros and cons, living in little river sc (reddit), things to do, waterfront restaurants | 1, 4, 15 to 19, 35; drawbacks from 20 to 22, 29 and 30 |
+| 2 | **What do homes cost?** Houses, condos, new homes, manufactured homes | homes for sale (10 variants), real estate, median home price, homes under 200k, new construction, mobile homes for sale, zillow | 25 to 31, 46 |
+| 3 | **Living on the water: waterfront homes, boat slips, boat ramps, marinas.** What a slip costs | waterfront homes, on the water, intracoastal waterway homes, boat slips for sale (5 variants), marina slip fees, boat ramp, public boat ramps, marina (10 variants) | 10 to 17, 27, 29 |
+| 4 | **Does Little River flood? Is it in a flood zone? Hurricanes?** | flooding (3), flood zone (3), flood map, flood risk, does little river flood, prone to flooding, hurricane history, does little river get hurricanes | 19 to 24, 32 |
+| 5 | **Is Little River a city? What county? Who sets the rules?** | is little river incorporated, is little river a city or town, little river sc county, little river is in what county, zip code | 1, 2, 5 |
+| 6 | **How far is it from Myrtle Beach, the beach, the airport, North Myrtle Beach, the NC beaches?** | how far is little river from myrtle beach (9 variants), from the beach / ocean, airport, sunset beach, ocean isle, calabash | 35 |
+| 7 | **Which part of Little River? Neighborhoods, golf, gated, new homes, no HOA.** | neighborhoods, subdivisions, best neighborhoods, best places to live, golf communities, gated communities, new home communities, homes for sale no hoa | 33 (subdivision table), 34, 30 |
+| 8 | **What does it cost to own each year? Property tax, flood insurance, cost of living.** | property tax (rate, search), cost of living, is it expensive | 5, 6, 22, 38 |
+| 9 | **What homes are here? Mobile and manufactured homes, condos, how many live here year-round.** | mobile homes, manufactured homes, condos for sale, townhomes, population | 3, 4, 7, 8, 9 |
+| 10 | **Rentals and investing: what does a house rent for? Airbnb rules?** | rentals (by owner, under $1000, monthly, long term), apartments, airbnb, short term rentals | 36 to 40 |
+| 11 | **What is coming? Roads and growth.** | housing developments, new homes, carolina bays parkway (no suggestion; the judge's item), little river to wilmington | 3, 41 to 44 |
+| 12 | **Schools.** | schools, school district, school ratings, high school, elementary schools | 45 (assignment by address only; no ratings, STANDARD C5) |
+| 13 | **Is Little River safe? Crime rate.** | is little river sc safe (6 variants), crime rate, crime map | Answered by rule, not by number: we rate no place as safe or unsafe (PLAYBOOK A18, STANDARD C5). The FAQ says so in one line and names the public data (FBI Crime Data Explorer, SLED). |
 
 ## Words the page uses once, in plain context
 
