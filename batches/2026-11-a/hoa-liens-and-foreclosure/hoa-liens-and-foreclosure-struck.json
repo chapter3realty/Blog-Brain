@@ -1,0 +1,98 @@
+[
+  {
+    "row": "liens 1, 2",
+    "pattern": "\\b(?:never|not) (?:through |by )?(?:a )?(?:private|nonjudicial|out-of-court) sale\\b|\\balways (?:goes |go )?through (?:the |a )?court\\b|\\bevery (?:HOA|association) foreclosure (?:goes|is) (?:through|in) (?:the |a )?court\\b",
+    "unless": "timeshare",
+    "struck": "It goes through the court, never a private sale.",
+    "use": "For a house or a condo, the association forecloses through the court. Timeshares are the exception: a timeshare's papers can let a trustee sell without a court."
+  },
+  {
+    "row": "liens 2",
+    "pattern": "Supreme Court[^.]{0,60}\\bconfirmed\\b[^.]{0,80}\\bforeclos",
+    "struck": "South Carolina's Supreme Court confirmed in 2019 that an HOA had the legal right to foreclose a house for unpaid dues.",
+    "use": "In a 2019 case, the HOA's recorded covenants allowed it to foreclose, and the Supreme Court said the HOA had the legal right to do so. The court still set the sale aside."
+  },
+  {
+    "row": "liens 4",
+    "pattern": "\\balways (?:behind|after|below|second to) (?:a |the |any |your )?(?:first )?mortgage\\b",
+    "struck": "An HOA's lien is always behind a mortgage.",
+    "use": "An HOA's lien counted only from the date each assessment fell due, so a mortgage recorded before that date came first; the covenants in that case did not claim priority."
+  },
+  {
+    "row": "liens 3",
+    "pattern": "\\bliens? recorded (?:later|after(?:wards)?)\\b",
+    "unless": "\\b(?:HOA|neighborhood|covenant)",
+    "struck": "Condo priority, top to bottom: property taxes; a mortgage recorded before the dues fell due; the association's lien; liens recorded later.",
+    "use": "In a condo, the association's lien comes after property tax liens and after recorded mortgages and other recorded liens."
+  },
+  {
+    "row": "liens 8",
+    "pattern": "\\b(?:hear|hears|get|gets|receive|receives) nothing (?:more|else|further)\\b|\\bno (?:further|more) notice\\b",
+    "unless": "\\b(?:Winrose|in (?:one|that|the) case|the owners)\\b",
+    "struck": "Answer the summons, or you hear nothing more, not even the sale date.",
+    "use": "In the Winrose case, the owners did not answer the suit and got no further notice, not of the judgment and not of the sale. Answer the summons."
+  },
+  {
+    "row": "liens 10",
+    "pattern": "\\bfinal (?:that|the same|on the) day\\b|\\bfinal at the (?:gavel|auction|sale)\\b|\\bthe sale is final\\b",
+    "struck": "With no deficiency demanded, the sale is final that day.",
+    "use": "With no deficiency demanded, the bidding closes at the sale. It does not stay open 30 days for higher bids."
+  },
+  {
+    "row": "liens 13",
+    "pattern": "\\bdues missed\\b|\\bmissed \\$250\\b|\\$250 in (?:missed|unpaid) dues became\\b",
+    "struck": "Dues missed: $250.",
+    "use": "Unpaid dues in the judgment: $250 (the master listed $500 and credited a $250 payment the owners made after the suit was filed)."
+  },
+  {
+    "row": "liens 19",
+    "pattern": "\\bhome mortgage cases\\b|\\bcommercial (?:case|loan|property)\\b",
+    "struck": "The 14 home mortgage cases ranged from about $68,000 to $471,000 (one commercial case left out).",
+    "use": "The other 14 mortgage cases ranged from about $68,000 to $471,000, leaving out one case of about $23.7 million that covers several properties."
+  },
+  {
+    "row": "liens 21",
+    "pattern": "\\bHorry County (?:files|filed|has|had|leads(?: the state)? in) the most HOA complaints\\b|\\b14\\.1 ?(?:%|percent) of (?:complainants|complaints|owners|people|homeowners)\\b",
+    "struck": "Horry County files the most HOA complaints in South Carolina. 14.1% of complainants asked that HOAs be barred from placing liens or foreclosing.",
+    "use": "More of the complaints in the state's 2026 HOA report came from Horry County than from any other county: 31% of 452. Among recommendations for changing HOA papers, 14.1% asked to forbid liens or foreclosure."
+  },
+  {
+    "row": "liens 22",
+    "pattern": "\\b(?:take|takes|took|taken|taking|come|comes|came|pull|pulls|pulled) (?:it |them |the (?:home|house|unit|property) )?(?:off|from) the sale\\b|\\bremoved from the sale\\b",
+    "unless": "\\bmortgag",
+    "struck": "Pay before the sale: the county takes it off the sale when the debt is paid.",
+    "use": "(cut it for association cases: the county's sheet speaks of a defaulting mortgagor. Use instead: In Winrose, the owners paid the $250 bill and got a letter that the lien was satisfied, but the HOA did not withdraw its suit.)"
+  },
+  {
+    "row": "liens 30",
+    "pattern": "\\btitle search (?:shows|will show|finds|will find|turns up)\\b[^.]{0,80}\\b(?:lien|debt|dues|owed)\\b",
+    "unless": "\\brecorded\\b",
+    "struck": "A title search shows the seller's HOA debt.",
+    "use": "A title search shows a lien the association has recorded and any notice of a lawsuit. Dues owed but not recorded show only in the association's statement."
+  },
+  {
+    "row": "liens 33",
+    "pattern": "(?:does not|doesn't|never|do not|don't) owe[^.]{0,60}\\b(?:dues|assessments)\\b[^.]{0,60}\\bafter the mortgage was recorded\\b",
+    "unless": "\\bbefore (?:it|the bank|the buyer|they|taking)\\b|\\buntil (?:it|the bank|the buyer|they)\\b",
+    "struck": "The bank does not owe the dues that built up after the mortgage was recorded.",
+    "use": "The bank, or the buyer at the bank's foreclosure sale, does not owe the unpaid dues from between the day that mortgage was recorded and the day it took title."
+  },
+  {
+    "row": "liens 34",
+    "pattern": "\\b(?:dues|fees|assessments)\\b[^.]{0,50}\\bbefore (?:the|you|your|a) (?:bankruptcy )?fil(?:ed|e|ing)\\b[^.]{0,50}\\b(?:can|may|could) be (?:wiped out|discharged|erased|cleared)\\b",
+    "struck": "Dues from before the filing can be wiped out.",
+    "use": "(cut it: say only that dues that fall due after the filing are not wiped out while the owner keeps the unit or lot)"
+  },
+  {
+    "row": "liens 35",
+    "pattern": "\\b366\\b[^.]{0,80}\\b(?:bar|bars|ban|bans|forbid|forbids|prohibit|prohibits|stop|stops|end|ends) (?:all )?(?:HOAs?|associations?) from foreclosing\\b",
+    "struck": "S. 366 would bar HOAs from foreclosing on a member's property.",
+    "use": "S. 366 would make any foreclosure clause in an HOA's papers unenforceable and would protect a primary residence from a court sale brought only by an HOA. The HOA could still place a lien."
+  },
+  {
+    "row": "liens 38",
+    "pattern": "\\babout (?:3|three) (?:in|of|per|out of) (?:1,000|1000|a thousand)\\b",
+    "struck": "About 3 in 1,000 homes for sale here are foreclosures.",
+    "use": "Fewer than 3 in 1,000 listings for sale here are marked as foreclosures."
+  }
+]
