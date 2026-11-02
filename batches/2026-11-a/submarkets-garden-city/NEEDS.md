@@ -21,3 +21,8 @@ Batch 2026-11-a. Research helper, 2026-11-02. These are shared files this page m
 11. **Ground photos.** Every photo on the page is from the air (four USDA NAIP close-ups and one USGS oblique from over the ocean). The Wikimedia Commons API refused every request from this container ("too many requests") during the fix, so no CC photo could be found. The photo partner's shot list is in `shot-list.md`; the pier from the beach, the marsh from a dock, a street of houses west of Business 17 and the canals at the Georgetown end would replace the aerials one for one.
 12. **Menu highlight.** The page's script sets `CUR="invest-strrules"` (it comes from tools/mkpage.js for every page; conway has the same), so the menu may highlight the short-term rental item. Shared file.
 13. **Condo dues.** The reader asked for an ocean-side dues range. Dues are in the MLS detail (shown on the site only to registered visitors), so a public page cannot carry them. If the lead knows a public source (a building's posted budget, a county record), a dues row would finish the worked example.
+
+## Fix round 2, 2026-11-02
+
+13 is answered. The map API takes the site's own "HOA fee up to $X a month" filter (`hoaMax`), so `pull_hoa.py` brackets each condo's dues to $10 without saving any MLS number. Ledger row 48: 35 ocean-side listings, about $790 a month at the middle. The lead should re-run it with `pull_listings.py` at build.
+10 still stands: the homes row reads "Just listed near Garden City, in Surfside Beach" at 390 with no homes. It needs the lead's fix in `idx-lib/feeds.js` before the owner sees the page.
