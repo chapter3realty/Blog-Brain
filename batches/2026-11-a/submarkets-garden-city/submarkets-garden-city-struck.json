@@ -40,5 +40,8 @@
    "use": "The sea at the nearest working NOAA tide gauge, Springmaid Pier, has risen about 1.3 inches a decade." },
  { "row": "garden-city 38", "pattern": "Garden City has its own fire district|own fire district",
    "struck": "Garden City has its own fire district, the Murrells Inlet - Garden City Fire District.",
-   "use": "Garden City shares the Murrells Inlet - Garden City Fire District with Murrells Inlet." }
+   "use": "Garden City shares the Murrells Inlet - Garden City Fire District with Murrells Inlet." },
+ {"row": "garden-city 43", "pattern": "shorter hours for[^.]{0,40}\\bcaf[eé]", "struck": "The pier stays open in winter, with shorter hours for fishing, the café and the deck bar.", "use": "The pier stays open in winter, with shorter hours for fishing and the deck bar."},
+ {"row": "garden-city 43", "pattern": "summer afternoons,? and bands play every night", "struck": "Its café serves breakfast, its deck bar has karaoke on summer afternoons, and bands play every night at both ends of the pier, weather permitting.", "use": "Its café serves breakfast. In summer, its deck bar has karaoke in the afternoons, and bands play every night at both ends of the pier, weather permitting."},
+ {"row": "garden-city 44", "pattern": "state calls some of the best", "struck": "It has 3 miles of beach, a freshwater lake where you are almost sure to see alligators, and bird-watching the state calls some of the best on the East Coast.", "use": "It has 3 miles of beach, a freshwater lake where you are almost sure to see alligators, and what the state calls some of the top bird-watching on the East Coast."}
 ]

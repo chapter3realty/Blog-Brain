@@ -125,5 +125,8 @@
     "pattern": "\\$4,8\\d\\d for a second home|second home[^.]{0,40}\\$4,8\\d\\d|about \\$4,800 for a second home",
     "struck": "about $4,800 for a second home",
     "use": "about $4,800 for a house that is not the owner's main home"
-  }
+  },
+ {"row": "pawleys-island 59", "pattern": "\\bthe two at the Hammock Shops|Hammock Shops' two restaurants", "struck": "Among them are the Pawleys Island Tavern, Frank's and Frank's Outback, and the two at the Hammock Shops.", "use": "Among them are the Pawleys Island Tavern, Frank's and Frank's Outback, and Local at the Hammock Shops."},
+ {"row": "pawleys-island 59", "pattern": "\\b19 of them are on US 17|restaurants on the mainland from Litchfield", "struck": "On the map we count 20 restaurants on the mainland from Litchfield south past the causeways, and 19 of them are on US 17.", "use": "On the map we count 20 restaurants from Litchfield south past the causeways, and 19 of them are within about 650 feet of US 17."},
+ {"row": "pawleys-island 60", "pattern": "Hammock Shops are named for it", "struck": "The Hammock Shops are named for it.", "use": "The Hammock Shops take their name from the Original Hammock Shop, which has made them since 1938."}
 ]

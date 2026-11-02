@@ -43,5 +43,9 @@
    "use": "Builders sold 49 new homes inside the city in the past year, about 2 percent of the 2,147 builder sales countywide." },
  { "row": "submarkets-myrtle-beach 39", "pattern": "North Myrtle Beach[^.]{0,160}\\bno zoning map\\b|\\bno zoning map\\b[^.]{0,160}North Myrtle Beach",
    "struck": "North Myrtle Beach is a separate city that allows short-term rentals with a business licence and no zoning map.",
-   "use": "North Myrtle Beach is a separate city. A short-term rental there needs a business licence, and for now there is no special zoning or permit process beyond it." }
+   "use": "North Myrtle Beach is a separate city. A short-term rental there needs a business licence, and for now there is no special zoning or permit process beyond it." },
+ {"row": "submarkets-myrtle-beach 41", "pattern": "\\bpaved (walk|path|promenade)", "struck": "It has a raised wooden boardwalk, a wide section for entertainment, and a paved walk along the beach.", "use": "It has a raised wooden boardwalk, a wide section for entertainment, and a winding walk along the ocean."},
+ {"row": "submarkets-myrtle-beach 49", "pattern": "whose rules most (home )?loans follow", "struck": "Fannie Mae, whose rules most home loans follow, will not back a loan in a building managed like a hotel: with a front desk, daily cleaning, or a rule that owners put their unit in the rental program.", "use": "Fannie Mae will not back a loan in a building managed like a hotel: with a front desk, daily cleaning, or a rule that owners put their unit in the rental program."},
+ {"row": "submarkets-myrtle-beach 49", "pattern": "pay cash or use a loan made for condo-hotel", "struck": "Buyers in those buildings pay cash or use a loan made for condo-hotel units.", "use": "(cut it: no primary source; the next sentence already sends the buyer to our preferred lender)"},
+ {"row": "submarkets-myrtle-beach 52", "pattern": "size of a hotel room", "struck": "The lowest prices are for studios of about 400 square feet, the size of a hotel room, at Tides, Driftwood and Oasis.", "use": "The lowest prices are for studios of about 400 square feet at Tides, Driftwood and Oasis."}
 ]

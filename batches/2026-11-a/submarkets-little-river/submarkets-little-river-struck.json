@@ -101,5 +101,8 @@
     "pattern": "\\bnot (?:built or )?scheduled\\b",
     "struck": "It is not built or scheduled.",
     "use": "It is not built. South Carolina's part is in SCDOT's 2024-2033 program, with land buying planned to start in 2026 and construction in 2028; North Carolina has not funded land buying or building for its part."
-  }
+  },
+ {"row": "little-river R1-2", "pattern": "no public record (gives|shows|has)[^.]{0,40}depth", "struck": "No public record gives the depth of the water, so we check it at low tide for any slip you like.", "use": "The county's parcel records do not give the depth of the water, so we check it at low tide for any slip you like."},
+ {"row": "little-river R1-3", "pattern": "every slip that changed hands", "struck": "Every slip that changed hands here in the past year was sold on its own, without a condo.", "use": "The 12 slip sales recorded here in the past year were each for a slip alone, at $10,000 to $95,000, without a condo."},
+ {"row": "little-river R1-4", "pattern": "\\bat \\$38,000, a slip pays", "struck": "At $38,000, a slip pays about $460 a year in property tax.", "use": "On the county's full $38,000 value, a slip pays about $460 a year in property tax; a slip that has not sold in years may be taxed on a lower, capped value."}
 ]
