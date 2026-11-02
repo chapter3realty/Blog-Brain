@@ -1,9 +1,9 @@
 # Shot list: /invest/run-the-numbers/
 
-For the photo partner (`templates/photo-request-email.md`). All three are optional for this page; the page works without them. No people as the subject, no readable house numbers, license plates or business signs.
+For the photo partner (`templates/photo-request-email.md`). The page works without these; each one replaces a stand-in or adds a photo of the subject itself. No person as the subject, no readable house numbers, plates or business signs. With each photo, send the street or subdivision name, and confirm in writing that we may use it as our own.
 
-1. **A street of one-story rental-type houses in Longs (ZIP 29568).** Three or four similar houses in a row, from the sidewalk, daylight, landscape. This is the area where the rent comes closest to the price on our count.
-2. **One typical 3-bedroom house in Carolina Forest (ZIP 29579), front from the street.** A plain, ordinary house, not a show home. Landscape and a square crop.
-3. **A mid-rise condo building in Myrtle Beach (ZIP 29577), from the street or the parking lot, no name sign readable.** For the section on condo dues.
-
-Each photo: send the street or subdivision name so the caption can say where it is, and confirm in writing that we may use it as our own.
+| # | Place | What to shoot | Why | Section, and what it replaces |
+|---|---|---|---|---|
+| 1 | Carolina Forest (ZIP 29579), a street of ordinary 3-bedroom houses, for example in The Parks of Carolina Forest off Carolina Forest Boulevard | From the sidewalk, daylight, landscape: three or four similar houses in a row, driveways and front yards in view. Also one plain house front, straight on, landscape and a square crop. | The page's worked example (the sheet) is the middle 3-bedroom house for sale in Carolina Forest. A street view shows the reader the kind of house the numbers describe. | "What does the numbers sheet look like?": replaces the NOAA aerial of The Parks of Carolina Forest (stand-in). The square crop can be the share image. |
+| 2 | Longs (ZIP 29568), a street of one-story houses in a subdivision | From the street, daylight, landscape: a row of three or four similar houses. | Longs is where the rent comes closest to the price: 189 of the 429 houses that bring 8 percent of the price a year, and 8 of the 14 that pass the 1 percent rule. | "Does the 1 percent rule work in Myrtle Beach?": a new photo under the chart. No stand-in today. |
+| 3 | Myrtle Beach (ZIP 29577), a mid-rise condo building inside the city limits | From the street or the parking lot, the whole building with its balconies; no name sign readable. | The worked condo is a 2-bedroom inside the City of Myrtle Beach; its dues take 39 percent of the rent. | "What does a condo's HOA fee do to the numbers?": a new photo above the dues chart. No stand-in today. |
