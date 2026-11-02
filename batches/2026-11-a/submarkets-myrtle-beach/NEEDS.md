@@ -12,3 +12,9 @@ Shared-file requests from the research stage. None blocks the page.
 5. **Homes strips.** The spec uses the existing place slugs `grande-dunes`, `market-common` and `pine-lakes` from `data/2026-10-b/idx-places.json`. Their `pages` lists name only /buyers/best-neighborhoods/ and /buyers/gated-communities/. If the edge step fills a strip only for listed pages, add /submarkets/myrtle-beach/ to each. Until then the slots stay empty and take no space.
 6. **The map** was drawn in the spec as an SVG file (`images/2026-11-a/submarkets-myrtle-beach/nightly-rental-zones-map.svg`), as item 3 expected. The coastline in `tools/geo/grand-strand-v2.json` sits a little off the city's own ocean edge at the south end, so a thin strip of land color shows between the city and the ocean there.
 7. **Registry `rental-vs-residence-tax`** still says 4.3 times for the city (PROPOSED.md 1). The page says "almost four times" and gives the dollar figures from row 33.
+
+## Fix round 1 (2026-11-02)
+
+8. **The HOA fee, in aggregate.** The reader's first question on the condo math is the HOA fee. The CRM map API carries no fee, and the listing pages show it only to registered visitors. A middle monthly HOA fee for oceanfront one-bedrooms for sale inside the city, counted in aggregate, would answer it. Ask the site owner whether the feed can return the fee in aggregate (idx-lib), and whether an aggregate of active listings' fees may be shown on a public page.
+9. **An oceanfront condo strip.** Part 4 (a condo on the oceanfront) has no homes strip, only a pill, because no place slug covers "condos in oceanfront buildings inside the city" (item 2). A slug such as `myrtle-beach-oceanfront` would let it carry one.
+10. **Duplicate image.** `houses-and-towers-from-the-ocean-1200w.webp` here is byte-identical to the copy in `images/2026-11-a/buyers-common-mistakes/`. For the lead: keep one copy and point both pages at it, or give one page another photo.
