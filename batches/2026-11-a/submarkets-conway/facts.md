@@ -83,3 +83,4 @@ Short names for sources used below:
 1. Does Chapter3 have a Conway flood story of its own (a client who bought outside the flood map and stayed dry in 2018, or one who walked away)? None is in stories.json. Proposed: no story on this page; the gauge and the map carry it.
 2. What do Conway buyers ask our agents first? Proposed answer from the search data: "Does it flood?" and "Is it in the city?" (no owner question needed).
 3. Which Conway subdivisions do our agents show most? Not needed for the page; the areas come from county records.
+Lead check 2026-11-02: every VERIFIED-BY-FIXER row was re-checked by an independent verifier. The verdicts are in FIXER-VERIFY.md, and the lead applied them to the spec.

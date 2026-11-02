@@ -94,5 +94,30 @@
     "pattern": "\\babout (?:3|three) (?:in|of|per|out of) (?:1,000|1000|a thousand)\\b",
     "struck": "About 3 in 1,000 homes for sale here are foreclosures.",
     "use": "Fewer than 3 in 1,000 listings for sale here are marked as foreclosures."
+  },
+  {
+    "row": "liens 40",
+    "pattern": "\\b30 days\\b[^.]{0,60}\\bsame in every case\\b|\\bEvery case: 30 days\\b",
+    "struck": "The 30 days to answer is the same in every case.",
+    "use": "The time to answer, usually 30 days, is in the court's rules, and the summons states it."
+  },
+  {
+    "row": "liens 40",
+    "pattern": "\\byou have 30 days\\b[^.]{0,40}\\bto answer\\b|\\bAnswer the lawsuit within 30 days\\b",
+    "unless": "\\busually\\b|\\bmost cases\\b|\\bon the summons\\b",
+    "struck": "If you are sued, you have 30 days to answer.",
+    "use": "If you are sued, you usually have 30 days to answer; the summons gives the time."
+  },
+  {
+    "row": "liens 41",
+    "pattern": "\\bOnly owners who answer get notice\\b",
+    "struck": "Only owners who answer get notice of the hearings that follow.",
+    "use": "An owner who does not answer usually gets no notice of the hearings that follow."
+  },
+  {
+    "row": "liens 42",
+    "pattern": "\\bsale has to pay the association\\b",
+    "struck": "That means the sale has to pay the association and end the case.",
+    "use": "So plan for the sale to pay the association and end the case."
   }
 ]

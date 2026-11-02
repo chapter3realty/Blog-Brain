@@ -1,17 +1,99 @@
 [
-  {"row": "conway 5", "pattern": "\\bhouses? (?:that )?resold\\b|\\bhouses? there (?:usually )?resold\\b|\\bhouses? there (?:usually )?resell\\b", "unless": "273,|houses only", "struck": "A house that resold inside the city of Conway in the past year usually went for about $265,000.", "use": "A home that resold inside the city of Conway in the past year (a house or townhouse, not a condo unit) usually went for about $265,000."},
-  {"row": "conway 11", "pattern": "\\$650 more\\b", "struck": "about $650 more a year inside", "use": "about $670 more a year inside"},
-  {"row": "conway 15", "pattern": "\\bdid not flood\\b[^.]{0,40}\\bFlorence\\b|\\bFlorence\\b[^.]{0,60}\\bdid not flood\\b", "struck": "Large parts of Conway did not flood in Florence.", "use": "By the county's map, Florence's water did not reach large parts of Conway."},
-  {"row": "conway 22", "pattern": "\\b(?:empty|vacant) lots?\\b|\\bflood-damaged buildings\\b", "struck": "After Matthew, the City of Conway used FEMA mitigation money to buy 86 flood-damaged buildings so they could be cleared. That is why some streets near the river have empty lots.", "use": "After Matthew, the City of Conway used FEMA mitigation grants to buy 86 buildings; after Hurricane Floyd in 1999 it bought 14. Land bought this way must stay open space."},
-  {"row": "conway 25", "pattern": "\\b30 days after you buy\\b", "struck": "A flood policy usually starts 30 days after you buy it.", "use": "A new federal flood policy takes effect 30 days after the application and payment are complete, unless it is bought when a home loan is made."},
-  {"row": "conway 28", "pattern": "\\bone of (?:South Carolina's|the state's) oldest\\b", "struck": "Conway is one of South Carolina's oldest towns.", "use": "Conway was laid out in 1732, as Kingston."},
-  {"row": "conway 31", "pattern": "Snowhill, Mayfair, Highland Park and Collinswood|\\bold plats\\b", "struck": "Snowhill, Mayfair, Highland Park and Collinswood are the largest old plats here.", "use": "Snowhill, Mayfair, Buckwood, Highland Park and Collinswood are the largest plats here."},
-  {"row": "conway 32", "pattern": "\\bacross Crabtree Swamp\\b", "struck": "North of downtown, across Crabtree Swamp (Sherwood, Country Club Forest, Elmhurst, Kingston Bay, Midtown Village, Rivertown Row, Woodcreek)", "use": "North and northwest of downtown, around Crabtree Swamp (Sherwood, Country Club Forest, Elmhurst, Kingston Bay, Midtown Village, Rivertown Row, Woodcreek)"},
-  {"row": "conway 33", "pattern": "\\bmost\\b[^.]{0,40}\\bPecan Grove and Sedgefield\\b", "struck": "176 (5 percent) sit in a flood map, most of them in Pecan Grove and Sedgefield.", "use": "176 (5 percent) are in a flood map; the largest groups are in Kingston Village (34), Pecan Grove (29) and Sedgefield (13)."},
-  {"row": "conway 34", "pattern": "(?:SC|Highway|Hwy) 905[^.]{0,80}(?:Country Manor|Maple Hill)|(?:Country Manor|Maple Hill)[^.]{0,80}(?:SC|Highway|Hwy) 905|\\bthe city's golf community\\b", "struck": "Far north on SC 905 (Ridgewood West, Country Manor, Maple Hill): about 560 homes on the largest lots in the city.", "use": "At the city's north edge, 4 to 5 miles from downtown (Ridgewood West, Country Manor, Maple Hill): about 560 homes on the largest lots in the city."},
-  {"row": "conway 39-40", "pattern": "\\bHUD\\b[^.]{0,160}\\$(?:1,270|1,600|1,860|2,130|1,465|1,805)\\b|\\$2,130\\b", "struck": "HUD's 2026 estimate of a typical rent with utilities in the Conway ZIP codes (29526 and 29527) is $1,270 for a two-bedroom, $1,600 for a three-bedroom and $1,860 for a four-bedroom. In ZIP 29579 (Carolina Forest) the three-bedroom figure is $2,130.", "use": "HUD's fair market rent for October 2026 to September 2027 in the Conway ZIP codes (29526 and 29527) is $1,320 for a two-bedroom, $1,630 for a three-bedroom and $1,900 for a four-bedroom. In ZIP 29579 (Carolina Forest) the three-bedroom figure is $2,230, about $600 more."},
-  {"row": "conway 41", "pattern": "\\$21,285|\\b106\\b[^.]{0,30}\\b(?:nightly|short-term|vacation) rentals\\b|\\b8,600\\b[^.]{0,30}Myrtle Beach", "struck": "About 106 nightly rentals list Conway, against about 8,600 in Myrtle Beach. Conway's average nightly rental earned about $21,285 a year.", "use": "(cut the numbers: third-party data; link /invest/airbnb-income/)"},
-  {"row": "conway 42", "pattern": "\\bno (?:dedicated )?(?:ordinance|rules?)\\b[^.]{0,60}\\bshort-term\\b|\\bnever adopted a short-term rental ordinance\\b|\\bno ordinance written only for short-term rentals\\b", "struck": "The City of Conway has no ordinance written only for short-term rentals.", "use": "(cut it: not confirmed in the city code; link /invest/str-rules/ without a statement on the city's rules)"},
-  {"row": "conway 43", "pattern": "\\brentals turn over in August\\b|\\bagents start marketing\\b", "struck": "Near the college, rentals turn over in August, when new students arrive; agents start marketing a month before a lease ends.", "use": "Near the college, August is the best month to find a new tenant, because new students arrive; start marketing a month before the lease ends."},
-  {"row": "conway 44", "pattern": "\\b(?:Conway|the city) is in the (?:district's )?Conway attendance area\\b", "struck": "Conway is in the district's Conway attendance area.", "use": "Horry County Schools assigns schools by address; one of its attendance areas is named Conway."}
+  {
+    "row": "conway 5",
+    "pattern": "\\bhouses? (?:that )?resold\\b|\\bhouses? there (?:usually )?resold\\b|\\bhouses? there (?:usually )?resell\\b",
+    "unless": "273,|houses only",
+    "struck": "A house that resold inside the city of Conway in the past year usually went for about $265,000.",
+    "use": "A home that resold inside the city of Conway in the past year (a house or townhouse, not a condo unit) usually went for about $265,000."
+  },
+  {
+    "row": "conway 11",
+    "pattern": "\\$650 more\\b",
+    "struck": "about $650 more a year inside",
+    "use": "about $670 more a year inside"
+  },
+  {
+    "row": "conway 15",
+    "pattern": "\\bdid not flood\\b[^.]{0,40}\\bFlorence\\b|\\bFlorence\\b[^.]{0,60}\\bdid not flood\\b",
+    "struck": "Large parts of Conway did not flood in Florence.",
+    "use": "By the county's map, Florence's water did not reach large parts of Conway."
+  },
+  {
+    "row": "conway 22",
+    "pattern": "\\b(?:empty|vacant) lots?\\b|\\bflood-damaged buildings\\b",
+    "struck": "After Matthew, the City of Conway used FEMA mitigation money to buy 86 flood-damaged buildings so they could be cleared. That is why some streets near the river have empty lots.",
+    "use": "After Matthew, the City of Conway used FEMA mitigation grants to buy 86 buildings; after Hurricane Floyd in 1999 it bought 14. Land bought this way must stay open space."
+  },
+  {
+    "row": "conway 25",
+    "pattern": "\\b30 days after you buy\\b",
+    "struck": "A flood policy usually starts 30 days after you buy it.",
+    "use": "A new federal flood policy takes effect 30 days after the application and payment are complete, unless it is bought when a home loan is made."
+  },
+  {
+    "row": "conway 28",
+    "pattern": "\\bone of (?:South Carolina's|the state's) oldest\\b",
+    "struck": "Conway is one of South Carolina's oldest towns.",
+    "use": "Conway was laid out in 1732, as Kingston."
+  },
+  {
+    "row": "conway 31",
+    "pattern": "Snowhill, Mayfair, Highland Park and Collinswood|\\bold plats\\b",
+    "struck": "Snowhill, Mayfair, Highland Park and Collinswood are the largest old plats here.",
+    "use": "Snowhill, Mayfair, Buckwood, Highland Park and Collinswood are the largest plats here."
+  },
+  {
+    "row": "conway 32",
+    "pattern": "\\bacross Crabtree Swamp\\b",
+    "struck": "North of downtown, across Crabtree Swamp (Sherwood, Country Club Forest, Elmhurst, Kingston Bay, Midtown Village, Rivertown Row, Woodcreek)",
+    "use": "North and northwest of downtown, around Crabtree Swamp (Sherwood, Country Club Forest, Elmhurst, Kingston Bay, Midtown Village, Rivertown Row, Woodcreek)"
+  },
+  {
+    "row": "conway 33",
+    "pattern": "\\bmost\\b[^.]{0,40}\\bPecan Grove and Sedgefield\\b",
+    "struck": "176 (5 percent) sit in a flood map, most of them in Pecan Grove and Sedgefield.",
+    "use": "176 (5 percent) are in a flood map; the largest groups are in Kingston Village (34), Pecan Grove (29) and Sedgefield (13)."
+  },
+  {
+    "row": "conway 34",
+    "pattern": "(?:SC|Highway|Hwy) 905[^.]{0,80}(?:Country Manor|Maple Hill)|(?:Country Manor|Maple Hill)[^.]{0,80}(?:SC|Highway|Hwy) 905|\\bthe city's golf community\\b",
+    "struck": "Far north on SC 905 (Ridgewood West, Country Manor, Maple Hill): about 560 homes on the largest lots in the city.",
+    "use": "At the city's north edge, 4 to 5 miles from downtown (Ridgewood West, Country Manor, Maple Hill): about 560 homes on the largest lots in the city."
+  },
+  {
+    "row": "conway 39-40",
+    "pattern": "\\bHUD\\b[^.]{0,160}\\$(?:1,270|1,600|1,860|2,130|1,465|1,805)\\b|\\$2,130\\b",
+    "struck": "HUD's 2026 estimate of a typical rent with utilities in the Conway ZIP codes (29526 and 29527) is $1,270 for a two-bedroom, $1,600 for a three-bedroom and $1,860 for a four-bedroom. In ZIP 29579 (Carolina Forest) the three-bedroom figure is $2,130.",
+    "use": "HUD's fair market rent for October 2026 to September 2027 in the Conway ZIP codes (29526 and 29527) is $1,320 for a two-bedroom, $1,630 for a three-bedroom and $1,900 for a four-bedroom. In ZIP 29579 (Carolina Forest) the three-bedroom figure is $2,230, about $600 more."
+  },
+  {
+    "row": "conway 41",
+    "pattern": "\\$21,285|\\b106\\b[^.]{0,30}\\b(?:nightly|short-term|vacation) rentals\\b|\\b8,600\\b[^.]{0,30}Myrtle Beach",
+    "struck": "About 106 nightly rentals list Conway, against about 8,600 in Myrtle Beach. Conway's average nightly rental earned about $21,285 a year.",
+    "use": "(cut the numbers: third-party data; link /invest/airbnb-income/)"
+  },
+  {
+    "row": "conway 42",
+    "pattern": "\\bno (?:dedicated )?(?:ordinance|rules?)\\b[^.]{0,60}\\bshort-term\\b|\\bnever adopted a short-term rental ordinance\\b|\\bno ordinance written only for short-term rentals\\b",
+    "struck": "The City of Conway has no ordinance written only for short-term rentals.",
+    "use": "(cut it: not confirmed in the city code; link /invest/str-rules/ without a statement on the city's rules)"
+  },
+  {
+    "row": "conway 43",
+    "pattern": "\\brentals turn over in August\\b|\\bagents start marketing\\b",
+    "struck": "Near the college, rentals turn over in August, when new students arrive; agents start marketing a month before a lease ends.",
+    "use": "Near the college, August is the best month to find a new tenant, because new students arrive; start marketing a month before the lease ends."
+  },
+  {
+    "row": "conway 44",
+    "pattern": "\\b(?:Conway|the city) is in the (?:district's )?Conway attendance area\\b",
+    "struck": "Conway is in the district's Conway attendance area.",
+    "use": "Horry County Schools assigns schools by address; one of its attendance areas is named Conway."
+  },
+  {
+    "row": "conway 49",
+    "pattern": "\\bFor that, the City of Conway picks up\\b",
+    "struck": "For that, the City of Conway picks up garbage, recycling and yard waste at the curb once a week",
+    "use": "The City of Conway picks up garbage, recycling and yard waste at the curb once a week for homes in the city"
+  }
 ]

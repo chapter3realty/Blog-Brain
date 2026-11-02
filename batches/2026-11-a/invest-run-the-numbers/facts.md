@@ -70,3 +70,4 @@ Short names for sources:
 2. Whether our agents file the January 31 notice for the 25 percent exemption (row 5) or only remind the buyer. Proposed default: "we remind you"; the page does not say we file it.
 3. Whether a furnished rental gets the county's FFAE notice in practice.
 4. The insurance range our agents see on a landlord policy for a typical Carolina Forest house, from our files, labelled as ours.
+Lead check 2026-11-02: every VERIFIED-BY-FIXER row was re-checked by an independent verifier. The verdicts are in FIXER-VERIFY.md, and the lead applied them to the spec.
