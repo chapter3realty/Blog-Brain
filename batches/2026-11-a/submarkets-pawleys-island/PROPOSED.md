@@ -9,3 +9,7 @@ For `facts/registry.json`, after the verifier passes the ledger rows named. Each
 5. **pawleys-length**: "Pawleys Island is less than 4 miles long (town)." Row 2. Watch for "three and one-quarter miles" (1972 figure) or "4 miles long" stated as exact.
 
 No story is proposed: `stories/stories.json` has no Pawleys Island story, and none was invented.
+
+## Added by the builder, 2026-11-02
+
+6. **The setback map's own count.** In the stretch our south-end map shows, 33 of 35 oceanfront houses have at least 20 square metres past the setback line (`data/2026-11-a/submarkets-pawleys-island/images/setback-inset.json`, the verifier's test from row 22). The page shows this only as shading on the map and states no number for it; the stated numbers are row 22's (78 of 138 at the south end). If a later page wants the number in words, a verifier should check the frame count first.

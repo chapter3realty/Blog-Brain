@@ -4,3 +4,10 @@
 2. **No Georgetown County property tax page on the site.** The live page linked "Horry County property taxes" (/buyers/property-taxes/) for a Georgetown County town (the judge's first problem). This page does its own worked example (facts rows 30 to 33). A shared Georgetown County section on /buyers/property-taxes/ would serve Pawleys Island, Litchfield, DeBordieu and the Georgetown end of Garden City and Murrells Inlet. Until then, do not link /buyers/property-taxes/ from this page for Pawleys numbers.
 3. **The CRM's `oceanfront` and `no_hoa` flags return every listing** for `city=Pawleys Island` (279 of 279), as Garden City found. A homes strip cannot use them.
 4. **`tools/area-map.js`**: if it cannot draw polygons (town limits, zones, flood VE) from a GeoJSON file, the builder will draw the map in the spec from `map-layers.geojson`. A shared polygon option would help every town page.
+
+## Added by the builder, 2026-11-02
+
+5. **AirROI is struck for this page** (ledger row 37, VERIFY.md). The page shows no AirROI number and links /invest/airbnb-income/. Item 1 above no longer affects this page, but that shared page still shows the August Pawleys figures.
+6. **exiftool is not installed in this container**, so `node tools/photos.js embed` could not write the metadata into the new image files (`images/2026-11-a/submarkets-pawleys-island/`). The licence record passes `photos.js check`. Run `node tools/photos.js embed data/2026-11-a/submarkets-pawleys-island/photos.json chapter3realty` where exiftool exists.
+7. **Homes strip.** The page carries `G.homes("second-home-pawleys-island", ...)` (the 2-mile circle around the island in batch 2026-10-b's idx-places.json, now registered for /buyers/second-home/ only). If the edge fills strips by page, register this page for that slug. With no homes, the slot stays empty.
+8. **Walkway photo record.** `data/photos.json` names a master file and 1x1 and 4x3 crops for `pawleys-island-beach-walkway` that are not in the website folder; only -600w and -1200w exist (VERIFY.md). This page uses only those two through `heroPhoto`; the share image is this page's own NAIP crop.
