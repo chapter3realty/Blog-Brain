@@ -1,3 +1,5 @@
 # Needs: /invest/condos/
 
 - **tools/checkpoint.sh drops every file when one pathspec does not exist yet.** `git add -N -- specs/condos.js ...` fails on the missing spec and image folder, so no new file is intent-added and web.patch comes out empty (it did at the first two checkpoints of this stage). Workaround used: run it with only the pathspecs that exist (`data/2026-11-a/invest-condos chapter3realty/invest/condos/`). Fix: add each pathspec on its own and skip the ones that fail.
+- **glass.js: the end offer band turns pale on a page with the live listings notice.** The website's listing notice follows the end band inside `<main>`, so glass.js's top-bar rules (`section[navy]:not(:last-child)`) reach the end band and its headline and text fade to near white (seen on /invest/strategies/fix-and-flip/ today too). Workaround in `specs/condos.js` PAGE_CSS, the same as /buyers/cost-to-own/ (BAND_END). Fix: exclude a navy section whose `.wrap` holds an `h2`.
+- **The shot list's earlier row 3 used a struck figure** ("half of the county's condo complexes have 8 units or fewer"). Rewritten in `shot-list.md` from verified rows.
