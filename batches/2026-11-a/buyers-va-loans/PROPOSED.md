@@ -9,7 +9,7 @@ Both need a firing and a quiet control from real site text in `facts-check.test.
 
 ## data/headlines.json
 
-"/buyers/va-loans/": title "VA Loans in Myrtle Beach: Which Condos and Homes Qualify | Chapter3", h1 ["VA loans in Myrtle Beach:", "which condos and homes qualify."]. Reason: the old line 2 ("what the VA appraisal checks here.") promises a checklist the ledger cannot back until the VA handbook's Chapter 12 is read (facts.md, Not verified). The hook is backed by the page's own counts and by the VA_FEED homes row. Spec pages keep titles in their specs, so this is for the lead to keep the file in step.
+"/buyers/va-loans/": title "VA Loans in Myrtle Beach: Which Condos Qualify | Chapter3" (57 characters; the planned "Which Condos and Homes Qualify" title is 67, over mkpage's 62), h1 ["VA loans in Myrtle Beach:", "which condos and homes qualify."]. Reason: the old line 2 ("what the VA appraisal checks here.") promises a checklist the ledger cannot back until the VA handbook's Chapter 12 is read (facts.md, Not verified). The hook is backed by the page's own counts and by the VA_FEED homes row. Spec pages keep titles in their specs, so this is for the lead to keep the file in step.
 
 ## stories/stories.json
 
