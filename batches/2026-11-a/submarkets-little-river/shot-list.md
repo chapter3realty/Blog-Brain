@@ -12,7 +12,7 @@ In page order:
 | 2 | The swing bridge on Sea Mountain Highway over the Intracoastal Waterway | The whole span from the bank, ideally while it is turned open for a boat | The page says it was built in 1935 and still swings open for boats | "What is it like to live in Little River?", beside the bridge paragraph; new |
 | 3 | Vereen Memorial Historical Gardens | The boardwalk over the marsh; if he can find it, the piece of the old Kings Highway at the front, behind the CB Berry Community Center | The page tells both | "What is it like to live in Little River?", new |
 | 4 | Mariner's Pointe slip basin | Boats in the slips with the condo buildings around the basin, from the street or the waterway side | The page gives what deeded slips here sold for, $10,000 to $38,000 | "Living on the water", beside the slip table; new |
-| 5 | Coquina Harbour and Lightkeepers Village (one basin off US 17) | Rows of boats in slips, and the basin's mouth on the waterway | 106 deeded slips between them | Part 1, "The old village and the harbors", replaces the harbours aerial |
+| 5 | Coquina Harbour and Lightkeepers Village (one basin off US 17) | Rows of boats in slips, and the basin's mouth on the waterway | About 105 deeded slips between them | Part 1, "The old village and the harbors", replaces the harbours aerial |
 | 6 | T. Craig Campbell Landing, 148 Morgan Avenue, at the US 17 bridge | The two ramps and the dock, with the paved lot | The page names it as the public ramp on the waterway, about 7 minutes from the old village | "Where to launch a boat", new |
 | 7 | A street of houses in Heather Glen | Houses and yards from the public street | The largest subdivision, more than 1,100 houses | Part 2, "North and east", new |
 | 8 | Worthams Ferry Landing on the Waccamaw River | The ramp and the river | The page names it as part 3's river ramp | Part 3, "North-west", new |
@@ -20,3 +20,5 @@ In page order:
 | 10 | A street of manufactured homes in North Pointe | Homes on their lots from the public street | The page corrects the old claim about manufactured homes and gives what these sell for | Part 4, or "What kind of homes are here", new |
 
 Optional: the Carolina Yacht Landing condo buildings from the water side if he is on a boat, and the beach at Cherry Grove Pier, about 11 minutes away.
+
+Added in review round 1 (2026-11-02): the Mineola Avenue waterfront during the Blue Crab Festival, the weekend after Mother's Day (crowd from behind or far enough that no face is the subject), and a fairway of the River Hills golf course from a public road. The page now names both.

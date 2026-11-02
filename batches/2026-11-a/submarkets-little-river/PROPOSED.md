@@ -12,3 +12,7 @@ For `facts/registry.json`, once the verifier marks the ledger rows verified. Eac
 | hud.safmr.fy2027 | FY2027 Small Area FMRs, effective 2026-10-01 (29566 3BR $2,100) | 36, 37 | Every rent mention in the batch should use one year; Conway used FY2026 | FY2026 figures on pages built before 2026-10-01 |
 
 No new stories. No Little River story is in `stories/stories.json`; none proposed.
+
+## Review round 1, 2026-11-02
+
+- **facts/registry.json, new entry "horry-deeded-slips"**: Horry County has 320 deeded boat slips (land use 306, excluding two non-slip parcels); 221 are in the Little River ZIP (Mariner's Pointe 116, Coquina Harbour 80, Lightkeepers Village 25), and 99 in North Myrtle Beach (Dock Holidays 93, Harbourgate 6). Owner page /submarkets/little-river/. Wrong patterns: "223 (deeded )?(boat )?slips", "322 (deeded )?(boat )?slips". Source: County GIS layer 24; ledger rows 12 and R1-1.

@@ -15,3 +15,12 @@
 10. **Per-part homes strips.** The five parts of Little River have no `idx-places.json` slugs, so the page shows no homes strip per part (Conway NEEDS 7 has the same gap). If the lead adds them, `G.homes("little-river-<part id>", ...)` can go under each part's chips.
 11. **Garden City's page** gives its own seasonal share (39.5 percent). The seven-place comparison chart is on this page; Garden City and North Myrtle Beach can link to `/submarkets/little-river/#living-here` instead of repeating it.
 12. **Not used** (rows verified but cut to keep the number count down, owner rule P2): the ZIP's 1.4 square miles inside North Myrtle Beach (row 2), the slip counts in the map key (row 12, still in the table), the 3-bedroom listing counts (row 31), the $186 million South Carolina estimate and the $125 million 2016 referendum (rows 42, 44), the HUD two- and four-bedroom figures (row 36), the Little River vs county resale compare (row 46).
+
+## Added in review round 1, 2026-11-02
+
+13. **analyze.py marina() counts two non-slip parcels** (row R1-1): "COQUINA HARBOR NORTH; PHASE II" (a 2-acre tract) is put in Coquina Harbour, and "BRYANT DR & WHARF AV" in "other". The ZIP has 221 deeded slips, the county 320. Any sibling page that says 223 or 322 should use the corrected numbers.
+14. **compare.js card mode at 768** (critic): `.c3-cc .n{text-align:left}` did not take effect there. Worked around by dropping `num:true`.
+15. **image-meta S13 for drawn SVG maps shown as `<img>`**: photos.js `imageSchema` takes only photo records. This page writes its own ImageObject for its two maps (encodingFormat image/svg+xml, the "own" rights fields). Conway fails S13 the same way. A shared `mapSchema()` helper would serve both.
+16. **exiftool was missing after the container restart.** Installed with apt-get for this round. The share crops made before the restart had no embedded metadata; they are re-made here.
+17. **The safety FAQ** wording is shared with the sibling town pages; this page now says "we pull the figures"; the lead may want one wording for all.
+18. **Mid-page boxed CTA** (build.js audit `~`): the five per-part offer pills are not boxes. A glass helper for a mid-page offer box would answer the owner's "CTA for any property".
