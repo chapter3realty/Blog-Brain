@@ -1,0 +1,129 @@
+[
+  {
+    "row": "pawleys-island 2",
+    "pattern": "\\b3\\.5 miles\\b",
+    "struck": "Our measure of its three main roads inside the town is 3.5 miles.",
+    "use": "(cut the road measure: it was off by a map-scale error and adds roads that run side by side; keep the town's \"less than 4 miles long\")"
+  },
+  {
+    "row": "pawleys-island 12",
+    "pattern": "\\$700,000|\\b1,265 houses\\b|\\b59 sales\\b",
+    "struck": "On the mainland directly behind the island, a house sold for about $700,000 at the middle (59 sales in the year).",
+    "use": "On the mainland directly behind the island, east of US 17 (about 1,200 houses), a house sold for about $675,000 at the middle (53 sales in the year)."
+  },
+  {
+    "row": "pawleys-island 14",
+    "pattern": "DeBordieu[^.]{0,120}\\$1\\.7 million|\\$1\\.7 million[^.]{0,80}DeBordieu|\\$1,725,000",
+    "struck": "In DeBordieu, the gated beach community south of the island, a house sold for about $1.7 million at the middle (21 sales).",
+    "use": "(cut the DeBordieu price and shares on this page: our DeBordieu group missed most of its lots; link /buyers/gated-communities/)"
+  },
+  {
+    "row": "pawleys-island 18",
+    "pattern": "(behind the island|mainland behind)[^.]{0,80}\\b40 percent\\b|\\b40 percent\\b[^.]{0,80}(behind the island|mainland behind)",
+    "struck": "Litchfield's ocean side is almost all in high-risk zones too, the mainland behind the island 40 percent, and west of US 17 about 1 in 20.",
+    "use": "Litchfield's ocean side is almost all in high-risk zones too, the mainland behind the island about a third, and west of US 17 about 1 in 20."
+  },
+  {
+    "row": "pawleys-island 21",
+    "pattern": "\\b23 feet\\b|\\b23 ft\\b",
+    "struck": "Our measure of the gap between the two state lines along the island is about 23 feet.",
+    "use": "Our measure of the gap between the two state lines along the island is 20 feet."
+  },
+  {
+    "row": "pawleys-island 22",
+    "pattern": "\\b81 of 138\\b|\\b71 of 155\\b|\\b12 of 41\\b|\\b98 of 217\\b",
+    "struck": "Most are at the south end (81 of 138 oceanfront houses south of the South Causeway). On Litchfield's ocean side it is 71 of 155.",
+    "use": "Most are at the south end (78 of 138 oceanfront houses south of the South Causeway). On Litchfield's ocean side it is 86 of 155."
+  },
+  {
+    "row": "pawleys-island 24",
+    "pattern": "Oct(ober)? 2019[^.]{0,30}Feb(ruary)? 2020",
+    "struck": "1.1 million cubic yards of sand along 2.6 miles, from October 2019 to February 2020",
+    "use": "about 1.1 million cubic yards of sand along 2.6 miles of beach, in 2019 and 2020"
+  },
+  {
+    "row": "pawleys-island 24b",
+    "pattern": "(paid for|funded) with[^.]{0,80}\\$6 million",
+    "unless": "planned",
+    "struck": "It was paid for with $6 million from the town's beach fund, a $5.6 million state grant and a $2.8 million loan.",
+    "use": "The planned funding was $6 million from the town's beach fund, a $5.6 million state grant and a $2.8 million loan."
+  },
+  {
+    "row": "pawleys-island 26",
+    "pattern": "\\b44 tropical storms and hurricanes\\b|\\b44 (tropical )?storms (and|or) hurricanes\\b",
+    "struck": "Since 1950, 44 tropical storms and hurricanes have passed within 50 miles of the island's center.",
+    "use": "Since 1950, the centers of 44 storms passed within 50 miles of the island's middle; 7 were hurricanes at their closest point."
+  },
+  {
+    "row": "pawleys-island 29",
+    "pattern": "\\bdraft(ing)?\\b[^.]{0,80}(historic|landmark|preservation)|(historic|landmark|preservation)[^.]{0,80}\\bdraft\\b",
+    "struck": "It began a voluntary local landmark list with a draft ordinance (June 2026).",
+    "use": "In September 2026 the town adopted a historic preservation ordinance with a list of individually designated historic houses."
+  },
+  {
+    "row": "pawleys-island 29b",
+    "pattern": "\\bopt[- ]in\\b|\\bvoluntary\\b[^.]{0,40}(list|landmark|historic)",
+    "struck": "It began a voluntary (\"opt in\") local landmark list.",
+    "use": "A house can be nominated by its owner, a council member or a board member, and the council decides."
+  },
+  {
+    "row": "pawleys-island 31",
+    "pattern": "\\$96 household fee|household fee[^.]{0,40}\\$96",
+    "struck": "The island adds a $44 household fee; the mainland district adds a $96 household fee.",
+    "use": "The county's estimate adds $44 in fees on the island and $96 in household and storm water fees in the mainland district."
+  },
+  {
+    "row": "pawleys-island 33",
+    "pattern": "runs mostly on",
+    "struck": "It runs mostly on state accommodations tax and insurance license fees.",
+    "use": "Its two largest revenue lines are the state accommodations tax and insurance license fees."
+  },
+  {
+    "row": "pawleys-island 35",
+    "pattern": "\\bno business license\\b",
+    "struck": "The town requires no business license to rent a house out.",
+    "use": "(cut it: no town source states it, and the town is studying a business license)"
+  },
+  {
+    "row": "pawleys-island 37",
+    "pattern": "\\bAirROI\\b|\\$31,4\\d\\d|\\b453 active\\b",
+    "struck": "AirROI counted 453 active Airbnb listings; the average listing grossed about $31,400.",
+    "use": "(cut the vendor rental numbers; link /invest/airbnb-income/)"
+  },
+  {
+    "row": "pawleys-island 40",
+    "pattern": "which is how (a )?famil(y|ies) pass",
+    "struck": "The deed shows under $1,000, which is how a family passes a house to children, an estate or a trust.",
+    "use": "The deed shows under $1,000, the kind of deed used to pass a house to heirs or a trust, or to move it into a company."
+  },
+  {
+    "row": "pawleys-island 43",
+    "pattern": "\\bhouses were (framed|built) (in|of) cypress\\b",
+    "struck": "The houses were framed in cypress hewn on the mainland.",
+    "use": "Cypress, the wood used most often, was hewn on the mainland and each timber was marked with Roman numerals."
+  },
+  {
+    "row": "pawleys-island 45",
+    "pattern": "hammock[^.]{0,60}(first made|invented)|(first made|invented)[^.]{0,60}hammock",
+    "struck": "The rope hammock was first made on the island.",
+    "use": "(cut it: no primary source)"
+  },
+  {
+    "row": "pawleys-island 51",
+    "pattern": "\\$449,|\\$450,000|police[^.]{0,60}\\$5\\d\\d,\\d{3}",
+    "struck": "The town has its own police department (2026 budget about $449,000).",
+    "use": "The town has its own police department."
+  },
+  {
+    "row": "pawleys-island 15",
+    "pattern": "lender will require flood insurance on all",
+    "struck": "A lender will require flood insurance on all of them.",
+    "use": "A lender making a mortgage on any of them will require flood insurance."
+  },
+  {
+    "row": "pawleys-island 19",
+    "pattern": "\\$4,8\\d\\d for a second home|second home[^.]{0,40}\\$4,8\\d\\d|about \\$4,800 for a second home",
+    "struck": "about $4,800 for a second home",
+    "use": "about $4,800 for a house that is not the owner's main home"
+  }
+]
