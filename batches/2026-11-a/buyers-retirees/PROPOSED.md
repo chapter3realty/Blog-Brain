@@ -36,3 +36,9 @@ For the lead. Nothing here is applied. Each row needs a firing and a quiet contr
 No new stories. The page uses four existing ones as recorded (`off-season-open`, `blackmoor-to-seasons`, `ny-client-tax-drop`, `pa-buyers-retirees` / `client-origins`).
 
 Two client claims on the live page are not in the story bank and are cut: the New York couple saving "over $20,000 a year", and "clients whose kids now attend Coastal Carolina University tuition-free". If the owner has these on record, he can add them to `stories/stories.json`; until then they stay off every page.
+
+## Verifier notes on these proposals (2026-11-02)
+
+- Item 3: "both are 12-6-1140 deductions" is wrong. The age-65 deduction is 12-6-1170(B); the SCIAD is 12-6-1140(15). Also 12-6-1170(C): the age-65 deduction is reduced by the same person's military retirement deduction. Fix the wording before the row goes in.
+- Item 4: the application goes to the county auditor "and to the governing body of the municipality" where the home is (12-37-250(A)(4)(a)). Add that. The statute says nothing about applying only once; do not add "once".
+- New, item 5, `homestead-2026-proviso`: For tax year 2026 only, a person who was eligible for the homestead exemption in 2025 gets an additional $25,000 exemption, $75,000 in all. Source: FY 2026-27 General Appropriations Act (H.5126, ratified R 276), Part IB, proviso 117.220, https://www.scstatehouse.gov/sess126_2025-2026/appropriations2026/tap1b.htm ; not among the governor's 14 vetoes (veto letter of August 17, 2026, which says "increasing the Homestead Exemption from $50,000 to $75,000"). ownerPage: /buyers/property-taxes/ (that page states $50,000 with no 2026 note; the lead should decide whether it needs one). staleBy: 2027-07 (a later budget may repeat or drop it). wrong: none yet; a $75,000 figure stated as the standing rule would be wrong.
