@@ -10,3 +10,10 @@
 5. **critic.mjs warns `read.wall` on the FAQ at 390 px** (1,456 px of FAQ text). Non-blocking; the FAQ is five short open answers under H3s. The critic may not count an FAQ H3 as a break.
 6. **Sitewide footer** says "The Myrtle Beach investor-focused brokerage" on a page for a buyer choosing where to live (CRAFT 4, "The page's surroundings are part of the page"). Shared footer; not changed here.
 7. **The Georgetown tax rate's year** (row 16) is not stated by the county calculator. The page says "Georgetown County's current estimate". When a 2026 Georgetown bill can be read, confirm district 41 and register it (PROPOSED.md).
+
+## Review round 1 (2026-11-03)
+
+7. **The homes strip's AI search box overflows at 320 px** (critic round 1: `.hx-fb-ai` 341 px in a 272 px column, the page 364 px wide). Worked around inside the spec with the same scoped CSS as /submarkets/conway/ and /submarkets/pawleys-island/ (`min-width:0`, `max-width:100%` and wrap on `.hx-fb-ai`, `width:100%` on its textarea, `overflow-x:auto` on `.hx-fb-pills`). The real fix belongs in the shared strip CSS (idx-lib/filters.js), so every page gets it.
+8. **critic.mjs does not route the sample photos** (photos.test), so its shots show the top homes strip empty. Its README says how; critic.mjs should do it itself.
+9. **Per-part homes strips** (item 4) are still the missing piece the owner asked for on 2026-10-21. Each part's offer now carries `&part=<id>` (horry-side, georgetown-west, between-the-roads, creek-side), so /contact/ can tell the agent which part was picked if the form keeps the query string.
+10. **Photo partner email.** The shot list (shot-list.md: MarshWalk boardwalk, creek docks at high tide, Wacca Wache Landing, a street in part 3) still needs sending from the owner's Gmail. This helper has no Gmail access.
