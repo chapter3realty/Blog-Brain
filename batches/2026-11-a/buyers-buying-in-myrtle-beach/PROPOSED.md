@@ -1,0 +1,7 @@
+# Proposed registry rows: /buyers/buying-in-myrtle-beach/
+
+For `facts/registry.json`, after the verifier passes the rows named. Each needs a firing and a quiet control from real site text.
+
+1. **id `horry-months-of-supply`** (ownerPage /buyers/buying-in-myrtle-beach/). Fact: "In Horry County, condos have about 7.5 months of homes for sale at the past year's pace of sales, and houses about 4 (3.8), counting builder sales; housing researchers call 6 to 6.5 balanced." Source: facts.md F3 to F5; DATA market.json. staleBy: 2026-12-15 (re-pull monthly). Wrong values to catch: "4.5 months" or "4.3 months" for houses called a buyer's market (the live page), "9.2 months" for condos (live page), "103 days" / "121 days" average days on market (live page, no source).
+2. **id `builder-share-of-sales`** (ownerPage /buyers/new-construction/). Fact: "Builders sold more than 1 in 4 homes recorded in Horry County in the year to September 2026 (5,108 of 17,881); the middle new house sold for about $330,000." Wrong values: "1 in 6", "2,010 builder sales", "$337,000" for new houses (all from the building-value-filtered file; NEEDS.md 2).
+3. **id `sc-no-remote-notary`** (ownerPage /sell/out-of-state-buyers/). Fact: "South Carolina has no video notarization; a South Carolina notary must be in the room with the signer." Source: OSB 15, 34; F37 here. Wrong values: "remote online notarization" for closing documents (the live page's FAQ).
