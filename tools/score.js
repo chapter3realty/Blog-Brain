@@ -549,7 +549,11 @@ rule("visual-rhythm", "Human", 3, "A visual element (table, list, chart, image, 
 rule("image", "Human", 2, "At least one image or chart with real alt text", (p, f) =>
   f.visuals.images + f.visuals.charts ? pass(`${f.visuals.images} images, ${f.visuals.charts} charts`) : fail("no image or labelled chart in the body"), { applies: isArticle });
 
-rule("ctas", "Human", 2, "2+ calls to action inside the article", (p, f) => f.ctas >= 2 ? pass(`${f.ctas}`) : part(f.ctas / 2, `${f.ctas}`), { applies: isArticle });
+/* Owner, 2026-11-03: "we need more CTA's ... mid roll CTA's are lacking". At least 2, and one for every two content sections. */
+rule("ctas", "Human", 2, "Calls to action: 2+, and one per two sections of the article", (p, f) => {
+  const want = Math.max(2, Math.ceil(f.contentH2.length / 2));
+  return f.ctas >= want ? pass(`${f.ctas} for ${f.contentH2.length} sections`) : part(f.ctas / want, `${f.ctas} for ${f.contentH2.length} sections; want ${want}`);
+}, { applies: isArticle });
 
 /* --- Plain language (voice/RULES.md class PLAIN, owner 2026-10-07) -------- */
 /* "it is a very hard read because numbers are exact and there's too many numbers you also are

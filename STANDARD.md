@@ -37,11 +37,11 @@ CTA line: one sentence and one plain button                H5
 On this page: every section, labels = H2s or their short label  H14
 Section: the first question defines the subject            A4, A5
 Section: the comparison table                              A6
-  CTA 1, about a third of the way down                     H5
+  An offer box after about every second section          H5
 Section ... each one opens with a quotable sentence        A5
 Section: the figure (chart, diagram, or photo)             H4
 Section ... a story from Chapter3's files                  T2
-  CTA 2, before the last section                           H5
+  (each tied to the section above it, never the same words twice)
 FAQ: 4-8 questions, open text, never a closed accordion   A7, A13
 Sources line: 3-5 links, under 90 words                    T3
 Bottom CTA
@@ -127,7 +127,7 @@ Simple enough for anyone. These come before every other rule, on every page. The
 | H2 | No paragraph over 80 words. Split at the idea, or make a list. | EXPERIMENT (NN/g): scannable text, +47 percent usability. |
 | H3 | A visual break (table, list of 3 or more, figure, callout) at least every 350 words. | STUDY (NN/g 2008): readers read about 20 percent of the words on a page. An older figure, "79 percent of readers scan", was 15 of 19 users in one 1997 test (Morkes and Nielsen); do not repeat it. |
 | H4 | At least one figure: a chart built from the data file, a diagram, a map or a real photo. It has `alt` or `aria-label` text of 12 or more characters and a visible caption, and it is legible at 375 pixels wide. Use `h.figure()`. | OFFICIAL: images near related text, with descriptive alt. 109 pages have none. |
-| H5 | Two CTAs inside the article: one about a third of the way down, one before the last section. The phone number is a button. | OWNER. The site's A11c. |
+| H5 | An offer box after about every second section of the article, each tied to the question the section just answered, with its own headline and a large button; no two with the same words. The phone number is a button. | OWNER (2026-11-03: "we need more CTA's ... mid roll CTA's are lacking"). The site's A11c. |
 | H6 | **(human)** The page agrees with itself. The hero sub, short answer, sections, table, FAQ and schema state the same facts the same way. | The pilot found the live LLC page contradicting itself twice. |
 | H7 | **(human)** The buyer test, on every sentence: would a buyer standing in the property do anything differently because of it? | OWNER, the site's A11a. |
 | H8 | **(human)** Every term a buyer might not know is defined in the same sentence, the first time it appears. | The site's A12. OWNER: "The page is assuming I know." |

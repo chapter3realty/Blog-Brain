@@ -126,6 +126,11 @@ for (const [id, m] of mutations) {
   check("ctas: two homes strips count as two calls to action", credit(strips, "ctas").credit === 1, `(${credit(strips, "ctas").detail})`);
   const plainDiv = noButtons.replace("</main>", '<div class="hx-strip"></div><div class="strip" data-place="b"></div></main>');
   check("ctas: a div without the strip's data-place does not count", credit(plainDiv, "ctas").credit < 1, `(${credit(plainDiv, "ctas").detail})`);
+  /* Owner, 2026-11-03: "mid roll CTA's are lacking". Eight more sections with no new offer: the page wants one per two sections. */
+  const long = base.replace("</main>", Array.from({ length: 8 }, (_, i) => `<section><h2>Question number ${i + 1} about the topic?</h2><p>The answer to question ${i + 1} is plain and short.</p></section>`).join("") + "</main>");
+  check("ctas: a long page with few offers is short of one per two sections", credit(long, "ctas").credit < 1, `(${credit(long, "ctas").detail})`);
+  const longOffers = long.replace("</main>", Array.from({ length: 6 }, (_, i) => `<a class="btn btn-brass" href="/contact/">Have us check part ${i + 1}</a>`).join("") + "</main>");
+  check("ctas: the same long page with an offer per two sections passes", credit(longOffers, "ctas").credit === 1, `(${credit(longOffers, "ctas").detail})`);
 }
 
 /* question-h2: a numbered list of places (owner, 2026-10-14) is left out of the count; the other headings still count. */

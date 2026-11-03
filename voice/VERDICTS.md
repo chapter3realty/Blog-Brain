@@ -139,3 +139,10 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 - "add a ai that you can ask questions to about each house make each ai chat the same color and logo so people know": done in v1.27. Each listing has "Ask about this home". Every AI feature carries one chip: "Chapter3 AI", a navy chip with a brass sparkle (`idx-lib/ai.js` in the website). Class: an AI feature on the site is always marked the same way, so a visitor knows it is AI.
 - "an interactable copy of the rental analyzer with the working AI in the blog page": done. /invest/run-the-numbers/ frames the real analyzer (`/invest/long-term-rental/?embed=1`). Class: when the site has a working tool, a guide shows that tool, not a simpler copy of it. The short-term rental tool is left out until it is reworked (owner: "our short term rental tool sucks").
 - "for the 1% rule we should specify the date when we ran the report and then create a hard call to action": done. Class: a count of homes for sale says the day it ran, taken from the data file, and offers to run it again.
+
+## 2026-11-03, later: more offers, simpler words, what they want first
+
+- "we need more CTA's im noticing while you create these mid roll CTA's are lacking": an offer box after about every second section, each tied to the question the section just answered, never the same words twice (CRAFT 3, STANDARD H5). Class: when a reader finishes a section and wants our help with it, the next step is on the screen. The 20 shipped guides are retrofitted (v1.30); the workflows' briefs carry it.
+- "make sure you are speaking as simple as you can so inexperienced humans can understand": the reader may be buying for the first time. Every word a first-time buyer would not use is replaced or explained in the same sentence. Class: write for the least experienced reader who searched this, not the investor who already knows the terms.
+- "putting the information they want the most at the top": the short answer and the first section answer the question most searched, in plain words, before any background (CRAFT 1).
+- Praise, the same day: "youre doing great".
