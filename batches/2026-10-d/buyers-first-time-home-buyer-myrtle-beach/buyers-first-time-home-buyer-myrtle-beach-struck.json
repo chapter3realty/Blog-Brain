@@ -55,5 +55,8 @@
    "use": "If a termite letter is issued for a South Carolina sale or mortgage, it must be on the state's official Wood Infestation Report form, signed by a licensed pest control applicator." },
  { "row": "buyers-first-time-home-buyer-myrtle-beach 40", "pattern": "preferred lender handles the loan",
    "struck": "Our preferred lender handles the loan; when an SC Housing program fits, we introduce you to an SC Housing approved lender.",
-   "use": "When an SC Housing program fits, a Chapter3 agent connects you with an SC Housing approved lender." }
+   "use": "When an SC Housing program fits, a Chapter3 agent connects you with an SC Housing approved lender." },
+ { "row": "buyers-first-time-home-buyer-myrtle-beach 49", "pattern": "Socastee,? southwest of Myrtle Beach",
+   "struck": "then in Socastee, southwest of Myrtle Beach",
+   "use": "then in Socastee, west of Myrtle Beach" }
 ]

@@ -42,9 +42,3 @@ To restart: run `workflows/redesign-batch.js` (now the leaner line, `FASTER.md`)
 3. The pre-existing critic findings above.
 4. Weak pages from the judges' file not yet scheduled: 24 articles and 10 hubs (owner's count, 2026-11-03).
 5. Photos: `photo-request-group-1.md` to `-3.md`, sent once Gmail is connected.
-
-## v1.30, 2026-11-03: more offers and plainer words on the 20 rebuilt guides
-
-The owner asked for more offers mid-page, simpler words and the most wanted answer first. Each of the 20 pages now has an offer after about every second section, tied to that section; its top is reworded for a first-time buyer; no fact changed. A separate reader checked each set of five, and fixers applied every item. The new score rule H5 (one offer per two sections) passes on all 20. The critic finds nothing blocking at 320 and 390 px on the six pages sampled, and audit and check pass. v1.28, v1.29 and v1.30 apply in order on the live branch (tested).
-
-Open: /hoa/special-assessments/ still words "special assessment" differently from /hoa/reserves/ ("a one-time bill to each owner for a cost the fund cannot cover"). Match it when that page ships.
