@@ -112,6 +112,17 @@ Wikimedia Commons answered two calls, then rate-limited this session (HTTP 429).
 | Section 4 (from a sibling plan) | North Myrtle Beach seen from South Carolina Highway 31 - 01.jpg | CC BY-SA 4.0 (condos PLAN) | https://commons.wikimedia.org/wiki/File:North_Myrtle_Beach_seen_from_South_Carolina_Highway_31_-_01.jpg | A distant skyline; weak. Last resort. |
 | V3 | USDA NAIP 2023 aerial, Cherry Grove channels | Public domain (U.S. government work) | data/2026-11-a/submarkets-north-myrtle-beach/images/naip_channels.py | Looked at full size (1400 x 1000): channels, finger lots with docks, the marsh, the ramp, the beach and the ocean are all clear. Needs 3 or 4 large labels at 390 px. |
 
+Found in a second Commons search (2026-11-03, licences read from the API; the image files themselves were rate-limited, so the builder must open each at full size before use):
+
+| Use | File | Licence and author | URL | What it shows (per Commons) |
+|---|---|---|---|---|
+| Section 4 history line, beside the 1968 merger | Ocean Drive Beach - Roberts Pavilion.jpg (1489 x 936) | Public domain, Tichnor Brothers postcard, 1941 | https://commons.wikimedia.org/wiki/File:Ocean_Drive_Beach_-_Roberts_Pavilion.jpg | A colored postcard of the pavilion at Ocean Drive Beach, before the four towns merged. Caption must say it is a 1941 postcard. |
+| Section 4 (alternative) | North Myrtle Beach - Street Scene.jpg (1600 x 1003) | Public domain, Tichnor Brothers postcard, 1941 | https://commons.wikimedia.org/wiki/File:North_Myrtle_Beach_-_Street_Scene.jpg | A 1941 street postcard. The city did not exist in 1941; read the card's own printed title before captioning it, and name the town it shows. |
+| Not recommended | North Myrtle Beach OD Pavilion.jpg | Public domain, Crtrue, 2007 | https://commons.wikimedia.org/wiki/File:North_Myrtle_Beach_OD_Pavilion.jpg | A fry stand at the OD Pavilion: a business is the subject. |
+| Not recommended | North Myrtle Beach Banner.jpg (4320 x 617) | CC BY-SA 3.0, Melikamp | https://commons.wikimedia.org/wiki/File:North_Myrtle_Beach_Banner.jpg | A strip crop of the Cherry Grove Pier photo above. Too thin at 390 px. |
+
+No free photo of Barefoot Landing, Main Street today or Heritage Shores was found. The photo partner's list covers them.
+
 Searches still to run on Commons when it answers: "Main Street North Myrtle Beach", "Ocean Drive North Myrtle Beach", "Barefoot Landing", "Heritage Shores Nature Preserve", "Windy Hill Beach", Category:North Myrtle Beach, South Carolina. No store logo or business sign as the subject.
 
 ## Photo partner's shot list
