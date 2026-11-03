@@ -1,0 +1,127 @@
+[
+ {
+  "row": "buying-in-myrtle-beach 6",
+  "pattern": "\\$700,000[^.]{0,160}\\b(?:buyers have the edge|buyer'?s market)\\b|\\b(?:buyers have the edge|buyer'?s market)\\b[^.]{0,160}\\$700,000",
+  "unless": "\\bnear\\b|\\bclose to\\b|\\bborder",
+  "struck": "Houses at $700,000 and up have about 7 months: the one part of the house market where buyers have the edge.",
+  "use": "Houses at $700,000 and up have about 7 months of supply, at the top of the balanced range: the one part of the house market near the point where buyers gain the edge."
+ },
+ {
+  "row": "buying-in-myrtle-beach 8",
+  "pattern": "\\b12\\.2\\b|\\babout 18 months\\b|\\b5\\.3 months\\b",
+  "struck": "Condos in the City of Myrtle Beach have about 18 months of supply; houses there 5.3 months.",
+  "use": "Condos in the City of Myrtle Beach have about 11 to 12 months of supply, about a year; houses there about 5 to 6."
+ },
+ {
+  "row": "buying-in-myrtle-beach 11",
+  "pattern": "\\bnot a premium\\b|\\bnew (?:homes? |houses? )?(?:is|are) cheaper\\b|\\bcheaper than (?:a )?resale",
+  "struck": "A new house is not a premium here: it costs less than a resale.",
+  "use": "The middle home a builder sold, condos aside, went for about $330,000; the middle resale house or other home about $350,000."
+ },
+ {
+  "row": "buying-in-myrtle-beach 12",
+  "pattern": "\\bMay (?:through|to) July\\b|\\bbarely mov",
+  "struck": "Resale closings are fewest in January and February and most from May through July; the middle price barely moves.",
+  "use": "Recorded resales were fewest in January and February (about 430 houses a month) and ran about 620 to 670 a month from May to October."
+ },
+ {
+  "row": "buying-in-myrtle-beach 13",
+  "pattern": "\\bmiddle resale house\\b[^.]{0,60}\\$350,000",
+  "unless": "other home",
+  "struck": "Across Horry County, the middle resale house sold for about $350,000.",
+  "use": "Across Horry County, the middle resale house or other home sold for about $350,000, and the middle resale condo about $215,000."
+ },
+ {
+  "row": "buying-in-myrtle-beach 16",
+  "pattern": "\\b3 in 10\\b[^.]{0,160}\\banother state\\b",
+  "unless": "or country|state or",
+  "struck": "About 3 in 10 homes sold went to a buyer whose tax bill goes to another state.",
+  "use": "About 3 in 10 homes sold went to a buyer whose tax bill goes to another state or country; for condos, more than half."
+ },
+ {
+  "row": "buying-in-myrtle-beach 17",
+  "pattern": "\\b(?:do|does|did) not pay more\\b|\\bdon'?t pay more\\b",
+  "struck": "Out-of-state buyers do not pay more.",
+  "use": "In the same building or subdivision, buyers with an out-of-state tax bill paid the same middle price as South Carolina buyers; the records show no sign that they pay more."
+ },
+ {
+  "row": "buying-in-myrtle-beach 18",
+  "pattern": "\\b52 percent\\b|\\brose 0\\.8 percent\\b|\\bpeaked in the third quarter\\b",
+  "struck": "House prices in the Myrtle Beach metro rose 0.8 percent in the year to mid-2026, after rising 52 percent in the five years before.",
+  "use": "The federal house price index for Horry County rose about 51 percent from mid-2021 to mid-2025. In the year to mid-2026 it was about flat (up 0.8 percent, less than the index's margin)."
+ },
+ {
+  "row": "buying-in-myrtle-beach 25",
+  "pattern": "\\bevery purchase\\b",
+  "struck": "That is why we line one up on every purchase.",
+  "use": "We line up the inspection."
+ },
+ {
+  "row": "buying-in-myrtle-beach 30",
+  "pattern": "\\bsend (?:the )?appraiser\\b",
+  "struck": "When one comes in low, we send the appraiser comparable sales and ask for a reconsideration of value.",
+  "use": "When one comes in low, we send comparable sales with a request for a reconsideration of value."
+ },
+ {
+  "row": "buying-in-myrtle-beach 31",
+  "pattern": "\\bthree days before (?:you )?clos",
+  "struck": "The buyer has the right to a free copy, no later than three days before closing.",
+  "use": "You get a free copy as soon as it is done, or three business days before closing if that is sooner, unless you agree in advance to get it at closing."
+ },
+ {
+  "row": "buying-in-myrtle-beach 34",
+  "pattern": "\\bfor a home (?:you live in|to live in)\\b[^.]{0,160}\\battorney|\\battorney\\b[^.]{0,160}\\bfor a home (?:you live in|to live in)\\b",
+  "struck": "When you buy with a home loan for a home to live in, the lender must ask which attorney you want for the closing.",
+  "use": "When you buy with a home loan for personal or family use, the lender must ask which attorney you want for the closing and follow your choice."
+ },
+ {
+  "row": "buying-in-myrtle-beach 37",
+  "pattern": "\\bnotary\\b[^.]{0,80}\\bin the (?:same )?room\\b|\\bin the (?:same )?room\\b[^.]{0,80}\\bnotary\\b",
+  "struck": "A South Carolina notary must be in the room with the signer.",
+  "use": "A South Carolina notary and the signer must be in each other's physical presence; South Carolina law has no remote (video) notarization."
+ },
+ {
+  "row": "buying-in-myrtle-beach 38",
+  "pattern": "\\bcounty charges\\b[^.]{0,60}\\$(?:15|25)\\b",
+  "struck": "The county charges $15 to record a deed and $25 to record a mortgage.",
+  "use": "Recording costs $15 for a deed and $25 for a mortgage, fees set by state law."
+ },
+ {
+  "row": "buying-in-myrtle-beach 41",
+  "pattern": "\\$350,000 house\\b[^.]{0,160}\\$1,290|\\$1,290[^.]{0,160}\\$350,000 house\\b",
+  "unless": "county values",
+  "struck": "On a $350,000 house, 2026 property tax outside city limits is about $1,290 a year as your legal residence.",
+  "use": "On a house the county values at $350,000, 2026 property tax outside city limits is about $1,290 a year as your legal residence and about $4,220 as a second home."
+ },
+ {
+  "row": "buying-in-myrtle-beach 44",
+  "pattern": "\\$7,5[45]\\d\\b|about \\$63\\d a month|\\bHOA(?: fee)?(?: about)? \\$900\\b",
+  "struck": "The middle Horry County house costs about $7,550 a year besides the mortgage, about $630 a month (HOA about $900).",
+  "use": "The middle Horry County house costs about $7,850 a year besides the mortgage, about $650 a month (HOA about $1,200)."
+ },
+ {
+  "row": "buying-in-myrtle-beach 45",
+  "pattern": "\\$7,97\\d\\b|North Myrtle Beach[^.]{0,160}\\bless than half\\b",
+  "struck": "In North Myrtle Beach the middle condo costs about $11,240 a year against $7,970 for the middle house.",
+  "use": "In North Myrtle Beach the middle condo costs about $11,240 a year against $7,670 for the middle house."
+ },
+ {
+  "row": "buying-in-myrtle-beach 50",
+  "pattern": "\\bno zoning map\\b",
+  "struck": "North Myrtle Beach allows short-term rentals with a business licence and has no zoning map for them.",
+  "use": "In North Myrtle Beach a short-term rental needs a business licence, and for now there is no special zoning or permit process beyond it."
+ },
+ {
+  "row": "buying-in-myrtle-beach 24",
+  "pattern": "\\bdue diligence (?:period|window)\\b[^.]{0,160}\\b(?:days|fee)\\b",
+  "unless": "agree on|you and the seller",
+  "struck": "The due diligence period usually runs 10 to 14 days, and walking away costs the termination fee.",
+  "use": "(cut it: owner question 1 is open; say only what we do in that time)"
+ },
+ {
+  "row": "buying-in-myrtle-beach 39",
+  "pattern": "\\b30 to 45 days\\b|\\bcash[^.]{0,60}\\b(?:about )?two weeks\\b",
+  "struck": "Most purchases close in 30 to 45 days; cash in about two weeks.",
+  "use": "(cut it: owner question 3 is open; give the two federal waits only)"
+ }
+]
