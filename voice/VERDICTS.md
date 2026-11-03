@@ -132,3 +132,10 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 ## 2026-10-28 (later): keep the photos
 
 - "me and abdulla own the business together and the crm ... lets keep a copy of the photos ... keep it saved for the month": the website keeps its own copy of each listing photo for 30 days, sized for where it shows. The CRM contract's "hotlinked only" rule was the CRM's AI's wording, not the owners' decision. Class: a rule written by a tool is checked with the owners before it blocks a fix they need.
+
+## 2026-11-03: the 15 rebuilt guides (batches 2026-10-d and 2026-11-a, patches v1.24 to v1.26)
+
+- **Praise.** About the screenshots of all 15, before deploying: "bro though these are soo good so much better like im amazed". Keep what made them: the answer first under a question heading people search, at least two findings from public records that no other site has, charts and tables built from data files, plain short sentences, and a fact checked by an agent who did not research it.
+- "add a ai that you can ask questions to about each house make each ai chat the same color and logo so people know": done in v1.27. Each listing has "Ask about this home". Every AI feature carries one chip: "Chapter3 AI", a navy chip with a brass sparkle (`idx-lib/ai.js` in the website). Class: an AI feature on the site is always marked the same way, so a visitor knows it is AI.
+- "an interactable copy of the rental analyzer with the working AI in the blog page": done. /invest/run-the-numbers/ frames the real analyzer (`/invest/long-term-rental/?embed=1`). Class: when the site has a working tool, a guide shows that tool, not a simpler copy of it. The short-term rental tool is left out until it is reworked (owner: "our short term rental tool sucks").
+- "for the 1% rule we should specify the date when we ran the report and then create a hard call to action": done. Class: a count of homes for sale says the day it ran, taken from the data file, and offers to run it again.
