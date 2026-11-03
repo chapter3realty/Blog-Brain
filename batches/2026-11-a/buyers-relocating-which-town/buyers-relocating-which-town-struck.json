@@ -1,0 +1,88 @@
+[
+  {
+    "row": "which-town 4",
+    "pattern": "about 8 in 10[^.]{0,220}\\b74\\b",
+    "struck": "How many houses are someone's legal residence: about 8 in 10 in Murrells Inlet, Aynor, Longs, Little River, Loris, Carolina Forest, Conway, Myrtle Beach and Socastee (74 to 81 percent).",
+    "use": "How many houses are someone's legal residence: about 3 in 4 or more in Murrells Inlet, Aynor, Longs, Little River, Loris, Carolina Forest, Conway, Myrtle Beach and Socastee (74 to 81 percent)."
+  },
+  {
+    "row": "which-town 6",
+    "pattern": "\\$1,0[67]\\d[^.]{0,80}high-risk (?:flood )?zones?|high-risk (?:flood )?zones?[^.]{0,80}\\$1,0[67]\\d",
+    "unless": "zone A or AE|A or AE zone",
+    "struck": "A flood policy on a house that is the owner's home costs about $1,070 a year at the middle in FEMA's high-risk zones in Horry County.",
+    "use": "Among Horry County owners who carry a FEMA flood policy on the house they live in, the middle policy costs about $1,070 a year in zone A or AE and about $550 outside the high-risk zones."
+  },
+  {
+    "row": "which-town 7",
+    "pattern": "about half (?:of )?the house lots|a fifth to a third of an acre",
+    "struck": "Around Aynor and Loris about half the house lots (58 and 43 percent) are an acre or more. Everywhere else the middle lot is a fifth to a third of an acre.",
+    "use": "More than half the house lots around Aynor (58 percent) and more than 4 in 10 around Loris (43 percent) are an acre or more. Everywhere else the middle lot is about a sixth to a third of an acre (0.17 to 0.34)."
+  },
+  {
+    "row": "which-town 8",
+    "pattern": "about 1 in 3 homes in Longs|(?:Surfside Beach|Garden City)[^.]{0,60}\\bbefore 19(?:85|90)\\b|half were built before 19(?:85|90)",
+    "struck": "In Surfside Beach half were built before 1985 and in Garden City before 1990. About 1 in 3 homes in Longs (39 percent), Carolina Forest (35) and Conway (31) were built in 2010 or later.",
+    "use": "In Surfside Beach half the homes were built in 1985 or earlier, and in Garden City in 1990 or earlier. About 2 in 5 homes in Longs (39 percent) and about a third in Carolina Forest (35) and Conway (31) were built in 2010 or later."
+  },
+  {
+    "row": "which-town 10",
+    "pattern": "plus \\$96(?! or)",
+    "struck": "$456 around Pawleys Island and Litchfield and $516 in Murrells Inlet (each plus $96 in county fees)",
+    "use": "$456 around Pawleys Island and Litchfield (plus $96 or $44 in county fees, by district) and $516 in Murrells Inlet (plus $96), by the county's current calculator",
+    "unless": "\\$44"
+  },
+  {
+    "row": "which-town 11",
+    "pattern": "\\$1,0[23]0 around Loris(?![^.]{0,40}outside)",
+    "struck": "Property tax a year on the middle house: about $1,030 around Loris.",
+    "use": "Property tax a year on the middle house: about $1,030 around Loris outside the city limits (about $1,940 inside the City of Loris)."
+  },
+  {
+    "row": "which-town 12",
+    "pattern": "(?:owner|you) buys? (?:it|that cover|wind and hail(?: cover)?) from the state's wind",
+    "struck": "An insurer may leave wind and hail out of a policy, and the owner buys it from the state's wind and hail association.",
+    "use": "An insurer may leave wind and hail out of a policy; the owner can buy that cover separately, for example from the state's wind and hail association."
+  },
+  {
+    "row": "which-town 16",
+    "pattern": "insurance and upkeep (?:cost|are) (?:about )?the same everywhere",
+    "struck": "The 4 percent rate keeps the tax on a home you live in low, and insurance and upkeep cost about the same everywhere.",
+    "use": "(cut the insurance clause) The 4 percent rate keeps the tax on a home you live in low. The table uses one county figure for insurance and one regional figure for upkeep; wind cover near the beach can cost more."
+  },
+  {
+    "row": "which-town 17",
+    "pattern": "\\b29 (?:minutes )?from Conway|\\b36 (?:minutes )?from around Loris|18 in Carolina Forest, 19 in Longs|Pawleys Island \\(about 19\\)|\\b22 (?:minutes )?from Carolina Forest|\\b39 (?:minutes )?from around Pawleys|\\b44 (?:minutes )?from Longs",
+    "struck": "To the beach about 18 in Carolina Forest, 19 in Longs, 29 from Conway, 36 from around Loris. To the airport 22 from Carolina Forest, 39 from around Pawleys Island, 44 from Longs and Little River. Hospital: except around Pawleys Island (about 19).",
+    "use": "To the beach about 20 minutes in Carolina Forest and Longs, 30 from Conway, 35 from around Loris. To the airport about 20 from Carolina Forest, 40 from around Pawleys Island, 45 from Longs and Little River. Hospital: except around Pawleys Island (about 20)."
+  },
+  {
+    "row": "which-town 18",
+    "pattern": "Loris 31, (?:North Myrtle Beach|NMB) 27, Conway 17",
+    "struck": "RV or boat parking: Loris 31, North Myrtle Beach 27, Conway 17, Myrtle Beach 17.",
+    "use": "RV or boat parking: around Loris 31, North Myrtle Beach 27, around Pawleys Island 18, Conway 17 and Myrtle Beach 17."
+  },
+  {
+    "row": "which-town 20",
+    "pattern": "there is no county (?:trash )?pickup|no county (?:trash |curbside )?pickup",
+    "struck": "Outside the towns in Horry County there is no county pickup.",
+    "use": "Outside the towns, the county's Solid Waste Authority does not collect trash at the curb: owners pay a private hauler or take trash to one of the 25 convenience centers, which only residents of the unincorporated county may use."
+  },
+  {
+    "row": "which-town 23",
+    "pattern": "North Myrtle Beach allows (?:it|nightly rentals|renting by the night) (?:citywide|across the city)|recorded rules decide|Conway (?:allows it )?only in three downtown|Myrtle Beach bars it in its traditional neighborhoods",
+    "struck": "Myrtle Beach bars it in its traditional neighborhoods; North Myrtle Beach allows it citywide with a yearly business license; Conway only in three downtown districts; unincorporated Horry County has no zoning rule on rental length, so the subdivision's recorded rules decide.",
+    "use": "Myrtle Beach does not zone most of its traditional neighborhoods for rentals under 90 days; North Myrtle Beach has no special zoning or permit for them, only a yearly business license, the lodging taxes and its trash, parking, noise and occupancy rules; Conway's code allows them in three downtown districts; outside the towns, county zoning sets no limit on rental length, and a subdivision's recorded rules can."
+  },
+  {
+    "row": "which-town 26",
+    "pattern": "Aynor holds the Harvest Hoe-Down each fall|Act 200 of 2014",
+    "struck": "Aynor holds the Harvest Hoe-Down each fall.",
+    "use": "State law names the third Saturday in September \"Aynor Harvest Hoe-Down Festival Weekend\"; the Pilot Club of Aynor started the festival in 1979."
+  },
+  {
+    "row": "which-town 30",
+    "pattern": "Most North Myrtle Beach houses for sale list no HOA",
+    "struck": "Most North Myrtle Beach houses for sale list no HOA fee.",
+    "use": "About half of North Myrtle Beach's houses for sale list no HOA fee."
+  }
+]
