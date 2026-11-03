@@ -1,0 +1,42 @@
+From 9da13c85793c8cba2690eeefc73f9f353f27c200 Mon Sep 17 00:00:00 2001
+From: t <t@t>
+Date: Tue, 3 Nov 2026 21:43:30 +0000
+Subject: [PATCH] Nothing cut off on a small phone: the homes row's search
+ wraps below 380 px, and the neighborhoods hub's title fits at 320 px
+
+- idx-lib/filters.js: below 380 px the AI search row wraps (the words, then the button on its own line). It ran to 364 px in a 320 px window on every page with a homes row (critic, 2026-11-03).
+- /submarkets/: the H1 fits at 320 px.
+---
+ chapter3realty/submarkets/index.html | 2 +-
+ idx-lib/filters.js                   | 2 ++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/chapter3realty/submarkets/index.html b/chapter3realty/submarkets/index.html
+index dfb10d04..00292021 100644
+--- a/chapter3realty/submarkets/index.html
++++ b/chapter3realty/submarkets/index.html
+@@ -77,7 +77,7 @@
+   #ltr-teaser .wrap>div{flex-direction:column;align-items:center;text-align:center}
+ }
+ </style>
+-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "@id": "https://chapter3realty.com/about/#devin-day", "name": "Devin Day", "jobTitle": "Operations Officer", "description": "Operations Officer and front-end product lead", "knowsAbout": ["Mortgage financing", "DSCR loans", "Real estate investment analysis", "Myrtle Beach real estate"], "worksFor": {"@id": "https://chapter3realty.com/#org"}, "url": "https://chapter3realty.com/about/", "image": "https://chapter3realty.com/team/devin.webp"}</script><style id="c3-nohscroll">html{overflow-x:clip}#c3-fab{display:none !important}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Grand Strand Neighborhoods | Myrtle Beach Area Guide","description":"Grand Strand submarket research: home prices, rental income, and investor data for Myrtle Beach, Murrells Inlet, North Myrtle Beach, and five more areas.","image":"https://chapter3realty.com/og-image.jpg","datePublished":"2026-06-12","dateModified":"2026-11-03","author":{"@id":"https://chapter3realty.com/about/#devin-day"},"publisher":{"@id":"https://chapter3realty.com/#org"},"mainEntityOfPage":"https://chapter3realty.com/submarkets/"}</script></head>
++<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "@id": "https://chapter3realty.com/about/#devin-day", "name": "Devin Day", "jobTitle": "Operations Officer", "description": "Operations Officer and front-end product lead", "knowsAbout": ["Mortgage financing", "DSCR loans", "Real estate investment analysis", "Myrtle Beach real estate"], "worksFor": {"@id": "https://chapter3realty.com/#org"}, "url": "https://chapter3realty.com/about/", "image": "https://chapter3realty.com/team/devin.webp"}</script><style id="c3-nohscroll">html{overflow-x:clip}#c3-fab{display:none !important}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Grand Strand Neighborhoods | Myrtle Beach Area Guide","description":"Grand Strand submarket research: home prices, rental income, and investor data for Myrtle Beach, Murrells Inlet, North Myrtle Beach, and five more areas.","image":"https://chapter3realty.com/og-image.jpg","datePublished":"2026-06-12","dateModified":"2026-11-03","author":{"@id":"https://chapter3realty.com/about/#devin-day"},"publisher":{"@id":"https://chapter3realty.com/#org"},"mainEntityOfPage":"https://chapter3realty.com/submarkets/"}</script><style id="c3-hub-h1-fit">@media (max-width:359px){#page-submarkets-index h1{font-size:2.1rem!important}}</style></head>
+ <body>
+ <a class="skip-link" href="#main">Skip to content</a>
+ <header>
+diff --git a/idx-lib/filters.js b/idx-lib/filters.js
+index 22c77c83..71d512dd 100644
+--- a/idx-lib/filters.js
++++ b/idx-lib/filters.js
+@@ -170,6 +170,8 @@ ${AI_CSS}
+ .hx-fb-go{flex:none;border:0;border-radius:999px;background:linear-gradient(180deg,#d4894a,#c4783a);color:#151a22;font:inherit;font-weight:700;font-size:.9rem;padding:.7rem 1.15rem;cursor:pointer;white-space:nowrap}
+ .hx-fb-go:hover{background:#c4783a}
+ .hx-fb-q textarea::placeholder{color:#6b7480}
++/* Owner, 2026-11-03: nothing cut off. Below 380 px the search row wraps: the words, then the button on its own line (critic: the row ran to 364 px in a 320 px window on every page with a homes row). */
++@media (max-width:379px){.hx-fb-ai,.hx-fb-q{min-width:0;max-width:100%;flex-wrap:wrap;box-sizing:border-box}.hx-fb-q textarea{min-width:0;flex:1 1 100%;width:100%}.hx-fb-go{flex:1 1 100%}.hx-ai-badge{flex-wrap:wrap;white-space:normal}}
+ /* The Filters window (owner, 2026-10-28: Zillow's, with our look): the house first, then See more. */
+ .hx-fb .hx-modal>.hx-pop-p{position:fixed;left:50%;right:auto;top:calc(var(--hx-top,0px) + 1rem);bottom:1rem;transform:translateX(-50%);width:min(40rem,calc(100vw - 2rem))!important;max-height:52rem;padding:0;display:flex;flex-direction:column;overflow:hidden;z-index:10002;border-radius:20px}
+ .hx-modal[open]>summary::before{content:"";position:fixed;inset:0;background:rgba(21,26,34,.5);z-index:10001;cursor:default}
+-- 
+2.43.0
+
