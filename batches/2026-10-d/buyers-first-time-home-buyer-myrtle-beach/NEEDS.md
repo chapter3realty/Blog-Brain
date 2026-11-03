@@ -25,3 +25,10 @@
 8. **exiftool is not installed in this container.** `tools/photos.js embed` stops, so the new aerial (`images/2026-10-d/buyers-first-time-home-buyer-myrtle-beach/golf-and-yacht-club-houses-from-above*.webp`) has its record (`data/2026-10-d/buyers-first-time-home-buyer-myrtle-beach/photos.json`, check passes) but no metadata in the files yet. The lead runs `node tools/photos.js embed data/2026-10-d/buyers-first-time-home-buyer-myrtle-beach/photos.json chapter3realty` where exiftool exists.
 9. **`tools/glass.js`: the top offer card's left edge.** The compact band rule sets `margin-left:max(16px,calc((100% - 1200px) / 2 + 2rem))`, so below 1200 px the card starts at 16 px while text starts at the .wrap padding (about 24, 21 and 34 px at 390, 768 and 1024). Fix in glass.js: use the .wrap padding at each breakpoint (2rem; 1.25rem at 768 and below; the phone value measured as 1.4rem at 480 and below). Workaround in this spec's CSS (item 4b). Remove it once glass.js is fixed.
 10. **critic.mjs read.wall on the hero.** It measures from the dek through the short answer and the hero offer card as one wall at 320 and 390. A warning only; the shared hero has no heading there by design.
+
+## Final fix, 2026-11-03
+
+11. **NEEDS item 8 is closed for this page.** exiftool is now in the container; the new aerial's metadata is embedded and `photos.js check` passes. The Golf and Yacht Club aerial files are deleted (no longer used).
+12. **Keyword "homestead exemption horry county" moved off this page.** `build.js audit` flagged it as declared by this page and `/buyers/retirees/`. This page keeps the FAQ answer but no longer declares the keyword.
+13. **USDA's area changes.** Row 53 rests on USDA's single-family ineligible layer (edited 2023-07-25). USDA says the layer "changes often". Re-check the four neighborhoods when the layer's EDIT_DATE moves (`usda-hoods.py` in this folder).
+14. **The photo partner's shots 1 and 2 are still the better pictures** (a Conway street at eye level; a new house in Longs). The NOAA aerial is the stand-in until they arrive.
