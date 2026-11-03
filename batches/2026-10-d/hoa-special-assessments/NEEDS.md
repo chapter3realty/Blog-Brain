@@ -19,3 +19,8 @@ Shared helpers this page would use. The spec works around each one inside itself
 10. `h1em` (glass hero): at 1440 the italic line under the H1 is set almost as large as the H1, and the two sit close (owner nit, round 3). Shared CSS; not changed here.
 11. The listing strip's "AI-POWERED SEARCH / Tell me everything you want" box and the footer's "investor-focused brokerage ... DSCR analysis" line read as off-topic to a retiree buying a home (reader, round 3). Shared site parts; not changed here.
 12. `tools/photos.js embed` needs exiftool, which is not installed in this container. The round 3 crop of the page photo has no embedded metadata yet; `photos.js check` passes. Run `embed` where exiftool exists.
+
+## Final fix (2026-11-03)
+
+12 is closed: exiftool is now installed, and `photos.js embed` wrote the metadata into all six files.
+13. The loss assessment pointer is cut from this page (no South Carolina primary source). If /hoa/master-insurance-ho6/ gets a ledger with a primary source for loss assessment coverage, one linked line could come back here.
