@@ -1,11 +1,16 @@
 # Shot list: /submarkets/surfside-beach/
 
-For the photo partner (template: templates/photo-request-email.md). Our own photos replace the stand-ins in PLAN.md.
+For the photo partner (template: `templates/photo-request-email.md`). Landscape, daylight, no person as the subject, no readable house number, plate or business logo. Each of our own photos replaces a stand-in on the page.
 
-1. The new Surfside Beach Pier (concrete, opened 2024) from the sand, the whole length if possible, morning light.
-2. One older raised beach cottage on a street in the R3 band near the ocean (between Ocean Boulevard and the inland streets; we send the map). The house as the subject; no people; no house number readable.
-3. One quiet inland street in R1 with single-family houses and trees (we send a street list from our map).
-4. A public beach access at a street end, with the town's beach access sign and the walkway over the dune. 3rd Avenue North has a shower tower, restrooms and wheelchair access.
-5. A golf cart parked at a beach access or on a town street. No person as the subject; no plate readable.
-6. A town pay-to-park sign or meter at a beach lot.
-7. Surfside Drive, or the shops near the town hall on US 17. No business logo as the subject.
+| # | Place | What to shoot | Why | Replaces |
+|---|---|---|---|---|
+| 1 | Surfside Beach Pier, 11 South Ocean Boulevard, from the sand north or south of it | The whole concrete pier, end to end, morning light | The page sells the new pier (814 feet, opened 2024) | NOAA aerial of the pier, "What is everyday life like?" section |
+| 2 | A street in the orange R3 band near the pier (for example a block of N. Ocean Blvd. or Dogwood Dr. N.; we send the map) | Two or three raised beach houses side by side, from the street | Shows what the nightly-rental side looks like at eye level | First half of the NOAA "line from the air" photo, "Where are short-term rentals allowed?" |
+| 3 | An inland R1 street west of the band (for example N. Hollywood Dr. or Poplar Dr. N.; we send a street list) | A quiet street of single-family houses under trees | Shows the no-nightly-rental side; pairs with shot 2 | Second half of the same aerial |
+| 4 | The 3rd Avenue North beach access | The town's beach access sign and the walkway over the dune, with the shower tower | 36 accesses: most streets end at the beach | The 2023 beach photo (Commons, BullDawg2021), daily life section |
+| 5 | Any town beach parking lot | A pay-to-park sign or meter, close enough to read | The parking rules and the owners' free passes | Nothing yet; goes beside the parking table |
+| 6 | A town street or a beach access | A golf cart parked, with its permit decal if visible (no plate readable) | The golf cart rules | Nothing yet; goes in "Golf carts" |
+| 7 | Ocean Lakes Family Campground's main entrance, 6001 South Kings Highway | The entrance sign and gate from the public road | The section on what you own at Ocean Lakes | Nothing yet; goes in "What do you own at Ocean Lakes?" |
+| 8 | The pier from the beach access just south of it, wide | Raised beach houses and the pier together | The flood and storms section now uses a 2011 photo of the old wooden pier | USGS 2011 oblique, "Does Surfside Beach flood?" |
+
+His photos become our own once he confirms in writing.
