@@ -37,14 +37,14 @@ Why they typed it (CRAFT 1):
 | 7 | Golf cart rules | State law: DMV permit, insurance, licensed driver 16 or older, roads 35 mph or less. The town passed its own cart ordinance in 2025 that allows night driving with lights. No carts on the beach. | 18, 19, 20 |
 | 8 | Does Surfside Beach flood? Flood zone map? | 39 percent of town homes are in a high-risk flood zone: 78 percent in R3, 15 percent in R1. The town's discount class is 7 (15 percent), the county around it is class 5. The town's 48 percent rule limits big renovations of low older homes. | 12, 13, 14, 15 |
 | 9 | Hurricane history | Hazel destroyed 18 of the 65 houses in 1954; Hugo took the pier in 1989; Matthew took more than half of it in 2016. | 28, 29 |
-| 10 | Is it a good place to live or retire? Pros and cons | Good: every home within about 0.8 mile of the beach road, a town police department, the pier, owner parking. Hard: R3 is mostly second homes and rentals (13 percent main homes); flood cost near the ocean; summer parking fees. Never who lives here. | 5, 12, 21, 22, 30 |
+| 10 | Is it a good place to live or retire? Pros and cons | Good: every home within about 0.8 mile of the beach road, a town police department, the pier, owner parking. Hard: R3 is mostly second homes and rentals (13 percent main homes); flood cost near the ocean; summer parking fees. Never who lives here. | 5, 12, 21, 22, 30, 40 |
 | 11 | Ocean Lakes homes and the lot lease | Outside the town. You buy the house or mobile home; the campground owns the land under it. 949 of 956 county records there carry no land value. | 33, 34 |
 | 12 | Monthly and long-term rentals | Long-term (a year or more) is allowed in every residential district. The code does not name rentals between 30 days and a year; we ask the town for the street. Stays under 90 days owe the lodging taxes. | 1, 35, 36 |
 | 13 | Lodging taxes and licence for a rental | A town business licence for every rental, each property its own licence. Guests pay about 12 percent in lodging taxes, the same total the site states on /invest/str-rules/. | 35, 36 |
 | 14 | Rental income | AirROI, 12 months to September 2026: 551 listings, average $42,902 a year, 36.9 percent occupancy; July about five times January. | 37, 38 |
 | 15 | Schools | Horry County Schools. We look up the assigned schools for the exact address (no verified school list; see facts "Not verified"). | NV |
 | 16 | Is Surfside Beach safe? | We do not rate any place as safe. The town has its own police department; the public numbers are at the FBI Crime Data Explorer. | 30 |
-| 17 | Drive times | Garden City pier about 6 minutes, Murrells Inlet MarshWalk 12, Tidelands Waccamaw hospital 12, Market Common 14, the airport 16, Coastal Grand 17, Broadway at the Beach 21, Grand Strand Medical Center 27. Free-flow; summer traffic is slower. | 27 |
+| 17 | Drive times | Garden City pier about 6 minutes, Murrells Inlet MarshWalk 12, Tidelands Waccamaw hospital 12, Market Common 14, the airport and Coastal Grand about 15, Broadway at the Beach about 20, Grand Strand Medical Center about 25. Free-flow; summer traffic is slower. | 27 |
 | 18 | Homes for sale now | The live homes row for the town, and the offer to check zoning and flood for a listing. | 4, 31 |
 
 ## What the old page got wrong (each fixed by a row)

@@ -1,0 +1,11 @@
+# Proposed registry rows: /submarkets/surfside-beach/
+
+For `facts/registry.json`, after the verifier marks the rows verified.
+
+1. **surfside-str-districts**: "In the Town of Surfside Beach, rentals under 30 days are allowed only in the R3 and C3 zoning districts; long-term rentals (365 days or more) in every residential district." Source: Town Code Sec. 17-396.10 (Ord. 20-0913). Owner page: /submarkets/surfside-beach/. Also stated on /invest/str-rules/ (same rule; that page says "prohibited in the R1 and R2"). Firing control: "short-term rentals are allowed in R1" ; quiet control: "permitted only in the R3 and C3 zoning districts".
+2. **surfside-crs-class**: "FEMA rates the Town of Surfside Beach CRS Class 7 (15 percent flood insurance discount); unincorporated Horry County is Class 5." Source: town /31/Floodplain; OpenFEMA NfipPolicies crsClassCode (761 town policies, 2026). Known wrong value: "Class 5" for the town (an old town letter, and a 2017 DHEC deck). staleBy 2027-05.
+3. **sc-golf-cart-law**: "S.C. Code 56-2-105 was repealed May 22, 2025; golf carts are now governed by 56-2-90, under which a town may set its own hours and allow night driving with lights. The daylight-only, 4-mile rule applies only where no local ordinance exists." Known wrong text: "56-2-105", or the daylight and 4-mile rule given as the rule everywhere. Three live pages carry the daylight or four-mile wording (`grep -rl -i "within 4 miles\|within four miles\|daylight hours" chapter3realty --include=*.html`); the lead should check each against its town's own ordinance.
+4. **surfside-millage**: "Inside the Town of Surfside Beach, the 2026 property tax levy is 214.2 mills (county 52.1, school 119.1 of which 109.1 school operations, town 43.0)." Already the value in the /buyers/property-taxes/ calculator. staleBy 2027-07.
+5. **surfside-48-percent-rule**: "The Town of Surfside Beach treats work costing 48 percent or more of a flood-prone building's value as substantial improvement; the building must then be raised to base flood elevation plus 3 feet." Source: town 48 Percent Rule notice (DocumentCenter/View/392) and worksheet (View/173).
+
+No new stories proposed. None of the three brokerage questions in facts.md has an answer in `stories/stories.json`.
