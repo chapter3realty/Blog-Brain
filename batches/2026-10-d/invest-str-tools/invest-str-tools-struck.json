@@ -99,5 +99,17 @@
   "pattern": "(?<!DSCR )\\blenders count (only )?(about )?75",
   "struck": "Lenders count only about 75 percent of a short-term rental estimate.",
   "use": "DSCR lenders count only about 75 percent of a short-term rental estimate, according to a loan officer at our preferred lender."
+ },
+ {
+  "row": "invest-str-tools 31",
+  "pattern": "few (units |condos )?on the oceanfront[^.]{0,20}\\bat Sea Shadow",
+  "struck": "The few on the oceanfront, at Sea Shadow, have fees over $1,000.",
+  "use": "On the oceanfront, the units listed at Sea Shadow have fees over $1,000, and the few others listed there have fees of $1,000 or less."
+ },
+ {
+  "row": "invest-str-tools 31",
+  "pattern": "fees (under|below|less than) \\$800",
+  "struck": "The fees under $800 a month are at places like Ocean Forest Villas and Beach Colony.",
+  "use": "The fees of $800 a month or less are at places like Ocean Forest Villas and Beach Colony."
  }
 ]
