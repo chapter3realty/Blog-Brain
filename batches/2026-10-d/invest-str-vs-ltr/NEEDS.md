@@ -29,3 +29,10 @@
 18. **critic.mjs counts photos and visuals only at the first width** (critic, round 2): `critic.json` shows 1 photo and 4 visuals at 1440 and 0 at the other widths.
 19. **The photo credits note** (`tools/photos.js` creditsList) repeats "resized ... cropped" under a single photo whose own credit already says so. This page replaces it with "Our crops keep the photo's CC BY-SA 4.0 license." A fix in photos.js for one-photo pages would let the replacement come out (the spec checks the note's wording and stops the build if it changes).
 20. **Owner question 1 is still open.** It is the base for the 40 to 60 percent. The page now prints only a lower bound (row 35). Once the owner answers, print the managed break-even and give the calculator's manager box a stated base.
+
+## From the final fixer (2026-11-03)
+
+21. **Item 1 is closed.** `data/str-market.json` was refreshed on 2026-11-03 and matches this page's AirROI figures. The spec now reads the market figures from it and stops the build if it and `findings.json` disagree.
+22. **`data/headlines.json` (item 12)** still holds "2-3x the Gross". The spec's title is now "Airbnb vs Long-Term Rental, Myrtle Beach: 82-Night Break-Even" and the H1 second line "Run the same home both ways." Please update the entry; it is a shared file.
+23. **Facts row 39 is VERIFIED-BY-FIXER** (SCDOR ST-575: 10 percent state and local sales tax on a room inside Myrtle Beach). Please re-check. The page no longer prints "about 13 percent"; registry `mb-lodging-tax` keeps that total for /invest/str-rules/, whose 1.5, 1 and 0.5 percent parts are not in ST-575.
+24. **Dates (item 13)** still need `node build.js dates`. The audit shows only those two date FAILs on this page.
