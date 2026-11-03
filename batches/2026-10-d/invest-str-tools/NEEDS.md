@@ -23,3 +23,9 @@ Shared files this page would like changed. The writer works around each one insi
 13. **The listing feed's title** reads "Waterfront condos in Myrtle Beach and North Myrtle Beach". It is generated outside the spec. On this page the reader needs homes that allow nightly rentals: "Condos that allow nightly rentals in Myrtle Beach and North Myrtle Beach" (owner's eye, review 1).
 14. **The right column is empty on desktop** (owner's eye nit). The glass theme sets the reading column; a page cannot fill the right side without a shared layout change. No change here.
 15. **`data/str-market.json`** (item 1) also feeds this page's "a fall of about 11 percent a few months ago" (its Myrtle Beach `yoy`, -10.7). When it is refreshed, the sentence changes with it, or the `must()` check in the spec stops the build and says why.
+
+## Final fix, 2026-11-03
+
+16. **`data/str-market.json` has no by-size rows.** Item 1 is done (the file is the 2026-11-03 refresh). This page now reads its town figures from it and stops the build if `findings.json` disagrees. The calculator still needs the two- and three-bedroom rate and nights, the cost lines and the months, which only `findings.json` holds (same AirROI update). Proposed: add a `bySize` block (2 and 3 bedrooms: average, adr, occupancy) and the cost lines to each market in `str-market.json`, so every STR page reads one file.
+17. **The short-term rental tool needs a rework** (owner: "our short term rental tool sucks", VERDICTS). This page now calls the calculator a rough estimate from town averages and does not claim to price one unit. A real rework (a building's own fee, rental program share and history) is a separate job.
+18. Items 6 and 15 are closed for this page: it does not print `kept_per_night` or the yoy figure.
