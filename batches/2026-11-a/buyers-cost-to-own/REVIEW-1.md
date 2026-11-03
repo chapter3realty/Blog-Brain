@@ -92,3 +92,92 @@ None with the findings. Two partial takes, explained above: the wind association
 - `node build.js check`: OK.
 - `node build.js audit` for this page: two FAILs, both the Updated date against the sitemap (the lead's `build.js dates` run); one warning (no attributed sentence from Tim or Devin; no story in the bank fits).
 - Shots: scratchpad `wf2/buyers-cost-to-own/r1-shots/` (full pages) and `wf2/buyers-cost-to-own/look-r1/` (hero at 320 and 390, house table at 390, 700 and 768, condo table at 768, wind cards, street photo and calculator at 390, tax chart at 320).
+
+---
+
+# Review round 2: what the fixer changed
+
+Fixer, 2026-11-03. Three reviewers (critic 8, reader 7.5, owner 8) read the page after build round 2. Every change is in `specs/cost-to-own.js`, plus one new data file (`data/2026-11-a/buyers-cost-to-own/pums-insp-spread.json`, from `insp_p90.py`) and one new ledger row (40, VERIFIED-BY-FIXER). Nothing was edited in the built page.
+
+## Critic
+
+### Blocking
+
+1. **No total in the hero.** The dek is now "A typical $350,000 house in Horry County costs about $650 a month to own besides the loan, $7,850 a year. Each part is below, town by town." (27 words; mkpage allows 30). The tile line is "Each month, part by part:", so the hero states the total once.
+2. **"Insurance" overran its tile at 320 px.** Below 360 px the four hero tiles are a 2 x 2 grid (page CSS, `main#main .c3-glance`). Checked in a 320 shot (`look-r2/hero-320.png`).
+
+### Warnings and nits taken
+
+- Flood tiles at 320: below 420 px they stack, number beside the words (`look-r2/flood-320.png`).
+- "On this page": two columns from 760 px, the same CSS as dst.js (`look-r2/toc-1024.png`).
+- Wind cards: three in one row from 700 px (`look-r2/wind-1024.png`).
+- Upkeep parts now add up: "about $3,270 ... about $1,470 of routine repairs and about $1,800 put toward the big replacements". The second part is the rounded total less the rounded first part, computed in the spec.
+- USGS photo year: the credit line now reads "Photo: U.S. Geological Survey, 2011, ...". The year is taken from the record's `taken` field in `afterSources`, never typed, with a `must()` if the credit text moves.
+- "A second home's insurance can differ; the total changes only its tax." is now "The second-home column changes only the tax. Insurance on a second home can cost more."
+- "for a picture" is cut: "One household's bills: on one of our team's own houses ...". The story's label is kept.
+- Sources line: "Fees: homes for sale, Horry ZIPs, one day." The longer wording put the block at 92 words and build.js audit fails a block over 90.
+- Rate field: a negative rate now counts as no rate ("Add your rate"); before, it was set to 0. Checked in the browser: -5 gives "Add your rate".
+- "Price this home": gone. All three buttons read "Talk to a specialized agent" (owner 1).
+- Condo budget-reading claim: gone (owner 1).
+- Rows 37 to 39: the critic re-ran 38 and 39 and asks the lead to mark all three verified. The open note on row 38 (check against the SC Department of Insurance territory map) stays with the lead.
+
+### Not taken
+
+- **Name the South Carolina Wind and Hail Underwriting Association in full.** Same as round 1: `rules/plain-words.json` gives "the state's backup insurer for wind" as the plain words, and score P6 flags the name.
+- **PITI FAQ is generic.** Kept. It answers the most searched form of the question, it is sourced (CFPB), and it now explains "besides the loan" together with the new first paragraph.
+- **read.wall at 320 and the empty homes strip.** Tool false hits (NEEDS.md 5 and 6).
+
+## Reader
+
+### Blocking
+
+1. **Insurance near the ocean has no number.** No public source gives a separate wind policy price for an address or for a side of U.S. 17. The Census sample has two PUMAs in Horry, and neither follows the line. What the page now gives, from the same Census file as row 17 (new row 40): "The $2,000 includes those wind policies. About 1 in 10 house owners here pay $4,000 or more a year for all their home insurance, and about 1 in 40 pay $6,000 or more. The Census figures do not split by side of the highway." The insurance quote offer now sits right after this paragraph and the wind cards, and says "so wind and flood are in your budget before you commit". It is not repeated at the end of the section. I also tried SC Wind's own figures: its 2025 statehouse presentation gives 15,825 policies and $58.5 million of premium (about $3,700 a policy). That covers every policy type, condo buildings included, across the whole coast, so it is not a house figure. Not used.
+2. **Is the tax in the loan payment or not?** The first paragraph under the first H2 now says: "'Besides the loan' means everything except paying back the loan and its interest. Your lender usually collects the tax and insurance with each loan payment, but they are counted here, not in the loan. The HOA fee and upkeep are usually paid separately." (row 36)
+3. **"4 percent" read as a tax rate.** Table row: "the rate is charged on 4 percent of the value (6 percent for a second home)". Second-home section: "On a home you live in, the tax rate is charged on 4 percent of its value, not the whole value: on a $350,000 house, on $14,000." (row 9; the $14,000 is computed in the spec)
+4. **The condo fee figures disagree.** The "Example" box ($650 a month, $850 a month) is cut (owner 5). The calculator's condo fee hint now reads "About $650 county-wide; $425 in Carolina Forest", so a Carolina Forest buyer sees the lower figure next to the field.
+5. **The 65 sentence.** Taken as the owner asked (owner 6): "At 65 you can have part of your home's value exempted from property tax. Our retiree guide covers who qualifies and how much." struck-check passes, because the $50,000 is no longer stated.
+
+### Nits
+
+- 4 percent application deadline, special assessment size, first-year tax jump: no verified rows. Not added.
+- The "Where" hint above "Outside city limits": kept. It names the places the option covers.
+- Strip and AI box above the short answer: shared edge (NEEDS.md 3, 7).
+
+## Owner
+
+### Blocking
+
+1. **CTA wording.** Label everywhere: "Talk to a specialized agent" (his label, CTA-1). Condo box: "Looking at a condo to rent out? Some communities ban renting at all. Our agents read the HOA documents for rules that would block your plan before you offer." (story `hoa-rental-bans-filtered`, a service on file; the box sits in the condo section). End band: "Want the costs worked out for one home?" / "An agent works out the tax at your rate and the HOA or condo fee for the address before you offer." No "send the address", no "budget", no "real".
+2. **Personification.** Calculator: "Add your rate and down payment from your lender to see the loan payment." FAQ: "After a sale, the county values the home again, and the new value is first taxed the year after the sale." Note: "The second-home column changes only the tax. Insurance on a second home can cost more." Score P10 passes.
+3. **Same facts more than once.**
+   (a) The house-and-condo chart no longer prints totals. It is one bar a place, the difference: City of Myrtle Beach, the condo costs $3,280 more a year; North Myrtle Beach, $3,570 more; Carolina Forest, the house costs $1,000 more. Those three figures are not printed anywhere else. The caption says the totals are in the town tables.
+   (b) The tax chart drops the outside-city-limits row (it is in the bill table at the top) and says so in its note. The rental FAQ now says only "Yes. A rental is taxed like a second home, on 6 percent of its value. The second-home section above shows the tax by town."
+   (c) The condo H2 answer now leads with what the short answer does not say: "In Carolina Forest, yes. Its condo fees are the lowest in the table below, and a typical condo there costs about $1,000 a year less to own than a typical house. In Myrtle Beach and North Myrtle Beach, no: their condo fees are the highest." Two `must()` checks hold "lowest", "the highest" and the $1,000.
+4. **Flood answer.** Now opens: "You must have it if the home is in the high-risk flood zone and your loan is from a bank or other lender the federal government regulates. Anywhere else it is your choice, but since 2015, 3 in 10 paid flood claims in Horry County were on buildings outside that zone." FEMA is named after that.
+5. **The Example box.** Cut. One sentence above the condo table: "In each place below, the condo fee is about three quarters of what a condo owner pays a year to own the unit." A `must()` holds every place between 0.69 and 0.82 (rows 5, 26).
+6. **65 sentence.** Moved to the retiree guide link (reader 5).
+7. **"for a picture".** Cut (critic).
+
+### Nits taken
+
+- "real": gone from the body (the insurance box and the end band). The H1 keeps his approved headline.
+- Water heater card: "The smallest of the four." is cut; the card shows only its name and price. Row 30 has no verified 1-in-N figure for it.
+- "The tax uses" is now "The calculator uses".
+- "sat in the zone" is now "were in the zone".
+- Carolina Forest caption: "The typical house in the table above is one like these."
+
+### Not taken
+
+- Wind deductible and a yearly pest contract: no verified rows. The insurance quote offer covers the deductible for one address.
+- Feed note under the strip, "AI-POWERED SEARCH" label, empty strip in the preview: shared edge or tool (NEEDS.md 3, 4, 5, 7).
+- "Updated July 25, 2026": the lead's `build.js dates` run.
+
+## Gates after the fix
+
+- `node tools/mkpage.js specs/cost-to-own.js`: builds (hero sub 27 words).
+- `score.js --only /buyers/cost-to-own/` (SCORE_TODAY=2026-11-03): 98/100 (SEO 100, AEO 100, Human 99, Trust 79). Open: P2 4.5 numbers per 100 words (was 4.2; the reader's asks added the insurance spread and the 4 percent example); T2 one first-hand sentence ("Our agents read the HOA documents ...").
+- `claims-scan.js`: 0 on this page. `facts-check.js`: 0 on this page. `house-claims.js`: 0. `struck-check.js`: no struck wording.
+- `critic.mjs` at 320, 390, 640, 768, 1024, 1440: 0 blocking. One warning, the known read.wall false hit at 320 (NEEDS.md 6).
+- `node build.js check`: OK. `node build.js audit` for this page: the two date FAILs (lead's `build.js dates` run) and the A20 warning (no attributed sentence from Tim or Devin; no story fits).
+- Shots: scratchpad `wf2/buyers-cost-to-own/r2-shots/` (full pages) and `wf2/buyers-cost-to-own/look-r2/` (hero 320, top 390, flood tiles 320 and 390, the difference chart 390 and 1024, wind cards 1024, contents 1024, calculator 390, tax chart 390, upkeep cards 390). Calculator checked: condo, flood $375 gives $879 a month and $10,545 a year; a rate of -5 gives "Add your rate".
+- New ledger row 40 (VERIFIED-BY-FIXER) for the lead to re-check.

@@ -11,3 +11,9 @@ None at the research stage. The calculator is inline on the live page and has no
 ## Build round 2 (builder, 2026-11-03)
 
 4. The owner asked (2026-11-03) for an AI chat about each house, with every AI chat in one color and one logo. This page has no AI box of its own; the only one is the shared feed's "AI-POWERED SEARCH" box from the website's edge. When the shared chat style lands, nothing in `specs/cost-to-own.js` needs to change.
+
+## Review round 2 (fixer, 2026-11-03)
+
+5. `tools/critic.mjs` does not route the preview's sample photos (`photos.test`), so the homes strip shows only "See all homes" in its shots (critic round 2 false hit). Ask: route `photos.test` as `tools/fixtures/preview/README.md` describes.
+6. `tools/critic.mjs` read.wall fires on the last FAQ answer plus the Sources line and photo credits at 320 px. That is a reference block, not body copy. Ask: stop the wall at the Sources line.
+7. The homes strip's "No HOA, as listed by the listing agent. Confirm before you buy." (idx-lib/edge.js NO_HOA_NOTE) and the "AI-POWERED SEARCH" label (owner: one "Chapter3 AI" chip) are shared edge items, still open (item 3 and 4).
