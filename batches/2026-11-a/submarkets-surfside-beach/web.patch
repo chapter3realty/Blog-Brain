@@ -1,9 +1,9 @@
 diff --git a/data/2026-11-a/submarkets-surfside-beach/README.md b/data/2026-11-a/submarkets-surfside-beach/README.md
 new file mode 100644
-index 00000000..28e62cc5
+index 00000000..67c53508
 --- /dev/null
 +++ b/data/2026-11-a/submarkets-surfside-beach/README.md
-@@ -0,0 +1,21 @@
+@@ -0,0 +1,23 @@
 +# Data for /submarkets/surfside-beach/ (batch 2026-11-a)
 +
 +Pulled 2026-11-03. Raw county parcels, address points, road lines, listing pins, the town zoning PDF and its traced
@@ -25,6 +25,8 @@ index 00000000..28e62cc5
 +| Drive times (OSRM, free flow) from the pier | pull_drives.py | raw/drives.json |
 +| Google suggestions | pull-suggestions.sh | raw/google-suggestions.txt |
 +| 2026 Horry County tax levies; SCDOR ST-575 | (curl + pypdf) | raw/tax-levy-2026.*, raw/ST575.* |
++
++Note (2026-11-03, restart): the page reads its short-term rental figures only from `data/str-market.json` (ledger rows 37, 38). `airroi.json` is kept as the researcher's own read for reference; its monthly series is not used on the page.
 diff --git a/data/2026-11-a/submarkets-surfside-beach/airroi.json b/data/2026-11-a/submarkets-surfside-beach/airroi.json
 new file mode 100644
 index 00000000..13f93a02

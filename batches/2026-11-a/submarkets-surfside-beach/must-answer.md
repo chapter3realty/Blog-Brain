@@ -41,7 +41,7 @@ Why they typed it (CRAFT 1):
 | 11 | Ocean Lakes homes and the lot lease | Outside the town. You buy the house or mobile home; the campground owns the land under it. 949 of 956 county records there carry no land value. | 33, 34 |
 | 12 | Monthly and long-term rentals | Long-term (a year or more) is allowed in every residential district. The code does not name rentals between 30 days and a year; we ask the town for the street. Stays under 90 days owe the lodging taxes. | 1, 35, 36 |
 | 13 | Lodging taxes and licence for a rental | A town business licence for every rental, each property its own licence. Guests pay about 12 percent in lodging taxes, the same total the site states on /invest/str-rules/. | 35, 36 |
-| 14 | Rental income | AirROI, 12 months to September 2026: 551 listings, average $42,902 a year, 36.9 percent occupancy; July about five times January. | 37, 38 |
+| 14 | Rental income | AirROI via `data/str-market.json`, past 12 months: 551 listings, average $42,902 a year in gross bookings, 36.9 percent occupancy; July about five times January; middle listing about $3,840 a month. | 37, 38 |
 | 15 | Schools | Horry County Schools. We look up the assigned schools for the exact address (no verified school list; see facts "Not verified"). | NV |
 | 16 | Is Surfside Beach safe? | We do not rate any place as safe. The town has its own police department; the public numbers are at the FBI Crime Data Explorer. | 30 |
 | 17 | Drive times | Garden City pier about 6 minutes, Murrells Inlet MarshWalk 12, Tidelands Waccamaw hospital 12, Market Common 14, the airport and Coastal Grand about 15, Broadway at the Beach about 20, Grand Strand Medical Center about 25. Free-flow; summer traffic is slower. | 27 |
@@ -52,7 +52,7 @@ Why they typed it (CRAFT 1):
 - Golf cart law cited as S.C. Code 56-2-105. That section was repealed on May 22, 2025. The law is now 56-2-90 (row 18). Three other site pages give the old daylight and four-mile rule as the only rule; see PROPOSED.md.
 - CRS: the town's own letter says class 5; its floodplain page and FEMA's policy records say class 7 (row 14). Use 7.
 - Three conflicting medians: replaced by one deed table by district and kind (rows 6 to 8).
-- "Illustrative" occupancy chart: replaced by AirROI's monthly figures (row 38).
+- "Illustrative" occupancy chart: replaced by AirROI's month spread and July and January figures from `data/str-market.json` (row 38).
 - "Family-friendly", "families who want the coast": cut. The town's slogan may be quoted as its slogan.
 - Financing (warrantability, DSCR): cut. Chapter3 does no financing work.
 - School statistics (89 percent math proficiency): unsourced; cut.
