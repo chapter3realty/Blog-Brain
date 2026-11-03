@@ -85,3 +85,8 @@ Each row was pulled and read by the round 1 fixer, not by the verifier. Status V
 Checked again and still left out:
 
 - **Rental vacancy rate (ACS DP04_0005, B25004).** The owner's reviewer asked for it. Horry County 19.2 percent (+/- 1.7), South Carolina 8.3, United States 5.5; B25004: 8,906 for rent, 1,271 rented not occupied, 40,967 seasonal, 36,099 renter-occupied. The researcher's reason to leave it out holds: North Myrtle Beach is 65.5 percent, so vacation units that stood empty at the survey are counted "for rent". The rate does not tell a landlord how fast a house on a year's lease rents. Left out (REVIEW-1.md).
+
+## Fix round 1 (2026-11-03): researched, not used
+
+- **Rental vacancy and how long a rental sits empty** (owner reviewer's question). Fixer research from the PUMS 2020-2024 SC housing file (re-downloaded from www2.census.gov), PUMAs 02701 and 02702, VACS and VACDUR: rented houses about 17.3 percent empty and for rent (plus or minus 4.3), 9 in 10 of those empty under a month; apartments and condos 25.3 percent (plus or minus 3.0). ACS DP04 Horry County rental vacancy rate 19.2 percent (plus or minus 1.7); SC 8.3; US 5.5 (`scratchpad/wf2/invest-rent-prices/fix1/`). Script and output in `data/2026-11-a/invest-rent-prices/vacancy_pums.py` and `vacancy-pums-2024-5yr.json`. NOT on the page and not verified: a vacation rental counted empty between guests cannot be told apart from a long-term rental (REVIEW-1.md). A verifier must check the Census classing before any use.
+- **Derived on the page, from verified rows only:** $1,780 (row 13 Carolina Forest 3-bedroom $1,980 less row 5 utilities $200), $420 (row 14, $1,950 less $1,530), $350 (rows 1 and 2, $2,070 less $1,720).

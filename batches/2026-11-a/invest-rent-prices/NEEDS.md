@@ -15,3 +15,10 @@
 - **Rows 29 to 31** were VERIFIED-BY-FIXER. The rebuild, which did not research them, re-pulled B25031 from data.census.gov and read 27-40-310(a) and 27-40-910(a) on scstatehouse.gov. All match; facts.md now marks them VERIFIED with that note. The lead may still want a second look at row 30's second half ("unless the lease itself provides for a change"), which is a plain reading, not the statute's words.
 - **Garden City's 3-bedroom figure** ($1,540, row 13) left the area table: glass.js caps a bar's feature at 48 letters, and the 29576 row could hold only one place. The ZIP row is still named "Murrells Inlet and Garden City".
 - **build.js audit warnings on this page, not fixed:** no boxed offer mid-page (round 1 asked for the offer only at the top and bottom); no attributed sentence from Tim Nash (none in the story bank for rents; never written for him).
+
+## Added by the fixer, review round 1 (2026-11-03)
+
+- **"On this page" on a desktop.** The site sheet makes the list two columns under 700 px only; above that it is one column of up to 9 links with empty space beside it (critic). This page adds three columns from 700 px in its own spec CSS. If the lead likes it, the rule belongs in the site sheet or glass.js for every page.
+- **critic.mjs does not route `https://photos.test`.** Its shots show the homes strip with only "See all homes". The preview README has the routing snippet; critic.mjs should use it.
+- **The homes strip label.** It still reads "AI-POWERED SEARCH" in brass, not the "Chapter3 AI" navy chip the owner asked for so that every AI feature looks the same. Shared (glass.js or the site feed script), not this spec.
+- **Byline date.** "Updated September 7, 2026" comes before the September 2026 Zillow data on the page. Only `node build.js dates` may change it.
