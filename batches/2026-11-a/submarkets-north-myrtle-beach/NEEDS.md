@@ -1,0 +1,3 @@
+# Needs: /submarkets/north-myrtle-beach/
+
+1. **tools/checkpoint.sh saves nothing when one pathspec does not exist yet.** At the research stage `specs/north-myrtle-beach.js` does not exist, so `git add -N` fails on all five tries and the data folder never reaches web.patch (the first research checkpoint pushed an empty web.patch). Re-run on 2026-11-03 with only the paths that exist: web.patch now holds the 47 data files. Proposed fix: pass only the pathspecs that exist to `git add -N`, or add `--ignore-missing`, and print a warning when the patch is empty. Any other research stage that named a spec not yet written has the same gap.
