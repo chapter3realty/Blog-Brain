@@ -15,3 +15,7 @@
 10. **Item 1 is now urgent: refresh `data/str-market.json` before this page ships.** The page shows what a nightly rental took in (ledger rows 26F and 29F), read from the file at build. AirROI's pages, opened 2026-11-03, show figures about 20 percent higher for October 2025 to September 2026 (North Myrtle Beach $34,401 against the file's $28,667). After `node build.js strdata`, rebuild this spec; its checks stop the build if the order of the areas or the worked example's conclusion changes.
 11. **The investor feed's title in the preview.** idx-lib/feeds.js gives this page `WHERE_RENT` ("Rental picks: Conway, Carolina Forest, Socastee, Little River, Longs"); in the preview it fell back to `RENTAL` ("Top long-term rental picks") with no sample homes. Both titles are about yearly rentals, while the page opens on both. A two-part feed (nightly condos in the beach towns, yearly houses inland) would fit the page; the feed sits where the owner put it (2026-10-26, near the top).
 12. **Photo partner.** shot-list.md (priority 7, 9, 1, 2, 11) is ready for the owner's email to the photo partner (templates/photo-request-email.md). Every entry now has a stand-in.
+
+## Review round 2 (2026-11-03)
+
+13. **Lead rulings before release.** Rows 26F, 29F, 35 and 36 are VERIFIED-BY-FIXER and need an agent that did not research them. The spec has one switch, `const NIGHTLY = true;`: false removes every nightly dollar figure (REVIEW-2.md). Do `node build.js strdata` first, then verify.
