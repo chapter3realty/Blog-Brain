@@ -141,5 +141,9 @@
     "pattern": "\\b2\\.5 to 3\\.8 times\\b",
     "struck": "The bill is about 2.5 to 3.8 times an owner-occupant's on the same unit.",
     "use": "(cut it: registry rental-vs-residence-tax gives 3.3 to 4.3 times; this page gives dollars and links /buyers/property-taxes/)"
-  }
+  },
+ {"row": "invest-condos 35", "pattern": "\\bbusiest quarter\\b", "struck": "A rental in the busiest quarter keeps about $28,000.", "use": "A rental at the top-quarter mark for income, rented all year, keeps about $28,000."},
+ {"row": "invest-condos 35", "pattern": "^\\s*Two-bedroom rental\\s*:?\\s*About \\$[\\d,]+ a year", "unless": "nightly|before costs", "struck": "Two-bedroom rental: About $20,000 a year", "use": "Typical two-bedroom nightly rental, before costs: About $20,000 a year"},
+ {"row": "invest-condos 37", "pattern": "legal only in the zones the city shades", "unless": "grandfathered", "struck": "Inside the City of Myrtle Beach, nightly rentals are legal only in the zones the city shades on its rental map.", "use": "Inside the City of Myrtle Beach, nightly rentals are legal only in the zones the city shades on its rental map, apart from 24 grandfathered houses."},
+ {"row": "invest-condos 39", "pattern": "15 to 20 percent more than a homeowner policy on the same (home|unit|condo)\\b", "struck": "In our files, a landlord policy costs 15 to 20 percent more than a homeowner policy on the same home.", "use": "In our files, a landlord policy on a house costs 15 to 20 percent more than a homeowner policy on the same house."}
 ]

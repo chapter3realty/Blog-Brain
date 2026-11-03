@@ -55,5 +55,9 @@
    "use": "(cut the nightly side: row 26 is struck)" },
  { "row": "invest-where-to-buy 32", "pattern": "\\bowner must sell\\b|\\bfix-and-hold deals turn up\\b",
    "struck": "Condos in a sound building whose owner must sell are where most fix-and-hold deals turn up.",
-   "use": "Most of the best BRRRR candidates we see are lower-value homes inland toward Longs or Little River, or condos in a stable building with a distressed owner." }
+   "use": "Most of the best BRRRR candidates we see are lower-value homes inland toward Longs or Little River, or condos in a stable building with a distressed owner." },
+ {"row": "invest-where-to-buy 26F", "pattern": "\\bearned about \\$[\\d,]+ each\\b|\\$[\\d,]+ each a year, on average", "struck": "Nightly rentals in Garden City earned about $34,000 each a year, on average.", "use": "In the rental data's Garden City Beach area, the average nightly rental took in about $34,000 a year, before costs."},
+ {"row": "invest-where-to-buy 26F", "pattern": "^\\s*In the city, the average nightly rental", "struck": "In the city, the average nightly rental earned about $21,000 a year, the least of the six beach areas.", "use": "In the rental data's Myrtle Beach area, the average nightly rental took in about $21,000 a year, the least of the six beach areas."},
+ {"row": "invest-where-to-buy 29F", "pattern": "nightly rental took in, city average|\\bcity's average for every nightly rental\\b", "struck": "Its income is the city's average for every nightly rental, houses and condos of every size, not this condo's.", "use": "Its income is a rental-data company's estimate of the average Airbnb listing in its North Myrtle Beach area, houses and condos of every size, not this condo's."},
+ {"row": "invest-where-to-buy 26F", "pattern": "^\\s*A nightly rental (there|here) took in about \\$", "struck": "A nightly rental there took in about $20,000 to $38,000 on average in the past year, before costs.", "use": "A rental-data company estimates that the average nightly rental there took in about $21,000 to $38,000 in a year, before costs."}
 ]
