@@ -1,35 +1,98 @@
 [
- { "row": "sell-out-of-state-buyers 7", "pattern": "out-of-state buyers (do not|don't|never) pay more",
-   "struck": "Out-of-state buyers do not pay more.",
-   "use": "In the same building or subdivision, buyers with an out-of-state tax bill paid the same middle price as South Carolina buyers, and the records show no sign that they pay more." },
- { "row": "sell-out-of-state-buyers 11", "pattern": "(largest|biggest) (single )?source[^.]{0,80}Suffolk|Suffolk[^.]{0,80}(largest|biggest) (single )?source", "unless": "outside South Carolina|out of state|out-of-state|another state",
-   "struck": "The largest single source was Suffolk County on Long Island, New York, with 320 households.",
-   "use": "The largest source outside South Carolina was Suffolk County on Long Island, New York, with 320 households." },
- { "row": "sell-out-of-state-buyers 12", "pattern": "closings? (is|are) (run|handled|conducted) by (a )?South Carolina attorneys?", "unless": "supervis",
-   "struck": "Every South Carolina home closing is run by a South Carolina attorney.",
-   "use": "Every South Carolina home closing must be supervised by a South Carolina attorney." },
- { "row": "sell-out-of-state-buyers 15", "pattern": "same room",
-   "struck": "A South Carolina notary must be in the same room as the signer.",
-   "use": "A South Carolina notary and the signer must be in each other's physical presence." },
- { "row": "sell-out-of-state-buyers 18", "pattern": "buyer must (hold back|withhold)[^.]{0,200}", "unless": "unless|exempt|except|main home",
-   "struck": "When the seller's permanent home is outside South Carolina, the buyer must hold back part of the sale for South Carolina income tax at closing.",
-   "use": "When the seller's permanent home is outside South Carolina, the buyer must hold back part of the sale for South Carolina income tax at closing, unless the sale is exempt (for example, a main home whose gain is inside the federal exclusion)." },
- { "row": "sell-out-of-state-buyers 20", "pattern": "(2|two) of the last (5|five) years", "unless": "another home|(2|two) years before",
-   "struck": "The federal exclusion is up to $250,000 of gain, or $500,000 for a married couple filing jointly, if the seller owned and lived in the home at least 2 of the last 5 years.",
-   "use": "The federal exclusion is up to $250,000 of gain, or $500,000 for a married couple filing jointly, if the seller owned and lived in the home at least 2 of the last 5 years and has not used the exclusion on another home in the 2 years before the sale." },
- { "row": "sell-out-of-state-buyers 21", "pattern": "return is (how|the way|where)[^.]{0,80}(comes back|refund|returned)",
-   "struck": "That return is how money held back beyond the tax comes back.",
-   "use": "The seller files a South Carolina return for the year of the sale, and the amount held back counts toward the tax owed there." },
- { "row": "sell-out-of-state-buyers 22", "pattern": "(about|roughly|nearly|around) half[^.]{0,80}Nassau|Nassau[^.]{0,80}(about|roughly|nearly|around) half", "unless": "two-fifths|40 percent|42 percent",
-   "struck": "A typical home in Horry County is worth about half what it is in Suffolk or Nassau County, New York.",
-   "use": "A typical home in Horry County is worth about half what it is in Suffolk County, New York, and about two-fifths of a Nassau County home." },
- { "row": "sell-out-of-state-buyers 22", "pattern": "(about|roughly|around) a tenth of the (property )?tax",
-   "struck": "Its owner pays about a tenth of the property tax.",
-   "use": "Its owner pays less than a tenth of the property tax." },
- { "row": "sell-out-of-state-buyers 23", "pattern": "(one and a half|1\\.5) times",
-   "struck": "A second home or rental is taxed on 6 percent, one and a half times as much before credits.",
-   "use": "A second home or rental is assessed at 6 percent of its value instead of 4 percent." },
- { "row": "sell-out-of-state-buyers 27", "pattern": "Americans (reported|lost)[^.]{0,120}real estate",
-   "struck": "In 2025, Americans reported $275 million lost to real estate fraud to the FBI, up from $174 million in 2024.",
-   "use": "In 2025, people reported $275 million lost to real estate fraud to the FBI's Internet Crime Complaint Center, up from $174 million in 2024." }
+ {
+  "row": "sell-out-of-state-buyers 7",
+  "pattern": "out-of-state buyers (do not|don't|never) pay more",
+  "struck": "Out-of-state buyers do not pay more.",
+  "use": "In the same building or subdivision, buyers with an out-of-state tax bill paid the same middle price as South Carolina buyers, and the records show no sign that they pay more."
+ },
+ {
+  "row": "sell-out-of-state-buyers 11",
+  "pattern": "(largest|biggest) (single )?source[^.]{0,80}Suffolk|Suffolk[^.]{0,80}(largest|biggest) (single )?source",
+  "unless": "outside South Carolina|out of state|out-of-state|another state",
+  "struck": "The largest single source was Suffolk County on Long Island, New York, with 320 households.",
+  "use": "The largest source outside South Carolina was Suffolk County on Long Island, New York, with 320 households."
+ },
+ {
+  "row": "sell-out-of-state-buyers 12",
+  "pattern": "closings? (is|are) (run|handled|conducted) by (a )?South Carolina attorneys?",
+  "unless": "supervis",
+  "struck": "Every South Carolina home closing is run by a South Carolina attorney.",
+  "use": "Every South Carolina home closing must be supervised by a South Carolina attorney."
+ },
+ {
+  "row": "sell-out-of-state-buyers 15",
+  "pattern": "same room",
+  "struck": "A South Carolina notary must be in the same room as the signer.",
+  "use": "A South Carolina notary and the signer must be in each other's physical presence."
+ },
+ {
+  "row": "sell-out-of-state-buyers 18",
+  "pattern": "buyer must (hold back|withhold)[^.]{0,200}",
+  "unless": "unless|exempt|except|main home",
+  "struck": "When the seller's permanent home is outside South Carolina, the buyer must hold back part of the sale for South Carolina income tax at closing.",
+  "use": "When the seller's permanent home is outside South Carolina, the buyer must hold back part of the sale for South Carolina income tax at closing, unless the sale is exempt (for example, a main home whose gain is inside the federal exclusion)."
+ },
+ {
+  "row": "sell-out-of-state-buyers 20",
+  "pattern": "(2|two) of the last (5|five) years",
+  "unless": "another home|(2|two) years before",
+  "struck": "The federal exclusion is up to $250,000 of gain, or $500,000 for a married couple filing jointly, if the seller owned and lived in the home at least 2 of the last 5 years.",
+  "use": "The federal exclusion is up to $250,000 of gain, or $500,000 for a married couple filing jointly, if the seller owned and lived in the home at least 2 of the last 5 years and has not used the exclusion on another home in the 2 years before the sale."
+ },
+ {
+  "row": "sell-out-of-state-buyers 21",
+  "pattern": "return is (how|the way|where)[^.]{0,80}(comes back|refund|returned)",
+  "struck": "That return is how money held back beyond the tax comes back.",
+  "use": "The seller files a South Carolina return for the year of the sale, and the amount held back counts toward the tax owed there."
+ },
+ {
+  "row": "sell-out-of-state-buyers 22",
+  "pattern": "(about|roughly|nearly|around) half[^.]{0,80}Nassau|Nassau[^.]{0,80}(about|roughly|nearly|around) half",
+  "unless": "two-fifths|40 percent|42 percent",
+  "struck": "A typical home in Horry County is worth about half what it is in Suffolk or Nassau County, New York.",
+  "use": "A typical home in Horry County is worth about half what it is in Suffolk County, New York, and about two-fifths of a Nassau County home."
+ },
+ {
+  "row": "sell-out-of-state-buyers 22",
+  "pattern": "(about|roughly|around) a tenth of the (property )?tax",
+  "struck": "Its owner pays about a tenth of the property tax.",
+  "use": "Its owner pays less than a tenth of the property tax."
+ },
+ {
+  "row": "sell-out-of-state-buyers 23",
+  "pattern": "(one and a half|1\\.5) times",
+  "struck": "A second home or rental is taxed on 6 percent, one and a half times as much before credits.",
+  "use": "A second home or rental is assessed at 6 percent of its value instead of 4 percent."
+ },
+ {
+  "row": "sell-out-of-state-buyers 27",
+  "pattern": "Americans (reported|lost)[^.]{0,120}real estate",
+  "struck": "In 2025, Americans reported $275 million lost to real estate fraud to the FBI, up from $174 million in 2024.",
+  "use": "In 2025, people reported $275 million lost to real estate fraud to the FBI's Internet Crime Complaint Center, up from $174 million in 2024."
+ },
+ {
+  "row": "sell-out-of-state-buyers 31",
+  "pattern": "\\bwhole (sale )?price\\b",
+  "unless": "selling (costs|expenses)|minus|amount realized",
+  "struck": "For 2026, it is 5.21 percent of your gain if you sign the state's form, or of the whole price if you do not.",
+  "use": "For 2026, it is 5.21 percent of your gain if you sign the state's form, or of the price less your selling costs if you do not."
+ },
+ {
+  "row": "sell-out-of-state-buyers 32",
+  "pattern": "usually (through|by|via) the closing attorney",
+  "struck": "The buyer, usually through the closing attorney's office, sends it to the South Carolina Department of Revenue.",
+  "use": "The buyer sends it to the South Carolina Department of Revenue. If the closing attorney's office holds it back, that office must send it."
+ },
+ {
+  "row": "sell-out-of-state-buyers 43",
+  "pattern": "hurt your sale, unless you agree in writing or the law requires it",
+  "struck": "keep private what you tell us that could hurt your sale, unless you agree in writing or the law requires it.",
+  "use": "keep private what you tell us that could hurt your sale, except in the cases the law allows, such as your written consent."
+ },
+ {
+  "row": "sell-out-of-state-buyers 47",
+  "pattern": "South Carolina law defines appearing before a notary",
+  "struck": "South Carolina law defines appearing before a notary as being in each other's physical presence.",
+  "use": "South Carolina's own notary law defines appearing before a notary as being in each other's physical presence."
+ }
 ]

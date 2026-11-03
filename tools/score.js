@@ -221,7 +221,10 @@ function facts(p) {
   /* Round 15 (owner, 2026-10-21: "the IDX will act as our CTA"): each homes strip slot counts as a call to
      action; the website fills it with the homes for sale there and a "See all" link to the sign-up. */
   const ctas = main.find('a.btn, a[href="#lead-form"], a[href^="tel:"]').filter((_, a) => !$(a).closest(".detail-hero").length).length
-    + main.find("div.hx-strip[data-place]").length;
+    + main.find("div.hx-strip[data-place]").length
+    /* A place's own offer pill (G.offer) on a list of places counts too (CRAFT 3, owner 2026-10-14: "Every place
+       gets its own offer"); only a pill that goes to the contact form. */
+    + main.find('a.c3-offer-pill[href^="/contact/"]').length;
   const visuals = {
     tables: main.find("table").length,
     images: main.find("img").filter((_, i) => wc($(i).attr("alt") || "") >= 3).length,

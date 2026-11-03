@@ -1,0 +1,80 @@
+[
+  {
+    "row": "north-myrtle-beach 5",
+    "pattern": "larger lots that resulted were built up",
+    "struck": "Many beach homes here were destroyed, owners sold, and the larger lots that resulted were built up.",
+    "use": "Hurricane Hazel destroyed many homes and businesses here in October 1954. Many owners sold, and larger parcels became available for hotels and other businesses."
+  },
+  {
+    "row": "north-myrtle-beach 8",
+    "pattern": "\\b5,416\\b|\\b2,473\\b|Crescent Beach[^.]{0,40}\\babout 5,4\\d\\d\\b|Windy Hill[^.]{0,40}\\babout 2,5\\d\\d\\b",
+    "struck": "Crescent Beach 5,416 homes; Windy Hill 2,473 homes",
+    "use": "Crescent Beach about 3,970 homes (2,498 condos, 1,365 houses); Windy Hill about 3,920 homes (2,674 condos, 958 houses)."
+  },
+  {
+    "row": "north-myrtle-beach 16",
+    "pattern": "Crescent Beach about \\$340\\b|Windy Hill about \\$315\\b",
+    "struck": "Crescent Beach about $340; Windy Hill about $315",
+    "use": "Windy Hill about $345; Crescent Beach about $315 (asking, per square foot, houses for sale; refresh on the build day)."
+  },
+  {
+    "row": "north-myrtle-beach 18",
+    "pattern": "Tilghman Beach, Crescent Beach and Windy Hill[^.]{0,40}\\b1 in 3\\b|\\b6 to 15 in 100 houses\\b",
+    "struck": "In Tilghman Beach, Crescent Beach and Windy Hill about 1 in 3 homes, and only 6 to 15 in 100 houses.",
+    "use": "Windy Hill about half of homes (54 in 100; 71 in 100 condos, 17 in 100 houses). Tilghman Beach about 1 in 3 homes (15 in 100 houses). Crescent Beach about 1 in 10 homes (1 in 100 houses)."
+  },
+  {
+    "row": "north-myrtle-beach 18",
+    "pattern": "Ocean Drive[^.]{0,80}\\boceanfront condos\\b",
+    "struck": "In Ocean Drive it is about half of homes (most of them oceanfront condos; 1 in 10 houses).",
+    "use": "In Ocean Drive it is about half of homes (most of them condos; 1 in 10 houses)."
+  },
+  {
+    "row": "north-myrtle-beach 23",
+    "pattern": "\\b(?:allowed|permitted|legal)\\s+(?:across|everywhere|anywhere|citywide|city-wide|in every part)\\b|\\bby the night anywhere\\b",
+    "struck": "Short-term rentals are allowed across North Myrtle Beach.",
+    "use": "Every short-term rental in the city needs a city business license, renewed each year, and must collect lodging taxes. The city has no special zoning or rental permit beyond the license. An HOA or the deed can still bar rentals."
+  },
+  {
+    "row": "north-myrtle-beach 25",
+    "pattern": "\\bhas adopted none\\b|\\bno new rule has been adopted\\b|\\badopted no new\\b",
+    "struck": "The city has discussed new short-term rental rules since 2024 and has adopted none.",
+    "use": "The city has held workshops and public sessions on possible new short-term rental rules. Its rental page lists no new rental ordinance adopted, and the license rule is the one in force."
+  },
+  {
+    "row": "north-myrtle-beach 27",
+    "pattern": "plastic bags at stores",
+    "struck": "no single-use plastic bags at stores",
+    "use": "businesses may not hand out single-use plastic bags"
+  },
+  {
+    "row": "north-myrtle-beach 35",
+    "pattern": "Windy Hill \\(33\\)|Crescent Beach \\(32\\)[^.]{0,60}Windy Hill",
+    "struck": "about 1 in 3 in Windy Hill (33) and Crescent Beach (32)",
+    "use": "about 1 in 3 in Crescent Beach and Windy Hill (32 each)"
+  },
+  {
+    "row": "north-myrtle-beach 39",
+    "pattern": "\\$565,000 on the county's books|on the county's books[^.]{0,40}\\$565,000",
+    "struck": "On the middle resold house, about $565,000 on the county's books, the yearly property tax is about $2,500",
+    "use": "On a house the county values at $565,000 (about the middle resale price), the yearly property tax is about $2,500 as your legal residence and about $7,500 as a second home or rental."
+  },
+  {
+    "row": "north-myrtle-beach 40",
+    "pattern": "\\bcollects household trash itself\\b|\\bruns its own water and sewer service\\b",
+    "struck": "The city collects household trash itself, and runs its own water and sewer service.",
+    "use": "The city's sanitation division collects household trash, recycling and yard waste at the curb once a week for its customers, for a fee. The city also runs a water and sewer division."
+  },
+  {
+    "row": "north-myrtle-beach 41",
+    "pattern": "Cherry Grove Pier[^.]{0,60}\\bat the north end of the beach\\b",
+    "struck": "Cherry Grove Pier stands at the north end of the beach, in Cherry Grove.",
+    "use": "Cherry Grove Pier stands in Cherry Grove, the city's northernmost beach section. The beach runs on about 2 miles past it to Hog Inlet."
+  },
+  {
+    "row": "north-myrtle-beach 43",
+    "pattern": "Tilghman Estates[^.]{0,100}\\$1\\.19 million",
+    "struck": "Tilghman Estates (about 450 houses, about $1.19 million, 18 sales, a wide range)",
+    "use": "Tilghman Estates (about 450 houses; 19 resold, the middle about $1.05 million, the middle half about $680,000 to $1.9 million)"
+  }
+]

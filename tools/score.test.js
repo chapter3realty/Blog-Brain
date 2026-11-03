@@ -131,6 +131,11 @@ for (const [id, m] of mutations) {
   check("ctas: a long page with few offers is short of one per two sections", credit(long, "ctas").credit < 1, `(${credit(long, "ctas").detail})`);
   const longOffers = long.replace("</main>", Array.from({ length: 6 }, (_, i) => `<a class="btn btn-brass" href="/contact/">Have us check part ${i + 1}</a>`).join("") + "</main>");
   check("ctas: the same long page with an offer per two sections passes", credit(longOffers, "ctas").credit === 1, `(${credit(longOffers, "ctas").detail})`);
+  /* A list of places: each place's own offer pill to the contact form counts; a pill to another page does not. */
+  const pills = long.replace("</main>", Array.from({ length: 6 }, (_, i) => `<p class="c3-offer"><a class="c3-offer-pill" href="/contact/?place=P${i + 1}">Get rentals for sale in P${i + 1}</a></p>`).join("") + "</main>");
+  check("ctas: a place's offer pill to the contact form counts as a call to action", credit(pills, "ctas").credit === 1, `(${credit(pills, "ctas").detail})`);
+  const pillsOff = long.replace("</main>", Array.from({ length: 6 }, (_, i) => `<p class="c3-offer"><a class="c3-offer-pill" href="/submarkets/p${i + 1}/">Read about P${i + 1}</a></p>`).join("") + "</main>");
+  check("ctas: an offer pill that goes to another page does not count", credit(pillsOff, "ctas").credit < 1, `(${credit(pillsOff, "ctas").detail})`);
 }
 
 /* question-h2: a numbered list of places (owner, 2026-10-14) is left out of the count; the other headings still count. */
