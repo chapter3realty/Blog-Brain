@@ -4,3 +4,6 @@
 2. **Golf cart sweep.** Three live pages state the daylight and four-mile rule as the only rule. Since May 22, 2025 that is only the state default when a town has no ordinance (S.C. Code 56-2-90, row 18). See PROPOSED.md.
 
 Build, 2026-11-03: item 1 was worked around inside `specs/surfside-beach.js` (an inline SVG drawn from `map-layers.geojson`, filled by group, turned so the beach runs along the bottom, with an HTML key). The shared option is still worth adding to `area-map.js`.
+
+3. **critic.mjs and the homes strip** (round 1, 2026-11-04). The full-page shots are taken before the IDX homes strip fills, so it shows only "See all homes". A Playwright check with a 2.5 s wait found 12 homes. critic.mjs should wait for the strip before its shots.
+4. **Street layer for area-map.js.** This page draws county street centerlines and street labels inside its own spec (`build_streets.py` -> `map-streets.geojson`). A shared option would let every town page label its streets.
