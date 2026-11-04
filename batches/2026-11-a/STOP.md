@@ -48,3 +48,20 @@ To restart: run `workflows/redesign-batch.js` (now the leaner line, `FASTER.md`)
 The owner asked for more offers mid-page, simpler words and the most wanted answer first. Each of the 20 pages now has an offer after about every second section, tied to that section; its top is reworded for a first-time buyer; no fact changed. A separate reader checked each set of five, and fixers applied every item. The new score rule H5 (one offer per two sections) passes on all 20. The critic finds nothing blocking at 320 and 390 px on the six pages sampled, and audit and check pass. v1.28, v1.29 and v1.30 apply in order on the live branch (tested).
 
 Open: /hoa/special-assessments/ still words "special assessment" differently from /hoa/reserves/ ("a one-time bill to each owner for a cost the fund cannot cover"). Match it when that page ships.
+
+## v1.31, 2026-11-04: the seven unshipped 2026-10-d guides
+
+/sell/out-of-state-buyers/, /hoa/special-assessments/, /buyers/first-time-home-buyer-myrtle-beach/, /buyers/new-construction/, /hoa/hoa-vs-poa/, /invest/str-vs-ltr/ and /invest/str-tools/.
+
+The line used was `workflows/finish-batch.js`:
+1. One fix from each page's last review and the brief's open items.
+2. A re-check, beside an independent check of every new fact.
+3. The lead applied the verifier's sentence corrections: the SC hold-back on "the price less your selling costs"; Socastee "west"; Arcadia's builders; the amenities row on HOA vs POA; the hedged HOA sentence on STR vs LTR; the Sea Shadow fees.
+4. The offers and plain-words pass, a reader check and its fixes.
+5. The lead shortened three button labels on new construction that were cut off at 320 px.
+
+Results:
+- claims-scan finds 0 banned claims on the whole site; the last 10 were on these seven old pages.
+- struck-check is clean, and the critic finds 0 blocking at 320, 390 and 1440 px.
+- audit and check pass.
+- v1.28 to v1.31 apply in order on the live branch.
