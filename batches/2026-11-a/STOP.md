@@ -65,3 +65,25 @@ Results:
 - struck-check is clean, and the critic finds 0 blocking at 320, 390 and 1440 px.
 - audit and check pass.
 - v1.28 to v1.31 apply in order on the live branch.
+
+## v1.32 and the rebase, 2026-11-04
+
+v1.32 is group 4: North Myrtle Beach, Surfside Beach, buying in Myrtle Beach, which town and why Myrtle Beach. The two relocating guides now build from specs.
+
+**The live branch moved.** Another session pushed 257a5a6, the seven election guides, on top of v1.27. That commit changed `tools/mkpage.js` (a co-author byline), the dates on about 20 pages, llms.txt and the sitemap. v1.28 to v1.32 no longer apply to it.
+
+**Rebased as v1.33a to v1.33d.** Use these on the live branch instead of v1.28 to v1.32. They apply in order on 257a5a6 (tested), and the pages, specs and code match the lead's copy file for file.
+- a: data for the 2026-10-d guides
+- b: data for the 2026-11-a guides
+- c: images
+- d: pages, specs and code
+
+The six pages both sides changed are rebuilt from their specs with the new mkpage.js. llms.txt is merged, keeping the seven election entries. The roads-and-permits guide drops two keywords other guides own, after the audit flagged them as cannibalisation.
+
+All gates pass on the result:
+- `build.js check` and `audit`
+- `idx-test`
+- claims-scan: 0 findings
+- facts-check: only the 7 old hits
+
+The packaging copy is now a full clone of the live branch with the four parts applied. Every later patch is built on it.
