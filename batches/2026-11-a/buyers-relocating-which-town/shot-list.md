@@ -1,23 +1,25 @@
 # Shot list: /buyers/relocating/which-town/
 
-For the photo partner email (`templates/photo-request-email.md`). Daylight, from the street, a public dock or a public beach access. No people as the subject, no house numbers, plates or business names readable.
+For the photo partner email (`templates/photo-request-email.md`). Daylight, from a public street, a public dock, a park or a public beach access. No person as the subject; no house number, plate or business name readable. Landscape, the subject filling the frame.
 
-The page has one numbered entry per place, north to south. Each needs one photo a newcomer would recognise on arrival. Several places reuse a sibling page's stand-in (an aerial); two (Loris, Aynor) have nothing yet.
+The page has one numbered entry per place. Each entry shows one picture today, a stand-in: a government aerial or a free-licence photo. A street-level photo of the thing the entry talks about would replace it.
 
-| # | Place | What to shoot | Why | Replaces |
+| # | Place | What to shoot | Why | Replaces in the entry |
 |---|---|---|---|---|
-| 1 | Loris | The main shopping street downtown, shop fronts from the sidewalk. | The entry sells a small town with land and a hospital close by; nothing on the site shows Loris. | A USDA aerial (stand-in) |
-| 2 | Aynor | Main Street and the town park where the Harvest Hoe-Down is held. | The entry's unusual fact is the festival with its own weekend in state law. | A USDA aerial (stand-in) |
-| 3 | Longs | A rural lot or a house on a large lot off SC 9 or SC 905, with open land around it. | The entry is about land and new houses. | A USDA aerial of a new subdivision |
-| 4 | Little River | The waterfront at the end of Mineola Avenue, boats at the docks. | The north end's waterfront village. | A USDA aerial |
-| 5 | Conway | Main Street downtown, or the Riverwalk on the Waccamaw River. | A city with old streets and its own services. | A Commons photo of City Hall |
-| 6 | North Myrtle Beach | Main Street at Ocean Drive, looking toward the ocean. | Most houses for sale are within a mile of the beach. | A 2011 USGS aerial |
-| 7 | Carolina Forest | A typical street of houses in a planned neighbourhood off Carolina Forest Boulevard, or the Bike and Run Park trailhead. | The newest big area. | A USDA aerial |
-| 8 | Myrtle Beach | A street of older houses with big yards north of downtown (Pine Lakes area), from the street. | The entry is about being close to everything, not only the oceanfront towers. | A 2011 USGS aerial |
-| 9 | Socastee | The old swing bridge over the Intracoastal Waterway, from the public road or the park beside it. | The village's landmark (built 1934 and 1935). | A USDA aerial of a subdivision |
-| 10 | Surfside Beach | The pier and the beach houses beside it, from the beach access. | The beach at the end of the street. | A 2011 USGS aerial |
-| 11 | Garden City | The beach road with the marsh behind the houses. | Between the ocean and the marsh. | A USDA aerial |
-| 12 | Murrells Inlet | The MarshWalk boardwalk over the marsh. | The creek and the restaurants. | A USDA aerial |
-| 13 | Pawleys Island | A raised cottage on the island from the road, or the causeway over the marsh. | The island town. | A Commons photo (CC BY-SA) or a USDA aerial |
+| 1 | Loris | A house on a big lawn on a street just outside downtown, with the open yard in view. | The entry says a big yard is normal around Loris (the middle lot is about 0.8 acre). | USDA aerial of downtown Loris |
+| 2 | Aynor | A house on an acre lot with a farm field behind it, at the edge of town. | The entry says an acre is the usual lot and farm fields start where the streets end. | USDA aerial of Aynor and the fields |
+| 3 | Longs | New houses going up on a street in a new subdivision off SC 9 or SC 905. | The entry is about builders: about half the houses sold were new. | USDA aerial of a new subdivision |
+| 4 | Little River | Vereen Memorial Historical Gardens: the boardwalk over the marsh, or the trail by the old Kings Highway at the front of the park. | The entry leads with the park. | Labelled aerial of the Coquina Harbour basin |
+| 5 | Conway | The Riverwalk on the Waccamaw River, with its benches, or a street of older houses under live oaks near downtown. | The entry is about the old city on the river. | Commons photo of an older house under an oak |
+| 6 | North Myrtle Beach | Houses with docks on the Cherry Grove channels, from the public boat ramp. | The entry has the New York clients and their boat, and the channel houses. | Labelled aerial of the channels |
+| 7 | Carolina Forest | The Bike and Run Park trailhead off River Oaks Drive. | The entry names the park's 7 miles of trails. | USDA aerial of a subdivision in the woods |
+| 8 | Myrtle Beach | The lake path at Grand Park, with the Market Common shops behind. | The entry names the Market Common and the parks beside it. | Labelled aerial of the Market Common |
+| 9 | Socastee | The old Socastee swing bridge, the blue truss, from the road or the landing beside it. | The bridge is the entry's history. | USDA aerial of the bridge |
+| 10 | Surfside Beach | A street of beach houses that ends at a beach access, looking toward the sand. | The entry says the sand is about 3 minutes from the middle house. | Labelled aerial of the pier |
+| 11 | Garden City | The pier from the sand. | The entry names the 668-foot pier. | USGS 2011 photo from over the ocean |
+| 12 | Murrells Inlet | The MarshWalk boardwalk over the marsh, without diners' faces. | The entry names the MarshWalk. | Labelled aerial of the creek-side docks |
+| 13 | Pawleys Island | A raised cottage on the island from the road, or the North Causeway over the marsh. | The entry says the island is its own town of about 480 houses. | Commons photo of the north end beach (CC BY-SA) |
 
-Priority if he has one day: 1, 2, 9, 3, 5 (Loris and Aynor have no photo at all; Socastee's bridge is the entry's fact). Each file needs his written OK that it is our photo, then a licence record in `data/2026-11-a/buyers-relocating-which-town/photos.json`.
+Priority if he has one day: 9, 4, 1, 2, 11 (one drive: Socastee, Garden City, then up US 17 to Little River, across SC 9 to Loris and down to Aynor).
+
+Each file needs his written OK that it is our photo, then a licence record in `data/2026-11-a/buyers-relocating-which-town/photos.json`, and the spec's `PH` line for that place points at the new file with a caption that says what the photo shows.
