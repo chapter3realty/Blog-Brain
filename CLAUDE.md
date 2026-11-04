@@ -49,7 +49,7 @@ node tools/critic.mjs <base-url> /<path>/ [--widths 390,768,1440] [--json f] [--
 
 ## Non-negotiables, inherited from the website repo
 
-- **Never deploy.** The owner deploys from PowerShell.
+- **Never deploy.** The owner deploys from PowerShell. Exception (owner, 2026-11-04): "if i explicitely tell you to make an exception to a rule you can." An explicit exception from the owner in the chat overrides a rule here for that job; record it in the batch's BRIEF.
 - **Never hand-edit a generated page.** Edit the spec.
 - **Never type a date.** `node build.js dates` sets every date.
 - **Never write a quote for Tim Nash, or a story that did not happen.** Ask in `templates/owner-questions.md` and wait for the answer.
