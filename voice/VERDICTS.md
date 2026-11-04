@@ -132,3 +132,12 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 ## 2026-10-28 (later): keep the photos
 
 - "me and abdulla own the business together and the crm ... lets keep a copy of the photos ... keep it saved for the month": the website keeps its own copy of each listing photo for 30 days, sized for where it shows. The CRM contract's "hotlinked only" rule was the CRM's AI's wording, not the owners' decision. Class: a rule written by a tool is checked with the owners before it blocks a fix they need.
+
+## 2026-11-04: the election hub page, version 1 ("its not good")
+
+- "the election changed no rule yet - Like no shit it happened yesterday thats not value that obvious and feels ai": cut. Class: never open with what the reader already knows. The first line gives what changes for their home, with a date or a number.
+- "it starts with who won we know who won ... were not reporting on who won and how people voted": the results tables are gone; one line of results stays in the hero. Class: a news topic on this site is about the home, not the news. Real estate in the first screen.
+- "im scrolling for eternity before i get to anything valuable the on this page should be smaller": the contents list is one row of jump chips in the hero, and the short answer is on the first desktop screen. Class: the top of a page is short; the value comes before the reader scrolls.
+- "Who decides what about a Myrtle Beach home? this i vague as hell" and "the graph under it is ugly": the section and the seat chart are gone. The vote math is one number in a box ("4 more House votes needed beyond every Republican"). Class: a heading names the reader's question, not a civics topic; a chart shows one plain point or it goes.
+- "too much talk about bills we dont know what that shit even is": no bill numbers, no reconciliation, no cloture. Each plan card says only "Needs Congress" or "Needs the legislature". Class: say what has to happen, not the procedure's name.
+- "mainly a wall of words ... make it dynamic ... engaging and makes it easier to learn you can even use other colors just this one page lets experiment": version 2 is a picker by situation (buying, selling, rental owner, building new), a tax slider, short-run and long-run cards, a dated timeline, animated bars, and plan cards in tabs. Its own colours: teal for what is set, amber for a proposal, slate for no change, coral only for a price fall. Neither party's colour. An experiment on this page only; the owner's read decides whether it spreads.
