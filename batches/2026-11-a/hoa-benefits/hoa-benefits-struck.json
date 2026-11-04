@@ -1,0 +1,80 @@
+[
+  {
+    "row": "benefits 3",
+    "pattern": "\\b73 and 47\\b|\\btrash\\b[^.]{0,80}\\b47 (?:in 100|percent|%)[^.]{0,30}\\bhouses?\\b|\\b47 (?:in 100|percent|%) of houses[^.]{0,60}\\btrash\\b",
+    "struck": "Among homes for sale with a fee, the listing says the fee includes trash on 91, 73 and 47.",
+    "use": "Among homes for sale with a fee, the listing says the fee includes trash on 91, 73 and 46."
+  },
+  {
+    "row": "benefits 3",
+    "pattern": "\\b(?:fee|dues) (?:includes?|pays? for|covers?)\\b[^.]{0,200}\\b(?:amenities|a gate|gates)\\b",
+    "struck": "The listing says the fee includes internet on 70, 25 and 9; amenities such as a pool or clubhouse on 87, 56 and 61.",
+    "use": "The listing says the community has shared amenities on 87, 56 and 61 in 100, and a gate on 13, 8 and 15."
+  },
+  {
+    "row": "benefits 5",
+    "pattern": "\\bpays? (?:for )?(?:the |its |a |his |her |their )?roof alone\\b|\\broof alone\\b",
+    "struck": "A house owner pays the roof alone.",
+    "use": "Owners of a one-family house in the South Atlantic states who replaced a roof paid a middle of about $10,400."
+  },
+  {
+    "row": "benefits 5",
+    "pattern": "\\broof\\b[^.]{0,80}\\bpaid (?:for )?(?:from|out of|by) the (?:fee|dues|assessments?) and (?:the )?reserves?\\b",
+    "struck": "In a condo, the roof is a shared cost paid from the fee and the reserves.",
+    "use": "In a condo, the roof is a common element, and its repair is a shared expense of all the owners."
+  },
+  {
+    "row": "benefits 13",
+    "pattern": "\\bindoor (?:lap |swimming )?pool\\b[^.]{0,80}\\bPepper Geddings\\b|\\bPepper Geddings\\b[^.]{0,80}\\bindoor (?:lap |swimming )?pool\\b|\\b25-yard indoor\\b",
+    "struck": "A year at a City of Myrtle Beach recreation center, which has a 25-yard indoor pool and a weight room at Pepper Geddings, costs one adult $175.",
+    "use": "A year at a City of Myrtle Beach recreation center, such as Pepper Geddings with its 25-yard pool and weight room, costs an adult age 18 to 54 $175 as a city resident."
+  },
+  {
+    "row": "benefits 13",
+    "pattern": "\\bone adult \\$175\\b|\\$175 (?:a year )?for (?:one|an|any) adult\\b(?![^.]{0,20}\\b18\\b)",
+    "struck": "It costs one adult $175 as a city resident or $295 otherwise.",
+    "use": "It costs an adult age 18 to 54 $175 as a city resident or $295 otherwise."
+  },
+  {
+    "row": "benefits 13",
+    "pattern": "\\$805 for a couple\\b",
+    "struck": "It costs $555 for one adult or $805 for a couple, paid in full.",
+    "use": "It costs $555 for one adult or $805 for a married couple, paid in full."
+  },
+  {
+    "row": "benefits 17",
+    "pattern": "\\b(?:recorded|governing) documents are the only limits?\\b|\\bonly limits? (?:are|is) (?:in )?the (?:recorded|governing) documents\\b|\\b(?:master deed, covenants and bylaws|covenants and bylaws|HOA'?s? (?:own )?(?:papers|documents)) are the only limits?\\b",
+    "struck": "The recorded documents are the only limits.",
+    "use": "The limits are in the master deed, covenants and bylaws."
+  },
+  {
+    "row": "benefits 18",
+    "pattern": "\\b(?:bars|barred|prohibits|prohibited|forbids|forbidden)\\b[^.]{0,40}\\bfrom regulating\\b|\\b(?:cannot|can't|may not) regulate (?:an |the )?HOAs?\\b",
+    "struck": "The law bars it from regulating HOAs or settling disputes.",
+    "use": "The law bars it from issuing rules or guidelines on how an HOA is run, and from acting as a referee in a dispute."
+  },
+  {
+    "row": "benefits 20",
+    "pattern": "\\b(?:condo )?owners? can (?:make|force|compel) the (?:association|board|HOA|council) (?:to )?(?:follow|obey|keep to) its (?:own )?rules\\b",
+    "struck": "A condo owner can make the association follow its own rules.",
+    "use": "Every condo owner must follow the bylaws and the recorded restrictions, and a harmed owner may, in a proper case, sue an owner who breaks them."
+  },
+  {
+    "row": "benefits 22",
+    "pattern": "\\breserve study shows (?:that )?the reserves are (?:fully )?funded\\b",
+    "struck": "Fannie Mae has the lender check the 10 percent, unless an acceptable reserve study shows the reserves are funded.",
+    "use": "The lender may rely on an acceptable reserve study instead, if the funded reserves meet the study's recommendations."
+  },
+  {
+    "row": "benefits 24",
+    "pattern": "\\bdocuments come through the seller and the association\\b",
+    "struck": "A buyer is not yet an owner, so the documents come through the seller and the association.",
+    "use": "(cut it: no source says how a buyer gets the documents)"
+  },
+  {
+    "row": "benefits 26",
+    "pattern": "\\bup north\\b",
+    "struck": "The biggest mistake the owner sees buyers from up north make is not checking the rules.",
+    "use": "The biggest mistake we see buyers from New York make: not checking that the community's rules fit how they live."
+  }
+]
