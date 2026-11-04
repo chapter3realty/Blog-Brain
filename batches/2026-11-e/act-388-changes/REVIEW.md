@@ -105,3 +105,39 @@ Table 2.3, Horry 2018, assessed shares (F149): primary 30.8, other residential 4
   - Schema: Article, FAQPage (5), BreadcrumbList and Speakable.
   - Every H2 is a question.
   - Missing: a sitemap entry and one inbound body link (N9).
+
+## Fix round 1: changes (builder, 2026-11-04)
+
+Blocking:
+1. **The shares table at 320 px.** It is now a `compareCards` table, which turns into cards on a phone. The columns are "Share, 2018" and "With 6% homes at 4%", and the rows are "Homes their owners live in", "Other homes, mostly rentals" and "Commercial property". The caption is "Share of taxable value, property the Horry County assessor values". Nothing clips at 320 (checked in the 320 shots).
+2. **The Lincoln figures, scoped.**
+   - New sentence: "Of the real property the county assessor values, homes their owners live in were taxed on 30.8% in 2018. With every 6% home moved to 4% and the same dollars raised, that would rise to about 37%."
+   - Card for the home you live in: "homes like yours would pay a larger share. The table under 'Who would make up the money?' gives it." The unscoped "share of county taxes" is gone.
+   - Business card: "about a fifth of the taxable value of property the county assessor values ... would rise toward a quarter."
+   - New line under the table: "Property the state values, such as factories and utilities, and vehicles are not in these figures."
+   - The Horry chart note now says the same.
+   - "The assessor sets" would have tripped the build's ban on "sets". It reads "the county assessor values" instead.
+3. **The effective rates.** The sentence now reads: "The example house pays about 0.6% of its value a year as a home you live in, and about 1.5% as a second home."
+
+Nits:
+- N1. "From late 2019 to late 2024, home prices in the Myrtle Beach metro rose 69% on the federal housing agency's index. An owner who did not sell or add on saw a taxable value rise of 15% at most."
+- N2. New line under the shares table: "Every 6% home moves. The calculation moves the whole higher-rate class to the lower rate, second homes included. If only rentals moved, the shift would be smaller." Both cards now say "every second home and rental", so they match the arithmetic.
+- N3. New line: "The rest is held fixed. The rest of the roll, under one percent, is held as it was."
+- N4. Johnson's first mention: "Jermaine Johnson's platform, as WMBF summed it up, called for lower property taxes." The later paragraph now opens "WMBF's summary also lists ...".
+- N5. The hero card now reads "Next reassessment: 2029, our estimate".
+- N6. The hero sub now ends "A home you live in pays on 4%, without that tax." The reviewer's wording took the sub to 35 words, and mkpage allows 30, so "that tax" names what "it" left unclear.
+- N7. The Horry chart has two colors: gray bars for market value and brass bars for taxable value. The note says so.
+- N8. The "same tests" table now comes before the quotes. Three H3s ("What Wilson said", "What his agenda lists", "What Johnson's platform lists") break the run. The critic's read.wall warning on #candidates is gone at 320 and 390.
+- N10. "Homes owners live in" is now "homes their owners live in" or "the home you live in" in nine places.
+
+Also changed: the four-owner SVG is redrawn 262 units wide, so its text stays near 13 to 15 px at 320. The label "Rents it out, owned before 2011" is shorter. The prose numbers were trimmed to keep P2 at or under 3.5 per 100 words.
+
+Not changed: N9 is the lead's (see NEEDS.md). The read.wall warning from the hero sub to the contents list remains at 320 and 390. It is the short answer and the top offer, with no break.
+
+Gates after this round:
+- score.js: 100/100.
+- claims-scan, facts-check and house-claims: 0 each on this page.
+- struck-check: none. repeat-check --strict: passes.
+- build.js check: OK. build.js audit: only "missing from sitemap.xml" (expected).
+- Critic at 320, 390, 768 and 1440 px: 0 blocking, 2 warnings (the hero read.wall at 320 and 390).
+- Shots: `scratchpad/wf3/act-388-changes-r2/`, with 320 px tiles in `t/`.

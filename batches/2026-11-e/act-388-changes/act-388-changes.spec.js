@@ -99,7 +99,7 @@ const EXEMPT = Math.max(PRICE * (1 - D.exemption_2011.share), CAPPED);          
 const OWNERS = [
   { key: "a", name: "Lives there, long-time owner", value: CAPPED, ratio: R.legal_residence, mills: MB_HOME, why: "4%, no school operating tax" },
   { key: "b", name: "Lives there, new buyer", value: PRICE, ratio: R.legal_residence, mills: MB_HOME, why: "4%, no school operating tax" },
-  { key: "d", name: "Rents it out, owner since before 2011", value: CAPPED, ratio: R.other, mills: MB, why: "6%, with school operating tax" },
+  { key: "d", name: "Rents it out, owned before 2011", value: CAPPED, ratio: R.other, mills: MB, why: "6%, with school operating tax" },
   { key: "c", name: "Second home or rental, new buyer", value: EXEMPT, ratio: R.other, mills: MB, why: "6%, with school operating tax" },
 ].map((o) => ({ ...o, bill: bill(o.value, o.ratio, o.mills) }));
 const OW = Object.fromEntries(OWNERS.map((o) => [o.key, o]));
@@ -180,32 +180,32 @@ const stats = (label, items) => `<div class="a388-stats" role="list" aria-label=
 /* Chart 1: one house, four owners, as an inline SVG drawn from the bills above. 360 units wide, so its
    15-unit text stays near 15 px on a phone; at most 480 px wide on a wide screen. */
 const OWNERS_CHART = (() => {
-  const W = 340, ROW = 66, TOP = 8, BARW = 215, max = Math.max(...OWNERS.map((o) => o.bill));
+  const W = 262, ROW = 62, TOP = 8, BARW = 150, max = Math.max(...OWNERS.map((o) => o.bill));
   const Hh = TOP + ROW * OWNERS.length + 4;
   const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;");
   const rows = OWNERS.map((o, i) => {
     const y = TOP + i * ROW, w = Math.max(6, Math.round(o.bill / max * BARW));
     const fill = o.ratio === R.other ? "#c4783a" : "#1c2028";
-    return `<text x="0" y="${y + 16}" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="17" fill="#1c2028">${esc(o.name)}</text>`
-      + `<rect x="0" y="${y + 27}" width="${w}" height="20" rx="10" fill="${fill}"/>`
-      + `<text x="${w + 8}" y="${y + 41}" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="17" font-weight="600" fill="#1c2028">${about100(o.bill)}</text>`;
+    return `<text x="0" y="${y + 16}" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="15" fill="#1c2028">${esc(o.name)}</text>`
+      + `<rect x="0" y="${y + 25}" width="${w}" height="18" rx="9" fill="${fill}"/>`
+      + `<text x="${w + 7}" y="${y + 39}" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="15" font-weight="600" fill="#1c2028">${about100(o.bill)}</text>`;
   }).join("");
   const label = `Yearly tax on one $350,000 Myrtle Beach house: ${OWNERS.map((o) => `${o.name.toLowerCase()}, ${about100(o.bill)}`).join("; ")}.`;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${Hh}" role="img" aria-label="${esc(label)}" style="display:block;width:100%;max-width:420px;height:auto"><title>${esc(label)}</title>${rows}</svg>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${Hh}" role="img" aria-label="${esc(label)}" style="display:block;width:100%;max-width:380px;height:auto"><title>${esc(label)}</title>${rows}</svg>`;
   return h.figure(svg, "One $350,000 house inside Myrtle Beach, four owners, the 2026 bill. Dark bars are taxed at 4%, brass bars at 6%. Our example, before credits, fees and any special district.");
 })();
 
 /* Chart 2: Horry County, 2018, share of market value and of taxable value, by class (F149). */
 const SHARE_CHART = G.bars([
-  { name: "Homes owners live in, share of market value", value: LR.primary.appraised, valueText: `${LR.primary.appraised}%` },
-  { name: "Homes owners live in, share of taxable value", value: LR.primary.assessed, valueText: `${LR.primary.assessed}%` },
-  { name: "Other homes, mostly rentals, share of market value", value: LR.other_residential.appraised, valueText: `${LR.other_residential.appraised}%` },
+  { name: "Homes their owners live in, share of market value", reference: true, value: LR.primary.appraised, valueText: `${LR.primary.appraised}%` },
+  { name: "Homes their owners live in, share of taxable value", value: LR.primary.assessed, valueText: `${LR.primary.assessed}%` },
+  { name: "Other homes, mostly rentals, share of market value", reference: true, value: LR.other_residential.appraised, valueText: `${LR.other_residential.appraised}%` },
   { name: "Other homes, mostly rentals, share of taxable value", value: LR.other_residential.assessed, valueText: `${LR.other_residential.assessed}%` },
-  { name: "Commercial property, share of market value", value: LR.commercial.appraised, valueText: `${LR.commercial.appraised}%` },
+  { name: "Commercial property, share of market value", reference: true, value: LR.commercial.appraised, valueText: `${LR.commercial.appraised}%` },
   { name: "Commercial property, share of taxable value", value: LR.commercial.assessed, valueText: `${LR.commercial.assessed}%` },
 ], { caption: "Horry County, 2018: who owns the value, and who is taxed on it", nameLabel: "Kind of property", valueLabel: "Share", compact: true, max: 50,
   format: (v) => `${v}%`,
-  note: "Real property the county assessor values. Taxable value is the assessed value, after the 4% or 6% rate. Other homes are, in the study's words, typically rental property at the 6% rate." });
+  note: "Gray bars: share of market value. Brass bars: share of taxable value. Real property the county assessor values only; property the state values and vehicles are not in it. Taxable value is the assessed value, after the 4% or 6% rate. Other homes are, in the study's words, typically rental property at the 6% rate." });
 
 /* ---------------------------------------------------------------------------- */
 
@@ -220,12 +220,12 @@ module.exports = G.page({
   eyebrow: "Property tax",
   h1: "Will the Next Governor Cut the Tax on Your Myrtle Beach Rental?",
   h1em: "What Act 388 changes would mean",
-  sub: "A Myrtle Beach second home or rental pays tax on 6% of its value, plus the school operating tax. The home you live in pays on 4%, without it.",
+  sub: "A Myrtle Beach second home or rental is taxed on 6% of its value, plus school operating tax. A home you live in pays on 4%, without that tax.",
   heroMedia: CSS + glance([
     { icon: "home", label: "Home you live in", text: "4% of value" },
     { icon: "key", label: "Second home or rental", text: "6%, plus school tax" },
     { icon: "tax", label: "To change the rates", text: "Two-thirds of each house" },
-    { icon: "calendar", label: "Next reassessment", text: "Expected 2029" },
+    { icon: "calendar", label: "Next reassessment", text: "2029, our estimate" },
   ]),
   heroCta: { title: "Buying on the Grand Strand? We work out the tax bill on the home first.", label: "Get the tax on a home", href: CONTACT },
   author: "devin+abdulla",
@@ -238,14 +238,14 @@ module.exports = G.page({
     { h2: "What is Act 388 in South Carolina?", toc: "What Act 388 did", id: "what-act-388-did", html: () =>
       h.p(`Act 388 is the 2006 state law that took school operating taxes off homes their owners live in. Everyone else still pays them, including second homes, rentals and businesses.`) +
       `<div class="a388-grid">` +
-      card("Homes owners live in", `<p>They stopped paying the school operating tax. They still pay the school debt tax, the county's tax and the city's.</p>`) +
+      card("Homes their owners live in", `<p>They stopped paying the school operating tax. They still pay the school debt tax, the county's tax and the city's.</p>`) +
       card("An extra 1% sales tax", `<p>The state sales tax rose by 1%, but not on hotel and rental stays. The money goes to a separate fund that pays school districts back.</p>`) +
       card("The 15% limit", `<p>At each countywide reassessment, a property's taxable value can rise no more than 15% over five years. It took effect after a change to the state constitution was ratified.</p>`) +
       `</div>` +
       h.p(`In Horry County the school operating tax is the largest single part of a second home's bill.`) +
       h.h3("What has changed since?") +
       tl([
-        ["2006", `<strong>Act 388 passes.</strong> Homes owners live in stop paying school operating tax.`],
+        ["2006", `<strong>Act 388 passes.</strong> Homes their owners live in stop paying school operating tax.`],
         ["2007", `<strong>The 1% sales tax starts, and the change to the constitution behind the 15% limit is ratified.</strong>`],
         ["2011", `<strong>Act No. 57.</strong> When a 6% property sells, 25% of its value at the sale is exempt.`],
         ["2019", `<strong>Horry County reassessment.</strong>`],
@@ -263,12 +263,12 @@ module.exports = G.page({
       ]) +
       PH.css() + PHOTO +
       h.p(`On the same house inside Myrtle Beach, the rate and the school tax together make the second-home bill more than twice the homeowner's. Our ${h.a(PAGE4, "page for rental investors works each bill at 6% and 4%")}.`) +
-      h.p(`Our house pays about ${EFF_HOME}% and ${EFF_RENT}% of its value a year. A statewide study by the Lincoln Institute found about the same: half a percent for homeowners, a little over one and a half for apartments.`) +
+      h.p(`The example house pays about ${EFF_HOME}% of its value a year as a home you live in, and about ${EFF_RENT}% as a second home. A statewide study by the Lincoln Institute found about the same: half a percent for homeowners, a little over one and a half for apartments.`) +
       h.p(`Our ${h.a(TAXES, "Horry County property tax guide")} shows how the bill is figured and when it is due.`) },
 
     { h2: "How does the 15% cap work, and when does it reset?", toc: "The 15% cap and a sale", id: "the-15-cap", html: (bg) =>
       h.p(`The 15% cap limits how much a reassessment can raise your taxable value while you own the home. A sale or an addition ends the limit for that property.`) +
-      h.p(`Between the last two scheduled reassessments, home prices in the Myrtle Beach metro area rose ${RISE}%, on the federal housing agency's index. An owner who did not sell saw a rise of 15% at most.`) +
+      h.p(`From late 2019 to late 2024, home prices in the Myrtle Beach metro rose ${RISE}% on the federal housing agency's index. An owner who did not sell or add on saw a taxable value rise of 15% at most.`) +
       h.p(`The buyer starts at market value. The 2011 law reduces that for a second home or rental. A quarter of the value at the sale is exempt. It still cannot go below what the seller paid tax on.`) +
       h.h3("One house, four owners") +
       h.p(`Take a house on the roll at $200,000 at one reassessment. At the next, the cap lets it rise to $230,000 at most. It sells for $350,000. The chart gives the 2026 bill for each kind of owner.`) +
@@ -278,10 +278,7 @@ module.exports = G.page({
       h.cta("Before you make an offer on a Grand Strand home", "We work out its tax bill as a home you live in and as a second home, from the county's own record.", "Get the tax on a home", CONTACT, bg) },
 
     { h2: "What did Alan Wilson and Jermaine Johnson say about Act 388?", toc: "What the candidates said", id: "candidates", html: () =>
-      h.p(`Alan Wilson plans to look at reforming Act 388 so rentals are not taxed at a higher rate. Jermaine Johnson's platform called for lower property taxes. Neither named a rate, a bill or a cost.`) +
-      h.p(`In a WIS interview, Wilson said he is "looking at Act 388 and reforming how we assess property taxes on those types of properties," meaning rentals. Owner-occupied homes "are taxed at a much lower rate," he said. "Second, third, and fourth homes, which are usually rental properties, are taxed at a higher rate," he added.`) +
-      h.p(`His agenda lists "Reforming Act 388 to remove higher property taxes for rental properties," as Fox Carolina reported it. The agenda also lists automatic sign-up for the senior exemption, a larger exemption for disabled veterans, and lower personal property taxes for businesses.`) +
-      h.p(`WMBF summed up Johnson's platform as income tax relief for lower-income families, lower property taxes, and more affordable housing. Johnson conceded on election night.`) +
+      h.p(`Alan Wilson plans to look at reforming Act 388 so rentals are not taxed at a higher rate. Jermaine Johnson's platform, as WMBF summed it up, called for lower property taxes. Neither named a rate, a bill or a cost.`) +
       compareCards([
         { name: "In their words", cells: { w: "Reform how rentals are assessed", j: "Lower property taxes" } },
         { name: "A bill filed", cells: { w: "None named", j: "None named" } },
@@ -290,6 +287,12 @@ module.exports = G.page({
         { name: "Other property tax plans", cells: { w: "Homestead exemption changes", j: "None in the summary" } },
       ], [{ key: "w", label: "Alan Wilson (R)" }, { key: "j", label: "Jermaine Johnson (D)" }],
       { caption: "The same tests for both candidates for governor", nameLabel: "Test" }) +
+      h.h3("What Wilson said") +
+      h.p(`In a WIS interview, Wilson said he is "looking at Act 388 and reforming how we assess property taxes on those types of properties," meaning rentals. Owner-occupied homes "are taxed at a much lower rate," he said. "Second, third, and fourth homes, which are usually rental properties, are taxed at a higher rate," he added.`) +
+      h.h3("What his agenda lists") +
+      h.p(`His agenda lists "Reforming Act 388 to remove higher property taxes for rental properties," as Fox Carolina reported it. The agenda also lists automatic sign-up for the senior exemption, a larger exemption for disabled veterans, and lower personal property taxes for businesses.`) +
+      h.h3("What Johnson's platform lists") +
+      h.p(`WMBF's summary also lists income tax relief for lower-income families and more affordable housing. Johnson conceded on election night.`) +
       h.p(`The U.S. Senate race, won by Annie Andrews, does not change this tax. The rates are in the state constitution. Our ${h.a(PAGE1, "guide to what the 2026 election means for Myrtle Beach buyers and sellers")} shows which office can change what.`) },
 
     { h2: "Which Act 388 bills are in the South Carolina legislature now?", toc: "Bills and their status", id: "bills", html: () =>
@@ -313,7 +316,7 @@ module.exports = G.page({
         [`${SE.republicans}`, "Senate seats Republicans have"],
       ]) +
       h.p(`The Senate was not on the ballot this year, except one special race. In the House, Republicans would need at least four Democratic votes. Two close House races go to a recount by law. Whichever way they go, Republicans would have 78 to 80 seats.`) +
-      h.p(`The House districts on Horry County ballots elected eight Republicans and three Democrats. Cutting the school tax break for homes owners live in also takes a two-thirds roll-call vote in each house.`) +
+      h.p(`The House districts on Horry County ballots elected eight Republicans and three Democrats. Cutting the school tax break for the home you live in also takes a two-thirds roll-call vote in each house.`) +
       h.h3("The longer route: S. 815") +
       h.p(`S. 815 would change the constitution itself. That takes two-thirds of each house and then a majority of voters at the next general election, in November 2028. The next legislature must then ratify it.`) },
 
@@ -338,16 +341,23 @@ module.exports = G.page({
       { caption: "Each change, by kind of owner", nameLabel: "Change" }) +
       h.h3("Who would make up the money?") +
       h.p(`In 2006 the state named a new source, the extra sales tax, for the money homeowners stopped paying. No plan to lower the rental rate names one.`) +
-      h.p(`If none were named, the same dollars would have to come from the rest of the tax roll. For a tax every kind of property pays, such as the county's own tax, each kind pays its share of taxable value. The last column is our arithmetic if the same dollars were raised.`) +
-      h.table(["Kind of property", "Share, 2018", "Rentals at 4%"], [
-        ["Homes owners live in", `${LR.primary.assessed}%`, pc(SH.primary)],
-        ["Other homes, mostly rentals", `${LR.other_residential.assessed}%`, pc(SH.other)],
-        ["Commercial property", `${LR.commercial.assessed}%`, pc(SH.commercial)],
+      h.p(`If none were named, the same dollars would have to come from the rest of the tax roll. For a tax every kind of property pays, such as the county's own tax, each kind pays its share of taxable value.`) +
+      h.p(`Of the real property the county assessor values, homes their owners live in were taxed on ${LR.primary.assessed}% in 2018. With every 6% home moved to 4% and the same dollars raised, that would rise to ${pc(SH.primary)}.`) +
+      compareCards([
+        { name: "Homes their owners live in", cells: { now: `${LR.primary.assessed}%`, four: pc(SH.primary) } },
+        { name: "Other homes, mostly rentals", cells: { now: `${LR.other_residential.assessed}%`, four: pc(SH.other) } },
+        { name: "Commercial property", cells: { now: `${LR.commercial.assessed}%`, four: pc(SH.commercial) } },
+      ], [{ key: "now", label: "Share, 2018", num: true }, { key: "four", label: "With 6% homes at 4%", num: true }],
+      { caption: "Share of taxable value, property the Horry County assessor values", nameLabel: "Kind of property" }) +
+      h.ul([
+        `<strong>Every 6% home moves.</strong> The calculation moves the whole higher-rate class to the lower rate, second homes included. If only rentals moved, the shift would be smaller.`,
+        `<strong>The rest is held fixed.</strong> The rest of the roll, under one percent, is held as it was.`,
+        `<strong>What is not counted.</strong> Property the state values, such as factories and utilities, and vehicles are not in these figures.`,
       ]) +
-      h.p(`The figures are a calculation, not a forecast. The school operating tax works differently: homes owners live in do not pay it, so that part would fall on second homes, rentals and businesses.`) },
+      h.p(`The figures are a calculation, not a forecast. The school operating tax works differently: homes their owners live in do not pay it, so that part would fall on second homes, rentals and businesses.`) },
 
     { h2: "What does the evidence say about Act 388, for and against?", toc: "Evidence on both sides", id: "evidence", html: () =>
-      h.p(`The main study says the state's system moved the tax off homes owners live in and onto other property. Lawmakers have kept widening the homeowner side, with no votes against.`) +
+      h.p(`The main study says the state's system moved the tax off homes their owners live in and onto other property. Lawmakers have kept widening the homeowner side, with no votes against.`) +
       h.h3("The case that it shifted the tax") +
       h.p(`The ${h.ext(LINCOLN, "Lincoln Institute of Land Policy")} wrote the study in 2020. The South Carolina Chamber Foundation and South Carolina Realtors picked the ten counties it studied, Horry among them. Its subtitle calls the system "Complex, Inequitable and Uncompetitive."`) +
       h.p(`It found the burden has shifted "from owner-occupied residential properties to non-owner-occupied residential properties." It names commercial, manufacturing and utility property too. In Horry County the figures look like this:`) +
@@ -358,14 +368,14 @@ module.exports = G.page({
       h.ul([
         `<strong>Act 140</strong> passed the House twice and the Senate with no votes against.`,
         `<strong>S. 768</strong>, the larger senior exemption, passed the Senate with no votes against.`,
-        `<strong>The school tax break</strong> for homes owners live in can be cut only by a two-thirds roll-call vote of each house.`,
+        `<strong>The school tax break</strong> for the home you live in can be cut only by a two-thirds roll-call vote of each house.`,
       ]) },
 
     { h2: "What could happen to each kind of owner in the short run and the long run?", toc: "Short and long run", id: "short-and-long-run", html: (bg) =>
       h.p(`For homeowners, little changes in the first two years. For second homes and rentals, the range is from no change to about a third off a city bill, and only after a two-thirds vote.`) +
       `<div class="a388-grid two">` +
       card("Home you live in",
-        `<span class="k">First 1 to 2 years</span><p>Nothing pending raises your 4% assessment. If rentals moved to 4% with no new money, your share of county taxes would rise toward ${pc(SH.primary)} on the 2018 figures.</p>`
+        `<span class="k">First 1 to 2 years</span><p>Nothing pending raises your 4% assessment. If every second home and rental moved to the lower rate with no new money, homes like yours would pay a larger share. The table under "Who would make up the money?" gives it.</p>`
         + `<span class="k">Five years and more</span><p>The 15% cap keeps your taxable value under the market while you own the home. It applies again at the next reassessment.</p>`
         + `<span class="k">Where this was tried before</span><p>In 2006 lawmakers paired the homeowner cut with a new sales tax, so school districts were paid back.</p>`) +
       card("Second home",
@@ -378,7 +388,7 @@ module.exports = G.page({
         + `<span class="k">Rents</span><p>Whether a lower tax would reach tenants is not known. The student note says the high rate has raised rents, without measuring it.</p>`) +
       card("Business property",
         `<span class="k">First 1 to 2 years</span><p>Wilson's agenda, as reported, lists lower personal property taxes for businesses. No bill was published.</p>`
-        + `<span class="k">Five years and more</span><p>Commercial property was about a fifth of Horry's taxable value in the study's figures. If rentals moved to 4% with the same dollars raised, that share would rise toward ${pc(SH.commercial)}.</p>`
+        + `<span class="k">Five years and more</span><p>Commercial property was about a fifth of the taxable value of property the county assessor values. If every second home and rental moved to the lower rate with the same dollars raised, that share would rise toward a quarter.</p>`
         + `<span class="k">Where this was tried before</span><p>The Lincoln study found the shift fell partly on business property.</p>`) +
       `</div>` +
       h.p(`Buying a second home now? Our ${h.a(SECOND, "second home guide")} and our ${h.a(COST, "cost to own a home here")} give the rest of the yearly cost.`) +
