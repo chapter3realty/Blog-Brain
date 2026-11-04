@@ -79,5 +79,24 @@
   "pattern": "\\bwe (?:confirm|call|verify|check)\\b[^.]{0,60}\\b(?:wir(?:e|ing)|attorney'?s? office)\\b",
   "struck": "We confirm the wiring instructions by phone with the attorney's office.",
   "use": "Never follow wiring instructions in an email. Confirm them by phone with the attorney's office, at a number you agreed on in advance."
+ },
+ {
+  "row": "fsbo 28",
+  "pattern": "\\b(?:did not|didn't|never) market(?:ed)?\\b[^.]{0,30}\\bat all\\b",
+  "struck": "Did not market it at all",
+  "use": "Did not actively market it"
+ },
+ {
+  "row": "fsbo 30",
+  "pattern": "\\bmany (?:real estate )?agents\\b[^.]{0,80}\\b(?:printed|prefabricated|pre-printed|preprinted|standard|form) (?:sale |purchase )?contract\\b",
+  "struck": "Many agents in South Carolina write offers on a printed contract an attorney drafted, with the blanks filled in.",
+  "use": "A 2007 opinion of the state Attorney General's office looked at agents who fill in the blanks of a printed sale contract an attorney wrote."
+ },
+ {
+  "row": "fsbo 30",
+  "pattern": "\\b(?:writing|drafting|preparing) (?:a |the )?(?:sale |purchase )?contract for (?:someone|somebody|another person)(?: else)?\\b[^.]{0,60}\\bis (?:a lawyer'?s (?:work|job)|the practice of law|law practice)\\b",
+  "unless": "\\bwhen\\b|\\bif\\b|\\bcan be\\b|\\bmay be\\b",
+  "struck": "Writing a contract for someone else, or advising on its terms, is a lawyer's work.",
+  "use": "Preparing a legal paper for someone else is the practice of law when it involves legal advice. Advice on the contract's terms comes from a lawyer."
  }
 ]

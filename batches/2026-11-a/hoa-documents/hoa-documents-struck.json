@@ -87,5 +87,11 @@
     "unless": "certification",
     "struck": "The bill would make the association deliver the packet within 15 days of the seller's request.",
     "use": "The bill would require the seller certification and governing documents within 15 days of the seller's request."
+  },
+  {
+    "row": "documents 46",
+    "pattern": "\\bbuyer who needs a loan (?:faces|will face|gets) the same review\\b",
+    "struck": "When you sell, a buyer who needs a loan faces the same review.",
+    "use": "When you sell, a buyer who needs a loan may face the same review."
   }
 ]

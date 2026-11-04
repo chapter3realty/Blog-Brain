@@ -87,5 +87,24 @@
     "unless": "\\bKingston Shores\\b",
     "struck": "Three of the Kingston Plantation towers have units for sale now: South Hampton (8 of 11 say they are in a rental program), Royale Palms (8 of 12) and Brighton Towers (6 of 9).",
     "use": "The three towers the manual names, Brighton Towers and South Hampton at Kingston Plantation and Royale Palms at Kingston Shores, all have units for sale now: South Hampton 8 of 11 say they are in a rental program, Royale Palms 8 of 12, Brighton Towers 6 of 9."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 31(d)",
+    "pattern": "\\bsays?\\b[^.]{0,30}\\bnot in (?:the|a|its) (?:rental )?program\\b",
+    "struck": "In the other 30, some condos for sale say they are not in the program.",
+    "use": "In the other 30, some condos for sale do not say they are in one."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 31(d)",
+    "pattern": "\\b(?:an )?owners? can (?:be|stay|remain) outside (?:it|the program|its program)\\b",
+    "struck": "In those buildings, an owner can be outside it.",
+    "use": "That is what the ads say, not the building's rules."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 31(e)",
+    "pattern": "\\blenders? looks? at the building, not at whether you join",
+    "unless": "\\bfor many (?:conventional|standard) loans\\b",
+    "struck": "Lenders look at the building, not at whether you join its program.",
+    "use": "For many conventional loans, lenders look at the building, not at whether you join its program."
   }
 ]
