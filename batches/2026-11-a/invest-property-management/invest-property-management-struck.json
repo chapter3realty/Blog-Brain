@@ -1,0 +1,70 @@
+[
+ {
+  "row": "property-management 6",
+  "pattern": "\\b7 percent applies only when\\b",
+  "struck": "The 7 percent applies only when the rent is above about $2,140 a month.",
+  "use": "A $150 monthly minimum is more than 7 percent of any rent under about $2,140."
+ },
+ {
+  "row": "property-management 10",
+  "pattern": "\\b(?:rented houses?|rentals?|houses?)\\b[^.]{0,40}\\bgets? a new tenant (?:each|every) year\\b",
+  "struck": "About 1 in 4 rented houses gets a new tenant each year.",
+  "use": "About 1 in 4 households renting a house here moved in within the past 12 months."
+ },
+ {
+  "row": "property-management 12",
+  "pattern": "\\bbasic plan\\b[^.]{0,80}\\btakes about \\$\\d",
+  "struck": "A basic plan at about 13 to 17 percent takes about $3,300 to $4,500 of it.",
+  "use": "If a basic plan's 13 to 17 percent is taken on all of it, that is about $3,300 to $4,500. The bookings include the cleaning fees guests pay."
+ },
+ {
+  "row": "property-management 13",
+  "pattern": "\\boutside the Grand Strand\\b",
+  "struck": "For 63 percent of them, the tax bill goes outside the Grand Strand.",
+  "use": "For 63 percent of them, the tax bill goes to an address outside the area: outside Horry County's post-office ZIP codes and Pawleys Island."
+ },
+ {
+  "row": "property-management 15",
+  "pattern": "\\btimeshare\\b",
+  "struck": "261 mailing addresses receive 10 or more of these tax bills each (timeshare and resort companies, builders, large landlords, managers).",
+  "use": "261 mailing addresses receive 10 or more of these tax bills each, 10,827 homes in all."
+ },
+ {
+  "row": "property-management 17",
+  "pattern": "\\brental desk\\b",
+  "struck": "In an oceanfront building, a rental desk is usually there.",
+  "use": "In oceanfront buildings, about 8 in 10 condos for sale list a vacation rental program."
+ },
+ {
+  "row": "property-management 19",
+  "pattern": "\\bworks? under a (?:property )?manager-in-charge\\b",
+  "unless": "\\bbroker-in-charge\\b",
+  "struck": "Every licensed manager works under a manager-in-charge, who answers for the trust account.",
+  "use": "Every licensed manager works under a broker-in-charge or a property manager-in-charge, who answers for the trust account where the tenant's deposit sits."
+ },
+ {
+  "row": "property-management 23",
+  "pattern": "\\b30 days after the tenancy ends and the tenant asks\\b",
+  "struck": "within 30 days after the tenancy ends and the tenant asks, whichever is later",
+  "use": "within 30 days after the tenancy ends, the tenant hands back the home and asks for the deposit, whichever is later"
+ },
+ {
+  "row": "property-management 24",
+  "pattern": "\\bbecomes your agent for that lease\\b",
+  "struck": "A manager who signs a lease without telling becomes your agent for that lease.",
+  "use": "A manager who signs a lease without giving that notice takes on the landlord's duties for that lease and receives the tenant's notices and legal papers."
+ },
+ {
+  "row": "property-management 25",
+  "pattern": "\\b(?:books?|booking) (?:a )?guests? (?:directly|yourself)\\b[^.]{0,60}\\b(?:needs?|must have) a (?:state )?retail licen[cs]e\\b",
+  "unless": "\\bweek\\b",
+  "struck": "An owner who books a guest directly needs a state retail licence.",
+  "use": "An owner who books guests directly needs a state retail licence, unless the home is rented no more than one week in each calendar quarter."
+ },
+ {
+  "row": "property-management 26",
+  "pattern": "\\bmanager'?s (?:share|fee|fees|cut)\\b[^.]{0,60}\\b(?:not on the guest'?s bill|count as part of the rent)\\b",
+  "struck": "The manager's share is not on the guest's bill: the tax is on what the guest pays.",
+  "use": "The manager collects the tax on the full amount of the booking."
+ }
+]
