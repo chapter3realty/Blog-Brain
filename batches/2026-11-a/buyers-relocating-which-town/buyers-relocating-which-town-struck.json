@@ -84,5 +84,30 @@
     "pattern": "Most North Myrtle Beach houses for sale list no HOA",
     "struck": "Most North Myrtle Beach houses for sale list no HOA fee.",
     "use": "About half of North Myrtle Beach's houses for sale list no HOA fee."
+  },
+  {
+    "row": "which-town F3",
+    "pattern": "\\beast of (?:US|U\\.S\\.) 17,? (?:an insurer|insurers)\\b",
+    "unless": "Bypass 17|By-?Pass",
+    "struck": "East of US 17, an insurer may leave wind and hail out, and you can buy that cover separately.",
+    "use": "East of US 17, or of Bypass 17 where it runs farther west, an insurer may leave wind and hail out. You can buy that cover separately."
+  },
+  {
+    "row": "which-town F5",
+    "pattern": "away from (?:the )?breaking waves|high-risk zones? (?:away from|without) (?:breaking )?waves",
+    "struck": "Those are FEMA's high-risk zones away from breaking waves.",
+    "use": "Those are FEMA's high-risk zones where big storm waves are not expected."
+  },
+  {
+    "row": "which-town F11",
+    "pattern": "\\bNot one (?:house|home)s?[^.]{0,80}nightly rentals?|\\bno (?:house|home)s? for sale[^.]{0,60}(?:open to|allows?) nightly rentals?",
+    "struck": "Not one house for sale here is listed as open to nightly rentals.",
+    "use": "Almost none of the houses for sale here are listed as open to nightly rentals."
+  },
+  {
+    "row": "which-town F12",
+    "pattern": "no special zoning or (?:rental )?permit,? only\\b",
+    "struck": "North Myrtle Beach: no special zoning or permit, only a yearly business license and the lodging taxes.",
+    "use": "North Myrtle Beach: no special zoning or permit, beyond a yearly business license and the lodging taxes."
   }
 ]
