@@ -1,0 +1,10 @@
+# NEEDS: /invest/rental-property-tax-cut/ (batch 2026-11-e, page 4)
+
+Shared changes this page needs, for the lead. The builder edited only the spec, the page, the page's data and image folders, and this folder.
+
+1. **Sitemap, llms.txt, dates.** `build.js audit` lists the page as missing from sitemap.xml and llms.txt. Run `node build.js stitch`, `dates` and `llmsfull` when the batch is linked.
+2. **Share card location.** The text share card (Blog-Brain `tools/ogcard.js`) is at `chapter3realty/images/2026-11-e/rental-property-tax-cut/share-card.jpg`, and the spec points `ogImage` at it, because `og/` is outside this page's folders. To follow the site's pattern, move it to `chapter3realty/og/invest-rental-property-tax-cut.jpg` and delete the spec's `ogImage` line; mkpage then finds it.
+3. **Photo.** The one photo is the Loadmaster (David R. Tribble) shoreline file, CC BY-SA 3.0, cropped to the towers with no people. Page 6 (/invest/short-term-rental-rules-statehouse/) uses the same source file with a different crop. Better: the photo partner's shot list item 1 in `photos.md` (a block of rental condos or beach houses in a Myrtle Beach zone that allows short-term rentals). Replace it here when his photos arrive.
+4. **image-meta.js (S13) fails, as it will on every page in this session.** exiftool is not installed, so no IPTC/XMP metadata was embedded or read. Article.image has no 1x1, 4x3 and 16x9 photo crops: a taller crop of the source frame takes in recognizable people on the beach. With the partner's photo, add `crops` and `pageImages: () => PH.pageImages()`.
+5. **Inbound links.** /buyers/act-388-changes/ and /market-reports/2026-election/ should link here (score S8 passed once siblings were built; keep it so).
+6. **Derived figures, not ledger rows** (arithmetic on verified rows only; listed in `data/README.md`): the unincorporated "like an owner's home" bill $1,173; the parts of the $5,347 bill (school operating $2,291, city $1,751, county $1,094, school debt $210); one third of the 47.2% rental share, "about a sixth" (15.7 points); 4 Democratic votes (83 - 79) and 42 to block (124 - 83 + 1). A fact checker may want to re-check them.
