@@ -15,3 +15,7 @@ Proposed row `horry-typical-home-value`: value "about $320,000 (Horry County, Zi
 ## 3. The "2.5 times the income" line
 
 The live page says the households arriving reported "about 2.5 times the income of the households leaving". That is the ratio of total income ($1.25 billion against $505 million). Per household it is about 1.5 times ($82,912 against $55,266). Proposed registry row `irs-inflow-income-ratio`: value "about 1.5 times per household (IRS 2022-2023)", wrong value to flag: "2.5 times the income of the households leaving" unless "in total" is in the same sentence. Firing control: the live sentence above. Quiet control: "about $1.25 billion of income arrived and about $505 million left, in total".
+
+## 4. stories.json: the Boston story's label (writer, 2026-11-04)
+
+`boston-hotel-manager` limits say to label it "his real numbers, from a real story, not a promise". The website's `build.js audit` now fails "real story" ("real X" intensifier, owner 2026-08-28). This page prints "Those are his real numbers, from a true story, not a promise." Proposed: change the story's limit to that wording, and fix /buyers/relocating/from-massachusetts/ if it still prints "real story" when it is next rebuilt.
