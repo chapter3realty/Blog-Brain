@@ -63,3 +63,57 @@ I compared `WEB/data/2026-11-e/first-time-buyer-tax-credit/fhfa-myrtle-beach-200
 - Balance: H.R. 3475's Republican sponsor and Democratic cosponsors are both named; her quote "This is a great idea" is hers, in quotes; the page adds no praise or blame of either party. Her other housing plans are quoted, not judged. Wilson's state role is pointed to his own page. Items 2 to 5 above are the only balance findings.
 - Reader: the answer to the main search ("No federal one") is in the first sentence of the first H2 and in the short answer. A first-time buyer can act: use SC Housing help now, do not wait for a bill. What stays open: when a bill could pass and whether it would cover a home bought before it passes; the page answers the second with "The credit then applies on the dates the law names", which is honest.
 - Photo: U.S. Capitol, Architect of the Capitol, public domain, credited; matches its section.
+
+## Fix round 1 (builder, 2026-11-04)
+
+Builder's change list. Spec: WEB/specs/first-time-buyer-tax-credit.js. No other website file was touched. Blog-Brain: one new row in facts.md.
+
+### Blocking
+
+1. **Closing deadline.** I read P.L. 111-198 on govinfo myself. Its long title gives "before October 1, 2010, in the case of a written binding contract ... before May 1, 2010". Sec. 2(a) puts "October 1, 2010" in place of "July 1, 2010" in 26 USC 36(h)(2). It applies to homes bought after June 30, 2010, and was signed July 2, 2010 (H.R. 5623).
+   - facts.md: new row **F201**, VERIFIED (reviewer found, builder confirmed). F107's status now says its July 1 date is the IRS page's old text and points to F201.
+   - Timeline: "Before Oct. 1, 2010 / The deadline to close. Congress moved it from July 1 in July 2010, for buyers already under contract. The credit ends." The timeline's screen-reader text has the same change.
+   - FAQ (visible and schema): "...from April 2008 to September 2010. The last buyers had to sign a contract by the end of April 2010 and close by the end of September."
+   - Chart: the band now ends at the end of 2010 Q3, x = 2010.75.
+   - Chart screen-reader text, both SVGs: your wording.
+   - Chart caption: your wording.
+   - Short and long run table, "5 years and more": "about two years after the credit ended".
+   - Not added: the armed-forces exception. It has no row.
+2. **Subtitle:** "The $50,000 credit she backs has not passed. The last federal credit, up to $8,000, was open while Myrtle Beach prices fell."
+3. **Short answer, first paragraph:** your wording. Her words and the bill's terms are kept apart.
+4. **H1 answer line:** "a small rise nationally, while Myrtle Beach prices kept falling until 2012."
+   - mkpage requires a Grand Strand place in the H1 line itself. So the first line is now "...What the last one did to home prices, nationally and in Myrtle Beach:".
+5. **Table, "If a credit passes here", 5 years and more:** "In 2009 the wider market moved local prices more than the credit did."
+   - Cut the same idea from the paragraph under the table so it is said once.
+
+### Nits
+
+- **Biden's credit:** "the credits proposed since then have not become law." The cards and the paragraph already call it a budget proposal.
+- **"Standard step of exposure" replaced.** I checked the meaning in the NBER working paper w22903 (Berger, Turner, Zwick, "Stimulating Housing Markets"). It defines program exposure as "the ratio of first-time homebuyers to total tax filers in a place in 2000", normalized by its standard deviation.
+  - Tile: "higher median prices (1.1%) in places where first-time buyers were a larger share of the people, for each typical step up in that share."
+  - Table: "Median prices rose about 1.1% more in places where first-time buyers were a larger share of the people."
+  - The ledger has no row for this definition. A verifier can add one from w22903 if wanted.
+- **Table wording:** "to a small rise in places with many first-time buyers".
+- **Early visual on a phone.**
+  - I tried a key-facts row under the H1. It pushed the answer off the 390 px first screen, which is a critic block, so I removed it.
+  - Instead the short answer is shorter. Its second and third paragraphs are now 3 and 2 sentences.
+  - 390 px is now clean. 320 px still has the one read.wall warning (1,030 px). The first screen is a pass at both widths.
+- **320 px chart:** the phone SVG is now viewBox 300 with font 17 (was 340 with font 15). Labels show at about 14 px at 320 px. I checked the shot.
+- **1440 caption:** the table caption padding is now .9rem left, the same as the cells. I checked the shot.
+- **FAQ repeat:** the repayment FAQ is reworded ("Only buyers from 2008 had to ... Later buyers owed it back only if they sold the home or stopped living in it within three years."). repeat-check: 0 near repeats.
+- **Also changed:** "The IRS questions and answers list the basic rules" (was "still list the rules"), because that page still shows the old July 1 date.
+
+### Gates after the fix
+
+| Gate | Result |
+|---|---|
+| score.js (SCORE_TODAY=2026-11-04) | 100/100, no blockers |
+| claims-scan, facts-check, house-claims | 0 on this page |
+| struck-check | No struck wording |
+| repeat-check --strict | Passes |
+| image-meta | Passes |
+| critic at 320, 390, 768, 1440 | 0 blocking, 1 warning (read.wall at 320) |
+| build.js check | OK |
+| build.js audit | Only "missing from sitemap.xml" (lead's step), plus warnings |
+
+Shots: scratchpad/wf3/first-time-buyer-tax-credit. I looked at the first screen at 390, the chart at 320, the timeline at 390, and the table and caption at 1440.
