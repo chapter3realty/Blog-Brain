@@ -15220,6 +15220,235 @@ index 00000000..72fbdf4b
 +AFFIRMED.
 +WILLIAMS and GEATHERS, JJ., concur.
 \ No newline at end of file
+diff --git a/data/2026-11-a/hoa-rental-restrictions/scdca-rentals-verified.json b/data/2026-11-a/hoa-rental-restrictions/scdca-rentals-verified.json
+new file mode 100644
+index 00000000..3fba9001
+--- /dev/null
++++ b/data/2026-11-a/hoa-rental-restrictions/scdca-rentals-verified.json
+@@ -0,0 +1,222 @@
++{
++ "source": "SCDCA HOA legislative report workbooks (data/2026-10-d/hoa-special-assessments/raw/)",
++ "by_year": {
++  "2022": {
++   "all": 276,
++   "horry_all": 70,
++   "mention_all": 4,
++   "mention_horry": 1,
++   "rule_all": 4,
++   "rule_horry": 1
++  },
++  "2023": {
++   "all": 365,
++   "horry_all": 89,
++   "mention_all": 5,
++   "mention_horry": 1,
++   "rule_all": 3,
++   "rule_horry": 0
++  },
++  "2024": {
++   "all": 434,
++   "horry_all": 117,
++   "mention_all": 5,
++   "mention_horry": 2,
++   "rule_all": 2,
++   "rule_horry": 0
++  },
++  "2025": {
++   "all": 452,
++   "horry_all": 140,
++   "mention_all": 4,
++   "mention_horry": 0,
++   "rule_all": 0,
++   "rule_horry": 0
++  }
++ },
++ "hits": [
++  {
++   "year": 2022,
++   "complaint": "C22-02844",
++   "horry": false,
++   "about_rental_rule": true,
++   "columns": [
++    "Other recommendations for changing provisions of governing documents"
++   ]
++  },
++  {
++   "year": 2022,
++   "complaint": "C22-01769",
++   "horry": false,
++   "about_rental_rule": true,
++   "columns": [
++    "Other recommendations for changing provisions of governing documents"
++   ]
++  },
++  {
++   "year": 2022,
++   "complaint": "C22-04112",
++   "horry": true,
++   "about_rental_rule": true,
++   "columns": [
++    "Other recommendations for changing provisions of governing documents"
++   ]
++  },
++  {
++   "year": 2022,
++   "complaint": "C22-01498",
++   "horry": false,
++   "about_rental_rule": true,
++   "columns": [
++    "Other recommendations for changing provisions of governing documents"
++   ]
++  },
++  {
++   "year": 2023,
++   "complaint": "C23-00766",
++   "horry": true,
++   "about_rental_rule": false,
++   "columns": [
++    "Complaint Description Other"
++   ]
++  },
++  {
++   "year": 2023,
++   "complaint": "C23-00986",
++   "horry": false,
++   "about_rental_rule": true,
++   "columns": [
++    "Other recommendations for changing provisions of governing documents"
++   ]
++  },
++  {
++   "year": 2023,
++   "complaint": "C23-04311",
++   "horry": false,
++   "about_rental_rule": true,
++   "columns": [
++    "Complaint Description Other"
++   ]
++  },
++  {
++   "year": 2023,
++   "complaint": "C23-04915",
++   "horry": false,
++   "about_rental_rule": false,
++   "columns": [
++    "Other recommendations for changing provisions of governing documents"
++   ]
++  },
++  {
++   "year": 2023,
++   "complaint": "C23-05451",
++   "horry": false,
++   "about_rental_rule": true,
++   "columns": [
++    "Other recommendations for changing provisions of governing documents",
++    "Complaint Description Other"
++   ]
++  },
++  {
++   "year": 2024,
++   "complaint": "C24-00006",
++   "horry": true,
++   "about_rental_rule": false,
++   "columns": [
++    "Other recommendations for changing provisions of governing documents"
++   ]
++  },
++  {
++   "year": 2024,
++   "complaint": "C24-01177",
++   "horry": true,
++   "about_rental_rule": false,
++   "columns": [
++    "Complaint Description Other"
++   ]
++  },
++  {
++   "year": 2024,
++   "complaint": "C24-02129",
++   "horry": false,
++   "about_rental_rule": false,
++   "columns": [
++    "Other recommendations for changing provisions of governing documents"
++   ]
++  },
++  {
++   "year": 2024,
++   "complaint": "C24-03943",
++   "horry": false,
++   "about_rental_rule": true,
++   "columns": [
++    "Complaint Description Other"
++   ]
++  },
++  {
++   "year": 2024,
++   "complaint": "C24-04131",
++   "horry": false,
++   "about_rental_rule": true,
++   "columns": [
++    "Explanation of your attempt to obtain documents",
++    "Complaint Description Other"
++   ]
++  },
++  {
++   "year": 2025,
++   "complaint": "C25-00285",
++   "horry": false,
++   "about_rental_rule": false,
++   "columns": [
++    "Complaint Description (Other Details)"
++   ]
++  },
++  {
++   "year": 2025,
++   "complaint": "C25-01776",
++   "horry": false,
++   "about_rental_rule": false,
++   "columns": [
++    "Complaint Description (Other Details)"
++   ]
++  },
++  {
++   "year": 2025,
++   "complaint": "C25-03254",
++   "horry": false,
++   "about_rental_rule": false,
++   "columns": [
++    "Other recommendations for enforcing governing documents, if any"
++   ]
++  },
++  {
++   "year": 2025,
++   "complaint": "C25-05925",
++   "horry": false,
++   "about_rental_rule": false,
++   "columns": [
++    "Other recommendations for enforcing governing documents, if any"
++   ]
++  }
++ ],
++ "total": {
++  "all": 1527,
++  "horry_all": 416,
++  "mention_all": 18,
++  "mention_horry": 4,
++  "rule_all": 9,
++  "rule_horry": 1
++ },
++ "text_columns": [
++  "Explanation of your attempt to obtain documents:",
++  "Recommendations for enforcing governing documents",
++  "Other recommendations for enforcing governing documents, if any",
++  "Recommendations for changing provisions of governing documents",
++  "Other recommendations for changing provisions of governing documents",
++  "Complaint Description",
++  "Complaint Description (Other Details)",
++  "Business Action Prior to Complaint",
++  "Business Response to SCDCA Complaint"
++ ]
++}
+\ No newline at end of file
 diff --git a/data/2026-11-a/hoa-rental-restrictions/scdca-rentals.json b/data/2026-11-a/hoa-rental-restrictions/scdca-rentals.json
 new file mode 100644
 index 00000000..b1a4aa82
@@ -15330,3 +15559,43 @@ index 00000000..cd396c19
 +    print(os.path.basename(f), res["by_year"][os.path.basename(f)])
 +json.dump(res, open(os.path.join(out, "scdca-rentals.json"), "w"), indent=1)
 +json.dump(private, open(os.path.join(RAW, "rental-hits-private.json"), "w"), indent=1)
+diff --git a/data/2026-11-a/hoa-rental-restrictions/verify_scdca.py b/data/2026-11-a/hoa-rental-restrictions/verify_scdca.py
+new file mode 100644
+index 00000000..76281ba4
+--- /dev/null
++++ b/data/2026-11-a/hoa-rental-restrictions/verify_scdca.py
+@@ -0,0 +1,34 @@
++"""Verifier's recount of SC Department of Consumer Affairs HOA complaints that mention renting (2022 to 2025).
++Why: scdca_rentals.py picked its text columns with a case-sensitive "Recommend", so it skipped the two
++"Other recommendations ..." columns, and its word list had no "rented". This script reads every free-text column
++(document-request explanation, all four recommendation columns, both complaint description columns, business action
++and business response), never the HOA name, address or management company. Same word boundaries.
++TOPIC lists the complaints the verifier read and judged to be about an association's rental rule (read by hand, 2026-11-04).
++Counts and complaint numbers only; no names.
++Run: python3 -I verify_scdca.py <datadir> <workbook dir>"""
++import sys, os, re, json, glob, openpyxl, collections
++out, src = sys.argv[1], sys.argv[2]
++W = re.compile(r"\b(rent|rents|rented|rental|rentals|renter|renters|renting|lease|leases|leasing|leased|tenant|tenants|airbnb|vrbo|short[- ]term)\b", re.I)
++TOPIC = {"C22-01769", "C22-04112", "C22-02844", "C22-01498", "C23-00986", "C23-04311", "C23-05451", "C24-03943", "C24-04131"}
++res = {"source": "SCDCA HOA legislative report workbooks (data/2026-10-d/hoa-special-assessments/raw/)", "by_year": {}, "hits": []}
++for f in sorted(glob.glob(os.path.join(src, "scdca-legislative-*.xlsx"))):
++    rows = list(openpyxl.load_workbook(f, read_only=True).worksheets[0].iter_rows(values_only=True))
++    h = [re.sub(r"\s+", " ", str(x or "")).strip() for x in rows[0]]
++    ci = h.index("HOA County")
++    txt = [i for i, x in enumerate(h) if re.search(r"explanation|recommend|description|business action|business response", x, re.I)]
++    c = collections.Counter(); year = None
++    for r in rows[1:]:
++        if not r or not r[0]: continue
++        year = getattr(r[1], "year", year); horry = str(r[ci] or "").strip().lower() == "horry"
++        c["all"] += 1; c["horry_all"] += horry
++        cols = [h[i] for i in txt if r[i] and W.search(str(r[i]))]
++        if cols:
++            c["mention_all"] += 1; c["mention_horry"] += horry
++            t = r[0] in TOPIC; c["rule_all"] += t; c["rule_horry"] += t and horry
++            res["hits"].append({"year": year, "complaint": r[0], "horry": horry, "about_rental_rule": t, "columns": cols})
++    res["by_year"][str(year)] = dict(c)
++tot = collections.Counter()
++for v in res["by_year"].values(): tot.update(v)
++res["total"] = dict(tot); res["text_columns"] = [h[i] for i in txt]
++json.dump(res, open(os.path.join(out, "scdca-rentals-verified.json"), "w"), indent=1)
++print(json.dumps(res["by_year"]), json.dumps(res["total"]))

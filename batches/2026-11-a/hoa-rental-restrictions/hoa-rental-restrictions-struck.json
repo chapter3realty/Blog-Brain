@@ -1,0 +1,84 @@
+[
+  {
+    "row": "rental-restrictions 2",
+    "pattern": "\\bhouses? (?:in|with) an HOA (?:fee )?rarely allows?\\b",
+    "struck": "Houses in an HOA rarely allow nightly rentals.",
+    "use": "Few houses with an HOA fee say nightly rentals are allowed."
+  },
+  {
+    "row": "rental-restrictions 5",
+    "pattern": "\\bCarolina Forest (?:is|sits|lies) (?:entirely |all )?outside (?:the )?(?:cities|city limits|towns)\\b",
+    "struck": "Carolina Forest is outside the cities, where Horry County's zoning sets no limit on how long a home may be rented.",
+    "use": "Most of them (287) are outside city limits, where Horry County's zoning sets no limit on how long a home may be rented."
+  },
+  {
+    "row": "rental-restrictions 9",
+    "pattern": "\\bas (?:the|each) listing agents? (?:has )?marked\\b",
+    "struck": "The counts use what each listing says, as the listing agent marked it.",
+    "use": "The counts use the rental flags on each listing."
+  },
+  {
+    "row": "rental-restrictions 10",
+    "pattern": "\\brules?\\b[^.]{0,120}\\bmust be (?:given|handed|provided|made available|made accessible) to (?:a |any )?(?:member|owner)s? who asks?\\b",
+    "unless": "\\bunless\\b",
+    "struck": "Its rules take effect when adopted, must be given to a member who asks, and stay enforceable only if recorded by January 10.",
+    "use": "Rules take effect when adopted. An association must give a member a copy on request unless they are posted in a common area or on its website."
+  },
+  {
+    "row": "rental-restrictions 13",
+    "pattern": "\\bSouth Carolina law (?:puts|places|sets) no limits? on\\b",
+    "struck": "South Carolina law puts no limit on an association's rental rules.",
+    "use": "Neither South Carolina's HOA Act nor its condo law caps an association's rental rules or exempts owners who bought before a new one."
+  },
+  {
+    "row": "rental-restrictions 14",
+    "pattern": "\\bbarred renting (?:a unit |any unit )?to college students\\b",
+    "unless": "\\b(?:not related|unrelated)\\b",
+    "struck": "A condo's master deed barred renting to college students.",
+    "use": "A Richland County condo's master deed barred renting to college students not related to the owner."
+  },
+  {
+    "row": "rental-restrictions 15",
+    "pattern": "\\bassociation had not (?:watched|monitored|checked) rentals\\b",
+    "unless": "\\beven if\\b",
+    "struck": "The association had not watched rentals closely before.",
+    "use": "The court said that even if the association had not watched rentals before, it had not given up the rule."
+  },
+  {
+    "row": "rental-restrictions 16",
+    "pattern": "\\ban owner rented the main floor of his\\b",
+    "struck": "An owner rented the main floor of his house on Airbnb.",
+    "use": "Owners rented the main floor of their house on Airbnb while living in the guest suite upstairs."
+  },
+  {
+    "row": "rental-restrictions 18",
+    "pattern": "\\bnew condo rule that (?:bans|limits|prohibits)\\b",
+    "struck": "In Florida, a new condo rule that bans or limits renting applies only to owners who agree to it and to later buyers.",
+    "use": "In Florida, a condo declaration amendment that bans or limits renting binds only owners who agree to it and later buyers."
+  },
+  {
+    "row": "rental-restrictions 21",
+    "pattern": "\\blodging tax\\b[^.]{0,160}\\bunless the home is rented fewer than 15 days\\b",
+    "unless": "\\bsix\\b",
+    "struck": "South Carolina charges its lodging tax when a home is rented to the same guest for less than 90 days in a row, unless the home is rented fewer than 15 days in the year.",
+    "use": "It does not apply to a home rented fewer than 15 days in the year, or to rooms rented in the owner's own home with fewer than six bedrooms."
+  },
+  {
+    "row": "rental-restrictions 25",
+    "pattern": "\\b(?:6|six) (?:of them )?mention rent|\\b1 does, and it is about a rental deposit\\b|\\brental deposit\\b",
+    "struck": "From 2022 to 2025 it logged 1,527 HOA complaints statewide; 6 mention renting. Of 416 from Horry County, 1 does, and it is about a rental deposit.",
+    "use": "From 2022 to 2025 it logged 1,527 HOA complaints statewide. 9 were about an association's rental rules, and 1 of those came from Horry County."
+  },
+  {
+    "row": "rental-restrictions 26",
+    "pattern": "\\bwaiting period\\b[^.]{0,60}\\b(?:rent|lease)\\b|\\bban on renting to a group of tenants\\b",
+    "struck": "a waiting period before a new owner may rent, a ban on renting to a group of tenants",
+    "use": "(cut the waiting period: no source) a limit on who may rent, such as the Richland County condo's ban on renting to college students not related to the owner"
+  },
+  {
+    "row": "rental-restrictions 29",
+    "pattern": "\\bno (?:state )?bill would change this\\b",
+    "struck": "No state bill would change this.",
+    "use": "Two 2025 bills on short-term rentals, H. 3861 and S. 442, were sent to committee and went no further."
+  }
+]
