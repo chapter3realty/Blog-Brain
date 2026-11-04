@@ -77,3 +77,14 @@ Not changed: the "Live from the MLS" box and the "Updated" date are site-wide (t
 - **Little River Neck's drive to the beach.** The PIN-to-part file the drive pull used has a different Neck from row 8 (386 houses against 1,413), so its 4.6 minutes is not printed.
 - **An aerial for Little River Neck and Crescent Beach.** Not made this round, to save tokens; the photo partner's shot list covers them.
 - **The 320 px read.wall warnings** that remain (the short answer at about 950 px, the rental section, the FAQ end matter) are warnings, not blocking; each is under 1.5 phone screens or end matter.
+
+## Gates after the fixes (2026-11-04)
+
+- `node tools/mkpage.js specs/north-myrtle-beach.js`: builds. Every new number is checked by a `must()` against its data file.
+- `score.js --only /submarkets/north-myrtle-beach/` (SCORE_TODAY=2026-11-04): 100/100 (SEO 100, AEO 100, Human 99, Trust 100). One partial: P2, 4.3 numbers per 100 words (the bar is 3.5). The yearly-cost table and the part entries carry them. The old version was not measured on this rule.
+- `claims-scan.js`: 0 findings. `facts-check.js`: 0 hits on this page.
+- `house-claims.js`: 0 after scoping two sentences ("Only about 1 in 4 houses is the owner's main home"; "the other houses are taxed as second homes or rentals").
+- `build.js check`: OK.
+- `build.js audit`: this page has no FAIL of its own. Its two "!!" lines are the dateModified and "Updated" date against the sitemap, the same as before this round; `node build.js dates` fixes them, and the lead runs it at the end. One warning: no attributed sentence from Tim or Devin (A20). The story bank has no Tim quote for this place, so none is written.
+- `critic.mjs`: 0 blocking at 1440 and 768 (the round's first run found a 768 px table spill from the long "Houses that are the owner's main home" header; the header is now "Main homes" and the paragraph under the table says what it means). 0 blocking at 390 and 320. The phone runs went without `--shots`, because the full-page phone screenshot of this page (about 37,000 px tall) hung twice. Warnings: read.wall on the short answer at 320 (947 px), on the rental section at 320 (911 px) and on the FAQ end matter (the Sources line and nine photo credits).
+- Shots looked at (`wf2/submarkets-north-myrtle-beach/fix1/shots/`): the hero tiles at 320 and 390 fit inside their tiles; the parts table at 320 keeps "1 in 4", "3 in 4" and "2 in 3" on one line; every new aerial and the postcard were looked at full size before use.
