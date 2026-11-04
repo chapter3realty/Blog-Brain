@@ -1,0 +1,78 @@
+[
+  {
+    "row": "hoa-tax-deductible 1",
+    "pattern": "\\bGrand Strand\\b[^.]{0,60}\\b(?:dues|HOA fees?|condo fees?)\\b[^.]{0,40}\\binclude|\\b(?:dues|HOA fees?)\\b[^.]{0,30}\\binclude\\b[^.]{0,60}\\bGrand Strand\\b",
+    "struck": "The IRS puts them in the same list as homeowners insurance, utilities and internet service, which Grand Strand condo dues often include.",
+    "use": "The IRS lists them with homeowners insurance, utilities and internet service, and most Horry County condos for sale say their dues include those."
+  },
+  {
+    "row": "hoa-tax-deductible 7",
+    "pattern": "\\ba little less (?:in )?the first year\\b|\\$364 a year for 27\\.5 years",
+    "struck": "A $10,000 share of a roof assessment on a condo you rent out is deducted at about $364 a year for 27.5 years, a little less in the first year.",
+    "use": "Example: a $10,000 share of a roof assessment on a condo you rent out is deducted at about $364 a year in each full year, less in the first and last years, over 27.5 years from when the new roof is in service."
+  },
+  {
+    "row": "hoa-tax-deductible 11",
+    "pattern": "\\bfamily means\\b|\\b(?:you, a co-owner or a family member|a family member) uses (?:the unit|it)\\b",
+    "unless": "main home",
+    "struck": "A personal day is a day you, a co-owner or a family member uses the unit. Family means spouse, brothers and sisters, parents and grandparents, children and grandchildren.",
+    "use": "A personal day is a day you, a co-owner or a relative uses it (unless the relative rents it at a fair price as their main home), a day anyone pays less than a fair rent, and a day used under a swap."
+  },
+  {
+    "row": "hoa-tax-deductible 16",
+    "pattern": "\\bevery day (?:of the year )?counts? (?:toward|to|on) the rental side\\b",
+    "struck": "If you never use it, every day of the year counts toward the rental side, and costs while it sits empty for rent are deductible.",
+    "use": "If you never use it yourself, nothing is split: all of the dues are a rental expense, including months it sits empty while you hold it out for rent."
+  },
+  {
+    "row": "hoa-tax-deductible 20",
+    "pattern": "\\b8829\\b[^.]{0,120}\\b(?:dues|HOA fees?|association)\\b|\\b(?:dues|HOA fees?)\\b[^.]{0,80}\\b(?:8829|line 22)\\b",
+    "struck": "For a self-employed owner who qualifies, Form 8829 has a line for operating expenses not on its other lines, so the business share of the dues goes there.",
+    "use": "(cut it: no IRS source names association dues as a home office expense; say only that employees get no deduction and that a self-employed owner who qualifies splits whole-home costs by the business share)"
+  },
+  {
+    "row": "hoa-tax-deductible 21",
+    "pattern": "\\bSouth Carolina\\b[^.]{0,40}\\b(?:follows|uses|has) the same rules\\b",
+    "unless": "\\b(?:dues|rental days|depreciation)\\b",
+    "struck": "South Carolina follows the same rules.",
+    "use": "South Carolina starts from the federal figures, so the same rules on dues, rental days and depreciation apply on the state return."
+  },
+  {
+    "row": "hoa-tax-deductible 21",
+    "pattern": "\\b(?:South Carolina|state return|SC return)\\b[^.]{0,80}\\bif you itemize\\b|\\bif you itemize\\b[^.]{0,80}\\b(?:South Carolina|state return|SC return)\\b",
+    "unless": "\\bfederal\\b",
+    "struck": "Property tax on a main home is deductible on your South Carolina return if you itemize.",
+    "use": "From 2026, South Carolina does not use the federal itemized deductions."
+  },
+  {
+    "row": "hoa-tax-deductible 22",
+    "pattern": "\\brental answer is the common one\\b|\\bmost (?:condos|condo units|units|owners)\\b[^.]{0,40}\\b(?:are|is) (?:rentals|rented)\\b",
+    "struck": "On the Grand Strand the rental answer is the common one.",
+    "use": "Only about 1 in 5 Horry County condo units is taxed at the 4 percent rate for its owner's legal residence. The rest are taxed at 6 percent, the rate for rentals, second homes and any home whose owner has not claimed the legal-residence rate."
+  },
+  {
+    "row": "hoa-tax-deductible 22",
+    "pattern": "\\bthe rest are taxed as rentals or second homes\\b",
+    "struck": "Inside the city, about 1 in 11 condo units is taxed as its owner's legal residence; the rest are taxed as rentals or second homes.",
+    "use": "Inside the city, about 1 in 11 condo units is taxed as its owner's legal residence. The rest are taxed at 6 percent, the rate for rentals, second homes and any home whose owner has not claimed the legal-residence rate."
+  },
+  {
+    "row": "hoa-tax-deductible 23",
+    "pattern": "\\b(?:6|six) in 10 condo owners\\b|\\bcondo owners\\b[^.]{0,60}\\boutside South Carolina\\b",
+    "struck": "About 6 in 10 condo owners get their tax bill at an address outside South Carolina.",
+    "use": "About 6 in 10 Horry County condo units have their tax bill mailed to an address outside South Carolina."
+  },
+  {
+    "row": "hoa-tax-deductible 25",
+    "pattern": "\\bexpect the county to see\\b|\\b(?:holds|keeps?) (?:the 4 percent rate )?(?:as long as|if)\\b[^.]{0,60}\\b72 days\\b",
+    "unless": "qualif",
+    "struck": "South Carolina's 4 percent rate for a legal residence holds if the home is not rented for more than 72 days in a year. A main-home owner who rents and deducts dues should expect the county to see it.",
+    "use": "A legal residence keeps the 4 percent rate only while the owner still qualifies and rents it no more than 72 days in a calendar year. The assessor may ask for the owner's Schedule E."
+  },
+  {
+    "row": "hoa-tax-deductible 32",
+    "pattern": "\\bdues you (?:cannot|can't) deduct\\b[^.]{0,60}\\btimes the tax\\b|\\btypical dues\\b|\\btaxed as a rental\\b",
+    "struck": "Our comparison: the dues you cannot deduct are many times the tax you can. On a Myrtle Beach condo taxed as a rental, the dues are still almost 4 times the tax.",
+    "use": "On a Myrtle Beach condo that is its owner's legal residence, a year of dues at the middle for condos for sale in ZIP 29577 (about $9,300) is about 11 times the 2026 tax bill of the middle-valued such condo in the city (about $830). The tax counts on the federal return if you itemize; the dues never do."
+  }
+]
