@@ -105,6 +105,7 @@ main#main .c3s-callout p{margin:0 0 .6rem}main#main .c3s-callout p:last-child{ma
 @media (min-width:760px){main#main nav[aria-label="On this page"]{max-width:960px!important}main#main nav[aria-label="On this page"] ul{columns:2;column-gap:2.4rem}main#main nav[aria-label="On this page"] li{break-inside:avoid}}
 main#main>section[style^="background:var(--navy)"]:last-of-type:not(:first-child)>.wrap{background:#2a3040!important;display:block!important;text-align:center!important;padding:2.2rem 1.6rem!important;margin-left:max(24px,calc((100% - 1132px) / 2))!important;margin-right:0!important;width:min(760px,calc(100% - 48px));max-width:none!important;box-sizing:border-box}
 main#main>section[style^="background:var(--navy)"]:last-of-type:not(:first-child)>.wrap>p{color:rgba(244,239,232,.82)!important}
+main#main .c3ph-cr{background:rgba(28,32,40,.85)!important;font-size:.8rem!important;line-height:1.3!important;padding:.3rem .65rem!important;border-radius:10px 0 0 0;letter-spacing:0!important}
 @media (prefers-reduced-transparency:reduce){main#main .c3s-seats,main#main .c3s-time li,main#main .c3s-stats div,main#main .c3s-card,main#main .c3s-callout{background:#fbf8f3}}
 </style>`;
 
@@ -177,7 +178,7 @@ module.exports = G.page({
         `<strong>License and fines.</strong> Every rental needs a city business license. A violation can bring a fine of up to $500, 30 days in jail, or both, on conviction.`,
       ]) +
       PHOTO +
-      h.p(`The city added one more rule in December 2024. City council voted unanimously for a ${h.ext(OVERLAY, "conversion overlay")} on commercial districts east of Kings Highway, on the ocean side. Under it, short-term rentals there may not convert to long-term rentals. It took effect at once and replaced a temporary moratorium.`) +
+      h.p(`The city added one more rule in December 2024. City council voted unanimously for a ${h.ext(OVERLAY, "conversion overlay")} on commercial districts east of Kings Highway, on the ocean side. Under it, short-term rentals there may not convert to long-term rentals. It took effect at once, and a temporary moratorium was set to expire.`) +
       h.p(`Two kinds of units are exempt from the overlay. One is a unit that already has a long-term rental license. The other is a former primary residence or second home that was never rented.`) },
 
     { h2: "What are the rules in North Myrtle Beach, Surfside Beach and the rest of Horry County?", toc: "North Myrtle Beach and the rest", id: "north-myrtle-beach", html: (bg) =>
@@ -206,17 +207,22 @@ module.exports = G.page({
       h.p(`A rental is taxed on 6% of its value, and a home you live in on 4%. Our page on the ${h.a("/invest/rental-property-tax-cut/", "proposed rental property tax cut")} shows what it costs on a Myrtle Beach rental.`) },
 
     { h2: "Could the new South Carolina House pass a bill like H. 3861?", toc: "The votes it would need", id: "the-votes", html: () =>
-      h.p(`Yes. It would take the same ${MAJ} House votes as in the old House. A bill like H. 3861 is an ordinary bill. It does not need two-thirds. Each house must ${h.ext(ART3, "read it three times")}, on three separate days, and pass it. In the House, a tie fails, so if all ${HS} members vote, a bill needs ${MAJ} yes votes.`) +
+      h.p(`Yes. If all ${HS} members vote, it would take ${MAJ} House votes, the same as in the old House. A bill like H. 3861 is an ordinary bill. It does not need two-thirds. Each house must ${h.ext(ART3, "read it three times")}, on three separate days, and pass it. In the House, a tie fails.`) +
       SEATS +
-      h.p(`In the unofficial count, Republicans led in ${A.R} House races and Democrats in ${A.D}. Before the election the House had ${B.R} Republicans and ${B.D} Democrats. The state Senate was not on the ballot except for one special race, and it still has ${V.senate.R} Republicans and ${V.senate.D} Democrats.`) +
-      h.p(`The new split changes one number: the votes to override a veto. After a governor's ${h.ext(ART4, "veto")}, two-thirds of each house must vote again to pass the bill. If all members vote, that is ${TWO3} in the House and ${STWO3} in the Senate. Republicans held ${B.R} House seats before, enough alone. With ${A.R}, a House override would need some Democratic votes.`) +
-      h.p(`Two House races were within 1 point and qualify for an automatic recount. If either recount changed the result, Republicans would hold ${LOW} or ${HIGH} seats. Both are more than ${MAJ} and fewer than ${TWO3}.`) +
+      h.ul([
+        `<strong>The House.</strong> In the unofficial count, Republicans led in ${A.R} races and Democrats in ${A.D}. Before the election it had ${B.R} Republicans and ${B.D} Democrats.`,
+        `<strong>The Senate.</strong> It was not on the ballot except for one special race. It still has ${V.senate.R} Republicans and ${V.senate.D} Democrats.`,
+        `<strong>The recounts.</strong> Two House races were within 1 point and qualify for an automatic recount. If one recount changed the result, Republicans would hold ${LOW} or ${HIGH} seats. If both did, they would hold ${A.R}. Each is more than ${MAJ} and fewer than ${TWO3}.`,
+      ]) +
+      h.h3("What changed: the votes to override a veto") +
+      h.p(`After a governor's ${h.ext(ART4, "veto")}, two-thirds of each house must vote again to pass the bill. If all members vote, that is ${TWO3} in the House and ${STWO3} in the Senate.`) +
+      h.p(`Republicans held ${B.R} House seats before, enough to override alone. With ${A.R}, a House override would need some Democratic votes.`) +
       h.h3("What did the candidates say about short-term rentals?") +
       h.p(`Nothing we found. Alan Wilson won the governor's race after Jermaine Johnson conceded. We checked Wilson's priorities page and found no short-term rental item, and we found no statement from Johnson. Annie Andrews, the AP's winner of the U.S. Senate race, has none on her issue pages, and state zoning is not a federal vote.`) +
       h.p(`Of the ${HORRY.length} House districts on Horry County's ballot, Republicans led in ${HR} and Democrats in ${HD}. Rep. Bailey, a sponsor of H. 3861, won District ${BAILEY.d} with ${BAILEY.pct}% in the unofficial count. Our ${h.a("/market-reports/2026-election/", "2026 election guide")} has every result that matters for a home here.`) },
 
     { h2: "What happened when Arizona's and Florida's legislatures took this power from cities?", toc: "Arizona and Florida", id: "other-states", html: () =>
-      h.p(`Both legislatures took away the power to ban. Both later passed changes. In order:`) +
+      h.p(`Both legislatures took away the power to ban. Arizona later changed its law. Florida's legislature passed a change in 2024, and the governor vetoed it. In order:`) +
       timeline([
         ["2016", "Arizona bars local bans", `${h.ext(AZ16, "SB 1350")}: "A city or town may not prohibit vacation rentals or short-term rentals."`],
         ["2022", "Arizona gives cities some rules back", `${h.ext(AZNOW, "SB 1168")} kept the ban on bans. Cities can now require a permit, with a fee of no more than $250 or the cost, whichever is less. They can also require an emergency contact, notice to neighbors, and liability coverage of $500,000, which the booking platform's coverage can meet. They can suspend a permit for repeat violations.`],
@@ -224,7 +230,7 @@ module.exports = G.page({
         ["2025", "South Carolina's H. 3861 is introduced", `It never left committee.`],
         ["Now", "Florida keeps its older local rules", `${h.ext(FL, "Florida law today")} says local governments may not ban vacation rentals or limit how long or how often they are rented. Local rules adopted on or before June 1, 2011 still stand.`],
       ]) +
-      h.p(`In Arizona, cities lost the power to ban in 2016. Six years later the legislature let them require permits, contacts and insurance. In Florida, local rules from before the cutoff still stand, and the 2024 bill to move licensing to the state was vetoed. We found no study that measured what either change did to home prices or rents.`) },
+      h.p(`In Arizona, cities lost the power to ban in 2016. Six years later the legislature let them require permits, contacts and insurance. In Florida, local rules from before the cutoff still stand. We found no study that measured what either change did to home prices or rents.`) },
 
     { h2: "Do short-term rental limits change home prices and rents?", toc: "Prices and rents", id: "prices", html: () =>
       h.p(`In the one peer-reviewed study we found, by a small amount. In Los Angeles County, 18 of 88 cities adopted home-sharing rules. ${h.ext(LA, "The study")}, in the Journal of Urban Economics in 2021, measured what followed in those cities:`) +
@@ -234,11 +240,12 @@ module.exports = G.page({
     { h2: "What could happen to Grand Strand short-term rentals in the next two years, and after five?", toc: "Short run and long run", id: "what-could-happen", html: () =>
       h.p(`Three paths, each from a past example. None is a forecast of what the new legislature will pass.`) +
       cards([
-        ["No new state law", `<p><b>Where it happened:</b> H. 3861 got no vote in a House with ${B.R} Republicans.</p><p><b>Next two years:</b> Myrtle Beach's R-zone rule, its overlay and North Myrtle Beach's license rule stay as they are.</p><p><b>After five:</b> any change comes from a city or county council vote.</p>`],
-        ["A ban on local bans", `<p><b>Where it happened:</b> Arizona in 2016, and the H. 3861 text.</p><p><b>Next two years:</b> Myrtle Beach could not enforce its R-zone rule on stays under 29 days. Reading the Los Angeles study in reverse, prices and rents in those neighborhoods would rise, by 0 to about 2%. That is our inference.</p><p><b>After five:</b> in Arizona, six years later, the legislature let cities require permits, emergency contacts and insurance.</p>`],
+        ["No new state law", `<p><b>Where it happened:</b> H. 3861 got no committee vote in 2025 and 2026.</p><p><b>Next two years:</b> Myrtle Beach's R-zone rule, its overlay and North Myrtle Beach's license rule stay as they are.</p><p><b>After five:</b> any change comes from a city or county council vote.</p>`],
+        ["A ban on local bans", `<p><b>Where it happened:</b> Arizona in 2016, and the H. 3861 text.</p><p><b>Next two years:</b> Myrtle Beach could not enforce its R-zone rule on stays under 29 days. Reading the Los Angeles study in reverse, prices and rents in those zones could rise by up to about 2%, or not at all. That is our inference, not a forecast.</p><p><b>After five:</b> in Arizona, six years later, the legislature let cities require permits, emergency contacts and insurance.</p>`],
         ["A law that keeps older local rules", `<p><b>Where it happened:</b> Florida. Its law keeps local rules adopted on or before June 1, 2011.</p><p><b>Next two years:</b> a cutoff like Florida's keeps the local rules adopted before it. Myrtle Beach's R-zone rule could stay if it came before the cutoff, and new local bans would be barred.</p><p><b>After five:</b> in Florida, the legislature passed a bill moving licensing to the state in 2024, and the governor vetoed it.</p>`],
       ]) +
-      h.p(`Any new law needs the same steps first. A bill is filed and passes a committee. It wins ${MAJ} House votes if all members vote, then a Senate majority, then the governor's signature. A governor's veto would then need ${TWO3} House votes and ${STWO3} Senate votes to override.`) },
+      h.p(`Any new law needs the same steps first. A bill is filed and usually passes a committee. It wins ${MAJ} House votes if all ${HS} members vote, then a Senate majority. Then the governor signs it or lets it become law without a signature.`) +
+      h.p(`If all members vote, a veto would then need ${TWO3} House votes and ${STWO3} Senate votes to override.`) },
 
     { h2: "What does Chapter3 do for a short-term rental buyer while the rules stay local?", toc: "What we do", id: "what-we-do", html: (bg) =>
       h.p(`We check the rules for the one address before you make an offer. In Myrtle Beach that means the zone and whether the house is one of the fewer than 30 grandfathered houses. For a condo, it also means whether the building is in the overlay. In North Myrtle Beach and Surfside Beach it means the license and the zone.`) +

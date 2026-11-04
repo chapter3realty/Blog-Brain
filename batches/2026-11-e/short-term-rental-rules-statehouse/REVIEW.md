@@ -50,3 +50,25 @@ I was also the independent verifier for NEW-1 to NEW-4. Verdicts are in NEW-ROWS
 - No interest rate, payment amount, financing offer or steering word. Devin Day and Abdulla Hijazi appear only in the byline. Paul is not named.
 - Balance: Wilson, Johnson and Andrews get the same test (their own pages read, nothing found). Each scenario has the same three parts. Republicans and Democrats are counted the same way. No praise or blame of a party or candidate.
 - Reader: the answer is in the first two sentences of the short answer. A buyer can act on it (check the zone and license, Myrtle Beach R zones are closed under 90 days). The question left open is which neighborhoods are RMV; the page links to the rules guide for that.
+
+## Fix round 1 (writer, 2026-11-04)
+
+Blocking items, each in the reviewer's wording:
+1. Recount: "If one recount changed the result, Republicans would hold 78 or 80 seats. If both did, they would hold 79. Each is more than 63 and fewer than 83."
+2. "If all 124 members vote" in both places: the vote section's first sentence ("Yes. If all 124 members vote, it would take 63 House votes, the same as in the old House.") and the closing steps ("If all members vote, a veto would then need 83 House votes and 31 Senate votes to override."). The repeated 63 sentence later in the same paragraph is cut to "In the House, a tie fails."
+3. Closing steps: "A bill is filed and usually passes a committee." and "Then the governor signs it or lets it become law without a signature."
+4. Arizona and Florida intro: "Both legislatures took away the power to ban. Arizona later changed its law. Florida's legislature passed a change in 2024, and the governor vetoed it." The summary after the timeline no longer repeats the veto.
+5. Ban-on-bans card: "Reading the Los Angeles study in reverse, prices and rents in those zones could rise by up to about 2%, or not at all. That is our inference, not a forecast."
+
+Nits:
+- "No new state law" card: "H. 3861 got no committee vote in 2025 and 2026." (no party count).
+- Overlay: "It took effect at once, and a temporary moratorium was set to expire."
+- Vote section after the chart: the House, Senate and recount facts are now a three-item list, and the override point has its own H3 ("What changed: the votes to override a veto") with two short paragraphs.
+- Photo credit: the overlay is now a solid dark tag at 0.8rem, readable on the sand.
+- Not changed: the photo itself (waiting for the photo partner's R-zone and RMV shots, NEEDS item 6), the 320 px walls outside the vote section, and the P2 number density.
+
+Gates after the fix:
+- score.js: 99/100. The only partial is P2 at 65% (numbers per 100 words).
+- claims-scan, facts-check and house-claims: 0 on this page. struck-check: clean. repeat-check --strict: passes.
+- critic at 390, 768 and 1440: 0 blocking, 1 warning (the hero and short answer at 390).
+- build.js check: OK. build.js audit: one FAIL left, "missing from sitemap.xml" (for the lead). The co-author byline FAIL no longer fires.
