@@ -21,3 +21,7 @@ Things to know:
 - The market-reports page has a new card linking to the election guide.
 - Running `node build.js dates` moved the dates on 57 other pages to their real last change; the deploy gate requires it.
 - Site-wide, claims-scan reports 10 findings on pages from the other chat's batch, none on these seven.
+
+## Fix after the first deploy try (2026-11-05)
+
+The deploy gate stopped on 112 date errors. The dates step had run in a shallow clone, so 56 pages got the date the shallow history started. It was re-run with the full history and pushed; `node build.js preflight` passes. Lesson: run `node build.js dates` only in a clone with full history (no `.git/shallow`).
