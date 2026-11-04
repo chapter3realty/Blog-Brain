@@ -1,0 +1,5 @@
+# Needs: /buyers/relocating/why-myrtle-beach/
+
+1. **Retire the old relocating spec when this page ships.** The page is now built by `specs/relocating-why-myrtle-beach.js` with `tools/mkpage.js`. `data/relocating/pages/why-myrtle-beach.js` must be deleted in the same patch, or `node build.js check` fails ("the spec no longer builds its page"). It is deleted in the working copy; the checkpoint's web.patch does not carry the deletion, because the checkpoint pathspecs do not include that file. When packaging: `git rm data/relocating/pages/why-myrtle-beach.js`.
+2. **The inline lead form (form key `relocating-why-myrtle-beach`) is gone.** Every offer on the page goes to /contact/, as on every rebuilt guide. If the CRM reports by that form key, map it to the contact form.
+3. **The end offer band and the header phone at 1024 px.** This page carries retirees.js's two CSS fixes in its own spec (the band keeps its dark panel; the phone digits hide from 1000 to 1120 px). Both belong in the shared CSS once.
