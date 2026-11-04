@@ -1,0 +1,9 @@
+# Shot list: /invest/financing-multiple-rentals/
+
+For the photo partner (`templates/photo-request-email.md`). The page works without these; each one adds a photo of the subject itself. No person as the subject, no readable house numbers, plates, phone numbers or business signs. With each photo, send the street or subdivision name, and confirm in writing that we may use it as our own.
+
+| # | Place | What to shoot | Why | Section, and what it replaces |
+|---|---|---|---|---|
+| 1 | Socastee (ZIP 29588) or Conway (ZIP 29526), a street of ordinary one-story houses in an older subdivision | From the sidewalk, daylight, landscape: two similar houses side by side, driveways and front yards in view. Also a square crop of the pair. | The page is about owning a second rental. Two plain houses on one street show the reader the kind of homes repeat buyers here buy: the middle price they paid was $195,000. | "How many people here own more than one rental?": replaces the Conway historic-district stand-in. The square crop can be the share image. |
+| 2 | Myrtle Beach (ZIP 29577) or North Myrtle Beach (ZIP 29582), a low-rise condo building of two or three floors, inside a complex | From the parking lot, daylight, landscape: the whole building with its stairs and balconies; no name sign readable. | 3 in 10 homes that repeat buyers bought were condos, and most homes for sale at their price today are condos (432 condos against 67 houses). | Same section, a second photo under the listings sentence. No stand-in today. |
+| 3 | Carolina Forest (ZIP 29579), a 3-bedroom house of the kind in the worked example | From the street, daylight, landscape: one plain two-story or one-story house front, straight on. | The page's reserve and worst-case examples use a 3-bedroom house in Carolina Forest. | "How much cash do lenders want you to keep?": a photo beside the worked figure. Shares item 1 of the /invest/run-the-numbers/ list; one shoot serves both. |
