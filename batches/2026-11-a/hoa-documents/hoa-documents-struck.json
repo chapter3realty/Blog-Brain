@@ -1,0 +1,91 @@
+[
+  {
+    "row": "documents 4",
+    "pattern": "\\bseller'?s (?:one|only) (?:duty|job|obligation)\\b",
+    "struck": "The seller's one duty is a one-page form, before the contract.",
+    "use": "Unless the sale is exempt, the seller fills in the state's disclosure form before the contract is signed. If the home is in an association, that includes a one-page HOA addendum."
+  },
+  {
+    "row": "documents 9",
+    "pattern": "\\brules?\\b[^.]{0,120}\\bmust be (?:given|handed|provided|made available|made accessible) to (?:a |any )?(?:member|owner)s? who asks?\\b",
+    "unless": "\\bunless\\b",
+    "struck": "Rules and regulations take effect when adopted, must be given to a member who asks, and stay enforceable only if recorded at the county.",
+    "use": "Rules take effect when adopted. An association must give a member a copy on request unless they are posted in a common area or on its website."
+  },
+  {
+    "row": "documents 10",
+    "pattern": "\\binspect\\b[^.]{0,160}\\b(?:bylaws|articles)\\b[^.]{0,40}\\bminutes\\b(?! of (?:owners|members))",
+    "struck": "A member may inspect and copy the association's bylaws, articles, minutes and financial statements of the past three years.",
+    "use": "An owner of a nonprofit association can inspect and copy its articles, bylaws, minutes of owners' meetings and three years of financial statements."
+  },
+  {
+    "row": "documents 17",
+    "pattern": "\\bcondo buyer is (?:liable|responsible)\\b|\\bbuyer (?:is liable|owes)[^.]{0,40}\\bseller'?s unpaid (?:assessments|dues)\\b",
+    "unless": "foreclosure",
+    "struck": "A condo buyer is liable with the seller for the seller's unpaid assessments.",
+    "use": "A condo buyer, other than a buyer at a foreclosure sale, owes the seller's unpaid assessments along with the seller."
+  },
+  {
+    "row": "documents 18, 19",
+    "pattern": "\\bFor (?:a|any) conventional loan\\b",
+    "struck": "For a conventional loan on a condo, the lender checks that the budget puts at least 10 percent of dues income into reserves.",
+    "use": "In Fannie Mae's full review of a condo building, the budget must put at least 10 percent of dues income into reserves."
+  },
+  {
+    "row": "documents 18",
+    "pattern": "\\bFannie Mae\\b[^.]{0,120}\\b15 percent\\b[^.]{0,40}\\breserve|\\breserve[^.]{0,80}\\brises to 15 percent\\b",
+    "unless": "Freddie Mac",
+    "struck": "For applications from January 4, 2027, the reserve line rises to 15 percent.",
+    "use": "Freddie Mac raises its test to 15 percent for loan applications from January 4, 2027."
+  },
+  {
+    "row": "documents 23",
+    "pattern": "\\bcannot get (?:a |any )?(?:standard |normal )?conventional loan\\b",
+    "struck": "A building that a lender's review finds ineligible cannot get a standard conventional loan.",
+    "use": "A loan on a unit there cannot be sold to Fannie Mae, so buyers need a different loan."
+  },
+  {
+    "row": "documents 25",
+    "pattern": "\\$250\\b",
+    "struck": "The fee is capped at $250.",
+    "use": "The law caps the association's fee for the papers."
+  },
+  {
+    "row": "documents 26",
+    "pattern": "\\bFlorida\\b[^.]{0,200}\\bwithin 3 days\\b[^.]{0,60}\\bbefore closing\\b",
+    "unless": "whichever",
+    "struck": "In Florida the buyer may void the contract within 3 days of getting it, or before closing.",
+    "use": "In Florida the buyer may void the contract within 3 days of getting it or before closing, whichever comes first."
+  },
+  {
+    "row": "documents 28",
+    "pattern": "\\bWhere our buyers come from\\b|\\bour buyers come from\\b",
+    "struck": "Where our buyers come from.",
+    "use": "Where newcomers to Horry County come from."
+  },
+  {
+    "row": "documents 30",
+    "pattern": "\\b716\\b|\\b362\\b|\\bmore than 350 (?:different )?associations\\b",
+    "struck": "At least 716 association papers were recorded in Horry County by 362 different associations.",
+    "use": "About 700 association papers were recorded in Horry County by more than 300 associations."
+  },
+  {
+    "row": "documents 30a",
+    "pattern": "\\b778\\b|\\bphase amendments?\\b|\\bcondos still being built\\b",
+    "struck": "The year's total is at least 778, most of them phase amendments to master deeds of condos still being built.",
+    "use": "More than 700 association papers were recorded in all."
+  },
+  {
+    "row": "documents 33",
+    "pattern": "\\bnever (?:received|got|gotten) (?:a |any )?(?:copy|copies)\\b",
+    "struck": "49 said they had never received a copy.",
+    "use": "49 said they had not received a copy."
+  },
+  {
+    "row": "documents 34",
+    "pattern": "\\b(?:packet|it)\\b[^.]{0,60}\\bwithin 15 days\\b",
+    "unless": "certification",
+    "struck": "The bill would make the association deliver the packet within 15 days of the seller's request.",
+    "use": "The bill would require the seller certification and governing documents within 15 days of the seller's request."
+  }
+]
