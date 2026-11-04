@@ -87,3 +87,24 @@ All gates pass on the result:
 - facts-check: only the 7 old hits
 
 The packaging copy is now a full clone of the live branch with the four parts applied. Every later patch is built on it.
+
+## v1.34, 2026-11-04: group 5
+
+The pages are /hoa/documents/, /hoa/tax-deductible/, /invest/property-management/, /invest/rental-program-vs-airbnb/ and /sell/fsbo/. Built in the packaging copy, which is the live branch with v1.33a to v1.33d applied. The lead applied the re-check's open items:
+- **HOA documents:**
+  - The chart that compared a month with whole years is cut.
+  - Two repeats are cut.
+  - "We pull the pages at the county for you."
+  - "May face the same review."
+- **Property management:** the H1's second line no longer repeats the short answer.
+- **Rental program vs Airbnb:** four sentences are scoped to their source.
+- **FSBO:**
+  - The Attorney General's 2007 opinion is stated as what it is.
+  - "Did not actively market it".
+  - A card no longer repeats the steps.
+
+Results:
+- Scores are 99 to 100, and H5 passes on all five.
+- struck-check, claims-scan (0) and facts-check (only the 7 old hits) pass, and so do audit and check.
+- The critic finds 0 blocking at 320, 390 and 1440 px.
+- v1.34 applies after v1.33d on the live branch (tested).
