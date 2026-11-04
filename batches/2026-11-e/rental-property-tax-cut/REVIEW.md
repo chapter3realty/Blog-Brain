@@ -71,3 +71,21 @@ No em dashes. No interest rate, payment amount, lender or financing offer. Devin
 ## Balance
 
 Wilson's plan gets more space because it is the subject of the page. Johnson gets the same tests in a side-by-side table (goal, names the rental rate, other items, whose words), and the page says plainly that his summary does not name which taxes. Andrews is placed correctly as federal. Both sides of the Act 388 debate are given: the USC note and Lincoln study against, nohometax.org for. No prediction is stated as certain; the past-examples table ends "None of this is a forecast".
+
+## Fix round 1: changes made (builder, 2026-11-04)
+
+Blocking:
+1. **320 px stat card.** The third hero card now reads "83 of 124 / House votes a change needs". The 79 is said in the short answer. Below 360 px the card sub-text is .75rem. Re-shot at 320: nothing spills, and no word breaks.
+2. **"About a sixth" scoped.** Section "What would it cost": "Suppose every home now taxed at 6% moved to 4%. At 2018 shares, that would take about a sixth of the taxable value off the real property the county assessor values." Long-run card: "About a sixth of the taxable value of the real property the county assessor values would come off, at 2018 shares." The first sentence is split in two to stay under 28 words.
+3. **Florida cell split.** "Florida caps the yearly rise in taxable value at 10% for a home of nine units or fewer that is not the owner's homestead. The cap covers every tax but the school tax."
+
+Nits:
+- Photo recropped to the towers (x 240 to 880, y 200 to 520 of the 1920 px rendition). Only the top of one umbrella shows, in a corner, and no person is in the frame. The record's `what`, `alt` and `subject_check` are updated, and `photos.js check` passes.
+- Share chart redrawn for phones: viewBox 300, labels 17 to 18, shorter bars so the labels fit. Vote chart: viewBox 300, labels 16 to 18, marker label shortened to "83 needed" / "31 needed".
+- "Homes their owners live in" in every place it appeared: the Act 388 table row, the long-run bullet, the chart label, its aria text, and the state fund sentence.
+- "In the House, a rental change needs Democratic votes. At today's count, if 42 of the 45 Democrats voted no, it would fail even with every Republican voting yes."
+- Table row label: "Florida's cap on non-homestead homes".
+- Under the calculator: "Before the 25% exemption a rental gets when it sells."
+- "What we do now": the three actions are a list under "When you buy or sell a rental, our agents check its numbers three ways:".
+
+Not changed: the read.wall warning in the hero run at 320 and 390. As the review says, it is the dek, the cards and the short answer.

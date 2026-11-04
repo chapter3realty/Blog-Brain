@@ -142,7 +142,7 @@ const CSS = "<style>"
   + `main#main .rt-runs ul{margin:0;padding:0 0 0 1.1rem;color:var(--muted);line-height:1.55}main#main .rt-runs ul li{margin:0 0 .45rem}`
   + "@media (max-width:379px){main#main .hx-fb,main#main .hx-fb>*{min-width:0;max-width:100%}main#main .hx-fb-ai,main#main .hx-fb-q{min-width:0!important;max-width:100%!important;flex-wrap:wrap;box-sizing:border-box}main#main .hx-fb-q textarea{min-width:0;flex:1 1 100%;width:100%}main#main .hx-fb-go{flex:1 1 100%}}"
   + "@media (min-width:1000px) and (max-width:1100px){.header-ctas .hdr-phone{display:none!important}}"
-  + "main#main .c3-glance li{line-height:1.4}main#main .c3-glance strong{font-size:1.2rem!important;font-weight:700;line-height:1.25}main#main .c3-glance span.t{font-size:.95rem!important;line-height:1.4!important}"
+  + "@media (max-width:359px){main#main .c3-glance span.t{font-size:.75rem!important;hyphens:none}main#main .c3-glance li{padding-left:.15rem;padding-right:.15rem}}main#main .c3-glance li{line-height:1.4}main#main .c3-glance strong{font-size:1.2rem!important;font-weight:700;line-height:1.25}main#main .c3-glance span.t{font-size:.95rem!important;line-height:1.4!important}"
   + "@media (min-width:700px){main#main nav[aria-label=\"On this page\"]>ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1.6rem}}"
   + "main#main>section[style^=\"background:var(--navy)\"]:has(>.wrap>h2){padding:.9rem 0!important}"
   + "main#main>section[style^=\"background:var(--navy)\"]:has(>.wrap>h2)>.wrap{display:block!important;text-align:center!important;background:linear-gradient(160deg,rgba(42,48,64,.95),rgba(28,32,40,.97))!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 26px 60px -30px rgba(28,32,40,.6)!important;border-radius:28px!important;padding:2.2rem 1.6rem!important;margin-left:auto!important;margin-right:auto!important}"
@@ -178,7 +178,7 @@ const CALC = `<div class="rt-calc"><div class="k">Work out the tax on your renta
   + `<div class="out" role="list" aria-live="polite"><div role="listitem" class="now"><span>Today, at 6%</span><strong id="rtSix">${money(MB.six)}</strong></div>`
   + `<div role="listitem"><span>At 4%, still paying the school tax</span><strong id="rtFour">${money(MB.four)}</strong></div>`
   + `<div role="listitem"><span>At 4%, taxed like an owner's home</span><strong id="rtHome">${money(MB.home)}</strong></div></div>`
-  + `<div class="note" id="rtNote">A change would save ${money(CUT_NARROW)} to ${money(CUT_HOME)} a year on this rental.</div></div>`
+  + `<div class="note" id="rtNote">A change would save ${money(CUT_NARROW)} to ${money(CUT_HOME)} a year on this rental.</div><div class="note">Before the 25% exemption a rental gets when it sells.</div></div>`
   + `<script>function c3Rt(){var p=document.getElementById("rtPrice"),a=document.getElementById("rtArea"),o=["rtSix","rtFour","rtHome"].map(function(i){return document.getElementById(i)}),n=document.getElementById("rtNote");if(!p||!a||!n)return;`
   + `var v=parseFloat(String(p.value).replace(/[$,\\s]/g,"")),m=parseFloat(a.value),s=${M.school_operation};`
   + `var f=function(x){return "$"+Math.round(x).toLocaleString("en-US")};if(!(v>0)){o.forEach(function(e){e.textContent="--"});n.textContent="Enter the county's value of the rental.";return}`
@@ -187,15 +187,15 @@ const CALC = `<div class="rt-calc"><div class="k">Work out the tax on your renta
 
 /* The vote meter (F083, F011, F012). Seats as bars, the two-thirds line marked. */
 const VOTES = (() => {
-  const W0 = 340, x0 = 8, x1 = 332, X = (n, tot) => x0 + (x1 - x0) * n / tot;
+  const W0 = 300, x0 = 6, x1 = 294, X = (n, tot) => x0 + (x1 - x0) * n / tot;
   const chamber = (y, name, tot, r, d, need) => {
     const xr = X(r, tot), xn = X(need, tot), by = y + 34;
-    return `<text x="${x0}" y="${y}" font-size="17" font-weight="700" fill="#1c2028">${name}, ${tot} members</text>`
-      + `<text x="${xn.toFixed(1)}" y="${y + 24}" text-anchor="end" font-size="15" font-weight="700" fill="#a8482f">${need} needed for two-thirds</text>`
+    return `<text x="${x0}" y="${y}" font-size="18" font-weight="700" fill="#1c2028">${name}, ${tot} members</text>`
+      + `<text x="${xn.toFixed(1)}" y="${y + 24}" text-anchor="end" font-size="17" font-weight="700" fill="#a8482f">${need} needed</text>`
       + `<rect x="${x0}" y="${by}" width="${(xr - x0).toFixed(1)}" height="30" rx="6" fill="#2a3040"/>`
       + `<rect x="${xr.toFixed(1)}" y="${by}" width="${(x1 - xr).toFixed(1)}" height="30" rx="6" fill="#b9c2ca"/>`
-      + `<text x="${(x0 + 8).toFixed(1)}" y="${by + 21}" font-size="15" font-weight="700" fill="#fff">${r} Republicans</text>`
-      + `<text x="${x1.toFixed(1)}" y="${by + 50}" text-anchor="end" font-size="15" font-weight="700" fill="#1c2028">${d} Democrats</text>`
+      + `<text x="${(x0 + 8).toFixed(1)}" y="${by + 21}" font-size="16" font-weight="700" fill="#fff">${r} Republicans</text>`
+      + `<text x="${x1.toFixed(1)}" y="${by + 50}" text-anchor="end" font-size="16" font-weight="700" fill="#1c2028">${d} Democrats</text>`
       + `<line x1="${xn.toFixed(1)}" x2="${xn.toFixed(1)}" y1="${y + 29}" y2="${by + 36}" stroke="#a8482f" stroke-width="3"/>`;
   };
   const aria = `Two bars. The House: ${HO.republicans_unofficial_2026} Republicans and ${HO.democrats_unofficial_2026} Democrats in the unofficial count, with the two-thirds line at ${HO.two_thirds} of ${HO.members}, past the Republican seats. The Senate: ${SE.republicans} Republicans and ${SE.democrats} Democrats, with the line at ${SE.two_thirds} of ${SE.members}, inside the Republican seats.`;
@@ -213,17 +213,17 @@ const ROUTES = `<ol class="rt-routes" aria-label="The two ways the rental rate c
 
 /* F149: appraised against assessed share, Horry 2018, as paired bars. */
 const SHARES = (() => {
-  const W0 = 340, lx = 8, bx = 8, bw = 250, rowH = 92, X = (v) => bw * v / 60;
-  const names = { "Primary residential": "Homes owners live in", "Other residential": "Rental property, at 6%", "Commercial": "Commercial property" };
+  const W0 = 300, lx = 4, bx = 4, bw = 130, rowH = 96, X = (v) => bw * v / 50;
+  const names = { "Primary residential": "Homes their owners live in", "Other residential": "Rental property, at 6%", "Commercial": "Commercial property" };
   const rows = SH.rows.map((r, i) => {
     const y = 18 + i * rowH;
-    return `<text x="${lx}" y="${y}" font-size="16" font-weight="700" fill="#1c2028">${names[r.class]}</text>`
+    return `<text x="${lx}" y="${y}" font-size="18" font-weight="700" fill="#1c2028">${names[r.class]}</text>`
       + `<rect x="${bx}" y="${y + 10}" width="${X(r.appraised).toFixed(1)}" height="20" rx="5" fill="#b9c2ca"/>`
-      + `<text x="${(bx + X(r.appraised) + 6).toFixed(1)}" y="${y + 26}" font-size="15" fill="#1c2028">${r.appraised}% of value</text>`
+      + `<text x="${(bx + X(r.appraised) + 6).toFixed(1)}" y="${y + 26}" font-size="17" fill="#1c2028">${r.appraised}% of value</text>`
       + `<rect x="${bx}" y="${y + 36}" width="${X(r.assessed).toFixed(1)}" height="20" rx="5" fill="#c4783a"/>`
-      + `<text x="${(bx + X(r.assessed) + 6).toFixed(1)}" y="${y + 52}" font-size="15" font-weight="700" fill="#1c2028">${r.assessed}% of tax base</text>`;
+      + `<text x="${(bx + X(r.assessed) + 6).toFixed(1)}" y="${y + 52}" font-size="17" font-weight="700" fill="#1c2028">${r.assessed}% of tax base</text>`;
   }).join("");
-  const aria = `Paired bars for Horry County in 2018. Homes owners live in: ${PRI.appraised} percent of value, ${PRI.assessed} percent of the tax base. Rental property at 6 percent: ${OTH.appraised} percent of value, ${OTH.assessed} percent of the tax base. Commercial property: ${COM.appraised} percent of value, ${COM.assessed} percent of the tax base.`;
+  const aria = `Paired bars for Horry County in 2018. Homes their owners live in: ${PRI.appraised} percent of value, ${PRI.assessed} percent of the tax base. Rental property at 6 percent: ${OTH.appraised} percent of value, ${OTH.assessed} percent of the tax base. Commercial property: ${COM.appraised} percent of value, ${COM.assessed} percent of the tax base.`;
   const svg = `<svg role="img" aria-label="${aria}" viewBox="0 0 ${W0} ${18 + 3 * rowH - 22}" style="font-family:var(--sans)">${rows}</svg>`;
   return `<figure class="rt-fig"><div class="cap">Horry County: each kind of property's share of value, and of the tax base</div>${svg}`
     + `<figcaption>Gray: share of the value the county assessor counts. Brass: share of the taxable value, after the 4% and 6% rates. 2018, from the Lincoln Institute of Land Policy study. Rental property is the study's "other residential" class, which it describes as typically rental property at 6%.</figcaption></figure>`;
@@ -249,14 +249,14 @@ const RUNS = `<ul class="rt-runs" aria-label="What a rental tax cut could do, an
   + `<li>Prices: a rental that nets more is worth more to a buyer. How much of the saving shows up in prices, no study here has measured.</li></ul></li>`
   + `<li><span class="k">Long run: 5 years or more</span><b class="h">Other owners pay a larger share, unless the state steps in.</b><ul>`
   + `<li>The two rates and Act 388's school exemption shifted the tax toward rentals and businesses, the Lincoln study found.</li>`
-  + `<li>A cut would move tax the opposite way. About a sixth of the county's taxable value would come off rentals. Homes owners live in and businesses would pay a larger share, unless the state replaced it or spending fell.</li>`
+  + `<li>A cut would move tax the opposite way. About a sixth of the taxable value of the real property the county assessor values would come off, at 2018 shares. Homes their owners live in and businesses would pay a larger share, unless the state replaced it or spending fell.</li>`
   + `<li>Over time, a lower yearly tax could lift what buyers pay for rentals. We give no figure, because no study here has measured it.</li></ul></li></ul>`;
 must(Math.round(CUT_NARROW / MB.six * 3) === 1 && Math.round(CUT_HOME / MB.six * 5) === 3, "a third to three fifths of the tax");
 
 /* The past examples, side by side (F140 to F142, F149 to F152, F158). */
 const PAST = `<div class="rt-tbl rt-stack"><div class="cap">What happened where this was tried before</div><table><thead><tr><th scope="col">Past example</th><th scope="col">What happened</th><th scope="col">What it points to here</th></tr></thead><tbody>`
-  + `<tr><th scope="row">Act 388, South Carolina, 2006</th><td data-l="What happened">Homes owners live in stopped paying school operating tax. A 1% sales tax paid the schools back. Rentals and businesses kept paying it.</td><td data-l="What it points to here">When one kind of property pays less, the others pay a larger share. A rental cut would move part of the tax back onto homes and businesses.</td></tr>`
-  + `<tr><th scope="row">Florida's cap on rentals</th><td data-l="What happened">The taxable value of a home that is not the owner's homestead, with nine units or fewer, can rise at most 10% a year, for every tax but the school tax. A homestead: 3% or inflation, whichever is lower.</td><td data-l="What it points to here">A state can slow the growth of a rental's bill without cutting its rate. We found no study of what the cap did to Florida rents or prices.</td></tr>`
+  + `<tr><th scope="row">Act 388, South Carolina, 2006</th><td data-l="What happened">Homes their owners live in stopped paying school operating tax. A 1% sales tax paid the schools back. Rentals and businesses kept paying it.</td><td data-l="What it points to here">When one kind of property pays less, the others pay a larger share. A rental cut would move part of the tax back onto homes and businesses.</td></tr>`
+  + `<tr><th scope="row">Florida's cap on non-homestead homes</th><td data-l="What happened">Florida caps the yearly rise in taxable value at 10% for a home of nine units or fewer that is not the owner's homestead. The cap covers every tax but the school tax. A homestead: 3% or inflation, whichever is lower.</td><td data-l="What it points to here">A state can slow the growth of a rental's bill without cutting its rate. We found no study of what the cap did to Florida rents or prices.</td></tr>`
   + `<tr><th scope="row">H. 3841, South Carolina, 2026</th><td data-l="What happened">A property tax bill on the 4% rate passed the House 109-0 and the Senate 43-0.</td><td data-l="What it points to here">Two-thirds is reachable when both parties agree. That bill was narrow; a rental rate change is larger.</td></tr>`
   + `</tbody></table></div>`;
 
@@ -271,7 +271,7 @@ const SIDES = `<div class="rt-tbl rt-stack"><div class="cap">What each candidate
 const GLANCE = PK.glance([
   { icon: "tax", label: money(MB.six), text: `a year on a ${money(PRICE)} city rental at 6%` },
   { icon: "dollar", label: "A third or more off", text: "if rentals moved to 4%" },
-  { icon: "key", label: `${HO.two_thirds} House votes`, text: `needed; Republicans hold ${HO.republicans_unofficial_2026}` },
+  { icon: "key", label: `${HO.two_thirds} of ${HO.members}`, text: "House votes a change needs" },
 ]);
 
 const FAQ = [
@@ -342,12 +342,12 @@ module.exports = G.page({
       h.p(`One pending bill, ${h.ext(S815, "S. 815")}, would amend the constitution so lawmakers could set the classes and rates by ordinary law. It is in the Senate Finance Committee.`) },
 
     { h2: "What would a rental tax cut cost Horry County and its schools?", toc: "What it would cost", id: "what-it-would-cost", html: () =>
-      h.p(`It would take about a sixth of the taxable value off Horry County's rolls, at 2018 shares. The county, the cities and the schools would collect less, unless someone else paid more.`) +
+      h.p(`Suppose every home now taxed at 6% moved to 4%. At 2018 shares, that would take about a sixth of the taxable value off the real property the county assessor values. The county, the cities and the schools would collect less, unless someone else paid more.`) +
       SHARES +
       h.p(`In 2018, rental property was ${OTH.appraised}% of the value the county assessor counts, but ${OTH.assessed}% of the taxable value. At 4%, rentals' taxable value would fall by a third.`) +
       h.p(`The ${h.ext(LINC, "study behind these shares")} is by the Lincoln Institute of Land Policy. The South Carolina Chamber Foundation and South Carolina Realtors picked the ten counties it studied. It found the tax had shifted "from owner-occupied residential properties to non-owner-occupied residential properties as well as commercial, manufacturing, and utility properties."`) +
       PARTS_CHART +
-      h.p(`The school operating tax is the largest part of a rental's bill. For homes owners live in, ${h.ext(C11, "a state fund")} filled by Act 388's 1% sales tax pays the school districts back. Wilson has not said whether the state would do the same for rentals.`) +
+      h.p(`The school operating tax is the largest part of a rental's bill. For homes their owners live in, ${h.ext(C11, "a state fund")} filled by Act 388's 1% sales tax pays the school districts back. Wilson has not said whether the state would do the same for rentals.`) +
       h.h3("Who says the gap is unfair, and who backs it") +
       h.p(`A ${h.ext(USC, "2025 student note")} in a University of South Carolina law journal argues the higher rate shifts the tax onto renters. It says the rate "can also prevent the development of affordable housing". The Lincoln study puts the yearly tax in South Carolina at about 0.5% of value for a home its owner lives in. For an apartment renter's property, it is slightly above 1.5%.`) +
       h.p(`On the other side, groups such as nohometax.org back Act 388 as it is. The same note cites the group's page, titled "We Support Act 388".`) },
@@ -362,13 +362,18 @@ module.exports = G.page({
     { h2: "What did Jermaine Johnson and the Democrats say about property tax?", toc: "What Democrats said", id: "what-democrats-said", html: () =>
       h.p(`Johnson's platform, as ${h.ext(WMBF, "WMBF summarized it")}, called for lowering property taxes, income tax relief for lower-income families and "building more affordable housing". The summary does not say which property taxes he would lower.`) +
       SIDES +
-      h.p(`In the House, Democrats now decide whether a rental change can pass. If ${BLOCK} of the ${HO.democrats_unofficial_2026} Democrats voted no, it would fail even with every Republican voting yes.`) +
+      h.p(`In the House, a rental change needs Democratic votes. At today's count, if ${BLOCK} of the ${HO.democrats_unofficial_2026} Democrats voted no, it would fail even with every Republican voting yes.`) +
       h.p(`Annie Andrews, the Democrat who won the U.S. Senate seat, works on federal law, and the property tax here is state and local. Her housing plan backs a ${h.a("/buyers/first-time-buyer-tax-credit/", "$50,000 federal tax cut for first-time buyers")}.`) },
 
     { h2: "What should a Myrtle Beach rental investor do while this is debated?", toc: "What we do now", id: "what-we-do-now", html: () =>
       h.p(`Buy and sell on the tax a rental pays today. A plan with no bill can change before it passes, or never pass.`) +
-      h.p(`In Chapter3's experience, property tax stops more rental deals here than insurance does. When a rental sells, our agents check that it still makes money for the buyer. The buyer's tax rests on the new price, so it can be higher than the seller's.`) +
-      h.p(`We price every rental on its 6% bill, with the 25% exemption where it applies. We show the 4% bills beside it, so you see what a change would be worth without paying for it up front. Our ${h.a("/invest/run-the-numbers/", "rental numbers guide")} adds the rest of the costs.`) +
+      h.p(`In Chapter3's experience, property tax stops more rental deals here than insurance does. When you buy or sell a rental, our agents check its numbers three ways:`) +
+      h.ul([
+        "On the 6% bill it pays today, with the 25% exemption where it applies.",
+        "On the 4% bills beside it, so you see what a change would be worth without paying for it up front.",
+        "On the buyer's tax, which rests on the new price and can be higher than the seller's.",
+      ]) +
+      h.p(`Our ${h.a("/invest/run-the-numbers/", "rental numbers guide")} adds the rest of the costs.`) +
       h.p(`If you rent by the week, our page on ${h.a("/invest/short-term-rental-rules-statehouse/", "which short-term rental rules a new Statehouse can change")} covers the other half of the law.`) },
   ],
   faqTitle: "Rental property tax questions",
