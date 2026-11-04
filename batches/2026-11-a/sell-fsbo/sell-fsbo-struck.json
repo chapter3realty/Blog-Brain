@@ -1,0 +1,83 @@
+[
+ {
+  "row": "fsbo 2",
+  "pattern": "\\battorney\\b[^.]{0,80}\\bprepares? (?:the |your )?deed\\b|\\bdeed\\b[^.]{0,40}\\bprepared by (?:the|your) (?:closing )?attorney\\b",
+  "struck": "The attorney searches title and prepares the deed.",
+  "use": "Every South Carolina home closing must be supervised by a South Carolina attorney. Preparing a deed for someone else is the practice of law, so anyone who prepares your deed for you must be a lawyer."
+ },
+ {
+  "row": "fsbo 5",
+  "pattern": "\\b(?:sale|sell(?:ing)?|sold)\\b (?:it |the home |the house )?to (?:your )?(?:spouse|child|children|parent|grandchild)",
+  "unless": "\\bonly\\b|\\bsolely\\b",
+  "struck": "A sale to your spouse, child, grandchild, parent or grandparent needs no form.",
+  "use": "A sale only to your spouse, or only to your children, grandchildren, parents or grandparents, needs no form."
+ },
+ {
+  "row": "fsbo 8",
+  "pattern": "\\b28[- ]question\\b|\\b28 questions in (?:nine|9) parts\\b|\\b28 (?:numbered )?questions in all\\b",
+  "struck": "28-question state form",
+  "use": "The form has nine parts. It asks 28 numbered questions, each answered Yes, No or No Representation, plus lines where you describe things such as the roof's age, pests and leases."
+ },
+ {
+  "row": "fsbo 9",
+  "pattern": "\\bseven of (?:the|its|the form's) (?:28 )?questions (?:are |ask )?about (?:water|the water|the coast)",
+  "struck": "Seven of the 28 questions are about water and the coast.",
+  "use": "Seven questions in a row, 22 to 28, ask about erosion, flood zones and flood risk, flood insurance, flood claims, unclaimed flood repairs, federal flood aid and beach renourishment. Question 20 also asks whether the house flooded while you owned it."
+ },
+ {
+  "row": "fsbo 11",
+  "pattern": "\\bseller of (?:a|any|every|each) (?:home|house)[^.]{0,30}\\bbefore 1978\\b",
+  "struck": "A seller of a home built before 1978 must also give the buyer the federal lead pamphlet.",
+  "use": "A seller of most homes built before 1978 must also give the buyer the federal lead pamphlet. A unit with no bedroom, housing for older people or people with disabilities where no child under six lives, a home a certified inspector found free of lead paint, and a foreclosure sale are not covered."
+ },
+ {
+  "row": "fsbo 14",
+  "pattern": "\\bmiddle (?:resale )?(?:Horry County )?house\\b",
+  "unless": "\\bother homes\\b|\\bcondos aside\\b|\\bmostly houses\\b",
+  "struck": "Across Horry County, the middle resale house sold for about $350,000 in the 12 months to September 2026.",
+  "use": "Across Horry County, the middle resale home, condos aside, sold for about $350,000 in the 12 months to September 2026."
+ },
+ {
+  "row": "fsbo 16",
+  "pattern": "\\btypical (?:listing|agent'?s?|real estate) (?:fee|commission)\\b",
+  "struck": "A pricing miss is several times a typical listing fee.",
+  "use": "(cut 'typical': no listing fee is ledgered; compare the miss with the 1 percent example only)"
+ },
+ {
+  "row": "fsbo 17",
+  "pattern": "\\b(?:5|five) percent of (?:all )?(?:U\\.S\\. |US |American )?(?:home )?sales\\b|\\b(?:1|one) in 20 (?:home )?sales\\b|\\b(?:5|five) percent of (?:all )?homes sold\\b",
+  "struck": "Nationally, 5 percent of home sales were by owner in NAR's 2025 survey.",
+  "use": "In NAR's 2025 survey of people who bought a home to live in and also sold one, 5 percent sold by owner."
+ },
+ {
+  "row": "fsbo 17",
+  "pattern": "\\b38 percent of (?:FSBO|by-owner|for-sale-by-owner|for sale by owner) sellers\\b|\\b38 percent of (?:owners|sellers) who sold (?:it )?themselves\\b",
+  "struck": "38 percent of FSBO sellers sold to someone they already knew.",
+  "use": "(cut it: in NAR's Exhibit 7-11 the 38 percent is the share of sellers who knew the buyer that sold by owner, not the share of by-owner sellers who knew the buyer; add a ledger row before using it)"
+ },
+ {
+  "row": "fsbo 19",
+  "pattern": "\\b(?:had|found) (?:their|the|a) buyer before (?:they|you) (?:started|began|listed)\\b",
+  "struck": "Most by-owner sellers had their buyer before they started.",
+  "use": "More than half of by-owner sellers already knew the buyer."
+ },
+ {
+  "row": "fsbo 21",
+  "pattern": "\\bmost qualified buyers\\b|\\bbest[- ]qualified buyers\\b",
+  "struck": "Marketing a home widely exposes it to the most qualified buyers.",
+  "use": "South Carolina's Real Estate Commission, writing about agents' private listings, says broad marketing generally exposes a home to the greatest number of qualified buyers, and that limiting it may reduce buyer competition and may hurt the price, terms or time to sell."
+ },
+ {
+  "row": "fsbo 25",
+  "pattern": "\\b(?:closing )?attorney(?:'s office)? (?:sends|remits|pays|will send|forwards)\\b[^.]{0,60}\\b(?:held back|withheld|withholding|to the state)\\b",
+  "unless": "\\bif\\b|\\bwhen\\b",
+  "struck": "The closing attorney's office sends what is held back to the state.",
+  "use": "If the closing attorney's office holds the tax back, it must send it to the state on time."
+ },
+ {
+  "row": "fsbo 27",
+  "pattern": "\\bwe (?:confirm|call|verify|check)\\b[^.]{0,60}\\b(?:wir(?:e|ing)|attorney'?s? office)\\b",
+  "struck": "We confirm the wiring instructions by phone with the attorney's office.",
+  "use": "Never follow wiring instructions in an email. Confirm them by phone with the attorney's office, at a number you agreed on in advance."
+ }
+]
