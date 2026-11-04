@@ -12,3 +12,11 @@ Researcher, 2026-11-03. Nothing here is edited; each item needs the lead.
 5. **Owner questions** (facts.md): the due diligence period on the current SCR form; inspection and CL-100 on every purchase or most; days from accepted offer to closing. Add them to `templates/owner-questions.md` under batch 2026-11-a with the proposed answers.
 6. **Commons API refused this session (HTTP 429).** Candidate photo A's licence must be read on its file page by the builder before use (PLAN.md).
 7. **checkpoint.sh saved an empty web.patch** when a pathspec does not exist yet (`git add -N` fails on the missing spec file and image folder, so new data files are never added). This stage re-ran it with only the paths that exist. Fix suggestion for the shared tool: run `add -N` once per existing path.
+
+## Builder, 2026-11-03
+
+8. **H1 used:** "Buying in Myrtle Beach: a buyer's market for condos, not yet for houses." (PLAN.md, item 4 above). `data/headlines.json` is not changed; the lead decides.
+9. **City of Myrtle Beach condo supply (item 1):** the page prints "about a year" for city condos and "5 to 6 months" for city houses (row 8 corrected), never 12.2 or 18. /submarkets/myrtle-beach/ still says about 18 months until the lead fixes MB 14.
+10. **Photo crops:** Commons refused the 3840 px original (HTTP 429, three tries). The SkyWheel photo's 1x1 crop is enlarged about 11 percent from the 1920 px copy; the record's crop_note says so. Re-cut from the original when Commons allows (`node tools/photos.js crops`).
+11. **Mid-page offer buttons** link to plain `/contact/` (with a data-topic attribute), because `build.js audit` counts a boxed mid-page offer only when the href is exactly `/contact/`. A shared fix would let the audit accept `/contact/?topic=...`.
+12. **Owner questions 1 to 3 stay open:** the steps print no due diligence rule and no total days to close. When the owner answers, step 3 gets the walk-away window and the "How long" paragraph and FAQ get the days.
