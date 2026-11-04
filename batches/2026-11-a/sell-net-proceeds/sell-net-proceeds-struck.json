@@ -1,0 +1,90 @@
+[
+ {
+  "row": "net-proceeds 1",
+  "pattern": "\\b9/2023\\b|Form 310[^.]{0,20}\\b2023\\b",
+  "struck": "South Carolina's standard home contract, Form 310 (9/2023)",
+  "use": "(name no version on the page; the ledger's source is Form 310 (03/2026), which replaced the 9/2023 form on March 9, 2026)"
+ },
+ {
+  "row": "net-proceeds 5",
+  "pattern": "\\b(?:contract|form)\\b[^.]{0,40}\\b(?:says|asks|states|shows)\\b[^.]{0,80}\\bhome warranty\\b[^.]{0,60}\\bwho pays\\b",
+  "struck": "The state contract says whether a home warranty is provided and who pays for it.",
+  "use": "The standard contract has no home warranty clause. Buyer and seller can add one with a separate addendum."
+ },
+ {
+  "row": "net-proceeds 6",
+  "pattern": "special assessments?[^.]{0,80}\\bapproved (?:before|prior to) closing\\b[^.]{0,40}\\b(?:is|are) (?:the )?seller'?s\\b",
+  "unless": "\\b(?:box|boxes|option|options|choose|chosen|ticked|tick|pick)\\b",
+  "struck": "On the form's default, a special assessment the association approved before closing is the seller's.",
+  "use": "For a special assessment approved before closing, the contract has two boxes: the seller pays all of it, or only the part due in the year of closing. One approved after closing is the buyer's."
+ },
+ {
+  "row": "net-proceeds 7",
+  "pattern": "\\bmakes no (?:claim|representation)\\b[^.]{0,80}\\b(?:form|contract)\\b|\\bfooter\\b[^.]{0,80}\\bno (?:claim|representation)\\b",
+  "struck": "Its own footer says the association makes no claim the form fits a given sale.",
+  "use": "The form tells both sides they are responsible for getting legal advice before they sign."
+ },
+ {
+  "row": "net-proceeds 12",
+  "pattern": "\\bpaid\\b[^.]{0,60}\\$18 million|\\$18 million[^.]{0,60}\\bpaid\\b",
+  "struck": "Horry County home sellers paid about $18 million in deed stamps in a year.",
+  "use": "By the state's formula, the deed stamps on the 13,194 home sales recorded in Horry County from October 2025 through September 2026 come to about $18 million."
+ },
+ {
+  "row": "net-proceeds 14",
+  "pattern": "\\bcosts? set by (?:law|the state)[^.]{0,120}\\$1,320\\b",
+  "unless": "\\bif (?:there is|you have|it has)\\b|\\bwith a mortgage\\b|\\bmortgage to (?:release|pay off)\\b",
+  "struck": "On the middle $350,000 home, the costs set by law and the state contract come to $1,320.",
+  "use": "On the middle $350,000 home with a mortgage to release, the costs set by law and the state contract come to $1,320."
+ },
+ {
+  "row": "net-proceeds 18",
+  "pattern": "\\boutside (?:city|town) limits\\b[^.]{0,80}\\b201(?:\\.0)? mills\\b",
+  "unless": "\\bmost\\b",
+  "struck": "Outside city limits, Horry County's 2026 levy is 201.0 mills.",
+  "use": "For most homes outside city limits, Horry County's 2026 levy is 201.0 mills."
+ },
+ {
+  "row": "net-proceeds 20",
+  "pattern": "\\blong-time owner'?s?\\b[^.]{0,100}\\busually\\b",
+  "struck": "So a long-time owner's bill, and the tax credit at closing, is usually smaller than one figured on the price.",
+  "use": "So when a home's last deed is old, its tax bill, and the tax credit at closing, is often smaller than one figured on today's price."
+ },
+ {
+  "row": "net-proceeds 21",
+  "pattern": "\\b(?:seven|7) business days\\b",
+  "unless": "\\bpersonal\\b|\\brental\\b|\\binvest|\\bbusiness[- ]purpose\\b|\\bhome you live\\b",
+  "struck": "Once asked, the loan servicer must send an accurate payoff statement within seven business days.",
+  "use": "On a home loan made for personal use, the servicer must send an accurate payoff statement within seven business days of a written request. A loan made to buy a rental is not covered by that rule."
+ },
+ {
+  "row": "net-proceeds 23",
+  "pattern": "\\bafter February 2012\\b",
+  "struck": "South Carolina bars a transfer fee recorded after February 2012 that sends money to a third party on each sale.",
+  "use": "South Carolina bars a transfer fee covenant recorded after February 1, 2012 that makes an owner pay a third party on each sale."
+ },
+ {
+  "row": "net-proceeds 26",
+  "pattern": "\\b3,689\\b|\\b3 in 10\\b[^.]{0,60}\\bno HOA\\b|\\bevery condo (?:has|lists|carries|pays)\\b|\\bmost sellers\\b[^.]{0,80}\\b(?:association|HOA)\\b[^.]{0,60}\\bclosing statement\\b",
+  "struck": "Of 3,689 houses for sale in our area at $50,000 or more, about 3 in 10 list no HOA fee; every condo has one. So most sellers here will have an association's charges on their closing statement.",
+  "use": "Of about 3,060 houses for sale in Horry County ZIPs, about 830 (more than 1 in 4) list no HOA fee. All but one of 2,686 condos for sale list one."
+ },
+ {
+  "row": "net-proceeds 29",
+  "pattern": "\\b(?:condo|house|home) owners\\b[^.]{0,100}\\boutside South Carolina\\b",
+  "struck": "About 6 in 10 Horry County condo owners, and about 1 in 5 house owners, get their tax bill at an address outside South Carolina.",
+  "use": "About 6 in 10 Horry County condo units, and about 1 in 5 other homes, have their tax bill mailed to an address outside South Carolina."
+ },
+ {
+  "row": "net-proceeds 34",
+  "pattern": "\\b1,304\\b|\\b2,157\\b|\\b60\\.5\\b|\\b339 of 492\\b|\\b421 of 694\\b|\\b316 of 555\\b|\\b228 of 416\\b|\\b1,393 of 2,626\\b|\\b7 in 10\\b[^.]{0,40}\\bunder \\$300,000\\b",
+  "struck": "Of 2,157 resale houses and townhouses for sale in Horry County, 1,304 (about 6 in 10) have already cut their asking price ... about 7 in 10 under $300,000 (339 of 492).",
+  "use": "Of 2,187 resale houses and townhouses for sale in Horry County, 1,264 (nearly 6 in 10) have cut their asking price: about 2 in 3 under $300,000 (325 of 498), 403 of 707 from $300,000 to $450,000, 311 of 563 to $700,000 and 225 of 419 above. For resale condos it is about half (1,347 of 2,627)."
+ },
+ {
+  "row": "net-proceeds 35",
+  "pattern": "\\b1,028\\b|\\b965 (?:are|of)\\b|\\b63 of 2,157\\b|\\bbuilder'?s offer\\b[^.]{0,60}\\bnot a seller'?s habit\\b|\\b1 in 33\\b",
+  "struck": "Home warranties are a builder's offer here, not a seller's habit. Of 1,028 houses and townhouses ... 965 are new construction. Only 63 of 2,157 resale houses (about 1 in 33) offer one.",
+  "use": "Of 1,000 houses and townhouses for sale in Horry County that advertise a home warranty, 935 are new construction. Only 65 of 2,187 resale houses (about 3 in 100) advertise one, and 33 of 2,627 resale condos."
+ }
+]
