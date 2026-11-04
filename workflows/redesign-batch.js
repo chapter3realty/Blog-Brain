@@ -85,7 +85,9 @@ const results = await pipeline(
     // Never loop full reviews to 9: fresh reviewers always find something new, and the scores stop moving.
     const reviews = (await parallel(LENSES(p, port(i)).map((l) => () =>
       agent(l.prompt, { label: `${l.key} ${p.slug}`, phase: 'Review', schema: REVIEW_SCHEMA }).then((x) => x && { key: l.key, ...x })))).filter(Boolean)
-    if (reviews.length === 3 && reviews.every((r) => r.pass && r.score >= 9)) return { url: p.url, done: true, reviews: reviews.map((r) => r.score) }
+    /* A reviewer that did not answer (a usage limit, an error) is not a pass (2026-11-04: three pages came back "done" with no review). */
+    if (reviews.length < 3) return { url: p.url, done: false, open: [`only ${reviews.length} of 3 reviewers answered; run the review again`], reviews: reviews.map((r) => r.score) }
+    if (reviews.every((r) => r.pass && r.score >= 9)) return { url: p.url, done: true, reviews: reviews.map((r) => r.score) }
     await agent(FIX(p, port(i), reviews, 1), { label: `fix ${p.slug}`, phase: 'Review' })
     /* Lead, 2026-11-03: the second fix round is gone. It ran on every page and was about a tenth of the cost; the lead
        applies the re-check's list by hand, which takes minutes. The fixer's new fact rows get an independent check here,
@@ -94,7 +96,7 @@ const results = await pipeline(
       () => agent(`${COMMON}\nShort re-check of ${p.url}. Do not edit anything and do not review the whole page. A fixer just worked through this list:\n${reviews.flatMap((r) => (r.blocking || []).map((b) => '- [' + r.key + '] ' + b)).join('\n')}\nThe fixer's notes are in ${B}/${p.slug}/REVIEW-1.md. For each item, read the built page (${WEB}/chapter3realty${p.url}index.html) and say whether it is fixed or rightly declined. Also run node ${BB}/tools/critic.mjs on the preview (port ${port(i) + 300}) at 390 and 1440 and report any blocking finding. pass=true only if every item is fixed or rightly declined and the critic has 0 blocking; blocking = the items still open.`, { label: `re-check ${p.slug}`, phase: 'Review', schema: REVIEW_SCHEMA }),
       () => agent(`${COMMON}\nYou are an independent fact verifier (${BB}/prompts/verifier.md) for ${p.url}. Do not edit any page or spec. In ${B}/${p.slug}/facts.md, find the rows marked VERIFIED-BY-FIXER. If there are none, answer pass=true with no blocking at once. Otherwise open each row's source yourself, re-run any script behind it, and write ${B}/${p.slug}/FIXER-VERIFY.md: row, VERIFIED / CORRECTED / STRUCK, and for each row that is not VERIFIED the exact page sentence (from ${WEB}/chapter3realty${p.url}index.html) and its replacement. Add struck entries to the page's struck list. pass=true only if every row is VERIFIED; blocking = each sentence to change, quoted, with its replacement.`, { label: `fixer-facts ${p.slug}`, phase: 'Review', schema: REVIEW_SCHEMA }),
     ])
-    const open = [...((recheck && !recheck.pass && recheck.blocking) || []), ...((fixerFacts && !fixerFacts.pass && fixerFacts.blocking) || [])]
+    const open = [...(recheck ? (!recheck.pass && recheck.blocking) || [] : ['the re-check did not answer']), ...(fixerFacts ? (!fixerFacts.pass && fixerFacts.blocking) || [] : ['the fact check did not answer'])]
     return { url: p.url, done: open.length === 0, open, reviews: reviews.map((r) => r.score) }
   },
 )
