@@ -14,3 +14,10 @@ Not for this page's spec; for the lead.
 7. **Share image.** `photos.js crops` needs a source 1200 px on its short side; the Surfside Beach frame here is 1200 x 675, so the page has no 1x1 or 4x3 crop. The spec passes the 16x9 file itself as `pageImages` (og:image and Article.image). The partner's FSBO sign photo (shot list 1) should replace it, with crops.
 8. **Preview port.** Port 8784 was already held by another helper's preview of `scratchpad/web2` (started 06:00). This page's preview and critic ran on port 8794 against `pkg2`. Nothing was stopped.
 9. **Dates.** `build.js audit` fails only on this page's dates (schema 2026-07-25 and visible "Updated July 25, 2026" against sitemap 2026-09-05), as expected before the lead runs `node build.js dates`.
+
+## Fix round 1, 2026-11-04
+
+10. **IDX strip on a seller page.** The "Just listed in Myrtle Beach" strip is injected at the edge, not by the spec. The owner's eye asked for homes near the $350,000 middle price ("what your house competes with"). That needs the shared strip to take a price band.
+11. **Rows 28 to 31 are VERIFIED-BY-FIXER** (facts.md section H). The lead re-checks them before ship. Row 30 is a 2007 AG opinion, which is not binding, and the page words it as "has said ... does not appear". Row 31's 5.21 percent is also printed on /sell/capital-gains/; PROPOSED item 5 holds its registry row.
+12. **Still open for the owner:** Q1 (the coaching fee), Q3 (the attorney's fee a seller pays), Q4 (whether CCMLS takes an entry-only listing and whether we offer one) and Q7 (who holds earnest money). The page states none of them. Each one is a reader's question.
+13. **Preview port.** 8784 still serves `scratchpad/web2` (pid 26137, another helper's). This round served pkg2 on 8794.
