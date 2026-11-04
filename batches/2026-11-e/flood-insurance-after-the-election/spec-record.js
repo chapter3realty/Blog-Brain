@@ -70,8 +70,8 @@ must(YEARS_OF_EXT === 9, "F122 (nine years)");
 
 /* The yearly limits (F128, F129): how far a premium can grow, our arithmetic. */
 const grow = (r, y) => Math.pow(1 + r, y);
-const X = (v) => `${Math.round((v - 1) * 100)}% more`;
-const CAP_ROWS = [1, 2, 3, 5].map((y) => [`${y} year${y === 1 ? "" : "s"}`, X(grow(D.caps.most, y)), X(grow(D.caps.subsidizedNonPrimary, y))]);
+const X = (v) => `+${Math.round((v - 1) * 100)}%`;
+const CAP_ROWS = [1, 2, 3, 5].map((y) => [String(y), X(grow(D.caps.most, y)), X(grow(D.caps.subsidizedNonPrimary, y))]);
 must(grow(0.18, 5) > 2 && grow(0.18, 5) < 2.5 && Math.round(grow(0.25, 5)) === 3, "the five-year growth sentences");
 
 /* ---------------------------------------------------------------------------- */
@@ -128,6 +128,11 @@ const PHOTOS = JSON.parse(fs.readFileSync(path.join(DATA, "photos.json"), "utf8"
 const ph = PK.create({ h, photos: PHOTOS }).photoSet({ aerialWidth: "760px" });
 const PHOTO = ph.aerial("us-capitol-west-front", "The United States Capitol from the west. The Senate meets in the wing on the left, and the House in the wing on the right.");
 
+/* The NASA rainfall map of Florence (public domain; record in photos.json). Under the Horry numbers, it
+   shows why flood insurance matters on this coast. Its caption says only what NASA's text says, plus where
+   Horry County is. */
+const NASA_MAP = ph.aerial("florence-rain-carolinas", "Rain from Hurricane Florence, Sept.\u00a013 to 16, 2018, estimated by NASA satellites. Red marks the most rain. Horry County is the South Carolina coast just south of the state line. The dotted line is the storm's track.");
+
 /* ---------------------------------------------------------------------------- */
 /* Blocks                                                                         */
 
@@ -137,15 +142,15 @@ const LAPSE_CARDS = `<ul class="c3-fi-three" role="list" aria-label="What happen
   + `<li><span class="hd"><span class="c3-fi-ic" aria-hidden="true">${icon("key", { size: 22 })}</span>Current policies stay in force</span>`
   + `<p>A policy you already have covers you to the end of its one-year term.</p></li>`
   + `<li><span class="hd"><span class="c3-fi-ic" aria-hidden="true">${icon("dollar", { size: 22 })}</span>Claims are still paid</span>`
-  + `<p>FEMA pays claims from the premiums it collects. Its borrowing limit drops from about $${Math.round(D.lapseEffects.borrowNow)} billion to $${D.lapseEffects.borrowLapse} billion.</p></li>`
+  + `<p>FEMA pays claims from the premiums it collects. Its borrowing limit drops from about $${Math.round(D.lapseEffects.borrowNow)}\u00a0billion to $${D.lapseEffects.borrowLapse}\u00a0billion.</p></li>`
   + `</ul>`;
 
 const TIMELINE = `<figure class="c3-fi-time" role="group" aria-label="Timeline: federal flood insurance expires Dec.\u00a011, before the new Senate term starts Jan.\u00a03">`
   + `<span class="cap">The flood insurance deadline comes before the new senator</span><ol>`
-  + `<li><b>Sept.\u00a02</b><span>Congress passes a stopgap spending law. It keeps federal flood insurance running to Dec. 11.</span></li>`
+  + `<li><b>Sept.\u00a02</b><span>The stopgap spending law is signed. It keeps federal flood insurance running to Dec.\u00a011.</span></li>`
   + `<li><b>Nov. 3</b><span>Election Day. The Associated Press calls the Senate race for Annie Andrews.</span></li>`
   + `<li class="key"><b>Dec.\u00a011</b><span>Federal flood insurance expires unless Congress extends it. The Congress in office now votes.</span></li>`
-  + `<li><b>Jan.\u00a03</b><span>The new Senate term starts. Sen. Darline Graham's appointed term ends.</span></li>`
+  + `<li><b>Jan.\u00a03</b><span>The new Senate term starts. Sen. Darline Graham's term ends.</span></li>`
   + `<li><b>After Jan.\u00a03</b><span>Andrews votes on any later extension or long-term flood bill.</span></li>`
   + `</ol></figure>`;
 
@@ -166,7 +171,7 @@ const LAPSE_CHART = (() => {
   return h.figure(svg, "How long each lapse of federal flood insurance lasted, by the day it started. Chart: Chapter3 Realty, from the Congressional Research Service's record of each lapse.");
 })();
 
-const pct = (r) => `${(r * 100).toFixed(1)}%`;
+const pct = (r) => `${(Math.round(Math.round(r * 10000) / 10) / 10).toFixed(1)}%`;
 const COUNTY_CHART = G.bars([
   { name: "Charleston County", value: CH.rate * 100, valueText: pct(CH.rate), feature: `${n(CH.contracts)} policies`, reference: true },
   { name: "Georgetown County", value: GE.rate * 100, valueText: pct(GE.rate), feature: `${n(GE.contracts)} policies`, reference: true },
@@ -177,7 +182,7 @@ const COUNTY_CHART = G.bars([
   nameLabel: "County", featureLabel: "policies", valueLabel: "Share of homes", compact: true, max: 40,
 });
 
-const CAP_TABLE = h.table(["After", "Most homes", "Older discounted second home"], CAP_ROWS);
+const CAP_TABLE = h.table(["Years", "Most homes", "Older discounted second home"], CAP_ROWS);
 
 const VOTE_TILES = `<ul class="c3-fi-tiles" role="list" aria-label="What one senator's vote means">`
   + `<li><b>1 of ${D.senate.seats}</b><span>is Andrews' share of the Senate's votes.</span></li>`
@@ -203,7 +208,7 @@ const TWO = `<div class="c3-fi-two">`
 
 const RUNS = `<ul class="c3-fi-runs" role="list" aria-label="What the past record points to, in the short and long run">`
   + `<li><span class="hd"><span class="c3-fi-ic" aria-hidden="true">${icon("calendar", { size: 22 })}</span>Short run: the next year or two</span>`
-  + `<p><b>What happened before</b>A short extension at every deadline since late 2017. Every lapse so far ended with one.</p>`
+  + `<p><b>What happened before</b>A short extension at most deadlines since late 2017, and ${LAPSES.filter((l) => l.y >= 2018).length === 5 ? "five" : LAPSES.filter((l) => l.y >= 2018).length} short lapses. Every lapse so far ended with an extension.</p>`
   + `<p><b>What it points to here</b>Another short extension near Dec.\u00a011, or a lapse of hours to weeks, as before.</p>`
   + `<p><b>What has to happen first</b>Both chambers of the Congress in office now pass an extension, and the president signs it.</p></li>`
   + `<li><span class="hd"><span class="c3-fi-ic" aria-hidden="true">${icon("dollar", { size: 22 })}</span>Premiums, every year</span>`
@@ -263,7 +268,7 @@ module.exports = G.page({
       LAPSE_CARDS +
       TIMELINE +
       h.h3("Who votes on the Dec.\u00a011 deadline?") +
-      h.p(`The Congress in office now. Sen. Darline Graham holds the seat until her ${h.ext(CNBC, "appointed term ends")} on Jan.\u00a03. Russell Fry, who represents Horry County in the U.S. House, won re-election and votes before and after January.`) +
+      h.p(`The Congress in office now. Sen. Darline Graham, ${h.ext(CNBC, "appointed in July")} after her brother, Sen. Lindsey Graham, died, holds the seat until her term ends on Jan.\u00a03. Russell Fry, who represents Horry County in the U.S. House, won re-election and votes before and after January.`) +
       h.p(`Our guide to ${h.a(ELECTION, "what the election means for Myrtle Beach buyers and sellers")} covers every race and what each office controls.`) },
 
     { h2: "Has flood insurance lapsed before, and did closings stop?", toc: "Past lapses and closings", id: "past-lapses", html: () =>
@@ -271,12 +276,12 @@ module.exports = G.page({
       LAPSE_CHART +
       h.h3("What did a lapse do to home closings?") +
       h.p(`In the month-long lapse of June 2010, an estimated ${n(D.closings2010.perDay)} home closings a day were canceled or delayed across the country. During the six-week lapse of October and November 2025, some lenders suspended the flood insurance requirement for buyers.`) +
-      h.p(`Our agents check the flood zone on every home before you offer. A lapse matters most to a buyer with a loan on a home in a high-risk flood zone. The lender must require flood insurance there before closing. Most buyers meet that rule with a federal policy.`) },
+      h.p(`A lapse matters most to a buyer with a loan on a home in a high-risk flood zone. The lender must require flood insurance there before closing. Most buyers meet that rule with a federal policy.`) },
 
     { h2: "How many Horry County homes have federal flood insurance?", toc: "Horry County's flood policies", id: "horry", html: () =>
-      h.p(`About 1 in ${ONE_IN} homes in Horry County has a federal flood policy, ${n(HO.contracts)} in all. Of those, ${n(HO.sfha)} are on homes in the high-risk flood zone, where a lender requires one. A home outside that zone can still flood, and ${h.a("/buyers/undisclosed-flooding/", "we check a house's flood history")} before you offer.`) +
+      h.p(`About 1 in ${ONE_IN} residential buildings in Horry County has a federal flood policy, ${n(HO.contracts)} policies in all. Of those, ${n(HO.sfha)} are on homes in the high-risk flood zone, where a lender requires one. A home outside that zone can still flood, and our agents check a house's flood zone and ${h.a("/buyers/undisclosed-flooding/", "flood history")} before you offer.`) +
       COUNTY_CHART +
-      h.p(`In a lapse, those owners keep their current policies to the end of the term. A buyer who needs a new federal policy waits until Congress acts, or uses private flood insurance.`) },
+      NASA_MAP },
 
     { h2: "How much can flood insurance go up each year in Myrtle Beach?", toc: "Yearly increase limits", id: "yearly-limits", html: () =>
       h.p(`Under federal law, most flood premiums can rise no more than 18% a year. A ${h.a("/buyers/second-home/", "second home")} still on an older discounted rate is different. Its premium must rise 25% a year until it reaches the full-risk price.`) +
@@ -289,17 +294,17 @@ module.exports = G.page({
       VOTE_TILES +
       PHOTO +
       h.p(`Federal flood law sends FEMA's recommendations on flood insurance costs to the ${h.ext(USC4015, "Senate Committee on Banking, Housing, and Urban Affairs")}. Committee seats for the new Congress are not assigned yet, so Andrews' committees are not known.`) +
-      h.p(`A long-term flood bill needs those Senate votes, a majority in the House and the president's signature. Her ${h.a("/buyers/first-time-buyer-tax-credit/", "first-time buyer tax credit idea")} needs the same.`) +
+      h.p(`A long-term flood bill needs those Senate votes, a majority in the House and the president's signature. Her ${h.a("/buyers/first-time-buyer-tax-credit/", "first-time buyer tax credit idea")} needs the same votes, unless it goes in a budget bill, which needs only a simple majority in the Senate.`) +
       h.p(`CBS News projects that Democrats will control the Senate in January. Before the election, Republicans held ${D.senate.before.R} seats to ${D.senate.before.D}.`) },
 
     { h2: "What have Andrews and Wilson said about insurance?", toc: "What the winners said", id: "what-they-said", html: () =>
-      h.p(`Annie Andrews has no written flood insurance plan that we found. Alan Wilson's insurance item, as reported, is about state audits of rate increases.`) +
+      h.p(`Neither winner has a written flood insurance plan that we found. Andrews held a roundtable on homeowners insurance. Wilson's agenda, as reported, calls for state audits of rate increases.`) +
       TWO +
       h.p(`For the rest of each winner's plans, see ${h.a(ELECTION, "what the 2026 election means for Myrtle Beach")}.`) },
 
     { h2: "Can I use private flood insurance instead of FEMA in Myrtle Beach?", toc: "Private flood insurance", id: "private", html: (bg) =>
       h.p(`Yes. A private flood policy can meet a lender's flood insurance rule when it meets the federal standards for one. Most loans still use a federal policy.`) +
-      h.p(`A lapse does not stop the sale of private flood policies. Our agents have a network of insurance agents for federal and private flood quotes. We help you get both before you sign, so you know both choices before Dec.\u00a011.`) +
+      h.p(`A lapse does not stop the sale of private flood policies. Our agents have a network of insurance agents for federal and private flood quotes.`) +
       h.cta("Closing on a home in a flood zone?", "We help get a federal and a private flood insurance quote on the home, so you can compare them before Dec.\u00a011. There is no cost to you.", "Talk to a specialized agent", CONTACT, bg) },
 
     { h2: "What will happen to flood insurance on the Grand Strand next?", toc: "Short and long run", id: "next", html: (bg) =>
@@ -311,7 +316,7 @@ module.exports = G.page({
   faqTitle: "Flood insurance and the election: questions",
   faq: [
     { q: "What is the latest NFIP reauthorization update?", a: "Federal flood insurance runs until Dec.\u00a011 under the stopgap spending law signed on Sept.\u00a02. Congress must extend it by then, or FEMA cannot sell new flood policies until it does." },
-    { q: "What happens to my flood insurance if it lapses on Dec.\u00a011?", a: "Your current policy stays in force to the end of its one-year term, and FEMA keeps paying claims. FEMA cannot sell new policies until Congress acts. A buyer who needs a new policy waits or uses private flood insurance." },
+    { q: "What happens to my flood insurance if the program lapses on Dec.\u00a011?", a: "Your current policy stays in force to the end of its one-year term, and FEMA keeps paying claims. FEMA cannot sell new policies until Congress acts. A buyer who needs a new policy waits or uses private flood insurance." },
     { q: "Will Annie Andrews vote on the Dec.\u00a011 flood insurance deadline?", a: "No. The new Senate term starts Jan.\u00a03, after the deadline. Sen. Darline Graham holds the seat until then. Andrews votes on any extension or flood bill after she takes office." },
     { q: "Can a home closing happen during a flood insurance lapse?", a: "Yes, with a private flood policy the lender accepts. Some lenders also waived the requirement in the lapse that ran from October to November 2025. In the June 2010 lapse, an estimated 1,400 closings a day were canceled or delayed nationwide." },
     { q: "Can the governor of South Carolina change flood insurance?", a: "No. Only Congress can change federal flood insurance. Alan Wilson's insurance item, as reported, is about state audits of rate increases, with yearly public reports from major carriers." },
@@ -330,7 +335,7 @@ module.exports = G.page({
   sourcesNote: "Lapse lengths and premium growth: Chapter3's arithmetic from these sources. Election results are unofficial until certified.",
   afterSources: () => ph.credits(),
   pageImages: () => ph.pageImages(),
-  bottomCta: { h2: "Buying a home in a Grand Strand flood zone?", p: "We check the flood zone before you offer. We help get federal and private flood insurance quotes, so you know your choices before a deadline. It is free, with no obligation.", label: "Call a specialized agent", href: CONTACT },
+  bottomCta: { h2: "Buying a home in a Grand Strand flood\u00a0zone?", p: "We check the flood zone before you offer. We help get federal and private flood insurance quotes, so you know your choices before a deadline. It is free, with no obligation.", label: "Talk to a specialized agent", href: CONTACT },
   keywords: "flood insurance Myrtle Beach, NFIP reauthorization 2026, NFIP lapse December 11, Annie Andrews flood insurance, NFIP lapse home closing, private flood insurance South Carolina, flood insurance premium increase limit 18 percent, Alan Wilson insurance",
   about: "The National Flood Insurance Program deadline and the 2026 election, for home buyers and owners in Myrtle Beach and Horry County, South Carolina",
 });

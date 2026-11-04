@@ -63,3 +63,26 @@ Reviewer: independent (critic, cold reader, owner's eye). Read 2026-11-04 on the
 - All internal links resolve, including /buyers/first-time-buyer-tax-credit/ (built since NEEDS.md was written).
 
 Verdict: FAIL (7 blocking). The fixes are wording, one photo, and one cut.
+
+## Fix round 1 (builder, 2026-11-04)
+
+Blocking:
+1. Short-run card now reads: "A short extension at most deadlines since late 2017, and five short lapses. Every lapse so far ended with an extension." The count comes from the lapse data.
+2. Tax credit line now reads: "Her first-time buyer tax credit idea needs the same votes, unless it goes in a budget bill, which needs only a simple majority in the Senate." (F114)
+3. Timeline Sept. 2: "The stopgap spending law is signed." (F120)
+4. Insurance section opens: "Neither winner has a written flood insurance plan that we found. Andrews held a roundtable on homeowners insurance. Wilson's agenda, as reported, calls for state audits of rate increases."
+5. Darline Graham explained once, in "Who votes on the Dec. 11 deadline?": appointed in July after her brother, Sen. Lindsey Graham, died; holds the seat until her term ends Jan. 3 (F001, F002). The timeline now says only "her term ends".
+6. Cut "We help you get both before you sign ..." above the box. Cut "Our agents check the flood zone on every home before you offer" from the lapse section. The flood check is now said once in the Horry section (with the flood-history link) and once in the final box.
+7. NASA Florence image added under the county chart in the Horry section, with its record in `photos.json` (passes `photos.js check`). One change from the brief: I used the rainfall map (`carolinas_mrg_2018259_lrg.png`, Sept. 13 to 16) from the same NASA Earth Observatory record (92775), not the soil moisture map (`carolinas_smp_2018254`). NASA's own text says the soil moisture map shows the ground on Sept. 11, before Florence arrived, so as a picture of the storm it would mislead. Both files have the same NASA authors and the same public domain status. Commons returned 429, so the file came from NASA directly; the provenance says so. The open ocean is cropped off. Caption: what NASA says the map shows, plus where Horry County is (just south of the state line on the coast). The photo partner's shot list for this page (photos.md item 3) is still needed: NEEDS.md.
+
+Nits:
+1. Georgetown now 20.7% (rounded from FEMA's 0.2065 in whole basis points, so no float error).
+2. Premium table: header "Years", cells "1", "+18%" and so on. No breaks at 320 or 390.
+3. "About 1 in 7 residential buildings in Horry County has a federal flood policy, 20,388 policies in all."
+4. Cut the Horry paragraph that repeated the lapse rules.
+5. Final button: "Talk to a specialized agent".
+6. Credits template line ("resized these photos and cropped some of them"): shared, sent to NEEDS.md. With two images it now reads correctly.
+7. FAQ: "What happens to my flood insurance if the program lapses on Dec. 11?"
+8. Left as is (sourced, F047).
+
+Gates after the fix: score 99/100 (P6, NFIP once on purpose); claims-scan 0, facts-check 0, house-claims 0 on this page; struck-check clean; repeat-check --strict passes; critic at 320, 390, 768 and 1440: 0 blocking, 3 read.wall warnings (the hero, which the review already lists as a false hit, and the last FAQ answer at 320); build.js check OK; audit: only "missing from sitemap.xml" fails (yours), plus warnings for llms.txt, 5 dates and no Tim Nash quote. Shots looked at full size at 320 and 390.

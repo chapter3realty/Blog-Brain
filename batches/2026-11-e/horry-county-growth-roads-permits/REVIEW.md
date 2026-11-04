@@ -71,3 +71,41 @@ stories.json `nc-client-build-longs` (usable-with-limits): "North Carolina clien
 - Could I act on it? Yes: nothing changed, the fee is $1,615 at 1,500 sq ft, ask whether the fee is in the price, plan for I-73 as not coming soon.
 - Still open, ranked: (1) where the I-73 route runs, which towns or roads; the page has no map; (2) the fee for a bigger or smaller home; (3) what the other RIDE IV projects are and whether one is near my lot (the ledger could not open the project list); (4) whether to buy now or wait.
 - Where I would stop: the "Each leader's plan, under the same test" table, four rows that all end "None in our data".
+
+## Fix round 1 (builder, 2026-11-04)
+
+Blocking:
+1. Who-won table, S.C. House row: "State Senate seats were not on the ballot, except one special race in District 15." (F013)
+2. Andrews card: "Her infrastructure page names no project" cut; the quote now ends "from her infrastructure page". I-73 section: the Andrews clause is replaced by "Neither leader's plan names a road project." (F046, F067, F068)
+3. Andrews card: new "Permits" line, "She backs cutting "red tape that makes it harder to build new energy infrastructure."" (F039). Same-test table: new row "Less red tape for energy projects (Andrews)", Congress and the president, none in our data.
+4. Repeats cut:
+   - The first line of "Five years and longer" is now only "We have no verified past example of what a new interstate did to Horry land prices, so we make no estimate for I-73."
+   - The mid CTA body is now "See new homes across Horry County with an agent who knows the road plans."
+   - The closing band no longer lists the checks: "Tell us where you want to build or buy. An agent helps you choose the lot or the home and buy it."
+   - Cut "The 2026 election did not change RIDE IV ...", "Buyers who held land ... then a long rise." and "The election left the local rules in place ..." (that one now repeated the dek).
+   - The FAQ fee answer now ends "A larger home or another type of building pays a different amount."
+   - The FAQ I-73 answer is reworded so the funding sentence shape is no longer repeated.
+   - `repeat-check --strict` passes.
+5. Skipped (photo partner email, the lead's).
+
+Nits:
+- The dek leads with the answer: "The 2026 election changed no rule for building in Horry County. The road tax, the impact fees and the flood rules are the same as before the vote." The short answer starts with the RIDE IV vote and the fee schedule, and the opening line of who-won was cut, so the answer is said once at the top.
+- Reichenbach is now "the lieutenant governor-elect".
+- I-73, I-95, US 501 and SC 22 no longer break inside the name: each is wrapped in a white-space:nowrap span in the section text. Tags and attributes are left alone, and the title, meta tags and FAQ schema keep the plain hyphen for search.
+- 320 px: the large buttons get smaller side padding and no wrap. "Talk to a specialized agent" fits on one line at 320.
+- Impact fees: one tile, "$1,615 for a single-family home of about 1,500 square feet".
+- Cut "We price land near the planned route on the roads that exist today."
+- Outlook rewording:
+  - "Over five years or more, Horry prices have fallen about 26% (2008 to 2012) and risen to about 2.4 times the low (2012 to 2026)."
+  - "The latest yearly change, 0.8%, is inside the index's error of about 2%, so it reads as flat." The 0.8% is computed from F200 in the spec.
+  - "we expect permits to stay in the 2021 to 2025 range in the table."
+  - "If it turns as it did from 2006 to 2010, plan for that slowdown, the first row of the table."
+
+Gates after the fix:
+- score.js: 98/100. S8 has 1 inbound link (the lead adds the second). P2 is 5.3 numbers per 100 words.
+- claims-scan, facts-check, house-claims: 0 on this page.
+- struck-check, repeat-check and structure-check (strict): pass.
+- photos.js check: pass.
+- critic at 320, 390, 768 and 1440: 0 blocking, 0 warning.
+- build.js check: OK.
+- build.js audit: only "missing from sitemap.xml" for this page (the stitch is the lead's), plus the llms.txt, named-person and long-sentence warnings. The owner-name failure no longer fires.

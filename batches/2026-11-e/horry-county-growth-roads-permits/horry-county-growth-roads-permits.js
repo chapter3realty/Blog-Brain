@@ -106,6 +106,9 @@ main#main .g7-card dt{font-family:var(--sans);font-size:.875rem;font-weight:650;
 main#main .g7-card dd{margin:.15rem 0 0}
 main#main .g7-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;max-width:760px;margin:1rem 0 1.2rem}
 @media (max-width:479px){main#main .g7-stats{grid-template-columns:1fr}}
+main#main .g7-stats.g7-one{grid-template-columns:1fr;max-width:380px}
+main#main .nw{white-space:nowrap}
+@media (max-width:379px){main#main .btn-lg{padding-left:1rem!important;padding-right:1rem!important;white-space:nowrap}}
 main#main .g7-stats div{padding:.75rem .7rem;border-radius:14px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75);text-align:center;color:var(--muted);font-size:1rem;line-height:1.4}
 main#main .g7-stats b{display:block;font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1.15;color:var(--navy);margin-bottom:.2rem}
 main#main .g7-tab{max-width:820px;margin:1.2rem 0 1.4rem;padding:.6rem 1rem .4rem;border-radius:18px;box-sizing:border-box;background:linear-gradient(180deg,rgba(255,255,255,.76),rgba(255,255,255,.52));border:1px solid rgba(255,255,255,.75)}
@@ -189,7 +192,9 @@ const CREDITS = () => PH.credits().replace(/<div role="listitem">Chapter3 Realty
 /* ---------- the council winners (F016), from data.json ---------- */
 const councilList = E.council.filter(([seat]) => seat !== "Chair").map(([seat, name]) => `${seat.replace("District ", "")} ${name}`).join(", ");
 
-module.exports = G.page({
+/* Road names do not break at the hyphen on a phone (review nit 8): text outside tags only. */
+const NOBREAK = (html) => String(html).split(/(<[^>]+>)/).map((t) => (t.startsWith("<") ? t : t.replace(/\b(I-73|I-95|US 501|SC 22)\b/g, '<span class="nw">$1</span>'))).join("");
+const SPEC = {
   theme: "glass",
   url: SELF,
   hub: { name: "Invest", url: "/invest/" },
@@ -200,13 +205,13 @@ module.exports = G.page({
   eyebrow: "2026 election",
   h1: "Growth, Roads and Permits: What the New Leaders Mean for Building in Horry County",
   h1em: "",
-  sub: `Horry County permitted ${n0(SF[2025])} single-family homes in 2025. The county council, the governor-elect and the new senator each have a say over a different part of roads, fees and permits.`,
+  sub: `The 2026 election changed no rule for building in Horry County. The road tax, the impact fees and the flood rules are the same as before the vote.`,
   heroCta: { title: "Want to buy a new construction home in Horry County?", label: "Talk to a specialized agent", href: "/contact/" },
   author: "devin+abdulla",
   pageImages: () => PHOTOS.pageImages(PH.rec("horry-county-government-complex-conway")),
   shortAnswer: [
-    `The 2026 election changed no rule for building in Horry County. Voters approved the road money, the RIDE IV sales tax, in 2024. The county council approved the current impact fee schedule before the election.`,
-    `No road or growth question was on the Horry ballot. Interstate 73 has no start date, because funding for most of its $1.6 billion cost has not been identified. The leaders who won have road plans, and none of those plans is a law yet.`,
+    `Voters approved the road money, the RIDE IV sales tax, in 2024. The county council approved the current impact fee schedule before the election, and no road or growth question was on the Horry ballot.`,
+    `Interstate 73 has no start date, because funding for most of its $1.6 billion cost has not been identified. The leaders who won have road plans, and none of those plans is a law yet.`,
   ],
   sections: [
     { h2: "How many new homes is Horry County permitting each year?", toc: "Homes permitted", id: "permits", html: () =>
@@ -217,12 +222,12 @@ module.exports = G.page({
       h.p(`Almost all of today's building is single-family homes. Units in buildings of five or more, such as apartments and condos, were ${n0(MF[2005])} in 2005 and ${n0(MF[2025])} in the latest year. For the monthly count and the communities being built now, see ${h.a(BUILT, "what is being built on the Grand Strand")}.`) },
 
     { h2: "What did the 2026 election change for building in Horry County?", toc: "Who won", id: "who-won", html: () =>
-      h.p(`No building rule changed on Election Day. Horry County had no ballot question this year, so no tax, fee or zoning rule was up for a vote. Every county council seat on the ballot went to a Republican, ${UNOPP} of the ${E.council.length} without an opponent.`) +
+      h.p(`Every county council seat on the ballot went to a Republican, ${UNOPP} of the ${E.council.length} without an opponent.`) +
       table("Who won in the unofficial count, and what each office can change for building here",
         ["Office", "Who won", "What it can change"], [
           ["Horry County Council", `Chair Johnny Gardner, re-elected unopposed. District seats, all Republican: ${councilList}. County results are uncertified.`, `Impact fees, zoning and the county's flood building rules. State law ${h.ext(ZONING, "allows counties and cities to zone")}.`],
           ["Governor", `Alan Wilson (R), ${E.governor.pct}%. Jermaine Johnson (D) conceded.`, `Proposes the state's executive budget, where money for I-73 could be asked for.`],
-          ["S.C. House, 124 seats", "Republicans 79, Democrats 45, down from 89 Republicans and 35 Democrats. The state Senate was not on the ballot.", "State law, including the law that allows impact fees."],
+          ["S.C. House, 124 seats", "Republicans 79, Democrats 45, down from 89 Republicans and 35 Democrats. State Senate seats were not on the ballot, except one special race in District 15.", "State law, including the law that allows impact fees."],
           ["U.S. Senate", `Annie Andrews (D), ${E.senate.pct}%. The AP called the race.`, "Federal law and spending, with the House."],
           ["U.S. House, 7th District", `Russell Fry (R), ${E.house7.pct}%, re-elected. The AP called the race.`, "Federal law and spending, for the district that includes Horry County."],
         ]) +
@@ -232,8 +237,7 @@ module.exports = G.page({
     { h2: "What is RIDE IV, the Horry County road tax?", toc: "RIDE IV", id: "ride-iv", html: () =>
       h.p(`RIDE IV is a 1% sales tax for road projects in Horry County, approved by voters in November 2024.`) +
       `<div class="g7-stats" role="list" aria-label="RIDE IV in three numbers"><div role="listitem"><b>${R4.yes_pct}%</b>of Horry voters said yes in 2024</div><div role="listitem"><b>${R4.max_years} years</b>or $6.35 billion, whichever comes first</div><div role="listitem"><b>$450 million</b>for I-73, as WIS reported the list</div></div>` +
-      h.p(`One item is a local match for I-73: up to half the cost of building it from SC 22 to the Horry County line. That money can be spent only after SCDOT, the state Department of Transportation, has signed contracts to finish I-73 from Horry County to I-95. The ${h.ext(WIS73, "WIS report")} on I-73 gives the $450 million figure.`) +
-      h.p(`The 2026 election did not change RIDE IV. Voters approved it two years earlier.`) },
+      h.p(`One item is a local match for I-73: up to half the cost of building it from SC 22 to the Horry County line. That money can be spent only after SCDOT, the state Department of Transportation, has signed contracts to finish I-73 from Horry County to I-95. The ${h.ext(WIS73, "WIS report")} on I-73 gives the $450 million figure.`) },
 
     { h2: "When will I-73 be built in South Carolina?", toc: "I-73", id: "i-73", html: () =>
       h.p(`No start date has been announced. Work cannot begin until SCDOT identifies where the money comes from. The South Carolina section is estimated at $1.6 billion, and funding for most of that cost has not been identified.`) +
@@ -248,26 +252,28 @@ module.exports = G.page({
         ["The money", "Funding for the rest of the $1.6 billion has to be identified.", true],
         ["The contracts", "SCDOT signs the contracts to finish I-73 to I-95. After that, the RIDE IV match can be spent.", true],
       ], "I-73, what has to happen next") +
-      h.p(`Governor-elect Wilson will propose the next executive budgets. Senator-elect Andrews' plan names no road project, and she has made no statement on I-73 that we found. We price land near the planned route on the roads that exist today.`) },
+      h.p(`Governor-elect Wilson will propose the next executive budgets. Neither leader's plan names a road project.`) },
 
     { h2: "What do the new leaders say about roads, growth and federal money?", toc: "Leaders' plans", id: "plans", html: () =>
       h.p(`Each plan below is in the leader's own words, from a campaign page or an interview. Each one needs other officials to act before anything changes in Horry County.`) +
       `<div class="g7-grid">` +
       `<div class="g7-card"><h3>Annie Andrews (D), U.S. Senate</h3><dl>`
-        + `<dt>Roads</dt><dd>"Fix and modernize South Carolina's roads, bridges, and highways," and "make sure federal dollars actually reach our communities." Her ${h.ext(AND_INF, "infrastructure page")} names no project.</dd>`
+        + `<dt>Roads</dt><dd>"Fix and modernize South Carolina's roads, bridges, and highways," and "make sure federal dollars actually reach our communities," from her ${h.ext(AND_INF, "infrastructure page")}.</dd>`
         + `<dt>Building</dt><dd>She would "provide tax cuts to homebuilders to incentivize more construction" and end "chaotic and unilateral tariffs." Her ${h.ext(AND_PLAN, "plan")} names home building materials among the goods tariffs make costlier.</dd>`
+        + `<dt>Permits</dt><dd>She backs cutting "red tape that makes it harder to build new energy infrastructure."</dd>`
         + `<dt>Growth</dt><dd>A two-year national moratorium on building AI data centers.</dd>`
         + `<dt>Who must act</dt><dd>Both houses of Congress pass a bill, and the president signs it.</dd></dl></div>` +
       `<div class="g7-card"><h3>Alan Wilson (R), governor</h3><dl>`
         + `<dt>Roads</dt><dd>"We need to cut down the time it takes to build a road or a bridge in South Carolina." His ${h.ext(WIL_PRI, "priorities")} say he will "modernize the Department of Transportation" and "streamline project timelines."</dd>`
         + `<dt>Building</dt><dd>"Make it easier for homes to be built, which lowers the cost of those homes." He tied home costs to ${h.ext(WIL_WIS, "waiting on permits")}.</dd>`
-        + `<dt>Growth</dt><dd>Independent performance audits of state agencies, overseen by the lieutenant governor, Mike Reichenbach.</dd>`
+        + `<dt>Growth</dt><dd>Independent performance audits of state agencies, overseen by the lieutenant governor-elect, Mike Reichenbach.</dd>`
         + `<dt>Who must act</dt><dd>The governor's office for the audits. A change in state law needs the General Assembly. Home permits are issued by counties and cities.</dd></dl></div>` +
       `</div>` +
       h.p(`Rep. Russell Fry (R) was re-elected in the 7th District, which includes Horry County. Any federal road money for I-73 would need votes in both the House and the Senate.`) },
 
     { h2: "What are Horry County impact fees on a new home?", toc: "Impact fees", id: "impact-fees", html: () =>
       h.p(`A single-family home of about 1,500 square feet pays $${n0(FEE.total_fee)} in total in Horry County impact fees. The fee depends on the kind of building and its size. The county council approved this schedule unanimously in July 2026, as Ordinance 30-2026. Horry County has charged impact fees since ${FEE.since}.`) +
+      `<div class="g7-stats g7-one" role="list" aria-label="Horry County impact fee for a typical home"><div role="listitem"><b>$${n0(FEE.total_fee)}</b>for a single-family home of about 1,500 square feet</div></div>` +
       h.p(`Impact fees are a county power under the state's ${h.ext(DIFA, "Development Impact Fee Act")}. Before charging them on homes, a county must estimate the effect on affordable housing, and the ordinance needs a positive majority of the council. Any change to the fee is a vote of the county council, including the members elected this year.`) +
       h.p(`On a new home, we ask the builder whether the fee is already in the price, so you compare homes on the same terms. Our ${h.a(NEWC, "guide to buying new construction")} covers the rest of the process.`) },
 
@@ -277,7 +283,7 @@ module.exports = G.page({
       h.p(`We confirm the current height rule with the county for any lot in a flood zone before you buy, because it changes the cost of the build. What a flood zone means for insurance is on ${h.a(P3, "our page on flood insurance after the election")} and ${h.a(COAST, "our coastal insurance guide")}.`) },
 
     { h2: "What could happen to new home and land prices in Horry County, short and long term?", toc: "Short and long term", id: "outlook", html: (bg) =>
-      h.p(`In the next year or two, we expect the pattern of the last five years to continue unless the national market turns. Over five years or more, Horry County's own record runs from a fall of about a quarter to a rise of almost two and a half times.`) +
+      h.p(`In the next year or two, we expect the pattern of the last five years to continue unless the national market turns. Over five years or more, Horry prices have fallen about ${DROP}% (2008 to 2012) and risen to about ${TIMES} times the low (2012 to 2026).`) +
       table("What happened in Horry County before",
         ["Period", "What happened", "Source"], [
           ["2006 to 2010", `Single-family permits fell from ${n0(SF[2006])} to ${n0(SF[2010])}, about four in five fewer.`, h.ext(CENSUS, "Census permits")],
@@ -287,19 +293,18 @@ module.exports = G.page({
           ["2021 to 2025", `Permits stayed between ${n0(R5LO)} and ${n0(R5HI)} a year.`, h.ext(CENSUS, "Census permits")],
         ]) +
       h.h3("The next one to two years") +
-      h.p(`The election left the local rules in place. RIDE IV, the new fee schedule and the council chair are the same as before the vote.`) +
-      h.p(`Local prices rose in the year after each of the last five elections, whichever party won. A change of about 2% or less is within the price index's margin of error. If the national market holds, we expect permits and prices to stay inside the ranges of the last five years. If it turns as it did in 2007, the slowdown in the table is the case to plan for.`) +
+      h.p(`Local prices rose in the year after each of the last five elections, whichever party won. The latest yearly change, ${Math.round(chg('2025Q2', '2026Q2') * 10) / 10}%, is inside the index's error of about 2%, so it reads as flat. If the national market holds, we expect permits to stay in the 2021 to 2025 range in the table. If it turns as it did from 2006 to 2010, plan for that slowdown, the first row of the table.`) +
       h.h3("Five years and longer") +
-      h.p(`I-73 needs funding for most of its cost, then signed state contracts, before the RIDE IV match can be spent. We have no verified past example of what a new interstate did to Horry land prices, so we make no estimate for it.`) +
+      h.p(`We have no verified past example of what a new interstate did to Horry land prices, so we make no estimate for I-73.`) +
       table("Each leader's plan, under the same test", ["Plan", "Who must act", "Past Horry example"], [
         ["Faster road building (Wilson)", "The governor's office and the General Assembly", "None in our data"],
         ["Faster home permits (Wilson)", "The General Assembly, and county and city councils", "None in our data"],
         ["Homebuilder tax cuts and a tariff change (Andrews)", "Both houses of Congress and the president", "None in our data"],
+        ["Less red tape for energy projects (Andrews)", "Both houses of Congress and the president", "None in our data"],
         ["A pause on AI data centers (Andrews)", "Both houses of Congress and the president", "None in our data"],
       ]) +
       h.p(`With no past Horry example for any of these plans, we make no estimate for any of them.`) +
-      h.p(`Buyers who held land or a new home here from 2008 to 2026 saw a four-year fall in prices, then a long rise.`) +
-      h.cta("Want to buy a new construction home?", "We pull the permits near the lot, check its flood rule and the road plans around it, and show you new homes across Horry County.", "Talk to a specialized agent", "/contact/", bg) },
+      h.cta("Want to buy a new construction home?", "See new homes across Horry County with an agent who knows the road plans.", "Talk to a specialized agent", "/contact/", bg) },
 
     { h2: "What does Chapter3 check before you buy land or a new home in Horry County?", toc: "What we check", id: "what-we-check", html: () =>
       h.p(`Our agents check four things for the lot you want, from the county's own records and the road plans:`) +
@@ -313,8 +318,8 @@ module.exports = G.page({
   ],
   faqTitle: "Horry County growth and roads questions",
   faq: [
-    { q: "When will I-73 be complete in South Carolina?", a: "No date has been announced. Work cannot begin until SCDOT identifies the money, and funding for most of the estimated 1.6 billion dollar cost has not been identified." },
-    { q: "How much are Horry County impact fees?", a: `A single-family home of about 1,500 square feet pays ${n0(FEE.total_fee)} dollars in total under the county's current schedule. The fee depends on the kind of building and its size.` },
+    { q: "When will I-73 be complete in South Carolina?", a: "No date has been announced. SCDOT has not identified the money for most of the estimated 1.6 billion dollar cost, and work cannot begin until it does." },
+    { q: "How much are Horry County impact fees?", a: `A single-family home of about 1,500 square feet pays ${n0(FEE.total_fee)} dollars in total under the county's current schedule. A larger home or another type of building pays a different amount.` },
     { q: "Was a road tax on the Horry County ballot in 2026?", a: `No. The 2026 Horry County ballot had no ballot question. Voters approved the RIDE IV sales tax in 2024, with ${R4.yes_pct} percent voting yes.` },
     { q: "Who can change impact fees in Horry County?", a: "The county council, by ordinance with a positive majority, after a report on the effect on affordable housing. The state Development Impact Fee Act allows the fees." },
     { q: "Is Horry County still building as many homes?", a: `Yes. The county's 2025 count was ${n0(SF[2025])} single-family homes, after ${n0(SF[2024])} in 2024, the most of any year from 2005 to 2025.` },
@@ -337,7 +342,10 @@ module.exports = G.page({
   ],
   sourcesNote: "Election results are unofficial. RIDE IV terms are from the ballot text. Not legal or investment advice.",
   afterSources: CREDITS,
-  bottomCta: { h2: "Buying land or a new home in Horry County?", p: "We check the permits around it, its flood rule and the road plans, then help you buy.", label: "Talk to a specialized agent", href: "/contact/" },
+  bottomCta: { h2: "Buying land or a new home in Horry County?", p: "Tell us where you want to build or buy. An agent helps you choose the lot or the home and buy it.", label: "Talk to a specialized agent", href: "/contact/" },
   keywords: "Horry County growth, Horry County permits by year, RIDE IV, Horry County road tax, when will I-73 be complete, I-73 funding, Horry County impact fees, Horry County flood rules, freeboard, 2026 election Horry County, new construction Myrtle Beach",
   about: "Building, roads and permits in Horry County, South Carolina, after the 2026 election: single-family permits, the RIDE IV sales tax, Interstate 73, impact fees and flood building rules",
-});
+};
+SPEC.sections = SPEC.sections.map((x) => ({ ...x, html: (bg) => NOBREAK(typeof x.html === "function" ? x.html(bg) : x.html) }));
+module.exports = G.page(SPEC);
+
