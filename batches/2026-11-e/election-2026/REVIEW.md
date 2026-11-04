@@ -85,3 +85,36 @@ Critic: 1440, 768 and 390 clean. 320: 1 blocking (overlap.spill), 2 warnings (re
 - The story line "property tax stops more rental deals here than insurance does" matches stories.json. It uses "stop", as the story's limits require, not "kill".
 - No interest rate, payment amount, steering word or financing offer.
 - Devin and Abdulla appear only in the byline and schema. Paul does not appear.
+
+## Fix round 1 (builder, 2026-11-04)
+
+Blocking, all applied with the suggested wording:
+1. FHFA note: "FHFA gives recent index values a standard error of about 2 percent. A change of a few percent, such as +3.0% after 2024 or +0.8% in the latest year, may be within that error."
+2. $50,000 credit: "slightly" dropped. Now: "more sales and higher prices in the first years. It is about six times the old credit, and no study we found measured a credit that size. How much prices would rise, then or later, is unknown."
+3. Wilson gas: "for up to 120 days, as reported."
+4. Wilson roads row: "Faster roads, and a modernized Department of Transportation".
+5. Lincoln scope: "36.4 percent of the appraised value of the property the county assessor values. It was 47.2 percent of the value the tax is figured on." This is two sentences, because the audit caps sentences at 28 words. "Assessed value" was left out because the scorer flags it as a term.
+6. Investor law: "which became law in July".
+7. Hero chips: a 2 by 2 grid below 400 px, with text at the same size. At 320 px the scroll width is 320 and the critic finds no spill.
+
+Nits applied:
+- F151: "to rentals, second homes and business property".
+- F062: the income tax row adds "Overhauling property taxes is in his agenda, as reported."
+- F180: "We found no statement on short-term rentals from either winner."
+- F110: "raised home sales by about 490,000, near 10 percent". Added: "The authors judged that its benefit in steadying the market likely exceeded its direct boost to buying."
+- "End tax breaks for the highest earners" replaces "ultra-wealthy".
+- Act 388 explained at first use: the power table link reads "Act 388, the 2006 school tax law".
+- The Medicaid sentence is split in two.
+- 320 px text walls: the Act 388 history is now two paragraphs, with the tax chart moved up between them. The $50,000 paragraph has its own H3, "What it could mean for a $50,000 credit".
+
+Not changed: the 2006 county photo (NEEDS 4), the length of the schema headline, and the Capitol photo on page 2 (the lead decides).
+
+Gates after the fix:
+- score: 99. P2 number density 4.6 per 100 words. P6 flags 3 uses of "Act 388".
+- claims-scan: 0 on this page.
+- facts-check: 0 on this page.
+- house-claims: 0.
+- struck-check --strict: clean.
+- build.js check: no FAIL.
+- build.js audit: on this page only the expected sitemap entry; warnings for llms.txt, the Tim Nash quote and 6 long sentences.
+- critic at 320, 390, 768 and 1440: 0 blocking. One warning at 320, read.wall in the FAQ and sources area.

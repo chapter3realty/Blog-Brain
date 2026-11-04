@@ -146,7 +146,7 @@ const POWERS = table("Who decides what about a home on the Grand Strand",
       `${h.a(P3, "Flood insurance")}, ${h.a(P2, "buyer tax credit")}`],
     ["The governor and the legislature, in Columbia", `Governor-elect Alan Wilson. A House of ${SH.after.R} Republicans and ${SH.after.D} Democrats, and a Senate of ${SS.R} and ${SS.D}.`,
       "The 4 and 6 percent tax ratios. The school tax exemption on a home you live in. HOA law. The state tax on short-stay rentals. Whether cities may limit short-term rentals.",
-      `${h.a(P4, "Rental tax cut")}, ${h.a(P5, "Act 388")}, ${h.a(P6, "short-term rentals")}`],
+      `${h.a(P4, "Rental tax cut")}, ${h.a(P5, "Act 388, the 2006 school tax law")}, ${h.a(P6, "short-term rentals")}`],
     ["Horry County Council, in Conway", "Chairman Johnny Gardner and the district members.",
       "Impact fees on new homes. Zoning outside the cities.",
       `${h.a(P7, "Growth, roads and permits")}`],
@@ -167,7 +167,7 @@ const ANDREWS = table("Annie Andrews' plans that touch a home here",
     [`A $50,000 tax credit for first-time buyers${more(P2, "What the last credit did")}`, `<q>a $50,000 tax cut to help first-time homebuyers</q>`,
       "A first-time buyer's down payment, and how many buyers bid on starter homes. She has no bill of her own, and the closest bill has had no vote."],
     ["Cut the limit on large investors from 350 homes to 50", `<q>We should cut that threshold down several times to 50 homes.</q>`,
-      "Big rental companies buying houses here. The 350-home limit, passed in July, starts Jan. 7, 2027."],
+      "Big rental companies buying houses here. The 350-home limit, which became law in July, starts Jan. 7, 2027."],
     ["Bar Wall Street investors from Fannie Mae and Freddie Mac loans", `<q>ban these Wall Street interests from using Fannie Mae and Freddie Mac mortgages to buy up housing</q>`,
       "Large investors buying homes here with those loans."],
     [`Tax cuts for home builders and more workforce housing${more(P7, "Building in Horry County")}`, `<q>provide tax cuts to homebuilders to incentivize more construction</q>`,
@@ -196,13 +196,13 @@ const WILSON = table("Alan Wilson's plans that touch a home here",
       "The yearly tax on their cars."],
     ["Lower personal property taxes on businesses", "Lowering personal property taxes for commercial businesses, as reported",
       "Taxes on the equipment of local businesses."],
-    ["End the state income tax and overhaul property taxes", `<q>I still want to eliminate the income tax.</q> He calls it a long-term goal.`,
+    ["End the state income tax and overhaul property taxes", `<q>I still want to eliminate the income tax.</q> He calls it a long-term goal. Overhauling property taxes is in his agenda, as reported.`,
       "Income tax, and how property is taxed here."],
     [`Public audits of insurance rate increases${more(P3, "Insurance after the election")}`, "Regular, public audits of rate increases by the Department of Insurance, which already has audit power, as reported",
       "Homeowners insurance rates. Flood insurance is federal, so it is not part of this plan."],
     [`Faster permits for new homes${more(P7, "Permits in Horry County")}`, `<q>make it easier for homes to be built, which lowers the cost of those homes</q>`,
       "Waits for building permits on new homes."],
-    [`Faster roads, and an audit of the Department of Transportation${more(P7, "Roads and I-73")}`, `<q>we need to cut down the time it takes to build a road or a bridge</q>`,
+    [`Faster roads, and a modernized Department of Transportation${more(P7, "Roads and I-73")}`, `<q>we need to cut down the time it takes to build a road or a bridge</q>`,
       "Road projects such as I-73. Funding for most of its $1.6 billion cost has not been identified."],
   ]);
 
@@ -223,7 +223,7 @@ const PRICE_CHART = G.bars(
   EL.map((e) => ({ name: `Year after the ${e.year} election`, feature: e.kind === "midterm" ? "midterm election" : "presidential election", value: e.pct, valueText: `+${pct1(e.pct)}%` }))
     .concat([{ name: "Latest year, to mid-2026", feature: "for comparison", value: LATEST, valueText: `+${pct1(LATEST)}%`, reference: true }]),
   { caption: "Change in Myrtle Beach-area home prices in the year after each election", nameLabel: "Year", featureLabel: "kind of election", valueLabel: "Change in prices", max: 25,
-    note: `Federal Housing Finance Agency house price index for the Myrtle Beach, Conway and North Myrtle Beach metro area, from the last quarter of each election year to the same quarter a year later. Each index value has a margin of error of about ${Math.round(seShare)} percent. The changes after 2024 and in the latest year fall within it.`,
+    note: `Federal Housing Finance Agency house price index for the Myrtle Beach, Conway and North Myrtle Beach metro area, from the last quarter of each election year to the same quarter a year later. FHFA gives recent index values a standard error of about ${Math.round(seShare)} percent. A change of a few percent, such as +3.0% after 2024 or +0.8% in the latest year, may be within that error.`,
     compact: true });
 
 /* V7b: the tax on one $350,000 home inside Myrtle Beach (F144-F147), from the 2026 levy. */
@@ -293,7 +293,7 @@ module.exports = G.page({
   h1: "What the 2026 Election Means for Myrtle Beach Home Buyers and Sellers",
   h1em: "",
   sub: `After the election, state House Republicans are ${SHORT} votes short of changing the rental tax alone. Most rules for a Myrtle Beach sale are made in Columbia and Conway.`,
-  heroMedia: "<style>main#main h1.detail-h1>br:last-of-type,main#main h1.detail-h1>em:empty{display:none}</style>" + glance([
+  heroMedia: "<style>main#main h1.detail-h1>br:last-of-type,main#main h1.detail-h1>em:empty{display:none}@media (max-width:399px){main#main .c3-glance{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.45rem!important}main#main .c3-glance li{min-width:0;overflow-wrap:anywhere}}</style>" + glance([
     { icon: "pin", label: "U.S. Senate", text: "Andrews (D)" },
     { icon: "town", label: "Governor", text: "Wilson (R)" },
     { icon: "tax", label: "State House", text: `${SH.after.R}${NB}R, ${SH.after.D}${NB}D` },
@@ -332,7 +332,7 @@ module.exports = G.page({
     { h2: "Who decides what about a Myrtle Beach home?", toc: "Who decides what", id: "who-decides", html: (bg) =>
       h.p(`Congress decides flood insurance and federal taxes. The legislature in Columbia decides the property tax ratios. The county and city councils decide zoning and fees.`) +
       POWERS +
-      h.p(`Neither winner took a position on short-term rentals. No state law stops a city from limiting them today.`) +
+      h.p(`We found no statement on short-term rentals from either winner. No state law stops a city from limiting them today.`) +
       h.cta("Ask what the election changes for your house", "Send us the address. We tell you its flood zone, its tax ratio and what a pending vote could change for it.", "Ask about your house", "/contact/", bg) },
 
     { h2: "What are Annie Andrews' policies on housing and taxes?", toc: "Andrews' plans", id: "andrews-plans", html: () =>
@@ -341,15 +341,16 @@ module.exports = G.page({
       ANDREWS +
       CAPITOL_PHOTO +
       h.h3("Where a buyer tax credit was tried before") +
-      h.p(`The federal credit of 2008 to 2010 paid up to $8,000. A study in the Journal of Finance found it raised home sales across the country about 10 percent. It raised prices slightly, about 1 percent by the study's measure. Much of the extra demand came from buyers who would have bought several years later.`) +
+      h.p(`The federal credit of 2008 to 2010 paid up to $8,000. A study in the Journal of Finance found it raised home sales by about 490,000, near 10 percent. It raised prices about 1 percent by the study's measure. Much of the extra demand came from buyers who would have bought several years later. The authors judged that its benefit in steadying the market likely exceeded its direct boost to buying.`) +
       h.p(`Here it did not stop a fall. The Myrtle Beach-area price index dropped about 10 percent in 2009 and kept falling until 2012.`) +
-      h.p(`If a $50,000 credit passed, the same pattern points to more sales and slightly higher prices in the first years. It is about six times the old credit. No study we found measured a credit that size, so its long-run effect on prices is unknown. Our page on the ${h.a(P2, "first-time buyer tax credit")} shows what the last one did.`) +
+      h.h3("What it could mean for a $50,000 credit") +
+      h.p(`If a $50,000 credit passed, the same pattern points to more sales and higher prices in the first years. It is about six times the old credit, and no study we found measured a credit that size. How much prices would rise, then or later, is unknown. Our page on the ${h.a(P2, "first-time buyer tax credit")} shows what the last one did.`) +
       h.h3("Her other plans, with no direct tie to a home sale") +
       h.ul([
-        "<strong>Health care.</strong> Reverse federal Medicaid cuts, expand Medicaid in South Carolina, restore expired marketplace premium help, limit insurer profits per enrollee, let regulators reject large premium increases, replace prior authorization, and a public option.",
+        "<strong>Health care.</strong> Reverse federal Medicaid cuts, expand Medicaid in South Carolina, and restore expired marketplace premium help. Limit insurer profits per enrollee, let regulators reject large premium increases, replace prior authorization, and add a public option.",
         "<strong>Drug prices.</strong> Imports from Canada, the $35 insulin cap for every insured patient, patent reform, rules for drug middlemen, and more drug prices that Medicare negotiates.",
         "<strong>Families and work.</strong> A child care worker apprenticeship, tax credits for child care businesses, a permanent, larger child tax credit, higher wages and paid family leave.",
-        "<strong>Taxes and spending.</strong> End breaks for the ultra-wealthy, the carried interest break and breaks for moving jobs overseas. Keep no tax on tips and Social Security for good. Restore free IRS filing. Vote against debt ceiling increases until a balanced budget passes.",
+        "<strong>Taxes and spending.</strong> End tax breaks for the highest earners, the carried interest break and breaks for moving jobs overseas. Keep no tax on tips and Social Security for good. Restore free IRS filing. Vote against debt ceiling increases until a balanced budget passes.",
         "<strong>Energy.</strong> Suspend the federal gas tax, restore clean energy tax cuts, and cut red tape for new energy projects.",
         "<strong>Congress.</strong> Term limits, and two Senate terms for herself. A balanced budget amendment, a stock trading ban, no pay in shutdowns, no congressional pensions, no earmarks, and stronger fraud checks.",
         "<strong>Other.</strong> Universal background checks and safe gun storage, a path to citizenship with border security, a digital bill of rights, phones out of schools, Roe v. Wade protections, a ban on corporate PAC and dark money, and a vote of Congress before military force.",
@@ -361,14 +362,15 @@ module.exports = G.page({
       h.p(`A change to the 4 and 6 percent tax ratios needs two-thirds of each chamber.`) +
       WILSON +
       h.h3("Where a property tax shift was tried before") +
-      h.p(`Act 388, a state tax law passed in 2006, removed school operating taxes from homes people live in. It added a 1 percent sales tax to make up the money. A 2020 Lincoln Institute study found that the state's system has shifted the property tax burden from homes people live in to rentals and businesses. The South Carolina Chamber Foundation and South Carolina Realtors chose its case-study counties.`) +
-      h.p(`The study counts a group it calls other residential, typically rentals taxed at 6 percent. In Horry County in 2018, that group was 36.4 percent of property value but 47.2 percent of taxed value. Act 388 has defenders too, such as nohometax.org.`) +
+      h.p(`Act 388, a state tax law passed in 2006, removed school operating taxes from homes people live in. It added a 1 percent sales tax to make up the money.`) +
       h.p(`At 4 percent, the yearly bill on a rental inside Myrtle Beach would fall by about a third. In Chapter3's files, property tax stops more rental deals here than insurance does.`) +
       TAX_CHART +
+      h.p(`A 2020 Lincoln Institute study found that the state's system has shifted the property tax burden from homes people live in to rentals, second homes and business property. The South Carolina Chamber Foundation and South Carolina Realtors chose its case-study counties.`) +
+      h.p(`The study counts a group it calls other residential, typically rentals taxed at 6 percent. In Horry County in 2018, that group was 36.4 percent of the appraised value of the property the county assessor values. It was 47.2 percent of the value the tax is figured on. Act 388 has defenders too, such as nohometax.org.`) +
       h.p(`No plan names who would make up the lost tax. No study we found shows whether the saving would reach tenants or prices. Our page on ${h.a(P5, "what Act 388 changes would mean")} looks at both sides.`) +
       h.h3("His other plans, with no direct tie to a home sale") +
       h.ul([
-        "<strong>Gas.</strong> Let the governor pause the state gas tax for up to 120 days.",
+        "<strong>Gas.</strong> Let the governor pause the state gas tax for up to 120 days, as reported.",
         "<strong>Schools.</strong> Fully fund public schools and expand school choice.",
         "<strong>Health.</strong> Rural clinics and telemedicine.",
         "<strong>Benefits.</strong> Deny state benefits to people here illegally.",
