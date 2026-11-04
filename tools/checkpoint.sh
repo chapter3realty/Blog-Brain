@@ -21,7 +21,11 @@ if [ "$#" -gt 0 ]; then
   git -C "$WEB" rev-parse HEAD > "$BATCH/$NAME/web.base"
 fi
 CLONE="${TMPDIR:-/tmp}/checkpoint-$(echo "$REL" | tr '/' '-')"
-[ -d "$CLONE/.git" ] || git clone -q --depth 1 -b "$BRANCH" "$(git -C "$BB" remote get-url origin)" "$CLONE"
+# A sparse clone: only this page's folder is checked out (2026-11-04: full clones of this repo, about 700 MB each,
+# one per page, filled the disk).
+if [ ! -d "$CLONE/.git" ]; then
+  git clone -q --depth 1 --filter=blob:none --sparse -b "$BRANCH" "$(git -C "$BB" remote get-url origin)" "$CLONE" && git -C "$CLONE" sparse-checkout set --no-cone "/$REL/"
+fi
 for i in 1 2 3 4 5 6; do
   git -C "$CLONE" fetch -q --depth 1 origin "$BRANCH" && git -C "$CLONE" reset -q --hard "origin/$BRANCH"
   rm -rf "$CLONE/$REL" && mkdir -p "$CLONE/$REL" && cp -a "$BATCH/$NAME/." "$CLONE/$REL/"
