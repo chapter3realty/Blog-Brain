@@ -1,0 +1,91 @@
+[
+  {
+    "row": "invest-rental-program-vs-airbnb 1",
+    "pattern": "\\b(?:2019|2021)\\b[^.]{0,60}\\b(?:owner manual|manual|program's terms|agreement)\\b|\\b(?:owner manual|manual)\\b[^.]{0,60}\\b(?:2019|2021)\\b",
+    "struck": "The resort's 2021 owner manual set the management fee at 35 percent.",
+    "use": "An owner manual from 2017, the copy a listing site posted, set the management fee at 35 percent."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 2",
+    "pattern": "\\bapproval\\b[^.]{0,40}\\bonly\\b[^.]{0,40}\\$500|\\bonly\\b[^.]{0,40}\\bapproval\\b[^.]{0,40}\\$500",
+    "struck": "It asked the owner's approval only for a single repair over $500.",
+    "use": "It asked the owner's approval for any single repair over $500, unless the owner could not be reached or an emergency could not wait."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 4",
+    "pattern": "\\bsen(?:t|ds?|ding) (?:a )?guests? to the (?:front )?desk\\b",
+    "struck": "An owner who sent a guest to the desk earned a referral commission instead: 20 percent of the nightly rate in most months, 15 percent in June and August, none in July.",
+    "use": "An owner who booked a guest through the management office earned a referral commission: 20 percent of the nightly rate in most months, 15 percent in June and August, and none in July, on monthly stays or on discounted rates."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 6",
+    "pattern": "\\bresort's (?:own )?(?:phone|telephone) company\\b",
+    "struck": "a phone line with voicemail through the resort's phone company",
+    "use": "a phone line with voicemail through Kingston Communications, the phone service the program named"
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 6",
+    "pattern": "\\brefurbished\\b[^.]{0,30}\\bten years\\b",
+    "struck": "Units were inspected, refurbished at least every ten years, and removed from the program if work rated \"below standard\" was not done in time.",
+    "use": "Units were inspected, were expected to be updated at least once every ten years, and were removed from the program if work rated \"below standard\" was not done in time."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 7",
+    "pattern": "\\bchecked in at the (?:hotel )?front desk like any guest\\b",
+    "unless": "\\b(?:asked|request)",
+    "struck": "The owner booked personal stays through the management office during office hours and checked in at the hotel front desk like any guest.",
+    "use": "The owner booked personal stays through the management office during office hours, and the manual asked owners to check in at the hotel front desk like any guest."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 8",
+    "pattern": "\\bname\\b[^.]{0,60}\\bhotel\\b[^.]{0,20}\\bresort\\b",
+    "unless": "\\b(?:past|histor|former)",
+    "struck": "and a name or marketing that says hotel, motel or resort.",
+    "use": "a name that says hotel, motel or resort, unless the word only refers to the building's past use; or marketing as a hotel, resort or investment."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 9",
+    "pattern": "\\bevery unit (?:has|had) a key ?card\\b",
+    "unless": "\\bprogram\\b",
+    "struck": "every unit has a keycard lock on the resort's key system",
+    "use": "every unit on the rental program had a keycard lock on the resort's key system"
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 9",
+    "pattern": "\\bresort's (?:own )?(?:phone|telephone) service\\b",
+    "struck": "phones run through the resort's phone service",
+    "use": "phones ran through the phone service the program named"
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 17",
+    "pattern": "\\bbooks? (?:a )?guests? (?:directly|himself|herself|yourself|on (?:his|her|your) own)\\b[^.]{0,40}\\bneeds? (?:one|a (?:state )?retail license)\\b",
+    "unless": "\\b(?:week|quarter)\\b",
+    "struck": "An owner who books a guest directly needs one.",
+    "use": "An owner who books guests directly needs one, unless the unit is rented no more than one week in each calendar quarter."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 18",
+    "pattern": "\\b(?:anything|everything) else (?:stays|is left) with the host\\b",
+    "struck": "Anything else stays with the host.",
+    "use": "Airbnb also collects the local sales taxes the state collects for counties and towns. The host handles any other tax."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 22",
+    "pattern": "\\bmore than 14 (?:nights|days)\\b[^.]{0,40}\\bor more than 10 percent\\b",
+    "struck": "If the owner stays more than 14 nights a year, or more than 10 percent of the nights it is rented, the IRS counts the condo as a home.",
+    "use": "If the owner's personal days are more than the greater of 14 days or 10 percent of the days it is rented at a fair price, the IRS counts the condo as a home."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 29",
+    "pattern": "\\b159 (?:named )?(?:buildings|towers)\\b",
+    "struck": "They sit in 159 named buildings.",
+    "use": "Their listings give 159 building names."
+  },
+  {
+    "row": "invest-rental-program-vs-airbnb 30",
+    "pattern": "\\bthree of the Kingston Plantation towers\\b|\\bKingston Plantation\\b[^.]{0,80}\\bRoyale Palms\\b",
+    "unless": "\\bKingston Shores\\b",
+    "struck": "Three of the Kingston Plantation towers have units for sale now: South Hampton (8 of 11 say they are in a rental program), Royale Palms (8 of 12) and Brighton Towers (6 of 9).",
+    "use": "The three towers the manual names, Brighton Towers and South Hampton at Kingston Plantation and Royale Palms at Kingston Shores, all have units for sale now: South Hampton 8 of 11 say they are in a rental program, Royale Palms 8 of 12, Brighton Towers 6 of 9."
+  }
+]
