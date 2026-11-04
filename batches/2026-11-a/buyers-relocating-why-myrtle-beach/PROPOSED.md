@@ -18,4 +18,9 @@ The live page says the households arriving reported "about 2.5 times the income 
 
 ## 4. stories.json: the Boston story's label (writer, 2026-11-04)
 
-`boston-hotel-manager` limits say to label it "his real numbers, from a real story, not a promise". The website's `build.js audit` now fails "real story" ("real X" intensifier, owner 2026-08-28). This page prints "Those are his real numbers, from a true story, not a promise." Proposed: change the story's limit to that wording, and fix /buyers/relocating/from-massachusetts/ if it still prints "real story" when it is next rebuilt.
+`boston-hotel-manager` limits say to label it "his real numbers, from a real story, not a promise". The website's `build.js audit` now fails "real story" ("real X" intensifier, owner 2026-08-28). This page no longer prints the Boston story (fix round 1: it is an investor story, and the owner asked for one story near the end). /buyers/relocating/from-massachusetts/ still tells it. Proposed: change the story's limit to that wording, and fix /buyers/relocating/from-massachusetts/ if it still prints "real story" when it is next rebuilt.
+
+## 5. Fix round 1 rows for facts/registry.json (writer, 2026-11-04)
+
+- `weather-january-normals`: "a January high of about 56 and a low of about 37 (NOAA 1991-2020 normals, North Myrtle Beach airport)". Printed here and on /buyers/relocating/weather/. Wrong values to flag: none yet.
+- `sc-imf-new-resident`: "$250 one-time fee per vehicle first titled in another state (SC Code 56-3-627(D)); active duty exempt". Printed on from-ohio, cost-of-living, moving-checklist and here.
