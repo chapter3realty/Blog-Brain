@@ -1,0 +1,4759 @@
+{
+ "made": "2026-11-05",
+ "web": "30b2ca44",
+ "pages": {
+  "/about/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "The Team at Chapter 3 Realty | Myrtle Beach Brokerage",
+     "h1": "Built for investors, perfected for everyone.",
+     "words": 611
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Myrtle Beach Real Estate Team | Chapter 3 Realty",
+     "h1": "Built for investors, perfected for everyone.",
+     "words": 608
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Myrtle Beach Real Estate Team | Chapter3 Realty",
+     "h1": "Built for investors, perfected for everyone.",
+     "words": 598
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "4ddab23c",
+     "what": "words 598->742",
+     "title": "Myrtle Beach Real Estate Team | Chapter3 Realty",
+     "h1": "Built for investors, perfected for everyone.",
+     "words": 742
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Myrtle Beach Real Estate Team | Chapter3 Realty",
+     "h1": "The Myrtle Beach real estate team.",
+     "words": 742
+    },
+    {
+     "date": "2026-08-14",
+     "commit": "bcb841f1",
+     "what": "words 688->608",
+     "title": "Myrtle Beach Real Estate Team | Chapter3 Realty",
+     "h1": "The Myrtle Beach real estate team.",
+     "words": 608
+    },
+    {
+     "date": "2026-09-01",
+     "commit": "2bf5bc88",
+     "what": "words 626->690",
+     "title": "Myrtle Beach Real Estate Team | Chapter3 Realty",
+     "h1": "The Myrtle Beach real estate team.",
+     "words": 690
+    }
+   ]
+  },
+  "/accessibility/": {
+   "first": "2026-07-10",
+   "events": [
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "published",
+     "title": "Accessibility | Chapter 3 Realty",
+     "h1": "Accessibility Statement",
+     "words": 137
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Accessibility | Chapter3 Realty",
+     "h1": "Accessibility Statement",
+     "words": 136
+    }
+   ]
+  },
+  "/buyers/55-plus-communities/del-webb-grande-dunes/": {
+   "first": "2026-10-12",
+   "events": [
+    {
+     "date": "2026-10-12",
+     "commit": "39036014",
+     "what": "published",
+     "title": "Del Webb Grande Dunes 55+: HOA Fees, Pros and Cons | Chapter3",
+     "h1": "What is it like to live in Del Webb at Grande Dunes in Myrtle Beach? A 55+ neighborhood with a beach club.",
+     "words": 1920
+    }
+   ]
+  },
+  "/buyers/55-plus-communities/del-webb-north-myrtle-beach/": {
+   "first": "2026-10-12",
+   "events": [
+    {
+     "date": "2026-10-12",
+     "commit": "39036014",
+     "what": "published",
+     "title": "Del Webb North Myrtle Beach 55+: Pros and Cons | Chapter3",
+     "h1": "What is it like to live in Del Webb North Myrtle Beach? New 55+ homes a mile from the beach.",
+     "words": 2010
+    }
+   ]
+  },
+  "/buyers/55-plus-communities/": {
+   "first": "2026-07-20",
+   "events": [
+    {
+     "date": "2026-07-20",
+     "commit": "aa895d6d",
+     "what": "published",
+     "title": "55+ Communities in Myrtle Beach, SC: Prices and HOA Fees | Chapter3",
+     "h1": "55+ communities in Myrtle Beach.",
+     "words": 1537
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "00f2c0e4",
+     "what": "title",
+     "title": "55+ Communities in Myrtle Beach: Prices &amp; Fees | Chapter3",
+     "h1": "55+ communities in Myrtle Beach.",
+     "words": 1551
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach 55+ Communities: Real HOA Fees Compared",
+     "h1": "Myrtle Beach 55+ communities, with their real prices and HOA fees.",
+     "words": 1734
+    }
+   ]
+  },
+  "/buyers/55-plus-communities/myrtle-trace/": {
+   "first": "2026-10-12",
+   "events": [
+    {
+     "date": "2026-10-12",
+     "commit": "39036014",
+     "what": "published",
+     "title": "Myrtle Trace 55+, Conway: HOA Fee, Pros and Cons | Chapter3",
+     "h1": "What is it like to live in Myrtle Trace in Conway? A 55+ neighborhood close to the hospital.",
+     "words": 1769
+    }
+   ]
+  },
+  "/buyers/55-plus-communities/seasons-at-prince-creek-west/": {
+   "first": "2026-10-12",
+   "events": [
+    {
+     "date": "2026-10-12",
+     "commit": "39036014",
+     "what": "published",
+     "title": "Seasons at Prince Creek West, Murrells Inlet 55+ | Chapter3",
+     "h1": "What is it like to live in Seasons at Prince Creek West in Murrells Inlet? A 55+ neighborhood with two pools.",
+     "words": 1697
+    }
+   ]
+  },
+  "/buyers/act-388-changes/": {
+   "first": "2026-11-04",
+   "events": [
+    {
+     "date": "2026-11-04",
+     "commit": "257a5a61",
+     "what": "published",
+     "title": "Act 388 Changes and Your Myrtle Beach Property Tax | Chapter3",
+     "h1": "Will the Next Governor Cut the Tax on Your Myrtle Beach Rental? What Act 388 changes would mean",
+     "words": 3603
+    }
+   ]
+  },
+  "/buyers/affordable-places-to-live/": {
+   "first": "2026-10-22",
+   "events": [
+    {
+     "date": "2026-10-22",
+     "commit": "60b5e286",
+     "what": "published",
+     "title": "Most Affordable Places to Buy Near Myrtle Beach | Chapter3",
+     "h1": "Where are the most affordable places to buy a home near Myrtle Beach? Twelve neighborhoods, and the best thing about each.",
+     "words": 3395
+    }
+   ]
+  },
+  "/buyers/best-neighborhoods/": {
+   "first": "2026-10-22",
+   "events": [
+    {
+     "date": "2026-10-22",
+     "commit": "60b5e286",
+     "what": "published",
+     "title": "Best Neighborhoods in Myrtle Beach by What You Love | Chapter3",
+     "h1": "What are the best neighborhoods in Myrtle Beach? Pick by what you love.",
+     "words": 2839
+    }
+   ]
+  },
+  "/buyers/buying-in-myrtle-beach/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Buying a Home in Myrtle Beach | What You Need to Know",
+     "h1": "Buying a home in Myrtle Beach. What you actually need to know.",
+     "words": 2401
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "03d30052",
+     "what": "h1",
+     "title": "Buying a Home in Myrtle Beach | What You Need to Know",
+     "h1": "Buying a home in Myrtle Beach. What you need to know.",
+     "words": 2438
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Buying in Myrtle Beach: It's a Buyer's Market Now | Chapter3",
+     "h1": "Buying in Myrtle Beach: it's a buyer's market.",
+     "words": 2432
+    }
+   ]
+  },
+  "/buyers/closing-costs/": {
+   "first": "2026-07-20",
+   "events": [
+    {
+     "date": "2026-07-20",
+     "commit": "aa895d6d",
+     "what": "published",
+     "title": "South Carolina Closing Costs Calculator: Buyer and Seller | Chapter3",
+     "h1": "South Carolina closing costs, calculated.",
+     "words": 1482
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "00f2c0e4",
+     "what": "title",
+     "title": "South Carolina Closing Costs Calculator | Chapter3",
+     "h1": "South Carolina closing costs, calculated.",
+     "words": 1479
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "SC Closing Costs, Calculated: Who Pays What | Chapter3",
+     "h1": "South Carolina closing costs: who pays what, calculated.",
+     "words": 1519
+    }
+   ]
+  },
+  "/buyers/coastal-insurance/": {
+   "first": "2026-07-19",
+   "events": [
+    {
+     "date": "2026-07-19",
+     "commit": "206ff0ff",
+     "what": "published",
+     "title": "Coastal Home Insurance Costs in Myrtle Beach, SC | Chapter3",
+     "h1": "Coastal home insurance: what it costs here.",
+     "words": 1862
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Coastal Home Insurance Costs in Myrtle Beach, SC | Chapter3",
+     "h1": "Coastal home insurance costs in Myrtle Beach, SC.",
+     "words": 1859
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Home Insurance: What It Costs, 6 Ways to Cut It",
+     "h1": "What home insurance costs in Myrtle Beach, and six ways to lower it.",
+     "words": 1925
+    }
+   ]
+  },
+  "/buyers/common-mistakes/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Common Myrtle Beach Home Buyer Mistakes | Chapter 3 Realty",
+     "h1": "Common Buyer Mistakes.",
+     "words": 1100
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Common Myrtle Beach Home Buyer Mistakes | Chapter3 Realty",
+     "h1": "Common Buyer Mistakes.",
+     "words": 1127
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "4ddab23c",
+     "what": "words 1127->1452",
+     "title": "Common Myrtle Beach Home Buyer Mistakes | Chapter3 Realty",
+     "h1": "Common Buyer Mistakes.",
+     "words": 1452
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Common Myrtle Beach Home Buyer Mistakes | Chapter3 Realty",
+     "h1": "Myrtle Beach home buying mistakes to avoid.",
+     "words": 1456
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Buyer Mistakes That Cost the Most | Chapter3",
+     "h1": "The Myrtle Beach buyer mistakes that cost the most.",
+     "words": 1515
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "183733c0",
+     "what": "words 1523->3243",
+     "title": "Myrtle Beach Buyer Mistakes That Cost the Most | Chapter3",
+     "h1": "The Myrtle Beach buyer mistakes that cost the most.",
+     "words": 3243
+    }
+   ]
+  },
+  "/buyers/condo-in-litigation/": {
+   "first": "2026-07-10",
+   "events": [
+    {
+     "date": "2026-07-10",
+     "commit": "b6ce1657",
+     "what": "published",
+     "title": "Can You Buy a Condo in Litigation in Myrtle Beach? | Chapter 3 Realty",
+     "h1": "Can you buy a condo that is in litigation?",
+     "words": 836
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Can You Buy a Condo in Litigation in Myrtle Beach?",
+     "h1": "Can you buy a condo that is in litigation?",
+     "words": 836
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "A Myrtle Beach Condo in Litigation Can Be the Best Deal",
+     "h1": "A condo in litigation can be the best deal in Myrtle Beach.",
+     "words": 825
+    }
+   ]
+  },
+  "/buyers/cost-to-own/": {
+   "first": "2026-07-25",
+   "events": [
+    {
+     "date": "2026-07-25",
+     "commit": "5578542e",
+     "what": "published",
+     "title": "Cost to Own a Home in Myrtle Beach: Calculator | Chapter3",
+     "h1": "The cost to own a home in Myrtle Beach.",
+     "words": 1053
+    },
+    {
+     "date": "2026-07-25",
+     "commit": "db7e4958",
+     "what": "words 1053->934",
+     "title": "Cost to Own a Home in Myrtle Beach: Calculator | Chapter3",
+     "h1": "The cost to own a home in Myrtle Beach.",
+     "words": 934
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "The Real Monthly Cost to Own in Myrtle Beach | Chapter3",
+     "h1": "The real monthly cost to own a home in Myrtle Beach.",
+     "words": 976
+    }
+   ]
+  },
+  "/buyers/first-time-buyer-tax-credit/": {
+   "first": "2026-11-04",
+   "events": [
+    {
+     "date": "2026-11-04",
+     "commit": "257a5a61",
+     "what": "published",
+     "title": "Andrews' First-Time Buyer Tax Credit: Myrtle Beach | Chapter3",
+     "h1": "Annie Andrews wants a first-time buyer tax credit. What the last one did to home prices, nationally and in Myrtle Beach: a small rise nationally, while Myrtle Beach prices kept falling until 2012.",
+     "words": 3119
+    }
+   ]
+  },
+  "/buyers/first-time-home-buyer-myrtle-beach/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "First-Time Home Buyer in Myrtle Beach | Chapter 3 Realty",
+     "h1": "This program's details are not publicly published.",
+     "words": 198
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1, words 198->939",
+     "title": "First-Time Home Buyer in Myrtle Beach | Chapter 3 Realty",
+     "h1": "First-Time Home Buyer in Myrtle Beach",
+     "words": 939
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "First-Time Home Buyer in Myrtle Beach | Chapter3 Realty",
+     "h1": "First-Time Home Buyer in Myrtle Beach",
+     "words": 984
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "First Home in Myrtle Beach? You May Need Less Cash | Chapter3",
+     "h1": "Your first home in Myrtle Beach may take less cash than you think.",
+     "words": 1096
+    }
+   ]
+  },
+  "/buyers/flood-insurance-after-the-election/": {
+   "first": "2026-11-04",
+   "events": [
+    {
+     "date": "2026-11-04",
+     "commit": "257a5a61",
+     "what": "published",
+     "title": "Myrtle Beach Flood Insurance After the Election | Chapter3",
+     "h1": "Will Annie Andrews' win change flood insurance in Myrtle Beach? Not before the Dec. 11 deadline.",
+     "words": 2312
+    }
+   ]
+  },
+  "/buyers/gated-communities/": {
+   "first": "2026-10-22",
+   "events": [
+    {
+     "date": "2026-10-22",
+     "commit": "60b5e286",
+     "what": "published",
+     "title": "Gated Communities in Myrtle Beach: 18 Neighborhoods | Chapter3",
+     "h1": "Where are the gated communities near Myrtle Beach? From the Cherry Grove marsh to the ocean at DeBordieu.",
+     "words": 4715
+    }
+   ]
+  },
+  "/buyers/golf-communities/": {
+   "first": "2026-07-20",
+   "events": [
+    {
+     "date": "2026-07-20",
+     "commit": "aa895d6d",
+     "what": "published",
+     "title": "Golf Course Communities in Myrtle Beach: Fees and Membership | Chapter3",
+     "h1": "Myrtle Beach golf course communities, compared.",
+     "words": 1497
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "00f2c0e4",
+     "what": "title",
+     "title": "Myrtle Beach Golf Course Communities Guide | Chapter3",
+     "h1": "Myrtle Beach golf course communities, compared.",
+     "words": 1508
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Golf Communities: Membership Optional | Chapter3",
+     "h1": "Myrtle Beach golf communities, where membership is optional.",
+     "words": 1525
+    }
+   ]
+  },
+  "/buyers/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Buy a Home in Myrtle Beach | Chapter 3 Realty",
+     "h1": "Buying a Home on the Grand Strand - Without the Coastal Surprises.",
+     "words": 1790
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "d13a28ee",
+     "what": "title, h1, words 1801->385",
+     "title": "For Buyers | Chapter 3 Realty, Myrtle Beach",
+     "h1": "For Buyers",
+     "words": 385
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Myrtle Beach Home Buyer Guides | Chapter 3 Realty",
+     "h1": "For Buyers",
+     "words": 385
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title, h1",
+     "title": "Myrtle Beach Home Buyer Guides | Chapter3 Realty",
+     "h1": "Buying in Myrtle Beach",
+     "words": 408
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "words 408->248",
+     "title": "Myrtle Beach Home Buyer Guides | Chapter3 Realty",
+     "h1": "Buying in Myrtle Beach",
+     "words": 248
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "4ddab23c",
+     "what": "words 248->343",
+     "title": "Myrtle Beach Home Buyer Guides | Chapter3 Realty",
+     "h1": "Buying in Myrtle Beach",
+     "words": 343
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "4c4db129",
+     "what": "h1",
+     "title": "Myrtle Beach Home Buyer Guides | Chapter3 Realty",
+     "h1": "Myrtle Beach Home Buyer Guides",
+     "words": 354
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "4ff26fac",
+     "what": "words 371->589",
+     "title": "Myrtle Beach Home Buyer Guides | Chapter3 Realty",
+     "h1": "Myrtle Beach Home Buyer Guides",
+     "words": 589
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Every Myrtle Beach Home Buyer Guide in One Place | Chapter3",
+     "h1": "Every Myrtle Beach buyer guide, in one place.",
+     "words": 600
+    }
+   ]
+  },
+  "/buyers/new-construction/": {
+   "first": "2026-07-25",
+   "events": [
+    {
+     "date": "2026-07-25",
+     "commit": "5578542e",
+     "what": "published",
+     "title": "New Construction Homes in Myrtle Beach | Chapter3 Realty",
+     "h1": "New construction homes in Myrtle Beach.",
+     "words": 1307
+    },
+    {
+     "date": "2026-07-25",
+     "commit": "db7e4958",
+     "what": "words 1307->1457",
+     "title": "New Construction Homes in Myrtle Beach | Chapter3 Realty",
+     "h1": "New construction homes in Myrtle Beach.",
+     "words": 1457
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "New Builds in Myrtle Beach: What Builders Won't Say | Chapter3",
+     "h1": "New construction in Myrtle Beach: the defect problem nobody advertises.",
+     "words": 1490
+    }
+   ]
+  },
+  "/buyers/no-hoa-homes/": {
+   "first": "2026-10-22",
+   "events": [
+    {
+     "date": "2026-10-22",
+     "commit": "60b5e286",
+     "what": "published",
+     "title": "Homes With No HOA Near Myrtle Beach: 16 Areas, Boats, Prices",
+     "h1": "Where can you buy a home with no HOA near Myrtle Beach? 16 areas where most homes have no fee.",
+     "words": 5707
+    }
+   ]
+  },
+  "/buyers/programs/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "SC Down Payment Assistance Programs | Myrtle Beach Buyers",
+     "h1": "Forgivable Down Payment Assistance Program.",
+     "words": 546
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "4ddab23c",
+     "what": "words 554->762",
+     "title": "SC Down Payment Assistance Programs | Myrtle Beach Buyers",
+     "h1": "Forgivable Down Payment Assistance Program.",
+     "words": 762
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "SC Down Payment Assistance Programs | Myrtle Beach Buyers",
+     "h1": "South Carolina down payment assistance programs.",
+     "words": 763
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "SC Down Payment Help: What It Is and Isn't | Chapter3",
+     "h1": "South Carolina down payment help: what it is, and what it is not.",
+     "words": 792
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "9fa5a0ce",
+     "what": "title, h1, words 792->3030",
+     "title": "SC Housing Down Payment Help in Horry County | Chapter3",
+     "h1": "Down payment help in Horry County: you do not have to be a first-time buyer.",
+     "words": 3030
+    }
+   ]
+  },
+  "/buyers/property-taxes/": {
+   "first": "2026-07-19",
+   "events": [
+    {
+     "date": "2026-07-19",
+     "commit": "206ff0ff",
+     "what": "published",
+     "title": "Horry County Property Taxes: The 4% vs 6% Rule | Chapter3",
+     "h1": "The 4% and the 6%: Horry County property taxes.",
+     "words": 1739
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Horry County Property Taxes: The 4% vs 6% Rule | Chapter3",
+     "h1": "Horry County property taxes: the 4% vs 6% rule.",
+     "words": 1734
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Horry Property Tax: Why Rentals Pay 3-4x More | Chapter3",
+     "h1": "Horry County property taxes: why a rental pays three to four times more.",
+     "words": 1874
+    }
+   ]
+  },
+  "/buyers/relocating/beaches/": {
+   "first": "2026-08-27",
+   "events": [
+    {
+     "date": "2026-08-27",
+     "commit": "54702748",
+     "what": "published",
+     "title": "Myrtle Beach Beach Rules by Town: Dogs, Tents, Parking",
+     "h1": "The beaches, town by town.",
+     "words": 1835
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "a85156b7",
+     "what": "words 1835->2082",
+     "title": "Myrtle Beach Beach Rules by Town: Dogs, Tents, Parking",
+     "h1": "The beaches, town by town.",
+     "words": 2082
+    }
+   ]
+  },
+  "/buyers/relocating/cost-of-living/": {
+   "first": "2026-08-16",
+   "events": [
+    {
+     "date": "2026-08-16",
+     "commit": "a4124813",
+     "what": "published",
+     "title": "Cost of Living in Myrtle Beach, SC: Calculator vs. Your City",
+     "h1": "Cost of living in Myrtle Beach compared with your city.",
+     "words": 2242
+    },
+    {
+     "date": "2026-08-16",
+     "commit": "0a8f0083",
+     "what": "words 2294->2611",
+     "title": "Cost of Living in Myrtle Beach, SC: Calculator vs. Your City",
+     "h1": "Cost of living in Myrtle Beach compared with your city.",
+     "words": 2611
+    },
+    {
+     "date": "2026-08-16",
+     "commit": "31cf5198",
+     "what": "title, words 2611->1386",
+     "title": "Cost of Living in Myrtle Beach, SC: Compare Your City",
+     "h1": "Cost of living in Myrtle Beach compared with your city.",
+     "words": 1386
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 1685->2023",
+     "title": "Cost of Living in Myrtle Beach, SC: Compare Your City",
+     "h1": "Cost of living in Myrtle Beach compared with your city.",
+     "words": 2023
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Cost of Living: Your Money Buys More House",
+     "h1": "Cost of living in Myrtle Beach: your money buys a lot more house.",
+     "words": 2165
+    }
+   ]
+  },
+  "/buyers/relocating/from-connecticut/": {
+   "first": "2026-08-27",
+   "events": [
+    {
+     "date": "2026-08-27",
+     "commit": "54702748",
+     "what": "published",
+     "title": "Moving From Connecticut to Myrtle Beach: The Full Math",
+     "h1": "Moving from Connecticut to Myrtle Beach.",
+     "words": 1902
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 2148->2368",
+     "title": "Moving From Connecticut to Myrtle Beach: The Full Math",
+     "h1": "Moving from Connecticut to Myrtle Beach.",
+     "words": 2368
+    }
+   ]
+  },
+  "/buyers/relocating/from-florida/": {
+   "first": "2026-08-30",
+   "events": [
+    {
+     "date": "2026-08-30",
+     "commit": "4846839e",
+     "what": "published",
+     "title": "Moving From Florida to Myrtle Beach: Not About Taxes",
+     "h1": "Moving from Florida to Myrtle Beach.",
+     "words": 2645
+    },
+    {
+     "date": "2026-08-30",
+     "commit": "bc72d6d7",
+     "what": "title",
+     "title": "Moving From Florida to Myrtle Beach: What You Gain",
+     "h1": "Moving from Florida to Myrtle Beach.",
+     "words": 2695
+    },
+    {
+     "date": "2026-08-30",
+     "commit": "ff63ad8b",
+     "what": "words 2695->3170",
+     "title": "Moving From Florida to Myrtle Beach: What You Gain",
+     "h1": "Moving from Florida to Myrtle Beach.",
+     "words": 3170
+    }
+   ]
+  },
+  "/buyers/relocating/from-maryland/": {
+   "first": "2026-08-25",
+   "events": [
+    {
+     "date": "2026-08-25",
+     "commit": "7a2ddfe9",
+     "what": "published",
+     "title": "Moving From Maryland to Myrtle Beach: The Tax You Stop Paying",
+     "h1": "Moving from Maryland to Myrtle Beach.",
+     "words": 2018
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 2135->2436",
+     "title": "Moving From Maryland to Myrtle Beach: The Tax You Stop Paying",
+     "h1": "Moving from Maryland to Myrtle Beach.",
+     "words": 2436
+    }
+   ]
+  },
+  "/buyers/relocating/from-massachusetts/": {
+   "first": "2026-08-27",
+   "events": [
+    {
+     "date": "2026-08-27",
+     "commit": "54702748",
+     "what": "published",
+     "title": "Moving From Massachusetts to Myrtle Beach: What Changes",
+     "h1": "Moving from Massachusetts to Myrtle Beach.",
+     "words": 1961
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "a85156b7",
+     "what": "words 1961->2239",
+     "title": "Moving From Massachusetts to Myrtle Beach: What Changes",
+     "h1": "Moving from Massachusetts to Myrtle Beach.",
+     "words": 2239
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3b9ae4c7",
+     "what": "words 2243->2865",
+     "title": "Moving From Massachusetts to Myrtle Beach: What Changes",
+     "h1": "Moving from Massachusetts to Myrtle Beach.",
+     "words": 2865
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 2866->3167",
+     "title": "Moving From Massachusetts to Myrtle Beach: What Changes",
+     "h1": "Moving from Massachusetts to Myrtle Beach.",
+     "words": 3167
+    },
+    {
+     "date": "2026-08-30",
+     "commit": "9252483d",
+     "what": "words 3275->2895",
+     "title": "Moving From Massachusetts to Myrtle Beach: What Changes",
+     "h1": "Moving from Massachusetts to Myrtle Beach.",
+     "words": 2895
+    }
+   ]
+  },
+  "/buyers/relocating/from-new-jersey/": {
+   "first": "2026-08-24",
+   "events": [
+    {
+     "date": "2026-08-24",
+     "commit": "ae57cc58",
+     "what": "published",
+     "title": "Moving From New Jersey to Myrtle Beach: What You Save",
+     "h1": "Moving from New Jersey to Myrtle Beach.",
+     "words": 1662
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 1741->2042",
+     "title": "Moving From New Jersey to Myrtle Beach: What You Save",
+     "h1": "Moving from New Jersey to Myrtle Beach.",
+     "words": 2042
+    }
+   ]
+  },
+  "/buyers/relocating/from-new-york/": {
+   "first": "2026-08-16",
+   "events": [
+    {
+     "date": "2026-08-16",
+     "commit": "2ad6363f",
+     "what": "published",
+     "title": "Moving From New York to Myrtle Beach: The Real Numbers",
+     "h1": "Moving from New York to Myrtle Beach.",
+     "words": 2111
+    },
+    {
+     "date": "2026-08-23",
+     "commit": "30e2564d",
+     "what": "words 2033->2256",
+     "title": "Moving From New York to Myrtle Beach: The Real Numbers",
+     "h1": "Moving from New York to Myrtle Beach.",
+     "words": 2256
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 2333->2634",
+     "title": "Moving From New York to Myrtle Beach: The Real Numbers",
+     "h1": "Moving from New York to Myrtle Beach.",
+     "words": 2634
+    }
+   ]
+  },
+  "/buyers/relocating/from-north-carolina/": {
+   "first": "2026-08-24",
+   "events": [
+    {
+     "date": "2026-08-24",
+     "commit": "ae57cc58",
+     "what": "published",
+     "title": "Moving From North Carolina to Myrtle Beach: The Close Call",
+     "h1": "Moving from North Carolina to Myrtle Beach.",
+     "words": 1548
+    },
+    {
+     "date": "2026-08-24",
+     "commit": "558cb9b2",
+     "what": "words 1548->1723",
+     "title": "Moving From North Carolina to Myrtle Beach: The Close Call",
+     "h1": "Moving from North Carolina to Myrtle Beach.",
+     "words": 1723
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 1815->2116",
+     "title": "Moving From North Carolina to Myrtle Beach: The Close Call",
+     "h1": "Moving from North Carolina to Myrtle Beach.",
+     "words": 2116
+    }
+   ]
+  },
+  "/buyers/relocating/from-ohio/": {
+   "first": "2026-08-24",
+   "events": [
+    {
+     "date": "2026-08-24",
+     "commit": "ae57cc58",
+     "what": "published",
+     "title": "Moving From Ohio to Myrtle Beach: What Actually Changes",
+     "h1": "Moving from Ohio to Myrtle Beach.",
+     "words": 1594
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 1681->1982",
+     "title": "Moving From Ohio to Myrtle Beach: What Actually Changes",
+     "h1": "Moving from Ohio to Myrtle Beach.",
+     "words": 1982
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "03d30052",
+     "what": "title",
+     "title": "Moving From Ohio to Myrtle Beach: What Changes",
+     "h1": "Moving from Ohio to Myrtle Beach.",
+     "words": 2125
+    }
+   ]
+  },
+  "/buyers/relocating/from-pennsylvania/": {
+   "first": "2026-08-24",
+   "events": [
+    {
+     "date": "2026-08-24",
+     "commit": "ae57cc58",
+     "what": "published",
+     "title": "Moving From Pennsylvania to Myrtle Beach: The Trade-Offs",
+     "h1": "Moving from Pennsylvania to Myrtle Beach.",
+     "words": 1460
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 1564->1865",
+     "title": "Moving From Pennsylvania to Myrtle Beach: The Trade-Offs",
+     "h1": "Moving from Pennsylvania to Myrtle Beach.",
+     "words": 1865
+    }
+   ]
+  },
+  "/buyers/relocating/from-virginia/": {
+   "first": "2026-08-27",
+   "events": [
+    {
+     "date": "2026-08-27",
+     "commit": "54702748",
+     "what": "published",
+     "title": "Moving From Virginia to Myrtle Beach: Taxes Compared",
+     "h1": "Moving from Virginia to Myrtle Beach.",
+     "words": 1779
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "a85156b7",
+     "what": "words 1779->1960",
+     "title": "Moving From Virginia to Myrtle Beach: Taxes Compared",
+     "h1": "Moving from Virginia to Myrtle Beach.",
+     "words": 1960
+    },
+    {
+     "date": "2026-08-28",
+     "commit": "3a91dcd8",
+     "what": "words 1971->2272",
+     "title": "Moving From Virginia to Myrtle Beach: Taxes Compared",
+     "h1": "Moving from Virginia to Myrtle Beach.",
+     "words": 2272
+    }
+   ]
+  },
+  "/buyers/relocating/getting-around/": {
+   "first": "2026-08-26",
+   "events": [
+    {
+     "date": "2026-08-26",
+     "commit": "b43047c5",
+     "what": "published",
+     "title": "Getting Around Myrtle Beach: Airport, Roads, Transit",
+     "h1": "Getting around Myrtle Beach.",
+     "words": 1565
+    },
+    {
+     "date": "2026-08-26",
+     "commit": "4a2306a3",
+     "what": "words 1565->1800",
+     "title": "Getting Around Myrtle Beach: Airport, Roads, Transit",
+     "h1": "Getting around Myrtle Beach.",
+     "words": 1800
+    },
+    {
+     "date": "2026-08-26",
+     "commit": "682e1c5c",
+     "what": "title, h1",
+     "title": "Getting Around Myrtle Beach: Airport, Roads and Drive Times",
+     "h1": "Getting around Myrtle Beach when you live here.",
+     "words": 1806
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Getting Around Myrtle Beach: The 4 Road Names to Learn",
+     "h1": "Getting around Myrtle Beach: learn these four road names first.",
+     "words": 1777
+    }
+   ]
+  },
+  "/buyers/relocating/healthcare/": {
+   "first": "2026-08-25",
+   "events": [
+    {
+     "date": "2026-08-25",
+     "commit": "7a2ddfe9",
+     "what": "published",
+     "title": "Healthcare in Myrtle Beach, SC: Hospitals, Beds and Drives",
+     "h1": "Healthcare and hospitals in Myrtle Beach.",
+     "words": 1641
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Healthcare: 6 Hospitals Now, 3 More Coming",
+     "h1": "Healthcare in Myrtle Beach: six hospitals now, and three more on the way.",
+     "words": 1741
+    }
+   ]
+  },
+  "/buyers/relocating/hurricanes/": {
+   "first": "2026-08-26",
+   "events": [
+    {
+     "date": "2026-08-26",
+     "commit": "b43047c5",
+     "what": "published",
+     "title": "Hurricanes in Myrtle Beach: Every Storm Since Hugo",
+     "h1": "Hurricanes and flooding in Myrtle Beach.",
+     "words": 1521
+    },
+    {
+     "date": "2026-08-26",
+     "commit": "4a2306a3",
+     "what": "words 1521->2338",
+     "title": "Hurricanes in Myrtle Beach: Every Storm Since Hugo",
+     "h1": "Hurricanes and flooding in Myrtle Beach.",
+     "words": 2338
+    },
+    {
+     "date": "2026-08-26",
+     "commit": "e18e31e3",
+     "what": "words 2338->2701",
+     "title": "Hurricanes in Myrtle Beach: Every Storm Since Hugo",
+     "h1": "Hurricanes and flooding in Myrtle Beach.",
+     "words": 2701
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Hurricanes: Every Damaging Storm Since 1989",
+     "h1": "Hurricanes in Myrtle Beach: every damaging storm since 1989.",
+     "words": 2715
+    }
+   ]
+  },
+  "/buyers/relocating/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Relocating to Myrtle Beach | Grand Strand Relocation Guide",
+     "h1": "Relocating to the Grand Strand.",
+     "words": 736
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "b0d75ce6",
+     "what": "words 736->1454",
+     "title": "Relocating to Myrtle Beach | Grand Strand Relocation Guide",
+     "h1": "Relocating to the Grand Strand.",
+     "words": 1454
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d65582d0",
+     "what": "words 1591->2586",
+     "title": "Relocating to Myrtle Beach | Grand Strand Relocation Guide",
+     "h1": "Relocating to the Grand Strand.",
+     "words": 2586
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Relocating to Myrtle Beach | Grand Strand Relocation Guide",
+     "h1": "Moving to Myrtle Beach and the Grand Strand.",
+     "words": 2606
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Relocating to Myrtle Beach: Close in One Trip | Chapter3",
+     "h1": "Relocating to Myrtle Beach? Most clients close in one trip.",
+     "words": 2949
+    }
+   ]
+  },
+  "/buyers/relocating/jobs/": {
+   "first": "2026-08-25",
+   "events": [
+    {
+     "date": "2026-08-25",
+     "commit": "7a2ddfe9",
+     "what": "published",
+     "title": "Jobs in Myrtle Beach, SC: What the Economy Actually Pays",
+     "h1": "Jobs and the economy in Myrtle Beach.",
+     "words": 1631
+    },
+    {
+     "date": "2026-08-25",
+     "commit": "4f169f19",
+     "what": "words 1631->2044",
+     "title": "Jobs in Myrtle Beach, SC: What the Economy Actually Pays",
+     "h1": "Jobs and the economy in Myrtle Beach.",
+     "words": 2044
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "03d30052",
+     "what": "title",
+     "title": "Jobs in Myrtle Beach, SC: What the Economy Pays",
+     "h1": "Jobs and the economy in Myrtle Beach.",
+     "words": 2236
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Jobs: What the Average Job Pays | Chapter3",
+     "h1": "Jobs in Myrtle Beach: what the average job pays.",
+     "words": 2231
+    }
+   ]
+  },
+  "/buyers/relocating/moving-checklist/": {
+   "first": "2026-08-16",
+   "events": [
+    {
+     "date": "2026-08-16",
+     "commit": "a4124813",
+     "what": "published",
+     "title": "Moving to Myrtle Beach Checklist: Your First 45 Days in SC",
+     "h1": "Moving to Myrtle Beach: your first 45 days.",
+     "words": 3231
+    }
+   ]
+  },
+  "/buyers/relocating/pros-and-cons/": {
+   "first": "2026-08-16",
+   "events": [
+    {
+     "date": "2026-08-16",
+     "commit": "a4124813",
+     "what": "published",
+     "title": "Pros and Cons of Living in Myrtle Beach, SC Year-Round",
+     "h1": "The pros and cons of living in Myrtle Beach.",
+     "words": 3014
+    },
+    {
+     "date": "2026-08-20",
+     "commit": "aefed514",
+     "what": "words 2846->2470",
+     "title": "Pros and Cons of Living in Myrtle Beach, SC Year-Round",
+     "h1": "The pros and cons of living in Myrtle Beach.",
+     "words": 2470
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Living in Myrtle Beach Year-Round: The Honest Pros and Cons",
+     "h1": "Living in Myrtle Beach year-round: the honest pros and cons.",
+     "words": 2826
+    }
+   ]
+  },
+  "/buyers/relocating/schools/": {
+   "first": "2026-08-16",
+   "events": [
+    {
+     "date": "2026-08-16",
+     "commit": "a4124813",
+     "what": "published",
+     "title": "Myrtle Beach Schools: Zones, Choice, and Registration",
+     "h1": "Schools, for buyers moving to the Grand Strand.",
+     "words": 2645
+    }
+   ]
+  },
+  "/buyers/relocating/weather/": {
+   "first": "2026-08-26",
+   "events": [
+    {
+     "date": "2026-08-26",
+     "commit": "b43047c5",
+     "what": "published",
+     "title": "Myrtle Beach Weather by Season: The Government Numbers",
+     "h1": "Myrtle Beach weather, season by season.",
+     "words": 1286
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Weather: It Snows About an Inch a Year",
+     "h1": "Myrtle Beach weather, season by season: it snows about an inch a year.",
+     "words": 1408
+    }
+   ]
+  },
+  "/buyers/relocating/which-town/": {
+   "first": "2026-08-25",
+   "events": [
+    {
+     "date": "2026-08-25",
+     "commit": "7a2ddfe9",
+     "what": "published",
+     "title": "Which Grand Strand Town Is Right for You?",
+     "h1": "Which Grand Strand town is right for you.",
+     "words": 1687
+    },
+    {
+     "date": "2026-08-25",
+     "commit": "4f169f19",
+     "what": "words 1687->2029",
+     "title": "Which Grand Strand Town Is Right for You?",
+     "h1": "Which Grand Strand town is right for you.",
+     "words": 2029
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Which Grand Strand Town Fits You? Prices and Rules Compared",
+     "h1": "Which Grand Strand town fits you? Prices and rules, compared.",
+     "words": 2230
+    }
+   ]
+  },
+  "/buyers/relocating/why-myrtle-beach/": {
+   "first": "2026-08-28",
+   "events": [
+    {
+     "date": "2026-08-28",
+     "commit": "3b9ae4c7",
+     "what": "published",
+     "title": "Why Is Everyone Moving to Myrtle Beach? The Real Reasons",
+     "h1": "Why everyone is moving to Myrtle Beach.",
+     "words": 1486
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Why Is Everyone Moving to Myrtle Beach? 4 Reasons, in Numbers",
+     "h1": "Why everyone is moving to Myrtle Beach: four reasons, told with numbers.",
+     "words": 1461
+    }
+   ]
+  },
+  "/buyers/retirees/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Retire to Myrtle Beach | 55+ Grand Strand Home Buying",
+     "h1": "Retire to the Grand Strand.",
+     "words": 768
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "bce1d5eb",
+     "what": "words 768->1501",
+     "title": "Retire to Myrtle Beach | 55+ Grand Strand Home Buying",
+     "h1": "Retire to the Grand Strand.",
+     "words": 1501
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Retire to Myrtle Beach | 55+ Grand Strand Home Buying",
+     "h1": "Retiring in Myrtle Beach.",
+     "words": 1743
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "4ff26fac",
+     "what": "title",
+     "title": "Retire to Myrtle Beach, SC | Grand Strand Retirement Guide",
+     "h1": "Retiring in Myrtle Beach.",
+     "words": 1766
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Retire to Myrtle Beach: The Costs People Miss | Chapter3",
+     "h1": "Retiring to Myrtle Beach: the costs retirees underestimate.",
+     "words": 2033
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "34bf19e0",
+     "what": "title, h1, words 2031->3064",
+     "title": "Retire to Myrtle Beach: No SC Social Security Tax | Chapter3",
+     "h1": "Retiring to Myrtle Beach: no state tax on Social Security.",
+     "words": 3064
+    }
+   ]
+  },
+  "/buyers/second-home/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Second Home &amp; Beach Home in Myrtle Beach | Chapter 3 Realty",
+     "h1": "Your beach home on the Grand Strand.",
+     "words": 766
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Second Homes &amp; Beach Condos in Myrtle Beach | Chapter 3",
+     "h1": "Your beach home on the Grand Strand.",
+     "words": 777
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Second Homes &amp; Beach Condos in Myrtle Beach | Chapter3",
+     "h1": "Your beach home on the Grand Strand.",
+     "words": 776
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "4ddab23c",
+     "what": "words 776->1211",
+     "title": "Second Homes &amp; Beach Condos in Myrtle Beach | Chapter3",
+     "h1": "Your beach home on the Grand Strand.",
+     "words": 1211
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Second Homes &amp; Beach Condos in Myrtle Beach | Chapter3",
+     "h1": "Buying a second home in Myrtle Beach.",
+     "words": 1237
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "a1186324",
+     "what": "title, h1, words 1314->2606",
+     "title": "Second Homes Near Myrtle Beach: 6 Beach Towns | Chapter3",
+     "h1": "Where should you buy a second home near Myrtle Beach? Six beach towns, from Cherry Grove to Pawleys Island.",
+     "words": 2606
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "0b28e527",
+     "what": "title, h1",
+     "title": "Second Homes Near Myrtle Beach: 6 Beach Places | Chapter3",
+     "h1": "Where should you buy a second home near Myrtle Beach? Six places on the beach, from Cherry Grove to Pawleys Island.",
+     "words": 2739
+    }
+   ]
+  },
+  "/buyers/undisclosed-flooding/": {
+   "first": "2026-07-11",
+   "events": [
+    {
+     "date": "2026-07-11",
+     "commit": "85d08345",
+     "what": "published",
+     "title": "How to Find Out If a House Flooded Before You Buy | Chapter 3",
+     "h1": "How do you find out if a house flooded before you buy it?",
+     "words": 855
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "How to Find Out If a House Flooded Before You Buy | Chapter3",
+     "h1": "How do you find out if a house flooded before you buy it?",
+     "words": 854
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "0a25e4f4",
+     "what": "title",
+     "title": "How to Find Out If a House Flooded Before Buying | Chapter3",
+     "h1": "How do you find out if a house flooded before you buy it?",
+     "words": 854
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Did This Myrtle Beach House Flood? How to Find Out | Chapter3",
+     "h1": "Did the house flood before? How to find out in Myrtle Beach.",
+     "words": 837
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "9fa5a0ce",
+     "what": "title, h1, words 837->2451",
+     "title": "Has This House Flooded? Myrtle Beach Flood History | Chapter3",
+     "h1": "Did this Myrtle Beach house flood before? How to find its flood history.",
+     "words": 2451
+    }
+   ]
+  },
+  "/buyers/va-loans/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "VA Loans for Myrtle Beach Home Buyers | Chapter 3 Realty",
+     "h1": "VA Buyers on the Grand Strand.",
+     "words": 811
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "VA Loans for Myrtle Beach Home Buyers | Chapter3 Realty",
+     "h1": "VA Buyers on the Grand Strand.",
+     "words": 821
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d65582d0",
+     "what": "words 821->1754",
+     "title": "VA Loans for Myrtle Beach Home Buyers | Chapter3 Realty",
+     "h1": "VA Buyers on the Grand Strand.",
+     "words": 1754
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "VA Loans for Myrtle Beach Home Buyers | Chapter3 Realty",
+     "h1": "VA loans in Myrtle Beach.",
+     "words": 1753
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "VA Loans in Myrtle Beach: What the Appraisal Checks | Chapter3",
+     "h1": "VA loans in Myrtle Beach: what the VA appraisal checks here.",
+     "words": 1822
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "34bf19e0",
+     "what": "title, h1, words 1822->3229",
+     "title": "VA Loans in Myrtle Beach: Which Condos Qualify | Chapter3",
+     "h1": "VA loans in Myrtle Beach: which condos and homes qualify.",
+     "words": 3229
+    }
+   ]
+  },
+  "/buyers/waterfront-homes/": {
+   "first": "2026-07-25",
+   "events": [
+    {
+     "date": "2026-07-25",
+     "commit": "5578542e",
+     "what": "published",
+     "title": "Waterfront &amp; Intracoastal Homes in Myrtle Beach | Chapter3",
+     "h1": "Waterfront homes on the Grand Strand.",
+     "words": 1130
+    },
+    {
+     "date": "2026-07-25",
+     "commit": "db7e4958",
+     "what": "h1, words 1130->1317",
+     "title": "Waterfront &amp; Intracoastal Homes in Myrtle Beach | Chapter3",
+     "h1": "Waterfront and Intracoastal homes in Myrtle Beach.",
+     "words": 1317
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Waterfront Homes in Myrtle Beach: The Dock Sets the Value",
+     "h1": "Waterfront homes in Myrtle Beach: the dock decides the value.",
+     "words": 1325
+    }
+   ]
+  },
+  "/contact/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Contact Chapter 3 Realty | Myrtle Beach Real Estate",
+     "h1": "Let's run your deal.",
+     "words": 211
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Contact Chapter3 Realty | Myrtle Beach Real Estate",
+     "h1": "Let's run your deal.",
+     "words": 219
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "4ddab23c",
+     "what": "words 219->324",
+     "title": "Contact Chapter3 Realty | Myrtle Beach Real Estate",
+     "h1": "Let's run your deal.",
+     "words": 324
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Contact Chapter3 Realty | Myrtle Beach Real Estate",
+     "h1": "Contact Chapter3 Realty in Myrtle Beach.",
+     "words": 326
+    },
+    {
+     "date": "2026-07-21",
+     "commit": "42ce79d0",
+     "what": "words 326->368",
+     "title": "Contact Chapter3 Realty | Myrtle Beach Real Estate",
+     "h1": "Contact Chapter3 Realty in Myrtle Beach.",
+     "words": 368
+    }
+   ]
+  },
+  "/fair-housing/": {
+   "first": "2026-07-10",
+   "events": [
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "published",
+     "title": "Fair Housing &amp; Equal Opportunity | Chapter 3 Realty",
+     "h1": "Fair Housing Equal Opportunity",
+     "words": 207
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Fair Housing &amp; Equal Opportunity | Chapter3 Realty",
+     "h1": "Fair Housing Equal Opportunity",
+     "words": 206
+    }
+   ]
+  },
+  "/guides/": {
+   "first": "2026-07-20",
+   "events": [
+    {
+     "date": "2026-07-20",
+     "commit": "dd89f4dc",
+     "what": "published",
+     "title": "Guides, Tools &amp; Reports | Myrtle Beach Real Estate | Chapter3",
+     "h1": "Myrtle Beach real estate guides, tools, and reports.",
+     "words": 937
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "00f2c0e4",
+     "what": "title",
+     "title": "Myrtle Beach Real Estate Guides &amp; Tools | Chapter3",
+     "h1": "Myrtle Beach real estate guides, tools, and reports.",
+     "words": 937
+    }
+   ]
+  },
+  "/hoa/benefits/": {
+   "first": "2026-07-28",
+   "events": [
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "published",
+     "title": "Are HOA Fees Worth It on the Grand Strand? | Chapter3",
+     "h1": "Are HOA fees worth it on the Grand Strand?",
+     "words": 4487
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "aa21d0b3",
+     "what": "words 4487->2408",
+     "title": "Are HOA Fees Worth It on the Grand Strand? | Chapter3",
+     "h1": "Are HOA fees worth it on the Grand Strand?",
+     "words": 2408
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "7a30ba99",
+     "what": "words 2408->1644",
+     "title": "Are HOA Fees Worth It on the Grand Strand? | Chapter3",
+     "h1": "Are HOA fees worth it on the Grand Strand?",
+     "words": 1644
+    },
+    {
+     "date": "2026-07-30",
+     "commit": "55f97d0f",
+     "what": "words 1644->2094",
+     "title": "Are HOA Fees Worth It on the Grand Strand? | Chapter3",
+     "h1": "Are HOA fees worth it on the Grand Strand?",
+     "words": 2094
+    }
+   ]
+  },
+  "/hoa/developer-control-turnover/": {
+   "first": "2026-07-28",
+   "events": [
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "published",
+     "title": "Developer-Controlled HOA Turnover in SC | Chapter3 Realty",
+     "h1": "Buying into a developer-controlled HOA South Carolina sets no turnover deadline",
+     "words": 3596
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "aa21d0b3",
+     "what": "words 3596->2208",
+     "title": "Developer-Controlled HOA Turnover in SC | Chapter3 Realty",
+     "h1": "Buying into a developer-controlled HOA South Carolina sets no turnover deadline",
+     "words": 2208
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "7a30ba99",
+     "what": "words 2208->1721",
+     "title": "Developer-Controlled HOA Turnover in SC | Chapter3 Realty",
+     "h1": "Buying into a developer-controlled HOA South Carolina sets no turnover deadline",
+     "words": 1721
+    }
+   ]
+  },
+  "/hoa/documents/": {
+   "first": "2026-07-27",
+   "events": [
+    {
+     "date": "2026-07-27",
+     "commit": "78012644",
+     "what": "published",
+     "title": "What to Look for in HOA Documents Before Buying | Chapter3",
+     "h1": "Reading HOA documents before you buy.",
+     "words": 924
+    },
+    {
+     "date": "2026-07-27",
+     "commit": "ddbfa860",
+     "what": "words 924->1094",
+     "title": "What to Look for in HOA Documents Before Buying | Chapter3",
+     "h1": "Reading HOA documents before you buy.",
+     "words": 1094
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "c2994fed",
+     "what": "words 1101->983",
+     "title": "What to Look for in HOA Documents Before Buying | Chapter3",
+     "h1": "Reading HOA documents before you buy.",
+     "words": 983
+    }
+   ]
+  },
+  "/hoa/dues-increases/": {
+   "first": "2026-07-28",
+   "events": [
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "published",
+     "title": "HOA Dues Increases in South Carolina | Chapter3 Realty",
+     "h1": "How much an HOA can raise your dues in South Carolina",
+     "words": 3712
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "aa21d0b3",
+     "what": "words 3712->2498",
+     "title": "HOA Dues Increases in South Carolina | Chapter3 Realty",
+     "h1": "How much an HOA can raise your dues in South Carolina",
+     "words": 2498
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "7a30ba99",
+     "what": "title, words 2498->1791",
+     "title": "How Much Can an HOA Raise Dues in SC? | Chapter3",
+     "h1": "How much an HOA can raise your dues in South Carolina",
+     "words": 1791
+    }
+   ]
+  },
+  "/hoa/estoppel-and-transfer-fees/": {
+   "first": "2026-07-28",
+   "events": [
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "published",
+     "title": "HOA Estoppel Letter South Carolina | Chapter3 Realty",
+     "h1": "HOA Estoppel Letters and Transfer Fees What South Carolina Law Actually Requires",
+     "words": 3648
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "aa21d0b3",
+     "what": "h1, words 3648->2356",
+     "title": "HOA Estoppel Letter South Carolina | Chapter3 Realty",
+     "h1": "HOA Estoppel Letters and Transfer Fees What South Carolina Law Requires",
+     "words": 2356
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "7a30ba99",
+     "what": "h1, words 2356->1670",
+     "title": "HOA Estoppel Letter South Carolina | Chapter3 Realty",
+     "h1": "HOA Estoppel Letters and Transfer Fees in South Carolina",
+     "words": 1670
+    }
+   ]
+  },
+  "/hoa/hoa-vs-poa/": {
+   "first": "2026-07-27",
+   "events": [
+    {
+     "date": "2026-07-27",
+     "commit": "78012644",
+     "what": "published",
+     "title": "HOA vs POA vs Condo Regime in South Carolina | Chapter3",
+     "h1": "HOA, POA or condo regime in South Carolina.",
+     "words": 878
+    },
+    {
+     "date": "2026-07-27",
+     "commit": "ddbfa860",
+     "what": "words 878->1001",
+     "title": "HOA vs POA vs Condo Regime in South Carolina | Chapter3",
+     "h1": "HOA, POA or condo regime in South Carolina.",
+     "words": 1001
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "c2994fed",
+     "what": "words 1008->893",
+     "title": "HOA vs POA vs Condo Regime in South Carolina | Chapter3",
+     "h1": "HOA, POA or condo regime in South Carolina.",
+     "words": 893
+    }
+   ]
+  },
+  "/hoa/": {
+   "first": "2026-07-27",
+   "events": [
+    {
+     "date": "2026-07-27",
+     "commit": "78012644",
+     "what": "published",
+     "title": "Myrtle Beach HOA Fees: What They Cover | Chapter3 Realty",
+     "h1": "Myrtle Beach HOA fees and what they really cover.",
+     "words": 1288
+    },
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "words 1400->1544",
+     "title": "Myrtle Beach HOA Fees: What They Cover | Chapter3 Realty",
+     "h1": "Myrtle Beach HOA fees and what they really cover.",
+     "words": 1544
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "03d30052",
+     "what": "h1",
+     "title": "Myrtle Beach HOA Fees: What They Cover | Chapter3 Realty",
+     "h1": "Myrtle Beach HOA fees and what they cover.",
+     "words": 1396
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach HOA Fees, and What Each One Covers | Chapter3",
+     "h1": "Myrtle Beach HOA fees, and what each one covers.",
+     "words": 1392
+    }
+   ]
+  },
+  "/hoa/liens-and-foreclosure/": {
+   "first": "2026-07-27",
+   "events": [
+    {
+     "date": "2026-07-27",
+     "commit": "78012644",
+     "what": "published",
+     "title": "Can an HOA Foreclose in South Carolina? | Chapter3 Realty",
+     "h1": "Can an HOA foreclose in South Carolina?",
+     "words": 898
+    },
+    {
+     "date": "2026-07-27",
+     "commit": "ddbfa860",
+     "what": "h1, words 898->988",
+     "title": "Can an HOA Foreclose in South Carolina? | Chapter3 Realty",
+     "h1": "Unpaid HOA dues in South Carolina: liens and foreclosure.",
+     "words": 988
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "c2994fed",
+     "what": "words 995->883",
+     "title": "Can an HOA Foreclose in South Carolina? | Chapter3 Realty",
+     "h1": "Unpaid HOA dues in South Carolina: liens and foreclosure.",
+     "words": 883
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "34bf19e0",
+     "what": "title, h1, words 876->2771",
+     "title": "Can an HOA Foreclose in South Carolina? Liens and Unpaid Dues",
+     "h1": "Can an HOA take your house in South Carolina over unpaid dues? Yes, through the court, and the bill that starts it can be small.",
+     "words": 2771
+    }
+   ]
+  },
+  "/hoa/master-insurance-ho6/": {
+   "first": "2026-07-28",
+   "events": [
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "published",
+     "title": "Condo Master Insurance vs HO-6 in South Carolina | Chapter3",
+     "h1": "Condo master insurance vs HO-6 Where the line falls, and who pays the deductible",
+     "words": 4306
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "aa21d0b3",
+     "what": "words 4306->2678",
+     "title": "Condo Master Insurance vs HO-6 in South Carolina | Chapter3",
+     "h1": "Condo master insurance vs HO-6 Where the line falls, and who pays the deductible",
+     "words": 2678
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "7a30ba99",
+     "what": "words 2678->1575",
+     "title": "Condo Master Insurance vs HO-6 in South Carolina | Chapter3",
+     "h1": "Condo master insurance vs HO-6 Where the line falls, and who pays the deductible",
+     "words": 1575
+    }
+   ]
+  },
+  "/hoa/rental-restrictions/": {
+   "first": "2026-07-27",
+   "events": [
+    {
+     "date": "2026-07-27",
+     "commit": "78012644",
+     "what": "published",
+     "title": "Myrtle Beach HOA Rental Restrictions | Chapter3 Realty",
+     "h1": "HOA rental and lifestyle restrictions.",
+     "words": 1034
+    },
+    {
+     "date": "2026-07-27",
+     "commit": "ddbfa860",
+     "what": "words 1034->1224",
+     "title": "Myrtle Beach HOA Rental Restrictions | Chapter3 Realty",
+     "h1": "HOA rental and lifestyle restrictions.",
+     "words": 1224
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "c2994fed",
+     "what": "words 1223->1092",
+     "title": "Myrtle Beach HOA Rental Restrictions | Chapter3 Realty",
+     "h1": "HOA rental and lifestyle restrictions.",
+     "words": 1092
+    }
+   ]
+  },
+  "/hoa/reserves/": {
+   "first": "2026-07-27",
+   "events": [
+    {
+     "date": "2026-07-27",
+     "commit": "78012644",
+     "what": "published",
+     "title": "HOA Reserve Studies and Underfunded Reserves | Chapter3",
+     "h1": "Can this association pay for its own roof?",
+     "words": 895
+    },
+    {
+     "date": "2026-07-27",
+     "commit": "ddbfa860",
+     "what": "words 895->1079",
+     "title": "HOA Reserve Studies and Underfunded Reserves | Chapter3",
+     "h1": "Can this association pay for its own roof?",
+     "words": 1079
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "c2994fed",
+     "what": "words 1005->883",
+     "title": "HOA Reserve Studies and Underfunded Reserves | Chapter3",
+     "h1": "Can this association pay for its own roof?",
+     "words": 883
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "9fa5a0ce",
+     "what": "title, h1, words 860->2340",
+     "title": "How Much Should a Myrtle Beach Condo Have in Reserves?",
+     "h1": "Can a Myrtle Beach condo association pay for its own roof? Its reserve fund tells you. South Carolina law does not require one.",
+     "words": 2340
+    }
+   ]
+  },
+  "/hoa/south-carolina-hoa-laws/": {
+   "first": "2026-07-27",
+   "events": [
+    {
+     "date": "2026-07-27",
+     "commit": "78012644",
+     "what": "published",
+     "title": "South Carolina HOA Laws: The 2018 Act Explained | Chapter3",
+     "h1": "South Carolina HOA laws.",
+     "words": 1065
+    }
+   ]
+  },
+  "/hoa/special-assessments/": {
+   "first": "2026-07-27",
+   "events": [
+    {
+     "date": "2026-07-27",
+     "commit": "78012644",
+     "what": "published",
+     "title": "Condo Special Assessments in Myrtle Beach | Chapter3 Realty",
+     "h1": "Condo special assessments on the Grand Strand.",
+     "words": 1055
+    },
+    {
+     "date": "2026-07-27",
+     "commit": "ddbfa860",
+     "what": "words 1055->1191",
+     "title": "Condo Special Assessments in Myrtle Beach | Chapter3 Realty",
+     "h1": "Condo special assessments on the Grand Strand.",
+     "words": 1191
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "c2994fed",
+     "what": "words 1169->1049",
+     "title": "Condo Special Assessments in Myrtle Beach | Chapter3 Realty",
+     "h1": "Condo special assessments on the Grand Strand.",
+     "words": 1049
+    }
+   ]
+  },
+  "/hoa/tax-deductible/": {
+   "first": "2026-07-28",
+   "events": [
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "published",
+     "title": "Are HOA Fees Tax Deductible in South Carolina? | Chapter3",
+     "h1": "Are HOA fees tax deductible? The answer turns on how you use the property",
+     "words": 3643
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "aa21d0b3",
+     "what": "words 3643->2232",
+     "title": "Are HOA Fees Tax Deductible in South Carolina? | Chapter3",
+     "h1": "Are HOA fees tax deductible? The answer turns on how you use the property",
+     "words": 2232
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "7a30ba99",
+     "what": "h1, words 2232->1602",
+     "title": "Are HOA Fees Tax Deductible in South Carolina? | Chapter3",
+     "h1": "Are HOA fees tax deductible? It depends on how you use the property",
+     "words": 1602
+    }
+   ]
+  },
+  "/hoa/violations-and-fines/": {
+   "first": "2026-07-28",
+   "events": [
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "published",
+     "title": "HOA Violations and Fines in South Carolina | Chapter3",
+     "h1": "HOA violations and fines in South Carolina.",
+     "words": 3675
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "aa21d0b3",
+     "what": "h1, words 3675->3064",
+     "title": "HOA Violations and Fines in South Carolina | Chapter3",
+     "h1": "HOA violations and fines in South Carolina",
+     "words": 3064
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "7a30ba99",
+     "what": "words 3064->1701",
+     "title": "HOA Violations and Fines in South Carolina | Chapter3",
+     "h1": "HOA violations and fines in South Carolina",
+     "words": 1701
+    }
+   ]
+  },
+  "/hoa/who-pays-for-damage/": {
+   "first": "2026-07-28",
+   "events": [
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "published",
+     "title": "Who Pays for Water Damage in a Condo (SC) | Chapter3",
+     "h1": "Who pays for water damage in a condo on the Grand Strand",
+     "words": 4516
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "aa21d0b3",
+     "what": "words 4516->2822",
+     "title": "Who Pays for Water Damage in a Condo (SC) | Chapter3",
+     "h1": "Who pays for water damage in a condo on the Grand Strand",
+     "words": 2822
+    },
+    {
+     "date": "2026-07-29",
+     "commit": "7a30ba99",
+     "what": "words 2822->1719",
+     "title": "Who Pays for Water Damage in a Condo (SC) | Chapter3",
+     "h1": "Who pays for water damage in a condo on the Grand Strand",
+     "words": 1719
+    }
+   ]
+  },
+  "/homes-shell/": {
+   "first": "2026-10-22",
+   "events": [
+    {
+     "date": "2026-10-22",
+     "commit": "c1df4fd6",
+     "what": "published",
+     "title": "Homes for sale | Chapter3 Realty",
+     "h1": "Homes for sale",
+     "words": 3
+    }
+   ]
+  },
+  "/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter 3",
+     "h1": "Every chapter starts at home.",
+     "words": 750
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter 3",
+     "h1": "Myrtle Beach Real Estate every chapter starts at home.",
+     "words": 755
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "3d8f2b0b",
+     "what": "h1",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter 3",
+     "h1": "Myrtle Beach Real Estate , every chapter starts at home.",
+     "words": 763
+    },
+    {
+     "date": "2026-07-12",
+     "commit": "6c1acfe0",
+     "what": "h1",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter 3",
+     "h1": "Myrtle Beach Real Estate, every chapter starts at home.",
+     "words": 751
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter3",
+     "h1": "Myrtle Beach Real Estate, every chapter starts at home.",
+     "words": 740
+    },
+    {
+     "date": "2026-08-14",
+     "commit": "bcb841f1",
+     "what": "words 729->647",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter3",
+     "h1": "Myrtle Beach Real Estate, every chapter starts at home.",
+     "words": 647
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "e177fe96",
+     "what": "h1, words 642->506",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter3",
+     "h1": "Myrtle Beach Real Estate",
+     "words": 506
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "261f67ca",
+     "what": "h1, words 508->641",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter3",
+     "h1": "Myrtle Beach Real Estate, every chapter starts at home.",
+     "words": 641
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "138373da",
+     "what": "h1, words 641->504",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter3",
+     "h1": "Myrtle Beach Real Estate",
+     "words": 504
+    },
+    {
+     "date": "2026-10-05",
+     "commit": "54703db5",
+     "what": "h1, words 496->653",
+     "title": "Myrtle Beach Real Estate, By the Numbers | Chapter3",
+     "h1": "Myrtle Beach Homes",
+     "words": 653
+    }
+   ]
+  },
+  "/invest/14-day-rule/": {
+   "first": "2026-09-04",
+   "events": [
+    {
+     "date": "2026-09-04",
+     "commit": "36c99eb1",
+     "what": "published",
+     "title": "The 14-Day Rule for a Myrtle Beach Condo You Use | Chapter3",
+     "h1": "The 14-day rule, and using your own beach condo.",
+     "words": 1408
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "8cd80453",
+     "what": "h1",
+     "title": "The 14-Day Rule for a Myrtle Beach Condo You Use | Chapter3",
+     "h1": "How many nights can you use your own Myrtle Beach rental? The 14-day rule.",
+     "words": 1361
+    }
+   ]
+  },
+  "/invest/accommodations-tax/": {
+   "first": "2026-09-03",
+   "events": [
+    {
+     "date": "2026-09-03",
+     "commit": "6cdb1343",
+     "what": "published",
+     "title": "Myrtle Beach Accommodations Tax &amp; Business License | Chapter3",
+     "h1": "Accommodations tax and business licenses, jurisdiction by jurisdiction.",
+     "words": 1639
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "8ca2afad",
+     "what": "h1",
+     "title": "Myrtle Beach Accommodations Tax &amp; Business License | Chapter3",
+     "h1": "Accommodations tax and business licenses, county by county.",
+     "words": 1613
+    }
+   ]
+  },
+  "/invest/airbnb-income/": {
+   "first": "2026-07-20",
+   "events": [
+    {
+     "date": "2026-07-20",
+     "commit": "aa895d6d",
+     "what": "published",
+     "title": "How Much Do Airbnbs Make in Myrtle Beach? 2026 Data | Chapter3",
+     "h1": "How much do Airbnbs make in Myrtle Beach?",
+     "words": 1933
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "dd89f4dc",
+     "what": "words 1955->2207",
+     "title": "How Much Do Airbnbs Make in Myrtle Beach? 2026 Data | Chapter3",
+     "h1": "How much do Airbnbs make in Myrtle Beach?",
+     "words": 2207
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "0a25e4f4",
+     "what": "title",
+     "title": "How Much Do Myrtle Beach Airbnbs Make? 2026 Data | Chapter3",
+     "h1": "How much do Airbnbs make in Myrtle Beach?",
+     "words": 2052
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Airbnbs Gross $20,900 to $42,000: 2026 Data",
+     "h1": "How much do Airbnbs make in Myrtle Beach? $20,900 to $42,000 a year, gross.",
+     "words": 2277
+    }
+   ]
+  },
+  "/invest/canadian-buyers/": {
+   "first": "2026-09-08",
+   "events": [
+    {
+     "date": "2026-09-08",
+     "commit": "80e50d8d",
+     "what": "published",
+     "title": "Canadians Buying Rentals in Myrtle Beach | Chapter3",
+     "h1": "How does a Canadian buy a rental in Myrtle Beach? The loan, the tax number, the two withholdings.",
+     "words": 2081
+    }
+   ]
+  },
+  "/invest/cash-to-close/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "4f6bbdab",
+     "what": "published",
+     "title": "Cash to Close on a Myrtle Beach Rental | Chapter3",
+     "h1": "What do you pay to close on a Myrtle Beach rental? Beyond the down payment.",
+     "words": 1651
+    }
+   ]
+  },
+  "/invest/condo-buildings/": {
+   "first": "2026-07-20",
+   "events": [
+    {
+     "date": "2026-07-20",
+     "commit": "aa895d6d",
+     "what": "published",
+     "title": "Myrtle Beach Oceanfront Condo Buildings Guide | Chapter3",
+     "h1": "Myrtle Beach oceanfront condo buildings, compared.",
+     "words": 2005
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Myrtle Beach Oceanfront Condo Buildings: HOA Fees Compared",
+     "h1": "Myrtle Beach oceanfront condo buildings, with their HOA fees compared.",
+     "words": 2076
+    }
+   ]
+  },
+  "/invest/condos/": {
+   "first": "2026-07-19",
+   "events": [
+    {
+     "date": "2026-07-19",
+     "commit": "cc4303d7",
+     "what": "published",
+     "title": "Are Myrtle Beach Condos a Good Investment? | Chapter3 Realty",
+     "h1": "Are Myrtle Beach condos a good investment?",
+     "words": 869
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "0a25e4f4",
+     "what": "title",
+     "title": "Are Myrtle Beach Condos a Good Investment? | Chapter3",
+     "h1": "Are Myrtle Beach condos a good investment?",
+     "words": 916
+    }
+   ]
+  },
+  "/invest/condotel-financing/": {
+   "first": "2026-07-19",
+   "events": [
+    {
+     "date": "2026-07-19",
+     "commit": "206ff0ff",
+     "what": "published",
+     "title": "Condotel Financing in Myrtle Beach, SC | Chapter3 Realty",
+     "h1": "Condotel financing in Myrtle Beach.",
+     "words": 1392
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Condotel Loans in Myrtle Beach: Most Banks Say No | Chapter3",
+     "h1": "Condotel financing in Myrtle Beach: most banks say no, and the loans exist anyway.",
+     "words": 1485
+    }
+   ]
+  },
+  "/invest/cost-segregation/": {
+   "first": "2026-09-04",
+   "events": [
+    {
+     "date": "2026-09-04",
+     "commit": "1ea14c48",
+     "what": "published",
+     "title": "Myrtle Beach Condo Cost Segregation &amp; Recapture | Chapter3",
+     "h1": "Cost segregation on a beach condo, and the recapture it creates.",
+     "words": 1536
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "8ca2afad",
+     "what": "words 1557->1338",
+     "title": "Myrtle Beach Condo Cost Segregation &amp; Recapture | Chapter3",
+     "h1": "Cost segregation on a beach condo, and the recapture it creates.",
+     "words": 1338
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "8cd80453",
+     "what": "h1, words 1334->1731",
+     "title": "Myrtle Beach Condo Cost Segregation &amp; Recapture | Chapter3",
+     "h1": "How do you write off a Myrtle Beach condo faster than 27.5 years?",
+     "words": 1731
+    }
+   ]
+  },
+  "/invest/financing-multiple-rentals/": {
+   "first": "2026-09-07",
+   "events": [
+    {
+     "date": "2026-09-07",
+     "commit": "da421457",
+     "what": "published",
+     "title": "Financing Your Second, Third and Fourth Rental | Chapter3",
+     "h1": "How do you finance your second, third and fourth rental? The limit, the reserves, the equity.",
+     "words": 1164
+    },
+    {
+     "date": "2026-09-07",
+     "commit": "0b5c9454",
+     "what": "title, h1, words 1229->1587",
+     "title": "Finance Multiple Rental Properties in Myrtle Beach | Chapter3",
+     "h1": "How do you finance more than one rental property? The limit, the reserves, the equity.",
+     "words": 1587
+    },
+    {
+     "date": "2026-09-07",
+     "commit": "5dbe6acf",
+     "what": "title, h1, words 1587->1141",
+     "title": "Buying a Second Rental in Myrtle Beach | Chapter3",
+     "h1": "What goes wrong when you buy a second rental in Myrtle Beach? The mistakes, the story, the equity.",
+     "words": 1141
+    }
+   ]
+  },
+  "/invest/foreclosures/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "a9fc2cf8",
+     "what": "published",
+     "title": "Buying a Foreclosure in Horry County, SC | Chapter3",
+     "h1": "How do you buy a foreclosure in Horry County? The courthouse sale, the deed it passes, and the bank-owned listing.",
+     "words": 2162
+    },
+    {
+     "date": "2026-09-06",
+     "commit": "32c513be",
+     "what": "words 2162->2736",
+     "title": "Buying a Foreclosure in Horry County, SC | Chapter3",
+     "h1": "How do you buy a foreclosure in Horry County? The courthouse sale, the deed it passes, and the bank-owned listing.",
+     "words": 2736
+    }
+   ]
+  },
+  "/invest/horry-county-growth-roads-permits/": {
+   "first": "2026-11-04",
+   "events": [
+    {
+     "date": "2026-11-04",
+     "commit": "257a5a61",
+     "what": "published",
+     "title": "Horry County Growth, Roads, I-73 and Permits After the Vote",
+     "h1": "Growth, Roads and Permits: What the New Leaders Mean for Building in Horry County",
+     "words": 2487
+    }
+   ]
+  },
+  "/invest/how-long-to-hold/": {
+   "first": "2026-09-08",
+   "events": [
+    {
+     "date": "2026-09-08",
+     "commit": "80e50d8d",
+     "what": "published",
+     "title": "How Long to Hold a Myrtle Beach Rental | Chapter3",
+     "h1": "How long should you hold a Myrtle Beach rental before selling? The costs, the price history, and the rules.",
+     "words": 3371
+    },
+    {
+     "date": "2026-09-16",
+     "commit": "f945becb",
+     "what": "words 3352->2672",
+     "title": "How Long to Hold a Myrtle Beach Rental | Chapter3",
+     "h1": "How long should you hold a Myrtle Beach rental before selling? The costs, the price history, and the rules.",
+     "words": 2672
+    }
+   ]
+  },
+  "/invest/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Myrtle Beach Investment Property &amp; Strategy | Chapter 3 Realty",
+     "h1": "Myrtle Beach investors.",
+     "words": 577
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "b230121d",
+     "what": "h1, words 588->284",
+     "title": "Myrtle Beach Investment Property &amp; Strategy | Chapter 3 Realty",
+     "h1": "Myrtle Beach investment property, by the numbers",
+     "words": 284
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter 3",
+     "h1": "Myrtle Beach investment property, by the numbers",
+     "words": 284
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "f89fceaa",
+     "what": "words 284->333",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter 3",
+     "h1": "Myrtle Beach investment property, by the numbers",
+     "words": 333
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "a539c4ad",
+     "what": "words 333->371",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter 3",
+     "h1": "Myrtle Beach investment property, by the numbers",
+     "words": 371
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "94f0bf4b",
+     "what": "h1, words 371->434",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter 3",
+     "h1": "Myrtle Beach investors.",
+     "words": 434
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter3",
+     "h1": "Myrtle Beach investors.",
+     "words": 431
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "words 431->349",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter3",
+     "h1": "Myrtle Beach investors.",
+     "words": 349
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "2b8e77a7",
+     "what": "words 342->1064",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter3",
+     "h1": "Myrtle Beach investors.",
+     "words": 1064
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "4ddab23c",
+     "what": "words 1077->1213",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter3",
+     "h1": "Myrtle Beach investors.",
+     "words": 1213
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "638efdfd",
+     "what": "words 1213->663",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter3",
+     "h1": "Myrtle Beach investors.",
+     "words": 663
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter3",
+     "h1": "Invest in Myrtle Beach real estate.",
+     "words": 705
+    },
+    {
+     "date": "2026-07-22",
+     "commit": "86bac148",
+     "what": "words 824->1897",
+     "title": "Myrtle Beach Investment Property Analysis | Chapter3",
+     "h1": "Invest in Myrtle Beach real estate.",
+     "words": 1897
+    }
+   ]
+  },
+  "/invest/j1-rentals/": {
+   "first": "2026-09-01",
+   "events": [
+    {
+     "date": "2026-09-01",
+     "commit": "2bf5bc88",
+     "what": "published",
+     "title": "J-1 Student Rentals in Myrtle Beach | Chapter3 Realty",
+     "h1": "Renting to J-1 students in Myrtle Beach.",
+     "words": 1010
+    },
+    {
+     "date": "2026-09-08",
+     "commit": "80e50d8d",
+     "what": "title, h1, words 991->2835",
+     "title": "J-1 Student Rentals in Myrtle Beach | Chapter3",
+     "h1": "How do you rent a Myrtle Beach house to J-1 students? The program, the employers, the beds, the rules.",
+     "words": 2835
+    },
+    {
+     "date": "2026-09-16",
+     "commit": "4443341b",
+     "what": "words 2826->3481",
+     "title": "J-1 Student Rentals in Myrtle Beach | Chapter3",
+     "h1": "How do you rent a Myrtle Beach house to J-1 students? The program, the employers, the beds, the rules.",
+     "words": 3481
+    }
+   ]
+  },
+  "/invest/landlord-insurance/": {
+   "first": "2026-09-07",
+   "events": [
+    {
+     "date": "2026-09-07",
+     "commit": "da421457",
+     "what": "published",
+     "title": "Landlord Insurance on a Myrtle Beach Rental | Chapter3",
+     "h1": "What does insurance cost on a Myrtle Beach rental? The landlord policy, wind, flood, and the tax that costs more.",
+     "words": 1151
+    },
+    {
+     "date": "2026-09-07",
+     "commit": "5dbe6acf",
+     "what": "h1, words 1226->1425",
+     "title": "Landlord Insurance on a Myrtle Beach Rental | Chapter3",
+     "h1": "How much does landlord insurance cost on a Myrtle Beach rental? The landlord policy, wind, flood, and the tax that costs more.",
+     "words": 1425
+    }
+   ]
+  },
+  "/invest/landlord-rules/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "a9fc2cf8",
+     "what": "published",
+     "title": "South Carolina Landlord Rules and Evictions | Chapter3",
+     "h1": "What are the landlord rules in South Carolina? Deposits, entry, notices and the Horry County eviction.",
+     "words": 2364
+    },
+    {
+     "date": "2026-09-06",
+     "commit": "32c513be",
+     "what": "words 2364->2902",
+     "title": "South Carolina Landlord Rules and Evictions | Chapter3",
+     "h1": "What are the landlord rules in South Carolina? Deposits, entry, notices and the Horry County eviction.",
+     "words": 2902
+    }
+   ]
+  },
+  "/invest/llc/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "a9fc2cf8",
+     "what": "published",
+     "title": "Buying a Myrtle Beach Rental in an LLC | Chapter3",
+     "h1": "Should you hold a Myrtle Beach rental in an LLC? What it costs and what it changes.",
+     "words": 1992
+    },
+    {
+     "date": "2026-09-06",
+     "commit": "32c513be",
+     "what": "words 1992->2373",
+     "title": "Buying a Myrtle Beach Rental in an LLC | Chapter3",
+     "h1": "Should you hold a Myrtle Beach rental in an LLC? What it costs and what it changes.",
+     "words": 2373
+    }
+   ]
+  },
+  "/invest/long-term-rental/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Myrtle Beach Long-Term Rental Analyzer | DSCR Calculator",
+     "h1": "Long-Term Rental Investment Analyzer.",
+     "words": 1026
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "words 1026->1138",
+     "title": "Myrtle Beach Long-Term Rental Analyzer | DSCR Calculator",
+     "h1": "Long-Term Rental Investment Analyzer.",
+     "words": 1138
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "05acd4a7",
+     "what": "words 1149->1333",
+     "title": "Myrtle Beach Long-Term Rental Analyzer | DSCR Calculator",
+     "h1": "Long-Term Rental Investment Analyzer.",
+     "words": 1333
+    }
+   ]
+  },
+  "/invest/mid-term-rentals/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "2a72d756",
+     "what": "published",
+     "title": "Mid-Term Rentals in Myrtle Beach: The 90-Day Floor | Chapter3",
+     "h1": "Can you rent a Myrtle Beach home by the month where Airbnb is banned? Yes, at 90 days.",
+     "words": 1688
+    }
+   ]
+  },
+  "/invest/new-construction-rentals/": {
+   "first": "2026-09-07",
+   "events": [
+    {
+     "date": "2026-09-07",
+     "commit": "da421457",
+     "what": "published",
+     "title": "Renting Out New Construction on the Grand Strand | Chapter3",
+     "h1": "Can you buy new construction as a rental on the Grand Strand? The covenants, the builder, the timing.",
+     "words": 1140
+    },
+    {
+     "date": "2026-09-07",
+     "commit": "13de9f62",
+     "what": "title, h1, words 1140->1254",
+     "title": "New Construction as a Rental in Myrtle Beach | Chapter3",
+     "h1": "Can you buy new construction as a rental in Myrtle Beach? The rules, the builder, the timing.",
+     "words": 1254
+    },
+    {
+     "date": "2026-09-07",
+     "commit": "0b5c9454",
+     "what": "words 1254->1475",
+     "title": "New Construction as a Rental in Myrtle Beach | Chapter3",
+     "h1": "Can you buy new construction as a rental in Myrtle Beach? The rules, the builder, the timing.",
+     "words": 1475
+    }
+   ]
+  },
+  "/invest/non-warrantable-condos/": {
+   "first": "2026-07-25",
+   "events": [
+    {
+     "date": "2026-07-25",
+     "commit": "cb5d8c87",
+     "what": "published",
+     "title": "Non-Warrantable Condos in Myrtle Beach | Chapter3 Realty",
+     "h1": "Non-warrantable condos in Myrtle Beach.",
+     "words": 2567
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Non-Warrantable Condos: When the Label Means a Deal | Chapter3",
+     "h1": "Non-warrantable condos in Myrtle Beach: when the label means a good deal.",
+     "words": 2749
+    }
+   ]
+  },
+  "/invest/out-of-state/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "c29305f5",
+     "what": "published",
+     "title": "Buying a Myrtle Beach Rental From Out of State | Chapter3",
+     "h1": "How do you buy a Myrtle Beach rental from out of state? Without flying in.",
+     "words": 1582
+    }
+   ]
+  },
+  "/invest/property-management/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "c29305f5",
+     "what": "published",
+     "title": "Myrtle Beach Property Management: What It Costs | Chapter3",
+     "h1": "What does property management cost in Myrtle Beach? What to ask before you sign.",
+     "words": 1642
+    }
+   ]
+  },
+  "/invest/rent-prices/": {
+   "first": "2026-09-07",
+   "events": [
+    {
+     "date": "2026-09-07",
+     "commit": "da421457",
+     "what": "published",
+     "title": "Myrtle Beach Rent Prices: What a House Rents For | Chapter3",
+     "h1": "How much does a house rent for in Myrtle Beach? The county benchmark, and what moves it.",
+     "words": 931
+    },
+    {
+     "date": "2026-09-07",
+     "commit": "5dbe6acf",
+     "what": "h1, words 957->1143",
+     "title": "Myrtle Beach Rent Prices: What a House Rents For | Chapter3",
+     "h1": "How much does a house rent for in Myrtle Beach? Myrtle Beach rents by bedroom, and what changes them.",
+     "words": 1143
+    }
+   ]
+  },
+  "/invest/rental-depreciation/": {
+   "first": "2026-09-04",
+   "events": [
+    {
+     "date": "2026-09-04",
+     "commit": "36c99eb1",
+     "what": "published",
+     "title": "Rental Depreciation in Myrtle Beach: Basis &amp; Land | Chapter3",
+     "h1": "Depreciating a Myrtle Beach rental, from closing day.",
+     "words": 1543
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "8ca2afad",
+     "what": "words 1543->1294",
+     "title": "Rental Depreciation in Myrtle Beach: Basis &amp; Land | Chapter3",
+     "h1": "Depreciating a Myrtle Beach rental, from closing day.",
+     "words": 1294
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "8cd80453",
+     "what": "words 1292->1582",
+     "title": "Rental Depreciation in Myrtle Beach: Basis &amp; Land | Chapter3",
+     "h1": "Depreciating a Myrtle Beach rental, from closing day.",
+     "words": 1582
+    }
+   ]
+  },
+  "/invest/rental-program-vs-airbnb/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "c29305f5",
+     "what": "published",
+     "title": "Rental Program vs Airbnb for a Myrtle Beach Condo | Chapter3",
+     "h1": "Rental program or Airbnb for a Myrtle Beach condo? What you keep.",
+     "words": 1526
+    }
+   ]
+  },
+  "/invest/rental-property-tax-cut/": {
+   "first": "2026-11-04",
+   "events": [
+    {
+     "date": "2026-11-04",
+     "commit": "257a5a61",
+     "what": "published",
+     "title": "Wilson's Act 388 Rental Tax Cut: What It Means in Myrtle Beach",
+     "h1": "Governor-Elect Alan Wilson Wants to Cut the Tax on Rentals. What It Would Mean for Myrtle Beach Investors",
+     "words": 2802
+    }
+   ]
+  },
+  "/invest/rental-returns/": {
+   "first": "2026-09-08",
+   "events": [
+    {
+     "date": "2026-09-08",
+     "commit": "80e50d8d",
+     "what": "published",
+     "title": "What Return Should a Myrtle Beach Rental Make? | Chapter3",
+     "h1": "What return should a Myrtle Beach rental make? The numbers by area, and when to walk away.",
+     "words": 3153
+    },
+    {
+     "date": "2026-09-09",
+     "commit": "c300b19b",
+     "what": "h1",
+     "title": "What Return Should a Myrtle Beach Rental Make? | Chapter3",
+     "h1": "What return should a Myrtle Beach rental make? By area, with and without a manager.",
+     "words": 2953
+    }
+   ]
+  },
+  "/invest/run-the-numbers/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "c29305f5",
+     "what": "published",
+     "title": "Run the Numbers on a Myrtle Beach Rental | Chapter3",
+     "h1": "Run the numbers on a Myrtle Beach rental before you offer.",
+     "words": 1157
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "34bf19e0",
+     "what": "title, h1, words 1165->3732",
+     "title": "Myrtle Beach Rental Property Calculator: Is It a Good Deal?",
+     "h1": "Is this Myrtle Beach rental a good deal? Run the numbers here, or have us run them.",
+     "words": 3732
+    }
+   ]
+  },
+  "/invest/section-8-rentals/": {
+   "first": "2026-09-07",
+   "events": [
+    {
+     "date": "2026-09-07",
+     "commit": "da421457",
+     "what": "published",
+     "title": "Section 8 Rentals in Horry County, SC | Chapter3",
+     "h1": "How does renting to a Section 8 voucher tenant work in Horry County? The payment standard, the inspection, the contract.",
+     "words": 1802
+    },
+    {
+     "date": "2026-09-07",
+     "commit": "13de9f62",
+     "what": "words 1802->2298",
+     "title": "Section 8 Rentals in Horry County, SC | Chapter3",
+     "h1": "How does renting to a Section 8 voucher tenant work in Horry County? The payment standard, the inspection, the contract.",
+     "words": 2298
+    }
+   ]
+  },
+  "/invest/short-term-rental-rules-statehouse/": {
+   "first": "2026-11-04",
+   "events": [
+    {
+     "date": "2026-11-04",
+     "commit": "257a5a61",
+     "what": "published",
+     "title": "Grand Strand Short-Term Rental Rules After the 2026 Election",
+     "h1": "Short-Term Rentals on the Grand Strand: Which Rules Can a New Statehouse Change?",
+     "words": 2688
+    }
+   ]
+  },
+  "/invest/str-rules/": {
+   "first": "2026-07-19",
+   "events": [
+    {
+     "date": "2026-07-19",
+     "commit": "206ff0ff",
+     "what": "published",
+     "title": "Myrtle Beach Short-Term Rental Rules by City, 2026 | Chapter3",
+     "h1": "STR rules on the Grand Strand, city by city.",
+     "words": 1668
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Myrtle Beach Short-Term Rental Rules by City, 2026 | Chapter3",
+     "h1": "Myrtle Beach short-term rental rules, city by city.",
+     "words": 1663
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "0a25e4f4",
+     "what": "title",
+     "title": "Myrtle Beach Short-Term Rental Rules by City | Chapter3",
+     "h1": "Myrtle Beach short-term rental rules, city by city.",
+     "words": 1742
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Where Airbnb Is Legal in Myrtle Beach, City by City | Chapter3",
+     "h1": "Where short-term rentals are legal in Myrtle Beach, city by city.",
+     "words": 1840
+    }
+   ]
+  },
+  "/invest/str-setup/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "2a72d756",
+     "what": "published",
+     "title": "Myrtle Beach Short-Term Rental Setup After Closing | Chapter3",
+     "h1": "What do you set up after closing on a Myrtle Beach short-term rental? In this order.",
+     "words": 1672
+    }
+   ]
+  },
+  "/invest/str-tax-treatment/": {
+   "first": "2026-09-04",
+   "events": [
+    {
+     "date": "2026-09-04",
+     "commit": "21a4a58c",
+     "what": "published",
+     "title": "Short-Term Rental Tax &amp; Participation Test | Chapter3",
+     "h1": "Short-term rental tax treatment, and the participation test.",
+     "words": 1303
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "8ca2afad",
+     "what": "words 1341->1117",
+     "title": "Short-Term Rental Tax &amp; Participation Test | Chapter3",
+     "h1": "Short-term rental tax treatment, and the participation test.",
+     "words": 1117
+    },
+    {
+     "date": "2026-09-05",
+     "commit": "ec06e0a9",
+     "what": "title, h1, words 1117->1382",
+     "title": "Can Airbnb Losses Offset W-2 Income? Myrtle Beach | Chapter3",
+     "h1": "Can rental losses reduce the tax on your W-2 income?",
+     "words": 1382
+    }
+   ]
+  },
+  "/invest/str-tools/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Myrtle Beach STR Analytics &amp; Revenue Data | Chapter 3",
+     "h1": "Live STR data. Real underwriting.",
+     "words": 575
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "b230121d",
+     "what": "title, h1, words 586->925",
+     "title": "Short-Term Rental Investing in Myrtle Beach | Chapter 3 Realty",
+     "h1": "Short-term rental investing on the Grand Strand",
+     "words": 925
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Short-Term Rental Investing in Myrtle Beach | Chapter3 Realty",
+     "h1": "Short-term rental investing on the Grand Strand",
+     "words": 930
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Short-Term Rental Investing in Myrtle Beach | Chapter3 Realty",
+     "h1": "Short-term rental investing in Myrtle Beach",
+     "words": 966
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "0a25e4f4",
+     "what": "title",
+     "title": "Short-Term Rental Investing in Myrtle Beach | Chapter3",
+     "h1": "Short-term rental investing in Myrtle Beach",
+     "words": 985
+    },
+    {
+     "date": "2026-09-01",
+     "commit": "2bf5bc88",
+     "what": "words 1034->1255",
+     "title": "Short-Term Rental Investing in Myrtle Beach | Chapter3",
+     "h1": "Short-term rental investing in Myrtle Beach",
+     "words": 1255
+    }
+   ]
+  },
+  "/invest/str-vs-ltr/": {
+   "first": "2026-07-10",
+   "events": [
+    {
+     "date": "2026-07-10",
+     "commit": "b230121d",
+     "what": "published",
+     "title": "STR vs LTR in Myrtle Beach | Chapter 3 Realty",
+     "h1": "Short-term vs long-term rental in Myrtle Beach.",
+     "words": 976
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Short-Term vs Long-Term Rentals in Myrtle Beach | Chapter 3",
+     "h1": "Short-term vs long-term rental in Myrtle Beach.",
+     "words": 976
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Short-Term vs Long-Term Rentals in Myrtle Beach | Chapter3",
+     "h1": "Short-term vs long-term rental in Myrtle Beach.",
+     "words": 975
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Airbnb vs Long-Term Rental in Myrtle Beach: 2-3x the Gross",
+     "h1": "Short-term or long-term rental in Myrtle Beach? Two to three times the gross, and the costs.",
+     "words": 1181
+    }
+   ]
+  },
+  "/invest/strategies/1031-exchange/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "1031 Exchange in South Carolina | Chapter 3 Realty",
+     "h1": "Defer the gain, and trade up into Grand Strand property.",
+     "words": 685
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "a539c4ad",
+     "what": "h1",
+     "title": "1031 Exchange in South Carolina | Chapter 3 Realty",
+     "h1": "1031 exchange in the Grand Strand.",
+     "words": 681
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "1031 Exchange in South Carolina | Chapter3 Realty",
+     "h1": "1031 exchange in the Grand Strand.",
+     "words": 679
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "91abf4a5",
+     "what": "words 679->1474",
+     "title": "1031 Exchange in South Carolina | Chapter3 Realty",
+     "h1": "1031 exchange in the Grand Strand.",
+     "words": 1474
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "2df257a2",
+     "what": "words 1474->1316",
+     "title": "1031 Exchange in South Carolina | Chapter3 Realty",
+     "h1": "1031 exchange in the Grand Strand.",
+     "words": 1316
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "1031 Exchange in South Carolina | Chapter3 Realty",
+     "h1": "1031 exchange in South Carolina.",
+     "words": 1354
+    },
+    {
+     "date": "2026-09-01",
+     "commit": "a33320e8",
+     "what": "words 1348->1858",
+     "title": "1031 Exchange in South Carolina | Chapter3 Realty",
+     "h1": "1031 exchange in South Carolina.",
+     "words": 1858
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "d5ff3918",
+     "what": "words 2037->2285",
+     "title": "1031 Exchange in South Carolina | Chapter3 Realty",
+     "h1": "1031 exchange in South Carolina.",
+     "words": 2285
+    }
+   ]
+  },
+  "/invest/strategies/brrrr/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "BRRRR Method in Myrtle Beach | Chapter 3 Realty",
+     "h1": "Buy, rehab, rent, refinance, repeat on the Grand Strand.",
+     "words": 796
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "BRRRR Method in Myrtle Beach | Chapter3 Realty",
+     "h1": "Buy, rehab, rent, refinance, repeat on the Grand Strand.",
+     "words": 771
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "BRRRR Method in Myrtle Beach | Chapter3 Realty",
+     "h1": "The BRRRR method in Myrtle Beach.",
+     "words": 768
+    },
+    {
+     "date": "2026-09-01",
+     "commit": "a33320e8",
+     "what": "words 772->1042",
+     "title": "BRRRR Method in Myrtle Beach | Chapter3 Realty",
+     "h1": "The BRRRR method in Myrtle Beach.",
+     "words": 1042
+    },
+    {
+     "date": "2026-09-01",
+     "commit": "2bf5bc88",
+     "what": "words 1042->1270",
+     "title": "BRRRR Method in Myrtle Beach | Chapter3 Realty",
+     "h1": "The BRRRR method in Myrtle Beach.",
+     "words": 1270
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "d5ff3918",
+     "what": "words 1346->1842",
+     "title": "BRRRR Method in Myrtle Beach | Chapter3 Realty",
+     "h1": "The BRRRR method in Myrtle Beach.",
+     "words": 1842
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "BRRRR in Myrtle Beach: Bank-Owned Homes 17% Under Market",
+     "h1": "The BRRRR method in Myrtle Beach: bank-owned houses about 17 percent under market.",
+     "words": 1955
+    }
+   ]
+  },
+  "/invest/strategies/dscr-loans/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "DSCR Loans for Myrtle Beach Investors | Chapter 3 Realty",
+     "h1": "Qualify the rental on its income, not your tax returns.",
+     "words": 778
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "f89fceaa",
+     "what": "words 789->979",
+     "title": "DSCR Loans for Myrtle Beach Investors | Chapter 3 Realty",
+     "h1": "Qualify the rental on its income, not your tax returns.",
+     "words": 979
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "a539c4ad",
+     "what": "h1",
+     "title": "DSCR Loans for Myrtle Beach Investors | Chapter 3 Realty",
+     "h1": "DSCR purchase in Myrtle Beach.",
+     "words": 980
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "DSCR Loans for Myrtle Beach Investors | Chapter3 Realty",
+     "h1": "DSCR purchase in Myrtle Beach.",
+     "words": 978
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "DSCR Loans for Myrtle Beach Investors | Chapter3 Realty",
+     "h1": "DSCR loans in Myrtle Beach.",
+     "words": 986
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "8406d61f",
+     "what": "words 1000->1102",
+     "title": "DSCR Loans for Myrtle Beach Investors | Chapter3 Realty",
+     "h1": "DSCR loans in Myrtle Beach.",
+     "words": 1102
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "DSCR Loans in Myrtle Beach: Qualify on the Rent | Chapter3",
+     "h1": "DSCR loans in Myrtle Beach: the loan qualifies on the rent.",
+     "words": 1266
+    }
+   ]
+  },
+  "/invest/strategies/dst/": {
+   "first": "2026-07-13",
+   "events": [
+    {
+     "date": "2026-07-13",
+     "commit": "f89fceaa",
+     "what": "published",
+     "title": "What Is a DST? A Hands-Off 1031 Alternative | Chapter 3",
+     "h1": "The DST: defer the tax, skip the landlording.",
+     "words": 840
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "a539c4ad",
+     "what": "h1",
+     "title": "What Is a DST? A Hands-Off 1031 Alternative | Chapter 3",
+     "h1": "Delaware Statutory Trust (DST) the hands-off 1031.",
+     "words": 839
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "What Is a DST? A Hands-Off 1031 Alternative | Chapter3",
+     "h1": "Delaware Statutory Trust (DST) the hands-off 1031.",
+     "words": 837
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "f7af8c2b",
+     "what": "words 940->1044",
+     "title": "What Is a DST? A Hands-Off 1031 Alternative | Chapter3",
+     "h1": "Delaware Statutory Trust (DST) the hands-off 1031.",
+     "words": 1044
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "9fa5a0ce",
+     "what": "title, h1, words 1031->2873",
+     "title": "Myrtle Beach DST 1031 Exchange: Fees, Limits, Exits | Chapter3",
+     "h1": "DST: the hands-off 1031 for a Grand Strand rental Swap a Grand Strand rental for a share of a large property: no tenants, tax put off, about 6% to sales commissions.",
+     "words": 2873
+    }
+   ]
+  },
+  "/invest/strategies/fix-and-flip/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Fix and Flip in Myrtle Beach | Chapter 3 Realty",
+     "h1": "Buy, renovate, and resell, with the margin protected.",
+     "words": 625
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "f89fceaa",
+     "what": "words 636->849",
+     "title": "Fix and Flip in Myrtle Beach | Chapter 3 Realty",
+     "h1": "Buy, renovate, and resell, with the margin protected.",
+     "words": 849
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "a539c4ad",
+     "what": "h1",
+     "title": "Fix and Flip in Myrtle Beach | Chapter 3 Realty",
+     "h1": "Fix and flip Myrtle Beach.",
+     "words": 838
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Fix and Flip in Myrtle Beach | Chapter3 Realty",
+     "h1": "Fix and flip Myrtle Beach.",
+     "words": 837
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "7aa6f778",
+     "what": "words 837->1075",
+     "title": "Fix and Flip in Myrtle Beach | Chapter3 Realty",
+     "h1": "Fix and flip Myrtle Beach.",
+     "words": 1075
+    },
+    {
+     "date": "2026-09-01",
+     "commit": "2bf5bc88",
+     "what": "words 1176->1504",
+     "title": "Fix and Flip in Myrtle Beach | Chapter3 Realty",
+     "h1": "Fix and flip Myrtle Beach.",
+     "words": 1504
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "d5ff3918",
+     "what": "words 1593->1759",
+     "title": "Fix and Flip in Myrtle Beach | Chapter3 Realty",
+     "h1": "Fix and flip Myrtle Beach.",
+     "words": 1759
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "3dd8c238",
+     "what": "words 1759->1936",
+     "title": "Fix and Flip in Myrtle Beach | Chapter3 Realty",
+     "h1": "Fix and flip Myrtle Beach.",
+     "words": 1936
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Fix and Flip Myrtle Beach: Sold the Day Work Ended | Chapter3",
+     "h1": "Fix and flip in Myrtle Beach: the costs, and a house that sold the day work ended.",
+     "words": 1975
+    },
+    {
+     "date": "2026-10-29",
+     "commit": "47e3942e",
+     "what": "title, h1, words 1975->2873",
+     "title": "Fix and Flip Myrtle Beach: Local Numbers and Rules | Chapter3",
+     "h1": "How do you find a fix and flip in Myrtle Beach? What quick resales gained here last year, where they were, and how our deal finder looks for the next one.",
+     "words": 2873
+    }
+   ]
+  },
+  "/invest/strategies/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Myrtle Beach Real Estate Investment Strategies | Chapter 3 Realty",
+     "h1": "Five ways to build a Grand Strand real estate portfolio.",
+     "words": 514
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Myrtle Beach Investment Strategies | DSCR, BRRRR & More",
+     "h1": "Five ways to build a Grand Strand real estate portfolio.",
+     "words": 525
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "f89fceaa",
+     "what": "h1, words 525->734",
+     "title": "Myrtle Beach Investment Strategies | DSCR, BRRRR & More",
+     "h1": "Six ways to build a Grand Strand real estate portfolio",
+     "words": 734
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "a539c4ad",
+     "what": "words 734->636",
+     "title": "Myrtle Beach Investment Strategies | DSCR, BRRRR & More",
+     "h1": "Six ways to build a Grand Strand real estate portfolio",
+     "words": 636
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Myrtle Beach Investment Strategies | DSCR, BRRRR & More",
+     "h1": "Myrtle Beach real estate investment strategies",
+     "words": 630
+    },
+    {
+     "date": "2026-09-01",
+     "commit": "2bf5bc88",
+     "what": "words 635->824",
+     "title": "Myrtle Beach Investment Strategies | DSCR, BRRRR & More",
+     "h1": "Myrtle Beach real estate investment strategies",
+     "words": 824
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "03d30052",
+     "what": "words 824->950",
+     "title": "Myrtle Beach Investment Strategies | DSCR, BRRRR & More",
+     "h1": "Myrtle Beach real estate investment strategies",
+     "words": 950
+    }
+   ]
+  },
+  "/invest/strategies/small-multifamily/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Duplex, Triplex and Fourplex Investing in Myrtle Beach | Chapter 3 Realty",
+     "h1": "Two to four units, one efficient purchase.",
+     "words": 617
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Duplex to Fourplex Investing in Myrtle Beach | Chapter 3",
+     "h1": "Two to four units, one efficient purchase.",
+     "words": 628
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "f89fceaa",
+     "what": "words 628->772",
+     "title": "Duplex to Fourplex Investing in Myrtle Beach | Chapter 3",
+     "h1": "Two to four units, one efficient purchase.",
+     "words": 772
+    },
+    {
+     "date": "2026-07-13",
+     "commit": "a539c4ad",
+     "what": "title, h1",
+     "title": "How to Buy Multi Family Homes in Myrtle Beach | Chapter 3",
+     "h1": "How to buy multi family homes in Myrtle Beach.",
+     "words": 758
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "How to Buy Multi Family Homes in Myrtle Beach | Chapter3",
+     "h1": "How to buy multi family homes in Myrtle Beach.",
+     "words": 757
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "8406d61f",
+     "what": "words 769->870",
+     "title": "How to Buy Multi Family Homes in Myrtle Beach | Chapter3",
+     "h1": "How to buy multi family homes in Myrtle Beach.",
+     "words": 870
+    },
+    {
+     "date": "2026-09-01",
+     "commit": "2bf5bc88",
+     "what": "words 867->984",
+     "title": "How to Buy Multi Family Homes in Myrtle Beach | Chapter3",
+     "h1": "How to buy multi family homes in Myrtle Beach.",
+     "words": 984
+    },
+    {
+     "date": "2026-09-02",
+     "commit": "f7af8c2b",
+     "what": "words 1003->1113",
+     "title": "How to Buy Multi Family Homes in Myrtle Beach | Chapter3",
+     "h1": "How to buy multi family homes in Myrtle Beach.",
+     "words": 1113
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "How to Buy a Duplex or Fourplex in Myrtle Beach | Chapter3",
+     "h1": "How to buy a duplex or fourplex in Myrtle Beach.",
+     "words": 1103
+    }
+   ]
+  },
+  "/invest/student-rentals/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "a9fc2cf8",
+     "what": "published",
+     "title": "Student Rentals Near Coastal Carolina University | Chapter3",
+     "h1": "How does a student rental near Coastal Carolina University work? The rules, the calendar, the caps.",
+     "words": 1629
+    },
+    {
+     "date": "2026-09-06",
+     "commit": "32c513be",
+     "what": "words 1629->2221",
+     "title": "Student Rentals Near Coastal Carolina University | Chapter3",
+     "h1": "How does a student rental near Coastal Carolina University work? The rules, the calendar, the caps.",
+     "words": 2221
+    },
+    {
+     "date": "2026-09-07",
+     "commit": "b0486b6c",
+     "what": "words 2229->1990",
+     "title": "Student Rentals Near Coastal Carolina University | Chapter3",
+     "h1": "How does a student rental near Coastal Carolina University work? The rules, the calendar, the caps.",
+     "words": 1990
+    },
+    {
+     "date": "2026-09-07",
+     "commit": "8955d7ce",
+     "what": "words 1990->2289",
+     "title": "Student Rentals Near Coastal Carolina University | Chapter3",
+     "h1": "How does a student rental near Coastal Carolina University work? The rules, the calendar, the caps.",
+     "words": 2289
+    }
+   ]
+  },
+  "/invest/what-is-being-built/": {
+   "first": "2026-09-08",
+   "events": [
+    {
+     "date": "2026-09-08",
+     "commit": "80e50d8d",
+     "what": "published",
+     "title": "What Is Being Built in Myrtle Beach Right Now | Chapter3",
+     "h1": "What is being built on the Grand Strand right now? Houses, hospitals, roads, and the permit count.",
+     "words": 2992
+    }
+   ]
+  },
+  "/invest/where-to-buy/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "2a72d756",
+     "what": "published",
+     "title": "Where to Buy a Rental on the Grand Strand | Chapter3",
+     "h1": "Where should you buy a rental on the Grand Strand? Nightly, monthly or yearly.",
+     "words": 1508
+    }
+   ]
+  },
+  "/map/": {
+   "first": "2026-07-17",
+   "events": [
+    {
+     "date": "2026-07-17",
+     "commit": "060935f5",
+     "what": "published",
+     "title": "Grand Strand 3D Investor Map | Chapter3 Realty",
+     "h1": "Grand Strand investor map",
+     "words": 76
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "7aa6f778",
+     "what": "title, h1",
+     "title": "Grand Strand 3D Map | Chapter3 Realty",
+     "h1": "Grand Strand 3D map",
+     "words": 75
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "2df257a2",
+     "what": "title, h1",
+     "title": "Myrtle Beach 3D Map Search | Chapter3 Realty",
+     "h1": "3D map search",
+     "words": 68
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "dd89f4dc",
+     "what": "words 68->207",
+     "title": "Myrtle Beach 3D Map Search | Chapter3 Realty",
+     "h1": "3D map search",
+     "words": 207
+    },
+    {
+     "date": "2026-07-27",
+     "commit": "78012644",
+     "what": "words 229->252",
+     "title": "Myrtle Beach 3D Map Search | Chapter3 Realty",
+     "h1": "3D map search",
+     "words": 252
+    },
+    {
+     "date": "2026-07-28",
+     "commit": "f2ddaa4d",
+     "what": "words 252->279",
+     "title": "Myrtle Beach 3D Map Search | Chapter3 Realty",
+     "h1": "3D map search",
+     "words": 279
+    }
+   ]
+  },
+  "/market-reports/2026-election/": {
+   "first": "2026-11-04",
+   "events": [
+    {
+     "date": "2026-11-04",
+     "commit": "257a5a61",
+     "what": "published",
+     "title": "What the 2026 Election Means for Myrtle Beach Homes | Chapter3",
+     "h1": "What the 2026 Election Means for Myrtle Beach Home Buyers and Sellers",
+     "words": 4143
+    },
+    {
+     "date": "2026-11-04",
+     "commit": "37284fe7",
+     "what": "h1, words 4143->3083",
+     "title": "What the 2026 Election Means for Myrtle Beach Homes | Chapter3",
+     "h1": "What the 2026 Election Means for Myrtle Beach Real Estate",
+     "words": 3083
+    }
+   ]
+  },
+  "/market-reports/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Grand Strand Market Reports | Myrtle Beach Real Estate Data",
+     "h1": "Grand Strand real estate market reports.",
+     "words": 414
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Grand Strand Market Reports | Myrtle Beach Real Estate Data",
+     "h1": "Myrtle Beach real estate market reports.",
+     "words": 447
+    },
+    {
+     "date": "2026-11-04",
+     "commit": "257a5a61",
+     "what": "words 458->505",
+     "title": "Grand Strand Market Reports | Myrtle Beach Real Estate Data",
+     "h1": "Myrtle Beach real estate market reports.",
+     "words": 505
+    }
+   ]
+  },
+  "/market-reports/july-2026/": {
+   "first": "2026-07-19",
+   "events": [
+    {
+     "date": "2026-07-19",
+     "commit": "206ff0ff",
+     "what": "published",
+     "title": "Myrtle Beach Housing Market Report, July 2026 | Chapter3",
+     "h1": "The Grand Strand market, by the numbers.",
+     "words": 1078
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Myrtle Beach Housing Market Report, July 2026 | Chapter3",
+     "h1": "Myrtle Beach housing market report: July 2026.",
+     "words": 1077
+    }
+   ]
+  },
+  "/privacy/": {
+   "first": "2026-07-10",
+   "events": [
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "published",
+     "title": "Privacy Policy | Chapter 3 Realty",
+     "h1": "Privacy Policy",
+     "words": 342
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Privacy Policy | Chapter3 Realty",
+     "h1": "Privacy Policy",
+     "words": 342
+    },
+    {
+     "date": "2026-07-21",
+     "commit": "7615bf68",
+     "what": "words 342->572",
+     "title": "Privacy Policy | Chapter3 Realty",
+     "h1": "Privacy Policy",
+     "words": 572
+    },
+    {
+     "date": "2026-10-22",
+     "commit": "c1df4fd6",
+     "what": "words 572->738",
+     "title": "Privacy Policy | Chapter3 Realty",
+     "h1": "Privacy Policy",
+     "words": 738
+    }
+   ]
+  },
+  "/sell/capital-gains/": {
+   "first": "2026-07-20",
+   "events": [
+    {
+     "date": "2026-07-20",
+     "commit": "aa895d6d",
+     "what": "published",
+     "title": "Capital Gains Tax Selling a House in South Carolina | Chapter3",
+     "h1": "Capital gains tax when you sell in South Carolina.",
+     "words": 1585
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "00f2c0e4",
+     "what": "title",
+     "title": "Capital Gains Tax Selling a House in SC | Chapter3",
+     "h1": "Capital gains tax when you sell in South Carolina.",
+     "words": 1585
+    }
+   ]
+  },
+  "/sell/fsbo/": {
+   "first": "2026-07-25",
+   "events": [
+    {
+     "date": "2026-07-25",
+     "commit": "5578542e",
+     "what": "published",
+     "title": "For Sale By Owner in Myrtle Beach, SC | Chapter3 Realty",
+     "h1": "For sale by owner in Myrtle Beach.",
+     "words": 1291
+    },
+    {
+     "date": "2026-07-25",
+     "commit": "db7e4958",
+     "what": "words 1291->1676",
+     "title": "For Sale By Owner in Myrtle Beach, SC | Chapter3 Realty",
+     "h1": "For sale by owner in Myrtle Beach.",
+     "words": 1676
+    }
+   ]
+  },
+  "/sell/home-value/": {
+   "first": "2026-07-25",
+   "events": [
+    {
+     "date": "2026-07-25",
+     "commit": "5578542e",
+     "what": "published",
+     "title": "What Is My Home Worth in Myrtle Beach? | Chapter3 Realty",
+     "h1": "What is my home worth in Myrtle Beach.",
+     "words": 1166
+    },
+    {
+     "date": "2026-07-25",
+     "commit": "db7e4958",
+     "what": "words 1166->1003",
+     "title": "What Is My Home Worth in Myrtle Beach? | Chapter3 Realty",
+     "h1": "What is my home worth in Myrtle Beach.",
+     "words": 1003
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "What Is My Myrtle Beach Home Worth? Free, Same Day | Chapter3",
+     "h1": "What is my home worth in Myrtle Beach?",
+     "words": 1027
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "9fa5a0ce",
+     "what": "words 1027->2476",
+     "title": "What Is My Myrtle Beach Home Worth? Free, Same Day | Chapter3",
+     "h1": "What is my home worth in Myrtle Beach?",
+     "words": 2476
+    }
+   ]
+  },
+  "/sell/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Sell Your Myrtle Beach Home | Chapter 3 Realty",
+     "h1": "Sell your Myrtle Beach home with confidence.",
+     "words": 4497
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Sell Your Myrtle Beach Home | Chapter3 Realty",
+     "h1": "Sell your Myrtle Beach home with confidence.",
+     "words": 4559
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "7aa6f778",
+     "what": "title, h1, words 4559->5108",
+     "title": "Sell My House in Myrtle Beach | Chapter3 Realty",
+     "h1": "Sell your house in Myrtle Beach with confidence.",
+     "words": 5108
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Sell My House in Myrtle Beach | Chapter3 Realty",
+     "h1": "Sell your house in Myrtle Beach at the right price.",
+     "words": 5158
+    }
+   ]
+  },
+  "/sell/inherited-house/": {
+   "first": "2026-07-19",
+   "events": [
+    {
+     "date": "2026-07-19",
+     "commit": "206ff0ff",
+     "what": "published",
+     "title": "Selling an Inherited House in South Carolina | Chapter3 Realty",
+     "h1": "Selling an inherited house in South Carolina.",
+     "words": 1280
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "0a25e4f4",
+     "what": "title",
+     "title": "Selling an Inherited House in South Carolina | Chapter3",
+     "h1": "Selling an inherited house in South Carolina.",
+     "words": 1314
+    }
+   ]
+  },
+  "/sell/net-proceeds/": {
+   "first": "2026-07-25",
+   "events": [
+    {
+     "date": "2026-07-25",
+     "commit": "5578542e",
+     "what": "published",
+     "title": "Cost to Sell a House in South Carolina | Chapter3 Realty",
+     "h1": "The cost to sell a house in South Carolina.",
+     "words": 828
+    },
+    {
+     "date": "2026-07-25",
+     "commit": "db7e4958",
+     "what": "h1, words 828->1051",
+     "title": "Cost to Sell a House in South Carolina | Chapter3 Realty",
+     "h1": "Cost to sell a house in South Carolina: the net proceeds calculator.",
+     "words": 1051
+    }
+   ]
+  },
+  "/sell/out-of-state-buyers/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Selling to Out-of-State Buyers | Chapter 3 Realty",
+     "h1": "Your buyer isn't from Myrtle Beach. We go get them.",
+     "words": 1645
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Sell to Out-of-State Buyers | Myrtle Beach Homes",
+     "h1": "Your buyer isn't from Myrtle Beach. We go get them.",
+     "words": 1656
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Sell to Out-of-State Buyers | Myrtle Beach Homes",
+     "h1": "Sell your Myrtle Beach home to out-of-state buyers.",
+     "words": 1602
+    }
+   ]
+  },
+  "/sell/rental-property/": {
+   "first": "2026-09-06",
+   "events": [
+    {
+     "date": "2026-09-06",
+     "commit": "a9fc2cf8",
+     "what": "published",
+     "title": "Selling a Myrtle Beach Rental With Tenants in Place | Chapter3",
+     "h1": "How do you sell a Myrtle Beach rental with a tenant in place? Or with bookings on the calendar.",
+     "words": 1628
+    },
+    {
+     "date": "2026-09-06",
+     "commit": "32c513be",
+     "what": "words 1628->2238",
+     "title": "Selling a Myrtle Beach Rental With Tenants in Place | Chapter3",
+     "h1": "How do you sell a Myrtle Beach rental with a tenant in place? Or with bookings on the calendar.",
+     "words": 2238
+    }
+   ]
+  },
+  "/sell/sell-my-condo/": {
+   "first": "2026-07-20",
+   "events": [
+    {
+     "date": "2026-07-20",
+     "commit": "aa895d6d",
+     "what": "published",
+     "title": "Selling a Condo in Myrtle Beach: 2026 Data and Rules | Chapter3",
+     "h1": "Selling a condo in Myrtle Beach.",
+     "words": 1501
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "00f2c0e4",
+     "what": "title",
+     "title": "Selling a Condo in Myrtle Beach: 2026 Guide | Chapter3",
+     "h1": "Selling a condo in Myrtle Beach.",
+     "words": 1535
+    }
+   ]
+  },
+  "/submarkets/carolina-forest/": {
+   "first": "2026-07-20",
+   "events": [
+    {
+     "date": "2026-07-20",
+     "commit": "aa895d6d",
+     "what": "published",
+     "title": "Carolina Forest, SC: Real Estate and Community Guide | Chapter3",
+     "h1": "Carolina Forest real estate and community guide.",
+     "words": 1907
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "00f2c0e4",
+     "what": "title",
+     "title": "Carolina Forest Real Estate &amp; Community Guide | Chapter3",
+     "h1": "Carolina Forest real estate and community guide.",
+     "words": 1899
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Carolina Forest: No City Tax, 11 Subdivisions | Chapter3",
+     "h1": "Carolina Forest: no city tax, eleven subdivisions.",
+     "words": 2139
+    }
+   ]
+  },
+  "/submarkets/carolina-forest/the-farm/": {
+   "first": "2026-10-22",
+   "events": [
+    {
+     "date": "2026-10-22",
+     "commit": "60b5e286",
+     "what": "published",
+     "title": "The Farm at Carolina Forest: HOA Fee, Pools, Rules | Chapter3",
+     "h1": "What is it like to live in The Farm at Carolina Forest? Flytrap habitat on its north edge, and two pools in the fee.",
+     "words": 2037
+    }
+   ]
+  },
+  "/submarkets/conway/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Investing in Conway, SC | Chapter 3 Realty",
+     "h1": "Conway",
+     "words": 2759
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1",
+     "title": "Investing in Conway, SC | Chapter 3 Realty",
+     "h1": "Conway, SC Real Estate & Investment Guide",
+     "words": 2765
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "7ba0c6bd",
+     "what": "h1",
+     "title": "Investing in Conway, SC | Chapter 3 Realty",
+     "h1": "Conway Investment Guide",
+     "words": 2772
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Conway, SC Real Estate & Investing | Chapter 3 Realty",
+     "h1": "Conway Investment Guide",
+     "words": 2772
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Conway, SC Real Estate & Investing | Chapter3 Realty",
+     "h1": "Conway Investment Guide",
+     "words": 2763
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "h1",
+     "title": "Conway, SC Real Estate & Investing | Chapter3 Realty",
+     "h1": "Conway Real Estate Investing",
+     "words": 2764
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Conway, SC: The Grand Strand's Inland Value Market | Chapter3",
+     "h1": "Conway, SC: the Grand Strand's inland value market.",
+     "words": 2905
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "34bf19e0",
+     "what": "title, h1, words 2905->3340",
+     "title": "Living in Conway, SC: Homes, Prices, Flood Map | Chapter3",
+     "h1": "Conway, SC: the Grand Strand's inland value market. A river town about 25 minutes from the beach.",
+     "words": 3340
+    }
+   ]
+  },
+  "/submarkets/garden-city/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Investing in Garden City, SC | Chapter 3 Realty",
+     "h1": "Garden City",
+     "words": 2771
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1",
+     "title": "Investing in Garden City, SC | Chapter 3 Realty",
+     "h1": "Garden City, SC Real Estate & Investment Guide",
+     "words": 2777
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "7ba0c6bd",
+     "what": "h1",
+     "title": "Investing in Garden City, SC | Chapter 3 Realty",
+     "h1": "Garden City Investment Guide",
+     "words": 2784
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Garden City, SC Real Estate & Investing | Chapter 3",
+     "h1": "Garden City Investment Guide",
+     "words": 2784
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Garden City, SC Real Estate & Investing | Chapter3",
+     "h1": "Garden City Investment Guide",
+     "words": 2775
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "h1",
+     "title": "Garden City, SC Real Estate & Investing | Chapter3",
+     "h1": "Garden City Real Estate Investing",
+     "words": 2776
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Garden City, SC: Beach Rentals With No City Ordinance",
+     "h1": "Garden City, SC: beach rentals with no city ordinance.",
+     "words": 2865
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "183733c0",
+     "what": "title, h1, words 2865->3770",
+     "title": "Garden City, SC Real Estate: Beach Homes, Rentals, Flood Facts",
+     "h1": "Garden City, SC: beach rentals with no city ordinance. One beach road between the ocean and the salt marsh.",
+     "words": 3770
+    }
+   ]
+  },
+  "/submarkets/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Grand Strand Submarkets | Myrtle Beach Area Research",
+     "h1": "Grand Strand submarkets.",
+     "words": 199
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "04af8ade",
+     "what": "title",
+     "title": "Grand Strand Neighborhoods | Myrtle Beach Area Guide",
+     "h1": "Grand Strand submarkets.",
+     "words": 209
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Grand Strand Neighborhoods | Myrtle Beach Area Guide",
+     "h1": "Myrtle Beach neighborhoods.",
+     "words": 207
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "1b6171d2",
+     "what": "words 233->397",
+     "title": "Grand Strand Neighborhoods | Myrtle Beach Area Guide",
+     "h1": "Myrtle Beach neighborhoods.",
+     "words": 397
+    },
+    {
+     "date": "2026-08-15",
+     "commit": "f5179def",
+     "what": "words 397->673",
+     "title": "Grand Strand Neighborhoods | Myrtle Beach Area Guide",
+     "h1": "Myrtle Beach neighborhoods.",
+     "words": 673
+    }
+   ]
+  },
+  "/submarkets/little-river/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Investing in Little River, SC | Chapter 3 Realty",
+     "h1": "Little River",
+     "words": 2687
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1",
+     "title": "Investing in Little River, SC | Chapter 3 Realty",
+     "h1": "Little River, SC Real Estate & Investment Guide",
+     "words": 2693
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "7ba0c6bd",
+     "what": "h1",
+     "title": "Investing in Little River, SC | Chapter 3 Realty",
+     "h1": "Little River Investment Guide",
+     "words": 2700
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Little River, SC Real Estate & Investing | Chapter 3",
+     "h1": "Little River Investment Guide",
+     "words": 2700
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Little River, SC Real Estate & Investing | Chapter3",
+     "h1": "Little River Investment Guide",
+     "words": 2690
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "h1",
+     "title": "Little River, SC Real Estate & Investing | Chapter3",
+     "h1": "Little River Real Estate Investing",
+     "words": 2691
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Little River, SC: The Boating End of the Grand Strand",
+     "h1": "Little River, SC: the boating end of the Grand Strand.",
+     "words": 2780
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "183733c0",
+     "what": "title, h1, words 2780->3964",
+     "title": "Living in Little River, SC: Homes, Boat Slips, Flood Zones",
+     "h1": "Little River, SC: the boating end of the Grand Strand. About two of every three deeded boat slips in the county are here.",
+     "words": 3964
+    }
+   ]
+  },
+  "/submarkets/murrells-inlet/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Investing in Murrells Inlet, SC | Chapter 3 Realty",
+     "h1": "Murrells Inlet",
+     "words": 3303
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1",
+     "title": "Investing in Murrells Inlet, SC | Chapter 3 Realty",
+     "h1": "Murrells Inlet, SC Real Estate & Investment Guide",
+     "words": 3309
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "7ba0c6bd",
+     "what": "h1",
+     "title": "Investing in Murrells Inlet, SC | Chapter 3 Realty",
+     "h1": "Murrells Inlet Investment Guide",
+     "words": 3316
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Murrells Inlet, SC Real Estate | Chapter 3 Realty",
+     "h1": "Murrells Inlet Investment Guide",
+     "words": 3316
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Murrells Inlet, SC Real Estate | Chapter3 Realty",
+     "h1": "Murrells Inlet Investment Guide",
+     "words": 3308
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "h1",
+     "title": "Murrells Inlet, SC Real Estate | Chapter3 Realty",
+     "h1": "Murrells Inlet Real Estate Investing",
+     "words": 3309
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Murrells Inlet, SC Real Estate: Room for Patient Buyers",
+     "h1": "Murrells Inlet real estate: room for patient buyers.",
+     "words": 3403
+    }
+   ]
+  },
+  "/submarkets/myrtle-beach/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Investing in Myrtle Beach, SC | Chapter 3 Realty",
+     "h1": "Myrtle Beach",
+     "words": 3155
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1",
+     "title": "Investing in Myrtle Beach, SC | Chapter 3 Realty",
+     "h1": "Myrtle Beach, SC Real Estate & Investment Guide",
+     "words": 3161
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "7ba0c6bd",
+     "what": "h1",
+     "title": "Investing in Myrtle Beach, SC | Chapter 3 Realty",
+     "h1": "Myrtle Beach Investment Guide",
+     "words": 3168
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Myrtle Beach, SC Real Estate & Investing | Chapter 3 Realty",
+     "h1": "Myrtle Beach Investment Guide",
+     "words": 3168
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Myrtle Beach, SC Real Estate & Investing | Chapter3 Realty",
+     "h1": "Myrtle Beach Investment Guide",
+     "words": 3161
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "h1",
+     "title": "Myrtle Beach, SC Real Estate & Investing | Chapter3 Realty",
+     "h1": "Myrtle Beach Real Estate Investing",
+     "words": 3169
+    },
+    {
+     "date": "2026-07-20",
+     "commit": "4c4db129",
+     "what": "h1",
+     "title": "Myrtle Beach, SC Real Estate & Investing | Chapter3 Realty",
+     "h1": "Myrtle Beach, SC Real Estate Market",
+     "words": 3178
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "183733c0",
+     "what": "title, h1",
+     "title": "Myrtle Beach Real Estate: Where to Live and Rent | Chapter3",
+     "h1": "Myrtle Beach real estate: where should you buy? Where people live, and where you can rent by the night.",
+     "words": 3540
+    }
+   ]
+  },
+  "/submarkets/north-myrtle-beach/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Investing in North Myrtle Beach, SC | Chapter 3 Realty",
+     "h1": "North Myrtle Beach",
+     "words": 3239
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1",
+     "title": "Investing in North Myrtle Beach, SC | Chapter 3 Realty",
+     "h1": "North Myrtle Beach, SC Real Estate & Investment Guide",
+     "words": 3245
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "7ba0c6bd",
+     "what": "h1",
+     "title": "Investing in North Myrtle Beach, SC | Chapter 3 Realty",
+     "h1": "North Myrtle Beach Investment Guide",
+     "words": 3252
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "North Myrtle Beach, SC Real Estate | Chapter 3 Realty",
+     "h1": "North Myrtle Beach Investment Guide",
+     "words": 3252
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "North Myrtle Beach, SC Real Estate | Chapter3 Realty",
+     "h1": "North Myrtle Beach Investment Guide",
+     "words": 3243
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "h1",
+     "title": "North Myrtle Beach, SC Real Estate | Chapter3 Realty",
+     "h1": "North Myrtle Beach Real Estate Investing",
+     "words": 3244
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "North Myrtle Beach: Short-Term Rentals Allowed Citywide",
+     "h1": "North Myrtle Beach real estate: short-term rentals allowed citywide.",
+     "words": 3282
+    }
+   ]
+  },
+  "/submarkets/pawleys-island/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Investing in Pawleys Island, SC | Chapter 3 Realty",
+     "h1": "Pawleys Island",
+     "words": 2743
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1",
+     "title": "Investing in Pawleys Island, SC | Chapter 3 Realty",
+     "h1": "Pawleys Island, SC Real Estate & Investment Guide",
+     "words": 2749
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "7ba0c6bd",
+     "what": "h1",
+     "title": "Investing in Pawleys Island, SC | Chapter 3 Realty",
+     "h1": "Pawleys Island Investment Guide",
+     "words": 2756
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Pawleys Island, SC Real Estate | Chapter 3 Realty",
+     "h1": "Pawleys Island Investment Guide",
+     "words": 2756
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Pawleys Island, SC Real Estate | Chapter3 Realty",
+     "h1": "Pawleys Island Investment Guide",
+     "words": 2747
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "h1",
+     "title": "Pawleys Island, SC Real Estate | Chapter3 Realty",
+     "h1": "Pawleys Island Real Estate Investing",
+     "words": 2748
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Pawleys Island Real Estate: The Upscale South End | Chapter3",
+     "h1": "Pawleys Island real estate: the upscale south end of the Strand.",
+     "words": 2848
+    },
+    {
+     "date": "2026-11-03",
+     "commit": "183733c0",
+     "what": "title, words 2848->4612",
+     "title": "Pawleys Island Real Estate: Island vs Mainland, Prices, Flood",
+     "h1": "Pawleys Island real estate: the upscale south end of the Strand.",
+     "words": 4612
+    }
+   ]
+  },
+  "/submarkets/surfside-beach/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Investing in Surfside Beach, SC | Chapter 3 Realty",
+     "h1": "Surfside Beach",
+     "words": 2711
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "h1",
+     "title": "Investing in Surfside Beach, SC | Chapter 3 Realty",
+     "h1": "Surfside Beach, SC Real Estate & Investment Guide",
+     "words": 2717
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "7ba0c6bd",
+     "what": "h1",
+     "title": "Investing in Surfside Beach, SC | Chapter 3 Realty",
+     "h1": "Surfside Beach Investment Guide",
+     "words": 2724
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "62dbbeed",
+     "what": "title",
+     "title": "Surfside Beach, SC Real Estate & Investing | Chapter 3",
+     "h1": "Surfside Beach Investment Guide",
+     "words": 2724
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Surfside Beach, SC Real Estate & Investing | Chapter3",
+     "h1": "Surfside Beach Investment Guide",
+     "words": 2714
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "d83cc952",
+     "what": "h1",
+     "title": "Surfside Beach, SC Real Estate & Investing | Chapter3",
+     "h1": "Surfside Beach Real Estate Investing",
+     "words": 2715
+    },
+    {
+     "date": "2026-10-26",
+     "commit": "909efe71",
+     "what": "title, h1",
+     "title": "Surfside Beach, SC: Where Short-Term Rentals Are Allowed",
+     "h1": "Surfside Beach real estate: where short-term rentals are allowed.",
+     "words": 2811
+    }
+   ]
+  },
+  "/terms/": {
+   "first": "2026-07-10",
+   "events": [
+    {
+     "date": "2026-07-10",
+     "commit": "2a072868",
+     "what": "published",
+     "title": "Terms of Use | Chapter 3 Realty",
+     "h1": "Terms of Use",
+     "words": 236
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Terms of Use | Chapter3 Realty",
+     "h1": "Terms of Use",
+     "words": 233
+    }
+   ]
+  },
+  "/why-chapter-3/": {
+   "first": "2026-07-09",
+   "events": [
+    {
+     "date": "2026-07-09",
+     "commit": "42dee2c6",
+     "what": "published",
+     "title": "Why Chapter 3 Realty | Data-Driven Grand Strand Brokerage",
+     "h1": "A different kind of brokerage.",
+     "words": 447
+    },
+    {
+     "date": "2026-07-10",
+     "commit": "85e2ccbb",
+     "what": "words 459->1375",
+     "title": "Why Chapter 3 Realty | Data-Driven Grand Strand Brokerage",
+     "h1": "A different kind of brokerage.",
+     "words": 1375
+    },
+    {
+     "date": "2026-07-14",
+     "commit": "35140506",
+     "what": "title",
+     "title": "Why Chapter3 Realty | Data-Driven Grand Strand Brokerage",
+     "h1": "A different kind of brokerage.",
+     "words": 1249
+    },
+    {
+     "date": "2026-07-19",
+     "commit": "167c32c3",
+     "what": "h1",
+     "title": "Why Chapter3 Realty | Data-Driven Grand Strand Brokerage",
+     "h1": "Why work with Chapter3 Realty.",
+     "words": 1253
+    }
+   ]
+  }
+ }
+}

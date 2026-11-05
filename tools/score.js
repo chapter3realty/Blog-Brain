@@ -266,6 +266,12 @@ function facts(p) {
   for (const w of PLAIN_WORDS) {
     if ((w.skip || []).some(pre => p.url.startsWith(pre))) continue;
     w.re.lastIndex = 0; if (w.re.test(about)) continue;
+    /* 2026-11-05: a term people type into Google is allowed once the page explains it in plain words:
+       "Zone X, an area of low flood risk", "the homestead exemption (the first $50,000 ... is not taxed)",
+       "what the HOA calls a capital contribution". Banning the word cost the page the search. */
+    const src = w.re.source, fl = w.re.flags.replace("g", "");
+    const gloss = new RegExp(`(?:${src})\\s*\\(|(?:${src}),\\s+(?:which|the|a|an|or|meaning|that is)\\b|(?:${src})\\s+(?:means|is|are)\\s|(?:called|calls|known as|named)\\s+(?:the\\s+|a\\s+|an\\s+)?(?:${src})`, fl);
+    if (plainProse.some(t => gloss.test(t))) continue;
     for (const t of plainProse) for (const m of t.matchAll(w.re)) plainHits.push({ term: w.term, plain: w.plain, text: m[0] });
   }
   /* A question heading whose answer sends the reader elsewhere. Two shapes are not deflections:
@@ -554,7 +560,9 @@ rule("ctas", "Human", 2, "2+ calls to action inside the article", (p, f) => f.ct
 /* --- Plain language (voice/RULES.md class PLAIN, owner 2026-10-07) -------- */
 /* "it is a very hard read because numbers are exact and there's too many numbers you also are
    mentioning the date so much". Counted on body copy: no tables, byline, credit or sources line. */
-const NUMBER_DENSITY_MAX = 3.5;
+/* 2026-11-05: raised from 3.5. Local numbers no other site has are what a data page ranks on, and 3.5 failed
+   the pages the owner called top tier; the owner's complaint was exact numbers and dates, which P1 and P3 keep. */
+const NUMBER_DENSITY_MAX = 6;
 
 rule("exact-amounts", "Human", 2, "Round dollar amounts: at most one exact amount of $10,000+ in prose", (p, f) => {
   const x = f.plain.exactAmounts;
@@ -568,7 +576,8 @@ rule("number-density", "Human", 2, `Few numbers: ${NUMBER_DENSITY_MAX} or fewer 
   return d <= NUMBER_DENSITY_MAX ? pass(detail) : part(Math.max(0, 1 - (d - NUMBER_DENSITY_MAX) / NUMBER_DENSITY_MAX), detail);
 });
 
-rule("date-mentions", "Human", 2, "Date said once: 2 or fewer month-and-year or \"in 2026\" mentions in body copy", (p, f) => {
+rule("date-mentions", "Human", 2, "Date said once: 2 or fewer month-and-year or \"in 2026\" mentions in body copy (not on market reports)", (p, f) => {
+  if (/^\/market-reports\//.test(p.url)) return na("market report: its dates are the news");
   const x = f.plain.dateMentions;
   return x.length <= 2 ? pass(`${x.length}`) : part(Math.max(0, 1 - (x.length - 2) / 6), `${x.length}: "${x.slice(0, 4).join('", "')}"`);
 });
@@ -584,7 +593,7 @@ rule("deflection", "Human", 2, "Every question heading is answered, not sent els
   return x.length ? part(Math.max(0, 1 - x.length / 3), `${x.length}: "${x[0].q}" answered "${x[0].a.slice(0, 70)}"`) : pass("none");
 });
 
-rule("plain-words", "Human", 2, "No industry terms from rules/plain-words.json in prose", (p, f) => {
+rule("plain-words", "Human", 2, "Industry terms (rules/plain-words.json) are explained in plain words where the page first uses them", (p, f) => {
   const x = f.plain.plainHits;
   if (!x.length) return pass("none");
   const terms = [...new Set(x.map(h => h.term))];
@@ -667,7 +676,7 @@ function peopleAct(text) {
   return hits;
 }
 
-rule("people-act", "Human", 2, "Only people act: no rule, fee, bill, road, route, map, plan, tax or house runs, sits, sets, carries, pays for or keeps up anything", (p) => {
+rule("people-act", "Human", 0, "Advice, not scored (2026-11-05): only people act: no rule, fee, bill, road, route, map, plan, tax or house runs, sits, sets, carries, pays for or keeps up anything", (p) => {
   const hits = [];
   for (const b of p.bodyBlocks) {
     if (b.el.closest("table, blockquote, q, figcaption").length || /^By\s+[A-Z]/.test(b.text) || CREDIT_LINE.test(b.text) || !/[a-z]/.test(b.text)) continue;

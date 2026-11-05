@@ -6,6 +6,8 @@ Every rule here comes from a correction the owner made to a real page. In the pa
 
 ## Read this first
 
+**Changed 2026-11-05** (`reports/Rules review 2026-11-05.md`): an industry term (BUYER-2, WORD-1) may be used when the page explains it in plain words where it first uses it, because people search for the term. "Only people act" (FIG-2) is advice, not a stop. "Sets" (FIG-4) is allowed when a person or body sets something ("the county sets the rate"). "Appreciation" (WORD-3) is preferred, but "home prices" and "price change" are allowed. The rest of this file stands.
+
 **A skill, not a template (owner, 2026-10-10).** "please remember you arent learning templates you are learning a skill and you are in charge im just a teacher or an editor". Every rule below is the reason behind a correction. Learn the reason, then decide what this page and this reader need. Two pages on different subjects should not share a shape just because a brief listed sections. `CRAFT.md` holds the skill in one place.
 
 **Simple first (owner, 2026-10-07). These come before every other rule, on every page and every piece of writing.** The owner: "please please please do not take what im telling you as a lesson for this one type of thing or this one blog understand that in everything you do you need to make it as easy to understand as possible ... blogs need to be simple enough to understand a baby could read it and figure everything out".

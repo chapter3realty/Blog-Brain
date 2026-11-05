@@ -387,3 +387,12 @@ When two reviewers, or a reviewer and a rule, ask for opposite things, resolve i
 | 2026-10-13 | Where a hard question goes (gated page) | The safety question as the first section (cold reader: "I came for whether a gate makes me safe") | A one-line answer in the short answer, with a jump link; the full section after the maps and the "which fits you" cards | The reader needed the answer early; the owner wants the good first. One design serves both. | batches/2026-10-b specs/gated-communities.js |
 | 2026-10-13 | Yearly cost and fees | The Farm's total included the county stormwater fee ($2,700) | $2,600 for HOA fee and property tax on every page; the stormwater fee said apart | Two pages built the same total from different parts. | the-farm.js, best-neighborhoods.js, lessons-2026-10-b B10 |
 | 2026-10-13 | A labelled example's arc (gated page) | Reviewer 3: Joan and the no-HOA story share an arc, change one | Reviewer 4: the rewrite lost its catch; restore it | A story with a real problem the agent solves serves the reader more than a different shape does. Two stories on different pages may share a shape if their problems differ. | gated-communities.js; reviewers stop asking for an arc change unless the stories are on the same page |
+
+## Measure (2026-11-05)
+
+A page is done when Google shows it and people click it, not when it scores well. `tools/score.js` is the check before a page ships; Search Console is the grade after.
+
+1. **Monthly:** the owner exports Search Console (`measure/GSC-HOWTO.md`). Run `node tools/changes.js <web>`, `node tools/gsc.js import ...`, `node tools/gsc.js report <web>` and `compare`.
+2. **Before changing a page that gets clicks:** note its clicks, impressions and position from the latest import. Do not change its title or H1 unless it has impressions with few clicks for its position.
+3. **28 days after a change:** compare. A page marked DOWN is looked at before any new page is made.
+4. **Pages shown to nobody** in 28 days come first: indexing, internal links, and links from other sites, before any redesign.

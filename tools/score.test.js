@@ -236,9 +236,12 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   quiet("a call-to-action block (live /sell/)", gold({ body: '<section><div><h2>Questions before you commit to anything?</h2><p>Call or text us directly.</p><div><a href="tel:8543332135">Call</a></div></div></section>' }), "deflection");
 
   /* P6 plain words. Drafts version 4 and live /buyers/property-taxes/. */
-  fires("Zone X", gold({ body: "<p>Myrtle Trace is in FEMA flood Zone X, an area of low flood risk.</p>" }), "plain-words");
+  fires("Zone X, not explained", gold({ body: "<p>Myrtle Trace is in FEMA flood Zone X.</p>" }), "plain-words");
+  quiet("Zone X, explained where it is used", gold({ body: "<p>Myrtle Trace is in FEMA flood Zone X, an area of low flood risk.</p>" }), "plain-words");
   fires("millage and the homestead exemption", gold({ body: "<p>All figures are estimates from certified 2025 millage, before the 65-plus Homestead Exemption.</p>" }), "plain-words");
-  fires("a capital contribution", gold({ body: "<p>That is a $1,450 one-time fee, which the HOA calls a capital contribution.</p>" }), "plain-words");
+  fires("a capital contribution, not explained", gold({ body: "<p>The seller pays the capital contribution.</p>" }), "plain-words");
+  quiet("a capital contribution, explained", gold({ body: "<p>That is a $1,450 one-time fee, which the HOA calls a capital contribution.</p>" }), "plain-words");
+  quiet("a market report may give its dates", gold({ body: "<p>In October 2026, prices rose.</p><p>From October 2025 to September 2026, 35 homes sold.</p>" }).replace("/hoa/special-assessments/", "/market-reports/2026-election/"), "date-mentions");
   quiet("the owner's plain version", gold({ body: "<p>Homes here are not in a flood zone, so your lender will not require flood insurance.</p>" }), "plain-words");
   quiet("a page about the term itself", gold({ title: "HOA Estoppel Letters in Myrtle Beach | Chapter3", body: "<p>An estoppel letter says what the seller still owes the HOA.</p>" }), "plain-words");
   quiet("roof grant recipients and plates", gold({ body: "<p>Grantees of the roof program report premium cuts. The platform shows a license plate.</p>" }), "plain-words");
