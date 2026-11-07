@@ -110,3 +110,11 @@ Proposed fix, for the owner to approve: each election guide's title leads with t
 - **Ask of the owner:** Search Console, Performance, Pages tab, Date, Compare, "Oct 27 to Nov 6" against "Oct 16 to Oct 26", then Export. That shows page by page whether the 2026-10-27 headlines and the rebuilt pages helped or hurt. Filtering by one page and exporting its Queries tab shows what that page is really found for.
 - **2 to 3 weeks after v1.35 is live:** click rate on the eight retitled pages, against the same pages before.
 - **4 to 6 weeks after each rebuilt group is live:** clicks and position, against the pages we did not touch.
+
+## 7. The owner's compare data (2026-11-07) and what followed
+
+Search Console, Oct 16 to 26 against Oct 27 to Nov 6. The site's clicks held at 54 and 54. The titles rewritten on 2026-10-27 split in two:
+- **They dropped the searched words and lost showings:** property taxes 1,140 to 312 (clicks 11 to 3), closing costs 351 to 169 (position 19 to 76 for "south carolina closing costs calculator"), short-term rental rules 295 to 131, Carolina Forest 227 to 104, 55+ 293 to 139, down payment programs 208 to 104, flood history 112 to 19, Airbnb income 56 to 29, jobs 50 to 21.
+- **They kept the searched words and added a hook, and gained:** golf communities 82 to 114, oceanfront condo buildings 84 to 162, non-warrantable condos 11 to 48, duplex and fourplex 3 to 25.
+
+Done: the searched words are back in every title that lost them (website patches 0006 and 0009 in `website-patches/v1.37-on-87f7d0f8/`). The election guides (section 5) were retitled to lead with the news, and their repeated sections now link the main guides (owner: "yes please do whatever you need to them"). A list or comparison of places is exempt from the length cap (owner: "lists of comparisons or top X lists ... i dont think word count hurts at all").

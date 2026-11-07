@@ -389,6 +389,10 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   const wide = base.replace("</main>", Array.from({ length: 6 }, (_, i) => `<section><h2>Short side question ${i + 1}?</h2><p>One plain sentence answers it.</p></section>`).join("") + "</main>");
   check("focus: many short sections still break the section cap", credit(wide, "focus").credit < 1, `(${credit(wide, "focus").detail})`);
   const list = base.replace("</main>", Array.from({ length: 9 }, (_, i) => `<section><h2>${i + 1}. Place ${i + 1}: a short place headline</h2><p>One plain sentence about the place.</p></section>`).join("") + "</main>");
+  const listTitle = sprawl.replace(/<title>[^<]*<\/title>/, "<title>Where to Live Near Myrtle Beach: 13 Towns Compared | Chapter3</title>");
+  check("focus: mutation landed (list title)", listTitle !== sprawl);
+  check("focus: a list or comparison of places is not capped (owner, 2026-11-07)", credit(listTitle, "focus").credit === null, `(${credit(listTitle, "focus").detail})`);
+  check("focus: the same page with a one-question title is still capped", credit(sprawl, "focus").credit < 1);
   check("focus: a numbered list of nine places counts as one section", credit(list, "focus").credit === 1, `(${credit(list, "focus").detail})`);
 }
 

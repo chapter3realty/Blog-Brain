@@ -117,3 +117,9 @@ Results:
 - Deploy order: v1.33a, v1.33b, v1.33c, v1.33d, v1.34, v1.35, then v1.36 once approved. Run `node build.js dates` after applying.
 - Working copy for the next trims: scratchpad `wt-titles` (a worktree of pkg2 at the v1.36 commit). 26 more rebuilt pages are over the cap (list in the focus results).
 - Open: the election guides compete with property taxes, STR rules and insurance (research file, section 5), awaiting the owner. The condos title should add "oceanfront". Phone length is now mostly charts and tables; one chart per question is the owner's call.
+
+## 2026-11-07, later: rebased on the live branch, titles restored, election guides
+
+- The live branch moved to 87f7d0f8 (election hub, dates from full history). v1.33d to v1.36 were rebased. Deploy from `website-patches/v1.37-on-87f7d0f8/README.md`: v1.33a, v1.33b, v1.33c, then 0004 to 0009. Do not apply v1.33d, v1.34, v1.35 or v1.36.
+- Working copy: scratchpad `wt-live` (a worktree of pkg2, HEAD d8dacb12).
+- Photo emails: both written (`batches/2026-11-a/photo-emails/email-1.txt`, `email-2.txt`), to Hijazi.car@gmail.com, cc Devinday19@gmail.com. Not sent: the connected Google account has no Gmail mailbox ("User has not been assigned a storage replica").

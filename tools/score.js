@@ -564,6 +564,11 @@ rule("ctas", "Human", 2, "Calls to action: 2+, and one per two sections of the a
    cover a quarter to a half of the follow-up questions are cited more than pages that cover all of them. */
 const FOCUS_WORDS = 1800, FOCUS_SECTIONS = 8;
 rule("focus", "AEO", 2, `One main question: ${FOCUS_WORDS} words of prose or fewer, ${FOCUS_SECTIONS} sections or fewer`, (p, f) => {
+  /* A list or comparison of places is exempt (owner, 2026-11-07: "lists of comparisons or top X lists ... i dont think
+     word count hurts at all for those lists ... people enjoy it when its longer"). Read from the title: a number of
+     places ("13 Towns Compared", "18 Neighborhoods", "9 Compared"), or best, top or most. */
+  if (/\b\d{1,2}\s+(?:[A-Za-z+]+\s+){0,2}(?:towns|places|areas|neighborhoods|communities|buildings|compared)\b|\b(?:best|top \d+|most affordable)\s+(?:[A-Za-z]+\s+)?(?:towns|places|areas|neighborhoods|communities|buildings)\b/i.test(p.title || ""))
+    return na("a list or comparison of places: length is not capped");
   /* A numbered list of places is one section: its entries answer the one question "which place" (CRAFT 3). */
   const entries = placeEntries(f.contentH2);
   const sections = f.contentH2.length - entries.size + (entries.size ? 1 : 0);
