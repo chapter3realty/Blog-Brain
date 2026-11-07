@@ -108,3 +108,12 @@ Results:
 - struck-check, claims-scan (0) and facts-check (only the 7 old hits) pass, and so do audit and check.
 - The critic finds 0 blocking at 320, 390 and 1440 px.
 - v1.34 applies after v1.33d on the live branch (tested).
+
+## 2026-11-07: one main question, titles, and the trim pilot
+
+- Research and plan: `research/one-question-pages-2026-11.md`. Rule `focus` (STANDARD A14) in `tools/score.js`; CRAFT 1 and 7; the builder brief.
+- `website-patches/v1.35-titles-that-match-the-search.patch`: eight titles and descriptions (property taxes, closing costs, home and flood insurance, STR rules, 55+, Carolina Forest, HOA fines, HOA vs POA). Applies after v1.34.
+- `website-patches/v1.36-pilot-one-question-trims.patch`: which town, Pawleys Island, FSBO, HOA liens, condos cut to one main question. Cut only; `tools/trim-check.js` clean on all five. Applies after v1.35. Waiting for the owner's look (preview artifact https://claude.ai/artifact/8NGL4UAzvB9GP6Dvp6sxBg).
+- Deploy order: v1.33a, v1.33b, v1.33c, v1.33d, v1.34, v1.35, then v1.36 once approved. Run `node build.js dates` after applying.
+- Working copy for the next trims: scratchpad `wt-titles` (a worktree of pkg2 at the v1.36 commit). 26 more rebuilt pages are over the cap (list in the focus results).
+- Open: the election guides compete with property taxes, STR rules and insurance (research file, section 5), awaiting the owner. The condos title should add "oceanfront". Phone length is now mostly charts and tables; one chart per question is the owner's call.
