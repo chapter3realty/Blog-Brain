@@ -5,7 +5,7 @@ The live branch moved (election hub, dates from the full history), so v1.33d to 
 1. `..\Blog-Brain\website-patches\v1.33a-rebased-data-2026-10-d.patch` (unchanged, applies as is)
 2. `..\Blog-Brain\website-patches\v1.33b-rebased-data-2026-11-a.patch` (unchanged)
 3. `..\Blog-Brain\website-patches\v1.33c-rebased-images.patch` (unchanged)
-4. the patches in this folder, 0004 to 0010, in number order (0010 is the which-town redesign)
+4. the patches in this folder, 0004 to 0011, in number order (0010 was the which-town redesign; 0011 restores which-town and Pawleys Island to their full versions)
 
 `git am` each one. Then `node build.js dates`, `node build.js llmsfull`, `node build.js check`, `node build.js audit`, push, and `.\deploy.ps1`.
 

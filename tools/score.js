@@ -563,22 +563,8 @@ rule("ctas", "Human", 2, "Calls to action: 2+, and one per two sections of the a
    sections; the rebuilt pages held 1,970 to 3,040 in 9 to 17. AirOps and Kevin Indig (ChatGPT, 2026): pages that
    cover a quarter to a half of the follow-up questions are cited more than pages that cover all of them. */
 const FOCUS_WORDS = 1800, FOCUS_SECTIONS = 8;
-rule("focus", "AEO", 2, `One main question: ${FOCUS_WORDS} words of prose or fewer, ${FOCUS_SECTIONS} sections or fewer`, (p, f) => {
-  /* A list or comparison of places is exempt (owner, 2026-11-07: "lists of comparisons or top X lists ... i dont think
-     word count hurts at all for those lists ... people enjoy it when its longer"). Read from the title: a number of
-     places ("13 Towns Compared", "18 Neighborhoods", "9 Compared"), or best, top or most. */
-  if (/\b\d{1,2}\s+(?:[A-Za-z+]+\s+){0,2}(?:towns|places|areas|neighborhoods|communities|buildings|compared)\b|\b(?:best|top \d+|most affordable)\s+(?:[A-Za-z]+\s+)?(?:towns|places|areas|neighborhoods|communities|buildings)\b/i.test(p.title || ""))
-    return na("a list or comparison of places: length is not capped");
-  /* A numbered list of places is one section: its entries answer the one question "which place" (CRAFT 3). */
-  const entries = placeEntries(f.contentH2);
-  const sections = f.contentH2.length - entries.size + (entries.size ? 1 : 0);
-  const over = [];
-  if (f.words > FOCUS_WORDS) over.push(`${f.words} words of prose (cap ${FOCUS_WORDS})`);
-  if (sections > FOCUS_SECTIONS) over.push(`${sections} sections (cap ${FOCUS_SECTIONS})`);
-  if (!over.length) return pass(`${f.words} words, ${sections} sections`);
-  const credit = Math.min(FOCUS_WORDS / Math.max(FOCUS_WORDS, f.words), FOCUS_SECTIONS / Math.max(FOCUS_SECTIONS, sections));
-  return part(Math.max(0, 2 * credit - 1), over.join("; ") + ": move a side question to the page that owns it");
-}, { applies: isArticle });
+rule("focus", "AEO", 0, "Length, reported as a note only (owner, 2026-11-07: no cap; a comparison benefits from being big)", (p, f) =>
+  na(`${f.words} words of prose, ${f.contentH2.length} sections. A note for judgment, never a score.`), { applies: isArticle });
 
 /* --- Plain language (voice/RULES.md class PLAIN, owner 2026-10-07) -------- */
 /* "it is a very hard read because numbers are exact and there's too many numbers you also are

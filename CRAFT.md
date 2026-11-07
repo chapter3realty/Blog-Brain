@@ -6,6 +6,21 @@ The owner, 2026-10-10: "you arent learning templates you are learning a skill an
 
 Version 2, 2026-10-11. Rebuilt from 65 lessons of batch 2026-10-a (`research_notes/lessons-2026-10-a.md`, with the evidence for every line) and the page shape research (`reports/Page shapes by kind of page.md`). Each rule below gives its reason and a test question. When a rule and the reader disagree, the reader wins.
 
+## Rules are thoughts, not orders (owner, 2026-11-07)
+
+"fuck the rules make good blogs and take any rule as a thought that may or may not apply to what youre building ... every page is different with different needs stop making rules that affect every page ... making a good blog is what i care about."
+
+What happened: Search Console showed that short, single-question HOA pages earn clicks. That became a 1,800-word cap for every page, and the cap was then applied to "Which town fits you?", a 13-town comparison the owner valued because it was big and complete. Each town lost the detail a reader compares on. Then a redesign packed every idea from the design research into the first screens, until the page was "more CTA than content". Both were reverted.
+
+Before changing any page:
+1. **Read it as its reader and write down what makes it good.** If the owner praised it, that is the starting point, not the thing to fix.
+2. **Name the actual problem a reader would have,** in one sentence, from reading the page. "It is over a number" is not a problem.
+3. **Change only what fixes that problem.** Keep everything else.
+4. **Know what kind of page it is.** A comparison, a list or a town guide earns its length. A narrow question ("can my HOA raise dues?") is better short. Each needs something different.
+5. **Use one idea from the research where it helps this page, not every idea everywhere.** One good map beats a map, chips, tiles, a table and badges on the first screen. If the page looks busy, remove things.
+6. **Look at the whole page as a stranger would before showing it.** Calm, clear, and each thing on it earning its place. If it looks cluttered, it is.
+7. **Try one page, show the owner, then decide about the others.** Never apply a change to a batch because one page needed it.
+
 ## The one test
 
 After any change, ask: **is the page now easier for this reader to understand and act on?** If not, undo it, even if a rule asked for it. Every rule in this repo is a floor, written for the common case. Applied past its reason, a rule makes the page worse. In batch 2026-10-a:
@@ -28,7 +43,7 @@ Rank them. The top few are the page's must-answers. Research those first. Do not
 
 Batch 2026-10-a planned ten records questions and missed the one every reader asked: the monthly fee. Every search suggestion offered it.
 
-**One main question per page (owner, 2026-11-07: "the pages are long ... we get so far away from the original question").** Name the one question in the brief: the words in the title. Then pick the two to four questions a reader of that question asks next. That is the page. Every other good fact you found goes on the page that owns its question, with a link in one sentence, or onto a new page if people search it. Stay under 1,800 words of prose and 8 sections (STANDARD A14). A list or comparison of places is the exception: the owner judges that readers enjoy a long list, so each place keeps its full entry. Cut in this order: a fact said twice, a method note (it goes in the sources box), an FAQ entry that repeats a section, a side question. Never cut the answer the reader came for, a verified local fact that only this page has, or an offer. Search Console showed it: the pages that earn our clicks answer one question in about 1,400 words.
+**A thought on length, not a rule: many pages are better answering one main question (owner, 2026-11-07, first: "the pages are long ... we get so far away from the original question"; then: "this comparison page benefited by being big and comprehensive").** Use it only when a page drifts into side questions its reader did not come for. Name the one question in the brief: the words in the title. Then pick the two to four questions a reader of that question asks next. That is the page. Every other good fact you found goes on the page that owns its question, with a link in one sentence, or onto a new page if people search it. There is no word cap. A comparison, a list or a town guide is valued for being complete; do not cut what a reader compares on. Cut in this order: a fact said twice, a method note (it goes in the sources box), an FAQ entry that repeats a section, a side question. Never cut the answer the reader came for, a verified local fact that only this page has, or an offer. Search Console showed it: the pages that earn our clicks answer one question in about 1,400 words.
 
 **Picture one real person who searched this.** Know four things:
 - what they want first;

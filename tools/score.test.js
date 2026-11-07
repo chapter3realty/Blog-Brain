@@ -378,22 +378,12 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   check("story-simple: not applicable with no story", credit(base, "story-simple").credit === null);
 }
 
-/* focus: one main question (owner, 2026-11-07). The gold page passes; the same page with eight more sections of
-   a side question, and 1,900 words of prose, is over both caps. */
+/* focus: length is a note, never a score (owner, 2026-11-07: "stop making rules that affect every page"). */
 {
-  check("focus: the gold page answers one question", credit(base, "focus").credit === 1, `(${credit(base, "focus").detail})`);
-  const para = "The board can raise the dues each year, and the notice comes with the budget. ".repeat(12);
-  const sprawl = base.replace("</main>", Array.from({ length: 8 }, (_, i) => `<section><h2>Side question ${i + 1} about the topic?</h2><p>${para}</p><p>${para}</p></section>`).join("") + "</main>");
-  check("focus: mutation landed", sprawl.length > base.length + 10000);
-  check("focus: a page with 13 sections and 2,000+ words is not focused", credit(sprawl, "focus").credit < 1, `(${credit(sprawl, "focus").detail})`);
-  const wide = base.replace("</main>", Array.from({ length: 6 }, (_, i) => `<section><h2>Short side question ${i + 1}?</h2><p>One plain sentence answers it.</p></section>`).join("") + "</main>");
-  check("focus: many short sections still break the section cap", credit(wide, "focus").credit < 1, `(${credit(wide, "focus").detail})`);
-  const list = base.replace("</main>", Array.from({ length: 9 }, (_, i) => `<section><h2>${i + 1}. Place ${i + 1}: a short place headline</h2><p>One plain sentence about the place.</p></section>`).join("") + "</main>");
-  const listTitle = sprawl.replace(/<title>[^<]*<\/title>/, "<title>Where to Live Near Myrtle Beach: 13 Towns Compared | Chapter3</title>");
-  check("focus: mutation landed (list title)", listTitle !== sprawl);
-  check("focus: a list or comparison of places is not capped (owner, 2026-11-07)", credit(listTitle, "focus").credit === null, `(${credit(listTitle, "focus").detail})`);
-  check("focus: the same page with a one-question title is still capped", credit(sprawl, "focus").credit < 1);
-  check("focus: a numbered list of nine places counts as one section", credit(list, "focus").credit === 1, `(${credit(list, "focus").detail})`);
+  check("focus: never scores the gold page", credit(base, "focus").credit === null, `(${credit(base, "focus").detail})`);
+  const long = base.replace("</main>", Array.from({ length: 12 }, (_, i) => `<section><h2>Place ${i + 1}?</h2><p>${"A long and complete entry about this place. ".repeat(40)}</p></section>`).join("") + "</main>");
+  check("focus: mutation landed", long.length > base.length + 10000);
+  check("focus: never scores a long comparison page either", credit(long, "focus").credit === null, `(${credit(long, "focus").detail})`);
 }
 
 /* Every rule id appears in at least one mutation, so no rule is untested. */
