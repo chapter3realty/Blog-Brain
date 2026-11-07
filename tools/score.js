@@ -558,6 +558,23 @@ rule("ctas", "Human", 2, "Calls to action: 2+, and one per two sections of the a
   return f.ctas >= want ? pass(`${f.ctas} for ${f.contentH2.length} sections`) : part(f.ctas / want, `${f.ctas} for ${f.contentH2.length} sections; want ${want}`);
 }, { applies: isArticle });
 
+/* One main question (owner, 2026-11-07: "the pages are long ... we get so far away from the original question").
+   Search Console, 28 days to 2026-11-06: the pages that earn the clicks hold 780 to 1,590 words of prose in 4 to 6
+   sections; the rebuilt pages held 1,970 to 3,040 in 9 to 17. AirOps and Kevin Indig (ChatGPT, 2026): pages that
+   cover a quarter to a half of the follow-up questions are cited more than pages that cover all of them. */
+const FOCUS_WORDS = 1800, FOCUS_SECTIONS = 8;
+rule("focus", "AEO", 2, `One main question: ${FOCUS_WORDS} words of prose or fewer, ${FOCUS_SECTIONS} sections or fewer`, (p, f) => {
+  /* A numbered list of places is one section: its entries answer the one question "which place" (CRAFT 3). */
+  const entries = placeEntries(f.contentH2);
+  const sections = f.contentH2.length - entries.size + (entries.size ? 1 : 0);
+  const over = [];
+  if (f.words > FOCUS_WORDS) over.push(`${f.words} words of prose (cap ${FOCUS_WORDS})`);
+  if (sections > FOCUS_SECTIONS) over.push(`${sections} sections (cap ${FOCUS_SECTIONS})`);
+  if (!over.length) return pass(`${f.words} words, ${sections} sections`);
+  const credit = Math.min(FOCUS_WORDS / Math.max(FOCUS_WORDS, f.words), FOCUS_SECTIONS / Math.max(FOCUS_SECTIONS, sections));
+  return part(Math.max(0, 2 * credit - 1), over.join("; ") + ": move a side question to the page that owns it");
+}, { applies: isArticle });
+
 /* --- Plain language (voice/RULES.md class PLAIN, owner 2026-10-07) -------- */
 /* "it is a very hard read because numbers are exact and there's too many numbers you also are
    mentioning the date so much". Counted on body copy: no tables, byline, credit or sources line. */
@@ -779,7 +796,7 @@ const STD = {
   byline: "T1", experience: "T2", "sources-line": "T3", fresh: "T4",
   "exact-amounts": "P1", "number-density": "P2", "date-mentions": "P3", "price-headline": "P4", deflection: "P5", "plain-words": "P6", "plain-voice": "P9", "people-act": "P10",
   pictures: "P7", "place-map": "P8",
-  "open-answers": "A13", toc: "H14", "icon-labels": "H15", "story-simple": "T8",
+  "open-answers": "A13", focus: "A14", toc: "H14", "icon-labels": "H15", "story-simple": "T8",
 };
 
 /* ---------------------------------------------------------------- scoring */

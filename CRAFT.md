@@ -28,6 +28,8 @@ Rank them. The top few are the page's must-answers. Research those first. Do not
 
 Batch 2026-10-a planned ten records questions and missed the one every reader asked: the monthly fee. Every search suggestion offered it.
 
+**One main question per page (owner, 2026-11-07: "the pages are long ... we get so far away from the original question").** Name the one question in the brief: the words in the title. Then pick the two to four questions a reader of that question asks next. That is the page. Every other good fact you found goes on the page that owns its question, with a link in one sentence, or onto a new page if people search it. Stay under 1,800 words of prose and 8 sections (STANDARD A14). Cut in this order: a fact said twice, a method note (it goes in the sources box), an FAQ entry that repeats a section, a side question. Never cut the answer the reader came for, a verified local fact that only this page has, or an offer. Search Console showed it: the pages that earn our clicks answer one question in about 1,400 words.
+
 **Picture one real person who searched this.** Know four things:
 - what they want first;
 - what they already know (assume nothing: no place names, no roads, no trade words);
@@ -225,6 +227,7 @@ A short story makes a page memorable and shows we know the subject. It is not re
 ## 7. Make it findable and quotable
 
 - **The title tag carries what people search;** the H1 can be the warmer human question. Both promise only what the page gives. Put the search words in the title and description: the subject's name, "fees", "rules", "pros and cons", "55+".
+- **Make the title worth clicking, and keep it true (owner, 2026-11-07: "more clickbaity titles").** Start with the words people search ("Horry County property tax rate"), then add one fact from the page that answers it ("4% vs 6%"). Matching the search comes first. A hook that leaves the searched words out loses the click: the property tax title "Why Rentals Pay 3-4x More" showed 1,815 times in 28 days and got 16 clicks, while "How Much Can an HOA Raise Dues in SC?" got 19 clicks from 505 showings. Keep it to 40 to 60 characters, and keep the H1 saying the same thing, because Google rewrites a title that disagrees with its page. Never exaggerate: Google tells its raters to mark a shocking title that the page does not deliver as low quality.
 - **One fact has one value on every surface of the site:** the page, the hub, older pages, schema, captions, `llms.txt` and `llms-full.txt`. Register the fact (`facts/registry.json`). Before release, scan the site for the old value.
 - **Link in sentences, both ways.** The page links up to its hub and across to what the reader needs next, with words that say what the target answers. Older pages that name the subject get a link to it.
 - **Structured data names the subject as a thing** (a place, a law, a product). Every trust field is true: the reviewer reviewed, the author's listed expertise fits the page, every anchor exists.

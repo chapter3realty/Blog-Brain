@@ -378,9 +378,23 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
   check("story-simple: not applicable with no story", credit(base, "story-simple").credit === null);
 }
 
+/* focus: one main question (owner, 2026-11-07). The gold page passes; the same page with eight more sections of
+   a side question, and 1,900 words of prose, is over both caps. */
+{
+  check("focus: the gold page answers one question", credit(base, "focus").credit === 1, `(${credit(base, "focus").detail})`);
+  const para = "The board can raise the dues each year, and the notice comes with the budget. ".repeat(12);
+  const sprawl = base.replace("</main>", Array.from({ length: 8 }, (_, i) => `<section><h2>Side question ${i + 1} about the topic?</h2><p>${para}</p><p>${para}</p></section>`).join("") + "</main>");
+  check("focus: mutation landed", sprawl.length > base.length + 10000);
+  check("focus: a page with 13 sections and 2,000+ words is not focused", credit(sprawl, "focus").credit < 1, `(${credit(sprawl, "focus").detail})`);
+  const wide = base.replace("</main>", Array.from({ length: 6 }, (_, i) => `<section><h2>Short side question ${i + 1}?</h2><p>One plain sentence answers it.</p></section>`).join("") + "</main>");
+  check("focus: many short sections still break the section cap", credit(wide, "focus").credit < 1, `(${credit(wide, "focus").detail})`);
+  const list = base.replace("</main>", Array.from({ length: 9 }, (_, i) => `<section><h2>${i + 1}. Place ${i + 1}: a short place headline</h2><p>One plain sentence about the place.</p></section>`).join("") + "</main>");
+  check("focus: a numbered list of nine places counts as one section", credit(list, "focus").credit === 1, `(${credit(list, "focus").detail})`);
+}
+
 /* Every rule id appears in at least one mutation, so no rule is untested. */
 const tested = new Set(mutations.map(m => m[0]).concat(["visual-rhythm", "verdict", "exact-amounts", "number-density", "date-mentions",
-  "price-headline", "deflection", "plain-words", "plain-voice", "people-act", "pictures", "place-map", "open-answers", "toc", "icon-labels", "story-simple"]));
+  "price-headline", "deflection", "plain-words", "plain-voice", "people-act", "pictures", "place-map", "open-answers", "focus", "toc", "icon-labels", "story-simple"]));
 for (const r of RULES) check(`rule ${r.id} has a control`, tested.has(r.id));
 
 /* Every rule maps to a STANDARD.md id. */
