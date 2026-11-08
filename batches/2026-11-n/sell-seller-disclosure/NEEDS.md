@@ -1,0 +1,7 @@
+# Shared needs: /sell/seller-disclosure/
+
+1. **Hub links (the lead).** Add /sell/seller-disclosure/ to the /sell/ hub, and a one-sentence link from /sell/fsbo/ ("What you do not have to tell a buyer" and "Four rules about the form" now belong to this page's question) and from /buyers/undisclosed-flooding/ (it already links here: the link goes live when the page ships).
+2. **Statute links site-wide.** `https://www.scstatehouse.gov/code/t27c050.php` (and every `t..c...php` code link) now redirects to `/code/t27c050`, which forwards to `/code/statmast.php?title=27&chapter=50`. The old links still reach the text through two redirects today. `tools/site-audit.js` may start reporting them; the lead decides whether to swap them site-wide.
+3. **Checklist component.** Section 5 needs a check-box list with group headings, number tags, a "your years" tag and a print button. If `_kit.js` or `glass.js` has no such block, the writer builds it inside the spec at 720 px, or the lead adds one to the kit.
+4. **Optional map.** A strip map of the Horry coast with the setback line and the counted parcels would show row 18 better than bars. It needs the parcel points from the scratch file `wfn/sell-seller-disclosure/raw-big/seaward-parcels.json` (PINs, kept out of the repo) turned into aggregated dots or hex cells first. Only if the lead wants it.
+5. **Photos.** Wikimedia Commons refused API requests on 2026-11-08 (rate limit, likely from parallel pages). The plan uses USGS public domain frames instead.
