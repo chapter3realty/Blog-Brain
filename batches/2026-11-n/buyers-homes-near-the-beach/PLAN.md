@@ -1,6 +1,6 @@
 # Plan: /buyers/homes-near-the-beach/ (batch 2026-11-n, Lane N)
 
-Researcher, 2026-11-08. Inputs: `must-answer.md`, `facts.md` (25 rows plus the walk results, all awaiting the verifier), the four approved pilots' DESIGN.md files (fsbo, Pawleys Island, HOA liens, condos) and their specs. Spec to write: `specs/buyers-homes-near-the-beach.js` (new). Data: `<web4>/data/2026-11-n/buyers-homes-near-the-beach/` (README there).
+Researcher, 2026-11-08. Inputs: `must-answer.md`, `facts.md` (27 rows: 1 to 25 with 10b and 10c, all awaiting the verifier), the four approved pilots' DESIGN.md files (fsbo, Pawleys Island, HOA liens, condos) and their specs. Spec to write: `specs/buyers-homes-near-the-beach.js` (new). Data: `<web4>/data/2026-11-n/buyers-homes-near-the-beach/` (README there).
 
 ## The reader and their job
 
@@ -17,7 +17,7 @@ What they want first: where these houses are and what they cost. What they ask n
 ## The findings no other site has
 
 1. **Price by distance from the sand, from county deeds** (rows 2 to 5): the curve above, and the same comparison in each stretch of coast. Nobody has published a near-beach premium for the Grand Strand from recorded sales.
-2. **The walk, measured for every house for sale** (row 10, walk results): how many houses for sale are a 5-minute, 10-minute or 20-minute walk from a public beach access, and what each group asks. Built with the state's access points and a walking router.
+2. **The walk, measured for every house for sale** (rows 10, 10b, 10c): of 800 houses for sale within 1.5 miles of the ocean, 186 are under a quarter mile on foot from a public access (about 5 minutes), asking about $950,000 at the middle; 110 more are a quarter to half a mile (about 10 minutes), about $680,000. Of 21 houses under $400,000 within a 10-minute walk, 14 are in North Myrtle Beach and Cherry Grove. And 90 of the 420 houses within half a mile in a straight line are over a mile on foot. Built with the state's access points and a walking router.
 3. **Flood risk by distance and by town** (rows 16 to 18): the high-risk share by tenth of a mile, and the surprise in it: within half a mile of the ocean, about 1 in 11 Myrtle Beach houses is in the high-risk zone, against about 4 in 10 in North Myrtle Beach and half from Surfside Beach to Murrells Inlet.
 4. **Public accesses per mile** (rows 11 to 13): one about every 250 feet in North Myrtle Beach and every 350 to 400 feet in Myrtle Beach, Surfside Beach and Garden City; about one every 2,400 feet on Pawleys Island. For a house within half a mile, the nearest access is about 1,000 feet away at the middle.
 5. **What the local words mean, measured** (rows 14, 15): Kings Highway runs about half a mile from the ocean in Myrtle Beach; "walk to the beach" listings are about a quarter mile out at the middle; "near the beach" reaches about 2 miles.
@@ -47,21 +47,22 @@ Design: copy the approved pilots. Two-line headline with the italic sub line at 
 Rows 2 to 7.
 
 **3. Can you walk to the beach from it?** Proves findings 2, 4, 5.
-- The walk result first, in one sentence (row 10): how many houses for sale are under a quarter mile on foot from a public access (about a 5-minute walk), and what they ask.
+- The walk result first, in one sentence (row 10): 186 houses for sale are under a quarter mile on foot from a public access, about a 5-minute walk, asking about $950,000 at the middle; 110 more are within about 10 minutes, about $680,000.
+- One sentence on why we measure the walk, not the map (row 10b): 90 of the 420 houses within half a mile in a straight line are over a mile on foot, most behind private roads. That is a thing we check for a buyer (offer box 1).
 - **Chart 2** (bar chart from `walk-findings.json` by_walk_band): houses for sale by walk to the nearest public access (under 1/4 mile, 1/4 to 1/2, 1/2 to 1, over 1 mile), each bar labelled with the middle asking price. Beside the text on wide screens.
 - Paragraph: the towns' paths to the sand (rows 11, 12): one about every 250 feet in North Myrtle Beach (over 240 accesses), about every 400 feet in Myrtle Beach (143), Surfside Beach (36) and Garden City; few on Pawleys Island. For a house within half a mile, the nearest is about 1,000 feet away at the middle (row 13).
 - Plain list under thin rules, "Three local words": "East of Kings Highway" (US 17 Business, about half a mile from the sand in Myrtle Beach; row 14); "Second row" (the row behind the oceanfront row; our search's second-row houses are about a tenth of a mile out, row 15); "Walking distance" (our "walk to the beach" filter, about a quarter mile at the middle; row 15).
 - One line from the owner, restated literally (row 22): most trips here need a car or a golf cart; a house near the beach makes the beach the one walk.
 - Parking at the beach: one sentence and a link to /buyers/relocating/beaches/ (row 25 only if that page does not say it).
-Rows 10 to 15, 22, 25.
+Rows 10, 10b, 11 to 15, 22, 25.
 
 **Offer box 1** (after section 3, tied to the walk): headline **"Have us measure the walk from a house to the sand."** One sentence: "Send us any listing, and we will send back the walk to the nearest public access and the flood zone the house sits in." Large button: "Send us a listing".
 
 **4. Where can you find one under $400,000?** Short section; a large share of the searches ("cheap", "under $400k", "affordable beach towns"). Proves finding 1's low end.
-- Row 8 in two sentences: 72 of 450 near-beach house sales in the year were under $400,000, most of them in North Myrtle Beach and Cherry Grove; for sale now, a few dozen within half a mile.
+- Row 8 in two sentences: 72 of 450 near-beach house sales in the year were under $400,000, 49 of them in North Myrtle Beach and Cherry Grove. Then row 10c: of 21 houses for sale under $400,000 within a 10-minute walk of a public access, 14 are in North Myrtle Beach and Cherry Grove.
 - A search link that does the work: /homes/map/?q=house%20near%20the%20beach with max=400000 (the writer builds the exact query; check it returns houses).
 - One line on what the reader trades (only from rows: smaller houses, row 6). Never why they are cheaper without a row.
-Row 8.
+Rows 8, 10c.
 
 **5. Will you need flood insurance near the beach?** Proves finding 3.
 - First sentence: the answer by distance (row 16): about half within a quarter mile, 1 in 4 a quarter to half a mile back, under 1 in 10 past about 0.6 to 0.7 mile (row 17).
@@ -102,7 +103,7 @@ Internal links in sentences: /buyers/waterfront-homes/, /buyers/relocating/beach
 |---|---|---|
 | What it costs by distance | Chart 1: bar chart, middle sale price by band | findings.json deeds.by_band (or chart_quarter_mile for 12 quarter-mile bars; pick one, not both) |
 | Near against inland, by stretch | One plain table, 3 rows | findings.json deeds.by_stretch |
-| The walk | Chart 2: bar chart, houses for sale by walk band, labelled with the middle ask | walk-findings.json |
+| The walk | Chart 2: bar chart, houses for sale by walk band (the three bands to 1 mile; the over-1-mile bar is mixed, row 10 note), labelled with the middle ask | walk-findings.json by_walk_band |
 | Flood by distance | Chart 3: step line, share in the high-risk zone by 0.05 mile to 1 mile | findings.json stock.high_risk_by_twentieth_mile |
 | Where the towns are | Our map: shore, 1/4, 1/2, 1 mile lines, town limits, access dots | map-layers.geojson |
 | The towns | Photos, one per entry where lawful | below |
