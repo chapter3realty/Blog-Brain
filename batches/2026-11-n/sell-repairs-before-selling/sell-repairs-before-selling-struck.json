@@ -120,5 +120,23 @@
   "pattern": "\\babout as often as, or more often than\\b",
   "struck": "Houses for sale built 2005 or earlier that advertise a new roof had cut their price about as often as, or more often than, those that do not.",
   "use": "(cut it: the price-cut comparison is mixed by band and is not for the page)"
+ },
+ {
+  "row": "repairs 9 (review 1)",
+  "pattern": "\\b(?:its )?full name is the Official South Carolina Wood Infestation Report\\b",
+  "struck": "Its full name is the Official South Carolina Wood Infestation Report.",
+  "use": "It is written on the state's form, the Official South Carolina Wood Infestation Report."
+ },
+ {
+  "row": "repairs 4 (review 1)",
+  "pattern": "\\brough clock\\b",
+  "struck": "It is a rough clock, not a date a part fails.",
+  "use": "It is an average. A roof can last longer or fail sooner."
+ },
+ {
+  "row": "repairs 12 (review 1)",
+  "pattern": "\\bCitizens asks for one on homes more than 20 years old\\b",
+  "struck": "In Florida, Citizens asks for one on homes more than 20 years old.",
+  "use": "(cut: a Florida rule; the page names no insurer's age rule until OWNER-QUESTIONS Q2 is answered)"
  }
 ]
