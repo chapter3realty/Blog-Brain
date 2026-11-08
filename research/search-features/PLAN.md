@@ -1,152 +1,122 @@
 # Plan: every feature searchable, and the photo that matches on each card
 
-Owner, 2026-11-08: "plan it out more before we do it plan exactly how you will do it also why cant we do it inside of this chat instead of use the API?"
+Owner, 2026-11-08:
+- "plan it out more before we do it"
+- "we will just use Haiku in this chat"
+- sign-up with the owner's email: "Yeah thats okay"
+- "do the crm thing too ... tell me the plan and what everything will accomplish to make sure we are on the same page"
 
-Status: a plan only. Nothing here is built yet.
+Status: a plan only. Building starts on the owner's "go".
 
-## What the buyer gets
+## What it accomplishes
 
-1. They type anything: "big kitchen, loft, home office, screened pool, room for the boat". The search finds the homes that have it. It reads the MLS fields, the description and the photos.
-2. Each result card shows the photo of the first thing they asked for (the pool, the kitchen, the dock), when the home has one. Otherwise it shows the front photo, as today.
-3. The filter list grows from 499 MLS features to about 850 (the 354 in `CATALOG.md`), each with a count of homes for sale.
+1. **A buyer can ask for anything.** "Big kitchen, loft, home office, screened pool, room for the boat." The search finds the homes that have it, from:
+   - the MLS fields;
+   - the photo captions;
+   - the map;
+   - the description;
+   - the photos themselves.
+2. **The card shows what they asked for.** Each result card shows the photo of the first thing asked for (the pool, the kitchen, the dock), when the home has one. Otherwise it shows the front photo, as today.
+3. **The filter list grows** from 499 MLS features to about 850. That is the 354 in `CATALOG.md`, each with a count of homes for sale.
+4. **Galleries load fast.** Every photo fetched for labeling is also saved in the website's photo store, and pages use that copy first.
+5. **New listings are labeled every night by themselves,** on the API, for a few cents a day.
+6. **No step needs your computer.** Database changes run by themselves when the CRM deploys. You approve in this chat.
 
-## Why not do the labeling inside this chat
+## Who does what
 
-It is possible in principle. It is the wrong tool for this job, for four reasons.
+- **The labeling:** Haiku helpers inside this chat, a few at a time. No new chats are opened.
+- **The code:** this chat. It writes the CRM and website code and checks a sample of the labels.
+- **You:** approve the CRM deploy, the 100-home test page and the full run. You run `deploy.ps1` for the website.
 
-1. **Size.** About 8,785 listings and about 263,000 photos. The photos are the same number of tokens wherever they are read: about 150 million at 768 pixels, about 60 million at 512 pixels with 25 photos a listing. On the API that is Haiku at $0.10 a million, so about $6 to $15 (half with the Batch API). In this chat it is the large model on your plan's limits, and a chat re-reads what it has already seen, so the same photos cost far more here.
-2. **Access.** This chat has no password to the CRM's database. Deleting the CRM's rule does not give it one. What removes the hang-up is making the database changes run by themselves on deploy (Step 4), since this chat can already deploy the CRM.
-3. **Upkeep.** About 60 to 100 new listings arrive every day. The nightly job runs on the API, a few cents a day. A chat cannot run by itself every night, so the job is needed anyway, and once it exists it does the first pass too.
-4. **Photos.** The photo copies kept for page speed are short-lived: the CRM's for 12 hours, the website's for 30 days, and only of photos a visitor opened. Most of the 263,000 are not stored anywhere of ours. The job fetches each once from the MLS, slowly enough to leave room for the live site (the MLS allows 9,000 photos an hour for the whole account). The first pass takes about two nights.
+## Part A. The CRM groundwork (code only, nothing live)
 
-**What this chat does do:**
-- writes the code;
-- designs the label list and the prompts;
-- reads the 100-listing test results against the actual photos and descriptions (a second, independent check of the labels);
-- spot-checks after the full run.
-
-That work needs judgment, not volume.
-
-## How it works
-
-### Step 1. Labels from what is already there (free, no AI)
-
-- **MLS fields.** 81 catalog features already map to an MLS field (`mls` in `catalog.json`). Code matches them, as the search does today.
-- **Photo captions.** The MLS sends a caption with some photos ("Kitchen", "Pool", "Primary bath"). The CRM already stores it (`mls_listings.media[].caption`). Code maps caption words to labels with a fixed word list ("pool" → pool, "lanai" → screened pool, "bonus" → bonus room). A captioned photo that names a label needs no AI look for that label.
-- **Map data.** The 28 "near" features use the distances the CRM already computes.
-
-The first run reports how many listings and photos have captions. That number decides how much of Step 3 is needed.
-
-### Step 2. Labels from the description (AI, about $1 once)
-
-- **Input per listing:** the public description and the detail fields, as the search already reads them. Schools are left out.
-- **Batching:** 20 listings per call. The label list (the description-findable features, with one line on what each means) goes first in the call and is cached, so it is paid for in full only once.
-- **Output:** for each listing, only the labels the text clearly states, through structured output (a fixed list of keys, so the model cannot invent one). "Sunny kitchen" is not "big kitchen". When in doubt, no label.
-- **Model:** Claude Haiku 5.5 at low effort. The first pass uses the Batch API (half price, results within a day). Nightly runs use the Batch API too.
-
-### Step 3. Labels from the photos (AI, about $9 to $24 once)
-
-- **Which photos:** each listing's first 25. Photos already captioned with a label count for that label and are skipped for it.
-- **Size:** 512 pixels on the long side, and the first 25 photos (front, living, kitchen, bedrooms, baths, outside). That is enough to see a pool or an island and costs less than half of 768 pixels. The CRM makes the webp copy itself (`src/lib/idx/photos.ts`), so no photo leaves our systems except to the model.
-- **Batching:** 10 photos per call, with the list of photo-findable labels (190) cached at the front.
-- **Output per photo:** the labels it clearly shows, each with "sure" or "unsure". Only "sure" is stored. The photo index is kept with each label, so the card can show that photo.
-- **Rooms, not people:** a photo with a person or a personal item in it is never described, only labeled for the room.
-
-### Step 4. Storing the labels (CRM database, one new table)
-
-Migration `0076_listing_labels`:
-
-- `listing_labels`
-  - `listing_key`: the listing.
-  - `label`: a key from the catalog.
-  - `source`: mls, caption, description or photo.
-  - `photo_index`: which photo shows it, for photo and caption labels.
-  - `model`, `labeled_at`.
-  - `input_hash`: of the description, or of the photo list, so only changes are labeled again.
-  - Primary key `(listing_key, label, source, photo_index)`. Row-level security on, deny-all, as with every MLS table.
-- `listing_label_runs`: one row per run, with listings done, photos looked at, tokens and dollars, for the weekly review.
-
-The SQL is proved first on a test database in this chat. The migration then applies itself when the CRM deploys (Railway's pre-deploy command, `pnpm db:migrate`), before the new code starts. If it fails, the deploy stops and the old version keeps running. The CRM's rule that only the owner applies migrations is rewritten to match (owner, 2026-11-08: "get rid of that rule").
-
-### Step 5. The nightly job (CRM, pg-boss)
-
-`listing-labels` runs after the MLS sync, once a night. It:
-
-1. Finds listings for sale whose description or photo list changed since they were labeled (by `input_hash`), plus new ones.
-2. Runs Step 1 in code, then sends Steps 2 and 3 as one Message Batch.
-3. Polls the batch and stores the results as they arrive.
-4. Deletes labels of listings that left the market.
-
-Every AI call goes through `src/lib/claude.ts` with its own feature name, `listing_labels`, so it is recorded in `ai_usage`, as the CRM's rule 7 requires.
-
-**A spending cap of our own:** a daily dollar limit in an environment setting (suggested $2 a day, and $30 for the first pass). The job stops and posts to Slack when it reaches it. Rule 7 says nothing caps AI spend, so this cap is new and is only for this job.
-
-### Step 6. The search uses the labels (CRM and website)
-
-- **CRM search:** a catalog key in `has` matches a home when it has the MLS field, the description says it (Step 2), or a photo shows it (Step 3). One condition per key, OR-ed across the sources.
-- **CRM filter list:** `/api/idx/filters` adds the new keys with their counts and a short meaning for the website's AI.
-- **Website AI:** reads the buyer's sentence against the whole list. It already gets each key's meaning and count since the change on 2026-11-08, so a rare key leaves few results.
-- **Website descriptions:** the description reading the search does now (ranking each home 0 to 10) stays. Labels make the first filter right; the reading ranks what is left.
-
-### Step 7. The matching photo on the card
-
-- The search response gains `photo` per listing: the index of the photo labeled with the first feature the buyer asked for, or nothing.
-- The website card uses that photo's URL from the CRM's photo store instead of the first photo.
-- **To confirm before release:** that the MLS rules (CCMLS) allow a photo other than the listing's first as the result thumbnail. The rules we read require the listing firm on every card; they do not name the thumbnail, but this is checked against the current rules text before it ships.
-
-### Step 8. Never labeled
-
-The label list is fixed in code, and the model can only choose from it. These are not in it and never will be:
-
-- who lives in or near a home: family, children, age (except a community's stated 55-plus rule, as a fact), race, religion, disability, sex, origin;
-- "safe", "good schools" or a school's rank;
-- anything only a person in a photo shows.
-
-A room is a room: "playroom" describes the room, never the buyer.
-
-## Testing before anything runs on all listings
-
-1. **Code tests in the CRM:**
-   - the caption word map;
+1. **Database changes run on deploy.**
+   - Railway's pre-deploy command runs `pnpm db:migrate` before the new version starts.
+   - If a change fails, the deploy stops and the old version keeps running.
+   - Every change is first tested on a practice database in this chat.
+2. **The CRM rule is rewritten** (owner: "get rid of that rule"). The CRM's CLAUDE.md no longer says only the owner applies migrations, or that a cloud chat cannot reach production. It says migrations apply on deploy.
+3. **Migration 0076 adds the label tables.**
+   - `listing_labels`: listing, label, source (mls, caption, map, description or photo), photo number, when, and a fingerprint of the description and photo list.
+     - The fingerprint means a home is labeled again only when its description or photos change.
+     - Row-level security is on, deny-all, as with every MLS table.
+   - `listing_label_runs`: one row per run, with homes, photos and cost.
+4. **A label file loader.** The labels this chat makes are committed to the CRM as files. The deploy loads them into the table.
+5. **The search uses the labels.**
+   - A feature matches a home when any source has it.
+   - `/api/idx/filters` lists the new features with their counts and a short meaning for the website's AI.
+   - Each result carries `photo`: the number of the photo showing the first feature asked for.
+6. **The nightly job (`listing-labels`).** It runs after the MLS sync and labels new and changed listings through the API (Haiku, the Batch API).
+   - Every call goes through `src/lib/claude.ts` under the name `listing_labels`, so it is recorded in `ai_usage`.
+   - A cap of $2 a day: it stops and posts to Slack when reached.
+   - It deletes the labels of homes that left the market.
+   - **It starts switched off.**
+7. **The off switch** `LISTING_LABELS=off` sends search and cards back to today's behavior.
+8. **Tests for:**
+   - the caption word list;
    - the label list (no forbidden label can be added);
-   - the batch writer and reader;
-   - the spending cap;
-   - the search OR-ing MLS, description and photo labels.
+   - the loader;
+   - the cap;
+   - the search across sources.
 
-   All 12,798 existing tests still pass, and the type check is clean.
-2. **A test run on 100 listings,** chosen across price, town and kind of home: houses, condos, townhomes, land. It runs on the CRM's key, about 20 to 40 cents.
-3. **This chat checks every label** against the listing's real photos and description. Each wrong label is a fix to the prompt or the word list. The bar: 95 of 100 stored labels right, and no forbidden label at all.
-4. **You see the result** on a page: each listing's photos with their labels under them, and the measured cost of the 100. You approve the full run, or not.
+   All existing tests still pass, and the type check is clean.
 
-## The order of work
+→ **Your yes, then this chat deploys the CRM.** Nothing changes for buyers yet: the table is empty and the job is off.
 
-| # | What | Who | Production? |
-|---|---|---|---|
-| 1 | Write the CRM code, migration, job and tests on a branch | this chat | no |
-| 2 | Make migrations run on deploy; rewrite the CRM rule | this chat | no |
-| 3 | Merge and deploy the CRM (`pnpm deploy:now`); migration 0076 applies itself; the job starts switched off | this chat, after your yes | yes |
-| 4 | Turn on the 100-listing test (a committed setting, deployed) and read the results | this chat, after your yes | yes ($0.20 to $0.40) |
-| 5 | Fix what the test shows; show you the photo page | this chat | no |
-| 6 | The full first pass, with its cap | owner approves | yes ($10 to $25) |
-| 7 | Website: the larger list in the AI, the matching photo on cards | this chat, then your deploy | yes |
-| 8 | Nightly upkeep runs by itself; the weekly review shows its cost | automatic | about $3 to $7 a month |
+## Part B. The labels
 
-No step needs your computer. You approve steps 3, 4 and 6 in this chat.
+1. **One sign-up** with chapter3realty@gmail.com, so this chat sees every photo of a home, as a signed-up buyer does. It makes one lead in the CRM, from you.
+2. **Free labels first, by code:**
+   - the 81 features with an MLS field;
+   - photo captions ("Kitchen", "Pool", "Lanai") through a fixed word list;
+   - the 28 "near" features from the CRM's distances.
+3. **Descriptions.** Haiku helpers read each home's public description and mark only what it clearly states. "Sunny kitchen" is not "big kitchen". When in doubt, no label.
+4. **Photos.**
+   - The first 25 photos of each home, at 480 pixels.
+   - Nine to a sheet, so a helper looks at about 3 sheets per home: about 26,000 sheets for every home, not 220,000 single photos.
+   - Each label keeps the number of the photo that shows it.
+   - Photos already labeled by a caption are skipped for that label.
+5. **Speed.** The MLS gives at most 9,000 photos an hour for the whole account, and the live site needs part of that. The full pass takes about a day and a half. **This chat must stay open.**
+6. **Each fetched photo is saved** in the website's photo store (about 10 GB, about 15 cents a month past the free amount).
+7. **Never labeled.** The label list is fixed in code; nothing outside it can be stored. It never includes:
+   - who lives in or near a home: family, children, age (except a community's stated 55-plus rule, as a fact), race, religion, disability, sex, origin;
+   - "safe", "good schools" or a school's rank;
+   - anything only a person in a photo shows.
+
+   A room is a room: "playroom" describes the room, never the buyer.
+
+### The 100-home test, before the full run
+
+- 100 homes across price, town and kind: house, condo, townhome, land.
+- This chat checks every label against the real photos and description, and fixes the instructions or the word list for each wrong one.
+- The bar: 95 of 100 labels right, and no forbidden label.
+- **You see a page:** each home's photos with their labels under them.
+
+→ **Your yes, then the full run.** The labels are committed and deployed in parts, so search improves as each part lands.
+
+## Part C. The website
+
+1. The website AI reads the buyer's sentence against the full list of about 850 features.
+2. The card shows the matching photo.
+3. Galleries and cards use the saved copy first.
+4. **Checked before release:** the MLS rules (CCMLS) on using a photo other than the first as the thumbnail. The rules require the listing firm on every card; this checks the current text on thumbnails.
+
+→ **You run `deploy.ps1`.**
+
+## Part D. Upkeep
+
+The nightly job is switched on. It labels the 60 to 100 new listings a day for a few cents. The weekly review shows its cost.
 
 ## If something goes wrong
 
-- **Off switch:** one setting, `LISTING_LABELS=off`. Search goes back to MLS fields and description words, and cards go back to the first photo. Nothing else changes.
-- **Wrong labels:** a label can be deleted for one listing, or for every listing, without touching the rest. The next run does not bring a deleted label back unless the description or photos change.
-- **The table:** the labels can be dropped without touching any other table.
+- **The off switch:** `LISTING_LABELS=off`.
+- **One wrong label:** delete it for one home or for all homes. It does not come back unless the home's description or photos change.
+- **The tables:** they can be dropped without touching anything else.
 
-## The costs again
+## Costs
 
 | | Cost |
 |---|---|
-| Test run, 100 listings | about $0.20 to $0.40 |
-| First pass, descriptions | about $1 (about $0.50 with the Batch API) |
-| First pass, photos | about $3 to $8 at 512 pixels and 25 photos, with the Batch API |
-| Upkeep | about $3 to $7 a month |
+| Labeling in this chat | your plan's usage, no API dollars |
+| Saved photos | about 15 cents a month |
+| Nightly upkeep | a few cents a day |
 | Each search | under $0.001 more; the matching photo is free |
-
-These are estimates. The test run measures the real numbers before the first pass.
