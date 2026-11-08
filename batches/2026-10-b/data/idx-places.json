@@ -42,7 +42,10 @@
    ],
    "q": {
     "subdivision": "Tidewater"
-   }
+   },
+   "same": "tidewater-plantation",
+   "index": false,
+   "note": "Duplicate of tidewater-plantation (cannibalization map, 2026-11-08): the strip on /buyers/best-neighborhoods/ links to that page, and /homes/near/tidewater/ redirects there."
   },
   {
    "slug": "barefoot-resort",
@@ -140,11 +143,13 @@
    "slug": "tidewater-plantation",
    "name": "Tidewater Plantation",
    "pages": [
+    "/buyers/best-neighborhoods/",
     "/buyers/gated-communities/"
    ],
    "q": {
-    "subdivision": "Tidewater Plantation"
-   }
+    "subdivision": "Tidewater"
+   },
+   "note": "2026-11-08: the subdivision words widened to \"Tidewater\" (27 homes against 21; the extra six are condos on Spinnaker Drive, inside Tidewater Plantation). The one indexed Tidewater page (cannibalization map)."
   },
   {
    "slug": "seaside-plantation",
@@ -190,6 +195,7 @@
    "slug": "myrtle-beach-golf-and-yacht-club",
    "name": "Myrtle Beach Golf and Yacht Club",
    "pages": [
+    "/buyers/affordable-places-to-live/",
     "/buyers/gated-communities/"
    ],
    "q": {
@@ -318,7 +324,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-myrtle-heights",
@@ -332,7 +339,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-pine-lakes",
@@ -346,7 +354,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-windy-hill",
@@ -360,7 +369,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-crescent-beach",
@@ -374,7 +384,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-ocean-drive",
@@ -388,7 +399,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-cherry-grove",
@@ -402,7 +414,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-little-river",
@@ -416,7 +429,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-socastee",
@@ -430,7 +444,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-surfside-beach",
@@ -444,7 +459,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-garden-city-beach",
@@ -458,7 +474,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-murrells-inlet",
@@ -472,7 +489,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-conway",
@@ -486,7 +504,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-loris",
@@ -500,7 +519,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-country-around-loris",
@@ -514,7 +534,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "nohoa-aynor",
@@ -528,7 +549,8 @@
     "type": "house",
     "hoa": "0"
    },
-   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee."
+   "note": "Houses around the area. Ask the CRM for an HOA-fee filter so the row shows only homes with no fee.",
+   "index": false
   },
   {
    "slug": "parkview",
@@ -578,7 +600,10 @@
    ],
    "q": {
     "subdivision": "Golf and Yacht"
-   }
+   },
+   "same": "myrtle-beach-golf-and-yacht-club",
+   "index": false,
+   "note": "Duplicate of myrtle-beach-golf-and-yacht-club (cannibalization map, 2026-11-08): the strip on /buyers/affordable-places-to-live/ links to that page, and /homes/near/golf-and-yacht-club/ redirects there."
   },
   {
    "slug": "forestbrook-village",
@@ -659,7 +684,8 @@
    "q": {
     "near": "33.82231,-78.67907",
     "miles": 3
-   }
+   },
+   "index": false
   },
   {
    "slug": "second-home-myrtle-beach-oceanfront",
@@ -670,7 +696,8 @@
    "q": {
     "near": "33.69379,-78.87788",
     "miles": 1.5
-   }
+   },
+   "index": false
   },
   {
    "slug": "second-home-garden-city-beach",
@@ -681,7 +708,8 @@
    "q": {
     "near": "33.57659,-78.99876",
     "miles": 1.5
-   }
+   },
+   "index": false
   },
   {
    "slug": "second-home-murrells-inlet",
@@ -692,7 +720,8 @@
    "q": {
     "near": "33.55664,-79.03429",
     "miles": 1.5
-   }
+   },
+   "index": false
   },
   {
    "slug": "second-home-pawleys-island",
@@ -703,7 +732,8 @@
    "q": {
     "near": "33.43324,-79.12137",
     "miles": 2
-   }
+   },
+   "index": false
   },
   {
    "slug": "town-loris",
@@ -1074,6 +1104,76 @@
    },
    "index": false,
    "note": "The houses strip in \"Where it is allowed\" on /invest/str-tools/ (round 4, owner 2026-11-08), where the Garden City area leads the chart of houses marked for nightly rentals. Houses within 0.8 mile of the middle of Waccamaw Drive. Type house: the section is about houses. Checked 2026-11-08 (live map search): 32 houses, 30 inside the Garden City outline, 24 marked by the listing for nightly rentals. index false: the /homes/near/ page is noindex, so it does not compete with the guides."
+  },
+  {
+   "slug": "conway-downtown",
+   "name": "Downtown Conway",
+   "pages": [
+    "/submarkets/conway/"
+   ],
+   "q": {
+    "near": "33.83600,-79.04781",
+    "miles": 1.0,
+    "type": "house"
+   },
+   "index": false,
+   "note": "One of the five parts on /submarkets/conway/ (batch 2026-11-a NEEDS.md 7: the point and radius match the page's analysis areas). index false: a strip for one guide; the town guide is the indexed answer for Conway (cannibalization map 2026-11-08)."
+  },
+  {
+   "slug": "conway-us-501",
+   "name": "Conway near the university",
+   "pages": [
+    "/submarkets/conway/"
+   ],
+   "q": {
+    "near": "33.79800,-79.00800",
+    "miles": 1.6,
+    "type": "house"
+   },
+   "index": false,
+   "note": "One of the five parts on /submarkets/conway/ (batch 2026-11-a NEEDS.md 7: the point and radius match the page's analysis areas). index false: a strip for one guide; the town guide is the indexed answer for Conway (cannibalization map 2026-11-08)."
+  },
+  {
+   "slug": "conway-west-and-south",
+   "name": "West Conway",
+   "pages": [
+    "/submarkets/conway/"
+   ],
+   "q": {
+    "near": "33.82500,-79.07500",
+    "miles": 1.5,
+    "type": "house"
+   },
+   "index": false,
+   "note": "One of the five parts on /submarkets/conway/ (batch 2026-11-a NEEDS.md 7: the point and radius match the page's analysis areas). index false: a strip for one guide; the town guide is the indexed answer for Conway (cannibalization map 2026-11-08)."
+  },
+  {
+   "slug": "conway-crabtree-swamp",
+   "name": "Conway near Crabtree Swamp",
+   "pages": [
+    "/submarkets/conway/"
+   ],
+   "q": {
+    "near": "33.86200,-79.05200",
+    "miles": 1.0,
+    "type": "house"
+   },
+   "index": false,
+   "note": "One of the five parts on /submarkets/conway/ (batch 2026-11-a NEEDS.md 7: the point and radius match the page's analysis areas). index false: a strip for one guide; the town guide is the indexed answer for Conway (cannibalization map 2026-11-08)."
+  },
+  {
+   "slug": "conway-north-edge",
+   "name": "North Conway",
+   "pages": [
+    "/submarkets/conway/"
+   ],
+   "q": {
+    "near": "33.88800,-79.02500",
+    "miles": 1.2,
+    "type": "house"
+   },
+   "index": false,
+   "note": "One of the five parts on /submarkets/conway/ (batch 2026-11-a NEEDS.md 7: the point and radius match the page's analysis areas). index false: a strip for one guide; the town guide is the indexed answer for Conway (cannibalization map 2026-11-08)."
   }
  ]
 }
