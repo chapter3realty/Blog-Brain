@@ -78,3 +78,20 @@ Short names for sources:
 - O1 (open since batch 2026-10-d): who pays our fee on a new build here, and is it in writing before the tour?
 - Do our agents see differences between builders in how they handle a buyer's agent (registration on the first visit, online sign-up rules)? Only as Chapter3's experience, no builder named with a conclusion.
 - Which builders' contracts our agents have read most often, for the "we read the contract with you" service line (no builder named on the page).
+
+## Rows added in review round 1 (fixer, 2026-11-08)
+
+Each is checked by a `must()` line in `specs/buyers-new-construction-builders.js`, so the build stops if the data moves.
+
+| # | Claim, as the page states it | Value | Source | Check | Status |
+|---|---|---|---|---|---|
+| F1 | 15 builders sold 50 or more new homes; five more sellers, each named for one community, sold 239 and are counted apart | 15; 239 | `findings-verified.json` by_builder (row 2's 16 less the community-company group, row 15's wording) | `BLD.length === 15`; group 239 | VERIFIED-BY-FIXER |
+| F2 | The five community companies' homes are mostly at Myrtle Beach and Little River addresses | 105 + 64 of 239 | `findings-verified.json` by_builder group towns | must, share > 2/3 | VERIFIED-BY-FIXER |
+| F3 | With the community companies apart, D.R. Horton sold the most in Conway, Loris, Little River, Surfside Beach and Galivants Ferry (Little River: D.R. Horton 62, Ashton Woods 59) | town leaders | `findings-verified.json` by_town | must on LEADS | VERIFIED-BY-FIXER |
+| F4 | Del Webb is PulteGroup's brand for active adults | brand | PHM 10-K, `raw/sec/PHM.txt`: "Through our brands, which include Centex, Pulte Homes, Del Webb, DiVosta Homes, and John Wieland Homes and Neighborhoods"; "Through our Del Webb brand, we address the needs of active adults." | quote found | VERIFIED-BY-FIXER |
+| F5 | Pulte's count includes the homes it sold at Del Webb North Myrtle Beach | 114 | Del Webb's own page names the community (https://www.delwebb.com/homes/south-carolina/myrtle-beach/north-myrtle-beach/del-webb-north-myrtle-beach-210691). Its sales office, 1315 Saw Palmetto St, North Myrtle Beach, geocodes (Census geocoder, Public_AR_Current) to 33.82312, -78.70048. All 114 Pulte sales with North Myrtle Beach addresses (row 4) lie within 800 m of it in `map-points.json`; no other large builder does. The site's own page /buyers/55-plus-communities/del-webb-north-myrtle-beach/ says "Pulte builds them and sells them under its Del Webb name." | recounted | VERIFIED-BY-FIXER |
+| F6 | The five largest builders' homes for sale now, in aggregate (MLS, by the builder's own sales company): D.R. Horton mostly houses (232 of 248), 3 or 4 bedrooms (217 of 248), about 1,800 sq ft median; Lennar houses 37 and townhouses 23, 3 or 4 bedrooms (53 of 60), about 1,800; Pulte all houses (31), 3 bedrooms 21 of 31, about 2,700; Meritage all houses (29), 3 or 4 bedrooms (29 of 29), about 1,600 | counts, medians | `findings-verified.json` listings.by_builder types, beds, median_sqft (the verifier's re-run) | must on each | VERIFIED-BY-FIXER |
+| F7 | Mungo: about half its homes have Conway addresses (107 of 206); Great Southern and Dream Finders: Conway first; Ashton Woods: Little River first (59 of 94) | towns | `findings-verified.json` by_builder towns | must | VERIFIED-BY-FIXER |
+| F8 | Toll Brothers has the highest middle price on the chart; Starlight is among the three lowest; Pulte the highest of the five largest, Lennar the lowest | ranks | `findings-verified.json` by_builder price.median | must | VERIFIED-BY-FIXER |
+| F9 | At $300,000 or less, Beverly Homes, Stanley Martin, Starlight Homes and DRB Homes each listed 13 or more | 22, 16, 16, 13 | row 7 | must | VERIFIED-BY-FIXER |
+| F10 | Each of the five largest owns all or part of a mortgage company, and most of their buyers who take a mortgage use it | DHI 81% of all closings; LEN 84% of mortgage buyers; NVR capture 86%; PHM 84.7% of mortgage buyers; MTH a joint venture (no share given) | rows 16 to 20 | "most" holds for the four with a figure; Meritage owns part (joint venture) | VERIFIED-BY-FIXER (wording) |

@@ -18,6 +18,11 @@ For the lead. This page edits no shared file.
 ## From the writer (2026-11-08, build)
 
 10. **Inbound links, sitemap, llms.txt.** The audit fails only "missing from sitemap.xml" and "orphan" for this page, and warns "not listed in llms.txt". Item 1 above (links from /buyers/ and /buyers/new-construction/) clears the orphan; the sitemap and llms.txt are the lead's.
-11. **Share image.** The page shares a 16:9 cut of its own aerial (`images/2026-11-n/buyers-builders/auberon-woods-land-before-building-2023-16x9-1200w.webp`) through pageImages. If the lead prefers the text card, `tools/ogcard.js` writes to `chapter3realty/og/`, outside this page's folders.
+11. **Share image.** Review 1 cut the aerial photo, so the page now shares the sitewide /og-image.jpg (score S5 fails). Run `node tools/ogcard.js <site>/chapter3realty /buyers/new-construction/builders/`; it writes `chapter3realty/og/buyers-new-construction-builders.jpg`, outside this page's folders, and mkpage picks it up on the next build.
 12. **The top offer bar** goes to /contact/ ("Send us your town and price"), not to the map: the audit refuses a button to /homes/map/. The map link is in the price section as text (`/homes/map/?has=new_construction,county_horry&max=300000`).
 13. **New data files** in `data/2026-11-n/buyers-builders/`: `map_points.py` and `map-points.json` (builder sales by parcel centre, rounded to about 100 m, for the dot map) and `photos.json` (the NAIP aerial's licence record).
+
+## From review round 1 (2026-11-08)
+
+14. **A photo.** The page has no photo now (the owner cut the 2023 aerial: it showed cleared land and no house). critic.mjs blocks a blog with no real photo. The partner's street photos of Auberon Woods and Arcadia (shot-list.md item 1) would fill it; until then the page ships without one. The three aerial files were deleted from `images/2026-11-n/buyers-builders/`; `data/2026-11-n/buyers-builders/photos.json` keeps the record.
+15. **The site footer** says "investor-focused brokerage. DSCR analysis..." on a buyer page (owner nit). Shared partial; the lead's call.
