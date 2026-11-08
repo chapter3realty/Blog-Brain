@@ -22,3 +22,5 @@ Proposed: the page says only that the law allows it when both agree, and that th
 
 **Q7.** The story bank's `quiet-sale-condo` (a condo sold quietly to an investor at about 20 percent under market) fits this page's "deadline" case. Its limits say not to tell it beyond the strategies hub without asking. May it appear here, in the same vague form?
 Proposed: no; the page does not need it.
+
+**Review round 1 (2026-11-08).** The page now says, on Q3's proposed answer: "We do not buy houses ourselves; we list and sell them for their owners" (FAQ, "Does Chapter3 buy houses for cash?"). A reader asked it plainly. If the answer to Q3 is yes, that FAQ answer changes and the page discloses it in the section on who makes cash offers. Q5 is still open: the story on the page is the tenant sale (story bank), told once near the end.
