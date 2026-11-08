@@ -15,3 +15,5 @@ Proposed answer: they pay it as the signed agreement or court order directs, and
 Proposed answer: yes, with both owners signing; we do not require the attorneys' approval but welcome it. Blocks the offer "Send us your dates and we will plan the sale around them" and one sentence in section 7.
 
 No story is asked for. The brief says this page tells none.
+
+**Fix round 1 (2026-11-08).** The reviewers flagged that the page stated Q1 and Q4 practice before the owner answered. Those lines are cut, along with "Our agents read the deed before we list". No line on the page now rests on Q1, Q3 or Q4. The offers rest only on the free price from recorded county sales, which the owner approved on /sell/fsbo/. If the owner answers yes to Q1 or Q4, the cut lines can come back (they are in REVIEW-1.md).
