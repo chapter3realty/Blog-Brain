@@ -1,0 +1,69 @@
+[
+ {
+  "row": "cash-offer 3",
+  "pattern": "\\bmost (?:of the )?(?:company|corporate|investor) buyers (?:are|were) small\\b",
+  "struck": "Most company buyers are small.",
+  "use": "1,045 different company names bought a resale, and 922 of those names bought only one. Many owners use a separate LLC for each house, so one owner can appear under several names."
+ },
+ {
+  "row": "cash-offer 9",
+  "pattern": "\\banother 142\\b",
+  "struck": "Another 142 listings were marked \"needs work\".",
+  "use": "142 listings were marked needs work; some are also cash only."
+ },
+ {
+  "row": "cash-offer 11",
+  "pattern": "\\bpassing your contract\\b|\\byou (?:pass|assign) (?:your|the) contract\\b",
+  "struck": "Passing your contract to someone else (\"assigning\" it) is not wholesaling by itself.",
+  "use": "A buyer who passes its place in your contract to someone else (assigns it) is not wholesaling by that alone."
+ },
+ {
+  "row": "cash-offer 14",
+  "pattern": "\\bdeposits? (?:often|usually|typically) (?:run|range)s? (?:from )?1 (?:to|and) 10 percent\\b",
+  "unless": "\\bacross the (?:US|U\\.S\\.|country)\\b|\\bnational(?:ly)?\\b",
+  "struck": "No law requires one, and deposits often run from 1 to 10 percent of the price.",
+  "use": "Across the US, no law requires a deposit, and deposits typically run 1 to 10 percent of the price."
+ },
+ {
+  "row": "cash-offer 15",
+  "pattern": "\\bduring an inspection period\\b[^.]{0,60}\\bwithout losing\\b",
+  "struck": "During an inspection period (a contingency), the buyer can back out of the sale without losing the earnest money.",
+  "use": "If the contract has an inspection contingency, the buyer can back out of the sale, and a buyer who walks away because a contingency was not met keeps the earnest money."
+ },
+ {
+  "row": "cash-offer 16, 28",
+  "pattern": "\\battorney\\b[^.]{0,80}\\bprepares? (?:the |your )?deed\\b|\\bdeed\\b[^.]{0,40}\\bprepared by (?:the|your) (?:closing )?attorney\\b",
+  "struck": "The closing attorney still searches the title, prepares the deed, runs the closing and records the deed.",
+  "use": "A South Carolina attorney still supervises the title search, the closing and the recording of the deed."
+ },
+ {
+  "row": "cash-offer 17",
+  "pattern": "\\bwe (?:always )?confirm (?:the )?wir(?:e|ing)\\b",
+  "struck": "We confirm wiring by phone.",
+  "use": "Never follow wiring instructions in an email. Confirm them in person or by phone with the attorney's office, at a number you agreed on in advance."
+ },
+ {
+  "row": "cash-offer 20",
+  "pattern": "\\bmost qualified buyers\\b",
+  "struck": "Marketing a home widely exposes it to the most qualified buyers.",
+  "use": "Broad marketing generally exposes a home to the greatest number of qualified buyers."
+ },
+ {
+  "row": "cash-offer 22",
+  "pattern": "\\bmost buyers who need a (?:home )?loan cannot\\b",
+  "struck": "Most buyers who need a loan cannot buy it as it is.",
+  "use": "(cut it: the rule is Fannie Mae's only)"
+ },
+ {
+  "row": "cash-offer 25",
+  "pattern": "\\bcash buyers (?:often|usually|sometimes|commonly|may) ask\\b[^.]{0,60}\\b(?:skip|waive|not (?:to )?complete|form)\\b|\\bcash buyers often ask for that\\b",
+  "struck": "Cash buyers often ask for that.",
+  "use": "(cut it: no source; owner question Q6)"
+ },
+ {
+  "row": "cash-offer 27",
+  "pattern": "\\bclosed 13 days after\\b|\\bmodest rent\\b",
+  "struck": "A cash buyer closed 13 days after the day it was listed.",
+  "use": "A cash buyer closed within 13 days of the day it was listed."
+ }
+]
