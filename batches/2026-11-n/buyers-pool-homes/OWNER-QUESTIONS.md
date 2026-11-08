@@ -1,0 +1,8 @@
+# Owner questions: /buyers/pool-homes/
+
+Asked 2026-11-08. The page can be written without any of these. Each one, answered, adds something no other site has. Until then the page leaves the topic out or puts the offer in its place.
+
+1. **What does pool upkeep cost a month here?** No government source gives a local figure, and pool companies' prices are not a source we can use. If you or a client have a recent monthly pool service bill on the Grand Strand (weekly service, chemicals included or not), give the range and we will say it once. Proposed answer if none: leave the dollar figure off and offer "Have us get a pool service quote for this house".
+2. **Who checks the pool before a client buys?** A South Carolina home inspector is not required to inspect a pool (facts rows 13 and 14). Do your buyers usually hire a pool inspector, or does the home inspector you refer add the pool for an extra fee? Proposed wording if you agree: "We have a pool inspector look at the pool, the pump, the heater and the fence before the inspection period ends." Do not publish until you confirm it is what you do.
+3. **A real story.** Has a client bought (or passed on) a house because of its pool: a leak found in inspection, a fence that failed the county rule, a pool heater that made a winter move work, an HOA that banned a backyard pool? Tell it the way it happened. We add no detail.
+4. **Screen enclosures and hurricanes.** Have you seen screen enclosures (the screened cage over a pool) damaged in a storm here, and does that come up with buyers or insurers? Only if you have seen it; we found no local public record.
