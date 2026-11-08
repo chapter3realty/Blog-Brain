@@ -1,0 +1,124 @@
+[
+ {
+  "row": "repairs 1",
+  "pattern": "\\byounger than most\\b",
+  "struck": "Horry's homes are younger than most.",
+  "use": "Horry's homes are younger than the state's and the nation's."
+ },
+ {
+  "row": "repairs 2",
+  "pattern": "\\b2000 (?:to|and|through) 2009\\b[^.]{0,80}\\b(?:the )?(?:largest|most|biggest) (?:of any|share of any)? ?decade\\b|\\blargest of any decade\\b",
+  "struck": "About 1 in 5 Horry County homes (20.5 percent) were built from 2000 to 2009, the largest of any decade.",
+  "use": "About 1 in 5 Horry County homes (20.5 percent) were built from 2000 to 2009, about as many as from 2010 to 2019."
+ },
+ {
+  "row": "repairs 3",
+  "pattern": "\\b55 times\\b",
+  "unless": "\\boutlets?\\b",
+  "struck": "Homes built before 1972 and wired with aluminum were 55 times more likely to have a connection reach \"fire hazard conditions\" than homes wired with copper.",
+  "use": "A national survey done for the CPSC found that homes built before 1972 and wired with aluminum were 55 times more likely to have a wire connection at an outlet reach \"fire hazard conditions\" than homes wired with copper."
+ },
+ {
+  "row": "repairs 4",
+  "pattern": "\\bunder average conditions\\b|\\bstandard quality\\b",
+  "struck": "These are averages for standard quality \"under average conditions\", not a date a part fails.",
+  "use": "These are HUD's recommended average lives, not a date a part fails."
+ },
+ {
+  "row": "repairs 6",
+  "pattern": "\\b(?:work|works|working|run|runs) (?:almost |nearly |about )?twice as hard\\b|\\b1\\.6 times as hard\\b",
+  "struck": "The Grand Strand's air conditioners work almost twice as hard as Columbus, Ohio's and about 1.6 times as hard as New York City's.",
+  "use": "The North Myrtle Beach airport averages about twice the cooling degree days of Columbus, Ohio, and about 1.6 times New York City's."
+ },
+ {
+  "row": "repairs 9",
+  "pattern": "\\(the CL-100\\)|\\bCL-100 is (?:the|South Carolina's) official\\b",
+  "struck": "South Carolina's is the official wood infestation report (the CL-100).",
+  "use": "South Carolina's is the Official South Carolina Wood Infestation Report, the report people here call the CL-100."
+ },
+ {
+  "row": "repairs 10",
+  "pattern": "\\bcannot be financed\\b",
+  "struck": "A house the appraiser rates C6 cannot be financed until it is repaired to at least C5.",
+  "use": "Fannie Mae does not buy a loan on a house rated C6. Those problems must be fixed, to at least C5, before Fannie Mae buys the loan."
+ },
+ {
+  "row": "repairs 12a",
+  "pattern": "\\b(?:the )?most (?:used|common|widely used|popular) (?:four-point |4-point )?(?:inspection )?form\\b|\\bstate-run insurer\\b",
+  "struck": "The most used form, written by Florida's state-run insurer, asks for the roof's age.",
+  "use": "A sample form from Citizens Property Insurance, a Florida insurer, asks for the roof's age."
+ },
+ {
+  "row": "repairs 12b",
+  "pattern": "\\b(?:its|their) last service\\b|\\blast serviced\\b",
+  "struck": "The form asks the age of the heating and air system and its last service.",
+  "use": "The form asks the age of the heating and air system and the year it was last updated, with a photo of its dated data plate."
+ },
+ {
+  "row": "repairs 13",
+  "pattern": "\\bnew roof (?:is a permitted job|in the county comes with a permit)\\b|\\bevery roof (?:repair|job) needs a permit\\b",
+  "struck": "In unincorporated Horry County, a new roof is a permitted job.",
+  "use": "Horry County's roof certification letter asks for the job's permit number and a notarized statement that the roof covering and underlayment were attached for high-wind areas under the 2021 South Carolina Residential Code."
+ },
+ {
+  "row": "repairs 15",
+  "pattern": "\\bwood-destroying insects anywhere\\b|\\btermites[^.]{0,60}\\banywhere\\b",
+  "struck": "The report covers termites and other wood-destroying insects anywhere, and rot below the main floor.",
+  "use": "The report covers termites and other wood-destroying insects in every part the inspector can see and reach, and rot below the main floor."
+ },
+ {
+  "row": "repairs 16a",
+  "pattern": "\\beven damage that was repaired\\b",
+  "struck": "The report must list all damage, even damage that was repaired before.",
+  "use": "The report must list all damage, even damage left in places that were repaired before."
+ },
+ {
+  "row": "repairs 16b",
+  "pattern": "\\b(?:does not|doesn't) (?:require|oblige|make) anyone to (?:fix|repair)\\b",
+  "struck": "It is not a warranty, and it does not require anyone to fix what it finds.",
+  "use": "It is not a warranty, and it does not oblige the pest company to fix what it finds."
+ },
+ {
+  "row": "repairs 18",
+  "pattern": "\\bcourt may (?:add|award) (?:the buyer's |reasonable )?attorney(?:'s)? fees\\b",
+  "struck": "An owner who knowingly gives false, incomplete or misleading information on the statement is liable to the buyer for actual damages and court costs, and a court may add attorney fees.",
+  "use": "An owner who knowingly gives false, incomplete or misleading information on the statement can owe the buyer actual damages and court costs, and a court may add the winner's attorney fees."
+ },
+ {
+  "row": "repairs 19",
+  "pattern": "\\bSouth Carolina law does not (?:make|require) a seller (?:to )?(?:fix|repair)\\b",
+  "struck": "South Carolina law does not make a seller fix anything before a sale.",
+  "use": "South Carolina's disclosure law does not require a seller to make repairs."
+ },
+ {
+  "row": "repairs 21",
+  "pattern": "\\brecommended to sellers were cheap\\b|\\bmost often recommended[^.]{0,40}\\bcheap\\b",
+  "struck": "In NAR's 2025 survey of agents, the fixes most often recommended to sellers were cheap: declutter (91 percent).",
+  "use": "In NAR's 2025 survey of agents, the fixes most often recommended to sellers were to declutter (91 percent)."
+ },
+ {
+  "row": "repairs 23",
+  "pattern": "\\brepairs, which do not go into your (?:home's )?basis\\b",
+  "unless": "\\blarger\\b|\\bremodel",
+  "struck": "For tax, the IRS treats painting and fixing leaks as repairs, which do not go into your home's basis.",
+  "use": "For tax, the IRS treats painting and fixing leaks as repairs, which do not go into your basis unless they are done as part of a larger remodeling job."
+ },
+ {
+  "row": "repairs 24",
+  "pattern": "\\bfewer than 1 in 100\\b",
+  "struck": "Among houses built 2016 or later, fewer than 1 in 100 do.",
+  "use": "Among houses built 2016 or later, about 1 in 100 do."
+ },
+ {
+  "row": "repairs 25",
+  "pattern": "\\bmost newer houses here sit on a slab\\b",
+  "struck": "Most newer houses here sit on a slab.",
+  "use": "Most newer houses for sale here list a slab foundation."
+ },
+ {
+  "row": "repairs 26",
+  "pattern": "\\babout as often as, or more often than\\b",
+  "struck": "Houses for sale built 2005 or earlier that advertise a new roof had cut their price about as often as, or more often than, those that do not.",
+  "use": "(cut it: the price-cut comparison is mixed by band and is not for the page)"
+ }
+]
