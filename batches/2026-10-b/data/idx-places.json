@@ -704,6 +704,175 @@
     "near": "33.43324,-79.12137",
     "miles": 2
    }
+  },
+  {
+   "slug": "town-loris",
+   "name": "Loris",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "34.03258,-78.90360",
+    "miles": 5
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-aynor",
+   "name": "Aynor",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.97519,-79.11041",
+    "miles": 5
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-longs",
+   "name": "Longs",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.91344,-78.75415",
+    "miles": 5
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-little-river",
+   "name": "Little River",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.87869,-78.63932",
+    "miles": 4
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-conway",
+   "name": "Conway",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.83596,-79.05035",
+    "miles": 5
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-north-myrtle-beach",
+   "name": "North Myrtle Beach",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.82443,-78.71079",
+    "miles": 5
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-carolina-forest",
+   "name": "Carolina Forest",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.76511,-78.91286",
+    "miles": 4
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-myrtle-beach",
+   "name": "Myrtle Beach",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.70882,-78.88539",
+    "miles": 5
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-socastee",
+   "name": "Socastee",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.68710,-79.00858",
+    "miles": 4
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-surfside-beach",
+   "name": "Surfside Beach",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.60954,-78.97742",
+    "miles": 1.5
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-garden-city",
+   "name": "Garden City",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.59263,-79.00705",
+    "miles": 2
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-murrells-inlet",
+   "name": "Murrells Inlet",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.55606,-79.05920",
+    "miles": 3
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "town-pawleys-litchfield",
+   "name": "Pawleys Island and Litchfield",
+   "pages": [
+    "/buyers/relocating/which-town/"
+   ],
+   "q": {
+    "near": "33.50574,-79.13559",
+    "miles": 4
+   },
+   "index": false,
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
   }
  ]
 }
