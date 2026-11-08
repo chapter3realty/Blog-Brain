@@ -13,3 +13,8 @@
 ## rules/claims.json (suggestion, not added)
 
 - A banned-phrase pattern for "quiet" near "airport" or "Market Common" ("the airport is quiet", "quiet neighborhood") would stop a noise claim the DNL average cannot support. Needs a firing and a quiet control from real site text before it goes in.
+
+## Added in review round 1, 2026-11-08
+
+- **Cresswind wording, one value sitewide.** /buyers/55-plus-communities/ lists "Cresswind Myrtle Beach" among 55+ communities ("400 homes, built 2013-2022 by Kolter"). Kolter's own 2012 announcement called it a "139-acre age targeted community" and its site called it an "Active Adult Community" (this ledger row 39). "Age targeted" is not the same as age-restricted, and the recorded age rule is not online. Proposed registry note: say "built by Kolter Homes as an active adult community, aimed at older buyers" until the covenant is read; the 55+ page's lead should check its row.
+- **Amenity facts by neighborhood** (row 40, our reading of the 2023 aerial and county amenity parcels): pools in Cresswind, Emmens Preserve, Belle Harbor, Balmoral, Park Place and The Reserve. If another page names Market Common pools, it should use the same list.
