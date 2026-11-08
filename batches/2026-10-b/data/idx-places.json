@@ -314,7 +314,7 @@
    ],
    "q": {
     "near": "33.69000,-78.89200",
-    "miles": 1.0,
+    "miles": 1,
     "type": "house",
     "hoa": "0"
    },
@@ -398,7 +398,7 @@
    ],
    "q": {
     "near": "33.84011,-78.63629",
-    "miles": 2.0,
+    "miles": 2,
     "type": "house",
     "hoa": "0"
    },
@@ -496,7 +496,7 @@
    ],
    "q": {
     "near": "34.05700,-78.88800",
-    "miles": 1.0,
+    "miles": 1,
     "type": "house",
     "hoa": "0"
    },
@@ -713,10 +713,11 @@
    ],
    "q": {
     "near": "34.03258,-78.90360",
-    "miles": 5
+    "miles": 5,
+    "type": "house"
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. Houses only (type house). index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: type house: within 5 miles of Loris most listings are lots and land (live map search, 2026-11-08: 190 listings, 75 of them houses, 74 of those in ZIP 29569); the page's figures are for houses."
   },
   {
    "slug": "town-aynor",
@@ -725,11 +726,12 @@
     "/buyers/relocating/which-town/"
    ],
    "q": {
-    "near": "33.97519,-79.11041",
-    "miles": 5
+    "near": "33.97500,-79.15000",
+    "miles": 3,
+    "type": "house"
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. Houses only (type house). index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: Moved west over the town's homes and cut to 3 miles, type house (live map search, 2026-11-08: 17 houses, 15 in ZIP 29511; the old 5-mile circle reached Conway, and 2 in 3 of its houses were outside ZIP 29511)."
   },
   {
    "slug": "town-longs",
@@ -764,11 +766,11 @@
     "/buyers/relocating/which-town/"
    ],
    "q": {
-    "near": "33.83596,-79.05035",
-    "miles": 5
+    "near": "33.84000,-79.05000",
+    "miles": 3
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: Cut to 3 miles (live map search, 2026-11-08: 86 percent inside the city's outline, against 79 at 5 miles)."
   },
   {
    "slug": "town-north-myrtle-beach",
@@ -778,10 +780,10 @@
    ],
    "q": {
     "near": "33.82443,-78.71079",
-    "miles": 5
+    "miles": 4
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: Cut to 4 miles so the circle reaches less of Little River and Longs (the same nearest homes, 97 percent inside the city)."
   },
   {
    "slug": "town-carolina-forest",
@@ -790,11 +792,11 @@
     "/buyers/relocating/which-town/"
    ],
    "q": {
-    "near": "33.76511,-78.91286",
-    "miles": 4
+    "near": "33.77000,-78.92500",
+    "miles": 3
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: Moved to the middle of the outline and cut to 3 miles (live map search, 2026-11-08: 87 percent inside, against 79)."
   },
   {
    "slug": "town-myrtle-beach",
@@ -804,10 +806,10 @@
    ],
    "q": {
     "near": "33.70882,-78.88539",
-    "miles": 5
+    "miles": 3
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: Cut to 3 miles so the circle stays nearer the city (the same nearest homes, 97 percent inside the city limits)."
   },
   {
    "slug": "town-socastee",
@@ -816,11 +818,11 @@
     "/buyers/relocating/which-town/"
    ],
    "q": {
-    "near": "33.68710,-79.00858",
-    "miles": 4
+    "near": "33.67600,-78.98747",
+    "miles": 2.5
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: Moved to the middle of the outline and cut to 2.5 miles (live map search, 2026-11-08: the nearest 48 homes all inside, against 72 percent)."
   },
   {
    "slug": "town-surfside-beach",
@@ -829,11 +831,11 @@
     "/buyers/relocating/which-town/"
    ],
    "q": {
-    "near": "33.60954,-78.97742",
-    "miles": 1.5
+    "near": "33.60600,-78.97500",
+    "miles": 1
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: Moved to the middle of the town and cut to 1 mile (live map search, 2026-11-08: 80 percent inside the town, against 53 at 1.5 miles)."
   },
   {
    "slug": "town-garden-city",
@@ -842,11 +844,11 @@
     "/buyers/relocating/which-town/"
    ],
    "q": {
-    "near": "33.59263,-79.00705",
-    "miles": 2
+    "near": "33.59107,-79.00642",
+    "miles": 1.5
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: Moved to the middle of the outline and cut to 1.5 miles (every home in the search inside it)."
   },
   {
    "slug": "town-murrells-inlet",
@@ -855,11 +857,11 @@
     "/buyers/relocating/which-town/"
    ],
    "q": {
-    "near": "33.55606,-79.05920",
-    "miles": 3
+    "near": "33.54500,-79.06500",
+    "miles": 2
    },
    "index": false,
-   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+   "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides. Checked 2026-11-08: Moved south of the county line and cut to 2 miles (live map search, 2026-11-08: 94 percent inside the Georgetown County outline, against 87)."
   },
   {
    "slug": "town-pawleys-litchfield",
@@ -873,6 +875,205 @@
    },
    "index": false,
    "note": "The town's entry on /buyers/relocating/which-town/. The point is the centre of the town's outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson; the radius is kept short (owner, 2026-11-08) so the strip shows homes in and around the town itself. No type filter: houses and condos. index false: the /homes/near/ page is noindex, so it does not compete with the town guides."
+  },
+  {
+   "slug": "nmb-cherry-grove",
+   "name": "Cherry Grove",
+   "pages": [
+    "/submarkets/north-myrtle-beach/"
+   ],
+   "q": {
+    "near": "33.83400,-78.62400",
+    "miles": 0.65
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/north-myrtle-beach/ (round 4, owner 2026-11-08). The point and radius were chosen from the parts' polygons (data/2026-11-a/submarkets-north-myrtle-beach/verified/map-parts.geojson) so the circle's land stays inside the part: about 2 percent of it in another part, Atlantic Beach or Briarcliffe Acres, and the rest outside the city is the Cherry Grove marsh; it takes in the channels and the pier. No type filter. index false: the /homes/near/ page is noindex, so it does not compete with the guide."
+  },
+  {
+   "slug": "nmb-tilghman-beach",
+   "name": "Tilghman Beach",
+   "pages": [
+    "/submarkets/north-myrtle-beach/"
+   ],
+   "q": {
+    "near": "33.82869,-78.66159",
+    "miles": 0.8
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/north-myrtle-beach/ (round 4, owner 2026-11-08). The point and radius were chosen from the parts' polygons (data/2026-11-a/submarkets-north-myrtle-beach/verified/map-parts.geojson) so the circle's land stays inside the part: at most 3 percent of it in another part, Atlantic Beach or Briarcliffe Acres, and at most 10 percent outside the city (marsh, mostly). No type filter. index false: the /homes/near/ page is noindex, so it does not compete with the guide."
+  },
+  {
+   "slug": "nmb-ocean-drive",
+   "name": "Ocean Drive",
+   "pages": [
+    "/submarkets/north-myrtle-beach/"
+   ],
+   "q": {
+    "near": "33.81890,-78.67801",
+    "miles": 0.4
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/north-myrtle-beach/ (round 4, owner 2026-11-08). The point and radius were chosen from the parts' polygons (data/2026-11-a/submarkets-north-myrtle-beach/verified/map-parts.geojson) so the circle's land stays inside the part: at most 3 percent of it in another part, Atlantic Beach or Briarcliffe Acres, and at most 10 percent outside the city (marsh, mostly). No type filter. index false: the /homes/near/ page is noindex, so it does not compete with the guide."
+  },
+  {
+   "slug": "nmb-crescent-beach",
+   "name": "Crescent Beach",
+   "pages": [
+    "/submarkets/north-myrtle-beach/"
+   ],
+   "q": {
+    "near": "33.80630,-78.70735",
+    "miles": 0.4
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/north-myrtle-beach/ (round 4, owner 2026-11-08). The point and radius were chosen from the parts' polygons (data/2026-11-a/submarkets-north-myrtle-beach/verified/map-parts.geojson) so the circle's land stays inside the part: at most 3 percent of it in another part, Atlantic Beach or Briarcliffe Acres, and at most 10 percent outside the city (marsh, mostly). No type filter. index false: the /homes/near/ page is noindex, so it does not compete with the guide."
+  },
+  {
+   "slug": "nmb-windy-hill",
+   "name": "Windy Hill",
+   "pages": [
+    "/submarkets/north-myrtle-beach/"
+   ],
+   "q": {
+    "near": "33.79597,-78.72964",
+    "miles": 0.7
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/north-myrtle-beach/ (round 4, owner 2026-11-08). The point and radius were chosen from the parts' polygons (data/2026-11-a/submarkets-north-myrtle-beach/verified/map-parts.geojson) so the circle's land stays inside the part: at most 3 percent of it in another part, Atlantic Beach or Briarcliffe Acres, and at most 10 percent outside the city (marsh, mostly). No type filter. index false: the /homes/near/ page is noindex, so it does not compete with the guide."
+  },
+  {
+   "slug": "nmb-little-river-neck",
+   "name": "Little River Neck",
+   "pages": [
+    "/submarkets/north-myrtle-beach/"
+   ],
+   "q": {
+    "near": "33.85455,-78.62443",
+    "miles": 0.55
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/north-myrtle-beach/ (round 4, owner 2026-11-08). The point and radius were chosen from the parts' polygons (data/2026-11-a/submarkets-north-myrtle-beach/verified/map-parts.geojson) so the circle's land stays inside the part: at most 3 percent of it in another part, Atlantic Beach or Briarcliffe Acres, and at most 10 percent outside the city (marsh, mostly). No type filter. index false: the /homes/near/ page is noindex, so it does not compete with the guide."
+  },
+  {
+   "slug": "nmb-west-of-us-17",
+   "name": "North Myrtle Beach west of US 17",
+   "pages": [
+    "/submarkets/north-myrtle-beach/"
+   ],
+   "q": {
+    "near": "33.82530,-78.69749",
+    "miles": 0.65
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/north-myrtle-beach/ (round 4, owner 2026-11-08). The point and radius were chosen from the parts' polygons (data/2026-11-a/submarkets-north-myrtle-beach/verified/map-parts.geojson) so the circle's land stays inside the part: at most 3 percent of it in another part, Atlantic Beach or Briarcliffe Acres, and at most 10 percent outside the city (marsh, mostly). No type filter. index false: the /homes/near/ page is noindex, so it does not compete with the guide."
+  },
+  {
+   "slug": "nmb-across-the-waterway",
+   "name": "North Myrtle Beach across the waterway",
+   "pages": [
+    "/submarkets/north-myrtle-beach/"
+   ],
+   "q": {
+    "near": "33.81019,-78.76625",
+    "miles": 1
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/north-myrtle-beach/ (round 4, owner 2026-11-08). The point and radius were chosen from the parts' polygons (data/2026-11-a/submarkets-north-myrtle-beach/verified/map-parts.geojson) so the circle's land stays inside the part: at most 3 percent of it in another part, Atlantic Beach or Briarcliffe Acres, and about 6 percent outside the city, all of it west of the waterway. No type filter. index false: the /homes/near/ page is noindex, so it does not compete with the guide."
+  },
+  {
+   "slug": "gc-ocean-side",
+   "name": "Garden City by the pier",
+   "pages": [
+    "/submarkets/garden-city/"
+   ],
+   "q": {
+    "near": "33.58000,-78.99250",
+    "miles": 0.45,
+    "type": "condo"
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/garden-city/ (round 4, owner 2026-11-08: \"horizontal idx listings is the strongest tool we have\"). index false: the /homes/near/ page is noindex, so it does not compete with the guide. Checked 2026-11-08 against the live map search (/homes/api/map with the same near and miles), each home placed in a part by the page's own geometry (data/2026-11-a/submarkets-garden-city/map-layers.geojson: Waccamaw Drive, Business 17, the county line): type condo: almost every home on this side is a condo, and the part sells condos. The circle stops just north of the county line. 45 condos: 32 between Waccamaw Drive and the ocean, 13 between Waccamaw Drive and Business 17."
+  },
+  {
+   "slug": "gc-on-the-marsh",
+   "name": "Garden City on the marsh",
+   "pages": [
+    "/submarkets/garden-city/"
+   ],
+   "q": {
+    "near": "33.57600,-79.01000",
+    "miles": 0.7,
+    "type": "house"
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/garden-city/ (round 4, owner 2026-11-08: \"horizontal idx listings is the strongest tool we have\"). index false: the /homes/near/ page is noindex, so it does not compete with the guide. Checked 2026-11-08 against the live map search (/homes/api/map with the same near and miles), each home placed in a part by the page's own geometry (data/2026-11-a/submarkets-garden-city/map-layers.geojson: Waccamaw Drive, Business 17, the county line): type house: the part is about the houses on the marsh edges. The point is in the marsh, so the circle takes in both shores, Dogwood Drive on the beach strip and Creekside Drive and Rum Gully Road on the mainland. 21 houses: 15 between the marsh and Business 17 (5 of them on the marsh-edge streets of facts row 41), 5 at the Georgetown end, 1 on the ocean side."
+  },
+  {
+   "slug": "gc-older-streets",
+   "name": "Garden City between the marsh and Business 17",
+   "pages": [
+    "/submarkets/garden-city/"
+   ],
+   "q": {
+    "near": "33.59200,-78.99850",
+    "miles": 0.5
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/garden-city/ (round 4, owner 2026-11-08: \"horizontal idx listings is the strongest tool we have\"). index false: the /homes/near/ page is noindex, so it does not compete with the guide. Checked 2026-11-08 against the live map search (/homes/api/map with the same near and miles), each home placed in a part by the page's own geometry (data/2026-11-a/submarkets-garden-city/map-layers.geojson: Waccamaw Drive, Business 17, the county line): No type filter. 29 homes, 27 of them between the marsh and Business 17 and 2 just west of it."
+  },
+  {
+   "slug": "gc-west-of-17",
+   "name": "Garden City west of Business 17",
+   "pages": [
+    "/submarkets/garden-city/"
+   ],
+   "q": {
+    "near": "33.59600,-79.01500",
+    "miles": 0.6
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/garden-city/ (round 4, owner 2026-11-08: \"horizontal idx listings is the strongest tool we have\"). index false: the /homes/near/ page is noindex, so it does not compete with the guide. Checked 2026-11-08 against the live map search (/homes/api/map with the same near and miles), each home placed in a part by the page's own geometry (data/2026-11-a/submarkets-garden-city/map-layers.geojson: Waccamaw Drive, Business 17, the county line): No type filter. 32 homes, all west of Business 17, 30 inside the Census place and 2 just outside it."
+  },
+  {
+   "slug": "gc-georgetown-end",
+   "name": "the Georgetown end of Garden City",
+   "pages": [
+    "/submarkets/garden-city/"
+   ],
+   "q": {
+    "near": "33.54800,-79.02000",
+    "miles": 1
+   },
+   "index": false,
+   "note": "A part's entry on /submarkets/garden-city/ (round 4, owner 2026-11-08: \"horizontal idx listings is the strongest tool we have\"). index false: the /homes/near/ page is noindex, so it does not compete with the guide. Checked 2026-11-08 against the live map search (/homes/api/map with the same near and miles), each home placed in a part by the page's own geometry (data/2026-11-a/submarkets-garden-city/map-layers.geojson: Waccamaw Drive, Business 17, the county line): No type filter. 17 homes, all south of the county line on the Garden City strip and its canals; 1 just outside the 2020 Census outline."
+  },
+  {
+   "slug": "str-garden-city-beach-condos",
+   "name": "Garden City Beach",
+   "pages": [
+    "/invest/str-tools/"
+   ],
+   "q": {
+    "near": "33.58000,-78.99900",
+    "miles": 1,
+    "type": "condo"
+   },
+   "index": false,
+   "note": "The condo strip under the calculator on /invest/str-tools/ (round 4, owner 2026-11-08), the town the calculator opens on. Condos within a mile of the middle of Waccamaw Drive. Type condo: the page is about condos. Checked 2026-11-08 (live map search): 56 condos, every one inside the Garden City outline in data/2026-11-a/buyers-relocating-which-town/areas.geojson, 51 of them on Waccamaw Drive, 45 marked by the listing for nightly rentals. The strip's title says only what is true of the typical condo (row 6). index false: the /homes/near/ page is noindex, so it does not compete with the guides."
+  },
+  {
+   "slug": "str-garden-city-beach-houses",
+   "name": "Garden City Beach",
+   "pages": [
+    "/invest/str-tools/"
+   ],
+   "q": {
+    "near": "33.58000,-78.99700",
+    "miles": 0.8,
+    "type": "house"
+   },
+   "index": false,
+   "note": "The houses strip in \"Where it is allowed\" on /invest/str-tools/ (round 4, owner 2026-11-08), where the Garden City area leads the chart of houses marked for nightly rentals. Houses within 0.8 mile of the middle of Waccamaw Drive. Type house: the section is about houses. Checked 2026-11-08 (live map search): 32 houses, 30 inside the Garden City outline, 24 marked by the listing for nightly rentals. index false: the /homes/near/ page is noindex, so it does not compete with the guides."
   }
  ]
 }

@@ -1,0 +1,476 @@
+{
+ "clusters": [
+  {
+   "search": "Act 388 / Alan Wilson's rental property tax cut: \"will the governor cut the tax on rentals\", \"Act 388 rental property\", \"Wilson property tax\"",
+   "owner": "/invest/rental-property-tax-cut/ (the Wilson rental-tax question). /buyers/act-388-changes/ owns \"what is Act 388 / Act 388 bills / 15% cap\". /buyers/property-taxes/ owns \"4% vs 6%\" (see the property-tax cluster).",
+   "others": [
+    "/buyers/act-388-changes/",
+    "/market-reports/2026-election/"
+   ],
+   "problem": "Two pages answer the same question in the same words. The H1 on /buyers/act-388-changes/ is \"Will the Next Governor Cut the Tax on Your Myrtle Beach Rental?\", which is the question /invest/rental-property-tax-cut/ exists to answer. Both have an H2 on what Wilson said (\"What did Alan Wilson and Jermaine Johnson say about Act 388?\" and \"What did Alan Wilson say about the tax on rentals?\"). Both have an H2 on whether the 6% can be lowered (\"What would it take to lower the 6% rate...\" and \"Can the governor cut the tax on rentals by himself?\"). Both list the same keywords: \"Act 388 rental property\" and \"4 percent vs 6 percent\". The election hub adds a third answer, \"How much would a Myrtle Beach rental save if Wilson cuts the rental tax?\", with its own tax slider. All three were published the same week and have 0 impressions. The triage notes flag this pair.",
+   "fix": "/buyers/act-388-changes/: new H1 \"What is Act 388, and which bills would change it?\". New title \"Act 388 in South Carolina: the 15% Cap, the 6% Rate and the Bills | Chapter3\". Cut the Wilson/Johnson H2 to two sentences ending with \"What Wilson's plan would do to a Myrtle Beach rental's tax bill is on our rental tax cut page\" (link /invest/rental-property-tax-cut/). Rename \"What would it take to lower the 6% rate...\" to \"Which bills would change the 6% rate?\", covering bill text only. Drop the keywords \"Act 388 second home tax\" and \"25 percent exemption\". /invest/rental-property-tax-cut/: use the triage H1 \"What would Wilson's rental tax cut mean for Myrtle Beach?\". Drop the keywords \"Act 388 rental property\", \"South Carolina 6 percent property tax\", \"rental property tax Myrtle Beach\" and \"4 percent vs 6 percent assessment ratio\". Add one sentence: \"How the 4% and 6% rates work today is on our Horry County property tax page.\" /market-reports/2026-election/: keep the H2 as a two-sentence summary with the $5,347 figure and a link to /invest/rental-property-tax-cut/. Move the tax slider to the rental-tax page, so the hub sends readers there and does not answer the question itself.",
+   "severity": "real"
+  },
+  {
+   "search": "\"homes for sale in <town or community>\": the /homes/near/<slug>/ IDX place pages, including the 13 town-* strips",
+   "owner": "For a town: the town guide /submarkets/<town>/, carrying the horizontal IDX strip. For a named community: one /homes/near/<community>/ page per community.",
+   "others": [
+    "/homes/near/town-* (13 places)",
+    "/homes/near/nohoa-* (16 places)",
+    "/homes/near/second-home-* (5 places)",
+    "/homes/near/tidewater/",
+    "/homes/near/tidewater-plantation/",
+    "/homes/near/golf-and-yacht-club/",
+    "/homes/near/myrtle-beach-golf-and-yacht-club/",
+    "/homes/near/cherry-grove/",
+    "/homes/near/surfside-beach/",
+    "/homes/near/pine-lakes/",
+    "/homes/near/the-farm/"
+   ],
+   "problem": "The 13 town-* places are correctly kept out of search. functions/homes/[[path]].js line 1051 sets robots \"noindex, follow\" (plus the x-robots-tag header) when place.index === false. functions/sitemap-homes.xml.js filters PLACES[s].index !== false. idx-lib/places.js has \"index\": false on all 13 town-* slugs, and none of them appears in GSC. The other 63 place pages are indexed and in the sitemap, and several of them cannibalize. (1) Exact duplicates: /homes/near/tidewater/ and /homes/near/tidewater-plantation/ are both titled \"Homes for sale in Tidewater Plantation\" and both show in GSC (11 and 9 impressions, position 60 to 69). /homes/near/golf-and-yacht-club/ and /homes/near/myrtle-beach-golf-and-yacht-club/ run the identical query (subdivision \"Golf and Yacht\") under the identical title. (2) Same title, different filter: nohoa-cherry-grove and cherry-grove are both \"Homes for sale in Cherry Grove\". nohoa-garden-city-beach and second-home-garden-city-beach are both \"Homes for sale in Garden City Beach\". nohoa-ocean-drive and second-home-north-myrtle-beach center on the same point (33.82231,-78.67907). (3) Filtered slices with a whole-town title: nohoa-conway, nohoa-loris, nohoa-little-river, nohoa-socastee, nohoa-aynor, nohoa-surfside-beach, second-home-murrells-inlet, second-home-pawleys-island and second-home-north-myrtle-beach are titled \"Homes for sale in Conway\" (and so on). They show only no-HOA houses within 0.5 to 3 miles, or a 1.5-mile beach circle, and they compete with the town guides, whose JSON-LD targets \"<town> homes for sale\". (4) The site search sends readers to the wrong page. idx-lib/query.js resolves a bare town name to the first matching place in PLACES order, so \"homes in Conway\" 302s to /homes/near/nohoa-conway/ (no-HOA houses only), not to the town-conway strip. The same happens for Loris, Little River, Socastee, Aynor, North Myrtle Beach (second-home) and Murrells Inlet (second-home).",
+   "fix": "In Blog-Brain batches/2026-10-b/data/idx-places.json, then regenerate idx-lib/places.js: (a) Set \"index\": false on all 16 nohoa-* and all 5 second-home-* places. These are strips for one guide each, which is the reason the town-* places are noindex. (b) Keep one Tidewater slug. Keep tidewater-plantation, whose name matches the search \"tidewater plantation real estate\". Confirm which subdivision words return the right MLS set, point the strip on /buyers/best-neighborhoods/ at it, and add a 301 from /homes/near/tidewater/. (c) Keep myrtle-beach-golf-and-yacht-club, point the strip on /buyers/affordable-places-to-live/ at it, and 301 /homes/near/golf-and-yacht-club/. (d) In query.js, make a bare town name resolve to the town-* place, or to /homes/?city=, and never to a nohoa-* or second-home-* slice. (e) On each town guide (/submarkets/conway/, /little-river/, /murrells-inlet/, /pawleys-island/, /garden-city/, /surfside-beach/, /north-myrtle-beach/), keep \"<town> homes for sale\" in the keywords and use the horizontal IDX strip from the town-* place with the heading \"Homes for sale in <town> now\". The guide is the only indexed answer for that town. (f) Community pages that stay indexed (the-farm, barefoot-resort, prince-creek-55 and others): drop \"homes for sale\" keywords from the matching guide (for example \"The Farm at Carolina Forest homes for sale\" on /submarkets/carolina-forest/the-farm/), and let its strip's \"See all\" link send buyers to the place page.",
+   "severity": "real"
+  },
+  {
+   "search": "Horry County property tax rate, \"4% vs 6%\", legal residence application, second-home property tax in SC",
+   "owner": "/buyers/property-taxes/ (1,815 impressions, 16 clicks, position 8.3; the site's second-best page). Keep it protected.",
+   "others": [
+    "/buyers/common-mistakes/",
+    "/buyers/cost-to-own/",
+    "/buyers/second-home/",
+    "/submarkets/myrtle-beach/",
+    "/invest/landlord-insurance/",
+    "/invest/run-the-numbers/",
+    "/invest/llc/",
+    "/buyers/relocating/moving-checklist/",
+    "/invest/rental-property-tax-cut/"
+   ],
+   "problem": "Eight other pages list the owner's keywords in their JSON-LD. /buyers/common-mistakes/ lists \"4 percent tax rate South Carolina\" and \"Horry County legal residence application\". Its H2 \"Why is my tax bill so much higher than the seller's?\" is the same question as the owner's H2 \"Why property taxes go up the year after you buy\". /buyers/cost-to-own/ lists \"Horry County property tax\" and has the H2 \"How much more does a second home pay in property tax?\". /buyers/second-home/ lists \"second home property tax South Carolina\". /submarkets/myrtle-beach/ lists \"Myrtle Beach property tax second home\". /invest/landlord-insurance/ lists \"property tax on a rental Horry County\", and /invest/run-the-numbers/ lists \"Horry County rental property tax\". The query \"horry county property tax rate\" (17 impressions) sits at position 11.4, below the owner's average.",
+   "fix": "Remove those keywords from each page's JSON-LD. Keep the content where it serves that page's own intent, and add the owner link with the anchor \"Horry County property tax rates\". /buyers/common-mistakes/: keep both mistakes, each cut to the cost of the mistake, with the line \"How to apply for the 4% rate, step by step, is on our property tax page.\" /buyers/cost-to-own/: rename the H2 to \"What does the tax add each month on a second home?\" and give one figure plus the link. /buyers/second-home/, /invest/landlord-insurance/, /invest/run-the-numbers/: one sentence plus the link. /buyers/relocating/moving-checklist/: keep the deadline and link the how-to. /invest/llc/: keep \"LLC 4 percent legal residence\", which is a distinct LLC question.",
+   "severity": "real"
+  },
+  {
+   "search": "condotel financing, non-warrantable condo loans, \"warrantable vs non-warrantable condo\"",
+   "owner": "/invest/condotel-financing/ (151 impressions; \"condotel financing\" at position 16.4)",
+   "others": [
+    "/invest/non-warrantable-condos/",
+    "/invest/condo-buildings/",
+    "/invest/condos/",
+    "/buyers/condo-in-litigation/"
+   ],
+   "problem": "The two pages are near copies. Condotel has the H2s \"What makes a condo non-warrantable\" and \"How to check condo warrantability before you offer\". Non-warrantable has \"How to finance a non-warrantable condo\" and \"How to find out if a condo is warrantable before you make an offer\". Both descriptions say \"how to finance a condotel or non-warrantable condo\" / \"how to finance one\", and both sit near position 21. /invest/condo-buildings/ adds a third version, \"Condotel financing: how lenders decide which buildings qualify\". /invest/condos/ lists \"condotel financing\" and \"non-warrantable condo\" as keywords. The triage notes flag the pair and ask for a merge decision.",
+   "fix": "Merge. Move the unique parts of /invest/non-warrantable-condos/ into /invest/condotel-financing/: the \"See if a condo is warrantable\" checker, the insurance-rule section and the story of the buyer kept off the wrong building. Then add a 301 from /invest/non-warrantable-condos/ to /invest/condotel-financing/. New title \"Condotel and Non-Warrantable Condo Loans in Myrtle Beach | Chapter3\". New H1 \"Condotel and non-warrantable condo financing in Myrtle Beach: which loans work, and how to check the building\". Add \"non-warrantable condo Myrtle Beach\" and \"warrantable vs non-warrantable condo\" to the keywords, and update every internal link to the old URL. Keep the BrickWood affiliate wording as approved. /invest/condo-buildings/: cut its condotel H2 to two sentences and add \"Which loans close on these buildings is on our condotel financing page.\" /invest/condos/: drop the keywords \"condotel financing\" and \"non-warrantable condo\", and link the merged page from \"Can you get a mortgage on a Myrtle Beach oceanfront condo?\". /buyers/condo-in-litigation/: keep it; it owns \"condo in litigation\". Link \"Active litigation fails the warrantability standard\" to the merged page. If the owner wants two pages instead, the fallback is this: non-warrantable-condos keeps only \"what the label means and how to check a building\" (title \"Is This Myrtle Beach Condo Warrantable? How to Check\"), and every loan section moves to condotel-financing.",
+   "severity": "real"
+  },
+  {
+   "search": "how much do Airbnbs make in Myrtle Beach / Airbnb profit and income",
+   "owner": "/invest/airbnb-income/ (108 impressions, position 6.9)",
+   "others": [
+    "/invest/str-tools/",
+    "/invest/str-vs-ltr/",
+    "/invest/rental-returns/"
+   ],
+   "problem": "/invest/str-tools/ lists \"how much does an Airbnb make in Myrtle Beach\" in its keywords. Its first H2 is \"How much profit does a Myrtle Beach Airbnb make?\", and its H1 is \"How much would you keep from a Myrtle Beach Airbnb?\". Those are the owner's question. /invest/str-vs-ltr/ has the H2 \"How much does a Myrtle Beach Airbnb make each month?\", the same question as the owner's seasonality section. /invest/rental-returns/ has \"How much does a nightly rental make in each area?\", which matches the owner's \"Airbnb income by area\" H2. The triage notes say all three use different data sources, so the site gives four different answers to one search.",
+   "fix": "/invest/str-tools/: new title \"Myrtle Beach Airbnb Calculator: Nights to Pay the Bills | Chapter3\". New H1 \"Myrtle Beach Airbnb calculator: how many nights pay the bills?\". Rename the first H2 to \"How many nights does it take to pay the bills?\". Drop the keywords \"how much does an Airbnb make in Myrtle Beach\" and \"Myrtle Beach Airbnb occupancy rate\". Add under the lede: \"What Myrtle Beach Airbnbs gross, by area and month, is on our Airbnb income page.\" /invest/str-vs-ltr/: rename the H2 to \"What the same two-bedroom earns each month, both ways\", and link /invest/airbnb-income/ for market-wide figures. /invest/rental-returns/: rename the H2 to \"What return does a nightly rental make in each area?\" (cap rate, not gross) and link the owner for gross income. All four pages take their gross figures from the one source the owner uses.",
+   "severity": "real"
+  },
+  {
+   "search": "can you Airbnb in Myrtle Beach / Myrtle Beach short-term rental rules / STR zoning map",
+   "owner": "/invest/str-rules/ for Myrtle Beach and Grand Strand-wide rules (610 impressions, position 8.2). Each town guide owns its own town's rule question.",
+   "others": [
+    "/submarkets/myrtle-beach/",
+    "/invest/str-tools/",
+    "/invest/str-vs-ltr/",
+    "/invest/condos/",
+    "/buyers/common-mistakes/",
+    "/invest/where-to-buy/",
+    "/hoa/rental-restrictions/"
+   ],
+   "problem": "Five pages ask \"Can you Airbnb a home in Myrtle Beach?\" as an H2 or keyword. str-tools and str-vs-ltr use that exact H2. /submarkets/myrtle-beach/ has \"Can you rent a home by the night in Myrtle Beach?\" plus the keywords \"can you Airbnb in Myrtle Beach\" and \"Myrtle Beach short term rental zoning map\", and it links to /invest/str-rules/ zero times. Its only internal links go to /contact/, two town pages, /submarkets/, /buyers/property-taxes/ and the home page. /invest/condos/ has \"Can you rent out a Myrtle Beach condo by the night?\". /buyers/common-mistakes/ lists \"Myrtle Beach short term rental zoning\". /invest/where-to-buy/ restates the rules town by town, links str-rules zero times, and is flagged in the triage. The owner gets 1 click on 610 impressions.",
+   "fix": "/submarkets/myrtle-beach/: rename the H2 to \"Where in the city can you rent by the night? The map\". Keep the map, follow it with two sentences, and add \"The license, the tax and every other town's rules are on our Myrtle Beach short-term rental rules page\" (link /invest/str-rules/). Drop the keywords \"can you Airbnb in Myrtle Beach\" and \"Myrtle Beach short term rental zoning map\". /invest/str-rules/: link the city map from its Myrtle Beach section, and drop \"North Myrtle Beach STR ordinance\" so the North Myrtle Beach guide owns that town's query. Each per-city section links its town guide. /invest/str-tools/ and /invest/str-vs-ltr/: replace the \"Can you Airbnb a home in Myrtle Beach?\" H2 with one sentence and the link. /invest/condos/: keep the condo-building angle (\"Which condo buildings allow nightly rentals?\") and link the rules. /buyers/common-mistakes/: drop the keyword. /invest/where-to-buy/: keep the money per area, cut each area's rule detail to one line, and link str-rules. /hoa/rental-restrictions/: retitle per the triage, \"Can an HOA Ban Rentals in Myrtle Beach? Recorded Rules\", so it owns recorded HOA rules, not city law.",
+   "severity": "real"
+  },
+  {
+   "search": "rental property calculator Myrtle Beach / DSCR calculator / cap rate Myrtle Beach",
+   "owner": "/invest/long-term-rental/ for the tool searches (\"rental property calculator\", \"DSCR calculator\"). /invest/run-the-numbers/ for \"how to analyze a rental deal / 1 percent rule\". /invest/rental-returns/ for \"cap rate by area / rental returns\".",
+   "others": [
+    "/invest/run-the-numbers/",
+    "/invest/rental-returns/",
+    "/invest/strategies/dscr-loans/",
+    "/invest/"
+   ],
+   "problem": "/invest/run-the-numbers/ is titled \"Myrtle Beach Rental Property Calculator: Is It a Good Deal?\" and lists the keywords \"rental property calculator Myrtle Beach\", \"DSCR calculator\" and \"cap rate Myrtle Beach\". /invest/long-term-rental/ is titled \"Myrtle Beach Long-Term Rental Analyzer | DSCR Calculator\". The two pages never link to each other (0 links in each direction). /invest/rental-returns/ lists \"cap rate Myrtle Beach rental\" and \"DSCR Myrtle Beach rental\" and promises \"a calculator\". /invest/strategies/dscr-loans/ has the H2 \"How to calculate DSCR\". The triage notes flag the run-the-numbers and long-term-rental pair.",
+   "fix": "/invest/run-the-numbers/: new title \"How to Analyze a Myrtle Beach Rental: 1% Rule, Tax, Dues | Chapter3\". Keep the H1 \"Is this Myrtle Beach rental a good deal?\". Drop the keywords \"rental property calculator Myrtle Beach\", \"DSCR calculator\" and \"cap rate Myrtle Beach\". Add \"Run any address through our free long-term rental analyzer\" (link /invest/long-term-rental/). Cut the H2 \"What cap rate... should you aim for here?\" to the targets and link /invest/rental-returns/ for cap rates by area. /invest/long-term-rental/: new title \"Myrtle Beach Rental Property Calculator: DSCR, Cap Rate, Cash Flow\". Add \"For how to read the result, see is this Myrtle Beach rental a good deal\" (link run-the-numbers). /invest/rental-returns/: drop \"DSCR Myrtle Beach rental\", and point its calculator section at /invest/long-term-rental/ instead of building a second one. /invest/strategies/dscr-loans/: keep \"How to calculate DSCR\" as a formula and add one line linking the analyzer.",
+   "severity": "real"
+  },
+  {
+   "search": "where to live near Myrtle Beach / best neighborhoods in Myrtle Beach / Myrtle Beach neighborhoods / Grand Strand towns",
+   "owner": "/buyers/relocating/which-town/ owns \"where to live near Myrtle Beach / which town\". /buyers/best-neighborhoods/ owns \"best neighborhoods / best places to live in Myrtle Beach\".",
+   "others": [
+    "/submarkets/",
+    "/submarkets/myrtle-beach/",
+    "/submarkets/north-myrtle-beach/",
+    "/submarkets/carolina-forest/",
+    "/buyers/affordable-places-to-live/",
+    "/buyers/relocating/"
+   ],
+   "problem": "Four pages claim \"where to live / Myrtle Beach neighborhoods\". /submarkets/ has the H1 \"Myrtle Beach neighborhoods.\" and the title \"Grand Strand Neighborhoods | Myrtle Beach Area Guide\". /submarkets/myrtle-beach/ has the title \"Myrtle Beach Real Estate: Where to Live and Rent\", the H2 \"Where should you live in Myrtle Beach?\" and the keywords \"where to live in Myrtle Beach\" and \"Myrtle Beach neighborhoods\". /buyers/best-neighborhoods/ lists \"best areas to live in Myrtle Beach\", \"Myrtle Beach neighborhoods map\" and \"Carolina Forest vs Myrtle Beach\". /buyers/relocating/which-town/ lists \"where to live near Myrtle Beach\", \"Myrtle Beach vs North Myrtle Beach\", \"cheapest place to live near Myrtle Beach\" and \"cost of living Horry County\". Those last three belong to the North Myrtle Beach guide, the affordable page and the cost-of-living page. which-town and best-neighborhoods do not link to each other (0 and 0), /submarkets/ does not link which-town (0), and the city page does not link best-neighborhoods (0). The relocating hub has its own H2, \"How to pick a Grand Strand town before you know the area\".",
+   "fix": "/submarkets/: new title \"Grand Strand Area Guides: Prices, Taxes, Rental Rules | Chapter3\". New H1 \"Grand Strand area guides: what it costs to own and rent in nine areas\". Add \"Choosing where to live? Compare 13 towns on our which town fits you page.\" /submarkets/myrtle-beach/: new title \"City of Myrtle Beach, SC: Where People Live, Rental Map, Prices\". Rename the H2 to \"Which parts of the city do people live in?\" and end it with a link to /buyers/best-neighborhoods/. Drop the keywords \"where to live in Myrtle Beach\" and \"Myrtle Beach neighborhoods\". /buyers/best-neighborhoods/: drop \"Carolina Forest vs Myrtle Beach\" (the Carolina Forest guide owns it). Add \"Still choosing a town first? Our 13-town comparison\" (link which-town). /buyers/relocating/which-town/: drop the keywords \"Myrtle Beach vs North Myrtle Beach\", \"cheapest place to live near Myrtle Beach\" and \"cost of living Horry County\". Add \"Once you pick a town, see the best neighborhoods in it\" (link best-neighborhoods). /buyers/relocating/: cut its town-picking H2 to two sentences plus the which-town link.",
+   "severity": "real"
+  },
+  {
+   "search": "cost of living in Myrtle Beach (SC)",
+   "owner": "/buyers/relocating/cost-of-living/ (228 impressions, position 13.1; the four query variants total about 70 impressions at positions 15 to 17)",
+   "others": [
+    "/buyers/relocating/why-myrtle-beach/",
+    "/buyers/relocating/which-town/",
+    "/buyers/retirees/",
+    "/buyers/relocating/pros-and-cons/",
+    "/buyers/relocating/",
+    "/buyers/relocating/from-new-york/",
+    "/buyers/cost-to-own/"
+   ],
+   "problem": "/buyers/relocating/why-myrtle-beach/ lists \"cost of living Myrtle Beach\" as a keyword and has the H2s \"What would my house buy in Myrtle Beach?\" and \"How much are taxes and insurance in Myrtle Beach?\", but it never links the owner (0 links). which-town lists \"cost of living Horry County\". Retirees lists \"cost of living Myrtle Beach retirees\". pros-and-cons opens with \"What it costs to live in Myrtle Beach\". The relocating hub has \"Your money goes further here\". The triage notes that from-new-york gives different numbers from the owner's own calculator, so Google sees conflicting answers on the site.",
+   "fix": "/buyers/relocating/why-myrtle-beach/: drop \"cost of living Myrtle Beach\". Cut both cost H2s to one figure each and add \"Compare your city on our Myrtle Beach cost of living page\" (link the owner). /buyers/relocating/which-town/: drop \"cost of living Horry County\". /buyers/retirees/: drop \"cost of living Myrtle Beach retirees\", keep the H2 \"What does a house near Myrtle Beach cost a year at 65?\" and link the owner. /buyers/relocating/pros-and-cons/: rename \"What it costs to live in Myrtle Beach\" to \"Is it cheaper to live here?\" with one figure plus the link. /buyers/relocating/: the \"Your money goes further\" and \"Lower prices\" H2s become one link block. /buyers/relocating/from-new-york/: use the same price index as the owner, and put it in facts/registry.json, per the triage. /buyers/cost-to-own/ owns \"cost to own a home\" (a different intent). Leave it as is.",
+   "severity": "real"
+  },
+  {
+   "search": "is Myrtle Beach a good place to live / pros and cons of living in Myrtle Beach",
+   "owner": "/buyers/relocating/pros-and-cons/ (\"is myrtle beach a good place to live\" at position 14.3; \"living in myrtle beach pros and cons\" at position 17.6)",
+   "others": [
+    "/buyers/relocating/why-myrtle-beach/",
+    "/submarkets/myrtle-beach/",
+    "/buyers/retirees/"
+   ],
+   "problem": "/buyers/relocating/why-myrtle-beach/ lists \"Myrtle Beach pros and cons\" and \"why are people leaving Myrtle Beach\". It has the H2s \"Should you move to Myrtle Beach?\" and \"Are people leaving Myrtle Beach, and why?\" and does not link the owner (0). /submarkets/myrtle-beach/ has \"What are the pros and cons of Myrtle Beach?\" and \"What is it like to live in Myrtle Beach?\" and also does not link the owner (0). /buyers/retirees/ has \"Is Myrtle Beach a good place to retire?\", which is a distinct and acceptable intent. Three pages answer the same verdict question, and none passes authority to the owner.",
+   "fix": "/buyers/relocating/why-myrtle-beach/: drop the keyword \"Myrtle Beach pros and cons\". Rename \"Should you move to Myrtle Beach?\" to \"Who moves here, and who leaves?\" and close it with \"The honest pros and cons of living here year-round\" (link the owner). /submarkets/myrtle-beach/: rename the H2 to \"What is different about living inside the city limits?\" and keep it to city-only points (city tax, city services, the boardwalk). Add the owner link for the area-wide pros and cons. /buyers/relocating/pros-and-cons/: add a link to why-myrtle-beach under \"Is Myrtle Beach a good place to live?\" for the growth numbers.",
+   "severity": "real"
+  },
+  {
+   "search": "55+ / active adult communities Myrtle Beach (and North Myrtle Beach); retiring in Myrtle Beach",
+   "owner": "/buyers/55-plus-communities/ owns \"55+ communities\". /buyers/retirees/ owns \"retire to Myrtle Beach\" and \"does SC tax Social Security\".",
+   "others": [
+    "/buyers/retirees/",
+    "/buyers/gated-communities/",
+    "/buyers/55-plus-communities/del-webb-grande-dunes/",
+    "/buyers/55-plus-communities/del-webb-north-myrtle-beach/"
+   ],
+   "problem": "About 300 impressions of 55+ queries all sit at positions 21 to 30, and \"retiring in myrtle beach\" sits at 20.6. /buyers/retirees/ competes with the hub head-on. Its description says \"four 55+ communities and what homes sell for\". It has the H2s \"Which 55+ communities near Myrtle Beach should you see?\", \"How close are the hospitals to Myrtle Beach's 55+ communities?\" and \"Do Myrtle Beach's 55+ communities have to evacuate for hurricanes?\", and the keyword \"55+ communities near Myrtle Beach\". Going the other way, the hub's H2 \"South Carolina retirement tax benefits, verified\" competes with the retirees page's \"Does South Carolina tax Social Security and pensions?\". The hub lists \"Del Webb Myrtle Beach\" as a keyword, against the Del Webb Grande Dunes page (\"del webb myrtle beach hoa fees\" at position 8.3). /buyers/gated-communities/ lists \"55+ gated communities Myrtle Beach\".",
+   "fix": "/buyers/retirees/: new description \"Retiring to Myrtle Beach: no state tax on Social Security, what a house costs at 65, the hospitals, golf and the beach.\" Rename the 55+ H2 to \"Where do retirees here live?\" with three sentences ending \"Compare all nine on our 55+ communities page\" (link the hub). Rename the hospital and evacuation H2s so they do not say \"55+ communities\": \"How close are the hospitals?\" and \"Do you have to evacuate for hurricanes?\". Drop the keyword \"55+ communities near Myrtle Beach\". /buyers/55-plus-communities/: cut the tax H2 to two lines and add \"The full retiree tax picture is on our retiring to Myrtle Beach page.\" Drop the keyword \"Del Webb Myrtle Beach\" and link both Del Webb pages from their table rows. Add a line \"55+ in North Myrtle Beach: Del Webb North Myrtle Beach\" for the North Myrtle Beach queries. /buyers/gated-communities/: drop \"55+ gated communities Myrtle Beach\", and link the hub from the Seasons at Prince Creek West entry.",
+   "severity": "real"
+  },
+  {
+   "search": "first-time home buyer Myrtle Beach / SC, SC Housing down payment assistance, first-time buyer tax credit",
+   "owner": "/buyers/first-time-home-buyer-myrtle-beach/ owns \"first-time home buyer\". /buyers/programs/ owns \"SC Housing down payment assistance\". /buyers/first-time-buyer-tax-credit/ owns \"first-time buyer tax credit / H.R. 3475\".",
+   "others": [
+    "/buyers/programs/",
+    "/buyers/first-time-buyer-tax-credit/",
+    "/buyers/affordable-places-to-live/",
+    "/market-reports/2026-election/"
+   ],
+   "problem": "The first-time page leads with the hero chip \"$10,000 from SC Housing\". It lists \"first time home buyer programs Horry County\" and \"first time home buyer tax credit SC\", the other two owners' terms. /buyers/programs/ lists \"Horry County first time home buyer program\". The triage notes flag the pair, with programs at position 42.3 on 389 impressions. /buyers/affordable-places-to-live/ has the H2 \"What help can you get with a down payment?\". The election hub has \"Would a $50,000 first-time buyer credit raise Myrtle Beach home prices?\". The first-time title leaves out the words people search.",
+   "fix": "/buyers/first-time-home-buyer-myrtle-beach/: use the triage title \"First-Time Home Buyer in Myrtle Beach: Cash, Loans and $10,000 Help | Chapter3\". Cut the SC Housing detail to two sentences with the anchor \"SC down payment assistance\" linking /buyers/programs/. Drop the keywords \"first time home buyer programs Horry County\" and \"first time home buyer tax credit SC\". Add \"Is there a federal first-time buyer tax credit? Not yet; see our tax credit page.\" /buyers/programs/: drop \"Horry County first time home buyer program\", keep every SC Housing detail, and link back with \"the rest of the first-time buyer steps\". /buyers/affordable-places-to-live/: cut the down payment H2 to one sentence plus the programs link. /market-reports/2026-election/: keep its credit H2 as a two-sentence summary linking /buyers/first-time-buyer-tax-credit/.",
+   "severity": "real"
+  },
+  {
+   "search": "Myrtle Beach home / flood insurance cost; landlord insurance",
+   "owner": "/buyers/coastal-insurance/ for home, wind and flood cost (662 impressions, 0 clicks, position 9.7). /invest/landlord-insurance/ for insurance on a rental.",
+   "others": [
+    "/buyers/cost-to-own/",
+    "/buyers/common-mistakes/",
+    "/submarkets/myrtle-beach/",
+    "/invest/landlord-insurance/",
+    "/buyers/flood-insurance-after-the-election/"
+   ],
+   "problem": "/buyers/cost-to-own/ has the H2 \"What does homeowners insurance cost in Myrtle Beach?\" and the keywords \"homeowners insurance Myrtle Beach\" and \"flood insurance cost Myrtle Beach\". /buyers/common-mistakes/ lists \"do I need flood insurance Myrtle Beach\" and \"does homeowners insurance cover wind Myrtle Beach\" as keywords and as H2s. /submarkets/myrtle-beach/ has \"What do property tax and flood insurance cost in Myrtle Beach?\" and the keyword \"Myrtle Beach flood insurance\", and does not link the owner (0). Inside the cluster, coastal-insurance has a full H2, \"Landlord and short-term rental insurance: renting changes every policy\", which is the landlord page's topic. \"how much is flood insurance in south carolina\" (39 impressions) sits at position 20.",
+   "fix": "/buyers/cost-to-own/: rename the H2 to \"What does insurance add to the monthly cost?\" and give one figure plus \"What each of the three policies costs is on our Myrtle Beach home and flood insurance page.\" Drop both insurance keywords. /buyers/common-mistakes/: keep the two mistakes, framed as mistakes, drop the keywords, and link the owner from each. /submarkets/myrtle-beach/: keep the city figure, drop \"Myrtle Beach flood insurance\", and link the owner. /buyers/coastal-insurance/: cut the landlord H2 to two sentences plus \"What a landlord policy costs here is on our landlord insurance page\". /invest/landlord-insurance/ then owns that intent. /buyers/flood-insurance-after-the-election/: keep it; it owns the NFIP lapse. Drop \"private flood insurance South Carolina\" or keep it as a short section linking coastal-insurance.",
+   "severity": "real"
+  },
+  {
+   "search": "condo master policy vs HO-6; who pays for water or fire damage in a condo; condo deductible",
+   "owner": "/hoa/master-insurance-ho6/ for \"master policy vs HO-6\" (\"ho-6 vs master policy\" 14 and \"hoa master policy vs ho6\" 13 impressions, about position 19). /hoa/who-pays-for-damage/ for \"who pays\" (3 clicks; \"condo fire who pays\" 58 impressions at position 32.6; \"water damage deductible condo\" at 15.5).",
+   "others": [
+    "/hoa/master-insurance-ho6/",
+    "/hoa/who-pays-for-damage/",
+    "/hoa/hoa-vs-poa/"
+   ],
+   "problem": "Both pages cover the deductible. master-insurance-ho6 has \"Owners can be billed for the deductible\", and who-pays-for-damage has \"The deductible is what owners pay\" and \"Wind deductibles cost the most here\". Both say the recorded papers set the line. They do not link to each other (0 links each way). /hoa/hoa-vs-poa/ adds \"What do you own, and who fixes the roof?\". The triage notes flag the pair.",
+   "fix": "/hoa/master-insurance-ho6/: keep \"Two policies cover one building\", \"Loss assessment coverage pays that bill\" and \"What to ask for\". Cut \"Owners can be billed for the deductible\" to two sentences ending \"Who pays a deductible after a leak or fire is on our who pays for condo damage page\". Change the title to \"Condo Master Policy vs HO-6 in South Carolina: Where the Line Falls\". /hoa/who-pays-for-damage/: leave it as is (protected), and add one sentence in \"Read these papers before you offer\": \"What an HO-6 and loss assessment coverage add is on our master policy vs HO-6 page.\" Add \"condo fire who pays\" to its keywords. /hoa/hoa-vs-poa/: keep the roof H2 to ownership, and link who-pays for damage.",
+   "severity": "real"
+  },
+  {
+   "search": "Myrtle Beach HOA fees / regime fee / HOA vs POA / are HOA fees worth it",
+   "owner": "/hoa/ owns \"Myrtle Beach HOA fees, what they cover\". /hoa/hoa-vs-poa/ owns \"HOA vs POA, regime fee\" (532 impressions; \"hoa vs poa\" 109 at position 21.5; \"regime fee vs hoa fee\" at 8.1). /hoa/benefits/ owns \"are HOA fees worth it\". /invest/condo-buildings/ owns \"oceanfront condo HOA fees\".",
+   "others": [
+    "/hoa/hoa-vs-poa/",
+    "/hoa/benefits/",
+    "/hoa/tax-deductible/",
+    "/invest/condo-buildings/"
+   ],
+   "problem": "/hoa/hoa-vs-poa/ lists \"HOA fees Myrtle Beach\", the hub's head term. The hub lists \"regime fees South Carolina\", while hoa-vs-poa has the H2 \"What is a regime fee, and why is a condo fee higher?\". The hub's description says \"why low dues are not a bargain\", and /hoa/benefits/ has the H2 \"Low HOA fees are not always cheaper\": the same point on two pages. The hub gives no dollar figure, per the triage, while /hoa/tax-deductible/ answers \"What do condo HOA fees cost in Horry County?\". So the fee-amount search rewards the tax page. /invest/condo-buildings/ (\"Myrtle Beach condo HOA fees\") is flagged against /hoa/ in the triage. hoa-vs-poa's \"What are the pros and cons of an HOA vs a POA?\" also overlaps benefits' \"Pros and cons FAQ\".",
+   "fix": "/hoa/: add typical monthly fees by kind of home (the triage fix). Drop the keyword \"regime fees South Carolina\" and add \"What a regime fee is: HOA vs POA\" (link hoa-vs-poa). Remove \"why low dues are not a bargain\" from the description and link /hoa/benefits/ for it. /hoa/hoa-vs-poa/: drop the keyword \"HOA fees Myrtle Beach\". Keep the regime-fee H2 and add \"What fees run here, by kind of home, is on our Myrtle Beach HOA fees page.\" Rename the pros and cons H2 to \"Does it matter if it is called a POA?\". /hoa/tax-deductible/: rename \"What do condo HOA fees cost in Horry County?\" to \"How much of a typical Horry County fee is deductible?\", using the hub's figure and a link. /hoa/benefits/: keep its cost-against-value intent and change the title to \"Are HOA Fees Worth It? What Grand Strand Dues Buy\". /invest/condo-buildings/: keep \"Myrtle Beach condo HOA fees\" for oceanfront buildings only, and change the keyword to \"oceanfront condo HOA fees Myrtle Beach\".",
+   "severity": "real"
+  },
+  {
+   "search": "Myrtle Beach housing market / are home prices dropping / is it a buyer's market",
+   "owner": "/buyers/buying-in-myrtle-beach/ for the evergreen \"buyer's market / housing market\" answer (per the triage). /market-reports/ is the dated monthly report hub. /sell/home-value/ owns \"what is my home worth Myrtle Beach\" (32 impressions, position 6.9).",
+   "others": [
+    "/sell/home-value/",
+    "/submarkets/myrtle-beach/",
+    "/market-reports/",
+    "/market-reports/july-2026/",
+    "/market-reports/2026-election/",
+    "/invest/how-long-to-hold/",
+    "/sell/"
+   ],
+   "problem": "\"Are home prices dropping in Myrtle Beach?\" is an H2 on both /sell/home-value/ (keyword \"are Myrtle Beach home prices dropping\") and /submarkets/myrtle-beach/ (keywords \"Myrtle Beach home prices dropping\" and \"Myrtle Beach buyers market\"). /market-reports/july-2026/ lists \"Myrtle Beach housing market 2026\" and \"Myrtle Beach home prices\", and still answers \"right now\" with June data. The election hub asks \"Will Myrtle Beach home prices go down after the election?\". /sell/ has \"What's your Myrtle Beach home worth in 2026?\" and \"Myrtle Beach is balanced, leaning buyer-friendly\". Neither home-value nor july-2026 links the owner (0). The triage notes flag /market-reports/ against July, and /sell/ against home-value.",
+   "fix": "/sell/home-value/: rename the H2 to \"What has my area's price done this year?\", keep the by-area sales, drop the keyword \"are Myrtle Beach home prices dropping\", and link \"Is Myrtle Beach a buyer's market?\" to /buyers/buying-in-myrtle-beach/. /submarkets/myrtle-beach/: rename the H2 to \"What do homes sell for in the city of Myrtle Beach?\", and drop \"Myrtle Beach home prices dropping\" and \"Myrtle Beach buyers market\". /market-reports/july-2026/: new title \"Myrtle Beach Housing Market Report: June 2026 Data | Chapter3\". Drop the evergreen keywords and change \"right now\" to \"in June 2026\" (triage). Add a top line linking the newest report and /buyers/buying-in-myrtle-beach/. /market-reports/: owns \"Myrtle Beach market report\" and lists the reports newest first. /market-reports/2026-election/: keep its H2 short and link the owner. /sell/: replace the home-worth H2 with one paragraph linking /sell/home-value/, and the market H2 with one sentence linking the owner. /invest/how-long-to-hold/: keep \"Myrtle Beach real estate appreciation\" as a distinct holding-period intent.",
+   "severity": "real"
+  },
+  {
+   "search": "closing costs in SC / calculator vs cost to sell a house in SC / deed stamps",
+   "owner": "/buyers/closing-costs/ owns the buyer's closing costs (774 impressions). /sell/net-proceeds/ owns \"cost to sell a house in South Carolina / seller net sheet\".",
+   "others": [
+    "/sell/net-proceeds/",
+    "/sell/fsbo/",
+    "/invest/cash-to-close/"
+   ],
+   "problem": "The closing-costs description reads \"sellers pay commission and $1.85 per $500 in deed stamps. Calculate both sides\". It has the H2 \"SC deed stamps: $1.85 per $500, and the seller pays\" and the keyword \"who pays closing costs South Carolina\", and it does not link /sell/net-proceeds/ (0). The two seller queries rank badly: \"cost of selling a house in south carolina\" is at position 39.6 and \"cost to sell a house in south carolina\" at 35.6 (41 impressions together), while net-proceeds averages 10.5. That suggests Google is splitting the seller intent between the two pages. /sell/fsbo/ lists \"deed stamps SC\" and \"closing attorney South Carolina\". The triage notes flag the pair.",
+   "fix": "/buyers/closing-costs/: new description \"How much are closing costs in SC for a buyer? About 2 to 5 percent: lender, attorney, title and escrow. Calculator included.\" Keep a single seller row in the table and add \"Selling? The seller's costs, with deed stamps and commission, are on our cost to sell a house in South Carolina page\" (link /sell/net-proceeds/). Cut the deed-stamp H2 to one paragraph and link the seller page. /sell/net-proceeds/: add \"SC deed stamps\" and \"South Carolina transfer tax calculator\" to its keywords (the seller pays them). Keep its link to closing-costs. /sell/fsbo/: drop the keyword \"deed stamps SC\" and link net-proceeds. /invest/cash-to-close/: keep it; it owns the investor's cash to close (reserves, prepaids). Add a link from closing-costs.",
+   "severity": "real"
+  },
+  {
+   "search": "are Myrtle Beach oceanfront condos a good investment / oceanfront condos for sale / condo buildings",
+   "owner": "/invest/condos/ owns the investment question (\"are oceanfront condos in myrtle beach a good investment?\" 100 impressions at position 4.3, 0 clicks). /invest/condo-buildings/ owns the building directory and \"oceanfront condos for sale\".",
+   "others": [
+    "/submarkets/myrtle-beach/",
+    "/buyers/second-home/",
+    "/invest/str-vs-ltr/",
+    "/invest/rental-program-vs-airbnb/"
+   ],
+   "problem": "/submarkets/myrtle-beach/ has the H2s \"Does an oceanfront condo in Myrtle Beach pay for itself?\" and \"Which oceanfront condo buildings in Myrtle Beach sell the most?\", plus the keyword \"Myrtle Beach oceanfront condos for sale\". It links neither owner (0 and 0). /buyers/second-home/ lists \"oceanfront condo Myrtle Beach\". /invest/rental-program-vs-airbnb/ lists \"condotel Myrtle Beach\", against condo-buildings' \"Myrtle Beach condotel buildings\". The owner already ranks at 4.3, so this is a risk more than a current loss.",
+   "fix": "/submarkets/myrtle-beach/: cut \"Does an oceanfront condo... pay for itself?\" to two sentences plus \"Are Myrtle Beach oceanfront condos a good investment? Our full answer\" (link /invest/condos/). Cut the buildings H2 to the top few plus \"All 29 oceanfront buildings, with their fees\" (link /invest/condo-buildings/). Drop the keyword \"Myrtle Beach oceanfront condos for sale\". /buyers/second-home/: drop \"oceanfront condo Myrtle Beach\". /invest/rental-program-vs-airbnb/: drop \"condotel Myrtle Beach\". /invest/condos/: tighten its title to win the click, for example \"Are Myrtle Beach Oceanfront Condos a Good Investment? What One Earns\".",
+   "severity": "minor"
+  },
+  {
+   "search": "SC nonresident seller withholding (I-290 / I-295), selling a rental, guest bookings when you sell",
+   "owner": "/sell/capital-gains/ owns withholding and tax (284 impressions, position 15.9). /sell/rental-property/ owns selling with a tenant or bookings in place.",
+   "others": [
+    "/sell/out-of-state-buyers/",
+    "/sell/rental-property/",
+    "/sell/net-proceeds/",
+    "/invest/strategies/1031-exchange/",
+    "/invest/canadian-buyers/",
+    "/invest/llc/",
+    "/sell/sell-my-condo/"
+   ],
+   "problem": "Five pages target withholding. out-of-state-buyers lists \"South Carolina nonresident seller withholding\", \"Form I-295\" and \"FIRPTA\" and has the H2 \"What does South Carolina hold back...\". rental-property lists \"South Carolina nonresident seller withholding 2026\" and has \"What does the state withhold from an out-of-state seller?\". net-proceeds has \"Selling from out of state? Withholding applies\", and the 1031 page has \"Selling from out of state: South Carolina withholding\". All of them link the owner, so this is keyword-level competition. Bookings are on two pages: out-of-state-buyers' \"What happens to your guest bookings when you sell?\" and rental-property's \"What happens to bookings on a vacation rental?\". sell-my-condo adds \"the SC booking law\". The slug /sell/out-of-state-buyers/ and its keyword \"out of state home buyers Myrtle Beach\" also blur buyer and seller intent.",
+   "fix": "/sell/out-of-state-buyers/: drop the keywords \"South Carolina nonresident seller withholding\", \"Form I-295\" and \"FIRPTA\" (FIRPTA is for foreign sellers, which is /invest/canadian-buyers/). Drop \"out of state home buyers Myrtle Beach\". Keep a two-sentence withholding answer with the rate and the capital-gains link. Cut the bookings H2 to one sentence linking /sell/rental-property/. /sell/rental-property/: drop \"South Carolina nonresident seller withholding 2026\", keep one line plus the link, and keep the bookings H2 as the owner. /sell/net-proceeds/ and /invest/strategies/1031-exchange/: keep one line and the link. /sell/sell-my-condo/: link the booking rule to rental-property.",
+   "severity": "minor"
+  },
+  {
+   "search": "Myrtle Beach real estate (head term) / Myrtle Beach homes for sale",
+   "owner": "/ (home page) owns \"Myrtle Beach real estate\". /homes/ (the unfiltered IDX search) owns \"Myrtle Beach homes for sale\".",
+   "others": [
+    "/submarkets/myrtle-beach/",
+    "/guides/",
+    "/about/"
+   ],
+   "problem": "The home page title is \"Myrtle Beach Real Estate, By the Numbers\", but its H1 is \"Myrtle Beach Homes\", which leans toward the /homes/ intent. /submarkets/myrtle-beach/ has the title \"Myrtle Beach Real Estate: Where to Live and Rent\", the H1 \"Myrtle Beach real estate: where should you buy?\" and the keyword \"Myrtle Beach real estate\". The two pages get about the same impressions: 122 at position 16.6 and 118 at 14.2. /guides/ (\"Myrtle Beach Real Estate Guides\") and /about/ (\"Myrtle Beach Real Estate Team\") are branded and only touch the term.",
+   "fix": "Home page: change the H1 to \"Myrtle Beach real estate, by the numbers\" to match the title, and put the horizontal IDX feed with \"See all homes for sale\" linking /homes/. /submarkets/myrtle-beach/: new title \"City of Myrtle Beach, SC: Where People Live, Rental Map, Prices\" (as in the neighborhoods cluster). New H1 \"Living in the City of Myrtle Beach: where people live, and where you can rent by the night\". Drop the keyword \"Myrtle Beach real estate\". /guides/: drop the keywords \"Myrtle Beach home buying guide\", \"Myrtle Beach investor tools\" and \"Myrtle Beach neighborhood guides\", which belong to /buyers/, /invest/ and /submarkets/.",
+   "severity": "minor"
+  },
+  {
+   "search": "short-term rental accommodations tax, business license and setup",
+   "owner": "/invest/accommodations-tax/ owns the taxes and license owed. /invest/str-setup/ owns the order of setup steps after closing.",
+   "others": [
+    "/invest/str-setup/",
+    "/invest/str-rules/"
+   ],
+   "problem": "str-setup lists \"Airbnb business license Myrtle Beach\" and \"Horry County hospitality fee short-term rental\" and has the H2s \"Which licenses do you need?\" and \"Which tax accounts and fees?\". accommodations-tax lists \"Horry County hospitality fee\" and \"Grand Strand short-term rental business license\" and has \"Do you need a business license?\". str-rules has a third tax table, \"Short-term rental taxes by jurisdiction, mid-2026\", with the \"11-13% tax\" in its description. The links already exist.",
+   "fix": "/invest/str-setup/: drop the keywords \"Airbnb business license Myrtle Beach\" and \"Horry County hospitality fee short-term rental\". In each license and tax step, give the step and the deadline, then \"What each one charges is on our accommodations tax page.\" /invest/str-rules/: cut the tax table to one line per town and link accommodations-tax. Keep the rules as the focus. /invest/accommodations-tax/: add \"Airbnb business license Myrtle Beach\" to its keywords.",
+   "severity": "minor"
+  },
+  {
+   "search": "I-73 status, Horry County building permits, new hospitals being built",
+   "owner": "/invest/what-is-being-built/ owns what is being built now (I-73, permits, roads). /buyers/relocating/healthcare/ owns hospitals.",
+   "others": [
+    "/invest/horry-county-growth-roads-permits/",
+    "/buyers/relocating/getting-around/",
+    "/buyers/relocating/healthcare/"
+   ],
+   "problem": "Three pages answer I-73: growth-roads-permits' \"When will I-73 be built in South Carolina?\" (keywords \"when will I-73 be complete\" and \"I-73 funding\"), what-is-being-built's \"Is Interstate 73 being built?\", and getting-around's \"The honest status of I-73\" (keyword \"I-73 South Carolina\"). getting-around links neither of the other two. Permits are on two pages: \"How many new homes is Horry County permitting each year?\" and \"How many houses are being built?\", with the keywords \"Horry County permits by year\" and \"Horry County building permits\". The triage notes flag that pair. what-is-being-built's \"Which hospitals are being built?\" (keyword \"Myrtle Beach new hospitals\") overlaps healthcare's \"Three hospitals are being built or opening\", and the two pages are not linked (0).",
+   "fix": "/invest/horry-county-growth-roads-permits/: use the triage H1 \"Did the 2026 election change building rules in Horry County?\" and title \"Horry County Building Rules After the 2026 Election: RIDE IV, Impact Fees, Flood\". Cut the I-73 and permit-count H2s to two sentences each, linking what-is-being-built. Drop \"when will I-73 be complete\", \"I-73 funding\" and \"Horry County permits by year\" from the keywords. Move those keywords to what-is-being-built. /buyers/relocating/getting-around/: keep two sentences on I-73, drop the keyword \"I-73 South Carolina\", and link what-is-being-built. /invest/what-is-being-built/: drop \"Myrtle Beach new hospitals\", cut the hospital H2 to the build status, and link healthcare.",
+   "severity": "minor"
+  },
+  {
+   "search": "2026 election and Myrtle Beach real estate (flood deadline, buyer credit, STR statehouse)",
+   "owner": "/market-reports/2026-election/ is the hub. Each spoke owns its single topic: /buyers/flood-insurance-after-the-election/, /buyers/first-time-buyer-tax-credit/, /invest/short-term-rental-rules-statehouse/, /invest/rental-property-tax-cut/.",
+   "others": [
+    "/buyers/flood-insurance-after-the-election/",
+    "/buyers/first-time-buyer-tax-credit/",
+    "/invest/short-term-rental-rules-statehouse/",
+    "/invest/horry-county-growth-roads-permits/"
+   ],
+   "problem": "The hub and the flood page both list \"flood insurance lapse December 11\" and both answer the Dec. 11 question. The hub also restates the credit and the rental tax in full H2s. This is a hub-and-spoke structure, and the hub links the spokes, so the overlap is small. The Act 388 and growth pages are covered in their own clusters.",
+   "fix": "/market-reports/2026-election/: drop the keyword \"flood insurance lapse December 11\". Keep each topic H2 to two or three sentences, each ending with a link to its spoke (\"What a lapse does to a closing\" goes to the flood page). Keep only \"2026 election Myrtle Beach real estate\" and \"Annie Andrews housing plan\" as its own terms.",
+   "severity": "minor"
+  },
+  {
+   "search": "moving to / relocating to Myrtle Beach",
+   "owner": "/buyers/relocating/ owns \"relocating / moving to Myrtle Beach\". /buyers/relocating/why-myrtle-beach/ owns \"why is everyone moving to Myrtle Beach\". /buyers/relocating/moving-checklist/ owns \"moving to Myrtle Beach checklist\".",
+   "others": [
+    "/buyers/relocating/why-myrtle-beach/",
+    "/buyers/relocating/moving-checklist/"
+   ],
+   "problem": "why-myrtle-beach lists the bare head term \"moving to Myrtle Beach\" and titles its FAQ \"Moving to Myrtle Beach FAQ\". The triage notes say the hub competes with it. The hub is weak: \"relocating to myrtle beach\" sits at position 52, and its H2 list repeats cost, town-picking and mortgage topics that have their own pages.",
+   "fix": "/buyers/relocating/why-myrtle-beach/: drop the keyword \"moving to Myrtle Beach\" and rename the FAQ \"Why people move here: questions\". /buyers/relocating/: rebuild per the triage around the remote purchase. Keep \"moving to Myrtle Beach\" and \"relocating to Myrtle Beach\" as its keywords, and send each topic out in one line: why people move, cost of living, which town, the 45-day checklist.",
+   "severity": "minor"
+  },
+  {
+   "search": "1031 exchange South Carolina, DST, 1031 holding period",
+   "owner": "/invest/strategies/1031-exchange/ (about 170 impressions of \"south carolina 1031 exchange\" variants at positions 12 to 17). /invest/strategies/dst/ owns \"DST / Delaware statutory trust\".",
+   "others": [
+    "/invest/strategies/dst/",
+    "/invest/how-long-to-hold/"
+   ],
+   "problem": "DST lists \"DST vs 1031\" and \"sell rental property Myrtle Beach 1031\". how-long-to-hold lists \"1031 exchange holding period\". The triage notes flag 1031 against DST. DST queries rank at positions 57 to 78, so DST is not taking 1031 traffic today. The overlap is in the keywords only, and the links exist.",
+   "fix": "/invest/strategies/dst/: drop \"sell rental property Myrtle Beach 1031\". Keep \"DST vs 1031\", which is a real DST question. /invest/how-long-to-hold/: drop \"1031 exchange holding period\" and keep one sentence plus the 1031 link. /invest/strategies/1031-exchange/: add the SC specifics per the triage so it clearly wins the state query.",
+   "severity": "minor"
+  },
+  {
+   "search": "steps to buy a house in South Carolina / buyer mistakes / buying from out of state",
+   "owner": "/buyers/buying-in-myrtle-beach/ owns the steps. /buyers/common-mistakes/ owns the mistakes. /buyers/relocating/ owns the remote homebuyer, and /invest/out-of-state/ the remote rental buyer.",
+   "others": [
+    "/buyers/first-time-home-buyer-myrtle-beach/",
+    "/buyers/common-mistakes/",
+    "/buyers/relocating/",
+    "/invest/out-of-state/"
+   ],
+   "problem": "buying-in-myrtle-beach has \"What can go wrong when buying in Myrtle Beach?\", which is the common-mistakes question (\"What are the biggest mistakes when buying a house in Myrtle Beach?\"). It also has \"Can I buy a home in Myrtle Beach from out of state?\" and the keyword \"buying a house in South Carolina from out of state\", which overlap the relocating hub's \"How out-of-state buyers close remotely\". first-time has \"What are the steps to buy your first home in South Carolina?\" next to buying-in's \"What are the steps to buy a house in South Carolina?\".",
+   "fix": "/buyers/buying-in-myrtle-beach/: cut \"What can go wrong\" to three lines plus \"the ten mistakes that cost the most\" (link common-mistakes). Drop the out-of-state keyword and keep one line linking /buyers/relocating/. /buyers/first-time-home-buyer-myrtle-beach/: keep only the first-time steps (counseling, SC Housing order) and link buying-in for the full SC process.",
+   "severity": "minor"
+  },
+  {
+   "search": "most affordable / cheapest places to live near Myrtle Beach; starter homes",
+   "owner": "/buyers/affordable-places-to-live/ (114 impressions, position 10.2)",
+   "others": [
+    "/buyers/relocating/which-town/",
+    "/buyers/first-time-home-buyer-myrtle-beach/",
+    "/buyers/no-hoa-homes/"
+   ],
+   "problem": "which-town lists \"cheapest place to live near Myrtle Beach\", and its first entry is \"Loris: the most land for the money\". first-time lists \"starter homes Myrtle Beach\" and has \"Where are the starter houses around Myrtle Beach?\". These are the owner's intents in other words. first-time already links the owner.",
+   "fix": "/buyers/relocating/which-town/: drop the keyword \"cheapest place to live near Myrtle Beach\". It already links the owner. /buyers/first-time-home-buyer-myrtle-beach/: keep the starter-house H2 to the price bands and add \"The twelve lowest-priced neighborhoods, and what each gives you\" (link the owner). Drop \"starter homes Myrtle Beach\" or keep it as a secondary term. /buyers/no-hoa-homes/: no change; it is a distinct intent.",
+   "severity": "minor"
+  },
+  {
+   "search": "golf communities, gated communities, best neighborhoods (Barefoot, Tidewater, Grande Dunes)",
+   "owner": "/buyers/golf-communities/ owns golf. /buyers/gated-communities/ owns gated. /buyers/best-neighborhoods/ owns the best overall.",
+   "others": [
+    "/buyers/gated-communities/",
+    "/buyers/best-neighborhoods/",
+    "/buyers/golf-communities/"
+   ],
+   "problem": "gated lists \"gated golf communities Myrtle Beach\". golf lists \"Barefoot Resort real estate\", which is a transactional, community-name query that /homes/near/barefoot-resort/ and the guides' strips serve. Barefoot and Tidewater appear as numbered entries on two or three of these pages. They are distinct list intents, so the overlap is small.",
+   "fix": "/buyers/gated-communities/: drop \"gated golf communities Myrtle Beach\" and link golf-communities from the golf-course entries. /buyers/golf-communities/: drop \"Barefoot Resort real estate\". Each list entry for the same community uses one short line and the same /homes/near/ strip.",
+   "severity": "minor"
+  },
+  {
+   "search": "HOA special assessment tax deduction, HOA documents / resale certificate / estoppel, HOA fines and liens",
+   "owner": "/hoa/tax-deductible/ owns \"is a special assessment tax deductible\". /hoa/documents/ owns the documents. /hoa/estoppel-and-transfer-fees/ owns estoppel and fees. /hoa/violations-and-fines/ owns fines. /hoa/liens-and-foreclosure/ owns liens.",
+   "others": [
+    "/hoa/special-assessments/",
+    "/hoa/documents/",
+    "/hoa/estoppel-and-transfer-fees/",
+    "/hoa/liens-and-foreclosure/"
+   ],
+   "problem": "special-assessments has \"Is a special assessment tax deductible?\" and the keyword \"special assessment tax deductible\", the same as tax-deductible's H2 and keyword \"HOA special assessment tax deductible\". documents lists \"HOA resale certificate South Carolina\", \"who pays for HOA documents\" and \"HOA documents needed for closing\", which are close to estoppel's closing-letter intent. liens lists \"HOA fines lien\", next to violations-and-fines (457 impressions, position 25.7). The triage notes flag estoppel against liens.",
+   "fix": "/hoa/special-assessments/: drop \"special assessment tax deductible\" and keep one sentence plus the tax-deductible link (it already links). /hoa/documents/: drop \"HOA resale certificate South Carolina\" and \"HOA documents needed for closing\", and link estoppel for the closing letter. /hoa/liens-and-foreclosure/: drop \"HOA fines lien\", and link violations-and-fines from \"HOA fines can become a lien\". Use the triage title on estoppel: \"HOA Estoppel Letter in South Carolina: Cost, Who Pays, How Long\".",
+   "severity": "minor"
+  },
+  {
+   "search": "Myrtle Beach investment property / where to buy a rental / prime short-term rental areas / second home",
+   "owner": "/invest/ owns \"Myrtle Beach investment property\". /invest/where-to-buy/ owns \"where to buy rental property / best areas for Airbnb\". /buyers/second-home/ owns \"second home\".",
+   "others": [
+    "/invest/strategies/",
+    "/invest/where-to-buy/",
+    "/invest/rental-returns/",
+    "/buyers/second-home/"
+   ],
+   "problem": "/invest/ ranks at position 34.6 for its own term. /invest/strategies/ has the H1 \"Myrtle Beach real estate investment strategies\", and /invest/ has \"Pick the strategy before you pick the property\" (flagged in the triage). where-to-buy lists \"is Myrtle Beach a good place to invest in real estate\", the hub's question, and \"North Myrtle Beach vs Myrtle Beach investment\". rental-returns lists \"Myrtle Beach investment property return\". second-home covers the same six beach places as the nightly half of where-to-buy. The owner wants an STR page with a stronger, more clickable title (\"prime short-term rentals\"). If that becomes a new URL, it will compete with where-to-buy, str-rules and str-tools.",
+   "fix": "/invest/: keep \"Myrtle Beach investment property\" and add \"is Myrtle Beach a good place to invest in real estate\". /invest/where-to-buy/: drop that keyword. For the owner's \"prime short-term rentals\" idea, retitle this page instead of making a new one, for example \"Prime Short-Term Rental Areas Near Myrtle Beach, and Where to Lease\", with a horizontal IDX strip per area. /invest/strategies/: new H1 \"Six investment strategies on the Grand Strand, compared\". /invest/rental-returns/: drop \"Myrtle Beach investment property return\" and keep the cap-rate terms. /buyers/second-home/: keep the second-home angle (your own use plus some renting), and link where-to-buy for buyers who are mainly investors.",
+   "severity": "minor"
+  },
+  {
+   "search": "rental depreciation, cost segregation, depreciation recapture, short-term rental tax rules",
+   "owner": "/invest/rental-depreciation/ owns basis and depreciation. /invest/cost-segregation/ owns the study. /invest/str-tax-treatment/ owns offsetting W-2 income. /invest/14-day-rule/ owns personal use.",
+   "others": [
+    "/invest/cost-segregation/",
+    "/invest/rental-depreciation/",
+    "/sell/capital-gains/"
+   ],
+   "problem": "cost-segregation lists \"depreciation recapture rental sale\" and has \"What comes back when you sell?\", while rental-depreciation has \"What does depreciation do to your sale?\". The triage notes flag the pair. The intents are distinct, and the overlap is the recapture section.",
+   "fix": "/invest/cost-segregation/: drop \"depreciation recapture rental sale\". Keep the recapture of the accelerated part only, and link rental-depreciation. Make /invest/rental-depreciation/ the one page with \"depreciation recapture Myrtle Beach rental\" in its keywords.",
+   "severity": "minor"
+  },
+  {
+   "search": "living-in-Myrtle Beach spokes: hurricanes, weather, healthcare, flood history",
+   "owner": "/buyers/relocating/hurricanes/, /buyers/relocating/weather/, /buyers/relocating/healthcare/ and /buyers/undisclosed-flooding/, each for its own topic.",
+   "others": [
+    "/buyers/relocating/pros-and-cons/",
+    "/buyers/retirees/",
+    "/buyers/common-mistakes/",
+    "/buyers/coastal-insurance/"
+   ],
+   "problem": "pros-and-cons has full H2s on each spoke topic: \"Do hurricanes destroy houses in Myrtle Beach?\", \"What the weather is like\" and \"What medical care is here\". It does not link healthcare (0). retirees has weather, hospital and evacuation H2s and links neither weather nor healthcare (0 and 0). hurricanes lists \"does Myrtle Beach flood\", and common-mistakes lists \"Myrtle Beach flood zone\", near undisclosed-flooding (the protected page, position 5.5). These summaries are normal for a hub, but without links they compete instead of feeding the spokes.",
+   "fix": "/buyers/relocating/pros-and-cons/: keep each summary to two or three sentences, and link healthcare from \"What medical care is here\". /buyers/retirees/: link weather and healthcare from those H2s. /buyers/relocating/hurricanes/: drop \"does Myrtle Beach flood\" or link undisclosed-flooding from it. /buyers/common-mistakes/: drop \"Myrtle Beach flood zone\".",
+   "severity": "minor"
+  },
+  {
+   "search": "financing a second or multiple rentals / DSCR loans / LLC loans",
+   "owner": "/invest/strategies/dscr-loans/ owns \"DSCR loan Myrtle Beach\". /invest/financing-multiple-rentals/ owns \"how to finance a second rental\". /invest/llc/ owns \"rental in an LLC\".",
+   "others": [
+    "/invest/financing-multiple-rentals/",
+    "/invest/llc/",
+    "/invest/long-term-rental/"
+   ],
+   "problem": "financing-multiple-rentals has \"Is there a limit on how many rentals you can finance?\" and \"How much do lenders want in reserves\", which are DSCR and lender topics. Its H1, \"What goes wrong when you buy a second rental\", does not match its URL (triage). llc lists \"DSCR loan LLC Myrtle Beach\". These are small overlaps.",
+   "fix": "/invest/financing-multiple-rentals/: new H1 \"How do you finance a second rental in Myrtle Beach?\" and title \"Financing a Second Rental in Myrtle Beach: Equity, Reserves, Limits | Chapter3\" (triage), with a link to dscr-loans for the loan itself. /invest/llc/: keep \"DSCR loan LLC\" as a short section and link dscr-loans.",
+   "severity": "minor"
+  },
+  {
+   "search": "Chapter3 Realty brokerage / team / why work with us",
+   "owner": "/about/",
+   "others": [
+    "/why-chapter-3/",
+    "/guides/",
+    "/buyers/",
+    "/invest/"
+   ],
+   "problem": "About (\"Myrtle Beach Real Estate Team\") and why-chapter-3 (\"Why Chapter3 Realty | Data-Driven Grand Strand Brokerage\") answer the same branded question (triage). /guides/ uses hub keywords that belong to /buyers/ (\"Myrtle Beach home buying guide\") and /invest/ (\"Myrtle Beach investor tools\"). All of these are branded or low-volume.",
+   "fix": "/why-chapter-3/: retitle around its proof, \"How Chapter3 Checks a Home Before You Offer | Chapter3 Realty\", built on the building study and flood story (triage). Link /about/ for the team. /guides/: drop its buyer, investor and neighborhood keywords and keep \"Myrtle Beach real estate guides\".",
+   "severity": "minor"
+  },
+  {
+   "search": "Myrtle Beach rent prices / rental market / property management fees",
+   "owner": "/invest/rent-prices/ owns rents. /invest/property-management/ owns manager fees. /invest/rental-program-vs-airbnb/ owns condo rental programs.",
+   "others": [
+    "/invest/str-vs-ltr/",
+    "/invest/where-to-buy/",
+    "/submarkets/conway/",
+    "/invest/rental-program-vs-airbnb/"
+   ],
+   "problem": "Rent figures appear on str-vs-ltr, where-to-buy and the Conway guide (\"Conway SC rentals\"), against rent-prices' \"Conway SC rent\". property-management lists \"vacation rental management fees Myrtle Beach\" and \"Airbnb management Myrtle Beach\", near rental-program-vs-airbnb. \"myrtle beach rental market\" (43 impressions, position 23.5) has no clear owner.",
+   "fix": "/invest/rent-prices/: add \"Myrtle Beach rental market\" to its keywords and title it \"Myrtle Beach Rent Prices and Rental Market by Bedrooms and Area\". /submarkets/conway/: keep \"Conway SC rentals\" for the town and link rent-prices. /invest/rental-program-vs-airbnb/: link property-management for manager fee schedules. No other change.",
+   "severity": "minor"
+  },
+  {
+   "search": "HOA law topics: dues increases, fines, SC HOA Act, developer turnover; landlord niches (Section 8, J-1, students, landlord rules, mid-term); relocating from each state",
+   "owner": "Each page owns its own question: /hoa/dues-increases/ (19 clicks), /hoa/violations-and-fines/, /hoa/south-carolina-hoa-laws/, /hoa/developer-control-turnover/, /invest/section-8-rentals/, /invest/j1-rentals/, /invest/student-rentals/, /invest/landlord-rules/, /invest/mid-term-rentals/, and the 10 /buyers/relocating/from-<state>/ pages.",
+   "others": [],
+   "problem": "No competing page for the same search. Each targets a distinct question or state, and the GSC queries for these pages (\"developer controlled hoa\", \"hoa estoppel fee\", \"south carolina rent late fee\") have one clear page each. The one data conflict (from-new-york against cost-of-living) is covered in the cost-of-living cluster.",
+   "fix": "No change. Keep the earning pages (dues-increases, violations-and-fines, developer-control-turnover) as they are. Any new page must not reuse their head terms.",
+   "severity": "none"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+From 4d2086683c7e028400509c5500c8bf87aa4a03ad Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sun, 8 Nov 2026 20:15:16 +0000
+Subject: [PATCH 17/18] STR feed title: Prime short-term rentals for sale
+ (owner, 2026-11-08)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_0186ha1gzzmbWyPnagoCELMZ
+---
+ idx-lib/feeds.js | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/idx-lib/feeds.js b/idx-lib/feeds.js
+index cc00d7f4..ca7c0abe 100644
+--- a/idx-lib/feeds.js
++++ b/idx-lib/feeds.js
+@@ -56,7 +56,8 @@ const RENTAL = { head: "Top long-term rental picks", q: RENTAL_Q, post: { yearMi
+ const DSCR = { head: "DSCR picks, lowest price per bedroom", q: RENTAL_Q, post: { yearMin: 2000, minSqft: 1300 }, rank: "ppb", link: "beds=3&min=230000&max=460000" };
+ /* Short-term rentals: condos in the beach towns' resort areas, in buildings that allow them. */
+ const VACATION = {
+-  head: "Condos where nightly rentals are allowed", headToday: "Waterfront condos in Myrtle Beach and North Myrtle Beach",
++  head: "Prime short-term rentals for sale", headToday: "Prime oceanfront condos in Myrtle Beach and North Myrtle Beach",
++  /* Owner, 2026-11-08: "waterfront condos isnt clickbaity enough for an STR blog page it should be prime Short Term Rentals". "Short-term rentals" only once the CRM applies the str_allowed filter; until then the title says only what the search guarantees. */
+   needs: "has",
+   q: towns(["Myrtle Beach", "North Myrtle Beach"], { type: "condo", status: "active", waterfront: "1", min: "200000", max: "850000", yearMin: "1985", has: "str_allowed,east_of_17" }),
+   post: { yearMin: 1985 }, link: "type=condo&waterfront=1", fallback: CONDOS,
+-- 
+2.43.0
+
