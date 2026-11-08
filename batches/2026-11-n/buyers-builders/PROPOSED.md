@@ -8,3 +8,9 @@ For `facts/registry.json`, once the rows are verified and the lead picks option 
 4. **Mungo Homes' owner.** Clayton Properties Group (Berkshire Hathaway) since 2018-12-03 (row 12).
 
 No story requests. No story in `stories/stories.json` names a builder, and none is needed.
+
+## From the verifier (2026-11-08)
+
+5. **Beazer Homes' owner.** A wholly owned subsidiary of Dream Finders Homes since 2026-10-20 (Beazer 8-K of that date; facts row 21). Any page that says Beazer has no mortgage company, as a present fact, is now wrong. Firing control: "Beazer has no mortgage company of its own". Quiet control: "Before its sale to Dream Finders, Beazer's annual report said it owned no mortgage company".
+6. **H&H Homes.** H & H Constructors of Fayetteville LLC is part of Dream Finders Homes (bought in 2020; DFH 10-K FY2025). Any page that lists H&H Homes and Dream Finders Homes as two competing builders is wrong. Firing control: "H&H Homes sold 88". Quiet control: "Dream Finders Homes sold 149".
+7. **Builder sales count** in item 1 becomes 5,277 (findings-verified.json), not 5,280.

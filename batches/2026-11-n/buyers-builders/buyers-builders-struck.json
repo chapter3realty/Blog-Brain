@@ -1,0 +1,69 @@
+[
+ {
+  "row": "builders 1",
+  "pattern": "\\b3 in 10 of (?:all )?(?:the )?home sales\\b|\\b5,280\\b|\\b17,778\\b",
+  "struck": "Builders sold 5,280 new homes to their first owners. That was about 3 in 10 of all home sales recorded (5,280 of 17,778).",
+  "use": "Builders sold 5,277 new homes to their first owners from November 2025 to October 2026. That was about 3 in 10 of the 17,774 residential sales recorded, a count that also takes in some lot and land sales."
+ },
+ {
+  "row": "builders 2",
+  "pattern": "\\b(?:17|seventeen) builders\\b|H&H Homes[^.]{0,30}\\b88\\b|\\bH&H Homes \\(88\\)",
+  "struck": "Seventeen builders sold 50 or more new homes here. H&H Homes sold 88.",
+  "use": "Sixteen builders sold 50 or more new homes here. Dream Finders Homes sold 149, counting the homes its company H&H Constructors of Fayetteville sold."
+ },
+ {
+  "row": "builders 3",
+  "pattern": "\\$?295,000|\\b(?:about )?\\$295K\\b|Dream Finders[^.]{0,60}\\$?555,000",
+  "struck": "Builders' homes sold for about $335,000 in the middle, against about $295,000 for homes sold by their owners. Dream Finders' middle price was about $555,000.",
+  "use": "Builders' homes sold for about $335,000 in the middle, against about $306,000 for homes with a building on the tax roll sold by their owners. Dream Finders' middle price was about $309,000."
+ },
+ {
+  "row": "builders 5",
+  "pattern": "Eden Springs[^.]{0,30}\\bConway\\b|Grande Dunes North(?! Village)|Chestnut Greens|Wilderness Bluffs|Meritage[^.]{0,60}\\bWaterside\\b",
+  "struck": "D.R. Horton, Auberon Woods and Eden Springs, Conway; Ryan Homes, Grande Dunes North; Pulte, Chestnut Greens; Meritage, Waterside; Toll, Wilderness Bluffs.",
+  "use": "D.R. Horton sold the most in Auberon Woods in Conway and Eden Springs in Longs. Ryan Homes sold the most in Grande Dunes North Village. Pulte sold the most in North Myrtle Beach. Toll Brothers sold the most in Murrells Inlet."
+ },
+ {
+  "row": "builders 6",
+  "pattern": "\\b(?:two or more|several) large builders\\b|\\blarge builders selling side by side\\b|\\bonly three communities\\b",
+  "struck": "Three communities had two or more large builders selling side by side.",
+  "use": "In three communities, two or more builders each sold 10 or more homes."
+ },
+ {
+  "row": "builders 8",
+  "pattern": "H&H[^.]{0,60}\\b(?:had none|none (?:in|on)|no listings|0 listings)\\b|Howell[^.]{0,60}\\b(?:had none|no listings)\\b",
+  "struck": "H&H Homes sold 88 and had none.",
+  "use": "Ryan Homes sold 477 homes here and had 1 in the MLS feed that day."
+ },
+ {
+  "row": "builders 10",
+  "pattern": "\\brental owners\\b|\\b147 of the\\b|D\\.R\\. Horton \\(57\\)",
+  "struck": "Companies, mostly rental owners, bought 147 of the 5,280, most of them from Lennar (65) and D.R. Horton (57).",
+  "use": "Companies bought 146 of the 5,277, most of them from Lennar (65) and D.R. Horton (56)."
+ },
+ {
+  "row": "builders 15",
+  "pattern": "\\bChesapeake\\b",
+  "struck": "Chesapeake Homes sells in Traditions, Bridgewater, Waterbridge, Heritage Park and The Willows, and the deeds name a separate company for each community.",
+  "use": "Five companies named for their communities (Banbury SC, Baytree SC, Waterbridge SC, Heritage SC and Cedar Branch SC LLC) sold 239 homes."
+ },
+ {
+  "row": "builders 17",
+  "pattern": "84 percent of Lennar(?:'s)? (?:home)?buyers(?! who used a mortgage)",
+  "struck": "Lennar's mortgage company made loans to 84 percent of Lennar's homebuyers in 2025.",
+  "use": "Lennar's mortgage company made loans to 84 percent of Lennar buyers who used a mortgage, in fiscal 2025."
+ },
+ {
+  "row": "builders 21",
+  "pattern": "\\bBeazer (?:has|owns) no mortgage company\\b|\\bBeazer[^.]{0,40}\\bno mortgage company of its own\\b",
+  "struck": "Beazer has no mortgage company of its own.",
+  "use": "Beazer Homes became part of Dream Finders Homes on October 20, 2026. Before that, its annual report said it owned no mortgage company and named several lenders for each community."
+ },
+ {
+  "row": "builders 25",
+  "pattern": "requires a residential builder to hold a state license|residential builder license for any (?:job|home)",
+  "unless": "general contractor",
+  "struck": "South Carolina requires a residential builder to hold a state license for any job over $5,000.",
+  "use": "South Carolina requires anyone who builds a home for someone else, on a job over $5,000, to hold a state license: a residential builder license or a general contractor license."
+ }
+]

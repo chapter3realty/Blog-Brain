@@ -7,3 +7,10 @@ For the lead. This page edits no shared file.
 3. **Contact topics.** The offers use `/contact/?topic=builder-visits` and `/contact/?topic=builder-contract`. If the form does not read `topic`, use plain `/contact/` and say the request in the button.
 4. **CRM builder filters.** The "Built by" filters miss some listings the builder's own sales company lists (Stanley Martin: 51 by filter, 62 by its firm; D.R. Horton 198 by filter in new construction, 248 by firm). If the CRM can add the builder's sales company as a match for each filter, the per-builder links on this page would show every listed home. A site fix, not part of this page.
 5. **Recheck on the build day:** D.R. Horton's and Beazer's fiscal 2026 annual reports are due in mid to late November 2026 (rows 16, 21); Toll's in December (row 22).
+
+## From the verifier (2026-11-08)
+
+6. **A person's name in the repo.** `data/2026-11-n/buyers-builders/raw/deeds-co.json` keeps one buyer name that is a person ("GIANG CO M", a D.R. Horton sale recorded 2026-08-07), because `pull_deeds.py` keeps any name with the word "CO". Two reinsurance names ("... CO LTD") are real companies. The lead should blank that one name in the raw file (the researcher's file; the verifier may not edit it). In a future pull, keep "CO" only when the name also has LLC, INC, LTD or COMPANY.
+7. **Use `findings-verified.json`.** `verify_corrections.py` writes it from `analyze.py` with three fixes (H&H under Dream Finders, RERECORD, owner-sold median on parcels with a building). If the researcher folds the fixes into `analyze.py`, the two files must match.
+8. **The 2026-10-d count on /buyers/new-construction/** uses the same memo filter, so it may carry the RERECORD fault (a few deeds), and its builder list may show H&H Homes apart from Dream Finders. Check it when that page is next touched.
+9. **SC Code page down.** https://www.scstatehouse.gov/code/t40c059.php redirected to a 404 at 09:11Z on 2026-11-08. Other pages that cite scstatehouse.gov/code may fail the site audit's link check today.
