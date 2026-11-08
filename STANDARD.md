@@ -42,7 +42,7 @@ Section ... each one opens with a quotable sentence        A5
 Section: the figure (chart, diagram, or photo)             H4
 Section ... a story from Chapter3's files                  T2
   CTA 2, before the last section                           H5
-FAQ: 4-8 questions, open text, never a closed accordion   A7, A13
+FAQ: 4-8 questions; each may be a dropdown that opens to its answer   A7, A13
 Sources line: 3-5 links, under 90 words                    T3
 Bottom CTA
 Photo credits, author note with photo, disclosure          T1, H10
@@ -117,7 +117,7 @@ Simple enough for anyone. These come before every other rule, on every page. The
 | A10 | Names 3 or more distinct Grand Strand places in the prose. | STUDY: cited text is dense with named entities. It is also the local moat. |
 | A11 | **(human)** Each number has a unit and a date or period ("$110 to file", "5.21 percent for a 2026 sale"). | EXPERIMENT (GEO): statistics, +33 percent. Undated numbers go stale silently. |
 | A12 | A fact that appears on more than one page, or has been wrong once, lives in `facts/registry.json`, with one value, a primary source, an owner page and a `staleBy` date. Every other page links the owner page and uses the same wording. `tools/facts-check.js` errors on any known-wrong version on any page. | The 2026-10-01 audit found 12 facts stated differently across pages: lodging tax 10 vs 13 percent; rental tax "close to double" on 20+ pages vs 3.3 to 4.3 times on the page that owns it. Two traps HANDOFF had already recorded were live again. |
-| A13 | **Open answers.** FAQ answers and all main content are open text on the page. No closed `<details>` accordion, tab or carousel holds an answer. Nothing moves or changes on a timer. `score.js` fails a closed `<details>` in the body. | OFFICIAL (Microsoft): "AI systems may not render hidden content" in tabs or expandable menus. OFFICIAL (Google): "Read more" section links need text "immediately visible on the page to a human". OBSERVED (NN/g): content in a collapsed panel "may be missed altogether". On 2026-10-11, 8 live articles held their FAQ answers or a mistakes list in closed accordions. |
+| A13 | **Open answers.** Main content is open text on the page. No closed `<details>` accordion, tab or carousel holds a section, a list or a step. FAQ questions are the exception (owner, 2026-11-08: "all the FAQ's should become dropdown boxes they would make the scroll bar way less intimidating"): each question is a heading in a dropdown, the first one open, and every answer stays in the page's HTML, so search engines and AI answers read it. Nothing moves or changes on a timer. `score.js` fails a closed `<details>` in the body unless its summary is a question. | OFFICIAL (Microsoft): "AI systems may not render hidden content" in tabs or expandable menus. OFFICIAL (Google): "Read more" section links need text "immediately visible on the page to a human". OBSERVED (NN/g): content in a collapsed panel "may be missed altogether". On 2026-10-11, 8 live articles held their FAQ answers or a mistakes list in closed accordions. |
 
 ## H. Human readability
 

@@ -322,7 +322,8 @@ check("verdict: n/a for a statement headline", credit(gold({ h1: "Condo special 
 
   /* A13: answers stay open. Live /buyers/buying-in-myrtle-beach/ holds its FAQ in closed accordions. */
   const live = '<section><div class="wrap"><h2>Every question out-of-state buyers ask us.</h2><details class="accordion-item"><summary class="accordion-q">Do I need to visit before making an offer?</summary><div class="accordion-a"><p>Not necessarily. We facilitate remote purchases routinely: 3D virtual tours, cinematic listing video, neighborhood context walkthroughs over video call, and remote online notarization for closing documents. Most out-of-state buyers we work with visit once for the inspection, then close remotely.</p></div></details></div></section>';
-  fires("a closed <details> FAQ (live /buyers/buying-in-myrtle-beach/)", gold({ body: live }), "open-answers");
+  /* Owner, 2026-11-08: FAQ questions may be dropdowns; the answer is still in the page. */
+  passes("a closed <details> FAQ question (live /buyers/buying-in-myrtle-beach/) is allowed", gold({ body: live }), "open-answers");
   fires("a closed mistakes list (live /buyers/common-mistakes/)", gold({ body: '<details class="accordion-item"><summary class="accordion-q">Skipping the insurance quote until after the inspection period</summary><div class="accordion-a"><p>Most buyers get a general home inspection and fall in love with the property before they price the insurance.</p></div></details>' }), "open-answers");
   passes("the same FAQ open", gold({ body: live.replace('<details class="accordion-item">', '<details class="accordion-item" open>') }), "open-answers");
   quiet("open headings and paragraphs (gold)", base, "open-answers");

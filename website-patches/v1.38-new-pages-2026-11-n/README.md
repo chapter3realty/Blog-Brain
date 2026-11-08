@@ -1,6 +1,6 @@
 # Ten new pages, batch 2026-11-n (2026-11-08)
 
-One patch, 0016. It goes on top of the other chat's chain in `website-patches/v1.37-on-87f7d0f8/` (0004 to 0015), because the new pages use that chain's approved design and its author rule.
+Two patches, 0016 and 0017. They go on top of the other chat's chain in `website-patches/v1.37-on-87f7d0f8/` (0004 to 0015), because the new pages use that chain's approved design and its author rule.
 
 Pages:
 
@@ -26,6 +26,13 @@ It also adds links to them in one sentence each, in:
 
 It also adds share cards and the sitemap and llms.txt entries. llms-full.txt is left out on purpose: run `node build.js llmsfull` after applying.
 
+## 0017 (same day, after the owner's review)
+
+- Home strips in place of the map links, and feeds on the buyer pages (idx-lib: strips may be a feature search; eight new strips in places.js; five feeds in feeds.js).
+- FAQ dropdowns in `tools/mkpage.js`. Each page switches to dropdowns the next time it is built from its spec. The 10 new pages and the 7 pages linked here are already rebuilt.
+- New construction keeps one sentence on the builders and links the builders page.
+- An offer for owners selling alone on the disclosure page, and links to it from the FSBO and undisclosed-flooding pages.
+
 ## One problem before deploying
 
 The chain was made on 87f7d0f8. The live branch has since moved to 6af8c521 (the "573" address removal, the hidden election pages, the mobile and search work). Patch 0004 no longer applies there. It conflicts in 21 built pages, llms.txt, llms-full.txt and sitemap.xml, mostly the footer.
@@ -35,7 +42,7 @@ The chain needs one more rebase onto the live branch. After that, 0016 applies o
 ## Order
 
 1. The chain, rebased onto the live branch.
-2. 0016.
+2. 0016, then 0017.
 3. `node build.js dates`
 4. `node build.js llmsfull`
 5. `node build.js check`

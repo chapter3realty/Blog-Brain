@@ -320,8 +320,11 @@ function facts(p) {
   }
   const visibleFaq = [...faqSeen].map(([name, text]) => ({ name, text }));
 
-  /* Closed accordions in the body (A13): a <details> without `open` that holds text beyond its summary. */
+  /* Closed accordions in the body (A13): a <details> without `open` that holds text beyond its summary. A question
+     that opens to its answer is allowed (owner, 2026-11-08: "all the FAQ's should become dropdown boxes they would make
+     the scroll bar way less intimidating"): its summary is a question, and the answer is still in the page. */
   const closed = main.find("details").filter((_, e) => $(e).attr("open") === undefined && !$(e).closest("form, nav, header, footer").length
+    && !/\?\s*$/.test(norm($(e).children("summary").text()))
     && wc($(e).clone().children("summary").remove().end().text()) >= 3)
     .map((_, e) => norm($(e).children("summary").text()) || "(no summary)").get();
 
@@ -514,7 +517,7 @@ rule("faq", "AEO", 2, "4-8 FAQ entries, answers 15-90 words, each stands alone",
   return part(c, `${n} entries (${from})${badLen ? `, ${badLen} outside 15-90 words` : ""}${badOpen ? `, ${badOpen} open with a pronoun` : ""}`);
 }, { applies: isArticle });
 
-rule("open-answers", "AEO", 2, "FAQ answers and main content are open, not in a closed accordion", (p, f) => {
+rule("open-answers", "AEO", 2, "Main content is open, not in a closed accordion (a question may open to its answer)", (p, f) => {
   const x = f.design.closed;
   if (!p.main.find("details").length) return na("no accordion");
   return x.length ? fail(`${x.length} closed <details>, e.g. "${x[0].slice(0, 70)}"`) : pass("every <details> is open");
