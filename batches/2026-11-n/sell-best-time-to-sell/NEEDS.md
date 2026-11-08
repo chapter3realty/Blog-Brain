@@ -4,3 +4,11 @@
 2. **Hub links.** Add /sell/best-time-to-sell/ to the /sell/ hub list and to `llms.txt`.
 3. **Sibling links in this batch.** /sell/sell-or-buy-first/, /sell/repairs-before-selling/ and /sell/cash-offer/ may each link here in one sentence ("when to list"); this page links to them.
 4. **Homes row feed.** If `idx-lib/feeds.js` cannot filter by days on market, a feed of homes listed in the last 30 days in Horry County is a shared change; otherwise the page uses houses from $275,000 to $350,000.
+
+## Added by the writer, 2026-11-08
+
+5. **Rerun the deed analysis with the corrected condo test.** The page reads `data/2026-11-n/sell-best-time-to-sell/findings-condo-fix.json` (the verifier's rerun), not `findings.json` or `chart-months.json`, which still use the HPR-only condo test. Change line 45 of `analyze.py` to match `verify_condo_fix.py`, rerun `analyze.py` and `build_charts.py`, then point the spec's `F` at `findings.json` again. Every all-home value is the same in both files; the spec's checks stop the build if a house or condo value moves.
+6. **Sitemap, llms.txt and inbound links.** `build.js audit` fails the page as missing from `sitemap.xml` and as an orphan (no body link from another page; score S8). Add it to the sitemap and `llms.txt`, and link it in a sentence from the /sell/ hub FAQ (item 1) and from /sell/home-value/ or /sell/net-proceeds/ ("when to list").
+7. **Sibling links.** The page links /sell/cash-offer/, /sell/repairs-before-selling/ and /sell/sell-or-buy-first/ in sentences. The last two were not built when the audit ran, so it reports them as dead links. They clear when the siblings are built.
+8. **Homes feed for this page.** `idx-lib/feeds.js` can filter by days on market (`domMax`). Proposed entry: `"/sell/best-time-to-sell/": FRESH` (head "Fresh competition: listed in the last 14 days"), which fits a seller choosing when to list. The page also links `/homes/map/?domMax=30` in a sentence.
+9. **Footer.** `build.js check` reports this page's footer differs from `partials/footer.html`, as it does on 149 other pages: mkpage clones the donor's chrome. `node build.js stitch` at release fixes all of them; the writer did not run it.
