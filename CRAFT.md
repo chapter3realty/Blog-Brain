@@ -21,6 +21,17 @@ Before changing any page:
 6. **Look at the whole page as a stranger would before showing it.** Calm, clear, and each thing on it earning its place. If it looks cluttered, it is.
 7. **Try one page, show the owner, then decide about the others.** Never apply a change to a batch because one page needed it.
 
+## A mentor's notes, 2026-11-08 (thoughts to weigh on each page, not rules)
+
+The owner read the redesigned pages and coached like this:
+- **Sell the place the way a great local agent would.** "a professional real estate agent sells with the emotional benefits of a location ... they would talk about all these unique things in the city you didnt even know you would love or know to ask about and they make you feel like its the most special place on the earth." Stats back the feeling up; they do not create it. A library branch or a recreation center is a fact, not a reason to fall for a town. Look for the moments a person would live there: where they watch the sun set, what they do on a Thursday night in July, the thing locals love that visitors never find. Every one of those must still be true and sourced.
+- **The homes strip is the strongest offer we have.** "horizontal idx listings is the strongest tool we have ... we only ever did that because we couldnt use IDX." Where a page talks about a place or a kind of home, show those homes in a strip. A "Send me homes" button is the fallback for when the strip is empty, not the main offer.
+- **Graphs, tools and drawings must read at a glance.** "i feel like i need a college dipoma to read most graphs." One message per chart, in a plain title. A tool opens with its answer and asks for as few inputs as possible. A drawing that takes effort to read should be simpler, or a photo, or gone.
+- **Organized beats busy.** A list of places is a clean list. A map and a list should not fight each other.
+- **Feed and offer titles can be bold.** "Prime short-term rentals" beats "Waterfront condos", as long as it is true.
+- **Never cannibalize.** Before a page claims a search, check that no other page already owns it.
+- And again: "take my good information and use it but dont make rules that fuck up other blogs in the future use common sense and take my prompts as a mentor."
+
 ## The one test
 
 After any change, ask: **is the page now easier for this reader to understand and act on?** If not, undo it, even if a rule asked for it. Every rule in this repo is a floor, written for the common case. Applied past its reason, a rule makes the page worse. In batch 2026-10-a:
