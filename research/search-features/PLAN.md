@@ -14,10 +14,10 @@ Status: a plan only. Nothing here is built yet.
 
 It is possible in principle. It is the wrong tool for this job, for four reasons.
 
-1. **Size.** About 8,785 listings and about 263,000 photos. This chat's 10-page batch used about 20 million tokens over 9 hours. Looking at every photo here is about 200 million tokens or more: about ten of those batches, around 90 hours of agent time. That would use weeks of your plan's limits, which you need for pages.
-2. **Access.** This chat cannot reach the CRM's database or its photo store. The CRM's own rule says a cloud session cannot reach production. Every photo would first have to be exported and moved here.
-3. **Upkeep.** About 60 to 100 new listings arrive every day. A chat cannot run by itself every night (you ruled out scheduled tasks, and a chat stops when it is closed). So the CRM needs the nightly job anyway, and once it exists, it can do the first pass too.
-4. **Price.** On the API, with Claude Haiku 5.5 and the Batch API, the first pass costs about $10 to $25 and upkeep about $3 to $7 a month. That is less than one bad day of the old Sonnet search.
+1. **Size.** About 8,785 listings and about 263,000 photos. The photos are the same number of tokens wherever they are read: about 150 million at 768 pixels, about 60 million at 512 pixels with 25 photos a listing. On the API that is Haiku at $0.10 a million, so about $6 to $15 (half with the Batch API). In this chat it is the large model on your plan's limits, and a chat re-reads what it has already seen, so the same photos cost far more here.
+2. **Access.** This chat has no password to the CRM's database. Deleting the CRM's rule does not give it one. What removes the hang-up is making the database changes run by themselves on deploy (Step 4), since this chat can already deploy the CRM.
+3. **Upkeep.** About 60 to 100 new listings arrive every day. The nightly job runs on the API, a few cents a day. A chat cannot run by itself every night, so the job is needed anyway, and once it exists it does the first pass too.
+4. **Photos.** The photo copies kept for page speed are short-lived: the CRM's for 12 hours, the website's for 30 days, and only of photos a visitor opened. Most of the 263,000 are not stored anywhere of ours. The job fetches each once from the MLS, slowly enough to leave room for the live site (the MLS allows 9,000 photos an hour for the whole account). The first pass takes about two nights.
 
 **What this chat does do:**
 - writes the code;
@@ -46,8 +46,8 @@ The first run reports how many listings and photos have captions. That number de
 
 ### Step 3. Labels from the photos (AI, about $9 to $24 once)
 
-- **Which photos:** each listing's first 40 photos (the order agents use: front, living, kitchen, bedrooms, baths, outside). Photos already captioned with a label count for that label and are skipped for it.
-- **Size:** the CRM's own webp copy at 768 pixels on the long side. The CRM serves those already (`src/lib/idx/photo-webp.ts`), so no photo leaves our systems except to the model.
+- **Which photos:** each listing's first 25. Photos already captioned with a label count for that label and are skipped for it.
+- **Size:** 512 pixels on the long side, and the first 25 photos (front, living, kitchen, bedrooms, baths, outside). That is enough to see a pool or an island and costs less than half of 768 pixels. The CRM makes the webp copy itself (`src/lib/idx/photos.ts`), so no photo leaves our systems except to the model.
 - **Batching:** 10 photos per call, with the list of photo-findable labels (190) cached at the front.
 - **Output per photo:** the labels it clearly shows, each with "sure" or "unsure". Only "sure" is stored. The photo index is kept with each label, so the card can show that photo.
 - **Rooms, not people:** a photo with a person or a personal item in it is never described, only labeled for the room.
@@ -66,7 +66,7 @@ Migration `0076_listing_labels`:
   - Primary key `(listing_key, label, source, photo_index)`. Row-level security on, deny-all, as with every MLS table.
 - `listing_label_runs`: one row per run, with listings done, photos looked at, tokens and dollars, for the weekly review.
 
-The CRM's rules apply: the SQL is proved in a rolled-back test first, the migration is applied on the real database before the code that reads it ships, and the table is declared in `schema.ts` only after it exists.
+The SQL is proved first on a test database in this chat. The migration then applies itself when the CRM deploys (Railway's pre-deploy command, `pnpm db:migrate`), before the new code starts. If it fails, the deploy stops and the old version keeps running. The CRM's rule that only the owner applies migrations is rewritten to match (owner, 2026-11-08: "get rid of that rule").
 
 ### Step 5. The nightly job (CRM, pg-boss)
 
@@ -123,15 +123,15 @@ A room is a room: "playroom" describes the room, never the buyer.
 | # | What | Who | Production? |
 |---|---|---|---|
 | 1 | Write the CRM code, migration, job and tests on a branch | this chat | no |
-| 2 | Review the branch, apply migration 0076 (`railway run pnpm db:migrate`, then `pnpm db:check`) | owner, on a computer with the CRM's credentials | yes (database) |
-| 3 | Merge and deploy the CRM (`pnpm deploy:now`); the job starts switched off | this chat, after your yes | yes |
-| 4 | Turn on the 100-listing test (one setting) and read the results | owner turns it on; this chat reads | yes ($0.20 to $0.40) |
+| 2 | Make migrations run on deploy; rewrite the CRM rule | this chat | no |
+| 3 | Merge and deploy the CRM (`pnpm deploy:now`); migration 0076 applies itself; the job starts switched off | this chat, after your yes | yes |
+| 4 | Turn on the 100-listing test (a committed setting, deployed) and read the results | this chat, after your yes | yes ($0.20 to $0.40) |
 | 5 | Fix what the test shows; show you the photo page | this chat | no |
 | 6 | The full first pass, with its cap | owner approves | yes ($10 to $25) |
 | 7 | Website: the larger list in the AI, the matching photo on cards | this chat, then your deploy | yes |
 | 8 | Nightly upkeep runs by itself; the weekly review shows its cost | automatic | about $3 to $7 a month |
 
-Steps 2 and 4 need a computer with the CRM's credentials. This chat cannot do them, by the CRM's rule.
+No step needs your computer. You approve steps 3, 4 and 6 in this chat.
 
 ## If something goes wrong
 
@@ -145,7 +145,7 @@ Steps 2 and 4 need a computer with the CRM's credentials. This chat cannot do th
 |---|---|
 | Test run, 100 listings | about $0.20 to $0.40 |
 | First pass, descriptions | about $1 (about $0.50 with the Batch API) |
-| First pass, photos | about $9 to $24 (lower with captions and the Batch API) |
+| First pass, photos | about $3 to $8 at 512 pixels and 25 photos, with the Batch API |
 | Upkeep | about $3 to $7 a month |
 | Each search | under $0.001 more; the matching photo is free |
 
