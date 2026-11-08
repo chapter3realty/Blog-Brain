@@ -15,3 +15,8 @@ Added by the writer after the build, 2026-11-08:
 8. **Footer.** `build.js check` reports the footer differs on every page, this one included (the partial changed in 509e45b7). `node build.js stitch` fixes all of them; writers do not run it.
 9. **exiftool** was installed in this container (`apt-get install libimage-exiftool-perl`) to embed the share-image metadata. A new container needs it again for `photos.js` crops.
 10. **Checkpoint script.** `tools/checkpoint.sh` skips every new file when one pathspec does not exist yet (`git add -N` fails for all of them), so the first checkpoint wrote a patch without the page. Running `git add -N` on the existing paths first fixed it.
+
+Added in fix round 1, 2026-11-08:
+
+11. **Campground homes in the walk search, under $400,000.** `/homes/map/?type=house&has=walk_to_beach&max=400000` returns 50 houses; 17 are campground homes on leased sites (6001 S Kings Hwy, 9700 Kings Rd). The page no longer links it. It links the North Myrtle Beach version (`&city=North%20Myrtle%20Beach&max=400000`), which returned 19 and none at a campground on 2026-11-08 (`data/2026-11-n/buyers-homes-near-the-beach/fix1-walk-budget.json`). Same fix as item 6: leave county land use 118, 119 and 122 out of `type=house`.
+12. **Photo metadata.** Item 7 still stands for the Myrtle Beach photo. The Cherry Grove photo is now the channels aerial from /submarkets/north-myrtle-beach/; it passes `image-meta.js`.
