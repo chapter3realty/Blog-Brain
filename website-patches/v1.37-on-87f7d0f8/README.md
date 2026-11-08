@@ -5,7 +5,7 @@ The live branch moved (election hub, dates from the full history), so v1.33d to 
 1. `..\Blog-Brain\website-patches\v1.33a-rebased-data-2026-10-d.patch` (unchanged, applies as is)
 2. `..\Blog-Brain\website-patches\v1.33b-rebased-data-2026-11-a.patch` (unchanged)
 3. `..\Blog-Brain\website-patches\v1.33c-rebased-images.patch` (unchanged)
-4. the patches in this folder, 0004 to 0014, in number order (0014: the 13-town page back to its first version, and Devin Day the author on every page). 0007 and 0010 are earlier tries that later patches undo (0011, 0012); 0013 is the redesign of the five pilots with every word kept.
+4. the patches in this folder, 0004 to 0015, in number order (0014: the 13-town page back to its first version, and Devin Day the author on every page; 0015: nine more guides redesigned the approved way). 0007 and 0010 are earlier tries that later patches undo (0011, 0012); 0013 is the redesign of the five pilots with every word kept.
 
 `git am` each one. Then `node build.js dates`, `node build.js llmsfull`, `node build.js check`, `node build.js audit`, push, and `.\deploy.ps1`.
 
