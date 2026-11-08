@@ -1,0 +1,3745 @@
+[
+ {
+  "group": "Kitchen",
+  "key": "big_kitchen",
+  "label": "Big kitchen",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "large, spacious, chef's; photos show the room's size"
+ },
+ {
+  "group": "Kitchen",
+  "key": "chefs_kitchen",
+  "label": "Chef's kitchen",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "kitchen_island",
+  "label": "Kitchen island",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "kitchen_island",
+  "note": "photos find islands the MLS box misses"
+ },
+ {
+  "group": "Kitchen",
+  "key": "large_island",
+  "label": "Big kitchen island",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "open_kitchen",
+  "label": "Kitchen open to the living room",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "updated_kitchen",
+  "label": "Updated or new kitchen",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "renovated, remodeled, new cabinets"
+ },
+ {
+  "group": "Kitchen",
+  "key": "white_kitchen",
+  "label": "White kitchen",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "dark_cabinets",
+  "label": "Dark cabinets",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "two_tone_cabinets",
+  "label": "Two-tone cabinets",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "shaker_cabinets",
+  "label": "Shaker cabinets",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "granite_counters",
+  "label": "Granite counters",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "quartz_counters",
+  "label": "Quartz counters",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "butcher_block",
+  "label": "Butcher-block counters",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "marble_counters",
+  "label": "Marble counters",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "tile_backsplash",
+  "label": "Tile backsplash",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "farmhouse_sink",
+  "label": "Farmhouse sink",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "pot_filler",
+  "label": "Pot filler",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "gas_range",
+  "label": "Gas range",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "natural_gas",
+  "note": "widens the gas-heat field to the stove"
+ },
+ {
+  "group": "Kitchen",
+  "key": "double_oven_any",
+  "label": "Double oven",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "double_oven",
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "wall_oven",
+  "label": "Wall oven",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "range_hood",
+  "label": "Vented range hood",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "wine_fridge",
+  "label": "Wine fridge or cooler",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "beverage_center",
+  "label": "Beverage center",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "walk_in_pantry",
+  "label": "Walk-in pantry",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "butlers_pantry",
+  "label": "Butler's pantry",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "coffee_bar",
+  "label": "Coffee bar",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "breakfast_nook",
+  "label": "Breakfast nook",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "formal_dining",
+  "label": "Formal dining room",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "dining_seats_8",
+  "label": "Dining room for a big table",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": "room for 8 or more"
+ },
+ {
+  "group": "Kitchen",
+  "key": "eat_in_kitchen_any",
+  "label": "Eat-in kitchen",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "eat_in_kitchen",
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "new_appliances",
+  "label": "New appliances",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Kitchen",
+  "key": "gas_cooking",
+  "label": "Cooks with gas",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "open_floor_plan",
+  "label": "Open floor plan",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "great_room",
+  "label": "Great room",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "two_living_areas",
+  "label": "Two living areas",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "family_room",
+  "label": "Family room and a living room",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "den",
+  "label": "Den",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "sunroom_any",
+  "label": "Sunroom or Carolina room",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "carolina_room",
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "florida_room",
+  "label": "Florida room",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "bonus_room_any",
+  "label": "Bonus room or FROG",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "bonus_room",
+  "note": "FROG: room over the garage"
+ },
+ {
+  "group": "Living spaces",
+  "key": "frog",
+  "label": "Room over the garage",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "loft_any",
+  "label": "Loft",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "loft",
+  "note": "owner's example"
+ },
+ {
+  "group": "Living spaces",
+  "key": "home_office",
+  "label": "Home office",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "office",
+  "note": "owner's example; photos find offices the box misses"
+ },
+ {
+  "group": "Living spaces",
+  "key": "two_offices",
+  "label": "Two home offices",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "office_with_doors",
+  "label": "Office with doors",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "library",
+  "label": "Library or built-in bookshelves",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "built_ins",
+  "label": "Built-in shelves or cabinets",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "media_room_any",
+  "label": "Media or theater room",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "media_room",
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "game_room",
+  "label": "Game room",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "rec_room",
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "man_cave",
+  "label": "Man cave or she shed",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "gym_room",
+  "label": "Home gym",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "yoga_room",
+  "label": "Yoga or exercise room",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "playroom",
+  "label": "Playroom",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": "about the room, never who lives there"
+ },
+ {
+  "group": "Living spaces",
+  "key": "craft_room",
+  "label": "Craft or hobby room",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "music_room",
+  "label": "Music room",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "wet_bar",
+  "label": "Wet bar",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "dry_bar",
+  "label": "Dry bar",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "wine_room",
+  "label": "Wine room or cellar",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "fireplace_any",
+  "label": "Fireplace",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "fireplace",
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "gas_fireplace",
+  "label": "Gas fireplace",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "wood_fireplace",
+  "label": "Wood-burning fireplace",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "two_fireplaces",
+  "label": "Two or more fireplaces",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "stone_fireplace",
+  "label": "Stone fireplace",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "high_ceilings_any",
+  "label": "High ceilings",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "high_ceilings",
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "cathedral_ceilings",
+  "label": "Cathedral ceilings",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "coffered_ceilings",
+  "label": "Coffered ceilings",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "shiplap",
+  "label": "Shiplap walls",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "crown_molding",
+  "label": "Crown molding",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "wainscoting",
+  "label": "Wainscoting",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "accent_wall",
+  "label": "Accent wall",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "big_windows",
+  "label": "Big windows or lots of light",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "bright, sunny, natural light"
+ },
+ {
+  "group": "Living spaces",
+  "key": "floor_to_ceiling_windows",
+  "label": "Floor-to-ceiling windows",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "french_doors",
+  "label": "French doors",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "sliding_glass_doors",
+  "label": "Sliding glass doors to the outside",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "transom_windows",
+  "label": "Transom windows",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "plantation_shutters",
+  "label": "Plantation shutters",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "recessed_lighting",
+  "label": "Recessed lighting",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Living spaces",
+  "key": "smart_home",
+  "label": "Smart home features",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": "smart thermostat, locks, lights"
+ },
+ {
+  "group": "Living spaces",
+  "key": "surround_sound",
+  "label": "Surround sound",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "big_primary",
+  "label": "Big primary bedroom",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "primary_down",
+  "label": "Primary bedroom downstairs",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "primary_main_floor",
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "two_primaries",
+  "label": "Two primary suites",
+  "where": [
+   "description"
+  ],
+  "mls": "two_primary_suites",
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "guest_suite",
+  "label": "Guest suite with its own bath",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "in_law_any",
+  "label": "In-law suite or apartment",
+  "where": [
+   "description"
+  ],
+  "mls": "in_law_suite",
+  "note": "works today through words"
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "separate_entrance",
+  "label": "Separate entrance",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "mother_in_law_kitchen",
+  "label": "Second kitchen or kitchenette",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "bunk_room",
+  "label": "Bunk room",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "common in beach rentals"
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "jack_and_jill",
+  "label": "Jack-and-Jill bath",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "primary_walk_in",
+  "label": "Walk-in closet in the primary",
+  "where": [
+   "description"
+  ],
+  "mls": "walk_in_closet",
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "his_and_hers_closets",
+  "label": "Two closets in the primary",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "spa_bath",
+  "label": "Spa bathroom",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "updated_baths",
+  "label": "Updated bathrooms",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "walk_in_shower_any",
+  "label": "Walk-in shower",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "walk_in_shower",
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "curbless_shower",
+  "label": "Curbless or roll-in shower",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "accessibility"
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "tile_shower",
+  "label": "Tile shower",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "rain_shower",
+  "label": "Rain shower head",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "double_shower",
+  "label": "Shower with two heads",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "freestanding_tub",
+  "label": "Freestanding tub",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "clawfoot_tub",
+  "label": "Clawfoot tub",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "soaking_tub_any",
+  "label": "Soaking tub",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "garden_tub",
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "double_vanity",
+  "label": "Double vanity",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "dual_sinks",
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "makeup_vanity",
+  "label": "Makeup vanity",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "heated_floors",
+  "label": "Heated floors",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "grab_bars",
+  "label": "Grab bars",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "accessibility"
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "outdoor_shower",
+  "label": "Outdoor shower",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "beach homes"
+ },
+ {
+  "group": "Bedrooms and baths",
+  "key": "bath_per_bedroom",
+  "label": "A bath for every bedroom",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "hardwood_any",
+  "label": "Hardwood floors",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "hardwood_floors",
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "lvp_any",
+  "label": "Luxury vinyl plank floors",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "luxury_vinyl",
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "tile_floors_any",
+  "label": "Tile floors",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "tile_floors",
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "no_carpet",
+  "label": "No carpet",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "wood_look_tile",
+  "label": "Wood-look tile",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "heart_pine",
+  "label": "Heart pine floors",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "brick_floors",
+  "label": "Brick floors",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "new_floors",
+  "label": "New flooring",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "new_paint",
+  "label": "Fresh paint",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "neutral_colors",
+  "label": "Neutral colors",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "modern_finishes",
+  "label": "Modern finishes",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "coastal_style",
+  "label": "Coastal style",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "farmhouse_style",
+  "label": "Farmhouse style",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "mid_century",
+  "label": "Mid-century modern",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "craftsman_style",
+  "label": "Craftsman style",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Floors and finishes",
+  "key": "historic",
+  "label": "Historic home",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "big_yard",
+  "label": "Big backyard",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "owner-style ask; photos and lot size"
+ },
+ {
+  "group": "Outside the house",
+  "key": "fenced_any",
+  "label": "Fenced yard",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "fenced_yard",
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "privacy_fence",
+  "label": "Privacy fence",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "room_for_pool",
+  "label": "Room for a pool",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "flat_yard",
+  "label": "Flat, level yard",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "private_backyard",
+  "label": "Private backyard",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "trees or no neighbors behind"
+ },
+ {
+  "group": "Outside the house",
+  "key": "no_rear_neighbors",
+  "label": "No houses behind",
+  "where": [
+   "description",
+   "map data"
+  ],
+  "mls": null,
+  "note": "woods, pond, golf or preserve behind"
+ },
+ {
+  "group": "Outside the house",
+  "key": "backs_to_woods",
+  "label": "Backs to woods",
+  "where": [
+   "description",
+   "photos",
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "backs_to_pond",
+  "label": "Backs to a pond or lake",
+  "where": [
+   "description",
+   "photos",
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "backs_to_preserve",
+  "label": "Backs to a preserve",
+  "where": [
+   "description",
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "mature_trees",
+  "label": "Mature trees",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "live_oaks",
+  "label": "Live oaks",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "palm_trees",
+  "label": "Palm trees",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "landscaped",
+  "label": "Landscaped yard",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "garden_beds",
+  "label": "Garden or raised beds",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "fruit_trees",
+  "label": "Fruit trees",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "chicken_coop",
+  "label": "Chicken coop",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "horse_property",
+  "label": "Horses allowed or barn",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "barn",
+  "label": "Barn",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "pole_barn",
+  "label": "Pole barn",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "shed",
+  "label": "Shed",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "workshop_any",
+  "label": "Workshop",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "workshop",
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "she_shed",
+  "label": "She shed or studio",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "greenhouse",
+  "label": "Greenhouse",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "screened_porch_any",
+  "label": "Screened porch",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "screened_porch",
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "wraparound_porch",
+  "label": "Wraparound porch",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "rocking_chair_porch",
+  "label": "Big front porch",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "covered_patio",
+  "label": "Covered patio",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "paver_patio",
+  "label": "Paver patio",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "pergola",
+  "label": "Pergola",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "gazebo",
+  "label": "Gazebo",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "fire_pit",
+  "label": "Fire pit",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "outdoor_fireplace",
+  "label": "Outdoor fireplace",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "outdoor_kitchen_any",
+  "label": "Outdoor kitchen",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "outdoor_kitchen",
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "built_in_grill",
+  "label": "Built-in grill",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "outdoor_tv",
+  "label": "Outdoor TV",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "rooftop_deck",
+  "label": "Rooftop deck",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "upper_balcony",
+  "label": "Upper balcony or deck",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "deck_any",
+  "label": "Deck",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "deck",
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "hammock",
+  "label": "Hammock or swing",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "playset",
+  "label": "Playset in the yard",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": "about the yard, never who lives there"
+ },
+ {
+  "group": "Outside the house",
+  "key": "basketball_court",
+  "label": "Basketball court",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "pickleball_court",
+  "label": "Private pickleball or tennis court",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "putting_green",
+  "label": "Putting green",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "sprinklers_any",
+  "label": "Sprinklers",
+  "where": [
+   "description"
+  ],
+  "mls": "irrigation",
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "well_for_irrigation",
+  "label": "Irrigation well",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Outside the house",
+  "key": "lighting_outside",
+  "label": "Landscape lighting",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "pool_any",
+  "label": "Private pool",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "private_pool",
+  "note": "photos find pools the box misses"
+ },
+ {
+  "group": "Pool and spa",
+  "key": "saltwater_pool",
+  "label": "Saltwater pool",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "heated_pool",
+  "label": "Heated pool",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "screened_pool",
+  "label": "Screened pool or lanai",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "pool_with_spa",
+  "label": "Pool with a spa",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "infinity_pool",
+  "label": "Infinity pool",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "plunge_pool",
+  "label": "Plunge pool",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "pool_slide",
+  "label": "Pool slide",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "pool_house",
+  "label": "Pool house or cabana",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "hot_tub_any",
+  "label": "Hot tub",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "hot_tub",
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "swim_spa",
+  "label": "Swim spa",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Pool and spa",
+  "key": "room_for_hot_tub",
+  "label": "Wired for a hot tub",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "dock_any",
+  "label": "Dock",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "dock",
+  "note": "works today through words"
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "covered_dock",
+  "label": "Covered dock",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "floating_dock",
+  "label": "Floating dock",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "boat_lift_any",
+  "label": "Boat lift",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": "works today through words"
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "jet_ski_lift",
+  "label": "Jet ski lift",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "kayak_launch",
+  "label": "Kayak launch",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "boathouse",
+  "label": "Boathouse",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "seawall",
+  "label": "Seawall or bulkhead",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "no_fixed_bridges",
+  "label": "No fixed bridges to the ocean",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "deep_water_any",
+  "label": "Deep water",
+  "where": [
+   "description"
+  ],
+  "mls": "deep_water",
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "water_view_bedroom",
+  "label": "Water view from the bedroom",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "sunset_view",
+  "label": "Sunset view",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "sunrise_view",
+  "label": "Sunrise over the water",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "marsh_view_any",
+  "label": "Marsh view",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "marsh_view",
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "golf_view_any",
+  "label": "Golf course view",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "golf_view",
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "direct_oceanfront",
+  "label": "Direct oceanfront",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "water_ocean",
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "walk_to_beach_any",
+  "label": "Walk to the beach",
+  "where": [
+   "description",
+   "map data"
+  ],
+  "mls": "walk_to_beach",
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "beach_cart_path",
+  "label": "Golf-cart ride to the beach",
+  "where": [
+   "description",
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "private_beach_walk",
+  "label": "Private beach walkover",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "outdoor_rinse",
+  "label": "Outdoor shower or rinse",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Water, boats and the beach",
+  "key": "pier_nearby",
+  "label": "Near a fishing pier",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "garage_two_car",
+  "label": "Two-car garage",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "garage_three_car",
+  "label": "Three-car garage or bigger",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "oversized_garage",
+  "label": "Oversized garage",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "tandem_garage",
+  "label": "Tandem garage",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "golf_cart_garage_any",
+  "label": "Golf-cart garage",
+  "where": [
+   "description"
+  ],
+  "mls": "golf_cart_garage",
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "boat_rv_any",
+  "label": "Room for a boat or RV",
+  "where": [
+   "description"
+  ],
+  "mls": "rv_boat_parking",
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "rv_hookup",
+  "label": "RV hookup",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "covered_rv",
+  "label": "Covered RV or boat storage",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "circular_drive",
+  "label": "Circular driveway",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "long_driveway",
+  "label": "Long private driveway",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "side_load_garage",
+  "label": "Side-load garage",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "under_home_parking",
+  "label": "Parking under the house",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "raised_home",
+  "note": "beach houses on pilings"
+ },
+ {
+  "group": "Parking and storage",
+  "key": "storage_room",
+  "label": "Storage room",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "walk_in_attic",
+  "label": "Walk-in attic",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "epoxy_garage_floor",
+  "label": "Epoxy garage floor",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Parking and storage",
+  "key": "ev_charger",
+  "label": "EV charger",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "new_roof_any",
+  "label": "New roof",
+  "where": [
+   "description"
+  ],
+  "mls": "new_roof",
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "metal_roof",
+  "label": "Metal roof",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "architectural_shingles",
+  "label": "Architectural shingle roof",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "new_hvac_any",
+  "label": "New heating and air",
+  "where": [
+   "description"
+  ],
+  "mls": "new_hvac",
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "heat_pump",
+  "label": "Heat pump",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "mini_splits",
+  "label": "Mini-split units",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "tankless_water",
+  "label": "Tankless water heater",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "solar_owned",
+  "label": "Solar panels (owned)",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "solar_panels",
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "whole_house_generator",
+  "label": "Whole-house generator",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "generator",
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "hurricane_windows",
+  "label": "Impact or hurricane windows",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "hurricane_shutters",
+  "label": "Hurricane shutters",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "storm_doors_any",
+  "label": "Storm doors",
+  "where": [
+   "description"
+  ],
+  "mls": "storm_doors",
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "elevated_home",
+  "label": "Raised above flood level",
+  "where": [
+   "description"
+  ],
+  "mls": "raised_home",
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "flood_vents",
+  "label": "Flood vents",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "no_flood_history",
+  "label": "Never flooded (seller says)",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": "the listing's own words only"
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "spray_foam",
+  "label": "Spray foam insulation",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "encapsulated_crawl",
+  "label": "Encapsulated crawl space",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "water_softener",
+  "label": "Water softener",
+  "where": [
+   "description"
+  ],
+  "mls": "water_filtration",
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "reverse_osmosis",
+  "label": "Reverse osmosis water",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "fiber_internet",
+  "label": "Fiber internet",
+  "where": [
+   "description"
+  ],
+  "mls": "high_speed_internet",
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "security_cameras",
+  "label": "Security cameras",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Systems, energy and storm readiness",
+  "key": "energy_star",
+  "label": "Energy Star",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Accessibility and one-level living",
+  "key": "no_steps",
+  "label": "No steps to enter",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Accessibility and one-level living",
+  "key": "ramp",
+  "label": "Ramp",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Accessibility and one-level living",
+  "key": "wide_doors",
+  "label": "Wide doorways",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Accessibility and one-level living",
+  "key": "elevator_home_any",
+  "label": "Elevator in the home",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "elevator_home",
+  "note": null
+ },
+ {
+  "group": "Accessibility and one-level living",
+  "key": "stair_lift",
+  "label": "Stair lift",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Accessibility and one-level living",
+  "key": "first_floor_bedroom_bath",
+  "label": "Bedroom and bath on the first floor",
+  "where": [
+   "description"
+  ],
+  "mls": "bedroom_main",
+  "note": null
+ },
+ {
+  "group": "Accessibility and one-level living",
+  "key": "one_story_any",
+  "label": "One story",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "one_level",
+  "note": null
+ },
+ {
+  "group": "Layout and size",
+  "key": "split_plan",
+  "label": "Split bedroom plan",
+  "where": [
+   "description"
+  ],
+  "mls": "split_bedroom",
+  "note": null
+ },
+ {
+  "group": "Layout and size",
+  "key": "bedroom_count_5",
+  "label": "Five or more bedrooms",
+  "where": [
+   "MLS field"
+  ],
+  "mls": null,
+  "note": "a number filter today"
+ },
+ {
+  "group": "Layout and size",
+  "key": "bonus_flex",
+  "label": "Flex room",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Layout and size",
+  "key": "basement",
+  "label": "Basement",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": "rare here; buyers from the north ask"
+ },
+ {
+  "group": "Layout and size",
+  "key": "third_floor_loft",
+  "label": "Third-floor loft or crow's nest",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Layout and size",
+  "key": "crows_nest",
+  "label": "Crow's nest with a view",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Layout and size",
+  "key": "upstairs_laundry",
+  "label": "Laundry upstairs",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Layout and size",
+  "key": "mudroom",
+  "label": "Mudroom",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Layout and size",
+  "key": "drop_zone",
+  "label": "Drop zone or cubbies",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Layout and size",
+  "key": "pet_washing",
+  "label": "Dog wash station",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Layout and size",
+  "key": "dog_run",
+  "label": "Dog run or dog door",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "cul_de_sac_any",
+  "label": "Cul-de-sac",
+  "where": [
+   "description",
+   "map data"
+  ],
+  "mls": "cul_de_sac",
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "corner_lot_any",
+  "label": "Corner lot",
+  "where": [
+   "description",
+   "map data"
+  ],
+  "mls": "corner_lot",
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "oversized_lot",
+  "label": "Oversized lot",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "half_acre",
+  "label": "Half an acre or more",
+  "where": [
+   "MLS field"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "acreage_any",
+  "label": "Acreage",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "acreage",
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "no_hoa_any",
+  "label": "No HOA",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "hoa=0",
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "subdividable",
+  "label": "Could be split",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "zoned_commercial",
+  "label": "Zoned for business use",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "room_to_build",
+  "label": "Room to build a second home",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "waterfront_lot",
+  "label": "Waterfront lot",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "high_ground",
+  "label": "High ground",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": "the listing's words; flood zone is a separate filter"
+ },
+ {
+  "group": "Lot and land",
+  "key": "wooded_any",
+  "label": "Wooded lot",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "wooded_lot",
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "cleared_lot",
+  "label": "Cleared lot",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "pond_on_property",
+  "label": "Pond on the property",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "creek_on_property",
+  "label": "Creek on the property",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Lot and land",
+  "key": "hunting_land",
+  "label": "Room to hunt",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "community_pool_any",
+  "label": "Community pool",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "community_pool",
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "lazy_river",
+  "label": "Lazy river",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "resort_pool",
+  "label": "Resort-style pool",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "clubhouse_any",
+  "label": "Clubhouse",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "clubhouse",
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "fitness_center",
+  "label": "Fitness center",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "pickleball_community",
+  "label": "Pickleball courts",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "tennis_any",
+  "label": "Tennis courts",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "tennis",
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "walking_trails",
+  "label": "Walking trails",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "dog_park",
+  "label": "Dog park",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "playground_community",
+  "label": "Playground",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": "about the amenity, never who lives there"
+ },
+ {
+  "group": "Community",
+  "key": "community_boat_ramp",
+  "label": "Community boat ramp",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "boat_ramp",
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "community_dock_any",
+  "label": "Community dock",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "community_dock",
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "boat_storage_community",
+  "label": "Community boat storage",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "beach_cabana",
+  "label": "Beach cabana or shuttle",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "gated_any",
+  "label": "Gated",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "gated",
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "golf_community_any",
+  "label": "Golf community",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "golf_community",
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "active_adult",
+  "label": "55-plus or active adult",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": null,
+  "note": "an age rule set by the community, stated as fact only"
+ },
+ {
+  "group": "Community",
+  "key": "lifestyle_director",
+  "label": "Activities or social calendar",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "low_hoa",
+  "label": "Low HOA fee",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "hoaMax",
+  "note": null
+ },
+ {
+  "group": "Community",
+  "key": "hoa_includes_internet",
+  "label": "HOA includes internet",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "hoa_internet",
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "str_allowed_any",
+  "label": "Nightly rentals allowed",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "str_allowed",
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "rental_history",
+  "label": "Rental income history",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "turnkey_rental",
+  "label": "Turnkey, furnished rental",
+  "where": [
+   "description"
+  ],
+  "mls": "furnished",
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "sleeps_10",
+  "label": "Sleeps 10 or more",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "rental_program_any",
+  "label": "In a rental program",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "rental_program",
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "duplex_any",
+  "label": "Duplex or two units",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "accessory_unit",
+  "label": "Apartment or second unit on the lot",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "garage_apartment",
+  "label": "Garage apartment",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "tenant_in_place",
+  "label": "Tenant in place",
+  "where": [
+   "description"
+  ],
+  "mls": "rents_now",
+  "note": null
+ },
+ {
+  "group": "Short-term rental and investment",
+  "key": "cash_flow_listing",
+  "label": "Listed as an investment",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "oceanfront_condo_any",
+  "label": "Oceanfront condo",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "oceanfront_unit",
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "corner_unit",
+  "label": "Corner unit",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "end_unit_any",
+  "label": "End unit",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "end_unit",
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "top_floor_any",
+  "label": "Top floor",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "top_floor",
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "penthouse",
+  "label": "Penthouse",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "private_balcony_view",
+  "label": "Balcony with a view",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "two_balconies",
+  "label": "Two balconies",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "lock_out",
+  "label": "Lock-out unit",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "covered_parking_condo",
+  "label": "Covered parking",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "covered_parking",
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "indoor_pool_building",
+  "label": "Building with an indoor pool",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "indoor_pool",
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "lazy_river_building",
+  "label": "Building with a lazy river",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "pet_friendly_condo",
+  "label": "Pet-friendly building",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "pets_allowed",
+  "note": null
+ },
+ {
+  "group": "Condos and buildings",
+  "key": "new_building",
+  "label": "Built in the last 10 years",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "yearMin",
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "move_in_ready_any",
+  "label": "Move-in ready",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "move_in_ready",
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "fixer_upper",
+  "label": "Fixer-upper",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "needs_work",
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "cosmetic_only",
+  "label": "Needs only cosmetic work",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "fully_renovated",
+  "label": "Fully renovated",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "renovated",
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "new_construction_any",
+  "label": "New construction",
+  "where": [
+   "MLS field"
+  ],
+  "mls": "new_construction",
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "motivated_seller",
+  "label": "Motivated seller",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": "the listing's own words only"
+ },
+ {
+  "group": "Condition and deal",
+  "key": "seller_concessions",
+  "label": "Seller pays closing costs",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "rate_buydown",
+  "label": "Seller offers a rate buydown",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": "never shows a rate"
+ },
+ {
+  "group": "Condition and deal",
+  "key": "furnished_any",
+  "label": "Comes furnished",
+  "where": [
+   "description",
+   "MLS field"
+  ],
+  "mls": "furnished",
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "golf_cart_included",
+  "label": "Golf cart included",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "boat_included",
+  "label": "Boat included",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Condition and deal",
+  "key": "appliances_included",
+  "label": "All appliances stay",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Views and setting",
+  "key": "mountain_style_view",
+  "label": "Long view over open land",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Views and setting",
+  "key": "pond_view",
+  "label": "Pond view",
+  "where": [
+   "description",
+   "photos"
+  ],
+  "mls": "lake_view",
+  "note": null
+ },
+ {
+  "group": "Views and setting",
+  "key": "garden_view",
+  "label": "Garden view",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Views and setting",
+  "key": "skyline_view",
+  "label": "City or skyline view",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Views and setting",
+  "key": "no_neighbors_view",
+  "label": "No houses in view",
+  "where": [
+   "photos"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Views and setting",
+  "key": "quiet_street",
+  "label": "Quiet street",
+  "where": [
+   "description",
+   "map data"
+  ],
+  "mls": null,
+  "note": "traffic counts, cul-de-sac, the listing's words"
+ },
+ {
+  "group": "Views and setting",
+  "key": "dead_end",
+  "label": "Dead-end street",
+  "where": [
+   "description",
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Views and setting",
+  "key": "sidewalks",
+  "label": "Sidewalks",
+  "where": [
+   "description",
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Views and setting",
+  "key": "street_lights",
+  "label": "Street lights",
+  "where": [
+   "description"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_hospital",
+  "label": "Near a hospital",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": "already in the place keys"
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_shopping",
+  "label": "Near shopping",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_market_common",
+  "label": "Near The Market Common",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_broadway",
+  "label": "Near Broadway at the Beach",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_airport",
+  "label": "Near the airport",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_marina",
+  "label": "Near a marina",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_boat_ramp",
+  "label": "Near a public boat ramp",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_golf",
+  "label": "Near a golf course",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_beach_access",
+  "label": "Near a public beach access",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_highway",
+  "label": "Close to US 17 or SC 31",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "far_from_highway",
+  "label": "Away from the highway",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_bike_path",
+  "label": "Near a bike path",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_park",
+  "label": "Near a park",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_dog_beach",
+  "label": "Near a beach that allows dogs",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_grocery",
+  "label": "Near a grocery store",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ },
+ {
+  "group": "Near (map data, not the listing)",
+  "key": "near_ccu",
+  "label": "Near Coastal Carolina University",
+  "where": [
+   "map data"
+  ],
+  "mls": null,
+  "note": null
+ }
+]
