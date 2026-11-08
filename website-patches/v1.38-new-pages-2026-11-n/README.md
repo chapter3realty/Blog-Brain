@@ -1,5 +1,15 @@
 # Ten new pages, batch 2026-11-n (2026-11-08)
 
+**Superseded the same evening: the pages are on the live branch at e2497276** (owner: "lets upload them"). They were rebuilt there with the live branch's own page tools, so they do not wait for the redesign chain. Do not apply 0016 or 0017 on top of the live branch. When the chain in `v1.37-on-87f7d0f8/` is rebased onto the live branch, expect conflicts in these places:
+- `tools/mkpage.js`: the FAQ dropdowns are on the live branch.
+- `idx-lib/feeds.js`, `places.js`, `edge.js` and `query.js`: the strips and feeds are on the live branch.
+- `specs/fsbo.js`, `undisclosed-flooding.js` and `new-construction.js`: on the live branch these pages are hand-made HTML with a one-sentence link to the disclosure guide. The chain's specs should carry the same sentence, as 0017 shows. The chain's new construction page should keep one sentence on the builders and link the builders page, as 0017 does.
+- `sitemap.xml`, `llms.txt` and `llms-full.txt`: regenerate them.
+
+The chain's data and image files that the new pages needed were copied to the live branch unchanged, so the chain applies over them cleanly.
+
+The original notes follow.
+
 Two patches, 0016 and 0017. They go on top of the other chat's chain in `website-patches/v1.37-on-87f7d0f8/` (0004 to 0015), because the new pages use that chain's approved design and its author rule.
 
 Pages:
