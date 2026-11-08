@@ -14,3 +14,10 @@ For the lead. This page edits no shared file.
 7. **Use `findings-verified.json`.** `verify_corrections.py` writes it from `analyze.py` with three fixes (H&H under Dream Finders, RERECORD, owner-sold median on parcels with a building). If the researcher folds the fixes into `analyze.py`, the two files must match.
 8. **The 2026-10-d count on /buyers/new-construction/** uses the same memo filter, so it may carry the RERECORD fault (a few deeds), and its builder list may show H&H Homes apart from Dream Finders. Check it when that page is next touched.
 9. **SC Code page down.** https://www.scstatehouse.gov/code/t40c059.php redirected to a 404 at 09:11Z on 2026-11-08. Other pages that cite scstatehouse.gov/code may fail the site audit's link check today.
+
+## From the writer (2026-11-08, build)
+
+10. **Inbound links, sitemap, llms.txt.** The audit fails only "missing from sitemap.xml" and "orphan" for this page, and warns "not listed in llms.txt". Item 1 above (links from /buyers/ and /buyers/new-construction/) clears the orphan; the sitemap and llms.txt are the lead's.
+11. **Share image.** The page shares a 16:9 cut of its own aerial (`images/2026-11-n/buyers-builders/auberon-woods-land-before-building-2023-16x9-1200w.webp`) through pageImages. If the lead prefers the text card, `tools/ogcard.js` writes to `chapter3realty/og/`, outside this page's folders.
+12. **The top offer bar** goes to /contact/ ("Send us your town and price"), not to the map: the audit refuses a button to /homes/map/. The map link is in the price section as text (`/homes/map/?has=new_construction,county_horry&max=300000`).
+13. **New data files** in `data/2026-11-n/buyers-builders/`: `map_points.py` and `map-points.json` (builder sales by parcel centre, rounded to about 100 m, for the dot map) and `photos.json` (the NAIP aerial's licence record).
