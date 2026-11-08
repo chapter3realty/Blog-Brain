@@ -1,0 +1,80 @@
+From 693c35f6abdea656a30c2999d7acca47dfe36f59 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sun, 8 Nov 2026 22:43:37 +0000
+Subject: [PATCH] Homes near the top of buyer pages (owner, 2026-11-08)
+
+The calculator, first-time buyer, retiree and four town pages had their top feed switched off by
+their own strips further down; it now shows under the opening (withStrips). Seven buyer and
+investor pages that had no feed get one, each with its own true title. The rental analyzer
+gets none: it shows homes like the reader's after a run.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_0186ha1gzzmbWyPnagoCELMZ
+---
+ idx-lib/feeds.js | 31 ++++++++++++++++++++++++-------
+ 1 file changed, 24 insertions(+), 7 deletions(-)
+
+diff --git a/idx-lib/feeds.js b/idx-lib/feeds.js
+index ca7c0abe..a6ef4821 100644
+--- a/idx-lib/feeds.js
++++ b/idx-lib/feeds.js
+@@ -233,14 +233,31 @@ const FROM = {
+   "florida": love("Florida", [...towns(["Conway", "Myrtle Beach", "Longs", "Little River"], H({ min: "320000", max: "700000", yearMin: "2015", has: "garage", not: "flood_zone" })), H({ city: "Myrtle Beach", min: "380000", max: "900000", yearMin: "2005", has: "pool" })], { post: { yearMin: 2005 } }),
+ };
+ 
++/* The 2026-11-08 additions: one title per page, each true from its own search. */
++const LIVE_IN = { head: "Homes to live in: 3+ bedrooms, built since 2010", q: towns(["Myrtle Beach", "Conway", "Little River", "Murrells Inlet", "Longs"], H({ beds: "3", min: "250000", yearMin: "2010" })), post: { yearMin: 2010, strictYear: true }, link: "type=house&beds=3&yearMin=2010", fallback: NEWEST };
++const DRY_450 = { ...cut("No flood zone listed, under $450,000", towns(["Myrtle Beach", "Conway", "Little River", "Murrells Inlet", "Longs"], H({ min: "220000", max: "449999", yearMin: "2000", not: "flood_zone" })), "type=house&max=450000&not=flood_zone", SINCE_2010), post: { yearMin: 2000 } };
++const RENTAL_2010 = { ...cut("Rental houses built since 2010, renting allowed", rentals({ beds: "3", max: "480000", yearMin: "2010", has: "long_term_rental_allowed" }), "type=house&beds=3&yearMin=2010&has=long_term_rental_allowed", RENTAL), post: { yearMin: 2010, strictYear: true }, rank: "rental" };
++const STR_TODAY = { ...cut("Condos where nightly rentals are allowed today, under $350,000", towns(["Myrtle Beach", "North Myrtle Beach", "Surfside Beach"], { type: "condo", status: "active", min: "150000", max: "349999", yearMin: "1985", has: "str_allowed" }), "type=condo&max=350000&has=str_allowed", VACATION), post: { yearMin: 1985 } };
++const FRESH_MID = { head: "Listed in the last 30 days, $300,000 to $600,000", q: towns(["Myrtle Beach", "North Myrtle Beach", "Conway", "Surfside Beach", "Murrells Inlet", "Little River"], { status: "active", min: "300000", max: "599999", domMax: "30" }), link: "min=300000&max=600000&domMax=30", fallback: NEWEST };
++
+ export const FEEDS = {
+   "/buyers/": NEWEST,
++  /* Owner, 2026-11-08: "the idx for almost every buyer page to be one of the first things". The pages with
++     their own strips above get the feed on top too (withStrips); these had none. The long-term rental
++     analyzer gets none: it is an app, and it shows homes like the reader's own after a run. */
++  "/buyers/first-time-buyer-tax-credit/": STARTER,
++  "/buyers/act-388-changes/": LIVE_IN,
++  "/buyers/flood-insurance-after-the-election/": DRY_450,
++  "/invest/rental-property-tax-cut/": RENTAL_2010,
++  "/invest/short-term-rental-rules-statehouse/": STR_TODAY,
++  "/invest/horry-county-growth-roads-permits/": NEWER,
++  "/market-reports/2026-election/": FRESH_MID,
+   "/buyers/buying-in-myrtle-beach/": MB_CUT,
+   "/buyers/common-mistakes/": PRICE_CUT,
+-  "/buyers/first-time-home-buyer-myrtle-beach/": FHA_FIRST,
++  "/buyers/first-time-home-buyer-myrtle-beach/": { ...FHA_FIRST, withStrips: true },
+   "/buyers/programs/": FIRST_3,
+   "/buyers/va-loans/": VA_FEED,
+-  "/buyers/retirees/": ONE_LEVEL,
++  "/buyers/retirees/": { ...ONE_LEVEL, withStrips: true },
+   "/buyers/second-home/": TOP_VACATION,
+   "/buyers/new-construction/": QUICK,
+   "/buyers/cost-to-own/": COST_TO_OWN,
+@@ -271,17 +288,17 @@ export const FEEDS = {
+   "/buyers/relocating/beaches/": WALK_BEACH,
+   ...Object.fromEntries(Object.entries(FROM).map(([s, f]) => [`/buyers/relocating/from-${s}/`, f])),
+   "/submarkets/": TOP_EACH,
+-  "/submarkets/conway/": townTop("Conway"),
+-  "/submarkets/garden-city/": GARDEN_CITY,
++  "/submarkets/conway/": { ...townTop("Conway"), withStrips: true },
++  "/submarkets/garden-city/": { ...GARDEN_CITY, withStrips: true },
+   "/submarkets/little-river/": townTop("Little River"),
+   "/submarkets/murrells-inlet/": townTop("Murrells Inlet"),
+-  "/submarkets/myrtle-beach/": townTop("Myrtle Beach"),
+-  "/submarkets/north-myrtle-beach/": townTop("North Myrtle Beach"),
++  "/submarkets/myrtle-beach/": { ...townTop("Myrtle Beach"), withStrips: true },
++  "/submarkets/north-myrtle-beach/": { ...townTop("North Myrtle Beach"), withStrips: true },
+   "/submarkets/pawleys-island/": townTop("Pawleys Island"),
+   "/submarkets/surfside-beach/": townTop("Surfside Beach"),
+   "/submarkets/carolina-forest/": { head: "Top homes in Carolina Forest", q: [{ subdivision: "Carolina Forest", status: "active", min: "250000" }], link: "subdivision=Carolina%20Forest", fallback: townTop("Myrtle Beach") },
+   "/invest/": RENTAL,
+-  "/invest/str-tools/": STR_400,
++  "/invest/str-tools/": { ...STR_400, withStrips: true },
+   "/invest/str-vs-ltr/": BOTH_WAYS,
+   "/invest/condos/": VACATION,
+   "/invest/condotel-financing/": OCEAN_300,
+-- 
+2.43.0
+
