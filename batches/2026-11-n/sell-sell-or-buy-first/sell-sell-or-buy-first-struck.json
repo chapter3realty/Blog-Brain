@@ -76,5 +76,23 @@
   "pattern": "\\bboth homes (?:can )?(?:keep|get|carry|have) (?:the )?4 percent\\b|\\bboth homes can keep the 4 percent\\b",
   "struck": "If you buy first, both homes can keep the 4 percent rate for the year you move.",
   "use": "A home that was your legal residence for any part of a year keeps the 4 percent rate for that whole year. When you move out, the law asks you to tell the county assessor within six months."
+ },
+ {
+  "row": "sell-or-buy-first 22",
+  "pattern": "\\bold home is taxed at the lower rate through the year\\b",
+  "struck": "The old home is taxed at the lower rate through the year you move out.",
+  "use": "The old home can keep the lower rate for the year you move out, if your household does not claim it on the new home too."
+ },
+ {
+  "row": "sell-or-buy-first 22",
+  "pattern": "\\bpay the higher rate\\b[^.]{0,60}\\bstill own it\\b|\\bstill own it on January 1\\b",
+  "struck": "You pay the higher rate on it if you still own it on January 1 of the next year.",
+  "use": "If you still own it the next year and do not live there, you can no longer claim the lower rate on it."
+ },
+ {
+  "row": "sell-or-buy-first 23",
+  "pattern": "\\bclosing date moves only if\\b",
+  "struck": "A closing date moves only if both sides of that contract agree in writing.",
+  "use": "The closing date in each contract is a deadline. To move it, both sides sign a change to that contract."
  }
 ]

@@ -1,99 +1,117 @@
 [
-  {
-    "row": "buyers-homes-near-the-beach 3",
-    "pattern": "\\bmostly (?:the )?oceanfront row\\b|\\boceanfront row and the row behind\\b",
-    "struck": "Houses within about a tenth of a mile of the ocean (about 500 feet, mostly the oceanfront row and the row behind it) sold for about $1.33 million at the middle.",
-    "use": "Houses within about a tenth of a mile of the ocean (about 500 feet) sold for about $1.33 million at the middle."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 5",
-    "pattern": "\\babout the same as (?:the )?houses 2 to 5 miles inland\\b",
-    "struck": "In the Surfside stretch, houses half a mile to 2 miles back sold for about the same as houses 2 to 5 miles inland (about $395,000).",
-    "use": "In the Surfside Beach to Murrells Inlet stretch, houses half a mile to 2 miles back sold for about $395,000 at the middle, a little less than houses 2 to 5 miles inland (about $420,000)."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 6",
-    "pattern": "\\bcloser they are to the ocean, and they are smaller\\b|\\b240 houses\\b|\\$875,000|\\b420 houses for sale\\b",
-    "struck": "Houses for sale now cost more per square foot the closer they are to the ocean, and they are smaller. Within a quarter mile: 240 houses, about $875,000 at the middle.",
-    "use": "Within a quarter mile: 202 houses, about $960,000 at the middle, about $445 a square foot, about 2,350 square feet."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 7",
-    "pattern": "\\$690,000|\\$715,000|\\b127 houses\\b|\\b109 houses\\b",
-    "struck": "Myrtle Beach 127, about $690,000; Surfside Beach, Garden City and Murrells Inlet 109, about $715,000.",
-    "use": "Myrtle Beach: 101, about $725,000. Surfside Beach, Garden City and Murrells Inlet: 71, about $990,000."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 8",
-    "pattern": "\\brare but real\\b|\\b13 from Surfside Beach to Murrells Inlet\\b|\\b8 in Myrtle Beach, 13\\b",
-    "struck": "A house a walk from the beach under $400,000 is rare but real. For sale now within half a mile: 16 under $400,000 in North Myrtle Beach and Cherry Grove, 8 in Myrtle Beach, 13 from Surfside Beach to Murrells Inlet.",
-    "use": "About 1 in 6 house sales within half a mile of the ocean (72 of 450) was under $400,000. For sale now within half a mile: 16 under $400,000 in North Myrtle Beach and Cherry Grove, 6 in Myrtle Beach, 2 from Surfside Beach to Murrells Inlet."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 10",
-    "pattern": "\\b800 houses\\b|\\b110 more are a quarter to half a mile\\b",
-    "struck": "We measured the walk from every house for sale within 1.5 miles of the ocean (800 houses) to the nearest public beach access. 110 more are a quarter to half a mile.",
-    "use": "We measured the walk from 721 houses for sale within 1.5 miles of the ocean to the nearest public beach access. 109 more are a quarter to half a mile on foot."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 10b",
-    "pattern": "\\b90 (?:of (?:the )?420|are more than a mile)\\b|\\b1\\.15 times\\b|\\broads are private on the map\\b",
-    "struck": "Of the 420 houses for sale within half a mile of the ocean in a straight line, 90 are more than a mile from a public access on foot. At the middle, a near house's walk is about 1.15 times its straight-line distance.",
-    "use": "Of the 356 houses for sale within half a mile of the ocean in a straight line, 27 are more than a mile on foot from a public access, 18 of them on the Litchfield and Pawleys Island coast."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 10c",
-    "pattern": "\\balmost only in North Myrtle Beach\\b|\\b14 of the 21\\b",
-    "struck": "A house a 10-minute walk or less from a public access, under $400,000, is found almost only in North Myrtle Beach and Cherry Grove today: 14 of the 21 for sale.",
-    "use": "A house a 10-minute walk or less from a public access, under $400,000, is found mostly in North Myrtle Beach and Cherry Grove today: 14 of the 20 for sale."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 11",
-    "pattern": "\\bHuntington Beach State Park'?s? (?:3|three) miles\\b",
-    "struck": "Huntington Beach State Park's 3 miles have 3.",
-    "use": "Huntington Beach State Park has 3 public access points on the state's map."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 12",
-    "pattern": "\\b(?:every|all (?:of )?the) (?:beach )?access(?:es)? along Garden City\\b",
-    "unless": "\\bHorry County part\\b",
-    "struck": "Horry County keeps every access along Garden City Beach.",
-    "use": "Horry County maintains the beach accesses on the Horry County part of Garden City Beach."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 13",
-    "pattern": "\\bnever far\\b",
-    "struck": "A public path to the sand is never far.",
-    "use": "For a house within half a mile of the ocean, the nearest public access is about 0.19 mile away in a straight line at the middle."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 15",
-    "pattern": "\\bWithin 1 mi of the beach\\b|\\b5 km/h\\b|\\brouter'?s (?:walking )?speed\\b",
-    "struck": "\"Within 1 mi of the beach\" are about 0.4 mile at the middle. A walk at the router's speed of 5 km/h takes about 5 minutes for a quarter mile.",
-    "use": "At about 3 miles an hour, a quarter mile takes about 5 minutes and half a mile about 10."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 17",
-    "pattern": "\\bbelow 1 in 100 at about 0\\.85\\b|\\bbelow 1 in 10 at about 0\\.6 mile\\b",
-    "struck": "The high-risk share falls below 1 in 10 at about 0.6 mile from the ocean, and below 1 in 100 at about 0.85 mile.",
-    "use": "The high-risk share drops below 1 in 10 between about 0.6 and 0.75 mile from the ocean, and is about 1 in 100 from about 0.85 mile."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 21",
-    "pattern": "\\b193 of 240\\b|\\b123 of 180\\b",
-    "struck": "Most houses for sale near the beach have no HOA fee: 193 of 240 within a quarter mile, and 123 of 180 a quarter to half a mile back.",
-    "use": "Most houses for sale near the beach have no HOA fee: 155 of 202 within a quarter mile, and 97 of 154 a quarter to half a mile back."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 22",
-    "pattern": "\\bexception that lets the beach be a walk\\b",
-    "struck": "A house a walk from the sand is the exception that lets the beach be a walk.",
-    "use": "Most trips here need a car or a golf cart."
-  },
-  {
-    "row": "buyers-homes-near-the-beach 25",
-    "pattern": "\\bGarden City'?s oceanfront beach accesses have free parking\\b",
-    "struck": "Garden City's oceanfront beach accesses have free parking all year.",
-    "use": "Horry County's oceanfront beach accesses in Garden City have free parking all year."
-  }
+ {
+  "row": "buyers-homes-near-the-beach 3",
+  "pattern": "\\bmostly (?:the )?oceanfront row\\b|\\boceanfront row and the row behind\\b",
+  "struck": "Houses within about a tenth of a mile of the ocean (about 500 feet, mostly the oceanfront row and the row behind it) sold for about $1.33 million at the middle.",
+  "use": "Houses within about a tenth of a mile of the ocean (about 500 feet) sold for about $1.33 million at the middle."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 5",
+  "pattern": "\\babout the same as (?:the )?houses 2 to 5 miles inland\\b",
+  "struck": "In the Surfside stretch, houses half a mile to 2 miles back sold for about the same as houses 2 to 5 miles inland (about $395,000).",
+  "use": "In the Surfside Beach to Murrells Inlet stretch, houses half a mile to 2 miles back sold for about $395,000 at the middle, a little less than houses 2 to 5 miles inland (about $420,000)."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 6",
+  "pattern": "\\bcloser they are to the ocean, and they are smaller\\b|\\b240 houses\\b|\\$875,000|\\b420 houses for sale\\b",
+  "struck": "Houses for sale now cost more per square foot the closer they are to the ocean, and they are smaller. Within a quarter mile: 240 houses, about $875,000 at the middle.",
+  "use": "Within a quarter mile: 202 houses, about $960,000 at the middle, about $445 a square foot, about 2,350 square feet."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 7",
+  "pattern": "\\$690,000|\\$715,000|\\b127 houses\\b|\\b109 houses\\b",
+  "struck": "Myrtle Beach 127, about $690,000; Surfside Beach, Garden City and Murrells Inlet 109, about $715,000.",
+  "use": "Myrtle Beach: 101, about $725,000. Surfside Beach, Garden City and Murrells Inlet: 71, about $990,000."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 8",
+  "pattern": "\\brare but real\\b|\\b13 from Surfside Beach to Murrells Inlet\\b|\\b8 in Myrtle Beach, 13\\b",
+  "struck": "A house a walk from the beach under $400,000 is rare but real. For sale now within half a mile: 16 under $400,000 in North Myrtle Beach and Cherry Grove, 8 in Myrtle Beach, 13 from Surfside Beach to Murrells Inlet.",
+  "use": "About 1 in 6 house sales within half a mile of the ocean (72 of 450) was under $400,000. For sale now within half a mile: 16 under $400,000 in North Myrtle Beach and Cherry Grove, 6 in Myrtle Beach, 2 from Surfside Beach to Murrells Inlet."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 10",
+  "pattern": "\\b800 houses\\b|\\b110 more are a quarter to half a mile\\b",
+  "struck": "We measured the walk from every house for sale within 1.5 miles of the ocean (800 houses) to the nearest public beach access. 110 more are a quarter to half a mile.",
+  "use": "We measured the walk from 721 houses for sale within 1.5 miles of the ocean to the nearest public beach access. 109 more are a quarter to half a mile on foot."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 10b",
+  "pattern": "\\b90 (?:of (?:the )?420|are more than a mile)\\b|\\b1\\.15 times\\b|\\broads are private on the map\\b",
+  "struck": "Of the 420 houses for sale within half a mile of the ocean in a straight line, 90 are more than a mile from a public access on foot. At the middle, a near house's walk is about 1.15 times its straight-line distance.",
+  "use": "Of the 356 houses for sale within half a mile of the ocean in a straight line, 27 are more than a mile on foot from a public access, 18 of them on the Litchfield and Pawleys Island coast."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 10c",
+  "pattern": "\\balmost only in North Myrtle Beach\\b|\\b14 of the 21\\b",
+  "struck": "A house a 10-minute walk or less from a public access, under $400,000, is found almost only in North Myrtle Beach and Cherry Grove today: 14 of the 21 for sale.",
+  "use": "A house a 10-minute walk or less from a public access, under $400,000, is found mostly in North Myrtle Beach and Cherry Grove today: 14 of the 20 for sale."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 11",
+  "pattern": "\\bHuntington Beach State Park'?s? (?:3|three) miles\\b",
+  "struck": "Huntington Beach State Park's 3 miles have 3.",
+  "use": "Huntington Beach State Park has 3 public access points on the state's map."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 12",
+  "pattern": "\\b(?:every|all (?:of )?the) (?:beach )?access(?:es)? along Garden City\\b",
+  "unless": "\\bHorry County part\\b",
+  "struck": "Horry County keeps every access along Garden City Beach.",
+  "use": "Horry County maintains the beach accesses on the Horry County part of Garden City Beach."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 13",
+  "pattern": "\\bnever far\\b",
+  "struck": "A public path to the sand is never far.",
+  "use": "For a house within half a mile of the ocean, the nearest public access is about 0.19 mile away in a straight line at the middle."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 15",
+  "pattern": "\\bWithin 1 mi of the beach\\b|\\b5 km/h\\b|\\brouter'?s (?:walking )?speed\\b",
+  "struck": "\"Within 1 mi of the beach\" are about 0.4 mile at the middle. A walk at the router's speed of 5 km/h takes about 5 minutes for a quarter mile.",
+  "use": "At about 3 miles an hour, a quarter mile takes about 5 minutes and half a mile about 10."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 17",
+  "pattern": "\\bbelow 1 in 100 at about 0\\.85\\b|\\bbelow 1 in 10 at about 0\\.6 mile\\b",
+  "struck": "The high-risk share falls below 1 in 10 at about 0.6 mile from the ocean, and below 1 in 100 at about 0.85 mile.",
+  "use": "The high-risk share drops below 1 in 10 between about 0.6 and 0.75 mile from the ocean, and is about 1 in 100 from about 0.85 mile."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 21",
+  "pattern": "\\b193 of 240\\b|\\b123 of 180\\b",
+  "struck": "Most houses for sale near the beach have no HOA fee: 193 of 240 within a quarter mile, and 123 of 180 a quarter to half a mile back.",
+  "use": "Most houses for sale near the beach have no HOA fee: 155 of 202 within a quarter mile, and 97 of 154 a quarter to half a mile back."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 22",
+  "pattern": "\\bexception that lets the beach be a walk\\b",
+  "struck": "A house a walk from the sand is the exception that lets the beach be a walk.",
+  "use": "Most trips here need a car or a golf cart."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 25",
+  "pattern": "\\bGarden City'?s oceanfront beach accesses have free parking\\b",
+  "struck": "Garden City's oceanfront beach accesses have free parking all year.",
+  "use": "Horry County's oceanfront beach accesses in Garden City have free parking all year."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 26 (fixer verify)",
+  "pattern": "\\b(more than half|most)\\b[^.]{0,60}\\bunder \\$400,000[^.]{0,60}\\b(in Crescent Beach|are here)\\b",
+  "struck": "More than half the houses under $400,000 a short walk from the sand are in Crescent Beach, in North Myrtle Beach.",
+  "use": "About half the houses under $400,000 a 10-minute walk or less from the sand are in Crescent Beach, in North Myrtle Beach."
+ },
+ {
+  "row": "buyers-homes-near-the-beach 26 (fixer verify)",
+  "pattern": "\\b1,450 sq ft\\b",
+  "struck": "1,450 sq ft (middle size, $400,000 to $600,000 row of the walk table)",
+  "use": "1,460 sq ft"
+ },
+ {
+  "row": "buyers-homes-near-the-beach 26 (fixer verify)",
+  "pattern": "\\bIn Crescent Beach, most of the houses under \\$400,000 are on Edge Drive",
+  "struck": "In Crescent Beach, most of the houses under $400,000 are on Edge Drive, Hillside Drive South and the numbered avenues, such as 11th, 23rd and 28th Avenue South.",
+  "use": "In North Myrtle Beach, most of these houses are on Edge Drive, Hillside Drive South and the numbered avenues South, such as 11th, 23rd and 28th Avenue South."
+ }
 ]

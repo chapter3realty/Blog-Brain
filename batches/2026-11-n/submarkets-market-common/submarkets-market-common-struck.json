@@ -1,16 +1,129 @@
 [
- {"row": "market-common 2", "pattern": "A-10[^.]{0,80}early (in the )?1970s|early (in the )?1970s[^.]{0,80}A-10", "struck": "The Air Force reopened it in 1956 for F-100 fighter jets, brought in A-10 \"Warthog\" attack planes in the early 1970s, and closed it in 1993.", "use": "The Air Force reopened it in 1956 for F-100 fighter jets and later flew A-10 \"Warthog\" attack planes there. It closed the base in 1993."},
- {"row": "market-common 3", "pattern": "bought[^.]{0,40}(land|property)[^.]{0,40}1941|1941[^.]{0,60}\\bbought\\b", "struck": "The federal government bought the land in 1941.", "use": "The federal government acquired land there in 1941 for what became the base."},
- {"row": "market-common 7", "pattern": "(about )?5[67]0[^.]{0,60}town center'?s (own )?streets|town center'?s (own )?streets[^.]{0,40}(about )?5[67]0", "struck": "About 570 are on the town center's own streets.", "use": "About 570 are in the town center district, about 500 of them on its own streets."},
- {"row": "market-common 10", "pattern": "1 owner in 8|one owner in eight|(1|one) in 8 owners", "struck": "About 1 owner in 8 gets the tax bill outside South Carolina.", "use": "About 1 home in 8 has its tax bill mailed outside South Carolina."},
- {"row": "market-common 12", "pattern": "newest homes[^.]{0,60}townhomes", "struck": "The newest homes are townhomes on the town center's streets.", "use": "The only builder sales in the past year were 9 townhomes on the town center's streets, at about $580,000 at the middle."},
- {"row": "market-common 14", "pattern": "35 of (the )?43[^.]{0,80}neighborhoods|neighborhoods[^.]{0,80}35 of (the )?43", "struck": "Most houses in the neighborhoods list an HOA fee of $150 a month or less (35 of 43 houses for sale).", "use": "29 of the 32 houses for sale in the neighborhoods list an HOA fee of $150 a month or less, 23 of them $100 or less."},
- {"row": "market-common 17", "pattern": "town center'?s north(ern)? edge|north(ern)? edge of the town center", "struck": "The closest home is about a quarter mile outside the line, on the town center's north edge.", "use": "The closest home is about a quarter mile outside the line, on the town center's east edge."},
- {"row": "market-common 20", "pattern": "loudest[^.]{0,80}(stretch|run)[^.]{0,40}ends? of the runway", "struck": "The loudest areas on the airport's map stretch out from the two ends of the runway.", "use": "The 65-decibel area runs along the runway and stretches out past both ends, where planes take off and land."},
- {"row": "market-common 20", "pattern": "helicopter tours?", "unless": "no additional helicopter tours", "struck": "a helicopter pad near US 17 at the runway's south end, used by oceanfront helicopter tours", "use": "a helicopter pad near US 17 Business at the runway's south end, used for oceanfront helicopter flights"},
- {"row": "market-common 21", "pattern": "town center'?s lake", "struck": "The town center's lake, Grand Park and Valor Park sit beside the shops.", "use": "Grand Park, with its lake, and Valor Park sit beside the shops."},
- {"row": "market-common 22", "pattern": "farmers market[^.]{0,120}10 a\\.?m\\.? to 3 p\\.?m|10 a\\.?m\\.? to 3 p\\.?m[^.]{0,120}farmers market", "struck": "A farmers market is held at Valor Park on Saturdays, 10 a.m. to 3 p.m., from April into December.", "use": "A farmers market is held at Valor Park on Saturdays from April into December. (Give no hours, or say 10 a.m. to 2 p.m. for the November and December holiday market.)"},
- {"row": "market-common 24", "pattern": "only the homes on the town center'?s (own )?streets", "struck": "Only the homes on the town center's own streets are a short walk from the shops.", "use": "The homes on the town center's own streets are the ones a short walk from the shops: about 8 minutes on foot to Valor Park from the middle of them."},
- {"row": "market-common 25", "pattern": "3800 S(outh|\\.)? Kings", "struck": "the Food Lion at 3800 South Kings Highway", "use": "the Food Lion at 3890 South Kings Highway"},
- {"row": "market-common 31", "pattern": "most houses list (at )?\\$100 to \\$150|\\$3,300 to \\$3,900", "struck": "plus an HOA fee most houses list at $100 to $150 a month, about $1,200 to $1,800 a year: about $3,300 to $3,900 a year", "use": "plus an HOA fee most houses list at $150 a month or less, up to about $1,800 a year: up to about $3,900 a year besides the mortgage and insurance"}
+{
+"row": "market-common 2",
+"pattern": "A-10[^.]{0,80}early (in the )?1970s|early (in the )?1970s[^.]{0,80}A-10",
+"struck": "The Air Force reopened it in 1956 for F-100 fighter jets, brought in A-10 \"Warthog\" attack planes in the early 1970s, and closed it in 1993.",
+"use": "The Air Force reopened it in 1956 for F-100 fighter jets and later flew A-10 \"Warthog\" attack planes there. It closed the base in 1993."
+},
+{
+"row": "market-common 3",
+"pattern": "bought[^.]{0,40}(land|property)[^.]{0,40}1941|1941[^.]{0,60}\\bbought\\b",
+"struck": "The federal government bought the land in 1941.",
+"use": "The federal government acquired land there in 1941 for what became the base."
+},
+{
+"row": "market-common 7",
+"pattern": "(about )?5[67]0[^.]{0,60}town center'?s (own )?streets|town center'?s (own )?streets[^.]{0,40}(about )?5[67]0",
+"struck": "About 570 are on the town center's own streets.",
+"use": "About 570 are in the town center district, about 500 of them on its own streets."
+},
+{
+"row": "market-common 10",
+"pattern": "1 owner in 8|one owner in eight|(1|one) in 8 owners",
+"struck": "About 1 owner in 8 gets the tax bill outside South Carolina.",
+"use": "About 1 home in 8 has its tax bill mailed outside South Carolina."
+},
+{
+"row": "market-common 12",
+"pattern": "newest homes[^.]{0,60}townhomes",
+"struck": "The newest homes are townhomes on the town center's streets.",
+"use": "The only builder sales in the past year were 9 townhomes on the town center's streets, at about $580,000 at the middle."
+},
+{
+"row": "market-common 14",
+"pattern": "35 of (the )?43[^.]{0,80}neighborhoods|neighborhoods[^.]{0,80}35 of (the )?43",
+"struck": "Most houses in the neighborhoods list an HOA fee of $150 a month or less (35 of 43 houses for sale).",
+"use": "29 of the 32 houses for sale in the neighborhoods list an HOA fee of $150 a month or less, 23 of them $100 or less."
+},
+{
+"row": "market-common 17",
+"pattern": "town center'?s north(ern)? edge|north(ern)? edge of the town center",
+"struck": "The closest home is about a quarter mile outside the line, on the town center's north edge.",
+"use": "The closest home is about a quarter mile outside the line, on the town center's east edge."
+},
+{
+"row": "market-common 20",
+"pattern": "loudest[^.]{0,80}(stretch|run)[^.]{0,40}ends? of the runway",
+"struck": "The loudest areas on the airport's map stretch out from the two ends of the runway.",
+"use": "The 65-decibel area runs along the runway and stretches out past both ends, where planes take off and land."
+},
+{
+"row": "market-common 20",
+"pattern": "helicopter tours?",
+"unless": "no additional helicopter tours",
+"struck": "a helicopter pad near US 17 at the runway's south end, used by oceanfront helicopter tours",
+"use": "a helicopter pad near US 17 Business at the runway's south end, used for oceanfront helicopter flights"
+},
+{
+"row": "market-common 21",
+"pattern": "town center'?s lake",
+"struck": "The town center's lake, Grand Park and Valor Park sit beside the shops.",
+"use": "Grand Park, with its lake, and Valor Park sit beside the shops."
+},
+{
+"row": "market-common 22",
+"pattern": "farmers market[^.]{0,120}10 a\\.?m\\.? to 3 p\\.?m|10 a\\.?m\\.? to 3 p\\.?m[^.]{0,120}farmers market",
+"struck": "A farmers market is held at Valor Park on Saturdays, 10 a.m. to 3 p.m., from April into December.",
+"use": "A farmers market is held at Valor Park on Saturdays from April into December. (Give no hours, or say 10 a.m. to 2 p.m. for the November and December holiday market.)"
+},
+{
+"row": "market-common 24",
+"pattern": "only the homes on the town center'?s (own )?streets",
+"struck": "Only the homes on the town center's own streets are a short walk from the shops.",
+"use": "The homes on the town center's own streets are the ones a short walk from the shops: about 8 minutes on foot to Valor Park from the middle of them."
+},
+{
+"row": "market-common 25",
+"pattern": "3800 S(outh|\\.)? Kings",
+"struck": "the Food Lion at 3800 South Kings Highway",
+"use": "the Food Lion at 3890 South Kings Highway"
+},
+{
+"row": "market-common 31",
+"pattern": "most houses list (at )?\\$100 to \\$150|\\$3,300 to \\$3,900",
+"struck": "plus an HOA fee most houses list at $100 to $150 a month, about $1,200 to $1,800 a year: about $3,300 to $3,900 a year",
+"use": "plus an HOA fee most houses list at $150 a month or less, up to about $1,800 a year: up to about $3,900 a year besides the mortgage and insurance"
+},
+{
+"row": "market-common 38",
+"pattern": "Free trivia nights at a restaurant and at the bowling hall",
+"struck": "Tuesdays and Thursdays Free trivia nights at a restaurant and at the bowling hall.",
+"use": "Tuesdays and Thursdays Free trivia nights at the bowling hall, and on Tuesdays at a restaurant too."
+},
+{
+"row": "market-common 39",
+"pattern": "10,000-square-foot clubhouse (has|with|includes)",
+"struck": "Its 10,000-square-foot clubhouse has a fitness center, with a pool, tennis and pickleball courts and a lake path.",
+"use": "Kolter's plans gave its clubhouse a fitness center, and the clubhouse has a pool, tennis and pickleball courts and a lake path beside it."
+},
+{
+"row": "market-common 40",
+"pattern": "with a pool and pool house beside a lake",
+"struck": "About 110 houses on lots of about 0.15 acre, with a pool and pool house beside a lake.",
+"use": "About 110 houses on lots of about 0.15 acre, with a pool and pool house."
+},
+{
+"row": "market-common 40",
+"pattern": "\\bsix of them have (one|a pool)",
+"struck": "On the 2023 aerial photo, six of them have one.",
+"use": "On the 2023 aerial photo, seven of them have one."
+},
+{
+"row": "market-common 41",
+"pattern": "half townhomes and half houses, on small lots, about 0\\.08 acre",
+"struck": "About 500 homes, about half townhomes and half houses, on small lots, about 0.08 acre.",
+"use": "About 500 homes, about half townhomes and half houses, on small lots: about 0.08 acre for a house and 0.03 for a townhome."
+},
+{
+"row": "market-common 41",
+"pattern": "townhomes, on lots of about 0\\.15 acre",
+"struck": "The largest, with about 730 homes: about 610 houses and 120 townhomes, on lots of about 0.15 acre.",
+"use": "The largest, with about 730 homes: about 610 houses and 120 townhomes. A house lot is about 0.15 acre."
+},
+{
+"row": "market-common 41",
+"pattern": "most of them houses, on lots of about",
+"struck": "About 480 homes at the west end, by the US 17 Bypass, most of them houses, on lots of about 0.17 acre.",
+"use": "About 480 homes at the west end, by the US 17 Bypass, most of them houses, on house lots of about 0.17 acre."
+}
 ]

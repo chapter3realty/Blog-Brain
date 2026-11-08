@@ -1,65 +1,157 @@
 [
-  { "row": "divorce 1", "pattern": "bought during the marriage is marital property", "unless": "\\busually\\b|\\bunless\\b|\\bexcept|\\bgenerally\\b|\\bmost\\b",
+  {
+    "row": "divorce 1",
+    "pattern": "bought during the marriage is marital property",
+    "unless": "\\busually\\b|\\bunless\\b|\\bexcept|\\bgenerally\\b|\\bmost\\b",
     "struck": "In South Carolina, a house bought during the marriage is marital property even if only one spouse's name is on the deed.",
-    "use": "In South Carolina, a house bought during the marriage is usually marital property, even if only one spouse's name is on the deed. The exceptions include a house bought with one spouse's inherited or premarital money, or one a prenuptial agreement leaves out." },
-  { "row": "divorce 4", "pattern": "owned before the marriage stays (?:theirs|his|hers|yours|separate)",
+    "use": "In South Carolina, a house bought during the marriage is usually marital property, even if only one spouse's name is on the deed. The exceptions include a house bought with one spouse's inherited or premarital money, or one a prenuptial agreement leaves out."
+  },
+  {
+    "row": "divorce 4",
+    "pattern": "owned before the marriage stays (?:theirs|his|hers|yours|separate)",
     "struck": "A house one spouse owned before the marriage stays theirs, but any rise in its value that came from the other spouse's efforts can be divided.",
-    "use": "A house one spouse owned before the marriage is not marital property under the law, but any rise in its value that came from the other spouse's efforts can be divided." },
-  { "row": "divorce 7", "pattern": "once (?:it|the notice|that notice) is filed,? it does",
+    "use": "A house one spouse owned before the marriage is not marital property under the law, but any rise in its value that came from the other spouse's efforts can be divided."
+  },
+  {
+    "row": "divorce 7",
+    "pattern": "once (?:it|the notice|that notice) is filed,? it does",
     "struck": "Until that notice is filed, a spouse's claim does not bind a buyer or lender; once it is filed, it does.",
-    "use": "After the notice is filed, a buyer or lender who takes an interest later is bound by the case. It does not affect a lender or buyer whose rights came before it." },
-  { "row": "divorce 9", "pattern": "(?:cannot|can't|may not) grant a final divorce (?:until|before) three months", "unless": "most grounds|other grounds|\\bexcept",
+    "use": "After the notice is filed, a buyer or lender who takes an interest later is bound by the case. It does not affect a lender or buyer whose rights came before it."
+  },
+  {
+    "row": "divorce 9",
+    "pattern": "(?:cannot|can't|may not) grant a final divorce (?:until|before) three months",
+    "unless": "most grounds|other grounds|\\bexcept",
     "struck": "The court cannot grant a final divorce until three months after the case is filed.",
-    "use": "On most grounds a final divorce cannot be granted until three months after the case is filed. On the one-year-apart ground, the divorce can be granted once the other spouse has answered or is in default." },
-  { "row": "divorce 10", "pattern": "contested issues[^.]{0,100}\\bgo to (?:court-ordered )?mediation", "unless": "\\bmost\\b",
+    "use": "On most grounds a final divorce cannot be granted until three months after the case is filed. On the one-year-apart ground, the divorce can be granted once the other spouse has answered or is in default."
+  },
+  {
+    "row": "divorce 10",
+    "pattern": "contested issues[^.]{0,100}\\bgo to (?:court-ordered )?mediation",
+    "unless": "\\bmost\\b",
     "struck": "Contested issues in a divorce case, the house included, go to court-ordered mediation in South Carolina.",
-    "use": "Most contested issues in a divorce case, the house included, must go to mediation, unless the case is exempt or the spouses agree to arbitration or early neutral evaluation instead." },
-  { "row": "divorce 12", "pattern": "\\bboth (?:spouses |owners )?(?:must )?sign the listing", "unless": "\\bwe\\b|our practice",
+    "use": "Most contested issues in a divorce case, the house included, must go to mediation, unless the case is exempt or the spouses agree to arbitration or early neutral evaluation instead."
+  },
+  {
+    "row": "divorce 12",
+    "pattern": "\\bboth (?:spouses |owners )?(?:must )?sign the listing",
+    "unless": "\\bwe\\b|our practice",
     "struck": "When both spouses own it, both sign the listing.",
-    "use": "When a husband and wife own the house together, we have both sign the listing." },
-  { "row": "divorce 12", "pattern": "change[s]? to an accepted (?:deal|offer|contract)[^.]{0,80}initial",
+    "use": "When a husband and wife own the house together, we have both sign the listing."
+  },
+  {
+    "row": "divorce 12",
+    "pattern": "change[s]? to an accepted (?:deal|offer|contract)[^.]{0,80}initial",
     "struck": "Any change to an accepted deal is in writing and initialed by both sides.",
-    "use": "Changes made during negotiations are in writing, initialed and dated by both sides." },
-  { "row": "divorce 14", "pattern": "until (?:they|you|the spouses|both|the two)[^.]{0,20} agree in writing",
+    "use": "Changes made during negotiations are in writing, initialed and dated by both sides."
+  },
+  {
+    "row": "divorce 14",
+    "pattern": "until (?:they|you|the spouses|both|the two)[^.]{0,20} agree in writing",
     "struck": "The closing attorney must keep the disputed part in trust until they agree in writing or a court decides.",
-    "use": "The closing attorney must keep the disputed part separate until they agree, a court decides, or a narrow exception in the rule applies." },
-  { "row": "divorce 16", "pattern": "\\bqualif\\w*[^.]{0,40}\\b(?:alone|on (?:their|your|his|her) own)\\b",
+    "use": "The closing attorney must keep the disputed part separate until they agree, a court decides, or a narrow exception in the rule applies."
+  },
+  {
+    "row": "divorce 16",
+    "pattern": "\\bqualif\\w*[^.]{0,40}\\b(?:alone|on (?:their|your|his|her) own)\\b",
     "struck": "The spouse who keeps the house gets none of the cash and must qualify for the loan alone.",
-    "use": "The spouse who keeps the house gets none of the cash and must qualify for the new loan under Fannie Mae's rules." },
-  { "row": "divorce 16", "pattern": "buyout is (?:often|usually|typically) paid",
+    "use": "The spouse who keeps the house gets none of the cash and must qualify for the new loan under Fannie Mae's rules."
+  },
+  {
+    "row": "divorce 16",
+    "pattern": "buyout is (?:often|usually|typically) paid",
     "struck": "A buyout is often paid with a new loan.",
-    "use": "A buyout can be paid with a new loan." },
-  { "row": "divorce 17", "pattern": "lender (?:cannot|can't|may not) (?:demand|call)[^.]{0,140}(?:divorce|settlement)", "unless": "\\blives?\\b|\\blive in\\b|occup",
+    "use": "A buyout can be paid with a new loan."
+  },
+  {
+    "row": "divorce 17",
+    "pattern": "lender (?:cannot|can't|may not) (?:demand|call)[^.]{0,140}(?:divorce|settlement)",
+    "unless": "\\blives?\\b|\\blive in\\b|occup",
     "struck": "A lender cannot demand the whole loan be paid because a divorce decree or property settlement moves the house to the borrower's spouse.",
-    "use": "A lender cannot demand the whole loan be paid because a divorce decree moves a home of one to four units to the borrower's spouse, when the borrower lived in it and the spouse who gets it lives there." },
-  { "row": "divorce 20", "pattern": "buyout deed saves",
+    "use": "A lender cannot demand the whole loan be paid because a divorce decree moves a home of one to four units to the borrower's spouse, when the borrower lived in it and the spouse who gets it lives there."
+  },
+  {
+    "row": "divorce 20",
+    "pattern": "buyout deed saves",
     "struck": "On the middle $350,000 house, a buyout deed saves the $1,295 a sale would cost.",
-    "use": "A buyout deed pays no deed fee; a sale of the same $350,000 house pays $1,295." },
-  { "row": "divorce 23", "pattern": "time away counts against",
+    "use": "A buyout deed pays no deed fee; a sale of the same $350,000 house pays $1,295."
+  },
+  {
+    "row": "divorce 23",
+    "pattern": "time away counts against",
     "struck": "Without such a paper, time away counts against the spouse who left.",
-    "use": "Without one of those papers, the time after you move out does not count as time you lived there." },
-  { "row": "divorce 24", "pattern": "count the time the other spouse owned it", "unless": "living-there|lived there|live there|residence|living there",
+    "use": "Without one of those papers, the time after you move out does not count as time you lived there."
+  },
+  {
+    "row": "divorce 24",
+    "pattern": "count the time the other spouse owned it",
+    "unless": "living-there|lived there|live there|residence|living there",
     "struck": "The spouse who keeps the house takes over the old cost basis, and can count the time the other spouse owned it.",
-    "use": "The spouse who keeps the house takes over the old cost basis and can count the time the other spouse owned it, but must meet the 2-year living-there test on their own." },
-  { "row": "divorce 26", "pattern": "married if your divorce is not final by December 31", "unless": "separate maintenance",
+    "use": "The spouse who keeps the house takes over the old cost basis and can count the time the other spouse owned it, but must meet the 2-year living-there test on their own."
+  },
+  {
+    "row": "divorce 26",
+    "pattern": "married if your divorce is not final by December 31",
+    "unless": "separate maintenance",
     "struck": "For the tax year, you are married if your divorce is not final by December 31, even if you live apart.",
-    "use": "If you have no final decree of divorce or separate maintenance by December 31, you count as married for that whole year, even if you live apart." },
-  { "row": "divorce 29", "pattern": "before the closing attorney'?s fee", "unless": "other (?:closing )?costs",
+    "use": "If you have no final decree of divorce or separate maintenance by December 31, you count as married for that whole year, even if you live apart."
+  },
+  {
+    "row": "divorce 29",
+    "pattern": "before the closing attorney'?s fee",
+    "unless": "other (?:closing )?costs",
     "struck": "Each gets about $74,350 less $1,750 for each 1 percent of fees, before the closing attorney's fee.",
-    "use": "Each gets about $74,350 less $1,750 for each 1 percent of agent fees, before the closing attorney's fee and other closing costs." },
-  { "row": "divorce 31", "pattern": "until the old loan is paid off,? both", "unless": "releas",
+    "use": "Each gets about $74,350 less $1,750 for each 1 percent of agent fees, before the closing attorney's fee and other closing costs."
+  },
+  {
+    "row": "divorce 31",
+    "pattern": "until the old loan is paid off,? both",
+    "unless": "releas",
     "struck": "Until the old loan is paid off, both owe it.",
-    "use": "Until the old loan is paid off or the lender releases the other spouse, both owe it." },
-  { "row": "divorce 32", "pattern": "tracks repeat sales of the same", "unless": "refinanc|apprais",
+    "use": "Until the old loan is paid off or the lender releases the other spouse, both owe it."
+  },
+  {
+    "row": "divorce 32",
+    "pattern": "tracks repeat sales of the same",
+    "unless": "refinanc|apprais",
     "struck": "The index tracks repeat sales of the same single-family houses with Fannie Mae or Freddie Mac loans.",
-    "use": "The index tracks repeat sales and refinance appraisals of the same single-family houses with Fannie Mae or Freddie Mac loans." },
-  { "row": "divorce 33", "pattern": "since (?:mid-|the middle of )?1996",
+    "use": "The index tracks repeat sales and refinance appraisals of the same single-family houses with Fannie Mae or Freddie Mac loans."
+  },
+  {
+    "row": "divorce 33",
+    "pattern": "since (?:mid-|the middle of )?1996",
     "struck": "The whole gain stays under one person's $250,000 limit for any house bought since mid-1996.",
-    "use": "For a typical house bought in 1998 or later, the estimated gain is under one person's $250,000 limit." },
-  { "row": "divorce 34", "pattern": "filed in the county where the other spouse lives,? or where",
+    "use": "For a typical house bought in 1998 or later, the estimated gain is under one person's $250,000 limit."
+  },
+  {
+    "row": "divorce 34",
+    "pattern": "filed in the county where the other spouse lives,? or where",
     "struck": "A divorce case is filed in the county where the other spouse lives, or where the couple last lived together.",
-    "use": "A divorce case is heard in the county where the spouse being sued lives; where the spouse filing lives, if the other lives out of state or cannot be found; or where the couple last lived together, unless the spouse filing lives out of state." },
-  { "row": "divorce 34", "pattern": "Clerk of Court[^.]{0,80}\\bis at 1301", "unless": "\\bmain\\b",
+    "use": "A divorce case is heard in the county where the spouse being sued lives; where the spouse filing lives, if the other lives out of state or cannot be found; or where the couple last lived together, unless the spouse filing lives out of state."
+  },
+  {
+    "row": "divorce 34",
+    "pattern": "Clerk of Court[^.]{0,80}\\bis at 1301",
+    "unless": "\\bmain\\b",
     "struck": "In Horry County, the Clerk of Court for the Circuit and Family Court is at 1301 Second Avenue in Conway.",
-    "use": "Horry County's Clerk of Court for the Circuit and Family Court has its main office at 1301 Second Avenue in Conway and a second office at 332 Hinson Drive in Myrtle Beach." }
+    "use": "Horry County's Clerk of Court for the Circuit and Family Court has its main office at 1301 Second Avenue in Conway and a second office at 332 Hinson Drive in Myrtle Beach."
+  },
+  {
+    "row": "divorce 36",
+    "pattern": "\\ba sale does not pay off the loan",
+    "struck": "Then a sale does not pay off the loan.",
+    "use": "Then the money from a sale would not pay off the loan."
+  },
+  {
+    "row": "divorce 36",
+    "pattern": "(?:lender would have to agree|would need the lender to agree)[^.]{0,40}short sale",
+    "struck": "The lender would have to agree to a short sale, a sale for less than what is owed. / A sale would need the lender to agree to a short sale.",
+    "use": "The lender may agree to a short sale, a sale for less than what is owed."
+  },
+  {
+    "row": "divorce 38",
+    "pattern": "names are on the deed, no\\b",
+    "struck": "If both of your names are on the deed, no.",
+    "use": "If both of your names are on the deed, your spouse cannot sell the whole house without you. A deed signed by one spouse passes no more than that spouse's share."
+  }
 ]

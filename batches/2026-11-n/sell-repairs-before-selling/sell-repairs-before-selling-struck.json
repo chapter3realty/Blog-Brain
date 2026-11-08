@@ -138,5 +138,17 @@
   "pattern": "\\bCitizens asks for one on homes more than 20 years old\\b",
   "struck": "In Florida, Citizens asks for one on homes more than 20 years old.",
   "use": "(cut: a Florida rule; the page names no insurer's age rule until OWNER-QUESTIONS Q2 is answered)"
+ },
+ {
+  "row": "repairs 28 (fixer verify)",
+  "pattern": "\\bno public South Carolina rule\\b",
+  "struck": "We found no public South Carolina rule on how old a roof can be for insurance.",
+  "use": "We found no roof age limit in South Carolina's insurance laws."
+ },
+ {
+  "row": "repairs 28 (fixer verify)",
+  "pattern": "\\binsurer that asks for a four-point inspection gets\\b",
+  "struck": "An insurer that asks for a four-point inspection gets the roof's age and its years of life left from the report.",
+  "use": "Insurers can still ask about the roof. The sample four-point form from Citizens, a Florida insurer, asks for the roof's age and its years of life left."
  }
 ]
