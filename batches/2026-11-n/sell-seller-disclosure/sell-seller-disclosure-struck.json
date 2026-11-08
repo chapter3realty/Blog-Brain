@@ -1,0 +1,65 @@
+[
+  {
+    "row": "seller-disclosure 2",
+    "pattern": "\\beach (?:co-?owner |owner )?(?:must )?signs?\\b",
+    "struck": "Every owner named in the contract is an \"owner\" for this law, so co-owners each have the duty and each signs.",
+    "use": "The law's duty falls on each owner named in the contract. The form has signature lines for the owners."
+  },
+  {
+    "row": "seller-disclosure 6",
+    "pattern": "\\bNo exemption covers an investor",
+    "struck": "No exemption covers an investor, a landlord, a second-home owner or a company that owns the home.",
+    "use": "The law lists no exemption for an investor, a landlord, a second-home owner or a company. A rental you never lived in still needs the form, unless the sale is one of the 15 exempt kinds."
+  },
+  {
+    "row": "seller-disclosure 10",
+    "pattern": "\\bform has nine parts\\b",
+    "unless": "\\blast part\\b|\\bpart X\\b|\\bnine parts of questions\\b",
+    "struck": "The form has nine parts.",
+    "use": "The form has nine parts of questions, one for each subject the law names, and a last part for explaining your Yes answers."
+  },
+  {
+    "row": "seller-disclosure 14",
+    "pattern": "\\babout 1 in 3\\b[^.]{0,120}\\b(?:Florence|37 percent)",
+    "struck": "About 1 in 3 homes in Horry County (37 percent) has a last recorded sale from before Hurricane Florence in September 2018.",
+    "use": "More than 1 in 3 homes in Horry County (37 percent) last sold before Hurricane Florence in September 2018."
+  },
+  {
+    "row": "seller-disclosure 14",
+    "pattern": "\\bFor those owners, the form",
+    "struck": "For those owners, the form's questions about \"your ownership\" reach back over those storms.",
+    "use": "If you have owned your home since before those storms, the form's questions about \"your ownership\" cover them."
+  },
+  {
+    "row": "seller-disclosure 18",
+    "pattern": "\\bseaward of the state's setback line, so their (?:sale )?contracts need",
+    "struck": "About 10,700 residential parcels with a building in Horry County lie at least partly seaward of the state's setback line, so their sale contracts need the beachfront disclosure.",
+    "use": "By our count from the state's and the county's maps, about 10,700 homes in Horry County sit on lots that reach seaward of the state's setback line. A survey settles where the line falls on a given lot."
+  },
+  {
+    "row": "seller-disclosure 22",
+    "pattern": "\\bto about 1 in 3 in Conway\\b",
+    "struck": "from 1 percent in Carolina Forest to about 1 in 3 in Conway",
+    "use": "more than half in Loris, about 1 in 3 in Conway and Surfside Beach, 28 percent in Myrtle Beach, 19 percent in North Myrtle Beach, and about 1 percent in Carolina Forest"
+  },
+  {
+    "row": "seller-disclosure 23",
+    "pattern": "\\b(?:bookings|rentals?) that begin within 90 days after the deed is recorded",
+    "unless": "Vacation Rental Act|front desk",
+    "struck": "A buyer takes the home subject to vacation rental bookings that begin within 90 days after the deed is recorded.",
+    "use": "Under the state's Vacation Rental Act, the buyer takes the home subject to rentals that begin within 90 days after the deed is recorded. That act does not cover a condo rented through a hotel-style front desk."
+  },
+  {
+    "row": "seller-disclosure 27",
+    "pattern": "\\bfor fraud[^.]{0,40}\\b(?:time|clock) starts when",
+    "struck": "South Carolina gives three years to bring many kinds of claims, including claims on a contract and for fraud; for fraud the time starts when the buyer discovers it.",
+    "use": "Many claims in South Carolina must be filed within three years. When the clock starts depends on the claim; an attorney can say which applies."
+  },
+  {
+    "row": "seller-disclosure 28",
+    "pattern": "\\bsignificantly lowers the value or the soundness of the home",
+    "unless": "health",
+    "struck": "a fact that significantly lowers the value or the soundness of the home",
+    "use": "a problem that significantly lowers the home's value or soundness, or is a significant health risk to the people who live there"
+  }
+]
