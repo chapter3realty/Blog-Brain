@@ -1,0 +1,8 @@
+# Needs from the lead: /submarkets/myrtle-beach/market-common/
+
+1. **Hub links.** /submarkets/myrtle-beach/ has a "The Market Common: shops, a lake and parks" entry; link it to this page in a sentence. /submarkets/ (hub) and /buyers/best-neighborhoods/ (its Market Common entry) should link here too. This page will link up to /submarkets/myrtle-beach/.
+2. **One drive figure on the site.** /submarkets/surfside-beach/ prints "Market Common 14 min" from the pier (to the shopping center's point). This page measured 12.9 minutes from the pier to Valor Park. Use "about 13 to 14 minutes" here or adopt 14; tell the writer which (ledger row 28).
+3. **Beach time from Valor Park.** /buyers/best-neighborhoods/ says "about five minutes from the beach by car" and this page measures 5.1 minutes to the 29th Avenue South access. Batch sibling /buyers/homes-near-the-beach/ may count the same trip: agree one figure ("about 5 minutes").
+4. **Carolina Forest beach time** for the comparison table. The Carolina Forest page says "about 10 to 15 minutes"; no ledger row here verifies it. Either the lead points to a verified row, or the cell says "see the Carolina Forest page".
+5. **Map tool.** `tools/area-map.js` needs the neighborhood outlines (`map-layers.geojson`, layer "hood") and the noise area (`map-noise.geojson`). If the tool cannot draw a soft shaded polygon with an approximate edge, the writer needs a static SVG built from those files.
+6. **Photo licence records.** Reuse the existing record for the lake photo (`data/photos.json`, "market-common-lake", 55-plus folder) instead of a second copy. New files go under `images/2026-11-n/submarkets-market-common/`.
