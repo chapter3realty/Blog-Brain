@@ -13,3 +13,8 @@
 8. **Links in.** score.js S8: only /sell/best-time-to-sell/ links here from body copy. The /sell/ hub sentence in item 1 would make two.
 9. **No lender named.** The page offers "a loan officer at our preferred lender" instead of BrickWood, so no AFBA block was copied (item 5 is moot).
 10. **Contact links.** Every offer goes to plain `/contact/`. A query string (`/contact/?topic=...`) hides the box from the audit's mid-read CTA check, which matches `href="/contact/"` exactly.
+
+## After review round 1 (fixer, 2026-11-08)
+
+11. **Photo partner.** shot-list.md shot 2 (a moving truck or storage container in an ordinary Horry County driveway) would replace the Conway house photo. The lead sends the shot list from the owner's Gmail; the fixer did not email anyone.
+12. **The method note's text size.** critic.mjs warns read.small-text on phones (the "How we counted" note at about 15 px). The owner asked for the method note to be set small, so it stays small. It is a note under the sources, not body copy.
