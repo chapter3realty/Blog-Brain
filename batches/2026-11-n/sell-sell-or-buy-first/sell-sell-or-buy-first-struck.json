@@ -1,0 +1,80 @@
+[
+ {
+  "row": "sell-or-buy-first 1",
+  "pattern": "\\b(?:within|in) the same week\\b",
+  "struck": "About a third sold and bought within the same week.",
+  "use": "About a third did both within 7 days of each other, about 1 in 9 on the same day."
+ },
+ {
+  "row": "sell-or-buy-first 2",
+  "pattern": "\\bone person as the first-named seller \\(not a company",
+  "struck": "34,108 had one person as the first-named seller (not a company, trust or estate).",
+  "use": "34,108 had one person as the first-named seller, named with a first name, a middle name or initial and a last name (not a company, trust or estate)."
+ },
+ {
+  "row": "sell-or-buy-first 5",
+  "pattern": "\\babout (?:1|one) in (?:4|four)\\b[^.]{0,60}\\bwithin a month\\b|\\bfound the next home\\b",
+  "struck": "About 1 in 4 found the next home within a month.",
+  "use": "More than 1 in 4 bought the next home within a month of the sale; about 1 in 5 took more than 6 months."
+ },
+ {
+  "row": "sell-or-buy-first 9",
+  "pattern": "\\bdrops out only once\\b|\\bonly once it is under contract\\b",
+  "struck": "The old home's cost drops out only once it is under contract and the buyer's loan approval is no longer a condition of that contract.",
+  "use": "It can leave the old home's cost out once you show the signed sale contract and that your buyer's loan condition has been cleared."
+ },
+ {
+  "row": "sell-or-buy-first 11",
+  "pattern": "\\bborrows against the home you (?:still )?own\\b",
+  "struck": "A bridge loan borrows against the home you still own to help buy the next one.",
+  "use": "For a loan sold to Fannie Mae, a bridge loan can be a source of money for the purchase if it is not secured by the new home."
+ },
+ {
+  "row": "sell-or-buy-first 12",
+  "pattern": "\\bhas a (?:check)?box for whether\\b|\\bpage one\\b[^.]{0,60}\\b(?:check)?box",
+  "struck": "The South Carolina REALTORS purchase contract (SCR310) has a box for whether the deal depends on the buyer selling another property.",
+  "use": "In South Carolina, an offer that depends on the buyer selling another home adds the SC REALTORS sale-contingency addendum (SCR504) to the purchase contract."
+ },
+ {
+  "row": "sell-or-buy-first 13",
+  "pattern": "\\bseller cannot end it\\b[^.]{0,100}\\b(?:cash|loan)\\b|\\b(?:goes|carries) on without the (?:condition|contingency)\\b",
+  "struck": "The seller cannot end it that way if the parties agreed the buyer has the cash, or can get the loan without selling. If no one ends it, the contract goes on without the condition.",
+  "use": "If that date is missed, either side can end the contract by written notice within the days the addendum gives."
+ },
+ {
+  "row": "sell-or-buy-first 14",
+  "pattern": "\\bcopy of each contract\\b|\\bnotice when it closes\\b",
+  "struck": "The buyer must send the seller a copy of each contract on the buyer's house and notice when it closes.",
+  "use": "While the condition is open, the buyer must make a good-faith effort to sell and keep the seller informed about that sale."
+ },
+ {
+  "row": "sell-or-buy-first 15",
+  "pattern": "\\bno set 72 hours\\b|\\bdoes nothing in time\\b[^.]{0,60}\\beither side\\b|\\bSCR ?391\\b|\\bSouth Carolina\\W{0,3}kick-?out\\b",
+  "struck": "The South Carolina \"kick-out\". If the buyer does nothing in time, either side can end it. There is no set 72 hours here; the days are written into the addendum.",
+  "use": "Within the days agreed, the first buyer chooses: show that their house is under contract to close in time, drop the condition if they can buy without selling, step back to second place, or end the contract."
+ },
+ {
+  "row": "sell-or-buy-first 16",
+  "pattern": "\\bstrategy\\b[^.]{0,120}\\brisk\\b|\\brisk\\b[^.]{0,120}\\bstrategy\\b",
+  "struck": "SCR's own legal staff warns that a buyer who uses the form as a strategy carries risk.",
+  "use": "(cut it: the FAQ is accurate only as of 5/8/18)"
+ },
+ {
+  "row": "sell-or-buy-first 17",
+  "pattern": "\\bin writing before closing\\b",
+  "struck": "To stay longer after selling (a rent-back), seller and buyer agree to it in writing before closing.",
+  "use": "The seller hands over the house empty and reasonably clean, with all keys, codes and remotes, at closing, unless seller and buyer agree otherwise in writing."
+ },
+ {
+  "row": "sell-or-buy-first 18",
+  "pattern": "\\bwill not agree to (?:one|a rent-?back)\\b|\\bdoes not fit the buyer's loan\\b",
+  "struck": "A rent-back longer than that does not fit the buyer's loan, so a buyer living in the home will not agree to one.",
+  "use": "A rent-back longer than 60 days does not fit that rule."
+ },
+ {
+  "row": "sell-or-buy-first 19",
+  "pattern": "\\bboth homes (?:can )?(?:keep|get|carry|have) (?:the )?4 percent\\b|\\bboth homes can keep the 4 percent\\b",
+  "struck": "If you buy first, both homes can keep the 4 percent rate for the year you move.",
+  "use": "A home that was your legal residence for any part of a year keeps the 4 percent rate for that whole year. When you move out, the law asks you to tell the county assessor within six months."
+ }
+]
