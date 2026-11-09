@@ -1225,7 +1225,7 @@
     "type": "condo"
    },
    "index": false,
-   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 93 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 93 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer. Verifier, 2026-11-09: one listing in the search sits at 826 S Ocean Blvd, about half a mile away, so not every listing is at the building."
   },
   {
    "slug": "the-palace",
@@ -1251,7 +1251,7 @@
     "type": "condo"
    },
    "index": false,
-   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 32 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 32 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer. Verifier, 2026-11-09: one listing in the search is pinned 4.8 miles away under \"1207 N Ocean Blvd\", likely an N-for-S typo in the MLS, so not every listing is at the building."
   },
   {
    "slug": "coral-beach-resort",

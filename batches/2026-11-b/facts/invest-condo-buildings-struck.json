@@ -113,5 +113,41 @@
     "pattern": "\\bCompass Cove\\b[^.]{0,100}\\b537\\b",
     "struck": "Compass Cove has 537 units in 4 buildings.",
     "use": "The county records 486 condo units at Compass Cove, in three towers' records."
+  },
+  {
+    "row": "invest-condo-buildings 26",
+    "pattern": "\\bMyrtle Beach Resort\\b[^.]{0,120}\\ba mile and a half\\b|\\b(?:a mile and a half|1\\.5 miles?|one and a half miles?)\\b[^.]{0,40}\\bstate park\\b",
+    "struck": "Myrtle Beach Resort is the southernmost group of towers on this page, about a mile and a half south of Myrtle Beach State Park.",
+    "use": "Myrtle Beach Resort is the southernmost group of towers on this page, more than a mile south of Myrtle Beach State Park."
+  },
+  {
+    "row": "invest-condo-buildings 26",
+    "pattern": "\\bSkyWheel\\b[^.]{0,30}\\ba third of a mile\\b|\\b2nd Avenue Pier\\b[^.]{0,30}\\bhalf a mile south\\b|\\ba third of a mile south of the SkyWheel\\b",
+    "struck": "The SkyWheel is about a third of a mile to the north, and the 2nd Avenue Pier is about half a mile south.",
+    "use": "The 2nd Avenue Pier is about a third of a mile south, and the SkyWheel is about half a mile north."
+  },
+  {
+    "row": "invest-condo-buildings 26",
+    "pattern": "\\bhalf a mile from the Dunes Golf\\b",
+    "struck": "It is a large resort of at least 491 units on Shore Drive, about half a mile from the Dunes Golf and Beach Club.",
+    "use": "It is a large resort of at least 491 units on Shore Drive, under a quarter mile from the Dunes Golf and Beach Club's course."
+  },
+  {
+    "row": "invest-condo-buildings 28",
+    "pattern": "\\bthree quarters of a mile\\b[^.]{0,40}\\bBarefoot Landing\\b|\\bBarefoot Landing\\b[^.]{0,40}\\bthree quarters of a mile\\b",
+    "struck": "Barefoot Landing is about three quarters of a mile away.",
+    "use": "Its grounds run up to US 17, across the highway from Barefoot Landing."
+  },
+  {
+    "row": "invest-condo-buildings 28",
+    "pattern": "\\bthree quarters of a mile\\b[^.]{0,40}\\bBarefoot Landing\\b|\\bBarefoot Landing\\b[^.]{0,40}\\bthree quarters of a mile\\b",
+    "struck": "It stands about three quarters of a mile from Barefoot Landing, and its typical fee is about $1,295 a month.",
+    "use": "It stands a little over half a mile from Barefoot Landing, and its typical fee is about $1,295 a month."
+  },
+  {
+    "row": "invest-condo-buildings 29",
+    "pattern": "\\bpier from the 1950s\\b",
+    "struck": "Prince Resort stands next to the Cherry Grove Pier, a fishing pier from the 1950s with a restaurant at its end.",
+    "use": "Prince Resort stands next to the Cherry Grove Pier, a fishing pier first built in the 1950s and rebuilt after Hurricane Hugo, with a restaurant at its end."
   }
 ]

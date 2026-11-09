@@ -136,5 +136,11 @@
     "pattern": "\\bconfirms the current requirement\\b|\\bexact rules and percentages change\\b",
     "struck": "The exact rules and percentages change, so Chapter3 confirms the current requirement with the closing attorney on every exchange.",
     "use": "(cut it: the page now states the rule)"
+  },
+  {
+    "row": "1031 49",
+    "pattern": "\\bcost of a rental building over 27\\.5 years\\b|\\b(?:any|a) rental (?:building|property) (?:is depreciated )?over 27\\.5 years\\b",
+    "struck": "The IRS lets an owner deduct the cost of a rental building over 27.5 years, called depreciation.",
+    "use": "The IRS lets an owner deduct the cost of a residential rental building over 27.5 years, called depreciation."
   }
 ]
