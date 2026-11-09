@@ -21,7 +21,7 @@ def batched():
 def labeled(name):
     p = os.path.join(W, "out", f"p-{name}.jsonl")
     return os.path.exists(p) and os.path.getsize(p) > 0
-if cmd == "batch":
+if cmd in ("batch", "ready"):
     files = set(os.listdir(os.path.join(W, "sheets")))
     have = batched()
     # Homes already labeled by the 3-home method in the test (p-v3-*); the rest of the test is done again.
@@ -35,6 +35,8 @@ if cmd == "batch":
         if k in have or k in test or n == 0 or f"{k}-{(n - 1) // 9}.jpg" not in files:
             continue
         ready.append(k)
+    if cmd == "ready":
+        print(len(ready)); sys.exit(0)
     nums = [int(v[2:]) for v in set(have.values())]
     start = max(nums) + 1 if nums else 0
     i = start
