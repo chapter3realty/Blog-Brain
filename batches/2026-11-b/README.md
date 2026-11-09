@@ -49,3 +49,12 @@ Still open: Conway's accommodations tax (12% on str-rules, 11.5% in the ledger; 
 - Owner, 2026-11-09: "make sure every page has referring pages". tools/inbound.js counts referring pages from links inside <main>. 47 pages were under 6; all 143 are now at 6 or more.
 - Net proceeds offers "We ask the attorney's office for its charges and fill in every other line, free." The owner should confirm the team does this.
 - Next rebuilds, in order of times shown in Google: /invest/strategies/1031-exchange/, /invest/condo-buildings/, /sell/, /invest/condotel-financing/, /hoa/rental-restrictions/, /invest/airbnb-income/.
+
+## Rebuild batches 2 and 3 (patch 0026)
+
+- /invest/strategies/1031-exchange/, /invest/condo-buildings/, /sell/, /invest/airbnb-income/ rebuilt through the full line; the fixers' new rows were checked by a second verifier (FIXER-VERIFY.md) and seven sentences corrected.
+- 31 new one-guide places (29 condo buildings, 2 for the 1031 page); feeds marked withStrips for 1031, condo buildings and Airbnb income.
+- /invest/str-tools/ gives up "how much does an Airbnb make" to /invest/airbnb-income/ (title, first H2, town H2, FAQ, keywords). Its H1, which the owner knows the page by, is kept.
+- /submarkets/myrtle-beach/ passes building figures to /invest/condo-buildings/ and drops three keywords siblings own.
+- Open: /invest/rental-returns/ uses its own 55 percent cost method for nightly rentals (triage: one method); the July market report is stale (June data) and is on the rebuild list.
+- Preview note: restart tools/preview.mjs after idx-lib changes; it loads places.js once.

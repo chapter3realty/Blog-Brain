@@ -1081,7 +1081,8 @@
    "slug": "str-garden-city-beach-condos",
    "name": "Garden City Beach",
    "pages": [
-    "/invest/str-tools/"
+    "/invest/str-tools/",
+    "/invest/airbnb-income/"
    ],
    "q": {
     "near": "33.58000,-78.99900",
@@ -1095,7 +1096,8 @@
    "slug": "str-garden-city-beach-houses",
    "name": "Garden City Beach",
    "pages": [
-    "/invest/str-tools/"
+    "/invest/str-tools/",
+    "/invest/airbnb-income/"
    ],
    "q": {
     "near": "33.58000,-78.99700",

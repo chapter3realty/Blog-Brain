@@ -1,0 +1,154 @@
+[
+ {
+  "row": "sell 3",
+  "pattern": "\\b1(?:18|22|31|37) days\\b[^.]{0,40}\\bto (?:sell|close|closing)\\b|\\b(?:days|takes?|average)\\b[^.]{0,20}\\bto (?:sell|close)\\b[^.]{0,40}\\b1(?:18|22|31|37)\\b",
+  "struck": "Houses averaged 122 days to sell in 2026.",
+  "use": "Houses averaged 122 days from listing to an accepted offer from January to September 2026."
+ },
+ {
+  "row": "sell 7",
+  "pattern": "\\$9,800|\\$9,300\\b",
+  "struck": "On the middle house of the year ($362,000), the 2.7 percent between the last list price and the sale is about $9,800. On the middle condo ($232,000), the 4.0 percent is about $9,300.",
+  "use": "A house that sold for $362,000 at 97.3 percent of its last list price had been listed at about $372,000, about $10,000 more."
+ },
+ {
+  "row": "sell 9",
+  "pattern": "\\b142 \\(?(?:in )?October\\)?(?! 2025)|\\bOctober\\)? ?\\(?142\\b",
+  "struck": "Condos went from 117 days (August) to 142 (October).",
+  "use": "Condos went from 117 days in August 2026 to 142 in October 2025."
+ },
+ {
+  "row": "sell 9",
+  "pattern": "\\bspring listings?\\b[^.]{0,40}\\b(?:sell|go) faster\\b|\\b(?:sell|sells) faster\\b[^.]{0,30}\\bspring\\b",
+  "struck": "Spring listings sell faster and closer to ask.",
+  "use": "In 2026 more buyers signed in spring, but days to an accepted offer moved little from month to month."
+ },
+ {
+  "row": "sell 11",
+  "pattern": "\\bmost common (?:sale|home sold)\\b[^.]{0,80}\\b(?:on|in) the Grand Strand\\b|\\bmost common sale\\b[^.]{0,40}\\bacross\\b",
+  "struck": "The Myrtle Beach condo is the most common sale across CCAR's areas.",
+  "use": "In the Myrtle Beach area, condos outnumbered houses, 1,252 sales to 480."
+ },
+ {
+  "row": "sell 16",
+  "pattern": "\\b613 of 6,866\\b|\\b671 of 4,181\\b|\\b1,284 of 11,047\\b",
+  "struck": "About 1 in 9 resales in Horry County went to a company rather than a person: 613 of 6,866 houses and 671 of 4,181 condos.",
+  "use": "About 1 in 9 resales in Horry County went to a company rather than a person: about 1 in 12 houses and other homes, and about 1 in 6 condos."
+ },
+ {
+  "row": "sell 16",
+  "pattern": "\\bcompan(?:y|ies)\\b[^.]{0,40}\\bmost(?: of them)?(?: are)? investors\\b",
+  "struck": "About 1 in 9 resales went to companies, most of them investors.",
+  "use": "(say 'a company'; the deeds do not show what each company is for)"
+ },
+ {
+  "row": "sell 17",
+  "pattern": "\\b93 percent of the county'?s?\\b|\\babout 93 percent\\b|\\b71 percent of (?:it|the county)",
+  "struck": "Companies paid a median of about 93 percent of the county's value for the resale houses they bought.",
+  "use": "Companies paid a median of about 94 percent of the county's value for the houses they bought from owners. People paid about 101 percent."
+ },
+ {
+  "row": "sell 18",
+  "pattern": "\\$172,(?:000|250)\\b[^.]{0,80}\\$25(?:7,500|8,000)\\b[^.]{0,40}\\b45 percent\\b|\\b45 percent\\b[^.]{0,60}\\bprofit\\b|\\bprofit\\b[^.]{0,60}\\b45 percent\\b",
+  "struck": "The company paid a median of about $172,000 and sold for about $258,000, about 45 percent more.",
+  "use": "Half of these houses resold for about 45 percent or more above what the company paid."
+ },
+ {
+  "row": "sell 21",
+  "pattern": "\\bclosed 13 days after\\b|\\bin 13 days\\b|\\b13 days later\\b",
+  "struck": "A cash buyer closed 13 days after the listing date.",
+  "use": "A cash buyer closed within 13 days of the day he listed."
+ },
+ {
+  "row": "sell 22",
+  "pattern": "\\b(?:in that condition|as it is|as-is)\\b[^.]{0,60}\\b97\\.3 percent\\b|\\$341,000",
+  "struck": "Listed in that condition, houses here sold for 97.3 percent of their last list price.",
+  "use": "Houses sold through the MLS went for 97.3 percent of their last list price on average this year."
+ },
+ {
+  "row": "sell 23",
+  "pattern": "\\bcosts? (?:that )?the law sets\\b|\\bset by (?:state )?law\\b",
+  "struck": "On the middle Horry County home, about $350,000, the costs the law sets come to $1,320 with a mortgage to release.",
+  "use": "On the middle $350,000 home with a mortgage to release, the fees in state law that the state contract puts on the seller come to $1,320."
+ },
+ {
+  "row": "sell 24",
+  "pattern": "\\bnot set by law\\b",
+  "struck": "Agents' fees are negotiable and not set by law.",
+  "use": "Agents' fees are fully negotiable, and no law fixes them."
+ },
+ {
+  "row": "sell 26",
+  "pattern": "\\bhold back\\b[^.]{0,120}\\b5\\.21 percent\\b",
+  "unless": "\\b(?:main home|principal residence|federal exclusion|excluded|unless)\\b",
+  "struck": "When the seller's permanent home is outside South Carolina, the buyer must hold back part of the price for state income tax: 5.21 percent for a 2026 sale.",
+  "use": "When the seller's permanent home is outside South Carolina, the buyer must hold back 5.21 percent for state income tax on a 2026 sale, unless the gain on a main home is inside the federal exclusion."
+ },
+ {
+  "row": "sell 27",
+  "pattern": "\\bas[- ]is\\b[^.]{0,60}\\b(?:skips?|no|without|need not|does not need)\\b[^.]{0,30}\\b(?:disclosure|form)\\b",
+  "struck": "If you sell as is, you can skip the disclosure form.",
+  "use": "Selling as is does not by itself remove the state's disclosure form."
+ },
+ {
+  "row": "sell 30",
+  "pattern": "\\bno financing box\\b",
+  "struck": "A cash contract has no financing box to fail.",
+  "use": "A cash offer does not depend on the buyer getting a loan."
+ },
+ {
+  "row": "sell 20",
+  "pattern": "\\bwholesaling (?:is|was) (?:illegal|banned|against the law)\\b|\\bassign(?:ing|ment)s?\\b[^.]{0,40}\\b(?:are|is) (?:banned|illegal)\\b|\\bbanned in (?:SC|South Carolina)\\b",
+  "struck": "Wholesaling is illegal in South Carolina.",
+  "use": "South Carolina law bars a brokerage from wholesaling."
+ },
+ {
+  "row": "sell 31",
+  "pattern": "\\b4\\.5 mo\\b|\\b103 days\\b|\\+10\\.5 ?%|\\b7\\.6 months\\b|\\b4\\.3 months\\b",
+  "struck": "4.5 mo; 103 days; +10.5 % Median Price YoY; 4.3 months of supply; condo inventory is at about 7.6 months",
+  "use": "Months of supply, September 2026: 4.2 for houses, 7.5 for condos.",
+  "unless": "\\b(?:a year earlier|a year before|September 2025|from 4\\.3)\\b"
+ },
+ {
+  "row": "sell 31",
+  "pattern": "\\b121 days\\b|\\b30-60 days\\b|\\b30 to 60 days\\b|\\b90-120 days\\b|\\b92% of ask\\b|\\b96-99% of ask\\b|\\$14,000 to \\$21,000|\\b47 or more days\\b",
+  "struck": "Homes not priced and marketed correctly average about 121 days on market. Well-priced homes still sell in 30-60 days.",
+  "use": "Houses averaged 122 days from listing to an accepted offer from January to September 2026."
+ },
+ {
+  "row": "sell 31",
+  "pattern": "\\b79 ?(?:%|percent\\b)[^.]{0,60}\\bprice cut",
+  "struck": "About 79% of active listings have taken at least one price cut.",
+  "use": "Of 2,188 resale houses and townhouses for sale in Horry County, 1,260 (more than half) have cut their asking price."
+ },
+ {
+  "row": "sell 31",
+  "pattern": "\\bAVMs?\\b[^.]{0,40}\\boff by\\b|\\b10 to 25 ?(?:%|percent)\\b",
+  "struck": "Zillow and Redfin AVMs are routinely off by 10 to 25%.",
+  "use": "(cut it; /sell/home-value/ owns estimate accuracy)"
+ },
+ {
+  "row": "sell 31",
+  "pattern": "\\b19M\\+|\\btop 5 US vacation\\b|#2 Fastest|\\bNC #1\\b|\\b7% Below National\\b|\\b3 consecutive years\\b",
+  "struck": "19M+ Annual Visitors; #2 Fastest-Growing Metro; NC #1 Feeder Market 3 consecutive years; 7% Below National Cost of Living",
+  "use": "About 3 in 10 homes sold in Horry County in the 12 months to September 2026 went to a buyer whose tax bill goes to another state or country."
+ },
+ {
+  "row": "sell 31",
+  "pattern": "\\bvast majority of our listings\\b|\\b3 million views\\b|\\$3,800 a month\\b|\\b1,000 flyers\\b|\\bhalf the average time on market\\b|\\bFour things other\\b|\\bMost Myrtle Beach brokerages\\b|\\bdecades of selling experience\\b|\\bwithin 24 hours, 7 days a week\\b",
+  "struck": "The vast majority of our listings are from out-of-state owners. Our listings grossed over 3 million views, and we spend $3,800 a month advertising.",
+  "use": "(cut them unless the owner confirms each with a count, Q2)"
+ },
+ {
+  "row": "sell 31",
+  "pattern": "\\b30 to 45 days\\b|\\b30-45 days\\b",
+  "struck": "Closings typically take 30 to 45 days.",
+  "use": "Then comes the time to close, on the date the contract names."
+ },
+ {
+  "row": "sell 31",
+  "pattern": "\\$100 to \\$400\\b|\\bcash or portfolio loans only\\b|\\bTalk to Devin\\b",
+  "struck": "HOA estoppel letters run $100 to $400. Condotel / Hotel-Condo: Cash or portfolio loans only. Talk to Devin Directly.",
+  "use": "(cut them; /sell/sell-my-condo/ owns condo financing and NP 18 prints no estoppel range)"
+ }
+]
