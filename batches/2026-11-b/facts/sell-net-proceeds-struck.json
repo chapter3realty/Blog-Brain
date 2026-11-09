@@ -1,0 +1,153 @@
+[
+ {
+  "row": "net-proceeds 1",
+  "pattern": "\\b9/2023\\b|Form 310[^.]{0,20}\\b2023\\b",
+  "struck": "South Carolina's standard home contract, Form 310 (9/2023)",
+  "use": "(name no version on the page; the ledger's source is Form 310 (03/2026), which replaced the 9/2023 form on March 9, 2026)"
+ },
+ {
+  "row": "net-proceeds 5",
+  "pattern": "\\b(?:contract|form)\\b[^.]{0,40}\\b(?:says|asks|states|shows)\\b[^.]{0,80}\\bhome warranty\\b[^.]{0,60}\\bwho pays\\b",
+  "struck": "The state contract says whether a home warranty is provided and who pays for it.",
+  "use": "The standard contract has no home warranty clause. Buyer and seller can add one with a separate addendum."
+ },
+ {
+  "row": "net-proceeds 6",
+  "pattern": "special assessments?[^.]{0,80}\\bapproved (?:before|prior to) closing\\b[^.]{0,40}\\b(?:is|are) (?:the )?seller'?s\\b",
+  "unless": "\\b(?:box|boxes|option|options|choose|chosen|ticked|tick|pick)\\b",
+  "struck": "On the form's default, a special assessment the association approved before closing is the seller's.",
+  "use": "For a special assessment approved before closing, the contract has two boxes: the seller pays all of it, or only the part due in the year of closing. One approved after closing is the buyer's."
+ },
+ {
+  "row": "net-proceeds 7",
+  "pattern": "\\bmakes no (?:claim|representation)\\b[^.]{0,80}\\b(?:form|contract)\\b|\\bfooter\\b[^.]{0,80}\\bno (?:claim|representation)\\b",
+  "struck": "Its own footer says the association makes no claim the form fits a given sale.",
+  "use": "The form tells both sides they are responsible for getting legal advice before they sign."
+ },
+ {
+  "row": "net-proceeds 12",
+  "pattern": "\\bpaid\\b[^.]{0,60}\\$18 million|\\$18 million[^.]{0,60}\\bpaid\\b",
+  "struck": "Horry County home sellers paid about $18 million in deed stamps in a year.",
+  "use": "By the state's formula, the deed stamps on the 13,194 home sales recorded in Horry County from October 2025 through September 2026 come to about $18 million."
+ },
+ {
+  "row": "net-proceeds 14",
+  "pattern": "\\bcosts? set by (?:law|the state)[^.]{0,120}\\$1,320\\b",
+  "unless": "\\bif (?:there is|you have|it has)\\b|\\bwith a mortgage\\b|\\bmortgage to (?:release|pay off)\\b",
+  "struck": "On the middle $350,000 home, the costs set by law and the state contract come to $1,320.",
+  "use": "On the middle $350,000 home with a mortgage to release, the fees in state law that the state contract puts on the seller come to $1,320: deed stamps $1,295, deed recording $15, mortgage release $10."
+ },
+ {
+  "row": "net-proceeds 18",
+  "pattern": "\\boutside (?:city|town) limits\\b[^.]{0,80}\\b201(?:\\.0)? mills\\b",
+  "unless": "\\bmost\\b",
+  "struck": "Outside city limits, Horry County's 2026 levy is 201.0 mills.",
+  "use": "For most homes outside city limits, Horry County's 2026 levy is 201.0 mills."
+ },
+ {
+  "row": "net-proceeds 20",
+  "pattern": "\\blong-time owner'?s?\\b[^.]{0,100}\\busually\\b",
+  "struck": "So a long-time owner's bill, and the tax credit at closing, is usually smaller than one figured on the price.",
+  "use": "When a home's last deed is old, its tax bill, and the tax credit at closing, is often smaller than one figured on today's price."
+ },
+ {
+  "row": "net-proceeds 21",
+  "pattern": "\\b(?:seven|7) business days\\b",
+  "unless": "\\bpersonal\\b|\\brental\\b|\\binvest|\\bbusiness[- ]purpose\\b|\\bhome you live\\b",
+  "struck": "Once asked, the loan servicer must send an accurate payoff statement within seven business days.",
+  "use": "On a home loan made for personal use, the servicer must send an accurate payoff statement within seven business days of a written request. A loan made to buy a rental the owner does not use counts as a business loan, and that rule does not cover it. A beach place the owner planned to use more than 14 days a year still counts as personal."
+ },
+ {
+  "row": "net-proceeds 23",
+  "pattern": "\\bafter February 2012\\b",
+  "struck": "South Carolina bars a transfer fee recorded after February 2012 that sends money to a third party on each sale.",
+  "use": "South Carolina bars a transfer fee covenant recorded after February 1, 2012 that makes an owner pay a third party on each sale."
+ },
+ {
+  "row": "net-proceeds 26",
+  "pattern": "\\b3,689\\b|\\b3 in 10\\b[^.]{0,60}\\bno HOA\\b|\\bevery condo (?:has|lists|carries|pays)\\b|\\bmost sellers\\b[^.]{0,80}\\b(?:association|HOA)\\b[^.]{0,60}\\bclosing statement\\b",
+  "struck": "Of 3,689 houses for sale in our area at $50,000 or more, about 3 in 10 list no HOA fee; every condo has one. So most sellers here will have an association's charges on their closing statement.",
+  "use": "Of about 3,060 houses for sale in Horry County ZIPs, about 830 (more than 1 in 4) list no HOA fee. All but one of 2,686 condos for sale list one."
+ },
+ {
+  "row": "net-proceeds 29",
+  "pattern": "\\b(?:condo|house|home) owners\\b[^.]{0,100}\\boutside South Carolina\\b",
+  "struck": "About 6 in 10 Horry County condo owners, and about 1 in 5 house owners, get their tax bill at an address outside South Carolina.",
+  "use": "About 6 in 10 Horry County condo units, and about 1 in 5 other homes, have their tax bill mailed to an address outside South Carolina."
+ },
+ {
+  "row": "net-proceeds 34",
+  "pattern": "\\b1,304\\b|\\b2,157\\b|\\b60\\.5\\b|\\b339 of 492\\b|\\b421 of 694\\b|\\b316 of 555\\b|\\b228 of 416\\b|\\b1,393 of 2,626\\b|\\b7 in 10\\b[^.]{0,40}\\bunder \\$300,000\\b",
+  "struck": "Of 2,157 resale houses and townhouses for sale in Horry County, 1,304 (about 6 in 10) have already cut their asking price ... about 7 in 10 under $300,000 (339 of 492).",
+  "use": "Of 2,188 resale houses and townhouses for sale in Horry County, 1,260 (more than half) have cut their asking price. More than half have cut at every price: about 6 in 10 under $300,000 (307 of 491), and about 56 percent in each higher band (403 of 714 from $300,000 to $450,000, 318 of 569 from $450,000 to $700,000, 232 of 414 above). Resale condos: 1,372 of 2,652 (about half). (2026-11-b row 30 replaces the 2026-11-a counts.)"
+ },
+ {
+  "row": "net-proceeds 35",
+  "pattern": "\\b1,028\\b|\\b965 (?:are|of)\\b|\\b63 of 2,157\\b|\\bbuilder'?s offer\\b[^.]{0,60}\\bnot a seller'?s habit\\b|\\b1 in 33\\b",
+  "struck": "Home warranties are a builder's offer here, not a seller's habit. Of 1,028 houses and townhouses ... 965 are new construction. Only 63 of 2,157 resale houses (about 1 in 33) offer one.",
+  "use": "Of 956 houses and townhouses for sale in Horry County that advertise a home warranty, 894 are new construction. Only 62 of 2,188 resale houses (about 3 in 100) advertise one, and 33 of 2,652 resale condos. (2026-11-b row 31 replaces the 2026-11-a counts.)"
+ },
+ {
+  "row": "net-proceeds 30 (2026-11-b)",
+  "pattern": "\\b(?:cheaper|lower[- ]priced|less expensive)\\b[^.]{0,60}\\b(?:more|most)\\b[^.]{0,40}\\b(?:cut|cuts|reduced|reductions?)\\b|\\b7 in 10\\b[^.]{0,60}\\bunder \\$300,000\\b",
+  "struck": "The cheaper the house, the more have cut: about 7 in 10 under $300,000.",
+  "use": "Of 2,188 resale houses and townhouses for sale in Horry County, 1,260 (more than half) have cut their asking price. More than half have cut at every price: about 6 in 10 under $300,000 (307 of 491), and about 56 percent in each higher band (403 of 714 from $300,000 to $450,000, 318 of 569 from $450,000 to $700,000, 232 of 414 above). Resale condos: 1,372 of 2,652 (about half)."
+ },
+ {
+  "row": "net-proceeds 5 (2026-11-b)",
+  "pattern": "\\b(?:usually|typically|most sellers)\\b[^.]{0,40}\\bpay\\b[^.]{0,30}\\b\\d+(?:\\.\\d+)? (?:to|-) \\d+(?:\\.\\d+)? ?(?:percent|%)",
+  "struck": "Sellers here usually pay about 6 to 7 percent of the price.",
+  "use": "The fees in state law (deed stamps, deed recording and one mortgage release) come to under half of 1 percent of the price at each of the county's four price points, about 0.38 percent: $1,009 on $266,000, $1,320 on $350,000, $1,875 on $500,000 and $821 on the $215,000 condo. The commission, the seller's attorney fee and any HOA charges come on top.",
+  "unless": "\\bbuyers?\\b|\\bbuyer'?s\\b"
+ },
+ {
+  "row": "net-proceeds 30 and 31 (2026-11-b, verifier)",
+  "pattern": "\\b2,187\\b|\\b1,264\\b|\\b325 of 498\\b|\\b403 of 707\\b|\\b311 of 563\\b|\\b225 of 419\\b|\\b2,627\\b|\\b935 are new\\b|\\b65 of 2,187\\b|\\b1,000 houses and townhouses\\b|\\b2 in 3\\b[^.]{0,40}\\bunder \\$300,000\\b",
+  "struck": "Of 2,187 resale houses and townhouses for sale in Horry County, 1,264 (nearly 6 in 10) have cut their asking price: about 2 in 3 under $300,000 (325 of 498). Of 1,000 houses and townhouses that advertise a home warranty, 935 are new construction; only 65 of 2,187 resale houses advertise one, and 33 of 2,627 resale condos.",
+  "use": "Of 2,188 resale houses and townhouses for sale in Horry County, 1,260 (more than half) have cut their asking price. More than half have cut at every price: about 6 in 10 under $300,000 (307 of 491), and about 56 percent in each higher band (403 of 714 from $300,000 to $450,000, 318 of 569 from $450,000 to $700,000, 232 of 414 above). Resale condos: 1,372 of 2,652 (about half). Of 956 houses and townhouses for sale in Horry County that advertise a home warranty, 894 are new construction. Only 62 of 2,188 resale houses (about 3 in 100) advertise one, and 33 of 2,652 resale condos."
+ },
+ {
+  "row": "net-proceeds 30 (2026-11-b, verifier)",
+  "pattern": "\\babout the same at every price\\b|\\b(?:same|flat|even|equal)\\b[^.]{0,30}\\bat every price\\b[^.]{0,40}\\b(?:cut|cuts|reduced)\\b",
+  "struck": "It is about the same at every price: 307 of 491 under $300,000 (about 6 in 10).",
+  "use": "Of 2,188 resale houses and townhouses for sale in Horry County, 1,260 (more than half) have cut their asking price. More than half have cut at every price: about 6 in 10 under $300,000 (307 of 491), and about 56 percent in each higher band (403 of 714 from $300,000 to $450,000, 318 of 569 from $450,000 to $700,000, 232 of 414 above). Resale condos: 1,372 of 2,652 (about half)."
+ },
+ {
+  "row": "net-proceeds 5 (2026-11-b, verifier)",
+  "pattern": "\\b(?:under|less than|below) half of (?:1|one) percent\\b[^.]{0,80}\\bat every price\\b|\\b(?:0\\.4|0\\.38|0\\.37|four-tenths of (?:1|one)) percent\\b[^.]{0,60}\\bplus\\b[^.]{0,40}\\bcommission\\b|\\bcommission\\b[^.]{0,40}\\bis the rest\\b",
+  "unless": "\\battorney\\b",
+  "struck": "The costs the law sets are under half of 1 percent of the price at every price. It costs about 0.4 percent of the price, plus the commission you agree.",
+  "use": "The fees in state law (deed stamps, deed recording and one mortgage release) come to under half of 1 percent of the price at each of the county's four price points, about 0.38 percent: $1,009 on $266,000, $1,320 on $350,000, $1,875 on $500,000 and $821 on the $215,000 condo. The commission, the seller's attorney fee and any HOA charges come on top."
+ },
+ {
+  "row": "net-proceeds 13 (2026-11-b, verifier)",
+  "pattern": "\\b(?:buyer'?s|closing) (?:attorney|lawyer)\\b[^.]{0,80}\\b(?:usually|typically|normally|always)\\b[^.]{0,80}\\bpays? off\\b|\\b(?:usually|typically|normally)\\b[^.]{0,40}\\bpays? off the seller'?s (?:mortgage|loan)\\b",
+  "struck": "In a standard South Carolina closing, the buyer's attorney usually prepares the settlement statement and pays off the seller's mortgage from the sale.",
+  "use": "In a standard South Carolina closing, the buyer's attorney typically prepares the settlement statement. When that attorney also sends the seller's mortgage payoff, the attorney may add a reasonable payoff handling fee to the seller's side, though the seller is not the attorney's client. A seller may refuse to sign a settlement statement they do not agree with."
+ },
+ {
+  "row": "net-proceeds 24 (2026-11-b, verifier)",
+  "pattern": "\\bbest (?:information|figures?|numbers?|estimate) (?:available|they have|on hand)\\b",
+  "struck": "The closing attorney figures the tax split from the best information available.",
+  "use": "The closing attorney figures the tax split from the tax information they judge reliable. If the bill later turns out different, buyer and seller settle the difference between themselves."
+ },
+ {
+  "row": "net-proceeds 28 (2026-11-b, verifier)",
+  "pattern": "^\\W*So when a home'?s last deed\\b",
+  "struck": "So when a home's last deed is old, its tax bill, and the tax credit at closing, is often smaller than one figured on today's price.",
+  "use": "When a home's last deed is old, its tax bill, and the tax credit at closing, is often smaller than one figured on today's price."
+ },
+ {
+  "row": "net-proceeds 29 (2026-11-b, verifier)",
+  "pattern": "\\bloans? (?:made )?(?:to buy|for|on) a rental\\b[^.]{0,40}\\b(?:is|are) not covered\\b|\\brental (?:loans?|propert(?:y|ies))\\b[^.]{0,40}\\b(?:is|are) not covered\\b",
+  "unless": "\\b14 days\\b|\\bdoes not use\\b|\\bnot owner-occupied\\b|\\bowner does not\\b",
+  "struck": "A loan made to buy a rental is not covered by that rule.",
+  "use": "On a home loan made for personal use, the servicer must send an accurate payoff statement within seven business days of a written request. A loan made to buy a rental the owner does not use counts as a business loan, and that rule does not cover it. A beach place the owner planned to use more than 14 days a year still counts as personal."
+ },
+ {
+  "row": "net-proceeds 4, 5 and 15 (2026-11-b, verifier)",
+  "pattern": "\\b(?:costs?|fees?) (?:set by (?:law|the state)|(?:that )?(?:the )?(?:law|state) sets)\\b|\\bnot set by law\\b",
+  "struck": "Agents' fees are negotiable and not set by law. The costs the law sets are under half of 1 percent.",
+  "use": "Agents' fees are fully negotiable, and no law fixes them. The fees in state law come to under half of 1 percent of the price at each of the county's four price points."
+ }
+]

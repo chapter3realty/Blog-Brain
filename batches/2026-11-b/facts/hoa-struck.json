@@ -1,0 +1,66 @@
+[
+  {
+    "row": "hoa 7",
+    "pattern": "\\bHorry\\b[^.]{0,120}\\$(?:90|440)\\b",
+    "unless": "\\bLoris\\b",
+    "struck": "Horry County owners of a one-family house who pay an HOA fee report a middle of about $90 a month.",
+    "use": "Owners of a one-family house in Horry County outside the Loris area who pay an HOA fee report a middle of about $90 a month."
+  },
+  {
+    "row": "hoa 10",
+    "pattern": "\\bin (?:the )?shared buildings\\b",
+    "struck": "About 6 cents goes to power, water, gas and internet in shared buildings.",
+    "use": "About 6 cents goes to power, water, gas, phone and internet."
+  },
+  {
+    "row": "hoa 10",
+    "pattern": "\\$3\\.9 million\\b",
+    "unless": "\\bmain\\b|\\ball owners\\b",
+    "struck": "Del Webb at Grande Dunes planned to spend and save about $3.9 million in 2025.",
+    "use": "In its 2025 main budget, which all owners share, Del Webb at Grande Dunes planned to spend and save about $3.9 million."
+  },
+  {
+    "row": "hoa 11",
+    "pattern": "\\b(?:Beach|Ocean) Club\\b[^.]{0,80}\\bpart of (?:the|its|their|your)\\b[^.]{0,40}\\b(?:fee|dues)\\b|\\b(?:HOA )?(?:fee|dues)\\b[^.]{0,60}\\b(?:includes?|covers?|pays? for)\\b[^.]{0,60}\\b(?:Beach|Ocean) Club\\b",
+    "struck": "The beach club is part of the Del Webb at Grande Dunes fee.",
+    "use": "Every owner pays a mandatory Beach Club fee to the Grande Dunes master association, on top of the association's own assessments."
+  },
+  {
+    "row": "hoa 15",
+    "pattern": "\\b(?:fee|dues)\\b[^.]{0,40}\\bincludes?\\b[^.]{0,40}\\blawn care\\b[^.]{0,60}\\b(?:TV|television|cable)\\b",
+    "unless": "\\bbuilder\\b|\\bPulte\\b|\\blistings? (?:say|show|name)\\b",
+    "struck": "In Del Webb North Myrtle Beach the fee includes lawn care, internet and TV.",
+    "use": "In Del Webb North Myrtle Beach the builder lists lawn care and a 175-channel TV package in the fee, and most listings name internet."
+  },
+  {
+    "row": "hoa 17",
+    "pattern": "\\bPrestwick\\b[^.]{0,80}\\bguard(?:ed)? gate\\b|\\bguard(?:ed)? gate\\b[^.]{0,40}\\bHighway 544\\b",
+    "struck": "Prestwick (guarded gate off Highway 544) lists $185 to $197.",
+    "use": "Prestwick, with a main gate off Highway 544, lists $185 to $197."
+  },
+  {
+    "row": "hoa 19",
+    "pattern": "\\bWaterbridge\\b[^.]{0,160}\\blazy river\\b|\\blazy river\\b[^.]{0,160}\\bWaterbridge\\b",
+    "struck": "Waterbridge, a neighborhood of houses with a lazy river and clubhouse, lists about $150 a month.",
+    "use": "Waterbridge, a neighborhood of houses with a pool complex and a clubhouse, lists about $150 a month on most homes for sale."
+  },
+  {
+    "row": "hoa 20",
+    "pattern": "\\b(?:Surfside Beach|North Myrtle Beach)\\b[^.]{0,80}\\$25\\b|\\$25\\b[^.]{0,60}\\b(?:Surfside Beach|North Myrtle Beach)\\b",
+    "struck": "Of houses, Surfside Beach and North Myrtle Beach $25 (many with none).",
+    "use": "In North Myrtle Beach 29582 and Surfside Beach 29575, more than half of houses for sale list no fee."
+  },
+  {
+    "row": "hoa 21",
+    "pattern": "\\bHorry\\b[^.]{0,120}\\$2,000\\b",
+    "unless": "\\bLoris\\b",
+    "struck": "Horry County owners of a one-family house pay a middle of about $2,000 a year for home insurance.",
+    "use": "Owners of a one-family house in Horry County outside the Loris area pay a middle of about $2,000 a year for home insurance."
+  },
+  {
+    "row": "hoa 27",
+    "pattern": "\\b(?:recorded|governing) documents are the only limits?\\b|\\bonly limits? (?:are|is) (?:in )?the (?:recorded|governing) documents\\b|\\b(?:master deed, covenants and bylaws|covenants and bylaws|HOA'?s? (?:own )?(?:papers|documents)) are the only limits?\\b",
+    "struck": "South Carolina's HOA law and condo law set no limit on dues, special assessments or fines; the recorded documents are the only limits.",
+    "use": "South Carolina's HOA law and condo law set no cap on dues, on a special assessment or on a fine. The limits are in the master deed, covenants and bylaws."
+  }
+]

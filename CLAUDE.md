@@ -42,6 +42,7 @@ node tools/facts-check.js --stale                            # registry entries 
 node tools/record-edit.js draft.txt edited.txt --page /url/  # add the owner's edits to voice/edits.jsonl
 node tools/house-claims.js <page.html|site>                  # writer self-check: unscoped "most houses have" sentences (B54)
 node tools/sibling-check.js <batch-dir> <rev>                # writer self-check: new names already on a sibling page (B46)
+node tools/inbound.js <site> [--min 5] [--only /url/]                 # referring pages per page, counted from links inside <main> (owner, 2026-11-09)
 node tools/critic.mjs <base-url> /<path>/ [--widths 390,768,1440] [--json f] [--shots dir]   # overlap, photos, readability, SEO in the browser; then prompts/critic.md
 ```
 
