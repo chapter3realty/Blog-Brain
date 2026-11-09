@@ -33,7 +33,7 @@ def get(url, headers=None, tries=5):
         except urllib.error.HTTPError as e:
             print(f"req {e.code} {time.time() - t0:.1f}s retry-after={e.headers.get('retry-after')}", file=sys.stderr, flush=True)
             if e.code in (429, 503) and i < tries - 1:
-                time.sleep(int(e.headers.get("retry-after") or 30))
+                time.sleep(min(int(e.headers.get("retry-after") or 20), 20))
                 continue
             raise
         except urllib.error.URLError:
