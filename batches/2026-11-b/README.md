@@ -42,3 +42,10 @@ Lead's follow-ups:
 
 Still open: Conway's accommodations tax (12% on str-rules, 11.5% in the ledger; not re-checked); the $330 plus $2.10 title-insurance formula behind the closing-costs calculator (needs the filed SC rate manual); flood program after Dec. 11; eviction fees after Jan. 1.
 - Cost segregation, January 19, 2025 (lead, 2026-11-09): IRS Notice 2026-11 (interim guidance, January 2026) applies 100% bonus depreciation to property acquired and placed in service after January 19, 2025, as the page says (BDO, RSM, Grant Thornton and Thomson Reuters summaries of the notice agree). Closed.
+
+## Rebuild batch 1 and referring pages (patch 0025)
+
+- /sell/net-proceeds/ and /hoa/ rebuilt through the full line (folders sell-net-proceeds, hoa). /hoa/hoa-vs-poa/ now reads its fee figures from the hub's data, drops its fees FAQ and links the hub.
+- Owner, 2026-11-09: "make sure every page has referring pages". tools/inbound.js counts referring pages from links inside <main>. 47 pages were under 6; all 143 are now at 6 or more.
+- Net proceeds offers "We ask the attorney's office for its charges and fill in every other line, free." The owner should confirm the team does this.
+- Next rebuilds, in order of times shown in Google: /invest/strategies/1031-exchange/, /invest/condo-buildings/, /sell/, /invest/condotel-financing/, /hoa/rental-restrictions/, /invest/airbnb-income/.
