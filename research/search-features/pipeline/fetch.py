@@ -104,6 +104,16 @@ def one_home(work, h, pace):
 def sheets(work, keys_file):
     from concurrent.futures import ThreadPoolExecutor
     want = [k.strip() for k in open(keys_file) if k.strip()]
+    # Homes already put in a labeling batch (pbatch/*.txt) are done: their sheets were deleted once
+    # labeled, so the sheet check alone would download them again (it did, after a restart, 9 Nov 2026).
+    pb = os.path.join(work, "pbatch")
+    done = set()
+    if os.path.isdir(pb):
+        for f in os.listdir(pb):
+            for line in open(os.path.join(pb, f)):
+                if line.strip():
+                    done.add(line.split(":")[0])
+    want = [k for k in want if k not in done]
     by = {}
     for line in open(os.path.join(work, "homes.jsonl")):
         h = json.loads(line)
