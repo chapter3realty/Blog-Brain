@@ -191,8 +191,8 @@
    "description",
    "photos"
   ],
-  "mls": "natural_gas",
-  "note": "widens the gas-heat field to the stove"
+  "mls": null,
+  "note": "a gas stove or cooktop; not the same as natural-gas service"
  },
  {
   "group": "Kitchen",
