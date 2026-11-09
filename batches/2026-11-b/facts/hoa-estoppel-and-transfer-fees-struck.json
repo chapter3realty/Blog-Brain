@@ -1,0 +1,20 @@
+[
+  {
+    "row": "estoppel 1",
+    "pattern": "\\$100 to \\$400",
+    "struck": "Any HOA estoppel or transfer fees, $100 to $400 at most Grand Strand HOAs.",
+    "use": "Any HOA estoppel or transfer fees, which vary by community and have no state cap."
+  },
+  {
+    "row": "estoppel 1 (sell page line 642)",
+    "pattern": "\\b(?:HOAs?|associations?)\\b[^.]{0,40}\\b(?:typically|usually|generally) charge \\$\\d",
+    "struck": "Condo HOAs typically charge $100 to $400 for estoppel letters and transfer fees.",
+    "use": "(cut the range: no source; write that no South Carolina law caps these fees, and ask the HOA or its manager for its figures)"
+  },
+  {
+    "row": "estoppel FIX 1",
+    "pattern": "\\bwithin minutes\\b",
+    "struck": "Your documents go into our analysis tool the moment they arrive, and a person reads the result within minutes.",
+    "use": "(cut it: nothing on the page supports it)"
+  }
+]

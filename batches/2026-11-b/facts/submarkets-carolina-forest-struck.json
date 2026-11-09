@@ -1,0 +1,20 @@
+[
+  {
+    "row": "carolina-forest 5",
+    "pattern": "\\$418,000|\\$464,710|1,330 homes",
+    "struck": "Recent single-family medians are about $418,000 per Redfin's mid-2026 snapshot and $464,710 per SC Realtors data for ZIP 29579 in December 2025.",
+    "use": "In the year to September 2026, county deed records show houses in Carolina Forest resold for about $440,000 at the middle and condos for about $172,000."
+  },
+  {
+    "row": "carolina-forest 6",
+    "pattern": "\\$329,000|\\$266,000",
+    "struck": "Against a roughly $329,000 Horry County median, and the City of Myrtle Beach near $266,000.",
+    "use": "(cut it: no row)"
+  },
+  {
+    "row": "carolina-forest 3",
+    "pattern": "\\$215,500|condo[^.]{0,160}\\$200,000s|\\$200,000s[^.]{0,40}condo",
+    "struck": "Condos in the corridor had a median near $215,500. Entry points run from the $200,000s in older condo sections.",
+    "use": "A condo resold for about $172,000 at the middle, on 91 sales."
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "row": "from-ohio 2",
+    "pattern": "Columbus[^.]{0,40}\\$333,000|\\$333,000[^.]{0,40}Columbus|Cincinnati[^.]{0,40}\\$311,000|\\$311,000[^.]{0,40}Cincinnati",
+    "struck": "That is against about $254,000 in the Cleveland area, about $311,000 around Cincinnati and about $333,000 around Columbus, in July 2026.",
+    "use": "(use one current month from Zillow's file for all four: July 2026 now reads Columbus about $326,000, Cincinnati about $305,000, Cleveland about $248,000, Myrtle Beach about $339,000)"
+  }
+]

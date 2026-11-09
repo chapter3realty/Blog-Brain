@@ -1,0 +1,17 @@
+# Applied: /invest/student-rentals/
+
+Fixer, 2026-11-09. Source: specs/student-rentals.js, built with `node tools/mkpage.js specs/student-rentals.js`. Rows 1, 3, 6 VERIFIED; rows 2, 4, 4b, 5 CORRECTED (used at the corrected wording); rows 7, 8 STRUCK.
+
+| Where | Before | After | Rows |
+|---|---|---|---|
+| New section after "Which houses and neighborhoods fit?", H2 "What do houses near campus rent and sell for?", paragraph 1 | (none) | HUD's fair market rent (linked to HUD's Small Area FMR page) in Conway's ZIP code 29526 is $1,630 a month for three bedrooms and $1,900 for four, utilities included. It is not a measured rent. It is the most a housing voucher pays, and HUD's own estimate for this ZIP came in lower. These figures sit at HUD's floor. Split three ways, the three-bedroom figure is about $543 a person. Split four ways, the four-bedroom figure is $475 a person. | 1, 2 (corrected: no "40 of 100" definition), 3 |
+| Same section, paragraph 2 | (none) | In the latest year of county deed records (linked to AcclaimWeb), 775 homes other than condos resold in ZIP 29526. They include townhouses and manufactured homes, and the middle price was $310,000. (split: one sentence was 29 words, a build audit FAIL) Half sold between about $247,000 and $384,000. Homes sold by builders in the same ZIP, townhouses included, sold at a middle price of $312,000. | 4, 4b (corrected groups) |
+| Same section, paragraph 3 | (none) | In the subdivisions recorded as Quail Creek Village, College Park and College Place II, next to campus, seven houses sold in the same year, from $280,000 to $435,000. The county record does not list bedrooms with a sale, so these prices are for houses of every size. | 5 (corrected: records named as they are, no overlay-wide claim, no "none in Quail Creek or Barberry Drive"), 7 |
+| Same section, table | (none) | Sales in the latest year / Count / Price: Resales in ZIP 29526, condos left out / 775 / $310,000 middle; Homes sold by builders in ZIP 29526 / 473 / $312,000 middle; Quail Creek Village, College Park and College Place II / 7 / $280,000 to $435,000 | 4, 4b, 5 |
+| "Do parents buy a house near campus?", veteran paragraph | A veteran's child can pay no tuition at all. State law admits ... (eight sentences) ... Apply to the state veterans' affairs department, not to the school. | A child of certain wartime veterans can attend free of tuition; the rules are on the state veterans' affairs page (linked to SCDVA). | no new fact (VERIFY opened SCDVA) |
+| FAQ | "Can a veteran's child go to Coastal Carolina free?" and its answer | deleted | none |
+| Sources line | ...City of Conway ordinance, Horry County zoning. | ...City of Conway ordinance, Horry County zoning, HUD FY2027 Small Area Fair Market Rents, Horry County Register of Deeds. | 1, 4 |
+
+Not used: the Greenfields at College Park condo prices (row 6); a rent or price by bedroom count (row 7, STRUCK); a number for the short-lease premium (row 8, STRUCK; "rents for more" stays without a number). The optional new FAQ was not added. The records period (deeds recorded October 2025 through September 2026) is said as "the latest year" so no date is typed.
+
+Rebuild side effects from the current mkpage (not edits of mine): the "Updated" line and dateModified fall back to datePublished until `node build.js dates` runs; the hero button now sits under the short answer with an "On this page" list; sections carry ids; the share image alt text is the page's own. Score 78 -> 82.

@@ -1,0 +1,20 @@
+# Fact ledger: /invest/j1-rentals/
+
+Researcher pass, 2026-11-09. Only the fact the triage fix needs: one bed count for the International Residence Hall. The verifier fills the last two columns.
+
+Status on the live working copy: the "Our earlier figure of $500 to $700 a month..." sentence and the "624 beds" figure are already gone (round 1; spec header comment line 8). The page now gives the hall's size four ways: "150 of the 300 beds" (Lazarus, 2024), "more than 300 beds" (operator), "300" (table, linked to WPDE) and "three hundred beds at a time". The operator's own page is the primary source for its own building, so the page uses its wording everywhere: "more than 300 beds" (row 1).
+
+| # | Claim, as the page will state it | Value | Source | URL opened | Verbatim quote | As of | Stale by | Verifier status | Verifier note |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | The International Residence Hall on Globe Drive has one building with more than 300 beds, four to a room. | more than 300 beds; one building | IRH Living, the operator's page for IRH Myrtle Beach | https://irhliving.com/irh-locations/irh-myrtlebeach-sc/ | "The IRH Myrtle Beach Housing Campus features one buildings with over 300 beds, equipped with a common area kitchen, living room, and laundry room". The July ledger (website research/invest-next/j1-facts.md line 399) also read "4 beds per room (configured as 2 upper bunks, 2 lower bunks)". | 2026-11-09 | 2027-03 (before the next season) | VERIFIED | Operator page opened: 'features one buildings with over 300 beds'; room list '4 Beds (2 upper bunks, 2 lower bunks)'; address 3000 Globe Drive, Myrtle Beach. |
+| 2 | (Cross-check, news) The hall opened with 300 beds, four to a room. | 300 | WPDE, 2025-11-06 | https://wpde.com/news/local/myrtle-beach-foreigner-j1-visa-hospitality-workers-immigration-h2b-international-residence-hall | "The facility, designed to accommodate the needs of international students and workers, features 300 beds, with four occupants per room, and includes a common area, large kitchen, and laundry facilities." Agrees with row 1 ("over 300"); the July ledger also has WMBF 2026-02-12, "able to accommodate 306 residents". | 2026-11-09 | | VERIFIED | WPDE opened, datePublished 2025-11-06: 'features 300 beds, with four occupants per room'. Agrees with row 1. |
+| 3 | The Lazarus Entertainment Group president said in November 2024 that he had reserved 150 beds in the first building for the next summer. | 150 beds | WMBF, 2024-11-27 (the spec's WMBF24 link), as quoted in the July ledger | https://www.wmbfnews.com/2024/11/27/they-deserve-better-myrtle-beach-looks-address-j-1-student-housing-struggles-with-new-development/ | July ledger, line 323: "Lazarus said he has already reserved 150 of the 300 beds in the first building of the housing development for next summer." Not re-opened today; the page keeps the 150 and drops the "of the 300" so it carries only the operator's figure. | 2024-11-27 (ledger read 2026-09-08) | | VERIFIED | WMBF opened (2024-11-27): 'Lazarus said he has already reserved 150 of the 300 beds in the first building of the housing development for next summer.' He is named 'President of Lazarus Entertainment Group, Mark Lazarus'. |
+
+## Not verified
+
+- A city or county record of the hall's bed count (building permit, certificate of occupancy or the incentive agreement). Not tried in depth: the operator's page is a primary source for its own building and agrees with the news count.
+- Flag for a later pass, not this fix: the table row "Beds there when every building is finished | About 1,200 to 1,500, depending on which source you read" does not cover every source in the July ledger (line 912: "1,572 in five buildings (P&C Nov. 2024); "almost 1,600" (IRH's Bullock in P&C); 1,200 (MyHorryNews Nov. 2024, CSG 2025-08-18); "over 1,500" (WMBF 2024-11-27)"). Read as written, "1,200 to 1,500" leaves out two of them. If touched, "About 1,200 to 1,600" covers all but the WBTW outlier.
+
+## Questions only the brokerage can answer
+
+- None.

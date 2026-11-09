@@ -1,0 +1,27 @@
+[
+  {
+    "row": "closing-costs 1",
+    "pattern": "\\$2,900",
+    "struck": "Benchmark surveys put the third-party-and-tax portion near $2,900 on an average South Carolina purchase.",
+    "use": "In Horry County in 2025, the middle conventional purchase loan had about $5,000 in loan costs paid by the buyer, before taxes, recording and the prepaid items."
+  },
+  {
+    "row": "closing-costs 2",
+    "pattern": "\\$5,000 in loan costs[^.]{0,160}\\btitle insurance\\b",
+    "unless": "lender's title (?:policy|insurance)",
+    "struck": "In Horry County in 2025, the middle conventional purchase loan had about $5,000 in loan costs: the lender's charges, title insurance, the attorney and the appraisal, before taxes, recording and the prepaid items.",
+    "use": "In Horry County in 2025, the middle conventional purchase loan had about $5,000 in loan costs paid by the buyer: the lender's charges, the lender's title policy, the attorney and the appraisal. The owner's title policy, taxes, recording and the prepaid items are on top."
+  },
+  {
+    "row": "closing-costs 5",
+    "pattern": "\\$575\\b",
+    "struck": "Assumes typical published 2026 fees: 1% origination, $575 appraisal, $850 attorney.",
+    "use": "Assumes typical fees: 1% origination, a $650 appraisal (the VA fee for Horry County), $850 attorney."
+  },
+  {
+    "row": "closing-costs 6",
+    "pattern": "\\$330\\b[^.]{0,120}\\$2\\.10",
+    "struck": "A typical schedule charges about $330 for an owner's policy, plus $2.10 for each $1,000 of price above $100,000.",
+    "use": "(cut it, or source it from a filed South Carolina rate manual first: no schedule was opened)"
+  }
+]

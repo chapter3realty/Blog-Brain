@@ -1,0 +1,14 @@
+[
+  {
+    "row": "from-new-york 4",
+    "pattern": "calculator[^.]{0,80}weighs home prices more heavily",
+    "struck": "Our cost of living calculator weighs home prices more heavily, so it shows a bigger gap for New York, about a third lower.",
+    "use": "Our calculator uses its own estimate. It prices housing partly from home values and is adjusted to match published cost of living indexes, so it shows a bigger gap for New York, about a third lower."
+  },
+  {
+    "row": "from-new-york 5",
+    "pattern": "\\$737,000",
+    "struck": "A typical home in the New York metro is valued at about $737,000.",
+    "use": "(refresh from Zillow's current file: July 2026 is now about $725,000)"
+  }
+]

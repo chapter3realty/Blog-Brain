@@ -1,0 +1,14 @@
+[
+  {
+    "row": "cost-segregation 4",
+    "pattern": "\\ba large share of the price\\b",
+    "struck": "On a furnished Myrtle Beach condo that is a large share of the price.",
+    "use": "Almost every condo for sale in an oceanfront building in Horry County is listed furnished, so a study has more to move there."
+  },
+  {
+    "row": "cost-segregation 1b",
+    "pattern": "oceanfront building[^.]{0,30}\\bis sold furnished",
+    "struck": "Almost every condo for sale in a Myrtle Beach oceanfront building is sold furnished, so a study has more to move there.",
+    "use": "Almost every condo for sale in an oceanfront building in Horry County is listed furnished, so a study has more to move there."
+  }
+]

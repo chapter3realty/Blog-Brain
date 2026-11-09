@@ -1,0 +1,51 @@
+[
+  {
+    "row": "healthcare 1",
+    "pattern": "McLeod[^.]{0,120}\\b(?:is now open|is open|opened to patients|now open)\\b",
+    "struck": "McLeod Health's 48-bed Carolina Forest hospital is open.",
+    "use": "McLeod Health held a ribbon cutting for its 48-bed Carolina Forest hospital on August 27, 2026."
+  },
+  {
+    "row": "healthcare 3",
+    "pattern": "would open to patients",
+    "struck": "McLeod held a ribbon cutting for the new building on 27 August 2026 and said it would open to patients that fall.",
+    "use": "McLeod held a ribbon cutting for the new building on 27 August 2026."
+  },
+  {
+    "row": "healthcare 6",
+    "pattern": "\\blate 2027\\b|\\bdue (?:in )?(?:late )?202[78]\\b",
+    "struck": "Fifty-nine inpatient beds and four operating rooms, with completion expected late 2027.",
+    "use": "Fifty-nine inpatient beds and four operating rooms."
+  },
+  {
+    "row": "healthcare 6",
+    "pattern": "Grand Strand Health broke ground",
+    "struck": "Grand Strand Health broke ground on 9 February 2026 on the US-17 Bypass at Sheffield Parkway.",
+    "use": "Local news reported the groundbreaking on 9 February 2026."
+  },
+  {
+    "row": "healthcare 7",
+    "pattern": "site work (?:has begun|on)|has begun site work|\\blate 2028\\b",
+    "struck": "Site work has begun and construction is expected to finish in late 2028.",
+    "use": "In September 2025, MUSC Health and Tidelands Health said plans for it remained underway."
+  },
+  {
+    "row": "healthcare 7",
+    "pattern": "say plans for it are underway",
+    "struck": "Tidelands Health and MUSC Health say plans for it are underway.",
+    "use": "In September 2025, MUSC Health and Tidelands Health said plans for it remained underway."
+  },
+  {
+    "row": "healthcare 8",
+    "pattern": "\\bthe nearest hospital is \\d+ to \\d+ minutes",
+    "unless": "\\bfive\\b",
+    "struck": "From the middle house in each of six towns, the nearest hospital is 6 to 13 minutes away with no traffic, by our measurement.",
+    "use": "From the middle house in each of six towns, the nearest of five main hospitals is 6 to 13 minutes away with no traffic, by our measurement."
+  },
+  {
+    "row": "healthcare 9",
+    "pattern": "nearest (?:hospital and )?(?:emergency room|ER)\\b",
+    "struck": "Drive times to the nearest hospital and emergency room.",
+    "use": "Minutes by car to the nearest of five main hospitals."
+  }
+]

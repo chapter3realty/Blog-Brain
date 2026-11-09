@@ -1,0 +1,21 @@
+[
+  {
+    "row": "inherited-house 3",
+    "pattern": "\\bwill\\b[^.]{0,80}\\bwithin (?:30|thirty) days (?:of|from|after) (?:the )?(?:date of )?(?:the )?death",
+    "unless": "learn|knowledge|notice",
+    "struck": "If there is a will, it must be filed with the court within 30 days of the death.",
+    "use": "Whoever has the original will must deliver it to the probate court within 30 days of learning of the death."
+  },
+  {
+    "row": "inherited-house 6",
+    "pattern": "\\bonly person named in the will\\b",
+    "struck": "The same quick route is open at any value when the personal representative is the only heir, or the only person named in the will.",
+    "use": "The same quick route is open at any value when the personal representative is the only heir, or the only person the will leaves property to."
+  },
+  {
+    "row": "inherited-house conflict note",
+    "pattern": "\\b(?:twenty-five thousand|\\$25,000)\\b[^.]{0,80}\\b(?:small estate|affidavit|estate)\\b|\\bsmall estate[^.]{0,80}(?:twenty-five thousand|\\$25,000)",
+    "struck": "A small estate is one worth $25,000 or less.",
+    "use": "South Carolina has a faster route when the estate is worth $45,000 or less after liens."
+  }
+]

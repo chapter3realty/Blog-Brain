@@ -1,0 +1,26 @@
+[
+  {
+    "row": "student-rentals 2",
+    "pattern": "40 of (?:every )?100 standard homes",
+    "struck": "It is the rent 40 of 100 standard homes rented by recent movers fall at or below, so it is not an average.",
+    "use": "It is the most a housing voucher pays, not a measured rent: HUD's own estimate for this ZIP came in lower, and these figures sit at HUD's floor."
+  },
+  {
+    "row": "student-rentals 4",
+    "pattern": "\\b775 houses\\b",
+    "struck": "In county deed records for October 2025 through September 2026, 775 houses resold in ZIP 29526, at a middle price of $310,000.",
+    "use": "775 homes other than condos resold in ZIP 29526, including townhouses and manufactured homes, at a middle price of $310,000."
+  },
+  {
+    "row": "student-rentals 4b",
+    "pattern": "\\bnew builder houses\\b",
+    "struck": "New builder houses in the same ZIP sold at a middle price of $312,000.",
+    "use": "Homes sold by builders, townhouses included, sold at a middle price of $312,000."
+  },
+  {
+    "row": "student-rentals 5",
+    "pattern": "\\bnone\\b[^.]{0,60}\\b(?:Quail Creek|Barberry)",
+    "struck": "None was recorded in Quail Creek or on Barberry Drive.",
+    "use": "(cut it: the deed file leaves some sales out, and Barberry Drive is a street a legal description need not name)"
+  }
+]

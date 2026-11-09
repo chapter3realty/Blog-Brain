@@ -31,3 +31,14 @@ Waiting on fresh, verified facts (round 2):
 Owner's call:
 - Election pages show Devin Day as "Chief Operating Officer" (mkpage, devin+abdulla); every other page says "Operations Officer".
 - The election hub keeps its own tax slider; /invest/rental-property-tax-cut/ has its own calculator.
+
+## Fact fixes (patch 0024)
+
+23 pages, each through research, an independent verifier and a fixer who used only verified rows. Each folder holds facts.md, VERIFY.md, FIX.md and APPLIED.md. A fact that did not verify made the page say less.
+
+Lead's follow-ups:
+- /buyers/relocating/healthcare/ said nothing about whether McLeod Carolina Forest's new building is open, because mcleodhealth.org refused that researcher. The verifier for /invest/what-is-being-built/ opened McLeod's own release of October 30, 2026 ("now open to patients"); healthcare now says the same.
+- Patch 0024 carries three CSV data files with Windows line endings; it was exported with them as binary so git am applies it as is.
+
+Still open: Conway's accommodations tax (12% on str-rules, 11.5% in the ledger; not re-checked); the $330 plus $2.10 title-insurance formula behind the closing-costs calculator (needs the filed SC rate manual); flood program after Dec. 11; eviction fees after Jan. 1.
+- Cost segregation, January 19, 2025 (lead, 2026-11-09): IRS Notice 2026-11 (interim guidance, January 2026) applies 100% bonus depreciation to property acquired and placed in service after January 19, 2025, as the page says (BDO, RSM, Grant Thornton and Thomson Reuters summaries of the notice agree). Closed.

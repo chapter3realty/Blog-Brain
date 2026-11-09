@@ -1,0 +1,193 @@
+{
+ "pulled": "2026-11-09T01:25:54.440670+00:00",
+ "of_furnished": {
+  "listings": 1066,
+  "median_ask_5k": 210000
+ },
+ "of_all": {
+  "listings": 1092,
+  "median_ask_5k": 215000
+ },
+ "of_furnished_2bed": {
+  "listings": 248,
+  "median_ask_5k": 355000
+ },
+ "calls": [
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished",
+   "total": 1066
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=2500000",
+   "total": 1066
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=1250000",
+   "total": 1063
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=625000",
+   "total": 1001
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=310000",
+   "total": 716
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=155000",
+   "total": 329
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=230000",
+   "total": 606
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=190000",
+   "total": 470
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=210000",
+   "total": 538
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=200000",
+   "total": 514
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&max=205000",
+   "total": 524
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building",
+   "total": 1092
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=2500000",
+   "total": 1092
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=1250000",
+   "total": 1087
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=625000",
+   "total": 1022
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=310000",
+   "total": 726
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=155000",
+   "total": 330
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=230000",
+   "total": 612
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=190000",
+   "total": 472
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=210000",
+   "total": 542
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=220000",
+   "total": 589
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building&max=215000",
+   "total": 561
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2",
+   "total": 431
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3",
+   "total": 183
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=2500000",
+   "total": 431
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=2500000",
+   "total": 183
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=1250000",
+   "total": 428
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=1250000",
+   "total": 180
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=625000",
+   "total": 366
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=625000",
+   "total": 128
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=310000",
+   "total": 89
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=310000",
+   "total": 5
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=465000",
+   "total": 257
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=465000",
+   "total": 51
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=385000",
+   "total": 182
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=385000",
+   "total": 29
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=345000",
+   "total": 127
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=345000",
+   "total": 15
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=365000",
+   "total": 157
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=365000",
+   "total": 24
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=355000",
+   "total": 142
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=355000",
+   "total": 18
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=2&max=350000",
+   "total": 138
+  },
+  {
+   "url": "https://chapter3realty.com/homes/api/map?type=condo&has=county_horry%2Coceanfront_building%2Cfurnished&beds=3&max=350000",
+   "total": 17
+  }
+ ]
+}

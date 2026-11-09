@@ -1,0 +1,21 @@
+[
+  {
+    "row": "horry-county-growth 1",
+    "pattern": "\\bthe rule is 3 feet\\b",
+    "unless": "\\b(?:AE|VE)\\b",
+    "struck": "In the unincorporated county the rule is 3 feet.",
+    "use": "In the unincorporated county the rule is 3 feet above the base flood elevation in AE and VE zones."
+  },
+  {
+    "row": "horry-county-growth 1",
+    "pattern": "\\bno base flood elevation\\b[^.]{0,160}\\belevation certificate proves\\b|\\bA zone\\b[^.]{0,80}\\belevation certificate proves\\b",
+    "struck": "In an A zone with no base flood elevation, the floor must be at least 24 inches above the highest ground next to the house, and a finished-construction elevation certificate proves the height.",
+    "use": "In an A zone with no base flood elevation, the lowest floor must be at least 24 inches above the highest ground next to the building, and the building inspector checks it."
+  },
+  {
+    "row": "horry-county-growth 4",
+    "pattern": "\\bfinal vote was scheduled\\b|\\badvanced an ordinance raising the freeboard\\b",
+    "struck": "In June 2021 the county council advanced an ordinance raising the freeboard for new homes in flood zones from 1 foot to 3 feet. Its final vote was scheduled for July 13, 2021.",
+    "use": "The county council adopted the 3-foot rule in its rewritten flood ordinance in summer 2021."
+  }
+]

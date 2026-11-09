@@ -1,0 +1,27 @@
+[
+  {
+    "row": "beaches 1",
+    "pattern": "Pawleys[^.]{0,80}\\bno (?:umbrella|tent|shade)[^.]{0,30}\\b(?:limit|rule)s?\\b",
+    "unless": "rules page|beach rules",
+    "struck": "Pawleys Island has no tent or umbrella limit.",
+    "use": "Pawleys Island's beach rules list no tent or umbrella limit, but nothing may be left overnight."
+  },
+  {
+    "row": "beaches 4",
+    "pattern": "four-sided|enclosed tents?",
+    "struck": "Pawleys Island bans only four-sided enclosed tents.",
+    "use": "(cut it: news only, and the code was not opened)"
+  },
+  {
+    "row": "beaches 5",
+    "pattern": "normal winter weekend for owners|most visitors never learn",
+    "struck": "That is a normal winter weekend for owners here, and most visitors never learn the season exists.",
+    "use": "(cut it: no row)"
+  },
+  {
+    "row": "beaches 6",
+    "pattern": "best free thing on this coast|one of our team brings his dog",
+    "struck": "The dog table above is personal for us: one of our team brings his dog to the sand every chance the clock allows, off season especially, and calls it the best free thing on this coast.",
+    "use": "(cut it: not a story in the bank)"
+  }
+]

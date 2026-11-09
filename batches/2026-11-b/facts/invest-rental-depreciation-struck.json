@@ -1,0 +1,20 @@
+[
+  {
+    "row": "rental-depreciation 2",
+    "pattern": "\\bhouse (?:near the beach )?in Surfside Beach",
+    "struck": "A house near the beach in Surfside Beach shows land $190,000 and building $115,000, a land share of about 62 percent.",
+    "use": "A townhouse in Surfside Beach that sold for the same $326,000 shows land $190,000 and building $115,000, a land share of about 62 percent."
+  },
+  {
+    "row": "rental-depreciation 2",
+    "pattern": "\\bTwo real Horry County houses\\b",
+    "struck": "Two real Horry County houses that each sold for $326,000 show how far the share moves.",
+    "use": "Two real Horry County homes that each sold for $326,000 show how far the share moves."
+  },
+  {
+    "row": "rental-depreciation 2",
+    "pattern": "\\bnear the beach in Surfside Beach",
+    "struck": "A townhouse near the beach in Surfside Beach shows land $190,000.",
+    "use": "A townhouse in Surfside Beach that sold for the same $326,000 shows land $190,000 and building $115,000, a land share of about 62 percent."
+  }
+]

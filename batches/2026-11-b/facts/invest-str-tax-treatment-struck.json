@@ -1,0 +1,8 @@
+[
+  {
+    "row": "str-tax-treatment 4",
+    "pattern": "\\b(?:many|most)\\b[^.]{0,60}\\bbuildings require the (?:rental )?pool",
+    "struck": "Many Myrtle Beach oceanfront buildings require the pool.",
+    "use": "A building's own documents can require the pool."
+  }
+]

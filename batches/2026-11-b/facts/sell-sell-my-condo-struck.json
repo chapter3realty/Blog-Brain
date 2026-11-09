@@ -1,0 +1,26 @@
+[
+  {
+    "row": "sell-my-condo 4",
+    "pattern": "\\b137 days to sell\\b",
+    "struck": "Condos in Myrtle Beach take about 137 days to sell, with more for sale than buyers.",
+    "use": "Condos here averaged 137 days to an accepted offer in September 2026."
+  },
+  {
+    "row": "sell-my-condo 9",
+    "pattern": "\\bBrickWood[^.]{0,120}\\bat normal fees\\b",
+    "struck": "Our preferred lender, BrickWood Mortgage, finances condotel and non-warrantable buildings at normal fees.",
+    "use": "BrickWood Mortgage, our affiliated lender and a separate company, arranges condotel and non-warrantable loans through wholesale lenders that accept these buildings."
+  },
+  {
+    "row": "sell-my-condo 10",
+    "pattern": "\\bthree different roof ages\\b|\\$500\\b[^.]{0,80}\\b(?:documents?|paperwork)\\b",
+    "struck": "Along the way, the HOA gave the lender three different roof ages before one was finally confirmed, and its outside document company charged the buyer $500 just to hand over the paperwork the loan needed.",
+    "use": "(cut it: not in the story bank)"
+  },
+  {
+    "row": "sell-my-condo not verified",
+    "pattern": "\\bCity-of-Myrtle-Beach condos\\b[^.]{0,80}\\bsofter\\b",
+    "struck": "City-of-Myrtle-Beach condos specifically have been softer than the area number.",
+    "use": "(cut it: no source)"
+  }
+]

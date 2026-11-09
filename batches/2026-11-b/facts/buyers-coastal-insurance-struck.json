@@ -1,0 +1,32 @@
+[
+  {
+    "row": "coastal-insurance 3",
+    "pattern": "\\$4,500 (?:to|and) (?:about )?\\$5,300",
+    "struck": "They put Myrtle Beach at about $4,500 to $5,300 a year.",
+    "use": "(cut the range: no comparison site's method was opened)"
+  },
+  {
+    "row": "coastal-insurance 3",
+    "pattern": "Both numbers come from actual quotes",
+    "struck": "Both numbers come from actual quotes.",
+    "use": "The federal figure is the average premium paid on real 2022 policies, and it leaves out wind pool and surplus-lines policies."
+  },
+  {
+    "row": "coastal-insurance 3",
+    "pattern": "among the highest in South Carolina",
+    "struck": "They put Myrtle Beach among the highest in South Carolina and well above the inland cities.",
+    "use": "(cut it: no row)"
+  },
+  {
+    "row": "coastal-insurance 4",
+    "pattern": "\\$1,500 (?:to|and) (?:about )?\\$3,500",
+    "struck": "Typical single-family policies here cost about $1,500 to $3,500 a year in the standard market.",
+    "use": "In 2022 the average homeowners policy on a house in Horry County cost about $1,600 to $2,900 a year, depending on the ZIP code, before any separate wind or flood policy."
+  },
+  {
+    "row": "coastal-insurance 5",
+    "pattern": "(?:premium|benchmark)[^.]{0,60}(?:come|are) from the South Carolina Department of Insurance",
+    "struck": "Premium benchmarks come from the South Carolina Department of Insurance.",
+    "use": "(cut it: the figures are from the U.S. Treasury data)"
+  }
+]

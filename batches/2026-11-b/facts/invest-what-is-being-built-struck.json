@@ -1,0 +1,38 @@
+[
+  {
+    "row": "what-is-being-built 1",
+    "pattern": "\\bmetro\\b[^.]{0,80}\\bBrunswick County\\b",
+    "struck": "The count covers the Myrtle Beach metro, which is Horry County plus Brunswick County in North Carolina.",
+    "use": "The count covers the Myrtle Beach metro, which is Horry County."
+  },
+  {
+    "row": "what-is-being-built 9",
+    "pattern": "\\b(?:no|none of its) records?\\b[^.]{0,40}\\b(?:dated|date) later than August 2026\\b",
+    "struck": "No record is dated later than August 2026.",
+    "use": "The most recent updates on the layer are from August 2026."
+  },
+  {
+    "row": "what-is-being-built 10",
+    "pattern": "\\babout 6 years of building\\b",
+    "struck": "At the 2025 pace of 6,898 permits a year, the 44,735 approved units are about 6 years of building.",
+    "use": "At the whole county's 2025 pace of 6,511 homes, the 44,732 approved units are about 7 years of building, and about 9 and a half years at the unincorporated county's own pace of 4,690."
+  },
+  {
+    "row": "what-is-being-built 13",
+    "pattern": "\\babout \\$220 million\\b",
+    "struck": "Ground broken February 9, 2026; completion reported for late 2027; about $220 million",
+    "use": "Construction began in February 2026; no opening date from the system; $226 million in its 2025 plan"
+  },
+  {
+    "row": "what-is-being-built 14",
+    "pattern": "\\blate 2027\\b",
+    "struck": "completion reported for late 2027",
+    "use": "(cut it: the system has published no opening date)"
+  },
+  {
+    "row": "what-is-being-built FIX 1",
+    "pattern": "\\bUpdated monthly\\b|\\brebuilt every month\\b",
+    "struck": "This page is rebuilt every month from the federal permit count and the county's own data.",
+    "use": "The numbers come from the federal permit count and the county's own data."
+  }
+]

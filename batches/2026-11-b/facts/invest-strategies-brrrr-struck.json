@@ -1,0 +1,14 @@
+[
+  {
+    "row": "brrrr 1",
+    "pattern": "\\b17(?:\\.34)?\\s*(?:%|percent)",
+    "struck": "By our own tracking of sales, bank-owned houses have sold about 17.34 percent under market value on average.",
+    "use": "(cut it: no public source, and the owner's own words say the Myrtle Beach bank-owned discount is lower than that average)"
+  },
+  {
+    "row": "brrrr 2",
+    "pattern": "\\b22(?:\\.32)?\\s*(?:%|percent)",
+    "struck": "The same tracking puts distressed condo units at about 22.32 percent under market, the deeper discount because condo supply is larger and many investors will not buy into a building at all.",
+    "use": "In our experience, distressed condo units in sound buildings sell at a deeper discount, because condo supply is larger and many investors will not buy into a condo building."
+  }
+]

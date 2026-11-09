@@ -95,6 +95,8 @@ const cases = [
     "About $400/mo for a house, about $445 for a villa; includes basic lawn care and the oceanfront Grande Dunes Ocean Club"],
   ["seasons-hoa-fee", "About $300 to $330/mo: cable, internet, phone, lawn, security monitoring, lifestyle director",
     "About $340/mo: internet, weekly trash pickup and lawn care"],
+  ["rpp-ny-myrtle-beach", "Overall prices here are about 33 percent lower than the New York metro area.",
+    "On the federal price index, overall prices here are about 17 percent below the New York metro area. Our calculator shows New York about 33 percent lower on its own estimate."],
 ];
 for (const [id, bad, good] of cases) {
   check(`${id}: fires on "${bad.slice(0, 50)}..."`, fires(bad, id));

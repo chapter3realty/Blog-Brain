@@ -1,0 +1,20 @@
+[
+  {
+    "row": "accommodations-tax 1-3",
+    "pattern": "(?:county or city|county and city)[^.]{0,30}\\badds?\\b[^.]{0,10}\\b1(?:\\.5)? to 3 percent",
+    "struck": "Your county or city adds 1 to 3 percent on top.",
+    "use": "Your county and city then add 3 percent of their own in Myrtle Beach, North Myrtle Beach, Surfside Beach and unincorporated Horry County."
+  },
+  {
+    "row": "accommodations-tax 10-13",
+    "pattern": "in Horry County pays 12 to 13 percent",
+    "struck": "All in, a short stay in Horry County pays 12 to 13 percent.",
+    "use": "All in, a short stay pays 13 percent in Myrtle Beach and 12 percent in North Myrtle Beach, Surfside Beach and unincorporated Horry County."
+  },
+  {
+    "row": "accommodations-tax 9",
+    "pattern": "\\bAll three\\b[^.]{0,40}\\b90 days",
+    "struck": "All three stop at 90 days, the same as the state.",
+    "use": "Myrtle Beach, North Myrtle Beach and the county fee stop at 90 days, the same as the state."
+  }
+]
