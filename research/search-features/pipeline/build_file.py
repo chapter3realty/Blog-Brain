@@ -24,7 +24,7 @@ def lines(pattern):
                     yield o
             except Exception:
                 pass
-for pat in ["test-*.jsonl", "t10-*.jsonl", "a-*.jsonl"]:
+for pat in ["test-*.jsonl", "t10-*.jsonl", "a-*.jsonl", "r-*.jsonl"]:
     for o in lines(pat):
         d = sorted({RENAME.get(x, x) for x in o.get("d", []) if RENAME.get(x, x) in D})
         dropped += len(o.get("d", [])) - len(d)
