@@ -1,0 +1,47 @@
+diff --git a/idx-lib/feeds.js b/idx-lib/feeds.js
+index 0cc9c5d..18686df 100644
+--- a/idx-lib/feeds.js
++++ b/idx-lib/feeds.js
+@@ -337,7 +337,7 @@ export const FEEDS = {
+   "/invest/strategies/dscr-loans/": DSCR,
+   "/invest/strategies/brrrr/": PRE_2000,
+   "/invest/strategies/fix-and-flip/": FIXERS,
+-  "/invest/strategies/1031-exchange/": RENTS_NOW,
++  "/invest/strategies/1031-exchange/": { ...RENTS_NOW, withStrips: true },
+   "/invest/strategies/dst/": OCEAN_PROGRAM,
+   "/invest/strategies/small-multifamily/": MULTI,
+   "/hoa/": HOA_COVERS,
+diff --git a/idx-lib/places.js b/idx-lib/places.js
+index 6791647..c74a519 100644
+--- a/idx-lib/places.js
++++ b/idx-lib/places.js
+@@ -1032,5 +1032,29 @@ export const PLACES = {
+    "/submarkets/conway/"
+   ],
+   "index": false
++ },
++ "duplexes-around-myrtle-beach": {
++  "name": "the Myrtle Beach area",
++  "q": {
++   "near": "33.69000,-78.89200",
++   "miles": 25,
++   "type": "multi"
++  },
++  "pages": [
++   "/invest/strategies/1031-exchange/"
++  ],
++  "index": false
++ },
++ "condos-around-myrtle-beach": {
++  "name": "the Myrtle Beach area",
++  "q": {
++   "near": "33.69000,-78.89200",
++   "miles": 25,
++   "type": "condo"
++  },
++  "pages": [
++   "/invest/strategies/1031-exchange/"
++  ],
++  "index": false
+  }
+ };

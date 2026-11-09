@@ -1174,6 +1174,411 @@
    },
    "index": false,
    "note": "One of the five parts on /submarkets/conway/ (batch 2026-11-a NEEDS.md 7: the point and radius match the page's analysis areas). index false: a strip for one guide; the town guide is the indexed answer for Conway (cannibalization map 2026-11-08)."
+  },
+  {
+   "slug": "myrtle-beach-resort",
+   "name": "Myrtle Beach Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Mb Resort",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 58 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "compass-cove",
+   "name": "Compass Cove",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Compass Cove",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 35 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "bluewater-resort",
+   "name": "Bluewater Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Bluewater",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 37 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "landmark-resort",
+   "name": "Landmark Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Landmark",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 93 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "the-palace",
+   "name": "The Palace",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Palace",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 25 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "sea-mist-resort",
+   "name": "Sea Mist Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Sea Mist",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 32 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "coral-beach-resort",
+   "name": "Coral Beach Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Coral Beach",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 40 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "bay-view-resort",
+   "name": "Bay View Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Bay View Resort",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 10 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "camelot-by-the-sea",
+   "name": "Camelot by the Sea",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Camelot",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 9 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "caribbean-resort",
+   "name": "Caribbean Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Caribbean",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 26 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "beach-colony",
+   "name": "Beach Colony",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Beach Colony",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 21 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "dunes-village-resort",
+   "name": "Dunes Village Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Dunes Village",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 25 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "monterey-bay-suites",
+   "name": "Monterey Bay Suites",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Monterey Bay",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 31 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "grande-cayman-resort",
+   "name": "Grande Cayman Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Grande Cayman",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 21 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "caravelle-resort",
+   "name": "Caravelle Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Caravelle",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 45 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "ocean-reef-resort",
+   "name": "Ocean Reef Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Ocean Reef",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 32 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "sand-dunes-resort",
+   "name": "Sand Dunes Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Sand Dunes",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 51 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "sands-ocean-club",
+   "name": "Sands Ocean Club",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Sands Ocean",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 16 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "margate-tower",
+   "name": "Margate Tower",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Margate",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 8 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "brighton-tower",
+   "name": "Brighton Tower",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Brighton",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 9 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "south-hampton",
+   "name": "South Hampton",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "South Hampton",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 13 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "royale-palms",
+   "name": "Royale Palms",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Royale Palms",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 14 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "seawatch-resort",
+   "name": "SeaWatch Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "SeaWatch",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 5 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "ocean-creek-resort",
+   "name": "Ocean Creek Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Ocean Creek",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 34 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "north-beach-towers",
+   "name": "North Beach Towers",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "North Beach Tower",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 10 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "beach-cove-resort",
+   "name": "Beach Cove Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Beach Cove",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 29 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "bay-watch-resort",
+   "name": "Bay Watch Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Bay Watch",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 46 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "avista-resort",
+   "name": "Avista Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Avista",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 10 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "prince-resort",
+   "name": "Prince Resort",
+   "pages": [
+    "/invest/condo-buildings/"
+   ],
+   "q": {
+    "subdivision": "Prince Resort",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "One oceanfront building on /invest/condo-buildings/ (batch 2026-11-b). Checked 2026-11-09 on the map API: 7 condos for sale, every one at the building's own street addresses (data/2026-11-b/invest-condo-buildings/raw/strip-places-check.json). index false: a strip for one guide; the guide is the indexed answer."
+  },
+  {
+   "slug": "duplexes-around-myrtle-beach",
+   "name": "the Myrtle Beach area",
+   "pages": [
+    "/invest/strategies/1031-exchange/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "multi"
+   },
+   "index": false,
+   "note": "A strip on /invest/strategies/1031-exchange/ (what an exchange can buy). 25 miles is the most a place may ask; a live map search on 2026-11-09 found 58 two-to-four unit buildings and 2,830 condos in the circle. index false: a strip for one guide."
+  },
+  {
+   "slug": "condos-around-myrtle-beach",
+   "name": "the Myrtle Beach area",
+   "pages": [
+    "/invest/strategies/1031-exchange/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "condo"
+   },
+   "index": false,
+   "note": "A strip on /invest/strategies/1031-exchange/ (what an exchange can buy). 25 miles is the most a place may ask; a live map search on 2026-11-09 found 58 two-to-four unit buildings and 2,830 condos in the circle. index false: a strip for one guide."
   }
  ]
 }

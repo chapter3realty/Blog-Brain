@@ -1,0 +1,22 @@
+{
+ "for": "batches/2026-10-b/data/idx-places.json (then regenerate idx-lib/places.js). strips.patch in this folder is the same change, made to places.js and feeds.js directly.",
+ "places": [
+  {
+   "slug": "duplexes-around-myrtle-beach",
+   "name": "the Myrtle Beach area",
+   "pages": ["/invest/strategies/1031-exchange/"],
+   "q": { "near": "33.69000,-78.89200", "miles": 25, "type": "multi" },
+   "index": false,
+   "note": "The 2 to 4 unit strip in 'What can a 1031 exchange buy on the Grand Strand?' (fix round 1, owner 2026-11-08). 25 miles around Myrtle Beach is the largest radius a place may ask (edge.js placeParams). Checked 2026-11-09 (live map search, type=multi&near=33.69000,-78.89200&miles=25): 58 buildings, from Pawleys Island (33.43) to Longs (33.93) and Conway (-79.15). A place cannot ask a price floor, so the title names only the kind of home and the area. index false: the /homes/near/ page is noindex, so it does not compete with /invest/strategies/small-multifamily/."
+  },
+  {
+   "slug": "condos-around-myrtle-beach",
+   "name": "the Myrtle Beach area",
+   "pages": ["/invest/strategies/1031-exchange/"],
+   "q": { "near": "33.69000,-78.89200", "miles": 25, "type": "condo" },
+   "index": false,
+   "note": "The condo strip in the same section, under 'split one sale into two or three condos'. Checked 2026-11-09 (live map search, type=condo, same circle): 2,830 condos. index false, as above."
+  }
+ ],
+ "feeds": "idx-lib/feeds.js: \"/invest/strategies/1031-exchange/\": { ...RENTS_NOW, withStrips: true }. Without it the page's own slots take the edge feed off this page."
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "row": "1031 1",
+    "pattern": "\\bpermanent home is outside (?:of )?South Carolina\\b[^.]{0,80}\\bbuyer must (?:hold back|withhold)\\b",
+    "unless": "\\bunless\\b|\\bexempt\\b",
+    "struck": "When the seller's permanent home is outside South Carolina, the buyer must hold back part of the sale for South Carolina income tax.",
+    "use": "When the seller's permanent home is outside South Carolina, the buyer must hold back part of the price for South Carolina income tax, unless the sale is exempt."
+  },
+  {
+    "row": "1031 3",
+    "pattern": "\\bLLCs?\\b[^.]{0,80}\\b(?:individual rate|5\\.21|top (?:individual )?rate)",
+    "struck": "An LLC taxed as a partnership is withheld at the individual rate.",
+    "use": "(cut it: no source names LLCs; the statute puts a nonresident partnership at the top individual rate and a corporation or other nonresident entity at 5 percent)"
+  },
+  {
+    "row": "1031 18",
+    "pattern": "\\bLLCs?\\b[^.]{0,100}\\bis a nonresident\\b|\\bout-of-state LLC\\b[^.]{0,100}\\bnonresident",
+    "struck": "An out-of-state LLC with no SC business history is a nonresident.",
+    "use": "A business seller can be treated as a resident on the same form if it has done business in South Carolina for the last two tax years, will keep doing it, is registered here and has filed a South Carolina return with none overdue."
+  },
+  {
+    "row": "1031 26",
+    "pattern": "\\bany (?:U\\.?S\\.? |US )?real (?:property|estate)\\b[^.]{0,80}\\blike-kind to any\\b|\\bany (?:rental|investment property)\\b[^.]{0,40}\\bfor any (?:other )?(?:rental|investment property)\\b",
+    "struck": "Any real property in the United States is like-kind to any other: a condo for a house, land for a duplex.",
+    "use": "Real property in the United States is generally like-kind to other US real property, improved or not, as long as both are held for business or investment: a rental condo for a rental house, land for a duplex."
+  },
+  {
+    "row": "1031 30",
+    "pattern": "\\bis the safe harbor\\b|\\bthe only safe harbor\\b",
+    "struck": "A qualified intermediary holding it under a written agreement that limits your rights is the safe harbor.",
+    "use": "A qualified intermediary holding the money under a written agreement that limits your right to it is one of the IRS safe harbors."
+  },
+  {
+    "row": "1031 32",
+    "pattern": "\\bwith (?:a|any) relative\\b|\\bwith (?:a )?family member\\b(?![^.]{0,80}(?:spouse|parent|child|brother|sister))",
+    "struck": "Trading with a relative: if either of you sells the property you got within two years, the deferred gain is taxed.",
+    "use": "Trading with a close family member (a spouse, parent, grandparent, child, grandchild, brother or sister) or a company you control: if either of you sells the property you got within two years, the deferred gain is taxed, with a few exceptions such as a death."
+  },
+  {
+    "row": "1031 34",
+    "pattern": "\\bused it yourself no more than\\b|\\byour own use\\b[^.]{0,40}\\b(?:14 days|10 percent)\\b",
+    "struck": "In each of those two years you rented it at a fair rent for 14 days or more and used it yourself no more than 14 days or 10 percent of the rented days, whichever is more.",
+    "use": "In each of those two years you rented it at a fair rent for 14 days or more, and personal use was no more than 14 days or 10 percent of the rented days, whichever is more. Days your family uses it, or anyone pays less than a fair rent, count as personal use."
+  },
+  {
+    "row": "1031 36",
+    "pattern": "\\bonly (?:when|for|after|in)\\b[^.]{0,60}\\bdisasters?\\b|\\bdates themselves never move\\b|\\bdeadlines? never move\\b",
+    "struck": "The IRS extends them only for presidentially declared disasters.",
+    "use": "The IRS can postpone the 45 and 180 days after a federally declared disaster, but never past the tax return's due date with extensions."
+  },
+  {
+    "row": "1031 37",
+    "pattern": "\\b(?:company|firm) (?:set up|created|formed) (?:for the job|by your (?:qualified )?intermediary)\\b",
+    "struck": "A company created by your qualified intermediary, called an exchange accommodation titleholder, parks the title.",
+    "use": "Another party that is not you or your agent, called an exchange accommodation titleholder, takes title to the new property first."
+  },
+  {
+    "row": "1031 37",
+    "pattern": "\\b(?:5|five) business days\\b",
+    "unless": "\\b(?:takes|took|taking|gets) title\\b|\\bafter the titleholder\\b",
+    "struck": "The agreement must be signed within 5 business days, and the 45-day and 180-day limits still apply.",
+    "use": "You and the titleholder sign a written agreement within 5 business days after it takes title."
+  },
+  {
+    "row": "1031 37",
+    "pattern": "\\breverse exchanges? cost(?:s)? more\\b|\\bfewer lenders\\b",
+    "struck": "Reverse exchanges cost more in intermediary fees, and financing is harder. Fewer lenders will do that.",
+    "use": "(cut it: no source)"
+  },
+  {
+    "row": "1031 38",
+    "pattern": "\\bDelaware statutory trust\\b[^.]{0,60}\\bcan be (?:the|your) replacement\\b",
+    "unless": "\\blimits?\\b|\\brules?\\b|\\b2004-86\\b",
+    "struck": "A share of a Delaware statutory trust can be the replacement.",
+    "use": "A share of a Delaware statutory trust can be the replacement if the trust stays inside the IRS ruling's limits and the other 1031 rules are met."
+  },
+  {
+    "row": "1031 39",
+    "pattern": "\\b(?:those|these) owners sell\\b[^.]{0,80}\\b(?:withhold|hold back)\\b",
+    "struck": "When those owners sell, the buyer must withhold unless the seller's form says otherwise.",
+    "use": "(cut the link: a tax-bill address is not a home state; state the withholding rule on its own, from row 1)"
+  },
+  {
+    "row": "1031 41",
+    "pattern": "\\bhouses (?:sold for |went for )?(?:about )?\\$350,000",
+    "unless": "\\bother homes\\b",
+    "struck": "Houses about $350,000 (middle half $266,000 to $500,000).",
+    "use": "Houses and other homes that are not condos sold for about $350,000 in the middle (middle half $266,000 to $500,000)."
+  },
+  {
+    "row": "1031 43",
+    "pattern": "\\bholds? back\\b[^.]{0,160}\\bnothing with\\b|\\b(?:holds? back|withhold(?:s|ing)?|keeps? back) nothing\\b|\\bnothing (?:is )?(?:held back|withheld)\\b",
+    "unless": "\\bintermediary (?:holds|keeps|gets)\\b|\\bgoes to the intermediary\\b",
+    "struck": "At closing South Carolina holds back about $19,600 with no form, about $9,700 with the I-295 stating the gain, and nothing with the exchange box and a qualified intermediary.",
+    "use": "With the exchange box and a qualified intermediary, the amount goes to the intermediary at closing, and the state is paid nothing if the exchange is completed."
+  },
+  {
+    "row": "1031 9",
+    "pattern": "\\bI-290X\\b",
+    "unless": "no longer",
+    "struck": "The seller can ask for a refund on Form I-290X.",
+    "use": "Before the end of the tax year, the seller asks for the refund on an amended I-290; after it, on the South Carolina return."
+  },
+  {
+    "row": "1031 10",
+    "pattern": "\\bwithholding\\b[^.]{0,80}\\b(?:can|may) (?:be used|be spent|go) (?:toward|on|into|to buy) the replacement\\b",
+    "struck": "The withholding the intermediary holds can be used toward the replacement.",
+    "use": "(cut it: the ruling does not say the intermediary's withholding amount may be spent on the replacement)"
+  },
+  {
+    "row": "1031 struck 1",
+    "pattern": "\\bhis advice is always\\b|\\bstarted shopping on day one\\b",
+    "struck": "His advice is always the same: build the replacement shortlist before the sale closes.",
+    "use": "(cut it: not in the story bank; it reads as a quote for Tim Nash. The advice may stand unattributed as our practice)"
+  },
+  {
+    "row": "1031 struck 2",
+    "pattern": "\\bmore than 30 years\\b",
+    "struck": "Tim Nash has sold on the Grand Strand for more than 30 years.",
+    "use": "(cut it: no row; leave it to the byline and author note)"
+  },
+  {
+    "row": "1031 struck 3",
+    "pattern": "\\bBrickWood\\b[^.]{0,80}\\bwork closely together\\b|\\bwork closely together\\b[^.]{0,80}\\bBrickWood\\b",
+    "struck": "Because Chapter3 Realty and BrickWood Mortgage work closely together, the purchase and the loan move in step.",
+    "use": "Our affiliated lender, BrickWood Mortgage, a separate company, can work to the same dates, or you can use your own lender."
+  },
+  {
+    "row": "1031 struck 4",
+    "pattern": "\\bmost (?:brokerages|companies)\\b[^.]{0,80}\\b(?:train|teach)\\b",
+    "struck": "Most brokerages train their agents to find a like-kind property by the floors and the counters.",
+    "use": "We judge a replacement on cap rate and tenant history, not on floors and counters."
+  },
+  {
+    "row": "1031 struck 6",
+    "pattern": "\\bconfirms the current requirement\\b|\\bexact rules and percentages change\\b",
+    "struck": "The exact rules and percentages change, so Chapter3 confirms the current requirement with the closing attorney on every exchange.",
+    "use": "(cut it: the page now states the rule)"
+  }
+]

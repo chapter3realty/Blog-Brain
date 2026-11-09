@@ -1,0 +1,117 @@
+[
+  {
+    "row": "invest-condo-buildings 2",
+    "pattern": "\\bPavilion\\b[^.]{0,120}\\b15\\b[^.]{0,40}\\b(?:units|condos|listings)\\b|\\bPavilion\\b[^.]{0,120}\\$580\\b",
+    "struck": "Holiday Inn Pavilion: 15 units for sale, a middle fee of about $1,055, middle half $580 to $1,380.",
+    "use": "Holiday Inn Pavilion: 11 units for sale in the building, a middle fee of about $1,055."
+  },
+  {
+    "row": "invest-condo-buildings 2",
+    "pattern": "\\bCrescent Shores\\b[^.]{0,120}\\$1,070\\b|\\bCrescent Shores\\b[^.]{0,120}\\$450\\b",
+    "struck": "Crescent Shores: a middle fee of about $1,070 a month, middle half $450 to $1,380.",
+    "use": "Crescent Shores: a middle fee of about $1,270 a month, from the 10 listings in the building that carry the oceanfront-building flag."
+  },
+  {
+    "row": "invest-condo-buildings 5",
+    "pattern": "\\bOcean Creek\\b[^.]{0,100}\\b163\\b",
+    "struck": "The county records 163 condo units at Ocean Creek Resort.",
+    "use": "(cut it: the county records Ocean Creek under several names and the towers were not tied)"
+  },
+  {
+    "row": "invest-condo-buildings 5",
+    "pattern": "\\bMyrtle Beach Resort\\b[^.]{0,100}\\b244\\b",
+    "struck": "The county records 244 condo units at Myrtle Beach Resort.",
+    "use": "(cut it: the county records the resort's Five Seasons tower, 159 units, under its own name, and the listings could not be split)"
+  },
+  {
+    "row": "invest-condo-buildings 5",
+    "pattern": "\\bMaisons? Sur.?Mer\\b[^.]{0,100}\\b229\\b",
+    "struck": "Maisons Sur Mer has 229 condo units in the county's records.",
+    "use": "Maisons Sur Mer has 252 condo units in the county's records."
+  },
+  {
+    "row": "invest-condo-buildings 5",
+    "pattern": "\\bSands Ocean Club\\b[^.]{0,100}\\b464\\b",
+    "struck": "Sands Ocean Club has 464 condo units in the county's records.",
+    "use": "Sands Ocean Club has at least 491 condo units in the county's records."
+  },
+  {
+    "row": "invest-condo-buildings 5",
+    "pattern": "\\bBeach Cove\\b[^.]{0,100}\\b328\\b",
+    "struck": "Beach Cove Resort has 328 condo units in the county's records.",
+    "use": "Beach Cove Resort has 334 condo units in the county's records."
+  },
+  {
+    "row": "invest-condo-buildings 6",
+    "pattern": "\\bSea Mist\\b[^.]{0,80}\\b64 of (?:its )?271\\b|\\b64 of (?:its )?271\\b[^.]{0,80}\\bSea Mist\\b",
+    "struck": "Sea Mist: 64 of 271 units sold in a year (about 1 in 4).",
+    "use": "Sea Mist: 62 of its 271 units sold in a year, more than 1 in 5."
+  },
+  {
+    "row": "invest-condo-buildings 6",
+    "pattern": "\\bPrince\\b[^.]{0,120}\\b(?:7 of (?:its )?262|1 in 37)\\b",
+    "struck": "At Prince Resort, 7 of 262 units sold in a year (about 1 in 37).",
+    "use": "(cut it: one deed in March 2026 moved 24 Prince units at once, so the one-unit count understates how many changed hands)"
+  },
+  {
+    "row": "invest-condo-buildings 7",
+    "pattern": "\\bPrince\\b[^.]{0,100}\\$375,000\\b",
+    "struck": "Prince Resort units sold for a middle price of about $375,000.",
+    "use": "Prince Resort units sold one at a time for a middle price of about $365,000 (6 sales)."
+  },
+  {
+    "row": "invest-condo-buildings 12",
+    "pattern": "\\bFannie Mae\\b[^.]{0,200}\\bfront desk\\b",
+    "struck": "Fannie Mae will not buy a loan on a unit in a building run like a hotel (front desk, nightly rentals, rental pools).",
+    "use": "Fannie Mae will not buy a loan on a unit in a building run like a hotel, even if each unit is owned separately. Signs it lists include registration services, the HOA or its manager renting units by the day, and a rental pool."
+  },
+  {
+    "row": "invest-condo-buildings 14",
+    "pattern": "\\b94 in 100\\b[^.]{0,100}\\bnightly\\b|\\bnightly\\b[^.]{0,100}\\b94 in 100\\b",
+    "struck": "About 94 in 100 condos for sale in oceanfront buildings say nightly rentals are allowed.",
+    "use": "About 94 in 100 condos for sale in oceanfront buildings say they allow short-term rentals."
+  },
+  {
+    "row": "invest-condo-buildings 20",
+    "pattern": "\\b(?:Margate|Brighton|Royale Palms|South Hampton|Kingston)\\b[^.]{0,160}\\b(?:Sand Bottom|Currents|water playground)\\b",
+    "unless": "\\bEmbassy Suites\\b|\\bHilton\\b",
+    "struck": "Owners in Margate Tower get the Kingston water playground, Currents and the Sand Bottom Pool.",
+    "use": "Kingston says guests staying at its Embassy Suites and Hilton get exclusive access to Currents and the Sand Bottom Pool."
+  },
+  {
+    "row": "invest-condo-buildings 22",
+    "pattern": "\\bMonterey Bay\\b[^.]{0,160}\\bheated\\b",
+    "struck": "Monterey Bay Suites lists indoor and outdoor heated pools, a lazy river and a rooftop pool deck.",
+    "use": "Monterey Bay Suites lists indoor and outdoor pools, an indoor lazy river and a rooftop pool deck."
+  },
+  {
+    "row": "invest-condo-buildings 24",
+    "pattern": "\\b15 to 30 percent\\b",
+    "struck": "Coastal master-insurance premiums pushed many buildings' dues up 15 to 30 percent.",
+    "use": "(cut it: no source)"
+  },
+  {
+    "row": "invest-condo-buildings 24",
+    "pattern": "\\b35 to 45 percent\\b",
+    "struck": "An onsite desk commonly keeps 35 to 45 percent, versus 20 to 30 for third-party managers.",
+    "use": "(cut it: no source)"
+  },
+  {
+    "row": "invest-condo-buildings 24",
+    "pattern": "\\beight (?:FHA.)?approved\\b",
+    "struck": "A public mirror of HUD's data showed eight approved projects.",
+    "use": "HUD's list shows 9 FHA-approved condo projects in Horry County, and none is a building on this page."
+  },
+  {
+    "row": "invest-condo-buildings 24",
+    "pattern": "\\bonce fixed\\b",
+    "struck": "Our team once fixed that mid-deal.",
+    "use": "(cut it: not in the story bank)"
+  },
+  {
+    "row": "invest-condo-buildings 24",
+    "pattern": "\\bCompass Cove\\b[^.]{0,100}\\b537\\b",
+    "struck": "Compass Cove has 537 units in 4 buildings.",
+    "use": "The county records 486 condo units at Compass Cove, in three towers' records."
+  }
+]
