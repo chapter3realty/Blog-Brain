@@ -52,3 +52,13 @@ Only someone at Chapter3 can do these. None blocks publishing; each makes a page
 3. **Seasons at Prince Creek West:** is the gate staffed or working in 2026? Is there an activities director, and about how many events a month?
 4. **Golf:** can Myrtle Trace residents play the Burning Ridge course next door, and on what terms? Is there any golf in or next to Seasons at Prince Creek West?
 5. **Tim Nash:** does he read pages before they publish? Every page says "Reviewed by Tim Nash".
+
+### Batch 2026-11-b, /why-chapter-3/, open 2026-11-10
+
+The rebuilt page shows what we check before a buyer offers, the public record behind each check, and how to look up our license. Each item below stays off the page until it is answered. Ledger: `batches/2026-11-b/why-chapter-3/facts.md`.
+
+1. **License record.** The state's Licensee Lookup needs a captcha, so no script could read it. Please send a screenshot of the result for "Chapter3" (license 28849) and for Tim Nash (43182). Is "Chapter III Realty" registered with the Real Estate Commission as the firm's other name? If so, a copy of the confirmation. (SC Code 40-57-135(C)(3).)
+2. **What we check on every offer.** The live page lists the HOA bylaws and financial records, the building's lawsuit history and a rental analysis. On the last three homes a client offered on, which of these did we run? Do we also check building permits near the home, and in which county or city system? The county's public permit map stops at September 22, 2025.
+3. **Cost and paperwork.** Is the study free? Does a buyer sign anything with us before we run it? Can we run it for a buyer who already has an agent?
+4. **One reply promise.** Four pages promise four things: "within one business day", "within 24 hours, usually faster", "answers the phone the day you call", "24hr response commitment". Which one does the office keep? The page will print only that one, on every page.
+5. **Two old claims.** (a) The flooded-house story on the live page ("a house a rival brokerage could not sell ... reported flooded years before he ever bought it"): did it happen as written, and who told it? It is not in the story bank. (b) "Every month after you buy, you hear from us" with an investor report and permit alerts: do clients get this today? If so, can we show one sample with the address removed?
