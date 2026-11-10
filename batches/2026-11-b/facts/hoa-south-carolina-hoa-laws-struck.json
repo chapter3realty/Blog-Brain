@@ -1,0 +1,92 @@
+[
+  {
+    "row": "hoa-south-carolina-hoa-laws 4",
+    "pattern": "\\breword(?:ed|s)? (?:one|a|a single) (?:phrase|word)\\b|\\b(?:respell(?:ed|s)?|changed (?:only )?(?:the|a) spelling)\\b",
+    "struck": "The only change since, in 2019, reworded one phrase in a definition (\"time sharing\").",
+    "use": "The HOA Act dates from 2018. It has been changed once, in 2019, when its definition of an HOA was edited where it leaves out timeshares."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 18",
+    "pattern": "\\banswered (?:every|all) points?,? whether or not\\b",
+    "struck": "An adequate business response means the HOA answered every point, whether or not the owner was satisfied.",
+    "use": "An adequate business response means the HOA answered every point and named a policy that backs it, whether or not the owner was satisfied."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 20",
+    "pattern": "\\b(?:2|two)\\b[^.]{0,30}\\b(?:were )?dropped\\b|\\bdropped by the owner\\b",
+    "struck": "10 (2) with the owner satisfied, and 2 were dropped.",
+    "use": "10 (2) with the owner satisfied, and 2 closed because the owner did not send what the state asked for."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 21",
+    "pattern": "\\b(?:asked|want(?:ed)?|told) the state to change\\b",
+    "struck": "What Horry County owners asked the state to change, 2022 to 2025.",
+    "use": "When they file, owners must say what they would change in their HOA's papers and how the papers should be enforced."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 24",
+    "pattern": "\\bno (?:hearing right|right to a hearing)\\b[^.]{0,40}\\bstate law\\b|\\bstate law\\b[^.]{0,60}\\bno (?:hearing right|right to a hearing)\\b|\\bno hearing (?:is )?required\\b",
+    "struck": "No fine cap, and no hearing right, in state law.",
+    "use": "Neither the HOA Act nor the condo law caps fines or says a hearing must come before one."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 31",
+    "pattern": "\\bregular (?:board )?meetings?\\b[^.]{0,40}\\b(?:need|require)s? no notice\\b|\\bboard(?:'s)? (?:regular )?meetings?\\b[^.]{0,40}\\b(?:need|require)s? no notice\\b",
+    "struck": "The board's regular meetings need no notice unless the articles or bylaws require it.",
+    "use": "The Act's notice rules for board meetings are about notice to directors. It gives owners no right to notice of a board meeting, unless the bylaws do."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 33",
+    "pattern": "\\bonly rule\\b[^.]{0,80}\\bnotice\\b",
+    "unless": "\\bnonprofit\\b",
+    "struck": "State law puts no cap on a dues increase; the only rule is the notice before the vote.",
+    "use": "State law puts no cap on a dues increase. The HOA Act's only rule is 48 hours' notice of the vote, and it does not apply to a nonprofit HOA."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 37",
+    "pattern": "\\bleast restricts the use of the property\\b",
+    "unless": "\\bboth sides agreed\\b",
+    "struck": "The court found the words could be read two ways and took the reading that \"least restricts the use of the property\"; the owners won.",
+    "use": "The court took the reading that \"least restricts the use of the property\", in a case where both sides agreed short-term renting was allowed."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 42",
+    "pattern": "\\b903\\b[^.]{0,200}\\bJanuary 10\\b",
+    "unless": "\\bwitness|\\backnowledg",
+    "struck": "S. 903 (would make all governing documents, rules included, follow the January 10 recording rule) passed the Senate 39 to 0.",
+    "use": "S. 903 (would count rules as governing documents, hold them all to the January 10 recording rule, and from 2027 require them to be witnessed and acknowledged to be recorded) passed the Senate 39 to 0."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 43",
+    "pattern": "\\$100 (?:for |a )?(?:each|per|every) day\\b",
+    "unless": "\\bfor the violation\\b",
+    "struck": "A fine set that way may not exceed $100 for each day the violation goes on more than five days after the decision.",
+    "use": "A fine set that way may be up to $100 for the violation, and up to $100 for each day it goes on more than five days after the decision."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 43",
+    "pattern": "\\bappeal\\b[^.]{0,40}\\bfull (?:executive )?board\\b",
+    "unless": "\\bpanel\\b",
+    "struck": "The owner may appeal to the full board within 15 days.",
+    "use": "If a panel made the decision, the owner may appeal to the full board within 15 days."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 44",
+    "pattern": "\\bthree (?:owners|members)\\b[^.]{0,40}\\bnot on the board\\b",
+    "struck": "The board must give 14 days' written notice of a hearing before a committee of at least three owners who are not on the board.",
+    "use": "The board must give 14 days' written notice of a hearing before a committee of at least three members who are not officers, directors or employees of the association, or their close relatives."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 52",
+    "pattern": "\\b98 (?:percent|in 100|%)[^.]{0,120}\\bthe HOA\\b",
+    "unless": "\\bmanagement company\\b",
+    "struck": "98 percent of 2025 complainants said they had raised the issue with the HOA first.",
+    "use": "98 percent of those who filed in 2025 said they had raised the issue with the HOA or its management company first."
+  },
+  {
+    "row": "hoa-south-carolina-hoa-laws 55",
+    "pattern": "\\bmistake we see most often\\b|\\bmost common mistake\\b[^.]{0,60}\\bNew York\\b|\\bNew York buyers?\\b[^.]{0,60}\\bmost (?:often|common)\\b",
+    "struck": "The mistake we see most often from New York buyers is not checking the community's rules.",
+    "use": "The biggest mistake New York buyers make is not checking that the community's rules fit how they live: HOA covenants on boats, golf carts, rentals and pools."
+  }
+]

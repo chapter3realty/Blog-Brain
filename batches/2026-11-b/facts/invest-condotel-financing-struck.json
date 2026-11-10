@@ -1,0 +1,77 @@
+[
+  {
+    "row": "invest-condotel-financing 1",
+    "pattern": "\\bwhich buys most\\b|\\bthe two companies that buy (?:most )?conventional loans\\b",
+    "struck": "Fannie Mae, one of the two companies that buy conventional loans, will not buy a loan in a building run like a hotel.",
+    "use": "Fannie Mae and Freddie Mac, the two companies Congress created to buy mortgages from lenders, will not buy a loan in a building run like a hotel."
+  },
+  {
+    "row": "invest-condotel-financing 3",
+    "pattern": "\\b(?:name|named|sign)\\b[^.]{0,80}\\b(?:hotel|motel|resort)\\b[^.]{0,80}\\b(?:ineligible|enough|disqualif\\w*|rules? it out|fails?)\\b",
+    "unless": "\\b(?:past|historic\\w*|former\\w*|used to be)\\b",
+    "struck": "A building whose name contains the word resort is ineligible at Fannie Mae.",
+    "use": "Fannie Mae will not take a building whose name contains hotel, motel or resort, unless the word only refers to the building's past use."
+  },
+  {
+    "row": "invest-condotel-financing 5",
+    "pattern": "\\bFreddie Mac\\b[^.]{0,120}\\b(?:never|no|not|won't|will not)\\b[^.]{0,60}\\b(?:short-term|short term|nightly|rentals? (?:allowed|permitted))\\b",
+    "struck": "Freddie Mac will not buy a loan in any building that allows short-term rentals.",
+    "use": "Freddie Mac will not buy a loan in a condo hotel, and it reads the building's papers and services to decide what is one."
+  },
+  {
+    "row": "invest-condotel-financing 6",
+    "pattern": "\\bFHA\\b[^.]{0,120}\\b(?:signs?|signed|contract|promise\\w*|agrees?)\\b[^.]{0,120}\\b(?:30 days|transient|hotel purposes)\\b",
+    "struck": "An FHA borrower signs a contract with HUD not to rent the home for less than 30 days.",
+    "use": "FHA will not insure a loan on a condotel, and it will not approve a condo building that is a condo hotel or has a required rental pool."
+  },
+  {
+    "row": "invest-condotel-financing 8",
+    "pattern": "\\b(?:2|two) of (?:the )?29\\b|\\bnone of the other 27\\b|\\bno FHA or VA\\b",
+    "struck": "Two of the 29 resort buildings in our directory have an accepted VA record; none of the other 27 does.",
+    "use": "At least 6 of the 47 buildings in our directory have an accepted VA record: Beach Cove Resort, the Renaissance Tower at Myrtle Beach Resort, Monterey Bay Suites, Sands Ocean Club, Crescent Shores and Mar Vista Grande."
+  },
+  {
+    "row": "invest-condotel-financing 12",
+    "pattern": "\\babout (?:1|one) in (?:5|five)\\b[^.]{0,120}\\b(?:under|smaller than|less than|do not)\\b|\\b(?:pass|meet)\\w* (?:a |the )?(?:condotel lender's )?size test\\b",
+    "unless": "\\bstudio",
+    "struck": "Most rental-program condos pass a condotel lender's size test. About 1 in 5 do not.",
+    "use": "More than 3 in 4 rental-program condos for sale are 500 square feet or more. More than 1 in 5 are smaller."
+  },
+  {
+    "row": "invest-condotel-financing 16",
+    "pattern": "\\b22 of (?:the )?47\\b",
+    "struck": "22 of the 47 oceanfront buildings in our directory go by a name with Resort or a hotel brand in it.",
+    "use": "23 of the 47 oceanfront buildings in our directory go by a name with Resort or a hotel brand in it."
+  },
+  {
+    "row": "invest-condotel-financing 17",
+    "pattern": "\\babout 800\\b[^.]{0,100}\\b(?:units|sales|deeds|changed hands|sold)\\b|\\b11,8\\d\\d\\b|\\b(?:close|sell|sold)\\w*\\b[^.]{0,40}\\bevery week\\b",
+    "struck": "About 800 units changed hands by recorded deed in the 47 directory buildings in a year, out of about 11,800 units.",
+    "use": "About 780 units sold one at a time by recorded deed in a year, in the 43 directory buildings with a county count, out of about 11,500 units."
+  },
+  {
+    "row": "invest-condotel-financing 19",
+    "pattern": "\\bSea ?Watch\\b[^.]{0,60}\\b(?:was|has been|is) named\\b",
+    "unless": "\\b(?:says|calls|its own site)\\b",
+    "struck": "SeaWatch was named one of the best hotels in South Carolina.",
+    "use": "SeaWatch calls itself one of the best hotels in South Carolina."
+  },
+  {
+    "row": "invest-condotel-financing 23",
+    "pattern": "\\bKingston\\b[^.]{0,120}\\b(?:beside|next to|steps from|a short walk)\\b[^.]{0,60}\\b(?:Hilton|Embassy)\\b",
+    "struck": "Kingston Resorts runs rental programs beside a Hilton and an Embassy Suites.",
+    "use": "Kingston Resorts' own site books its condos and villas alongside rooms at the Embassy Suites and the Hilton."
+  },
+  {
+    "row": "invest-condotel-financing 26",
+    "pattern": "\\bmore down than (?:a |on a )?(?:regular|normal|standard|ordinary) condo\\b|\\bsubstantially larger down payment\\b",
+    "struck": "Plan on more down than a regular condo loan.",
+    "use": "A DSCR loan on a condotel usually takes more down than a DSCR loan on other homes."
+  },
+  {
+    "row": "invest-condotel-financing 29",
+    "pattern": "\\b(?:same|normal|standard) (?:lender )?fees?\\b|\\bfees? (?:will|do) not (?:rise|go up|have to be inflated)\\b|\\bBrickWood\\b[^.]{0,40}\\bfinances\\b|\\bscarcity as a pricing strategy\\b",
+    "struck": "BrickWood Mortgage charges the same lender fees on a condotel file as on any other loan it originates.",
+    "use": "Our affiliated lender, BrickWood Mortgage, a separate company, arranges condotel and non-warrantable loans through wholesale lenders that accept these buildings."
+  }
+]

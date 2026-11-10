@@ -1,0 +1,151 @@
+[
+  {
+    "row": "rental-restrictions 2",
+    "pattern": "\\bhouses? (?:in|with) an HOA (?:fee )?rarely allows?\\b",
+    "struck": "Houses in an HOA rarely allow nightly rentals.",
+    "use": "Few houses with an HOA fee say nightly rentals are allowed."
+  },
+  {
+    "row": "rental-restrictions 5",
+    "pattern": "\\bCarolina Forest (?:is|sits|lies) (?:entirely |all )?outside (?:the )?(?:cities|city limits|towns)\\b",
+    "struck": "Carolina Forest is outside the cities, where Horry County's zoning sets no limit on how long a home may be rented.",
+    "use": "Most of them (287) are outside city limits, where Horry County's zoning sets no limit on how long a home may be rented."
+  },
+  {
+    "row": "rental-restrictions 9",
+    "pattern": "\\bas (?:the|each) listing agents? (?:has )?marked\\b",
+    "struck": "The counts use what each listing says, as the listing agent marked it.",
+    "use": "The counts use the rental flags on each listing."
+  },
+  {
+    "row": "rental-restrictions 10",
+    "pattern": "\\brules?\\b[^.]{0,120}\\bmust be (?:given|handed|provided|made available|made accessible) to (?:a |any )?(?:member|owner)s? who asks?\\b",
+    "unless": "\\bunless\\b",
+    "struck": "Its rules take effect when adopted, must be given to a member who asks, and stay enforceable only if recorded by January 10.",
+    "use": "Rules take effect when adopted. An association must give a member a copy on request unless they are posted in a common area or on its website."
+  },
+  {
+    "row": "rental-restrictions 13",
+    "pattern": "\\bSouth Carolina law (?:puts|places|sets) no limits? on\\b",
+    "struck": "South Carolina law puts no limit on an association's rental rules.",
+    "use": "Neither South Carolina's HOA Act nor its condo law caps an association's rental rules or exempts owners who bought before a new one."
+  },
+  {
+    "row": "rental-restrictions 14",
+    "pattern": "\\bbarred renting (?:a unit |any unit )?to college students\\b",
+    "unless": "\\b(?:not related|unrelated)\\b",
+    "struck": "A condo's master deed barred renting to college students.",
+    "use": "A Richland County condo's master deed barred renting to college students not related to the owner."
+  },
+  {
+    "row": "rental-restrictions 15",
+    "pattern": "\\bassociation had not (?:watched|monitored|checked) rentals\\b",
+    "unless": "\\beven if\\b",
+    "struck": "The association had not watched rentals closely before.",
+    "use": "The court said that even if the association had not watched rentals before, it had not given up the rule."
+  },
+  {
+    "row": "rental-restrictions 16",
+    "pattern": "\\ban owner rented the main floor of his\\b",
+    "struck": "An owner rented the main floor of his house on Airbnb.",
+    "use": "Owners rented the main floor of their house on Airbnb while living in the guest suite upstairs."
+  },
+  {
+    "row": "rental-restrictions 18",
+    "pattern": "\\bnew condo rule that (?:bans|limits|prohibits)\\b",
+    "struck": "In Florida, a new condo rule that bans or limits renting applies only to owners who agree to it and to later buyers.",
+    "use": "In Florida, a condo declaration amendment that bans or limits renting binds only owners who agree to it and later buyers."
+  },
+  {
+    "row": "rental-restrictions 21",
+    "pattern": "\\blodging tax\\b[^.]{0,160}\\bunless the home is rented fewer than 15 days\\b",
+    "unless": "\\bsix\\b",
+    "struck": "South Carolina charges its lodging tax when a home is rented to the same guest for less than 90 days in a row, unless the home is rented fewer than 15 days in the year.",
+    "use": "It does not apply to a home rented fewer than 15 days in the year, or to rooms rented in the owner's own home with fewer than six bedrooms."
+  },
+  {
+    "row": "rental-restrictions 25",
+    "pattern": "\\b(?:6|six) (?:of them )?mention rent|\\b1 does, and it is about a rental deposit\\b|\\brental deposit\\b",
+    "struck": "From 2022 to 2025 it logged 1,527 HOA complaints statewide; 6 mention renting. Of 416 from Horry County, 1 does, and it is about a rental deposit.",
+    "use": "From 2022 to 2025 it logged 1,527 HOA complaints statewide. 9 were about an association's rental rules, and 1 of those came from Horry County."
+  },
+  {
+    "row": "rental-restrictions 26",
+    "pattern": "\\bwaiting period\\b[^.]{0,60}\\b(?:rent|lease)\\b|\\bban on renting to a group of tenants\\b",
+    "struck": "a waiting period before a new owner may rent, a ban on renting to a group of tenants",
+    "use": "(cut the waiting period: no source) a limit on who may rent, such as the Richland County condo's ban on renting to college students not related to the owner"
+  },
+  {
+    "row": "rental-restrictions 29",
+    "pattern": "\\bno (?:state )?bill would change this\\b",
+    "struck": "No state bill would change this.",
+    "use": "Two 2025 bills on short-term rentals, H. 3861 and S. 442, were sent to committee and went no further."
+  },
+  {
+    "row": "rental-restrictions 4 (2026-11-b)",
+    "pattern": "\\b27 of 119\\b[^.]{0,60}\\babout (?:1|one) in (?:4|four)\\b",
+    "struck": "In North Myrtle Beach, 27 of 119 (about 1 in 4) houses for sale with an HOA fee say nightly rentals are allowed.",
+    "use": "In North Myrtle Beach, 27 of 119 (fewer than 1 in 4) houses for sale with an HOA fee say nightly rentals are allowed."
+  },
+  {
+    "row": "rental-restrictions 18 (2026-11-b)",
+    "pattern": "\\bowners who vote for (?:it|the amendment)\\b",
+    "struck": "In Florida, an amendment to a condo declaration that bans or limits renting applies only to owners who vote for it and to later buyers.",
+    "use": "In Florida, a condo declaration amendment that bans or limits renting applies only to owners who consent to it and to later buyers."
+  },
+  {
+    "row": "rental-restrictions 26 (2026-11-b)",
+    "pattern": "\\b(?:recorded|posted) (?:papers|rules|declarations?|master deeds?|documents)\\b[^.]{0,100}\\b(?:bans? (?:all )?renting (?:at all|altogether|entirely|outright)|ban on all renting|rental caps?|caps? (?:on )?the number of (?:rented|rental) (?:homes|units))\\b",
+    "unless": "\\b(?:no|none of the|not one)\\b[^.]{0,40}\\b(?:papers|documents|rules)\\b",
+    "struck": "The posted papers we read show every form, from a ban on all renting to a rental cap.",
+    "use": "(no local document read holds a total ban or a rental cap; those two rest on the owner's stories, rows 27 and 28)"
+  },
+  {
+    "row": "rental-restrictions 41 (2026-11-b)",
+    "pattern": "\\bmost of (?:its|the|Coquina Harbour's) (?:county )?parcels\\b[^.]{0,80}\\b(?:boat )?slips?\\b",
+    "struck": "The county maps most of its parcels as boat slips in the harbor.",
+    "use": "The county lists 78 boat-slip parcels in the Coquina Harbour Marina."
+  },
+  {
+    "row": "rental-restrictions 43 (2026-11-b)",
+    "pattern": "\\bWaterfall\\b[^.]{0,60}\\b(?:in|managed from) North Myrtle Beach\\b",
+    "struck": "Waterfall, a neighborhood managed from North Myrtle Beach, bans Airbnb.",
+    "use": "(name Waterfall without a town: its lots are in unincorporated Horry County, outside North Myrtle Beach and Little River)"
+  },
+  {
+    "row": "rental-restrictions 52 (2026-11-b)",
+    "pattern": "\\bevery rental guest\\b[^.]{0,120}\\b(?:registers?|fob)\\b|\\bgets? a door fob\\b",
+    "struck": "No unit may be rented until every rental guest registers with the on-site access company and gets a door fob.",
+    "use": "No unit may be rented until rental guests not staying with the owner register with the on-site access company and the unit's front door has the company's lock and fob system."
+  },
+  {
+    "row": "rental-restrictions 55 (2026-11-b)",
+    "pattern": "\\b(?:papers|master deed|deed)\\b[^.]{0,60}\\b(?:allows?|permits?) nightly rent(?:ing|als?)\\b",
+    "struck": "An oceanfront tower whose papers allow nightly renting.",
+    "use": "An oceanfront tower whose master deed allows short stays."
+  },
+  {
+    "row": "rental-restrictions 56 (2026-11-b)",
+    "pattern": "\\bThe Farm\\b[^.]{0,80}\\b13 amendments\\b|\\bBerkshire Forest\\b[^.]{0,40}\\b10 amendments\\b|\\b\\d+ rule sets\\b",
+    "struck": "The Farm at Carolina Forest, 13 amendments to its declaration and 7 rule sets; Berkshire Forest, 10 amendments and 14 rule sets.",
+    "use": "The Farm at Carolina Forest, 13 amendment filings (its sixth to fifteenth amendments, three numbers filed twice) and 7 rule, policy or design papers; Berkshire Forest, 7 amendments to its declaration, 3 more to side declarations, and 14 rule, policy or design papers."
+  },
+  {
+    "row": "rental-restrictions 57 (2026-11-b)",
+    "pattern": "\\b(?:at least )?23 (?:association )?papers\\b",
+    "struck": "Since 2019, at least 23 association papers recorded in Horry County carry a title about renting.",
+    "use": "Since 2019, at least 22 association papers recorded in Horry County carry a title about renting, leasing or renters."
+  },
+  {
+    "row": "rental-restrictions 58 (2026-11-b)",
+    "pattern": "\\bFHA approves a condo project only if\\b|\\bonly if at least (?:50 percent|half) of its units are owner.occupied\\b",
+    "struck": "FHA approves a condo project only if at least 50 percent of its units are owner-occupied.",
+    "use": "For FHA approval, at least half of a condo project's units must be owner-occupied; an existing project more than a year old can qualify at 35 percent under extra conditions, and a new one at 30 percent."
+  },
+  {
+    "row": "rental-restrictions 59 (2026-11-b)",
+    "pattern": "\\btwo units in a building of fewer than (?:10|ten)\\b|\\bfewer than (?:10|ten) units\\b[^.]{0,60}\\b(?:FHA|two)\\b|\\bFHA\\b[^.]{0,100}\\bfewer than (?:10|ten) units\\b",
+    "struck": "FHA does not already insure more than 10 percent of the units (two units in a building of fewer than 10).",
+    "use": "FHA may stop new loans there once it insures more than 10 percent of the units in a building of 20 or more, or more than two in a smaller one."
+  }
+]

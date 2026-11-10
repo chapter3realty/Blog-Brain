@@ -1,0 +1,39 @@
+[
+  {
+    "row": "hoa-master-insurance-ho6 8, 20",
+    "pattern": "\\$1,000\\b[^.]{0,120}\\bassessments?\\b|\\bassessments?\\b[^.]{0,120}\\$1,000\\b",
+    "struck": "The standard condo policy form pays up to $1,000 toward the owner's share of an association's assessment after shared property is damaged.",
+    "use": "A basic condo policy pays only a small set amount toward your share of an association's assessment, unless you buy a higher limit."
+  },
+  {
+    "row": "hoa-master-insurance-ho6 12",
+    "pattern": "\\$1,250\\b[^.]{0,80}\\blowest\\b|\\blowest\\b[^.]{0,80}\\$1,250\\b",
+    "struck": "832 of 1,172 have $1,250, the lowest offered on these policies in the data, and 105 have $25,000.",
+    "use": "Most condo buildings' federal flood policies here carry a $1,250 deductible: 832 of 1,172. Another 105 carry $25,000."
+  },
+  {
+    "row": "hoa-master-insurance-ho6 19",
+    "pattern": "\\$(?:7\\.9|4\\.7|3\\.0|14\\.6) million\\b|\\b(?:97|87|205) (?:flood )?claims\\b|\\b19 (?:flood )?claims\\b[^.]{0,60}\\$?3",
+    "struck": "After Hurricane Ian in 2022, building flood policies on Horry condos made 97 claims and were paid about $7.9 million. Hurricane Matthew (2016): 87 claims, about $4.7 million. Hurricane Florence (2018): 19 claims, about $3.0 million.",
+    "use": "After Hurricane Ian in 2022, condo associations' building flood policies in Horry County made 101 claims and were paid about $8.2 million; unit policies made 6 claims. Hurricane Matthew (2016): 113 claims, about $7.7 million. Hurricane Florence (2018): 39 claims, about $8.4 million."
+  },
+  {
+    "row": "hoa-master-insurance-ho6 21",
+    "pattern": "\\b92 ?(?:percent|%|in 100)",
+    "struck": "It reported 92 percent of the coastal market in private insurers.",
+    "use": "The state's wind pool insured about 8 in 100 homes in its coastal area in early 2025."
+  },
+  {
+    "row": "hoa-master-insurance-ho6 21",
+    "pattern": "\\b38 ?(?:percent|%|in 100)[^.]{0,80}\\b(?:policies|condos?)\\b|\\b(?:policies|condos?)\\b[^.]{0,80}\\b38 ?(?:percent|%|in 100)",
+    "struck": "38 percent of its own policies had a 5 or 10 percent deductible.",
+    "use": "(say only that the pool reported 38 percent of its coverage with a 5 or 10 percent deductible; the slide gives no base, so never 'policies' or 'condos')"
+  },
+  {
+    "row": "hoa-master-insurance-ho6 28",
+    "pattern": "\\bsingle[- ]entity\\b[^.]{0,80}\\bwalls[- ]in\\b|\\bwalls[- ]in\\b[^.]{0,80}\\bsingle[- ]entity\\b",
+    "unless": "\\bsome (?:agents|people|policies)\\b|\\bmeans? different\\b|\\bask what\\b",
+    "struck": "\"Single entity\" (often called \"walls in\"): the association also insures the fixtures in each unit as built.",
+    "use": "Some agents say \"walls in\" for single entity, and some use it for the owner's own policy, so ask what it means for your building."
+  }
+]

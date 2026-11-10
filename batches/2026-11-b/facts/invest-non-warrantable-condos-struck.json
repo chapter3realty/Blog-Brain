@@ -1,0 +1,136 @@
+[
+  {
+    "row": "invest-non-warrantable-condos 1",
+    "pattern": "\\bwhich buys most\\b|\\bthe two companies that buy (?:most )?conventional loans\\b",
+    "struck": "Fannie Mae and Freddie Mac, the two companies that buy conventional loans, will not buy a loan in a non-warrantable building.",
+    "use": "Fannie Mae and Freddie Mac, the two companies Congress created to buy mortgages from lenders, will not buy a loan in a building that fails their project rules."
+  },
+  {
+    "row": "invest-non-warrantable-condos 2",
+    "pattern": "\\b(?:re-?checks?|confirms?)\\b[^.]{0,80}\\b(?:status|approval)\\b[^.]{0,40}\\bat each loan\\b|\\bat each loan\\b[^.]{0,60}\\b(?:re-?check|status)\\b",
+    "struck": "A lender must re-check a Fannie-approved project's status at each loan.",
+    "use": "A building's approval, or the lender's own certification of it, must be current on the day each loan closes."
+  },
+  {
+    "row": "invest-non-warrantable-condos 5",
+    "pattern": "\\bresort name\\b[^.]{0,80}\\b(?:counts?|ineligible|fails?)\\b|\\b(?:name|named)\\b[^.]{0,40}\\b(?:hotel|motel|resort)\\b[^.]{0,80}\\b(?:also count|ineligible|disqualif\\w*|fails?)\\b",
+    "unless": "\\b(?:past|historic\\w*|former\\w*|used to be)\\b",
+    "struck": "Hotel-type services, a resort name, resort marketing or a hotel rating also count.",
+    "use": "Hotel-type services, resort marketing or a hotel rating also count, and so does a name with hotel, motel or resort in it, unless the word only refers to the building's past use."
+  },
+  {
+    "row": "invest-non-warrantable-condos 7",
+    "pattern": "\\b49 ?(?:percent|%)[^.]{0,120}\\b(?:selling|sells|sell down|selling down)\\b",
+    "unless": "\\b(?:current|special assessment)\\b",
+    "struck": "A purchase can be allowed when the owner holds 49 percent or less and is selling down.",
+    "use": "Fannie Mae can waive the limit on a purchase that lowers that owner's share, if the owner holds 49 percent or less, is marketing units for sale, is current on dues, and the building has no special assessment."
+  },
+  {
+    "row": "invest-non-warrantable-condos 8",
+    "pattern": "\\b(?:insurer|insurance (?:company|carrier))\\b[^.]{0,30}\\bdefend\\w*\\b",
+    "unless": "\\bcover\\w*\\b",
+    "struck": "Minor suits are allowed: no money at stake, the insurer is defending, the HOA is a plaintiff over a minor matter, damage to one unit.",
+    "use": "Some minor suits are allowed when the lender finds no effect on the building's safety, structure, use or livability: one over no money, one the insurer defends and insurance covers, or one over damage to a single unit."
+  },
+  {
+    "row": "invest-non-warrantable-condos 9",
+    "pattern": "\\$?10,000\\b[^.]{0,80}\\b(?:a|per|each) unit\\b",
+    "unless": "\\b(?:special assessment|owner makes|owner's own|by the owner)\\b",
+    "struck": "Critical repairs include unfunded repairs over $10,000 a unit due within 12 months.",
+    "use": "Critical repairs include unfunded repairs over $10,000 a unit due within 12 months, not counting repairs an owner makes or repairs a special assessment pays for."
+  },
+  {
+    "row": "invest-non-warrantable-condos 11",
+    "pattern": "\\bconventional loans?\\b[^.]{0,120}\\b15 ?(?:percent|%)",
+    "unless": "\\bFreddie Mac\\b",
+    "struck": "For conventional loans with applications from January 4, 2027, the reserve line must be at least 15 percent of budgeted dues income.",
+    "use": "Freddie Mac raises the test to 15 percent for applications from January 4, 2027; it says it made the change with its regulator and in alignment with Fannie Mae."
+  },
+  {
+    "row": "invest-non-warrantable-condos 11",
+    "pattern": "\\bFannie Mae in step\\b|\\bFannie Mae\\b[^.]{0,60}\\b(?:requires?|raises?|rises?)\\b[^.]{0,60}\\b15 ?(?:percent|%)",
+    "struck": "Freddie Mac, and Fannie Mae in step with it, raise the reserve test to 15 percent.",
+    "use": "Freddie Mac raises the test to 15 percent for applications from January 4, 2027; it says it made the change with its regulator and in alignment with Fannie Mae."
+  },
+  {
+    "row": "invest-non-warrantable-condos 12",
+    "pattern": "\\bevery (?:attached )?condo loan\\b|\\ball condo loans\\b[^.]{0,60}\\bfull review\\b|\\bevery loan\\b[^.]{0,60}\\b(?:full review|reviewed)\\b",
+    "struck": "Every attached condo loan now gets the full review.",
+    "use": "For most condo loans, the building's budget and reserves are now checked in a full review."
+  },
+  {
+    "row": "invest-non-warrantable-condos 13",
+    "pattern": "\\bFannie Mae\\b[^.]{0,40}\\b(?:checks|reviews|reads)\\b[^.]{0,40}\\b(?:insurance|policy|policies)\\b",
+    "unless": "\\b(?:does not|doesn't|never)\\b",
+    "struck": "Fannie Mae also checks the building's insurance itself.",
+    "use": "The lender checks that the building's policy meets Fannie Mae's insurance rules; Fannie Mae does not review the policy itself."
+  },
+  {
+    "row": "invest-non-warrantable-condos 14",
+    "pattern": "\\b92 ?(?:percent|%)[^.]{0,80}\\bprivate\\b|\\b38 ?(?:percent|%)[^.]{0,60}\\b(?:polic(?:y|ies)|condos?)\\b",
+    "struck": "It reported 92 percent of the coastal market with private insurers and 38 percent of its own policies with a 5 or 10 percent deductible.",
+    "use": "The state's wind pool insured about 8 in 100 homes in its coastal area in early 2025."
+  },
+  {
+    "row": "invest-non-warrantable-condos 14",
+    "pattern": "\\b(?:wind|percentage|percent) deductibles?\\b[^.]{0,60}\\bcommon\\b[^.]{0,40}\\b(?:coast|here|beach)\\b",
+    "struck": "Big percentage wind deductibles are common on this coast.",
+    "use": "(cut it: the pool's deductible figure has no stated base and is not about master policies; give only Fannie Mae's 5 percent limit)"
+  },
+  {
+    "row": "invest-non-warrantable-condos 15",
+    "pattern": "\\b(?:one|single) (?:owner|entity)\\b[^.]{0,40}\\bup to 49 ?(?:percent|%)",
+    "unless": "\\bconditions?\\b",
+    "struck": "One published program allows one owner up to 49 percent.",
+    "use": "One published program lets one owner hold up to 49 percent, with conditions: units that come vacant must be listed for sale, not leased again."
+  },
+  {
+    "row": "invest-non-warrantable-condos 16",
+    "pattern": "\\b11,822\\b|\\b545 (?:of|units)\\b|\\b39 of (?:the )?45\\b|\\b(?:all |the )?45 (?:oceanfront|directory) (?:buildings|towers)\\b|\\bmiddle building\\b[^.]{0,40}\\b3\\.5\\b",
+    "struck": "Of 11,822 condo units in the 45 oceanfront directory buildings the county records name, 545 units are taxed at the 4 percent owner-occupant rate. The middle building: 3.5 percent.",
+    "use": "Of 11,471 condo units in the 43 directory buildings with a county count, 528 (4.6 percent) are taxed as the owner's home. In the middle building, 3.3 percent are."
+  },
+  {
+    "row": "invest-non-warrantable-condos 17",
+    "pattern": "\\b44 of (?:the )?45\\b|\\b72\\.5 ?(?:percent|%)",
+    "unless": "^\\s*44 of 45\\s*$",
+    "struck": "In 44 of 45 buildings, at least 75 percent of units are not taxed as the owner's home. At Maisons Sur-Mer, 72.5 percent are not.",
+    "use": "By the county's tax records, at least three of four units in 42 of the 43 buildings are not the owner's home."
+  },
+  {
+    "row": "invest-non-warrantable-condos 21",
+    "pattern": "\\b22 of (?:the )?47\\b",
+    "struck": "22 of the 47 directory buildings go by a name with Resort or a hotel brand.",
+    "use": "23 of the 47 directory buildings go by a name with Resort or a hotel brand."
+  },
+  {
+    "row": "invest-non-warrantable-condos 22",
+    "pattern": "\\b8,375\\b|\\b71 ?(?:percent|%)[^.]{0,80}\\bout(?:side| of) (?:South Carolina|the state)\\b",
+    "struck": "8,375 of the 11,822 units (71 percent) have an owner mailing address outside South Carolina.",
+    "use": "8,092 of the 11,471 units, about 7 in 10, have an owner mailing address outside South Carolina, company owners included."
+  },
+  {
+    "row": "invest-non-warrantable-condos 23",
+    "pattern": "\\bMaisons Sur-?Mer\\b[^.]{0,60}\\b27\\.5\\b",
+    "struck": "Maisons Sur-Mer has the highest share taxed as the owner's home, 27.5 percent.",
+    "use": "Maisons Sur-Mer has the highest share taxed as the owner's home, 27.8 percent."
+  },
+  {
+    "row": "invest-non-warrantable-condos 25",
+    "pattern": "\\b(?:2|two) of (?:the )?29\\b|\\bof the 29\\b[^.]{0,80}\\b(?:2|two) have\\b|\\bnone of the other 27\\b",
+    "struck": "Of the 29 oceanfront resort buildings in the directory, 2 have an accepted VA record.",
+    "use": "At least 6 of the 47 buildings in our directory have an accepted VA record: Beach Cove Resort, the Renaissance Tower at Myrtle Beach Resort, Monterey Bay Suites, Sands Ocean Club, Crescent Shores and Mar Vista Grande."
+  },
+  {
+    "row": "invest-non-warrantable-condos 26",
+    "pattern": "\\bFHA\\b[^.]{0,120}\\b(?:signs?|signed|contract|promise\\w*|agrees?)\\b[^.]{0,120}\\b(?:30 days|transient|hotel purposes)\\b",
+    "struck": "An FHA borrower signs that the home will not be rented for less than 30 days.",
+    "use": "FHA will not insure a loan on a condotel, and it will not approve a condo building that is a condo hotel or has a required rental pool."
+  },
+  {
+    "row": "invest-non-warrantable-condos 27",
+    "pattern": "\\babout 800 units\\b|\\b804\\b[^.]{0,40}\\b(?:sales|sold|units)\\b",
+    "struck": "About 800 units changed hands by recorded deed in a year in the 47 directory buildings.",
+    "use": "About 780 units sold one at a time by recorded deed in a year, in the 43 directory buildings with a county count."
+  }
+]

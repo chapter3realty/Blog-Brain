@@ -1,0 +1,120 @@
+[
+  {
+    "row": "invest-strategies-dscr-loans 2",
+    "pattern": "\\bspecial assessments?\\b[^.]{0,40}\\bcounts?\\b",
+    "unless": "\\b(?:can|may|might|ask)\\b",
+    "struck": "The HOA fee and a special assessment count against the rent.",
+    "use": "The HOA fee counts against the rent, and a special assessment can count too; ask your lender."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 4",
+    "pattern": "\\b(?:14 days|two weeks|fourteen days)\\b[^.]{0,120}\\b(?:makes?|turns?|becomes?)\\b[^.]{0,40}\\bconsumer\\b",
+    "struck": "Using the home yourself for more than 14 days in the coming year makes the loan consumer credit, not a business loan.",
+    "use": "If you expect to stay in the home more than 14 days in the coming year, federal rules no longer treat it as a rental the owner does not live in, and the business-loan exemption may not apply. Tell your lender early."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 5",
+    "pattern": "\\bmost (?:published )?(?:DSCR )?(?:programs|lenders)\\b[^.]{0,60}\\b(?:ask|require|want|need)\\w*\\b|\\bpric\\w*\\b[^.]{0,40}\\btier\\b[^.]{0,30}\\b1\\.25\\b",
+    "struck": "Most published programs ask for 1.00 or more; some want 1.15 or 1.25 for a nightly rental or a small loan.",
+    "use": "The three program sheets we read ask for a ratio of 1.00 or more, and some ask 1.15 for a nightly rental or 1.25 on a small loan."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 7",
+    "pattern": "\\bhigh 600s\\b",
+    "struck": "You need a score in the high 600s and up.",
+    "use": "The program sheets we read set credit score floors from 660 to 720."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 8",
+    "pattern": "\\b(?:programs|lenders)\\b[^.]{0,30}\\bcount (?:only )?80 percent\\b",
+    "struck": "Published programs count 80 percent of nightly-rental income.",
+    "use": "Two of the three program sheets we read count at most 80 percent of nightly-rental income; the third asks for a 1.15 ratio instead."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 11",
+    "pattern": "\\bhome you live in\\b[^.]{0,40}\\b4 percent\\b",
+    "struck": "A rental in South Carolina is taxed on 6 percent of its value; a home you live in on 4 percent.",
+    "use": "A home that is not its owner's legal residence, such as a house rented out year-round or a second home, is taxed on 6 percent. A legal residence rented out more than 72 days in a calendar year loses the 4 percent rate."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 13",
+    "pattern": "\\b40th percentile\\b[^.]{0,80}\\b(?:ZIP|zip code)\\b",
+    "unless": "\\b(?:metro\\w*|adjust\\w*)\\b",
+    "struck": "HUD's fair market rent for the ZIP code is set at the 40th percentile of rent plus utilities in that ZIP code.",
+    "use": "HUD sets its fair market rent at the 40th percentile of rent plus utilities for a standard unit across the metro area, then adjusts it for each ZIP code."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 20",
+    "pattern": "\\b80 percent\\b[^.]{0,60}\\b(?:still|above|over|more than)\\b[^.]{0,30}\\b(?:100|102) percent\\b",
+    "struck": "At 80 percent it is still about 102 percent.",
+    "use": "(cut it: on AirROI's November 5 update the 80 percent case falls to about 96 percent)"
+  },
+  {
+    "row": "invest-strategies-dscr-loans 22",
+    "pattern": "\\$20,100\\b",
+    "unless": "\\bpart of the year\\b|\\bpart-year\\b",
+    "struck": "The middle two-bedroom nightly rental in the Myrtle Beach area took in about $20,100 in a year.",
+    "use": "The middle two-bedroom nightly rental in the Myrtle Beach area took in about $20,100 in a year, counting listings open only part of the year."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 32",
+    "pattern": "\\b(?:all|every) DSCR (?:loans?|programs?)\\b[^.]{0,60}\\b(?:LLC|corporation)\\b|\\bDSCR loans? (?:must |have to |always )?close (?:inside |in )(?:of )?an LLC\\b",
+    "struck": "All DSCR programs close inside an LLC or a corporation.",
+    "use": "A DSCR loan can close in your name or in an LLC; the investor clients we work with usually close in an LLC."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 42",
+    "pattern": "\\b(?:about )?(?:1|one) in (?:3|three)\\b[^.]{0,60}\\b39 percent\\b|\\b39 percent\\b[^.]{0,60}\\b(?:1|one) in (?:3|three)\\b|\\bbuilder'?s first sales?\\b",
+    "struck": "About 1 in 3 homes there (39 percent) were built in 2010 or later, and about half the houses sold were a builder's first sale.",
+    "use": "About 2 in 5 homes in ZIP 29568 (39 percent) were built in 2010 or later. About half the houses sold in Longs in the year to September 2026 were sales by builders (280 of 607)."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 43",
+    "pattern": "\\balmost no flood zone\\b",
+    "struck": "Carolina Forest: almost no flood zone, and new homes.",
+    "use": "Almost no houses in Carolina Forest are in FEMA's high-risk flood zone."
+  },
+  {
+    "row": "invest-strategies-dscr-loans live 1",
+    "pattern": "\\bmost (?:of the )?Grand Strand (?:investors|investment purchases)\\b[^.]{0,80}\\bDSCR\\b|\\bDSCR loans are how most\\b",
+    "struck": "DSCR loans are how most Grand Strand investors finance buy-and-hold property.",
+    "use": "DSCR loans and 1031 exchanges are the two most common ways our investor clients buy."
+  },
+  {
+    "row": "invest-strategies-dscr-loans live 2",
+    "pattern": "\\brates? (?:are|is|run) higher than\\b[^.]{0,40}\\b(?:standard|conventional)\\b",
+    "unless": "\\b(?:below 1|under 1|weaker|lower ratio)\\b",
+    "struck": "Rates are higher than on a standard mortgage.",
+    "use": "With good credit and a 1.25 to 1.5 ratio, a DSCR loan is priced about like a conventional loan, according to a loan officer at our preferred lender."
+  },
+  {
+    "row": "invest-strategies-dscr-loans live 4",
+    "pattern": "\\bappraisers?\\b[^.]{0,40}\\b(?:estimate|run|come in) high\\b",
+    "struck": "Appraisers here often estimate high.",
+    "use": "Lenders count 75 to 80 percent of the nightly-rental estimate."
+  },
+  {
+    "row": "invest-strategies-dscr-loans live 5",
+    "pattern": "\\blending partner run every week\\b|\\brun every week\\b",
+    "struck": "Our agents and our lending partner run every week.",
+    "use": "(cut it: no story says it)"
+  },
+  {
+    "row": "invest-strategies-dscr-loans live 6",
+    "pattern": "\\bcoordinates? the property and the loan\\b",
+    "struck": "Chapter3 coordinates the property and the loan together so the structure is right at closing.",
+    "use": "(cut it: reads as Chapter3 doing loan work, BIZ-1)"
+  },
+  {
+    "row": "invest-strategies-dscr-loans live 7",
+    "pattern": "\\bsingle-owner LLC does not break a 1031\\b|\\bsame taxpayer\\b",
+    "struck": "A single-owner LLC does not break a 1031 exchange because the tax rules treat you and that LLC as the same taxpayer.",
+    "use": "(cut it: link /invest/llc/ and /invest/strategies/1031-exchange/, which own it)"
+  },
+  {
+    "row": "invest-strategies-dscr-loans live 9",
+    "pattern": "\\bsuits beach properties you buy for the appreciation\\b",
+    "struck": "That suits beach properties you buy for the appreciation.",
+    "use": "(cut it: no source)"
+  }
+]
