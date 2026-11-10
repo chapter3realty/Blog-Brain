@@ -149,5 +149,95 @@
     "pattern": "\\bpier from the 1950s\\b",
     "struck": "Prince Resort stands next to the Cherry Grove Pier, a fishing pier from the 1950s with a restaurant at its end.",
     "use": "Prince Resort stands next to the Cherry Grove Pier, a fishing pier first built in the 1950s and rebuilt after Hurricane Hugo, with a restaurant at its end."
+  },
+  {
+    "row": "invest-condo-buildings 50",
+    "pattern": "\\bWahoo\\b",
+    "struck": "Sea Mist sits on nearly 16 acres, with five outdoor pools, an indoor pool and the Wahoo Waterpark, which has a lazy river and a slide three stories high.",
+    "use": "(cut it: no current source that the water park is open; use row 7, the lowest price on this page)"
+  },
+  {
+    "row": "invest-condo-buildings 52",
+    "pattern": "\\bBay ?View\\b[^.]{0,120}\\b236\\b|\\b236.(?:foot|feet)\\b[^.]{0,80}\\bBay ?View\\b",
+    "struck": "The FAA lists Bay View's tower at 236 feet.",
+    "use": "(cut it: the FAA point is on a neighboring hotel parcel and is accurate only to 50 feet)"
+  },
+  {
+    "row": "invest-condo-buildings 55",
+    "pattern": "\\bBeach Colony\\b[^.]{0,160}\\b(?:200|205).(?:foot|feet)\\b|\\b(?:200|205).(?:foot|feet)\\b[^.]{0,80}\\bBeach Colony\\b",
+    "struck": "Beach Colony's tower stands about 200 feet tall.",
+    "use": "(cut the height: the FAA's 205 feet and a 2021 newspaper estimate of about 246 feet disagree)"
+  },
+  {
+    "row": "invest-condo-buildings 60",
+    "pattern": "\\bMargate\\b[^.]{0,120}\\btallest\\b[^.]{0,60}\\bGrand Strand\\b|\\bMargate\\b[^.]{0,60}\\b(?:rises|stands|is) 335 feet\\b",
+    "struck": "Margate Tower rises 335 feet, the tallest building in the FAA's records for the Grand Strand.",
+    "use": "Margate Tower rises about 330 feet, the tallest building in Myrtle Beach."
+  },
+  {
+    "row": "invest-condo-buildings 60",
+    "pattern": "\\bMargate\\b[^.]{0,120}\\btallest\\b[^.]{0,60}\\bGrand Strand\\b",
+    "struck": "Condos in Margate Tower, the tallest tower on the Grand Strand",
+    "use": "Condos in Margate Tower, the tallest building in Myrtle Beach"
+  },
+  {
+    "row": "invest-condo-buildings 64",
+    "pattern": "\\bSouth Hampton\\b[^.]{0,120}\\bsmallest\\b|\\bsmallest\\b[^.]{0,60}\\bKingston\\b[^.]{0,20}\\btowers?\\b",
+    "struck": "South Hampton is the smallest of the three towers, with 144 units beside the Embassy Suites.",
+    "use": "South Hampton has 144 units, fewer than Margate or Brighton, and stands beside the Embassy Suites."
+  },
+  {
+    "row": "invest-condo-buildings 62",
+    "pattern": "\\b157 acres of beach\\b",
+    "struck": "Its grounds are Kingston's 157 acres of beach, trees and lakes.",
+    "use": "Kingston Resorts says its grounds have more than half a mile of beach and are built around trees."
+  },
+  {
+    "row": "invest-condo-buildings 68",
+    "pattern": "\\bOcean Creek\\b[^.]{0,160}\\b180.(?:foot|feet)\\b",
+    "struck": "Ocean Creek's tower stands 180 feet.",
+    "use": "(cut it: the FAA point is on another regime, The Tower, not the Lodge at Ocean Creek)"
+  },
+  {
+    "row": "invest-condo-buildings 70",
+    "pattern": "\\bpenthouses?\\b[^.]{0,30}\\babove (?:them|the 19th)\\b",
+    "struck": "Units climb to the 19th floor, and 18 penthouses sit above them.",
+    "use": "Units are numbered up to the 19th floor, and 18 more are penthouse units."
+  },
+  {
+    "row": "invest-condo-buildings 72",
+    "pattern": "\\bBay Watch\\b[^.]{0,120}\\b18th floor\\b",
+    "struck": "Bay Watch's units climb to the 18th floor.",
+    "use": "Bay Watch's units are numbered up to the 19th floor."
+  },
+  {
+    "row": "invest-condo-buildings 73",
+    "pattern": "\\bfirst danced\\b",
+    "struck": "The state Senate calls North Myrtle Beach the birthplace of the shag, first danced in the beach music clubs on Main Street and Ocean Drive in the 1940s.",
+    "use": "The state Senate calls North Myrtle Beach the birthplace of the shag; in the 1940s, visitors came to dance at the beach music clubs on Main Street and Ocean Drive."
+  },
+  {
+    "row": "invest-condo-buildings 75",
+    "pattern": "\\blargest (?:tiger shark )?ever caught from land\\b|\\bworld.record\\b[^.]{0,40}\\btiger shark\\b",
+    "struck": "The pier's record catch is a 1,780-pound tiger shark, the largest ever caught from land in the U.S., the pier says.",
+    "use": "A 1,780-pound tiger shark caught at Cherry Grove in 1964 is still the South Carolina record."
+  },
+  {
+    "row": "invest-condo-buildings 77",
+    "pattern": "\\bjust (?:finished|completed)\\b[^.]{0,40}\\brenovation\\b",
+    "struck": "Ocean Reef just finished a renovation of more than $15 million, the resort says.",
+    "use": "Ocean Reef completed a renovation of more than $15 million."
+  },
+  {
+    "row": "invest-condo-buildings 78",
+    "pattern": "\\bcheaper one across the street\\b|\\bSand Dunes\\b[^.]{0,200}\\bcheaper\\b",
+    "struck": "Its condos and suites fill eight buildings, so you can choose a tower on the sand or a cheaper one across the street.",
+    "use": "The resort's suites, condos and villas fill eight buildings, some on the sand and some across the street."
+  },
+  {
+    "row": "invest-condo-buildings 79",
+    "pattern": "\\bwhere the PGA Tour plays\\b|\\bPGA Tour's Myrtle Beach course\\b",
+    "struck": "Its course is where the PGA Tour plays the Myrtle Beach Classic.",
+    "use": "Its course hosted the PGA Tour's 2026 Myrtle Beach Classic."
   }
 ]
