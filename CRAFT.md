@@ -30,6 +30,9 @@ The owner read the redesigned pages and coached like this:
 - **Organized beats busy.** A list of places is a clean list. A map and a list should not fight each other.
 - **Feed and offer titles can be bold.** "Prime short-term rentals" beats "Waterfront condos", as long as it is true.
 - **Never cannibalize.** Before a page claims a search, check that no other page already owns it.
+- **Every place needs a wow factor** (2026-11-10, on the condo buildings page: "a wow factor for all the buildings would make it an exceptional page"). One true, sourced thing a buyer pictures and wants: the view, the lazy river, the pier next door. Facts and counts come after it, not instead of it.
+- **Homes titles are bold and personal, and true.** "Best Airbnb opportunities in Garden City Beach", not "where the typical one pays its bills" (2026-11-10). A feed on an Airbnb page mixes the best-placed condos and houses where nightly rentals are allowed: "Prime short-term rental opportunities".
+- **Every request button opens the short pop-up** (2026-11-10): name, phone, email optional, and our number to call now. A button only needs to link to /contact/ or #lead-form; the site does the rest and sends the button's words with the lead.
 - **Every page needs pages that point to it** (2026-11-09: "make sure every page has referring pages ... for indexing purposes"). When a page is made or rebuilt, place a few links to it in the text of the related pages whose readers want it next, on words already there where possible. `node tools/inbound.js <site>` counts them; aim for six or more.
 - And again: "take my good information and use it but dont make rules that fuck up other blogs in the future use common sense and take my prompts as a mentor."
 

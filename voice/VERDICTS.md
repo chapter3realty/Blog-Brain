@@ -172,3 +172,11 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 - "waterfront condos isnt clickbaity enough for an STR blog page it should be prime Short Term Rentals": done in the feed title.
 - "make sure none of these pages are cannibalizing other pages at all".
 - "take my good information and use it but dont make rules that fuck up other blogs in the future use common sense and take my prompts as a mentor": recorded in CRAFT as "A mentor's notes", thoughts to weigh on each page.
+
+## 2026-11-10
+
+- The rebuilt pages of 2026-11-09 (1031 exchange, condo buildings, seller hub, Airbnb income): "they are good".
+- /invest/condo-buildings/: "i don't feel like any of the buildings are emotionally special there's no wow factor ... a wow factor for all the buildings would make it an exceptional page. also make sure its not cannibalizing."
+- Request buttons: "all the CTA buttons should just pop up name email and phone number with email optional and then also our phone number to call directly option."
+- Homes feeds: "the more personal they feel the better they will do"; on Airbnb income, "a variety of perfectly located homes and condos for STR ... prime short term rental opportunities"; "the typical one pays its bills is too nerdy be bold ... best airbnb oppurtutnies in garden city".
+- "other than those thoughts not rules you need to live by and ruin blogs over ... these are great blogs finish redesigning the last blogs that need it."
