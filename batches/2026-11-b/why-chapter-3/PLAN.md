@@ -48,7 +48,7 @@ Each heading is a question people search, in their words. Each section answers i
    - **Offer:** "Send us the address. We check it before you offer." -> /contact/ (the site opens the pop-up).
 
 2. **Does a listing tell you if a home is in a flood zone?** (the page's own finding)
-   - Answer first, from `listing-vs-map.json`: of the homes for sale in Horry County that stand in FEMA's high-risk flood zone, about 1 in 5 has a listing that marks a flood zone (R20). Say "does not mark a flood zone", never "says it is not in one".
+   - Answer first, from `listing-vs-map.json`: of the homes for sale in Horry County that stand in FEMA's high-risk flood zone, about 1 in 5 has a listing that marks a flood zone (R20). Print the full-zone counts (230 of 1,118, run 2); the zone's core gives 129 of 672 (19 percent), so the edge does not change the message. The spec reads both from the data file. Say "does not mark a flood zone", never "says it is not in one".
    - One sentence: the seller's disclosure form asks about past flooding only in the seller's own years (R12). Link /buyers/undisclosed-flooding/ for the rest.
    - **Visual 2: one bar, at a glance.** Title: "Most homes for sale in FEMA's flood zone do not say so in the listing". One horizontal bar for all homes in the zone, split into "listing marks a flood zone" and "listing does not". Two labels, the two counts, the date the count ran, the source line (CCMLS attribution, Horry County GIS, FEMA effective 12/16/2021). Built from the data file. If the owner wants it simpler still: five house icons, one filled.
    - **Offer:** "Ask us to check a home's flood record" -> /contact/.

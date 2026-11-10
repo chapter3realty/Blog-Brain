@@ -1,0 +1,93 @@
+[
+ {
+  "row": "market-reports-july-2026 2",
+  "pattern": "\\b1,625\\b|\\b7\\.8 percent\\b[^.]{0,60}\\b(?:closings|closed|sales)\\b|\\b(?:closings|closed|sales)\\b[^.]{0,60}\\b7\\.8 percent\\b",
+  "struck": "Together, 1,625 homes closed in June 2026, 7.8 percent more sales than a year earlier.",
+  "use": "Closed sales of all properties in CCAR's report were up 7.7 percent from June 2025."
+ },
+ {
+  "row": "market-reports-july-2026 15",
+  "pattern": "\\bareas are (?:groups of |made of |built from )?ZIP codes?\\b|\\bgroups of ZIP codes\\b|\\bCarolina Forest\\b[^.]{0,40}\\bZIP codes?\\b",
+  "struck": "CCAR's areas are groups of ZIP codes (Carolina Forest is MLS area 10B), not city limits.",
+  "use": "CCAR's areas follow ZIP codes or MLS areas, not city limits."
+ },
+ {
+  "row": "market-reports-july-2026 17",
+  "pattern": "\\bevery beach (?:area|town)\\b|\\ball (?:the |of the )?beach (?:areas|towns)\\b[^.]{0,80}\\babove\\b|\\bthat is why\\b[^.]{0,80}\\b(?:middle|median) (?:house )?price",
+  "struck": "That is why every beach area's middle price was above the region's.",
+  "use": "The region's middle house price, $359,843, was below the middle price in Myrtle Beach, North Myrtle Beach, Surfside Beach, Garden City / Murrells Inlet and Pawleys Island / Litchfield."
+ },
+ {
+  "row": "market-reports-july-2026 18",
+  "pattern": "\\bpoints down\\b|\\bnext year's supply\\b|\\bbuilders pulling back\\b|\\bnew supply is slowing\\b",
+  "struck": "Permit data is where the next year's supply shows up first, and it points down.",
+  "use": "Builders were allowed to start 555 homes in the Myrtle Beach metro in June 2026, 6.9 percent fewer than in June 2025."
+ },
+ {
+  "row": "market-reports-july-2026 19",
+  "pattern": "\\b670\\b[^.]{0,60}\\bhouse resales\\b|\\bhouse resales\\b[^.]{0,60}\\b670\\b",
+  "unless": "\\btownhom|\\bmanufactured\\b|\\bmostly houses\\b",
+  "struck": "In the county's deed records, June 2026 had 670 house resales at a middle price of $368,000.",
+  "use": "In Horry County deeds recorded in June 2026, 670 resales of houses, townhomes and manufactured homes on their own lot had a middle price of $368,000."
+ },
+ {
+  "row": "market-reports-july-2026 20",
+  "pattern": "\\$429,300|\\bJune record\\b|\\bnational (?:median|middle price)\\b[^.]{0,80}\\b(?:highest|record|all-time)\\b",
+  "struck": "The national middle price of an existing home was $429,300 in June 2026, the highest for any June, and the national median hit a June record.",
+  "use": "(cut it: $429,300 is NAR's May 2026 figure, quoted in CCAR's June report)"
+ },
+ {
+  "row": "market-reports-july-2026 22",
+  "pattern": "\\b(?:oceanfront|condos?)\\b[^.]{0,80}\\bdowntown Myrtle Beach\\b|\\bdowntown Myrtle Beach\\b[^.]{0,80}\\b(?:oceanfront|condos?)\\b|\\b(?:154|469) (?:oceanfront )?condos\\b",
+  "struck": "Of condos for sale within 3 miles of downtown Myrtle Beach, 154 face the ocean and ask under $205,000.",
+  "use": "Oceanfront condos for sale under $205,000 in and around Myrtle Beach"
+ },
+ {
+  "row": "market-reports-july-2026 23",
+  "pattern": "\\bmortgage rates?\\b|\\b30-year fixed\\b|\\bpermits and rates\\b|\\brates? (?:touched|drifted|sit|averaged|are)\\b",
+  "struck": "June 2026 closings, prices, inventory, permits and rates; mortgage rates: the national 30-year fixed averaged 6.55 percent.",
+  "use": "(cut it: Chapter3 states no rate)"
+ },
+ {
+  "row": "market-reports-july-2026 24",
+  "pattern": "\\bMargaritaville\\b[^.]{0,160}\\b(?:oceanfront|pre-?sold|percent sold|% sold|first new|decade)\\b|\\bfirst new oceanfront condo\\b|\\boceanfront demand\\b|\\boceanfront tower\\b",
+  "struck": "Margaritaville Vacation Residences broke ground June 6 in Arcadian Shores, 271 units and the first new oceanfront condo tower in Myrtle Beach in over a decade, reported 25 percent pre-sold.",
+  "use": "(cut it: WMBF gives the developers' and their PR firm's claims; the site is not on the ocean)"
+ },
+ {
+  "row": "market-reports-july-2026 25",
+  "pattern": "\\bfirst annual decline\\b|\\bthis cycle\\b",
+  "struck": "In June 2026, single-family inventory was down 3.4 percent from last year, the first annual decline in this cycle.",
+  "use": "Houses for sale were below the year before for the second month in a row."
+ },
+ {
+  "row": "market-reports-july-2026 26",
+  "pattern": "\\bcity condos?\\b|\\bdeclines? in the city\\b|\\bcity-level\\b",
+  "struck": "Myrtle Beach city condos specifically have a year-to-date median of $205,000, with double-digit price declines in the city.",
+  "use": "In CCAR's Myrtle Beach area, ZIP codes 29572 and 29577, the middle condo sold for $205,000 from January to June 2026, down 12.8 percent."
+ },
+ {
+  "row": "market-reports-july-2026 27",
+  "pattern": "\\bin about four months\\b|\\b12[01]-day (?:average )?market time\\b|\\b121 days\\b[^.]{0,40}\\bto (?:sell|close)\\b",
+  "struck": "Priced-right houses are closing at 97.3 percent of list in about four months; overpricing into 121-day average market time is the mistake.",
+  "use": "Houses took 121 days on average from listing to an accepted offer in June 2026."
+ },
+ {
+  "row": "market-reports-july-2026 28",
+  "pattern": "\\binsurance-driven HOA dues\\b|\\bstrongest condo negotiating position\\b|\\bcoastal oversupply\\b|\\blike Florida'?s\\b|\\bstabilizing, not declining\\b|\\bnothing in the data suggests waiting\\b|\\bone tower does not change\\b|\\bbuilders responded\\b[^.]{0,80}\\bcutting back\\b",
+  "struck": "Rising insurance-driven HOA dues are a real part of that condo pressure, and the talk was of a coastal oversupply of homes for sale, like Florida's.",
+  "use": "(cut it: no source, a cause the data does not show, or a forecast)"
+ },
+ {
+  "row": "market-reports-july-2026 29",
+  "pattern": "\\bright now\\b|\\bIs Myrtle Beach overbuilt\\b|\\bhome prices dropping in 2026\\b|\\bwe publish this every month\\b",
+  "struck": "Is Myrtle Beach a buyer's market right now? Condo buyers have real negotiating power right now.",
+  "use": "(cut it: a dated report in the past tense; those searches belong to the hub and the sibling pages)"
+ },
+ {
+  "row": "market-reports-july-2026 30",
+  "pattern": "\\bevery number sourced\\b|\\bevery source listed\\b|\\brides small sample sizes\\b|\\btreat single-month swings gently\\b",
+  "struck": "Every number sourced and every source listed at the bottom; one month of city-level data rides small sample sizes, so treat single-month swings gently.",
+  "use": "(cut it: about the page, not the subject; print the sales counts instead)"
+ }
+]

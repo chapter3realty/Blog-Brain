@@ -784,7 +784,8 @@
    "slug": "town-little-river",
    "name": "Little River",
    "pages": [
-    "/buyers/relocating/which-town/"
+    "/buyers/relocating/which-town/",
+    "/submarkets/"
    ],
    "q": {
     "near": "33.87869,-78.63932",
@@ -797,7 +798,8 @@
    "slug": "town-conway",
    "name": "Conway",
    "pages": [
-    "/buyers/relocating/which-town/"
+    "/buyers/relocating/which-town/",
+    "/submarkets/"
    ],
    "q": {
     "near": "33.84000,-79.05000",
@@ -810,7 +812,8 @@
    "slug": "town-north-myrtle-beach",
    "name": "North Myrtle Beach",
    "pages": [
-    "/buyers/relocating/which-town/"
+    "/buyers/relocating/which-town/",
+    "/submarkets/"
    ],
    "q": {
     "near": "33.82443,-78.71079",
@@ -823,7 +826,8 @@
    "slug": "town-carolina-forest",
    "name": "Carolina Forest",
    "pages": [
-    "/buyers/relocating/which-town/"
+    "/buyers/relocating/which-town/",
+    "/submarkets/"
    ],
    "q": {
     "near": "33.77000,-78.92500",
@@ -836,7 +840,8 @@
    "slug": "town-myrtle-beach",
    "name": "Myrtle Beach",
    "pages": [
-    "/buyers/relocating/which-town/"
+    "/buyers/relocating/which-town/",
+    "/submarkets/"
    ],
    "q": {
     "near": "33.70882,-78.88539",
@@ -862,7 +867,8 @@
    "slug": "town-surfside-beach",
    "name": "Surfside Beach",
    "pages": [
-    "/buyers/relocating/which-town/"
+    "/buyers/relocating/which-town/",
+    "/submarkets/"
    ],
    "q": {
     "near": "33.60600,-78.97500",
@@ -875,7 +881,8 @@
    "slug": "town-garden-city",
    "name": "Garden City",
    "pages": [
-    "/buyers/relocating/which-town/"
+    "/buyers/relocating/which-town/",
+    "/submarkets/"
    ],
    "q": {
     "near": "33.59107,-79.00642",
@@ -888,7 +895,8 @@
    "slug": "town-murrells-inlet",
    "name": "Murrells Inlet",
    "pages": [
-    "/buyers/relocating/which-town/"
+    "/buyers/relocating/which-town/",
+    "/submarkets/"
    ],
    "q": {
     "near": "33.54500,-79.06500",
@@ -901,7 +909,8 @@
    "slug": "town-pawleys-litchfield",
    "name": "Pawleys Island and Litchfield",
    "pages": [
-    "/buyers/relocating/which-town/"
+    "/buyers/relocating/which-town/",
+    "/submarkets/"
    ],
    "q": {
     "near": "33.50574,-79.13559",
@@ -1705,7 +1714,8 @@
    "slug": "dscr-carolina-forest-houses",
    "name": "houses in Carolina Forest",
    "pages": [
-    "/invest/strategies/dscr-loans/"
+    "/invest/strategies/dscr-loans/",
+    "/invest/financing-multiple-rentals/"
    ],
    "q": {
     "near": "33.77000,-78.92500",
@@ -1881,6 +1891,71 @@
    },
    "index": false,
    "note": "A strip on /buyers/condo-in-litigation/ (2026-11-10). index false."
+  },
+  {
+   "slug": "mr-oceanfront-condos-cut",
+   "name": "oceanfront condos with a price cut",
+   "pages": [
+    "/market-reports/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "condo",
+    "has": "oceanfront_unit,price_reduced"
+   },
+   "index": false,
+   "note": "A strip for one guide (rebuild batch 6, 2026-11-10). index false."
+  },
+  {
+   "slug": "mrj-oceanfront-condos-under-205k",
+   "name": "Myrtle Beach",
+   "pages": [
+    "/market-reports/july-2026/"
+   ],
+   "q": {
+    "near": "33.70882,-78.88539",
+    "miles": 3,
+    "type": "condo",
+    "has": "oceanfront_unit",
+    "max": "205000"
+   },
+   "index": false,
+   "note": "A strip for one guide (rebuild batch 6, 2026-11-10). index false."
+  },
+  {
+   "slug": "ctc-oceanfront-str-condos",
+   "name": "oceanfront condos",
+   "pages": [
+    "/invest/cash-to-close/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "condo",
+    "has": "oceanfront_unit,str_allowed",
+    "min": "200000",
+    "max": "265000"
+   },
+   "index": false,
+   "note": "A strip for one guide (rebuild batch 6, 2026-11-10). index false."
+  },
+  {
+   "slug": "ctc-rental-houses",
+   "name": "rental houses",
+   "pages": [
+    "/invest/cash-to-close/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "house",
+    "has": "rentals_allowed",
+    "min": "330000",
+    "max": "395000"
+   },
+   "index": false,
+   "note": "A strip for one guide (rebuild batch 6, 2026-11-10). index false."
   }
  ]
 }

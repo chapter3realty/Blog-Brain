@@ -1,0 +1,82 @@
+[
+  {
+    "row": "submarkets H13",
+    "pattern": "\\bDJs?\\b[^.]{0,40}\\bbeach music\\b",
+    "struck": "At Fat Harold's Beach Club a DJ plays beach music every night from 7.",
+    "use": "At Fat Harold's Beach Club on Main Street, the home of the shag, DJs play every night from 7."
+  },
+  {
+    "row": "submarkets H18",
+    "pattern": "MarshWalk[^.]{0,40}\\bhalf[- ]mile|\\bhalf[- ]mile\\b[^.]{0,40}(MarshWalk|boardwalk)",
+    "struck": "The MarshWalk is a half-mile wooden boardwalk on the marsh, lined with restaurants, and its live music is free to hear.",
+    "use": "The MarshWalk is a wooden boardwalk along the salt marsh, lined with restaurants, and its live music is free to hear."
+  },
+  {
+    "row": "submarkets H19",
+    "pattern": "houses were (put together|built|framed|made)[^.]{0,30}\\btimbers hewn\\b",
+    "struck": "The old island houses were put together from timbers hewn on the mainland, each marked with Roman numerals.",
+    "use": "The old island houses were built mostly of cypress, hewn on the mainland, each timber chiseled with Roman numerals so the house could be put together on the island."
+  },
+  {
+    "row": "submarkets H21",
+    "pattern": "\\bold river steamboat\\b",
+    "struck": "Riverfront Park has a playground built like an old river steamboat, beside a riverwalk of about 1.5 miles along the Waccamaw.",
+    "use": "Riverfront Park on the Waccamaw has a playground built like a steamboat, the F.G. Burroughs, beside a riverwalk of about 1.5 miles."
+  },
+  {
+    "row": "submarkets H6",
+    "pattern": "\\bcondo on the ocean side\\b(?![^.]{0,40}(Horry|by the pier))",
+    "struck": "a condo on the ocean side",
+    "use": "a condo on the ocean side by the pier, Horry part only"
+  },
+  {
+    "row": "submarkets H27 (GC 20, LR 40)",
+    "pattern": "\\bno (county )?(short-term )?rental permit\\b|\\bno (short-term )?rental (rules|ordinance)\\b",
+    "unless": "names no rental permit|list[^.]{0,60}\\bno rental permit",
+    "struck": "No rental permit on the Horry side; no county business license on the Georgetown end",
+    "use": "On the Horry side, the county's list of filings names no rental permit; on the Georgetown end, the county requires no business license"
+  },
+  {
+    "row": "submarkets H31",
+    "pattern": "\\bthe HOA decides\\b|\\bHOAs? (mostly|usually|often) (say no|bar|forbid)",
+    "struck": "A county business license; the county's list names no rental permit, and the HOA decides",
+    "use": "A county business license; the county's list names no rental permit, and an HOA can still say no"
+  },
+  {
+    "row": "submarkets H25 (NMB 23)",
+    "pattern": "North Myrtle Beach[^.]{0,80}\\b(citywide|allowed across|anywhere)\\b|\\b(allowed|allows them) (citywide|across the city|anywhere)\\b",
+    "struck": "North Myrtle Beach allows them citywide with a license.",
+    "use": "North Myrtle Beach: a yearly city business license, and no special zoning or permit beyond it. An HOA or the deed can still bar rentals."
+  },
+  {
+    "row": "submarkets H34 (PI 35)",
+    "pattern": "Pawleys[^.]{0,80}\\bno business license\\b|\\bno business license\\b[^.]{0,60}Pawleys Island",
+    "unless": "county (requires|issues|does not)[^.]{0,30}business license|no county business license",
+    "struck": "Pawleys Island is the only coastal town here with no business license at all.",
+    "use": "Pawleys Island: short-term rentals are allowed on the island."
+  },
+  {
+    "row": "submarkets H30 (CW 42)",
+    "pattern": "Conway[^.]{0,80}(never adopted|no (dedicated )?(short-term rental |rental )?ordinance|no rental rules)",
+    "struck": "Conway has never adopted a short-term rental ordinance.",
+    "use": "Conway: we check the city's zoning for each address."
+  },
+  {
+    "row": "submarkets H37",
+    "pattern": "lowest entry prices|who buys in each|higher-AUM|STR velocity|HOAs require long leases",
+    "struck": "Conway: CCU student housing, LTR cash flow, lowest entry prices on the Grand Strand.",
+    "use": "(cut it: no ledger row)"
+  },
+  {
+    "row": "submarkets Not verified 1",
+    "pattern": "biggest master-planned community|26,000\\+? residents|30,000-acre|no wind-pool",
+    "struck": "Carolina Forest is the Myrtle Beach area's biggest master-planned community: 26,000+ residents.",
+    "use": "(cut it: no verified row)"
+  },
+  {
+    "row": "submarkets Where (SB 25)",
+    "pattern": "\\bjust south of Myrtle Beach\\b",
+    "struck": "A town just south of Myrtle Beach",
+    "use": "A town south of Myrtle Beach"
+  }
+]

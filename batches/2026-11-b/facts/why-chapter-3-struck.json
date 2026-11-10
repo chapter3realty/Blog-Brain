@@ -1,0 +1,54 @@
+[
+  {
+    "row": "why-chapter-3 3",
+    "pattern": "\\b573\\s+Vista\\b",
+    "struck": "The office is at 573 Vista Drive, Murrells Inlet, SC 29576, by appointment.",
+    "use": "The office is on Vista Drive in Murrells Inlet, by appointment only."
+  },
+  {
+    "row": "why-chapter-3 7",
+    "pattern": "\\boffice\\b[^.]{0,40}\\bopen to the public\\b|\\bopen to the public\\b[^.]{0,40}\\boffice\\b",
+    "struck": "A Broker-in-Charge must keep an office open to the public.",
+    "use": "A Broker-in-Charge must keep an office that the public, investigators and inspectors can reach during reasonable business hours."
+  },
+  {
+    "row": "why-chapter-3 8",
+    "pattern": "\\bbuyer'?s agent\\b[^.]{0,60}\\b(?:every|all)\\b[^.]{0,40}\\bfacts?\\b",
+    "unless": "\\b(?:written|in writing|signs?|signed)\\b",
+    "struck": "A buyer's agent in South Carolina must tell the buyer every material adverse fact the agent actually knows.",
+    "use": "Once a buyer signs a written agency agreement, the buyer's agent must disclose all material adverse facts about the deal that the agent actually knows."
+  },
+  {
+    "row": "why-chapter-3 11",
+    "pattern": "\\bcustomer\\b[^.]{0,80}\\btransaction broker\\b|\\btransaction broker\\b[^.]{0,80}\\bcustomer\\b",
+    "unless": "\\bpresum\\w*\\b",
+    "struck": "Until then the buyer is a customer, and the firm acts as a transaction broker.",
+    "use": "Until the buyer signs, the law presumes the buyer is a customer and the firm a transaction broker."
+  },
+  {
+    "row": "why-chapter-3 12",
+    "pattern": "flood before the (?:seller|owner) (?:bought|owned)[^.]{0,40}(?:is not|isn't|never) asked|\\bpast flooding only during\\b",
+    "struck": "A flood before the seller bought is not asked.",
+    "use": "Four of the form's flood questions ask only about the seller's own years. No question asks directly about a flood before the seller bought, though one asks about any flood risk the seller knows of."
+  },
+  {
+    "row": "why-chapter-3 13",
+    "pattern": "\\bseller (?:gives|must give|hands)\\b[^.]{0,60}\\baddendum\\b",
+    "unless": "\\b(?:unless|exempt\\w*|most sales)\\b",
+    "struck": "If the home is in an association, the seller gives the buyer the state's association addendum before the contract is signed.",
+    "use": "Unless the sale is exempt, the seller fills in the state's disclosure form before the contract is signed; for a home in an association, that includes a one-page HOA addendum."
+  },
+  {
+    "row": "why-chapter-3 20",
+    "pattern": "\\blistings?\\b[^.]{0,40}\\b(?:marks?|marked|says?|shows?|flags?|flagged)\\b[^.]{0,30}\\bflood zone\\b",
+    "unless": "\\b(?:search|filter\\w*)\\b",
+    "struck": "Of the homes for sale in Horry County that stand in FEMA's high-risk flood zone, only about 1 in 5 has a listing that marks a flood zone.",
+    "use": "Of the homes for sale in Horry County whose map pin falls inside FEMA's high-risk flood zone, about 1 in 5 comes up when our home search is filtered for flood zone."
+  },
+  {
+    "row": "why-chapter-3 28",
+    "pattern": "\\b124\\s+(?:pages|guides|articles)\\b",
+    "struck": "The live sitemap lists 124 pages.",
+    "use": "(cut it: not for the page; the sitemap held 146 entries on the day it was read, and the count changes with each deploy)"
+  }
+]

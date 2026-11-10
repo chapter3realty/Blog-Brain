@@ -1,0 +1,70 @@
+[
+  {
+    "row": "cash-to-close 4",
+    "pattern": "\\$6,400|\\$1,500 more",
+    "unless": "\\breport",
+    "struck": "The middle loan costs at closing, by how the buyer uses the home: a home you live in about $4,900; a second home about $5,500; a rental about $6,400. A rental cost about $1,500 more.",
+    "use": "Of 2025 Horry County conventional purchase loans on one-unit homes that report closing costs, the middle was about $6,400 on a rental (287 loans), $5,500 on a second home and $4,900 on a home the buyer lives in. Most rental loans, 1,181 of 1,505, were business loans or exempt and report no costs."
+  },
+  {
+    "row": "cash-to-close 5",
+    "pattern": "1\\.6 percent of the loan",
+    "unless": "\\breport",
+    "struck": "The lender's own charges (origination, with any points) were about 1.6 percent of the loan on a rental at the middle, against about 0.8 percent on a home the buyer lives in.",
+    "use": "On rental loans that report costs, the lender's own charges were about 1.6 percent of the loan at the middle, against about 0.8 percent on a home the buyer lives in."
+  },
+  {
+    "row": "cash-to-close 6",
+    "pattern": "2\\.3 percent",
+    "unless": "\\breport",
+    "struck": "On a rental, the middle loan costs came to about 2.3 percent of the home's value (middle half 1.6 to 3.1).",
+    "use": "On rental loans that report costs, the middle loan costs came to about 2.3 percent of the home's value (middle half 1.6 to 3.1)."
+  },
+  {
+    "row": "cash-to-close 8",
+    "pattern": "cash to close adds[^.]{0,80}\\bprepaids?\\b",
+    "struck": "Total closing costs exclude the down payment; cash to close adds it, with the prepaids and the escrow deposit, less your deposit and credits.",
+    "use": "Total closing costs already hold the prepaids and the escrow deposit, and leave out the down payment. Cash to close adds the down payment and takes off your deposit and credits."
+  },
+  {
+    "row": "cash-to-close 11",
+    "pattern": "cushion[^.]{0,80}(?:two months|2 months|one-sixth)",
+    "unless": "under federal escrow rules|covered by federal escrow rules|\\bbusiness\\b",
+    "struck": "Federal escrow rules let the lender collect at closing the tax and insurance owed since they were last paid, plus a cushion of at most one-sixth of a year's escrow payments (two months).",
+    "use": "On a loan under federal escrow rules, the cushion is at most two months of tax and insurance. A loan to buy a rental you will not stay in is business credit, which those rules leave out, so your lender's terms set the deposit."
+  },
+  {
+    "row": "cash-to-close 20",
+    "pattern": "of their balances",
+    "struck": "Own other financed properties and Fannie Mae adds 2 percent of their balances (one to four), 4 percent (five or six), 6 percent (seven to ten).",
+    "use": "On a rental or second-home loan, Fannie Mae adds 2 percent of what you still owe on your other financed properties (one to four in all), 4 percent (five or six) or 6 percent (seven to ten), not counting the home you live in."
+  },
+  {
+    "row": "cash-to-close 27",
+    "pattern": "\\bforeclosure deed\\b",
+    "unless": "master-in-equity",
+    "struck": "The buyer pays it only on a foreclosure deed, a deed from a government body, or a deed from a retirement plan.",
+    "use": "The seller owes the deed recording fee, and the buyer must pay it if the seller does not. The buyer owes it on a master-in-equity deed from a court foreclosure sale, a deed from a government, or a deed from a tax-exempt retirement plan."
+  },
+  {
+    "row": "cash-to-close 28",
+    "pattern": "cash buyer[^.]{0,30}waits? 30 days",
+    "unless": "\\bNFIP\\b|usually",
+    "struck": "A flood policy bought with a loan closing starts at closing; a cash buyer waits 30 days.",
+    "use": "An NFIP flood policy bought with a new loan can start at closing, if it is applied for and paid at or before closing. Without a loan, an NFIP policy usually starts 30 days after purchase."
+  },
+  {
+    "row": "cash-to-close 30",
+    "pattern": "within 48 hours",
+    "unless": "weekend|Saturday|bank holiday",
+    "struck": "Earnest money: the broker-in-charge deposits a check within 48 hours of written acceptance and cash within 48 hours of receipt; it is credited at closing.",
+    "use": "When the brokerage holds the earnest money, the broker-in-charge deposits a check within 48 hours of written acceptance and cash within 48 hours of receipt, not counting weekends and bank holidays."
+  },
+  {
+    "row": "cash-to-close 31",
+    "pattern": "\\$55 minimum|\\$1\\.37 per \\$1,000",
+    "unless": "nonresident|unincorporated|outside city limits",
+    "struck": "the county business license is $55 minimum on the first $50,000 of rent, then $1.37 per $1,000",
+    "use": "(cut the county dollar figures and link /invest/accommodations-tax/; if kept, the same sentence must say the county license applies only outside city limits, doubles for an owner with no place of business in the county, and is not required when a licensed local company manages the rental)"
+  }
+]

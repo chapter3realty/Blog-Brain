@@ -1,0 +1,76 @@
+[
+ {
+  "row": "market-reports 3",
+  "pattern": "\\b1(?:18|22|31|37) days\\b[^.]{0,40}\\bto (?:sell|close|closing)\\b|\\b(?:days|takes?|average)\\b[^.]{0,20}\\bto (?:sell|close)\\b[^.]{0,40}\\b1(?:18|22|31|37)\\b",
+  "struck": "Houses averaged 122 days to sell in 2026.",
+  "use": "Houses averaged 122 days from listing to an accepted offer from January to September 2026."
+ },
+ {
+  "row": "market-reports 8",
+  "pattern": "\\bprices? (?:barely|hardly) (?:moved|changed)\\b|\\bcondos?\\b[^.]{0,40}\\b(?:barely|hardly) (?:moved|changed)\\b",
+  "unless": "\\bcondo[^.]{0,40}\\b(?:dipped|slipped|fell|lower|below)\\b",
+  "struck": "Prices barely moved this year.",
+  "use": "House prices barely moved this year; condo prices dipped."
+ },
+ {
+  "row": "market-reports 9",
+  "pattern": "\\b(?:rise|climb|growth|increase)\\b[^.]{0,50}\\b(?:has stopped|have stopped|is over|has ended)\\b",
+  "struck": "The rise in homes for sale has stopped.",
+  "use": "The climb in supply has stalled: months of supply has been lower than a year before every month since April 2026 for houses and since May 2026 for condos."
+ },
+ {
+  "row": "market-reports 9",
+  "pattern": "\\b(?:nearly|almost|close to) doubl\\w*",
+  "struck": "Condo supply nearly doubled in 2024.",
+  "use": "In September 2024, condo supply was up 79 percent from a year before."
+ },
+ {
+  "row": "market-reports 10",
+  "pattern": "\\b(?:most ever|on record|a record|all-time)\\b[^.]{0,60}\\bcondo|\\bcondo[^.]{0,60}\\b(?:most ever|on record|a record|all-time)\\b",
+  "struck": "Buyers signed a record number of condo contracts in 2026.",
+  "use": "From January to September 2026, buyers had more condo offers accepted than in the same months of 2025 or 2024."
+ },
+ {
+  "row": "market-reports 14",
+  "pattern": "\\bresale (?:house|home)s?\\b[^.]{0,60}\\$350,000|\\$350,000\\b[^.]{0,60}\\bresale (?:house|home)s?\\b",
+  "unless": "\\bmostly houses\\b",
+  "struck": "The middle resale house sold for about $350,000.",
+  "use": "In the county's deeds, the middle resale price was about $350,000 for the 6,866 other homes, mostly houses, and about $215,000 for the 4,181 condos."
+ },
+ {
+  "row": "market-reports 15",
+  "pattern": "\\bareas? (?:are|is) (?:groups of |made of |built from )?ZIP codes?\\b",
+  "struck": "CCAR's areas are groups of ZIP codes, not city limits.",
+  "use": "CCAR's areas follow ZIP codes or MLS areas, not city limits."
+ },
+ {
+  "row": "market-reports 19",
+  "pattern": "\\billustrative\\b|\\bframe rather than a quote\\b",
+  "struck": "Those figures are illustrative and move every month, so treat them as a frame rather than a quote.",
+  "use": "(cut it: the page gives the numbers)"
+ },
+ {
+  "row": "market-reports 19",
+  "pattern": "\\b(?:on the order of|about|around|roughly) three months on (?:the )?market\\b",
+  "struck": "Homes have been taking on the order of three months on market.",
+  "use": "Houses averaged about four months from listing to an accepted offer."
+ },
+ {
+  "row": "market-reports 19",
+  "pattern": "\\bmost listings\\b[^.]{0,40}\\bprice (?:adjustment|cut|reduction)s?\\b[^.]{0,30}\\bbefore they sell\\b",
+  "struck": "Most listings see at least one price adjustment before they sell.",
+  "use": "(cut it: no source for sold homes; BIM 9 counts listings for sale now)"
+ },
+ {
+  "row": "market-reports 19",
+  "pattern": "\\b(?:permits|inventory|prices)\\b[^.]{0,30}\\band (?:mortgage |interest )?rates\\b",
+  "struck": "closings, prices, inventory, permits and rates",
+  "use": "closings, prices, days to an accepted offer and homes for sale"
+ },
+ {
+  "row": "market-reports 19",
+  "pattern": "\\bupdated with real local data\\b|\\bAsk for a current report\\b",
+  "struck": "Ask for a current report for actual figures.",
+  "use": "(cut it: the page gives the numbers)"
+ }
+]
