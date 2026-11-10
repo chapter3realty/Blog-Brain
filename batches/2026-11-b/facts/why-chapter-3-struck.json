@@ -50,5 +50,11 @@
     "pattern": "\\b124\\s+(?:pages|guides|articles)\\b",
     "struck": "The live sitemap lists 124 pages.",
     "use": "(cut it: not for the page; the sitemap held 146 entries on the day it was read, and the count changes with each deploy)"
+  },
+  {
+    "row": "why-chapter-3 33",
+    "pattern": "(?<!significantly )\\bweakens (?:its|the home's|the) structure\\b|\\bis a health risk\\b",
+    "struck": "It significantly lowers the home's value, weakens its structure or is a health risk to the people in it.",
+    "use": "It significantly lowers the home's value, significantly weakens its structure or is a significant health risk to the people in it."
   }
 ]

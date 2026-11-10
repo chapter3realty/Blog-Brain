@@ -65,3 +65,9 @@ Still open: Conway's accommodations tax (12% on str-rules, 11.5% in the ledger; 
 - /invest/condo-buildings/: a verified wow line for each building (WOW.md, WOW-VERIFY.md). Open: Sea Mist, Coral Beach, Dunes Village, South Hampton have no verified wow fact yet.
 - Places may filter on MLS features (has, up to three keys the CRM lists), waterfront and a price range (edge.js placeParams), never without a point or a subdivision.
 - Saved third-party pages carried Mapbox and Google keys (theirs, public). They are redacted in data/2026-11-b before export; GitHub's push protection blocks Mapbox keys. Researchers' saved pages need the same scrub.
+
+## Rebuild batch 6 and the end of the triage list (patch 0028)
+
+- Rebuilt: why Chapter3, the market reports hub, the July 2026 report, cash to close, financing a second rental, the town guides hub. All 24 rebuilds on the triage list are done.
+- The listings' flood_zone flag misses about 4 in 5 Horry homes for sale inside FEMA's high-risk zone (why-chapter-3 row 20: 888 of 1,118 not flagged). Feed titles that said "no flood zone listed" now promise nothing about flooding. Open: which MLS field fills flood_zone (CRM repo, not reachable from this session).
+- Owner questions for /why-chapter-3/ are in templates/owner-questions.md.

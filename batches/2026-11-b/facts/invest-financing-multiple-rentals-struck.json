@@ -1,24 +1,156 @@
 [
-  {"row": "invest-financing-multiple-rentals 2026-11-a 4", "pattern": "refinanc\\w*[^.]{0,60}house you are buying|house you are buying[^.]{0,80}refinanc", "struck": "Cash from refinancing the house you are buying cannot count as its reserves.", "use": "Cash taken out in a cash-out refinance cannot count toward the reserves for that same refinance."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 8", "pattern": "(home|house) you live in,? and buy(ing)? another", "struck": "Renting out the home you live in and buying another: the lender counts three quarters of its market rent.", "use": "Renting out the home you live in when you buy a new home to live in: the lender counts three quarters of its market rent."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 12", "pattern": "other financed rentals", "struck": "Plus a share of what you owe on your other financed rentals.", "use": "Plus a share of what you owe on your other financed homes, not counting your own home and the new one."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 18", "pattern": "HUD's rent[^.]{0,80}lender counts|lender counts about \\$?1,6[67]\\d of it", "struck": "HUD's rent for a 3-bedroom in that ZIP is $2,230 a month; the lender counts about $1,670 of it.", "use": "If the appraiser's rent schedule came in at $2,230, HUD's figure for a 3-bedroom in that ZIP, the lender would count about $1,670."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 19", "pattern": "\\$3,300|\\$767\\b|\\$9,200", "struck": "Landlord insurance about $3,300 a year (one agency's estimate); about $767 a month, $9,200 a year.", "use": "(cut the insurance figure: tax and dues about $5,900 a year, about $492 a month; insurance is the reader's own quote)"},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 20", "pattern": "\\$10,[01]\\d\\d\\b", "struck": "The standard rule asks you to keep about $10,100 plus six months of the new loan's principal and interest.", "use": "The standard rule asks you to keep about $8,400, plus six months of the new loan's payment and insurance."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 21", "pattern": "\\$4,600", "struck": "Both houses empty for three months: about $4,600 in tax, insurance and dues.", "use": "Both houses empty for three months: about $2,950 in tax and dues, plus three payments on each loan."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 22", "pattern": "not the six loan payments|unless they are no larger", "struck": "It covers that three-month double vacancy's tax, insurance and dues with about $5,500 left, but not the six loan payments on two loans unless they are no larger than the new loan's six.", "use": "Three empty months on both houses take about $2,950 of that in tax and dues, plus three payments on each loan."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 23", "pattern": "rented (out )?(for )?more than (72|seventy-two) days[^.]{0,80}(loses|cannot keep|can't keep|lose)", "unless": "military|active duty|on orders", "struck": "A legal residence rented out more than 72 days in a year loses the 4 percent rate.", "use": "A legal residence rented out more than 72 days in a calendar year loses the 4 percent rate (active-duty military on orders keep it)."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 24", "pattern": "\\b257\\b|126 people|131 companies|\\b650 homes|\\b193\\b", "struck": "257 buyers recorded two or more Horry County home purchases: 126 people and 131 companies. Together they bought 650 homes. 193 of them bought exactly two.", "use": "255 buyers recorded two or more Horry County home purchases: 138 people and 117 companies. Together they bought 645 homes. 192 of them bought exactly two."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 25", "pattern": "half of (those|these|their) homes[^.]{0,80}outside South Carolina", "struck": "Half of those homes now send the tax bill outside South Carolina.", "use": "Of those homes the buyers still own, half send the tax bill outside South Carolina."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 26", "pattern": "6,070|4,091|3,563 (of|are)|23,290", "struck": "6,070 people and companies own two or more homes taxed at the 6 percent rate. 4,091 own exactly two. 3,563 of the 6,070 are people. They hold 23,290 homes.", "use": "About 6,000 people and companies own two or more homes taxed at the 6 percent rate, not counting resort and timeshare firms. About 4,100 own exactly two. About 4,200 are people, some through a family trust."},
-  {"row": "invest-financing-multiple-rentals 2026-11-a 27", "pattern": "\\b67 (ask|of)|3,563 houses|1,897 condos|\\b432\\b", "struck": "Of 3,563 houses with 3 or more bedrooms for sale in Horry County, 67 ask $195,000 or less; of 1,897 condos with 2 or more bedrooms, 432 do.", "use": "(not on the page: listing counts change daily; the homes strip shows the homes)"},
-  {"row": "invest-financing-multiple-rentals 15", "pattern": "second[- ]home[^.]{0,80}\\b(must not|may not|cannot|can't|is not allowed to) be (run as |used as )?(a )?rental( property)?\\b", "unless": "mainly|primarily|mostly", "struck": "On a second-home loan the home must not be rental property, you must use it part of the year.", "use": "On a second-home loan the home must not be run mainly as a rental, you must use it part of the year, and any rent it earns cannot help you qualify."},
-  {"row": "invest-financing-multiple-rentals 31", "pattern": "no new cash|without (any )?new cash|no (cash|money) (out of|from) (your )?savings|nothing (out of|from) (your )?savings", "struck": "Equity in a home you own can pay toward the next one, so the next purchase needs no new cash from savings.", "use": "Equity in a home you own can pay toward the next down payment, through a cash-out refinance or a line of credit."},
-  {"row": "invest-financing-multiple-rentals 33", "pattern": "\\b(3,002|1,903)\\b[^.]{0,120}\\brentals?\\b", "unless": "resell|will not live|won't live|investment", "struck": "In 2025, lenders reported 3,002 applications for loans on Horry County rentals and made 1,903 loans.", "use": "In 2025, lenders reported 3,002 applications for loans on Horry County homes the borrower would not live in, rentals and homes bought to resell, and made 1,903 loans."},
-  {"row": "invest-financing-multiple-rentals 34", "pattern": "lines? of credit[^.]{0,80}\\b(is|are) (rare|uncommon|unusual)\\b|\\b(rare|uncommon)\\b[^.]{0,60}lines? of credit[^.]{0,40}rental", "struck": "A line of credit on a rental is rare here.", "use": "In 2025, lenders reported 17 lines of credit on Horry County investment homes, 149 cash-out refinances on them, and 1,228 lines of credit on homes their owners live in."},
-  {"row": "invest-financing-multiple-rentals 34", "pattern": "not on rentals|lines? of credit (that )?lenders (here )?(make|put|write) (is|are) on the home", "struck": "Lenders here put lines of credit on homes people live in, not on rentals.", "use": "Lines of credit and cash-out refinances lenders reported in Horry County in 2025."},
-  {"row": "invest-financing-multiple-rentals 35", "pattern": "lines? of credit on (rentals|investment homes) (were|are) (turned down|denied) more often than", "struck": "Lines of credit on rentals were turned down more often than they were made.", "use": "Of 56 applications for a line of credit on an investment home that lenders reported deciding in 2025, 35 were turned down, about 6 in 10."},
-  {"row": "invest-financing-multiple-rentals 36", "pattern": "few lenders (here )?(offer|make|write|do)", "struck": "Few lenders offer it: 13 lenders made the 17 rental lines of credit in 2025.", "use": "13 lenders reported making the 17 lines of credit on investment homes in 2025."},
-  {"row": "invest-financing-multiple-rentals 38", "pattern": "next (came|come|is|are)[^.]{0,40}debt[^.]{0,80}\\b(and|then)\\b[^.]{0,40}(not enough cash|insufficient cash|cash for the down payment)", "struck": "Next came debt-to-income (65) and not enough cash for the down payment and closing costs (36).", "use": "Debt compared with income came next, in 65. Not enough cash for the down payment and closing costs was named in 36."},
-  {"row": "invest-financing-multiple-rentals 46", "pattern": "almost nobody[^.]{0,80}\\b(reach|reaches|hit|hits|near|nears|gets? near)\\b|(only|just) (about )?17[02] (people|owners)[^.]{0,80}limit", "struck": "Almost nobody here reaches the ten-home limit: about 170 owners in Horry County hold ten or more homes taxed at the 6 percent rate.", "use": "About 170 people and companies, not counting resort and timeshare firms, hold ten or more Horry County homes taxed at the 6 percent rate."}
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 4",
+    "pattern": "refinanc\\w*[^.]{0,60}house you are buying|house you are buying[^.]{0,80}refinanc",
+    "struck": "Cash from refinancing the house you are buying cannot count as its reserves.",
+    "use": "Cash taken out in a cash-out refinance cannot count toward the reserves for that same refinance."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 8",
+    "pattern": "(home|house) you live in,? and buy(ing)? another",
+    "struck": "Renting out the home you live in and buying another: the lender counts three quarters of its market rent.",
+    "use": "Renting out the home you live in when you buy a new home to live in: the lender counts three quarters of its market rent."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 12",
+    "pattern": "other financed rentals",
+    "struck": "Plus a share of what you owe on your other financed rentals.",
+    "use": "Plus a share of what you owe on your other financed homes, not counting your own home and the new one."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 18",
+    "pattern": "HUD's rent[^.]{0,80}lender counts|lender counts about \\$?1,6[67]\\d of it",
+    "struck": "HUD's rent for a 3-bedroom in that ZIP is $2,230 a month; the lender counts about $1,670 of it.",
+    "use": "If the appraiser's rent schedule came in at $2,230, HUD's figure for a 3-bedroom in that ZIP, the lender would count about $1,670."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 19",
+    "pattern": "\\$3,300|\\$767\\b|\\$9,200",
+    "struck": "Landlord insurance about $3,300 a year (one agency's estimate); about $767 a month, $9,200 a year.",
+    "use": "(cut the insurance figure: tax and dues about $5,900 a year, about $492 a month; insurance is the reader's own quote)"
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 20",
+    "pattern": "\\$10,[01]\\d\\d\\b",
+    "struck": "The standard rule asks you to keep about $10,100 plus six months of the new loan's principal and interest.",
+    "use": "The standard rule asks you to keep about $8,400, plus six months of the new loan's payment and insurance."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 21",
+    "pattern": "\\$4,600",
+    "struck": "Both houses empty for three months: about $4,600 in tax, insurance and dues.",
+    "use": "Both houses empty for three months: about $2,950 in tax and dues, plus three payments on each loan."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 22",
+    "pattern": "not the six loan payments|unless they are no larger",
+    "struck": "It covers that three-month double vacancy's tax, insurance and dues with about $5,500 left, but not the six loan payments on two loans unless they are no larger than the new loan's six.",
+    "use": "Three empty months on both houses take about $2,950 of that in tax and dues, plus three payments on each loan."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 23",
+    "pattern": "rented (out )?(for )?more than (72|seventy-two) days[^.]{0,80}(loses|cannot keep|can't keep|lose)",
+    "unless": "military|active duty|on orders",
+    "struck": "A legal residence rented out more than 72 days in a year loses the 4 percent rate.",
+    "use": "A legal residence rented out more than 72 days in a calendar year loses the 4 percent rate (active-duty military on orders keep it)."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 24",
+    "pattern": "\\b257\\b|126 people|131 companies|\\b650 homes|\\b193\\b",
+    "struck": "257 buyers recorded two or more Horry County home purchases: 126 people and 131 companies. Together they bought 650 homes. 193 of them bought exactly two.",
+    "use": "255 buyers recorded two or more Horry County home purchases: 138 people and 117 companies. Together they bought 645 homes. 192 of them bought exactly two."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 25",
+    "pattern": "half of (those|these|their) homes[^.]{0,80}outside South Carolina",
+    "struck": "Half of those homes now send the tax bill outside South Carolina.",
+    "use": "Of those homes the buyers still own, half send the tax bill outside South Carolina."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 26",
+    "pattern": "6,070|4,091|3,563 (of|are)|23,290",
+    "struck": "6,070 people and companies own two or more homes taxed at the 6 percent rate. 4,091 own exactly two. 3,563 of the 6,070 are people. They hold 23,290 homes.",
+    "use": "About 6,000 people and companies own two or more homes taxed at the 6 percent rate, not counting resort and timeshare firms. About 4,100 own exactly two. About 4,200 are people, some through a family trust."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 2026-11-a 27",
+    "pattern": "\\b67 (ask|of)|3,563 houses|1,897 condos|\\b432\\b",
+    "struck": "Of 3,563 houses with 3 or more bedrooms for sale in Horry County, 67 ask $195,000 or less; of 1,897 condos with 2 or more bedrooms, 432 do.",
+    "use": "(not on the page: listing counts change daily; the homes strip shows the homes)"
+  },
+  {
+    "row": "invest-financing-multiple-rentals 15",
+    "pattern": "second[- ]home[^.]{0,80}\\b(must not|may not|cannot|can't|is not allowed to) be (run as |used as )?(a )?rental( property)?\\b",
+    "unless": "mainly|primarily|mostly",
+    "struck": "On a second-home loan the home must not be rental property, you must use it part of the year.",
+    "use": "On a second-home loan the home must not be run mainly as a rental, you must use it part of the year, and any rent it earns cannot help you qualify."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 31",
+    "pattern": "no new cash|without (any )?new cash|no (cash|money) (out of|from) (your )?savings|nothing (out of|from) (your )?savings",
+    "struck": "Equity in a home you own can pay toward the next one, so the next purchase needs no new cash from savings.",
+    "use": "Equity in a home you own can pay toward the next down payment, through a cash-out refinance or a line of credit."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 33",
+    "pattern": "\\b(3,002|1,903)\\b[^.]{0,120}\\brentals?\\b",
+    "unless": "resell|will not live|won't live|investment",
+    "struck": "In 2025, lenders reported 3,002 applications for loans on Horry County rentals and made 1,903 loans.",
+    "use": "In 2025, lenders reported 3,002 applications for loans on Horry County homes the borrower would not live in, rentals and homes bought to resell, and made 1,903 loans."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 34",
+    "pattern": "lines? of credit[^.]{0,80}\\b(is|are) (rare|uncommon|unusual)\\b|\\b(rare|uncommon)\\b[^.]{0,60}lines? of credit[^.]{0,40}rental",
+    "struck": "A line of credit on a rental is rare here.",
+    "use": "In 2025, lenders reported 17 lines of credit on Horry County investment homes, 149 cash-out refinances on them, and 1,228 lines of credit on homes their owners live in."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 34",
+    "pattern": "not on rentals|lines? of credit (that )?lenders (here )?(make|put|write) (is|are) on the home",
+    "struck": "Lenders here put lines of credit on homes people live in, not on rentals.",
+    "use": "Lines of credit and cash-out refinances lenders reported in Horry County in 2025."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 35",
+    "pattern": "lines? of credit on (rentals|investment homes) (were|are) (turned down|denied) more often than",
+    "struck": "Lines of credit on rentals were turned down more often than they were made.",
+    "use": "Of 56 applications for a line of credit on an investment home that lenders reported deciding in 2025, 35 were turned down, about 6 in 10."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 36",
+    "pattern": "few lenders (here )?(offer|make|write|do)",
+    "struck": "Few lenders offer it: 13 lenders made the 17 rental lines of credit in 2025.",
+    "use": "13 lenders reported making the 17 lines of credit on investment homes in 2025."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 38",
+    "pattern": "next (came|come|is|are)[^.]{0,40}debt[^.]{0,80}\\b(and|then)\\b[^.]{0,40}(not enough cash|insufficient cash|cash for the down payment)",
+    "struck": "Next came debt-to-income (65) and not enough cash for the down payment and closing costs (36).",
+    "use": "Debt compared with income came next, in 65. Not enough cash for the down payment and closing costs was named in 36."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 46",
+    "pattern": "almost nobody[^.]{0,80}\\b(reach|reaches|hit|hits|near|nears|gets? near)\\b|(only|just) (about )?17[02] (people|owners)[^.]{0,80}limit",
+    "struck": "Almost nobody here reaches the ten-home limit: about 170 owners in Horry County hold ten or more homes taxed at the 6 percent rate.",
+    "use": "About 170 people and companies, not counting resort and timeshare firms, hold ten or more Horry County homes taxed at the 6 percent rate."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 47",
+    "pattern": "\\bcentral Myrtle Beach'?s?\\b[^.]{0,20}\\b29577\\b|\\b29577\\b[^.]{0,30}\\bcentral Myrtle Beach\\b",
+    "struck": "The example's $2,230 is about $500 more than HUD's 3-bedroom figure in central Myrtle Beach's ZIP, 29577 ($1,720).",
+    "use": "The example's $2,230 is about $500 more than HUD's 3-bedroom figure for 29577, Myrtle Beach's main ZIP ($1,720)."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 50",
+    "pattern": "\\bthe two (?:companies|firms)\\b[^.]{0,20}\\bbuy\\b",
+    "struck": "Fannie Mae is one of the two companies that buy standard loans from lenders, and this is its rule.",
+    "use": "Fannie Mae is one of two companies created by Congress that buy home loans from lenders, and this is its rule."
+  },
+  {
+    "row": "invest-financing-multiple-rentals 51",
+    "pattern": "\\bcash-out refinance\\b[^.]{0,80}\\b(?:gives|give|hands) you the difference\\b",
+    "unless": "closing costs",
+    "struck": "A cash-out refinance is a new, larger loan that pays off the old one and gives you the difference in cash.",
+    "use": "A cash-out refinance is a new, larger loan that pays off the old one; what is left after closing costs comes to you in cash."
+  }
 ]
