@@ -133,7 +133,8 @@
    "name": "The Farm at Carolina Forest",
    "pages": [
     "/buyers/best-neighborhoods/",
-    "/submarkets/carolina-forest/the-farm/"
+    "/submarkets/carolina-forest/the-farm/",
+    "/hoa/rental-restrictions/"
    ],
    "q": {
     "subdivision": "The Farm"
@@ -216,7 +217,8 @@
    "slug": "prince-creek-55",
    "name": "Seasons at Prince Creek West",
    "pages": [
-    "/buyers/gated-communities/"
+    "/buyers/gated-communities/",
+    "/hoa/rental-restrictions/"
    ],
    "q": {
     "subdivision": "Seasons at Prince Creek"
@@ -1082,7 +1084,8 @@
    "name": "Garden City Beach",
    "pages": [
     "/invest/str-tools/",
-    "/invest/airbnb-income/"
+    "/invest/airbnb-income/",
+    "/invest/strategies/dscr-loans/"
    ],
    "q": {
     "near": "33.58000,-78.99900",
@@ -1194,7 +1197,8 @@
    "slug": "compass-cove",
    "name": "Compass Cove",
    "pages": [
-    "/invest/condo-buildings/"
+    "/invest/condo-buildings/",
+    "/invest/condotel-financing/"
    ],
    "q": {
     "subdivision": "Compass Cove",
@@ -1220,7 +1224,8 @@
    "slug": "landmark-resort",
    "name": "Landmark Resort",
    "pages": [
-    "/invest/condo-buildings/"
+    "/invest/condo-buildings/",
+    "/invest/condotel-financing/"
    ],
    "q": {
     "subdivision": "Landmark",
@@ -1389,7 +1394,8 @@
    "slug": "sand-dunes-resort",
    "name": "Sand Dunes Resort",
    "pages": [
-    "/invest/condo-buildings/"
+    "/invest/condo-buildings/",
+    "/hoa/rental-restrictions/"
    ],
    "q": {
     "subdivision": "Sand Dunes",
@@ -1415,7 +1421,8 @@
    "slug": "margate-tower",
    "name": "Margate Tower",
    "pages": [
-    "/invest/condo-buildings/"
+    "/invest/condo-buildings/",
+    "/invest/non-warrantable-condos/"
    ],
    "q": {
     "subdivision": "Margate",
@@ -1467,7 +1474,8 @@
    "slug": "seawatch-resort",
    "name": "SeaWatch Resort",
    "pages": [
-    "/invest/condo-buildings/"
+    "/invest/condo-buildings/",
+    "/invest/condotel-financing/"
    ],
    "q": {
     "subdivision": "SeaWatch",
@@ -1480,7 +1488,8 @@
    "slug": "ocean-creek-resort",
    "name": "Ocean Creek Resort",
    "pages": [
-    "/invest/condo-buildings/"
+    "/invest/condo-buildings/",
+    "/invest/condotel-financing/"
    ],
    "q": {
     "subdivision": "Ocean Creek",
@@ -1581,6 +1590,123 @@
    },
    "index": false,
    "note": "A strip on /invest/strategies/1031-exchange/ (what an exchange can buy). 25 miles is the most a place may ask; a live map search on 2026-11-09 found 58 two-to-four unit buildings and 2,830 condos in the circle. index false: a strip for one guide."
+  },
+  {
+   "slug": "north-beach-plantation",
+   "name": "North Beach Plantation",
+   "pages": [
+    "/hoa/rental-restrictions/"
+   ],
+   "q": {
+    "subdivision": "North Beach Plantation"
+   },
+   "index": false,
+   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false. 15 for sale on 2026-11-10 (map API)."
+  },
+  {
+   "slug": "coquina-harbour",
+   "name": "Coquina Harbour",
+   "pages": [
+    "/hoa/rental-restrictions/"
+   ],
+   "q": {
+    "subdivision": "Coquina Harbour"
+   },
+   "index": false,
+   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false. 5 for sale on 2026-11-10."
+  },
+  {
+   "slug": "del-webb-grande-dunes",
+   "name": "Del Webb at Grande Dunes",
+   "pages": [
+    "/hoa/rental-restrictions/"
+   ],
+   "q": {
+    "subdivision": "Grande Dunes - Del Webb"
+   },
+   "index": false,
+   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false. 25 for sale on 2026-11-10. The 55+ guide /buyers/55-plus-communities/del-webb-grande-dunes/ stays the indexed answer."
+  },
+  {
+   "slug": "myrtle-trace",
+   "name": "Myrtle Trace",
+   "pages": [
+    "/hoa/rental-restrictions/"
+   ],
+   "q": {
+    "subdivision": "Myrtle Trace"
+   },
+   "index": false,
+   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false. 14 for sale on 2026-11-10. The 55+ guide stays the indexed answer."
+  },
+  {
+   "slug": "no-hoa-nightly-houses",
+   "name": "houses with no HOA around Myrtle Beach",
+   "pages": [
+    "/hoa/rental-restrictions/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "house",
+    "hoa": "0"
+   },
+   "index": false,
+   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false. A place cannot filter on nightly-rental flags, so this strip is houses with no HOA; its title says only that."
+  },
+  {
+   "slug": "maisons-sur-mer",
+   "name": "Maisons Sur-Mer",
+   "pages": [
+    "/invest/non-warrantable-condos/"
+   ],
+   "q": {
+    "subdivision": "Maisons Sur",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false. 14 for sale on 2026-11-09, all at 9650 Shore Dr."
+  },
+  {
+   "slug": "ocean-forest-plaza",
+   "name": "Ocean Forest Plaza",
+   "pages": [
+    "/invest/non-warrantable-condos/"
+   ],
+   "q": {
+    "subdivision": "Ocean Forest Pl",
+    "type": "condo"
+   },
+   "index": false,
+   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false. 14 for sale on 2026-11-09, all at 5523 N Ocean Blvd."
+  },
+  {
+   "slug": "dscr-longs-houses",
+   "name": "houses around Longs",
+   "pages": [
+    "/invest/strategies/dscr-loans/"
+   ],
+   "q": {
+    "near": "33.91344,-78.75415",
+    "miles": 5,
+    "type": "house"
+   },
+   "index": false,
+   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false."
+  },
+  {
+   "slug": "dscr-carolina-forest-houses",
+   "name": "houses in Carolina Forest",
+   "pages": [
+    "/invest/strategies/dscr-loans/"
+   ],
+   "q": {
+    "near": "33.77000,-78.92500",
+    "miles": 3,
+    "type": "house"
+   },
+   "index": false,
+   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false."
   }
  ]
 }
