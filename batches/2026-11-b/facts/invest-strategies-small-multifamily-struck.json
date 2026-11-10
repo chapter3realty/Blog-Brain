@@ -129,5 +129,11 @@
     "pattern": "\\bgood ones go under contract fast\\b",
     "struck": "That is why the good ones go under contract fast.",
     "use": "(cut it: no source; days on market were not measured)"
+  },
+  {
+    "row": "smf W8",
+    "pattern": "\\b(?:region|area|county|Grand Strand)(?:'s)? only (?:heart|cardiac)[ -]surgery\\b|\\bonly (?:heart|cardiac)[ -]surgery program\\b",
+    "struck": "Grand Strand Medical Center, with the region's only heart surgery program, is about 6 minutes by car.",
+    "use": "Grand Strand Medical Center, a hospital with a heart surgery program, is about 6 minutes by car."
   }
 ]
