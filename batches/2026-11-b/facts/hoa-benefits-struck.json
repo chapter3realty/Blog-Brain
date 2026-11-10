@@ -1,0 +1,185 @@
+[
+  {
+    "row": "benefits 3",
+    "pattern": "\\b73 and 47\\b|\\btrash\\b[^.]{0,80}\\b47 (?:in 100|percent|%)[^.]{0,30}\\bhouses?\\b|\\b47 (?:in 100|percent|%) of houses[^.]{0,60}\\btrash\\b",
+    "struck": "Among homes for sale with a fee, the listing says the fee includes trash on 91, 73 and 47.",
+    "use": "Among homes for sale with a fee, the listing says the fee includes trash on 91, 73 and 46."
+  },
+  {
+    "row": "benefits 3",
+    "pattern": "\\b(?:fee|dues) (?:includes?|pays? for|covers?)\\b[^.]{0,200}\\b(?:amenities|a gate|gates)\\b",
+    "struck": "The listing says the fee includes internet on 70, 25 and 9; amenities such as a pool or clubhouse on 87, 56 and 61.",
+    "use": "The listing says the community has shared amenities on 87, 56 and 61 in 100, and a gate on 13, 8 and 15."
+  },
+  {
+    "row": "benefits 5",
+    "pattern": "\\bpays? (?:for )?(?:the |its |a |his |her |their )?roof alone\\b|\\broof alone\\b",
+    "struck": "A house owner pays the roof alone.",
+    "use": "Owners of a one-family house in the South Atlantic states who replaced a roof paid a middle of about $10,400."
+  },
+  {
+    "row": "benefits 5",
+    "pattern": "\\broof\\b[^.]{0,80}\\bpaid (?:for )?(?:from|out of|by) the (?:fee|dues|assessments?) and (?:the )?reserves?\\b",
+    "struck": "In a condo, the roof is a shared cost paid from the fee and the reserves.",
+    "use": "In a condo, the roof is a common element, and its repair is a shared expense of all the owners."
+  },
+  {
+    "row": "benefits 13",
+    "pattern": "\\bindoor (?:lap |swimming )?pool\\b[^.]{0,80}\\bPepper Geddings\\b|\\bPepper Geddings\\b[^.]{0,80}\\bindoor (?:lap |swimming )?pool\\b|\\b25-yard indoor\\b",
+    "struck": "A year at a City of Myrtle Beach recreation center, which has a 25-yard indoor pool and a weight room at Pepper Geddings, costs one adult $175.",
+    "use": "A year at a City of Myrtle Beach recreation center, such as Pepper Geddings with its 25-yard pool and weight room, costs an adult age 18 to 54 $175 as a city resident."
+  },
+  {
+    "row": "benefits 13",
+    "pattern": "\\bone adult \\$175\\b|\\$175 (?:a year )?for (?:one|an|any) adult\\b(?![^.]{0,20}\\b18\\b)",
+    "struck": "It costs one adult $175 as a city resident or $295 otherwise.",
+    "use": "It costs an adult age 18 to 54 $175 as a city resident or $295 otherwise."
+  },
+  {
+    "row": "benefits 13",
+    "pattern": "\\$805 for a couple\\b",
+    "struck": "It costs $555 for one adult or $805 for a couple, paid in full.",
+    "use": "It costs $555 for one adult or $805 for a married couple, paid in full."
+  },
+  {
+    "row": "benefits 17",
+    "pattern": "\\b(?:recorded|governing) documents are the only limits?\\b|\\bonly limits? (?:are|is) (?:in )?the (?:recorded|governing) documents\\b|\\b(?:master deed, covenants and bylaws|covenants and bylaws|HOA'?s? (?:own )?(?:papers|documents)) are the only limits?\\b",
+    "struck": "The recorded documents are the only limits.",
+    "use": "The limits are in the master deed, covenants and bylaws."
+  },
+  {
+    "row": "benefits 18",
+    "pattern": "\\b(?:bars|barred|prohibits|prohibited|forbids|forbidden)\\b[^.]{0,40}\\bfrom regulating\\b|\\b(?:cannot|can't|may not) regulate (?:an |the )?HOAs?\\b",
+    "struck": "The law bars it from regulating HOAs or settling disputes.",
+    "use": "The law bars it from issuing rules or guidelines on how an HOA is run, and from acting as a referee in a dispute."
+  },
+  {
+    "row": "benefits 20",
+    "pattern": "\\b(?:condo )?owners? can (?:make|force|compel) the (?:association|board|HOA|council) (?:to )?(?:follow|obey|keep to) its (?:own )?rules\\b",
+    "struck": "A condo owner can make the association follow its own rules.",
+    "use": "Every condo owner must follow the bylaws and the recorded restrictions, and a harmed owner may, in a proper case, sue an owner who breaks them."
+  },
+  {
+    "row": "benefits 22",
+    "pattern": "\\breserve study shows (?:that )?the reserves are (?:fully )?funded\\b",
+    "struck": "Fannie Mae has the lender check the 10 percent, unless an acceptable reserve study shows the reserves are funded.",
+    "use": "The lender may rely on an acceptable reserve study instead, if the funded reserves meet the study's recommendations."
+  },
+  {
+    "row": "benefits 24",
+    "pattern": "\\bdocuments come through the seller and the association\\b",
+    "struck": "A buyer is not yet an owner, so the documents come through the seller and the association.",
+    "use": "(cut it: no source says how a buyer gets the documents)"
+  },
+  {
+    "row": "benefits 26",
+    "pattern": "\\bup north\\b",
+    "struck": "The biggest mistake the owner sees buyers from up north make is not checking the rules.",
+    "use": "The biggest mistake we see buyers from New York make: not checking that the community's rules fit how they live."
+  },
+  {
+    "row": "benefits-b 2",
+    "pattern": "\\blawns, landscaping\\b|\\$12\\b[^.]{0,30}\\blawns?\\b",
+    "struck": "About $12 for lawns, landscaping and ponds.",
+    "use": "About $12 a home a month goes to common-area landscaping and ponds."
+  },
+  {
+    "row": "benefits-b 2",
+    "pattern": "\\$107\\b[^.]{0,260}\\beverything else\\b",
+    "struck": "Of each home's $107 a month in 2027: about $43 for cable TV, $13 for trash pickup and $10 for everything else.",
+    "use": "(frame the bars as each home's share of the 2027 budget, about $108 a month: $107 from the fee and the rest from transfer fees, rent and key cards)"
+  },
+  {
+    "row": "benefits-b 2",
+    "pattern": "\\bsavings for repairs\\b",
+    "struck": "About $6 into savings for repairs.",
+    "use": "About $6 into savings for future projects, which the budget calls capital improvement."
+  },
+  {
+    "row": "benefits-b 7",
+    "pattern": "\\bpool and (?:the )?ponds\\b[^.]{0,30}\\bcosts? each home\\b|\\bcosts? each home\\b[^.]{0,60}\\bpool\\b",
+    "struck": "What Myrtle Trace's pool and ponds cost each home.",
+    "use": "Myrtle Trace's 2026 operating budget puts about $77 a home a year into the pool and the ponds."
+  },
+  {
+    "row": "benefits-b 9",
+    "pattern": "\\bswimming and boats\\b|(?<!recreational )\\bboats are not allowed on the ponds\\b",
+    "struck": "Swimming and boats are not allowed on the ponds.",
+    "use": "Swimming and recreational boats are not allowed on the ponds."
+  },
+  {
+    "row": "benefits-b 11",
+    "pattern": "\\b(?:fee|dues) includes? a beach club\\b|\\b(?:Beach|Ocean) Club\\b[^.]{0,80}\\bpart of (?:the|its|their|your)\\b[^.]{0,40}\\b(?:fee|dues)\\b|\\b(?:HOA )?(?:fee|dues)\\b[^.]{0,60}\\b(?:includes?|covers?|pays? for)\\b[^.]{0,60}\\b(?:Beach|Ocean) Club\\b",
+    "struck": "Del Webb at Grande Dunes's fee includes a beach club.",
+    "use": "Every owner pays a mandatory Beach Club fee to the Grande Dunes master association, on top of the association's own assessments."
+  },
+  {
+    "row": "benefits-b 12",
+    "pattern": "\\bthe beach club is\\b|\\bBeach Club\\b[^.]{0,40}\\b(?:is|means) the (?:Grande Dunes )?Ocean Club\\b|\\b(?:free|complimentary)\\b[^.]{0,60}\\bOcean Club\\b|\\bOcean Club\\b[^.]{0,60}\\b(?:free|complimentary)\\b",
+    "struck": "What the beach club is: a complimentary household membership in the Grande Dunes Ocean Club.",
+    "use": "The Grande Dunes master association says a Grande Dunes homeowner gets a household membership in the Grande Dunes Ocean Club."
+  },
+  {
+    "row": "benefits-b 13",
+    "pattern": "\\bOcean Club\\b[^.]{0,140}\\$(?:80|960|962)\\b|\\$(?:80|960|962)\\b[^.]{0,140}\\bOcean Club\\b",
+    "struck": "The association's 2025 budget collects $781,440 for the Grande Dunes Ocean Club, about $960 a year, or $80 a month, for each lot.",
+    "use": "The association's main 2025 budget sends $781,440 to the Grande Dunes Ocean Club."
+  },
+  {
+    "row": "benefits-b 14",
+    "pattern": "\\byard care\\b[^.]{0,140}\\$(?:50|51|600|608)\\b|\\$(?:50|51|600|608)\\b[^.]{0,100}\\byard care\\b",
+    "struck": "The same budget carries $493,734 for yard care of individual lots, about $600 a year, or $50 a month, for each of the 812 lots.",
+    "use": "(cut the per-lot figure: the line is billed only to the lots that get yard care)"
+  },
+  {
+    "row": "benefits-b 25",
+    "pattern": "\\b(?:fee|dues) carries\\b[^.]{0,30}\\b(?:TV|television)\\b|\\b(?:fee|dues)\\b[^.]{0,40}\\bincludes?\\b[^.]{0,40}\\blawn care\\b[^.]{0,60}\\b(?:TV|television|cable)\\b",
+    "unless": "\\bbuilder\\b|\\bPulte\\b|\\blistings? (?:say|show|name)\\b",
+    "struck": "Del Webb North Myrtle Beach's fee carries TV and lawn care.",
+    "use": "Listings show $315 a month on most homes for sale or sold in 2026. The builder lists lawn care and a 175-channel TV package in the fee."
+  },
+  {
+    "row": "benefits-b 26",
+    "pattern": "\\b1,020\\b|\\$31,480\\b",
+    "struck": "Security guards earned a middle wage of $15.13 an hour ($31,480 a year) in May 2025; about 1,020 worked here.",
+    "use": "In the Myrtle Beach metro area, security guards earned a middle wage of $15.13 an hour in May 2025."
+  },
+  {
+    "row": "benefits-b 27",
+    "pattern": "\\b(?:one|a single) household could(?:n't| not)\\b|\\bno (?:single )?household could\\b",
+    "struck": "One household could not buy it.",
+    "use": "(cut it, or say: one household alone would pay all of it)"
+  },
+  {
+    "row": "benefits-b 30",
+    "pattern": "\\bcosts? a home less than (?:one|a) public pass\\b",
+    "struck": "A year of the pool through the fee costs a home less than one public pass.",
+    "use": "The budgets' pool lines come to about $63 to $77 a home a year; a year at a public pool and gym costs one adult $125 to $555."
+  },
+  {
+    "row": "benefits-b 36",
+    "pattern": "\\bcommunity boat ramp\\b",
+    "struck": "Fee houses are more likely to list a community boat ramp.",
+    "use": "Fee houses are more likely to list a boat ramp: 9 in 100, against 2 in 100."
+  },
+  {
+    "row": "benefits-b 37",
+    "pattern": "\\bthe most common concern\\b",
+    "unless": "\\bnamed\\b|\\bthe state names\\b",
+    "struck": "The most common concern, in 36 of 100, was that the HOA did not follow or enforce its own covenants and bylaws.",
+    "use": "Of the concerns the state names, the most common, in 36 of 100 complaints, was that the HOA did not follow or enforce its own covenants and bylaws."
+  },
+  {
+    "row": "benefits-b 42",
+    "pattern": "\\bHorry\\b[^.]{0,120}\\$2,000\\b",
+    "unless": "\\bLoris\\b",
+    "struck": "Horry County owners of a one-family house pay a middle of about $2,000 a year for home insurance.",
+    "use": "Owners of a one-family house in Horry County outside the Loris area pay a middle of about $2,000 a year for home insurance."
+  },
+  {
+    "row": "benefits-b 45",
+    "pattern": "\\bunless an acceptable reserve study\\b",
+    "struck": "Fannie Mae has the lender check 10 percent, unless an acceptable reserve study stands in.",
+    "use": "The lender may rely on an acceptable reserve study instead, if the funded reserves meet the study's recommendations."
+  }
+]

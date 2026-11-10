@@ -1,0 +1,133 @@
+[
+  {
+    "row": "smf 5",
+    "pattern": "\\b(?:tax records|county)\\b[^.]{0,40}\\bcodes?\\b[^.]{0,40}\\b1,2[67]\\d\\b[^.]{0,80}\\b(?:two|2)-",
+    "unless": "\\bour reading\\b|\\bwe read\\b",
+    "struck": "Horry County's tax records code 1,268 parcels with a building as two-, three- or four-family buildings: 984 duplexes, 103 triplexes and 181 fourplexes, about 3,000 homes in all.",
+    "use": "Horry County's tax records put about 1,270 parcels with a building under the land-use codes we read as two-, three- and four-family buildings, about 3,000 homes in all."
+  },
+  {
+    "row": "smf 8",
+    "pattern": "\\babout (?:three|3) in (?:four|4)\\b[^.]{0,160}\\bmile of the ocean\\b",
+    "struck": "About three in four of the county's duplexes, triplexes and fourplexes stand within a mile of the ocean.",
+    "use": "Nearly 3 in 4 of the county's duplexes, triplexes and fourplexes stand within a mile of the ocean, measured in a straight line."
+  },
+  {
+    "row": "smf 8",
+    "pattern": "\\babout a third\\b[^.]{0,80}\\bquarter mile\\b",
+    "struck": "About three in four stand within a mile of the ocean, and about a third within a quarter mile.",
+    "use": "More than a third stand within a quarter mile of the ocean, measured in a straight line."
+  },
+  {
+    "row": "smf 14",
+    "pattern": "\\bWindtree\\b[^.]{0,160}\\binland\\b|\\binland\\b[^.]{0,160}\\bWindtree\\b",
+    "struck": "In the inland groups it is about $230,000 to $255,000 (Windtree Estates, Tarpon Bay II, A Place at the River in Little River).",
+    "use": "In three groups away from the old beach blocks it is about $230,000 to $255,000: Windtree Estates in Myrtle Beach, about 0.7 mile from the ocean; A Place at the River in Little River, about 2.7 miles; and Tarpon Bay II near Forestbrook, about 5 miles."
+  },
+  {
+    "row": "smf 33",
+    "pattern": "\\binland\\b[^.]{0,60}\\bshare\\b[^.]{0,20}\\bhigher\\b|\\bshare\\b[^.]{0,20}\\bhigher\\b[^.]{0,60}\\binland\\b",
+    "struck": "In the inland groups the share is higher: 23 of 49 at Windtree Estates and 20 of 75 at Tarpon Bay II, against 9 of 113 in Cherry Grove Beach.",
+    "use": "The share is lowest in North Myrtle Beach's old beach blocks (9 of 113 in Cherry Grove Beach, 4 of 42 in Ingram Beach) and highest at Windtree Estates (23 of 49), Ocean Terrace (20 of 54) and Tarpon Bay II (20 of 75)."
+  },
+  {
+    "row": "smf 15",
+    "pattern": "\\bin Horry County\\b[^.]{0,80}\\brents? for about \\$(?:1,000|1,135|950|1,100|1,400)\\b",
+    "unless": "\\bmost of Horry County\\b",
+    "struck": "A 2-bedroom unit in a building of 2 to 4 units in Horry County rents for about $1,000 a month in lease rent.",
+    "use": "In most of Horry County, a 2-bedroom unit in a building of 2 to 4 units rents for about $1,000 a month in lease rent, on leases of every age."
+  },
+  {
+    "row": "smf 26",
+    "pattern": "\\bsame smallest down payment\\b[^.]{0,120}\\bone-unit\\b",
+    "unless": "\\bco-borrower\\b|\\bevery (?:buyer|borrower)\\b",
+    "struck": "FHA asks the same smallest down payment on a duplex or fourplex you live in as on a one-unit home.",
+    "use": "When every buyer on the loan will live there, FHA asks the same smallest down payment on a duplex or fourplex as on a one-unit home. A co-borrower who will not live in a 2 to 4 unit building means a larger down payment."
+  },
+  {
+    "row": "smf 28",
+    "pattern": "\\bFreddie Mac\\b[^.]{0,160}\\bmatch(?:es)?\\b[^.]{0,40}\\bone-unit\\b",
+    "unless": "\\bstandard\\b",
+    "struck": "Freddie Mac's top loan on a duplex or fourplex you live in matches its top loan on a one-unit home, when its system accepts the loan.",
+    "use": "On Freddie Mac's standard loans, the top loan on a duplex or fourplex you live in matches its top loan on a one-unit home, when its system accepts the loan; some of its low down payment programs allow more on a one-unit home only."
+  },
+  {
+    "row": "smf 29",
+    "pattern": "\\bnot (?:on )?your tax returns\\b",
+    "struck": "DSCR means the loan qualifies on the property's rent, not your tax returns.",
+    "use": "The lender qualifies the loan on the rent, not on your income."
+  },
+  {
+    "row": "smf 31",
+    "pattern": "\\b4\\.7 ?(?:percent|%)",
+    "struck": "Two 2-bedroom units at about $1,000 each bring in about $24,000 a year, about 4.7 percent of the price before any costs.",
+    "use": "(cut it: the rent is the Census median for rented units, mostly year-round leases, and the price is the county median, half of it beach buildings; the two groups differ)"
+  },
+  {
+    "row": "smf 31",
+    "pattern": "\\$350,000 for a resale house\\b|\\bresale house\\b[^.]{0,30}\\$350,000",
+    "struck": "Per home, that duplex costs about $256,000, against about $350,000 for a resale house and about $215,000 for a resale condo.",
+    "use": "Per home, that duplex costs about $256,000, against about $350,000 for a resold house or other home and about $215,000 for a resold condo in the same 12 months."
+  },
+  {
+    "row": "smf R2",
+    "pattern": "\\b(?:city or county|county or city)\\b[^.]{0,40}\\b(?:cap|limit)s? rents?\\b",
+    "unless": "\\bprivately owned\\b",
+    "struck": "No city or county in South Carolina may cap rents.",
+    "use": "South Carolina does not let a city or county limit rents on privately owned homes."
+  },
+  {
+    "row": "smf live 1",
+    "pattern": "\\bmove out\\b[^.]{0,60}\\brent your old unit\\b",
+    "struck": "After that, you can move out, rent your old unit, and keep the whole building.",
+    "use": "(cut it: no source; the handbook says only that one buyer must intend to live there at least a year)"
+  },
+  {
+    "row": "smf live 2",
+    "pattern": "\\bFHA\\b[^.]{0,200}\\blower rate\\b",
+    "struck": "Because you live there, you can use an owner-occupied loan like FHA on a two-to-four-unit building: a far smaller down payment than an investor loan, and a lower rate.",
+    "use": "(cut it: a rate comparison is a rate claim)"
+  },
+  {
+    "row": "smf live 3",
+    "pattern": "\\bTim\\b[^.]{0,40}\\bowned rentals\\b",
+    "struck": "Tim has owned rentals in Horry County himself for years, and the building math on this page is the math he runs on his own.",
+    "use": "(cut it: never write for Tim Nash without his words)"
+  },
+  {
+    "row": "smf live 4",
+    "pattern": "\\bhears about (?:some|them)\\b[^.]{0,40}\\bbefore they list\\b",
+    "struck": "Chapter3 watches the Grand Strand MLS for them daily and hears about some before they list, from the agents and property managers our team has worked with here for decades.",
+    "use": "(cut it: no source)"
+  },
+  {
+    "row": "smf live 5",
+    "pattern": "\\$13 million\\b|\\$225,000 for a small duplex\\b",
+    "struck": "starting near $225,000 for a small duplex and running past $13 million for hotel-scale property.",
+    "use": "(cut it: rows 1 to 4 give the dated count and prices)"
+  },
+  {
+    "row": "smf live 6",
+    "pattern": "\\blocal leases rather than a national estimate\\b",
+    "struck": "so the rent figures come from local leases rather than a national estimate.",
+    "use": "(cut it: not checked; S3 gives the analyzer's approved wording)"
+  },
+  {
+    "row": "smf live 7",
+    "pattern": "\\bsold in all three\\b|\\bknows which blocks rent\\b",
+    "struck": "Chapter3 has sold in all three Grand Strand pockets and knows which blocks rent to year-round workers and which fill with summer staff.",
+    "use": "(cut it: no story; owner question if wanted)"
+  },
+  {
+    "row": "smf live 8",
+    "pattern": "\\bcluster in Conway\\b",
+    "struck": "On the Grand Strand, these buildings cluster in Conway, the older parts of Myrtle Beach, and pockets of North Myrtle Beach.",
+    "use": "Most stand in North Myrtle Beach, Myrtle Beach and Surfside Beach, and nearly 3 in 4 within a mile of the ocean; Conway has about 110 of the county's 1,268 (rows 7 and 8)."
+  },
+  {
+    "row": "smf live 9",
+    "pattern": "\\bgood ones go under contract fast\\b",
+    "struck": "That is why the good ones go under contract fast.",
+    "use": "(cut it: no source; days on market were not measured)"
+  }
+]

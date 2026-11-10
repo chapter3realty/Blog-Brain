@@ -1,0 +1,156 @@
+[
+  {
+    "row": "invest-strategies 1",
+    "pattern": "\\ball (?:of )?(?:these|the|eight|8) (?:strategies|ways)\\b[^.]{0,40}\\b(?:close|happen)",
+    "unless": "\\bsix\\b",
+    "struck": "All of these strategies close here.",
+    "use": "All six strategies with their own guide here happen on the Grand Strand. DSCR purchases and 1031 trades are the most common we see, and BRRRR is the rarest, because the right property is rare."
+  },
+  {
+    "row": "invest-strategies 1",
+    "pattern": "\\bright house is rare\\b",
+    "struck": "BRRRR is the rarest, because the right house is rare.",
+    "use": "BRRRR is the rarest, because the right property is rare."
+  },
+  {
+    "row": "invest-strategies 2",
+    "pattern": "\\bat a local (?:networking )?event\\b",
+    "struck": "An agent met a man at a local event and the two stayed in touch for years.",
+    "use": "An agent at Chapter3 met a man at a networking event, and the two became friends."
+  },
+  {
+    "row": "invest-strategies 2",
+    "pattern": "\\bstayed in (?:touch|contact) for years\\b",
+    "struck": "The two stayed in touch for years.",
+    "use": "The two became friends."
+  },
+  {
+    "row": "invest-strategies 2",
+    "pattern": "\\basked us to (?:quietly )?sell\\b",
+    "struck": "When he fell behind on a condo here, he asked us to sell it quietly.",
+    "use": "When he fell behind on a condo here, he asked that agent to sell it quietly."
+  },
+  {
+    "row": "invest-strategies 2",
+    "pattern": "\\bstill collects\\b",
+    "struck": "That investor still collects the rent.",
+    "use": "That investor now collects the rent."
+  },
+  {
+    "row": "invest-strategies 3",
+    "pattern": "\\b(?:contractors|property managers|managers|insurers)\\b[^.]{0,60}\\bwho tell us\\b",
+    "struck": "It cannot buy years of friendships with the local lenders, attorneys, contractors and managers who tell us about properties before they list.",
+    "use": "It cannot buy friendships that last years, and friends of ours tell us about properties before they list."
+  },
+  {
+    "row": "invest-strategies 5",
+    "pattern": "\\bHOA (?:papers|documents)\\b[^.]{0,80}\\bbefore you (?:offer|write an offer|make an offer)\\b",
+    "struck": "We filter those out of a search and read the HOA papers for rules that would block your plan before you offer.",
+    "use": "We filter those out of a search and read the HOA documents for rules that would block your rental plan."
+  },
+  {
+    "row": "invest-strategies 8",
+    "pattern": "\\b(?:a|the middle) house in Horry County resold\\b|\\bA house \\(resale\\)",
+    "struck": "A house in Horry County resold for about $350,000 at the middle in the 12 months to September 2026.",
+    "use": "The middle resale of a home other than a condo, mostly houses, was about $350,000 in the 12 months to September 2026."
+  },
+  {
+    "row": "invest-strategies 9",
+    "pattern": "\\b(?:half|4[69] (?:to 4[69] )?percent)(?: of)? the rent\\b[^.]{0,40}\\bfor the loan\\b",
+    "unless": "\\bHUD\\b",
+    "struck": "A middle 3-bedroom house in Longs or Carolina Forest leaves about half the rent for the loan, 46 to 49 percent, at our 1.25 target ratio.",
+    "use": "At HUD's rent figure for the ZIP, a middle-priced 3-bedroom house for sale in Longs or Carolina Forest, outside city limits, leaves about 46 to 49 percent of that rent for principal and interest at our 1.25 target ratio."
+  },
+  {
+    "row": "invest-strategies 11",
+    "pattern": "\\bnot (?:on )?your tax returns?\\b",
+    "struck": "A DSCR loan qualifies on the property's rent, not on your tax returns.",
+    "use": "The lender qualifies the loan on the rent, not on your income."
+  },
+  {
+    "row": "invest-strategies 12",
+    "pattern": "\\ba home you live in\\b[^.]{0,20}\\b4 percent\\b|\\brental in South Carolina is taxed on 6 percent\\b",
+    "struck": "A rental in South Carolina is taxed on 6 percent of its value; a home you live in, on 4 percent.",
+    "use": "A home that is not its owner's legal residence, such as a house rented out year-round or a second home, is taxed on 6 percent of its value. A legal residence rented out more than 72 days in a calendar year loses the 4 percent rate."
+  },
+  {
+    "row": "invest-strategies 14",
+    "pattern": "\\bConway, Socastee and Carolina Forest\\b|\\bwhere prices drop again\\b",
+    "struck": "BRRRR deals here are usually dated houses inland: Conway, Socastee and Carolina Forest, and north through Longs and Little River, where prices drop again.",
+    "use": "Most good BRRRR candidates here are lower-value homes inland toward Longs or Little River, or condo units in a stable building with a distressed owner."
+  },
+  {
+    "row": "invest-strategies 15",
+    "pattern": "\\brefinance is (?:judged|based|decided) on the rent\\b",
+    "struck": "BRRRR is rare because the worn house must also sit where rent is strong; the refinance is judged on the rent.",
+    "use": "BRRRR is rare because the worn house must also sit where rents are high, since the strategy relies on high rents."
+  },
+  {
+    "row": "invest-strategies 16",
+    "pattern": "(?<!at least )\\b344 (?:quick resales|resales|homes|flips)\\b",
+    "struck": "Fix and flip: Horry County recorded 344 quick resales (a home resold within 12 months) in the year to September 2026.",
+    "use": "Fix and flip: Horry County recorded at least 344 quick resales, a home resold within 12 months of its last sale, in the year to September 2026."
+  },
+  {
+    "row": "invest-strategies 17",
+    "pattern": "\\bflippers? bought\\b",
+    "struck": "The middle house a flipper bought here cost about $265,000 and resold for about $315,000.",
+    "use": "Of the homes with their own land, mostly houses, resold within a year, the middle one was bought for about $265,000 and resold for about $315,000."
+  },
+  {
+    "row": "invest-strategies 19",
+    "pattern": "\\b58 (?:duplexes|buildings|small multifamily buildings)\\b[^.]{0,60}\\bsold\\b",
+    "struck": "Small multifamily: 58 duplexes, triplexes and fourplexes sold in Horry County in the 12 months to September 2026, at a middle price of about $520,000.",
+    "use": "Small multifamily: Horry County recorded 58 sales of buildings with 2 to 4 homes, on 54 buildings, in the 12 months to September 2026, at a middle price of about $520,000."
+  },
+  {
+    "row": "invest-strategies 20",
+    "pattern": "\\bthe county's duplexes, triplexes and fourplexes\\b[^.]{0,40}\\bwithin a mile\\b",
+    "unless": "\\bone (?:lot|parcel)\\b",
+    "struck": "About three in four of the county's duplexes, triplexes and fourplexes stand within a mile of the ocean.",
+    "use": "Nearly 3 in 4 of the county's buildings of 2 to 4 homes on one parcel stand within a mile of the ocean, in a straight line."
+  },
+  {
+    "row": "invest-strategies 23",
+    "pattern": "\\bown it within 180\\b(?![^.]*(?:due date|earlier|comes first))",
+    "struck": "Name the replacement within 45 days of the sale and own it within 180.",
+    "use": "Name the replacement within 45 days of the sale, and own it within 180 days or by your tax return's due date with extensions, if that comes first."
+  },
+  {
+    "row": "invest-strategies 24",
+    "pattern": "\\bheld back\\b[^.]{0,80}\\bunless\\b[^.]{0,60}\\b(?:exchange box|I-295)\\b",
+    "struck": "A seller who lives in another state has part of the price held back for state tax at closing unless the exchange box on Form I-295 is ticked.",
+    "use": "A seller who lives in another state has state income tax withheld at closing. In a 1031 exchange through a qualified intermediary, that amount goes to the intermediary, and the state is paid nothing if the exchange is completed."
+  },
+  {
+    "row": "invest-strategies 29",
+    "pattern": "\\$200,000 of income\\b[^.]{0,60}\\blast two years\\b(?![^.]*\\bexpect)",
+    "struck": "Most DSTs sell only to accredited investors: over $1 million of net worth not counting your home, or over $200,000 of income ($300,000 with a spouse) in each of the last two years.",
+    "use": "Most DSTs sell only to accredited investors: over $1 million of net worth not counting your home, or over $200,000 of income ($300,000 with a spouse or partner) in each of the last two years, with the same expected this year."
+  },
+  {
+    "row": "invest-strategies 30",
+    "pattern": "\\bon Carolina Forest Boulevard\\b",
+    "struck": "10 trusts own 11 parcels in Horry County, including two large apartment communities, one on Carolina Forest Boulevard.",
+    "use": "10 trusts own 11 parcels in Horry County, including two large apartment communities, one near Carolina Forest Boulevard and one in the Clear Pond area."
+  },
+  {
+    "row": "invest-strategies 36",
+    "pattern": "\\bhomes resold\\b[^.]{0,80}\\bcompany buyer\\b|\\binvestors bought (?:about )?9 percent\\b",
+    "struck": "About 9 in 100 homes resold in Horry County in the year to September 2026 went to a company buyer, such as an LLC.",
+    "use": "About 9 in 100 homes sold in Horry County in the year to September 2026 went to a buyer whose name reads as a company, such as an LLC, a corporation or a bank."
+  },
+  {
+    "row": "invest-strategies 37",
+    "pattern": "\\bno one (?:else )?prints\\b",
+    "struck": "Our comparison, a finding no one prints side by side: what each strategy buys here at the middle price.",
+    "use": "(cut it: no source for 'no one'; say 'Our comparison' only)"
+  },
+  {
+    "row": "invest-strategies 41",
+    "pattern": "\\b(?:Delaware statutory trust|DST) can be the replacement(?: property)?\\b",
+    "unless": "\\b(?:2004-86|limits|rules are met|if the trust)\\b",
+    "struck": "A share of a Delaware statutory trust can be the replacement property in a 1031 exchange.",
+    "use": "A share of a Delaware statutory trust can be the replacement if the trust stays inside Rev. Rul. 2004-86's limits and the other 1031 rules are met."
+  }
+]

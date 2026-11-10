@@ -1,0 +1,113 @@
+[
+  {
+    "row": "relocating 7",
+    "pattern": "golf carts?[^.]{0,100}\\bHorry County[’']s beach(?:es)?\\b|\\bHorry County[’']s beach(?:es)?\\b[^.]{0,100}golf carts?",
+    "struck": "From November 1 through February 28, golf carts may drive on Horry County's beaches, with a valid state permit and a licensed driver.",
+    "use": "From November 1 through February 28, golf carts with a valid state permit and a licensed driver may go on the beaches Horry County runs: its unincorporated stretches, which include the Horry County part of Garden City Beach."
+  },
+  {
+    "row": "relocating 7",
+    "pattern": "(?:Myrtle Beach|North Myrtle Beach|Surfside Beach|Garden City|Georgetown County|the cities|the towns)[^.]{0,60}\\b(?:allows?|permits?|lets?)\\b[^.]{0,30}golf carts?[^.]{0,30}\\b(?:beach|sand)\\b",
+    "unless": "Horry County part|county part of Garden City|north of the county line",
+    "struck": "Myrtle Beach allows golf carts on the beach in winter.",
+    "use": "(cut it: only the beaches Horry County runs allow carts, from November 1 through February 28)"
+  },
+  {
+    "row": "relocating 8",
+    "pattern": "horses?[^.]{0,140}(?:south of Myrtle Beach|north of Surfside|equestrian zone|middle stretch|central portion|one zone)|(?:equestrian zone|middle stretch|central portion)[^.]{0,140}horses?",
+    "struck": "In the same months, horses are allowed on the beach in one zone: the middle stretch south of Myrtle Beach and north of Surfside Beach.",
+    "use": "Myrtle Beach State Park opens its beach to riders and their horses from the third Saturday in November through the last day of February; each horse needs a season permit and a current negative Coggins test, and no horse stays overnight."
+  },
+  {
+    "row": "relocating 8",
+    "pattern": "horses?[^.]{0,100}\\bNov(?:ember|\\.)? 1\\b|\\bNov(?:ember|\\.)? 1\\b[^.]{0,100}horses?|horses?[^.]{0,60}\\bFebruary 28\\b|Owners pick up after them",
+    "unless": "golf carts?[^.]{0,60}November 1",
+    "struck": "From November 1 through February 28, horses are allowed on the county's beach. Owners pick up after them.",
+    "use": "(cut it: the county's horse line could not be confirmed in its code and a 2025 news report says the county bans horses year round; the state park's dates are the third Saturday in November through the last day of February)"
+  },
+  {
+    "row": "relocating 15",
+    "pattern": "Brunswick County[^.]{0,80}\\babout 50 (?:road )?miles\\b",
+    "unless": "middle of|center of|centre of|county[’']s middle|internal point",
+    "struck": "North Carolina's largest source of new households is next door: Brunswick County, about 50 road miles from Myrtle Beach.",
+    "use": "North Carolina's largest source of new households is next door: Brunswick County, which borders Horry County; from the middle of the county it is about 50 road miles to Myrtle Beach."
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\b40 ?(?:percent|%)[^.]{0,80}\\b(?:relocat|out of state|out-of-state)",
+    "struck": "40 percent of Myrtle Beach buyers relocate from out of state",
+    "use": "In the latest year, about 3 in 10 homes sold in Horry County went to a buyer whose tax bill goes to another state or country."
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\b(?:close|closes|closing) in one trip\\b|\\bsingle (?:2|two)-day visit\\b|\\bClose in One Trip\\b",
+    "struck": "Most of our out-of-state buyers find their home on a single 2-day visit, and most clients close in one trip.",
+    "use": "(cut it: no story in the bank; owner question 2)"
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\bsubmit(?:ted|ting)?\\b[^.]{0,40}\\belectronically\\b|\\bremote closings?\\b",
+    "struck": "SC law allows remote closings. You sign documents through a notary in your home state and submit them electronically.",
+    "use": "A deed or mortgage signed in another state records here if it is signed before a notary of that state, with two witnesses."
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\$400 to \\$700|\\byou need three\\b[^.]{0,80}flood",
+    "struck": "In coastal SC you need three: homeowners, wind/hail, and flood. Together these can add $400 to $700 per month.",
+    "use": "(cut it: no source; the coastal insurance page owns insurance costs)"
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\b(?:7|seven) ?(?:%|percent) below the national average|\\bamong the lowest in the region\\b|\\bdramatically lower taxes\\b",
+    "struck": "Overall cost of living in Myrtle Beach runs approximately 7% below the national average, and property taxes are among the lowest in the region.",
+    "use": "(cut it: no source on the page; the cost-of-living page owns the index)"
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\bstrongest school|\\bschools trend lower\\b|\\bfilter your search to\\b|\\btop pick for professionals\\b|\\battract those looking for a quieter\\b",
+    "struck": "Carolina Forest has the strongest school performance, and Myrtle Beach city schools trend lower.",
+    "use": "(cut it: school quality claims and steering, BIZ-8)"
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\bfamily relocating from the suburbs\\b|\\btoo touristy\\b",
+    "struck": "A family relocating from the suburbs of Charlotte who buys an oceanfront condo finds the area too touristy.",
+    "use": "(cut it: an invented example)"
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\bmore people move to the Myrtle Beach area than almost anywhere\\b",
+    "struck": "More people move to the Myrtle Beach area than almost anywhere else in the country.",
+    "use": "The Myrtle Beach metro grew the second fastest of any U.S. metro in the latest Census year, at 3.2 percent."
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\bbought with cash by out-of-state buyers\\b",
+    "struck": "A lot of Grand Strand homes are bought with cash by out-of-state buyers.",
+    "use": "(cut it: no source)"
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\bNMLS\\b|\\bour preferred lender\\b|\\blending partner\\b|\\bworks with us daily\\b|\\bstructure the timeline\\b",
+    "struck": "BrickWood Mortgage (NMLS #189497), our preferred lender and lending partner, works with us daily, and we can structure the timeline.",
+    "use": "The purchase was financed through our affiliated lender, BrickWood Mortgage, a separate company."
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\bbiggest mistake we see\\b|\\bbefore they have a job lined up\\b|\\bseen buyers lose the home\\b|\\bthree separate contract extensions\\b|\\bat a steep discount\\b",
+    "struck": "The single biggest mistake we see relocators make is putting in an offer before they have a job lined up; we have seen buyers lose the home.",
+    "use": "(cut it: not in the story bank; owner question 3)"
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\binvestor-grade reports?\\b|\\bwhat the block is like\\b|\\bZillow[’']s neighborhood ratings\\b|\\bhigh-performing STR corridor\\b",
+    "struck": "We pull the same investor-grade reports we run for our investors: permits nearby, what the block is like.",
+    "use": "(cut it: no source, and it invites describing neighbors)"
+  },
+  {
+    "row": "relocating G",
+    "pattern": "\\bComing soon\\b",
+    "struck": "Search homes for sale in Myrtle Beach... Coming soon",
+    "use": "(cut it: a dead control)"
+  }
+]

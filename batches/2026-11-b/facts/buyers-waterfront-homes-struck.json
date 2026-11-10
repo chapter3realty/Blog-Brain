@@ -1,0 +1,128 @@
+[
+  {
+    "row": "waterfront-homes 1",
+    "pattern": "\\babout 41[01]\\b[^.]{0,80}(?:first row|on the beach|oceanfront)",
+    "struck": "About 410 houses in all of Horry County sit in the first row on the beach.",
+    "use": "More than 400 houses in Horry County sit in the first row on the beach."
+  },
+  {
+    "row": "waterfront-homes 1",
+    "pattern": "\\b(?<!least )(?:20|twenty) (?:of them )?resold",
+    "struck": "In the year to September 2026, 20 of them resold, for about $2.2 million at the middle.",
+    "use": "In the year to September 2026, at least 20 of them resold, and the middle price was about $2.2 million."
+  },
+  {
+    "row": "waterfront-homes 1",
+    "pattern": "\\$1\\.6 million and (?:about )?\\$3\\.1 million",
+    "struck": "half between about $1.6 million and $3.1 million",
+    "use": "(cut the range: it moves with the first-row rule)"
+  },
+  {
+    "row": "waterfront-homes 2",
+    "pattern": "\\b(?:about )?6[67]\\d condos",
+    "struck": "About 670 condos in oceanfront buildings resold in the year, for about $214,000 at the middle.",
+    "use": "More than 600 condos in oceanfront buildings resold in the year, for about $200,000 at the middle."
+  },
+  {
+    "row": "waterfront-homes 2",
+    "pattern": "resold[^.]{0,120}\\$21[34],\\d00",
+    "struck": "condos in oceanfront buildings resold in the year, for about $214,000 at the middle",
+    "use": "condos in oceanfront buildings resold in the year, for about $200,000 at the middle"
+  },
+  {
+    "row": "waterfront-homes 2",
+    "pattern": "\\$505,(?:000|250)",
+    "struck": "in North Myrtle Beach about $505,000 (160)",
+    "use": "in North Myrtle Beach about $500,000"
+  },
+  {
+    "row": "waterfront-homes 7",
+    "pattern": "(?:lake|pond)[^.]{0,140}\\$(?:495|415),000|\\$(?:495|415),000[^.]{0,140}(?:lake|pond)",
+    "struck": "A house on a lake or pond resold for about $495,000 at the middle (122 resales). Houses on no water within a kilometre resold for about $415,000.",
+    "use": "(cut it: the USGS lake outlines miss or misplace about half the lots; no lake price from deeds)"
+  },
+  {
+    "row": "waterfront-homes 7",
+    "pattern": "a lake the least",
+    "struck": "The ocean costs the most, a lake the least",
+    "use": "(cut it: no lake price from deeds)"
+  },
+  {
+    "row": "waterfront-homes 8",
+    "pattern": "\\$366,000",
+    "struck": "A house on no water resold for about $366,000 at the middle (5,538 resales).",
+    "use": "The middle house resale in Horry County in the same year was about $375,000 (5,836 resales)."
+  },
+  {
+    "row": "waterfront-homes 10",
+    "pattern": "\\b7[12]\\d of them\\b",
+    "struck": "about 720 of them have a unit that faces the ocean, at about $220,000",
+    "use": "About 720 condos for sale list a unit that faces the ocean, at about $220,000."
+  },
+  {
+    "row": "waterfront-homes 11",
+    "pattern": "\\$95[45],(?:000|999)",
+    "struck": "on the Intracoastal Waterway about $955,000 (22)",
+    "use": "(cut it: half of the 22 waterway listings also name a lake)"
+  },
+  {
+    "row": "waterfront-homes 11",
+    "pattern": "Waccamaw[^.]{0,60}\\bask",
+    "struck": "Houses on the Waccamaw River ask about $675,000 (26)",
+    "use": "Waterfront houses on a river ask about $675,000 (26)."
+  },
+  {
+    "row": "waterfront-homes 12",
+    "pattern": "\\bdocks?\\b[^.]{0,120}ask more|ask more[^.]{0,120}\\bdocks?\\b",
+    "struck": "Houses with a dock ask more per square foot.",
+    "use": "(cut it: the result flips when lake listings are left out)"
+  },
+  {
+    "row": "waterfront-homes 12",
+    "pattern": "\\$388\\b|\\$310 (?:a|per) square foot",
+    "struck": "they ask about $388 a square foot at the middle, against about $310 for those without one",
+    "use": "(cut it: the result flips when lake listings are left out)"
+  },
+  {
+    "row": "waterfront-homes 16",
+    "pattern": "\\b688 houses|channels[^.]{0,100}\\b688\\b|\\b688\\b[^.]{0,100}channels",
+    "struck": "all but a handful of the 688 houses are in the high-risk zone",
+    "use": "On the Cherry Grove channels, 679 of 682 houses are in the high-risk zone."
+  },
+  {
+    "row": "waterfront-homes 17",
+    "pattern": "(?:lake|pond)[^.]{0,160}\\b9 in 10\\b|\\b9 in 10\\b[^.]{0,160}(?:lake|pond)|\\b156\\b[^.]{0,40}\\b172\\b",
+    "struck": "Of the 172 houses on a lake or pond that sold in the year, about 9 in 10 (156) have the middle of the lot outside the high-risk flood zone.",
+    "use": "(cut it: the lake group is not reliable)"
+  },
+  {
+    "row": "waterfront-homes 23",
+    "pattern": "Windy Hill[^.]{0,200}(?:every|each) (?:morning|day)|(?:every|each) (?:morning|day) of the year[^.]{0,200}Windy Hill",
+    "struck": "From about Windy Hill in North Myrtle Beach south to Garden City, the beach faces the southeast, so the sun rises out of the ocean on every morning of the year.",
+    "use": "From central Myrtle Beach south to Garden City, the sun rises over open sea on every morning of the year."
+  },
+  {
+    "row": "waterfront-homes 23",
+    "pattern": "\\b245 to 29\\d days\\b|\\b291 days\\b",
+    "struck": "on about 245 to 290 days a year it still rises over the open sea there",
+    "use": "From Windy Hill to Cherry Grove, the sun rises over the North Myrtle Beach shore on about 100 to 125 mornings around June."
+  },
+  {
+    "row": "waterfront-homes 26",
+    "pattern": "channels?[^.]{0,40}\\blead[^.]{0,40}boat ramp",
+    "struck": "Cherry Grove's channels lead to the city's boat ramp on the marsh",
+    "use": "Cherry Grove has the city's boat ramp on the marsh, with boat access to the marsh and the ocean through Hog Inlet."
+  },
+  {
+    "row": "waterfront-homes 27",
+    "pattern": "protects the river's",
+    "struck": "The Waccamaw National Wildlife Refuge, set up in 1997, protects the river's tidal freshwater swamps and old rice fields",
+    "use": "The Waccamaw National Wildlife Refuge, set up in 1997, protects tidal freshwater wetlands and old rice fields along the Waccamaw and Great Pee Dee rivers."
+  },
+  {
+    "row": "waterfront-homes 31",
+    "pattern": "the other way to keep a boat",
+    "struck": "A deeded boat slip is the other way to keep a boat on the water",
+    "use": "A deeded boat slip is another way to keep a boat on the water."
+  }
+]

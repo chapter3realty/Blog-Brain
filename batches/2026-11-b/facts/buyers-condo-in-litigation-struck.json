@@ -1,0 +1,83 @@
+[
+  {
+    "row": "buyers-condo-in-litigation 1",
+    "pattern": "\\bcannot close\\b[^.]{0,120}\\b(?:lawsuit|suit|litigation)\\b|\\b(?:lawsuit|suit|litigation)\\b[^.]{0,120}\\bcannot close\\b",
+    "struck": "A conventional loan sold to Fannie Mae cannot close in a condo building whose association is a party to a pending lawsuit.",
+    "use": "Fannie Mae will not buy a loan on a unit in a building whose association is named in a pending lawsuit, or whose developer is in a suit about the building's safety, structure, livability or use, unless the lender finds the suit minor in a way the guide lists."
+  },
+  {
+    "row": "buyers-condo-in-litigation 3",
+    "pattern": "\\brecover(?:ing|s)?\\b[^.]{0,30}\\b(?:money|funds)\\b[^.]{0,30}\\b(?:repairs?|work)\\b[^.]{0,20}\\balready\\b",
+    "unless": "\\b(?:los(?:es|ing)|not recovered|would not hurt|no harm)\\b",
+    "struck": "The building stays eligible if the suit is to recover money for repairs already made.",
+    "use": "The building can stay eligible if the association is suing to recover money for repairs already made, and losing would not hurt it."
+  },
+  {
+    "row": "buyers-condo-in-litigation 9",
+    "pattern": "\\bsettled\\b[^.]{0,80}\\b(?:fail|block|stop)\\w*\\b[^.]{0,40}\\bFHA\\b|\\bFHA\\b[^.]{0,80}\\bsettled\\b[^.]{0,80}\\b(?:fail|block|stop)\\w*",
+    "unless": "\\b(?:safety|structur\\w*|livab\\w*|habitab\\w*|insur\\w*)\\b",
+    "struck": "A building that just settled can still fail FHA for a year.",
+    "use": "For an FHA loan on one unit, a suit about the building's safety, structure, livability or use still counts for 12 months after it ends."
+  },
+  {
+    "row": "buyers-condo-in-litigation 18",
+    "pattern": "\\bcourt index\\b[^.]{0,80}\\b(?:every|all|any)\\b[^.]{0,30}\\b(?:suit|lawsuit|case)s?\\b",
+    "struck": "The county's court index shows every suit against an association.",
+    "use": "We search the county's court index under the association's name; a suit in federal court is listed elsewhere."
+  },
+  {
+    "row": "buyers-condo-in-litigation 19",
+    "pattern": "\\bjudgments?\\b[^.]{0,60}\\b(?:opened|open|viewed|view)\\b[^.]{0,30}\\bimages?\\b|\\bsome of its papers\\b",
+    "struck": "Some judgments can be opened as images from the index.",
+    "use": "(cut it: no one opened a court image from the index)"
+  },
+  {
+    "row": "buyers-condo-in-litigation 20",
+    "pattern": "\\beight years after\\b[^.]{0,60}\\b(?:complet\\w*|finish\\w*|built)\\b|\\b(?:no later than|within) eight years\\b|\\b8 years after\\b[^.]{0,60}\\b(?:complet\\w*|finish\\w*|built)\\b",
+    "unless": "\\b(?:2005|thirteen|13 years)\\b",
+    "struck": "A defect suit must be brought no later than eight years after the building was substantially completed.",
+    "use": "For a building finished after mid-2005, a defect suit must be brought within three years of discovery and no later than eight years after completion; older buildings had 13 years."
+  },
+  {
+    "row": "buyers-condo-in-litigation 21",
+    "pattern": "\\bnot (?:a|the) builder(?:'s)? (?:suit|lawsuit)\\b|\\bsuit to worry about is the repair\\b",
+    "struck": "In an older building the suit to worry about is the repair fight, not a builder suit.",
+    "use": "Most condos for sale here are in buildings past the usual time limit for a builder suit, but a suit claiming gross negligence can still come years later, as Wedgewood's did."
+  },
+  {
+    "row": "buyers-condo-in-litigation 21",
+    "pattern": "\\b(?:2,860|1,914)\\b[^.]{0,60}\\bGrand Strand\\b|\\bGrand Strand\\b[^.]{0,60}\\b(?:2,860|1,914)\\b",
+    "struck": "Of the 2,860 condos for sale on the Grand Strand, 73 were built in 2018 or later.",
+    "use": "Of the 2,860 condos for sale in the local MLS on the day we counted, 73 were in buildings built in 2018 or later."
+  },
+  {
+    "row": "buyers-condo-in-litigation 29",
+    "pattern": "\\b(?:Wedgewood|sued)\\b[^.]{0,80}\\bunder the gross[- ]negligence exception\\b",
+    "struck": "The association sued in 2018, about 17 years later, under the gross-negligence exception.",
+    "use": "The association sued in 2018, about 17 years after it was built, and the jury found gross negligence, which lifts the time limit."
+  },
+  {
+    "row": "buyers-condo-in-litigation 29",
+    "pattern": "\\bdefects included\\b[^.]{0,120}\\blet water in\\b",
+    "struck": "The defects included flashing, windows, siding, roofing and waterproofing that let water in.",
+    "use": "The association said the flashing, windows, siding, roofing and waterproofing were built wrong, and its expert testified the defects let water in."
+  },
+  {
+    "row": "buyers-condo-in-litigation 31",
+    "pattern": "\\bRenaissance\\b[^.]{0,160}\\b(?:still|remains?|has remained)\\b[^.]{0,30}\\b(?:evacuated|empty|unoccupied|closed)\\b",
+    "struck": "The Renaissance Tower building has remained unoccupied since.",
+    "use": "(cut it: the complaint's words date from October 2022)"
+  },
+  {
+    "row": "buyers-condo-in-litigation 33",
+    "pattern": "\\b51 of (?:its )?324\\b|\\b37 of (?:its )?366\\b",
+    "struck": "In the past year, 51 of its 324 units changed hands.",
+    "use": "In the past year, 51 of its units changed hands."
+  },
+  {
+    "row": "buyers-condo-in-litigation 34",
+    "pattern": "\\bRenaissance\\b[^.]{0,160}\\b(?:settle\\w*|dismiss\\w*)\\b|\\b(?:settle\\w*|dismiss\\w*)\\b[^.]{0,120}\\bRenaissance\\b|\\$1\\.25 million",
+    "struck": "The Renaissance Tower case settled for about $1.25 million and was dismissed in 2026.",
+    "use": "(cut it: news only; the court's order was not read)"
+  }
+]

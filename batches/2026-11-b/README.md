@@ -58,3 +58,10 @@ Still open: Conway's accommodations tax (12% on str-rules, 11.5% in the ledger; 
 - /submarkets/myrtle-beach/ passes building figures to /invest/condo-buildings/ and drops three keywords siblings own.
 - Open: /invest/rental-returns/ uses its own 55 percent cost method for nightly rentals (triage: one method); the July market report is stale (June data) and is on the rebuild list.
 - Preview note: restart tools/preview.mjs after idx-lib changes; it loads places.js once.
+
+## Rebuild batches 4 and 5, the wow pass, the pop-up (patch 0027)
+
+- Rebuilt: condotel financing, HOA rental restrictions, master insurance and HO-6, SC HOA laws, non-warrantable condos, DSCR loans, the relocation hub, small multifamily, condo in litigation, the strategies hub, waterfront homes, HOA benefits.
+- /invest/condo-buildings/: a verified wow line for each building (WOW.md, WOW-VERIFY.md). Open: Sea Mist, Coral Beach, Dunes Village, South Hampton have no verified wow fact yet.
+- Places may filter on MLS features (has, up to three keys the CRM lists), waterfront and a price range (edge.js placeParams), never without a point or a subdivision.
+- Saved third-party pages carried Mapbox and Google keys (theirs, public). They are redacted in data/2026-11-b before export; GitHub's push protection blocks Mapbox keys. Researchers' saved pages need the same scrub.

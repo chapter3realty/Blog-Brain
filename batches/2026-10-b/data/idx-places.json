@@ -52,7 +52,8 @@
    "name": "Barefoot Resort",
    "pages": [
     "/buyers/best-neighborhoods/",
-    "/buyers/gated-communities/"
+    "/buyers/gated-communities/",
+    "/hoa/benefits/"
    ],
    "q": {
     "subdivision": "Barefoot"
@@ -134,7 +135,8 @@
    "pages": [
     "/buyers/best-neighborhoods/",
     "/submarkets/carolina-forest/the-farm/",
-    "/hoa/rental-restrictions/"
+    "/hoa/rental-restrictions/",
+    "/hoa/benefits/"
    ],
    "q": {
     "subdivision": "The Farm"
@@ -1085,7 +1087,8 @@
    "pages": [
     "/invest/str-tools/",
     "/invest/airbnb-income/",
-    "/invest/strategies/dscr-loans/"
+    "/invest/strategies/dscr-loans/",
+    "/invest/strategies/"
    ],
    "q": {
     "near": "33.58000,-78.99900",
@@ -1567,7 +1570,8 @@
    "slug": "duplexes-around-myrtle-beach",
    "name": "the Myrtle Beach area",
    "pages": [
-    "/invest/strategies/1031-exchange/"
+    "/invest/strategies/1031-exchange/",
+    "/invest/strategies/"
    ],
    "q": {
     "near": "33.69000,-78.89200",
@@ -1619,7 +1623,8 @@
    "slug": "del-webb-grande-dunes",
    "name": "Del Webb at Grande Dunes",
    "pages": [
-    "/hoa/rental-restrictions/"
+    "/hoa/rental-restrictions/",
+    "/hoa/benefits/"
    ],
    "q": {
     "subdivision": "Grande Dunes - Del Webb"
@@ -1631,7 +1636,8 @@
    "slug": "myrtle-trace",
    "name": "Myrtle Trace",
    "pages": [
-    "/hoa/rental-restrictions/"
+    "/hoa/rental-restrictions/",
+    "/hoa/benefits/"
    ],
    "q": {
     "subdivision": "Myrtle Trace"
@@ -1641,7 +1647,7 @@
   },
   {
    "slug": "no-hoa-nightly-houses",
-   "name": "houses with no HOA around Myrtle Beach",
+   "name": "houses with no HOA where nightly rentals are allowed",
    "pages": [
     "/hoa/rental-restrictions/"
    ],
@@ -1649,10 +1655,11 @@
     "near": "33.69000,-78.89200",
     "miles": 25,
     "type": "house",
-    "hoa": "0"
+    "hoa": "0",
+    "has": "str_allowed"
    },
    "index": false,
-   "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false. A place cannot filter on nightly-rental flags, so this strip is houses with no HOA; its title says only that."
+   "note": "A strip for /hoa/rental-restrictions/ (2026-11-10). No HOA (listing agent) and nightly rentals allowed (listing), within 25 miles of Myrtle Beach. index false."
   },
   {
    "slug": "maisons-sur-mer",
@@ -1707,6 +1714,173 @@
    },
    "index": false,
    "note": "A strip for one guide (2026-11-10, rebuild batch 4). index false."
+  },
+  {
+   "slug": "north-myrtle-beach-duplexes",
+   "name": "North Myrtle Beach",
+   "pages": [
+    "/invest/strategies/small-multifamily/"
+   ],
+   "q": {
+    "near": "33.81800,-78.67000",
+    "miles": 5,
+    "type": "multi"
+   },
+   "index": false,
+   "note": "Strip for the old beach towns (Cherry Grove Beach, Crescent Beach, Windy Hill, Ocean Drive, Ingram Beach). 2026-11-10: 29 (North Myrtle Beach 26, Little River 2, Atlantic Beach 1)."
+  },
+  {
+   "slug": "surfside-garden-city-duplexes",
+   "name": "Surfside Beach and Garden City",
+   "pages": [
+    "/invest/strategies/small-multifamily/"
+   ],
+   "q": {
+    "near": "33.60600,-78.97300",
+    "miles": 3,
+    "type": "multi"
+   },
+   "index": false,
+   "note": "Strip for Ocean Terrace, Ocean Pines and Garden City. 2026-11-10: 12 (Surfside Beach 9, Murrells Inlet mailing city 3)."
+  },
+  {
+   "slug": "myrtle-beach-duplexes",
+   "name": "Myrtle Beach",
+   "pages": [
+    "/invest/strategies/small-multifamily/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 4,
+    "type": "multi"
+   },
+   "index": false,
+   "note": "Strip after the groups away from the beach. 2026-11-10: 11, all Myrtle Beach mailing city. Under 3 homes, the slot stays empty and the offer pill shows."
+  },
+  {
+   "slug": "wf-oceanfront-houses",
+   "name": "oceanfront houses",
+   "pages": [
+    "/buyers/waterfront-homes/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "house",
+    "waterfront": "1",
+    "has": "water_ocean"
+   },
+   "index": false,
+   "note": "A strip on /buyers/waterfront-homes/ (rebuild batch 5, 2026-11-10). Uses the place feature filter added 2026-11-10 (has, waterfront, min/max), so the strip title is true. index false."
+  },
+  {
+   "slug": "wf-oceanfront-condos",
+   "name": "condos facing the ocean",
+   "pages": [
+    "/buyers/waterfront-homes/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "condo",
+    "has": "oceanfront_unit"
+   },
+   "index": false,
+   "note": "A strip on /buyers/waterfront-homes/ (rebuild batch 5, 2026-11-10). Uses the place feature filter added 2026-11-10 (has, waterfront, min/max), so the strip title is true. index false."
+  },
+  {
+   "slug": "wf-waterway",
+   "name": "homes on the Intracoastal Waterway",
+   "pages": [
+    "/buyers/waterfront-homes/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "house",
+    "waterfront": "1",
+    "has": "water_icw"
+   },
+   "index": false,
+   "note": "A strip on /buyers/waterfront-homes/ (rebuild batch 5, 2026-11-10). Uses the place feature filter added 2026-11-10 (has, waterfront, min/max), so the strip title is true. index false."
+  },
+  {
+   "slug": "wf-marsh",
+   "name": "homes on the salt marsh",
+   "pages": [
+    "/buyers/waterfront-homes/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "house",
+    "waterfront": "1",
+    "has": "water_marsh"
+   },
+   "index": false,
+   "note": "A strip on /buyers/waterfront-homes/ (rebuild batch 5, 2026-11-10). Uses the place feature filter added 2026-11-10 (has, waterfront, min/max), so the strip title is true. index false."
+  },
+  {
+   "slug": "wf-cherry-grove-channels",
+   "name": "Cherry Grove channel homes",
+   "pages": [
+    "/buyers/waterfront-homes/"
+   ],
+   "q": {
+    "near": "33.83400,-78.62800",
+    "miles": 1.5,
+    "type": "house",
+    "has": "water_canal"
+   },
+   "index": false,
+   "note": "A strip on /buyers/waterfront-homes/ (rebuild batch 5, 2026-11-10). Uses the place feature filter added 2026-11-10 (has, waterfront, min/max), so the strip title is true. index false."
+  },
+  {
+   "slug": "wf-river",
+   "name": "riverfront homes",
+   "pages": [
+    "/buyers/waterfront-homes/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "house",
+    "waterfront": "1",
+    "has": "water_river"
+   },
+   "index": false,
+   "note": "A strip on /buyers/waterfront-homes/ (rebuild batch 5, 2026-11-10). Uses the place feature filter added 2026-11-10 (has, waterfront, min/max), so the strip title is true. index false."
+  },
+  {
+   "slug": "wf-lakes-under-500k",
+   "name": "lake homes under $500,000",
+   "pages": [
+    "/buyers/waterfront-homes/"
+   ],
+   "q": {
+    "near": "33.69000,-78.89200",
+    "miles": 25,
+    "type": "house",
+    "waterfront": "1",
+    "has": "water_lake",
+    "max": "500000"
+   },
+   "index": false,
+   "note": "A strip on /buyers/waterfront-homes/ (rebuild batch 5, 2026-11-10). Uses the place feature filter added 2026-11-10 (has, waterfront, min/max), so the strip title is true. index false."
+  },
+  {
+   "slug": "myrtle-beach-condos",
+   "name": "Myrtle Beach",
+   "pages": [
+    "/buyers/condo-in-litigation/"
+   ],
+   "q": {
+    "type": "condo",
+    "near": "33.70882,-78.88539",
+    "miles": 3
+   },
+   "index": false,
+   "note": "A strip on /buyers/condo-in-litigation/ (2026-11-10). index false."
   }
  ]
 }
