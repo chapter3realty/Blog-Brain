@@ -147,5 +147,18 @@
     "pattern": "\\btwo units in a building of fewer than (?:10|ten)\\b|\\bfewer than (?:10|ten) units\\b[^.]{0,60}\\b(?:FHA|two)\\b|\\bFHA\\b[^.]{0,100}\\bfewer than (?:10|ten) units\\b",
     "struck": "FHA does not already insure more than 10 percent of the units (two units in a building of fewer than 10).",
     "use": "FHA may stop new loans there once it insures more than 10 percent of the units in a building of 20 or more, or more than two in a smaller one."
+  },
+  {
+    "row": "rental-restrictions 62 (fixer row, verifier 2026-11-10)",
+    "pattern": "\\bbeach club (?:access )?(?:comes with|is (?:part of|included in)) (?:the |its )?base (?:HOA )?dues\\b",
+    "unless": "\\bPulte said\\b",
+    "struck": "At Del Webb at Grande Dunes, beach club access comes with the base HOA dues.",
+    "use": "At Del Webb at Grande Dunes, every owner pays a required fee for the Grande Dunes Ocean Club, the beach club, and the association bills it with its own dues."
+  },
+  {
+    "row": "rental-restrictions 65 (fixer row, verifier 2026-11-10)",
+    "pattern": "\\byour boat can (?:sit|stay|be kept|be docked) in a slip\\b",
+    "struck": "Your boat can sit in a slip a short walk from your door.",
+    "use": "The county lists 78 boat-slip parcels in the harbor's marina, each its own parcel, about 100 to 500 feet from the condo buildings."
   }
 ]

@@ -116,5 +116,18 @@
     "pattern": "\\bsuits beach properties you buy for the appreciation\\b",
     "struck": "That suits beach properties you buy for the appreciation.",
     "use": "(cut it: no source)"
+  },
+  {
+    "row": "invest-strategies-dscr-loans 45 (fixer row, verifier 2026-11-10)",
+    "pattern": "\\b72 (?:wooded )?acres\\b",
+    "struck": "Off River Oaks Drive, the county's Bike and Run Park, which riders call \"The Hulk\", has 7 miles of mountain bike and running trails through 72 wooded acres.",
+    "use": "Off River Oaks Drive, the county's Bike and Run Park, which riders call \"The Hulk\", has 7 miles of mountain bike and running trails on about 70 acres."
+  },
+  {
+    "row": "invest-strategies-dscr-loans 46 (fixer row, verifier 2026-11-10)",
+    "pattern": "\\bbands play every night at both ends\\b",
+    "unless": "\\bin summer, bands play\\b",
+    "struck": "Bands play every night at both ends of it, weather permitting, and in summer you can fish from it around the clock.",
+    "use": "In summer, bands play every night at both ends of it, weather permitting, and you can fish from it around the clock."
   }
 ]

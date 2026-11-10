@@ -73,5 +73,11 @@
     "pattern": "\\b(?:same|normal|standard) (?:lender )?fees?\\b|\\bfees? (?:will|do) not (?:rise|go up|have to be inflated)\\b|\\bBrickWood\\b[^.]{0,40}\\bfinances\\b|\\bscarcity as a pricing strategy\\b",
     "struck": "BrickWood Mortgage charges the same lender fees on a condotel file as on any other loan it originates.",
     "use": "Our affiliated lender, BrickWood Mortgage, a separate company, arranges condotel and non-warrantable loans through wholesale lenders that accept these buildings."
+  },
+  {
+    "row": "invest-condotel-financing 32 (fixer row, verifier 2026-11-10)",
+    "pattern": "\\bbest hotels in South Carolina\\b[^.]{0,60}\\bset up like one\\b",
+    "struck": "SeaWatch calls itself one of the best hotels in South Carolina, and it is set up like one.",
+    "use": "SeaWatch calls itself one of the best hotels in South Carolina. Its site lists a concierge, a business center and a golf and entertainment desk for guests."
   }
 ]
