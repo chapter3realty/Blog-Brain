@@ -280,3 +280,22 @@ Each place on a guide page ends with its own offer, a link to `/contact/?place=<
 - In Chromium, `?place=Wachesaw%20Plantation` gives "Wachesaw Plantation: ".
 - An `<img onerror>` place stays plain text, and no element is added.
 - A 200-character place is cut to 80.
+
+## `v1.10-ai-search-labels.patch`: the AI search uses the listing labels (2026-11-10)
+
+```
+cd <website-repo>
+git apply <blog-brain>/website-patches/v1.10-ai-search-labels.patch
+```
+
+It changes the search prompt in `idx-lib/map.js`. The feature keys now come from each home's description and photos, as well as the MLS fields (Tickets 628-662 in the CRM).
+
+1. **A key over words.** A dock is `private_dock`, not the word "dock". This also covers an elevator, an in-law suite, a workshop, a detached garage and a bonus room. Words are only for a thing no key covers.
+2. **No narrowing guesses.** A wish about feel (quiet, updated, nice) is never a filter. The description reader judges it. At most 3 feature keys, unless the buyer named more.
+3. **Boats.** A boat on the water means `boat_access`, or a dock. Room for a boat at home means `rv_boat_parking`. Horses mean `horse_property`.
+4. **Alternatives.** "A garage or a workshop" keeps the one more homes have, never neither.
+5. **Areas.** Carolina Forest, Socastee and the other area keys are keys, not subdivision names.
+6. **The photo.** The first key is the thing a photo should show. The card shows that photo.
+7. **A list answer** (`words: ["horse"]`) is joined into text. An empty one sets nothing.
+
+**Tested 2026-11-10** on the live branch at f7b77c4e. `git apply --check` passes, and `node tools/idx-test.mjs` prints "all controls pass". The 18 buyer sentences and their live counts, before and after, are in `research/search-features/ai-test/RESULTS.md`.
