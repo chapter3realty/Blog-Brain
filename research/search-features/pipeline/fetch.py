@@ -113,7 +113,8 @@ def sheets(work, keys_file):
             for line in open(os.path.join(pb, f)):
                 if line.strip():
                     done.add(line.split(":")[0])
-    want = [k for k in want if k not in done]
+    if not os.environ.get("FORCE"):  # FORCE=1: a redo of homes already batched
+        want = [k for k in want if k not in done]
     by = {}
     for line in open(os.path.join(work, "homes.jsonl")):
         h = json.loads(line)
