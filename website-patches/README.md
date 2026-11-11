@@ -288,6 +288,8 @@ cd <website-repo>
 git apply <blog-brain>/website-patches/v1.10-ai-search-labels.patch
 ```
 
+Applied (owner, 2026-11-11: "deploy the website patch yourself"). Claude committed it to the live branch as `4297aab8`, after `node build.js preflight` passed on a full-history clone. Claude has no Cloudflare login, so the owner publishes it with `deploy.ps1`.
+
 It changes the search prompt in `idx-lib/map.js`. The feature keys now come from each home's description and photos, as well as the MLS fields (Tickets 628-662 in the CRM).
 
 1. **A key over words.** A dock is `private_dock`, not the word "dock". This also covers an elevator, an in-law suite, a workshop, a detached garage and a bonus room. Words are only for a thing no key covers.
