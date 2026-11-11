@@ -288,7 +288,7 @@ cd <website-repo>
 git apply <blog-brain>/website-patches/v1.10-ai-search-labels.patch
 ```
 
-Applied (owner, 2026-11-11: "deploy the website patch yourself"). Claude committed it to the live branch as `4297aab8`, after `node build.js preflight` passed on a full-history clone. Claude has no Cloudflare login, so the owner publishes it with `deploy.ps1`.
+Applied (owner, 2026-11-11: "deploy the website patch yourself"). Claude committed it to the live branch as `4297aab8`, then `search4` to `search5` in the search cache key so old answers are not reused, after `node build.js preflight` passed on a full-history clone. Claude has no Cloudflare login, so the owner publishes it with `deploy.ps1`.
 
 It changes the search prompt in `idx-lib/map.js`. The feature keys now come from each home's description and photos, as well as the MLS fields (Tickets 628-662 in the CRM).
 
