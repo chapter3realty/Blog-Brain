@@ -1,0 +1,188 @@
+From 7aa72e4fbcbb178e8f4b146cd060cf088462cfda Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 12 Nov 2026 20:52:22 +0000
+Subject: [PATCH] Crawl fixes from Search Console: robots.txt skips /homes/
+ listings, and a cold cache holds a page 1.8 s, not 3
+
+Search Console, 2026-11-12: 6,154 noindex listing pages crawled, 30 "crawled, not
+indexed" that are all photo-proxy cards, API calls and analyzer links, 5xx and 404s on
+listings and filtered searches, and four guides Google had found but never crawled.
+
+- robots.txt: every crawler may read the site except /homes/ (listings, map, filtered
+  searches, photo proxy, API), /cdn-cgi/ and ?mls= analyzer links. /homes/ and the
+  place pages under /homes/near/ stay open. sitemap-homes.xml is now listed.
+- edge.js: the whole page waits at most 1.8 s for listings (was 3 s per step, up to
+  three feed steps). A search still running keeps going in the background, so the next
+  visitor gets it from the cache; a strip that missed it fills after load.
+- idx-test: the slow-CRM controls now require under 2.5 s.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_0186ha1gzzmbWyPnagoCELMZ
+---
+ chapter3realty/robots.txt | 33 ++++++++++++---------------------
+ idx-lib/edge.js           | 24 ++++++++++++++++--------
+ tools/idx-test.mjs        |  4 +++-
+ 3 files changed, 31 insertions(+), 30 deletions(-)
+
+diff --git a/chapter3realty/robots.txt b/chapter3realty/robots.txt
+index 53bbcf1c..d581daa3 100644
+--- a/chapter3realty/robots.txt
++++ b/chapter3realty/robots.txt
+@@ -1,46 +1,37 @@
++# Every crawler, search engines and AI answer engines alike, may read the whole site except the parts below.
++# Under /homes/ are the listing pages, the map, filtered searches, the photo proxy and the API. They are
++# noindex or not pages at all, and crawling thousands of them took Google's time from the guides and used the
++# site's Cloudflare requests (Search Console, 2026-11-12: 6,154 noindex pages crawled; 5xx and 404s on listings).
++# /homes/ itself and the place pages under /homes/near/ stay open; they are in sitemap-homes.xml.
+ User-agent: *
+-Allow: /
+-
+-# AI / answer-engine crawlers, explicitly allowed
+ User-agent: GPTBot
+-Allow: /
+ User-agent: OAI-SearchBot
+-Allow: /
+ User-agent: ChatGPT-User
+-Allow: /
+ User-agent: ClaudeBot
+-Allow: /
+ User-agent: Claude-Web
+-Allow: /
+ User-agent: anthropic-ai
+-Allow: /
+ User-agent: PerplexityBot
+-Allow: /
+ User-agent: Perplexity-User
+-Allow: /
+ User-agent: Google-Extended
+-Allow: /
+ User-agent: Applebot-Extended
+-Allow: /
+ User-agent: Bingbot
+-Allow: /
+ User-agent: cohere-ai
+-Allow: /
+-
+ User-agent: Meta-ExternalAgent
+-Allow: /
+ User-agent: FacebookBot
+-Allow: /
+ User-agent: Amazonbot
+-Allow: /
+ User-agent: DuckAssistBot
+-Allow: /
+ User-agent: YouBot
+-Allow: /
+ User-agent: MistralAI-User
+ Allow: /
++Allow: /homes/$
++Allow: /homes/near/
++Disallow: /homes/
++Disallow: /homes/near/*?
++Disallow: /cdn-cgi/
++Disallow: /*?mls=
+ 
+ Sitemap: https://chapter3realty.com/sitemap.xml
++Sitemap: https://chapter3realty.com/sitemap-homes.xml
+ 
+ # Plain-text site guides for language models
+ # https://chapter3realty.com/llms.txt
+diff --git a/idx-lib/edge.js b/idx-lib/edge.js
+index 532903f8..ee733449 100644
+--- a/idx-lib/edge.js
++++ b/idx-lib/edge.js
+@@ -24,7 +24,12 @@ import { PHOTO_HINT, STYLE, STRIP_STYLE, SCRIPT, disclaimer, esc, hasPhoto, sign
+ const SLOT = /<div class="hx-strip" data-place="([a-z0-9-]+)" data-name="([^"<>]*)"(?: data-head="([^"<>]*)")?><\/div>/g;
+ const STRIP_CARDS = 10;
+ const STRIP_MIN = 3;
+-const STRIP_BUDGET_MS = 3000; // a slow CRM never holds up a guide page: past this, no strips
++/* A slow CRM never holds up a guide page. The whole page waits at most PAGE_BUDGET_MS for listings (2026-11-13: a cold
++   cache held the first visit, often Googlebot's, for about 3 seconds). A search still running at the deadline keeps
++   going in the background (waitUntil), so its answer is cached for the next visitor; a strip that missed it fills
++   after load (LATE). */
++const STRIP_BUDGET_MS = 1500;
++const PAGE_BUDGET_MS = 1800;
+ const TYPES = ["house", "condo", "townhouse", "manufactured", "multi", "land"];
+ 
+ /** The CRM search for a place, from validated parts only (contract §3, §5). Null if a part is bad. */
+@@ -140,15 +145,16 @@ function strip(slug, name, listings, total, noHoa, head) {
+ }
+ 
+ /** Run a feed's searches at once, merged and de-duplicated. "stale", or [listings, total, meta], or null. */
+-async function runFeed(env, request, feed) {
++async function runFeed(env, request, feed, waitUntil, budgetMs = STRIP_BUDGET_MS) {
+   const calls = (feed.q || []).map((q) => {
+     const p = feedParams(q);
+     if (!p) return null;
+     p.set("size", feed.q.length > 2 ? "24" : "48");
+-    return crm(env, request, `/api/idx/listings?${p.toString()}`, { anonymous: true, timeoutMs: STRIP_BUDGET_MS - 500 }).catch(() => null);
++    return crm(env, request, `/api/idx/listings?${p.toString()}`, { anonymous: true, timeoutMs: 8000, retry: false }).catch(() => null);
+   });
++  if (waitUntil) waitUntil(Promise.allSettled(calls));
+   let timer;
+-  const late = new Promise((done) => { timer = setTimeout(() => done(null), STRIP_BUDGET_MS); });
++  const late = new Promise((done) => { timer = setTimeout(() => done(null), Math.max(200, budgetMs)); });
+   const answers = await Promise.race([Promise.all(calls), late]);
+   clearTimeout(timer);
+   if (!answers) return null;
+@@ -263,6 +269,8 @@ export async function withIdx(context, response) {
+     const gate = idxOn(env, request);
+     if (!gate.on) return response;
+     const url = new URL(request.url);
++    const t0 = Date.now(), left = () => PAGE_BUDGET_MS - (Date.now() - t0);
++    const wait = context.waitUntil ? (pr) => context.waitUntil(pr) : null;
+     text = await response.text();
+     let html = switchHeader(text);
+     const headers = new Headers(response.headers);
+@@ -280,14 +288,14 @@ export async function withIdx(context, response) {
+       let used = feed;
+       // The CRM's live feature list first (cached an hour): a feed whose key it no longer lists is skipped.
+       await filterCatalog(env, request);
+-      let got = await runFeed(env, request, used);
++      let got = await runFeed(env, request, used, wait, Math.min(STRIP_BUDGET_MS, left()));
+       // A title the CRM's features make true, from a CRM that did not apply them, would be a false title: fall back.
+       const untrue = (f, g) => g && g !== "stale" && f.needs === "has" && !f.headToday && !g[3];
+       if (got && got !== "stale" && (got[0].length < STRIP_MIN || untrue(used, got))) {
+         const wider = feed.fallback || FEEDS["/buyers/"];
+-        if (wider !== used) { used = wider; got = await runFeed(env, request, used); }
++        if (wider !== used && left() > 300) { used = wider; got = await runFeed(env, request, used, wait, left()); }
+         // One more step down when the fallback is itself a feature title that cannot be shown.
+-        if (got && got !== "stale" && (got[0].length < STRIP_MIN || untrue(used, got)) && used.fallback && used.fallback !== used) { used = used.fallback; got = await runFeed(env, request, used); }
++        if (got && got !== "stale" && (got[0].length < STRIP_MIN || untrue(used, got)) && used.fallback && used.fallback !== used && left() > 300) { used = used.fallback; got = await runFeed(env, request, used, wait, left()); }
+       }
+       if (got && got !== "stale" && got[0].length >= STRIP_MIN) {
+         html = (feed.low ? placeFeed : placeFeedTop)(html, feedSection({ ...used, low: feed.low }, got[0], got[1], got[3]));
+@@ -305,7 +313,7 @@ export async function withIdx(context, response) {
+     const pending = slugs.map((s) => placeCall(env, request, s));
+     if (context.waitUntil) context.waitUntil(Promise.allSettled(pending));
+     let timer;
+-    const deadline = new Promise((done) => { timer = setTimeout(done, STRIP_BUDGET_MS); });
++    const deadline = new Promise((done) => { timer = setTimeout(done, Math.max(300, Math.min(STRIP_BUDGET_MS, left()))); });
+     const answers = await Promise.all(pending.map((c) => Promise.race([c, deadline.then(() => null)])));
+     clearTimeout(timer);
+     // A stale MLS copy means no listings anywhere on the page (16.7).
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index 6e816148..bac4285d 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -246,6 +246,8 @@ let t0 = Date.now();
+ r = await run(mw, req("/buyers/best-neighborhoods/"));
+ t = await r.text();
+ check("slow CRM: a guide page comes back unchanged within the budget", Date.now() - t0 < 4000 && r.status === 200 && !t.includes('<article class="hx-c">'));
++// 2026-11-13: the whole page waits at most about 1.8 seconds for listings, so a cold cache no longer holds up Googlebot.
++check("slow CRM: the page budget is under 2.5 seconds, not 3", Date.now() - t0 < 2500);
+ HANG = false;
+ // One slow place (Loris on the 13-town page, 2026-11-08) no longer empties the page's other strips; its slot is
+ // marked and filled after load from /homes/api/place, whose answer the background call has put in the cache.
+@@ -255,7 +257,7 @@ r = await run(mw, req("/buyers/best-neighborhoods/"));
+ t = await r.text();
+ SLOW = "";
+ check("slow place: the page waits no longer than the budget, the other strips fill, the slow one is marked for the after-load fill (fires)",
+-  Date.now() - t0 < 4000 && (t.match(/class="hx-s-row"/g) || []).length >= 9 && /data-place="cherry-grove" data-name="[^"]*" data-late="1"><\/div>/.test(t)
++  Date.now() - t0 < 2500 && (t.match(/class="hx-s-row"/g) || []).length >= 9 && /data-place="cherry-grove" data-name="[^"]*" data-late="1"><\/div>/.test(t)
+   && (t.match(/hx-strip\[data-late\]/g) || []).length === 1 && (t.match(/class="hx-disclaimer"/g) || []).length === 1);
+ check("slow place (quiet): a place with too few homes is not marked late", /data-place="tidewater" data-name="[^"]*"><\/div>/.test(t));
+ r = await run(homes, req("/homes/api/place?slug=cherry-grove&name=Cherry%20Grove%20%3Cb%3E"));
+-- 
+2.43.0
+
