@@ -50,7 +50,7 @@ Who, and the article each gets:
 
 Rules for the free articles (Google treats large guest-post campaigns built for links as link spam):
 1. Each article is written once, for one business. Never the same article to two people.
-2. It is written for their customers and is useful without us. Our page appears once, as the source of a fact, with a plain name ("Chapter3 Realty's flood study"), never a keyword link. They may mark it nofollow; we say so.
+2. It is written for their customers and is useful without us. Our page appears once, as the source of a fact, linked on the study's or the page's name ("Chapter3 Realty's flood study"), never on a keyword like "Myrtle Beach real estate agent".
 3. Their voice, their branding: we read their site first and send a preview with their logo and colors, plus plain text they can paste. Nothing is published by us.
 4. We never put words in their mouth: no claim about their business, no quote, no rate or price for their service. They edit and approve.
 5. No insurance, legal or loan advice in our voice.
@@ -61,6 +61,17 @@ Rules for the free articles (Google treats large guest-post campaigns built for 
 2. Day 2 or 3: a call from an owner: "I sent you something Tuesday; did it come through?"
 3. Day 7: one follow-up email if there is no reply.
 4. A coffee or a visit when they say yes. Every touch goes in the tracker.
+
+### Owner, 2026-11-13 (second message)
+
+- "We need to be finding as much information about the people we email as possible on an individual level and we need to save the information we learn about them as they email us back so that everything stays personal." Each contact has a record: public professional facts found before the first email, then every reply, call and meeting, with what we learned. Claude reads the record before writing to that person.
+- Cadence: more than once a month for reporters, when there is something worth sending. Professionals: the sequence above, then a useful touch about once a month.
+- Calls: after the emails go out, Claude gives the owner a call list each day (name, firm, phone, what was sent, one line to open with).
+- Links: no nofollow request and no keyword anchors (see below). The link sits on the page or study name where the article cites our fact.
+
+### Where the list lives
+
+This repo is public. Names, emails, phone numbers and notes about people never go in it. The list and the tracker live in a private place (a private tracker page and the info@ Gmail), and only counts and methods are written here.
 
 ### Lists
 
