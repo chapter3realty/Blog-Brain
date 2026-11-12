@@ -1,11 +1,6 @@
 # Search Console, 2026-11-12 exports
 
-Share links from the owner (Coverage drilldowns), kept for later checks:
-- https://search.google.com/search-console/index/drilldown?resource_id=sc-domain%3Achapter3realty.com&item_key=CAMYFyAC&sharing_key=krOWrT5iPB9D8pYXlYZGzw
-- https://search.google.com/search-console/index/drilldown?resource_id=sc-domain%3Achapter3realty.com&item_key=CAMYEyAC&sharing_key=sUjH8i3BL-Upwx2r1z5gXw
-- https://search.google.com/search-console/index/drilldown?resource_id=sc-domain%3Achapter3realty.com&item_key=CAMYDSAC&sharing_key=jVBlODHJWQWKwvzM4r9NEw
-- https://search.google.com/search-console/index/drilldown?resource_id=sc-domain%3Achapter3realty.com&item_key=CAMYNCAC&sharing_key=ErLigbUWNWDDX5mXoVLmwA
-- https://search.google.com/search-console/index/drilldown?resource_id=sc-domain%3Achapter3realty.com&item_key=CAMYFiAC&sharing_key=xBL8vodFnnG3RXdiMpPVPA
+The owner shared Search Console links on 2026-11-13. They are not kept here: this repo is public, and a share link lets anyone who has it read the report.
 
 ## What the rows held
 
