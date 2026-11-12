@@ -75,7 +75,7 @@ This repo is public. Names, emails, phone numbers and notes about people never g
 
 ### Lists
 
-Built 2026-11-13: 688 people and firms in 16 groups, in the private tracker "Grand Strand Network". 149 have an email published on their own site or checked on the source page; 9 more are not checked yet; 432 have a business phone; 258 are named people. The helpers could not open most local sites, so every email was read from the firm's own pages by a script, not taken from search summaries. The next chat is briefed in `EMAIL-CHAT-HANDOFF.md`.
+Built 2026-11-13: 688 people and firms in 16 groups, in the private tracker "Grand Strand Network". 212 have an email published on their own site or checked on the source page (after a second, deeper pass of each site); 476 have a business phone; 258 are named people. The helpers could not open most local sites, so every email was read from the firm's own pages by a script, not taken from search summaries. The next chat is briefed in `EMAIL-CHAT-HANDOFF.md`.
 
 
 Built from public pages only: the outlets' staff pages, the state's licensee lookups, firms' own websites. Each entry has a source. The Chamber's local media list (myrtlebeachareachamber.com) is blocked from Claude's network; the owner can download it if Chapter3 is a member.
