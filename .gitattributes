@@ -2,4 +2,6 @@
 # would turn LF into CRLF, and git apply then refuses the patch).
 batches/*/upload/** -text
 website-patches/*.patch -text
+website-patches/**/*.patch -text
+website-patches/**/*.md -text
 batches/*/*.diff -text
