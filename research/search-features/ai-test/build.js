@@ -9,7 +9,8 @@ j.groups.forEach((g) => g.items.forEach((it) => { keys.push(it.k); names[it.k] =
 const Q = fs.readFileSync("sentences.txt", "utf8").split("\n").filter(Boolean);
 fs.mkdirSync(process.argv[3], { recursive: true });
 Q.forEach((q, i) => {
-  const ctx = { q, before: [], state: { toString: () => "" }, left: "", keys, names, cnt, JSON };
+  const wm = src.match(/var WANT_KEYS=(\[[^\]]*\])/);
+  const ctx = { q, before: [], state: { toString: () => "" }, left: "", keys, names, cnt, JSON, WANT_KEYS: wm ? JSON.parse(wm[1]) : [] };
   vm.runInNewContext(code, ctx);
   fs.writeFileSync(`${process.argv[3]}/q${String(i).padStart(2, "0")}.txt`, ctx.prompt);
 });

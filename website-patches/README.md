@@ -301,3 +301,15 @@ It changes the search prompt in `idx-lib/map.js`. The feature keys now come from
 7. **A list answer** (`words: ["horse"]`) is joined into text. An empty one sets nothing.
 
 **Tested 2026-11-10** on the live branch at f7b77c4e. `git apply --check` passes, and `node tools/idx-test.mjs` prints "all controls pass". The 18 buyer sentences and their live counts, before and after, are in `research/search-features/ai-test/RESULTS.md`.
+
+## `v1.11-ai-search-wishes.patch`: wishes are light filters (2026-11-12)
+
+Committed by Claude to the live branch as `1a18ca0c` (owner, 2026-11-12: "Do some work on it and try to make the dynamic preview photos as good as possible"). It needs CRM Tickets 671 and 672 deployed, and the owner's `deploy.ps1`. `node build.js preflight` passed; `node tools/idx-test.mjs` passes. The patch file is the same change, for the record.
+
+1. **Wishes.** The AI puts a wish about size, openness, newness, feel or style (a big kitchen, updated, a big or private yard, a quiet street, farmhouse) in `want`, never in `has`. The CRM meets it with any similar feature and shows that room on the card.
+2. **The search function** passes up to 3 wishes to the CRM, never a key already in `has`. Each has a chip. The filter bar keeps them.
+3. **Nothing found:** the wish goes first, and the price and the rest stay.
+4. **The photo:** the CRM picks the rarest thing asked, so the prompt no longer orders `has` for the photo.
+5. Cache slot `search6`.
+
+Results: `research/search-features/ai-test/RESULTS.md`.
