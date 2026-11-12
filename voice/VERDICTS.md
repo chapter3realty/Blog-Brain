@@ -189,3 +189,10 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 - /invest/financing-multiple-rentals/ and /invest/cash-to-close/: "we cant really speak about financing as Chapter3". Both removed, with 301s to /invest/strategies/ and /invest/run-the-numbers/.
 - /why-chapter-3/: "seems alot more like a big disclosure rather than selling ourselves ... it really glossed over our tools we also have the only Ai powered real estate search tool with dynamic preview photos." Rewritten to sell the firm and its tools.
 - Next: deploy, then an email account and backlinks (Lane O).
+
+## 2026-11-12 (round 29): /why-chapter-3/ and /submarkets/
+
+- "the ai search on why chapter3 just make it the horizontal IDX and have the text bar like normal then talk about its capabilities in a human way remember dont let rules and stuff ruin your blog pages think like a human"
+- "all of the headlines dont need to be a question like can you ai search doesnt make sense because this is more of an announcement this whole page is like an announcement for Chapter3"
+- What changed: the demo cards came out; the page's own feed (search bar and live homes) sits right above "Meet Chapter3 AI", and the copy talks like a person. Headings on the firm page are announcements. score.js A4 (question headings) fails on that page by the owner's choice.
+- "why did you remove the IDX feeds from the 9 towns page": they were not removed. All nine town strips are on /submarkets/ and fill with 10 homes each; the preview shots showed the fallback because the preview's sample photos did not load. Lesson: route the sample photos before shooting a page with strips, so the owner sees what the live page shows.

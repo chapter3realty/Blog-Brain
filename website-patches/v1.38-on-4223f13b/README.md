@@ -12,7 +12,7 @@ In C:\c3:
 What part 8 adds on top of v1.37:
 
 - /submarkets/ rewritten: how the nine places differ, a portrait of each that opens with what people love there, inside a city or in the county, winter.
-- /why-chapter-3/ rewritten to sell the firm and its tools; one line of license facts at the end.
+- /why-chapter-3/ rewritten to sell the firm and its tools, as an announcement (owner, 2026-11-12): the live search bar and homes row right above "Meet Chapter3 AI", headlines that are not questions, one line of license facts at the end.
 - Homes strips: each card shows only "Listed by <firm>"; the MLS number and CCMLS line stay on the full feed and the listing page.
 - /invest/financing-multiple-rentals/ and /invest/cash-to-close/ removed, with 301s.
 - Links to the seven taken-down election pages repointed or removed (specs, the guides list, three hand pages).

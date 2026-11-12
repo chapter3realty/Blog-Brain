@@ -319,3 +319,5 @@ The owner is the teacher. A correction teaches a reason, not a phrase.
 - **Decide on day one how the page reaches the live site** (`tools/package-batch.js`, WORKFLOW "Uploading a batch"). A batch is done when it is live.
 - **Record cost and time per stage.** If a batch runs over budget, say so in one line.
 - **Ask the owner only what nothing else can answer,** once, with your proposed answer. Decide the rest.
+
+- **Announcement pages (owner, 2026-11-12).** A page about the firm or a tool is an announcement. Its headlines say what is new ("Meet Chapter3 AI"), not a question nobody types ("Can you search for homes with AI?"). Show the real tool (the live search bar and homes), then say what it does the way a person would. Do not let a rule make a page sound like a form.
