@@ -14,7 +14,7 @@ If it would help your readers, you are welcome to link to it. If anything on it 
 
 [Owner's name]
 Chapter3 Realty Corp
-573 Vista Drive, Murrells Inlet, SC 29576
+Vista Drive, Murrells Inlet, SC 29576
 854.333.2135
 
 ## Follow-up (once, 7 days later, same thread)

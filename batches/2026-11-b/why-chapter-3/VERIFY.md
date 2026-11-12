@@ -78,3 +78,9 @@ Added to `batches/2026-11-b/facts/why-chapter-3-struck.json`: r2-1, r2-5, r2-5b,
 3. **Row 10 counts** depend on which `idx-lib` ships. Re-run `pull_tools.mjs` after the merge.
 4. **The rental analyzer** (row 11) still asks for financing terms and shows "Estimated value". That is a sibling's problem, but this page sends readers there.
 5. **The condo guide's description** says 45 buildings; it covers 47 (row 14).
+
+## Rows 38 to 40 (added by the fixer), checked by the lead, 2026-11-12
+
+- 38 VERIFIED. The merged /sell/ spec says, word for word: "We bring you both numbers before you choose: the price range for a listing, and what a cash buyer would pay. Nobody here pushes you either way." The page's wording says no more.
+- 39 VERIFIED. The /sell/ spec tells the story `tenant-occupied-sale-13-days` in the same words, ending "One sale, not a promise." No name and no figures from it.
+- 40 VERIFIED. `idx-lib/places.js` (merged on the live branch 4223f13b): `wf-oceanfront-condos` is type condo, has oceanfront_unit, 25 miles of 33.69,-78.892. /why-chapter-3/ is now in its pages list.

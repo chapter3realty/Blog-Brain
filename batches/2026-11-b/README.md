@@ -71,3 +71,13 @@ Still open: Conway's accommodations tax (12% on str-rules, 11.5% in the ledger; 
 - Rebuilt: why Chapter3, the market reports hub, the July 2026 report, cash to close, financing a second rental, the town guides hub. All 24 rebuilds on the triage list are done.
 - The listings' flood_zone flag misses about 4 in 5 Horry homes for sale inside FEMA's high-risk zone (why-chapter-3 row 20: 888 of 1,118 not flagged). Feed titles that said "no flood zone listed" now promise nothing about flooding. Open: which MLS field fills flood_zone (CRM repo, not reachable from this session).
 - Owner questions for /why-chapter-3/ are in templates/owner-questions.md.
+
+## Round 29 (2026-11-12): merged onto the moved live branch
+
+- The live branch moved to 4223f13b (22 commits from another chat: the new AI search, ten new pages, the address change, the election take-down). Nothing from 0004 to 0028 was live. Everything is merged onto 4223f13b as `website-patches/v1.38-on-4223f13b/` (eight parts), which replaces v1.33a-c and v1.37.
+- /submarkets/ and /why-chapter-3/ second rewrites, reviewed and fixed (REVIEW-1.md in each folder). Rows 38 to 40 on why-chapter-3 checked by the lead.
+- "Only" is not printed on /why-chapter-3/: Zillow, Realtor.com, BoldTrail sites and one Myrtle Beach brokerage site (Real Geeks AI search) have natural-language search (facts rows 15 to 21). Owner question open: what "dynamic preview photos" means.
+- The two financing pages removed with 301s; strip cards show only the firm.
+- Links to the taken-down election pages repointed; the seller hub links the six new seller guides; every page has 6 or more referring pages.
+- FAQ: the live mkpage used closed `<details>`; reverted to open answers with the footer fold (A13).
+- Footer brand line: "Rental analysis" instead of "DSCR analysis". "DSCR Loans" stays in the footer until the owner answers on the DSCR page.

@@ -13,7 +13,7 @@ Goal: real sites that already serve Grand Strand buyers link to one page of ours
 
 1. One person, one email, written for that site. Never a list blast.
 2. The owner approves every email before it is sent. Claude sends only after "send".
-3. Sent from the owner's account, signed by the owner. Real name, the firm name "Chapter3 Realty Corp", the office address 573 Vista Drive, Murrells Inlet, SC 29576, and 854.333.2135.
+3. Sent from the owner's account, signed by the owner. Real name, the firm name "Chapter3 Realty Corp", the office as the site gives it (Vista Drive, Murrells Inlet, SC 29576, no street number: owner, 2026-11-07), and 854.333.2135.
 4. Offer one page that answers a question their readers have. Say what is on it in one sentence.
 5. Never offer money, a gift or a link back for a link. Never ask for "dofollow".
 6. Never claim a fact the page does not prove. Never state a rate or a payment.
