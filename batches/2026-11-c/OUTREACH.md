@@ -22,6 +22,50 @@ Goal: real sites that already serve Grand Strand buyers link to one page of ours
 7. One follow-up after 7 days at most. A no, or no reply after the follow-up, ends it. Anyone who asks not to be emailed goes on the do-not-contact list below.
 8. Log every send and every reply in the table below.
 
+## The local program (owner, 2026-11-13)
+
+"We should be emailing the same reporters and news stations ... we're local ... I can meet with them in person." "Maybe we even write the blog for them and send it to them in the email in their branding." "Me and the other owners will meet with people every day and call."
+
+Two tracks, one goal: links, and being known by every local professional who touches a home sale.
+
+### Track 1: the same local reporters, every month
+
+- One list of about 15 to 20 people: the real estate, growth, weather and business reporters and producers at the local TV stations, newspapers and business papers. The same people each month, never a blast list.
+- What they get: one sourced number a month from our data (the deed records, the flood study, permits), the page behind it, and an open offer to meet, or to have an owner or Tim on camera.
+- The aim is to be the brokerage they call when they need a number or a quote. Links follow from that.
+
+### Track 2: local professionals, 15 emails a day
+
+Who, and the article each gets:
+
+| Profession | Free article for their blog, in their voice | Our page it cites |
+|---|---|---|
+| Insurance agents | What buyers miss about flood zones in a listing | the flood study |
+| Home inspectors | The four things that stall a Myrtle Beach sale (roof near 20, heat and air, termites, moisture) | /sell/repairs-before-selling/ |
+| Roofers, heat-and-air companies | Is a 20-year-old roof a deal-breaker here? | /sell/repairs-before-selling/ |
+| Closing attorneys | The HOA estoppel letter, or the 28 seller disclosure questions | /hoa/estoppel/, /sell/seller-disclosure/ |
+| Property and HOA managers | Where you can rent by the night, town by town | /invest/str-rules/ |
+| Appraisers | What sold near you, from the county's deeds | /sell/home-value/ |
+| Movers, stagers, photographers | A moving checklist, or what buyers look at first | /buyers/relocating/moving-checklist/ |
+
+Rules for the free articles (Google treats large guest-post campaigns built for links as link spam):
+1. Each article is written once, for one business. Never the same article to two people.
+2. It is written for their customers and is useful without us. Our page appears once, as the source of a fact, with a plain name ("Chapter3 Realty's flood study"), never a keyword link. They may mark it nofollow; we say so.
+3. Their voice, their branding: we read their site first and send a preview with their logo and colors, plus plain text they can paste. Nothing is published by us.
+4. We never put words in their mouth: no claim about their business, no quote, no rate or price for their service. They edit and approve.
+5. No insurance, legal or loan advice in our voice.
+
+### The sequence for each professional
+
+1. Day 0: email, signed by Devin, with the gift (the article and the fact behind it). Nothing to do but read it.
+2. Day 2 or 3: a call from an owner: "I sent you something Tuesday; did it come through?"
+3. Day 7: one follow-up email if there is no reply.
+4. A coffee or a visit when they say yes. Every touch goes in the tracker.
+
+### Lists
+
+Built from public pages only: the outlets' staff pages, the state's licensee lookups, firms' own websites. Each entry has a source. The Chamber's local media list (myrtlebeachareachamber.com) is blocked from Claude's network; the owner can download it if Chapter3 is a member.
+
 ## Targets, in order
 
 | # | Kind | Target | Page we offer | Why they would link | Contact | Status |
