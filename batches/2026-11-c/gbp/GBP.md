@@ -50,10 +50,11 @@ Chapter3 Realty is a Grand Strand real estate brokerage in Murrells Inlet, South
 
 ## Photos
 
-Ready in this folder:
+Ready in `Chapter3-GBP-photos/` (also zipped as `Chapter3-GBP-photos.zip`):
 
-- `logo-720.png`: the Chapter III logo (from the owner's file), for the logo slot.
-- `cover-1024x576.png`: the cover, in the brand colors.
+- `00-logo.png`: the Chapter III logo, from the owner's file.
+- `00-cover.png`: the cover, in the brand colors. It has no AI line (owner, 2026-11-12).
+- `01` to `09`: public-domain photos of the Grand Strand that are already on the site (records in `photos-license.json`). Only photos with no labels, of public places. Two photos of private houses were left out, because on a realtor's profile they would look like listings. Photos of other businesses (the Pine Lakes clubhouse, a resort) were left out too.
 
 Still needed: real photos, from the owner or the photo partner (`templates/photo-request-email.md`):
 
