@@ -30,6 +30,8 @@ The owner read the redesigned pages and coached like this:
 - **Organized beats busy.** A list of places is a clean list. A map and a list should not fight each other.
 - **Feed and offer titles can be bold.** "Prime short-term rentals" beats "Waterfront condos", as long as it is true.
 - **Never cannibalize.** Before a page claims a search, check that no other page already owns it.
+- **No page about financing.** (2026-11-12: "we cant really speak about financing as Chapter3".) A page may say what a lender's published rule means for which home to buy, and send the reader to our preferred lender; it never teaches how to finance, never states a rate, a payment or a down payment the reader should plan on.
+- **The firm's own pages sell.** (2026-11-12, on /why-chapter-3/: "more about selling ourselves rather than a big disclaimer.") Show the tools and what they do for the reader; license facts are one line near the end.
 - **Every place needs a wow factor** (2026-11-10, on the condo buildings page: "a wow factor for all the buildings would make it an exceptional page"). One true, sourced thing a buyer pictures and wants: the view, the lazy river, the pier next door. Facts and counts come after it, not instead of it.
 - **Homes titles are bold and personal, and true.** "Best Airbnb opportunities in Garden City Beach", not "where the typical one pays its bills" (2026-11-10). A feed on an Airbnb page mixes the best-placed condos and houses where nightly rentals are allowed: "Prime short-term rental opportunities".
 - **Every request button opens the short pop-up** (2026-11-10): name, phone, email optional, and our number to call now. A button only needs to link to /contact/ or #lead-form; the site does the rest and sends the button's words with the lead.

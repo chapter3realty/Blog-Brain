@@ -1714,8 +1714,7 @@
    "slug": "dscr-carolina-forest-houses",
    "name": "houses in Carolina Forest",
    "pages": [
-    "/invest/strategies/dscr-loans/",
-    "/invest/financing-multiple-rentals/"
+    "/invest/strategies/dscr-loans/"
    ],
    "q": {
     "near": "33.77000,-78.92500",
@@ -1919,40 +1918,6 @@
     "type": "condo",
     "has": "oceanfront_unit",
     "max": "205000"
-   },
-   "index": false,
-   "note": "A strip for one guide (rebuild batch 6, 2026-11-10). index false."
-  },
-  {
-   "slug": "ctc-oceanfront-str-condos",
-   "name": "oceanfront condos",
-   "pages": [
-    "/invest/cash-to-close/"
-   ],
-   "q": {
-    "near": "33.69000,-78.89200",
-    "miles": 25,
-    "type": "condo",
-    "has": "oceanfront_unit,str_allowed",
-    "min": "200000",
-    "max": "265000"
-   },
-   "index": false,
-   "note": "A strip for one guide (rebuild batch 6, 2026-11-10). index false."
-  },
-  {
-   "slug": "ctc-rental-houses",
-   "name": "rental houses",
-   "pages": [
-    "/invest/cash-to-close/"
-   ],
-   "q": {
-    "near": "33.69000,-78.89200",
-    "miles": 25,
-    "type": "house",
-    "has": "rentals_allowed",
-    "min": "330000",
-    "max": "395000"
    },
    "index": false,
    "note": "A strip for one guide (rebuild batch 6, 2026-11-10). index false."

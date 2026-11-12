@@ -180,3 +180,12 @@ Each entry: **date, page or batch.** Words, verbatim. Loss: what the reader lost
 - Request buttons: "all the CTA buttons should just pop up name email and phone number with email optional and then also our phone number to call directly option."
 - Homes feeds: "the more personal they feel the better they will do"; on Airbnb income, "a variety of perfectly located homes and condos for STR ... prime short term rental opportunities"; "the typical one pays its bills is too nerdy be bold ... best airbnb oppurtutnies in garden city".
 - "other than those thoughts not rules you need to live by and ruin blogs over ... these are great blogs finish redesigning the last blogs that need it."
+
+## 2026-11-12
+
+- Search Console after three months: "i got a little demotivated noticing we havn't really grown". None of patches 0004 to 0028 was live yet.
+- /submarkets/: "Could we just talk about the differences of the cities ... its a pretty thin page as is." Rewritten around how the towns differ, without taking which-town's or the town guides' searches.
+- Homes strips: "i dont really like the MLS information on the horizontal IDX." Strip cards now name only the listing firm; the page carries the CCMLS source and notice.
+- /invest/financing-multiple-rentals/ and /invest/cash-to-close/: "we cant really speak about financing as Chapter3". Both removed, with 301s to /invest/strategies/ and /invest/run-the-numbers/.
+- /why-chapter-3/: "seems alot more like a big disclosure rather than selling ourselves ... it really glossed over our tools we also have the only Ai powered real estate search tool with dynamic preview photos." Rewritten to sell the firm and its tools.
+- Next: deploy, then an email account and backlinks (Lane O).
