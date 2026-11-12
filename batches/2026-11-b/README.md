@@ -74,7 +74,7 @@ Still open: Conway's accommodations tax (12% on str-rules, 11.5% in the ledger; 
 
 ## Round 29 (2026-11-12): merged onto the moved live branch
 
-- The live branch moved to 4223f13b (22 commits from another chat: the new AI search, ten new pages, the address change, the election take-down). Nothing from 0004 to 0028 was live. Everything is merged onto 4223f13b as `website-patches/v1.38-on-4223f13b/` (eight parts), which replaces v1.33a-c and v1.37.
+- The live branch moved to 4223f13b (22 commits from another chat: the new AI search, ten new pages, the address change, the election take-down). Nothing from 0004 to 0028 was live. Everything is merged onto 4223f13b as `website-patches/v1.38/` (eight parts, rebased on 1a18ca0c), which replaces v1.33a-c and v1.37.
 - /submarkets/ and /why-chapter-3/ second rewrites, reviewed and fixed (REVIEW-1.md in each folder). Rows 38 to 40 on why-chapter-3 checked by the lead.
 - "Only" is not printed on /why-chapter-3/: Zillow, Realtor.com, BoldTrail sites and one Myrtle Beach brokerage site (Real Geeks AI search) have natural-language search (facts rows 15 to 21). Owner question open: what "dynamic preview photos" means.
 - The two financing pages removed with 301s; strip cards show only the firm.

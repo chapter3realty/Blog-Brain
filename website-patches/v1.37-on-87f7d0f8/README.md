@@ -1,6 +1,6 @@
 # Deploy order, on the live branch at 87f7d0f8 (2026-11-07)
 
-**Superseded on 2026-11-12 by `../v1.38-on-4223f13b/`.** The live branch moved; do not apply this folder.
+**Superseded on 2026-11-12 by `../v1.38/`.** The live branch moved; do not apply this folder.
 
 The live branch moved (election hub, dates from the full history), so v1.33d to v1.36 were rebased onto it. Apply in this order, in C:\c3 after `git fetch` and `git reset --hard origin/claude/github-account-check-wutg8b`:
 

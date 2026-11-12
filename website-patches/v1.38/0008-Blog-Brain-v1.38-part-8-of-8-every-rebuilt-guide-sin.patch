@@ -1,4 +1,4 @@
-From 754009123f6db3c082f86429b118ddeb08135721 Mon Sep 17 00:00:00 2001
+From f522b8dc89d7734f15a4e9f7f6fe0f9c312de90b Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Thu, 12 Nov 2026 04:26:09 +0000
 Subject: [PATCH 8/8] Blog-Brain v1.38 part 8 of 8: every rebuilt guide since
@@ -70690,7 +70690,7 @@ index f17c01ad..aba7b346 100644
    const PINS = towns.map(([slug, t], k) => {
      if (!fs.existsSync(path.join(REPO, "chapter3realty", "submarkets", slug, "index.html"))) throw new Error("no page for town " + slug);
 diff --git a/functions/homes/[[path]].js b/functions/homes/[[path]].js
-index b60e5b50..e2f279c3 100644
+index 199add6f..47e05373 100644
 --- a/functions/homes/[[path]].js
 +++ b/functions/homes/[[path]].js
 @@ -16,7 +16,7 @@
@@ -70710,7 +70710,7 @@ index b60e5b50..e2f279c3 100644
      if (name === "filters" && request.method === "GET") return filtersApi(context);
      if (request.method !== "POST") return json({ ok: false, error: "method" }, 405);
      if (!sameOrigin(request)) return json({ ok: false, error: "forbidden" }, 403);
-@@ -1144,6 +1145,8 @@ async function homesLike(context, l, where) {
+@@ -1149,6 +1150,8 @@ async function homesLike(context, l, where) {
  
  async function placePage(context, slug, gate, anonymous = false) {
    const place = /^[a-z0-9-]{1,80}$/.test(slug) ? PLACES[slug] : null;
@@ -70719,7 +70719,7 @@ index b60e5b50..e2f279c3 100644
    if (!place) return notFound(context);
    const p = placeParams(place.q);
    if (!p) return notFound(context);
-@@ -1165,7 +1168,9 @@ ${disclaimer(j.meta)}`;
+@@ -1170,7 +1173,9 @@ ${disclaimer(j.meta)}`;
      title: place.title || `Homes for sale in ${place.name}`,
      description: `${place.title || `Homes for sale in ${place.name}`}, from the Coastal Carolinas MLS and refreshed every few minutes, with Chapter3 Realty.`.slice(0, 160),
      canonical: `${SITE}/homes/near/${slug}/`,
@@ -71153,7 +71153,7 @@ index c8bf4ce7..137e9b51 100644
  
  const SUB = /^[A-Za-z0-9 .,'&()\/-]{2,80}$/;
 diff --git a/idx-lib/filters.js b/idx-lib/filters.js
-index dfefa04e..3d5bec64 100644
+index 48c522c5..5dcc27b9 100644
 --- a/idx-lib/filters.js
 +++ b/idx-lib/filters.js
 @@ -175,6 +175,8 @@ ${AI_CSS}
@@ -100640,7 +100640,7 @@ index 00000000..856a4a85
 +  about: "Chapter3 Realty, a real estate brokerage on the Grand Strand, South Carolina: its AI home search, its free calculators and the people behind them",
 +});
 diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
-index 55b0dbe4..74e7d93c 100644
+index 4977517a..d4fbe973 100644
 --- a/tools/idx-test.mjs
 +++ b/tools/idx-test.mjs
 @@ -35,6 +35,7 @@ let MAPPOINTS = false;
@@ -100720,7 +100720,7 @@ index 55b0dbe4..74e7d93c 100644
  }
  t = await (await run(mw, req("/buyers/relocating/from-maryland/"))).text();
  check("feed: a moving-from page: Homes people from Maryland love, on the water, with no subtitle", t.includes("Homes people from Maryland love") && !t.includes("Zillow, July") && calls.slice(-5).some((c) => c.url.includes("waterfront=1") && c.url.includes("has=private_dock")));
-@@ -611,8 +641,12 @@ CATALOG = false; resetCatalog();
+@@ -618,8 +648,12 @@ CATALOG = false; resetCatalog();
  APPLIED = true;
  t = await (await run(mw, req("/buyers/common-mistakes/"))).text();
  check("feed: a hook the filters make true: 'Price just cut' asks the CRM for price_reduced", t.includes("Price just cut on these homes") && calls.slice(-6).some((c) => c.url.includes("has=price_reduced")));
