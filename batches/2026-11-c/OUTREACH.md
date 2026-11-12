@@ -6,14 +6,16 @@ Goal: real sites that already serve Grand Strand buyers link to one page of ours
 
 - Gmail connector: works, connected to the firm's info@ mailbox (2026-11-12).
 - Mail setup checked 2026-11-12: SPF (Google), DKIM (google selector) and DMARC p=reject are all published. Mail from this address should not land in spam for setup reasons.
-- Volume: about 10 to 15 personal emails a week at most. A new sender that mails more gets marked as spam, and that hurts every email from the domain.
+- Volume (owner, 2026-11-13): up to 15 personal emails a day from info@, which already sends a lot. Start at 10 a day for the first week, then 15. Stop and slow down if more than 3 in 100 bounce or anyone marks one as spam.
+- Signer (owner, 2026-11-13): the owner, Devin Day, by name. This is email, not site copy, so the rule against naming him on the site does not apply.
+- No past vendors yet, and BrickWood's contacts are not for Chapter3 outreach (owner, 2026-11-13). Every email is cold, so each one has to give something first.
 - Order: Claude writes each email as a Gmail draft. The owner reads it in Gmail. Claude sends only after the owner says "send".
 
 ## Rules for every email
 
 1. One person, one email, written for that site. Never a list blast.
 2. The owner approves every email before it is sent. Claude sends only after "send".
-3. Sent from the owner's account, signed by the owner. Real name, the firm name "Chapter3 Realty Corp", the office as the site gives it (Vista Drive, Murrells Inlet, SC 29576, no street number: owner, 2026-11-07), and 854.333.2135.
+3. Sent from info@, signed by Devin Day. Real name, the firm name "Chapter3 Realty Corp", the office as the site gives it (Vista Drive, Murrells Inlet, SC 29576, no street number: owner, 2026-11-07), and 854.333.2135.
 4. Offer one page that answers a question their readers have. Say what is on it in one sentence.
 5. Never offer money, a gift or a link back for a link. Never ask for "dofollow".
 6. Never claim a fact the page does not prove. Never state a rate or a payment.
