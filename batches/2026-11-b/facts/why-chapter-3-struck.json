@@ -56,5 +56,59 @@
     "pattern": "(?<!significantly )\\bweakens (?:its|the home's|the) structure\\b|\\bis a health risk\\b",
     "struck": "It significantly lowers the home's value, weakens its structure or is a health risk to the people in it.",
     "use": "It significantly lowers the home's value, significantly weakens its structure or is a significant health risk to the people in it."
+  },
+  {
+    "row": "why-chapter-3 r2-1",
+    "pattern": "\\bFind houses\\b|\\bTell me everything you want and why\\b",
+    "struck": "You type what you want and why, in your own words, and press Find houses.",
+    "use": "You describe the home you want in your own words, and Chapter3 AI reads it."
+  },
+  {
+    "row": "why-chapter-3 r2-5",
+    "pattern": "\\brow of (?:photo cards|photos)\\b|\\bwith the reason in a few words\\b|\\beach with (?:its|the) reason\\b|\\bsix at a time\\b|\\bup to 96\\b",
+    "struck": "The homes that fit what you asked gather at the top in a row of photos, each with the reason in a few words.",
+    "use": "Chapter3 AI then reads the full listing description and details of the homes your search found, puts the best fits first and drops the ones the description rules out."
+  },
+  {
+    "row": "why-chapter-3 r2-5b",
+    "pattern": "\\bsign(?:s|ed)? up\\b[^.]{0,80}\\b(?:reads?|read)\\b[^.]{0,40}\\bdescriptions?\\b|\\bdescriptions?\\b[^.]{0,60}\\bsigned[- ]up visitors\\b",
+    "struck": "Sign up free and, while you look at the map, Chapter3 AI reads the listing descriptions, the homes in view first.",
+    "use": "When you ask for more than price, beds and size, Chapter3 AI reads the listing descriptions for you, the homes on screen first."
+  },
+  {
+    "row": "why-chapter-3 r2-9",
+    "pattern": "\\bnever (?:sorted |ordered |ranked )?by price\\b",
+    "struck": "It shows up to 10 homes, the most appealing first and never sorted by price, photos first.",
+    "use": "It shows up to 10 homes, each with a photo, the price and the listing firm."
+  },
+  {
+    "row": "why-chapter-3 r2-10",
+    "pattern": "\\b193\\b[^.]{0,40}\\brows?\\b|\\b131\\b[^.]{0,60}\\bopen with\\b",
+    "struck": "131 of the 141 pages in our sitemap open with a row of homes for sale under the opening, with the AI search box. 31 pages carry 193 more rows for named places, from 149 places.",
+    "use": "131 of our 141 pages carry a live row of homes with the AI search box; on 127 it sits right under the opening. 31 pages carry 190 more rows for 149 named places."
+  },
+  {
+    "row": "why-chapter-3 r2-14",
+    "pattern": "\\b45\\b[^.]{0,70}\\bbuildings?\\b[^.]{0,40}\\beach\\b",
+    "struck": "45 oceanfront condo buildings, each with its HOA fee and what its units sold for.",
+    "use": "47 oceanfront condo buildings in Myrtle Beach and North Myrtle Beach, with the monthly HOA fee for 45 of them and what units sold for at 42."
+  },
+  {
+    "row": "why-chapter-3 r2-19",
+    "pattern": "\\bformerly kvCORE\\b",
+    "struck": "BoldTrail (formerly kvCORE), a website platform many brokerages use.",
+    "use": "(cut it: not for the page; the product page does not say formerly kvCORE, how many firms use it, or a year)"
+  },
+  {
+    "row": "why-chapter-3 r2-37",
+    "pattern": "\\b8,?\\d{3}\\s+homes and lots\\b",
+    "struck": "8,858 homes and lots for sale in our live search today.",
+    "use": "8,858 listings for sale in our live search on the day of the count."
+  },
+  {
+    "row": "why-chapter-3 r2-27",
+    "pattern": "\\bMLS listings are searched for flood zone\\b",
+    "struck": "Of the Horry County homes for sale whose map pin falls inside FEMA's high-risk flood zone, about 1 in 5 comes up when the MLS listings are searched for flood zone.",
+    "use": "Of the Horry County homes for sale whose map pin falls inside FEMA's high-risk flood zone, about 1 in 5 comes up when our home search filters the MLS listings for flood zone."
   }
 ]

@@ -78,5 +78,66 @@
     "pattern": "\\bjust south of Myrtle Beach\\b",
     "struck": "A town just south of Myrtle Beach",
     "use": "A town south of Myrtle Beach"
+  },
+  {
+    "row": "submarkets D1",
+    "pattern": "Winyah Bay[^.]{0,40}\\bnear Georgetown\\b|\\bnear Georgetown\\b[^.]{0,60}Winyah Bay",
+    "struck": "To the mouth of Winyah Bay, near Georgetown, it is about 63.",
+    "use": "To the mouth of Winyah Bay, it is about 63."
+  },
+  {
+    "row": "submarkets D2",
+    "pattern": "\\b14 communities\\b|60[- ]mile[^.]{0,80}Little River[^.]{0,40}Pawleys|tourism board[^.]{0,40}\\b60 miles\\b",
+    "struck": "The Myrtle Beach area's tourism board says the Grand Strand is 60 miles long, from Little River to Pawleys Island, with 14 communities.",
+    "use": "The City of Myrtle Beach calls the Grand Strand a 60-mile stretch of the coast."
+  },
+  {
+    "row": "submarkets D5",
+    "pattern": "Garden City[^.]{0,80}\\b(reaches|extends|runs|spills|crosses) into Georgetown",
+    "struck": "Census's Garden City CDP, which reaches into Georgetown County.",
+    "use": "The Census's Garden City is the Horry County part only; it stops at the county line."
+  },
+  {
+    "row": "submarkets D9 (NMB)",
+    "pattern": "North Myrtle Beach[^.]{0,60}\\b8 ?(1/2|½)\\b|North Myrtle Beach[^.]{0,60}\\b8\\.[5-9] miles",
+    "struck": "Ocean beach inside each town's limits: Myrtle Beach about 10 miles, North Myrtle Beach about 8 1/2.",
+    "use": "Ocean beach inside each town's limits: Myrtle Beach about 10 miles, North Myrtle Beach a little over 8."
+  },
+  {
+    "row": "submarkets D9 (outside)",
+    "pattern": "\\b18 (to|or) 19 miles\\b|\\b1[89](\\.\\d)? miles of (the )?shore\\b",
+    "struck": "About 18 to 19 miles of the shore from the state line to Pawleys Island is outside every town and Census place.",
+    "use": "More than a third of the shore between the state line and Pawleys Island's south end lies outside every town and Census place."
+  },
+  {
+    "row": "submarkets D13, D4",
+    "pattern": "[Ss]ummer against winter|\\bpeople who live there all year\\b|\\blive there all year\\b",
+    "struck": "Summer against winter, in one figure: North Myrtle Beach has about 138 homes for every 100 people who live there all year.",
+    "use": "On Census Day 2020, North Myrtle Beach had about 138 homes for every 100 residents."
+  },
+  {
+    "row": "submarkets D4 (only)",
+    "pattern": "\\bonly\\b[^.]{0,80}\\bmore homes than\\b|\\bmore homes than\\b[^.]{0,80}\\bonly\\b",
+    "struck": "Only North Myrtle Beach and Pawleys Island have more homes than people.",
+    "use": "North Myrtle Beach, Surfside Beach and Pawleys Island had more homes than residents on Census Day 2020."
+  },
+  {
+    "row": "submarkets D11",
+    "pattern": "Myrtle Beach (News|Sun)[^.]{0,80}(1949|Grand ?Strand)|(1949|Grand ?Strand)[^.]{0,80}Myrtle Beach (News|Sun)|\\bFrom the Grand ?[Ss]trand\\b",
+    "struck": "The name dates from 1949, when Claude Dunnagan's column From the Grand Strand appeared in the Myrtle Beach News.",
+    "use": "The name Grand Strand dates from 1949, the title of a newspaper column by Claude Dunnagan."
+  },
+  {
+    "row": "submarkets R5 (MI 9)",
+    "pattern": "\\b220 houses\\b",
+    "unless": "outside Garden City|creek side|Georgetown",
+    "struck": "About 220 houses sit on Murrells Inlet's salt marsh.",
+    "use": "About 220 houses outside Garden City sit within 30 m of Murrells Inlet's salt marsh, almost all on the creek side of US 17 Business."
+  },
+  {
+    "row": "submarkets R6 (waterfront 23)",
+    "pattern": "Windy Hill[^.]{0,200}(every|each) (morning|day)|(every|each) (morning|day) of the year[^.]{0,200}Windy Hill",
+    "struck": "From about Windy Hill south to Garden City, the beach faces the southeast, so the sun rises out of the ocean every morning of the year.",
+    "use": "From central Myrtle Beach south to Garden City, the sun rises over open sea on every morning of the year."
   }
 ]

@@ -1,112 +1,117 @@
-# Plan: /why-chapter-3/ (batch 2026-11-b, Lane U, rebuild)
+# Plan: /why-chapter-3/ (batch 2026-11-b, second rewrite)
 
-Inputs: `must-answer.md`, `facts.md` (rows cited as R1 to R32), the triage row, the cannibalization entry, the judge's notes (`audit/judged-2026-10-31.json`) and the manual findings. The live page is hand-made; build a spec, `specs/why-chapter-3.js`, author "devin" (byline Devin Day, reviewed by Tim Nash). Do not name Devin in the copy.
+Inputs: `must-answer.md`, `facts.md` (rows R1 to R37, second ledger), the owner's words of 2026-11-12, the triage row and the cannibalization entry. Spec: `specs/why-chapter-3.js` in the website working copy, rewritten in place; author "devin" (byline Devin Day, reviewed by Tim Nash). Devin is never named in the copy.
 
-## What is worth keeping from the live page
+## What is worth keeping from the current page
 
-- **The building study as the page's idea.** It is the one thing on the page a reader can use: HOA bylaws and financial records, the building's lawsuit history, and the rental analysis (R23, the owner's own list). Keep the list and the line "Even if you never intend to rent it out, that analysis tells you whether you are paying a fair price" in plainer words.
-- **"Before a dollar is at risk"** as the timing: we check before the offer, not after.
-- **The free tools,** now named and linked one by one (R27).
-- **The offer "Send the address and we will run the study before you make an offer"** and the phone button.
-- **The links** to /buyers/undisclosed-flooding/, /sell/inherited-house/, /invest/strategies/1031-exchange/, /invest/condotel-financing/, /buyers/va-loans/ where a section needs them, and the end link to /about/.
-- Cut everything listed in facts.md "Not on the page". The SMS form leaves the first screen (judge: it asks for a phone number before the page says anything).
+- **The offer line** "Send us the address" and the end band with the phone and its hours (R36).
+- **Tim Nash's wow line** (R22, R23): 30+ years, third generation, Fred Nash Boulevard. It moves up, into the people section.
+- **The free tools list** (seven links), now led by the AI search and the map, and each line says what the tool does for you.
+- **The things we do before you offer** (R29 to R32), as short service lines, not a table of public records.
+- **The flood count** (R27), as one line of proof in the research section, with the corrected wording.
+- **The page's styles**: the one card style, plain lists under thin rules, the 720 px column, the closing band, and the 320 px fix for the feed's search row.
+- **Cut:** the law sections (what a buyer's agent must tell you, the material adverse fact definition, customer and transaction broker, the Broker-in-Charge duties), the check table with its record column, the Government and Justice Center photo, the BrickWood block, the lender FAQ and the flood bar chart. The owner: "a big disclosure rather than selling ourselves".
 
 ## The reader and their decision
 
-A person who has found a home on the Grand Strand, or soon will, and is deciding whether to let Chapter3 represent them. Many are out of state. They are afraid of buying a problem the listing does not show: a flood, a lawsuit, a rental ban, a big HOA bill. They have read that every agent says the same things. They need proof that we look, and an easy way to check who we are.
+A buyer, seller or investor looking at the Grand Strand who clicked "Why Us", or who is choosing a firm or a home search. Many live out of state. They have used Zillow. They want to know what they get here that they do not get there, and whether the people are worth a call.
 
-Their decision: **send us the address of a home before they offer, or not.**
+Their decision: **start searching with our tools, and let us help with the home they find.**
 
 ## The answer, in two sentences
 
-Before you offer on a Grand Strand home, a Chapter3 agent checks its flood record, its HOA papers and the building's court cases, gets you an insurance quote, and runs the rental numbers. South Carolina law asks an agent to tell you what they know; the study is how we find out what the listing does not say.
+Tell Chapter3 AI the home you want and why, in your own words, and it builds the search for you. Behind it is Tim Nash, 30 years on the Grand Strand, and a team that checks the HOA, the rentals and the insurance before you offer.
 
-(The permit check joins the first sentence only if the owner confirms it, question 2.)
+(Each sentence is under 28 words on the page. The photo row of section 2 is the third thing the reader sees, under the demo.)
 
 ## Title, H1, sub
 
-- **Title (60 characters):** "How Chapter3 Checks a Home Before You Offer | Chapter3 Realty" (cannibalization fix). It gives up "Chapter3 Realty team" to /about/.
-- **H1:** "What does Chapter3 check before you offer on a Grand Strand home?"
-- **Hero sub (statement, under 30 words):** "We read the county's records, the HOA's papers and the building's court history. Then we tell you what we found, before your money is at risk."
-- Description: "What a Chapter3 agent checks before you offer on a Myrtle Beach area home, the public record behind each check, and how to look up our license."
+- **Title (about 55 characters):** "Why Chapter3 Realty: AI Home Search and Local Agents". Branded, plus "AI home search", which no page on the site owns (must-answer row 2). It leaves "Myrtle Beach real estate team" to /about/ and "guides & tools" to /guides/.
+- **H1:** "Why Chapter3 Realty?" **Italic line:** "Tell our AI the home you want. Our agents check it before you offer."
+- **Sub (hidden as now, required by mkpage):** one statement under 30 words.
+- **Description:** "Search Grand Strand homes in your own words with Chapter3 AI, see the homes that fit with photos, run the numbers free, and meet the people behind it."
+- **Crumb:** "Why Chapter3". Eyebrow "Why Chapter3".
+- **Short answer:** the two sentences above.
 
 ## Sections, in order
 
-Each heading is a question people search, in their words. Each section answers it in its first two sentences.
+Headings are questions people search. Each answers in its first two sentences, then shows the thing.
 
-1. **What does Chapter3 check before you make an offer?** (the short answer, then the table)
-   - The two-sentence answer above.
-   - **Visual 1: "What we check, and where the record is".** A plain table, one row per check, an icon in the first cell. Columns: what we check; the record (a link to the public source); what it can tell you; the page with the detail. Rows:
-     - Flood record: FEMA's map, the county's Florence flood map, the county's floodplain staff, the seller's claim records (R12, R16, R17) -> /buyers/undisclosed-flooding/
-     - HOA papers: the state's HOA addendum before the contract, the recorded documents at the county, the budget, the rental rules (R13, R14, R24) -> /hoa/documents/
-     - Lawsuits: the county's court index, searched under the association's name (R15) -> /buyers/condo-in-litigation/
-     - Unpaid HOA fees and liens, before closing (R26) -> /hoa/liens-and-foreclosure/
-     - Insurance: a quote before you offer (R25) -> /buyers/coastal-insurance/
-     - Rental numbers: long-term and nightly rent, occupancy by month, the return (R23) -> /invest/run-the-numbers/
-     - Building permits nearby: **only if the owner confirms (question 2)** -> /invest/what-is-being-built/
-   - One line: the analysis is useful even if you never rent the home, because it shows whether the price fits what the home earns (R23). No value for any address.
-   - **Offer:** "Send us the address. We check it before you offer." -> /contact/ (the site opens the pop-up).
+1. **Can you search for homes with AI?** (R1 to R4, R8)
+   - Answer first: yes. Type what you want and why, the way you would say it to an agent. Chapter3 AI turns it into a search from more than 700 MLS features, and says in one line what it understood (R2, R4).
+   - **Visual 1, "Say it your way" (built from `tools.json` demos, never typed):** two cards stacked, one per sentence. Each card: the sentence in quotes in a search-box shape, then the filters the search read as small chips, then the count in bold, "1,266 condos for sale match", with the day. Each card is a link that runs that exact search on /homes/map/ (`?q=`), so the reader sees it live. Demos: "condo I can airbnb near the beach under 300k" and "3 bedroom house with a pool under 600k in Murrells Inlet" (R3). Not the "retiring" one. Plain HTML and CSS in the page's card style. Readable at a glance: sentence, chips, number.
+   - Then one plain list of three: "Keep talking to it" (cheaper, what about Conway, R2); "Every feature in the MLS" (water, boats, the beach, a pool, a golf cart, no HOA, rentals allowed, R4); "It never filters on who you are or who lives nearby" (R2).
+   - One small line (R8): Chapter3 AI can be wrong, and it never gives a value, a rate or a payment.
 
-2. **Does a listing tell you if a home is in a flood zone?** (the page's own finding)
-   - Answer first, from `listing-vs-map.json`: of the homes for sale in Horry County that stand in FEMA's high-risk flood zone, about 1 in 5 has a listing that marks a flood zone (R20). Print the full-zone counts (230 of 1,118, run 2); the zone's core gives 129 of 672 (19 percent), so the edge does not change the message. The spec reads both from the data file. Say "does not mark a flood zone", never "says it is not in one".
-   - One sentence: the seller's disclosure form asks about past flooding only in the seller's own years (R12). Link /buyers/undisclosed-flooding/ for the rest.
-   - **Visual 2: one bar, at a glance.** Title: "Most homes for sale in FEMA's flood zone do not say so in the listing". One horizontal bar for all homes in the zone, split into "listing marks a flood zone" and "listing does not". Two labels, the two counts, the date the count ran, the source line (CCMLS attribution, Horry County GIS, FEMA effective 12/16/2021). Built from the data file. If the owner wants it simpler still: five house icons, one filled.
-   - **Offer:** "Ask us to check a home's flood record" -> /contact/.
+2. **Can you see which homes fit before you click?** (R5, R6, R7, R9)
+   - Answer first: yes. Sign up free and, while you look at the map, Chapter3 AI reads the listing descriptions, the homes in view first. The homes that fit what you asked gather at the top in a row of photos, each with the reason in a few words (R5). This is the owner's "dynamic preview photos".
+   - Then, plain list under thin rules:
+     - "Ask about any home": on each home's page, ask "What does the HOA fee cover?", "How old are the roof and the AC?", "What is the flood zone?" or "Can I rent it out?". It answers from that listing (R6).
+     - "The map, in 2D or 3D": click a dot to see the photo and price; click any spot to search around it; ask for homes within a few miles of the two places you go every day (R7). Link /homes/map/.
+     - "Homes on every guide": 131 of our 141 pages open with live homes from the MLS, a row that scrolls by itself, the most appealing homes first, never sorted by price (R9, R10, from `tools.json`).
+   - **Homes strip (glass.js `homes()`), the one place-strip on the page:** `str-garden-city-beach-condos`, "Garden City Beach", head "Best Airbnb opportunities in Garden City Beach" (the owner's own example title, 2026-11-10; the place exists and is used on /invest/airbnb-income/). It shows a strip working inside the copy. Fallback when empty: nothing (no photo).
+   - **Offer:** "Tell us what you want. We send you the homes that fit, with the numbers." Button "Send me homes" -> /contact/.
 
-3. **What does a buyer's agent have to tell you in South Carolina?**
-   - Answer first: every material adverse fact the agent actually knows (R8). The law says an agent does not have to discover hidden defects (R9), and the buyer still has their own duty to inspect (R8).
-   - What we do with that: we go and look, using the records in the table, and we tell you when you need an inspector, an attorney or an insurer (R10). Name none (BIZ-7).
-   - Short. No line about what other agents do. Link the SC Code section once in the sources box.
-
-4. **Is Chapter3 Realty licensed, and who supervises your deal?** (answers "south carolina real estate license lookup" for our firm)
-   - **The wow line first (R30, R31):** Tim Nash, our Broker-in-Charge, has sold real estate on the Grand Strand for over 30 years. Fred Nash Boulevard, the road around the end of the airport runway, is named for his father, who sold real estate here before him. Link /about/ for the team.
-   - Then the record: Chapter3 Realty Corp, South Carolina real estate company license 28849; Tim Nash, license 43182 (R1, R2). How to check: the state's Licensee Lookup, Real Estate Commission, search "Chapter3" or the number; the state updates it nightly (R6). Office at 573 Vista Drive, Murrells Inlet, by appointment (R3).
-   - What the law makes a Broker-in-Charge do, in one short list of four (R7). Describe the role; never "Tim reads every deal".
-   - The logo's name: "Chapter III Realty", a registered name of Chapter3 Realty Corp (R4, R5), in one line only if the lead keeps the trade-name line in the footer (BUILD.md note).
-
-5. **Do you have to sign anything, and what does it cost?**
-   - Answer first: in South Carolina no agent represents you until you agree in writing (R11). Before that you are a customer, and you still get honesty, care, prompt offers and the adverse facts that are hard to find (R11).
-   - Our line: consultations, rental analyses and pricing reviews are free; you pay only under a written agreement you choose to sign (R22).
-   - Whether the full study is free and needs no agreement first: owner question 3. The page says only R22 until he answers.
-
-6. **What can you check yourself, for free?**
-   - Answer first: the live listing search and map, with the count of homes for sale and the day it ran (R19), the rental deal analyzer, and five calculators (R27). A clean list, one line each, each a link. No tiles, no badges.
+3. **Which numbers can you run yourself, free?** (R11, R12)
+   - Answer first: the rental analyzer reads the MLS: pick a home for sale and it fills in the beds, baths and size, then estimates the rent, the costs, the cash flow and the return, with the permits filed nearby (R11). Nothing about value or loans.
+   - A clean list, one line each, each a link, in the tool's own words (R12): Airbnb calculator, cost to own, property tax, closing costs, seller net, capital gains, cost of living. No tiles, no numbers from those pages.
    - The guides: one link to /guides/.
 
-7. **Frequently asked questions** (three, none repeating a section)
-   - "Do I have to use your lender?" Our affiliated lender, BrickWood Mortgage, is a separate company; you do not have to use it; the AfBA disclosure inline (R32).
-   - "How do I reach Chapter3?" The phone, 854.333.2135, its hours, and the office by appointment (R3). No time promise (R29, owner question 4).
-   - "Do you check homes for sellers too?" Only if the owner answers question 5(a) (the seller story) or confirms the practice; otherwise drop this entry.
+4. **Where do our guides get their numbers?** (R13, R14, R27)
+   - Answer first: from the county's own records and our own counts, not from a national average.
+   - Three lines, each a link: 13,194 home sales recorded at the county in a year, behind /sell/home-value/ (R13); 45 oceanfront condo buildings, each with its HOA fee and what its units sold for, /invest/condo-buildings/ (R14); our flood count (about 1 in 5 of the homes for sale in FEMA's high-risk zone come up in a flood-zone search of the MLS listings; we look up each home on FEMA's map), /buyers/undisclosed-flooding/ (R27, corrected wording).
+   - Short. No chart: the AI demo is the page's picture.
 
-**Story:** none in this version. If the owner confirms the flooded-house story word for word (question 5(a)), it goes into `stories/stories.json` and onto the page after section 2, as the last thing before the FAQ (STORY rules: an agent at Chapter3; no added detail).
+5. **Who will you work with at Chapter3?** (R22 to R24, R26)
+   - **The wow first (R22, R23):** Tim Nash, our Broker-in-Charge, has sold real estate on the Grand Strand for over 30 years, the third generation of his family here. Fred Nash Boulevard, the road around the end of the airport runway, is named for his father, who sold real estate here before him.
+   - **His published words (R24),** whole, as a pull quote with the same caption as on /buyers/relocating/pros-and-cons/. No new quote, no cut.
+   - One line (R26): we build these tools ourselves, and our team keeps adding to them. We find the homes for you; you do not have to bring us one.
+   - Link: "Meet the team" -> /about/.
 
-**End offer:** "Tell us which home you are looking at" -> /contact/, and "Call 854.333.2135" (tel:). A link to /about/ ("Meet the team").
+6. **What do you get when you work with us?** (R28 to R32)
+   - Answer first (R28): talking with us is free. So are rental analyses and pricing reviews; you pay only under a written agreement you choose to sign.
+   - Plain list, four lines: an insurance quote before you offer (R31); for an investor, we leave out communities that ban renting and read the HOA papers for rules that would block your plan (R30); on a home you are serious about, the HOA's bylaws and records, the building's lawsuit history where it can be found, and a rental analysis (R29); before closing, a check for an HOA lien or unpaid fees (R32).
+   - **Offer (R25):** "Send me homes with the numbers to prove it." Button -> /contact/.
 
-Length: about 1,200 to 1,500 words. It answers one main question; the rest is short.
+7. **Frequently asked questions** (four, none repeating a section word for word)
+   - Does Chapter3 have an AI home search? (R1, R2)
+   - Is the AI search free? Yes; reading the descriptions needs a free sign-up (R5).
+   - Does it cost anything to talk with Chapter3? (R28)
+   - Is Chapter3 Realty licensed? Yes, 28849 and 43182 (R33, R34).
 
-## Homes strip
+**License line, near the end, one sentence (R33 to R35):** "Chapter3 Realty Corp is licensed in South Carolina, company license 28849, with Tim Nash as Broker-in-Charge, license 43182; both are on the state's Licensee Lookup." Placed after section 6, before the FAQ, in small type. No section heading, no law.
 
-The page names no place, so it carries no `glass.js` homes() strip. It needs one edge feed under the opening (the site's edge adds it when the page has a feed). `/why-chapter-3/` has none in `idx-lib/feeds.js` today. Listed in BUILD.md for the lead: the existing NEWEST search with a bolder, personal title that the search still makes true, for example "Just listed on the Grand Strand. Pick one, and we check it." The reader's next step is exactly that.
+**End band:** "Tell us the home you want." Phone and hours (R36), button "Tell us what you want" -> /contact/.
+
+Length: about 1,100 to 1,400 words. Calm: one built visual, one strip, plain lists.
+
+## Visuals, each readable at a glance
+
+1. "Say it your way" demo cards (section 1), from `tools.json`. The spec checks each demo has a total above zero and at least three chips, and prints the pull day. If a count is zero on build day, the card is dropped, not typed.
+2. One homes strip (section 2), live, filled at the edge.
+3. Screenshots of our own tools are allowed, but every useful one shows listing photos or Google's map, which rules/images.md forbids saving into a page. **The only screenshot that passes:** the rental analyzer's sample report on the home page (a sample house, our own numbers). It shows "Estimated value", so it is **not used** either. No screenshots on this page; the live feed and strip are the pictures.
+
+## Homes
+
+- **Edge feed under the opening:** `/why-chapter-3/` already has one (`idx-lib/feeds.js` line 384, NEWEST with the head "Just listed on the Grand Strand. Pick one, and we check it first"). It carries the AI search box (`edge.js` line 176), which makes it the page's first proof. The head belongs to the first rewrite. BUILD asks the lead for "Just listed on the Grand Strand. Tell our AI what you want", true for the NEWEST search (listed in the last 21 days).
+- **Place strip:** `str-garden-city-beach-condos` (section 2). BUILD asks the lead to add `/why-chapter-3/` to that place's `pages` list (it is a record, not a gate; edge.js does not read it).
 
 ## Offers, in order
 
 | Where | Words | Goes to |
 |---|---|---|
-| After section 1 | Send us the address. We check it before you offer. | /contact/ |
-| After section 2 | Ask us to check a home's flood record | /contact/ |
-| Edge feed under the opening | (the feed itself) | listings |
-| End | Tell us which home you are looking at; Call 854.333.2135 | /contact/; tel:+18543332135 |
+| Top bar (heroCta) | "Tell us the home you want. We find it and check it." Button "Find me a home" | /contact/ |
+| Feed under the opening | the live feed and its AI box | /homes/map/ |
+| After section 2 | Tell us what you want. We send you the homes that fit, with the numbers. "Send me homes" | /contact/ |
+| After section 6 | Send me homes with the numbers to prove it. | /contact/ |
+| End band | Tell us the home you want; call 854.333.2135 | /contact/; tel:+18543332135 |
 
-No form in the first screen. The pop-up handles every /contact/ link.
-
-## Photos
-
-Our own only. The office front at 573 Vista Drive from the street, no people (photo partner shot list, through the owner's Gmail; `templates/photo-request-email.md`). Until it arrives, no photo: the table and the bar are the page's pictures. A screenshot of our own rental analyzer may sit in section 6 (our own image).
+Every button links to /contact/; the site opens the short pop-up.
 
 ## Referring pages
 
-21 pages link here now, mostly the relocation author block ("Why Us", `tools/inbound.js`). After the rebuild, add links in the text of the pages whose readers want this next, on words already there: /buyers/undisclosed-flooding/ ("we check" lines), /buyers/condo-in-litigation/, /hoa/documents/, /buyers/common-mistakes/, /buyers/ and /about/ ("what we check before you offer").
+`tools/inbound.js` counted 21 on 2026-11-10, mostly author notes ("Why Us"). After the rebuild, link here from words already on: /homes/ and /homes/map/ (the "Chapter3 AI" chip line, if the lead agrees), /about/ ("why work with us"), /guides/ (the tools intro), /invest/long-term-rental/ ("AI overview" line), /buyers/relocating/pros-and-cons/ (under Tim's quote: "more about how we work").
 
 ## Owner questions
 
-Five questions, added to `templates/owner-questions.md` under "Batch 2026-11-b, /why-chapter-3/". The page is buildable without the answers: each unanswered item is left out, as marked above.
+The five open questions of 2026-11-10 stay open. The page says nothing that depends on them: no "every" about the study (question 2), nothing on cost beyond R28 (question 3), no reply-time promise (question 4), no flooded-house story or monthly reports (question 5), and no permit-alert claim. Not a new question: the "only" result goes to the owner in BUILD as a finding, with the wording the page uses instead.
