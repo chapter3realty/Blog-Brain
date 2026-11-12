@@ -4,8 +4,10 @@ Goal: real sites that already serve Grand Strand buyers link to one page of ours
 
 ## Status
 
-- Gmail connector: connected, but every call fails with "User has not been assigned a storage replica". That error means the Google account linked to the connector has no Gmail mailbox (for example a Workspace user without a Gmail licence, or a different Google account than the one the owner sends from). Fix: reconnect the connector with the account the owner sends from, at claude.ai/customize/connectors. Connectors load when a chat starts, so the fix shows up in the owner's next chat.
-- Until then: Claude builds the target list and writes each email here. Nothing is sent.
+- Gmail connector: works, connected to the firm's info@ mailbox (2026-11-12).
+- Mail setup checked 2026-11-12: SPF (Google), DKIM (google selector) and DMARC p=reject are all published. Mail from this address should not land in spam for setup reasons.
+- Volume: about 10 to 15 personal emails a week at most. A new sender that mails more gets marked as spam, and that hurts every email from the domain.
+- Order: Claude writes each email as a Gmail draft. The owner reads it in Gmail. Claude sends only after the owner says "send".
 
 ## Rules for every email
 
