@@ -1,0 +1,54 @@
+[
+  {
+    "row": "tax-bill 8",
+    "pattern": "\\$3\\.95",
+    "struck": "In the office, a debit card is a $3.95 flat charge.",
+    "use": "(cut the $3.95 debit figure: the Tax Payer Services page says $3.95, the Real Property Tax page says in-office card payments carry the same fees as online; say paying by card in the office costs a fee, and a credit card is 2.35%)"
+  },
+  {
+    "row": "tax-bill 26",
+    "pattern": "\\b120 days\\b[^.]{0,120}\\bsuspend",
+    "unless": "\\b30 (?:more )?days\\b|final notice",
+    "struck": "A bill from a dealer purchase is due on receipt; after 120 days the license or registration is suspended.",
+    "use": "A bill from a dealer purchase is due when it comes. If it is still unpaid 120 days after the purchase, a final notice gives 30 more days before the license and registration are suspended."
+  },
+  {
+    "row": "tax-bill 30",
+    "pattern": "21st Ave(?:nue)?[^.]{0,80}\\b(?:closed|shut|no longer open)\\b|\\b(?:closed|shut)\\b[^.]{0,80}21st Ave",
+    "struck": "The old tax office on 21st Avenue North is closed.",
+    "use": "The Treasurer's Myrtle Beach office is now listed at 332 Hinson Drive, in the Central Coast Complex in Carolina Forest."
+  },
+  {
+    "row": "tax-bill 31",
+    "pattern": "\\bno (?:value |assessment )?notice\\b[^.]{0,100}\\bJanuary 15\\b|\\bJanuary 15\\b[^.]{0,100}\\bno (?:value |assessment )?notice\\b|right (?:of|to) protest",
+    "unless": "any time",
+    "struck": "Write to the Assessor within 90 days of a value notice, or by January 15 of the next year if no notice came.",
+    "use": "Write to the Assessor within 90 days after a value notice is mailed. In a year with no value notice, you may appeal in writing at any time; one filed by January 15 counts for that year's bill, and a later one counts for the next year."
+  },
+  {
+    "row": "tax-bill 32",
+    "pattern": "\\b(?:11|eleven)[- ]members?\\b",
+    "struck": "The County Board of Assessment Appeals has 11 members.",
+    "use": "(cut the member count: it is only on the county's summary page, which also carries superseded appeal text)"
+  },
+  {
+    "row": "tax-bill 34",
+    "pattern": "\\bonly\\b[^.]{0,60}\\b(?:attorneys?|lawyers?|CPAs?|accountants?)\\b|\\b(?:attorneys?|lawyers?|CPAs?)\\b[^.]{0,60}\\bonly\\b",
+    "unless": "appraiser",
+    "struck": "Only attorneys, CPAs and enrolled agents can represent you in the appeal.",
+    "use": "A lawyer, a CPA, an enrolled agent, or a licensed or certified appraiser on a value question may present the appeal for you, and you may do it yourself. A real estate agent may not."
+  },
+  {
+    "row": "tax-bill 37",
+    "pattern": "Residential Exemption[^.]{0,140}\\b(?:4|four) ?(?:%|percent)|\\b(?:4|four) ?(?:%|percent)[^.]{0,140}Residential Exemption",
+    "struck": "A $0 on the Residential Exemption line on a home you live in means the 4% is not on.",
+    "use": "(cut it: no bill or county source ties the Residential Exemption line to the 4% legal residence credit)"
+  },
+  {
+    "row": "tax-bill 38",
+    "pattern": "(?:second home|not (?:your|the owner's|their) legal residence|not a legal residence)[^.]{0,140}\\b(?:separate|second|another|its own) (?:tax )?(?:bill|notice)\\b",
+    "unless": "\\brent",
+    "struck": "A home that is not the owner's legal residence on December 31 gets a separate bill for its furnishings.",
+    "use": "If a property was not your legal residence on December 31, the Auditor asks for a personal property return (PT-100). Furniture in a rental is taxed on its own notice."
+  }
+]

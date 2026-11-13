@@ -1,0 +1,83 @@
+[
+  {
+    "row": "deeds 4",
+    "pattern": "\\bno (?:punctuation|commas?)\\b",
+    "struck": "Type the name last name first, then first name, with no punctuation.",
+    "use": "Type the last name first, then the first name, like SMITH JOHN. Use at least 3 letters."
+  },
+  {
+    "row": "deeds 5",
+    "pattern": "\\b(?:index|records?|search|database)\\b[^.]{0,40}\\b(?:starts?|begins?|goes back|go back|reach(?:es)? back|runs? back)\\b[^.]{0,20}\\b1984\\b",
+    "struck": "The online index starts in 1984.",
+    "use": "The name search form fills in a From date of January 1, 1984."
+  },
+  {
+    "row": "deeds 6",
+    "pattern": "\\bBook 675\\b|\\b(?:index|indexed|entries)\\b[^.]{0,80}\\b(?:about |around )?1980\\b",
+    "struck": "Index entries reach back to about 1980 by book and page.",
+    "use": "The index lists names and dates from late 1979, starting at Deed Book 660. Older deed books show only by book and page, marked non-indexed."
+  },
+  {
+    "row": "deeds 11",
+    "pattern": "\\bescrow\\b[^.]{0,100}\\b(?:view|print|save|online|images?)\\b|\\bredaction bars\\b|\\$25\\b[^.]{0,40}\\bdeposit\\b",
+    "struck": "Escrow account holders can view, print and save documents online for $0.50 a page.",
+    "use": "(cut it: the escrow page names an older system, and the live search says the county does not show images online)"
+  },
+  {
+    "row": "deeds 20",
+    "pattern": "\\b116\\b[^.]{0,40}\\b(?:a|every|each|per) (?:weekday|working day|business day|day)\\b",
+    "struck": "Horry County recorded 30,339 deeds, about 116 every weekday.",
+    "use": "Horry County recorded 30,339 deeds in those 12 months, about 2,500 a month."
+  },
+  {
+    "row": "deeds 21",
+    "pattern": "\\bLOT 1238\\b|\\bDOGWOOD NECK\\b|\\$580,000\\b",
+    "struck": "MEMO: LOT 1238 TS DOGWOOD NECK SUB FARM AT CAROLINA FOREST",
+    "use": "(cut it: it names one private lot, and the $580,000 came from a different entry; describe the memo as a short legal description, such as a lot number and a subdivision name)"
+  },
+  {
+    "row": "deeds 26",
+    "pattern": "\\bseller\\b[^.]{0,30}\\b(?:owes|pays)\\b",
+    "unless": "\\bexcept\\b|master-in-equity|\\bgovernment\\b",
+    "struck": "The seller owes it.",
+    "use": "By law the seller owes the deed fee, except on a master-in-equity or government deed, where the buyer owes it."
+  },
+  {
+    "row": "deeds 27",
+    "pattern": "\\bquitclaim\\b[^.]{0,80}\\b(?:pays? no|no deed fee|exempt)\\b|\\b(?:pays? no|no deed fee|exempt)\\b[^.]{0,80}\\bquitclaim\\b",
+    "unless": "\\bconfirms?\\b|\\balready\\b",
+    "struck": "A corrective or quitclaim deed with no payment pays no deed fee.",
+    "use": "A corrective or quitclaim deed that only confirms title the buyer already holds, with no payment, pays no deed fee."
+  },
+  {
+    "row": "deeds 27",
+    "pattern": "\\$0\\b[^.]{0,40}\\bbecause\\b",
+    "struck": "Many deeds show $0 because no money changed hands.",
+    "use": "(cut \"because\": the index does not say why a price is blank. Say that many deeds show $0 or no price, and that state law exempts some estate, trust and correction deeds from the deed fee)"
+  },
+  {
+    "row": "deeds 28",
+    "pattern": "\\bevery deed\\b[^.]{0,80}\\baffidavit\\b|\\baffidavit\\b[^.]{0,60}\\bevery deed\\b",
+    "struck": "Every deed recorded in Horry County comes with a sworn affidavit.",
+    "use": "A deed is normally filed with a sworn affidavit of its value, or of the reason it is exempt."
+  },
+  {
+    "row": "deeds 32",
+    "pattern": "\\bliens?\\b[^.]{0,120}\\blis pendens\\b",
+    "unless": "\\blis pendens notices?\\b",
+    "struck": "Recorded liens in the deed index include mechanics liens, condo liens, tax liens, child support liens and lis pendens.",
+    "use": "The deed index also holds lis pendens notices, which say a lawsuit affects title to the property."
+  },
+  {
+    "row": "deeds 36",
+    "pattern": "\\busually\\b[^.]{0,20}\\b(?:a|one) day behind\\b|Georgetown[^.]{0,120}\\busually\\b[^.]{0,30}\\bday\\b",
+    "struck": "Georgetown's index is usually a day behind.",
+    "use": "Georgetown's index was current to the day before when we checked."
+  },
+  {
+    "row": "deeds 38",
+    "pattern": "\\b(?:any|every|all) (?:Georgetown )?(?:deeds?|documents?|records?)\\b[^.]{0,60}\\b(?:online|on (?:its|the) website)\\b",
+    "struck": "In Georgetown County you can view and print every deed online.",
+    "use": "Georgetown County lets you view and print a deed on its website when the image is available."
+  }
+]

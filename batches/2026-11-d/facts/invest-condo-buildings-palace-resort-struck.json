@@ -1,0 +1,102 @@
+[
+  {
+    "row": "palace-resort 1",
+    "pattern": "\\b(?:23|twenty-three)[- ]stor(?:y|ies)\\b",
+    "struck": "The Palace is a 23-story tower.",
+    "use": "The Palace stands 241 feet tall."
+  },
+  {
+    "row": "palace-resort 2",
+    "pattern": "\\b(?:there is no|has no|without a|skips? the)\\s+13th floor\\b|\\belevators?\\b[^.]{0,40}\\bskips?\\b[^.]{0,20}\\b13\\b",
+    "struck": "Floors are numbered up to 23, and the elevator skips 13.",
+    "use": "No floor is numbered 13: unit numbers run on floors 1 to 12 and 14 to 23."
+  },
+  {
+    "row": "palace-resort 5",
+    "pattern": "\\b(?:each|every)\\b[^.]{0,60}\\bbalcon(?:y|ies)\\b",
+    "unless": "\\blists?\\b|\\blistings?\\b",
+    "struck": "Each has a full kitchen and a private balcony.",
+    "use": "Every unit has a full kitchen, and the resort lists a private balcony among its room features."
+  },
+  {
+    "row": "palace-resort 8",
+    "pattern": "\\bfees?\\b[^.]{0,20}\\b(?:does not|doesn't|do not|don't)\\s+(?:include|cover|pay)\\b[^.]{0,30}\\b(?:power|electric)",
+    "struck": "The fee does not include power.",
+    "use": "None of the listings says the fee pays the power bill."
+  },
+  {
+    "row": "palace-resort 13",
+    "pattern": "\\bindoor (?:swimming )?pools?\\b",
+    "struck": "The Palace has an indoor pool.",
+    "use": "It has two oceanfront pools and an indoor whirlpool."
+  },
+  {
+    "row": "palace-resort 15",
+    "pattern": "\\b(?:higher|upper)[- ]floors?\\b[^.]{0,40}\\b(?:sold|sell|sells|fetch|fetches|bring|brings|cost|costs|go|goes|went)\\b[^.]{0,25}\\bmore\\b|\\bfloor premium\\b|\\bpremium\\b[^.]{0,30}\\b(?:higher|upper) floors?\\b",
+    "unless": "\\b(?:larger|bigger) units?\\b|\\bsame (?:kind|type|size)\\b",
+    "struck": "Higher floors sold for more.",
+    "use": "Sales on the 11th floor and up had a middle price of about $154,000, against about $112,500 below, but more of the upper-floor sales were larger units."
+  },
+  {
+    "row": "palace-resort 17",
+    "pattern": "\\bowner[- ]occupied\\b",
+    "struck": "About 1 in 10 units is owner-occupied.",
+    "use": "About 1 in 10 units is taxed as the owner's home."
+  },
+  {
+    "row": "palace-resort 18",
+    "pattern": "\\bout of (?:state|South Carolina)\\b[^.]{0,60}\\bso\\b[^.]{0,30}\\brentals?\\b",
+    "struck": "Most units are owned from out of state, so most are rentals.",
+    "use": "(cut the inference: a mailing address does not show how a unit is used; for use, give row 17: 32 of 302 units are taxed as the owner's home)"
+  },
+  {
+    "row": "palace-resort 21",
+    "pattern": "\\bone of the largest\\b",
+    "struck": "It is part of the Vacation Myrtle Beach group, one of the largest resort groups in the Myrtle Beach area.",
+    "use": "The resort's own rental program is part of the Vacation Myrtle Beach group."
+  },
+  {
+    "row": "palace-resort 23",
+    "pattern": "\\bowners?\\b[^.]{0,40}\\b(?:get|gets|receive|receives)\\b[^.]{0,30}\\bpasses\\b|\\b(?:Airbnb|VRBO|outside)\\b[^.]{0,40}\\bguests?\\b[^.]{0,30}\\b(?:cannot|can't|do not get|don't get)\\b",
+    "struck": "Owners get two free water-park passes a day.",
+    "use": "Guests who book through the resort's own rental program get two free passes a day to H2Oasis, in season."
+  },
+  {
+    "row": "palace-resort 24",
+    "pattern": "\\b(?:no pets|pets are not allowed|may not bring (?:a )?pets?|pets? (?:is|are) banned)\\b",
+    "unless": "\\bservice animals?\\b",
+    "struck": "No pets; a $500 fine.",
+    "use": "Guests may not bring pets, and a $500 fine applies; registered service animals are not counted as pets."
+  },
+  {
+    "row": "palace-resort 25",
+    "pattern": "\\$8,160|\\$20,100\\b|\\$17,000\\b[^.]{0,60}\\bone-bedroom|\\bone-bedroom\\b[^.]{0,60}\\$17,000\\b",
+    "struck": "The middle studio listing took in $8,160 a year; a one-bedroom $17,000; a two-bedroom $20,100.",
+    "use": "(give no AirROI figure on this page and link /invest/airbnb-income/; AirROI now shows 12 months to October 2026: studio $10,700, one-bedroom $18,900, two-bedroom $21,700, city-wide)"
+  },
+  {
+    "row": "palace-resort 26",
+    "pattern": "\\bTim(?: Nash)?\\b[^.]{0,80}\\b(?:non-warrantable|escrow|transfer fees?)\\b|\\brental[- ]program buildings?\\b[^.]{0,80}\\b(?:transfer fees?|escrow)\\b",
+    "unless": "\\bany (?:HOA|association|building)\\b|\\bor not\\b",
+    "struck": "In rental-program buildings, buyers pay transfer fees and often a few months of dues in escrow.",
+    "use": "In our agents' experience, buildings with a rental program are usually non-warrantable, because so many owners are investors. Buyers in most associations here, with a rental program or not, pay a transfer fee and often a few months of dues in escrow."
+  },
+  {
+    "row": "palace-resort 30",
+    "pattern": "\\b(?:same owner|owned|no (?:sale|deed)s?|had none)\\b[^.]{0,40}\\bsince 1987\\b",
+    "struck": "Two units have had the same owner since 1987.",
+    "use": "(cut it: the county's last sale date for two units is in 1987, which does not show the owner never changed)"
+  },
+  {
+    "row": "palace-resort 31",
+    "pattern": "\\bstate park\\b[^.]{0,60}\\b(?:2\\.3|2\\.28|2\\.5|two and a half)\\s*miles?\\b|\\b(?:2\\.3|2\\.28)\\s*miles?\\b[^.]{0,60}\\bstate park\\b",
+    "struck": "Myrtle Beach State Park is about 2.3 miles south.",
+    "use": "Myrtle Beach State Park's north edge is about 1.7 miles south, in a straight line."
+  },
+  {
+    "row": "palace-resort 32",
+    "pattern": "\\b(?:no mapped (?:flood )?zone|not in any (?:mapped )?(?:flood )?zone|outside (?:any|every) (?:mapped )?flood zones?|unmapped)\\b",
+    "struck": "23.5 percent is in no mapped zone.",
+    "use": "About a quarter of the lot is in FEMA's minimal-hazard zone X, about three quarters in the shaded moderate zone, and about 4 percent, on the ocean side, in zone AE."
+  }
+]

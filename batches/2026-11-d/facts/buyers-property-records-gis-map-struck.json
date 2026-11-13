@@ -1,0 +1,40 @@
+[
+  {
+    "row": "gis-map 5",
+    "pattern": "(?:\\bfree\\b[^.]{0,30}\\b(?:account|parcel search|GIS map|parcel map|county map)\\b|\\baccount\\b[^.]{0,30}\\bfree\\b)",
+    "unless": "Georgetown",
+    "struck": "Horry County GIS Map: Free Parcel Search & Property Lines",
+    "use": "The account form asks for your name, email, mailing address and phone, and has no payment step."
+  },
+  {
+    "row": "gis-map 7",
+    "pattern": "(?:\\bno\\b|\\bevery\\b|\\bnone of the\\b|\\ball\\b)[^.]{0,20}\\bcounty (?:map|maps|app|apps)\\b[^.]{0,80}\\b(?:sign[- ]?in|log ?in|account)\\b",
+    "struck": "There is no county map that skips the sign-in.",
+    "use": "The county's parcel map, Land Records and Map Your Move each ask for a county account sign-in."
+  },
+  {
+    "row": "gis-map 33",
+    "pattern": "Garden City[^.]{0,160}\\b(?:may|can|could)\\b[^.]{0,40}\\b(?:go|rise|reach|build|be built)\\b[^.]{0,60}\\b180\\b",
+    "unless": "PDD|Planned Development",
+    "struck": "In Garden City, the overlay layer marks areas where new buildings may go past the 35-foot cap: 80, 120 and 180 feet.",
+    "use": "The county map's Garden City overlay marks height zones of 35, 80, 120 and 180 feet. The ordinance caps new buildings at 35 feet except in areas its map shows, or in a PDD, where up to 180 feet may be approved."
+  },
+  {
+    "row": "gis-map 37",
+    "pattern": "\\b(?:1|one) in 10 lots on the county map\\b",
+    "struck": "About 1 in 10 lots on the county map is drawn more than 10% bigger or smaller than its listed acreage.",
+    "use": "Of the lots the county map lists with an acreage, about 1 in 10 is drawn more than 10% bigger or smaller."
+  },
+  {
+    "row": "gis-map 48",
+    "pattern": "(?:\\bowner\\b[^.]{0,80}\\bqPublic\\b|\\bqPublic\\b[^.]{0,80}\\b(?:owner|by name)\\b)",
+    "struck": "To search Georgetown by owner, use the Assessor's qPublic site or the deeds name search.",
+    "use": "To search Georgetown by owner name, use the Register of Deeds name search. The map also links the Assessor's qPublic database."
+  },
+  {
+    "row": "gis-map 50",
+    "pattern": "Swipe[^.]{0,120}\\b2023\\b",
+    "struck": "The Swipe tool compares two aerial years, for example the 2023 and 2024 photos.",
+    "use": "The Swipe tool compares two aerial years, for example 2022 and 2024."
+  }
+]

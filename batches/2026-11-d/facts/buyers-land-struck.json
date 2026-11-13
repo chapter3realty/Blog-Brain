@@ -1,0 +1,128 @@
+[
+  {
+    "row": "land 3",
+    "pattern": "^(?![^.]*\\b(?:usual|traditional|standard) (?:method|way|route)\\b)[^.]*\\binspector (?:visits|comes|walks|checks)\\b",
+    "struck": "An inspector visits the lot; if the site is approved, the state issues a Permit to Construct, good for five years.",
+    "use": "Under the state's traditional method, an inspector visits the lot and, if it passes, issues a Permit to Construct, good for five years."
+  },
+  {
+    "row": "land 7",
+    "pattern": "\\b(?:engineer|soil scientist)\\b[^.]{0,60}\\bcan (?:design|build|make|draw)\\b",
+    "struck": "If a lot fails for a standard system, an engineer and a soil scientist can design a special system, which can cost thousands of dollars more.",
+    "use": "If a lot fails the conventional and alternative standards, an engineer and a soil scientist can check whether it can take an engineered system, which can cost thousands of dollars more."
+  },
+  {
+    "row": "land 9",
+    "pattern": "\\b(?:Army Corps|Corps of Engineers|Bureau of Coastal Management)\\b[^.]{0,40}\\b(?:decides|rules|determines)\\b",
+    "struck": "If the land may hold wetlands, the U.S. Army Corps of Engineers or the state's Bureau of Coastal Management decides.",
+    "use": "If you are not sure whether the land holds wetlands, you may need to ask the U.S. Army Corps of Engineers or the state's Bureau of Coastal Management."
+  },
+  {
+    "row": "land 11",
+    "pattern": "Georgetown County,? including (?:the )?rural areas west of the Waccamaw",
+    "struck": "It now serves from the North Carolina line to parts of Georgetown County, including rural areas west of the Waccamaw River.",
+    "use": "It now serves from the North Carolina line to parts of Georgetown County, and rural areas west of the Waccamaw River."
+  },
+  {
+    "row": "land 14",
+    "pattern": "\\bAG ?6\\b[^.]{0,60}\\b(?:2|two) acres\\b",
+    "struck": "AG6 and AG7 need 2 acres or more (AG7 allows them).",
+    "use": "AG6 and AG7 need 1.5 acres for a house (AG7 allows manufactured homes)."
+  },
+  {
+    "row": "land 15",
+    "pattern": "\\b25 feet on a cul-de-sac\\)?(?![^.]{0,60}\\b50 feet wide\\b)",
+    "struck": "A new lot must have at least 50 feet of frontage on a street (25 feet on a cul-de-sac).",
+    "use": "A new lot must have at least 50 feet of frontage on a street, or 25 feet on a cul-de-sac if the lot is 50 feet wide at the building line."
+  },
+  {
+    "row": "land 16",
+    "pattern": "\\bHighways? 9, 19\\b",
+    "struck": "No building may stand within 60 feet of the right of way of Highways 9, 19, 31, 57, 90, 319, 378, 701, 905 and 917 and a few other named roads.",
+    "use": "No structure may stand within 60 feet of the right of way of Highways 19, 31, 57, 90, 319, 378, 701, 905 and 917, two named stretches of Highway 9 and a few other named roads."
+  },
+  {
+    "row": "land 18",
+    "pattern": "\\b(?:two|2) campers\\b(?![^.]{0,200}\\b(?:tagged|license plate|road-ready|registered)\\b)",
+    "struck": "On vacant land zoned LFA, FA or CFA that touches the Waccamaw River or lies north and west of it, you may keep up to two campers or RVs and stay in them up to 15 days a month.",
+    "use": "(keep the conditions: the land has no house or business on it; at most two campers or RVs, each tagged, registered, road-ready and on approved sewer or septic, with permitted power; stays up to 15 days a month)"
+  },
+  {
+    "row": "land 21",
+    "pattern": "\\$1,615|Ordinance 30-2026",
+    "struck": "Horry County impact fees on a house of about 1,500 square feet total $1,615 under the schedule in effect since July 2026 (Ordinance 30-2026, passed unanimously).",
+    "use": "Horry County has collected impact fees on new building since October 2021."
+  },
+  {
+    "row": "land 21",
+    "pattern": "impact fees since 2021",
+    "struck": "The county has charged impact fees since 2021.",
+    "use": "Horry County has collected impact fees on new building since October 2021."
+  },
+  {
+    "row": "land 22",
+    "pattern": "\\bfee is (?:set|based|charged) (?:by|on) the size\\b",
+    "struck": "The fee is set by the size of the home, and the county's fee study counts a mobile home as a single-family unit.",
+    "use": "The county's 2026 impact fee study proposes fees by the size of the home and counts a mobile home as a single-family unit."
+  },
+  {
+    "row": "land 27",
+    "pattern": "\\bowner pays rollback\\b",
+    "struck": "When farm or timber land is put to another use, such as a new house, the owner pays rollback taxes.",
+    "use": "When farm or timber land is put to another use, such as a new house, the land owes rollback taxes."
+  },
+  {
+    "row": "land 28",
+    "pattern": "\\blargest county\\b(?![^.]{0,30}\\bby land\\b)",
+    "struck": "Horry is South Carolina's largest county, 1,134 square miles.",
+    "use": "Horry is South Carolina's largest county by land area, about 1,133 square miles of land."
+  },
+  {
+    "row": "land 28",
+    "pattern": "Little Pee Dee[^.]{0,40}\\b(?:western and southern|west and south)\\b",
+    "struck": "The Little Pee Dee River is its western and southern edge, against Dillon, Marion and Georgetown counties.",
+    "use": "The Little Pee Dee River flows between Horry and Marion counties, on Horry's west side."
+  },
+  {
+    "row": "land 30",
+    "pattern": "\\b(?:runs|flows) past Aynor\\b[^.]{0,30}\\btea",
+    "struck": "The Little Pee Dee runs past Aynor tea-colored, past cypress swamps and sandbars.",
+    "use": "Below the US 378 bridge, the Little Pee Dee's state scenic stretch has tea-colored water, cypress-tupelo swamps and sandbars."
+  },
+  {
+    "row": "land 31",
+    "pattern": "Since the 1870s[^.]{0,160}\\bporch\\b",
+    "struck": "Since the 1870s, candidates have come to Galivants Ferry, just west of Aynor on the Little Pee Dee, to speak at the Stump, from the porch of the Holliday family store, over chicken bog and barbecue.",
+    "use": "Since the 1870s, candidates have come to Galivants Ferry, just west of Aynor on the Little Pee Dee, to speak at the Stump."
+  },
+  {
+    "row": "land 34",
+    "pattern": "\\$195,000 for (?:about )?1\\.7 acres",
+    "struck": "In Horry the middle ask is about $195,000 for about 1.7 acres.",
+    "use": "In Horry the middle ask is about $195,000, and the middle size is about 1.7 acres."
+  },
+  {
+    "row": "land 36",
+    "pattern": "\\ba few dozen\\b",
+    "struck": "Little River, Murrells Inlet and Pawleys Island rest on a few dozen tracts.",
+    "use": "Little River, Murrells Inlet and Pawleys Island each rest on fewer than 20 tracts."
+  },
+  {
+    "row": "land 37",
+    "pattern": "\\bthan anywhere else in either county\\b",
+    "struck": "Around Loris, Green Sea and Nichols there are more pieces of land for sale than anywhere else in either county.",
+    "use": "Of the areas we counted by ZIP code, the Loris, Green Sea and Nichols ZIP codes have the most land for sale."
+  },
+  {
+    "row": "land 38",
+    "pattern": "\\bsay the septic site is approved\\b",
+    "struck": "About 1 in 4 (177 of 763) say the septic site is approved.",
+    "use": "About 1 in 4 (177 of 763) are marked perc or septic approved."
+  },
+  {
+    "row": "land 39",
+    "pattern": "\\bon a dirt road\\b(?![^.]{0,10}\\bor gravel\\b)",
+    "struck": "77 are on a dirt road.",
+    "use": "77 are marked as on a dirt or gravel road."
+  }
+]

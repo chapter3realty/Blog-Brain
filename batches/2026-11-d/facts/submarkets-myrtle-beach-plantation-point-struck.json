@@ -1,0 +1,92 @@
+[
+  {
+    "row": "plantation-point 1",
+    "pattern": "(?:Landing[^.]{0,60}\\b95\\b|\\b95\\b[^.]{0,40}\\b(?:houses|homes)\\b)",
+    "struck": "The Landing has 95 houses.",
+    "use": "The Landing has 139 houses."
+  },
+  {
+    "row": "plantation-point 1",
+    "pattern": "\\b(?:15|fifteen) (?:empty|vacant|open) lots\\b",
+    "struck": "Plantation Point has 352 houses and 15 empty lots.",
+    "use": "Plantation Point has 352 houses and 14 empty lots."
+  },
+  {
+    "row": "plantation-point 4",
+    "pattern": "\\b(?:5,573|9,221)\\b",
+    "struck": "The Landing's lots run from 5,573 to 9,221 square feet.",
+    "use": "The Landing's lots run from about 5,100 to 9,500 square feet."
+  },
+  {
+    "row": "plantation-point 5",
+    "pattern": "Landing[^.]{0,80}\\b1,6\\d\\d\\b",
+    "struck": "The typical Plantation Point house covers about 3,900 square feet of ground; The Landing's about 1,600.",
+    "use": "The typical Plantation Point house covers about 3,900 square feet under roof; a Landing house about 1,700."
+  },
+  {
+    "row": "plantation-point 8",
+    "pattern": "\\b59\\b[^.]{0,60}\\b(?:waterway|Intracoastal|water)\\b",
+    "struck": "59 lots sit on the Intracoastal Waterway.",
+    "use": "58 lots sit on the Intracoastal Waterway."
+  },
+  {
+    "row": "plantation-point 9",
+    "pattern": "\\b34\\b[^.]{0,60}\\b(?:golf|course|Myrtlewood)\\b",
+    "struck": "88 Plantation Point lots and 34 Landing lots border the Myrtlewood golf course.",
+    "use": "88 Plantation Point lots and 47 Landing lots border the Myrtlewood golf course."
+  },
+  {
+    "row": "plantation-point 10",
+    "pattern": "\\b36[- ]holes?\\b",
+    "struck": "The course next door is Myrtlewood Golf Club, 36 holes on two courses, PineHills and Palmetto.",
+    "use": "The course next door is Myrtlewood Golf Club, with two courses, PineHills and Palmetto."
+  },
+  {
+    "row": "plantation-point 11",
+    "pattern": "\\b1966\\b",
+    "struck": "PineHills dates to 1966.",
+    "use": "PineHills is an Arthur Hills redesign of an older course."
+  },
+  {
+    "row": "plantation-point 13",
+    "pattern": "\\b36\\b[^.]{0,80}\\b(?:lots|flood|AE|high-risk|strip)\\b",
+    "struck": "The edge of 36 waterway lots touches a high-risk (AE) strip along the water, away from the houses.",
+    "use": "The edge of 35 waterway lots touches a high-risk strip along the water, away from the houses."
+  },
+  {
+    "row": "plantation-point 17",
+    "pattern": "(?:\\b(?:five|5) (?:houses|homes)[^.]{0,80}\\bLanding\\b|\\bLanding\\b[^.]{0,80}\\b(?:five|5) (?:houses|homes|sales)\\b|\\bLanding\\b[^.]{0,60}\\b12 months: (?:five|5)\\b)",
+    "struck": "Houses sold in The Landing in the last 12 months: 5, at a middle price of about $280,000.",
+    "use": "Seven houses sold in The Landing in the last 12 months, at a middle price of about $280,000."
+  },
+  {
+    "row": "plantation-point 20",
+    "pattern": "(?:\\b299\\b|\\b55 of (?:the |its )?95\\b)",
+    "struck": "299 of the 352 houses are taxed at the 4% rate. In The Landing, 55 of 95.",
+    "use": "300 of the 352 houses are taxed at the 4% rate. In The Landing, 81 of 139."
+  },
+  {
+    "row": "plantation-point 21",
+    "pattern": "(?:HOA with a \\$0|\\$0 (?:HOA )?fee|fee of \\$0|name an HOA)",
+    "struck": "Of the 6 houses for sale in Plantation Point, 3 listings say there is no HOA and 3 name an HOA with a $0 fee.",
+    "use": "No home for sale here lists a monthly HOA fee, and 3 of the 6 Plantation Point listings say there is no HOA."
+  },
+  {
+    "row": "plantation-point 24",
+    "pattern": "\\b(?:built|founded|created|made) (?:the town of |the city of )?Myrtle Beach\\b",
+    "struck": "Myrtle Beach Farms is the partnership that built Myrtle Beach itself, formed in 1912.",
+    "use": "Myrtle Beach Farms, formed in 1912 and later Burroughs & Chapin, played a central role in the growth of Myrtle Beach."
+  },
+  {
+    "row": "plantation-point 30",
+    "pattern": "(?:\\b(?:4|four) minutes from The Landing|\\bLanding\\b[^.]{0,60}\\b(?:4|four) minutes\\b)",
+    "struck": "A Food Lion anchors Plantation Point Plaza, about 4 minutes from The Landing and 8 from the middle of Plantation Point.",
+    "use": "A Food Lion anchors Plantation Point Plaza, about 3 minutes by car from The Landing and 8 from the middle of Plantation Point."
+  },
+  {
+    "row": "plantation-point 36",
+    "pattern": "beach parking decal",
+    "struck": "The City of Myrtle Beach's free resident beach parking decal needs a car registered in the city.",
+    "use": "The city's resident parking decal is only for cars kept inside the city limits that pay city vehicle tax, so Plantation Point owners do not qualify."
+  }
+]
