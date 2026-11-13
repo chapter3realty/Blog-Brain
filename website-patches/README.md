@@ -322,3 +322,7 @@ Committed by Claude to the website's live branch as `14406393` (owner's brief of
 - Copies are stored only for listings the CRM returned in the current sweep. A removal sweep every 5 h 45 min deletes every copy whose listing or version it did not see. Copies are served only while the last sweep is under 6 hours old, cached an hour at most.
 - No CRM answer is cached at the edge longer than an hour.
 - The website's CLAUDE.md non-negotiable 9 holds the rule.
+
+## `v1.13-filter-list-shared-copy.patch`: one shared filter list (2026-11-13)
+
+Committed by Claude to the website's live branch as `ab2ee29f`, for the CRM's thread "The filter list is called far more than once an hour". The site keeps one copy of `GET /api/idx/filters` in R2 for every visitor, asks the CRM at most once an hour through a lock, and after a 429 or 503 serves the last copy until `retry-after` has passed. `node build.js preflight` passed; `node tools/idx-test.mjs` passes, including the new filter list control. Needs the owner's `deploy.ps1`.
