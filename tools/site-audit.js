@@ -20,7 +20,8 @@
  *   every sitemap URL returns 200; http, www, no-slash and index.html variants
  *   reach the canonical in one hop; a bad URL returns 404; repo-only files
  *   (.git, build.js, HANDOFF.md) are not served; every /assets/ file a live page
- *   references exists; every external link resolves. External failures are split
+ *   references exists; every external link resolves; the property lookup's county and FEMA services
+ *   still answer with the fields it reads. External failures are split
  *   into BROKEN (404, 410, DNS) and BLOCKED (401/403/405/429/503, usually a bot
  *   wall). Check BLOCKED ones once in a browser.
  *
@@ -229,12 +230,23 @@ async function liveChecks(src) {
   });
 }
 
+/* The property lookup on /buyers/property-records/ reads the county's and FEMA's map services live in the
+ * visitor's browser. Those addresses are in a script, not in links, so the external-link check above never
+ * sees them. The page's own test asks each service again and checks its field names (added 2026-11-13). */
+function lookupSources(repo) {
+  const t = path.join(repo, "data", "2026-11-d", "property-records", "lookup-test.js");
+  if (!fs.existsSync(t)) return;
+  const r = require("child_process").spawnSync(process.execPath, [t, "--live"], { encoding: "utf8", timeout: 180000 });
+  if (r.status !== 0) add("error", "lookup-sources", "/buyers/property-records/", ((r.stdout || "") + (r.stderr || "")).trim().split("\n").slice(-6).join(" | "));
+  else add("info", "lookup-sources", "/buyers/property-records/", "county and FEMA services answer with the expected fields");
+}
+
 async function main() {
   const args = process.argv.slice(2), repo = args.find(a => !a.startsWith("--"));
   if (!repo) { console.error("usage: node tools/site-audit.js <website-repo> [--live] [--json]"); process.exit(2); }
   const root = fs.existsSync(path.join(repo, "chapter3realty")) ? path.join(repo, "chapter3realty") : repo;
   const src = sourceChecks(root);
-  if (args.includes("--live")) await liveChecks(src);
+  if (args.includes("--live")) { await liveChecks(src); lookupSources(repo); }
   if (args.includes("--json")) console.log(JSON.stringify(findings, null, 1));
   else {
     const order = { error: 0, warn: 1, info: 2 };
