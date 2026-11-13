@@ -23,12 +23,12 @@ const LOCAL = "Myrtle Beach,South Carolina,United States";
 const AUTH = "Basic " + (process.env.DATAFORSEO_AUTH || "proxy-injected");
 
 async function call(path, body) {
-  const r = await fetch("https://api.dataforseo.com/v3/" + path, {
-    method: body ? "POST" : "GET",
-    headers: { Authorization: AUTH, "Content-Type": "application/json" },
-    body: body ? JSON.stringify(body) : undefined,
-  });
-  const j = await r.json();
+  /* curl, not fetch: Node's fetch ignores HTTPS_PROXY, and the key is added by the cloud environment's proxy. */
+  const a = ["-s", "-m", "120", "-H", `Authorization: ${AUTH}`, "-H", "Content-Type: application/json"];
+  if (body) a.push("--data-binary", "@-");
+  const r = require("child_process").spawnSync("curl", [...a, "https://api.dataforseo.com/v3/" + path], { input: body ? JSON.stringify(body) : undefined, maxBuffer: 1 << 28 });
+  if (r.status !== 0) throw new Error("curl failed: " + r.stderr.toString());
+  const j = JSON.parse(r.stdout.toString());
   if (jsonOut) fs.writeFileSync(jsonOut, JSON.stringify(j, null, 1));
   const t = (j.tasks || [])[0] || {};
   if (j.status_code !== 20000 || (t.status_code && t.status_code !== 20000)) {
@@ -46,7 +46,7 @@ async function call(path, body) {
   } else if (cmd === "volume") {
     const kws = [...new Set((file ? fs.readFileSync(file, "utf8").split("\n") : rest).map((s) => s.trim().toLowerCase()).filter(Boolean))];
     if (!kws.length) throw new Error("no keywords");
-    const res = await call("keywords_data/google_ads/search_volume/live", [{ keywords: kws.slice(0, 1000), ...(us ? { location_name: "United States" } : { location_name: "Myrtle Beach-Florence SC,South Carolina,United States" }), language_code: "en" }]);
+    const res = await call("keywords_data/google_ads/search_volume/live", [{ keywords: kws.slice(0, 1000), ...(us ? { location_name: "United States" } : { location_code: 200570 }), language_code: "en" }]);
     res.sort((a, b) => (b.search_volume || 0) - (a.search_volume || 0));
     for (const k of res) console.log(`${String(k.search_volume ?? "-").padStart(7)}  ${String(k.competition ?? "").padEnd(7)}  ${k.keyword}`);
   } else if (cmd === "serp") {
