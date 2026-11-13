@@ -1,0 +1,13 @@
+# Tomorrow (written 2026-11-13)
+
+In order. Everything here was decided with the owner on 2026-11-13; do not re-ask.
+
+1. **Finish batch 2026-11-d** (two workflows: wf_1ef93fed-e58 and wf_1eb24d53-e58, eleven pages). For each page: read BUILD.md lead items, run an independent check on any VERIFIED-BY-FIXER rows, apply corrections.
+2. **Cannibalization pass across all eleven and the old pages**: every title, H1 and keywords line against every sibling (build.js check flags shared keywords; also compare titles by hand). Pairs to check first: tax-bill vs /buyers/property-taxes/; flood-zone-check vs /buyers/undisclosed-flooding/ and /buyers/coastal-insurance/; senior-living vs /buyers/55-plus-communities/ and /buyers/retirees/; land vs /buyers/new-construction/; hoa-fees-by-neighborhood vs /hoa/ and /invest/condo-buildings/; palace-resort vs /invest/condo-buildings/; plantation-point vs /submarkets/myrtle-beach/; myrtle-beach-vs-charleston vs /buyers/relocating/pros-and-cons/; the hub vs its three task pages.
+3. **Click pass**: each title matches the top search exactly first (DataForSEO volumes in research/dataforseo-2026-11-13.md), then one true hook, 40 to 60 characters; descriptions answer the question; first screen does the job.
+4. **Build the lookup tool** (LOOKUP-TOOL.md) into the hub, plus the small box on the three task pages.
+5. **Links**: "Property records" in the site menu; each new page linked from six or more pages (tools/inbound.js --min 6); add the new pages to /guides/, sitemap.xml and llms.txt; new homes places for Plantation Point, Palace Resort, land, and HOA communities.
+6. **County URLs into the monthly link check** (tools/site-audit.js).
+7. **Gates, previews, patch v1.40**, one deploy box for the owner (C:\c3-v138, push as chapter3realty, deploy.ps1).
+8. **The next 23 community and resort pages** after the owner sees the two pilots: pick by search volume (top up DataForSEO; the competitor list is in the scratchpad kw/competitor-keywords.json and the research note).
+9. Still open from before: /buyers/property-taxes/ title toward "Horry County property taxes" if it keeps missing "horry county taxes"; flood insurance page after Dec 11; landlord-rules eviction fees after Jan 1; the owner's open questions (DSCR page, text-enabled phone, flood_zone MLS field, wow facts for four buildings).
