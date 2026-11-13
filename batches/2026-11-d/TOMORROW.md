@@ -1,4 +1,19 @@
-# Tomorrow (written 2026-11-13)
+# Tomorrow (written 2026-11-13, updated that night)
+
+## Done on 2026-11-13
+- Batch 2026-11-d is finished: eleven pages built, reviewed, fixed. 24 fixer rows checked by an independent verifier (23 verified, 1 corrected and applied).
+- Cannibalization pass: no two of the eleven, or any older page, target the same search. One shared keyword removed (/hoa/documents/ no longer claims "register of deeds").
+- Links: menu (property records lookup, flood zone check, HOA fees by neighborhood), 50 pages link in, each new page has 6 or more (LINKS.md). Sitemap, llms.txt, dates, llms-full, share images.
+- The lookup tool: tested in the browser at 390 and 1440 on three addresses and a miss. Addresses now show in plain case. Its tests use curl, so `--live` works behind a proxy; `tools/site-audit.js --live` runs it monthly.
+- Patch: website-patches/v1.40 (three parts), tested on a clean copy of ab2ee29f. v1.40-wip deleted. **The owner deploys it** (the box is in its README).
+
+## Next
+1. After the owner sees Plantation Point and Palace Resort live: the next 23 community and resort pages, picked by volume (top up DataForSEO; research/data/dataforseo-competitor-keywords-2026-11-13.json).
+2. /buyers/flood-zone-check/ scores 96: trust T2 wants a second first-hand sentence (our study of 6,379 homes is in third person).
+3. Old-page defects site-audit found (not from this batch): unbalanced div/section in /buyers/coastal-insurance/, /buyers/relocating/cost-of-living/ and /invest/; /map redirects to /homes/map/?view=3d, which the audit cannot see as a file; facts-check: /buyers/relocating/from-virginia/ and /from-massachusetts/ give a South Carolina standard deduction of $30,000 (from 2026 it is the SCIAD).
+4. Two weeks after v1.40 is live: DataForSEO `ranked chapter3realty.com` to see which of the eleven rank, and rework titles that miss.
+
+## The plan as written that morning (kept for the record)
 
 In order. Everything here was decided with the owner on 2026-11-13; do not re-ask.
 
