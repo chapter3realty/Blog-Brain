@@ -1,0 +1,109 @@
+[
+  {
+    "row": "hoafees 1",
+    "pattern": "\\b4,213\\b",
+    "struck": "Together they hold 2,585 of the 4,213 such homes for sale.",
+    "use": "Together they hold 2,585 of the 3,990 such homes for sale we found in South Carolina."
+  },
+  {
+    "row": "hoafees 1",
+    "pattern": "\\b382\\b[^.]{0,120}\\bbetween Little River and Pawleys Island\\b",
+    "struck": "382 South Carolina neighborhoods between Little River and Pawleys Island have 3 or more homes for sale.",
+    "use": "382 South Carolina neighborhoods, from Little River to Pawleys Island and inland to Conway, Loris, Aynor and Georgetown, have 3 or more homes for sale."
+  },
+  {
+    "row": "hoafees 3",
+    "pattern": "\\b37\\b[^.]{0,80}\\b(?:under|less than) \\$50\\b|\\b(?:under|less than) \\$50\\b[^.]{0,40}\\b37\\b",
+    "struck": "37 charge under $50 a month in the middle.",
+    "use": "37 charge $50 or less a month in the middle."
+  },
+  {
+    "row": "hoafees 7",
+    "pattern": "Lakeside at Eagle Nest[^.]{0,80}\\bArrowhead\\b",
+    "unless": "Blackmoor|Tilghman",
+    "struck": "Southgate (Carolina Forest) $46, Lakeside at Eagle Nest (Little River) $48, Arrowhead (Myrtle Beach) $52.",
+    "use": "Southgate (Carolina Forest) $46, Lakeside at Eagle Nest (Little River) $48, Blackmoor (Murrells Inlet) $50, Tilghman Forest - Tilghman Estates (North Myrtle Beach) $50, Arrowhead (Myrtle Beach) $52."
+  },
+  {
+    "row": "hoafees 11",
+    "pattern": "Waterbridge[^.]{0,160}\\$450\\b",
+    "struck": "Waterbridge: 26 houses for sale; every listing gives a fee, most $150 a month (one lists $450).",
+    "use": "Waterbridge: 26 houses for sale, every one with a fee; 23 list $150 a month, and one lists $449."
+  },
+  {
+    "row": "hoafees 12",
+    "pattern": "\\b(?:every|each|all)\\b[^.]{0,30}\\blist(?:s|ing)? \\$107\\b|\\$107\\b[^.]{0,20}\\b(?:on|for) (?:every|each|all)\\b",
+    "struck": "The Farm: 14 houses for sale, every one listing $107 a month.",
+    "use": "The Farm: 14 houses for sale; 12 list $107 a month, the others $100 and $110."
+  },
+  {
+    "row": "hoafees 13",
+    "pattern": "Del Webb North Myrtle Beach[^.]{0,60}\\beach (?:listing )?(?:at )?\\$315\\b",
+    "struck": "Del Webb North Myrtle Beach: 3, each $315.",
+    "use": "Del Webb North Myrtle Beach: 3 for sale; listings show $315."
+  },
+  {
+    "row": "hoafees 13",
+    "pattern": "Del Webb[^.]{0,60}\\b26 houses\\b|\\b26 houses\\b[^.]{0,40}Del Webb",
+    "struck": "Del Webb at Grande Dunes: 26 houses for sale, $401 to $435 in the middle half.",
+    "use": "Del Webb at Grande Dunes: 26 homes for sale (houses and villas), $401 to $435 in the middle half."
+  },
+  {
+    "row": "hoafees 15",
+    "pattern": "(?:Conway Plantation|Crystal Lake|Waterford Oaks)[^.]{0,160}\\bno (?:HOA )?fee\\b|\\bno (?:listing|HOA fee|fee)\\b[^.]{0,200}(?:Conway Plantation|Crystal Lake|Waterford Oaks)",
+    "unless": "lot rent|leased|land lease",
+    "struck": "51 neighborhoods in the table have homes for sale but no listing that gives a fee, among them Hagley Estates (Pawleys Island, 10 for sale), Conway Plantation (12), Crystal Lake (Myrtle Beach, 13), Waterford Oaks (Garden City Beach, 14), Windy Hill Beach (12) and Pine Lakes (7).",
+    "use": "16 more are manufactured-home communities, where no listing gives an HOA fee; in some, such as Conway Plantation and Crystal Lake, listings say the home sits on leased land with a monthly lot rent."
+  },
+  {
+    "row": "hoafees 17",
+    "pattern": "Prince George Ocean[^.]{0,80}\\bLeatherleaf\\b",
+    "unless": "Del Webb|Bal Harbor|among the highest",
+    "struck": "Grande Dunes - Waterside Pointe about $503; Prince George Ocean (Pawleys Island) about $493; Barefoot Resort - Leatherleaf about $398.",
+    "use": "Prince George Ocean (Pawleys Island) about $493; Del Webb at Grande Dunes about $401; Grande Dunes - Bal Harbor about $400; Barefoot Resort - Leatherleaf about $398."
+  },
+  {
+    "row": "hoafees 19",
+    "pattern": "\\b(?:inside|within|in) (?:one|a single|the same) master (?:community|association|plan)\\b",
+    "struck": "Sub-neighborhoods inside one master community list their own fees.",
+    "use": "Some communities appear in the listings under many sub-neighborhood names, each with its own listed fee."
+  },
+  {
+    "row": "hoafees 19",
+    "pattern": "\\btown cent(?:er|re)(?:'s|s')? streets\\b",
+    "struck": "Townhomes are $450 to $490 on the town center's streets.",
+    "use": "(cut it: no source places these townhomes)"
+  },
+  {
+    "row": "hoafees 21",
+    "pattern": "\\b2,422\\b",
+    "struck": "Of the 2,422 homes for sale in the table outside leased land, 2,097 list a fee.",
+    "use": "Of the 2,411 homes for sale in the table outside the campground and land-lease communities, 2,097 list a fee."
+  },
+  {
+    "row": "hoafees 22",
+    "pattern": "(?:Mt\\.? Gilead|Myrtle Dunes)[^.]{0,30}\\$9\\b|North Litchfield Beach[^.]{0,30}\\$5\\b|Olde Village[^.]{0,30}\\$1\\b",
+    "unless": "\\b(?:one|1|two|2) listings?\\b|one or two listings",
+    "struck": "Fees under $15 a month appear in a few neighborhoods (Rosehaven $9 to $11, Mt Gilead $9, Myrtle Dunes $9, North Litchfield Beach $5, The Olde Village $1).",
+    "use": "A few listings show fees under $15 a month: Rosehaven $9 to $11 on all 7, and one or two listings each in Mt Gilead ($9), Myrtle Dunes ($9), North Litchfield Beach ($5) and The Olde Village ($1)."
+  },
+  {
+    "row": "hoafees 33",
+    "pattern": "Myrtle Trace[^.]{0,80}\\bcommunity of houses\\b",
+    "struck": "Myrtle Trace is a 55+ community of houses in Conway.",
+    "use": "Myrtle Trace is a 55+ community of single-family homes and a few townhouses in Conway."
+  },
+  {
+    "row": "hoafees 34",
+    "pattern": "Beach Club[^.]{0,60}\\bOcean Club\\b|\\bOcean Club\\b[^.]{0,60}\\bBeach Club\\b",
+    "struck": "On top of the association's own fee, owners pay a Beach Club fee for the Grande Dunes Ocean Club.",
+    "use": "Every owner pays a mandatory Beach Club fee to the Grande Dunes master association, on top of the association's own fee."
+  },
+  {
+    "row": "hoafees 34",
+    "pattern": "\\bfee\\b[^.]{0,40}\\binclud(?:es|ing|ed)\\b[^.]{0,60}\\bbeach club\\b",
+    "unless": "\\bnot\\b|\\bon top of\\b|\\bseparate\\b",
+    "struck": "Your HOA fee includes basic lawn care and the beach club.",
+    "use": "Every owner pays a mandatory Beach Club fee to the Grande Dunes master association, on top of the association's own fee."
+  }
+]

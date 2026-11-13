@@ -1,0 +1,64 @@
+[
+  {
+    "row": "fzc 5",
+    "pattern": "\\bVE\\b[^.]{0,100}\\bocean waves?\\b|\\bocean waves?\\b[^.]{0,100}\\bVE\\b",
+    "struck": "108 homes for sale have a pin in zone VE, where FEMA expects ocean waves.",
+    "use": "108 homes for sale have a pin in zone VE, FEMA's coastal zone where storm waves are expected."
+  },
+  {
+    "row": "fzc 6",
+    "pattern": "\\bprice (?:does not|doesn't|did not|didn't|never) (?:change|matter|move|affect)\\b",
+    "struck": "Price does not change it.",
+    "use": "In every price band, fewer than 3 in 10 of the high-risk homes for sale come up."
+  },
+  {
+    "row": "fzc 9",
+    "pattern": "\\bflood zone\\b[^.]{0,140}\\bphotos?\\b|\\bphotos?\\b[^.]{0,140}\\bflood zone\\b|\\bfeature keys?\\b[^.]{0,100}\\bphotos?\\b",
+    "struck": "The search builds its flood zone feature from each home's MLS fields, its description and its photos.",
+    "use": "Our home search finds a home under flood zone only when its listing data says so."
+  },
+  {
+    "row": "fzc 13",
+    "pattern": "\\b(?:current|today's|present|latest)\\b[^.]{0,60}\\bflood maps?\\b[^.]{0,60}\\b(?:took effect|effective|in effect|dates?)\\b[^.]{0,40}\\b(?:2021|December)\\b",
+    "unless": "\\brevis|\\bLOMR|\\bsince\\b",
+    "struck": "Horry County's current FEMA flood map took effect on December 16, 2021.",
+    "use": "Horry County's countywide flood map took effect in December 2021. FEMA has revised four small areas of it since, most recently in September 2026."
+  },
+  {
+    "row": "fzc 14",
+    "pattern": "\\b(?:our|the) (?:property |address )?lookup(?: tool)?\\b[^.]{0,140}\\b(?:flood|zone|FEMA)\\b",
+    "struck": "Our lookup tool reads FEMA's flood map at the address's point and gives the zone.",
+    "use": "(cut it until the lookup tool is built and tested; step 1 is FEMA's Flood Map Service Center)"
+  },
+  {
+    "row": "fzc 16",
+    "pattern": "\\b12\\b[^.]{0,80}\\bfloodplain managers?\\b[^.]{0,140}915-5090",
+    "struck": "Horry County has 12 certified floodplain managers who answer flood map questions at (843) 915-5090.",
+    "use": "Horry County Code Enforcement has 12 certified floodplain managers on staff. To reach one, call its flood office at (843) 915-5090."
+  },
+  {
+    "row": "fzc 20",
+    "pattern": "\\bX ?500\\b",
+    "struck": "The 0.2 percent annual chance area is often called shaded X or X500.",
+    "use": "FEMA's flood insurance site calls the 0.2 percent annual chance area shaded Zone X."
+  },
+  {
+    "row": "fzc 23",
+    "pattern": "\\b30-day wait(?:ing period)?\\b|\\bwait 30 days\\b|\\b30 days to (?:start|begin|take effect)\\b",
+    "unless": "\\busually\\b|\\bmost\\b|\\bNational Flood Insurance Program\\b|\\bNFIP\\b",
+    "struck": "A policy bought while the mortgage is made starts with no wait; otherwise there is a 30-day wait.",
+    "use": "A National Flood Insurance Program policy bought while the mortgage is made starts with no wait; most others wait 30 days."
+  },
+  {
+    "row": "fzc 25",
+    "pattern": "\\bafter (?:your|the) offer (?:is|was|has been) accepted\\b|\\bcomes after (?:your|the) offer\\b",
+    "struck": "That notice is about the zone. It comes after your offer is accepted.",
+    "use": "The lender's notice is due a reasonable time before the loan closes, and a cash buyer gets none."
+  },
+  {
+    "row": "fzc 26",
+    "pattern": "\\b(?:every|all|each|any)\\b[^.]{0,40}\\b(?:house|home|building|condo)s?\\b[^.]{0,80}\\b(?:has|have|gets?|comes? with)\\b[^.]{0,20}\\belevation certificates?\\b",
+    "struck": "Every house in the high-risk zone has an elevation certificate.",
+    "use": "A building built or substantially improved in the high-risk zone must have its lowest floor height on record, and federal rules name the elevation certificate as that proof."
+  }
+]

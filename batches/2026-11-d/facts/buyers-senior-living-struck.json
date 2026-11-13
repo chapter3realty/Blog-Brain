@@ -1,0 +1,92 @@
+[
+  {
+    "row": "senior-living 4",
+    "pattern": "home health aide[^.]{0,80}\\$\\s?31|\\$\\s?31[^.]{0,80}home health aide",
+    "unless": "non-medical",
+    "struck": "Care at home from a home health aide costs about $31 an hour.",
+    "use": "A non-medical caregiver at home, such as a home health aide or a homemaker, costs about $31 an hour; the survey's $5,911 a month assumes 44 hours a week."
+  },
+  {
+    "row": "senior-living 10",
+    "pattern": "Grand Strand towns?[^.]{0,80}\\b1,860\\b|\\b1,860\\b[^.]{0,80}Grand Strand",
+    "struck": "In all, 23 homes and 1,860 beds in these Grand Strand towns.",
+    "use": "In all, 23 homes and 1,860 beds in Horry County and the Georgetown County side of Murrells Inlet and Pawleys Island."
+  },
+  {
+    "row": "senior-living 11",
+    "pattern": "\\b(?:nearest|closest)\\b[^.]{0,80}Little River|Little River[^.]{0,80}\\b(?:nearest|closest)\\b",
+    "struck": "North Myrtle Beach has no licensed assisted living inside its own mailing city; the nearest homes are in Little River.",
+    "use": "No licensed assisted living home has a North Myrtle Beach address; three sit within a mile of its city limits, one in Little River and two in Myrtle Beach."
+  },
+  {
+    "row": "senior-living 17",
+    "pattern": "needs? (?:pass|passes|outgrow|outgrows|exceed|exceeds|go beyond|goes beyond)[^.]{0,80}30 days",
+    "unless": "home health|hospice",
+    "struck": "When needs pass what the home can give, the person must move within 30 days.",
+    "use": "When the home's care, even with outside home health or hospice care, no longer meets a person's needs, the person must move within 30 days."
+  },
+  {
+    "row": "senior-living 18",
+    "pattern": "residents? and (?:their )?famil(?:y|ies) (?:may|can) (?:ask|see|request|read)",
+    "unless": "responsible party",
+    "struck": "Every licensed assisted living home keeps a written disaster and evacuation plan made with the county emergency agency, reviewed yearly; residents and families may ask to see it.",
+    "use": "Every licensed assisted living home keeps a written disaster and evacuation plan made with the county emergency agency and updated yearly; a resident or the resident's responsible party may ask to see it."
+  },
+  {
+    "row": "senior-living 19",
+    "pattern": "\\b34\\b[^.]{0,60}continuing care|continuing care[^.]{0,60}\\b34\\b",
+    "struck": "South Carolina licenses 34 continuing care retirement communities.",
+    "use": "South Carolina licenses 33 continuing care retirement communities."
+  },
+  {
+    "row": "senior-living 20",
+    "pattern": "\\bIt pays an entrance fee|communit(?:y|ies) pays?[^.]{0,30}entrance fee",
+    "struck": "It pays an entrance fee to hold the place.",
+    "use": "The resident pays an entrance fee, which holds the resident's place."
+  },
+  {
+    "row": "senior-living 20",
+    "pattern": "care that grows",
+    "struck": "A continuing care retirement community gives, under one contract, a home (an apartment or a cottage) and care that grows with a person's needs.",
+    "use": "A continuing care retirement community offers, under one contract, an apartment or a cottage and access to a range of long-term care as a resident's needs change."
+  },
+  {
+    "row": "senior-living 21",
+    "pattern": "30 days[^.]{0,140}less (?:the community's|its) costs",
+    "unless": "daily|eighth|8th",
+    "struck": "The resident may cancel within 30 days of signing and gets back what was paid, less the community's costs.",
+    "use": "The resident may cancel within 30 days of signing and gets back what was paid, less the community's costs and, if the home was ready to move into, a daily charge from the eighth day."
+  },
+  {
+    "row": "senior-living 22",
+    "pattern": "Before signing,? [^.]{0,80}disclosure statement",
+    "struck": "Before signing, a continuing care community must give a disclosure statement.",
+    "use": "By the time the contract is signed or any money is paid, whichever comes first, the community must give a disclosure statement."
+  },
+  {
+    "row": "senior-living 24",
+    "pattern": "\\bOSS\\b[^.]{0,200}assisted living home",
+    "unless": "slot",
+    "struck": "South Carolina's Optional State Supplementation (OSS) helps people 65 or older, blind or disabled, with low income, pay for a licensed assisted living home that takes part.",
+    "use": "South Carolina's Optional State Supplementation (OSS) helps people 65 or older, blind or disabled, with income and savings under its limits, live in a licensed assisted living home enrolled in OSS, with an approved OSS slot."
+  },
+  {
+    "row": "senior-living 27",
+    "pattern": "\\bfour\\b[^.]{0,80}buildings[^.]{0,80}older adults",
+    "unless": "partly|disabilit",
+    "struck": "HUD lists four HUD-assisted apartment buildings for older adults in Horry County, 228 apartments in all.",
+    "use": "HUD lists four assisted apartment buildings in its elderly group in Horry County, 228 apartments in all; one, with 110 apartments, is partly for people with disabilities."
+  },
+  {
+    "row": "senior-living 30",
+    "pattern": "per 1,000[^.]{0,60}\\b65\\b|\\b13\\b[^.]{0,40}(?:for every|per) 1,000",
+    "struck": "Licensed assisted living beds in Horry County, about 13 per 1,000 people 65 or older.",
+    "use": "(cut it: the beds serve adults of any age, so the ratio mixes two groups)"
+  },
+  {
+    "row": "senior-living 33",
+    "pattern": "police (?:lend|lends|loan|loans)|\\blends?\\b[^.]{0,80}through (?:its|the town's|the) police",
+    "struck": "Surfside Beach lends special beach wheelchairs through its police.",
+    "use": "Special beach wheelchairs are available through the Surfside Beach Police Department."
+  }
+]

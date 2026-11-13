@@ -1,0 +1,70 @@
+[
+  {
+    "row": "hub 1",
+    "pattern": "\\brooftop\\b",
+    "struck": "PointAddress means the finder put the point on the rooftop.",
+    "use": "PointAddress means the finder matched one of the county's own address points."
+  },
+  {
+    "row": "hub 4",
+    "pattern": "\\bevery unit'?s? parcel\\b",
+    "struck": "At a condo building, one point returns every unit's parcel stacked on the same footprint.",
+    "use": "At a condo building, one point returns the unit parcels drawn on the building's outline, plus one common-area parcel."
+  },
+  {
+    "row": "hub 6",
+    "pattern": "\\b(?:each|every|all) (?:street )?address(?:es)?\\b[^.]{0,60}\\b(?:PIN|parcel number)\\b",
+    "unless": "\\bnearly every\\b|\\balmost every\\b",
+    "struck": "The county's address points layer ties each address to a PIN.",
+    "use": "Nearly every address on the county's address map carries a parcel number (PIN)."
+  },
+  {
+    "row": "hub 13",
+    "pattern": "\\babout 9 in 10\\b[^.]{0,80}\\b(?:deed|book)\\b|\\b90(?:\\.6)?(?: percent|%)[^.]{0,80}\\b(?:deed|book)\\b|\\b274,147\\b",
+    "struck": "About 9 in 10 Horry County parcels carry a deed book and page.",
+    "use": "Nearly 9 in 10 Horry County parcels carry a deed book and page."
+  },
+  {
+    "row": "hub 15",
+    "pattern": "\\btax (?:search|bill|site|lookup)\\b[^.]{0,60}\\b(?:cannot|can't|can not|will not|won't)\\b[^.]{0,40}\\b(?:link|fill)|\\bno link\\b[^.]{0,60}\\btax\\b",
+    "struck": "The tax search cannot be filled in by a link.",
+    "use": "A link opens the county's tax search with the parcel number already searched."
+  },
+  {
+    "row": "hub 17, 18, 22",
+    "pattern": "\\b(?:7 in 10|seven in ten|1 in 3|one in three|3 in 4|three in four)\\b[^.]{0,60}\\b(?:homes|houses|properties|parcels|lots)\\b",
+    "struck": "About 7 in 10 Horry County homes are outside every city and town.",
+    "use": "About 7 in 10 street addresses in Horry County are outside every city and town."
+  },
+  {
+    "row": "hub 25",
+    "pattern": "\\b(?:a|any|every|your|the) (?:mortgage )?lender (?:will|must|has to) require[^.]{0,20}\\bflood insurance\\b",
+    "unless": "\\bfederally\\b",
+    "struck": "Zone AE: high risk. A lender will require flood insurance.",
+    "use": "Zone AE: high risk. A federally regulated or federally backed mortgage requires flood insurance on the building."
+  },
+  {
+    "row": "hub 27",
+    "pattern": "\\b12\\b[^.]{0,60}\\bfloodplain managers?\\b[^.]{0,80}\\(?843\\)? ?915-5090",
+    "struck": "Horry County has 12 certified floodplain managers who answer flood map questions at (843) 915-5090.",
+    "use": "Horry County Code Enforcement has 12 certified floodplain managers on staff. To reach one, call its flood office at (843) 915-5090."
+  },
+  {
+    "row": "hub 31",
+    "pattern": "\\b302,6\\d\\d\\b",
+    "struck": "The county's open parcel layer holds about 302,600 parcels.",
+    "use": "Horry County's map holds more than 300,000 parcels."
+  },
+  {
+    "row": "hub 32",
+    "pattern": "\\bno (?:punctuation|commas?)\\b",
+    "struck": "The deed index searches by name, last name first, no punctuation.",
+    "use": "The deed index searches by name: type the last name first, then the first name."
+  },
+  {
+    "row": "hub 35",
+    "pattern": "\\bfree (?:county )?(?:sign-in|sign in|login|log-in)\\b|\\bfree (?:county|GIS|map) account\\b|\\b(?:county|GIS|map) account\\b[^.]{0,30}\\b(?:is|are) free\\b",
+    "struck": "The county map searches by address, owner, PIN or TMS after a free county sign-in.",
+    "use": "The county map searches by address, owner, PIN or TMS after you sign in with a county account. The sign-up form has no payment step."
+  }
+]

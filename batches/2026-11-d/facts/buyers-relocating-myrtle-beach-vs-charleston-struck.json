@@ -1,0 +1,112 @@
+[
+  {
+    "row": "mb-vs-chs 8",
+    "pattern": "^(?!.*\\bappl(?:y|ies|ied|ication)\\b).*\\b(?:legal residence|home (?:you|the owner|an owner) lives? in)\\b.*\\b(?:4 ?%|four percent|4 percent)",
+    "struck": "South Carolina taxes a home the owner lives in as a legal residence on 4% of its fair market value, statewide.",
+    "use": "South Carolina taxes a legal residence and up to five acres at 4% of fair market value once the owner applies, the same in every county."
+  },
+  {
+    "row": "mb-vs-chs 12",
+    "pattern": "\\bthe barrier islands\\b[^.]{0,80}\\b(?:Kiawah|Seabrook|Folly)\\b",
+    "struck": "In Charleston County, the wind pool covers the barrier islands (Kiawah, Folly, Seabrook and others).",
+    "use": "In Charleston County, the wind pool's coastal area takes in named islands, among them Kiawah, Seabrook, Folly, Morris and Edisto, plus the areas north of the city east of the waterway."
+  },
+  {
+    "row": "mb-vs-chs 14",
+    "pattern": "\\b86\\.3\\b|\\b102\\.5\\b",
+    "struck": "The site's own buyer-weighted index gives Myrtle Beach 86.3 and Charleston 102.5.",
+    "use": "(cut it: our index applies a calibration to Myrtle Beach only; print the federal price index, 93.6 and 101.0, and link the calculator)"
+  },
+  {
+    "row": "mb-vs-chs 23",
+    "pattern": "\\b(?:1|one) in (?:7|seven|3|three) (?:homes|houses|homeowners)\\b",
+    "struck": "About 1 in 7 homes in Horry County carries a federal flood insurance policy.",
+    "use": "FEMA estimates about 1 in 7 residential buildings in Horry County are covered by a federal flood insurance policy."
+  },
+  {
+    "row": "mb-vs-chs 24",
+    "pattern": "\\b(?:15|14\\.6|32|31\\.7)(?: ?%| percent) of (?:the )?(?:homes|houses)\\b",
+    "struck": "About 32% of homes in Charleston County carry a federal flood policy.",
+    "use": "FEMA estimates about 32% of residential buildings in Charleston County are covered by a federal flood policy."
+  },
+  {
+    "row": "mb-vs-chs 25",
+    "pattern": "\\b(?:3|three) in (?:10|ten)\\b[^.]{0,40}\\b(?:homes|houses)\\b[^.]{0,60}\\bflood",
+    "struck": "FEMA counts about 3 in 10 Charleston County homes in its high-risk flood zone.",
+    "use": "FEMA counts about 3 in 10 residential buildings in Charleston County in its high-risk flood zone."
+  },
+  {
+    "row": "mb-vs-chs 26",
+    "pattern": "beach access[^.]{0,80}\\b2023\\b|\\b2023\\b[^.]{0,80}beach access|\\b377\\b[^.]{0,40}access",
+    "struck": "Horry County has more than 360 public beach accesses in the state's 2023 inventory.",
+    "use": "Horry County has more than 360 public beach access points on the state's beach access map."
+  },
+  {
+    "row": "mb-vs-chs 27",
+    "pattern": "\\bby (?:town|city)\\b[^.]{0,120}\\bGarden City\\b|\\btown of Garden City\\b",
+    "struck": "By town: North Myrtle Beach 167, Myrtle Beach 143, Surfside Beach 32, Garden City 17, Atlantic Beach 3.",
+    "use": "By beach area: North Myrtle Beach 167, Myrtle Beach 143, Surfside Beach 32, Garden City 17, Atlantic Beach 3."
+  },
+  {
+    "row": "mb-vs-chs 29",
+    "pattern": "City Hall[^.]{0,80}\\bhalf (?:a )?mile\\b",
+    "struck": "In Myrtle Beach, City Hall is about half a mile from the sand.",
+    "use": "(cut it: not measured)"
+  },
+  {
+    "row": "mb-vs-chs 30",
+    "pattern": "^(?!.*\\b(?:airport|inland)\\b)(?=.*\\b(?:90|heat|hot)\\b).*\\b(?:64|sixty-four)\\b",
+    "struck": "Charleston gets about 64 days a year of 90 degrees, Myrtle Beach about 21.",
+    "use": "At the coast, summer heat is about the same: about 21 days of 90 degrees at the North Myrtle Beach airport and about 25 at downtown Charleston's harbor station; Charleston's inland airport gets about 64."
+  },
+  {
+    "row": "mb-vs-chs 30b",
+    "pattern": "(?:Myrtle Beach|Grand Strand)[^.]{0,60}\\b(?:cooler|milder) summers?\\b|\\b(?:cooler|milder) summers?\\b[^.]{0,60}(?:Myrtle Beach|Grand Strand)",
+    "struck": "The honest trade for Myrtle Beach's cooler summer is a colder winter.",
+    "use": "Summer highs at the coast are about the same in both; Myrtle Beach gets more freezing nights."
+  },
+  {
+    "row": "mb-vs-chs 31",
+    "pattern": "^(?!.*\\bairport\\b).*(?:\\b91\\.3\\b|\\b91 degrees\\b)",
+    "struck": "July average high: 87.6 at North Myrtle Beach, 91.3 at Charleston.",
+    "use": "July average high: 87.6 at the North Myrtle Beach airport, 87.5 at downtown Charleston's harbor station and 91.3 at Charleston's inland airport."
+  },
+  {
+    "row": "mb-vs-chs 32",
+    "pattern": "^(?!.*\\b(?:airport|downtown|harbor)\\b)(?=.*\\bfreez).*\\b22\\b",
+    "struck": "Nights at or below freezing: about 34 a year at North Myrtle Beach, about 22 at Charleston.",
+    "use": "Nights at or below freezing: about 34 a year at the North Myrtle Beach airport, about 22 at Charleston's inland airport and about 6 at downtown Charleston's harbor station."
+  },
+  {
+    "row": "mb-vs-chs 33",
+    "pattern": "^(?!.*\\b(?:airport|downtown|harbor)\\b)(?=.*\\brain).*\\b(?:53|52\\.5)\\b",
+    "unless": "about the same|similar|roughly the same",
+    "struck": "Rain: about 48 inches a year at North Myrtle Beach, about 53 at Charleston.",
+    "use": "Rain is about the same in both: 44 to 53 inches a year, depending on the station."
+  },
+  {
+    "row": "mb-vs-chs 35",
+    "pattern": "^(?!.*\\bat least\\b).*\\$37[01],000",
+    "struck": "Average construction value on a 2025 single-family permit: about $218,000 in the Myrtle Beach metro, about $371,000 in the Charleston metro.",
+    "use": "Construction value declared on a 2025 single-family permit averaged about $218,000 in the Myrtle Beach metro and at least $370,000 in the Charleston metro."
+  },
+  {
+    "row": "mb-vs-chs 39",
+    "pattern": "\"[^\"]{0,15}not very bad",
+    "struck": "Summer traffic \"is not very bad.\"",
+    "use": "Summer traffic is not very bad in our experience, and rush hour adds 5 to 10 minutes."
+  },
+  {
+    "row": "mb-vs-chs 41",
+    "pattern": "\\bnearest (?:full )?VA medical center\\b",
+    "unless": "City Hall|city of Myrtle Beach",
+    "struck": "The nearest VA medical center to Myrtle Beach is the Ralph H. Johnson VA Medical Center in Charleston.",
+    "use": "The Myrtle Beach VA Clinic is an outpatient clinic in the VA Charleston system, whose medical center, the Ralph H. Johnson VA Medical Center, is in Charleston."
+  },
+  {
+    "row": "mb-vs-chs 41b",
+    "pattern": "specialist (?:medical )?care[^.]{0,40}\\bdrive to Charleston",
+    "struck": "Some specialist care means a drive to Charleston.",
+    "use": "(cut it: unsourced on this page; the VA clinic itself offers some specialty care)"
+  }
+]
