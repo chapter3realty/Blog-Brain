@@ -313,3 +313,12 @@ Committed by Claude to the live branch as `1a18ca0c` (owner, 2026-11-12: "Do som
 5. Cache slot `search6`.
 
 Results: `research/search-features/ai-test/RESULTS.md`.
+
+## `v1.12-photo-warmer-licence.patch`: the photo warmer throttle and the MLS photo licence (2026-11-13)
+
+Committed by Claude to the website's live branch as `14406393` (owner's brief of 2026-11-13: "Fix it today"). Not deployed: this session has no Cloudflare login. The owner deploys with `deploy.ps1`, then replaces the Worker with `npx wrangler deploy --config workers/photo-warmer/wrangler.json`. `node build.js preflight` passed; `node tools/idx-test.mjs` passes, including "photo warmer HARD RULE".
+
+- One warmer run a quarter hour, at most 28 CRM calls a run (16 listing pages, 12 photos), one call at a time; 429, 503 and 5xx end the run.
+- Copies are stored only for listings the CRM returned in the current sweep. A removal sweep every 5 h 45 min deletes every copy whose listing or version it did not see. Copies are served only while the last sweep is under 6 hours old, cached an hour at most.
+- No CRM answer is cached at the edge longer than an hour.
+- The website's CLAUDE.md non-negotiable 9 holds the rule.
