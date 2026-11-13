@@ -9,5 +9,5 @@ In order. Everything here was decided with the owner on 2026-11-13; do not re-as
 5. **Links**: "Property records" in the site menu; each new page linked from six or more pages (tools/inbound.js --min 6); add the new pages to /guides/, sitemap.xml and llms.txt; new homes places for Plantation Point, Palace Resort, land, and HOA communities.
 6. **County URLs into the monthly link check** (tools/site-audit.js).
 7. **Gates, previews, patch v1.40**, one deploy box for the owner (C:\c3-v138, push as chapter3realty, deploy.ps1).
-8. **The next 23 community and resort pages** after the owner sees the two pilots: pick by search volume (top up DataForSEO; the competitor list is in the scratchpad kw/competitor-keywords.json and the research note).
+8. **The next 23 community and resort pages** after the owner sees the two pilots: pick by search volume (top up DataForSEO; the competitor keywords are in research/data/dataforseo-competitor-keywords-2026-11-13.json and the research note).
 9. Still open from before: /buyers/property-taxes/ title toward "Horry County property taxes" if it keeps missing "horry county taxes"; flood insurance page after Dec 11; landlord-rules eviction fees after Jan 1; the owner's open questions (DSCR page, text-enabled phone, flood_zone MLS field, wow facts for four buildings).
