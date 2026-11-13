@@ -73,3 +73,9 @@ Privacy: nothing below names a private person, an address, a parcel number or a 
 - Row 26 must match `facts/registry.json` "deed-fee-payer" and /buyers/closing-costs/, which carry the master-in-equity and government exception.
 - Row 20's 30,339 and 11,075 match batch 2026-10-b affordable row 18. Any sibling that says "116 a weekday" should change too.
 - Row 20 monthly counts: February 2, 2026 (a Monday) has no deeds in the weekly pull. It may be a closure or a gap in the pull. If the monthly chart is used, note February as possibly low by one day.
+
+
+## Fixer rows, independent check
+
+- Row 44: VERIFIED. SC Code 27-7-10 live: "bind myself ... to warrant and forever defend ... against every person whomsoever lawfully claiming". The statute does not use the words "warranty deed"; the name comes from row 29 (Georgetown ROD lists warranty as a deed type). Spec 396 says no more than the clause.
+- Row 45: VERIFIED. SC Code 12-51-130 live: on failure to redeem within the time allowed, the collector "shall make a tax title to the purchaser". Statute says "tax title"; row 29 supplies "tax deed". Spec 396 fine.

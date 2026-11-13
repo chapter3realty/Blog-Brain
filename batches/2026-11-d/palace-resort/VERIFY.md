@@ -63,3 +63,8 @@ Live sources opened 2026-11-13: palaceresort.com (home, accommodations, amenitie
 - AIR row 5 (AirROI by size) is out of date on /invest/airbnb-income/: AirROI moved to 12 months to October 2026 on November 5.
 - The directory's Palace entry says its guests get two passes a day. The resort's fine print limits that to the first two guests of each reservation booked through its own rental program. The directory's wording is not wrong, but this page should use the fine print.
 - The 302 units in the directory include the four commercial units (row 4).
+
+
+## Fixer rows, independent check
+
+- Row 12a: VERIFIED. Re-pulled /homes/api/map?type=condo&subdivision=Palace: 25 pins, all 1605 S Ocean Blvd; median 159,999, min 110,000, max 255,000. Above the 142,000 sales median (row 14, verified). Spec line 289 prints "About $160,000".

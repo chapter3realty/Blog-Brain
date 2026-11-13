@@ -86,3 +86,8 @@ Corrected outline: Plantation Point 367 parcels (352 houses, 14 empty lots, the 
 
 - The llms.txt line and the waterfront sibling note say "59 lots": change to 58.
 - The edge-feed and IDX place entries are not affected: the corrected outline finds the same 7 listings.
+
+
+## Fixer rows, independent check
+
+- Row 41: VERIFIED. Recomputed from D/map-layers.json: all 506 lot centroids lie on the same side of the Waterway line, and on the opposite side of both US 17 BYP lines from the Food Lion/beach-access side. Plaza on 38th Avenue North is at the same latitude as the neighborhood (48th Ave N clubhouse 33.736, 21st Ave N Broadway 33.716). Spec 331 "between the US 17 Bypass and the Intracoastal Waterway, near 38th Avenue North" holds.

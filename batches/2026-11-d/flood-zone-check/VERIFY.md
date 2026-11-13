@@ -83,3 +83,9 @@ My working files are in `/tmp/claude-0/-home-user-Blog-Brain/6dac3d75-8af3-5045-
 - property-records rows 7, 8, 23, 26 and 27: the same as rows 14, 17, 20 and 16 here. Row 16 carries the same correction.
 - waterfront-homes row 16: it counts lots, and this page counts listing pins. Both use the same 758 county shapes. They do not share a figure.
 - why-chapter-3 VERIFY row 27 (11-12): 229 of 1,122. It is the same method; the figures differ by the pull date.
+
+
+## Fixer rows, independent check
+
+- Row 29: VERIFIED. floodsmart.gov/flood-insurance-cost now redirects to /get-insured; live text: "Elevation certificates aren't required to get flood insurance, but they can help you pay less." Raw copy agrees. Spec line 225 says no more.
+- Row 14b: VERIFIED. Ran lookup-test (all controls pass, 60). Queried FEMA NFHL layer 28 and the county copy at two county VE shape centroids: both return "Zone VE: high risk, from tidal flooding with waves. A federally regulated or federally backed mortgage requires flood insurance on the building." Spec lines 179 and 199 ("reads FEMA's flood map at the address, then names the zone and what it means") say no more. I did not find a VE address point matched by the locator myself (my sampled envelopes were X or locator-rejected); the fixer's address-to-VE step rests on its script.

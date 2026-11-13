@@ -66,5 +66,11 @@
     "pattern": "\\bfree (?:county )?(?:sign-in|sign in|login|log-in)\\b|\\bfree (?:county|GIS|map) account\\b|\\b(?:county|GIS|map) account\\b[^.]{0,30}\\b(?:is|are) free\\b",
     "struck": "The county map searches by address, owner, PIN or TMS after a free county sign-in.",
     "use": "The county map searches by address, owner, PIN or TMS after you sign in with a county account. The sign-up form has no payment step."
+  },
+  {
+    "row": "hub 54",
+    "pattern": "\\bif it is the home you live in\\b",
+    "struck": "Yours is figured at 4% if it is the home you live in, and at 6% if not.",
+    "use": "Yours is figured at 4% if it is your legal residence, which you apply for, and at 6% if not."
   }
 ]

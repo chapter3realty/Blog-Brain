@@ -65,3 +65,9 @@ Struck wording is in `batches/2026-11-d/facts/buyers-senior-living-struck.json`:
 - "34 continuing care retirement communities" anywhere, including any chart or table built from `senior-living.json` before `build.py` is fixed.
 - "Nearest ... Little River" about North Myrtle Beach (row 11).
 - "Max # of Beds" figures from the DPH map. Use "Total Licensed Beds" only (row 10).
+
+
+## Fixer rows, independent check
+
+- Row 36: VERIFIED. Re-pulled the DPH Health_Facilities layer (HLRESIDENTIALCARE, Horry and Georgetown): 28 records; the 23 names and NBR_LICENSED beds by mailing town match the row exactly (Myrtle Beach 8, Murrells Inlet 5 incl. the misspelled "Murrels Inlet" entry, Conway 5, Little River 3, Pawleys Island 2). "Total Licensed Beds" is DPH's own map label for NBR_LICENSED. Georgetown and Hemingway homes are left off by design. Licenses run to 2027.
+- Row 38: VERIFIED. HUD layer description: "HUD provides subsidies and grants to property owners and developers ... affordable rental units for low-income populations, and those with special needs such as the elderly". Compared all 13 HUD names and street addresses with all 45 DPH facility records: no match. Spec 298 "none is on the state's list of licensed care homes" holds by name and address.

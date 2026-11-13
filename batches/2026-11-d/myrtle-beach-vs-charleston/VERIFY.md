@@ -71,3 +71,13 @@ Struck list: `batches/2026-11-d/facts/buyers-relocating-myrtle-beach-vs-charlest
 
 - `facts/registry.json` typical-home-value: Zillow has revised July 2026 to $339,406. The $342,000 on pros-and-cons and the from-state pages is an old download.
 - The chart writer should know that `findings.json` permits figures are Census estimates that include imputed permits (row 34).
+
+
+## Fixer rows, independent check
+
+- Row 42: VERIFIED. City news 2026-09-09 (live and raw agree): "Dogs and bicycles are permitted on the beach and Myrtle Beach Boardwalk at any time. Dogs must be leashed ... return May 1, 2027." Spec 293 and 312 say no more.
+- Row 43: VERIFIED. City news R986 (raw): "a total of 1.3 miles in length". Spec 312 "about 1.3 miles".
+- Row 44: VERIFIED. NPS live: Confederacy fired on Fort Sumter April 12, 1861 opening the Civil War; ferries leave from Fort Sumter Visitor Center in downtown Charleston (and Patriots Point). Spec 294 and 361 say "ferries leave downtown".
+- Row 45: VERIFIED. NPS: palmetto log fort defeated Royal Navy in 1776; Fort Moultrie address 1214 Middle St, Sullivan's Island. Spec 315 says "On Sullivan's Island", not "on the beach".
+- Row 46: VERIFIED. FAA xlsx (raw; FAA site not re-opened): CHS 3,142,402 hub M; MYR 1,743,132 hub S; ratio 1.803. Spec 356 rounding 3.1 and 1.7 million; 1.8 times in line 246.
+- Row 47: VERIFIED. MUSC About page (live and raw): "the state's only comprehensive academic health system"; Hollings: "the only one in SC". NCI's cancer center list shows one SC center, Hollings. Advisory: MUSC says "comprehensive"; spec 247 and 358 say "full", and 247's card title says "A major teaching hospital" ("major" is not in the source). Safe: use "comprehensive" and drop "major".

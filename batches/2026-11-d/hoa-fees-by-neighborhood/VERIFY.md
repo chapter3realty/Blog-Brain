@@ -117,3 +117,8 @@ Use: "Every owner pays a mandatory Beach Club fee to the Grande Dunes master ass
 - "a Beach Club fee for the Grande Dunes Ocean Club"; any wording that puts the Beach Club inside the Del Webb fee.
 - "2,585 of the 4,213"; "2,422".
 - A $1, $5 or $9 neighborhood fee from a single listing, stated as the neighborhood's HOA.
+
+
+## Fixer rows, independent check
+
+- Row 55: VERIFIED. Live /hoa/ prints "$95 a month for a house, $290 for a townhouse"; sibling row 1 (verified 2026-11-09) has townhouse median 290 (338 of 366). Spec line 421 states the basis and links /hoa/.

@@ -116,3 +116,13 @@ All four counts below reproduce exactly, from the researcher's saved layers and 
 2. Do not trust an address point's PIN at a condo building; query parcels at the point and count the stack (row 6).
 3. Deed link: digits only, strip leading zeros from the page (row 13, 14).
 4. Tax link: `TaxesDefaultType4.aspx?PIN=<PIN>`, with "Copy PIN" kept as the fallback (row 15).
+
+
+## Fixer rows, independent check
+
+- Row 52: VERIFIED. Town of Pawleys Island About page live: "a barrier island less than 4 miles long and mostly 1 house wide, separated from the mainland by a beautiful salt marsh". Spec 297 omits the road measure.
+- Row 53: VERIFIED. Reused row 3 of submarkets-pawleys-island (516 town, 10,543 mainland points in 29585, verified twice). Spec 297 "most of the land around it".
+- Row 54: CORRECTED. Spec line 285: "Yours is figured at 4% if it is the home you live in, and at 6% if not." must say: "Yours is figured at 4% if it is your legal residence, which you apply for, and at 6% if not." Sources say "Legal Residence 4%", "All Other 6%" (Auditor) and that the Assessor "reviews legal residence (or primary residence) applications". Struck entry added to facts/buyers-property-records-struck.json.
+- Row 55: VERIFIED. Opened deed 1837/226 live: page shows GRANTOR and GRANTEE names. Treasurer search with a real PIN (cookie session, PIN link then plain page) lists a name per bill under "Name / Property Address".
+- Row 56: VERIFIED. Georgetown ROD: "A plat is a scale-sized drawing of parcels or lots of land usually created by a surveyor". Spec 261 "a surveyor's drawing of the lots" drops "usually"; acceptable, optional "usually by a surveyor".
+- Row 57: VERIFIED. PIN 36800000016: county GIS owner HORRY COUNTY, 1ST AVE & 2ND AVE, deed 1837/226. Treasurer search for it returns no results table (a real PIN returns bill rows). SC Code 12-37-220(A)(1) exempts county property used exclusively for public purposes. Spec 105 fine.

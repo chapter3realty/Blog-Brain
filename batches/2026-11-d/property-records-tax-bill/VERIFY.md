@@ -68,3 +68,11 @@ Independent verifier, 2026-11-13. I did not research this page. I fetched every 
 - Any reading of the "Residential Exemption" line as the 4% status (row 37).
 - "The 21st Avenue office is closed" (row 30).
 - Any owner, PIN, address or bill from the tax sale lists or the portal. None is in this file.
+
+
+## Fixer rows, independent check
+
+- Row 51: VERIFIED. Assessor page live: Location 1301 Second Avenue, Conway, SC 29526. County release lists the Horry County Assessor Office at the Central Coast Complex.
+- Row 52: VERIFIED. SC Code 12-51-40(c) live: notice "Seized by person officially charged with the collection of delinquent taxes ... to be sold for delinquent taxes"; Treasurer's Delinquent Tax page live: redemption "12 months from the date of the sale". Spec 85 and 259 agree.
+- Row 53: VERIFIED. CFPB live: "set up by your mortgage lender to pay certain property-related expenses ... from a portion of your monthly mortgage payment".
+- Row 54: VERIFIED. IRS live: "A person who has earned the privilege of representing taxpayers before the Internal Revenue Service". Spec 416 "a tax professional the IRS approves to represent taxpayers" is within it.
