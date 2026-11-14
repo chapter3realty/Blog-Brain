@@ -3115,5 +3115,16 @@
     "publishedOn": [
       "/buyers/55-plus-communities/"
     ]
+  },
+  {
+    "id": "nc-land-in-longs",
+    "type": "story",
+    "teller": "Chapter3 (owner, 2026-11-14)",
+    "source": "Owner in the Blog-Brain session, 2026-11-14, on the /buyers/land/ preview: \"Clients of ours from North Carolina bought land in Longs and built a new house there with a builder.\"",
+    "verbatim": "Clients of ours from North Carolina bought land in Longs and built a new house there with a builder.",
+    "summary": "Clients of Chapter3 who came from North Carolina bought land in Longs and had a builder build a new house on it. The owner's words do not say how many people, the acreage, the price, the builder's name, the year or how long it took; do not add any of these.",
+    "places": [
+      "Longs"
+    ]
   }
 ]
