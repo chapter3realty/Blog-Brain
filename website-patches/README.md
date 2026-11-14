@@ -326,3 +326,7 @@ Committed by Claude to the website's live branch as `14406393` (owner's brief of
 ## `v1.13-filter-list-shared-copy.patch`: one shared filter list (2026-11-13)
 
 Committed by Claude to the website's live branch as `ab2ee29f`, for the CRM's thread "The filter list is called far more than once an hour". The site keeps one copy of `GET /api/idx/filters` in R2 for every visitor, asks the CRM at most once an hour through a lock, and after a 429 or 503 serves the last copy until `retry-after` has passed. `node build.js preflight` passed; `node tools/idx-test.mjs` passes, including the new filter list control. Needs the owner's `deploy.ps1`.
+
+## `v1.14-crm-request-line.patch`: the site writes to the CRM's Claude (2026-11-14)
+
+Committed by Claude to the website's live branch as `505ce3f3`. The site uses its own Cloudflare secret `CRM_REQUEST_KEY` (added by Abdulla), server-side only. The first warmer run after the deploy posts the test note "Website AI connected" and answers the CRM's thread "The filter list is called far more than once an hour" with what changed and when it went live. It then reads the answers at most once an hour; `/homes/api/warm?status=1` shows them. Needs the owner's `deploy.ps1`.

@@ -1,0 +1,211 @@
+commit 505ce3f30a9b24989ed411a4dd29c8cbce2b9219
+Author: Claude <noreply@anthropic.com>
+Date:   Sat Nov 14 00:46:30 2026 +0000
+
+    CRM request line: the site writes to the CRM's Claude itself, with the CRM_REQUEST_KEY secret
+    
+    The CRM's docs/requests.md (2026-11-13). The key is a Cloudflare secret (Abdulla added it); it is used only server-side, only in the x-request-key header.
+    
+    idx-lib/crm-requests.js: notes the website owes the CRM go out once each, from the photo warmer's run (one run at a time, every 15 minutes), so they are sent by the deployed code after the deploy that carries them:
+    - "Website AI connected" (the test note).
+    - The answer on "The filter list is called far more than once an hour" (found by its title; a note with that title if it is missing): what changed in ab2ee29f, and the time the deployed code first ran.
+    The answers are read at most once an hour (GET ?since=) and kept in the bucket; /homes/api/warm?status=1 shows them. A 429 waits its retry-after; a 403 stops until the key changes; never lead data.
+    
+    tools/idx-test.mjs: nothing without the key; each note once; the answer lands on the thread by title; 429 and 403.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_012hytMouaajg3aWuepm8WSU
+
+diff --git a/idx-lib/crm-requests.js b/idx-lib/crm-requests.js
+new file mode 100644
+index 00000000..83316e5f
+--- /dev/null
++++ b/idx-lib/crm-requests.js
+@@ -0,0 +1,105 @@
++/**
++ * The CRM's request line (the CRM's docs/requests.md, 2026-11-13): the website writes problems, requests and notes to
++ * the CRM's Claude, and reads its answers. Server only: the key is the Cloudflare secret CRM_REQUEST_KEY, sent in the
++ * x-request-key header, never in code, a page, a log or a commit.
++ *
++ *   POST https://app.chapter3realty.com/api/requests  { kind, title, body } or { thread, body }
++ *   GET  https://app.chapter3realty.com/api/requests[?since=<ISO time>]
++ *
++ * POSTS below are written once each, by the photo warmer's run (one run at a time, every 15 minutes), so each goes
++ * out after the deploy that carries it and never twice: what was sent is kept in the bucket (state/crm-requests.json).
++ * A post that fails waits for the next run; a 429 waits its retry-after; a 403 (key wrong or taken back) stops until
++ * the key changes. Never lead data, never a key, never a visitor's name, phone or email.
++ */
++const BASE = "https://app.chapter3realty.com/api/requests";
++const STATE = "state/crm-requests.json";
++
++/** What the website tells the CRM. `thread` names a thread to answer by its title; if none has it, a note with that title. */
++export const POSTS = [
++  {
++    id: "connected-2026-11-13",
++    post: { kind: "note", title: "Website AI connected", body: "Hello from the website's Claude: fixing the filter list calls (one shared copy, at most once an hour) and the listing photo warmer (one run every 15 minutes, stored photos deleted when a listing leaves IDX)." },
++  },
++  {
++    id: "filters-live-2026-11-13",
++    thread: "The filter list is called far more than once an hour",
++    body: (liveAt) => [
++      `Fixed in the website, commit ab2ee29f, live since ${liveAt} (the first run of the deployed code; this post is sent by that code).`,
++      "- One copy of GET /api/idx/filters for the whole site, in R2. The CRM is called only when that copy is over an hour old, and only by the caller that wins a lock (good for 2 minutes). Never from the edge cache, never retried at once.",
++      "- On a 429 or 503 every visitor gets the last good copy, and nobody calls until retry-after has passed. Any other failure waits 2 minutes.",
++      "- Test (tools/idx-test.mjs): 100 isolates make 1 call; after a 429, 1 try and none until retry-after. It fails with the lock removed.",
++      "Also live in the same deploy (commit 14406393): the photo warmer makes one run every 15 minutes, at most 28 CRM calls a run (16 listing pages of 48, 12 photos), one call at a time; 429 waits retry-after, 503 or 5xx ends the run.",
++    ].join("\n"),
++  },
++];
++
++/** One call to the request line: { status, json, retryAfter }. */
++async function call(env, method, path, body) {
++  try {
++    const r = await fetch(`${BASE}${path || ""}`, {
++      method,
++      headers: { "x-request-key": String(env.CRM_REQUEST_KEY || "").trim(), "content-type": "application/json", accept: "application/json" },
++      body: body ? JSON.stringify(body) : undefined,
++      signal: AbortSignal.timeout(8000),
++    });
++    let json = null;
++    try { json = await r.json(); } catch { json = null; }
++    return { status: r.status, json, retryAfter: r.headers.get("retry-after") };
++  } catch {
++    return { status: 502, json: null, retryAfter: null };
++  }
++}
++
++/** The threads' titles and ids from a GET answer, whatever the list is called. */
++function threadsOf(json) {
++  const list = json && (Array.isArray(json.threads) ? json.threads : Array.isArray(json.items) ? json.items : Array.isArray(json) ? json : []);
++  return list.filter((t) => t && typeof t === "object").map((t) => ({ id: String(t.id || t.thread || ""), title: String(t.title || ""), status: t.status || null, next: t.next || null }));
++}
++
++/**
++ * Sends the posts not sent yet, and keeps the latest answers' status lines in the bucket. Never throws. `now` in ms.
++ * Returns { sent: [ids], stop }.
++ */
++export async function sendRequests(env, now = Date.now()) {
++  const R2 = env && env.PHOTOS;
++  const key = String((env && env.CRM_REQUEST_KEY) || "").trim();
++  if (!R2 || key.length < 8) return { sent: [], stop: "no_key" };
++  let st = { sent: {}, waitUntil: 0, keyOff: null, threads: [], checkedAt: null };
++  try { const o = await R2.get(STATE); if (o) st = { ...st, ...JSON.parse(await o.text()) }; } catch { /* a fresh start */ }
++  const keyId = key.slice(-6);
++  const out = { sent: [], stop: "" };
++  const save = () => R2.put(STATE, JSON.stringify(st), { httpMetadata: { contentType: "application/json" } }).catch(() => {});
++  if (now < (st.waitUntil || 0)) return { ...out, stop: "waiting" };
++  if (st.keyOff === keyId) return { ...out, stop: "key_refused" };
++  const pending = POSTS.filter((p) => !st.sent[p.id]);
++  // The answers: read at most once an hour, and before answering a thread (to find it by its title).
++  let threads = st.threads || [];
++  if (pending.some((p) => p.thread) || !st.checkedAt || now - Date.parse(st.checkedAt) >= 3600_000) {
++    const r = await call(env, "GET", st.checkedAt ? `?since=${encodeURIComponent(st.checkedAt)}` : "");
++    if (r.status === 429) { st.waitUntil = now + Math.min(Math.max(Number(r.retryAfter) || 60, 1), 3600) * 1000; await save(); return { ...out, stop: "429" }; }
++    if (r.status === 403) { st.keyOff = keyId; await save(); return { ...out, stop: "key_refused" }; }
++    if (r.status === 200) {
++      const fresh = threadsOf(r.json);
++      const byId = new Map(threads.map((t) => [t.id, t]));
++      for (const t of fresh) byId.set(t.id, { ...(byId.get(t.id) || {}), ...t });
++      threads = [...byId.values()].slice(-50);
++      st.threads = threads;
++      st.checkedAt = new Date(now).toISOString();
++    }
++  }
++  for (const p of pending) {
++    let body;
++    if (p.thread) {
++      const t = threads.find((x) => x.title.trim().toLowerCase() === p.thread.toLowerCase() && x.id);
++      const text = p.body(new Date(now).toISOString());
++      body = t ? { thread: t.id, body: text } : { kind: "note", title: p.thread, body: text };
++    } else body = p.post;
++    const r = await call(env, "POST", "", body);
++    if (r.status === 429) { st.waitUntil = now + Math.min(Math.max(Number(r.retryAfter) || 60, 1), 3600) * 1000; out.stop = "429"; break; }
++    if (r.status === 403) { st.keyOff = keyId; out.stop = "key_refused"; break; }
++    if (r.status >= 200 && r.status < 300 && r.json && r.json.ok) { st.sent[p.id] = { at: new Date(now).toISOString(), thread: r.json.thread || (body.thread || null) }; out.sent.push(p.id); }
++    else { out.stop = `post_${r.status}`; break; }
++  }
++  await save();
++  return out;
++}
+diff --git a/idx-lib/photo.js b/idx-lib/photo.js
+index 79d55cde..edff1782 100644
+--- a/idx-lib/photo.js
++++ b/idx-lib/photo.js
+@@ -27,6 +27,7 @@
+  * Only our own feed's links are served, so this is never a photo service for others.
+  */
+ import { shrinkJpeg } from "./shrink.js";
++import { sendRequests } from "./crm-requests.js";
+ 
+ const ORIGIN = "https://api.cotality.com/trestle/Media/";
+ // The feed's own segment in every photo link ("12192/13110/20", base64): only our listings.
+@@ -179,7 +180,12 @@ export async function warm(context, url, listPage) {
+       serving: st.lastSweepOkAt !== null && now - st.lastSweepOkAt <= FRESH_MS, legacy: st.legacy === "done" ? "done" : st.legacy ? "in progress" : "waiting for a finished sweep",
+       toFetch: st.want.length, toDelete: st.del.length, crmCallsLast10Min: tenMin, runs: st.runs.slice(-8) };
+   };
+-  if (url.searchParams.get("status") === "1") { const st = await load(); return reply({ ok: true, ...(st ? summary(st) : { state: "none" }) }); }
++  if (url.searchParams.get("status") === "1") {
++    const st = await load();
++    let requests = null;
++    try { const o = await R2.get("state/crm-requests.json"); if (o) { const j = JSON.parse(await o.text()); requests = { sent: j.sent, checkedAt: j.checkedAt, threads: j.threads }; } } catch { requests = null; }
++    return reply({ ok: true, ...(st ? summary(st) : { state: "none" }), requests });
++  }
+   if (!(await takeLock(R2, now, url.searchParams.get("run") === "now"))) return reply({ ok: true, skipped: "another_run" });
+ 
+   let st = await load();
+@@ -205,6 +211,8 @@ export async function warm(context, url, listPage) {
+   } catch (e) {
+     run.stop = run.stop || `error: ${String((e && e.message) || e).slice(0, 120)}`;
+   }
++  // The CRM's request line (idx-lib/crm-requests.js): notes not sent yet go out once, after the deploy that carries them.
++  try { run.requests = await sendRequests(env, now); } catch { run.requests = { sent: [], stop: "error" }; }
+   st.runs = [...(st.runs || []), run].filter((x) => now - x.at <= 24 * 3600_000).slice(-120);
+   await R2.put(STATE, JSON.stringify(st), { httpMetadata: { contentType: "application/json" } });
+   await R2.put(FRESH, JSON.stringify({ okAt: st.lastSweepOkAt, legacy: st.legacy === "done" ? "done" : "no" }), { httpMetadata: { contentType: "application/json" } });
+diff --git a/tools/idx-test.mjs b/tools/idx-test.mjs
+index 15679fad..c2e88b6a 100644
+--- a/tools/idx-test.mjs
++++ b/tools/idx-test.mjs
+@@ -16,6 +16,7 @@ import { readQuery } from "../idx-lib/query.js";
+ import { nearbySales, flipMath, FLIP_DEFAULTS, repairTier } from "../idx-lib/deals.js";
+ import { photo, photoUrl, warm, ourPhoto, crmParts, forgetFresh, FRESH, PAGES_PER_RUN, SWEEP_EVERY_MS, FRESH_MS } from "../idx-lib/photo.js";
+ import { resetCatalog, filterCatalog } from "../idx-lib/catalog.js";
++import { sendRequests, POSTS } from "../idx-lib/crm-requests.js";
+ import { SCRIPT, STYLE, PHOTO_FIX, PHOTO_HINT, hasPhoto, stripCards, NO_PHOTO } from "../idx-lib/render.js";
+ const STYLE_OK = () => STYLE.includes(".hx-dialog form[hidden]{display:none}");
+ import { MAP_SCRIPT } from "../idx-lib/map.js";
+@@ -1081,5 +1082,34 @@ r = await run(homes, req("/homes/api/map?q=3+bed+house+in+conway&near=33.7,-78.9
+     firstCalls === 1 && first.every(has) && again.every(has) && calls429 === 1 && during.every(has) && callsWaiting === 0 && later.every(has) && callsAfter === 1);
+ }
+ 
++// The CRM's request line (the CRM's docs/requests.md): each note goes out once, an answer finds its thread by title,
++// a 429 waits its retry-after, a 403 stops until the key changes, and nothing is sent without the key.
++{
++  const objs = new Map();
++  const R2 = { get: async (k) => (objs.has(k) ? { text: async () => objs.get(k) } : null), put: async (k, b) => { objs.set(k, String(b)); return {}; } };
++  const savedFetch = globalThis.fetch; const sent = []; let mode = "ok";
++  globalThis.fetch = async (u, init = {}) => {
++    if (!String(u).startsWith("https://app.chapter3realty.com/api/requests")) return savedFetch(u, init);
++    sent.push({ method: init.method, key: init.headers["x-request-key"], body: init.body ? JSON.parse(init.body) : null });
++    if (mode === "429") return new Response(JSON.stringify({ ok: false }), { status: 429, headers: { "retry-after": "600" } });
++    if (mode === "403") return new Response(JSON.stringify({ ok: false }), { status: 403 });
++    if (init.method === "GET") return new Response(JSON.stringify({ ok: true, threads: [{ id: "t42", title: "The filter list is called far more than once an hour", status: "new", next: "x", messages: [] }] }), { status: 200 });
++    return new Response(JSON.stringify({ ok: true, thread: init.body.includes('"thread"') ? "t42" : "t9" }), { status: 200 });
++  };
++  const t0 = Date.UTC(2026, 10, 14, 12);
++  const none = await sendRequests({ PHOTOS: R2 }, t0); const noneCalls = sent.length;
++  const env = { PHOTOS: R2, CRM_REQUEST_KEY: "c3r_testkey123" };
++  const a = await sendRequests(env, t0); const posts = sent.filter((x) => x.method === "POST");
++  const b = await sendRequests(env, t0 + 20 * 60_000); const postsAfter = sent.filter((x) => x.method === "POST").length;
++  const reply = posts.find((x) => x.body.thread);
++  objs.clear(); mode = "429"; const c = await sendRequests(env, t0); const n429 = sent.length; const d = await sendRequests(env, t0 + 5 * 60_000); const during = sent.length - n429;
++  objs.clear(); mode = "403"; await sendRequests(env, t0); const n403 = sent.length; const e = await sendRequests(env, t0 + 3600_000); const after403 = sent.length - n403;
++  globalThis.fetch = savedFetch;
++  check("CRM request line: nothing without the key; each note once (the test note, then the answer on the filter list thread by its title); a 429 waits its retry-after; a 403 stops; the key only in the header",
++    none.stop === "no_key" && noneCalls === 0 && a.sent.length === POSTS.length && posts.length === POSTS.length && reply && reply.body.thread === "t42" && /ab2ee29f/.test(reply.body.body)
++    && posts.some((x) => x.body.title === "Website AI connected") && b.sent.length === 0 && postsAfter === POSTS.length && sent.every((x) => !x.key || x.key === "c3r_testkey123")
++    && !JSON.stringify(posts.map((x) => x.body)).includes("c3r_") && c.stop === "429" && d.stop === "waiting" && during === 0 && e.stop === "key_refused" && after403 === 0);
++}
++
+ console.log(fails ? `${fails} control(s) fail` : "all controls pass");
+ process.exit(fails ? 1 : 0);
