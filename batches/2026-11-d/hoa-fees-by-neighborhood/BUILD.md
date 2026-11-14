@@ -85,3 +85,18 @@ H4 (image or labelled chart) and A9 (primary sources) passed only once the photo
 ## Review 1 (2026-11-13)
 
 Fixed after review 1 (pass=false, 7.5); details and gates in REVIEW-1.md. Closing navy card rule added. No dollar figure in the table where fewer than half the listings give a fee, or a fee under $15 rests on one or two (9 rows). Waterbridge "over 80 acres of lakes and natural areas". The section 3 H2 is now "Which neighborhoods give the most for the fee?", with the 55+ list cut to one link. Townhome $250 against /hoa/'s $290 explained (new ledger row 55). Cresswind moved into the offer. Phone table cards now put the name on its own line. Gates: score 97, critic 0 and 0 at 320, 390, 1024 and 1440, build check OK.
+
+## Round 2 (2026-11-14, FIXES-2.md Group C)
+
+Changed:
+- Every community name in the table now links to `/homes/?subdivision=<MLS name>` (the name the table was counted by, URL-encoded), 382 links. A community with its own guide keeps a "Guide" link under the name.
+- Waterbridge and The Farm offers are now live strips. Searches and live counts on 2026-11-14 (`/homes/api/strip`, all `ok`):
+  - "Waterbridge houses, with the pool complex and lakes": `subdivision=Waterbridge&type=house`, 26.
+  - "Houses in The Farm, with two pools and an activity center": `subdivision=Carolina Forest - The Farm&type=house`, 14. (`The Farm` alone matches 28, other communities too, so the MLS name is used.)
+  - "Townhomes where the HOA does the lawn care", in the townhome section: `type=townhouse&has=lawn_care_included`, 278.
+- "Why are townhome HOA fees higher?" is answered: the fee covers more. Lawn care 84 in 100 townhouse listings against 8 for houses, trash 72 against 46, insurance 37 against 4; pest control, cable, water and sewer almost never in house listings. New facts row 56 (VERIFIED-BY-FIXER, same source as row 32). A "how to compare with a house" paragraph and a line to ask which insurance policy. Two h3s break the section.
+- Every other question on the page (headings, FAQ, table notes) was read; each was already answered in the text. FAQ gained the townhome question.
+- Offers kept: "Not in the table, or serious about one home?" and "Name the home, and we find every fee it pays." Removed: "Choosing between two neighborhoods?" (kept the closing band and hero offer, which are not "Have us check" boxes). Removed offers: the two "Send me" fallbacks.
+- Gates: score 99, claims-scan 0, house-claims 0, critic 0 blocking and 0 warning at 390 and 1440, build check OK.
+
+Note for the lead: `specs/_kit.js` prefers the stale `tools/blog-brain-2026-10-b/`, which has no `G.homesQ`. I built with a Node preload that maps those requires to /home/user/Blog-Brain/tools (scratchpad r2/remap.js). The package step needs the same.

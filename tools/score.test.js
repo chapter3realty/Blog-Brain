@@ -125,6 +125,10 @@ for (const [id, m] of mutations) {
   const strips = noButtons.replace("</main>", '<div class="hx-strip" data-place="a" data-name="A"></div><div class="hx-strip" data-place="b" data-name="B"></div></main>');
   check("ctas: two homes strips count as two calls to action", credit(strips, "ctas").credit === 1, `(${credit(strips, "ctas").detail})`);
   const plainDiv = noButtons.replace("</main>", '<div class="hx-strip"></div><div class="strip" data-place="b"></div></main>');
+  const qStrips = noButtons.replace("</main>", '<div class="hx-strip hx-qs" data-q="type=land&amp;lotMin=20" data-head="Land"></div><div class="hx-strip hx-qs" data-q="city=Conway&amp;type=house" data-head="Conway"></div></main>');
+  check("ctas: two live search strips count as two calls to action", credit(qStrips, "ctas").credit === 1, `(${credit(qStrips, "ctas").detail})`);
+  const qNoSearch = noButtons.replace("</main>", '<div class="hx-strip hx-qs" data-head="Land"></div><div class="hx-qs" data-q="type=land"></div></main>');
+  check("ctas: a search strip with no search, or without the strip class, does not count", credit(qNoSearch, "ctas").credit < 1, `(${credit(qNoSearch, "ctas").detail})`);
   check("ctas: a div without the strip's data-place does not count", credit(plainDiv, "ctas").credit < 1, `(${credit(plainDiv, "ctas").detail})`);
   /* Owner, 2026-11-03: "mid roll CTA's are lacking". Eight more sections with no new offer: the page wants one per two sections. */
   const long = base.replace("</main>", Array.from({ length: 8 }, (_, i) => `<section><h2>Question number ${i + 1} about the topic?</h2><p>The answer to question ${i + 1} is plain and short.</p></section>`).join("") + "</main>");

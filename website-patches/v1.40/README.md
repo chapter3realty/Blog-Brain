@@ -1,6 +1,6 @@
 # v1.40: eleven new pages, with the property lookup tool (batch 2026-11-d)
 
-Three patches, applied in order on the live branch at ab2ee29f or newer. Parts 1 and 2 are only the source data the pages are built from (the county answers, the scripts). Part 3 is the pages, the menu, the links, the sitemap and the dates. Split in three so each file stays under GitHub's 100 MB limit.
+Three patches, applied in order on the live branch at 4e9fd466 or newer. Parts 1 and 2 are only the source data the pages are built from (the county answers, the scripts). Part 3 is the pages, the menu, the links, the sitemap and the dates. Split in three so each file stays under GitHub's 100 MB limit.
 
 This replaces `v1.40-wip`, which was a backup and is now deleted.
 
@@ -22,9 +22,13 @@ This replaces `v1.40-wip`, which was a backup and is now deleted.
 
 Also: three menu links (Property records lookup, Is it in a flood zone?, HOA fees by neighborhood); links in from 50 existing pages, so each new page has 6 or more; sitemap, llms.txt, llms-full, share images, dates.
 
+Round 2 (owner, 2026-11-14, on the preview): a homes feed at the top of every new page; live homes strips inside the pages instead of "send me homes" offers (one per row of the land chart, per town, per community, and the homes within a mile in the lookup card); every community on the HOA fee table links to our search for it; the HOA page answers why townhome fees are higher; the owner's Longs land story; Myrtle Beach vs Charleston ends with what Myrtle Beach does better. `/homes/api/strip` keeps a lot-size ceiling (lotMax), so the land strips match their rows once this is live.
+
+Owner item: open a Register of Deeds escrow account ($25 check by mail) so the deed pages' "we get the deed for you" offer costs Chapter3 $0.50 a page.
+
 ## Tested
 
-On a clean copy of ab2ee29f: `git am -3` applies all three, and the result is byte for byte the build. `build.js check`, `audit` and `preflight` pass. The date check passes in Eastern time. idx-test passes. The lookup tool's tests pass (63 controls), and `--live` asks the county and FEMA services again (70 controls). Blog-Brain scores: 96 to 100 on every new page.
+On a clean copy of 4e9fd466: `git am -3` applies all three, and the result is byte for byte the build. `build.js check`, `audit` and `preflight` pass. The date check passes in Eastern time. idx-test passes. The lookup tool's tests pass (65 controls), and `--live` asks the county and FEMA services again (70 controls). Blog-Brain scores: 96 to 100 on every new page.
 
 ## Deploy (PowerShell)
 
@@ -47,7 +51,7 @@ git am -3 --keep-cr (Get-ChildItem C:\Blog-Brain\website-patches\v1.40\*.patch |
 node build.js preflight
 ```
 
-If preflight says dates are wrong (another chat pushed pages after ab2ee29f), run this once, then preflight again:
+If preflight says dates are wrong (another chat pushed pages after 4e9fd466), run this once, then preflight again:
 
 ```powershell
 node build.js dates; node build.js llmsfull; git add -A; git commit -m "Dates after v1.40"

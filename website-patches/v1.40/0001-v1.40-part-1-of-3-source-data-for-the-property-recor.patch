@@ -1,6 +1,6 @@
-From ac968438a4a7acfea6f1bb5765e4a67d02b334e5 Mon Sep 17 00:00:00 2001
+From 03a71bdbffc3b4364c7df04f0b7b6f4b893f3f20 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
-Date: Fri, 13 Nov 2026 23:47:31 +0000
+Date: Sat, 14 Nov 2026 01:08:53 +0000
 Subject: [PATCH 1/3] v1.40 part 1 of 3: source data for the property records
  hub and the GIS map page
 
@@ -121,9 +121,9 @@ Claude-Session: https://claude.ai/code/session_0186ha1gzzmbWyPnagoCELMZ
  .../chart-addresses-by-evac-zone.csv          |   Bin 0 -> 78 bytes
  .../chart-mailing-city-vs-town-limits.csv     |   Bin 0 -> 275 bytes
  .../evac-zones-county-vs-scemd.txt            |     3 +
- .../2026-11-d/property-records/lookup-core.js |   256 +
- .../2026-11-d/property-records/lookup-test.js |   170 +
- data/2026-11-d/property-records/lookup-ui.js  |   251 +
+ .../2026-11-d/property-records/lookup-core.js |   262 +
+ .../2026-11-d/property-records/lookup-test.js |   172 +
+ data/2026-11-d/property-records/lookup-ui.js  |   270 +
  data/2026-11-d/property-records/page-text.py  |    11 +
  ...acclaimweb_horrycounty_org_acclaimweb.html |   338 +
  .../api/acclaim-jump-1837-226.redacted.json   |     8 +
@@ -242,7 +242,7 @@ Claude-Session: https://claude.ai/code/session_0186ha1gzzmbWyPnagoCELMZ
  .../scripts/compare_evac_zones.py             |     9 +
  .../scripts/pull-suggestions.sh               |     6 +
  .../property-records/scripts/pull_layers.py   |    31 +
- 235 files changed, 77244 insertions(+)
+ 235 files changed, 77271 insertions(+)
  create mode 100644 data/2026-11-d/property-records-gis-map/chart-drawn-vs-listed-by-lot-size.csv
  create mode 100644 data/2026-11-d/property-records-gis-map/drawn-vs-listed.json
  create mode 100644 data/2026-11-d/property-records-gis-map/layers-and-counts.csv
@@ -340763,10 +340763,10 @@ index 00000000..e38437e1
 +C shared share of county polygon 0.9999 of SCEMD polygon 0.9999
 diff --git a/data/2026-11-d/property-records/lookup-core.js b/data/2026-11-d/property-records/lookup-core.js
 new file mode 100644
-index 00000000..ccdee1f6
+index 00000000..16c807f1
 --- /dev/null
 +++ b/data/2026-11-d/property-records/lookup-core.js
-@@ -0,0 +1,256 @@
+@@ -0,0 +1,262 @@
 +/* The property lookup on /buyers/property-records/: the parts that read each public source's answer.
 + * Pure functions, no page and no network. The spec writes this file into the page's script as it is,
 + * and lookup-test.js runs the same functions on the answers saved in raw/api/, so a change at the county
@@ -341017,18 +341017,24 @@ index 00000000..ccdee1f6
 +  return "/homes/map/?near=" + (Math.round(y * 100000) / 100000) + "," + (Math.round(x * 100000) / 100000) + "&miles=1";
 +}
 +
++/* The live strip's search for the homes within a mile of the point (round 2). The browser asks
++   /homes/api/strip with this; the link is the fallback when the strip is empty or fails. */
++function prHomesStripQ(x, y) {
++  return "near=" + (Math.round(y * 100000) / 100000) + "," + (Math.round(x * 100000) / 100000) + "&miles=1";
++}
++
 +if (typeof module !== "undefined" && module.exports) module.exports = {
 +  PR_SRC: PR_SRC, PR_FIELDS: PR_FIELDS, PR_LINKS: PR_LINKS, prBad: prBad, prPointQuery: prPointQuery, prIsGeorgetown: prIsGeorgetown,
 +  prPickMatch: prPickMatch, prCityOf: prCityOf, prPin: prPin, prParcels: prParcels, prPointPin: prPointPin, prTown: prTown,
 +  prEvac: prEvac, prZoning: prZoning, prSupFlood: prSupFlood, prFlood: prFlood, prDeed: prDeed, prAcres: prAcres,
-+  prTownText: prTownText, prEvacText: prEvacText, prRecordLinks: prRecordLinks, prHomesHref: prHomesHref, prNice: prNice
++  prTownText: prTownText, prEvacText: prEvacText, prRecordLinks: prRecordLinks, prHomesHref: prHomesHref, prHomesStripQ: prHomesStripQ, prNice: prNice
 +};
 diff --git a/data/2026-11-d/property-records/lookup-test.js b/data/2026-11-d/property-records/lookup-test.js
 new file mode 100644
-index 00000000..4b6dda6c
+index 00000000..01ca1854
 --- /dev/null
 +++ b/data/2026-11-d/property-records/lookup-test.js
-@@ -0,0 +1,170 @@
+@@ -0,0 +1,172 @@
 +#!/usr/bin/env node
 +/* Controls for the property lookup on /buyers/property-records/ (lookup-core.js), on the real answers
 + * each source gave on 2026-11-13 (raw/api/). Each rule has a control that must pass and one that must
@@ -341170,6 +341176,8 @@ index 00000000..4b6dda6c
 +}
 +
 +/* The homes link (R49). */
++ok("homes strip: the search the strip asks for", C.prHomesStripQ(-79.049153, 33.831893) === "near=33.83189,-79.04915&miles=1", C.prHomesStripQ(-79.049153, 33.831893));
++ok("homes strip: its search is a prefix of the fallback link", C.prHomesHref(-79.049153, 33.831893).indexOf(C.prHomesStripQ(-79.049153, 33.831893).split("&")[0].slice(0, 20)) > -1);
 +ok("homes: near the point within a mile", C.prHomesHref(-79.049153, 33.831893) === "/homes/map/?near=33.83189,-79.04915&miles=1", C.prHomesHref(-79.049153, 33.831893));
 +
 +/* No owner, value or price field is ever asked for. */
@@ -341201,10 +341209,10 @@ index 00000000..4b6dda6c
 +})();
 diff --git a/data/2026-11-d/property-records/lookup-ui.js b/data/2026-11-d/property-records/lookup-ui.js
 new file mode 100644
-index 00000000..10afe6ac
+index 00000000..210d1e33
 --- /dev/null
 +++ b/data/2026-11-d/property-records/lookup-ui.js
-@@ -0,0 +1,251 @@
+@@ -0,0 +1,270 @@
 +/* The property lookup on /buyers/property-records/: the box, the suggestions and the card.
 + * Runs in the visitor's browser after lookup-core.js. Reads window.PR_CFG from the spec:
 + *   { floodGuide: "/buyers/flood-zone-check/" or "", flooded: "/buyers/undisclosed-flooding/", zoningGuide: "...",
@@ -341285,6 +341293,27 @@ index 00000000..10afe6ac
 +    f.appendChild(link(CFG.lead || "/contact/", label, "btn btn-brass"));
 +    out.appendChild(f);
 +  }
++  /* A live strip of homes for sale within a mile of the address (owner, 2026-11-14). The link under it
++     is the fallback when the strip is empty or fails. */
++  function homesStrip(x, y) {
++    var w = el("div", "hx-strip hx-qs pr-strip");
++    var q = prHomesStripQ(x, y);
++    var fb = link(prHomesHref(x, y), "See homes for sale near this address", "pr-b");
++    var fbw = el("span", "pr-btns"); fbw.appendChild(fb);
++    var box = el("div"); box.appendChild(w); box.appendChild(fbw);
++    try {
++      fetch("/homes/api/strip?" + q, { credentials: "same-origin" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
++        if (!j || !j.ok || !j.html || j.html.indexOf("hx-s-empty") > -1) return;
++        var hd = el("p", "hx-s-head"), b = el("b", null, "Homes for sale within a mile of this address");
++        hd.appendChild(b);
++        if (j.link && j.link.charAt(0) === "/") { var a = el("a", null, "See all"); a.href = j.link; hd.appendChild(a); }
++        var row = el("div", "hx-s-row"); row.innerHTML = j.html;
++        w.appendChild(hd); w.appendChild(row);
++        if (fbw.parentNode) fbw.parentNode.removeChild(fbw);
++      }).catch(function () {});
++    } catch (e) {}
++    return box;
++  }
 +  function copyBtn(pin) {
 +    var b = el("button", "pr-copy", "Copy"); b.type = "button"; b.setAttribute("aria-label", "Copy the parcel number " + pin);
 +    b.addEventListener("click", function () {
@@ -341299,7 +341328,6 @@ index 00000000..10afe6ac
 +    set("county", "Georgetown County. Pawleys Island and Litchfield records are Georgetown's, and this lookup reads Horry County's maps.");
 +    set("records", buttons([{ label: "Georgetown map", href: PR_LINKS.gtMap }, { label: "Georgetown deeds", href: PR_LINKS.gtDeeds }, { label: "Georgetown tax bills", href: PR_LINKS.gtTax }]));
 +    set("homes", buttons([{ label: "Pawleys Island guide and homes for sale", href: "/submarkets/pawleys-island/" }]));
-+    offer("Want the deed, the tax bill and the HOA papers in one email? Free.", "Email me the papers");
 +  }
 +
 +  function miss(why) {
@@ -341322,7 +341350,7 @@ index 00000000..10afe6ac
 +    var pFlood = flood(x, y).catch(function () { return null; });
 +    var pSup = at("supFlood", x, y).then(prSupFlood, function () { return null; });
 +
-+    set("homes", buttons([{ label: "See homes for sale near this address", href: prHomesHref(x, y) }]));
++    set("homes", homesStrip(x, y));
 +
 +    /* Parcel, land and records (R3 to R6, R13 to R16). */
 +    Promise.all([pParcels, pPoint]).then(function (r) {
@@ -341397,7 +341425,6 @@ index 00000000..10afe6ac
 +    pParcels.then(function (p) {
 +      if (!live()) return;
 +      if (p && p.n > 1) offer("Tell us the unit number. We send that unit's deed, tax bill and HOA papers, free.", "Send us the unit number");
-+      else offer("Want the deed, the tax bill and the HOA papers in one email? Free.", "Email me the papers");
 +    });
 +  }
 +

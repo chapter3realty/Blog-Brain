@@ -222,6 +222,8 @@ function facts(p) {
      action; the website fills it with the homes for sale there and a "See all" link to the sign-up. */
   const ctas = main.find('a.btn, a[href="#lead-form"], a[href^="tel:"]').filter((_, a) => !$(a).closest(".detail-hero").length).length
     + main.find("div.hx-strip[data-place]").length
+    /* A live strip for any search (glass homesQ, owner 2026-11-14: "by far the strongest CTA we have"). */
+    + main.find("div.hx-strip.hx-qs[data-q]").length
     /* A place's own offer pill (G.offer) on a list of places counts too (CRAFT 3, owner 2026-10-14: "Every place
        gets its own offer"); only a pill that goes to the contact form. */
     + main.find('a.c3-offer-pill[href^="/contact/"]').length;

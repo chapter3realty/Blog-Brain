@@ -135,3 +135,32 @@ Add `/buyers/property-records/` to `pages` of `town-pawleys-litchfield` (the str
 See `REVIEW-1.md`. Gates after the fix: score 100/100; claims-scan 0; facts-check 0 on this page; house-claims 0; struck lists clean except one false positive (REVIEW-1); repeat-check --strict passes; build.js check "Safe to deploy" (21 KB inline script note); build.js audit: only "missing from sitemap.xml" fails; critic.mjs 0 blocking, 0 warnings at 320, 390 and 1440; lookup-test all controls pass (60).
 Shots: `/tmp/claude-0/-home-user-Blog-Brain/6dac3d75-8af3-5045-bdd7-7ad0adf5395f/scratchpad/nd/property-records/fix1/` (full pages at 320, 390, 1440; crops; `courthouse-320.png`, the filled card).
 /buyers/flood-zone-check/ now exists in the working copy, so this build links it (table row and the card's Flood line).
+
+## Round 2 (2026-11-14)
+
+Group A: hub, deeds, gis-map, tax-bill (owner's FIXES-2.md).
+
+**Strips (live counts from /homes/api/strip, 2026-11-14)**
+- Hub, Georgetown section: "Houses for sale in Pawleys Island", `city=Pawleys Island&type=house`, 118 homes. Replaces the Pawleys G.offer.
+- GIS, Georgetown section: the same strip and search, 118 homes. Replaces the Pawleys G.offer.
+- GIS, end of the accuracy section (where lot size is the subject): "Houses on an acre or more", `type=house&lotMin=1`, 296 homes.
+- Lookup card, "Homes" line: "Homes for sale within a mile of this address", `near=<lat>,<lng>&miles=1`, built by `prHomesStripQ` in lookup-core.js (control added in lookup-test.js, now 65 controls, all pass). The strip fills in the visitor's browser; the old "See homes for sale near this address" link stays under it as the fallback and is removed once the strip fills. Checked on the live site with a Pawleys-area point: ok, 21 homes. The Georgetown card keeps its Pawleys guide link.
+- Preview has no listing feed, so strips are empty there.
+
+**Offers kept**
+- Hub: "Skip the three county websites" and "Have us check what the records leave out" (two), plus the page-end showing offer. The card still shows "Tell us the unit number" only for an address with several parcels.
+- Deeds: "The deed itself is not online" (top, the free deed) and "Have us check a house for liens". "We get the deed for you, free" stays true once the owner opens the $25 escrow account with the county (copies are $0.50 a page, facts row 11). OWNER ITEM: open that account.
+- GIS: "No county account? Send us the address" and "Buying a lot or a house with land? We check the lines".
+- Tax bill: "Have only an address? We find the bill" and "Looking at a house? See its tax bill before you offer".
+
+**Offers removed**
+- Card: "Want the deed, the tax bill and the HOA papers in one email?" (both the normal and the Georgetown card).
+- Deeds: "Have us get the deed" (duplicate of the top offer), "Got an alert you did not expect?".
+- GIS: "Have us pull the plat for your lot", "Want to know what you can build on a lot?".
+- Tax bill: "Bought or selling this year? We check who owes the bill", "Think the value is too high? We pull the recent sales".
+
+**Other**
+- GIS: one sentence reworded to "We checked the layer: the map draws 417,124 building outlines" (same fact F25) so the first-hand rule still passes after the offer removals.
+- H5 (calls to action per section) now reads 60% on the GIS page, because the rule counts offers and not strips. The owner's two-offer limit wins. Suggest the lead teach H5 to count strips.
+- Build note: the website working copy's packaged tools/blog-brain-2026-10-b/tools/glass.js has no homesQ. I built with a node require hook (scratchpad r2-hook.js) that points to Blog-Brain's glass.js. The lead should refresh the package before deploy.
+- Gates: score 99, 99, 99, 99 (GIS from 97 after the T2 fix; only H5 and P6 "plat" below 100); claims-scan 0; house-claims 0; critic 0 blocking, 0 warning at 390 and 1440 on all four; build.js check Safe to deploy; build.js audit no FAIL on these pages. Shots: scratchpad/r2/.

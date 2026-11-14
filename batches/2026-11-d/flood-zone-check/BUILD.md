@@ -92,3 +92,13 @@ See `REVIEW-1.md` for what changed. Item 7 above is done: the property records s
 11. **Feed title.** PLAN's wording for item 3, if the lead prefers it: "Beach-close houses we can zone-check today". Either title is fine; never a title that says "outside the flood zone".
 12. **Struck row 14.** Its condition is met (the tool tested at AE, VE and X; facts row 14b). The lead may retire `fzc 14` in `batches/2026-11-d/facts/buyers-flood-zone-check-struck.json`, or add an `unless` for "property records search".
 13. **Inbound links.** /buyers/property-records/ now links here (score S8: 1 page). The list in item 6 still stands.
+
+## Round 2
+
+Built with a preload that points the bundled glass.js at Blog-Brain's (it has no homesQ yet).
+
+Changed (specs/flood-zone-check.js):
+- One strip, in the zone-letters section after the insurance and waterfront links, with a one-line lead-in: "Homes raised on pilings", `has=raised_home`, live total 671, `ok`. The title is true of the search ("Raised on pilings" is a listing feature) and says nothing about the flood zone. G.homesQScript() added once.
+- Offers kept: both body offers ("Have us check this house's flood zone", "Get a flood zone check and quote"), plus the hero and bottom bands. None removed.
+
+Gates: score 96 (P6 plain-words terms and A10 were already there), claims-scan 0, house-claims 0, critic 0 blocking, 0 warnings.

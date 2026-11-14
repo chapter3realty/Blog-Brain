@@ -111,3 +111,13 @@ Critic JSON: `.../nd/senior-living/critic.json`. The preview's sample photos do 
 ## Review round 1 (2026-11-13)
 
 See `REVIEW-1.md`. In the by-town section, the count table is now each town's licensed homes by name, A to Z, with beds (row 36), each with its nearest main hospital (row 37). The HUD apartments have a plain-words H3 (row 38). The repeated lines are cut, and the choices table and hero are fixed at 1440. All gates were re-run. Critic: 0 blocking and 0 warnings at 320, 390 and 1440. Shots: `scratchpad/nd/senior-living/fix1-shots/`.
+
+## Round 2 (2026-11-14, FIXES-2.md Group C)
+
+Changed:
+- The two "Send me" offers are now live strips in "When does buying a home still make sense?". Searches and live counts on 2026-11-14 (all `ok`):
+  - "One-level houses along the Grand Strand, every room on one floor": `type=house&has=one_level`, 2,141.
+  - "Condos in elevator buildings": `type=condo&has=elevator_building`, 1,511.
+- One strip of one-level houses in each town section, `type=house&has=one_level&city=<town>`: Myrtle Beach 495, Murrells Inlet 87, Conway 466, Little River 119, Pawleys Island 28. Titles "One-level houses in <town>, every room on one floor". (North Myrtle Beach has no section.)
+- Offers kept: "Weigh a year of care against the house" and "Tour the towns before you choose a home". Removed: "Line up the house sale with the entrance fee" (three was one too many; the closing band still offers the sale).
+- No new facts. Gates: score 98 (T2 first-hand sentences 1 of 2 as before), claims-scan 0, house-claims 0, critic 0 and 0 at 390 and 1440, build check OK.

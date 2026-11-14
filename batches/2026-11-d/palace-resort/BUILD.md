@@ -106,3 +106,14 @@ What does not generalize:
 - The rental program's split is not published. The page offers to get the terms and gives no split.
 - An owner's pet rules and water-park passes for owners are in the master deed and rules, which are not public. The page states the guest rules and says we read the owner rules before an offer.
 - No nightly income figure for this building exists in a published source. The page links /invest/airbnb-income/ and prints no figure (row 25). That page's AirROI table is a month old (VERIFY.md, "For the lead").
+
+## Round 2 (owner, 2026-11-14)
+
+Changed: the CRM strip `G.homes("the-palace")` with its "Get the condos for sale at the Palace sent to you" offer is replaced by a live strip. The "Thinking of selling a Palace unit?" offer is removed to keep two.
+
+Strips (live counts):
+- "Own a condo in the Palace Resort, on the ocean": `subdivision=PALACE, THE` (the MLS spelling), 25, under the short answer.
+- "Oceanfront condos within a mile of the Palace": `near=33.672518,-78.901529&miles=1&type=condo&has=oceanfront_unit`, 173, at the end of "What is it like to own a condo".
+
+Offers kept (2): "Have us get a Palace unit's fees", "Have us check a Palace unit". Removed: the "sent to you" offer, the sell-price offer.
+Gates: score 98 (P2 numbers and P7 pictures, both unchanged from round 1), claims-scan 0, house-claims 0, critic 0 blocking, audit clean. Same glass.js note as plantation-point.

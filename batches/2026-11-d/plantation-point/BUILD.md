@@ -93,3 +93,18 @@ The owner asked how to capture the most of these searches. What this pilot does,
 - **The aerial:** a NAIP 2023 frame of the part that shows the wow factor, checked against the county's building outlines (every house in the frame on the community's lots), with a licence record and crops for the share image.
 - **Sections that carry over:** short answer with key facts; "What is it like to live in X?" with the wow first; the lot map only where lots differ; prices then the yearly tax; the HOA as its own section, with what we confirm; "Is X inside the city?" only when the mail town differs; flood short when the answer is plainly no; a sub-part with its own table and strip; a short FAQ for the odd searches; the end band.
 - **What stays hard:** year built and living area (listings in aggregate only), covenant text (Conway only: one trip for all 25 communities), lakes (no county layer), amenities (older communities often have none to sell; the lot, the water, the course and the location carry the page).
+
+## Round 2 (owner, 2026-11-14)
+
+Changed: the "Tell us: waterway, fairway or pool" offer and the "Book a showing in The Landing" offer are gone; live strips replace them. The hero button is off (a button to /homes/ fails the audit; the feed at the top is the first call to action).
+
+Strips (live count on chapter3realty.com, `/homes/api/strip`):
+- "Plantation Point houses with their own pool": `subdivision=Plantation Point&has=pool`, 3, under the pools paragraph.
+- "Plantation Point houses on the golf course": `subdivision=Plantation Point&has=on_golf_course`, 3, under the golf paragraph.
+- "Every house for sale in Plantation Point": `subdivision=Plantation Point`, 6, in the lots section.
+- "Homes for sale within a mile of Plantation Point": `near=33.72855,-78.88639&miles=1`, 70, in The Landing section.
+- Not built: waterway houses. `has=water_icw` finds 1 and `icw_view` 0, under the 3 needed. `near_icw` finds 6 but that is every house, so a "waterway" title would be untrue.
+
+Offers kept (2): "Have us pull the restrictions", "Have us check a waterway house's flood history". Removed: "Have us send the matches", "Book a showing in The Landing". Bottom "Book a showing" stays.
+Gates: score 99 (P2 numbers only), claims-scan 0, house-claims 0, critic 0 blocking at 390 and 1440, build check and audit clean.
+Note: the website's vendored tools/blog-brain-2026-10-b/tools/glass.js is older than Blog-Brain's and has no homesQScript; I built with a preload that points it at Blog-Brain's glass.js. The lead must sync that copy.

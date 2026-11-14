@@ -83,3 +83,26 @@ Looked at every screen as a stranger: the first phone screen holds the H1, bylin
 ## On the owner's question: the biggest share of the searches
 
 This page takes the land-for-sale searches no page owned (head term "land for sale horry county", 720 a month, plus acreage, farms, lots, cheap land, perc test, septic permit, mobile home, camper and the town-name land searches). It leaves "land records", "GIS", "zoning map" and "deeds" to the property records pages, so the two do not compete. What raises its share most now: the feed and the two strips live (searchers for land for sale want listings first), the inbound links in item 6 (S8 is the only score fail), and the sitemap line so Google finds it.
+
+## Round 2
+
+Built with `node -r <preload> tools/mkpage.js specs/land.js`: the bundled tools/blog-brain-2026-10-b/tools/glass.js has no homesQ, so a preload pointed it at Blog-Brain's glass.js (the lead should refresh the bundle).
+
+Changed (specs/land.js only):
+- Five strips under the "Price an acre, by lot size" chart, one per row, in the chart's order and words, under a short heading "Land for sale, by lot size". Searches and live counts (curl /homes/api/strip, all `ok`):
+  - Lots under half an acre: `type=land&lotMax=0.5`, 1,196 (lotMax ignored by the live site until v1.40, so this count is all land; the strip fills once v1.40 ships)
+  - Half an acre to 1 acre: `type=land&lotMin=0.5&lotMax=1`, 900 (lotMin only until v1.40)
+  - 1 to 5 acres: `type=land&lotMin=1&lotMax=5`, 726 (lotMin only until v1.40)
+  - 5 to 20 acres: `type=land&lotMin=5&lotMax=20`, 351 (lotMin only until v1.40)
+  - Lots of 20 acres or more: `type=land&lotMin=20`, 166
+- Area strips replace both "Send me land ..." offers and the old G.homes places:
+  - "Acres for sale in Loris" (after the Loris photo): `type=land&city=Loris&lotMin=1`, 128
+  - "Land for sale in Aynor": `type=land&city=Aynor`, 17
+  - "Land for sale in Conway": `type=land&city=Conway`, 150
+  - "An acre or more in Longs": `type=land&city=Longs&lotMin=1`, 32
+- The owner's Longs story (nc-land-in-longs), his words only, moved from the fees section to the Longs part of "Around Conway and Longs".
+- G.homesQScript() added once.
+
+Offers kept (two in the body): "Have us check the septic" and "Have us check the flood map". Hero and bottom bands unchanged. Removed: "Have us read the lot's rules" and "Have us look up the land's tax".
+
+Gates: score 98 (H5 80%: 4 calls to action for 10 sections, because strips are not counted and the body offers are cut to two; P2 numbers 3.7; T2 1 sentence). claims-scan 0, house-claims 0, critic 0 blocking (1 warning: the disclosure paragraph, unchanged), build check and audit clean for this page.

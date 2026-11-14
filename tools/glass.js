@@ -430,17 +430,19 @@ function homesQ(q, head) {
   }
   if (!p.has("type") && !p.has("subdivision") && !p.has("near") && !p.has("city") && !p.has("has")) throw new Error("glass.js: homesQ needs a type, a place or a feature, never every listing");
   const h = plainText("the homes strip's title", head, 70);
-  return `<div class="hx-strip hx-q" data-q="${esc(p.toString())}" data-head="${esc(h)}"></div>`;
+  return `<div class="hx-strip hx-qs" data-q="${esc(p.toString())}" data-head="${esc(h)}"></div>`;
 }
-const homesQScript = () => `<style>main#main .hx-q:empty{display:none}main#main .hx-q{margin:1rem 0 1.4rem}</style><script>(function(){`
+const homesQScript = () => `<style>main#main .hx-qs{margin:1rem 0 1.4rem}main#main .hx-strip.hx-qs:empty{display:block!important;height:0;margin:0;overflow:hidden}</style><script>(function(){`
   + `function fill(s){if(s.getAttribute("data-done"))return;s.setAttribute("data-done","1");`
   + `fetch("/homes/api/strip?"+s.getAttribute("data-q"),{credentials:"same-origin"}).then(function(r){return r.ok?r.json():null}).then(function(j){`
   + `if(!j||!j.ok||!j.html||j.html.indexOf("hx-s-empty")>-1)return;var hd=document.createElement("p");hd.className="hx-s-head";var b=document.createElement("b");b.textContent=s.getAttribute("data-head");hd.appendChild(b);`
   + `if(j.link&&j.link.charAt(0)==="/"){var a=document.createElement("a");a.href=j.link;a.textContent="See all";hd.appendChild(a)}`
   + `var row=document.createElement("div");row.className="hx-s-row";row.innerHTML=j.html;s.appendChild(hd);s.appendChild(row);`
   + `if(j.note){var n=document.createElement("p");n.className="hx-s-note";n.textContent=j.note;s.insertBefore(n,row)}}).catch(function(){})}`
-  + `var all=[].slice.call(document.querySelectorAll(".hx-q[data-q]"));if(!("IntersectionObserver" in window)){all.forEach(fill);return}`
-  + `var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);fill(e.target)}})},{rootMargin:"600px 0px"});all.forEach(function(s){io.observe(s)})})();</script>`;
+  + `function go(){var all=[].slice.call(document.querySelectorAll(".hx-qs[data-q]"));if(!("IntersectionObserver" in window)){all.forEach(fill);return}`
+  + `var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);fill(e.target)}})},{rootMargin:"600px 0px"});all.forEach(function(s){io.observe(s)})}`
+  /* The script may sit above the strips it fills: wait for the whole page. */
+  + `if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go()})();</script>`;
 
 /* ---------------------------------------------------------------------------- */
 /* guideCards(groups): the selection guide as small glass cards (round 15)         */

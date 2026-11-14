@@ -89,3 +89,15 @@ Looked at every screen as a stranger, at full size: the first phone screen holds
    - /buyers/relocating/pros-and-cons/ says "Some specialist medical care means a drive to Charleston"; VERIFY row 41 found no source for it on this page, and the VA clinic offers some specialty care. Its "about 22 days a year over 90 degrees" is 21 (20.9) at the North Myrtle Beach airport, the weather page's station.
    - The page reads its numbers from `findings.json`; the permit figures there are Census estimates with imputed permits (VERIFY row 34).
 7. **Photo partner shot list** (templates/photo-request-email.md): a public beach access at a street end in North Myrtle Beach (the walkway, the sign, the sand); a dune walkway in Myrtle Beach at sunset. Either would replace the 2011 aerial in the beach section.
+
+## Round 2 (owner, 2026-11-14)
+
+Changed: both CRM strips and their "Send me ..." offers are replaced by live strips; the hero offer and top offer line are off; the "Moving with a Charleston budget?" and "Know where you will work?" offers are removed. New last section "What Myrtle Beach does better", from rows 1 to 3, 9, 10, 20, 21, 26 to 29, 34, 36, 37 and 38 only: housing costs (home value, median rent $1,441 vs $1,855, tax), new houses per 1,000 residents (about 15 vs 6.5), a beach that is the city (143 accesses in the city, boardwalk 1.3 miles, 20 minutes to Charleston's nearest beach), a shorter commute. No Charleston put-down, no weather claim (VERIFY: summer is the same). A strip follows the new-houses paragraph.
+
+Strips (live counts):
+- "A whole house here for less than Charleston's typical home": `type=house&max=437000`, 1989, home prices.
+- "Walk to the beach for less than Charleston's typical home": `has=walk_to_beach&type=house&max=437000`, 90, the beach section.
+- "Myrtle Beach houses built since 2024, under Charleston's typical price": `type=house&max=437000&yearMin=2024&city=Myrtle Beach`, 75, new section.
+
+Offers kept (2): tax on one house, flood history check. Removed: 3 "send me" offers (hero, short list, near your work).
+Gates: score 99; H5 reads 4 of 5 because strips do not count as CTAs (owner's rule caps service offers at two). P2 numbers, as before. claims-scan 0, house-claims 0, critic 0 blocking, audit clean. Same glass.js note.
